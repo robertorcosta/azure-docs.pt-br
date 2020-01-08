@@ -9,7 +9,7 @@
       href: user-provisioning.md
     - name: O que é o proxy de aplicativo para aplicativos locais?
       href: what-is-application-proxy.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Adicionar um aplicativo de nuvem da galeria
       href: add-application-portal.md
@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Adicionar um aplicativo local por meio do Proxy de Aplicativo
       href: application-proxy-add-on-premises-application.md
+- name: Exemplos
+  items:
+    - name: Exemplos do Azure PowerShell para Proxy de Aplicativo
+      href: application-proxy-powershell-samples.md
 - name: Conceitos
   expanded: true
   items:
@@ -54,7 +58,7 @@
           items:
             - name: O que é o SSO de um clique
               href: one-click-sso-tutorial.md
-        - name: Segurança de aplicativo
+        - name: Segurança do aplicativo
           items:
             - name: Opções de acesso do aplicativo
               href: what-is-access-management.md
@@ -70,19 +74,17 @@
               href: end-user-experiences.md
     - name: Provisionamento de aplicativo (SCIM)
       items:
+        - name: Como funciona o provisionamento
+          href: how-provisioning-works.md
         - name: Planejar uma implantação de provisionamento do usuário automática
           href: plan-auto-user-provisioning.md
-        - name: Provisionamento automático de aplicativos habilitados para SCIM
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Provisionamento manual versus automático
-          href: application-provisioning-config-how-to.md
     - name: Provisionamento de RH na nuvem
       items:
         - name: Planejar implantação de provisionamento do usuário de RH na nuvem
           href: plan-cloud-hr-provision.md
     - name: Proxy de aplicativo para aplicativos locais
       items:
-        - name: Proxy de Aplicativo
+        - name: Proxy do Aplicativo
           href: application-proxy.md
         - name: Como planejar uma implantação do Proxy de Aplicativo
           href: application-proxy-deployment-plan.md
@@ -139,6 +141,8 @@
           items:
             - name: Configurar consentimento do usuário
               href: configure-user-consent.md
+            - name: Conceder consentimento do administrador em todo o locatário
+              href: grant-admin-consent.md
             - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
               href: configure-admin-consent-workflow.md
             - name: Métodos para atribuir usuários e grupos a um aplicativo
@@ -233,28 +237,32 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Provisionamento de aplicativo (SCIM)
       items:
-        - name: Configurar o provisionamento do aplicativo
+        - name: Configurar provisionamento para um aplicativo da galeria
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Criar um ponto de extremidade SCIM e configurar o provisionamento
+          href: use-scim-to-provision-users-and-groups.md
+        - name: Editar os mapeamentos de atributos
           items:
-            - name: Configurar o provisionamento automático de usuário
-              href: configure-automatic-user-provisioning-portal.md
-            - name: Usar o SCIM para provisionamento automático
-              href: use-scim-to-provision-users-and-groups.md
             - name: Personalizar mapeamentos do atributo
               href: Customize-application-attributes.md
             - name: Escrever expressões para mapeamentos de atributo
               href: functions-for-customizing-application-data.md
+        - name: Incluir ou excluir usuários e grupos do escopo
+          items:
             - name: Definir o escopo de usuários ou grupos a serem provisionados
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorar a exclusão de usuários fora do escopo
               href: skip-out-of-scope-deletions.md
+        - name: Monitorar e reportar o provisionamento
+          items:
             - name: Monitorar o desempenho e o status de provisionamento
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Criar relatórios sobre o provisionamento do aplicativo
               href: check-status-user-account-provisioning.md
             - name: Exportar e importar sua configuração
               href: export-import-provisioning-configuration.md
-            - name: Automatizar configuração usando o MS Graph
-              href: application-provisioning-configure-api.md
+        - name: Automatizar configuração usando o MS Graph
+          href: application-provisioning-configure-api.md
         - name: Solucionar problemas de provisionamento do usuário
           items:
             - name: Solucionar problemas de provisionamento do aplicativo
@@ -315,7 +323,7 @@
                   href: application-proxy-configure-single-sign-on-with-kcd.md
                 - name: Compartimentação de senha
                   href: application-proxy-configure-single-sign-on-password-vaulting.md
-                - name: Cabeçalhos
+                - name: headers
                   href: application-proxy-configure-single-sign-on-with-ping-access.md
                 - name: SSO do SAML
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md

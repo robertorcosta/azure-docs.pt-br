@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Documentação dos Provedores Personalizados do Azure
+summary: Definir APIs personalizadas que estendem a experiência do Azure
+metadata:
+  title: Documentação dos Provedores Personalizados do Azure
+  description: Os Provedores Personalizados do Azure são uma plataforma de extensibilidade para o Azure que permite que você defina APIs personalizadas
+  ms.service: azure-custom-providers
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 4a778d56aa3d7440715cdd792827b9c4a2837e65
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75648337"
+landingContent:
+- title: Sobre os Provedores Personalizados do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os Provedores Personalizados do Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Azure Policy para associações de provedores personalizados
+      url: concepts-built-in-policy.md
+    - text: Visão geral da integração de recursos
+      url: concepts-resource-onboarding.md
+- title: Criar provedores personalizados
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um provedor de recursos personalizado
+      url: create-custom-provider.md
+  - linkListType: tutorial
+    links:
+    - text: Introdução aos provedores personalizados
+      url: tutorial-get-started-with-custom-providers.md
+    - text: Configurar o Azure Functions
+      url: tutorial-custom-providers-function-setup.md
+    - text: Criar um ponto de extremidade RESTful
+      url: tutorial-custom-providers-function-authoring.md
+    - text: Criar e utilizar provedores personalizados
+      url: tutorial-custom-providers-create.md
+    - text: Estender recursos
+      url: tutorial-resource-onboarding.md
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionar ações personalizadas ao Azure
+      url: custom-providers-action-endpoint-how-to.md
+    - text: Adicionar recursos personalizados ao Azure
+      url: custom-providers-resources-endpoint-how-to.md
+- title: Exemplos
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referência de proxy de recurso personalizado
+      url: proxy-resource-endpoint-reference.md
+    - text: Referência de cache de recurso personalizado
+      url: proxy-cache-resource-endpoint-reference.md
+    - text: Referência de ponto de extremidade RESTful do provedor personalizado
+      url: reference-custom-providers-csharp-endpoint.md

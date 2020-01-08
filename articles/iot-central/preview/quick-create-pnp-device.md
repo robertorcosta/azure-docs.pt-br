@@ -3,17 +3,17 @@ title: Início rápido – Adicionar um dispositivo simulado ao Azure IoT Centra
 description: Este início rápido mostra como criar um modelo de dispositivo e adicionar um dispositivo simulado ao seu aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434836"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Início Rápido: Adicionar um dispositivo simulado ao seu aplicativo do IoT Central (versão prévia dos recursos)
 
@@ -30,7 +30,7 @@ Neste início rápido, você criará um dispositivo de **Sensor Ambiental** e ad
 * Responde a comandos como ativar e desativar.
 * Relata propriedades genéricas de dispositivo como a versão de firmware e o número de série.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o início rápido [Criar um aplicativo do Azure IoT Central (versão prévia dos recursos)](./quick-deploy-iot-central.md) para criar um aplicativo do IoT Central usando o modelo de **Aplicativo personalizado > Aplicativo de versão prévia**.
 
@@ -73,7 +73,7 @@ Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de 
     | Nome de exibição      | Tipo Semântico | Esquema |
     | ----------------- | ------------- | ------ |
     | Data do Último Serviço | Nenhum          | Data   |
-    | Nome do Cliente     | Nenhum          | Cadeia de caracteres |
+    | Nome do Cliente     | Nenhum          | String |
 
 1. Selecione **Salvar** para salvar as alterações:
 

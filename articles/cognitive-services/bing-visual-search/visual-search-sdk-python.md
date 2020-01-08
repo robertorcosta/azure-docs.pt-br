@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 4d5679e75f0feb4fd502abc92fc7c1de16b53bc8
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2a5fb6d72ab2259b2c11d1d71e93aa635da36946
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446558"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Início Rápido: Obtenha insights de imagem usando o SDK de Pesquisa Visual do Bing para Python
 
 Use este início rápido para começar obtendo insights de imagem do serviço da Pesquisa Visual do Bing, usando o SDK do Python. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python](https://www.python.org/) 2.x ou 3.x
 * É recomendável usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [ módulo venv](https://pypi.python.org/pypi/virtualenv).
@@ -29,9 +29,7 @@ Use este início rápido para começar obtendo insights de imagem do serviço da
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
 
-
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo

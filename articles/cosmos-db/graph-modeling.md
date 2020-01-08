@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873719"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500066"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelagem de dados de grafo da API do Gremlin do Azure Cosmos DB
 
@@ -23,7 +23,7 @@ O documento a seguir foi desenvolvido para fornecer recomendações de modelagem
 O processo descrito neste guia se baseia nas seguintes suposições:
  * As **entidades** no espaço de problema são identificadas. Essas entidades destinam-se a serem consumidas _atomicamente_ para cada solicitação. Em outras palavras, o sistema de banco de dados não foi projetado para recuperar os dados de uma única entidade em várias solicitações de consulta.
  * Há um entendimento dos **requisitos de leitura e gravação** do sistema de banco de dados. Esses requisitos orientarão as otimizações necessárias para o modelo de dados de grafo.
- * Os princípios do [padrão de grafo de propriedade do Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) são bem compreendidos.
+ * Os princípios do [padrão de grafo de propriedade do Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) são bem compreendidos.
 
 ## <a name="when-do-i-need-a-graph-database"></a>Quando é necessário ter um banco de dados de grafo?
 
@@ -41,18 +41,18 @@ A próxima etapa é determinar se o grafo será usado para fins analíticos ou t
 
 ## <a name="how-to-use-graph-objects"></a>Como usar objetos de grafo
 
-O [padrão de grafo de propriedade do Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dois tipos de objetos: **Vértices** e **Bordas**. 
+O [padrão de grafo de propriedade do Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dois tipos de objetos: **Vértices** e **Bordas**. 
 
 Estas são as melhores práticas para as propriedades nos objetos de grafo:
 
 | Objeto | Propriedade | Type | Observações |
 | --- | --- | --- |  --- |
-| Vértice | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
-| Vértice | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
+| Vértice | ID | String | Imposto com exclusividade por partição. Se um valor não for fornecido após a inserção, um GUID gerado automaticamente será armazenado. |
+| Vértice | label | String | Essa propriedade é usada para definir o tipo de entidade representado pelo vértice. Se um valor não for fornecido, um valor padrão "vértice" será usado. |
 | Vértice | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada vértice. |
 | Vértice | partition key | Cadeia de caracteres, booliano, numérico | Essa propriedade define em que local o vértice e suas bordas de saída serão armazenados. Leia mais sobre o [particionamento de grafo](graph-partitioning.md). |
-| Microsoft Edge | ID | Cadeia de caracteres | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
-| Microsoft Edge | label | Cadeia de caracteres | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
+| Microsoft Edge | ID | String | Imposto com exclusividade por partição. Gerado automaticamente por padrão. Geralmente, as bordas não precisam ser recuperadas exclusivamente por uma ID. |
+| Microsoft Edge | label | String | Essa propriedade é usada para definir o tipo de relação existente entre dois vértices. |
 | Microsoft Edge | properties | Cadeia de caracteres, booliano, numérico | Uma lista de propriedades separadas armazenadas como pares chave-valor em cada borda. |
 
 > [!NOTE]

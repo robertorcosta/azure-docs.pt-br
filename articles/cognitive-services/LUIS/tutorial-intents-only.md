@@ -9,43 +9,38 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 508fa192a014501bad6488e5be8278731230913b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381555"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Criar um aplicativo LUIS para determinar as intenções do usuário
 
-Neste tutorial, você criará um aplicativo personalizado que prevê a intenção de um usuário com base no enunciado (texto). 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+Neste tutorial, você criará um aplicativo personalizado que prevê a intenção de um usuário com base no enunciado (texto).
 
 **Neste tutorial, você aprenderá a:**
 
 > [!div class="checklist"]
-> * Criar um novo aplicativo 
+> * Criar um novo aplicativo
 > * Criar intenções
 > * Adicionar enunciados de exemplo
 > * Treinar o aplicativo
 > * Publicar aplicativo
 > * Obter a previsão de intenção do ponto de extremidade
 
-
-[!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
-
 ## <a name="user-intentions-as-intents"></a>Intenções do usuário
 
-A finalidade do aplicativo é determinar a intenção do texto em linguagem natural da conversa: 
+A finalidade do aplicativo é determinar a intenção do texto em linguagem natural da conversa:
 
 `I'd like to order a veggie pizza with a salad on the side.`
 
-Essas intenções são categorizadas em **Intenções**. 
+Essas intenções são categorizadas em **Intenções**.
 
-|Intenção|Finalidade|
+|Intencional|Finalidade|
 |--|--|
 |`ModifyOrder`|Determinar o pedido de pizza do usuário.|
 |`Greeting`|Iniciar conversa de bot.|
@@ -56,11 +51,11 @@ Essas intenções são categorizadas em **Intenções**.
 
 [!INCLUDE [Follow these steps to create a new LUIS app](includes/create-pizza-app.md)]
 
-## <a name="create-a-new-intent"></a>Criar uma nova intenção 
+## <a name="create-a-new-intent"></a>Criar uma nova intenção
 
 1. No portal, dentro da seção **Build** do aplicativo, selecione **+ Criar**. Insira o nome da nova intenção, `OrderPizza`, depois selecione **Concluído**.
 
-    A intenção `OrderPizza` é prevista quando: um usuário quer pedir uma pizza. 
+    A intenção `OrderPizza` é prevista quando: um usuário quer pedir uma pizza.
 
 1. Adicione vários enunciados de exemplo para esta intenção que se espera que o usuário solicite:
 
@@ -74,9 +69,9 @@ Essas intenções são categorizadas em **Intenções**.
 
     ![Adicionar enunciados de exemplo](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Fornecendo _enunciados de exemplo_, você está treinando o LUIS sobre quais tipos de enunciados devem ser previstos para essa intenção. 
+    Fornecendo _enunciados de exemplo_, você está treinando o LUIS sobre quais tipos de enunciados devem ser previstos para essa intenção.
 
-    [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]    
+    [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
 ## <a name="create-remaining-intents"></a>Criar as intenções restantes
 
@@ -90,7 +85,7 @@ Essas intenções são categorizadas em **Intenções**.
     |`Start`|
     |`Begin`|
 
-1. Crie a intenção `Confirm` e adicione os enunciados de exemplo a seguir. Essa é a intenção de determinar se um usuário finalizou o pedido e aceita os detalhes do pedido. 
+1. Crie a intenção `Confirm` e adicione os enunciados de exemplo a seguir. Essa é a intenção de determinar se um usuário finalizou o pedido e aceita os detalhes do pedido.
 
     |Enunciados de exemplo de `Confirm`|
     |--|
@@ -104,13 +99,13 @@ Essas intenções são categorizadas em **Intenções**.
 
 [!INCLUDE [Follow these steps to add the None intent to the app](includes/add-example-utterances-none-intent.md)]
 
-## <a name="train-the-app"></a>Treinar o aplicativo 
+## <a name="train-the-app"></a>Treinar o aplicativo
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app"></a>Publicar o aplicativo 
+## <a name="publish-the-app"></a>Publicar o aplicativo
 
-[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="get-intent-prediction"></a>Obter a previsão de intenção
 
@@ -118,11 +113,11 @@ Essas intenções são categorizadas em **Intenções**.
 
 1. Vá até o final da URL na barra de endereços e insira:
 
-    `get a medium vegetarian pizza for delivery` 
+    `get a medium vegetarian pizza for delivery`
 
     Isso não é exatamente o mesmo que um enunciado de exemplo, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção.
 
-    O último parâmetro da cadeia de consulta é `query`, a declaração **query**. Esse enunciado não é o mesmo de nenhum dos enunciados de exemplo. Ele é um bom teste e deve retornar a intenção `OrderPizza` como a intenção com a maior pontuação. 
+    O último parâmetro da cadeia de consulta é `query`, a declaração **query**. Esse enunciado não é o mesmo de nenhum dos enunciados de exemplo. Ele é um bom teste e deve retornar a intenção `OrderPizza` como a intenção com a maior pontuação.
 
     ```JSON
     {
@@ -148,15 +143,15 @@ Essas intenções são categorizadas em **Intenções**.
     }
     ```
 
-    A matriz de entidades está vazia porque esse aplicativo no momento não tem nenhuma entidade (unidade de dados dentro do enunciado a ser extraído). 
+    A matriz de entidades está vazia porque esse aplicativo no momento não tem nenhuma entidade (unidade de dados dentro do enunciado a ser extraído).
 
-    O resultado em JSON identifica a intenção com a maior pontuação como a propriedade **`prediction.topIntent`** . Todas as pontuações estão entre 1 e 0, com a melhor pontuação mais próxima a 1. 
+    O resultado em JSON identifica a intenção com a maior pontuação como a propriedade **`prediction.topIntent`** . Todas as pontuações estão entre 1 e 0, com a melhor pontuação mais próxima a 1.
 
 1. Altere o parâmetro de **consulta** da URL para ter como destino a intenção **Saudação**:
 
     `Howdy`
 
-    Isso não é exatamente o mesmo que um enunciado de exemplo, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção. 
+    Isso não é exatamente o mesmo que um enunciado de exemplo, portanto, é um bom teste para ver se o LUIS pode aprender o que deve ser previsto com essa intenção.
 
     ```json
     {
@@ -179,14 +174,14 @@ Essas intenções são categorizadas em **Intenções**.
             },
             "entities": {}
         }
-    }    
+    }
     ```
- 
-    Essa previsão tem uma pontuação de confiança de 44%. Para aumentar a pontuação de confiança, adicione entre 15 e 30 enunciados de exemplo.  
+
+    Essa previsão tem uma pontuação de confiança de 44%. Para aumentar a pontuação de confiança, adicione entre 15 e 30 enunciados de exemplo.
 
 ## <a name="client-application-next-steps"></a>Próximas etapas do aplicativo cliente
 
-Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitação. O LUIS não fornece respostas para os enunciados do usuário; só identifica qual tipo de informação está sendo solicitado em idioma natural. O acompanhamento de conversação é fornecido pelo aplicativo cliente como um Bot do Azure. 
+Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitação. O LUIS não fornece respostas para os enunciados do usuário; só identifica qual tipo de informação está sendo solicitado em idioma natural. O acompanhamento de conversação é fornecido pelo aplicativo cliente como um Bot do Azure.
 
 
 [!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
@@ -202,7 +197,7 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tutorial criou o aplicativo do LUIS, criou intenções, adicionou enunciados de exemplo a cada intenção, adicionou enunciados de exemplo à intenção Nenhuma, além de treiná-la, publicá-la e testá-la no ponto de extremidade. Essas são as etapas básicas da criação de um modelo LUIS. 
+Este tutorial criou o aplicativo do LUIS, criou intenções, adicionou enunciados de exemplo a cada intenção, adicionou enunciados de exemplo à intenção Nenhuma, além de treiná-la, publicá-la e testá-la no ponto de extremidade. Essas são as etapas básicas da criação de um modelo LUIS.
 
 > [!div class="nextstepaction"]
 > [Adicionar uma entidade divisível a este aplicativo](tutorial-machine-learned-entity.md)

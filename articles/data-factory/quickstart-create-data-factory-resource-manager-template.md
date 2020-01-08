@@ -10,12 +10,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d7cafa6ec385ed296a5341efdaec1b16f7742683
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440069"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar um Azure data factory usando um modelo do Azure Resource Manager
 
@@ -38,7 +38,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 
 ## <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
-Para saber mais sobre modelos do Azure Resource Manager, confira [Criar modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para saber mais sobre modelos do Azure Resource Manager, confira [Criar modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 A seção a seguir fornece o modelo do Resource Manager completo para definir entidades de Data Factory de modo que você possa percorrer o tutorial rapidamente e testar o modelo. Para entender como cada entidade de Data Factory é definida, consulte a seção [Entidades de Data Factory no modelo](#data-factory-entities-in-the-template).
 
@@ -468,7 +468,7 @@ As seguintes entidades de Data Factory são definidas no modelo JSON:
 
 #### <a name="azure-storage-linked-service"></a>Serviço vinculado de armazenamento do Azure
 
-O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data factory. Você criou um contêiner e carregou dados nessa conta de armazenamento como parte dos pré-requisitos. Especifique o nome e a chave da sua conta de armazenamento do Azure nesta seção. Consulte [Serviço vinculado de Armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties) para obter detalhes sobre os propriedades JSON usadas para definir um serviço vinculado de armazenamento do Azure.
+O AzureStorageLinkedService vincula sua conta do armazenamento do Azure ao data factory. Você criou um contêiner e carregou dados nessa conta de armazenamento como parte dos pré-requisitos. Especifique o nome e a chave da sua conta de armazenamento do Azure nesta seção. Confira [Serviço vinculado de armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties) para obter detalhes sobre os elementos JSON para definir um serviço vinculado de armazenamento do Azure.
 
 ```json
 {  

@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381980"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Neste início rápido, você criará um aplicativo no portal do LUIS. Primeiro, você criará as partes básicas de um aplicativo, **intenções** e **entidades**. Em seguida, você testará o aplicativo fornecendo um enunciado de usuário de exemplo no painel de teste interativo para obter a intenção prevista.
 
@@ -37,7 +35,7 @@ A criação de um aplicativo é gratuita e não exige uma assinatura do Azure. Q
 
    |Nome da configuração| Valor | Finalidade|
    |--|--|--|
-   |NOME|`myEnglishApp`|Nome exclusivo de aplicativo LUIS<br>obrigatório|
+   |Nome|`myEnglishApp`|Nome exclusivo de aplicativo LUIS<br>obrigatório|
    |Cultura|**Inglês**|Linguagem de enunciados de usuários, **pt-br**<br>obrigatório|
    |Descrição (opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
    |Recurso de previsão (opcional) |-  |Não selecione. O LUIS fornece uma chave de início para ser usada gratuitamente com a finalidade de criação e 1.000 solicitações de ponto de extremidade de previsão. |
@@ -53,7 +51,7 @@ Depois de criar o aplicativo LUIS, você precisará criar intenções. Intençõ
 
 As duas diferentes _intenções_ do aplicativo se alinham com as seguintes intenções:
 
-|Intenção|Exemplo de texto do usuário<br>conhecido como um _enunciado_|
+|Intencional|Exemplo de texto do usuário<br>conhecido como um _enunciado_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
@@ -165,7 +163,7 @@ Use o painel **Teste** interativo no portal do LUIS para validar se a entidade �
 
    A primeira intenção prevista é corretamente **FindForm**, com uma confiança acima de 90% (0,977). A entidade **Número de Formulário de Recursos Humanos** é extraída com um valor igual a hrf-234098.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você concluir este início rápido e não estiver passando para o próximo, selecione **Meus aplicativos** no menu de navegação superior. Em seguida, marque a caixa de seleção à esquerda do aplicativo na lista e selecione **Excluir** na barra de ferramentas de contexto acima da lista.
 

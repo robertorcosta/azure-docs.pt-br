@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453677"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o modelo do Resource Manager
 
@@ -25,7 +25,7 @@ O [modelo do Resource Manager](../azure-resource-manager/template-deployment-ove
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este artigo, você precisa do seguinte:
 
@@ -124,7 +124,7 @@ A saída é semelhante à seguinte:
 ![Modelo do Resource Manager, integração do Key Vault, saída de validação do portal de implantação](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros tutoriais e inícios rápidos do Key Vault complementam este início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
 Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Key Vault e os recursos relacionados. Para excluir o grupo de recursos usando a CLI do Azure ou o Azure PowerShell:
@@ -153,6 +153,6 @@ Write-Host "Press [ENTER] to continue..."
 Neste início rápido, você criou um cofre de chaves e um segredo usando um modelo do Azure Resource Manager e validou a implantação. Para saber mais sobre o Key Vault e o Azure Resource Manager, continue com os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](key-vault-overview.md)
-- Saiba mais sobre o [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- Saiba mais sobre o [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
 - Examine as [Melhores práticas do Azure Key Vault](key-vault-best-practices.md)

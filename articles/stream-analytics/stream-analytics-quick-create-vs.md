@@ -1,18 +1,17 @@
 ---
 title: Início rápido – Criar um trabalho do Azure Stream Analytics usando o Visual Studio
 description: Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics, a configuração das entradas e saídas e a definição de uma consulta com o Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431536"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio
 
@@ -22,7 +21,7 @@ Este guia de início rápido mostra como criar e executar um trabalho do Stream 
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
-* Entre no [Portal do Azure](https://portal.azure.com/).
+* Entre no [portal do Azure](https://portal.azure.com/).
 
 * Instale o Visual Studio 2019, Visual Studio 2015 ou Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a Edição Express.
 
@@ -32,7 +31,7 @@ Este guia de início rápido mostra como criar e executar um trabalho do Stream 
 
 Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, que serão posteriormente configurados como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, complete as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
@@ -133,7 +132,7 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
    |Coletor   |  Armazenamento de Blobs |  Escolha o coletor apropriado.    |
    |Recurso  |  Forneça as configurações da fonte de dados manualmente |  Escolha entre inserir os dados manualmente ou selecione uma conta existente.   |
    |Subscription  |  \<Sua assinatura\>   | Selecione a assinatura do Azure que tem a conta de armazenamento criada. A conta de armazenamento pode estar na mesma assinatura ou em uma diferente. Este exemplo pressupõe que você criou a conta de armazenamento na mesma assinatura.   |
-   |Conta de armazenamento  |  asaquickstartstorage   |  Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento são detectados automaticamente quando elas são criadas na mesma assinatura.   |
+   |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento são detectados automaticamente quando elas são criadas na mesma assinatura.   |
    |Contêiner  |  container1   |  Selecione o contêiner existente que você criou em sua conta de armazenamento.   |
    |Padrão de caminho  |  output   |  Digite o nome do caminho de arquivo a ser criado dentro do contêiner.   |
    
@@ -188,9 +187,9 @@ Observe os elementos que são incluídos em um projeto do Azure Stream Analytics
 
 4. Para exibir os resultados, no menu **Exibição**, selecione **Cloud Explorer** e navegue até a conta de armazenamento em seu grupo de recursos. Em **Contêineres de Blobs**, clique duas vezes em **container1**e, em seguida, n caminho do arquivo de **saída**.
 
-   ![Exibir resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
+   ![Exibir os resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
 

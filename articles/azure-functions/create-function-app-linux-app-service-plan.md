@@ -3,12 +3,12 @@ title: Criar um aplicativo de funções do Portal do Azure no Linux
 description: Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando o Portal do Azure.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: fdc2d9c7b5945e48cc87f3edd918498c3d45f55e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d48bfc8888afe6b7a46151d2030519f752169551
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410494"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar um aplicativo de funções em um Plano do Serviço de Aplicativo do Azure
 
@@ -38,7 +38,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do aplicativo** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z`, `0-9` e `-`.  | 
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
-    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
     | **SO** | Linux | O aplicativo de funções é executado no Linux. |
     | **Publicar** | Código | O contêiner do Linux padrão para sua **pilha de runtime** foi usado. Tudo o que você precisa fornecer é o código de projeto de aplicativo de função. Outra opção é publicar uma [imagem do Docker](functions-create-function-linux-custom-image.md) personalizada. |
     | **[Plano de hospedagem](functions-scale.md)** | Plano do Serviço de Aplicativo | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. Quando você executa em um Plano do Serviço de Aplicativo, deve gerenciar o [dimensionamento do aplicativo de funções](functions-scale.md).  |
@@ -98,7 +98,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
    ![Visualizador de log de função no Portal do Azure.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

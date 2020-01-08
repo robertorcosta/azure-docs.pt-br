@@ -4,16 +4,16 @@ description: Este artigo descreve as APIs REST a serem usadas com o Registro Ent
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841414"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644521"
 ---
 # <a name="azure-enterprise-rest-apis"></a>APIs REST do Azure Enterprise
 
@@ -75,7 +75,7 @@ Exemplo: portador \&lt;APIKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
 
-Um ponto de extremidade do Swagger está disponível em [APIs do Enterprise Reporting v3](https://consumption.azure.com/swagger/ui/index) para as APIs a seguir. O Swagger ajuda a inspecionar a API. Use o Swagger para gerar SDKs de cliente usando o [AutoRest](https://github.com/Azure/AutoRest) ou o [Swagger CodeGen](http://swagger.io/swagger-codegen/). Os dados disponíveis após 1º de maio de 2014 estão disponíveis por meio da API.
+Um ponto de extremidade do Swagger está disponível em [APIs do Enterprise Reporting v3](https://consumption.azure.com/swagger/ui/index) para as APIs a seguir. O Swagger ajuda a inspecionar a API. Use o Swagger para gerar SDKs de cliente usando o [AutoRest](https://github.com/Azure/AutoRest) ou o [Swagger CodeGen](https://swagger.io/swagger-codegen/). Os dados disponíveis após 1º de maio de 2014 estão disponíveis por meio da API.
 
 ### <a name="api-response-codes"></a>Códigos de resposta da API
 
@@ -116,13 +116,13 @@ O formato JSON é gerado do relatório CSV. Como resultado, o formato é o mesmo
 | Nome da coluna CSV | Nome da coluna JSON | Coluna nova JSON | Comentário |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
-| Nome da conta | AccountName | AccountName |   |
+| Nome da Conta | AccountName | AccountName |   |
 | ServiceAdministratorId | ServiceAdministratorLiveId | ServiceAdministratorLiveId |   |
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Nome da assinatura | SubscriptionName | SubscriptionName |   |
 | Data | Data | Data | Mostra a data em que o relatório do catálogo de serviços foi executado. O formato é uma cadeia de caracteres de datas sem um carimbo de data/hora. |
-| Mês | Mês | Mês |   |
+| Month | Month | Month |   |
 | Dia | Dia | Dia |   |
 | Ano | Ano | Ano |   |
 | Produto | BillableItemName | Produto |   |
@@ -152,12 +152,12 @@ O formato JSON é gerado do relatório CSV. Como resultado, o formato é o mesmo
 | Nome da coluna CSV | Nome da coluna JSON | Coluna nova JSON |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
-| Nome da conta | AccountName | AccountName |
+| Nome da Conta | AccountName | AccountName |
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nome da assinatura | SubscriptionName |  SubscriptionName |
 | Data | BillingCycle |  Data (somente cadeia de caracteres de data. Sem carimbo de data/hora)
-| Mês | Mês |  Mês |
+| Month | Month |  Month |
 | Dia | Dia |  Dia |
 | Ano | Ano |  Ano |
 | ID de medidor | MeterResourceId |  MeterId |
@@ -169,7 +169,7 @@ O formato JSON é gerado do relatório CSV. Como resultado, o formato é o mesmo
 | ExtendedCost | ExtendedCost | ExtendedCost |
 | Unidade de medida | UnitOfMeasure | UnitOfMeasure |
 | ID da instância | InstanceId | InstanceId |
-| Informações Adicionais | AdditionalInfo | AdditionalInfo |
+| Informações adicionais | AdditionalInfo | AdditionalInfo |
 | Marcas | Marcas | Marcas |
 | Número do pedido | OrderNumber | OrderNumber |
 | Nome do departamento | DepartmentNames | DepartmentName |

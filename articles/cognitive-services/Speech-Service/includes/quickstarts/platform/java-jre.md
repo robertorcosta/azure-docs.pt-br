@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 195d43739ff27a493b2f2923eac43df03313963b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5f6b994bce1d38872cffb1e6e389136742be6d48
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816274"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469109"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits.
 
@@ -24,14 +24,14 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 - O pacote do SDK de Fala do Java está disponível para estes sistemas operacionais:
   - Windows: somente 64 bits
   - Mac: macOS X versão 10.13 ou mais recente
   - Linux: somente 64 bits no Ubuntu 16.04, no Ubuntu 18.04 ou no Debian 9
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

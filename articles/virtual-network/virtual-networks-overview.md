@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 3aee53b823af5929ce48045d1addcbc4881b2825
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542827"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638265"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -79,7 +79,7 @@ Por padrão, o Azure encaminha o tráfego entre sub-redes, redes virtuais conect
 
 ## <a name="azure-vnet-limits"></a>Limites da VNet do Azure
 
-Há certos limites com relação ao número de recursos do Azure que você pode implantar. A maioria dos limites de rede do Azure estão com os valores máximo. No entanto, você pode [aumentar determinados limites de rede](../azure-supportability/networking-quota-requests.md) conforme especificado na [Página de limites da VNet](../azure-subscription-service-limits.md#networking-limits). 
+Há certos limites com relação ao número de recursos do Azure que você pode implantar. A maioria dos limites de rede do Azure estão com os valores máximo. No entanto, você pode [aumentar determinados limites de rede](../azure-supportability/networking-quota-requests.md) conforme especificado na [Página de limites da VNet](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## <a name="pricing"></a>Preços
 

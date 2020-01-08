@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409893"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Microsoft Azure for Students Starter
 
@@ -47,7 +47,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do aplicativo** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z`, `0-9` e `-`.  | 
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
-    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
    | **[Plano de Serviço de Aplicativo/localização](./functions-scale.md)** | Novo | O plano de hospedagem que controla em qual região o aplicativo de funções é implantado e a densidade de seus recursos. Vários aplicativos de funções implantados no mesmo plano compartilharão a mesma instância única livre. Trata-se de uma restrição do plano Students Starter. As opções de hospedagem completas são [explicadas aqui.](./functions-scale.md)|
     | **Pilha de runtime** | Linguagem preferencial | Escolha um runtime compatível com sua linguagem de programação de funções favorita. Escolha **.NET** para funções C# e F#. |
     |**[Application Insights](./functions-monitoring.md)**| habilitado | O Application Insights é usado para armazenar e analisar logs do aplicativo de funções. Ele será habilitado por padrão se você escolher uma localização que dá suporte ao Application Insights. O Application Insights pode ser habilitado para qualquer função. Basta escolher manualmente uma região próxima para implantar o Application Insights. Sem o Application Insights, você só poderá exibir os logs de transmissão ao vivo.
@@ -104,7 +104,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
    ![Visualizador de log de função no Portal do Azure.](./media/functions-create-student-starter/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

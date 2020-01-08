@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 1f1cde38aa49488a73ce98cc1a9210ed22ebee73
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448377"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Ruby
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo Ruby simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com anotações de código e tratamentos de erro adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Ruby 2.4 ou posterior
 
@@ -37,7 +37,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
     require 'json'
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, o caminho de pesquisa da API de vídeo, sua chave de assinatura e o termo de pesquisa.
+2. Crie variáveis para o ponto de extremidade da API, o caminho de pesquisa da API de vídeo, sua chave de assinatura e o termo de pesquisa. `uri` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -193,7 +193,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
  [O que é a API da Pesquisa de Vídeo do Bing?](../overview.md)
 

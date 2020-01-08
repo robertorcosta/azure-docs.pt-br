@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920694"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549934"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Início Rápido: Adicionar uma entrada com a Microsoft a um aplicativo Web Java
 
@@ -28,7 +28,7 @@ Após concluir este início rápido, seu aplicativo aceitará credenciais de con
 
 ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar esta amostra, você precisará do seguinte:
 
@@ -61,7 +61,7 @@ Para executar esta amostra, você precisará do seguinte:
 >    - Deixe **URI de Redirecionamento** em branco por enquanto e selecione **Registrar**.
 > 1. Na página **Visão Geral**, localize os valores **ID do Aplicativo (cliente)** e **ID do Diretório (locatário)** do aplicativo. Copie esses valores para uso posterior.
 > 1. Selecione **Autenticação** no menu e, em seguida, adicione as seguintes informações:
->    - Em **URIs de Redirecionamento**, adicione `http://localhost:8080/msal4jsamples/secure/aad` e `http://localhost:8080/msal4jsamples/graph/me`.
+>    - Em **URIs de Redirecionamento**, adicione `http://localhost:8080/msal4jsample/secure/aad` e `http://localhost:8080/msal4jsample/graph/me`.
 >    - Clique em **Salvar**.
 > 1. Selecione **Certificados e segredos** no menu e, na seção **Segredos do cliente**, clique em **Novo segredo do cliente**:
 >
@@ -121,7 +121,7 @@ Se você estiver executando o aplicativo Web em um IDE, clique em Executar e nav
 
 1. Na página frontal, selecione o botão **Logon** a fim de redirecionar para o Azure Active Directory e solicite ao usuário suas credenciais.
 
-1. Depois que o usuário é autenticado, ele é redirecionado para *http://localhost:8080/msal4jsamples/secure/aad* . Agora ele está conectado e a página mostrará informações sobre a conta credenciada. A interface do usuário da amostra tem os seguintes botões:
+1. Depois que o usuário é autenticado, ele é redirecionado para *http://localhost:8080/msal4jsample/secure/aad* . Agora ele está conectado e a página mostrará informações sobre a conta credenciada. A interface do usuário da amostra tem os seguintes botões:
     - *Sair*: desconecta o usuário atual do aplicativo e o redireciona para a home page.
     - *Mostrar Informações do Usuário*: adquire um token para o Microsoft Graph e chama o Microsoft Graph com uma solicitação que contém o token, que retorna informações básicas sobre o usuário conectado.
 

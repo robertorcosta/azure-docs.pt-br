@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428643"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
 
@@ -26,7 +26,7 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -61,7 +61,7 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
 
 ## <a name="create-azure-resource-group-project"></a>Criar um projeto do grupo de recursos do Azure
 
-Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Inicie o Visual Studio. Faça logon usando sua conta do Azure.
 
@@ -185,7 +185,7 @@ Quando há um projeto existente do Grupo de Recursos do Azure, você pode adicio
 
    ![Adicionar recurso](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar com seu aplicativo lógico, exclua o grupo de recursos que contém seu aplicativo lógico e os recursos relacionados.
 

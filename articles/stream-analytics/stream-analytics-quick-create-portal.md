@@ -1,19 +1,18 @@
 ---
 title: Início Rápido – criar um trabalho do Stream Analytics usando o portal do Azure
 description: Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics, a configuração das entradas e saídas e a definição de uma consulta.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431544"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure
 
@@ -23,13 +22,13 @@ Este início rápido mostra como começar com a criação de um trabalho do Stre
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
-* Entre no [Portal do Azure](https://portal.azure.com/).
+* Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
 Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de entrada. Os dados de sensor em tempo real são incluídos no Hub IoT, posteriormente configurado como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, complete as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hub IoT**.
 
@@ -78,7 +77,7 @@ Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.  
 
@@ -177,7 +176,7 @@ Nesta seção, você configurará uma entrada de dispositivo do Hub IoT para um 
 
    ![Saída transformada](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o trabalho do Stream Analytics e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
 

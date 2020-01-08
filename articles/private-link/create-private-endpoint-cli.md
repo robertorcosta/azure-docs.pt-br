@@ -2,17 +2,17 @@
 title: 'Início Rápido: Criar um ponto de extremidade privado do Azure usando a CLI do Azure'
 description: Saiba mais sobre o ponto de extremidade privado do Azure neste Início Rápido
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459961"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Início Rápido: Criar um ponto de extremidade privado usando a CLI do Azure
 O Ponto de Extremidade Privado é o bloco de construção fundamental para o Link Privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com os Recursos de Link Privado. Neste Início Rápido, você aprenderá como criar uma VM em uma rede virtual, um Servidor do Banco de Dados SQL com um Ponto de Extremidade Privado usando a CLI do Azure. Em seguida, é possível acessar a VM e acessar com segurança o recurso de link privado (um Servidor Privado do Banco de Dados SQL do Azure neste exemplo). 
@@ -170,7 +170,7 @@ Nesta seção, você se conectará ao Servidor do Banco de Dados SQL através da
  7. (Opcionalmente) Crie ou consulte informações de consulta no *mydatabase*
  8. Feche a conexão da área de trabalho remota para *myVm*.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando não for mais necessário, você poderá usar az group delete para remover o grupo de recursos e todos os recursos que ele contém: 
 
 ```azurecli-interactive

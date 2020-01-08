@@ -3,18 +3,18 @@ title: Início Rápido – Monitorar seus dispositivos no Azure IoT Central
 description: Como um operador, use o seu aplicativo Azure IoT Central para monitorar seus dispositivos neste início rápido.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a6bc4b76dc00330e39526aec8bc5651b9abb590b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0f0e765ba6bb8b0969fbf639c8427e8b65214fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706735"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434765"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices-preview-features"></a>Início Rápido: Use o Azure IoT Central para monitorar seus dispositivos (versão prévia dos recursos)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706735"
 
 Este início rápido mostra a você, como um operador, como usar o aplicativo do Microsoft Azure IoT Central para monitorar seus dispositivos e alterar as configurações.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, você deve concluir os três inícios rápidos anteriores [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md), [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) e [Configurar regras e ações para seu dispositivo](quick-configure-rules.md).
 

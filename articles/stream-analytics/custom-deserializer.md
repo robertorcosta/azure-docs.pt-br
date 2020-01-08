@@ -1,19 +1,18 @@
 ---
 title: Tutorial – Desserializadores .NET personalizados para trabalhos de nuvem do Azure Stream Analytics
 description: Este tutorial demonstra como criar um desserializador .NET personalizado para um trabalho de nuvem do Azure Stream Analytics usando o Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443686"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Desserializadores .NET personalizados para o Azure Stream Analytics
 
@@ -29,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * configurar seu trabalho do Stream Analytics para usar o desserializador personalizado.
 > * executar seu trabalho do Stream Analytics localmente para testar o desserializador personalizado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -82,7 +81,7 @@ O contêiner que você criar será usado para armazenar os ativos relacionados a
    |Fonte|Armazenamento de Blobs|
    |Recurso|Escolha fonte de dados da conta atual|
    |Subscription|<sua assinatura>|
-   |Conta de armazenamento|<sua conta de armazenamento>|
+   |Conta de Armazenamento|<sua conta de armazenamento>|
    |Contêiner|<seu contêiner de armazenamento>|
    |Formato de serialização do evento|Outro (Protobuf, XML, proprietário…)|
    |Recurso|Carregar de Referência de Projeto ASA ou CodeBehind|
@@ -123,7 +122,7 @@ Você pode depurar seu desserializador .NET localmente da mesma maneira que depu
 
 2. Pressione **F5** para iniciar a depuração. O programa irá parar em seus pontos de interrupção conforme o esperado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
 

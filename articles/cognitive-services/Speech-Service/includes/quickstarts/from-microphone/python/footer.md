@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer a fala de um microfone – Serviço de Fala'
+title: 'Início Rápido: Reconhecer uma fala de um microfone – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: dbe4542860e98fc3c14ffb646a7473557b1b4241
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 88df2b1fb6cbdb844616c06695b9f114978129b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466921"
 ---
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Python no GitHub](https://aka.ms/speech/github-python)

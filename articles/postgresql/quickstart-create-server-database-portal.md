@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: fa4b9fb9be6ac4f541448abef1f676875a7ddcfc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d93c1d81e1434ffdd41297ed54e874c6b71240d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430477"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados do Azure para o servidor PostgreSQL no portal do Azure
 
@@ -25,7 +25,7 @@ Abra o navegador da Web e acesse o [portal](https://portal.azure.com/). Insira s
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL
 
-Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto configurado de [recursos de computação e armazenamento](./concepts-pricing-tiers.md). O servidor é criado dentro de um [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto configurado de [recursos de computação e armazenamento](./concepts-pricing-tiers.md). O servidor é criado dentro de um [Grupo de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seguintes etapas:
 1. Selecione **Criar um recurso** (+) no canto superior esquerdo do portal.
@@ -47,7 +47,7 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
     Subscription|O nome da sua assinatura|A assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura para a qual você recebe a cobrança do recurso.
     Resource group|*myresourcegroup*| Um novo nome do grupo de recursos ou um existente de sua assinatura.
     Nome do servidor |*mydemoserver*|Um nome exclusivo que identifica o Banco de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é acrescentado ao nome do servidor fornecido. O servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter, pelo menos, 3 até 63 caracteres.
-    Fonte de dados | *Nenhum* | Selecione *Nenhum* para criar um novo servidor do zero. (Você selecionaria *Backup* se estivesse criando um servidor de um backup de replicação geográfica de um Banco de Dados do Azure para servidor PostgreSQL existente).
+    Fonte de dados | *Nenhuma* | Selecione *Nenhum* para criar um novo servidor do zero. (Você selecionaria *Backup* se estivesse criando um servidor de um backup de replicação geográfica de um Banco de Dados do Azure para servidor PostgreSQL existente).
     Nome de usuário do administrador |*myadmin*| Sua própria conta de logon para uso ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** ou **public**. Ele não pode começar com **pg_** .
     Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, % etc.).
     Location|A região mais próxima dos usuários| A localização mais próxima dos usuários.
@@ -199,8 +199,8 @@ pgAdmin é uma ferramenta de software livre usada com PostgreSQL. Instale o pgAd
 12. No painel **Procurar**, veja o banco de dados criado na lista de bancos de dados com o nome do servidor.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
-Limpe os recursos criados no Guia de início rápido usando uma das duas maneiras. Você pode excluir o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), que inclui todos os recursos no grupo de recursos. Se desejar manter os outros recursos intactos, exclua apenas o recurso de servidor.
+## <a name="clean-up-resources"></a>Limpar os recursos
+Limpe os recursos criados no Guia de início rápido usando uma das duas maneiras. Você pode excluir o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), que inclui todos os recursos no grupo de recursos. Se desejar manter os outros recursos intactos, exclua apenas o recurso de servidor.
 
 > [!TIP]
 > Outros Guias de Início Rápido na coleção aproveitam este Guia de Início Rápido. Se você pretende continuar trabalhando com Guias de início rápido, não limpe os recursos criados neste Guia de início rápido. Caso contrário, siga estas etapas para excluir os recursos que foram criados por este Guia de início rápido no portal.
@@ -211,9 +211,9 @@ Para excluir o grupo de recursos inteiro, incluindo o servidor recém-criado:
 2. Na página do grupo de recursos, selecione **Excluir**. Insira o nome do grupo de recursos, como o exemplo **myresourcegroup**, na caixa de texto para confirmar a exclusão. Selecione **Excluir**.
 
 Para excluir apenas o servidor recém-criado:
-1. Localize o servidor no portal, caso você não esteja com ele aberto. No menu à esquerda, selecione **Todos os recursos**. Em seguida, pesquise o servidor criado.
+1. Localize o servidor no portal, caso você não esteja com ele aberto. No menu à esquerda, selecione **Todos os recursos**. Em seguida, procure o servidor que você criou.
 
-2. Na página **Visão geral**, selecione **Excluir**.
+2. Na página **Visão Geral**, selecione **Excluir**.
 
     ![O botão “Excluir”](./media/quickstart-create-database-portal/12-delete.png)
 

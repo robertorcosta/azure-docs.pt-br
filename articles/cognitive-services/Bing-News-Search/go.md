@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e08fe23f99cbf2fac7fc0528b04360f36d22b875
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a72859e378bc1f97ebaed6a11ea3b250a33651d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222129"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448534"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início Rápido: Obtenha resultados de notícias usando a API de REST de Pesquisa de Notícias do Bing e Go
 
 Este início rápido usa a linguagem Go para chamar a API de Pesquisa de Notícias do Bing. Os resultados incluem os nomes e as URLs de fontes de notícias identificados pela cadeia de caracteres de consulta.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Instalar os [binários do Go](https://golang.org/dl/)
 * Instalar a biblioteca de spew go para a reformatação automática exibir os resultados
     * Instalar esta biblioteca: `$ go get -u https://github.com/davecgh/go-spew`
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-a-project-and-import-libraries"></a>Criar um projeto e importar as bibliotecas
 
 Crie um novo projeto Go em seu IDE ou editor. Depois importe `net/http` para solicitações, `ioutil` para ler a resposta e `encoding/json` para lidar com o texto de resultados do JSON. É necessário ter a biblioteca de go-spew para analisar o JSON. 
 
-```
+```go
 package main
 
 import (
@@ -49,7 +49,7 @@ import (
 
 O struct `NewsAnswer` formata os dados fornecidos na resposta. O JSON de resposta tem vários níveis e é bastante complexo.  A implementação a seguir aborda os conceitos básicos.
 
-```
+```go
 // This struct formats the answer provided by the Bing News Search API.
 type NewsAnswer struct {
     ReadLink       string `json: "readLink"` 
@@ -87,9 +87,9 @@ type NewsAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declarar a função principal e definir variáveis  
 
-O código a seguir declara a função principal e define as variáveis necessárias. Confirme que o ponto de extremidade está correto e substitua o valor `token` por uma chave de assinatura válida da sua conta do Azure.
+O código a seguir declara a função principal e atribui as variáveis necessárias. Confirme que o ponto de extremidade está correto e substitua o valor `token` por uma chave de assinatura válida da sua conta do Azure. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
-```
+```go
 func main() {
     // Verify the endpoint URI and replace the token string with a valid subscription key.  
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
@@ -110,7 +110,7 @@ func main() {
 
 Adicione o cabeçalho de chave de acesso e os caracteres de consulta
 
-```
+```go
 // Add the query to the request.  
 param := req.URL.Query()
 param.Add("q", searchTerm)
@@ -125,7 +125,7 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 Crie o cliente e envie a solicitação GET. 
 
-```
+```go
 // Instantiate a client.  
 client := new(http.Client)
 
@@ -141,7 +141,7 @@ if err != nil {
 
 Envie a solicitação e leia os resultados usando `ioutil`.
 
-```
+```go
 resp, err := client.Do(req)
     if err != nil {
         panic(err)
@@ -162,7 +162,7 @@ if err != nil {
 
 A função `Unmarshall` extrai informações do texto JSON retornado pela API de Pesquisa de Notícias.  Depois, exiba nós dos resultados usando a reformatação automática `go-spew`.
 
-```
+```go
 // Create a new answer object 
 ans := new(NewsAnswer)
 err = json.Unmarshal(body, &ans)

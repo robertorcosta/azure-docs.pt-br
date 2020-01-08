@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Documentação dos Aplicativos Gerenciados
+summary: Ofereça aos consumidores soluções de nuvem fáceis de implantar e operar.
+metadata:
+  title: Documentação dos Aplicativos Gerenciados do Azure
+  description: Os aplicativos gerenciados do Azure permitem que você ofereça soluções de nuvem fáceis de implantar e operar.
+  ms.service: managed-applications
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 01/02/2020
+  ms.openlocfilehash: 60f7d4b9c9bd9057e0869b3efe1843eeb8d873f8
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75648371"
+landingContent:
+- title: Sobre os Aplicativos Gerenciados
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que são os Aplicativos Gerenciados do Azure?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Exibir artefato de definição
+      url: concepts-view-definition.md
+    - text: Azure Policy para associações
+      url: concepts-built-in-policy.md
+    - text: Artefato de definição de função
+      url: concepts-custom-role-definition.md
+- title: Criar Aplicativos Gerenciados
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Publicar definição do aplicativo
+      url: publish-managed-app-definition-quickstart.md
+    - text: Implantar aplicativo do catálogo de serviços
+      url: deploy-service-catalog-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Criar arquivos de definição
+      url: publish-service-catalog-app.md
+    - text: Publicar aplicativo do marketplace
+      url: publish-marketplace-app.md
+    - text: Criar aplicativo gerenciado com provedor personalizado
+      url: tutorial-create-managed-app-with-custom-provider.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usar segredo do Key Vault
+      url: key-vault-access.md
+    - text: Publicar por meio do portal
+      url: publish-portal.md
+- title: Controle de acesso
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Solicitar acesso just-in-time
+      url: request-just-in-time-access.md
+    - text: Aprovar acesso just-in-time
+      url: approve-just-in-time-access.md
+    - text: Implantar com identidade gerenciada
+      url: publish-managed-identity.md
+- title: Criar interface do usuário do portal
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar interface do portal
+      url: create-uidefinition-overview.md
+    - text: Testar interface do portal
+      url: test-createuidefinition.md
+    - text: Usar artefatos de elementos da interface do usuário
+      url: reference-createuidefinition-artifact.md
+    - text: Elementos da interface
+      url: create-uidefinition-elements.md
+    - text: Funções da interface
+      url: create-uidefinition-functions.md
+- title: Gerenciar recursos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorar instância implantada
+      url: monitor-managed-application-portal.md
+    - text: Implantar com notificações
+      url: publish-notifications.md
+    - text: Atualizar recursos gerenciados
+      url: update-managed-resources.md

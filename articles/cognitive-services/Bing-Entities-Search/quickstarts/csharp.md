@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: efb2c646d364a93910d2105edb6527ad1116ccb2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448661"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o C#
 
@@ -24,7 +24,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de E
 Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 
@@ -50,7 +50,7 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
     using System.Text;
     ```
 
-2. Crie uma nova classe e adicione variáveis para o ponto de extremidade da API, sua chave de assinatura e a consulta que você deseja pesquisar.
+2. Crie uma nova classe e adicione variáveis para o ponto de extremidade da API, sua chave de assinatura e a consulta que você deseja pesquisar. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     namespace EntitySearchSample

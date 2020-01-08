@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de blueprint
 description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
-ms.date: 11/22/2019
+ms.date: 12/05/2019
 ms.topic: sample
-ms.openlocfilehash: ea8759db0fde7d6686acd3c58006be3f59adf6fd
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436572"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -21,6 +21,7 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 | [PBMM Federal do Canadá](./canada-federal-pbmm/index.md) | Fornece proteções para conformidade com o PBMM (B Protegido, Integridade Média, Disponibilidade Média) Federal do Canadá. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
 | [FedRAMP Moderado](./fedramp-m/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o FedRAMP moderado. |
+| [HIPAA/HITRUST](./HIPAA-HITRUST/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com HIPAA/HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Fornece as proteções para a conformidade com o IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Fornece as diretrizes para a conformidade com a ISO 27001. |
 | [Serviços Compartilhados ISO 27001](./iso27001-shared/index.md) | Oferece um conjunto de padrões de infraestrutura e proteções de política em conformidade que ajudam na certificação ISO 27001. |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383930"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o PHP
 
@@ -23,7 +23,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de E
 
 Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [PHP 5.6.x](https://php.net/downloads.php) ou posterior
 
@@ -31,12 +31,13 @@ Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful com
 
 ## <a name="search-entities"></a>Pesquisar entidades
 
-Para executar o aplicativo, siga estas etapas.
+Para executar esse aplicativo, siga estas etapas.
 
 1. Crie um projeto PHP em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+4. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+5. Execute o programa.
 
 ```php
 <?php

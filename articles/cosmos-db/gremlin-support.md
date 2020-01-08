@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 0c1ca054f9d28bb81c6f8acf6c0f43b134a596ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293774"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75499985"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
 Azure Cosmos DB suporta a linguagem transversal de gráficos [Apache Tinkerpop](https://tinkerpop.apache.org), conhecida como gráfica [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
@@ -48,7 +48,7 @@ A tabela a seguir lista os recursos do TinkerPop que são implementados pelo BD 
 
 ## <a name="gremlin-wire-format-graphson"></a>Formato de transmissão do Gremlin: GraphSON
 
-O Azure Cosmos DB usa o [formato GraphSON](http://tinkerpop.apache.org/docs/current/reference/#graphson) ao retornar resultados de operações Gremlin. No momento, o Azure Cosmos DB dá suporte à versão “GraphSONv2”. GraphSON é o formato padrão do Gremlin para representar vértices, bordas e propriedades (propriedades com um ou vários valores) usando JSON.
+O Azure Cosmos DB usa o [formato GraphSON](https://tinkerpop.apache.org/docs/current/reference/#graphson) ao retornar resultados de operações Gremlin. No momento, o Azure Cosmos DB dá suporte à versão “GraphSONv2”. GraphSON é o formato padrão do Gremlin para representar vértices, bordas e propriedades (propriedades com um ou vários valores) usando JSON.
 
 Por exemplo, o snippet a seguir mostra uma representação em GraphSON de um vértice *retornado ao cliente* no Azure Cosmos DB. 
 

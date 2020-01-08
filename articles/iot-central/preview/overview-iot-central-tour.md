@@ -3,18 +3,18 @@ title: Faça um tour da interface do usuário do Azure IoT Central | Microsoft D
 description: Familiarize-se com as áreas principais da interface do usuário do Azure IoT Central que você usa para criar, gerenciar e usar uma solução de IoT.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: f8aa467f95bb97c42e726d1392deca53e15df624
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 23deb77b6fda0b3801057d2ae97a740301449e28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434893"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Fazer um tour pela interface do usuário do Azure IoT Central (versão prévia dos recursos)
 
@@ -113,7 +113,7 @@ Você pode escolher entre um tema claro ou escuro para a interface do usuário:
 > [!div class="mx-imgBorder"]
 > ![Escolher um tema para a interface do usuário](media/overview-iot-central-tour/themes-pnp.png)
 
-### <a name="dashboard"></a>painel
+### <a name="dashboard"></a>Painel
 > [!div class="mx-imgBorder"]
 > ![Painel](media/overview-iot-central-tour/dashboard-pnp.png)
 
@@ -168,9 +168,9 @@ A página Trabalhos permite que você execute operações de gerenciamento de di
 A página Modelos de Dispositivo é o local em que um construtor cria e gerencia os modelos de dispositivo no aplicativo. Um modelo de dispositivo especifica as características dos dispositivos, como:
 
 * medidas de telemetria, estado e evento
-* propriedades
+* Propriedades
 * Comandos
-* Modos de exibição
+* Exibições
 
 O *construtor de soluções* também pode criar formulários e painéis para uso dos operadores no gerenciamento de dispositivo.
 

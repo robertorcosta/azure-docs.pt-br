@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: cc4b552143917f5a9ca66ad402cca79956186d08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 112bcf7f5cb33fec56cdc36c5fe8cfe92145705a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841262"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644487"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entender sua fatura do Contrato Enterprise do Azure
 
@@ -49,7 +49,7 @@ Usuário Registrado
 ## <a name="review-charges-for-most-customers"></a>Examinar encargos para a maioria dos clientes
 Esta seção não se aplica aos clientes do Azure na Austrália, no Japão ou em Singapura. Se estiver em um desses países, confira [Examinar encargos para outros clientes](#review-charges-for-other-customers).
 
-Para examinar e verificar os encargos na sua fatura, você deve ser um Administrador Corporativo. Para obter mais informações, consulte [Entender as funções administrativas do Azure Enterprise Agreement no Azure](billing-understand-ea-roles.md). Se você não souber quem é o Administrador Corporativo da sua organização [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para examinar e verificar os encargos na sua fatura, você deve ser um Administrador Corporativo. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](billing-understand-ea-roles.md). Se você não souber quem é o Administrador Corporativo da sua organização [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Sua fatura mostra todo o uso do Azure, seguida pelos encargos do Marketplace. Se você tiver um saldo de crédito, ele será aplicado ao uso do Azure.
 
@@ -91,7 +91,7 @@ Quando você tem encargos devidos referentes a excedentes de serviço e encargos
 
 Esta seção é aplicável somente se você está na Austrália, no Japão ou em Singapura.
 
-Para examinar e verificar os encargos na sua fatura, você deve ser um Administrador Corporativo. Para obter mais informações, consulte [Entender as funções administrativas do Azure Enterprise Agreement no Azure](billing-understand-ea-roles.md). Se você não souber quem é o Administrador Corporativo da sua organização [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para examinar e verificar os encargos na sua fatura, você deve ser um Administrador Corporativo. Para obter mais informações, consulte [Entendendo as funções administrativas do Azure Enterprise Agreement no Azure](billing-understand-ea-roles.md). Se você não souber quem é o Administrador Corporativo da sua organização [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="review-service-overage-invoice"></a>Revisão da fatura excedente do serviço
 

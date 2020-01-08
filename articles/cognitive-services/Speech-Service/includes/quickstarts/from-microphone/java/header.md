@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: aba7da0fa8d247c6b9c9d670a731b2aa267abac0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: cee5e73c9c56346c807ce8a74c3d7cd38443f826
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469181"
 ---
 Caso prefira começar a usar agora, exiba ou baixe todos os <a href="https://aka.ms/speech/github-java">Exemplos do SDK de Fala do Java</a> no GitHub. Caso contrário, vamos começar.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 4a8f7383a298fdb66456eaadeb99b22478c9f39b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 28c900adadf7d942c9e331e7b77a369db64acf55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382694"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e C#
 
@@ -23,7 +23,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
 
 O código-fonte para deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) com anotações de código, recursos e tratamentos de erro adicionais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet.
 * Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
@@ -42,7 +42,7 @@ O código-fonte para deste exemplo está disponível [no GitHub](https://github.
     using System.Collections.Generic;
     ```
 
-2. Adicione variáveis para a chave de assinatura, um ponto de extremidade e um termo de pesquisa.
+2. Adicione variáveis para a chave de assinatura, um ponto de extremidade e um termo de pesquisa. `uriBase` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -226,6 +226,6 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
  [O que é a API da Pesquisa de Vídeo do Bing?](../overview.md)

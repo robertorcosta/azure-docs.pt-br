@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466473"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, é preciso:
 
@@ -125,7 +125,7 @@ else if (result.Reason == ResultReason.Canceled)
 
 ## <a name="check-your-code"></a>Verificar o código
 
-Neste momento, seu código deverá se parecer com o seguinte:
+Neste momento, seu código deverá ter a seguinte aparência:
 
 ````C#
 //
@@ -185,8 +185,8 @@ namespace helloworld
 
 Agora está tudo pronto para você criar seu aplicativo e testar a síntese de fala usando o Serviço de Fala.
 
-1. **Compilar o código** - na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
-2. **Iniciar o aplicativo** - na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione **F5**.
+1. **Compilar o código**: na barra de menus do Visual Studio, escolha **Compilar** > **Compilar Solução**.
+2. **Iniciar o aplicativo**: na barra de menus, escolha **Depurar** > **Iniciar Depuração** ou pressione **F5**.
 3. **Iniciar síntese** - o texto é convertido em fala e salvo nos dados de áudio especificados.
 
    ```text
@@ -197,7 +197,7 @@ Agora está tudo pronto para você criar seu aplicativo e testar a síntese de f
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Criar uma Voz Personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizada](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
