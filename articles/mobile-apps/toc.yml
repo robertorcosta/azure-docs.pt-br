@@ -4,11 +4,11 @@
   items:
     - name: Visão geral
       href: stages-overview.md
-    - name: Escolher a estrutura de desenvolvimento móvel
+    - name: Escolher uma estrutura de desenvolvimento móvel
       href: front-end-development-platform.md
-    - name: Planejar e projetar aplicativos móveis com serviços de back-end
+    - name: Planejar e projetar um aplicativo móvel com serviços de back-end
       items:
-        - name: Authentication
+        - name: Autenticação
           href: authentication.md
         - name: Armazenamento de dados
           href: data-storage.md
@@ -22,7 +22,7 @@
       href: code-hosting-services.md
     - name: DevOps
       items:
-        - name: O que é DevOps
+        - name: O que é DevOps?
           href: devops.md
         - name: Criação e integração contínuas
           href: continuous-integration.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Mapas do Azure
       href: azure-maps.md
-    - name: CDN do Azure
+    - name: Rede de Distribuição de Conteúdo do Azure
       href: azure-cdn.md
     - name: Pesquisa Cognitiva do Azure
       href: azure-search.md

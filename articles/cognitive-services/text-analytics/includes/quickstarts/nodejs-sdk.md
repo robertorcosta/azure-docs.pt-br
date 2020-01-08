@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: 54aadd22b8f2bbccaa4c5e4f1444aa08279a4773
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: eaaa6ea7c5986a71f298119b5074ae32504ab73b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446200"
 ---
 <a name="HOLTop"></a>
 
 [Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Pacote (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org/).
@@ -44,11 +44,14 @@ Crie um arquivo chamado `index.js` e adicione as seguintes bibliotecas:
 
 [!code-javascript[Const statements](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=constStatements)]
 
-Crie variáveis para a chave de assinatura e o Ponto de Extremidade do Azure do recurso. Obtenha esses valores nas variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT`. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis.
+Crie variáveis para a chave de assinatura e o Ponto de Extremidade do Azure do recurso.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-javascript[Key and endpoint vars](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyVars)]
+```javascript
+const subscription_key = '<paste-your-text-analytics-key-here>';
+const endpoint = `<paste-your-text-analytics-endpoint-here>`;
+```
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 

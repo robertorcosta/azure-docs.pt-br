@@ -4,7 +4,7 @@
   items:
     - name: O que é o Serviço de Migração de Banco de Dados do Azure?
       href: dms-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Criar serviço – Portal
       href: quickstart-create-data-migration-service-portal.md
@@ -67,12 +67,16 @@
           href: known-issues-troubleshooting-dms.md
         - name: Problemas conhecidos – Migração online para o banco de dados individual do BD SQL do Azure
           href: known-issues-azure-sql-online.md
+        - name: Problemas conhecidos – Migração online para a instância gerenciada do BD SQL do Azure
+          href: known-issues-azure-sql-db-managed-instance-online.md
         - name: Problemas Conhecidos – migração online para banco de dados do Azure para MySQL
           href: known-issues-azure-mysql-online.md
-        - name: Problemas conhecidos – migração online do PostgreSQL para o BD do Azure para PostgreSQL – Servidor único
+        - name: Problemas conhecidos – Migração online do PostgreSQL para o BD do Azure para PostgreSQL – Servidor único
           href: known-issues-azure-postgresql-online.md
-        - name: Problemas conhecidos – migração online do Oracle para o BD do Azure para PostgreSQL – Servidor único
+        - name: Problemas conhecidos – Migração online do Oracle para o BD do Azure para PostgreSQL – Servidor único
           href: known-issues-oracle-azure-postgresql-online.md
+        - name: Problemas conhecidos – Como usar o modo híbrido
+          href: known-issues-dms-hybrid-mode.md
     - name: vídeos
       items:
         - name: Use o Guia de Migração de Banco de Dados
@@ -93,7 +97,7 @@
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'
     - name: Ferramentas e orientações
       items:
-        - name: Serviço e ferramentas disponíveis para cenários de migração de dados
+        - name: Serviços e ferramentas disponíveis para cenários de migração de dados
           href: dms-tools-matrix.md
         - name: Guia de Migração de Banco de Dados do Azure
           href: 'https://aka.ms/datamigration'

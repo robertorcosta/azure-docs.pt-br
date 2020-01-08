@@ -21,7 +21,7 @@
         - name: Acesso Condicional
           tocHref: /azure/active-directory/conditional-access/
           topicHref: /azure/active-directory/conditional-access/
-        - name: Authentication
+        - name: Autenticação
           tocHref: /azure/active-directory/authentication/
           topicHref: /azure/active-directory/authentication/
         - name: Desenvolver
@@ -139,6 +139,10 @@
     - name: Azure Monitor
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
+      items:
+        - name: Application Insights
+          tocHref: /azure/azure-monitor/azure-monitor-app-hub
+          topicHref: /azure/azure-monitor/azure-monitor-app-hub
     - name: Âncoras Espaciais do Azure
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
@@ -167,10 +171,10 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
-    - name: Solução VMware no Azure por CloudSimple
+    - name: Solução VMware no Azure pela CloudSimple
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
-    - name: Personalização do portal do Azure
+    - name: Documentação do portal do Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
     - name: Internet das coisas
@@ -226,6 +230,19 @@
     - name: Gerenciador de Recursos
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
+      items:
+        - name: Modelos
+          tocHref: /azure/azure-resource-manager/templates/
+          topicHref: /azure/azure-resource-manager/templates/
+        - name: Gerenciamento
+          tocHref: /azure/azure-resource-manager/management/
+          topicHref: /azure/azure-resource-manager/management/
+        - name: Aplicativos gerenciados
+          tocHref: /azure/azure-resource-manager/managed-applications/
+          topicHref: /azure/azure-resource-manager/managed-applications/
+        - name: Provedores Personalizados do Azure
+          tocHref: /azure/azure-resource-manager/custom-providers/
+          topicHref: /azure/azure-resource-manager/custom-providers/
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -235,7 +252,7 @@
     - name: Usuário do Azure Stack
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
-    - name: Capacidade de suporte
+    - name: Suporte
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
     - name: Backup
@@ -408,7 +425,7 @@
         - name: Controlador de domínio/sistema operacional e Swarm
           tocHref: /azure/container-service/dcos-swarm/
           topicHref: /azure/container-service/dcos-swarm/
-        - name: kubernetes
+        - name: Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
     - name: Bastion
@@ -488,7 +505,7 @@
         - name: Resource Graph
           tocHref: /azure/governance/resource-graph/
           topicHref: /azure/governance/resource-graph/
-    - name: Diretrizes
+    - name: Orientação
       tocHref: /azure/guidance/
       topicHref: /azure/guidance/
     - name: HDInsight
@@ -659,6 +676,9 @@
         - name: Desenvolver
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Parâmetros de comparação
+          tocHref: /azure/security/benchmarks/
+          topicHref: /azure/security/benchmarks/
     - name: Central de Segurança
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
@@ -686,7 +706,7 @@
     - name: Synapse Analytics
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
-    - name: Banco de dados SQL
+    - name: Banco de Dados SQL
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
     - name: Banco de Dados SQL no Edge
