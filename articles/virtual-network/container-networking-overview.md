@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: bdd364c097552d3a1b52073af97d33db70d78556
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579114"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647434"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Habilitar contêineres para usar as funcionalidades de Rede Virtual do Azure
 
@@ -29,7 +29,7 @@ Leve o conjunto avançado de funcionalidades de rede do Azure para os contêiner
 
 - Um endereço IP de rede virtual é atribuído a cada pod, que pode consistir em um ou mais contêineres.
 - Os pods podem se conectar a redes virtuais emparelhadas e à VPN local pelo ExpressRoute ou à VPN site a site. Os pods também podem ser acessados por redes emparelhada e locais.
-- Os pods podem acessar serviços como o Armazenamento do Azure e o Banco de Dados SQL do Azure, que são protegidos por pontos de extremidade de serviço da rede virtual.
+- Os pods podem acessar serviços como o Armazenamento do Azure e o Banco de Dados SQL do Azure, que são protegidos por pontos de extremidade de serviço de rede virtual.
 - Grupos de segurança de rede e rotas podem ser aplicados diretamente aos pods.
 - Os pods podem ser colocados diretamente atrás do Azure Load Balancer interno ou público, assim como as máquinas virtuais
 - Os pods podem ser atribuídos a um endereço IP público, o que os torna diretamente acessíveis pela Internet. Os pods também podem acessar a Internet por conta própria.
@@ -53,7 +53,7 @@ Para permitir que os pods acessem a Internet, o plug-in configura as regras *ipt
 
 ## <a name="limits"></a>limites
 
-O plug-in dá suporte a até 250 pods por máquina virtual e até 16 mil pods em uma rede virtual. Esses limites são diferentes para o [Serviço de Kubernetes do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
+O plug-in dá suporte a até 250 pods por máquina virtual e até 16 mil pods em uma rede virtual. Esses limites são diferentes para o [Serviço de Kubernetes do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 
 ## <a name="using-the-plug-in"></a>Usando o plug-in
 
