@@ -3,18 +3,18 @@ title: 'Início Rápido: Criar um blueprint com a API REST'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos usando a API REST.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436606"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início Rápido: Definir e atribuir um Azure Blueprint com a API REST
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -49,7 +49,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 Substitua `{subscriptionId}` na variável **$restUri** acima para obter informações sobre sua assinatura. A variável $response armazena o resultado do cmdlet `Invoke-RestMethod`, que pode ser analisado com os cmdlets, como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto de extremidade de serviço da API REST espera um **Corpo da Solicitação**, forneça uma variável formatada do JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
 
-## <a name="create-a-blueprint"></a>Criar um blueprint
+## <a name="create-a-blueprint"></a>Criar um plano gráfico
 
 A primeira etapa na definição de um modelo padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Vamos criar um blueprint chamado 'MyBlueprint' para configurar as atribuições de função e política para a assinatura. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função ao grupo de recursos.
 
@@ -407,7 +407,9 @@ Em cada URI da API REST, há variáveis usadas que precisam ser substituídas co
      > [!IMPORTANT]
      > Blueprints não gerenciam a identidade gerenciada atribuída por usuário. Os usuários são responsáveis por atribuir funções e permissões suficientes ou a atribuição de blueprint falhará.
 
-## <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+### <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
 
 Você pode remover um blueprint de uma assinatura. A remoção geralmente é feita quando os recursos de artefato não são mais necessários. Quando um blueprint é removido, os artefatos atribuídos como parte desse blueprint são deixados para trás. Para remover uma atribuição de blueprint, use a seguinte operação de API REST:
 
@@ -417,7 +419,7 @@ Você pode remover um blueprint de uma assinatura. A remoção geralmente é fei
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="delete-a-blueprint"></a>Excluir um blueprint
+### <a name="delete-a-blueprint"></a>Excluir um blueprint
 
 Para remover um blueprint em si, use a seguinte operação de API REST:
 

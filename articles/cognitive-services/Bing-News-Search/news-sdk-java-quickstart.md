@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b8c2ca3bf919d70123b7b5b6d13c0301e0c1fd13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383571"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Início Rápido: Pesquisar notícias com o SDK de Pesquisa de Notícias do Bing para Java
 
 Use este início rápido para começar a pesquisar notícias com o SDK de Pesquisa de Notícias do Bing para Java. Embora a Pesquisa de Notícias do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço aos seus aplicativos. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Instale as dependências do SDK de Pesquisa de Notícias do Bing usando o Maven, o Gradle ou outro sistema de gerenciamento de dependências. O arquivo POM Maven requer a seguinte declaração:
 
@@ -57,7 +57,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>Criar um cliente de pesquisa e credenciais de armazenamento
 
-1. Criar um método chamado `getClient()` que retorna um novo cliente de pesquisa `NewsSearchAPIImpl`. Adicione o ponto de extremidade como o primeiro parâmetro para o novo objeto `NewsSearchAPIImpl` e um novo objeto `ServiceClientCredentials` para armazenar as credenciais.
+1. Criar um método chamado `getClient()` que retorna um novo cliente de pesquisa `NewsSearchAPIImpl`. Adicione o ponto de extremidade como o primeiro parâmetro para o novo objeto `NewsSearchAPIImpl` e um novo objeto `ServiceClientCredentials` para armazenar as credenciais. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

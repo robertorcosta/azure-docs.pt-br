@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea218da5316e921c44b7e80fa5f072417d98ca05
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c6a7755b692ec796707e4a22ed7e15ae2b60dfe7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440117"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: Criar um data factory usando a interface do usuário do Azure Data Factory
 
@@ -41,7 +41,7 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
 1. No menu do portal do Azure, selecione **Criar um recurso**.
    
-   ![Selecione Criar um recurso no menu do portal do Azure](./media/doc-common-process/create-a-resource.png)
+   ![No menu do portal do Azure, selecione Criar um recurso](./media/doc-common-process/create-a-resource.png)
 1. Selecione **Análise** e, em seguida, **Data Factory**. 
    
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -56,7 +56,7 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
    - Selecione **Usar existente** e selecione um grupo de recursos existente na lista. 
    - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
-   Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+   Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 1. Para **Versão**, selecione **V2**.
 1. Em **Local**, selecione uma localização para o data factory.
 
@@ -176,7 +176,7 @@ Nesta procedimento, você implanta entidades (serviços vinculados, conjuntos de
 
 1. Para exibir detalhes sobre a operação de cópia, selecione **Detalhes** (imagem de óculos) na coluna **Ações**. Para obter detalhes sobre as propriedades, confira [Visão geral da atividade de cópia](copy-activity-overview.md). 
 
-   ![Detalhes da operação de cópia](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
+   ![Obter detalhes da operação](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
 1. Confirme que você vê um arquivo novo na pasta de **saída**. 
 1. Alterne novamente para a exibição **Execuções do Pipeline** da exibição **Execuções de Atividade** selecionando o link **Execuções de Pipeline**. 
 

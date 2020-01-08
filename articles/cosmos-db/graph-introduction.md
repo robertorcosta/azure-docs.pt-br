@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 1f46eb1995e2e7cb098098ebd22eedbd194dc6a6
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310250"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500013"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
@@ -56,7 +56,7 @@ Estes são recursos diferenciados oferecidos pela API do Gremlin do Azure Cosmos
 
 * **Compatibilidade com o Apache TinkerPop**
 
-  O Azure Cosmos DB dá suporte a [padrão do código-fonte aberto Apache TinkerPop](http://tinkerpop.apache.org/). O padrão Tinkerpop tem um amplo ecossistema de aplicativos e bibliotecas que podem ser facilmente integradas com a API do Gremlin do Azure Cosmos DB. 
+  O Azure Cosmos DB dá suporte a [padrão do código-fonte aberto Apache TinkerPop](https://tinkerpop.apache.org/). O padrão Tinkerpop tem um amplo ecossistema de aplicativos e bibliotecas que podem ser facilmente integradas com a API do Gremlin do Azure Cosmos DB. 
 
 * **Níveis de consistência ajustáveis**
 
@@ -82,7 +82,7 @@ Veja alguns cenários em que o suporte para grafo do Azure Cosmos DB pode ser ú
   Com a rede e as conexões entre os dispositivos IoT modelados como um grafo, você pode criar uma melhor compreensão do estado de seus dispositivos e ativos. Você também pode saber mais como as alterações em uma parte da rede podem afetar potencialmente outra parte.
 
 ## <a name="introduction-to-graph-databases"></a>Introdução aos bancos de dados de grafo
-Os dados da forma como aparecem no mundo real são conectados naturalmente. A modelagem de dados tradicional se concentra em definir as entidades separadamente e computar as relações delas no tempo de execução. Embora esse modelo tenha suas vantagens, dados altamente conectados podem ser desafiadores de gerenciar em conformidade com as restrições deles.  
+Os dados da forma como aparecem no mundo real são conectados naturalmente. A modelagem de dados tradicional se concentra em definir as entidades separadamente e computar as relações delas no runtime. Embora esse modelo tenha suas vantagens, dados altamente conectados podem ser desafiadores de gerenciar em conformidade com as restrições deles.  
 
 Por sua vez, uma abordagem de banco de dados de grafo se baseia em manter relações na camada de armazenamento,o que leva a operações de recuperação de grafo altamente eficientes. A API do Gremlin do Azure Cosmos DB dá suporte ao [modelo de grafo da propriedade](https://tinkerpop.apache.org/docs/current/reference/#intro).
 

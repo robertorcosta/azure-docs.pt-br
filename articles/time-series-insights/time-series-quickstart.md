@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 11/15/2019
-ms.openlocfilehash: 7bccc75b4a70e98f069d1ffb86909368105b9a32
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 01/06/2020
+ms.openlocfilehash: 21e9884ab4559b510b13691ac5cafccb753622d6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167649"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690800"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Início Rápido: Explorar o Azure Time Series Insights
 
@@ -82,7 +82,7 @@ Este início rápido do gerenciador do Time Series Insights é um tour guiado de
 
 Depois de concluir o guia de início rápido, faça experiências com o conjunto de dados de exemplo para criar visualizações diferentes.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que concluiu o tutorial, limpe os recursos que você criou:
 

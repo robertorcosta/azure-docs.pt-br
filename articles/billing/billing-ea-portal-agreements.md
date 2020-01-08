@@ -4,16 +4,16 @@ description: Este artigo explica como os contratos e aditamentos de EA do Azure 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 78fda5785d85b728c897bf758bc2a3cdee768d02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1f421abf1c9cff545c77a9fcbbb4acfd76d1e1d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849897"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644402"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -145,7 +145,7 @@ Os parceiros podem usar o recurso de marcação (no Azure EA) após o processame
 | Serviços Hospedados do Microsoft Azure | Seis serviços hospedados | Esse limite de serviços hospedados não pode ser aumentado além de seis para uma assinatura individual. Se precisar de serviços hospedados adicionais, incorpore outras assinaturas. |
 | Armazenamento do Microsoft Azure | Cinco contas de armazenamento, cada uma com um tamanho máximo de 100 TB. | Você pode aumentar o número de contas de armazenamento para até 20 por assinatura. Se precisar de contas de armazenamento adicionais, incorpore outras assinaturas. |
 | SQL Azure | 149 bancos de dados de qualquer tipo (ou seja, Web Edition ou Business Edition). |   |
-| Controle de Acesso | 50 namespaces por conta. 100 milhões de transações de Controle de Acesso por mês |   |
+| Controle de acesso | 50 namespaces por conta. 100 milhões de transações de Controle de Acesso por mês |   |
 | Barramento de Serviço | 50 namespaces por conta. 40 conexões de Barramento de Serviço | Os clientes que adquirem conexões do Barramento de Serviço por meio de pacotes de conexão terão cotas iguais ao ponto médio entre o pacote de conexão adquirido e o próximo valor mais alto do pacote de conexão. Os clientes que escolherem um Pacote de 500 terão uma cota de 750. |
 
 ## <a name="resource-commitment"></a>Confirmação de recurso

@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: fb77682bce0d9faef8f9ac8197afd8751560d515
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392350"
 ---
 A tabela a seguir lista os limites que se aplicam aos recursos do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure.
 
@@ -22,10 +22,6 @@ A tabela a seguir lista os limites que se aplicam aos recursos do Serviço de Pr
 | Número máximo de CAs | 25 |
 | Número máximo de hubs IoT vinculados | 50 |
 | Tamanho máximo da mensagem | 96 KB|
-
-
-> [!NOTE]
-> Para aumentar o número de instâncias em sua assinatura, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
 > Para aumentar o número de registros e registros em seu serviço de provisionamento, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).

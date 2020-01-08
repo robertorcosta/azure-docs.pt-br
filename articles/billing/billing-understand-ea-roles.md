@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 62a16a6a96fbfdfbb4ed2d70b74470e29efaa844
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 03464fca6d7e0694d9492de698c70d5caac89358
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849846"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644470"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Entenda as funções administrativas do Contrato Azure Enterprise no Azure
 
@@ -95,8 +95,8 @@ A tabela a seguir mostra o relacionamento entre as funções de administração 
 |---|---|---|---|
 |Proprietário da conta ou administrador de departamento|✔ Habilitado|Proprietário|Preços de EA da organização|
 |Proprietário da conta ou administrador de departamento|✘ Desabilitado|Proprietário|Preço de varejo|
-|Proprietário da conta ou administrador de departamento|✔ Habilitado |Nenhum|Não há preços|
-|Proprietário da conta ou administrador de departamento|✘ Desabilitado |Nenhum|Não há preços|
+|Proprietário da conta ou administrador de departamento|✔ Habilitado |none|Não há preços|
+|Proprietário da conta ou administrador de departamento|✘ Desabilitado |none|Não há preços|
 |Nenhum|Não aplicável |Proprietário|Preço de varejo|
 
 Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função RBAC pode ser atualizada no portal do Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../role-based-access-control/role-assignments-portal.md).

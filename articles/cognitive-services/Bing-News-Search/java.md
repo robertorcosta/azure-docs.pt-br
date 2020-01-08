@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ad322d9418d81c516b97cd8bd4b039b1640aa9c0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383605"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Início Rápido: executar uma pesquisa de notícias usando o Java e a API REST de Pesquisa de Notícias do Bing
 
@@ -26,7 +26,7 @@ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful co
 
 O código-fonte dessa amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * O [JDK (Java Development Kit) 7 ou 8](https://aka.ms/azure-jdks)
 
@@ -34,8 +34,6 @@ O código-fonte dessa amostra está disponível no [GitHub](https://github.com/A
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
-
-Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
@@ -52,7 +50,7 @@ Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azur
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma classe, com variáveis para o ponto de extremidade de API, a chave de assinatura e o termo de pesquisa.
+2. Crie uma classe, com variáveis para o ponto de extremidade de API, a chave de assinatura e o termo de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {

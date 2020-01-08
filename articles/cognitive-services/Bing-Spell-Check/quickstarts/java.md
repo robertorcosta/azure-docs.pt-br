@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 0a40163eddffd4e406dd0644f950f6af636a1dfa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43c528a1e9e46a67e895679b1a0fd04fef8900a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382947"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Java
 
 Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Java simples envia uma solicitação à API e retorna uma lista de correções sugeridas. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * O JDK (Java Development Kit) 7 ou posterior.
 
@@ -40,7 +40,7 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura. Em seguida, crie variáveis para o mercado, o texto do qual deseja fazer a verificação ortográfica e uma cadeia de caracteres para o modo de verificação ortográfica.
+2. Crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura. Em seguida, crie variáveis para o mercado, o texto do qual deseja fazer a verificação ortográfica e uma cadeia de caracteres para o modo de verificação ortográfica. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";

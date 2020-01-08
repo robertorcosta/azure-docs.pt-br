@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448357"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e PHP
 
@@ -24,7 +24,7 @@ O código de exemplo foi gravado para funcionar no PHP 5.6.
 
 Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * PHP 5.6 ou posterior
 
@@ -37,7 +37,7 @@ A [API de Pesquisa de Vídeo do Bing](https://docs.microsoft.com/rest/api/cognit
 1. Verifique se o suporte a HTTP seguro está habilitado em `php.ini`, conforme descrito no comentário do código.
 2. Crie um projeto PHP em seu IDE ou editor favorito.
 3. Adicione o código fornecido abaixo.
-4. Substitua o valor `accessKey` por uma chave de acesso válida para a sua assinatura.
+4. Substitua o valor `$accessKey` por uma chave de acesso válida para a sua assinatura. `$endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 5. Execute o programa.
 
 ```php
@@ -215,6 +215,6 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
  [O que é a API da Pesquisa de Vídeo do Bing?](../overview.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala, intenções e entidades, Java – Serviço de Fala'
+title: 'Início Rápido: Reconhecer uma fala, intenções e entidades, Java – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d75df7b23b48334cf0e217665c8a725739259c22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ec920402c6f103acfdde22e254fb8e80c65b175a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466540"
 ---
 [!INCLUDE [jre](./jre.md)]

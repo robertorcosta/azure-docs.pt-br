@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 45470733c9cfed104e39786be48a6edae20ad489
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996965"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645201"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -79,7 +79,7 @@ As regras de segurança efetivas para uma interface de rede são uma combinaçã
 
 ## <a name="metrics"></a>Métricas
 
-Há [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) para o número de recursos de rede que você pode criar em uma assinatura do Microsoft Azure e região. Se você atender os limites, não será possível criar mais recursos dentro da assinatura ou região. O recurso de *limite de assinatura de rede* fornece um resumo de quantos de cada recurso de rede você implantou em uma assinatura e região qual é o limite para o recurso. A figura a seguir mostra o resultado parcial para recursos de rede implantados na região Leste dos EUA para uma assinatura de exemplo:
+Há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) para o número de recursos de rede que você pode criar em uma assinatura do Microsoft Azure e região. Se você atender os limites, não será possível criar mais recursos dentro da assinatura ou região. O recurso de *limite de assinatura de rede* fornece um resumo de quantos de cada recurso de rede você implantou em uma assinatura e região qual é o limite para o recurso. A figura a seguir mostra o resultado parcial para recursos de rede implantados na região Leste dos EUA para uma assinatura de exemplo:
 
 ![Limites de assinatura](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

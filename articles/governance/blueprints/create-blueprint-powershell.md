@@ -3,18 +3,18 @@ title: 'Início Rápido: Criar um blueprint com o PowerShell'
 description: Neste início rápido, você usará o Azure Blueprints para criar, definir e implantar artefatos usando o PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436628"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início Rápido: Definir e atribuir um Azure Blueprint com o PowerShell
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -379,7 +379,9 @@ Depois que um blueprint é publicado usando o PowerShell, ele pode ser atribuíd
      > [!IMPORTANT]
      > Blueprints não gerenciam a identidade gerenciada atribuída por usuário. Os usuários são responsáveis por atribuir funções e permissões suficientes ou a atribuição de blueprint falhará.
 
-## <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+### <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
 
 Você pode remover um blueprint de uma assinatura. A remoção geralmente é feita quando os recursos de artefato não são mais necessários. Quando um blueprint é removido, os artefatos atribuídos como parte desse blueprint são deixados para trás. Para remover uma atribuição de blueprint, use o cmdlet `Remove-AzBlueprintAssignment`:
 

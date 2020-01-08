@@ -3,19 +3,19 @@ title: O que é o Reconhecimento de Tinta Digital? – API de Reconhecimento de 
 titleSuffix: Azure Cognitive Services
 description: Integre o Reconhecimento de Tinta Digital a seus aplicativos, sites, ferramentas e outras soluções para permitir que os dados de traço de tinta sejam identificados e usados como entrada.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
-ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448160"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>O que é a API de Reconhecimento de Tinta Digital?
 
@@ -52,7 +52,7 @@ Após a inscrição:
 Experimente um Início Rápido nas linguagens a seguir para começar a fazer chamadas à API de Reconhecimento de Tinta Digital.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 Para ver como a API do Reconhecimento de Tinta Digital funciona em um aplicativo de escrita à tinta digital, vejamos os seguintes aplicativos de exemplo no GitHub:
 * [C# e UWP (Plataforma Universal do Windows)](https://go.microsoft.com/fwlink/?linkid=2089803)  

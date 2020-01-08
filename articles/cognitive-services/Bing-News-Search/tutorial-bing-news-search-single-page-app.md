@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383108"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: criar um aplicativo Web de página única
 
@@ -61,7 +61,7 @@ O HTML também contém as divisões (marcas HTML `<div>`) nas quais os resultado
 
 Para evitar a necessidade de incluir a chave de assinatura da API de Pesquisa do Bing no código, usamos o armazenamento persistente do navegador para armazenar a chave. Antes de a chave ser armazenada, solicitamos a chave do usuário. Se a chave for rejeitada pela API mais tarde, invalidaremos a chave armazenada para que o usuário receba a solicitação novamente.
 
-Definimos as funções `storeValue` e `retrieveValue` que usam o objeto `localStorage` (nem todos os navegadores dão suporte e ele) ou um cookie. A função `getSubscriptionKey()` usa essas funções para armazenar e recuperar a chave do usuário.
+Definimos as funções `storeValue` e `retrieveValue` que usam o objeto `localStorage` (nem todos os navegadores dão suporte e ele) ou um cookie. A função `getSubscriptionKey()` usa essas funções para armazenar e recuperar a chave do usuário. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
 ``` javascript
 // Cookie names for data we store
@@ -94,7 +94,7 @@ A marca `onsubmit` HTML `<form>` chama a função `bingWebSearch` para retornar 
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">
 ```
-## <a name="selecting-search-options"></a>Selecionando as opções de pesquisa
+## <a name="selecting-search-options"></a>Selecionar as opções de pesquisa
 A figura a seguir mostra a caixa de texto de consulta e as opções que definem uma pesquisa de notícias sobre financiamento escolar.
 
 ![Opções da Pesquisa de Notícias do Bing](media/news-search-categories.png)
@@ -267,7 +267,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Uma solicitação HTTP bem-sucedida *não* necessariamente significa que a pesquisa em si foi bem-sucedida. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing retornará um código de status HTTP não 200 e incluirá informações de erro na resposta JSON. Além disso, se a solicitação tinha limite de taxa, a API retorna uma resposta vazia.
+> Uma solicitação HTTP com êxito *não* significa necessariamente que a pesquisa ocorreu com êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing retornará um código de status HTTP não 200 e incluirá informações de erro na resposta JSON. Além disso, se a solicitação tinha limite de taxa, a API retorna uma resposta vazia.
 
 Grande parte do código em ambas as funções anteriores é dedicada ao tratamento de erro. Erros podem ocorrer nos seguintes estágios:
 
@@ -279,7 +279,7 @@ Grande parte do código em ambas as funções anteriores é dedicada ao tratamen
 
 Os erros são tratados com uma chamada a `renderErrorMessage()` com os detalhes conhecidos sobre o erro. Se a resposta passar no desafio completo de testes de erro, chamamos `renderSearchResults()` para exibir os resultados da pesquisa na página.
 
-## <a name="displaying-search-results"></a>Exibindo os resultados da pesquisa
+## <a name="displaying-search-results"></a>Exibir os resultados da pesquisa
 A função principal para exibir os resultados da pesquisa é `renderSearchResults()`. Essa função usa o JSON retornado pelo serviço de Pesquisa de Notícias do Bing e renderiza os resultados das notícias e as pesquisas relacionadas se houver.
 
 ```javascript
@@ -324,7 +324,7 @@ A API de Pesquisa de Notícias do Bing retorna até quatro tipos diferentes de r
 
 Conforme visto anteriormente em `renderSearchResults()`, renderizamos apenas as sugestões de `relatedItems` e colocamos os links resultantes na barra lateral da página.
 
-## <a name="rendering-result-items"></a>Renderizando os itens de resultado
+## <a name="rendering-result-items"></a>Renderizar os itens de resultado
 
 No código JavaScript, o objeto, `searchItemRenderers`, contém funções *renderers:* que geram um HTML para cada tipo de resultado da pesquisa.
 
@@ -344,7 +344,7 @@ Uma função de renderizador pode aceitar os seguintes parâmetros:
 |`index`| O índice do item de resultado na coleção.|
 |`count`| O número de itens na coleção do item de resultado da pesquisa.|
 
-Os parâmetros `index` e `count` podem ser usados para numerar os resultados, para gerar um HTML especial no início ou no fim de uma coleção, para inserir quebras de linha após determinado número de itens e assim por diante. Se um renderizador não precisa dessa funcionalidade, ele não precisa aceitar esses dois parâmetros.
+Os parâmetros `index` e `count` podem ser usados para numerar os resultados, para gerar um HTML especial no início ou no fim de uma coleção, para inserir quebras de linha após determinado número de itens e assim por diante. Se um renderizador não precisar dessa funcionalidade, não precisará aceitar esses dois parâmetros.
 
 O renderizador `news` é mostrado no seguinte trecho de JavaScript:
 ```javascript
@@ -379,23 +379,23 @@ A função de renderizador de notícias:
 > * Calcula o tamanho da miniatura da imagem (a largura é fixada em 60 pixels e a altura é calculada proporcionalmente).
 > * Cria a marca HTML `<img>` para exibir a miniatura da imagem. 
 > * Cria as marcas HTML `<a>` que fornecem links para a imagem e a página que a contém.
-> * Cria a descrição que exibe informações sobre a imagem e o site no qual ela está localizada.
+> * Compila a descrição que exibe informações sobre a imagem e o site no qual ela está localizada.
 
 O tamanho da miniatura é usado na marcação `<img>` e nos campos `h` e `w` na URL da miniatura. Em seguida, o [serviço em miniatura do Bing](../bing-web-search/resize-and-crop-thumbnails.md) fornece uma miniatura exatamente desse tamanho.
 
-## <a name="persisting-client-id"></a>Persistindo a ID do cliente
+## <a name="persisting-client-id"></a>Persistir ID do cliente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID` que deve ser enviado novamente para a API com solicitações sucessivas. Se várias APIs de Pesquisa do Bing estiverem sendo usadas, a mesma ID do cliente deverá ser usada com todas elas, se possível.
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem todas as pesquisas do usuário, o que oferece dois benefícios importantes.
 
-Primeiro, ele permite que o mecanismo de pesquisa do Bing aplique o contexto passado às pesquisas para encontrar resultados que melhor atendam às expectativas do usuário. Se um usuário tiver pesquisado termos relacionados à navegação anteriormente, por exemplo, uma pesquisa posterior por "nós" poderá, preferencialmente, retornar informações sobre os nós usados em navegação.
+Primeiro, ele permite que o mecanismo de pesquisa do Bing aplique o contexto passado às pesquisas para localizar resultados que melhor atendam às expectativas do usuário. Se um usuário tiver pesquisado termos relacionados à navegação anteriormente, por exemplo, uma pesquisa posterior por "nós" poderá, preferencialmente, retornar informações sobre os nós usados em navegação.
 
-Em segundo lugar, o Bing poderá selecionar usuários aleatoriamente para experimentar novos recursos antes de eles ficarem amplamente disponíveis. O fornecimento da mesma ID do cliente com cada solicitação garante que os usuários que veem o recurso sempre o vejam. Sem a ID do cliente, o usuário poderá ver um recurso aparecer e desaparecer, aparentemente de forma aleatória, nos resultados da pesquisa.
+Em segundo lugar, o Bing pode selecionar aleatoriamente usuários para experimentar novos recursos antes de serem amplamente disponibilizados. O fornecimento da mesma ID do cliente com cada solicitação garante que os usuários que veem o recurso sempre o vejam. Sem a ID do cliente, o usuário poderá ver um recurso aparecer e desaparecer, aparentemente de forma aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` fique disponível para JavaScript. Essa limitação ocorre quando a resposta da pesquisa tem uma origem diferente da página que a solicitou. Em um ambiente de produção, você deve lidar com essa política hospedando um script do servidor que faz a chamada à API no mesmo domínio da página da Web. Como o script tem a mesma origem da página da Web, o cabeçalho `X-MSEdge-ClientID` estará disponível para o JavaScript.
+As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` fique disponível para JavaScript. Essa limitação ocorre quando a resposta da pesquisa tem uma origem diferente da página que a solicitou. Em um ambiente de produção, você deve lidar com essa política hospedando um script do servidor que faz a chamada à API no mesmo domínio da página da Web. Como o script tem a mesma origem da página da Web, o cabeçalho `X-MSEdge-ClientID` estará disponível para JavaScript.
 
 > [!NOTE]
-> Em um aplicativo Web de produção, você deve executar a solicitação do servidor. Caso contrário, a chave de API de Pesquisa do Bing precisará ser incluída na página da Web, na qual ela estará disponível para qualquer pessoa que exiba a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
+> Em um aplicativo Web de produção, você deve executar a solicitação do servidor. Caso contrário, a chave da API de Pesquisa do Bing deverá ser incluída na página da Web, onde estará disponível para qualquer pessoa que exibir a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
 Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e disponibiliza-os para o JavaScript.
 
@@ -411,7 +411,7 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

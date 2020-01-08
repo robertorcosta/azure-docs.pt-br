@@ -7,15 +7,15 @@ author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 03aafb133f1d4a18ffe2b46ae5ec36225865a239
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6bb647273467a07786413ff4ea30cda836b7cb1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469806"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) no Linux
 
@@ -25,13 +25,13 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 
 Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, você precisa do seguinte:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
-* As plataformas Linux com suporte precisarão ter determinadas bibliotecas instaladas (`libssl` para suporte SSL [Secure Sockets Layer] e `libasound2` para suporte a som). Confira a distribuição abaixo para verificar os comandos necessários para instalar as versões corretas dessas bibliotecas.
+* As plataformas Linux com suporte deverão ter determinadas bibliotecas instaladas (`libssl` para suporte do protocolo SSL e `libasound2` para um suporte consistente). Consulte a distribuição abaixo para verificar os comandos necessários para instalar as versões corretas dessas bibliotecas.
 
    * No Ubuntu:
 
@@ -82,7 +82,7 @@ Baixe e instale o SDK conforme a seguir:
 
    [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
-Agora você pode avançar para as [Próximas etapas](#next-steps) abaixo.
+Agora é possível avançar para as [Próximas etapas](#next-steps) abaixo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

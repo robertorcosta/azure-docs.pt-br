@@ -2,20 +2,17 @@
 title: Visão geral da Automação do Azure
 description: Saiba como usar a Automação do Azure para automatizar o ciclo de vida de infraestrutura e de aplicativos.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: automação do azure, DSC, powershell, configuração de estado desejado, gerenciamento de atualizações, controle e alterações, inventário, runbooks, pyhon, gráfico
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421942"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
@@ -48,9 +45,9 @@ A Automação do Azure é composta por um conjunto de recursos compartilhados qu
 * **[Módulos](automation-integration-modules.md)** – são usados para gerenciar o Azure e outros sistemas. Importe para a Conta de Automação da Microsoft, de terceiros, da comunidade ou cmdlets definidos personalizados e recursos de DSC.
 * **[Galeria de módulos](automation-runbook-gallery.md)** – integração nativa na Galeria do PowerShell para exibir runbooks e importá-los para a Conta de Automação.
 * **[Pacotes do Python 2](python-packages.md)** – adicione pacotes do Python 2 à sua conta de automação para usar em seus runbooks do Python.
-* **[Credenciais](automation-credentials.md)** – Armazene seguramente informações confidenciais que podem ser usadas por runbooks e configurações em tempo de execução.
-* **[Conexões](automation-connections.md)** – Armazenar um par de informação nome/valor que contém informações comuns ao se conectar a sistemas em recursos de conexão. As conexões são definidas pelo autor do módulo para uso em tempo de execução nas configurações e runbooks.
-* **[Certificados](automation-certificates.md)** – Armazene e disponibilize em tempo de execução para que eles possam ser usados para autenticação e proteção de recursos implantados.
+* **[Credenciais](automation-credentials.md)** – Armazene seguramente informações confidenciais que podem ser usadas por runbooks e configurações em runtime.
+* **[Conexões](automation-connections.md)** – Armazenar um par de informação nome/valor que contém informações comuns ao se conectar a sistemas em recursos de conexão. As conexões são definidas pelo autor do módulo para uso em runtime nas configurações e runbooks.
+* **[Certificados](automation-certificates.md)** – Armazene e disponibilize em runtime para que eles possam ser usados para autenticação e proteção de recursos implantados.
 * **[Variáveis](automation-variables.md)** – Forneça uma maneira de manter o conteúdo que pode ser usado em runbooks e configurações. É possível alterar valores sem ter que modificar nenhum runbook e configurações que os referenciam.
 
 ### <a name="source-control-integration"></a>Integração de controle do código-fonte

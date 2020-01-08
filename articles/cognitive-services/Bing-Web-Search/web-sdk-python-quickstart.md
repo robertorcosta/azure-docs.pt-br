@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977209"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562860"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início Rápido: usar o SDK de Pesquisa na Web do Bing para Python
 
@@ -23,7 +23,7 @@ O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing
 
 Deseja ver o código agora mesmo? Os [exemplos de SDK de Pesquisa na Web do Bing para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) estão disponíveis no GitHub.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 O SDK de Pesquisa na Web do Bing é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6. É recomendável usar um ambiente virtual para este início rápido.
 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6
@@ -63,6 +63,12 @@ Criar um ambiente virtual com `venv` para Python 3.x:
 
 ```console
 python -m venv mytestenv
+```
+
+Atualize seu ambiente:
+
+```console
+mytestenv\Scripts\activate.bat
 ```
 
 Instale dependências de SDK de Pesquisa na Web do Bing:
@@ -306,7 +312,7 @@ Este exemplo usa os parâmetros `answer_count`, `promote` e `safe_search` para f
 
 1. Execute o programa.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você terminar este projeto, remova sua chave de assinatura do código do programa e desative o seu ambiente virtual.
 
@@ -315,6 +321,6 @@ Quando você terminar este projeto, remova sua chave de assinatura do código do
 > [!div class="nextstepaction"]
 > [Exemplos do SDK do Python dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Referência de SDK do Python do Azure](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

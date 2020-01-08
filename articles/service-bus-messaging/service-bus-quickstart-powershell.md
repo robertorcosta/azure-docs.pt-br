@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Usar o Azure PowerShell para criar uma fila do Barramento de Serviço | Microsoft Docs
+title: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
 description: Neste início rápido, você aprenderá a usar o Azure PowerShell para criar uma fila do Barramento de Serviço. Em seguida, você usará um aplicativo de exemplo para enviar e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
@@ -8,14 +8,14 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 80cef3efd65a3f68dba1856a892a9a120f7d95cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 890e8d3a7592a6794fd19ac28b6ca613ac7201c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990292"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426945"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início Rápido: Usar o Azure PowerShell para criar uma fila do Barramento de Serviço
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Barramento de Serviço, usando o PowerShell para criar uma fila e um namespace de mensagens nesse namespace e obter as credenciais de autorização nesse namespace. O procedimento mostra como enviar e receber mensagens dessa fila usando a [	Biblioteca do .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -25,12 +25,12 @@ Este início rápido descreve como enviar e receber mensagens de e para uma fila
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar. 
-- [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Use o Visual Studio para criar um exemplo que envia e recebe mensagens de uma fila. O exemplo tem a finalidade de testar a fila criada no portal. 
+- [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Use o Visual Studio para compilar uma amostra que envia mensagens para uma fila e recebe mensagens dela. O exemplo tem a finalidade de testar a fila criada no portal. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 Este início rápido requer que você esteja executando a versão mais recente do Azure PowerShell. Se precisar instalar ou atualizar, confira [Instalar e configurar o Azure PowerShell][]. Se estiver familiarizado com o Azure Cloud Shell, você poderá usá-lo sem instalar o Azure PowerShell em seu computador. Para obter detalhes sobre o Azure Cloud Shell, consulte [Visão geral do Azure Cloud Shell](../cloud-shell/overview.md)
@@ -114,7 +114,7 @@ Para executar o código, faça o seguinte:
 
    ![saída do programa](./media/service-bus-quickstart-powershell/dotnet.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Execute o comando a seguir para remover o grupo de recursos, o namespace e todos os recursos relacionados:
 

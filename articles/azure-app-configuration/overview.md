@@ -1,24 +1,17 @@
 ---
-title: O que é Configuração de Aplicativo do Azure? | Microsoft Docs
+title: O que é Configuração de Aplicativo do Azure?
 description: Uma visão geral do serviço Configuração de Aplicativo do Azure.
-services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
+ms.author: yegu
 ms.service: azure-app-configuration
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 40630bbbbcea344fb74d8ad971eb4c808bf0c142
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185078"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495240"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é Configuração de Aplicativo do Azure?
 
@@ -65,7 +58,7 @@ A maneira mais fácil de adicionar um repositório de Configuração de Aplicati
 | .NET Core e ASP.NET Core | Provedor de Configuração de Aplicativo para .NET Core |
 | .NET Framework e ASP.NET | Construtor de Configuração de Aplicativo para .NET |
 | Java Spring | Cliente de Configuração de Aplicativo para Spring Cloud |
-| Outros | API REST de Configuração de Aplicativo |
+| Outras pessoas | API REST de Configuração de Aplicativo |
 
 ## <a name="next-steps"></a>Próximas etapas
 

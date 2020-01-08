@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425092"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionamento em nuvem piloto para uma floresta do AD sincronizada existente 
 
@@ -35,7 +35,7 @@ Antes de tentar este tutorial, considere os itens a seguir:
 
 4. Este é um cenário avançado. Certifique-se de seguir as etapas documentadas neste tutorial com precisão.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 A seguir estão os pré-requisitos necessários para concluir este tutorial
 - Um ambiente de teste com a versão de sincronização 1.4.32.0 ou posterior do Azure AD Connect
 - Uma UO ou grupo que esteja no escopo da sincronização e que possa ser usado pelo piloto. Recomenda-se começar com um pequeno conjunto de objetos.
@@ -70,8 +70,8 @@ A sincronização Azure AD Connect sincroniza mudanças ocorridas em seu diretó
     **Descrição:** Adicionar uma descrição significativa<br> 
     **Sistema Conectado:** Escolha o conector AD para o qual você está gravando a regra de sincronização personalizada<br>
     **Tipo de Objeto do Sistema Conectado:** Usuário<br>
-    **Tipo de Objeto do Metaverso:** Pessoa<br>
-    **Tipo de Link:** Ingressar<br>
+    **Tipo de Objeto do Metaverso:** Person<br>
+    **Tipo de Link:** Join<br>
     **Precedência:** Forneça um valor que seja exclusivo no sistema<br>
     **Tag:** Deixe esse campo vazio<br>
     ![Regra personalizada](media/how-to-cloud-custom-user-rule/user2.png)</br>
@@ -102,7 +102,7 @@ As mesmas etapas precisam ser seguidas para todos os tipos de objeto (usuário, 
     **Descrição:** Adicionar uma descrição significativa<br> 
     **Sistema Conectado:** Escolha o conector AAD para o qual você está gravando a regra de sincronização personalizada<br>
     **Tipo de Objeto do Sistema Conectado:** Usuário<br>
-    **Tipo de Objeto do Metaverso:** Pessoa<br>
+    **Tipo de Objeto do Metaverso:** Person<br>
     **Tipo de Link:** JoinNoFlow<br>
     **Precedência:** Forneça um valor que seja exclusivo no sistema<br>
     **Tag:** Deixe esse campo vazio<br>
@@ -133,21 +133,6 @@ As mesmas etapas precisam ser seguidas para todos os tipos de objeto (usuário, 
 
 7. Quando essa operação for concluída, você deverá ver um aviso indicando que **O seu foi verificado com êxito.**  Você pode clicar em **Sair**.</br>
 ![Tela de boas-vindas](media/how-to-install/install5.png)</br>
-8. Se ainda vir a tela inicial, clique em **Fechar**.1. Entre no servidor que você usará com as permissões de admin corporativo.
-2. Baixe o agente de provisionamento em nuvem do Azure AD Connect [aqui](https://go.microsoft.com/fwlink/?linkid=2109037).
-3. Executar o provisionamento de nuvem do Azure AD Connect (AADConnectProvisioningAgent.Installer)
-3. Na tela inicial, **Aceite** os termos de licenciamento e clique em **Instalar**.</br>
-![Tela de boas-vindas](media/how-to-install/install1.png)</br>
-
-4. Quando essa operação for concluída, o assistente de configuração será iniciado.  Entre com sua conta de administrador global do Azure AD.
-5. Na tela **Conectar Active Directory**, clique em **Adicionar diretório** e, em seguida, entre com sua conta de administrador do Active Directory.  Esta operação adicionará o diretório local.  Clique em **Próximo**.</br>
-![Tela de boas-vindas](media/how-to-install/install3.png)</br>
-
-6. Na tela **Configuração completa**, clique em **Confirmar**.  Esta operação registrará e reiniciará o agente.</br>
-![Tela de boas-vindas](media/how-to-install/install4.png)</br>
-
-7. Quando essa operação for concluída, você deverá ver um aviso indicando que **O seu foi verificado com êxito.**  Você pode clicar em **Sair**.</br>
-![Tela de boas-vindas](media/how-to-install/install5.png)</br>
 8. Se ainda vir a tela inicial, clique em **Fechar**.
 
 ## <a name="verify-agent-installation"></a>Verificar a instalação do agente
@@ -156,9 +141,9 @@ A verificação do agente ocorre no portal do Azure e no servidor local que est�
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente de portal do Azure
 Para verificar se o agente está sendo visto pelo Azure, siga estas etapas:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. À esquerda, selecione **Azure Active Directory**, clique em **Azure AD Connect** e, no centro, selecione **Gerenciar provisionamento (versão prévia)** .</br>
-![Portal do Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  Na tela **Provisionamento do Azure AD (versão prévia)** , clique em **Examinar todos os agentes**.
 ![Provisionamento do Azure AD](media/how-to-install/install7.png)</br>
@@ -231,7 +216,7 @@ Depois de verificar se os usuários da UO piloto são gerenciados com êxito pel
  5. Na tela **Conectar seus diretórios**, clique em **Avançar**.
  6. Na tela **Filtragem de domínio e UO**, selecione **Sincronizar domínios e UOs selecionados**.
  7. Expanda seu domínio e **desmarque** a UO de **CPUsers**.  Clique em **Próximo**.
-![scope](media/tutorial-existing-forest/scope1.png)</br>
+![escopo](media/tutorial-existing-forest/scope1.png)</br>
  9. Na tela **Recursos opcionais**, clique em **Próximo**.
  10. Na tela **Pronto para configurar**, clique em **Configurar**.
  11. Após a conclusão, clique em **Sair**. 

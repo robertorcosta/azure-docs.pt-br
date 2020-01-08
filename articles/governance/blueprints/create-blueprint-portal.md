@@ -3,18 +3,18 @@ title: 'Início Rápido: Criar um blueprint no portal'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436611"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início Rápido: Definir e atribuir um blueprint no portal
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Azure Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Azure Blueprints para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização. Essas tarefas incluem:
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -268,7 +268,9 @@ Agora que o blueprint foi atribuído a uma assinatura, verifique o progresso da 
 
 1. Na página **Atribuição de blueprint**, valide se todos os artefatos foram implantados com sucesso e se não houve erros durante a implantação. Em caso de erro, confira a [solução de problemas de blueprint](./troubleshoot/general.md) a fim de obter as etapas para determinar o que deu errado.
 
-## <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+### <a name="unassign-a-blueprint"></a>Cancelar a atribuição de um blueprint
 
 Se não for mais necessária, remova uma atribuição de blueprint de uma assinatura. O blueprint pode ter sido substituído por um mais recente com padrões, políticas e designs atualizados. Quando um blueprint é removido, os artefatos atribuídos como parte desse blueprint são deixados para trás. Para remover uma atribuição de blueprint, siga estas etapas:
 
@@ -278,7 +280,7 @@ Se não for mais necessária, remova uma atribuição de blueprint de uma assina
 
 1. Leia a mensagem de confirmação e, em seguida, clique em **OK**.
 
-## <a name="delete-a-blueprint"></a>Excluir um blueprint
+### <a name="delete-a-blueprint"></a>Excluir um blueprint
 
 1. Selecione **Definições do blueprint** na página à esquerda.
 
