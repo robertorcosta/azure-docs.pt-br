@@ -28,9 +28,8 @@ Após a consolidação de serviços diferentes no Azure Monitor, estamos chegand
 Os dados de log do Azure Monitor ainda estão armazenados em um espaço de trabalho do Log Analytics e ainda são coletados e analisados pelo mesmo serviço do Log Analytics, mas estamos alterando o termo _Log Analytics_ em muitos locais para _logs do Azure Monitor_. Esse termo reflete melhor sua função no Azure Monitor e fornece maior consistência com as [métricas em Azure monitor](platform/data-platform-metrics.md).
 
 O termo _Log Analytics_ agora se aplica principalmente para a página no portal do Azure usada para gravar e executar consultas e analisar dados de log. É o equivalente funcional do [Metrics Explorer](platform/metrics-charts.md), que é a página no portal do Azure usada para analisar dados de métrica.
-
-### <a name="log-analytics-workspaces"></a>Espaços de trabalho do Log Analytics
-[Espaços de trabalho](platform/manage-access.md) que armazenam dados de log no Azure Monitor ainda são chamados de espaços de trabalho do Log Analytics. O menu **Log Analytics** no portal do Azure foi renomeado para **espaços de trabalho do Log Analytics** e é nele que você [cria novos espaços de trabalho](learn/quick-create-workspace.md) e configura fontes de dados. Analise seus logs e outros dados de monitoramento no **Azure Monitor** e configure seu espaço de trabalho nos **espaços de trabalho do Log Analytics**.
+### <a name="log-analytics-workspaces"></a>Workspaces do Log Analytics
+[Workspaces](platform/manage-access.md) que armazenam dados de log no Azure Monitor ainda são chamados de workspaces do Log Analytics. O menu **Log Analytics** no portal do Azure foi renomeado para **Workspaces do Log Analytics** e é nele que você [cria novos workspaces](learn/quick-create-workspace.md) e configura fontes de dados. Analise seus logs e outros dados de monitoramento no **Azure Monitor** e configure seu workspace nos **workspaces do Log Analytics**.
 
 ### <a name="management-solutions"></a>Soluções de gerenciamento
 As [soluções de gerenciamento](insights/solutions.md) foram renomeadas para _soluções de monitoramento_, o que descreve melhor sua funcionalidade.
