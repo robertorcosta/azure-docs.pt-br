@@ -1,17 +1,17 @@
 ---
-title: Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
+title: Modelar e particionar dados em Azure Cosmos DB com um exemplo do mundo real
 description: Saiba como modelar e particionar um exemplo do mundo real usando a API do núcleo do Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10f8ffd90215a21ca03e112aea463d444c623d06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093424"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445387"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
 
@@ -53,11 +53,11 @@ Aqui está a lista de solicitações que nossa plataforma terá de expor:
 - **[Q5]**  Listar as curtidas de um post
 - **[Q6]** Listar os *x* posts mais recentes criados na forma abreviada (feed)
 
-Neste estágio, ainda não pensamos sobre os detalhes do que cada entidade (usuário, post etc.) conterá. Esta etapa está geralmente entre as primeiras a serem realizadas durante a criação em um armazenamento relacional, porque precisamos descobrir como essas entidades se traduzirão em termos de tabelas, colunas, chaves estrangeiras, etc. Isso é muito menos preocupante com um banco de dados de documentos que não impõe nenhum esquema na gravação.
+Neste estágio, ainda não pensamos sobre os detalhes do que cada entidade (usuário, post etc.) conterá. Essa etapa geralmente está entre os primeiros a serem resolvidos durante a criação em um relational store, pois precisamos descobrir como essas entidades serão traduzidas em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com um banco de dados de documentos que não impõe nenhum esquema na gravação.
 
 O principal motivo pelo qual é importante identificar os nossos padrões de acesso desde o início é porque essa lista de solicitações vai ser o nosso conjunto de testes. Sempre que iteramos pelo nosso modelo de dados, percorremos cada uma das solicitações e verificamos os respectivos desempenho e escalabilidade.
 
-## <a name="v1-a-first-version"></a>V1: Uma primeira versão
+## <a name="v1-a-first-version"></a>V1: uma primeira versão
 
 Começamos com dois contêineres: `users` e `posts`.
 
@@ -223,7 +223,7 @@ Buscamos os posts mais recentes consultando o contêiner `posts` classificado po
 
 ![Recuperar os posts mais recentes e agregar seus dados adicionais](./media/how-to-model-partition-example/V1-Q6.png)
 
-Mais uma vez, nossa consulta inicial não filtra na chave de partição do contêiner `posts`, que dispara um fan-out oneroso. Esse é ainda pior, pois direcionamos a um conjunto de resultados muito maior e classificamos os resultados com uma cláusula `ORDER BY`, o que o torna mais dispendioso em termos de unidades de solicitação.
+Mais uma vez, nossa consulta inicial não filtra a chave de partição do contêiner `posts`, que dispara um fan-out dispendioso. Essa é ainda pior, pois visamos um conjunto de resultados muito maior e classificamos os resultados com uma cláusula `ORDER BY`, o que o torna mais caro em termos de unidades de solicitação.
 
 | **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ Examinando os problemas de desempenho com os quais nos deparamos na seção ante
 
 Resolveremos cada um desses problemas, começando com o primeiro deles.
 
-## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: Introdução à desnormalização para otimização de consultas de leitura
+## <a name="v2-introducing-denormalization-to-optimize-read-queries"></a>V2: apresentando a desnormalização para otimizar consultas de leitura
 
 O motivo por que temos que emitir solicitações adicionais em alguns casos é porque os resultados da solicitação inicial não contêm todos os dados que precisamos retornar. Ao trabalhar com um armazenamento de dados não relacionais como o Azure Cosmos DB, esse tipo de problema é normalmente resolvido com a desnormalização dos dados em nosso conjunto de dados.
 
@@ -394,7 +394,7 @@ Exatamente a mesma situação ao listar as curtidas.
 | --- | --- | --- |
 | 4 ms | 8,92 RU | ✅ |
 
-## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Verificar se todas as solicitações são escalonáveis
+## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: garantindo que todas as solicitações sejam escalonáveis
 
 Observando nossas melhorias de desempenho gerais, ainda existem duas solicitações que ainda não otimizamos totalmente: **[Q3]** e **[Q6]** . Elas são as solicitações que envolvem consultas que não filtram na chave de partição dos contêineres aos quais elas se destinam.
 
@@ -569,7 +569,7 @@ Os aprimoramentos de escalabilidade explorados neste artigo envolvem a desnormal
 
 O feed de alterações que usamos para distribuir atualizações para outros contêineres armazena todas essas atualizações de maneira persistente. Isso torna possível solicitar todas as atualizações desde a criação do contêiner e inicializar exibições desnormalizadas como uma operação de atualização única, mesmo se o sistema já tem muitos dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Após esta introdução ao particionamento e à modelagem de dados de caráter prático, você talvez queira verificar os artigos a seguir para analisar os conceitos abordados:
 

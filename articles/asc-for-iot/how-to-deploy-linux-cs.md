@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596292"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367409"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implantar a central de segurança do C# Azure para o agente de segurança baseado em IOT para Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implantar um agente de segurança baseado em C# da Central de Segurança do Azure para IoT para Linux
 
 
 Este guia explica como instalar e implantar a central de segurança do Azure para C#o agente de segurança baseado em IOT no Linux.
 
 Neste guia, você aprenderá a: 
 > [!div class="checklist"]
-> * Instalar
+> * Instale
 > * Verificar implantação
 > * Desinstalar o agente
-> * Solução de problemas 
+> * Solucionar problemas 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Para implantar o agente de segurança, use as seguintes etapas:
 
 1. Adicione permissões de execução para o **script InstallSecurityAgent** executando `chmod +x InstallSecurityAgent.sh` 
 
-1. Em seguida, execute: 
+1. Em seguida, execute o seguinte comando com **privilégios de raiz**: 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
@@ -120,7 +120,7 @@ Para desinstalar o agente, execute o script com o parâmetro –u: `./InstallSec
 
        Altere o caminho do local do arquivo de acordo com o nome que você escolheu para o **logFilePath** na etapa 2. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Leia a [visão geral](overview.md) da central de segurança do Azure para serviços de IOT
 - Saiba mais sobre a [arquitetura](architecture.md) da central de segurança do Azure para IOT

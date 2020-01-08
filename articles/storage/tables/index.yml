@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Documentação do Armazenamento de Tabelas do Azure
+summary: O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estruturados na nuvem, fornecendo um repositório chave/atributo com um design sem esquema.
+metadata:
+  title: Documentação do Armazenamento de Tabelas do Azure
+  description: O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estruturados na nuvem, fornecendo um repositório chave/atributo com um design sem esquema.
+  ms.service: storage
+  ms.subservice: tables
+  ms.topic: landing-page
+  ms.collection: collection
+  author: tamram
+  ms.author: tamram
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
+  ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75551889"
+landingContent:
+- title: Sobre o Armazenamento de Tabelas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Armazenamento de Tabelas do Azure?
+      url: table-storage-overview.md
+    - text: Escolha o armazenamento de Tabela ou a API Tabela
+      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+- title: Diretrizes de design de tabela
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Design para leituras e gravações eficientes
+      url: table-storage-design-guidelines.md
+    - text: Design para consulta
+      url: table-storage-design-for-query.md
+    - text: Design para modificação de dados
+      url: table-storage-design-for-modification.md
+    - text: Padrões de design de tabela
+      url: table-storage-design-patterns.md
+- title: Desempenho, dimensionamento e otimização de custos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Lista de verificação de desempenho para Armazenamento de Tabela
+      url: storage-performance-checklist.md
+    - text: Design para desempenho ideal
+      url: table-storage-design.md
+  - linkListType: reference
+    links:
+    - text: Metas de escalabilidade para Armazenamento de Tabela
+      url: scalability-targets.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar uma tabela no portal do Azure
+      url: table-storage-quickstart-portal.md

@@ -20,7 +20,7 @@
       href: manage-resources-using-ui.md
     - name: 7. Configurar alertas de serviço
       href: set-up-service-alerts.md
-- name: Instruções
+- name: Como fazer
   items:
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
       items:
@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: Balanceamento de carga para pools de hosts em pool
           href: configure-host-pool-load-balancing.md
+        - name: Tipo de atribuição de área de trabalho pessoal
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: Usar licença da Área de Trabalho Virtual do Windows
       href: apply-windows-license.md
     - name: Personalizar imagem do host da sessão
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: Personalizar feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Implantar a ferramenta de diagnóstico
-      href: deploy-diagnostics.md
+    - name: Usar diagnóstico de serviço
+      items:
+        - name: Implantar a ferramenta de diagnóstico
+          href: deploy-diagnostics.md
+        - name: Usar diagnóstico para Log Analytics
+          href: diagnostics-log-analytics.md
     - name: Publicar aplicativos internos
       href: publish-apps.md
     - name: Configurar anexação de aplicativo MSIX
@@ -78,8 +84,6 @@
   items:
     - name: Ambiente da Área de Trabalho Virtual do Windows
       href: environment-setup.md
-    - name: Recomendações de largura de banda para sessões remotas
-      href: bandwidth-recommendations.md
     - name: Determinar a latência de conexão do usuário
       href: connection-latency.md
     - name: Acesso delegado na Área de Trabalho Virtual do Windows
@@ -110,8 +114,10 @@
       href: troubleshoot-windows-7-vm.md
     - name: Solucionar problemas da ferramenta de gerenciamento da Área de Trabalho Virtual do Windows
       href: troubleshoot-management-tool.md
-    - name: Conexões do cliente da Área de Trabalho Remota
-      href: troubleshoot-client-connection.md
+    - name: Conexões de serviço da Área de Trabalho Remota
+      href: troubleshoot-service-connection.md
+    - name: Problemas do cliente da Área de Trabalho Remota
+      href: troubleshoot-client.md
     - name: PowerShell da Área de Trabalho Virtual do Windows
       href: troubleshoot-powershell.md
     - name: Diagnosticar problemas de desempenho gráficos

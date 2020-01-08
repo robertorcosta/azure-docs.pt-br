@@ -2,18 +2,18 @@
 title: Documentação do Serviço de Migração de Banco de Dados do Azure
 summary: O Serviço de Migração de Banco de Dados do Azure permite a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo. O serviço usa o Assistente de Migração de Dados para gerar relatórios de avaliação que fornecem recomendações para orientar você durante as alterações necessárias antes de executar uma migração. Quando você estiver pronto para iniciar o processo de migração, o Serviço de Migração de Banco de Dados do Azure executará todas as etapas necessárias.
 metadata:
-  description: " Saiba como habilitar a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo usando o Serviço de Migração de Banco de Dados do Azure."
+  description: Saiba como habilitar a migração perfeita de várias fontes de banco de dados para as plataformas de dados do Azure com um tempo de inatividade mínimo usando o Serviço de Migração de Banco de Dados do Azure.
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/25/2019
+  ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 1d064144d040a45fbc655879a6869da4ceaa4b79
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 8ca7f2618c6415dd3dbe22cada35bccb56be50ee
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73584001"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75437874"
 landingContent:
 - title: Serviço de Migração de Banco de Dados do Azure
   linkLists:
@@ -33,6 +33,10 @@ landingContent:
       url: quickstart-create-data-migration-service-portal.md
     - text: Criar serviço no modo híbrido – portal
       url: quickstart-create-data-migration-service-hybrid-portal.md
+  - linkListType: reference
+    links:
+    - text: Problemas conhecidos – Como usar o modo híbrido
+      url: known-issues-dms-hybrid-mode.md
   - linkListType: video
     links:
     - text: Introdução ao Serviço de Migração de Banco de Dados do Azure
@@ -65,6 +69,8 @@ landingContent:
     links:
     - text: Problemas conhecidos – Migração online para o banco de dados individual do Banco de Dados SQL
       url: known-issues-azure-sql-online.md
+    - text: Problemas conhecidos – Migração online para a instância gerenciada do Banco de Dados SQL
+      url: known-issues-azure-sql-db-managed-instance-online.md
     - text: Topologias de rede para migrações de instância gerenciada do Banco de Dados SQL
       url: resource-network-topologies.md
     - text: Funções personalizadas para migrações online do SQL Server para a Instância Gerenciada do Banco de Dados SQL
@@ -105,7 +111,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Serviço e ferramentas por cenário de migração de dados
+    - text: Serviços e ferramentas por cenário de migração de dados
       url: dms-tools-matrix.md
     - text: Guia de migração de banco de dados
       url: https://datamigration.microsoft.com/

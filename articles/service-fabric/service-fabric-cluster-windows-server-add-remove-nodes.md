@@ -1,25 +1,16 @@
 ---
-title: Adicionar ou remover nós de um cluster autônomo do Service Fabric | Microsoft Docs
+title: Adicionar ou remover nós de um Cluster Service Fabric autônomo
 description: Saiba como adicionar ou remover nós de um cluster do Azure Service Fabric em um computador físico ou virtual executando o Windows Server, que pode ser local ou em qualquer nuvem.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 585d918026ca40bc1a04c55e2bac454492c55936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa9550d1ec6201f7cbaf552fac5f71c875428e21
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711026"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458245"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
 Depois de ter [criado seu cluster autônomo do Service Fabric em computadores com Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades (ou dos seus negócios) podem mudar e talvez seja preciso adicionar ou remover nós do cluster. Este artigo fornece as etapas detalhadas para fazer isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.
@@ -38,7 +29,7 @@ Depois de ter [criado seu cluster autônomo do Service Fabric em computadores co
     ```
     Depois que o script terminar a execução, você pode verificar se o novo nó foi adicionado executando o cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
 
-7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Execute [ServiceFabricClusterConfiguration Get](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e adicionar o nó recém-adicionado à seção "Nós". Também é recomendável sempre ter a configuração de cluster mais recente disponível no caso em que você precisará reimplantar um cluster com a mesma configuração.
+7. Para garantir a consistência em diferentes nós do cluster, você deve iniciar uma atualização de configuração. Execute [ServiceFabricClusterConfiguration Get](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) para obter o arquivo de configuração mais recente e adicionar o nó recém-adicionado à seção "Nós". Também é recomendável ter sempre a configuração de cluster mais recente disponível no caso de você precisar reimplantar um cluster com a mesma configuração.
 
     ```
         {
@@ -128,7 +119,7 @@ Antes de remover um tipo de nó, verifique novamente se há qualquer nó fazendo
 A substituição de nós primários deve ser realizada um nó após o outro, em vez de remover e depois adicionar em lotes.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
 * [Proteger um cluster autônomo no Windows usando os certificados X509](service-fabric-windows-cluster-x509-security.md)
 * [Criar um cluster do Service Fabric autônomo com VMs do Azure executando o Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)

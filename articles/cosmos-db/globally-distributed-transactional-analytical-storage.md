@@ -1,5 +1,5 @@
 ---
-title: Armazenamento analítico e transacional distribuído globalmente para contêineres de Cosmos do Azure
+title: Armazenamento distribuído globalmente transacional e analítico (no modo de visualização particular) para contêineres Cosmos do Azure
 description: Saiba mais sobre armazenamento transacional e analítico e suas opções de configuração para contêineres de Cosmos do Azure.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445396"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Armazenamento analítico e transacional distribuído globalmente para contêineres de Cosmos do Azure
 
-O contêiner Cosmos do Azure é apoiado internamente por dois mecanismos de armazenamento – mecanismo de armazenamento transacional e um mecanismo de armazenamento analítico atualizável. Ambos os mecanismos de armazenamento são estruturados em log e otimizados para gravação para atualizações mais rápidas. No entanto, cada um deles é codificado de forma diferente:
+O contêiner Cosmos do Azure é apoiado internamente por dois mecanismos de armazenamento – mecanismo de armazenamento transacional e um mecanismo de armazenamento analítico atualizável (em versão prévia privada). Ambos os mecanismos de armazenamento são estruturados em log e otimizados para gravação para atualizações mais rápidas. No entanto, cada um deles é codificado de forma diferente:
 
 * **Mecanismo de armazenamento transacional** – ele é codificado em formato orientado a linha para leituras e consultas transacionais rápidas.
 
@@ -67,6 +67,6 @@ Em uma determinada região, as cargas de trabalho transacionais operam no armaze
 
 As cargas de trabalho transacionais consomem a taxa de transferência provisionada (RUs). Ao contrário das cargas de trabalho transacionais, a taxa de transferência das cargas de trabalho analíticas é baseada no consumo real. As cargas de trabalho analíticas consomem recursos sob demanda.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Vida útil em Azure Cosmos DB](time-to-live.md)

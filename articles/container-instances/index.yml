@@ -3,7 +3,7 @@ title: Documentação das Instâncias de Contêiner do Azure
 summary: Execute contêineres do Docker sob demanda em um ambiente gerenciado e sem servidor do Azure. As Instâncias de Contêiner do Azure são uma solução para qualquer cenário que possa operar em contêineres isolados, sem orquestração. Execute aplicativos orientados a eventos, implante rapidamente de seus pipelines de desenvolvimento de contêiner, execute o processamento de dados e crie trabalhos.
 metadata:
   title: Documentação das Instâncias de Contêiner do Azure – contêineres sem servidor, sob demanda
-  description: Execute contêineres do Docker em um ambiente gerenciado e sem servidor do Azure.
+  description: As ACI (Instâncias de Contêiner do Azure) permitem que você execute contêineres do Docker em um ambiente de nuvem gerenciado e sem servidor, sem precisar configurar VMs, clusters ou orquestradores.
   services: 
   ms.service: container-instances
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
-  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.openlocfilehash: 4e7be5b6da633d370a2ccdce7331788f2fbe0440
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71326963"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75445767"
 landingContent:
 - title: Sobre as Instâncias de Contêiner do Azure
   linkLists:
@@ -56,7 +56,7 @@ landingContent:
       url: container-instances-vnet.md
     - text: Configurar política de reinicialização
       url: container-instances-restart-policy.md
-    - text: Configurar variáveis de ambiente
+    - text: Definir variáveis de ambiente
       url: container-instances-environment-variables.md
 - title: Gerenciar aplicativos de contêiner
   linkLists:

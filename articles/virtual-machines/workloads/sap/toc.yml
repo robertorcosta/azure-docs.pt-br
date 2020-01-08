@@ -50,7 +50,7 @@
           href: hana-installation.md
         - name: Instalação de exemplo do HANA
           href: hana-example-installation.md
-    - name: Alta disponibilidade e recuperação de desastres
+    - name: Alta disponibilidade e recuperação de desastre
       items:
         - name: Opções e considerações
           href: hana-overview-high-availability-disaster-recovery.md
@@ -104,6 +104,8 @@
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
         - name: Expansão do SAP HANA com o nó em espera com o Azure NetApp Files no SLES
           href: sap-hana-scale-out-standby-netapp-files-suse.md
+        - name: Expansão do SAP HANA com o nó em espera com o Azure NetApp Files no RHEL
+          href: sap-hana-scale-out-standby-netapp-files-rhel.md
     - name: Visão geral de backup do SAP HANA
       href: sap-hana-backup-guide.md
     - name: Backup de nível de arquivo do SAP HANA
@@ -214,6 +216,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows com compartilhamento de arquivos SOFS para a instância do (A)SCS
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+            - name: SLES com SIDs múltiplos do Pacemaker para uma instância do A(SCS)
+              href: high-availability-guide-suse-multi-sid.md
     - name: Azure Site Recovery para recuperação de desastre do SAP
       href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
     - name: Grupos de posicionamento de proximidade do Azure para obter a latência da rede ideal com aplicativos SAP

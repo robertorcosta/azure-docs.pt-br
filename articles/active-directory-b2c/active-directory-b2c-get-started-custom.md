@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664056"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367885"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -31,10 +31,10 @@ ms.locfileid: "74664056"
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicionar chaves de criptografia e de assinatura
 
-1. Entre no [Portal do Azure](https://portal.azure.com)
-1. Use o filtro **diretório + assinatura** no menu superior para selecionar o diretório que contém seu locatário Azure ad B2C.
-1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
-1. Na página Visão geral, selecione **estrutura de experiência de identidade** no painel **políticas** .
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Na página Visão geral, em **políticas**, selecione **estrutura de experiência de identidade**.
 
 ### <a name="create-the-signing-key"></a>Criar a chave de assinatura
 
@@ -43,7 +43,7 @@ ms.locfileid: "74664056"
 1. Em **Nome**, insira `TokenSigningKeyContainer`. O prefixo `B2C_1A_` pode ser adicionado automaticamente.
 1. Para **Tipo de chave**, selecione **RSA**.
 1. Para **Uso de chave**, selecione **Assinatura**.
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ### <a name="create-the-encryption-key"></a>Criar a chave de criptografia
 
@@ -52,7 +52,7 @@ ms.locfileid: "74664056"
 1. Em **Nome**, insira `TokenEncryptionKeyContainer`. O prefixo `B2C_1A`_ pode ser adicionado automaticamente.
 1. Para **Tipo de chave**, selecione **RSA**.
 1. Para o **Uso da chave**, selecione **Criptografia**.
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ### <a name="create-the-facebook-key"></a>Criar a chave do Facebook
 
@@ -63,7 +63,7 @@ Adicione o [segredo](active-directory-b2c-setup-fb-app.md) do aplicativo do Face
 1. Para **Nome**, insira `FacebookSecret`. O prefixo `B2C_1A_` pode ser adicionado automaticamente.
 1. Em **segredo**, insira o *segredo* do aplicativo do Facebook em Developers.Facebook.com. Esse valor é o segredo, não a ID do aplicativo.
 1. Para **Uso de chave**, selecione **Assinatura**.
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Registrar aplicativos do Identity Experience Framework
 
@@ -73,21 +73,20 @@ Você precisa registrar esses dois aplicativos em seu locatário do Azure AD B2C
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrar o aplicativo IdentityExperienceFramework
 
-Para registrar um aplicativo no locatário do Azure AD B2C, você pode usar a experiência **Aplicativos** atual ou nossa nova experiência **Registros de aplicativo (versão prévia)** unificada. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
+Para registrar um aplicativo no locatário do Azure Active Directory B2C, você pode usar a experiência **Aplicativos** atual ou a nossa nova experiência **Registros de Aplicativo (versão prévia)** unificada. [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
 
-1. Selecione **todos os serviços** no canto superior esquerdo do portal do Azure.
-1. Na caixa de pesquisa, insira `Azure Active Directory`.
-1. Selecione **Azure Active Directory** nos resultados da pesquisa.
-1. Em **gerenciar** no menu à esquerda, selecione **registros de aplicativo (Herdado)** .
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do **Azure Active Directory** , em **gerenciar**, selecione **registros de aplicativo (Herdado)** .
 1. Selecione **Novo registro de aplicativo**.
 1. Para **Nome**, insira `IdentityExperienceFramework`.
 1. Para **Tipo de aplicativo**, escolha **Aplicativo Web/API**.
 1. Para **URL de logon**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, em que `your-tenant-name` é o nome de domínio de locatário do Azure AD B2C. Agora todas as URLs devem estar usando [b2clogin.com](b2clogin.md).
-1. Clique em **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
+1. Selecione **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
 1. Para **Nome**, insira `IdentityExperienceFramework`.
@@ -117,13 +116,13 @@ Em seguida, exponha a API adicionando um escopo:
 1. Para **Nome**, insira `ProxyIdentityExperienceFramework`.
 1. Para **Tipo de aplicativo**, escolha **Nativo**.
 1. Para **URI de redirecionamento**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, em que `your-tenant-name` é o seu locatário do Azure AD B2C.
-1. Clique em **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
+1. Selecione **Criar**. Após a criação, copie a ID do aplicativo e salve-a para uso posterior.
 1. Selecione **configurações**, selecione **permissões necessárias**e, em seguida, selecione **Adicionar**.
 1. Escolha **selecionar uma API**, procure e selecione **IdentityExperienceFramework**e, em seguida, clique em **selecionar**.
 1. Marque a caixa de seleção ao lado de **Acessar IdentityExperienceFramework**, clique em **Selecionar** e, em seguida, clique em **Concluído**.
 1. Selecione **conceder permissões**e, em seguida, confirme selecionando **Sim**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Escolha **Registros de Aplicativo (versão prévia)** e depois selecione **Novo Registro**.
 1. Para **Nome**, insira `ProxyIdentityExperienceFramework`.

@@ -1,17 +1,17 @@
 ---
-title: Como criar vários gatilhos independentes do Azure Functions para o Cosmos DB
+title: Criar vários gatilhos de Azure Functions independentes para Cosmos DB
 description: Saiba como configurar vários gatilhos independentes do Azure Functions para o Cosmos DB a fim de criar arquiteturas orientadas a eventos.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 987136bf8aba1313e1bef21f58691bf9a860ea32
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093371"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445347"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
 
@@ -31,14 +31,14 @@ Dados os *requisitos* do gatilho do Azure Functions para o Cosmos DB, precisamos
 
 Aqui você tem duas opções:
 
-* Criar **um contêiner de concessões por Função**: Essa abordagem pode se converter em custos adicionais, a menos que você esteja usando um [banco de dados de taxa de transferência compartilhado](./set-throughput.md#set-throughput-on-a-database). A taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md) e, no caso do contêiner de concessões, só está sendo usada como ponto de verificação do progresso e para manter o estado.
-* Ter **um contêiner de concessão e compartilhá-lo** com todas as suas Funções. Essa segunda opção oferece um uso melhor das Unidades de Solicitação provisionadas no contêiner, pois permite que várias Azure Functions compartilhem e usem a mesma taxa de transferência provisionada.
+* Criar **um contêiner de concessões por função**: essa abordagem pode ser traduzida em custos adicionais, a menos que você esteja usando um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). A taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md) e, no caso do contêiner de concessões, só está sendo usada como ponto de verificação do progresso e para manter o estado.
+* Ter **um contêiner de concessão e compartilhá-lo** para todas as suas funções: essa segunda opção faz uso melhor das unidades de solicitação provisionadas no contêiner, pois permite que vários Azure Functions compartilhem e usem a mesma taxa de transferência provisionada.
 
 A meta deste artigo é orientá-lo para realizar a segunda opção.
 
 ## <a name="configuring-a-shared-leases-container"></a>Configurando um contêiner de concessões compartilhado
 
-Para configurar o contêiner de concessões compartilhado, a única configuração adicional que você precisa fazer a seus gatilhos é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) `LeaseCollectionPrefix` se você está usando C# ou o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) `leaseCollectionPrefix` se você está usando JavaScript. O valor do atributo deve ser um descritor lógico daquele gatilho específico.
+Para configurar o contêiner de concessões compartilhadas, a única configuração extra que você precisa fazer em seus gatilhos é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) `LeaseCollectionPrefix` se C# você estiver usando ou `leaseCollectionPrefix` [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) se estiver usando JavaScript. O valor do atributo deve ser um descritor lógico daquele gatilho específico.
 
 Por exemplo, se você tem três gatilhos: um que envia emails, um que faz uma agregação para criar uma exibição materializada e um que envia as alterações para outro armazenamento, para análise posterior, pode atribuir o `LeaseCollectionPrefix` de "emails" ao primeiro, "materializada" ao segundo e "análise" ao terceiro.
 
@@ -106,7 +106,7 @@ Para JavaScript, você pode aplicar a configuração no arquivo `function.json` 
 > [!NOTE]
 > Sempre monitore das unidades de solicitação provisionadas em seu contêiner de concessões compartilhado. Cada Gatilho que o compartilha aumentará o consumo médio de taxa de transferência, portanto, talvez seja necessário aumentar a produtividade provisionada conforme você aumenta o número de Azure Functions que o utilizam.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Veja a configuração completa para o [Gatilho do Azure Functions para o Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
 * Verifique a [lista de exemplos](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) estendida para todos os idiomas.

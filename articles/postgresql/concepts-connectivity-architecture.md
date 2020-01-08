@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: cbb3c3b3b91bf5111efcf6f2a53cfb40b48f3fe7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6ef7736a50783388b5ec0b32c698a0e747a7fd42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768870"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458438"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
@@ -26,46 +26,48 @@ Como o cliente se conecta ao banco de dados, ele obtém uma cadeia de conexão q
 ## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Banco de dados do Azure para os endereços IP do gateway PostgreSQL
 A tabela a seguir lista os IPs primários e secundários do gateway do banco de dados do Azure para PostgreSQL para todas as regiões de data. O endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover em caso de falha do primário. Conforme mencionado, os clientes devem permitir a saída para os dois endereços IP. O segundo endereço IP não escuta em nenhum serviço até que seja ativado pelo banco de dados do Azure para PostgreSQL para aceitar conexões.
 
-| **Nome da região** | **Endereço IP primário** | **Endereço IP secundário** |
-|:----------------|:-------------|:------------------------|
-| Austrália Oriental | 13.75.149.87 | 40.79.161.1 |
-| Sudeste da Austrália | 191.239.192.109 | 13.73.109.251 |
-| Sul do Brasil | 104.41.11.5 | |
-| Canadá Central | 40.85.224.249 | |
-| Leste do Canadá | 40.86.226.166 | |
-| EUA Central | 23.99.160.139 | 13.67.215.62 |
-| Leste da China 1 | 139.219.130.35 | |
-| Leste da China 2 | 40.73.82.1 | |
-| Norte da China 1 | 139.219.15.17 | |
-| Norte da China 2 | 40.73.50.0 | |
-| Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
-| Leste dos EUA 1 | 191.238.6.43 | 40.121.158.30 |
-| Leste dos EUA 2 | 191.239.224.107 | 40.79.84.180 * |
-| França Central | 40.79.137.0 | 40.79.129.1 |
-| Alemanha Central | 51.4.144.100 | |
-| Centro da Índia | 104.211.96.159 | |
-| Sul da Índia | 104.211.224.146 | |
-| Oeste da Índia | 104.211.160.80 | |
-| Leste do Japão | 191.237.240.43 | 13.78.61.196 |
-| Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
-| Coreia Central | 52.231.32.42 | |
-| Sul da Coreia | 52.231.200.86 |  |
-| Centro-Norte dos EUA | 23.98.55.75 | 23.96.178.199 |
-| Europa Setentrional | 191.235.193.75 | 40.113.93.91 |
-| Centro-Sul dos EUA | 23.98.162.75 | 13.66.62.124 |
-| Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
-| Norte da África do Sul | 102.133.152.0 | |
-| Oeste da África do Sul | 102.133.24.0 | |
-| Norte dos EAU | 65.52.248.0 | |
-| Sul do Reino Unido | 51.140.184.11 | |
-| Oeste do Reino Unido | 51.141.8.11| |
-| Oeste da Europa | 191.237.232.75 | 40.68.37.158 |
-| Oeste dos EUA 1 | 23.99.34.75 | 104.42.238.205 |
-| Oeste dos EUA 2 | 13.66.226.202 | |
+| **Nome da região** | **Endereços IP do gateway** |
+|:----------------|:-------------|
+| Austrália Central| 20.36.105.0     |
+| Central2 da Austrália     | 20.36.113.0   |
+| Austrália Oriental | 13.75.149.87, 40.79.161.1     |
+| Sudeste da Austrália |191.239.192.109, 13.73.109.251   |
+| Sul do Brasil | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
+| Canadá Central |40.85.224.249  |
+| Leste do Canadá | 40.86.226.166    |
+| EUA Central | 23.99.160.139, 13.67.215.62   |
+| Leste da China | 139.219.130.35    |
+| Leste da China 2 | 40.73.82.1  |
+| Norte da China | 139.219.15.17    |
+| Norte da China 2 | 40.73.50.0     |
+| Ásia Oriental | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
+| Leste dos EUA | 40.121.158.30, 191.238.6.43  |
+| Leste dos EUA 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| França Central | 40.79.137.0, 40.79.129.1  |
+| Alemanha Central | 51.4.144.100     |
+| Nordeste da Alemanha | 51.5.144.179  |
+| Centro da Índia | 104.211.96.159     |
+| Sul da Índia | 104.211.224.146  |
+| Oeste da Índia | 104.211.160.80    |
+| Leste do Japão | 13.78.61.196, 191.237.240.43  |
+| Oeste do Japão | 104.214.148.156, 191.238.68.11    |
+| Coreia Central | 52.231.32.42   |
+| Sul da Coreia | 52.231.200.86    |
+| Centro-Norte dos EUA | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
+| Europa Setentrional | 40.113.93.91, 191.235.193.75    |
+| Norte da África do Sul  | 102.133.152.0    |
+| Oeste da África do Sul | 102.133.24.0   |
+| Centro-Sul dos EUA |13.66.62.124, 23.98.162.75   |
+| Sudeste Asiático | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
+| EAU Central | 20.37.72.64  |
+| Norte dos EAU | 65.52.248.0    |
+| Sul do Reino Unido | 51.140.184.11   |
+| Oeste do Reino Unido | 51.141.8.11  |
+| Centro-Oeste dos EUA | 13.78.145.25     |
+| Oeste da Europa | 40.68.37.158, 191.237.232.75     |
+| Oeste dos EUA | 104.42.238.205, 23.99.34.75  |
+| Oeste dos EUA 2 | 13.66.226.202  |
 ||||
-
-> [!NOTE]
-> O *leste dos EUA 2* também tem um endereço IP terciário de `52.167.104.0`.
 
 ## <a name="next-steps"></a>Próximos passos
 

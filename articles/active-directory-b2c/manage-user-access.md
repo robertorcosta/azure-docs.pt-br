@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367103"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Os aplicativos e as organizações podem optar por impedir que menores usem apli
 
 Se um usuário for identificado como menor, você pode configurar o fluxo de usuário no Azure AD B2C como uma de três opções:
 
-- **Enviar um id_token JWT assinado para o aplicativo**: o usuário está registrado no diretório e um token é retornado para o aplicativo. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar este método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
+- **Retornar um id_token JWT assinado para o aplicativo**: o usuário é registrado no diretório e um token é retornado ao aplicativo. Em seguida, o aplicativo continua aplicando regras de negócio. Por exemplo, o aplicativo pode continuar com um processo de consentimento dos pais. Para usar este método, escolha receber as declarações **ageGroup** e **consentProvidedForMinor** do aplicativo.
 
-- **Enviar um token JSON não assinado para o aplicativo**: o Azure AD B2C notifica o aplicativo de que o usuário é menor e fornece o status de consentimento parental do usuário. Em seguida, o aplicativo continua aplicando regras de negócio. Um token JSON não conclui uma autenticação bem-sucedida com o aplicativo. O aplicativo precisa processar o usuário não autenticado de acordo com as declarações incluídas no token JSON, que podem incluir **nome**, **email**, **ageGroup** e **consentProvidedForMinor**.
+- **Enviar um token JSON não assinado para o aplicativo**: o Azure AD B2C notifica o aplicativo que o usuário é menor e fornece o status do consentimento dos pais do usuário. Em seguida, o aplicativo continua aplicando regras de negócio. Um token JSON não conclui uma autenticação bem-sucedida com o aplicativo. O aplicativo precisa processar o usuário não autenticado de acordo com as declarações incluídas no token JSON, que podem incluir **nome**, **email**, **ageGroup** e **consentProvidedForMinor**.
 
-- **Bloquear o usuário**: Se um usuário for um secundário e o consentimento dos pais não tiver sido fornecido, Azure AD B2C poderá notificar o usuário de que eles estão bloqueados. Nenhum token será emitido, o acesso será bloqueado e a conta de usuário não será criada durante um percurso de registro. Para implementar esta notificação, você fornece uma página de conteúdo HTML/CSS adequada para informar o usuário e apresentar as opções apropriadas. Nenhuma ação adicional do aplicativo é necessária para novos registros.
+- **Bloquear o usuário**: se um usuário for um secundário e o consentimento dos pais não tiver sido fornecido, Azure ad B2C poderá notificar o usuário de que eles estão bloqueados. Nenhum token será emitido, o acesso será bloqueado e a conta de usuário não será criada durante um percurso de registro. Para implementar esta notificação, você fornece uma página de conteúdo HTML/CSS adequada para informar o usuário e apresentar as opções apropriadas. Nenhuma ação adicional do aplicativo é necessária para novos registros.
 
 ## <a name="get-parental-consent"></a>Obter o consentimento dos pais
 
@@ -173,6 +173,7 @@ Este é um exemplo de consentimento para termos de uso baseado em Versão em uma
 </ClaimsTransformations>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como excluir e exportar dados do usuário em [Gerenciar dados de usuário](manage-user-data.md).
+- Para obter um exemplo de política personalizada que implementa um prompt de termos de uso, consulte [uma política personalizada do B2C IEF – inscrever-se e entrar com o prompt ' termos de uso '](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

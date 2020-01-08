@@ -1,59 +1,172 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentação dos Mapas do Azure
+summary: O Azure Mapas da Microsoft fornece funcionalidades geoespaciais avançadas para desenvolvedores de todos os setores, contendo os mais recentes dados de mapeamento disponíveis para fornecer um contexto geográfico a aplicativos Web e móveis. O Azure Mapas é um conjunto de APIs REST em conformidade com a API Azure One para mapas, pesquisa, roteiros, tráfego, mobilidade, clima, fusos horários, geolocalização, delimitação geográfica, dados de mapa e Operações Espaciais, acompanhado de SDKs da Web e do Android para tornar o desenvolvimento fácil, flexível e portátil entre várias plataformas.
 metadata:
-  document_id: null
   title: Documentação dos Mapas do Azure | Microsoft Docs
-  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
-  author: philmea
-  manager: null
+  description: Saiba mais sobre o Azure Mapas e como usá-lo para fornecer serviços geoespaciais para seu aplicativo Web ou móvel.
   ms.service: azure-maps
-  services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/14/2019
+  author: philmea
   ms.author: philmea
-abstract:
-  description: 'Os Azure Mapas fornecem funcionalidades geoespaciais avançadas para desenvolvedores de todos os setores, contendo os mais recentes dados de mapeamento disponíveis para fornecer um contexto geográfico a aplicativos Web e móveis. Os Azure Mapas são um conjunto de APIs REST em conformidade com a API Azure One para mapas, pesquisa, roteamento, tráfego, mobilidade, fusos horários, geolocalização, delimitação geográfica, dados de mapa e operações espaciais, acompanhado de SDKs da Web e do Android para tornar o desenvolvimento fácil, flexível e portátil entre várias plataformas.'
-sections:
-  - title: Guia de início rápido de 5 minutos
-    items:
-      - type: paragraph
-        text: Saiba como criar aplicativos geoespaciais usando os Azure Mapas.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
-            text: Criar um aplicativo Web
-            href: /azure/azure-maps/quick-demo-map-app
-  - title: Tutoriais Passo a Passo
-    items:
-      - html: <b>Tutoriais do SDK da Web</b>
-      - type: paragraph
-        text: Crie aplicativos Web geoespaciais usando o SDK da Web dos Azure Mapas.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-maps/tutorial-search-location">Pesquisar pontos de interesse</a>
-          - html: <a href="/azure/azure-maps/tutorial-route-location">Rota para um ponto de interesse</a>
-          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Rotas por modo de viagem</a>
-          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Criar um localizador de repositório</a>
-      - html: <b>Tutoriais da API REST</b>
-      - type: paragraph
-        text: Crie aplicativos geoespaciais que chamam os serviços REST dos Azure Mapas.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/azure-maps/tutorial-geofence">Configurar uma cerca geográfica</a>
-          - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">Análise espacial</a>
-          - html: <a href=/azure/azure-maps/tutorial-ev-routing">Roteiros para veículo elétrico usando o Azure Notebooks (Python)</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsW
-        items:
-          - title: JavaScript
-            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Controle de mapa</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/">Módulo de ferramentas de desenho</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-rest/">Módulo de serviços</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Serviço de dados</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Serviço de geolocalização</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">Serviço de mobilidade</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Serviço de renderização</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Serviço de roteamento</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Serviço de pesquisa</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Serviço espacial</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Serviço de fuso horário</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Serviço de tráfego</a></p>'
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75408643"
+landingContent:
+- title: Sobre o Azure Mapas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Azure Mapas?
+      url: about-azure-maps.md
+  - linkListType: concept
+    links:
+    - text: Cobertura do Azure Mapas
+      url: render-coverage.md
+    - text: Suporte de Localização
+      url: supported-languages.md
+    - text: Estilos de mapa compatíveis
+      url: supported-map-styles.md
+  - linkListType: video
+    links:
+    - text: Uma introdução ao Azure Mapas
+      url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crie um aplicativo Web usando o Azure Mapas
+      url: quick-demo-map-app.md
+  - linkListType: concept
+    links:
+    - text: Escolha o tipo de preço certo para a conta do Azure Mapas
+      url: choose-pricing-tier.md
+    - text: Autenticação com Azure Mapas
+      url: azure-maps-authentication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gerenciar contas do Azure Mapas
+      url: how-to-manage-account-keys.md
+    - text: Gerenciar autenticação com o Azure Mapas
+      url: how-to-manage-authentication.md
+    - text: Gerenciar o tipo de preço da conta do Azure Mapas
+      url: how-to-manage-pricing-tier.md
+    - text: Exibir as métricas de uso da API do Azure Mapas
+      url: how-to-view-api-usage.md
+- title: Como desenvolver com o SDK Web
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Introdução ao controle de mapeamento da Web
+      url: how-to-use-map-control.md
+    - text: Amostras de código do SDK Web do Azure Mapas
+      url: https://azuremapscodesamples.azurewebsites.net/
+    - text: Navegadores compatíveis com o SDK Web
+      url: supported-browsers.md
+  - linkListType: tutorial
+    links:
+    - text: Pesquisar ponto de interesse
+      url: tutorial-search-location.md
+    - text: Rota para um ponto de interesse
+      url: tutorial-route-location.md
+    - text: Criar um localizador de lojas
+      url: tutorial-create-store-locator.md
+  - linkListType: reference
+    links:
+    - text: Controle de mapa
+      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+    - text: Módulo de ferramentas de desenho
+      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+    - text: Módulo de serviço
+      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+- title: Como desenvolver com o SDK do Android
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Introdução ao controle de mapeamento do Android
+      url: how-to-use-android-map-control-library.md
+    - text: Exibir informações de metadados de um recurso
+      url: display-feature-information-android.md
+    - text: Adicionar uma camada de bloco a um mapa
+      url: how-to-add-tile-layer-android-map.md
+    - text: Adicionar uma forma a um mapa
+      url: how-to-add-shapes-to-android-map.md
+- title: Como desenvolver com Serviços Baseados na Localização
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Níveis de zoom e grades lado a lado
+      url: zoom-levels-and-tile-grid.md
+  - linkListType: tutorial
+    links:
+    - text: Roteiros de EV usando Azure Notebooks (Python)
+      url: tutorial-ev-routing.md
+  - linkListType: how-to-guide
+    links:
+    - text: Pesquisar um endereço (geocódigo)
+      url: how-to-search-for-address.md
+    - text: Melhores práticas para pesquisar
+      url: how-to-use-best-practices-for-search.md
+    - text: Renderizar dados personalizados no mapa estático
+      url: how-to-render-custom-data.md
+  - linkListType: reference
+    links:
+    - text: Serviço de pesquisa
+      url: https://docs.microsoft.com/rest/api/maps/search
+    - text: Serviço de Roteiros
+      url: https://docs.microsoft.com/rest/api/maps/route
+    - text: Serviço de tráfego
+      url: https://docs.microsoft.com/rest/api/maps/traffic
+    - text: Serviço de fuso horário
+      url: https://docs.microsoft.com/rest/api/maps/timezone
+- title: Análise espacial
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Integração da Grade de Eventos do Azure Mapas
+      url: azure-maps-event-grid-integration.md
+  - linkListType: tutorial
+    links:
+    - text: Configurar uma cerca geográfica usando o Azure Mapas
+      url: tutorial-geofence.md
+    - text: Implementar análise espacial de IoT usando o Azure Mapas
+      url: tutorial-iot-hub-maps.md
+  - linkListType: reference
+    links:
+    - text: Serviço de Dados
+      url: https://docs.microsoft.com/rest/api/maps/data
+    - text: Serviço espacial
+      url: https://docs.microsoft.com/rest/api/maps/spatial
+- title: Como desenvolver com o serviço Mobilidade
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Estrutura de dados do serviço Mobilidade
+      url: mobility-service-data-structure.md
+  - linkListType: how-to-guide
+    links:
+    - text: Solicitar rotas de trânsito público
+      url: how-to-request-transit-data.md
+    - text: Solicitar dados de trânsito público em tempo real
+      url: how-to-request-real-time-data.md
+  - linkListType: reference
+    links:
+    - text: Serviço de Mobilidade
+      url: https://docs.microsoft.com/rest/api/maps/mobility
+- title: Como desenvolver com os Serviços de Clima
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conceito de Serviço de Clima
+      url: weather-services-concepts.md
+  - linkListType: tutorial
+    links:
+    - text: Analisar dados climáticos usando o Azure Notebooks (Python)
+      url: weather-service-tutorial.md
+  - linkListType: reference
+    links:
+    - text: Serviço de Clima
+      url: https://docs.microsoft.com/rest/api/maps/weather

@@ -14,16 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 819aeb225c4f55f803a5fad19eff33bd1748bf46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368922"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform
 
 O Terraform permite definir e criar implantações de infraestrutura completa no Azure. Você cria modelos do Terraform em um formato legível que criar e configurar os recursos do Azure de maneira consistente e reproduzível. Este artigo mostra como criar um ambiente Linux completo e os recursos de apoio com o Terraform. Você também pode aprender como [instalar e configurar o Terraform](terraform-install-configure.md).
+
+> [!NOTE]
+> Para obter suporte específico do Terraform, entre em contato com o Terraform diretamente usando um dos seus canais da Comunidade:
+>
+>   • A [seção Terraform](https://discuss.hashicorp.com/c/terraform-core) do portal da Comunidade contém perguntas, casos de uso e padrões úteis.
+>
+>   • Para perguntas relacionadas ao provedor, visite a seção [provedores de Terraform](https://discuss.hashicorp.com/c/terraform-providers) do portal da Comunidade.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Criar conexão e grupo de recursos do Azure
@@ -466,5 +473,5 @@ Então você poderá enviar por SSH para sua VM:
 ssh azureuser@<publicIps>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Você criou a infraestrutura básica no Azure usando o Terraform. Para obter cenários mais complexos, incluindo exemplos que usam balanceadores de carga e conjuntos de dimensionamento de máquinas virtuais, confira os vários [exemplos do Terraform para o Azure](https://github.com/hashicorp/terraform/tree/master/examples). Para obter uma lista atualizada de provedores do Azure com suporte, consulte a [Documentação do Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).

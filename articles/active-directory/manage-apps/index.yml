@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2b83d09932aaa39e31d04f30bc660541efcbb50b
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 7ebb44ec1f3483b9bf3f29ddb6dc7a73266b8cea
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73882795"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75443354"
 landingContent:
 - title: Sobre o gerenciamento de aplicativos
   linkLists:
@@ -53,22 +53,22 @@ landingContent:
     links:
     - text: O que é o provisionamento automático de usuários?
       url: user-provisioning.md
-  - linkListType: concept
+    - text: Como funciona o provisionamento
+      url: how-provisioning-works.md
+  - linkListType: tutorial
     links:
-    - text: Usar o SCIM para provisionar usuários e grupos
-      url: use-scim-to-provision-users-and-groups.md
+    - text: Tutoriais de provisionamento de aplicativos de SaaS
+      url: /azure/active-directory/saas-apps/
   - linkListType: how-to-guide
     links:
-    - text: Configurar o provisionamento automático de usuário
+    - text: Criando um aplicativo? Usar o SCIM para provisionamento automático
+      url: use-scim-to-provision-users-and-groups.md
+    - text: Adicionando um aplicativo da galeria? Configurar provisionamento para o aplicativo
       url: configure-automatic-user-provisioning-portal.md
     - text: Personalizar mapeamentos do atributo
       url: customize-application-attributes.md
-    - text: Verificar status do provisionamento
-      url: application-provisioning-when-will-provisioning-finish-specific-user.md
-  - linkListType: reference
-    links:
-    - text: Escrever expressões para mapeamentos de atributo
-      url: functions-for-customizing-application-data.md
+    - text: Usar filtros de escopo
+      url: define-conditional-rules-for-provisioning-user-accounts.md
 - title: Publicar aplicativos locais com o Proxy de Aplicativo
   linkLists:
   - linkListType: overview

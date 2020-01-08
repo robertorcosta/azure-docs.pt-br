@@ -2,19 +2,15 @@
 title: Ativos de conexão na Automação do Azure
 description: Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0843277ce74bcc10865792367096aefa7591b244
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850424"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366783"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
 
@@ -39,7 +35,7 @@ Na maioria dos casos você não precisa criar um recurso de conexão, pois ele �
 
 Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões de Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](/powershell/azure/overview) que está disponível para uso em runbooks e na configuração DSC da Automação.
 
-|Cmdlet|Descrição|
+|Cmdlet|Description|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera uma conexão. Inclui uma tabela de hash com os valores dos campos da conexão.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Cria uma nova conexão.|
@@ -50,7 +46,7 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões de Au
 
 As atividades na tabela a seguir são usadas para acessar conexões em um runbook ou em uma configuração DSC.
 
-|Atividades|Descrição|
+|Atividades|Description|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão.|
 
@@ -61,7 +57,7 @@ As atividades na tabela a seguir são usadas para acessar conexões em um runboo
 ## <a name="python2-functions"></a>Funções Python2
 A função na tabela a seguir é usada para acessar conexões em um runbook Python2.
 
-| Função | Descrição |
+| Função | Description |
 |:---|:---|
 | automationassets.get_automation_connection | Recupera uma conexão. Retorna um dicionário com as propriedades da conexão. |
 

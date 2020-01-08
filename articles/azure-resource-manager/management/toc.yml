@@ -1,0 +1,138 @@
+- name: Gerenciar documentação de recursos do Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Gerenciador de Recursos?
+      href: overview.md
+- name: Conceitos
+  items:
+    - name: Limites de serviço e assinatura
+      href: azure-subscription-service-limits.md
+    - name: Gerenciador de Recursos e implantação clássica
+      href: deployment-models.md
+    - name: Atributos de segurança comuns do Azure
+      href: azure-resource-manager-security-controls.md
+    - name: Provedores de recursos por serviço
+      href: azure-services-resource-providers.md
+    - name: Limite de instância de recurso
+      href: resources-without-resource-group-limit.md
+- name: Como
+  items:
+    - name: Mover – grupos de recursos/assinaturas de recursos
+      items:
+        - name: Mover recursos
+          href: move-resource-group-and-subscription.md
+        - name: Recursos compatíveis
+          href: move-support-resources.md
+        - name: Solucionar problemas de movimentação
+          href: troubleshoot-move.md
+        - name: Serviços
+          items:
+            - name: Serviço de Aplicativo
+              href: ./move-limitations/app-service-move-limitations.md
+            - name: Azure DevOps
+              href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
+            - name: Implantação Clássica
+              href: ./move-limitations/classic-model-move-limitations.md
+            - name: Rede
+              href: ./move-limitations/networking-move-limitations.md
+            - name: Serviços de Recuperação
+              href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Máquinas Virtuais
+              href: ./move-limitations/virtual-machines-move-limitations.md
+    - name: Mover – regiões
+      items:
+        - name: Mover entre regiões
+          href: move-region.md
+        - name: Serviços com suporte
+          href: region-move-support.md
+        - name: Serviços
+          items:
+            - name: VMs do Azure
+              href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Armazenamento do Azure
+              href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: SQL do Azure
+              href: ../../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Rede virtual
+              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: NSG (Grupo de Segurança de Rede)
+              href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Endereços IP públicos
+              href: ../../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: Marcas
+      items:
+        - name: Recursos de marca
+          href: tag-resources.md
+        - name: Suporte a marcas
+          href: tag-support.md
+    - name: Gerenciar
+      items:
+        - name: Gerenciar grupos de recursos
+          items:
+            - name: Use o Portal do Azure
+              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+              href: manage-resource-groups-portal.md
+            - name: Usar a CLI do Azure
+              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+              href: manage-resource-groups-cli.md
+            - name: Usar PowerShell do Azure
+              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+              href: manage-resource-groups-powershell.md
+        - name: Gerenciar recursos
+          items:
+            - name: Use o Portal do Azure
+              displayName: 'open,delete,deploy,move,lock,tag,monitor'
+              href: manage-resources-portal.md
+            - name: Usar a CLI do Azure
+              displayName: 'open,delete,deploy,move,lock,tag'
+              href: manage-resources-cli.md
+            - name: Usar PowerShell do Azure
+              displayName: 'open,delete,deploy,move,lock,tag'
+              href: manage-resources-powershell.md
+        - name: Excluir recursos e grupos de recursos
+          href: delete-resource-group.md
+        - name: Bloquear recursos
+          href: lock-resources.md
+        - name: Criar assinaturas de EA
+          href: programmatically-create-subscription.md
+        - name: Conceder acesso para criar assinaturas de EA
+          href: grant-access-to-create-subscription.md
+        - name: Autenticar entre locatários
+          href: authenticate-multi-tenant.md
+    - name: Exibir logs de atividade
+      href: view-activity-logs.md
+    - name: Provedores e tipos de recursos
+      href: resource-providers-and-types.md
+    - name: Solicitações de limitação
+      href: request-limits-and-throttling.md
+    - name: Rastrear operações assíncronas
+      href: async-operations.md
+- name: Referência
+  items:
+    - name: REST
+      href: /rest/api/resources/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: CLI do Azure
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: /python/api/overview/azure/resources?view=azure-python
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: Gerenciar dados pessoais
+      href: resource-manager-personal-data.md
+    - name: vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

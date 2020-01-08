@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d37d1ae3871e8b14a44540883b1d03c29b58d27e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5879bbda9dba0d5484ffe6e7083243a299347f9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367479"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurar os requisitos de complexidade de senhas fornecidas no Azure Active Directory B2C
 
@@ -38,15 +38,15 @@ Se estiver usando políticas personalizadas, você poderá ([configurar a comple
 ## <a name="configure-password-complexity"></a>Configurar a complexidade de senha
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
-3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-4. Escolha **Fluxos de usuário**.
+2. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+3. Na portal do Azure, procure e selecione **Azure ad B2C**.
+4. Selecione **fluxos de usuário (políticas)** .
 2. Selecione um fluxo de usuário e clique em **Propriedades**.
 3. Em **Complexidade da senha**, altere a complexidade da senha para esse fluxo de usuário para **Simples**, **Forte** ou **Personalizada**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 
-| Complexidade | Descrição |
+| Complexidade | Description |
 | --- | --- |
 | Simples | Uma senha que tenha 8 a 64 caracteres. |
 | Forte | Uma senha que tenha 8 a 64 caracteres. São necessários de 3 a 4 caracteres minúsculos, maiúsculos, números ou símbolos. |

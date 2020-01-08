@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2bda344c32d03425c7cfec4d253e18451eb1f5a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065012"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367496"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do QQ usando o Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "71065012"
 
 ## <a name="create-a-qq-application"></a>Criar um aplicativo QQ
 
-Para usar uma conta do QQ como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do QQ, poderá se inscrever [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)em.
+Para usar uma conta do QQ como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do QQ, poderá se inscrever em [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### <a name="register-for-the-qq-developer-program"></a>Registrar-se no programa de desenvolvedores do QQ
 
@@ -35,7 +35,7 @@ Para usar uma conta do QQ como um provedor de identidade no Azure Active Directo
 
 ### <a name="register-a-qq-application"></a>Registrar um aplicativo do QQ
 
-1. Acesse [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
+1. Ir para [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Selecione **应用管理**(gerenciamento de aplicativos).
 1. Selecione **创建应用** (criar aplicativo) e insira as informações necessárias.
 1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name}.onmicrosoft.com/oauth2/authresp` em **授权回调域** (URL de retorno de chamada). Por exemplo, se `tenant_name` for contoso, defina a URL para ser `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
@@ -47,9 +47,9 @@ Para usar uma conta do QQ como um provedor de identidade no Azure Active Directo
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Configurar o QQ como um provedor de identidade
 
-1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
-1. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém seu locatário.
-1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
+1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e selecione o diretório que contém seu locatário Azure ad B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **QQ (versão prévia)** .
 1. Insira um **Nome**. Por exemplo, *QQ*.
 1. Para a **ID do cliente**, insira a ID do aplicativo QQ que você criou anteriormente.

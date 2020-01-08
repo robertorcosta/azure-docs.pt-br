@@ -51,6 +51,9 @@
           items:
             - name: Práticas recomendadas de listagem de ofertas
               href: ./gtm-offer-listing-best-practices.md
+              items:
+                - name: Categorias
+                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: Como obter destaque
               href: ./gtm-how-to-get-featured.md
             - name: Validação de conteúdo do Marketplace

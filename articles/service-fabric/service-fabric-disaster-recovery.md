@@ -1,25 +1,16 @@
 ---
-title: Recuperação de desastre do Azure Service Fabric | Microsoft Docs
+title: Recuperação de desastre do Azure Service Fabric
 description: O Azure Service Fabric oferece os recursos necessários para lidar com todos os tipos de desastres. Este artigo descreve os tipos de desastres que podem ocorrer e como lidar com eles.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f23624dd0be1e700731e3f5a63c8cd7a00ec4e16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458069"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperação de desastre no Azure Service Fabric
 Uma parte crítica da entrega de alta disponibilidade é garantir que os serviços possam sobreviver a todos os tipos diferentes de falhas. Isso é especialmente importante para falhas não planejadas e fora de seu controle. Este artigo descreve alguns modos de falha comuns que poderão se transformar em desastres se não forem modelados e gerenciados corretamente. Ele também aborda mitigações e ações a serem tomadas se, ainda assim, um desastre acontecer. A meta é limitar ou eliminar o risco de que haja tempo de inatividade ou perda de dados quando ocorrerem falhas, sejam elas planejadas ou não.
@@ -136,7 +127,7 @@ O Service Fabric tem o conceito de Nós de Semente. Trata-se de nós que mantêm
 
 Em clusters independentes do Service Fabric e no Azure, o "Tipo de nó primário" é aquela que executa as propagações. Ao definir um tipo de nó primário, o Service Fabric aproveitará automaticamente o número de nós fornecidos, criando até nove nós iniciais e 7 réplicas de cada um dos serviços do sistema. Se um conjunto de falhas aleatórias desativar a maior parte dessas réplicas do serviço de sistema ao mesmo tempo, os serviços de sistema entrarão em perda de quorum, conforme descrito acima. Se a maioria desses nós de semente for perdida, o cluster será desligado logo em seguida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como simular várias falhas usando a [estrutura de capacidade de teste](service-fabric-testability-overview.md)
 - Leia outros recursos de recuperação de desastres e alta disponibilidade. A Microsoft publicou várias orientações sobre estes tópicos. Embora alguns desses documentos mencionem técnicas específicas para uso em outros produtos, eles contêm várias práticas recomendadas gerais que também se aplicam ao contexto do Service Fabric:
   - [Lista de verificação de disponibilidade](/azure/architecture/checklist/resiliency-per-service)

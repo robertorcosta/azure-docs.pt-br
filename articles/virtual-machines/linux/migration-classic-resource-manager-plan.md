@@ -1,5 +1,5 @@
 ---
-title: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
+title: Planejando a migração do clássico para o Azure Resource Manager
 description: Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 8dc1ee85b9d17824898de80562ea5bfb251a2c41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d4c7bdf33ed1a35e7b27eed8baa3b96066d25dd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369018"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração. 
@@ -114,28 +114,28 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
     >
 
   - Interfaces de Rede
-  - Balanceadores de Carga
+  - Load Balancers
   - IPs Públicos
   - IPs Públicos Estáticos
   - Núcleos
-  - Grupos de segurança de rede
+  - Grupos de Segurança de Rede
   - Tabelas de Rotas
 
     Você pode verificar suas cotas atuais do Azure Resource Manager usando os comandos a seguir com a última versão da CLI do Azure.
 
-    **Computação** *(Núcleos, Conjuntos de Disponibilidade)*
+    **Computação** *(núcleos, conjuntos de disponibilidade)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **Rede** *(Redes Virtuais, IPs Públicos Estáticos, IPs Públicos, Grupos de Segurança de Rede, Interfaces de Rede, Balanceadores de Carga, Tabelas de Rotas)*
+    **Rede** *(redes virtuais, IPS públicos estáticos, IPS públicos, grupos de segurança de rede, interfaces de rede, balanceadores de carga, tabelas de rotas)*
     
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **Armazenamento** *(Conta de Armazenamento)*
+    **Armazenamento** *(conta de armazenamento)*
     
     ```bash
     az storage account show-usage
@@ -179,7 +179,7 @@ O teste parcial pode causar problemas e atraso na migração.
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerações técnicas e compensações
 
-Agora que você está no Azure Resource Manager, maximize a plataforma.  Leia a [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) para descobrir mais benefícios.
+Agora que você está no Azure Resource Manager, maximize a plataforma.  Leia a [visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md) para descobrir mais benefícios.
 
 Itens a serem considerados:
 
@@ -202,7 +202,7 @@ Determine quais serviços você deseja habilitar no Azure Resource Manager agora
 Lembre-se do motivo que fez você iniciar esta jornada de migração do Clássico para o Azure Resource Manager.  Quais foram os motivos comerciais originais? Você concretizou o motivo comercial?
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

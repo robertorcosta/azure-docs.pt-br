@@ -4,7 +4,7 @@
   items:
     - name: Bem-vindo ao Azure Cosmos DB
       href: introduction.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar recursos do Cosmos DB
@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: Provisionar a taxa de transferência – modo Autopilot
           href: provision-throughput-autopilot.md
+        - name: Perguntas frequentes sobre o Autopilot
+          href: autopilot-faq.md
     - name: Referência da consulta SQL
       items:
         - name: Introdução
@@ -136,7 +138,7 @@
           href: sql-query-getting-started.md
         - name: Cláusulas
           items:
-            - name: SELECIONAR
+            - name: SELECT
               displayName: 'select, select clause'
               href: sql-query-select.md
             - name: FROM
@@ -545,7 +547,7 @@
           href: cassandra-introduction.md
         - name: Suporte de protocolo de transmissão
           href: cassandra-support.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           items:
             - name: .NET
               href: create-cassandra-dotnet.md
@@ -609,7 +611,7 @@
           href: mongodb-feature-support.md
         - name: Suporte de protocolo de transmissão (3.6)
           href: mongodb-feature-support-36.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           items:
             - name: .NET
               href: create-mongodb-dotnet.md
@@ -699,7 +701,7 @@
           href: graph-introduction.md
         - name: Suporte de protocolo de transmissão
           href: gremlin-support.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           items:
             - name: Console do Gremlin
               href: create-graph-gremlin-console.md
@@ -756,7 +758,7 @@
       items:
         - name: Introdução
           href: table-introduction.md
-        - name: Guia de início rápido
+        - name: Inícios rápidos
           items:
             - name: .NET
               href: create-table-dotnet.md
@@ -912,7 +914,7 @@
           href: key-value-store-cost.md
     - name: Solucionar problemas
       items:
-        - name: Solucionar problemas com o desempenho da consulta
+        - name: Solucionar problemas de desempenho de consulta
           href: troubleshoot-query-performance.md
         - name: Solucionar problemas de SDK do Java Assíncrono
           href: troubleshoot-java-async-sdk.md
@@ -982,6 +984,8 @@
       items:
         - name: Monitorar Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Monitorar com logs de diagnóstico
+          href: cosmosdb-monitor-resource-logs.md
         - name: Azure Monitor para Cosmos (versão prévia)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: Exibir métricas da conta do Cosmos DB

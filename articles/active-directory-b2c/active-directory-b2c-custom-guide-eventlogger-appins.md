@@ -1,7 +1,7 @@
 ---
 title: Acompanhar o comportamento do usuário com Application Insights
 titleSuffix: Azure AD B2C
-description: Saiba como ativar os logs de eventos no Application Insights a partir de jornadas do usuário do Azure AD B2C usando políticas personalizadas (visualização).
+description: Saiba como habilitar logs de eventos em Application Insights de Azure AD B2C percursos do usuário usando políticas personalizadas.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8376deecb5e184c01b41495b868b57bd8fd745d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367953"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Rastrear o comportamento do usuário no Azure Active Directory B2C usando o Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Ao usar o Azure Active Directory B2C (Azure AD B2C) junto com o Aplicativo Azure insights, você pode obter logs de eventos detalhados e personalizados para os percursos do usuário. Neste artigo, você aprenderá a:
+Ao usar o Azure Active Directory B2C (Azure AD B2C) junto com o Aplicativo Azure insights, você pode obter logs de eventos detalhados e personalizados para os percursos do usuário. Neste artigo, você aprenderá como:
 
 * Obter insights sobre o comportamento do usuário.
 * Solucionar problemas de suas próprias políticas em desenvolvimento ou em produção.
@@ -33,7 +33,7 @@ Ao usar o Azure Active Directory B2C (Azure AD B2C) junto com o Aplicativo Azure
 
 A estrutura de experiência de identidade no Azure AD B2C inclui o provedor `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Ele envia dados de eventos diretamente para o Application Insights usando a chave de instrumentação fornecida para o Azure Active Directory B2C.
 
-Um perfil técnico usa esse provedor para definir um evento do Azure AD B2C. O perfil especifica o nome do evento, as reivindicações registradas e a chave de instrumentação. Para postar um evento, o perfil técnico é então adicionado como `orchestration step` ou como `validation technical profile` em uma jornada de usuário personalizada.
+Um perfil técnico usa esse provedor para definir um evento do Azure AD B2C. O perfil especifica o nome do evento, as reivindicações registradas e a chave de instrumentação. Para postar um evento, o perfil técnico é adicionado como um `orchestration step` em uma jornada do usuário personalizado.
 
 O Application Insights pode unificar os eventos usando uma ID de correlação para registrar uma sessão do usuário. O Application Insights disponibiliza o evento e a sessão em segundos e apresenta muitas ferramentas analíticas, de exportação e visualização.
 

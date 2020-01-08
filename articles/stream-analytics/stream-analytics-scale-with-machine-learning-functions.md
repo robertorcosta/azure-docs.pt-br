@@ -1,19 +1,18 @@
 ---
 title: Dimensionar funções de Machine Learning no Azure Stream Analytics
 description: Este artigo descreve como dimensionar trabalhos do Stream Analytics que usam funções de Machine Learning, configurando as unidades de particionamento e transmissão.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458739"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Dimensionar seu trabalho de Stream Analytics com funções Azure Machine Learning Studio (clássicas)
 
@@ -90,11 +89,11 @@ Com a segunda opção, você precisará provisionar mais SUs para ter mais solic
 
 Vamos examinar o dimensionamento usando as seguintes medidas de latência para cada tamanho de lote:
 
-| Latency | Tamanho do lote |
+| Latência | Tamanho do lote |
 | --- | --- |
-| 200 MS | 1000-lotes de eventos ou abaixo |
-| 250 MS | 5\.000-lotes de eventos |
-| 300 MS | 10.000-lotes de eventos |
+| 200 ms | 1000-lotes de eventos ou abaixo |
+| 250 ms | 5\.000-lotes de eventos |
+| 300 ms | 10.000-lotes de eventos |
 | 500 ms | 25.000-lotes de eventos |
 
 1. Usando a primeira opção (**não** Provisionando mais SUs). O tamanho do lote pode ser aumentado para **25.000**. O aumento do tamanho do lote dessa maneira permitirá que o trabalho processe eventos 1 milhão com 20 conexões simultâneas com o serviço Web Machine Learning (com uma latência de 500 MS por chamada). Portanto, a latência adicional do trabalho do Stream Analytics causada pelas solicitações de função de sentimento aumentaria de **200 ms** para **500 ms** em comparação com as solicitações de serviço Web do Machine Learning. No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, pois os serviços web do Machine Learning exigem que o tamanho da carga de uma solicitação seja de 4 MB ou menor, e o tempo limite das solicitações de serviço web após 100 segundos de operação.
@@ -104,12 +103,12 @@ Veja abaixo uma tabela sobre a produtividade do trabalho do Stream Analytics par
 
 | tamanho do lote (latência de AM) | 500 (200 ms) | 1\.000 (200 ms) | 5\.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 SU** |2\.500 |5\.000 |20.000 |30.000 |50.000 |
-| **3 SUs** |2\.500 |5\.000 |20.000 |30.000 |50.000 |
-| **6 SUs** |2\.500 |5\.000 |20.000 |30.000 |50.000 |
-| **12 SUs** |5\.000 |10.000 |40.000 |60.000 |100.000 |
-| **18 SUs** |7\.500 |15.000 |60.000 |90.000 |150.000 |
-| **24 SUs** |10.000 |20.000 |80.000 |120.000 |200.000 |
+| **1 SU** |2\.500 |5\.000 |20,000 |30,000 |50.000 |
+| **3 SUs** |2\.500 |5\.000 |20,000 |30,000 |50.000 |
+| **6 SUs** |2\.500 |5\.000 |20,000 |30,000 |50.000 |
+| **12 SUs** |5\.000 |10.000 |40.000 |60.000 |100 mil |
+| **18 SUs** |7\.500 |15,000 |60.000 |90.000 |150.000 |
+| **24 SUs** |10.000 |20,000 |80.000 |120.000 |200.000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25.000 |50.000 |200.000 |300.000 |500.000 |
 
@@ -140,7 +139,7 @@ Para dimensionar um trabalho de Stream Analytics com funções Machine Learning,
 
 Uma consulta do Stream Analytics totalmente particionada foi usada como exemplo. Se uma consulta mais complexa for necessária, o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) é um excelente recurso para obter ajuda adicional da equipe do Stream Analytics.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre o Stream Analytics, confira:
 
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

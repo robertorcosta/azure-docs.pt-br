@@ -4,23 +4,53 @@
   items:
     - name: O que é o Reconhecimento de Formulários?
       href: overview.md
-- name: Guia de início rápido
+    - name: Novidades
+      href: whats-new.md
+- name: Inícios rápidos
   expaned: true
   items:
+    - name: Como usar a ferramenta de rotulagem de exemplo
+      items:
+        - name: Treinar modelo personalizado com rótulos
+          href: quickstarts/label-tool.md
     - name: Usando a API REST
       items:
-        - name: Treinar o modelo personalizado e extrair dados
+        - name: Treinar e usar modelo personalizado sem rótulos
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: Treinar e usar modelo personalizado com rótulos
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: Usar modelo de recebimento predefinido
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: Obter informações de layout de texto
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: Usar o .NET SDK
       href: quickstarts/dotnet-sdk.md
 - name: Tutoriais
@@ -43,8 +73,10 @@
           href: deploy-form-recognizer-on-container-instances.md
 - name: Referência
   items:
-    - name: API de Reconhecimento de Formulários
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: API de Reconhecimento de Formulários v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: API de Reconhecimento de Formulários v1.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDKs
       items:
         - name: .NET

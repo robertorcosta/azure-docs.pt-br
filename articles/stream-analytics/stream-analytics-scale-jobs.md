@@ -1,20 +1,18 @@
 ---
 title: Escalar verticalmente e escalar horizontalmente os trabalhos do Azure Stream Analytics
 description: Este artigo descreve como dimensionar um trabalho do Stream Analytics particionando dados de entrada, ajustando a consulta e definindo unidades de streaming de trabalho.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4f89fb07fbbff3beee66f80675bb5c3a32136807
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621724"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458765"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho do Azure Stream Analytics para aumentar a taxa de transferência
 Este artigo explica como você pode ajustar a consulta do Stream Analytics para aumentar a produtividade para os trabalhos do Streaming Analytics. Você pode usar o guia a seguir para dimensionar seu trabalho a fim de lidar com uma carga maior e aproveitar mais recursos do sistema (como maior largura de banda, mais recursos de CPU, mais memória).
@@ -34,7 +32,7 @@ Se sua consulta é inerentemente totalmente paralelizável entre partições de 
 4.  Depois de determinar os limites do que um job de 6 SU pode alcançar, é possível extrapolar linearmente a capacidade de processamento do job à medida que você adiciona mais SUs, supondo que você não tenha distorções de dados que tornem certa partição "quente".
 
 > [!NOTE]
-> Escolha o número certo de Unidades de Streaming: Como o Stream Analytics cria um nó de processamento para cada 6 SU adicionadas, é melhor ter um número de nós que seja divisor do número de partições de entrada, para que as partições possam ser distribuídas uniformemente entre os nós.
+> Escolha o número correto de Unidades de Streaming: como o Stream Analytics cria um nó de processamento para cada 6 SU adicionadas, é melhor ter um número de nós que seja divisor do número de partições de entrada, para que as partições possam ser distribuídas uniformemente entre os nós.
 > Por exemplo, você mediu que seu trabalho com 6 UA pode alcançar a taxa de processamento de 4 MB/s, e a contagem de partições de entrada é 4. Você pode optar por executar o trabalho com 12 UA para alcançar a taxa de processamento de aproximadamente 8 MB/s ou 24 UA para alcançar 16 MB/s. Em seguida, você pode decidir quando aumentar o número de UA para o trabalho e em qual valor como função da sua taxa de entrada.
 
 
@@ -79,10 +77,10 @@ Para determinados casos de uso de ISV, em que é mais eficiente processar dados 
 
 
 
-## <a name="get-help"></a>Obter ajuda
+## <a name="get-help"></a>Obtenha ajuda
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

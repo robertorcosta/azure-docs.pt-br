@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561883"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444838"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 |---|---|
 |**Baixe o SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Documentação da API**|[Documentação de referência de API Java](/java/api/com.microsoft.azure.documentdb)|
-|**Contribuir para o SDK**|[Github](https://github.com/Azure/azure-documentdb-java/)|
+|**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introdução**|[Introdução ao SDK do Java](sql-api-java-get-started.md)|
 |**Tutorial do aplicativo Web**|[Desenvolvimento de aplicativos Web com o Azure Cosmos DB](sql-api-java-application.md)|
 |**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
@@ -48,6 +48,7 @@ O Java SDK da API do SQL dá suporte a operações síncronas. Para obter suport
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Atualizações otimizadas do cache do intervalo de chaves de partição.
+* Corrige o cenário em que o SDK não tem a relação de divisão da partição do servidor e resulta na atualização incorreta de caches de roteamento do lado do cliente.
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
 * Atualizações otimizadas do cache de coleta.
@@ -253,7 +254,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 <br/>
 
-| Versão | Data do lançamento | Data de desativação |
+| Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |13 de março de 2018 |--- |
 | [2.1.2](#2.1.2) |09 de março de 2018 |--- |
@@ -262,7 +263,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | [2.0.0](#2.0.0) |21 de setembro de 2018 |--- |
 | [1.16.4](#1.16.4) |10 de setembro de 2018 |30 de maio de 2020 |
 | [1.16.3](#1.16.3) |9 de setembro de 2018 |30 de maio de 2020 |
-| [1.16.2](#1.16.2) |Junho de 29, 2018 |30 de maio de 2020 |
+| [1.16.2](#1.16.2) |29 de junho de 2018 |30 de maio de 2020 |
 | [1.16.1](#1.16.1) |16 de maio de 2018 |30 de maio de 2020 |
 | [1.16.0](#1.16.0) |15 de março de 2018 |30 de maio de 2020 |
 | [1.15.0](#1.15.0) |14 de novembro de 2017 |30 de maio de 2020 |
@@ -298,9 +299,9 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | 0.9.1-prelease |19 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.0-prelease |10 de dezembro de 2014 |29 de fevereiro de 2016 |
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

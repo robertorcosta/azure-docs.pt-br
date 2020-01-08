@@ -1,25 +1,14 @@
 ---
-title: Exibir logs de contêineres no Azure Service Fabric | Microsoft Docs
+title: Exibir logs de contêineres no Azure Service Fabric
 description: Descreve como exibir os logs de contêineres para serviços de contêiner do Service Fabric em execução usando o Service Fabric Explorer.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458190"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Exibir logs para um serviço de contêiner do Service Fabric
 O Microsoft Azure Service Fabric é um orquestrador de contêineres e dá suporte a [contêineres de Linux e Windows](service-fabric-containers-overview.md).  Este artigo descreve como exibir logs de contêiner de um serviço de contêiner em execução ou contêiner inativo para que você possa diagnosticar e solucionar problemas.
@@ -29,7 +18,7 @@ Logs de contêiner podem ser acessados usando [Service Fabric Explorer](service-
 
 Logs de contêiner estão localizados no nó de cluster que está executando a instância de serviço de contêiner. Por exemplo, obtenha os logs do contêiner do front-end da Web do [aplicativo de exemplo do Linux Voting](service-fabric-quickstart-containers-linux.md). No modo de exibição de árvore, expanda **Cluster**>**Aplicativos**>**VotingType**>**fabric:/Voting/azurevotefront**.  Em seguida, expanda a partição (d1aa737e-f22a-e347-be16-eec90be24bc1, neste exemplo) e veja que o contêiner está em execução no nó de cluster *_lnxvm_0*.
 
-No modo de exibição de árvore, localize o pacote de código no nó *_lnxvm_0* expandindo **Nós**> **_lnxvm_0**>**fabric:/Voting** > **azurevotfrontPkg**>**Pacotes de códigos**>**código**.  Selecione a opção **Logs do Contêiner** para exibir os logs do contêiner.
+No modo de exibição de árvore, localize o pacote de código no nó *_lnxvm_0* expandindo **Nós**> **_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Pacotes de códigos**>**código**.  Selecione a opção **Logs do Contêiner** para exibir os logs do contêiner.
 
 ![Plataforma Service Fabric][Image1]
 
@@ -44,7 +33,7 @@ Para ajudar a diagnosticar as falhas de inicialização do contêiner, o Service
 
 A configuração **ContainersRetentionCount** especifica o número de contêineres mantidos quando ocorre uma falha. Se um valor negativo for especificado, todos os contêineres com falha serão mantidos. Quando o atributo **ContainersRetentionCount** não for especificado, nenhum contêiner será retido. O atributo **ContainersRetentionCount** também oferece suporte a Parâmetros de Aplicativo para que os usuários possam especificar valores diferentes para clusters de teste e produção. Use restrições de posicionamento para direcionar o serviço de contêiner para um determinado nó quando esses recursos forem usados com a finalidade de impedir que o serviço de contêiner se mova para outros nós. Todos os contêineres retidos usando esse recurso devem ser removidos manualmente.
 
-A configuração **RunInteractive** corresponde aos `--interactive`sinalizadores`tty` [ e ](https://docs.docker.com/engine/reference/commandline/run/#options) do Docker. Quando essa configuração é definida como verdadeira no arquivo de manifesto, esses sinalizadores são usados para iniciar o contêiner.  
+A configuração **RunInteractive** corresponde aos [sinalizadores](https://docs.docker.com/engine/reference/commandline/run/#options)de `--interactive` e `tty` do Docker. Quando essa configuração é definida como verdadeira no arquivo de manifesto, esses sinalizadores são usados para iniciar o contêiner.  
 
 ### <a name="rest"></a>REST
 Use a operação [Obter Logs de Contêiner Implantados no Nó](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) para obter os logs para um contêiner de falha. Especifique o nome do contêiner em execução no nó, nome do aplicativo, nome do manifesto de serviço e o nome do pacote de código.  Especifique `&Previous=true`. A resposta conterá os logs do contêiner para o contêiner inativo da instância do pacote de código.
@@ -76,7 +65,7 @@ Resposta:
 {   "content": "Exception encountered: System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).\r\n\tat System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()\r\n" }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Navegue pelo [tutorial Criar um aplicativo de contêiner do Linux](service-fabric-tutorial-create-container-images.md).
 - Saiba mais sobre o [Service Fabric e contêineres](service-fabric-containers-overview.md)
 

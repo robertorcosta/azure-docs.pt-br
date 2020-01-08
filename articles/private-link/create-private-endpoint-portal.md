@@ -2,17 +2,17 @@
 title: Início rápido – Gerenciar pontos de extremidade privados no Azure
 description: Saiba como criar um ponto de extremidade privado usando o portal do Azure neste Início rápido
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459939"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
@@ -20,9 +20,6 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-
-> [!NOTE]
-> Os pontos de extremidade privados não são permitidos em conjunto com pontos de extremidade de serviço na mesma sub-rede!
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -41,7 +38,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM us
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *MyVirtualNetwork*. |
+    | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
@@ -144,7 +141,7 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
-    | NOME | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
+    | Nome | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **WestCentralUS**.|
     |||
 5. Selecione **Avançar: Recurso**.
@@ -167,7 +164,7 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | Rede virtual| Selecione *MyVirtualNetwork*. |
     | Sub-rede | Selecione  *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
-    |Integrar com a zona DNS privado |Selecione **Sim**. |
+    |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. |
     |Zona DNS privado |Selecione *(New)privatelink.database.windows.net* |
     |||
 
@@ -225,14 +222,14 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     | Nome do servidor| Selecione *myserver.database.windows.net* |
     | Nome de usuário | Insira o nome de usuário como username@servername, que é fornecido durante a criação do SQL Server. |
     |Senha |Insira uma senha fornecida durante a criação do SQL Server. |
-    |Lembrar senha|Selecione **Sim**.|
+    |Lembrar senha|Selecione **Sim** na barra superior.|
     |||
 1. Selecione **Conectar**.
 2. Procurar bancos de dados no menu à esquerda.
 3. (Opcionalmente) Crie ou consulte informações no mydatabase.
 4. Feche a Conexão de Área de Trabalho Remota para  *myVm*. 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
 2. Selecione **Excluir grupo de recursos**. 

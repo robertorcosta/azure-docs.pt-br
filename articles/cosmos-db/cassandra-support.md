@@ -1,5 +1,5 @@
 ---
-title: Recursos do Apache Cassandra e comandos compatíveis com a API do Cassandra do Azure Cosmos DB
+title: Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB
 description: Saiba mais sobre o suporte a recursos do Apache Cassandra na API do Cassandra do Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445634"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 
@@ -42,25 +42,25 @@ As seguintes versões de drivers Cassandra são compatíveis com a API do Cassan
 A API do Cassandra do Azure Cosmos DB é compatível com os seguintes tipos de dados do CQL:
 
 * ascii  
-* bigint  
+* BIGINT  
 * blob  
 * booleano  
 * contador  
 * date  
 * decimal  
 * double  
-* flutuante  
+* FLOAT  
 * frozen  
 * inet  
-* int  
+* INT  
 * list  
 * set  
-* smallint  
+* SMALLINT  
 * text  
 * time  
 * timestamp  
 * timeuuid  
-* tinyint  
+* TINYINT  
 * tuple  
 * uuid  
 * varchar  
@@ -73,7 +73,7 @@ A API do Cassandra do Azure Cosmos DB é compatível com os seguintes tipos de d
 
 A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções do CQL:
 
-* A criptografia do token  
+* Token  
 * Funções de agregação
   * mín., máx., média, contagem
 * Funções de conversão de blob 
@@ -148,10 +148,10 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 * ALTER TABLE 
 * USE 
 * INSERT 
-* SELECIONAR 
+* SELECT 
 * UPDATE 
 * BATCH – Somente comandos não registrados são compatíveis 
-* EXCLUIR
+* Delete (excluir)
 
 Todas as operações CRUD que são executadas por meio de um SDK compatível com CQL v4, retornarão informações adicionais sobre erros e unidades de solicitação consumidas. Os comandos DELETE e UPDATE devem ser tratados com a governança de recursos levada em consideração para garantir o uso mais eficiente da taxa de transferência provisionada.
 
