@@ -1,25 +1,14 @@
 ---
-title: 'Segurança de cluster do Service Fabric: funções de cliente | Microsoft Docs'
+title: 'Segurança de Cluster Service Fabric: funções de cliente'
 description: Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: coreysa
-editor: ''
-ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 38656d286cae631cb5def0e0c8b171268e4cf428
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: abca19e686d39338fcaa2e0b0c8126913135170b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167261"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451893"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Controle de acesso baseado em função para clientes do Service Fabric
 O Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.  
@@ -52,9 +41,9 @@ O tipo de controle de acesso de administrador tem acesso total a todas as APIs F
 * **RecoverSystemPartitions**: recuperar partições de serviço do sistema                             
 
 ### <a name="cluster-operations"></a>Operações de cluster
-* **ProvisionFabric**: MSI e/ou provisionamento de manifesto de cluster                             
+* **ProvisionFabric**: MSI e/ou provisionamento de manifesto do cluster                             
 * **UpgradeFabric**: inicialização de atualizações de cluster                             
-* **UnprovisionFabric**: MSI e/ou desprovisionamento do manifesto do cluster                         
+* **UnprovisionFabric**: MSI e/ou desprovisionamento de manifesto do cluster                         
 * **MoveNextFabricUpgradeDomain**: retomar as atualizações de cluster com um domínio de atualização explícito                             
 * **ReportFabricUpgradeHealth**: retomar as atualizações de cluster com o progresso de atualização atual                             
 * **StartInfrastructureTask**: iniciar tarefas de infraestrutura                             
@@ -102,7 +91,7 @@ O Controle de Acesso de administrador também tem acesso às operações anterio
 ## <a name="changing-default-settings-for-client-roles"></a>Alterando as configurações padrão para funções do cliente
 No arquivo de manifesto do cluster,você pode fornecer recursos de administração ao cliente, se for necessário. Você pode alterar os padrões ao acessar a opção **Configurações da Malha** durante a [criação do cluster](service-fabric-cluster-creation-via-portal.md) e fornecer as configurações anteriores nos campos **nome**, **administrador**, **usuário** e **valor**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
 
 [Criação de cluster do Service Fabric](service-fabric-cluster-creation-via-portal.md)

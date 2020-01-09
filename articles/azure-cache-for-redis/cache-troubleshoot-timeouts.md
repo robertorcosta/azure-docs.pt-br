@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de cache do Azure para tempos limite do Redis
-description: Saiba como resolver problemas comuns de tempo limite com o cache do Azure para Redis
+description: Saiba como resolver problemas comuns de tempo limite com o cache do Azure para Redis, como a aplicação de patches do Redis Server e as exceções de tempo limite de StackExchange. Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412082"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solucionar problemas de cache do Azure para tempos limite do Redis
 
@@ -83,7 +83,7 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
 1. Há comandos que levam muito tempo para serem processados no servidor? Comandos de longa execução que estão demorando muito tempo para serem processados no servidor Redis podem causar tempos limite. Para obter mais informações sobre comandos de longa execução, consulte [comandos de longa execução](cache-troubleshoot-server.md#long-running-commands). Você pode se conectar ao cache do Azure para a instância do Redis usando o cliente Redis-CLI ou o [console do Redis](cache-configure.md#redis-console). Em seguida, execute o comando [SLOWLOG](https://redis.io/commands/slowlog) para ver se há solicitações mais lentas do que o esperado. O Servidor do Redis e o StackExchange.Redis são otimizados para várias solicitações pequenas, em vez de menos solicitações grandes. Dividir os dados em partes menores pode melhorar as coisa.
 
     Para obter informações sobre como se conectar ao ponto de extremidade SSL do seu cache usando Redis-CLI e stunnel, consulte a postagem do blog [anunciando o provedor de estado de sessão do ASP.net para a versão de visualização do Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
-1. Uma carga alta no servidor Redis pode resultar em tempos limite. Você pode monitorar a carga do servidor monitorando a `Redis Server Load`métrica de desempenho de cache[ ](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor Redis está ocupado, sem tempo ocioso, processando de solicitações. Para ver se determinadas solicitações estão consumindo toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, confira Alto nível de uso da CPU/carga de servidor.
+1. Uma carga alta no servidor Redis pode resultar em tempos limite. Você pode monitorar a carga do servidor monitorando a [métrica de desempenho `Redis Server Load` cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor Redis está ocupado, sem tempo ocioso, processando de solicitações. Para ver se determinadas solicitações estão consumindo toda a capacidade do servidor, execute o comando SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, confira Alto nível de uso da CPU/carga de servidor.
 1. Houve qualquer outro evento no lado do cliente que possa ter causado um problema na rede? Os eventos comuns incluem: dimensionamento do número de instâncias do cliente para cima ou para baixo, implantação de uma nova versão do cliente ou dimensionamento automático habilitado. Em nossos testes, descobrimos que o dimensionamento automático ou o dimensionamento/redução podem fazer com que a conectividade de rede de saída seja perdida por vários segundos. O código do StackExchange.Redis é resiliente a tais eventos e se reconectará. Durante a reconexão, qualquer solicitação na fila pode atingir o tempo limite.
 1. Houve uma grande solicitação antes de várias pequenas solicitações ao cache que atingiram o tempo limite? O parâmetro `qs` na mensagem de erro informa quantas solicitações foram enviadas do cliente para o servidor, mas não processaram uma resposta. Esse valor pode continuar crescendo porque o StackExchange.Redis usa uma única conexão TCP e só pode ler uma resposta por vez. Embora a primeira operação tenha expirado, ela não impede que mais dados sejam enviados de ou para o servidor. Outras solicitações serão bloqueadas até que a solicitação grande seja concluída e possa causar tempos limite. Uma solução é minimizar a chance de tempos limite, garantindo que o cache seja grande o suficiente para sua carga de trabalho e dividindo valores grandes em partes menores. Outra solução possível é usar um pool de objetos `ConnectionMultiplexer` no seu cliente e escolher o `ConnectionMultiplexer` menos carregado ao enviar uma nova solicitação. O carregamento em vários objetos de conexão deve impedir que um tempo limite único faça com que outras solicitações também expirem o tempo limite.
 1. Se você estiver usando `RedisSessionStateProvider`, verifique se você definiu o tempo limite de repetição corretamente. `retryTimeoutInMilliseconds` deve ser maior do que `operationTimeoutInMilliseconds`; caso contrário, não há novas tentativas. No exemplo a seguir, `retryTimeoutInMilliseconds` é definido como 3000. Para obter mais informações, consulte [provedor de estado de sessão ASP.NET para Cache do Azure para Redis](cache-aspnet-session-state-provider.md) e [Como usar os parâmetros de configuração do provedor de estado de sessão e do provedor de cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
@@ -103,7 +103,7 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
       retryTimeoutInMilliseconds="3000" />
     ```
 
-1. Verifique o uso de memória no servidor do Cache do Azure para Redis [monitorando](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se uma política de remoção estiver em vigor, o Redis começará a remover chaves quando `Used_Memory` atingir o tamanho do cache. Idealmente, `Used Memory RSS` deve ser apenas um pouco maior do que `Used memory`. Uma grande diferença significa que há fragmentação de memória (interna ou externa). Quando `Used Memory RSS` é menor que `Used Memory`, significa que parte da memória cache foi trocada pelo sistema operacional. Se a troca ocorrer, você poderá esperar que haja algumas latências significativas. Como Redis não tem controle sobre como suas alocações são mapeadas para páginas de memória, o alto `Used Memory RSS` geralmente é o resultado de um pico no uso de memória. Quando o Redis Server libera memória, o alocador pega a memória, mas pode ou não fornecer a memória de volta ao sistema. Pode haver uma discrepância entre o valor de `Used Memory` e o consumo de memória, conforme relatado pelo sistema operacional. A memória pode ter sido usada e liberada por Redis, mas não foi retornada ao sistema. Para ajudar a reduzir os problemas de memória, você pode executar as seguintes etapas:
+1. Verifique o uso de memória no cache do Azure para Redis Server [monitorando](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se uma política de remoção estiver em vigor, o Redis começará a remover chaves quando `Used_Memory` atingir o tamanho do cache. Idealmente, `Used Memory RSS` deve ser apenas um pouco maior do que `Used memory`. Uma grande diferença significa que há fragmentação de memória (interna ou externa). Quando `Used Memory RSS` é menor que `Used Memory`, significa que parte da memória cache foi trocada pelo sistema operacional. Se a troca ocorrer, você poderá esperar que haja algumas latências significativas. Como Redis não tem controle sobre como suas alocações são mapeadas para páginas de memória, o alto `Used Memory RSS` geralmente é o resultado de um pico no uso de memória. Quando o Redis Server libera memória, o alocador pega a memória, mas pode ou não fornecer a memória de volta ao sistema. Pode haver uma discrepância entre o valor de `Used Memory` e o consumo de memória, conforme relatado pelo sistema operacional. A memória pode ter sido usada e liberada por Redis, mas não foi retornada ao sistema. Para ajudar a reduzir os problemas de memória, você pode executar as seguintes etapas:
 
    - Atualize o cache para um tamanho maior para que você não esteja executando em limitações de memória no sistema.
    - Definir tempos de expiração das chaves para que valores mais antigos sejam removidos de forma proativa.
@@ -113,7 +113,7 @@ Você pode usar as etapas a seguir para investigar possíveis causas raiz.
 
 ## <a name="additional-information"></a>Informações adicionais
 
-- [Solucionar problemas do lado do cliente do cache do Azure para Redis](cache-troubleshoot-client.md)
-- [Solucionar problemas do servidor de cache do Azure para Redis](cache-troubleshoot-server.md)
+- [Solucionar problemas no lado do cliente do Cache do Azure para Redis](cache-troubleshoot-client.md)
+- [Solucionar problemas no lado do servidor do Cache do Azure para Redis](cache-troubleshoot-server.md)
 - [Como medir e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Como monitorar o Cache do Azure para Redis](cache-how-to-monitor.md)

@@ -6,23 +6,34 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954449"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495379"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
 Este artigo descreve como habilitar replicação de VMs VMware locais no Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="resolve-common-issues"></a>Resolver problemas comuns
+
+* Cada disco deve ter menos de 4 TB.
+* O disco do sistema operacional deve ser um disco básico, não um disco dinâmico.
+* Para máquinas virtuais habilitadas para geração 2/UEFI, a família do sistema operacional deve ser Windows e o disco de inicialização deve ter menos de 300 GB.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo supõe que você:
 
 - [Configure seu ambiente de origem local](vmware-azure-set-up-source.md).
 - [Configure seu ambiente de destino no Azure](vmware-azure-set-up-target.md).
+- [Verifique os requisitos e os pré-requisitos](vmware-physical-azure-support-matrix.md) antes de começar. As coisas importantes a serem observadas incluem:
+    - [Sistemas operacionais com suporte](vmware-physical-azure-support-matrix.md#replicated-machines) para computadores replicados.
+    - Suporte a [armazenamento/disco](vmware-physical-azure-support-matrix.md#storage) .
+    - [Requisitos do Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements) com os quais os computadores locais devem estar em conformidade.
+
 
 ## <a name="before-you-start"></a>Antes de começar
 Quando você estiver replicando máquinas virtuais VMware, lembre-se destas informações:
@@ -123,13 +134,9 @@ Os clientes do Microsoft Software Assurance podem usar Benefício Híbrido do Az
 
 Saiba mais sobre o [Benefício Híbrido do Azure](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## <a name="resolve-common-issues"></a>Resolver problemas comuns
 
-* Cada disco deve ter menos de 4 TB.
-* O disco do sistema operacional deve ser um disco básico, não um disco dinâmico.
-* Para máquinas virtuais habilitadas para geração 2/UEFI, a família do sistema operacional deve ser Windows e o disco de inicialização deve ter menos de 300 GB.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois que a máquina virtual atingir um estado protegido, tente um [failover](site-recovery-failover.md) para verificar se seu aplicativo aparece no Azure.
 

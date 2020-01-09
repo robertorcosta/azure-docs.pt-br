@@ -1,24 +1,20 @@
 ---
-title: Permissões no Assistente do Azure
-description: Permissões de Supervisor e como eles podem bloquear sua capacidade de configurar assinaturas ou adiar ou ignorar as recomendações.
-services: advisor
-author: kasparks
-ms.service: advisor
+title: Permissões no Azure Advisor
+description: As permissões do Advisor e como elas podem bloquear sua capacidade de configurar assinaturas ou adiar ou ignorar recomendações.
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
-ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422311"
 ---
-# <a name="permissions-in-azure-advisor"></a>Permissões no Assistente do Azure
+# <a name="permissions-in-azure-advisor"></a>Permissões no Azure Advisor
 
-O Azure Advisor fornece recomendações com base no uso e da configuração de seus recursos do Azure e assinaturas. Supervisor usa o [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) fornecidas pelo [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) para gerenciar o acesso aos recursos do orientador e recomendações. 
+O Azure Advisor fornece recomendações com base no uso e na configuração de seus recursos e assinaturas do Azure. O Advisor usa as [funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) fornecidas pelo RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) ) para gerenciar seu acesso a recomendações e recursos do Advisor. 
 
-## <a name="roles-and-their-access"></a>Funções e o acesso
+## <a name="roles-and-their-access"></a>Funções e seu acesso
 
 A tabela a seguir define as funções e o acesso que eles têm no Advisor:
 
@@ -35,23 +31,23 @@ A tabela a seguir define as funções e o acesso que eles têm no Advisor:
 |Leitor de recursos|**X**|--|--|--|--|
 
 > [!NOTE]
-> Acesso para exibir as recomendações é dependente de seu acesso ao recurso de afetado da recomendação.
+> O acesso para exibir recomendações depende de seu acesso ao recurso afetado da recomendação.
 
-## <a name="permissions-and-unavailable-actions"></a>Permissões e ações disponíveis
+## <a name="permissions-and-unavailable-actions"></a>Permissões e ações não disponíveis
 
-Falta de permissões adequadas pode bloquear sua capacidade de executar ações no Advisor. A seguir estão alguns problemas comuns.
+A falta de permissões adequadas pode bloquear sua capacidade de executar ações no Advisor. A seguir estão alguns problemas comuns.
 
 ### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Não é possível configurar assinaturas ou grupos de recursos
 
-Quando você tenta configurar assinaturas ou grupos de recursos no assistente, você poderá ver que a opção para incluir ou excluir está desabilitada. Este status indica que você não tem um nível suficiente de permissão para esse grupo de recursos ou assinatura. Para resolver esse problema, saiba como [conceder acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Ao tentar configurar assinaturas ou grupos de recursos no Advisor, você pode ver que a opção para incluir ou excluir está desabilitada. Esse status indica que você não tem um nível suficiente de permissão para esse grupo de recursos ou assinatura. Para resolver esse problema, saiba como [conceder acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Não é possível adiar ou ignorar uma recomendação
 
-Se você receber um erro ao tentar adiar ou ignorar uma recomendação, você pode não ter permissões suficientes. Certifique-se de que você tenha pelo menos acesso de Colaborador para o recurso afetado da recomendação estiver adiar ou ignorar. Para resolver esse problema, saiba como [conceder acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Se você receber um erro ao tentar adiar ou descartar uma recomendação, talvez você não tenha permissões suficientes. Verifique se você tem pelo menos acesso de colaborador ao recurso afetado da recomendação que você está adiando ou descartando. Para resolver esse problema, saiba como [conceder acesso de usuário](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Este artigo forneceu uma visão geral de como o Supervisor usa o RBAC para controlar as permissões de usuário e como resolver problemas comuns. Para saber mais sobre o Assistente, consulte:
+Este artigo deu uma visão geral de como o Advisor usa o RBAC para controlar as permissões de usuário e como resolver problemas comuns. Para saber mais sobre o Assistente, consulte:
 
 - [O que é Azure Advisor?](https://docs.microsoft.com/azure/advisor/advisor-overview)
 - [Introdução ao Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

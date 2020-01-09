@@ -3,17 +3,17 @@ title: Instalar e usar o Azure IoT Explorer | Microsoft Docs
 description: Instale a ferramenta do Azure IoT Explorer e use-a para interagir com os dispositivos de visualização de Plug and Play de IoT conectados ao meu Hub IoT.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679861"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529619"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
@@ -28,7 +28,7 @@ Este artigo mostra como:
 
 Para usar a ferramenta do Azure IoT Explorer, você precisa de:
 
-- Um hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [a criação de um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar a ferramenta do Azure IoT Explorer. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Um Hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [a criação de um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar a ferramenta do Azure IoT Explorer. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo. Certifique-se de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos seus valores:
 
     ```azurecli-interactive

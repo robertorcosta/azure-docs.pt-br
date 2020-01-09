@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084155"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495432"
 ---
-# <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
+# <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns - sobre a replicação do VMware para Azure
 
 Este artigo responde a perguntas comuns que podem surgir ao implantar a recuperação de desastre de VMs (máquinas virtuais) VMware locais no Azure.
 
@@ -103,7 +103,7 @@ Em cada VM que você deseja replicar, instale o serviço por um dos vários mét
 - [Instalação manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) da interface do usuário ou do PowerShell
 - Implantação usando uma ferramenta de implantação como o [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Discos gerenciados
+## <a name="managed-disks"></a>Managed Disks
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Para onde Site Recovery replicar dados?
 
@@ -169,14 +169,14 @@ Discos dinâmicos podem ser replicados. O disco do sistema operacional deve ser 
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se eu usar grupos de replicação para consistência de várias VMs, posso adicionar uma nova VM a um grupo de replicação existente?
 
-Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Porém
+Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Porém:
 
 - Você não pode adicionar uma VM a um grupo de replicação existente após o início da replicação.
 - Você não pode criar um grupo de replicação para VMs existentes.
 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Posso modificar as VMs que estão replicando adicionando ou redimensionando discos?
 
-Para a replicação do VMware no Azure, você pode modificar o tamanho do disco. Se você quiser adicionar novos discos, deverá adicionar o disco e reabilitar a proteção para a VM.
+Para a replicação do VMware para o Azure, você pode modificar o tamanho do disco das VMs de origem. Se você quiser adicionar novos discos, deverá adicionar o disco e reabilitar a proteção para a VM.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Posso migrar computadores locais para um novo vCenter Server sem afetar a replicação em andamento?
 
@@ -344,9 +344,6 @@ Sim. Se você fez failover no Azure, poderá fazer failback para um local difere
 
 Quando você realiza o failback do Azure, os dados do Azure são copiados de volta para sua VM local e o acesso privado é necessário.
 
-### <a name="can-i-resize-the-azure-vm-after-failover"></a>Eu posso redimensionar a VM do Azure após failover?
-
-Não, você não pode alterar o tamanho ou o tipo da VM de destino após o failover.
 
 ## <a name="automation-and-scripting"></a>Automação e scripts
 
@@ -360,7 +357,7 @@ Sim. Você pode automatizar fluxos de trabalho de Site Recovery usando a API RES
 
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Analisar](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 - [Configurar](vmware-azure-tutorial.md) replicação de VMware para o Azure.

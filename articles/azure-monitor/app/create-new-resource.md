@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689207"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432625"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -28,7 +28,7 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
 ![Clique no sinal ' + ' no canto superior esquerdo. Selecionar Ferramentas para Desenvolvedores seguido por Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Configurações        |  Value           | Descrição  |
+   | Configurações        |  Valor           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |

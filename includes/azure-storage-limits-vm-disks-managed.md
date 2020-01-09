@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "67171913"
 ---
 **HDD Standard Managed disks** [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "67171913"
 
 **SSD Premium discos gerenciados: limites por VM**
 
-| Recurso | Limite padrão |
+| Grupos | Limite padrão |
 | --- | --- |
 | IOPS máximo por VM |80.000 IOPS com VM GS5 |
 | Taxa de transferência máxima por VM |2\.000 MB/s com VM GS5 |

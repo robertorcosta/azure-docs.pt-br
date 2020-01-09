@@ -4,15 +4,15 @@ description: Com o Azure Monitor, você pode usar a solução de verificação d
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: 7808ead7ec4191bdf17e3ab225aeaa909abd7d08
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401027"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize seu ambiente SQL com a solução de verificação de integridade SQL Server no Azure Monitor
 
@@ -34,7 +34,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de Verificação da Integridade do SQL requer uma versão do .NET Framework 4 com suporte instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.  
+* A solução de verificação de integridade do SQL requer uma versão com suporte do .NET Framework 4.6.2 instalada em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é usado pelo System Center 2016 – Operations Manager, pelo Operations Manager 2012 R2 e pelo Azure Monitor.  
 * A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
 * Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação da Integridade do SQL no Azure marketplace, no portal do Azure.  Para instalar a solução, o usuário deve ser um administrador ou colaborador na assinatura do Azure.
 
@@ -58,7 +58,7 @@ A Verificação da Integridade do SQL coleta dados das seguintes fontes usando o
 
 * WMI (Instrumentação de Gerenciamento do Windows)
 * Registro
-* contadores de desempenho
+* Contadores de desempenho
 * Resultados da exibição do gerenciamento dinâmico do SQL Server
 
 Os dados são coletados no SQL Server e encaminhados para o Log Analytics a cada sete dias.
@@ -200,7 +200,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 * A verificação é executada a cada sete dias.
 
-*Há uma maneira de configurar a frequência com a qual a verificação é executada?*
+*Existe alguma maneira de configurar a frequência de execução da verificação?*
 
 * No momento, não.
 
@@ -225,7 +225,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 * Os seguintes tipos de dados são coletados:
   * WMI
   * Registro
-  * contadores de desempenho
+  * Contadores de desempenho
   * Exibições de gerenciamento dinâmico SQL (DMV).
 
 *Há uma maneira de configurar quando os dados são coletados?*

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432530"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui estão algumas dicas.
@@ -52,7 +52,6 @@ Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui est
 * Você configurou o agente de Java seguindo [Configurar Agente de Java](java-agent.md) ?
 * Verifique se o jar do agente java e o arquivo AI-Agent.xml são colocados na mesma pasta.
 * Certifique-se de que a dependência que você está tentando coletar automaticamente tem suporte para coleta automática. No momento só há suporte para MySQL, MsSQL, Oracle DB e coleção de dependência Azure Cache para Redis.
-* Você está usando o JDK 1.7 ou 1.8? No momento não oferecemos suporte à coleção de dependência no JDK 9.
 
 ## <a name="no-usage-data"></a>Sem dados de uso
 **Vejo dados sobre solicitações e tempos de resposta, mas não há dados de exibição de página, de navegador ou de usuário.**
@@ -75,7 +74,7 @@ No código:
     config.setTrackingIsDisabled(true);
 ```
 
-**Ou**
+**Or**
 
 Atualize o arquivo ApplicationInsights.xml (na pasta de recursos em seu projeto). Adicione o seguinte sob o nó raiz:
 

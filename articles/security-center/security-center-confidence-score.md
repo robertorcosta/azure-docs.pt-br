@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558973"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355639"
 ---
-# <a name="alert-confidence-score"></a>Pontuação de confiança de alerta 
+# <a name="alert-confidence-score-preview"></a>Pontuação de confiança de alerta (visualização)
 
 A Central de Segurança do Azure fornece visibilidade dos recursos que você executa no Azure e emite alertas quando detecta possíveis problemas. Com o aumento do volume de alertas, tratar os alertas individualmente pode ser um desafio para a equipe de operações de segurança. Nesse caso, torna-se necessário priorizar quais alertas devem ser investigados. A investigação dos alertas pode ser complexa e demorada, assim, como resultado, alguns alertas podem ser ignorados.
 
-A pontuação de confiança na Central de Segurança pode ajudar a sua equipe a fazer a triagem e priorizar alertas. A Central de Segurança aplica automaticamente as práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece insights significativos na forma de uma pontuação de confiança.
+A pontuação de confiança (atualmente em visualização) na central de segurança pode ajudar sua equipe a fazer a triagem e priorizar alertas. A Central de Segurança aplica automaticamente as práticas recomendadas do setor, algoritmos inteligentes e processos usados por analistas para determinar se uma ameaça é legítima e fornece insights significativos na forma de uma pontuação de confiança.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Como a pontuação de confiança é disparada
 
@@ -53,7 +53,7 @@ Use a pontuação de confiança da Central de Segurança para priorizar a triage
 Este artigo explicou como usar a pontuação de confiança para priorizar a investigação de alertas. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)– saiba como monitorar a integridade dos recursos do Azure.
 
 
 

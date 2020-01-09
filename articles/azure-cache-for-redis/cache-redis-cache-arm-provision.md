@@ -1,18 +1,17 @@
 ---
-title: Provisionar um cache do Azure para Redis usando Azure Resource Manager
-description: Use o modelo do Azure Resource Manager para implantar um Cache Redis do Azure.
-services: app-service
+title: Implantar o cache do Azure para Redis com o Azure Resource Manager
+description: Saiba como usar um modelo de Azure Resource Manager para implantar um cache do Azure para o recurso Redis. Os modelos são fornecidos para cenários comuns.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: yegu
-ms.openlocfilehash: f215cb79adc02da857f7aa93d8933bd12c06818a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 787edf662aa3a34e167db61b0a89dfc5c2944219
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412400"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Criar um Cache Redis do Azure usando um modelo
 
@@ -22,7 +21,7 @@ Neste tópico, você aprende a criar um modelo do Azure Resource Manager que imp
 
 Atualmente, as configurações de diagnóstico são compartilhadas por todos os caches na mesma região de uma assinatura. A atualização de um cache na região afeta todos os outros caches na região.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Para saber mais sobre a sintaxe JSON e as propriedades dos tipos de recurso de cache, consulte [Tipos de recurso de Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/templates/template-syntax.md). Para saber mais sobre a sintaxe JSON e as propriedades dos tipos de recurso de cache, consulte [Tipos de recurso de Microsoft.Cache](/azure/templates/microsoft.cache/allversions).
 
 Para obter o modelo completo, consulte [Modelo do Cache Redis do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
@@ -117,8 +116,6 @@ Cria o Cache Redis do Azure.
       ]
     }
 
-
-
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -126,7 +123,5 @@ Cria o Cache Redis do Azure.
 
     New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-
-

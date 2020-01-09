@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434996"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender IoT Central do Azure com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -34,23 +34,23 @@ Para concluir as etapas neste guia de instruções, é necessário ter uma assin
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-### <a name="iot-central-application"></a>IoT Central aplicativo
+### <a name="iot-central-application"></a>Aplicativo IoT Central
 
 Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
 | Plano de Pagamento | Pós-pago |
-| Modelo de aplicativo | Exemplo Contoso |
+| Modelo de aplicativo | Aplicativo herdado |
 | Nome do aplicativo | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
 | Assinatura do Azure | Sua assinatura do Azure |
-| Região | Leste dos EUA |
+| Região | Estados Unidos |
 
-Os exemplos e capturas de tela neste artigo usam a região **leste dos EUA** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
+Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Grupo de recursos
 
 Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) chamado **DetectStoppedDevices** para conter os outros recursos que você criar. Crie seus recursos do Azure no mesmo local que o aplicativo IoT Central.
 
@@ -58,25 +58,25 @@ Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com
 
 Use o [portal do Azure para criar um namespace de hubs de eventos](https://portal.azure.com/#create/Microsoft.EventHub) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
-| name    | Escolha o nome do namespace |
-| tipo de preço | Basic |
+| Nome    | Escolha o nome do namespace |
+| tipo de preço | Básico |
 | Subscription | Sua assinatura |
-| Resource group | DetectStoppedDevices |
-| Location | Leste dos EUA |
+| Grupo de recursos | DetectStoppedDevices |
+| Local | Leste dos EUA |
 | Unidades de produtividade | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics trabalho
+### <a name="stream-analytics-job"></a>Trabalho do Stream Analytics
 
 Use o [portal do Azure para criar um trabalho de Stream Analytics](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
-| name    | Escolha o nome do seu trabalho |
+| Nome    | Escolha o nome do seu trabalho |
 | Subscription | Sua assinatura |
-| Resource group | DetectStoppedDevices |
-| Location | Leste dos EUA |
+| Grupo de recursos | DetectStoppedDevices |
+| Local | Leste dos EUA |
 | Ambiente de hospedagem | Nuvem |
 | Unidades de streaming | 3 |
 
@@ -84,14 +84,14 @@ Use o [portal do Azure para criar um trabalho de Stream Analytics](https://porta
 
 Use o [portal do Azure para criar um aplicativo de funções](https://portal.azure.com/#create/Microsoft.FunctionApp) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome do aplicativo    | Escolha o nome do aplicativo de funções |
 | Subscription | Sua assinatura |
-| Resource group | DetectStoppedDevices |
+| Grupo de recursos | DetectStoppedDevices |
 | SISTEMA OPERACIONAL | Windows |
 | Plano de Hospedagem | Plano de consumo |
-| Location | Leste dos EUA |
+| Local | Leste dos EUA |
 | Pilha de runtime | .NET |
 | Armazenamento | Criar Novo |
 
@@ -99,12 +99,12 @@ Use o [portal do Azure para criar um aplicativo de funções](https://portal.azu
 
 Use o [portal do Azure para criar uma conta do SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
-| name    | Escolha o nome da conta do SendGrid |
+| Nome    | Escolha o nome da conta do SendGrid |
 | Senha | Criar uma senha |
 | Subscription | Sua assinatura |
-| Resource group | DetectStoppedDevices |
+| Grupo de recursos | DetectStoppedDevices |
 | tipo de preço | F1 Gratuito |
 | Informações de contato | Preencha as informações necessárias |
 
@@ -240,7 +240,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. No portal do Azure, navegue até o trabalho do Stream Analytics, em **topologia de trabalhos** selecione **entradas**, escolha **+ Adicionar entrada de fluxo**e, em seguida, selecione Hub de **eventos**.
 1. Use as informações na tabela a seguir para configurar a entrada usando o Hub de eventos que você criou anteriormente e, em seguida, escolha **salvar**:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | Alias de entrada | centraltelemetry |
     | Subscription | Sua assinatura |
@@ -250,7 +250,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. Em **topologia de trabalhos**, **selecione saídas**, escolha **+ Adicionar**e, em seguida, escolha **Azure function**.
 1. Use as informações na tabela a seguir para configurar a saída e, em seguida, escolha **salvar**:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | Alias de saída | emailnotification |
     | Subscription | Sua assinatura |
@@ -301,7 +301,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
 1. Clique em **Salvar**.
 1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral**, **Iniciar**, **agora**e **Iniciar**:
 
-    ![Análise de fluxo](media/howto-create-custom-rules/stream-analytics.png)
+    ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
 
 ## <a name="configure-export-in-iot-central"></a>Configurar a exportação no IoT Central
 
@@ -310,7 +310,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
 1. Navegue até a página **exportação de dados contínuas** , selecione **+ novo**e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome de exibição | Exportar para hubs de eventos |
     | habilitado | Ligar |
@@ -320,7 +320,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Dispositivos | Desligar |
     | Modelos de Dispositivo | Desligar |
 
-![Configuração de exportação de dados contínuas](media/howto-create-custom-rules/cde-configuration.png)
+![Configuração contínua de exportação de dados](media/howto-create-custom-rules/cde-configuration.png)
 
 Aguarde até que o status de exportação seja **executado** antes de continuar.
 

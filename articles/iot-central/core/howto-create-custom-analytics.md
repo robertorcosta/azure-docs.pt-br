@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 618216208b61051d5446f96fb5b28a451b188c35
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435042"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda o IoT Central do Azure com análises personalizadas usando Azure Databricks
 
@@ -33,23 +33,23 @@ Para concluir as etapas neste guia de instruções, é necessário ter uma assin
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-### <a name="iot-central-application"></a>IoT Central aplicativo
+### <a name="iot-central-application"></a>Aplicativo IoT Central
 
 Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
 | Plano de Pagamento | Pós-pago |
-| Modelo de aplicativo | Exemplo Contoso |
+| Modelo de aplicativo | Aplicativo herdado |
 | Nome do aplicativo | Aceite o padrão ou escolha seu próprio nome |
 | URL | Aceite o padrão ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Seu locatário Azure Active Directory |
 | Assinatura do Azure | Sua assinatura do Azure |
-| Região | Leste dos EUA |
+| Região | Estados Unidos |
 
-Os exemplos e capturas de tela neste artigo usam a região **leste dos EUA** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
+Os exemplos e capturas de tela neste artigo usam a região **Estados Unidos** . Escolha um local perto de você e certifique-se de criar todos os seus recursos na mesma região.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Grupo de recursos
 
 Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com/#create/Microsoft.ResourceGroup) chamado **IoTCentralAnalysis** para conter os outros recursos que você criar. Crie seus recursos do Azure no mesmo local que o aplicativo IoT Central.
 
@@ -57,26 +57,26 @@ Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com
 
 Use o [portal do Azure para criar um namespace de hubs de eventos](https://portal.azure.com/#create/Microsoft.EventHub) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
-| name    | Escolha o nome do namespace |
-| tipo de preço | Basic |
+| Nome    | Escolha o nome do namespace |
+| tipo de preço | Básico |
 | Subscription | Sua assinatura |
-| Resource group | IoTCentralAnalysis |
-| Location | Leste dos EUA |
+| Grupo de recursos | IoTCentralAnalysis |
+| Local | Leste dos EUA |
 | Unidades de produtividade | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Espaço de trabalho Azure Databricks
 
 Use o [portal do Azure para criar um serviço de Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) com as seguintes configurações:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome do workspace    | Escolha o nome do seu espaço de trabalho |
 | Subscription | Sua assinatura |
-| Resource group | IoTCentralAnalysis |
-| Location | Leste dos EUA |
-| Camada de preços | Standard |
+| Grupo de recursos | IoTCentralAnalysis |
+| Local | Leste dos EUA |
+| Camada de preços | Padrão |
 
 Quando você criou os recursos necessários, o grupo de recursos **IoTCentralAnalysis** é semelhante à captura de tela a seguir:
 
@@ -104,7 +104,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
 1. Navegue até a página **exportação de dados contínuas** , selecione **+ novo**e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome de exibição | Exportar para hubs de eventos |
     | habilitado | Ligar |
@@ -114,7 +114,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
     | Dispositivos | Desligar |
     | Modelos de Dispositivo | Desligar |
 
-![Configuração de exportação de dados contínuas](media/howto-create-custom-analytics/cde-configuration.png)
+![Configuração contínua de exportação de dados](media/howto-create-custom-analytics/cde-configuration.png)
 
 Aguarde até que o status de exportação seja **executado** antes de continuar.
 
@@ -128,17 +128,17 @@ Na página **Azure Databricks** , na lista de tarefas comuns, selecione **novo c
 
 Use as informações na tabela a seguir para criar o cluster:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ------- | ----- |
 | Nome do cluster | centralanalysis |
-| Modo de cluster | Standard |
+| Modo de Cluster | Padrão |
 | Versão do Databricks Runtime | 5,3 (escala 2,11, Spark 2.4.0) |
 | Versão do Python | 3 |
 | Habilitar o dimensionamento automático | Não |
 | Terminar após minutos de inatividade | 30 |
-| Tipo de trabalho | Standard_DS3_v2 |
+| Tipo de Trabalho | Standard_DS3_v2 |
 | Trabalhos | 1 |
-| Tipo de driver | Igual ao trabalho |
+| Tipo de Driver | Mesmo que o trabalho |
 
 A criação de um cluster pode levar vários minutos, aguarde a conclusão da criação do cluster antes de continuar.
 

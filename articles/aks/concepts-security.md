@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 1d100f17130594ace6169f5840915c88435cb9a8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422279"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -28,7 +28,7 @@ Este artigo apresenta os conceitos básicos que protegem seus aplicativos no AKS
 
 ## <a name="master-security"></a>Segurança mestre
 
-No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster do AKS tem o próprio mestre de Kubernetes dedicado de locatário único para fornecer o Servidor de API, o Agendador etc. Este mestre é gerenciado e mantido pela Microsoft.
+No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster AKS tem seu próprio mestre kubernetes dedicado de locatário único para fornecer o servidor de API, o Agendador, etc. Este mestre é gerenciado e mantido pela Microsoft.
 
 Por padrão, o servidor de API do Kubernetes usa um endereço IP público e com o FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao Servidor de API usando os controles de acesso baseados em função do Kubernetes e do Azure Active Directory. Para obter mais informações, consulte [integração do Azure AD com o AKs][aks-aad].
 
@@ -75,11 +75,11 @@ Um *Segredo* do Kubernetes é usado para injetar dados confidenciais em pods, co
 
 O uso de Segredos reduz as informações confidenciais definidas no manifesto YAML de pod ou serviço. Em vez disso, você pode solicitar o Segredo armazenado no servidor de API do Kubernetes como parte do seu manifesto YAML. Essa abordagem fornece apenas ao pod específico acesso ao Segredo. Observação: os arquivos de manifesto de segredo bruto contêm os dados secretos no formato Base64 (consulte a [documentação oficial][secret-risks] para obter mais detalhes). Portanto, esse arquivo deve ser tratado como informações confidenciais e nunca é confirmado no controle do código-fonte.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a proteger os clusters do AKS, consulte [atualizar um cluster AKs][aks-upgrade-cluster].
 
-Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para segurança e atualizações de cluster no AKs][operator-best-practices-cluster-security].
+Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para segurança e atualizações de cluster em AKs][operator-best-practices-cluster-security] e [práticas recomendadas para segurança de Pod no AKs][developer-best-practices-pod-security].
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
@@ -105,4 +105,5 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

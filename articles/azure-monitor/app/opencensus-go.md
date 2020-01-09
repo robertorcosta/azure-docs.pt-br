@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432554"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Coletar rastreamentos distribuídos do Go (versão prévia)
 
@@ -43,7 +43,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        | Value           | Descrição  |
+   | Configurações        | Valor           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |

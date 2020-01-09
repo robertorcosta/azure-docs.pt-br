@@ -1,17 +1,17 @@
 ---
 title: Como usar o Redis-CLI com o cache do Azure para Redis
-description: Saiba como usar redis-cli com Cache do Azure para Redis.
+description: Saiba como usar o *Redis-CLI. exe* como uma ferramenta de linha de comando para interagir com um cache do Azure para Redis como um cliente.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: yegu
-ms.openlocfilehash: 510110a201e943b8ffce07fc7d0de1361264ae62
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122725"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412680"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como usar a ferramenta de linha de comando Redis com Cache do Azure para Redis
 
@@ -85,7 +85,7 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como usar o [Console Redis](cache-configure.md#redis-console) para emitir comandos.
 

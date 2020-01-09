@@ -6,14 +6,14 @@ services: cloud-services
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 42
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: b832723fdf773ff06c0b03b9aa80f542279cd309
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: 11660fe4f76cad9577b66e72893670dd1b9b559d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449070"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição (arquivo .csdef) dos Serviços de Nuvem do Azure
 O arquivo de definição de serviço define o modelo de serviço para um aplicativo. O arquivo contém as definições das funções disponíveis para um serviço de nuvem, especifica os pontos de extremidade de serviço e estabelece as definições de configuração para o serviço. Os valores de definição de configuração são definidos no arquivo de configuração de serviço, conforme descrito pelo [Esquema de configuração do Serviço de Nuvem (clássico)](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -62,9 +62,9 @@ O elemento `ServiceDefinition` é o elemento de nível superior do arquivo de de
 
 A tabela a seguir descreve os atributos do elemento `ServiceDefinition`.
 
-| Atributo               | Descrição |
+| Atributo               | Description |
 | ----------------------- | ----------- |
-| name                    |Obrigatória. O nome do serviço. O nome deve ser exclusivo dentro da conta de serviço.|
+| name                    |Obrigatórios. O nome do serviço. O nome deve ser exclusivo dentro da conta de serviço.|
 | topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` – Envia a atualização assim que possível para todas as instâncias de função. Se você escolher uma opção, a função deverá ser capaz de lidar com a atualização da topologia sem ser reiniciada.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de maneira sequencial depois que a instância anterior tiver aceitado a atualização com sucesso.|
 | schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permitirá que o Visual Studio selecione as ferramentas do SDK corretas para usar para a validação de esquema se mais de uma versão do SDK for instalada lado a lado.|
 | upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização entre quais funções neste serviço são alocadas. As instâncias de função são alocadas para um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [atualizar uma função ou implantação de serviço de nuvem](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [gerenciar o disponibilidade de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) e [o que é um modelo de serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> É possível especificar até 20 domínios de atualização. Se não especificado, o número padrão de domínios de atualização é 5.|

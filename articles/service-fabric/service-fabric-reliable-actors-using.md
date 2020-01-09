@@ -1,25 +1,16 @@
 ---
-title: Implementar recursos em Atores do Azure Service Fabric | Microsoft Docs
+title: Implementar recursos no Azure Service Fabric atores
 description: Descreve como gravar seu próprio serviço de ator que implementa recursos de nível de serviço da mesma forma como você faria ao herdar StatefulService.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 57894770ad9d27430d5803c9a93ce6973355878a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426727"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementar recursos de nível de serviço em seu serviço de ator
 
@@ -52,7 +43,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-Como todos os Reliable Services, o serviço de ator deve ser registrado com um tipo de serviço no tempo de execução do Service Fabric. Para que o serviço de ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no serviço de ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores. No caso mais simples, é possível registrar o tipo de ator, e o serviço de ator usará as configurações padrão.
+Como todos os Reliable Services, o serviço de ator deve ser registrado com um tipo de serviço no runtime do Service Fabric. Para que o serviço de ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no serviço de ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores. No caso mais simples, é possível registrar o tipo de ator, e o serviço de ator usará as configurações padrão.
 
 ```csharp
 static class Program
@@ -103,7 +94,7 @@ O Serviço de ator implementa `IActorService` (C#) ou `ActorService` (Java), que
 
 ## <a name="custom-actor-service"></a>Serviço de ator personalizado
 
-Usando o lambda de registro do ator, você pode registrar seu próprio serviço de ator personalizado que deriva de `ActorService` (C#) e `FabricActorService` (Java). Você pode, então, implementar sua própria funcionalidade de nível de serviço, escrevendo uma classe de serviço que herda `ActorService` (C#) ou `FabricActorService` (Java). Um serviço de ator personalizado herda toda a funcionalidade de tempo de execução do ator de `ActorService` (C#) ou `FabricActorService` (Java). Ele pode ser usado para implementar seus próprios métodos de serviço.
+Usando o lambda de registro do ator, você pode registrar seu próprio serviço de ator personalizado que deriva de `ActorService` (C#) e `FabricActorService` (Java). Você pode, então, implementar sua própria funcionalidade de nível de serviço, escrevendo uma classe de serviço que herda `ActorService` (C#) ou `FabricActorService` (Java). Um serviço de ator personalizado herda toda a funcionalidade de runtime do ator de `ActorService` (C#) ou `FabricActorService` (Java). Ele pode ser usado para implementar seus próprios métodos de serviço.
 
 ```csharp
 class MyActorService : ActorService
@@ -220,7 +211,7 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)

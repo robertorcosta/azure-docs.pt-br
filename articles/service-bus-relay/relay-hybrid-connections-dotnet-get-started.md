@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Azure retransmissão híbrida conexões WebSocket no .NET | Microsoft Docs
-description: Escrever um C# aplicativo do Azure retransmissão híbrida conexões WebSocket do console.
+title: Retransmissão do Azure Conexões Híbridas-WebSockets no .NET
+description: Escreva um C# aplicativo de console para retransmissão do Azure conexões híbridas WebSockets.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13612f8ffa343e483165a8dbdd54d1b2b1f5e2cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355189"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução às WebSockets de Conexões Híbridas de Retransmissão no .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,9 @@ No Visual Studio, grave um aplicativo de console em C# para enviar mensagens à 
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Parabéns, você criou um aplicativo de conexões híbridas completo!
+Parabéns, você criou um aplicativo de Conexões Híbridas completo!
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste Início Rápido, você criou aplicativos de cliente e servidor do .NET que usavam WebSockets para enviar e receber mensagens. O recurso Conexões Híbridas de Retransmissão do Azure também dá suporte ao uso de HTTP para enviar e receber mensagens. Para saber como usar HTTP com as Conexões Híbridas de Retransmissão do Azure, consulte o [Início Rápido do HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md).
 
 Neste Início Rápido, você usou o .NET Framework para criar aplicativos cliente e servidor. Para saber como escrever aplicativos cliente e servidor usando o Node.js, confira o [Início Rápido de WebSockets do Node.js](relay-hybrid-connections-node-get-started.md) ou o [Início Rápido do HTTP Node.js](relay-hybrid-connections-http-requests-dotnet-get-started.md).

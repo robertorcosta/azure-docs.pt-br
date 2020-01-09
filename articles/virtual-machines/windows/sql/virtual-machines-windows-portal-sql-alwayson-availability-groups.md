@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374243"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar grupos de disponibilidade Always On em máquinas virtuais do Azure automaticamente: Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure automaticamente: Resource Manager
 
 Este tutorial mostra como criar um grupo de disponibilidade do SQL Server que usa máquinas virtuais do Azure Resource Manager. O tutorial usa folhas do Azure para configurar um modelo. É possível examinar as configurações padrão, digitar as configurações necessárias e atualizar as folhas no portal enquanto você acompanha este tutorial.
 
@@ -70,18 +70,18 @@ O Azure fornece uma imagem da galeria para a solução inteira. Para localizar o
    ![Modelo AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
 5. Em **Selecionar um modelo de implantação**, escolha **Resource Manager**.
 
-### <a name="basics"></a>Noções Básicas
+### <a name="basics"></a>Noções básicas
 Clique em **Básico** e defina as seguintes configurações:
 
 * **Nome de usuário do administrador** é uma conta de usuário que tem permissões de administrador de domínio e é um membro da função de servidor fixa sysadmin do SQL Server em ambas as instâncias do SQL Server. Neste tutorial, use **DomainAdmin**.
 * **Senha** é a senha da conta de administrador de domínio. Use uma senha complexa. Confirme a senha.
 * **Assinatura** é a assinatura que será cobrada pelo Azure para executar todos os recursos implantados do grupo de disponibilidade. Se a conta tiver várias assinaturas, você poderá especificar outra assinatura.
-* **Grupo de recursos** é o nome do grupo ao qual pertencem todos os recursos do Azure criados por esse modelo. Neste tutorial, use **SQL-HA-RG**. Para saber mais, consulte [Visão geral do Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Grupo de recursos** é o nome do grupo ao qual pertencem todos os recursos do Azure criados por esse modelo. Neste tutorial, use **SQL-HA-RG**. Para saber mais, consulte [Visão geral do Azure Resource Manager](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Localização** é a região do Azure onde o tutorial cria os recursos. Escolha uma região do Azure.
 
 A seguinte captura de tela é uma folha **Básico** preenchida:
 
-![Noções Básicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
+![Noções básicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Clique em **OK**.
 
@@ -187,7 +187,7 @@ Examine as configurações e clique em **OK**.
 ### <a name="summary"></a>Resumo
 Na página Resumo do Azure, valide as configurações. Você também pode baixar o modelo. Examine o resumo. Clique em **OK**.
 
-### <a name="buy"></a>Comprar
+### <a name="buy"></a>Compre
 Essa folha final contém os **Termos de uso** e a **Política de Privacidade**. Examine essas informações. Quando estiver pronto para que o Azure comece a criar as máquinas virtuais e todos os outros recursos necessários para o grupo de disponibilidade, clique em **Criar**.
 
 O portal do Azure cria o grupo de recursos e todos os recursos.
@@ -197,7 +197,7 @@ Monitore o progresso da implantação no portal do Azure. Um ícone que represen
 
 ![Painel do Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>Conectar-se ao SQL Server
+## <a name="connect-to-sql-server"></a>Conecte-se ao SQL Server
 As novas instâncias do SQL Server estão em execução em máquinas virtuais que têm endereços IP conectados à Internet. Você pode utilizar a área de trabalho remota (RDP) diretamente para cada máquina virtual do SQL Server.
 
 Para usar o RDP no SQL Server, siga estas etapas:

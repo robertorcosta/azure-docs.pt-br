@@ -1,6 +1,6 @@
 ---
-title: Usar a biblioteca de Java do executor em massa para executar a importação em massa e atualizar as operações no Azure Cosmos DB
-description: Importação em massa e atualizar documentos do Azure Cosmos DB usando a biblioteca do Java de executor em massa.
+title: Usar a biblioteca Java do executor em massa no Azure Cosmos DB para executar operações de importação e atualização em massa
+description: Importação e atualização em massa de Azure Cosmos DB documentos usando a biblioteca Java do executor em massa
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445706"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
@@ -118,7 +118,7 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    |int getNumberOfDocumentsImported()  |   O número total de documentos que foram importados com êxito sem os documentos fornecidos para a chamada de API de importação em massa.      |
    |double getTotalRequestUnitsConsumed()   |  O total de unidades de solicitação (RU) consumidas pela chamada de API de importação em massa.       |
    |Duration getTotalTimeTaken()   |    O tempo total gasto pela chamada de API de importação em massa para concluir a execução.     |
-   |Listar\<exceção > GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de importação em massa que não falharam em ser inseridos.       |
+   |Lista\<exceção > GetErrors () |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de importação em massa que não falharam em ser inseridos.       |
    |Listar\<objeto > getBadInputDocuments ()  |    A lista de documentos com formato inválido que não foram importados com êxito na chamada de API de importação em massa. O usuário deve corrigir os documentos retornados e repetir a importação. Os documentos com formato inválido incluem documentos cujo valor de ID não é uma cadeia de caracteres (null ou qualquer outro tipo de dados é considerado inválido).     |
 
 5. Depois de ter o aplicativo de importação em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
@@ -182,7 +182,7 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |double getTotalRequestUnitsConsumed() |  O total de unidades de solicitação (RU) consumidas pela chamada de API de atualização em massa.       |
    |Duration getTotalTimeTaken()  |   O tempo total gasto pela chamada de API de atualização em massa para concluir a execução.      |
-   |Listar\<exceção > GetErrors ()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
+   |Lista\<exceção > GetErrors ()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
 
 3. Depois de ter o aplicativo de atualização em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 
@@ -211,7 +211,7 @@ Considere os seguintes pontos para melhor desempenho ao usar a biblioteca bulk e
 * Como uma execução de API de operação em massa única consome uma grande parte de ES de CPU e de rede do computador cliente. Isso acontece por geração de várias tarefas internamente, evite a geração de várias tarefas simultâneas no processo de aplicativo executando chamadas de API de operação em massa. Se uma única chamada à API de operação em massa em execução em uma única máquina virtual não puder consumir a produtividade inteira do contêiner (se a produtividade do contêiner for de mais de 1 milhão de RU/s), prefira criar máquinas virtuais separadas para executar as chamadas à API de operação em massa simultaneamente.
 
     
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para saber mais sobre os detalhes do pacote maven e as notas de versão da biblioteca bulk executor Java, consulte [Detalhes do SDK do bulk executor](sql-api-sdk-bulk-executor-java.md).
 
 

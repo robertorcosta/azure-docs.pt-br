@@ -1,25 +1,16 @@
 ---
 title: Exemplos de manifesto do aplicativo de contêiner de Service Fabric do Azure
 description: Saiba como definir as configurações do aplicativo e do manifesto do serviço para um aplicativo do Service Fabric de vários contêineres.
-services: service-fabric
-documentationcenter: na
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 2d79f7dbf492b9473bcff147891df308674a8cf0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e4050dedeb48b19b6848a95fc904f7f37fb5b04a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349388"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemplos de aplicativo multicontêiner e manifesto do serviço
 A seguir estão exemplos dos manifestos do serviço e do aplicativo para um aplicativo do Service Fabric de vários contêineres. O objetivo desses exemplos é mostrar quais configurações estão disponíveis e como usá-las. Esses manifestos do serviço e do aplicativo se baseiam nos manifestos de [Exemplo de contêiner do Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
@@ -287,7 +278,7 @@ Descreve as políticas (associação de ponto de extremidade, compartilhamento d
 Define a política de controle de recursos que é aplicada no nível de todo o pacote de serviço. Para obter mais informações, confira [Elemento ServicePackageResourceGovernancePolicy](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
 ### <a name="resourcegovernancepolicy-element"></a>Elemento ResourceGovernancePolicy
-Especifica limites de recurso para pacote de códigos. Para obter mais informações, confira [Elemento ResourceGovernancePolicy](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
+Especifica limites de recurso para um pacote de códigos. Para obter mais informações, confira [Elemento ResourceGovernancePolicy](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
 
 ### <a name="containerhostpolicies-element"></a>Elemento ContainerHostPolicies
 Especifica políticas para a ativação de hosts de contêiner. Para obter mais informações, confira [Elemento ContainerHostPolicies](service-fabric-service-model-schema-elements.md#ContainerHostPoliciesElementContainerHostPoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
@@ -351,7 +342,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
  Para obter mais informações, confira [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-O repositório e a imagem no https://hub.docker.com ou o Registro de Contêiner do Azure. Para obter mais informações, confira [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repositório e a imagem no https://hub.docker.com ou Registro de Contêiner do Azure. Para obter mais informações, confira [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>Elemento EnvironmentVariables
 Passe as variáveis de ambiente para seu contêiner ou exe.  Para obter mais informações, confira [Elemento EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -395,7 +386,7 @@ O executável especificado pelo EntryPoint normalmente é o host de serviço de 
 Para obter mais informações, confira [Elemento ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>Elemento ImageName
-O repositório e a imagem no https://hub.docker.com ou o Registro de Contêiner do Azure. Para obter mais informações, confira [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+O repositório e a imagem no https://hub.docker.com ou Registro de Contêiner do Azure. Para obter mais informações, confira [Elemento ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Elemento Commands
 Lista delimitada por vírgulas de comandos para o contêiner. Para obter mais informações, confira [Elemento Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

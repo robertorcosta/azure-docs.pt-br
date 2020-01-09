@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/09/2019
-ms.openlocfilehash: 54dcef5f0ddbf09d076b1ab7f7955b4681e63c83
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.date: 12/19/2019
+ms.openlocfilehash: 509f9d68351af6263a9d2bba1831e78a5608c592
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432571"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -33,7 +33,7 @@ Você precisa abrir algumas portas de saída no firewall do servidor para permit
 | Finalidade | URL | IP | Portas |
 | --- | --- | --- | --- |
 | Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235 | 443 |
-| Live Metrics Stream (leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>52.226.139.56<br/>52.226.140.207 |443 |
+| Live Metrics Stream (leste dos EUA) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | Live Metrics Stream (EUA Central do Sul) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
 | Live Metrics Stream (Europa Setentrional) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
 | Live Metrics Stream (Europa Ocidental) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
@@ -218,7 +218,7 @@ Observação: o domínio *.loganalytics.io pertence à equipe do Log Analytics.
 
 | Finalidade | IP | Portas
 | --- | --- | --- |
-| Alertas | 23.96.11.4 | 443 |
+| Alerta | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Criador de perfil
 

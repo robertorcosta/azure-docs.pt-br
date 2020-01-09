@@ -1,6 +1,6 @@
 ---
-title: Entender as IDs de instância para VMs do conjunto de dimensionamento de VMs do Azure | Microsoft Docs
-description: Entender as IDs de instância para VMs do conjunto de dimensionamento de VMs do Azure
+title: Entender as IDs de instância para VMs do conjunto de dimensionamento de VMs do Azure
+description: Entenda as IDs de instância para máquinas virtuais de conjuntos de escala de VM do Azure e as várias maneiras pelas quais elas se encontram.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1eb0cf1de3b0ebffac8810e19d69515224147bc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355994"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Entender as IDs de instância para VMs do conjunto de dimensionamento de VMs do Azure
 Este artigo descreve as IDs de instância para conjuntos de dimensionamento e as suas várias formas de exibição.

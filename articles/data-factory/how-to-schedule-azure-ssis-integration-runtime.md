@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440313"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime em um agendamento
 Este artigo descreve como agendar o início e o término do Azure-SSIS IR (Integration Runtime) usando o ADF (Azure Data Factory). O Azure-SSIS IR é o recurso de computação do ADF dedicado à execução de pacotes do SSIS (SQL Server Integration Services). Executar o Azure-SSIS IR tem um custo associado. Portanto, você geralmente deseja executar o IR somente quando precisa executar pacotes do SSIS no Azure e parar o IR quando não precisar mais dele. Você pode usar o aplicativo/interface do usuário do ADF ou o Azure PowerShell para [iniciar ou parar manualmente o IR](manage-azure-ssis-integration-runtime.md)).
@@ -64,7 +64,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
    - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
    - Selecione **Criar novo**e insira o nome do novo grupo de recursos.   
          
-   Para saber mais sobre grupos de recursos, veja o artigo [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+   Para saber mais sobre grupos de recursos, veja o artigo [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).
    
 6. Para **Versão**, selecione **V2**.
 7. Para **Local**, selecione um dos locais compatíveis para a criação de ADF na lista suspensa.
@@ -227,7 +227,7 @@ Se você ainda não tiver uma conta de Automação do Azure, crie uma seguindo a
     4. Para **Local**, selecione um local para sua conta de Automação do Azure. 
     5. Confirme **Criar Azure conta Executar Como** com **Sim**. Uma entidade de serviço será criada no Azure Active Directory e receberá uma função de **Colaborador** em sua assinatura do Azure.
     6. Selecione **Fixar no painel** para exibi-lo permanentemente no painel do Azure. 
-    7. Clique em **Criar**. 
+    7. Selecione **Criar**. 
 
    ![Novo -> Monitoramento + Gerenciamento -> Automação](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
    
@@ -265,7 +265,7 @@ A seção a seguir fornece as etapas para criar um runbook do PowerShell. O scri
 
     1. Para **Nome**, insira **StartStopAzureSsisRuntime**.
     2. Para **Tipo de runbook**, selecione **PowerShell**.
-    3. Clique em **Criar**.
+    3. Selecione **Criar**.
     
    ![Botão Adicionar um runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
    
@@ -364,7 +364,7 @@ Na seção anterior, você criou um runbook de Automação do Azure que pode ini
     4. Para **Inícios**, digite uma hora que seja alguns minutos após a hora atual. 
     5. Para **Recorrência**, selecione **Recorrente**. 
     6. Para **Repetir a cada**, insira **1** e selecione **Dia**. 
-    7. Clique em **Criar**. 
+    7. Selecione **Criar**. 
 
    ![Agendar para o início do IR do Azure-SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
     

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f757819e16db9908e80c5e7350c082dbf1573677
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429990"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -35,7 +35,7 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a seção de [visão geral](overview.md). **Não deixe de analisar a [diferença entre uma identidade gerenciada atribuída pelo sistema e atribuída pelo usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
 
@@ -43,7 +43,7 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
 
     - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e habilitar e remover identidade gerenciada atribuída ao usuário e/ou sistema de um conjunto de dimensionamento de máquinas virtuais.
-    - Função de [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída ao usuário.
+    - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
     - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
 - Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
 - Se você usa o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli).
@@ -60,7 +60,7 @@ Nesta seção, você aprenderá como habilitar e desabilitar a identidade gerenc
 
 Para criar um conjunto de dimensionamento de máquinas virtuais com identidade gerenciada atribuída ao sistema habilitada, será necessário criar um conjunto de dimensionamento de máquinas virtuais e recuperar um token de acesso para usar CURL para chamar o ponto de extremidade do Resource Manager com o valor de tipo de identidade gerenciada atribuída ao sistema.
 
-1. Crie um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para confinamento e implantação do conjunto de dimensionamento de máquinas virtuais e os recursos relacionados, usando [az group create](/cli/azure/group/#az-group-create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
+1. Crie um [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para confinamento e implantação do conjunto de dimensionamento de máquinas virtuais e os recursos relacionados, usando [az group create](/cli/azure/group/#az-group-create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -90,10 +90,10 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -185,10 +185,10 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -218,10 +218,10 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
 
@@ -252,10 +252,10 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -296,10 +296,10 @@ Para desabilitar uma identidade gerenciada atribuída ao sistema em um conjunto 
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -353,10 +353,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -440,10 +440,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. |
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
 
@@ -535,9 +535,9 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. |   
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |   
  
 
 4. Se não houver nenhuma identidade gerenciada atribuída ao usuário ou ao sistema ao conjunto de dimensionamento de máquinas virtuais, use o seguinte comando CURL para chamar o ponto de extremidade de REST do Azure Resource Manager para atribuir a primeira identidade gerenciada atribuída ao usuário ao conjunto de dimensionamento de máquinas virtuais.  Se houver alguma identidade gerenciada atribuída ao usuário ou ao sistema ao conjunto de dimensionamento de máquinas virtuais, passe para a etapa 5 que mostra como adicionar várias identidades gerenciadas atribuídas ao usuário a um conjunto de dimensionamento de máquinas virtuais, mantendo a identidade gerenciada atribuída ao sistema.
@@ -556,10 +556,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -588,10 +588,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -624,10 +624,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -663,10 +663,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
     **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -702,9 +702,9 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
    
    Se houver identidades gerenciadas atribuídas à VM, elas serão listadas na resposta no valor `identity`. 
     
@@ -724,10 +724,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -756,10 +756,10 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
 
    **Cabeçalhos da solicitação**
 
-   |Cabeçalho da solicitação  |Descrição  |
+   |Cabeçalho da solicitação  |Description  |
    |---------|---------|
-   |*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+   |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -786,10 +786,10 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Cabeçalhos da solicitação**
 
-|Cabeçalho da solicitação  |Descrição  |
+|Cabeçalho da solicitação  |Description  |
 |---------|---------|
-|*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-|*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+|*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**
 
@@ -813,10 +813,10 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Cabeçalhos da solicitação**
 
-|Cabeçalho da solicitação  |Descrição  |
+|Cabeçalho da solicitação  |Description  |
 |---------|---------|
-|*Content-Type*     | Obrigatório. Defina como `application/json`.        |
-|*Autorização*     | Obrigatório. Defina como um `Bearer` token de acesso válido. | 
+|*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**
 

@@ -10,12 +10,12 @@ ms.date: 01/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 1a9a88f975ca10a63741818dcb88874a8f1bf436
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440304"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter mais informações sobre o IR, consulte [Integration Runtime](concepts-integration-runtime.md).
@@ -49,10 +49,7 @@ Depois de criar um IR do Azure, você pode referenciá-lo em sua definição de 
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=...",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=..."
       },
       "connectVia": {
         "referenceName": "MySampleAzureIR",

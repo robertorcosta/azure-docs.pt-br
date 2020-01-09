@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432677"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -54,7 +54,7 @@ Se você ainda não tem uma referência no SDK do Application Insights:
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node.js:* `var applicationInsights = require("applicationinsights");`
+    *Node. js:* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>Obter uma instância do TelemetryClient
 
@@ -574,7 +574,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 Registrar um evento de diagnóstico, como entrar ou sair de um método.
 
- . | Descrição
+ Parâmetro | Description
 ---|---
 `message` | Dados de diagnóstico. Pode ser muito mais longo do que um nome.
 `properties` | Mapa de cadeia de caracteres para cadeia de caracteres: dados adicionais usados para [Filtrar exceções](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) no Portal. O padrão é vazio.
@@ -656,7 +656,7 @@ finally {
 }
 ```
 
-*JavaScript*
+*Node.js*
 
 ```javascript
 var success = false;
@@ -1197,7 +1197,7 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * *Que exceções podem ser lançadas por chamadas Track_()?*
 
-    Nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
+    Nenhum. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
 * *Há uma API REST para obter dados do portal?*
 
     Sim, a [API de acesso a dados](https://dev.applicationinsights.io/). Outras maneiras de extrair dados incluem [exportar do Analytics para o Power BI](../../azure-monitor/app/export-power-bi.md ) e a [exportação contínua](../../azure-monitor/app/export-telemetry.md).

@@ -1,5 +1,5 @@
 ---
-title: Introdução às Conexões Híbridas de Retransmissão do Azure de pedidos HTTP no .NET | Microsoft Docs
+title: Retransmissão do Azure Conexões Híbridas-solicitações HTTP no .NET
 description: Escreva um aplicativo de console C# para Conexões Híbridas da Retransmissão do Azure de pedidos HTTP em .NET.
 services: service-bus-relay
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355159"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introdução às Conexões Híbridas de Retransmissão de pedidos HTTP no .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -67,9 +67,9 @@ No Visual Studio, grave um aplicativo de console em C# para enviar mensagens à 
 1. Execute o aplicativo cliente. Você verá `hello!` na janela do cliente. O cliente enviou uma solicitação HTTP para o servidor e o servidor respondeu com um `hello!`. 
 3. Agora, para fechar as janelas do console, pressione **ENTER** nas duas janelas do console. 
 
-Parabéns, você criou um aplicativo de conexões híbridas completo!
+Parabéns, você criou um aplicativo de Conexões Híbridas completo!
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste Início Rápido, você criou aplicativos de cliente e servidor do .NET que usavam HTTP para enviar e receber mensagens. O recurso Conexões Híbridas da Retransmissão do Azure também dá suporte ao uso de WebSockets para enviar e receber mensagens. Para saber como usar o WebSockets com as Conexões Híbridas da Retransmissão do Azure, confira o [Início Rápido do WebSockets](relay-hybrid-connections-dotnet-get-started.md).
 

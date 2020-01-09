@@ -1,25 +1,14 @@
 ---
-title: Descrevendo os serviços e aplicativos do Azure Service Fabric | Microsoft Docs
+title: Descrevendo aplicativos e serviços do Azure Service Fabric
 description: Descreve como os manifestos são usados para descrever serviços e aplicativos do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349976"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestos de serviço e aplicativo do Service Fabric
 Este artigo descreve como os serviços e aplicativos do Service Fabric são definidos e atualizados usando os arquivos. ServiceManifest.xml e ApplicationManifest.xml.  Para obter exemplos mais detalhados, confira [Exemplos de manifesto de aplicativo e de serviço](service-fabric-manifest-examples.md).  O esquema XML para esses arquivos de manifesto está documentado em [documentação do esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -85,7 +74,7 @@ Para obter mais informações sobre como configurar o SetupEntryPoint, consulte 
 
 **DataPackage** (não definido no exemplo anterior) declara uma pasta nomeada pelo atributo **Name**, que contém dados estáticos arbitrários a serem consumidos pelo processo no tempo de execução.
 
-**ConfigPackage** declara uma pasta nomeada pelo atributo **Name**, que contém um arquivo *Settings.xml*. Esse arquivo de configurações contém seções de configurações de par chave-valor, definido pelo usuário, que o processo lê de volta no tempo de execução. Durante a atualização, se apenas a **versão** do **ConfigPackage** tiver sido alterada, o processo de execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo do arquivo *Settings.xml* :
+**ConfigPackage** declara uma pasta nomeada pelo atributo **Name**, que contém um arquivo *Settings.xml*. Esse arquivo de configurações contém seções de configurações de par chave-valor, definido pelo usuário, que o processo lê de volta no tempo de execução. Durante uma atualização, se apenas a **versão** do ConfigPackage tiver sido alterada, o processo em execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Aqui está um exemplo do arquivo *Settings.xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -170,7 +159,7 @@ Manifestos de serviço, como atributos **Versão** , são cadeias de caracteres 
 
 As **restrições de posicionamento** são as instruções que definem onde os serviços devem ser executados. Essas instruções são anexadas a serviços individuais que você seleciona para uma ou mais propriedades de nó. Para obter mais informações, consulte [restrição de posicionamento e sintaxe de propriedade de nó](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
 
-**Políticas** do (não definido no exemplo anterior) descreve a coleta de log, [execução padrão](service-fabric-application-runas-security.md), [integridade](service-fabric-health-introduction.md#health-policies)e políticas de [acesso de segurança](service-fabric-application-runas-security.md) para definir no nível do aplicativo, incluindo se os serviços têm acesso ao tempo de execução de Service Fabric.
+**As políticas** (não definidas no exemplo anterior) descrevem a coleta de log, [execução padrão](service-fabric-application-runas-security.md), [integridade](service-fabric-health-introduction.md#health-policies)e políticas de [acesso de segurança](service-fabric-application-runas-security.md) para definir no nível do aplicativo, incluindo se os serviços têm acesso ao tempo de execução de Service Fabric.
 
 > [!NOTE] 
 > Por padrão, os aplicativos Service Fabric têm acesso ao tempo de execução do Service Fabric, na forma de um ponto de extremidade que aceita solicitações específicas do aplicativo e variáveis de ambiente apontando para caminhos de arquivo no host que contém arquivos específicos de aplicativo e de malha . Considere desabilitar esse acesso quando o aplicativo hospedar código não confiável (ou seja, código cuja comprovação é desconhecida ou que o proprietário do aplicativo sabe que não deve ser seguro de ser executado). Para obter mais informações, consulte [práticas recomendadas de segurança em Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
@@ -191,7 +180,7 @@ For more information about other features supported by application manifests, re
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Empacotar um aplicativo](service-fabric-package-apps.md) e prepará-lo para a implantação.
 - [Implantar e remover aplicativos](service-fabric-deploy-remove-applications.md).
 - [Configurar parâmetros e variáveis de ambiente para instâncias diferentes do aplicativo](service-fabric-manage-multiple-environment-app-configuration.md).

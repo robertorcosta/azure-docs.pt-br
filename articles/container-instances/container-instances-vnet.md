@@ -2,13 +2,14 @@
 title: Implantar grupo de contêineres na rede virtual do Azure
 description: Saiba como implantar grupos de contêiner em uma rede virtual do Azure nova ou existente.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533277"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442243"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -45,8 +46,8 @@ Limites de recursos de contêineres podem ser diferente dos limites para as inst
 ### <a name="unsupported-networking-scenarios"></a>Cenários de rede sem suporte 
 
 * Não há suporte para **Azure Load Balancer** colocar uma Azure Load Balancer na frente das instâncias de contêiner em um grupo de contêineres de rede
-* **Emparelhamento de rede virtual** -você não pode emparelhar uma rede virtual contendo uma sub-rede delegada a instâncias de contêiner do Azure para outra rede virtual
-* **Tabelas de rotas** – as rotas definidas pelo usuário não podem ser configuradas em uma sub-rede delegada para instâncias de contêiner do Azure
+* **Emparelhamento de rede virtual** -o emparelhamento VNet não funcionará para ACI se a rede à qual a VNet ACI está sendo emparelhada usar um espaço IP público. A rede emparelhada precisa de um espaço IP privado RFC1918 para que o emparelhamento funcione. Além disso, atualmente, você só pode emparelhar sua VNet com uma outra VNet
+* **Roteamento de tráfego de rede virtual** -as rotas do cliente não podem ser configuradas em lugar de IPS públicos. As rotas podem ser configuradas no espaço IP privado da sub-rede delegada na qual os recursos de ACI são implantados 
 * **Grupos de segurança de rede** – as regras de segurança de saída no NSGs aplicadas a uma sub-rede delegada para instâncias de contêiner do Azure não são impostas no momento 
 * **Rótulo de IP público ou DNS** -grupos de contêineres implantados em uma rede virtual atualmente não dão suporte à exposição de contêineres diretamente à Internet com um endereço IP público ou um nome de domínio totalmente qualificado
 * **Resolução de nome interno** -a resolução de nomes para recursos do Azure na rede virtual por meio do DNS do Azure interno não é suportada
@@ -246,7 +247,7 @@ Name              ResourceGroup    Status    Image                              
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ### <a name="delete-container-instances"></a>Excluir instâncias de contêiner
 

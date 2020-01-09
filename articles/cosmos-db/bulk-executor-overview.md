@@ -1,5 +1,5 @@
 ---
-title: Importação em massa e atualizar dados no Azure Cosmos DB usando a biblioteca de executor em massa
+title: Visão geral da biblioteca bulk executor do Azure Cosmos DB
 description: Execute as operações em massa no Azure Cosmos DB por meio da importação em massa e APIs oferecidas pela biblioteca de executor em massa de atualização em massa.
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442148"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Visão geral da biblioteca bulk executor do Azure Cosmos DB
  
@@ -32,7 +32,7 @@ A biblioteca de executor em massa ajuda você a aproveitar essa enorme produtivi
 
 * Abstrai tarefas entediantes de escrever uma lógica de aplicativo para lidar com a limitação de solicitação, tempos limite de solicitação e outras exceções transitórias tratando-os com eficiência na biblioteca.  
 
-* Fornece um mecanismo simplificado para aplicativos que executam operações em massa de expansão. Uma única instância de executor em massa em execução em uma VM do Azure pode consumir mais que 500 K RU/s e você pode obter uma maior taxa de transferência adicionando instâncias adicionais nas VMs do cliente individual.  
+* Ele fornece um mecanismo simplificado para aplicativos que executam operações em massa para escalar horizontalmente. Uma única instância de executor em massa em execução em uma VM do Azure pode consumir mais de 500 mil RU/s e você pode obter uma taxa de transferência mais alta adicionando mais instâncias em VMs de cliente individuais.  
  
 * Pode importar em massa mais de um terabyte de dados em uma hora usando uma arquitetura de expansão.  
 

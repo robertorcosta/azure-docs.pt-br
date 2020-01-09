@@ -2,17 +2,17 @@
 title: Criar um serviço de vínculo privado do Azure usando CLI do Azure
 description: Saiba como criar um serviço de vínculo privado do Azure usando o CLI do Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 3cc171ddabbe8241622d4e599b4b3cd281558976
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6e6148d305af26f7933567ae58023d2ba73263eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350232"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de vínculo privado usando CLI do Azure
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando CLI do Azure.
@@ -23,12 +23,12 @@ Se você decidir instalar e usar CLI do Azure localmente, este guia de início r
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Link Privado
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de poder criar uma rede virtual, você deverá criar um grupo de recursos para hospedá-la. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *MyResource* Group no local *westcentralus* :
+Antes de poder criar uma rede virtual, você deverá criar um grupo de recursos para hospedá-la. Crie um grupo de recursos com [az group create](/cli/azure/group). Este exemplo cria um grupo de recursos chamado *myResourceGroup* na localização *westcentralus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus
 ```
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Crie uma rede virtual
 Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Este exemplo cria uma rede virtual padrão chamada *myVirtualNetwork* com uma sub-rede chamada *mysubnet*:
 
 ```azurecli-interactive
@@ -160,6 +160,6 @@ Consulte solicitações de conexão em seu serviço de vínculo privado usando [
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o [serviço de vínculo privado do Azure](private-link-service-overview.md)
  

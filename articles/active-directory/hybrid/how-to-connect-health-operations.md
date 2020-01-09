@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 57bc60cab7e6980f7051af6fc4685bd2a426f4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422426"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -32,7 +32,6 @@ Você pode configurar o serviço do Azure AD Connect Health para enviar notifica
 > [!NOTE]
 > As notificações por email são habilitadas por padrão.
 >
->
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Para habilitar as notificações por email do Azure AD Connect Health
 1. Abra a folha **Alertas** do serviço para o qual deseja receber notificação por email.
@@ -41,6 +40,13 @@ Você pode configurar o serviço do Azure AD Connect Health para enviar notifica
 4. Selecione a caixa de seleção se desejar que todos os administradores globais recebam notificações por email.
 5. Se você deseja receber notificações por email em qualquer outro endereço de email, especifique-os na caixa **Destinatários de Email Adicionais**. Para remover um endereço de email da lista, clique com o botão direito do mouse na entrada e selecione **Excluir**.
 6. Para finalizar as alterações, clique em **Salvar**. As alterações entram em vigor somente depois de salvar.
+
+>[!NOTE] 
+> Quando há problemas ao processar solicitações de sincronização em nosso serviço de back-end, esse serviço envia um email de notificação com os detalhes do erro para os endereços de email de contato administrativo do seu locatário. Ouvimos comentários de clientes que, em determinados casos, o volume dessas mensagens é extremamente grande, portanto, estamos alterando a maneira como enviamos essas mensagens. 
+>
+> Em vez de enviar uma mensagem para cada erro de sincronização toda vez que ocorrer, enviaremos um resumo diário de todos os erros retornados pelo serviço de back-end. Isso permite que os clientes processem esses erros de maneira mais eficiente e reduzem o número de mensagens de erro duplicadas.
+>
+> Planejamos que essa alteração seja implementada em 15 de janeiro de 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Excluir uma instância de serviço ou servidor
 
@@ -114,7 +120,7 @@ Todas as outras funções (como administradores de acesso de usuário ou usuári
 O Azure AD Connect Health dá suporte ao gerenciamento de acesso em dois níveis:
 
 * **Todas as instâncias de serviço**: esse é o caminho recomendado na maioria dos casos. Ele controla o acesso para todas as instâncias de serviço (por exemplo, um farm do AD FS) em todos os tipos de função que estão sendo monitorados pelo Azure AD Connect Health.
-* **Instâncias de serviço**: em alguns casos, talvez seja necessário separar o acesso baseado em tipos de função ou por uma instância de serviço. Nesse caso, você pode gerenciar o acesso no nível da instância de serviço.  
+* **Instância de serviço**: em alguns casos, talvez seja necessário separar o acesso baseado em tipos de função ou por uma instância de serviço. Nesse caso, você pode gerenciar o acesso no nível da instância de serviço.  
 
 A permissão será concedida se o usuário final tiver acesso no nível do diretório ou da instância de serviço.
 
@@ -143,7 +149,7 @@ Agora os usuários e grupos listados têm acesso, de acordo com suas funções a
 >
 >
 
-#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhar o local da folha com usuários ou grupos
+#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois que você atribuir permissões, o usuário poderá acessar o Azure AD Connect Health [aqui](https://aka.ms/aadconnecthealth).
 2. Na folha, o usuário pode fixar a folha ou diferentes partes dela no painel. Basta clicar no ícone **Fixar no painel**.<br>
    ![Captura de tela da folha de fixar do RBAC do Azure AD Connect Health, com o ícone de pino realçado](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
@@ -159,7 +165,7 @@ Você pode remover um usuário ou grupo adicionado ao RBAC do Azure AD Connect H
 
 [//]: # (Fim da seção de RBAC)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
