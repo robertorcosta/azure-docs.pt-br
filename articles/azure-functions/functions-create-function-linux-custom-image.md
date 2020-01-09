@@ -4,12 +4,12 @@ description: Saiba como criar Azure Functions em execução em uma imagem person
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7bf079f84978539735f3bbf5bb13b18130871fb1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484388"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551481"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Crie uma função no Linux usando uma imagem personalizada
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá como:
 
 As etapas a seguir têm suporte em um computador Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de executar este exemplo, você deve ter o seguinte:
 
@@ -175,8 +175,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings AzureWebJobsDashboard=$storageConnectionString \
-AzureWebJobsStorage=$storageConnectionString
+--settings AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]
@@ -190,12 +189,12 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-A função disparada por HTTP que você criou requer uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade. Neste momento, a maneira mais fácil de obter a URL da função, incluindo a chave, é do [portal do Azure]. 
+A função disparada por HTTP que você criou requer uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade. Neste momento, a maneira mais fácil de obter a URL da função, incluindo a chave, é do [Azure portal]. 
 
 > [!TIP]
 > Você também pode obter suas chaves de função usando as [APIs de gerenciamento de chaves](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), o que exige que você apresente um [token de portador para autenticação](/cli/azure/account#az-account-get-access-token).
 
-Localize seu novo aplicativo de funções no [portal do Azure] digitando o nome do aplicativo de funções na caixa **Pesquisar** na parte superior da página e selecionando o recurso **Serviço de Aplicativo**.
+Localize seu novo aplicativo de funções no [Azure portal] digitando o nome do aplicativo de funções na caixa **Pesquisar** na parte superior da página e selecionando o recurso **Serviço de Aplicativo**.
 
 Selecione a função **MyHttpTrigger**, selecione **</> Obter URL da função** > **padrão (Chave de função)**  > **Copiar**.
 
@@ -374,4 +373,4 @@ Agora que você implantou com êxito o contêiner personalizado em um aplicativo
 + [Opções de escala e de hospedagem](functions-scale.md)
 + [Hospedagem sem servidor baseada em Kubernetes](functions-kubernetes-keda.md)
 
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

@@ -1,17 +1,17 @@
 ---
-title: Criar e gerenciar variáveis para armazenar valores
-description: Como armazenar e gerenciar valores usando variáveis em aplicativos lógicos do Azure
+title: Criar e gerenciar variáveis para armazenar e passar valores
+description: Saiba como armazenar, gerenciar, usar e passar valores usando variáveis em suas tarefas automatizadas e fluxo de trabalho que você cria com os aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456688"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Armazenar e gerenciar valores usando variáveis em aplicativos lógicos do Azure
 
@@ -65,10 +65,10 @@ Você pode criar uma variável e declarar seu tipo de dados e o valor inicial, t
 
 1. Forneça essas informações sobre sua variável, conforme descrito abaixo:
 
-   | Propriedade | obrigatórios | Value |  Descrição |
+   | Propriedade | Obrigatório | Valor |  Description |
    |----------|----------|-------|--------------|
-   | **Nome** | SIM | <*variable-name*> | O nome da variável para incrementar |
-   | **Tipo** | SIM | <*variable-type*> | O tipo de dados para a variável |
+   | **Nome** | Sim | <*variable-name*> | O nome da variável para incrementar |
+   | **Tipo** | Sim | <*variable-type*> | O tipo de dados para a variável |
    | **Valor** | Não | <*start-value*> | O valor inicial da variável <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para que você sempre saiba o valor inicial da variável. |
    |||||
 
@@ -205,9 +205,9 @@ Para aumentar ou *incrementar* uma variável por um valor constante, adicione a 
 
 1. Forneça essas informações para incrementar sua variável:
 
-   | Propriedade | obrigatórios | Value |  Descrição |
+   | Propriedade | Obrigatório | Valor |  Description |
    |----------|----------|-------|--------------|
-   | **Nome** | SIM | <*variable-name*> | O nome da variável para incrementar |
+   | **Nome** | Sim | <*variable-name*> | O nome da variável para incrementar |
    | **Valor** | Não | <*increment-value*> | O valor usado para incrementar a variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para que você sempre saiba o valor específico para incrementar sua variável. |
    ||||
 
@@ -326,9 +326,9 @@ Para diminuir ou *decrementar* uma variável por um valor constante, siga as eta
 
 Estas são as propriedades para a ação **Diminuir variável**:
 
-| Propriedade | obrigatórios | Value |  Descrição |
+| Propriedade | Obrigatório | Valor |  Description |
 |----------|----------|-------|--------------|
-| **Nome** | SIM | <*variable-name*> | O nome da variável para diminuir | 
+| **Nome** | Sim | <*variable-name*> | O nome da variável para diminuir | 
 | **Valor** | Não | <*increment-value*> | O valor para diminuição da variável. O valor padrão é um. <p><p>**Dica**: embora seja opcional, defina esse valor como uma melhor prática para sempre conhecer o valor específico para diminuir da variável. |
 ||||| 
 
@@ -359,10 +359,10 @@ Para atribuir um valor diferente a uma variável existente, execute as etapas pa
 
 Estas são as propriedades para a ação **Definir variável**:
 
-| Propriedade | obrigatórios | Value |  Descrição |
+| Propriedade | Obrigatório | Valor |  Description |
 |----------|----------|-------|--------------|
-| **Nome** | SIM | <*variable-name*> | O nome da variável para alterar |
-| **Valor** | SIM | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. |
+| **Nome** | Sim | <*variable-name*> | O nome da variável para alterar |
+| **Valor** | Sim | <*new-value*> | O valor que você quer atribuir à variável. Ambos devem ter o mesmo tipo de dados. |
 ||||| 
 
 > [!NOTE]
@@ -413,14 +413,14 @@ Para variáveis que armazenam cadeias de caracteres ou matrizes, você pode inse
    * **Acrescentar à variável de cadeia de caracteres**
    * **Acrescentar à variável de matriz** 
 
-1. Forneça o valor para acrescentar como o último item na cadeia de caracteres ou matriz. Esse valor é obrigatório.
+1. Forneça o valor para acrescentar como o último item na cadeia de caracteres ou matriz. Esse valor é necessário.
 
 Estas são as propriedades para as ações **Acrescentar a...** :
 
-| Propriedade | obrigatórios | Value |  Descrição |
+| Propriedade | Obrigatório | Valor |  Description |
 |----------|----------|-------|--------------|
-| **Nome** | SIM | <*variable-name*> | O nome da variável para alterar |
-| **Valor** | SIM | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo |
+| **Nome** | Sim | <*variable-name*> | O nome da variável para alterar |
+| **Valor** | Sim | <*append-value*> | O valor que você deseja acrescentar, que pode ser de qualquer tipo |
 |||||
 
 Se você alternar do designer para o editor de modo de exibição de código, aqui está a maneira como a ação **acrescentar à variável de matriz** aparece dentro de sua definição de aplicativo lógico, que está no formato JSON. Este exemplo cria uma variável de matriz e adiciona outro valor como o último item na matriz. O resultado é uma variável atualizada que contém essa matriz: `[1,2,3,"red"]`

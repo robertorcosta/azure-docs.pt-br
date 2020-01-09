@@ -2,19 +2,15 @@
 title: Migrar do Orchestrator para Automação do Azure
 description: Descreve como migrar runbooks e pacotes de integração do System Center Orchestrator para a Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: b34554798130d9741318e0f518c32a41f82a17e3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 528b961ca07ec86ad502ee1b589772e354564a3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421691"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrando do Orchestrator para a Automação do Azure (Beta)
 Os runbooks no [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) são baseados nas atividades de pacotes de integração que são escritos especificamente para o Orchestrator, enquanto os runbooks na Automação do Azure são baseados no Windows PowerShell.  [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na Automação do Azure têm uma aparência semelhante aos runbooks do Orchestrator, com suas atividades representando cmdlets do PowerShell, runbooks filhos e ativos.
@@ -42,7 +38,7 @@ O Conversor de Pacote de Integração converte pacotes de integração criados u
 
 Quando você executa o Conversor de Pacote de Integração, aparece um assistente que permite que você selecione um arquivo de pacote de integração (.oip).  Em seguida, o assistente lista as atividades incluídas no pacote de integração e permite que você selecione quais serão migrados.  Quando você conclui o assistente, ele cria um módulo de integração que inclui um cmdlet correspondente para cada uma das atividades no pacote de integração original.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Todas as propriedades de uma atividade no pacote de integração são convertidas em parâmetros do cmdlet correspondente no módulo de integração.  Os cmdlets do Windows PowerShell têm um conjunto de [parâmetros comuns](https://technet.microsoft.com/library/hh847884.aspx) que podem ser usados com todos os cmdlets.  Por exemplo, o parâmetro -Verbose faz com que um cmdlet produza informações detalhadas sobre a sua operação.  Nenhum cmdlet pode ter um parâmetro com o mesmo nome de um parâmetro comum.  Se uma atividade possui uma propriedade com o mesmo nome de um parâmetro comum, o assistente solicitará que você forneça outro nome para o parâmetro.
 
 ### <a name="monitor-activities"></a>Monitorar atividades

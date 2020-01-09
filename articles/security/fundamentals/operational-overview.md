@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443875"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
@@ -48,9 +48,9 @@ O [Backup do Azure](/azure/backup/backup-introduction-to-azure-backup) é o serv
 
 O Backup do Azure oferece componentes que você pode baixar e implantar no computador ou servidor apropriado, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo os dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação do Azure no Azure.
 
-Para obter mais informações, veja a [tabela de componentes do Backup do Azure](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+Para obter mais informações, veja a [tabela de componentes do Backup do Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Recuperação de Site
+### <a name="site-recovery"></a>Recuperação de site
 
 O [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) fornece continuidade dos negócios por meio da orquestração da replicação de máquinas virtuais e computadores físicos locais no Azure ou em um site secundário. Caso o site primário não esteja disponível, faça failover para o local secundário, de modo que os usuários possam continuar trabalhando. Faça failback quando os sistemas voltarem a funcionar corretamente. Use a Central de Segurança do Azure para executar uma detecção de ameaças mais inteligente e eficaz.
 
@@ -64,7 +64,7 @@ O [Azure AD (Azure Active Directory)](/azure/active-directory/active-directory-e
 
 O Azure AD também inclui um pacote completo de [funcionalidades de gerenciamento de identidades](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), incluindo as seguintes:
 
-- [Autenticação Multifator](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Autenticação multifator](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Gerenciamento de senhas de autoatendimento](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gerenciamento de grupo de autoatendimento](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gerenciamento de contas com privilégios](/azure/active-directory/active-directory-privileged-identity-management-configure)
@@ -166,10 +166,10 @@ O Blueprints é uma maneira declarativa de orquestrar a implantação de vários
 
 - Atribuições de Funções
 - Atribuições de Políticas
-- Modelos do Gerenciador de Recursos do Azure
+- Modelos do Azure Resource Manager
 - Grupos de recursos
 
-## <a name="devops"></a>DevOps
+## <a name="devops"></a>Operações de Desenvolvimento
 
 Antes do desenvolvimento de aplicativo de [DevOps (Operações de Desenvolvedor)](https://www.visualstudio.com/learn/what-is-devops/), as equipes eram responsáveis por reunir os requisitos comerciais de um programa de software e escrever o código. Em seguida, uma equipe separada de garantia de qualidade testava o programa em um ambiente de desenvolvimento isolado. Se os requisitos fossem atendidos, a equipe de garantia de qualidade liberaria o código para ser implantado pelas operações. As equipes de implantação eram ainda fragmentadas em grupos como rede e banco de dados. Sempre que um programa de software era passado para uma equipe independente, isso gerava gargalos.
 
@@ -187,7 +187,7 @@ Os profissionais de DevOps experientes adotam várias das práticas a seguir. Es
 - A [IaC (Infraestrutura como Código)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automação e validação da criação e desmontagem de redes e máquinas virtuais para ajudar a fornecer plataformas de hospedagem de aplicativos seguras e estáveis.
 - A arquitetura de [microsserviços](https://www.visualstudio.com/learn/what-are-microservices/) é usada para isolar casos de uso de negócios em serviços menores reutilizáveis.  Essa arquitetura oferece eficiência e escalabilidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a solução de Segurança e Auditoria, consulte os seguintes artigos:
 

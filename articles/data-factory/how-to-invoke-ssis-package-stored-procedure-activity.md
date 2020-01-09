@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: f45c317e64f63fe6192f4e32507876841f4322de
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 063728c03c689c2eafec889bdee8276772ae685a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444027"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Executar um pacote SSIS usando a atividade de Procedimento Armazenado no Azure Data Factory
 Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data Factory usando uma atividade de Procedimento Armazenado. 
@@ -29,7 +29,7 @@ Este artigo descreve como executar um pacote SSIS em um pipeline do Azure Data F
 Este artigo passo a passo usa um banco de dados SQL do Azure que hospeda o catálogo do SSIS. Você também pode usar uma Instância Gerenciada do Banco de Dados SQL do Azure.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Criar um Integration Runtime do Azure-SSIS
-Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo do [Tutorial: Implantar pacotes SSIS](tutorial-create-azure-ssis-runtime-portal.md).
+Crie um Integration Runtime do Azure-SSIS, caso você não tenha um, seguindo as instruções passo a passo no [Tutorial: Implantar pacotes do SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interface do usuário do Data Factory no Portal do Azure
 Nesta seção, você usa a interface do usuário do Data Factory para criar um pipeline do Data Factory com uma atividade de procedimento armazenado que invoca um pacote do SSIS.
@@ -37,25 +37,25 @@ Nesta seção, você usa a interface do usuário do Data Factory para criar um p
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 A primeira etapa é criar uma data factory usando o Portal do Azure. 
 
-1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface de usuário do Data Factory tem suporte apenas em navegadores da Web Microsoft Edge e Google Chrome.
+1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 2. Navegue até o [Portal do Azure](https://portal.azure.com). 
 3. Clique em **Novo** no menu à esquerda, clique em **Dados + Análise** e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** como o **nome**. 
+2. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **nome**. 
       
      ![Página de novo data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
    O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
   
-     ![Nome não disponível – erro](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
+     ![Erro - nome não disponível](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. Selecione a **assinatura** do Azure na qual você deseja criar o data factory. 
 4. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
      
    - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
    - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
-     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2** para a **versão**.
 5. Selecione o **local** do data factory. Apenas os locais com suporte do Data Factory são mostrados na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outros locais.
 6. Selecione **Fixar no painel**.     
@@ -63,7 +63,7 @@ A primeira etapa é criar uma data factory usando o Portal do Azure.
 8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
 
      ![implantando bloco data factory](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Depois que a criação estiver concluída, a página **Data Factory** será exibida, conforme mostrado na imagem.
+9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
    
      ![Página inicial do data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Clique no bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário (IU) do Azure Data Factory em uma guia separada. 
@@ -123,7 +123,7 @@ Nesta seção, você dispara uma execução do pipeline e, em seguida, faz o mon
     ![Disparar agora](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
 
 2. Na janela **Execução de Pipeline**, selecione **Concluir**. 
-3. Alterne para a guia **Monitor** à esquerda. Você verá o pipeline de execução e seu status junto com outras informações (como a Hora de início da execução). Para atualizar o modo de exibição, clique em **Atualizar**.
+3. Alterne para a guia **Monitorar** à esquerda. Você verá o pipeline de execução e seu status junto com outras informações (como a Hora de início da execução). Para atualizar o modo de exibição, clique em **Atualizar**.
 
     ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
@@ -154,7 +154,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 ### <a name="create-a-data-factory"></a>Criar uma data factory
 Você pode usar a mesma fábrica de dados que contém o IR do Azure-SSIS ou criar uma fábrica de dados separada. O procedimento a seguir fornece as etapas para criar uma fábrica de dados. Você cria um pipeline com uma atividade de procedimento armazenado nesta data factory. A atividade de procedimento armazenado executa um procedimento armazenado no banco de dados SSISDB para executar o seu pacote do SSIS. 
 
-1. Defina uma variável para o nome do grupo de recursos que você usa nos comandos do PowerShell posteriormente. Copie o seguinte texto de comando para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) entre aspas duplas e, em seguida, execute o comando. Por exemplo: `"adfrg"`. 
+1. Defina uma variável para o nome do grupo de recursos que você usa nos comandos do PowerShell posteriormente. Copie o seguinte texto de comando para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) entre aspas duplas e, em seguida, execute o comando. Por exemplo: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -206,16 +206,13 @@ Crie um serviço vinculado para vincular o seu banco de dados SQL do Azure que h
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
     ```
 
-2. No **Azure PowerShell**, alterne para a pasta **C:\ADF\RunSSISPackage**.
+2. No **Azure PowerShell**, mude para a pasta **C:\ADF\RunSSISPackage**.
 
 3. Execute o cmdlet **set-AzDataFactoryV2LinkedService** para criar o serviço vinculado: **AzureSqlDatabaseLinkedService**. 
 
@@ -331,7 +328,7 @@ Na etapa anterior, você chamou a pipeline sob demanda. Você também pode criar
         }
     }    
     ```
-2. No **Azure PowerShell**, alterne para a pasta **C:\ADF\RunSSISPackage**.
+2. No **Azure PowerShell**, mude para a pasta **C:\ADF\RunSSISPackage**.
 3. Execute o cmdlet **set-AzDataFactoryV2Trigger** , que cria o gatilho. 
 
     ```powershell

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bdd1e1922d9d8845a8187cabb3fd39af4694ab
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 75fe9c8587a15ed37366dceda05b5befb353ebb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077906"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647502"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
 
@@ -36,8 +36,8 @@ ms.locfileid: "70077906"
 
 [sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
@@ -193,7 +193,7 @@ ms.locfileid: "70077906"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -203,7 +203,7 @@ Este artigo descreve como instalar e configurar um sistema SAP altamente dispon�
 
 Antes de iniciar a instalação, revise os seguintes artigos:
 
-* [Guia de arquitetura: Cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
+* [Guia de arquitetura: cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
 
 * [Preparar a infraestrutura do Azure SAP de alta disponibilidade usando um cluster de failover do Windows e um compartilhamento de arquivos para instâncias do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
@@ -231,7 +231,7 @@ Não existem considerações especiais quando vários serviços DBMS interagem c
 
 Crie o seguinte volume e compartilhamento de arquivos no cluster SOFS:
 
-* Estrutura de arquivos `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` SAP GLOBALHOST no volume compartilhado do cluster do SOFS (CSV)
+* Estrutura de `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` de arquivos do SAP GLOBALHOST no CSV (volume compartilhado clusterizado) do SOFS
 
 * Compartilhamento de arquivos SAPMNT
 
@@ -299,7 +299,7 @@ Crie um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **PR1-ASCS [10.0.6
 
 Instale uma instância do SAP ASCS/SCS no primeiro nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<Produto >**  >  >  DBMS >instalação > doservidor de aplicativos ABAP (ou Java) > **sistema de alta disponibilidade** **\<**  >  **Instância do ASCS/SCS** **Primeiro nó do cluster.**  > 
+**\<> de produtos** >  **\<DBMS >** **instalação** >  > **servidor de aplicativos ABAP** (ou **Java**) > **sistema de alta disponibilidade** > **instância ASCS/SCS** > **primeiro nó de cluster**.
 
 ### <a name="add-a-probe-port"></a>Adicionar uma porta de investigação
 
@@ -309,21 +309,21 @@ Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, us
 
 Instale uma instância do SAP ASCS/SCS no segundo nó do cluster. Para instalar a instância, na ferramenta de instalação do SAP SWPM, vá para:
 
-**\<Produto >**  >  >  DBMS >instalação > doservidor de aplicativos ABAP (ou Java) > **sistema de alta disponibilidade** **\<**  >  **Instância do ASCS/SCS** **Nó de cluster adicional.**  > 
+**\<> de produtos** >  **\<DBMS >** **instalação** >  > **servidor de aplicativos ABAP** (ou **Java**) > **sistema de alta disponibilidade** > **instância ASCS/SCS** > **nó de cluster adicional**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil da instância do SAP ASCS/SCS
 
-Atualize os parâmetros no SID do perfil \<da instância do SAP ASCS/SCS >_ASCS/SCS\<NR >_ \<host >.
+Atualize os parâmetros no perfil da instância do SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_ \<host >.
 
 
-| Nome do parâmetro | Valor do parâmetro |
+| Nome do parâmetro | Valor de parâmetro |
 | --- | --- |
 | gw/netstat_once | **0** |
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Reinicie a instância do SAP ASCS/SCS. Definir `KeepAlive` parâmetros em ambos os nós de cluster do SAP ASCS/SCS siga as instruções para [definir entradas de registro nos nós de cluster da instância do SAP ASCS/SCS][high-availability-guide]. 
+Reinicie a instância do SAP ASCS/SCS. Defina `KeepAlive` parâmetros em ambos os nós de cluster do SAP ASCS/SCS siga as instruções para [definir entradas de registro nos nós de cluster da instância do SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalar instância DBMS e servidores de aplicativos SAP
 
@@ -332,7 +332,7 @@ Finalize a instalação do sistema SAP instalando:
 * Um servidor de aplicativos SAP primário.
 * Um servidor de aplicativos SAP adicional.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Instalar uma instância do ASCS/SCS em um cluster de failover sem discos compartilhados-diretrizes SAP oficiais para compartilhamento de arquivos de alta disponibilidade][sap-official-ha-file-share-document]
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671717"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680897"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
 
@@ -21,15 +21,21 @@ O ponto de extremidade FTP/S para seu aplicativo já está ativo. Nenhuma config
 
 ## <a name="open-ftp-dashboard"></a>Abrir o painel FTP
 
-No [Portal do Azure](https://portal.azure.com), abra a [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources) do seu aplicativo.
+1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos**.
 
-Para abrir o painel de FTP, clique em **Centro de Implantação** > **FTP** > **Painel**.
+    ![Pesquise serviços de aplicativos.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![Abrir o painel FTP](./media/app-service-deploy-ftp/open-dashboard.png)
+2. Selecione o aplicativo Web que você deseja implantar.
+
+    ![Selecione seu aplicativo.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. Selecione **central de implantação** > **painel**de > **FTP** .
+
+    ![Abrir o painel FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>Obter informações de conexão de FTP
 
-No painel FTP, clique em **Copiar** para copiar o ponto de extremidade de FTPS e as credenciais do aplicativo.
+No painel de FTP, selecione **copiar** para copiar o ponto de extremidade de FTPS e as credenciais do aplicativo.
 
 ![Copiar informações de FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
@@ -46,7 +52,7 @@ No painel FTP, clique em **Copiar** para copiar o ponto de extremidade de FTPS e
 ## <a name="deploy-files-to-azure"></a>Implantar arquivos no Azure
 
 1. Do seu cliente de FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) ou [WinSCP](https://winscp.net/index.php)), use as informações de conexão que você reuniu para se conectar ao seu aplicativo.
-2. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [ **/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o diretório **/site/wwwroot/App_Data/Jobs/** para Trabalhos Web).
+2. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [ **/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o diretório **/site/wwwroot/App_Data/Jobs/** para Trabalhos Web).
 3. Navegue até a URL do aplicativo para verificar se ele está sendo executado corretamente. 
 
 > [!NOTE] 

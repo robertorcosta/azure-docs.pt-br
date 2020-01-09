@@ -1,25 +1,14 @@
 ---
 title: Atualizar a versão de Service Fabric do Azure de um cluster
 description: Atualize o código e/ou configuração do Service Fabric que executa um cluster do Service Fabric, incluindo a definição do modo de atualização do cluster, a atualização de certificados, a adição de portas do aplicativo, a aplicação de patches no sistema operacional etc. O que você pode esperar após a execução das atualizações?
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
-ms.author: atsenthi
-ms.openlocfilehash: 067bf654928240ffe9651d4acf1933a81e631146
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451816"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Atualizar a versão do Service Fabric de um cluster
 
@@ -30,7 +19,7 @@ Você pode definir o cluster para receber atualizações automáticas do Fabric,
 Você pode fazer isso definindo a configuração do cluster "upgradeMode" no portal ou usando o Gerenciador de Recursos no momento da criação ou posteriormente em um cluster ativo 
 
 > [!NOTE]
-> Certifique-se de manter o cluster sempre executando uma versão do Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Então, a nova versão está disponível para escolha. 
+> Certifique-se de manter o cluster sempre executando uma versão do Fabric com suporte. Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar seu tempo de vida após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas [no blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/). Então, a nova versão está disponível para escolha. 
 > 
 > 
 
@@ -119,7 +108,7 @@ Output:
                 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md)

@@ -3,12 +3,12 @@ title: Endereços IP no Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicativos de função e o que faz com que eles sejam alterados.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230335"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612880"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -25,7 +25,7 @@ Os endereços IP estão associados a aplicativos de função, não a funções i
 
 Cada aplicativo de função possui um único endereço IP de entrada. Para encontrar esse endereço IP:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione **recursos da plataforma**.
 4. Selecione **Propriedades** e o endereço IP de entrada será exibido em **Endereço IP virtual**.
@@ -80,15 +80,15 @@ Por exemplo, este é o que o fragmento JSON da Europa Ocidental pode parecer com
 
  Para obter informações sobre quando este arquivo é atualizado e quando os endereços IP são alterados, expanda a seção **Detalhes** da [página do Centro de Download](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## <a name="inbound-ip-address-changes"></a>Mudanças no endereço IP de entrada
+## <a name="inbound-ip-address-changes"></a>Alterações de endereço IP de entrada
 
 O endereço IP de entrada **pode** mudar quando você:
 
 - Exclua um aplicativo de função e recrie-o em um grupo de recursos diferente.
 - Exclua o último aplicativo de função em uma combinação de grupo de recursos e região e recrie-o.
-- Exclua uma ligação SSL, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Exclua uma associação SSL, como durante a [renovação do certificado](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Quando seu aplicativo de funções é executado um [Plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode alterar quando você ainda não tiver feito quaisquer ações, como aquelas listadas.
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode ser alterado mesmo quando você não executou nenhuma ação, como aquelas [listadas acima](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Mudanças no endereço IP de saída
 
@@ -97,7 +97,7 @@ O conjunto de endereços IP de saída disponíveis para um aplicativo de funçã
 * Execute qualquer ação que possa alterar o endereço IP de entrada.
 * Altere a camada de preços do seu plano de serviço do aplicativo. A lista de todos os possíveis endereços IP de saída que seu aplicativo pode usar, para todas as camadas de preços, está na `possibleOutboundIPAddresses`propriedade. Consulte [Localizar IPs de saída](#find-outbound-ip-addresses).
 
-Quando seu aplicativo de funções é executado em um [Plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode alterar quando você ainda não tiver feito quaisquer ações, como aquelas listadas.
+Quando seu aplicativo de funções é executado em um [plano de consumo](functions-scale.md#consumption-plan), o endereço IP de saída também pode ser alterado mesmo quando você não executou nenhuma ação, como as [listadas acima](#inbound-ip-address-changes).
 
 Para forçar deliberadamente uma alteração de endereço IP de saída:
 
@@ -115,7 +115,7 @@ Se você precisar de endereços IP dedicados e estáticos, recomendamos [Ambient
 
 Para descobrir se seu aplicativo de função é executado em um Ambiente de Serviço de Aplicativo:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até o aplicativo de função.
 3. Selecione o guia **Visão geral**.
 4. A camada do plano de Serviço de Aplicativo aparece em **Plano de serviço de aplicativo / camada de preço**. A camada de preços do Ambiente de Serviço de Aplicativo é **Isolado**.
@@ -128,6 +128,6 @@ az webapp show --resource-group <group_name> --name <app_name> --query sku --out
 
 O Ambiente do Serviço de Aplicativo `sku` é `Isolated`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Uma causa comum de alterações de IP é a função de escala de aplicativos. [Saiba mais sobre o dimensionamento do aplicativo de função](functions-scale.md).

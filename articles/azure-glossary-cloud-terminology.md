@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325418"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659552"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
 O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuvem para a plataforma do Azure Consulte também:
 
-* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definições de serviços do Azure e suas contrapartes em AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definições de serviços do Azure e suas contrapartes AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Termos de computação em nuvem](https://azure.microsoft.com/overview/cloud-computing-dictionary/) – termos gerais de nuvem do setor.
 
-## <a name="account"></a>conta
+## <a name="account"></a>account
 Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Ele também é conhecido como uma conta do Azure Embora uma conta pode ser um dos seguintes: um trabalho existente, escola, ou pessoais conta da Microsoft, ou um nome de usuário do Office 365 e senha. Você também pode criar uma conta para gerenciar uma assinatura do Azure, quando você se inscreve para o [avaliação gratuita](https://azure.microsoft.com).  
 veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -75,7 +75,7 @@ Veja [Navegar e selecionar imagens de máquinas virtuais do Windows no Azure com
 
 ## <a name="limits"></a>limites
 O número de recursos que podem ser criados, ou o parâmetro de comparação de desempenho que pode ser atingido. Geralmente, os limites estão associados a assinaturas, serviços e ofertas.  
-Veja [Assinatura do Azure e limites de serviços, cotas e restrições](azure-subscription-service-limits.md)
+Veja [Assinatura do Azure e limites de serviços, cotas e restrições](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>balanceador de carga
 Um recurso que distribui o tráfego recebido entre computadores em uma rede. No Azure, um balanceador de carga distribui o tráfego para máquinas virtuais definidas em um conjunto de balanceadores de carga. Um [balanceador de carga](load-balancer/load-balancer-overview.md) pode ser voltado à Internet ou interno.  
@@ -94,7 +94,7 @@ O portal da Web seguro usado para implantar e gerenciar serviços do Azure.
 Uma área dentro de uma área geográfica que não ultrapassa fronteiras nacionais e contém um ou mais datacenters. Preços, serviços regionais e tipos de oferta são expostos no nível da região. Normalmente, uma região é emparelhada com outra região, que pode estar a até várias centenas de quilômetros de distância. Os pares regionais podem ser usados como um mecanismo para cenários de alta disponibilidade e de recuperação de desastres. Isso também é chamado de *localização*.  
 Veja [Regiões do Azure](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>resource
+## <a name="resource"></a>recurso
 Um item que faz parte de sua solução do Azure. Cada serviço do Azure permite que você implante tipos diferentes de recursos, como bancos de dados ou máquinas virtuais.   
 Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
@@ -112,7 +112,7 @@ Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-gr
 
 ## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e serviços. As funções são capazes de executar ações, por exemplo, criar, gerenciar e ler recursos do Azure.  
-Consulte [RBAC: funções internas](role-based-access-control/built-in-roles.md)
+Veja [RBAC: funções internas](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>SLA (contrato de nível de serviço)
 O contrato que descreve os compromissos da Microsoft em relação ao tempo de atividade e à conectividade. Cada serviço do Azure tem um SLA específico.  
@@ -147,7 +147,7 @@ Um recurso que implementa comportamentos ou recursos que ajudam outros programas
 Veja [Sobre os recursos e extensões de máquina virtual (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Sobre os recursos e extensões de máquina virtual (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>rede virtual
-Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Uma [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) lhe permite estabelecer conexões entre redes virtuais e entre uma rede virtual e uma rede local. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  
+Uma rede que fornece conectividade entre seus recursos do Azure que estão isolados de todos os outros locatários do Azure. Um [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite estabelecer conexões entre redes virtuais e entre uma rede virtual e uma rede local. Você pode controlar os blocos de endereços IP, as configurações de DNS, as políticas de segurança e as tabelas de rotas em uma rede virtual.  
 Veja [Visão geral da Rede Virtual](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicativo Web

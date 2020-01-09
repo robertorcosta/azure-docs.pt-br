@@ -1,25 +1,16 @@
 ---
-title: Desenvolver aplicativos do Microsoft Azure Service Fabric .NET Core com Visual Studio Code | Microsoft Docs
+title: Desenvolva aplicativos .NET Core com Visual Studio Code
 description: Este artigo mostra como compilar, implantar e depurar aplicativos do Microsoft Azure Service Fabric .Net Core usando o Visual Studio Code.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537760"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614516"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos C# do Microsoft Azure Service Fabric com o Visual Studio Code
 
@@ -59,33 +50,33 @@ O aplicativo agora deve aparecer no seu workspace do Visual Studio Code.
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 1. Aperte (Ctrl + Shift + p) para abrir a **Paleta de comandos** no visual Studio Code.
-2. Pesquise e selecione o comando **Service Fabric: Compilar Aplicativo**. A saída de compilação é enviada para o terminal integrado.
+2. Pesquise e selecione o **Service Fabric: criar comando do Aplicativo**. A saída de compilação é enviada para o terminal integrado.
 
    ![Compilar comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
 
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implantar um aplicativo no cluster local
 Após a compilação do aplicativo, você pode implantá-lo no cluster local. 
 
-1. Na **Paleta de comandos**, selecione o comando **Service Fabric: Implantar Aplicativo (Localhost)** . A saída do processo de instalação é enviada para o terminal integrado.
+1. Da **Paleta de Comandos**, selecione o **Service Fabric: comando implantar o aplicativo (Localhost)** . A saída do processo de instalação é enviada para o terminal integrado.
 
    ![Implantar o comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: http:\//localhost:19080 / Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
+4. Quando a implantação for concluída, inicie um navegador e abra Service Fabric Explorer: http:\//localhost: 19080/Explorer. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
    ![Aplicativo de serviço de contador no Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Depois de verificar o aplicativo está em execução, inicie um navegador e abra esta página: http:\//localhost:31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
+4. Depois de verificar se o aplicativo está em execução, inicie um navegador e abra esta página: http:\//localhost: 31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
 
    ![Aplicativo de serviço de contador no navegador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
-## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicar o aplicativo em um cluster do Azure Service Fabric
-Junto com a implantação do aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto do Azure Service Fabric. 
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicar o aplicativo em um cluster de Service Fabric do Azure
+Juntamente com a implantação do aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto Service Fabric do Azure. 
 
-1. Certifique-se de que você criou seu aplicativo usando as instruções acima. Atualizar o arquivo de configuração gerado `Cloud.json` com os detalhes do cluster remoto que você deseja publicar.
+1. Verifique se você criou seu aplicativo usando as instruções acima. Atualize o arquivo de configuração gerado `Cloud.json` com os detalhes do cluster remoto no qual você deseja publicar.
 
-2. Na **Paleta de comandos**, selecione o comando **Service Fabric: Comando de aplicativo publicar**. A saída do processo de instalação é enviada para o terminal integrado.
+2. Na **paleta de comandos**, selecione o **comando Service Fabric: publicar aplicativo**. A saída do processo de instalação é enviada para o terminal integrado.
 
-   ![Comando de aplicativo de publicação no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![Comando publicar aplicativo no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
@@ -102,7 +93,7 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
 
    ![Depurar o ícone no workspace de código VS](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Abra o Explorador do Service Fabric em um navegador: http:\//localhost:19080 / Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
+3. Abra Service Fabric Explorer em um navegador: http:\//localhost: 19080/Explorer. Clique em **Aplicativos** e faça uma busca detalhada para determinar o nó primário que o CounterService está executando. Na imagem abaixo, o nó primário para o CounterService é o nó 0.
 
    ![Nó principal para CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
@@ -118,9 +109,9 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
    
    ![Desconectado do depurador](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
        
-7. Quando terminar a depuração, você poderá usar o comando **Service Fabric: Remover aplicativo** para remover o aplicativo do CounterService de seu cluster local. 
+7. Quando você terminar a depuração, você pode usar o **Service Fabric: remover o comando do aplicativo** para remover o aplicativo CounterService do seu cluster local. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [desenvolver aplicativos Microsoft Azure Service Fabric Java com Visual Studio Code](./service-fabric-develop-java-applications-with-vs-code.md).
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 609b1c4500e1602c38f3383df6cbe176a3333bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439561"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Ramificação e encadeamento de atividades em um pipeline de Data Factory
 
@@ -38,7 +38,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 
 Este tutorial usa o portal do Azure. Você pode usar outros mecanismos para interagir com o Azure Data Factory, consulte "Guias de início rápido" no sumário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **origem**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma.
@@ -144,7 +144,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
       - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
-        Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+        Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2** para a **versão**.
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
@@ -182,7 +182,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 5. Na janela **Propriedades** da atividade de **Cópia**, na parte inferior, alterne para a guia **Origem**guia e, em seguida, clique em **+ Novo**. Você cria um conjunto de dados de origem para a atividade de cópia nesta etapa. 
 
    ![Conjunto de dados de origem](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
-6. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e clique em **Concluir**. 
+6. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
 7. Você verá uma nova **guia** intitulada **AzureBlob1**. Altere o nome do conjunto de dados para **SourceBlobDataset**.
@@ -207,7 +207,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 13. Na janela de propriedades, alterne para a guia **Coletor** e, em seguida, clique em **+ Novo** para **Conjunto de Dados do Coletor**. Você cria um conjunto de dados do coletor para a atividade de cópia nesta etapa de forma semelhante a como você criou o conjunto de dados de origem. 
 
     ![Botão Novo conjunto de dados do coletor](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
-14. Na janela **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e clique em **Concluir**. 
+14. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
 15. Na página de configurações **Geral** do conjunto de dados, insira **SinkBlobDataset** como **Nome**.
 16. Alterne para a guia **Conexão** e siga estas etapas: 
 
@@ -272,7 +272,7 @@ Nesta etapa, você pode criar um pipeline com uma atividade de Cópia e duas ati
 23. Arraste o botão **vermelho** próximo à atividade Cópia para a segunda atividade Web **SendFailureEmailActivity**. Você pode mover as atividades de forma que o pipeline se pareça com a imagem a seguir: 
 
     ![Pipeline completo com todas as atividades](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Para validar o pipeline, clique no botão **Validar** na barra de ferramentas. Feche a janela **Saída da Validação do Pipeline** clicando no botão **>>** .
+24. Para validar o pipeline, clique em **Validar** na barra de ferramentas. Feche a janela **Saída da Validação do Pipeline** clicando no botão **>>** .
 
     ![Validar o pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Para publicar as entidades (conjuntos de dados, pipelines etc.) no serviço Data Factory, selecione **Publicar tudo**. Aguarde até que você veja a mensagem **Publicado com êxito**.

@@ -1,25 +1,16 @@
 ---
-title: Resource Manager de Cluster do Service Fabric – integração de gerenciamento | Microsoft Docs
+title: Gerenciador de recursos de cluster-integração de gerenciamento
 description: Uma visão geral dos pontos de integração entre o Gerenciador de Recursos de Cluster e o Gerenciamento do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196489"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614614"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
 O Gerenciador de recursos de Cluster do Service Fabric não realiza as atualizações no Service Fabric, mas está envolvido. A primeira maneira que o Cluster Resource Manager pode ajudar no gerenciamento é rastreando o estado desejado do cluster e dos serviços dentro dele. O Cluster Resource Manager envia relatórios de integridade quando não consegue deixar o cluster na configuração desejada. Por exemplo, se não houver capacidade suficiente, o Gerenciador de Recursos de Cluster enviará avisos de integridade e erros indicando o problema. Outra parte de integração tem a ver com a forma como as atualizações funcionam. O Gerenciador de Recursos de Cluster altera ligeiramente seu comportamento durante as atualizações.  
@@ -77,7 +68,7 @@ Veja o que a mensagem de integridade está nos dizendo:
 2. No momento, a restrição de distribuição Domínio de Atualização está sendo violada. Isso significa que um determinado Domínio de Atualização tem mais réplicas desta partição do que deveria.
 3. Qual nó contém a réplica que está causando a violação. Nesse caso, é o nó com o nome "Node.8"
 4. Se uma atualização estiver ocorrendo no momento para essa partição ("Atualmente em Atualização - falso")
-5. A política de distribuição para esse serviço: "Política de Distribuição -- Empacotamento". Isso é controlado pela `RequireDomainDistribution`política de posicionamento[ do ](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Empacotamento" indica que, nesse caso, DomainDistribution _não_ era necessária, portanto sabemos que a política de posicionamento não era especificada para esse serviço. 
+5. A política de distribuição para esse serviço: "Política de Distribuição -- Empacotamento". Isso é regido pela [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)de `RequireDomainDistribution`. "Empacotamento" indica que, nesse caso, DomainDistribution _não_ era necessária, portanto sabemos que a política de posicionamento não era especificada para esse serviço. 
 6. Quando o relatório ocorreu (10/08/2015 19:13:02)
 
 Informações sobre como isso gera alertas que são disparados na produção, para que você saiba que algo deu errado. Também são usadas para detectar e impedir atualizações inválidas. Nesse caso, queremos ver se conseguimos descobrir por que o Resource Manager precisou empacotar as réplicas no Domínio de Atualização. Normalmente, o empacotamento é temporário, pois os nós em outros Domínios de Atualização estavam inativos, por exemplo.
@@ -114,7 +105,7 @@ A inclusão na lista de bloqueio não é uma condição permanente. Após alguns
 
 Em todas essas restrições, você pode ter pensado “Ei, acho que restrições de domínio de falha são a coisa mais importante em meu sistema. Para garantir a não violação da restrição de domínio de falha, estou disposto(a) a violar outras restrições."
 
-As restrições podem ser configuradas com níveis de prioridade diferentes. Estes são:
+As restrições podem ser configuradas com níveis de prioridade diferentes. Eles são:
 
    - "inflexível" (0)
    - "flexível" (1)
@@ -183,7 +174,7 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Restrições de domínio de falha e de atualização
 O Gerenciador de Recursos de Cluster deseja manter os serviços distribuídos entre domínios de falha e de atualização. Ele simula isso como uma restrição dentro do mecanismo do Gerenciador de Recursos de Cluster. Para saber mais sobre como eles são usados e o comportamento específico, confira o artigo na [configuração de cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas em um domínio de atualização para lidar com atualizações, falhas ou outras violações de restrição. O empacotamento dentro de domínios de falha ou de atualização normalmente ocorre somente quando há várias falhas ou outra variação no sistema que impede o posicionamento correto. Se você quiser evitar o empacotamento mesmo durante essas situações, você pode utilizar a `RequireDomainDistribution`política de posicionamento[ do ](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Observe que isso pode afetar a disponibilidade e a confiabilidade do serviço como um efeito colateral, portanto, considere com cuidado.
+O Gerenciador de Recursos de Cluster pode precisar empacotar algumas réplicas em um domínio de atualização para lidar com atualizações, falhas ou outras violações de restrição. O empacotamento dentro de domínios de falha ou de atualização normalmente ocorre somente quando há várias falhas ou outra variação no sistema que impede o posicionamento correto. Se desejar impedir a compactação mesmo durante essas situações, você poderá utilizar a [política de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. Observe que isso pode afetar a disponibilidade e a confiabilidade do serviço como um efeito colateral, portanto, considere com cuidado.
 
 Se o ambiente estiver configurado corretamente, todas as restrições serão totalmente respeitadas, mesmo durante as atualizações. O mais importante é que o Gerenciador de Recursos de Cluster esteja observando suas restrições. Ao detectar uma violação, ele imediatamente informa e tenta corrigir o problema.
 
@@ -208,5 +199,5 @@ Outra coisa que acontece durante as atualizações é que o Gerenciador de Recur
 ### <a name="buffered-capacity--upgrade"></a>Capacidade de buffer e atualização
 Em geral, convém concluir a atualização mesmo se o cluster estiver sob restrição ou quase cheio. Ser capaz de gerenciar a capacidade do cluster é ainda mais importante do que o normal. Dependendo do número de domínios de atualização, entre cinco e 20% da capacidade devem ser migradas à medida que a atualização percorre o cluster. Esse trabalho precisa ir para algum lugar. É aqui que a noção de [capacidades de buffer](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) é útil. A capacidade de buffer é respeitada durante a operação normal. O Gerenciador de Recursos de Cluster pode preencher os nós até sua capacidade total (consumindo o buffer) durante as atualizações, se for necessário.
 
-## <a name="next-steps"></a>Próximas etapas
-* Comece do princípio e [veja uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+## <a name="next-steps"></a>Próximos passos
+* Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)

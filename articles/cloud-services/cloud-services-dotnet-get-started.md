@@ -3,23 +3,23 @@ title: Introdução aos Serviços de Nuvem do Azure e ao ASP.NET | Microsoft Doc
 description: Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de Armazenamento do Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: gwallace
-ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tagore
+ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827665"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386724"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este tutorial mostra como criar um aplicativo de várias camadas .NET com front-end ASP.NET MVC e implantá-lo no [serviço de nuvem do Azure](cloud-services-choose-me.md). O aplicativo usa o [Banco de Dados SQL do Azure](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Você pode [baixar o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) na Galeria de Códigos do MSDN.
 
 O tutorial mostra como criar e executar o aplicativo localmente, como implantá-lo no Azure e executá-lo na nuvem e como criá-lo do zero. Você pode começar criando do zero e depois fazer o teste e implantar as etapas posteriormente se preferir.
@@ -31,7 +31,7 @@ O aplicativo é um painel de anúncios eletrônico. Os usuários criam um anúnc
 
 O aplicativo usa o [padrão centrado em fila](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho intensivo de CPU de criação de miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de Aplicativo e WebJobs
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: serviço de aplicativo e trabalhos Web
 Este tutorial mostra como executar front-end e back-end no serviço de nuvem do Azure. Uma alternativa é executar o front-end no [Serviço de Aplicativo do Azure](/azure/app-service/) e usar o recurso [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que usa WebJobs, consulte [Introdução ao SDK WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se ajustam ao seu cenário, confira [Comparação entre o Serviço de Aplicativo do Azure, Serviços de Nuvem e máquinas virtuais](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>O que você aprenderá
@@ -128,7 +128,7 @@ Um serviço de nuvem do Azure é o ambiente em que o aplicativo será executado.
 
     Na imagem a seguir, um serviço de nuvem é criado com a URL CSvccontosoads.cloudapp.net.
 
-    ![Novo serviço de nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
+    ![Novo Serviço de Nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### <a name="create-an-azure-sql-database"></a>Criar um banco de dados SQL do Azure
 Quando o aplicativo é executado na nuvem, ele usa um banco de dados com base na nuvem.
@@ -204,7 +204,7 @@ Você usará uma [transformação de Web.config](https://www.asp.net/mvc/tutoria
     Deixe o arquivo aberto para edição.
 2. No [portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial e clique em **Mostrar cadeias de conexão**.
 
-    ![Mostrar Cadeias de Conexão](./media/cloud-services-dotnet-get-started/showcs.png)
+    ![Mostrar cadeias de conexão](./media/cloud-services-dotnet-get-started/showcs.png)
 
     O portal exibe as cadeias de conexão com um espaço reservado para a senha.
 
@@ -221,7 +221,7 @@ Você usará uma [transformação de Web.config](https://www.asp.net/mvc/tutoria
 10. Selecione o campo **Valor** para a configuração `ContosoAdsDbConnectionString` e cole a cadeia de conexão que você copiou da seção anterior do tutorial.
 
      ![Cadeia de conexão de banco de dados para função de trabalho](./media/cloud-services-dotnet-get-started/workerdbcs.png)
-11. Salve as alterações.  
+11. Salve suas alterações.  
 
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Configurar a solução para usar sua conta de armazenamento do Azure quando ela for executada no Azure
 As cadeias de conexão da conta de armazenamento do Azure do projeto de função de trabalho e do projeto de função Web são armazenadas nas configurações de ambiente do projeto de serviço de nuvem. Para cada projeto existe um conjunto separado de configurações a ser usado quando o aplicativo é executado localmente e quando é executado na nuvem. Você atualizará as configurações de ambiente de nuvem para os projetos de função de trabalho e da Web.
@@ -229,7 +229,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **ContosoAdsWeb** em **Funções** no projeto **ContosoAdsCloudService**; depois, clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Clique na guia **Configurações** . Na caixa suspensa **Configuração de Serviço** selecione **Nuvem**.
+2. Clique na guia **configurações** . Na caixa suspensa **configuração de serviço** , escolha **nuvem**.
 
     ![Configuração de nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências ( **...** ) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento** .
@@ -238,7 +238,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 4. Na caixa de diálogo **Criar Cadeia de Conexão de Armazenamento**, clique em **Sua assinatura**, escolha a conta de armazenamento que você criou anteriormente e, em seguida, clique em **OK**. Se você não tiver feito logon, suas credenciais da conta do Azure serão solicitadas.
 
     ![Criar cadeia de conexão de armazenamento](./media/cloud-services-dotnet-get-started/createstoragecs.png)
-5. Salve as alterações.
+5. Salve suas alterações.
 6. Siga o mesmo procedimento que usou para a cadeia de conexão `StorageConnectionString` para definir a cadeia de conexão `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
 
     Essa cadeia de conexão é usada para o log.
@@ -373,7 +373,7 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
     ```
 
     Se você estiver usando o Visual Studio 2015 ou superior, substitua "v11.0" por "MSSQLLocalDB".
-2. Salve as alterações.
+2. Salve suas alterações.
 3. No projeto ContosoAdsCloudService, clique com o botão direito do mouse em ContosoAdsWeb abaixo de **Funções** e depois clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
@@ -383,13 +383,13 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 5. Adicione uma configuração chamada *StorageConnectionString*. Defina **Tipo** como *ConnectionString* e defina **Valor** como *UseDevelopmentStorage=true*.
 
     ![Nova cadeia de conexão](./media/cloud-services-dotnet-get-started/scall.png)
-6. Salve as alterações.
+6. Salve suas alterações.
 7. Siga o mesmo procedimento para adicionar uma cadeia de conexão nas propriedades da função ContosoAdsWorker.
 8. Ainda na janela de propriedades de **ContosoAdsWorker [Role]** , adicione outra cadeia de conexão:
 
    * Nome: ContosoAdsDbConnectionString
-   * Digite: Cadeia
-   * Valor: Cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo a seguir é para o Visual Studio 2013. Não se esqueça de alterar a fonte de dados se for copiar este exemplo e se estiver usando o Visual Studio 2015 ou superior.)
+   * Tipo: String
+   * Valor: cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo a seguir é para o Visual Studio 2013. Não se esqueça de alterar a fonte de dados se for copiar este exemplo e se estiver usando o Visual Studio 2015 ou superior.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -758,7 +758,7 @@ Para alterar o projeto a fim de usar o emulador completo, clique com o botão di
 
 Para executar o aplicativo com o emulador completo, abra o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Os aplicativo Contoso Ads foi, intencionalmente, mantido simples para este tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou os [padrões de unidade de trabalho e repositório](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
 
 Estes são alguns aplicativos função Web de serviço de nuvem que demonstram práticas mais reais de codificação, listados do menos para o mais complexo:
@@ -770,9 +770,12 @@ Para obter informações sobre como desenvolver para a nuvem, consulte [Criando 
 
 Para assistir a um vídeo de introdução às melhores práticas e padrões de armazenamento do Azure [Armazenamento do Microsoft Azure – O que há de novo, melhores práticas e padrões](https://channel9.msdn.com/Events/Build/2014/3-628).
 
-Para obter mais informações, consulte os seguintes recursos:
+Para saber mais, consulte os recursos a seguir:
 
-* [Serviços de Nuvem do Azure – Parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Serviços de nuvem do Azure Parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
+
+

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498079"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647417"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho lento ou com falha em um cluster HDInsight
 
@@ -43,7 +43,7 @@ Para ajudar a identificar o problema, considere as seguintes perguntas:
 * Quando este problema ocorreu pela primeira vez? Com que frequência isso tem ocorrido?
 * Houve alguma alteração na minha configuração do cluster?
 
-### <a name="cluster-details"></a>Detalhes do Cluster
+### <a name="cluster-details"></a>Detalhes do cluster
 
 Informações importantes do cluster incluem:
 
@@ -76,13 +76,13 @@ Cada cluster HDInsight baseia-se em vários serviços do Azure e em softwares de
 * Verifique os limites de uso do serviço do Azure. 
 * Verifique a configuração de sub-rede da rede virtual do Azure.  
 
-### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração de cluster com o Ambari UI
+### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Exibir definições de configuração do cluster com a interface de usuário do Ambari
 
-O Apache Ambari fornece gerenciamento e monitoramento de um cluster HDInsight com uma interface do usuário da Web e uma API REST. Ambari está incluído nos clusters HDInsight baseados em Linux. Selecione o **Painel do Cluster** na página do HDInsight no Portal do Azure.  Selecione o **painel do cluster HDInsight** para abrir a interface de usuário do Ambari e insira as credenciais de logon do cluster.  
+O Apache Ambari fornece gerenciamento e monitoramento de um cluster HDInsight com uma interface do usuário da Web e uma API REST. O Ambari está incluído nos clusters HDInsight com base em Linux. Selecione o **Painel do Cluster** na página do HDInsight no Portal do Azure.  Selecione o **painel do cluster HDInsight** para abrir a interface de usuário do Ambari e insira as credenciais de logon do cluster.  
 
 ![Visão geral do painel do Apache Ambari](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
-Para abrir uma lista de modos de exibição do serviço, selecione **Modos de exibição do Ambari** na página do Portal do Azure.  Essa lista depende de quais bibliotecas estão instaladas. Por exemplo, você poderá ver YARN Queue Manager, o Hive View e o Tez View.  Selecione um link de serviço para ver informações de configuração e serviço.
+Para abrir uma lista de modos de exibição do serviço, selecione **Modos de exibição do Ambari** na página do Portal do Azure.  Essa lista depende de quais bibliotecas estão instaladas. Por exemplo, você poderá ver o Gerenciador de Fila do YARN, o Modo de Exibição do Hive e o Modo de Exibição do Tez.  Selecione um link de serviço para ver informações de configuração e serviço.
 
 #### <a name="check-for-azure-service-outages"></a>Verificar interrupções de serviço do Azure
 
@@ -90,7 +90,7 @@ O HDInsight depende de vários serviços do Azure. Ele executa servidores virtua
 
 #### <a name="check-azure-service-usage-limits"></a>Verifique os limites de uso do serviço do Azure
 
-Se você estiver iniciando um cluster grande ou iniciou simultaneamente vários clusters, um cluster pode falhar caso você tenha excedido o limite do serviço do Azure. Os limites de serviço variam, dependendo de sua assinatura do Azure. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Se você estiver iniciando um cluster grande ou iniciou simultaneamente vários clusters, um cluster pode falhar caso você tenha excedido o limite do serviço do Azure. Os limites de serviço variam, dependendo de sua assinatura do Azure. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 Você pode solicitar que a Microsoft aumente o número de recursos de HDInsight disponíveis (por exemplo, núcleos de VMs e instâncias de VM) com uma [solicitação de aumento de cota de núcleos do Gerenciador de Recursos](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 #### <a name="check-the-release-version"></a>Verificar a versão de lançamento
@@ -240,7 +240,7 @@ Um cluster HDInsight gera logs que são gravados nas tabelas do Azure e no Armaz
 
 ### <a name="review-heap-dumps"></a>Examinar os despejos de heap
 
-Os despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento, que são úteis para diagnosticar problemas que ocorrem no tempo de execução. Para obter mais informações, consulte [Habilitar despejos de heap para serviços de Apache Hadoop em HDInsight com base em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+Os despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento, que são úteis para diagnosticar problemas que ocorrem no runtime. Para obter mais informações, consulte [Habilitar despejos de heap para serviços de Apache Hadoop em HDInsight com base em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 ## <a name="step-6-check-configuration-settings"></a>Etapa 6: Verificar as definições de configuração
 
@@ -259,7 +259,7 @@ Para ajudar a diagnosticar a origem de um erro do cluster, inicie um novo cluste
 5. Continue até que todas as etapas sejam executadas sem erros.
 6. Quando você terminar a depuração do cluster de teste, exclua-o.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Analisar Logs do HDInsight](hdinsight-debug-jobs.md)

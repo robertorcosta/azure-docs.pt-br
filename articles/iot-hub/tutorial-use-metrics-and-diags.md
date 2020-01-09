@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429095"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e logs de diagnóstico com um hub IoT
 
@@ -34,7 +34,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * Executar o aplicativo até que os alertas comecem a ser disparados. 
 > * Ver os resultados das métricas e verificar os logs de diagnóstico. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -50,7 +50,7 @@ Para este tutorial, você precisará de um hub IoT, uma conta de armazenamento e
 
 Estas são as etapas necessárias.
 
-1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Crie um [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Crie um Hub IoT.
 
@@ -209,7 +209,7 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure Monitor](/azure/azu
 
     Preencha os campos:
 
-    **Nome**: Forneça um nome para a regra de alerta, como *mensagens de telemetria*.
+    **Name**: Forneça um nome para a regra de alerta, como *mensagens de telemetria*.
 
     **Descrição**: Forneça uma descrição do alerta, como *alertar quando houver 1.000 mensagens de telemetria enviadas*. 
 
@@ -239,7 +239,7 @@ O Hub IoT ainda não foi migrado para as [métricas no Azure Monitor](/azure/azu
 
    Na tela **Exibir alertas clássicos**, clique em **Adicionar alerta de métrica (clássico)** e, em seguida, preencha esses campos no painel **Adicionar regra**.
 
-   **Nome**: Forneça um nome para a regra de alerta, como *número de mensagens usadas*.
+   **Name**: Forneça um nome para a regra de alerta, como *número de mensagens usadas*.
 
    **Descrição**: Forneça uma descrição do alerta, como *alertar quando se aproximar da cota*.
 
@@ -358,7 +358,7 @@ Clique em **Baixar** para baixá-lo e abri-lo. Você verá os logs do dispositiv
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Para remover todos os recursos que você criou neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos. Se você tiver fixado métricas no painel, precisará removê-las manualmente clicando nos três pontos no canto superior direito de cada uma delas e selecionando **Remover**.
 

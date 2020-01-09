@@ -1,17 +1,17 @@
 ---
-title: Implantar do repositório git local
+title: Implantação por meio do repositório Git local
 description: Saiba como habilitar a implantação do Git local no Serviço de Aplicativo do Azure. Uma das maneiras mais simples de implantar o código de seu computador local.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 91d5827a08a600c19c24ac0a96a5f4e3e98e22f2
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671774"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680946"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do git local no serviço Azure App
 
@@ -97,7 +97,9 @@ Se sua conta tiver as permissões necessárias, você poderá configurar Azure P
 
 Para habilitar a implantação do git local para seu aplicativo com Azure Pipelines (versão prévia):
 
-1. Navegue até a página do aplicativo de serviço Azure App no [portal do Azure](https://portal.azure.com)e selecione **central de implantação** no menu à esquerda.
+1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos**. 
+
+1. Selecione seu aplicativo de serviço Azure App e selecione **central de implantação** no menu à esquerda.
    
 1. Na página **centro de implantação** , selecione **git local**e, em seguida, selecione **continuar**. 
    

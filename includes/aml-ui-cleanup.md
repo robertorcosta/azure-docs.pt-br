@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -8,12 +8,12 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
-ms.openlocfilehash: 96ede63b097999247675364217cf458a268e54d9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929656"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659858"
 ---
 >[!IMPORTANT]
 >Você pode usar os recursos que criou como pré-requisitos em outros tutoriais e artigos de instruções do Serviço do Azure Machine Learning.
@@ -42,7 +42,7 @@ O destino de computação que você criou aqui é *dimensionado automaticamente*
 
 É possível cancelar o registro de conjuntos de dados do seu workspace selecionando cada conjunto de dados e, **Cancelar registro**.
 
-![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset.png)
+![Cancelar registro do conjunto de registros](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 Para excluir um conjunto de dados, acesse a conta de armazenamento usando o portal do Azure ou o Gerenciador de Armazenamento do Azure e exclua manualmente esses ativos.
 

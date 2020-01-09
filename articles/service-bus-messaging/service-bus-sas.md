@@ -1,5 +1,5 @@
 ---
-title: Controle de acesso do Barramento de Serviço do Azure com Assinaturas de Acesso Compartilhado | Microsoft Docs
+title: Controle de acesso do barramento de serviço do Azure com assinaturas de acesso compartilhado
 description: Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462084"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -29,7 +29,7 @@ SAS protege o acesso ao Barramento de Serviço com base nas regras de autorizaç
 > [!NOTE]
 > O barramento de serviço do Azure dá suporte à autorização de acesso a um namespace do barramento de serviço e suas entidades usando o Azure Active Directory (AD do Azure). A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais.
 >
-> A Microsoft recomenda usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. Para obter mais informações, confira os seguintes artigos:
+> A Microsoft recomenda usar o Azure AD com seus aplicativos do barramento de serviço do Azure quando possível. Para obter mais informações, consulte os seguintes artigos:
 > - [Autentique e autorize um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure](authenticate-application.md).
 > - [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure](service-bus-managed-service-identity.md)
 
@@ -191,7 +191,7 @@ Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP 
 
 Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **$cbs** (veja-o como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **ReplyTo** dentro da mensagem AMQP; esse é o nó em que o serviço responde ao editor com o resultado da validação do token (um padrão simples de solicitação/resposta entre o editor e o serviço). Esse nó de resposta é criado "dinamicamente", falando sobre "criação dinâmica de nó remoto", como descrito pela especificação do AMQP 1.0. Depois de verificar a validade do token SAS, o editor poderá começar a enviar dados ao serviço.
 
-As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.net Lite](https://github.com/Azure/amqpnetlite) . Isso é útil se você não pode usar o SDK oficial do barramento de serviço (por exemplo, em WinRT, .NET Compact Framework, .NET micro Framework e mono\#) desenvolvendo em C. Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se você não precisar desse conhecimento profundo sobre o AMQP, poderá usar o SDK oficial do barramento de serviço com .NET Framework aplicativos, o que fará isso para você.
+As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.net Lite](https://github.com/Azure/amqpnetlite) . Isso é útil se você não pode usar o SDK oficial do barramento de serviço (por exemplo, em WinRT, .NET Compact Framework, .NET micro Framework e mono) desenvolvendo em C\#. Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se você não precisar desse conhecimento profundo sobre o AMQP, poderá usar o SDK oficial do barramento de serviço com .NET Framework aplicativos, o que fará isso para você.
 
 ### <a name="c35"></a>C&#35;
 
@@ -264,17 +264,17 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 | Operação | Declaração Obrigatória | Escopo da Declaração |
 | --- | --- | --- |
 | **Namespace** | | |
-| Configurar regra de autorização em um namespace |Gerenciar |Qualquer endereço de namespace |
+| Configurar regra de autorização em um namespace |Gerenciamento |Qualquer endereço de namespace |
 | **Registro do Serviço** | | |
-| Enumerar Políticas de Privacidade |Gerenciar |Qualquer endereço de namespace |
+| Enumerar Políticas de Privacidade |Gerenciamento |Qualquer endereço de namespace |
 | Iniciar a escuta em um namespace |Escutar |Qualquer endereço de namespace |
 | Enviar mensagens a um ouvinte em um namespace |Enviar |Qualquer endereço de namespace |
 | **Fila** | | |
-| Criar uma fila |Gerenciar |Qualquer endereço de namespace |
-| Excluir uma fila |Gerenciar |Qualquer endereço de fila válido |
-| Enumerar filas |Gerenciar |/$Resources/Queues |
-| Obter a descrição da fila |Gerenciar |Qualquer endereço de fila válido |
-| Configurar regra de autorização para uma fila |Gerenciar |Qualquer endereço de fila válido |
+| Criar uma fila |Gerenciamento |Qualquer endereço de namespace |
+| Excluir uma fila |Gerenciamento |Qualquer endereço de fila válido |
+| Enumerar filas |Gerenciamento |/$Resources/Queues |
+| Obter a descrição da fila |Gerenciamento |Qualquer endereço de fila válido |
+| Configurar regra de autorização para uma fila |Gerenciamento |Qualquer endereço de fila válido |
 | Enviar para a fila |Enviar |Qualquer endereço de fila válido |
 | Receber mensagens de uma fila |Escutar |Qualquer endereço de fila válido |
 | Abandonar ou concluir as mensagens após o recebimento da mensagem em modo de bloqueio de pico |Escutar |Qualquer endereço de fila válido |
@@ -284,28 +284,28 @@ A tabela a seguir mostra os direitos de acesso necessários para diversas opera�
 | Definir o estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
 | Agende uma mensagem para entrega posterior; por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válido
 | **Tópico** | | |
-| Criar um tópico |Gerenciar |Qualquer endereço de namespace |
-| Excluir um tópico |Gerenciar |Qualquer endereço de tópico válido |
-| Enumerar tópicos |Gerenciar |/$Resources/Topics |
-| Obter a descrição do tópico |Gerenciar |Qualquer endereço de tópico válido |
-| Configurar regra de autorização para um tópico |Gerenciar |Qualquer endereço de tópico válido |
+| Criar um tópico |Gerenciamento |Qualquer endereço de namespace |
+| Excluir um tópico |Gerenciamento |Qualquer endereço de tópico válido |
+| Enumerar tópicos |Gerenciamento |/$Resources/Topics |
+| Obter a descrição do tópico |Gerenciamento |Qualquer endereço de tópico válido |
+| Configurar regra de autorização para um tópico |Gerenciamento |Qualquer endereço de tópico válido |
 | Enviar ao tópico |Enviar |Qualquer endereço de tópico válido |
 | **Assinatura** | | |
-| Criar uma assinatura |Gerenciar |Qualquer endereço de namespace |
-| Excluir assinatura |Gerenciar |../myTopic/Subscriptions/mySubscription |
-| Enumerar assinaturas |Gerenciar |../myTopic/Subscriptions |
-| Obter descrição da assinatura |Gerenciar |../myTopic/Subscriptions/mySubscription |
+| Criar uma assinatura |Gerenciamento |Qualquer endereço de namespace |
+| Excluir assinatura |Gerenciamento |../myTopic/Subscriptions/mySubscription |
+| Enumerar assinaturas |Gerenciamento |../myTopic/Subscriptions |
+| Obter descrição da assinatura |Gerenciamento |../myTopic/Subscriptions/mySubscription |
 | Abandonar ou concluir as mensagens após o recebimento da mensagem em modo de bloqueio de pico |Escutar |../myTopic/Subscriptions/mySubscription |
 | Adiar uma mensagem para recuperação posterior |Escutar |../myTopic/Subscriptions/mySubscription |
 | Colocar uma mensagem nas mensagens mortas |Escutar |../myTopic/Subscriptions/mySubscription |
 | Obter o estado associado a uma sessão de tópico |Escutar |../myTopic/Subscriptions/mySubscription |
 | Definir o estado associado a uma sessão de tópico |Escutar |../myTopic/Subscriptions/mySubscription |
 | **Regras** | | |
-| Criar uma regra |Gerenciar |../myTopic/Subscriptions/mySubscription |
-| Excluir uma regra |Gerenciar |../myTopic/Subscriptions/mySubscription |
+| Criar uma regra |Gerenciamento |../myTopic/Subscriptions/mySubscription |
+| Excluir uma regra |Gerenciamento |../myTopic/Subscriptions/mySubscription |
 | Enumerar regras |Gerenciar ou Escutar |../myTopic/Subscriptions/mySubscription/Rules
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 

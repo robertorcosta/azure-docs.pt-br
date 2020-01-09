@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentação do Serviço Azure SignalR
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
   title: Documentação – Serviço do Azure SignalR
   description: 'Crie e dimensione aplicativos Web em tempo real facilmente no modo com servidor ou sem servidor. Baseado em WebSocket, com suporte a ampla gama de linguagens e estruturas.'
   services: azure-signalr
@@ -16,7 +15,7 @@ metadata:
 abstract:
   description: O Serviço Azure SignalR é um serviço gerenciado do Azure que ajuda os desenvolvedores a criarem facilmente aplicativos Web com recursos em tempo real.
 sections:
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Saiba como desenvolver seu primeiro aplicativo Web usando o Serviço do Azure SignalR para comunicações em tempo real:'
@@ -80,4 +79,4 @@ sections:
             html: |
               <p><a href="https://docs.microsoft.com/aspnet/core">SDK do servidor do ASP.NET Core</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Associações do Azure Functions</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">Cliente JavaScript</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">Cliente .NET Standard</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Cliente Java</a></p>
           - title: REST
-            html: '<p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">API REST</a></p>'
+            html: '<p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a></p>'

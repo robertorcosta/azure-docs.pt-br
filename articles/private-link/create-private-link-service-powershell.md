@@ -2,17 +2,17 @@
 title: Criar um serviço de vínculo privado do Azure usando Azure PowerShell | Microsoft Docs
 description: Saiba como criar um serviço de vínculo privado do Azure usando o Azure PowerShell
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 932de70b634a7bbdb77e5dc1552ae53828a7269e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c4395628ac31dd69a4978f7f68ecc24ca1e15cfb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453118"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando Azure PowerShell.
@@ -21,7 +21,7 @@ Este artigo mostra como criar um serviço de vínculo privado no Azure usando Az
 
 Se você optar por instalar e usar o PowerShell localmente, este artigo exigirá a versão mais recente do módulo de Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="create-a-resource-group"></a>Criar um grupos de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Antes de criar seu link privado, você deve criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *MyResource* Group no local *WestCentralUS* :
 

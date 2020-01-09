@@ -1,5 +1,5 @@
 ---
-title: Migrar do serviço de controle de acesso do AD do Azure para SAS
+title: Barramento de serviço do Azure – migrar para autorização de assinatura de acesso compartilhado
 description: Saiba mais sobre como migrar do serviço de controle de acesso Azure Active Directory para a autorização de assinatura de acesso compartilhado.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fe0acedeb65f010f9af2ea55cd37e6fe3046d989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462169"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Barramento de serviço-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
 Anteriormente, os aplicativos do Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização era feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/), e os tokens obtidos do ACS eram passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
 
-O modelo de autorização do ACS foi substituído já tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido, e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
+O modelo de autorização do ACS foi substituído há tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
 
-O SAS tem a vantagem de não ser imediatamente dependente de outro serviço, mas pode ser usado diretamente de um cliente sem qualquer intermediário fornecendo ao cliente o acesso ao nome da regra e à chave da regra de SAS. A SAS também pode ser facilmente integrada a uma abordagem na qual um cliente tenha que passar primeiro por uma verificação de autorização com outro serviço para, depois, ter um token emitido. A segunda abordagem é semelhante ao padrão de uso do ACS, mas permite a emissão de tokens de acesso com base nas condições específicas do aplicativo, que são difíceis de expressar no ACS.
+A SAS tem a vantagem de não ser imediatamente dependente de outro serviço, mas pode ser usada diretamente de um cliente sem qualquer intermediário, fornecendo ao cliente o acesso ao nome da regra e à chave da regra de SAS. A SAS também pode ser facilmente integrada a uma abordagem na qual um cliente tenha que passar primeiro por uma verificação de autorização com outro serviço para, depois, ter um token emitido. A segunda abordagem é semelhante ao padrão de uso do ACS, mas permite a emissão de tokens de acesso com base nas condições específicas do aplicativo, que são difíceis de expressar no ACS.
 
 Para todos os aplicativos existentes que dependem do ACS, solicitamos que os clientes migrem seus aplicativos para se basearem em SAS em vez disso.
 
@@ -51,7 +51,7 @@ Se o seu aplicativo não tiver alterado os padrões do ACS, substitua todo uso d
 
 ### <a name="simple-rules"></a>Regras simples
 
-Se o aplicativo usa identidades de serviço personalizadas com regras simples, a migração será bem simples no caso em que uma identidade de serviço do ACS tiver sido criada para fornecer controle de acesso em uma fila específica. Esse cenário é frequente em soluções com estilo SaaS, nos quais cada fila é usada como uma ponte para um site de locatário ou filial, e a identidade do serviço é criada para esse site específico. Nesse caso, a identidade de serviço respectiva pode ser migrada para uma regra de Assinatura de Acesso Compartilhado, diretamente na fila. O nome da identidade de serviço pode se tornar o nome da regra de SAS, e a chave de identidade do serviço pode se tornar a chave da regra de SAS. Em seguida, os direitos da regra de SAS são configurados de forma equivalente à regra de ACS aplicável para a entidade.
+Se o aplicativo usa identidades de serviço personalizadas com regras simples, a migração será bem simples no caso em que uma identidade de serviço do ACS tiver sido criada para fornecer controle de acesso em uma fila específica. Esse cenário é frequente em soluções com estilo SaaS, nos quais cada fila é usada como uma ponte para um site de locatário ou filial, e a identidade do serviço é criada para esse site específico. Nesse caso, a identidade de serviço respectiva pode ser migrada para uma regra de Assinatura de Acesso Compartilhado, diretamente na fila. O nome da identidade de serviço pode se tornar o nome da regra de SAS e a chave de identidade do serviço pode se tornar a chave da regra de SAS. Em seguida, os direitos da regra de SAS são configurados de forma equivalente à regra de ACS aplicável para a entidade.
 
 Você pode fazer essa configuração nova e adicional do SAS localmente, em qualquer namespace existente federado com o ACS e a migração para fora do ACS será executada posteriormente usando [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) em vez de [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). O namespace não precisa ser desvinculado do ACS.
 

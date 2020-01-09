@@ -1,18 +1,18 @@
 ---
 title: Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 description: Saiba como a manipulação de tempo funciona em Azure Stream Analytics, como escolher a melhor hora de início, como lidar com eventos atrasados e antigos e métricas de tratamento de tempo.
-author: jasonwhowell
-ms.author: zhongc
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: ae53663f78b684d41c36607760e30db9e48a6434
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901417"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354639"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Noções básicas sobre a manipulação de horas no Azure Stream Analytics
 
@@ -128,7 +128,7 @@ Os trabalhos do Stream Analytics têm várias opções de **Ordenação de event
 
 Você pode observar os vários efeitos da tolerância de tempo de ordenação de eventos por meio das [métricas de trabalho do Stream Analytics](stream-analytics-monitoring.md). As seguintes métricas são relevantes:
 
-|Métrica  | Descrição  |
+|Métrica  | Description  |
 |---------|---------|
 | **Eventos Fora de Ordem** | Indica o número de eventos recebidos fora de ordem, que foram descartados ou receberam um carimbo de data/hora ajustado. Essa métrica é afetada diretamente pela definição da configuração **Eventos fora de ordem** na página **Ordenação de eventos** do trabalho no portal do Azure. |
 | **Eventos de Entrada Tardia** | Indica o número de eventos que chegam da fonte com atraso. Essa métrica inclui eventos que foram descartados ou tiveram seu carimbo de data/hora ajustado. Essa métrica é afetada diretamente pela definição da configuração **Eventos que chegam com atraso** na página **Ordenação de eventos** do trabalho no portal do Azure. |

@@ -1,25 +1,15 @@
 ---
-title: Planejamento da capacidade de cluster do Service Fabric | Microsoft Docs
+title: Planejando a capacidade de Cluster Service Fabric
 description: Considerações de planejamento de capacidade de cluster do Service Fabric. Camadas de nodetypes, operações, durabilidade e confiabilidade
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463299"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -76,8 +66,8 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que as
 
 | Camada de durabilidade  | Número mínimo necessário de VMs | SKUs de VM com suporte                                                                  | Atualizações que você faz no seu conjunto de dimensionamento de máquina virtual                               | Atualizações e manutenção iniciada pelo Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Pode ser pausado por 2 horas por UD para possibilitar tempo adicional para réplicas para recuperar de falhas anteriores |
-| Silver           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
+| Ouro             | 5                              | SKUs de nó completo dedicado a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Pode ser pausado por 2 horas por UD para possibilitar tempo adicional para réplicas para recuperar de falhas anteriores |
+| Prata           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser atrasado até aprovado pelo cluster do Service Fabric | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
 | Bronze           | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será atrasado pelo cluster do Service Fabric           | Não pode ser atrasado por qualquer período de tempo significativo                                                    |
 
 > [!WARNING]
@@ -143,8 +133,8 @@ Aqui está a recomendação sobre como escolher o nível de confiabilidade.  O n
 | --- | --- |
 | 1 |Não especifique o parâmetro de camada de confiabilidade, o sistema calculará |
 | 3 |Bronze |
-| 5 ou 6|Silver |
-| 7 ou 8 |Gold |
+| 5 ou 6|Prata |
+| 7 ou 8 |Ouro |
 | 9 e superior |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Tipo de nó primário - diretrizes de capacidade
@@ -161,7 +151,7 @@ Para cargas de trabalho de produção:
 
 - É recomendável dedicar o NodeType primário dos clusters aos serviços do sistema e usar restrições de posicionamento para implantar o aplicativo em NodeTypes secundários.
 - O SKU de VM recomendado é o padrão D2_V2 ou equivalente com um mínimo de 50 GB de SSD local.
-- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou Standard D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
+- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou padrão D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
 - É recomendável um mínimo de 50 GB. Para as cargas de trabalho, especialmente ao executar contêineres do Windows, são necessários discos maiores. 
 - As SKUs de VM de núcleo parcial como a Standard A0 não têm suporte para cargas de trabalho de produção.
 - Não há suporte para SKUs de VM de série para cargas de trabalho de produção por motivos de desempenho.
@@ -183,7 +173,7 @@ Assim, para cargas de trabalho de produção, o tamanho mínimo recomendado do t
 Para cargas de trabalho de produção 
 
 - O SKU de VM recomendado é o padrão D2_V2 ou equivalente com um mínimo de 50 GB de SSD local.
-- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou Standard D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
+- O SKU de VM de uso mínimo com suporte é Standard_D2_V3 ou padrão D1_V2 ou equivalente com um mínimo de 50 GB de SSD local. 
 - As SKUs de VM de núcleo parcial como a Standard A0 não têm suporte para cargas de trabalho de produção.
 - Não há suporte para SKUs de VM de série para cargas de trabalho de produção por motivos de desempenho.
 

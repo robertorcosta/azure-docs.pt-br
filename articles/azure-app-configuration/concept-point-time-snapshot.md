@@ -1,23 +1,18 @@
 ---
-title: Instantâneo pontual da Configuração de Aplicativo do Azure | Microsoft Docs
+title: Instantâneo no momento da configuração do Azure App
 description: Uma visão geral de como funciona o instantâneo pontual na Configuração de Aplicativo do Azure
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: fdbe4846700c690261dbc734063f4420478666a8
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 02/24/2019
+ms.openlocfilehash: 4db52ce1897aa5a2b809cb7044b9764baffd0767
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185210"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495265"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo pontual
 
@@ -27,12 +22,14 @@ A Configuração de Aplicativo do Azure manterá os registros de horas precisas 
 
 Para recuperar os pares chave-valor anteriores, especifique um horário no qual os pares chave-valor sejam instantâneos no cabeçalho HTTP de uma chamada à API REST. Por exemplo:
 
-        GET /kv HTTP/1.1
-        Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```rest
+GET /kv HTTP/1.1
+Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+```
 
 Atualmente, a Configuração de Aplicativo mantém sete dias de histórico de alterações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web ASP.NET Core](./quickstart-aspnet-core-app.md)  

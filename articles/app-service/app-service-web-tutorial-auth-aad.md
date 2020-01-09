@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 41e9ff79ad3f7abeda1b946295e8e0eb519c2554
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672060"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561728"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
@@ -42,7 +42,7 @@ Você pode seguir as etapas deste tutorial no macOS, no Linux e no Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
@@ -185,7 +185,7 @@ return new NoContentResult();
 
 A primeira linha faz uma chamada `DELETE /api/Todo/{id}` para o aplicativo de API de back-end.
 
-Salve todas as suas alterações. Na janela do terminal local, implante as alterações no aplicativo front-end com os seguintes comandos do Git:
+Salve todas as alterações. Na janela do terminal local, implante as alterações no aplicativo front-end com os seguintes comandos do Git:
 
 ```bash
 git add .
@@ -312,7 +312,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
 Esse código adiciona o cabeçalho HTTP padrão `Authorization: Bearer <access-token>` a todas as chamadas à API remotas. No pipeline de execução da solicitação MVC ASP.NET Core, `OnActionExecuting` é executado logo antes do respectivo método de ação (como `GetAll()`), de modo que cada uma das suas chamadas à API de saída apresentem o token de acesso.
 
-Salve todas as suas alterações. Na janela do terminal local, implante as alterações no aplicativo front-end com os seguintes comandos do Git:
+Salve todas as alterações. Na janela do terminal local, implante as alterações no aplicativo front-end com os seguintes comandos do Git:
 
 ```bash
 git add .
@@ -338,7 +338,7 @@ Embora o código do servidor tenha acesso a cabeçalhos de solicitação, o cód
 
 ### <a name="configure-cors"></a>Configurar o CORS
 
-No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua os espaços reservados _\<nome-do-aplicativo-de-back-end>_ e _\<nome-do-aplicativo-front-end>_ .
+No Cloud Shell, habilite o CORS para URL do cliente usando o comando [`az resource update`](/cli/azure/resource#az-resource-update). Substitua os espaços reservados _\<nome-do-aplicativo-de-back-end>_ e _\<nome-do-aplicativo-front-end>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
@@ -396,7 +396,7 @@ A nova alteração adiciona o mapeamento `resolve` que chama `/.auth/me` e defin
 
 ### <a name="deploy-updates-and-test"></a>Implantar atualizações e testar
 
-Salve todas as suas alterações. Na janela do terminal local, implante as alterações no aplicativo front-end com os seguintes comandos do Git:
+Salve todas as alterações. Na janela do terminal local, implante as alterações no aplicativo front-end com os seguintes comandos do Git:
 
 ```bash
 git add .
@@ -412,7 +412,7 @@ Parabéns! O código do cliente agora está acessando os dados de back-end em no
 
 O token de acesso expira após algum tempo. Para obter informações sobre como atualizar seus tokens de acesso sem exigir que os usuários autentiquem novamente no aplicativo, confira [Atualizar tokens do provedor de identidade](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. Se você acha que não precisará desses recursos no futuro, exclua o grupo de recursos executando o seguinte comando no Cloud Shell:
 

@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429464"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -36,9 +36,13 @@ Quando um login falhar, você verá um código de erro correspondente à falha. 
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Como exibir entradas com falha? 
 
-Navegue até o [relatório de Login](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) no [Portal do Microsoft Azure](https://portal.azure.com).
+No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Atividade de entrada](./media/reference-sign-ins-error-codes/61.png "Atividade de entrada")
+![Selecionar Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Atividade de entrada](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Atividade de entrada")
 
 Filtre o relatório para exibir todos os logins com falha selecionando **Falha** na caixa suspensa **Login do status**
 
@@ -53,7 +57,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 ## <a name="error-codes"></a>Códigos de erro
 
 
-|Erro|Descrição|
+|Erro|Description|
 |---|---|
 |16000|Este é um detalhe de implementação interna e não uma condição de erro. É possível ignorar essa referência com segurança.|
 |20001|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|

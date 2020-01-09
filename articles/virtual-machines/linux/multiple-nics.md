@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3fed0d14908dff346fa6134a91096c757c6d9fab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463833"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Como criar uma máquina virtual Linux no Azure com várias placas de adaptador de rede
 
@@ -27,7 +27,7 @@ ms.locfileid: "74035603"
 Este artigo fornece detalhes sobre como criar uma VM com várias NICs com a CLI do Azure.
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
-Instale o [Azure CLI](/cli/azure/install-az-cli2) mais recente do Azure e faça login em uma conta do Azure usando [az login](/cli/azure/reference-index).
+Instale a [CLI do Azure](/cli/azure/install-az-cli2) mais recente do Azure e faça logon em uma conta do Azure usando [az login](/cli/azure/reference-index).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem *myResourceGroup*, *mystorageaccount* e *myVM*.
 
@@ -164,7 +164,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Criar várias NICs usando modelos do Resource Manager
-Os modelos do Azure Resource Manager usam arquivos JSON declarativos para definir o seu ambiente. Você pode ler uma [visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Os modelos do Gerenciador de Recursos oferecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Você usa *copiar* para especificar o número de instâncias a serem criadas:
+Os modelos do Azure Resource Manager usam arquivos JSON declarativos para definir o seu ambiente. Você pode ler uma [visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os modelos do Gerenciador de Recursos oferecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Você usa *copiar* para especificar o número de instâncias a serem criadas:
 
 ```json
 "copy": {
@@ -247,7 +247,7 @@ Confirme se a rota que você adicionou persistiu entre os reinícios, verificand
 ping bing.com -c 4 -I eth1
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Examine [Tamanhos de VM Linux](sizes.md) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte.
 
 Para proteger ainda mais as VMs, use acesso just-in-time à VM. Esse recurso abre regras de grupo de segurança de rede para tráfego SSH quando necessário e por um período de tempo definido. Para saber mais, confira [Gerenciar o acesso à máquina virtual usando o just in time](../../security-center/security-center-just-in-time.md).

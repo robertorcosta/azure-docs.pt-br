@@ -9,18 +9,18 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279680"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437201"
 ---
-# <a name="use-firewall-rules"></a>Usar regras de firewall
+# <a name="azure-event-hubs---use-firewall-rules"></a>Hubs de eventos do Azure – usar regras de firewall
 
-Para cenários em que os Hubs de Eventos do Azure devem ser acessíveis apenas de determinados sites bem conhecidos, as regras de firewall permitem que você configure regras para aceitar tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser de um gateway corporativo de NAT.
+Para cenários em que os Hubs de Eventos do Azure devem ser acessíveis apenas de determinados sites bem conhecidos, as regras de firewall permitem que você configure regras para aceitar tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser aqueles de um gateway NAT corporativo.
 
 ## <a name="when-to-use"></a>Quando usar
 
@@ -46,7 +46,7 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 > Não há suporte para serviços confiáveis da Microsoft para quando a Filtragem de IP (Firewalls) é implementada; isto será disponibilizado em breve.
 >
 > Cenários comuns do Azure que não funcionam com a Filtragem de IP (observe que a lista **NÃO** é exaustiva):
-> - Stream Analytics do Azure
+> - Azure Stream Analytics
 > - Integração com a Grade de Eventos do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
@@ -62,19 +62,19 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 
 O modelo do Resource Manager a seguir permite adicionar uma regra de filtro IP a um namespace de Hubs de Eventos existente.
 
-Parâmetros do modelo:
+Parâmetros de modelo:
 
 - A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , o que não restringe as conexões.
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
 > Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
-> from
+> de
 > ```json
 > "defaultAction": "Allow"
 > ```
-> Para
+> para
 > ```json
 > "defaultAction": "Deny"
 > ```
@@ -143,7 +143,7 @@ Parâmetros do modelo:
 
 Para implantar o modelo, siga as instruções para [Azure Resource Manager][lnk-deploy].
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para restringir o acesso a Hubs de Eventos para redes virtuais do Azure, consulte o link a seguir:
 

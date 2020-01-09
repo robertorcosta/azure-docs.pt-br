@@ -3,18 +3,18 @@ title: Comunicação para funções nos Serviços de Nuvem | Microsoft Docs
 description: As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
-ms.openlocfilehash: 74ef5567becee27b4af837a6977119d7cf0f3e4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386333"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
@@ -84,7 +84,7 @@ Há uma diferença mínima em relação aos pontos de extremidade quando você t
 ```
 
 ## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Usando o SDK do .NET para acessar um ponto de extremidade
-A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no tempo de execução. A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.
+A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no runtime. A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.
 
 > [!NOTE]
 > Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno. Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.
@@ -99,7 +99,7 @@ Quando você se conecta a uma instância de função programaticamente por meio 
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. Esta coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância. O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.
+A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. Esta coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância. O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no runtime e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.
 
 > [!NOTE]
 > A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre  as instâncias de função em execução.
@@ -215,7 +215,7 @@ namespace WorkerRole1
 ## <a name="network-traffic-rules-to-control-role-communication"></a>Regras de tráfego de rede para controlar a comunicação de função
 Depois de definir pontos de extremidade internos, você poderá adicionar regras de tráfego de rede (com base nos pontos de extremidade que você criou) para controlar como as instâncias de função podem se comunicar umas com os outras. O diagrama a seguir mostra alguns cenários comuns para o controle da comunicação de função:
 
-![Cenários de Regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de Regras de tráfego de rede")
+![Cenários de regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de regras de tráfego de rede")
 
 O exemplo de código a seguir mostra as definições de função das funções mostradas no diagrama anterior. Cada definição de função inclui pelo menos um ponto de extremidade interno definido:
 
@@ -365,6 +365,9 @@ Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, de **Web
 
 Veja uma referência de esquema XML para os elementos usados acima [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Leia mais sobre o [modelo](cloud-services-model-and-package.md)de Serviço de Nuvem.
+
+
+
 

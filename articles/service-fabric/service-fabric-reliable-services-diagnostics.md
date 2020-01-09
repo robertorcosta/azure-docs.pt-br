@@ -1,28 +1,19 @@
 ---
-title: Diagnóstico para Reliable Services com monitoração de estado do Azure Service Fabric | Microsoft Docs
+title: Diagnóstico de Reliable Services com estado do Azure Service Fabric
 description: Funcionalidade de diagnóstico para Reliable Services com estado no Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462918"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico para Reliable Services com monitoração de estado
-A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de execução está funcionando e ajudar a solucionar problemas.
+A classe StatefulServiceBase dos Reliable Services com Estado do Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que podem ser usados para depurar o serviço, fornecer informações sobre como o runtime está funcionando e ajudar a solucionar problemas.
 
 ## <a name="eventsource-events"></a>Eventos EventSource
 O nome do EventSource da classe StatefulServiceBase de Reliable Services com estado é "Microsoft-ServiceFabric-Services." Os eventos dessa origem de eventos aparecem na janela [Eventos de Diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando o serviço está sendo [depurado no Visual Studio](service-fabric-debugging-your-application.md).
@@ -47,10 +38,10 @@ StatefulRunAsyncFailure é emitido sempre que a tarefa RunAsync() do serviço la
 
 StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de cancelamento da tarefa RunAsync leva mais de quatro segundos. Quando um serviço leva muito tempo para concluir o cancelamento, ele afeta a capacidade de o serviço ser reiniciado rapidamente em outro nó. Este cenário pode afetar a disponibilidade geral do serviço.
 
-## <a name="performance-counters"></a>contadores de desempenho
+## <a name="performance-counters"></a>Contadores de desempenho
 O runtime dos Reliable Services define as categorias de contador de desempenho a seguir:
 
-| Categoria | Descrição |
+| Categoria | Description |
 | --- | --- |
 | Replicador Transacional do Service Fabric |Contadores específicos para o Replicador Transacional do Azure Service Fabric |
 | Service Fabric TStore |Contadores específicos para o Replicador Transacional |
@@ -102,9 +93,9 @@ No exemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` é a representação
 
 ### <a name="transactional-replicator-performance-counters"></a>Contadores de desempenho de replicador transacional
 
-O tempo de execução de Serviços Confiáveis emite os eventos a seguir na `Service Fabric Transactional Replicator` categoria
+O runtime de Serviços Confiáveis emite os eventos a seguir na `Service Fabric Transactional Replicator` categoria
 
- Nome do contador | Descrição |
+ Nome do contador | Description |
 | --- | --- |
 | Operações de Início de Trans./s | Número de novas transações de gravação criadas por segundo.|
 | Operações de Transação/s | O número de operações de adicionar/atualizar/excluir executadas em coleções confiáveis por segundo.|
@@ -115,9 +106,9 @@ O tempo de execução de Serviços Confiáveis emite os eventos a seguir na `Ser
 
 ### <a name="tstore-performance-counters"></a>Contadores de desempenho TStore
 
-O tempo de execução de Serviços Confiáveis emite os eventos a seguir na `Service Fabric TStore` categoria
+O runtime de Serviços Confiáveis emite os eventos a seguir na `Service Fabric TStore` categoria
 
- Nome do contador | Descrição |
+ Nome do contador | Description |
 | --- | --- |
 | Contagem de Itens | O número de itens no repositório.|
 | Tamanho do disco | Tamanho total do disco, em bytes, dos arquivos de ponto de verificação para o repositório.|

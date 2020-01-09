@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações por push para aplicativos Android específicos usando os Hubs de Notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para aplicativos Android específicos usando os Hubs de Notificação do Azure
 description: Saiba como enviar notificações por push para usuários específicos usando os Hubs de Notificação do Azure.
 documentationcenter: android
 services: notification-hubs
@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387419"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531115"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos Android específicos usando os Hubs de Notificação do Azure
 
@@ -37,7 +37,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Atualize o aplicativo Android.
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o [Tutorial: Enviar notificações por push para dispositivos Android usando Hubs de Notificação do Microsoft Azure e o Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) antes de realizar este tutorial.
 

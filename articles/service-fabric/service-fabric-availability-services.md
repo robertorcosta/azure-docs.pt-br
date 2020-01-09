@@ -1,25 +1,16 @@
 ---
-title: Disponibilidade de serviços do Service Fabric | Microsoft Docs
-description: Descreve a detecção de falhas, o failover e a recuperação dos serviços
-services: service-fabric
-documentationcenter: .net
+title: Disponibilidade dos serviços de malha do serviço
+description: Descreve a detecção de falhas, o failover e a recuperação de um serviço em um aplicativo Service Fabric do Azure.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: dd10af0d3c8a57168a27a039286ea0ec4c1dad02
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310937"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551855"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilidade dos serviços de malha do serviço
 Este artigo apresenta uma visão geral de como o Azure Service Fabric mantém a disponibilidade de um serviço.
@@ -40,7 +31,7 @@ Se uma réplica Primária falhar, o Service Fabric torna uma das réplicas Secun
 
 O conceito de uma réplica ser Primária ou Secundária Ativa é conhecido como *função de réplica*. Essas réplicas são descritas mais detalhadamente no artigo [Réplicas e instâncias](service-fabric-concepts-replica-lifecycle.md). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre os conceitos do Service Fabric, confira os seguintes artigos:
 
 - [Dimensionando serviços do Service Fabric](service-fabric-concepts-scalability.md)

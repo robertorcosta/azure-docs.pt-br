@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453799"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao Serviço de Provisionamento de Dispositivo do Hub IoT do Azure
 
@@ -39,7 +39,7 @@ Você pode conceder [permissões](#device-provisioning-service-permissions) das 
 > [!NOTE]
 > Para obter informações detalhadas, consulte [permissões](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 O Serviço de Provisionamento do Hub IoT do Azure concede acesso aos pontos de extremidade, verificando um token com base nas políticas de acesso compartilhado. As credenciais de segurança, como as chaves simétricas, nunca são enviadas pela conexão.
 
@@ -75,7 +75,7 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| Value | Descrição |
+| Valor | Description |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256.|
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
@@ -177,7 +177,7 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 
 A tabela a seguir lista as permissões que você pode usar para controlar o acesso ao seu Serviço de Provisionamento de Dispositivo de IoT.
 
-| Permissão | Notas |
+| Permissão | Observações |
 | --- | --- |
 | **ServiceConfig** |Concede acesso para alterar as configurações de serviço. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
 | **EnrollmentRead** |Concede acesso de leitura para os registros do dispositivo e os grupos de registro. <br/>Essa permissão é usada pelos serviços de nuvem back-end. |
@@ -190,5 +190,5 @@ A tabela a seguir lista as permissões que você pode usar para controlar o aces
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

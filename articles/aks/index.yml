@@ -1,8 +1,7 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: AKS (Serviço do Kubernetes do Azure)
+title: AKS (Serviço de Kubernetes do Azure)
 metadata:
-  document_id: null
   title: 'Documentação do Serviço de Kubernetes do Azure (AKS) - Tutoriais, Referência da API | Microsoft Docs'
   meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
   services: container-service
@@ -15,7 +14,7 @@ metadata:
 abstract:
   description: 'O Serviço de Kubernetes do Azure (AKS) gerencia seu ambiente Kubernetes hospedado, tornando rápido e fácil implantar e gerenciar os aplicativos em contêiner sem conhecimento de orquestração do contêiner. Também elimina a sobrecarga das operações em andamento e a manutenção provisionando, atualizando e dimensionamento os recursos sob demanda, sem colocar seus aplicativos offline.'
 sections:
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Saiba como implantar um cluster AKS:'
@@ -51,7 +50,7 @@ sections:
               src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
             text: Node.js
             href: ../dev-spaces/quickstart-nodejs.md
-  - title: Tutoriais Passo a Passo
+  - title: Tutoriais passo a passo
     items:
       - type: paragraph
         text: 'Saiba como implantar, gerenciar e atualizar os aplicativos em um cluster AKS.'
@@ -100,4 +99,4 @@ sections:
           - title: Languages
             html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
           - title: REST
-            html: <p><a href="/rest/api/aks">API REST</a></p>
+            html: <p><a href="/rest/api/aks">REST API</a></p>

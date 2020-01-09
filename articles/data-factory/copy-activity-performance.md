@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444129"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e escalabilidade da atividade de cópia
 
@@ -242,12 +242,12 @@ No momento, não é possível copiar dados entre dois armazenamentos de dados qu
 
 Defina a configuração **enableStaging** na atividade de cópia para especificar se deseja que os dados sejam preparados no armazenamento de BLOBs antes de carregá-los em um armazenamento de dados de destino. Ao definir **enableStaging** como `TRUE`, especifique as propriedades adicionais listadas na tabela a seguir. Você também precisa criar um armazenamento do Azure ou um serviço vinculado à assinatura de acesso compartilhado de armazenamento para preparação, se você não tiver um.
 
-| Propriedade | Descrição | Valor padrão | obrigatórios |
+| Propriedade | Description | Valor padrão | Obrigatório |
 | --- | --- | --- | --- |
-| enableStaging |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |False |Não |
+| enableStaging |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
 | linkedServiceName |Especifique o nome de um serviço vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties), que se refere à instância do Armazenamento que você usa como um repositório de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados em SQL Data Warehouse por meio do polybase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |
 | caminho |Especifique o caminho do armazenamento de Blobs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. <br/><br/> Especifique um caminho somente se você usar o Armazenamento com uma assinatura de acesso compartilhado ou precisar que os dados temporários fiquem em um local específico. |N/D |Não |
-| enableCompression |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |False |Não |
+| enableCompression |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |Falso |Não |
 
 >[!NOTE]
 > Se você usar cópia em etapas com compactação habilitada, a entidade de serviço ou a autenticação MSI para o serviço vinculado de blob de preparo não terá suporte.
@@ -293,7 +293,8 @@ Você é cobrado com base em duas etapas: copiar duração e copiar tipo.
 
 Aqui estão as referências de monitoramento e ajuste do desempenho para alguns dos armazenamentos de dados com suporte:
 
-* Armazenamento do Azure, que inclui armazenamento de BLOBs e armazenamento de tabelas: [destinos de escalabilidade de armazenamento do Azure](../storage/common/storage-scalability-targets.md) e [lista de verificação de escalabilidade e desempenho do armazenamento do Azure](../storage/common/storage-performance-checklist.md)
+* Armazenamento de blob do Azure: [escalabilidade e metas de desempenho para armazenamento de BLOBs](../storage/blobs/scalability-targets.md) , [desempenho e lista de verificação de escalabilidade para armazenamento de BLOBs](../storage/blobs/storage-performance-checklist.md).
+* Armazenamento de tabelas do Azure: [escalabilidade e metas de desempenho para armazenamento de tabelas](../storage/tables/scalability-targets.md) , [desempenho e lista de verificação de escalabilidade para armazenamento de tabelas](../storage/tables/storage-performance-checklist.md).
 * Banco de dados SQL do Azure: você pode [monitorar o desempenho](../sql-database/sql-database-single-database-monitor.md) e verificar a porcentagem de DTU (unidade de transação do banco de dados).
 * SQL Data Warehouse do Azure: seu recurso é medido em unidades de data warehouse (DWUs). Consulte [gerenciar poder de computação no Azure SQL data warehouse (visão geral)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [níveis de desempenho no Azure Cosmos DB](../cosmos-db/performance-levels.md).

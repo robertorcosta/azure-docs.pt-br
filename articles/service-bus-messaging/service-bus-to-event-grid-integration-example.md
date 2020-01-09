@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462092"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
 Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. Siga as seguintes etapas:
@@ -50,7 +50,7 @@ Você pode usar qualquer método para enviar uma mensagem para o tópico do Barr
 3. Vá para o projeto **MessageSender** e, em seguida, selecione **Program.cs**.
 4. Insira o nome do tópico do Barramento de Serviço e a cadeia de conexão que você obteve na etapa anterior:
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -69,7 +69,7 @@ Depois, execute as etapas a seguir:
 
 1. Expanda as **Funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -131,7 +131,7 @@ Depois, execute as etapas a seguir:
     2. Selecione **~1** para **Versão de runtime**. 
 2. Expanda as **Funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;

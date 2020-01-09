@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534144"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612353"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Criar uma tabela de rotas do Hub WAN virtual para NVAs: portal do Azure
 
 Este artigo mostra como direcionar o tráfego de um Branch (site local) conectado ao Hub WAN virtual a uma vnet spoke por meio de uma NVA (solução de virtualização de rede).
 
-![Diagrama de WAN Virtual](./media/virtual-wan-route-table/vwanroute.png)
+![Diagrama de WAN virtual](./media/virtual-wan-route-table/vwanroute.png)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -67,7 +67,7 @@ Crie o Hub. Para os fins deste exercício, você pode usar os seguintes valores:
 
 Atualize o Hub com uma tabela de rotas de Hub. Para os fins deste exercício, você pode usar os seguintes valores:
 
-* **Espaços de endereço de VNet de spoke indireto:** (VNet1 e VNet2) 10.0.2.0/24 e 10.0.3.0/24
+* **Espaços de endereço da VNet do spoke:** (VNet1 e VNet2) 10.0.2.0/24 e 10.0.3.0/24
 * **Endereço IP privado da interface de rede DMZ NVA:** 10.0.4.5
 
 1. Navegue até sua WAN virtual.

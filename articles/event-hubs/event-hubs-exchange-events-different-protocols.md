@@ -1,5 +1,5 @@
 ---
-title: Trocar eventos entre aplicativos que usam protocolos diferentes - Hubs de Eventos do Azure | Microsoft Docs
+title: Hubs de eventos do Azure – trocar eventos usando protocolos diferentes
 description: Este artigo mostra como consumidores e produtores que usam protocolos diferentes (AMQP, Apache Kafka e HTTPS) podem trocar eventos ao usar os Hubs de Eventos do Azure.
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: bahariri
-ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aecde0c36fc48f75e5174ca3e1ab9e2b3476d08a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437179"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Trocar eventos entre consumidores e produtores que usam protocolos diferentes: AMQP, Kafka e HTTPS
 Os Hubs de Eventos do Azure dão suporte a três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um desses protocolos tem sua própria maneira de representar uma mensagem. Portanto, a pergunta a seguir surge naturalmente: se um aplicativo envia eventos a um Hub de Eventos com um protocolo e os consome com um protocolo diferente, como ficam as várias partes e valores do evento quando chegam ao consumidor? Este artigo discute as práticas recomendadas para o produtor e consumidor a fim de garantir que os valores dentro de um evento sejam interpretados corretamente pelo aplicativo de consumo.
@@ -64,7 +64,7 @@ ConsumerRecord<Long, byte[]> cr = /* receive event */
 // cr.value() is a byte[] with values { 0x01, 0x02, 0x03, 0x04 }
 ```
 
-Esse código cria um pipeline de bytes transparente entre as duas metades do aplicativo e permite que o desenvolvedor do aplicativo serialize e desserialize manualmente da maneira que desejar, incluindo a tomada de decisões sobre desserialização em tempo de execução, por exemplo, com base em informações de tipo ou de remetente em propriedades definidas pelo usuário no evento.
+Esse código cria um pipeline de bytes transparente entre as duas metades do aplicativo e permite que o desenvolvedor do aplicativo serialize e desserialize manualmente da maneira que desejar, incluindo a tomada de decisões sobre desserialização em runtime, por exemplo, com base em informações de tipo ou de remetente em propriedades definidas pelo usuário no evento.
 
 É provável que os aplicativos que tenham um tipo de corpo de evento único e fixo possam usar outros serializadores e desserializadores de Kafka para converter os dados de forma transparente. Por exemplo, considere um aplicativo que usa JSON. A construção e a interpretação da cadeia de caracteres JSON ocorre no nível do aplicativo. No nível dos Hubs de Eventos, o corpo do evento é sempre uma cadeia de caracteres, uma sequência de bytes que representa os caracteres na codificação UTF-8. Nesse caso, o produtor ou consumidor do Kafka pode tirar proveito do StringSerializer ou StringDeserializer fornecido, conforme mostrado no código a seguir:
 
@@ -338,7 +338,7 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu como transmitir para os Hubs de Eventos com Kafka habilitado sem alterar seus clientes de protocolo ou seus próprios clusters em execução. Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, confira os artigos a seguir:  
 
 * [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)

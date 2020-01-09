@@ -1,5 +1,5 @@
 ---
-title: Introdução às Conexões Híbridas de Retransmissão do Azure de pedidos HTTP no Nó | Microsoft Docs
+title: Retransmissão do Azure Conexões Híbridas-solicitações HTTP no nó
 description: Escreva um aplicativo de console Node.js para Conexões Híbridas da Retransmissão do Azure de pedidos HTTP em Nó.
 services: service-bus-relay
 documentationcenter: node
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: clemensv
-ms.openlocfilehash: e54a096bd27efddaa9eafb8619e787178550a6e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71386b86bf7133bb73ddce2e65c3b88743009ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462033"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introdução às Conexões Híbridas de Retransmissão de pedidos HTTP no Nó
 
@@ -64,7 +64,7 @@ Para enviar mensagens à Retransmissão, você pode usar qualquer cliente HTTP o
 
 Parabéns, você criou um aplicativo de Conexões Híbridas de ponta a ponta usando o Node.js!
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste Início Rápido, você criou aplicativos de cliente e de servidor do Node.js que usavam HTTP para enviar e receber mensagens. O recurso Conexões Híbridas da Retransmissão do Azure também dá suporte ao uso de WebSockets para enviar e receber mensagens. Para saber como usar o WebSockets com as Conexões Híbridas da Retransmissão do Azure, confira o [Início Rápido do WebSockets](relay-hybrid-connections-node-get-started.md).
 
 Neste Início Rápido, você usou o Node.js para criar aplicativos cliente e servidor. Para saber como escrever aplicativos cliente e servidor usando o .NET Framework, confira o [Início Rápido do WebSockets .NET](relay-hybrid-connections-dotnet-get-started.md) ou o [Início Rápido do HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md).

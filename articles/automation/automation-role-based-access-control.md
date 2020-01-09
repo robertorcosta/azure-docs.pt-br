@@ -3,19 +3,15 @@ title: Controle de acesso baseado em função na Automação do Azure
 description: O RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso aos recursos do Azure. Esse artigo descreve como configurar o RBAC na Automação do Azure.
 keywords: rbac de automação, controle de acesso baseado em função, rbac azure
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 122e1f69e952acc00aba3cad2d75cb87b8fd08ee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421584"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso baseado em função na Automação do Azure
 
@@ -47,7 +43,7 @@ As tabelas a seguir descrevem as permissões específicas fornecidas a cada fun�
 
 O Proprietário pode gerenciar tudo, incluindo o acesso. A tabela a seguir mostra as permissões concedidas para a função:
 
-|Ações|Descrição|
+|Ações|Description|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Crie e gerencie recursos de todos os tipos.|
 
@@ -218,10 +214,10 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |---------|---------|---------|
 |Gravar nova implantação      | Microsoft.Resources/deployments/*          |Subscription          |
 |Gravar novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
-|Criar novo workspace padrão      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
-|Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
+|Criar novo workspace padrão      | Microsoft.OperationalInsights/workspaces/write         | Grupo de recursos         |
+|Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
 |Vincular workspace e conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Workspace</br>Conta de automação
-|Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
+|Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Grupo de recursos          |
 |Criar extensão MMA      | Microsoft.Compute/virtualMachines/write         | Máquina Virtual         |
 |Criar pesquisa salva      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Criar configuração de escopo      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
@@ -242,7 +238,7 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |---------|---------|---------|
 |Criar nova implantação     | Microsoft.Resources/deployments/*        | Subscription         |
 |Criar novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
-|Folha AutomationOnboarding – Criar novo workspace     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
+|Folha AutomationOnboarding – Criar novo workspace     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
 |Folha AutomationOnboarding – Ler workspace vinculado     | Microsoft.Automation/automationAccounts/read        | Conta de automação       |
 |Folha AutomationOnboarding – Ler solução     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
 |Folha AutomationOnboarding – Ler workspace     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Workspace        |

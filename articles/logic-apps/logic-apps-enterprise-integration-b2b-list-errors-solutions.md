@@ -1,6 +1,6 @@
 ---
-title: Erros e soluções para cenários B2B
-description: Encontrar erros e soluções para cenários de B2B nos Aplicativos Lógicos do Azure
+title: Soluções para erros comuns e problemas em cenários B2B
+description: Encontre soluções para erros e problemas comuns ao solucionar problemas de cenários B2B em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790702"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666679"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros e soluções B2B para os Aplicativos Lógicos do Azure
 

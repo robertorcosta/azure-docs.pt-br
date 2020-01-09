@@ -1,26 +1,18 @@
 ---
-title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Visão geral do recurso de Microsoft Threat Modeling Tool-Azure
 description: Conheça todos os recursos disponíveis no Threat Modeling Tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: e3c6769cc832a897cfbab5548de5328d743884b2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728423"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552110"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
 
@@ -47,7 +39,7 @@ A experiência é semelhante a de outros produtos da Microsoft. Vamos analisar o
 
 ![Itens de menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Rotular                               | Detalhes      |
+| Rótulo                               | Detalhes      |
 | --------------------------------------- | ------------ |
 | **Arquivo** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entrar e sair das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplicar um novo modelo aos modelos já existentes.</li></ul> |
 | **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
@@ -120,7 +112,7 @@ Quando você abre o aplicativo, você verá a tela de **Boas-vindas**.
 
 ### <a name="open-a-model"></a>Abrir um modelo
 
-Passe o mouse sobre **Abrir um Modelo** para mostrar duas opções: **Abrir Deste Computador** e **Abrir do OneDrive**. A primeira opção abre a tela de **Abertura de arquivo**. A segunda opção leva você através do processo de entrada para OneDrive. Após a autenticação bem-sucedida, você pode selecionar arquivos e pastas.
+Passar o mouse sobre **Abrir um Modelo** mostra duas opções: **Abrir deste computador** e **Abrir do OneDrive**. A primeira opção abre a tela de **Abertura de arquivo**. A segunda opção leva você através do processo de entrada para OneDrive. Após a autenticação bem-sucedida, você pode selecionar arquivos e pastas.
 
 ![Abrir modelo](./media/threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -141,7 +133,7 @@ Quando você abrir ou criar um novo modelo, o modo de exibição de **Design** a
 Você pode adicionar elementos na grade de duas maneiras:
 
 - **Arrastar e soltar**: Arraste o elemento desejado para a grade. Em seguida, use as propriedades de elemento para fornecer informações adicionais.
-- **Clicar com o botão direito do mouse**: Clique com o botão direito do mouse em qualquer lugar na grade e selecione os itens no menu suspenso. Uma representação genérica do elemento selecionado aparecerá na tela.
+- **Clicar com o botão direito**: Clique com o botão direito do mouse em qualquer lugar na grade e selecione os itens no menu suspenso. Uma representação genérica do elemento selecionado aparecerá na tela.
 
 ### <a name="connect-elements"></a>Conectar elementos
 
@@ -154,13 +146,13 @@ Você pode conectar elementos de duas maneiras:
 
  Para ver as propriedades que podem ser modificadas em estênceis, selecione o estêncil e as informações serão devidamente populadas. O exemplo abaixo mostra o antes e o depois que o estêncil de um **Banco de dados** é arrastado para o diagrama:
 
-#### <a name="before"></a>Antes
+#### <a name="before"></a>Antes de
 
-![Antes](./media/threat-modeling-tool-feature-overview/properties1.png)
+![Antes de](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Depois
+#### <a name="after"></a>After (após)
 
-![Depois](./media/threat-modeling-tool-feature-overview/properties2.png)
+![After (após)](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Mensagens
 
@@ -182,7 +174,7 @@ Depois de criar seu diagrama, selecione o símbolo de **Análise** (lupa) na bar
 
 Quando você seleciona uma ameaça, você pode usar três funções diferentes:
 
-| Recurso                               | Information      |
+| Recurso                               | Informações      |
 | --------------------------------------- | ------------ |
 | **Indicador de leitura** | <p>A ameaça é marcada como leitura, o que ajuda a acompanhar os itens que você leu.</p><p>![Indicador de lido/não lido](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é realçada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
@@ -204,9 +196,9 @@ Conforme mostrado na imagem anterior, você pode alterar as informações gerada
 
 Quando terminar de alterar as prioridades e atualizar o status de cada ameaça gerada, você poderá salvar o arquivo e/ou imprimir um relatório. Vá para **Relatório** > **Criar relatório completo**. Nomeie o relatório e você deverá ver algo semelhante à seguinte imagem:
 
-![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
+![Relate](./media/threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Envie seus comentários, dúvidas e preocupações para tmtextsupport@microsoft.com. **[Baixe](https://aka.ms/threatmodelingtool)** a ferramenta Threat Modeling Tool para começar a usá-la hoje mesmo.
 - Para contribuir com um modelo para a comunidade, visite nossa página no [GitHub](https://github.com/Microsoft/threat-modeling-templates).

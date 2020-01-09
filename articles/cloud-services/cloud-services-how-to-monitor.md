@@ -3,21 +3,21 @@ title: Monitorar um Serviço de Nuvem do Azure | Microsoft Docs
 description: Descreve o que envolve o monitoramento de um Serviço de Nuvem do Azure e quais são algumas das opções.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359102"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386061"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
 
-Você pode monitorar as principais métricas de desempenho de qualquer serviço de nuvem. Cada função de serviço de nuvem coleta dados mínimos: uso da CPU, uso de rede e utilização de disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função poderá coletar outros pontos de dados. Este artigo fornece uma introdução aos Diagnósticos do Azure para Serviços de Nuvem.
+Você pode monitorar as principais métricas de desempenho de qualquer serviço de nuvem. Toda função de serviço de nuvem coleta o mínimo de dados: uso da CPU, uso da rede e utilização do disco. Se o serviço de nuvem tiver a extensão `Microsoft.Azure.Diagnostics` aplicada a uma função, essa função poderá coletar outros pontos de dados. Este artigo fornece uma introdução aos Diagnósticos do Azure para Serviços de Nuvem.
 
 Com o monitoramento básico, os dados do contador de desempenho das instâncias de função passam por amostragem e são coletados em intervalos de três minutos. Esses dados de monitoramentos básico não são armazenados em sua conta de armazenamento, e não há custo adicional associado a eles.
 
@@ -39,7 +39,7 @@ O monitoramento avançado envolve o uso da extensão **Diagnóstico do Azure** (
 À medida que cada função é criada, o Visual Studio adiciona a extensão de Diagnóstico do Azure a ela. Essa extensão de diagnóstico pode coletar os seguintes tipos de informações:
 
 * Contadores de desempenho personalizados
-* Logs de aplicativos
+* Logs de aplicativo
 * Logs de eventos do Windows
 * Fonte de evento do .NET
 * Logs do IIS
@@ -92,8 +92,11 @@ Ao publicar o Serviço de Nuvem do Visual Studio, você recebe a opção de envi
 Perceba que embora você possa usar o Application Insights para exibir os contadores de desempenho (e as outras configurações) especificados por meio da extensão de Diagnóstico do Windows Azure, você só terá uma experiência mais rica integrando o SDK do Application Insights às suas funções de trabalho e da Web.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre o Application Insights com o Serviços de Nuvem](../azure-monitor/app/cloudservices.md)
 - [Configurar contadores de desempenho](diagnostics-performance-counters.md)
+
+
+
 

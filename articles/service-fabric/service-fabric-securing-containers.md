@@ -1,25 +1,14 @@
 ---
-title: Importar certificados em um contêiner em execução no Azure Service Fabric | Microsoft Docs
+title: Importar certificados para um contêiner
 description: Saiba como importar arquivos de certificado para um serviço de contêiner do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 496d47c88636b11375d97cc4bc50efd9d468d645
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: da4babd8f9d1a25a8514d0c6f1526b43a9723854
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170458"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614104"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importe um arquivo de certificado para um contêiner em execução no Service Fabric
 
@@ -31,7 +20,7 @@ Você pode proteger seus serviços de contêiner especificando um certificado. O
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Para clusters do Windows, ao iniciar o aplicativo, o tempo de execução exporta cada certificado referenciado e sua chave privada correspondente em um arquivo PFX, protegido por uma senha gerada aleatoriamente. Os arquivos PFX e de senha, respectivamente, podem ser acessados dentro do contêiner usando as seguintes variáveis de ambiente: 
+Para clusters do Windows, ao iniciar o aplicativo, o runtime exporta cada certificado referenciado e sua chave privada correspondente em um arquivo PFX, protegido por uma senha gerada aleatoriamente. Os arquivos PFX e de senha, respectivamente, podem ser acessados dentro do contêiner usando as seguintes variáveis de ambiente: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

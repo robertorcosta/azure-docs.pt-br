@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentação do Serviço de Aplicativo
 metadata:
-  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Documentação do Serviço de Aplicativo do Azure
   meta.description: 'Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.'
   ms.topic: landing-page
@@ -19,7 +18,7 @@ abstract:
     href: 'https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/'
     width: 250
 sections:
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de Aplicativo:'
@@ -91,7 +90,7 @@ sections:
               src: media/index/onedrive.svg
             text: Sincronizar OneDrive
             href: deploy-content-sync.md
-  - title: Tutoriais Passo a Passo
+  - title: Tutoriais passo a passo
     items:
       - type: paragraph
         text: 'Aprenda a implantar, gerenciar e monitorar aplicativos Web seguros no Azure'

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033781"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551974"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 Este artigo ajuda você a verificar e solucionar problemas de conectividade do ExpressRoute. O ExpressRoute estende uma rede local para a nuvem da Microsoft por meio de uma conexão privada que é normalmente facilitada por um provedor de conectividade. A conectividade do ExpressRoute tradicionalmente envolve três zonas de rede distintas, da seguinte maneira:
@@ -23,7 +23,7 @@ Este artigo ajuda você a verificar e solucionar problemas de conectividade do E
 -   Microsoft Datacenter
 
 > [!NOTE]
-> No modelo de conectividade do ExpressRoute Direct (oferecido com largura de banda de 10/100 Gbps), o cusomters pode se conectar diretamente à porta dos roteadores do Microsoft Enterprise Edge (MSEE). Portanto, no modelo de conectividade direta, há apenas zonas de rede do cliente e da Microsoft.
+> No modelo de conectividade do ExpressRoute Direct (oferecido com largura de banda de 10/100 Gbps), os clientes podem se conectar diretamente à porta dos roteadores do Microsoft Enterprise Edge (MSEE). Portanto, no modelo de conectividade direta, há apenas zonas de rede do cliente e da Microsoft.
 >
 
 
@@ -34,7 +34,7 @@ A finalidade deste documento é ajudar o usuário a identificar se e onde existe
 >
 >
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O diagrama a seguir mostra a conectividade lógica de uma rede do cliente de rede da Microsoft usando o ExpressRoute.
 [![1]][1]
 
@@ -288,7 +288,7 @@ Uma saída de exemplo do comando para um emparelhamento inexistente é:
     Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Service Key ********************* is not found.
     StatusCode: 400
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações ou ajuda, confira os seguintes links:
 
 - [Suporte da Microsoft][Support]

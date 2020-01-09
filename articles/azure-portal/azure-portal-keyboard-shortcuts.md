@@ -1,6 +1,6 @@
 ---
 title: Atalhos de teclado do portal do Azure | Microsoft Docs
-description: Saiba mais sobre os atalhos de teclado que funcionam no portal do Azure.
+description: O portal do Azure dá suporte a atalhos de teclado global para ajudá-lo a executar ações, navegar e ir para locais na portal do Azure.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,29 +12,29 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551423"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641326"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
 
-Este artigo lista os atalhos de teclado que funcionam em qualquer lugar no portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
+Este artigo lista os atalhos de teclado que funcionam em qualquer lugar na portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.
 
 ## <a name="actions"></a>Ações
 
-|Para realizar essa ação |Pressione |
+|Para executar esta ação |Pressione |
 | --- | --- |
 |Criar um recurso|G+N|
-|Abra **todos os serviços**|G+B|
+|Abrir **todos os serviços**|G+B|
 |Pesquisar recursos, serviços e documentos|G+/|
 |Procurar itens de menu do recurso|Ctrl+/ |
-|Mover para cima o item selecionado da barra lateral esquerda |ALT+Shift+Seta para Cima|
+|Mover para cima o item da barra lateral esquerda selecionado |ALT+Shift+Seta para Cima|
 |Mover o item da barra lateral esquerda selecionado para baixo |ALT+Shift+Seta para Baixo|
 
 ## <a name="navigation"></a>Navegação
@@ -46,14 +46,14 @@ Este artigo lista os atalhos de teclado que funcionam em qualquer lugar no porta
 
 ## <a name="go-to"></a>Ir para
 
-|Para ir para esse local |Pressione |
+|Para ir para este local |Pressione |
 | --- | --- |
-|Vá para **painel** |G+D |
-|Vá para **todos os recursos**|G+A |
-|Vá para **grupos de recursos**|G+R |
-|Abra o item de barra lateral esquerda nesta posição |G+número|
+|Ir para o **painel** |G+D |
+|Ir para **todos os recursos**|G+A |
+|Ir para **grupos de recursos**|G+R |
+|Abrir o item da barra lateral esquerda nesta posição |G+número|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Ativar alto contraste ou alterar tema](azure-portal-change-theme-high-contrast.md)
 - [Dispositivos e navegadores com suporte](../azure-preview-portal-supported-browsers-devices.md)

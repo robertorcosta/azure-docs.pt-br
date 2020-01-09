@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22d77de80c7440fc120d2c48f9e73e606388848
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfbff1f95eaad41813ee0741a6b133dccdae181d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078165"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647519"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e em um disco compartilhado para uma instância do SAP ASCS/SCS no Azure
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078165"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -142,7 +142,7 @@ ms.locfileid: "70078165"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -152,7 +152,7 @@ Este artigo descreve como instalar e configurar um sistema SAP de alta disponibi
 
 Antes de começar a instalação, analise estes documentos:
 
-* [Guia de arquitetura: Cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk]
+* [Guia de arquitetura: cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk]
 
 * [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e um disco compartilhado para uma instância do SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -206,9 +206,9 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
 1. Execute a primeira opção do nó de cluster no nó A de cluster, por exemplo, no host pr1-ascs-0*.
 2. Para manter as portas padrão para o balanceador interno de carga do Azure, escolha:
 
-   * **Sistema ABAP**: **ASCS** com número de instância **00**
-   * **Sistema Java**: **SCS** com número de instância **01**
-   * **Sistema ABAP+Java**: **ASCS** com número de instância **00** e **SCS** com número de instância **01**
+   * **Sistema ABAP**: número da instância **ASCS** **00**
+   * **Sistema Java**: número da instância **SCS** **01**
+   * **Sistema ABAP + Java**: número da instância **ASCS** **00** e número da instância **SCS** **01**
 
    Para usar números de instância diferentes de 00 para a instância do ASCS ABAP, e 01 para a instância de Java SCS, primeiro, altere as regras de balanceamento de carga padrão do balanceador de carga interno do Azure. Para obter mais informações, consulte [alterar as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-ha-guide-8.9].
 
@@ -263,7 +263,7 @@ Para adicionar uma porta de investigação:
 
    ![Figura 3: A porta de investigação da configuração de cluster é 0 por padrão][sap-ha-guide-figure-3048]
 
-   _**Figura 3:** A porta de investigação da configuração de cluster padrão é 0_
+   _**Figura 3:** a porta de investigação da configuração de cluster padrão é 0_
 
    O número da porta é definido nos modelos do Azure Resource Manager para SAP. Você pode atribuir o número da porta no PowerShell.
 
@@ -388,15 +388,15 @@ Instale um AAS (Servidor de Aplicativos Adicional) SAP em todas as máquinas vir
 
 O grupo de clusters SAP PR1 está em execução no nó A do cluster. Por exemplo, em pr1-ascs-0. Atribua a unidade de disco compartilhado S, que é parte do grupo de cluster SAP PR1, ao cluster A do nó. A instância ASCS/SCS também usa a unidade de disco S. 
 
-![Figura 6: Gerenciador de Cluster de Failover: O grupo \<de\> clusters SAP Sid está em execução no nó A do cluster][sap-ha-guide-figure-5000]
+![Figura 6: Gerenciador de Cluster de Failover: o grupo de clusters SAP \<SID\> está em execução no nó A do cluster][sap-ha-guide-figure-5000]
 
-_**Figura 6:** Gerenciador de Cluster de Failover: O grupo \<de\> clusters SAP Sid está em execução no nó A do cluster_
+_**Figura 6:** Gerenciador de Cluster de Failover: o grupo de clusters SAP \<SID\> está em execução no nó A do cluster_
 
 Na ferramenta de Gerenciamento e Configuração do DataKeeper SIOS, você pode ver que os dados do disco compartilhado são replicados de modo síncrono da unidade do volume de origem S em um nó A de cluster para a unidade do volume de destino S no nó B de cluster. Por exemplo, é replicado de pr1-ascs-0 [10.0.0.40] a pr1-ascs-1 [10.0.0.41].
 
-![Figura 7: No SIOS DataKeeper, replique o volume local do nó de cluster A para o nó de cluster B][sap-ha-guide-figure-5001]
+![Figura 7: No SIOS DataKeeper, replique o volume local do nó A do cluster para o nó B de cluster][sap-ha-guide-figure-5001]
 
-_**Figura 7:** No SIOS DataKeeper, replique o volume local do nó de cluster A para o nó de cluster B_
+_**Figura 7:** No SIOS DataKeeper, replique o volume local do nó A do cluster para o nó B de cluster_
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Failover do nó A para o nó B
 
@@ -417,12 +417,12 @@ _**Figura 7:** No SIOS DataKeeper, replique o volume local do nó de cluster A p
 
    Após o failover, o grupo de clusters SAP \<SID\> está em execução no nó de cluster B. Por exemplo, em pr1-ascs-1.
 
-   ![Figura 8: Em Gerenciador de cluster de failover, o grupo \<de\> clusters SAP Sid está em execução no nó B do cluster][sap-ha-guide-figure-5002]
+   ![Figura 8: No Gerenciador de Cluster de Failover, o grupo de clusters SAP \<SID\> está em execução no nó B de cluster][sap-ha-guide-figure-5002]
 
-   _**Figura 8**: Em Gerenciador de cluster de failover, o grupo \<de\> clusters SAP Sid está em execução no nó B do cluster_
+   _**Figura 8**: No Gerenciador de Cluster de Failover, o grupo de clusters SAP \<SID\> está em execução no nó B de cluster_
 
    O disco compartilhado agora é montado no nó de cluster B. O SIOS DataKeeper está replicando dados da unidade do volume de origem S no nó de cluster B para a unidade do volume de destino S no nó de cluster A. Por exemplo, ele está replicando pr1-ascs-1 [10.0.0.41] a pr1-ascs-0 [10.0.0.40].
 
-   ![Figura 9: O SIOS DataKeeper replica o volume local do nó de cluster B para o nó de cluster A][sap-ha-guide-figure-5003]
+   ![Figura 9: o SIOS DataKeeper replica o volume local do nó B de cluster para o nó A de cluster][sap-ha-guide-figure-5003]
 
-   _**Figura 9:** O SIOS DataKeeper replica o volume local do nó de cluster B para o nó de cluster A_
+   _**Figura 9:** o SIOS DataKeeper replica o volume local do nó B de cluster para o nó A de cluster_

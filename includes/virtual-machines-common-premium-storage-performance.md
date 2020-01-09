@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182172"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564764"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 
@@ -53,7 +53,7 @@ As operações de plano de controle a seguir em Managed Disks podem envolver a m
 - Crie um disco gerenciado com base em um instantâneo.
 - Converter discos não gerenciados em discos gerenciados.
 
-# <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicativo de desempenho para discos
+## <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicativo de desempenho para discos
 
 A primeira etapa na criação de aplicativos de alto desempenho executados no Armazenamento Premium do Azure é entender os requisitos de desempenho do aplicativo. Depois de entender os requisitos de desempenho, será possível otimizar o aplicativo para obter o desempenho ideal.
 
@@ -92,14 +92,14 @@ A melhor maneira de avaliar os requisitos de desempenho do aplicativo é usando 
 
 Os contadores do PerfMon estão disponíveis para processador, memória e cada disco lógico e físico do seu servidor. Quando você usa discos do Armazenamento Premium com uma VM, os contadores de disco físico são para cada disco do Armazenamento Premium e os contadores de disco lógico são para cada volume criado nos discos do Armazenamento Premium. É preciso capturar os valores dos discos que hospedam a carga de trabalho do aplicativo. Se houver um mapeamento de um para um entre os discos lógicos e físicos, você poderá consultar os contadores de disco físico, caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização de CPU e disco. O relatório de utilização de disco fornece estatísticas por dispositivo físico ou partição. Se você tiver um servidor de banco de dados com seu log e seus logs em discos separados, colete esses dados para ambos os discos. A tabela abaixo descreve os contadores para discos, processadores e memória:
 
-| Contador | Descrição | PerfMon | Iostat |
+| Contador | Description | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS ou Transações por segundo** |Número de solicitações de E/S emitidas para o disco de armazenamento por segundo. |Leituras de Disco/s <br> Gravações de Disco/s |tps <br> r/s <br> w/s |
 | **Leituras e gravações de discos** |% de operações de Leitura e Gravação executadas no disco. |% de Tempo de Leitura de Disco <br> % de Tempo de Gravação de Disco |r/s <br> w/s |
 | **Taxa de transferência** |Volume de dados lidos ou gravados no disco por segundo. |Bytes Lidos no Disco/s <br> Bytes Gravados no Disco/s |kB_read/s <br> kB_wrtn/s |
 | **Latência** |Tempo total para concluir uma solicitação de E/S no disco. |Média por Segundo do Disco/Leitura <br> Média por segundo do disco/Gravação |await <br> svctm |
 | **Tamanho de E/S** |O tamanho das solicitações de E/S emitidas para os discos de armazenamento. |Média de Bytes do Disco/Leitura <br> Média de Bytes do Disco/Gravação |avgrq-sz |
-| **Profundidade da Fila** |Número de solicitações de E/S pendentes aguardando serem lidas ou gravadas no disco de armazenamento. |Comprimento da Fila do Disco Atual |avgqu-sz |
+| **Profundidade da Fila** |Número de solicitações de E/S pendentes aguardando serem lidas ou gravadas no disco de armazenamento. |Comprimento da fila atual de disco |avgqu-sz |
 | **IOPS Máxima** |Quantidade de memória exigida para execução perfeita do aplicativo |% de Bytes Confirmados em Uso |Usar o vmstat |
 | **IOPS Máxima** |Quantidade de CPU exigida para a execução perfeita do aplicativo |% do Tempo do Processador |%util |
 
@@ -130,7 +130,7 @@ Para obter mais informações sobre tamanhos de VM e sobre o IOPS, taxa de trans
 | **Cache de disco** |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter IOPS mais alta de leitura. | &nbsp; |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter latências de leitura bem baixas. |
 | **Distribuição de disco** |Use vários discos e distribua-os em conjunto para obter um limite combinado mais alto de IOPS e Taxa de Transferência. O limite combinado por VM deve ser maior que os limites combinados de discos Premium anexados. | &nbsp; | &nbsp; |
 | **Tamanho da distribuição** |Tamanho menor de distribuição para padrão pequeno de E/S aleatório visto em aplicativos OLTP. Por exemplo, use o tamanho de distribuição de 64 KB para SQL Server aplicativo OLTP. |Tamanho maior de distribuição para padrão grande de E/S sequencial visto em aplicativos de data warehouse. Por exemplo, use o tamanho de distribuição de 256 KB para SQL Server aplicativo de data warehouse. | &nbsp; |
-| **Multithreading** |Use multithreading para enviar por push números maiores de solicitações ao Armazenamento Premium que levarão à IOPS e Taxa de Transferência mais altas. Por exemplo, no SQL Server, defina um valor MAXDOP alto para alocar mais CPUs para o SQL Server. | &nbsp; | &nbsp; |
+| **Multithread** |Use multithreading para enviar por push números maiores de solicitações ao Armazenamento Premium que levarão à IOPS e Taxa de Transferência mais altas. Por exemplo, no SQL Server, defina um valor MAXDOP alto para alocar mais CPUs para o SQL Server. | &nbsp; | &nbsp; |
 | **Profundidade da Fila** |Profundidade da fila maior gera IOPS mais alta. |Uma Profundidade da Fila maior gera uma Taxa de Transferência mais alta. |Profundidade da fila menor gera latências mais baixas. |
 
 ## <a name="nature-of-io-requests"></a>Natureza das solicitações de E/S
@@ -170,9 +170,9 @@ Para ver os efeitos do tamanho de E/S no desempenho do aplicativo, você pode ex
 
 ## <a name="high-scale-vm-sizes"></a>Tamanhos de VM de alta escala
 
-Quando você começa a criar um aplicativo, uma das primeiras tarefas é escolher uma VM para hospedar o aplicativo. O Armazenamento Premium surge com os tamanhos de VM de alta escala que podem executar aplicativos que exigem potência mais alta de computação e um alto desempenho de E/S do disco local. Essas VMs fornecem processadores mais rápidos, uma taxa mais alta de memória para núcleo e uma SSD (unidade de estado sólido) para o disco local. Exemplos de VMs de alta escala que dão suporte ao armazenamento Premium são as VMs da série DS, DSv2 e GS.
+Quando você começa a criar um aplicativo, uma das primeiras tarefas é escolher uma VM para hospedar o aplicativo. O Armazenamento Premium surge com os tamanhos de VM de alta escala que podem executar aplicativos que exigem potência mais alta de computação e um alto desempenho de E/S do disco local. Essas VMs fornecem processadores mais rápidos, uma taxa mais alta de memória para núcleo e uma SSD (unidade de estado sólido) para o disco local. Exemplos de VMs de alta escala que dão suporte ao armazenamento Premium são as VMs da série DS e GS.
 
-As VMs de alta escala estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem um número máximo de discos de dados que você pode anexar à VM. Sendo assim, o tamanho de VM escolhido afetará a quantidade de capacidade de armazenamento, processamento e memória disponível para o aplicativo. Ele também afeta o custo da computação e do armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS, uma DSv2 e uma GS:
+As VMs de alta escala estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem um número máximo de discos de dados que você pode anexar à VM. Sendo assim, o tamanho de VM escolhido afetará a quantidade de capacidade de armazenamento, processamento e memória disponível para o aplicativo. Ele também afeta o custo da computação e do armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS e uma da GS:
 
 | Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco da VM | Máx. de discos de dados | Tamanho do cache | IOPS | Limites de E/S do cache da largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -256,7 +256,7 @@ Veja a seguir as configurações recomendadas de cache de disco para discos de d
 | ReadOnly |Configure o cache do host como ReadOnly para discos de leitura/gravação e somente leitura. |
 | ReadWrite |Configure o cache do host como ReadWrite somente se o aplicativo tratar adequadamente a gravação de dados em cache em discos persistentes quando necessário. |
 
-*ReadOnly*  
+*ReadOnly (somente-leitura)*  
 Ao configurar o cache ReadOnly em discos de dados do Armazenamento Premium, você pode obter baixa latência de leitura e IOPS de leitura e Taxa de Transferência muito altas para seu aplicativo. Isso se deve a dois motivos:
 
 1. As leituras executadas no cache, que está na memória da VM e na SSD local, são muito mais rápidas do que as leituras no disco de dados, que está no armazenamento blob do Azure.  
@@ -265,7 +265,7 @@ Ao configurar o cache ReadOnly em discos de dados do Armazenamento Premium, voc�
 *ReadWrite*  
 Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte ao cache ReadWrite também nos discos de dados. Se estiver usando o cache ReadWrite, você deverá ter uma maneira adequada de gravar os dados do cache nos discos persistentes. Por exemplo, o SQL Server manipula a gravação de dados em cache nos discos de armazenamento persistentes por sua própria conta. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
 
-*Nenhum*  
+*Nenhuma*  
 No momento, **nenhum** só tem suporte em discos de dados. Não há suporte para ele em discos do sistema operacional. Se você definir **nenhum** em um disco do sistema operacional, ele substituirá isso internamente e o definirá como **ReadOnly**.
 
 Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no Armazenamento Premium seguindo estes passos.
@@ -292,29 +292,31 @@ Algumas das versões exigem um LIS (Serviços de Integração do Linux) v4.0 par
 
 | Distribuição | Versão | Kernel com suporte | Detalhes |
 | --- | --- | --- | --- |
-| Ubuntu | 12, 4 ou mais recente| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14, 4 ou mais recente| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Ubuntu | 12, 4 ou mais recente| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14, 4 ou mais recente| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7. x, 8. x ou mais recente| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 ou mais recente| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 ou mais recente| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0 + ou mais recente| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 obrigatório](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Confira a observação na próxima seção* |
-| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Confira a observação na próxima seção* |
+| CoreOS | 584.0.0 + ou mais recente| 3.18.4+ | &nbsp; |
+| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 obrigatório](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Confira a observação na próxima seção* |
+| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Confira a observação na próxima seção* |
 | RHEL (Red Hat Enterprise Linux) | 6.8 +, 7.2 + ou mais recente | &nbsp; | &nbsp; |
 | Oracle | 6.0 +, 7.2 + ou mais recente | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK c/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para Openlogic CentOS
 
 Se você estiver executando VMs com o OpenLogic CentOS, execute o comando a seguir para instalar os drivers mais recentes:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-Para ativar os novos drivers, reinicie a VM.
+Em alguns casos, o comando acima também atualizará o kernel. Se uma atualização de kernel for necessária, talvez seja necessário executar os comandos acima novamente após a reinicialização para instalar completamente o pacote Microsoft-Hyper-v.
+
 
 ## <a name="disk-striping"></a>Distribuição de discos
 
@@ -382,4 +384,3 @@ Para um volume distribuído, mantenha uma profundidade de fila alta o suficiente
 O Armazenamento Premium do Azure provisiona um número especificado de IOPS e Taxa de Transferência, dependendo dos tamanhos da VM e do disco que você escolhe. Sempre que o aplicativo tentar impulsionar IOPS ou Taxa de Transferência acima desses limites com os quais a VM ou o disco podem lidar, o Armazenamento Premium será restrito. Isso se manifesta na forma de degradação de desempenho do aplicativo. Isso pode significar maior latência, taxa de transferência mais baixa ou IOPS menor. Se o Armazenamento Premium não for restrito, o aplicativo poderá falhar completamente, excedendo o que seus recursos são capazes de alcançar. Portanto, para evitar problemas de desempenho devido à limitação, sempre provisione recursos suficientes ao aplicativo. Leve em consideração o que abordamos nas seções acima sobre tamanhos de disco e VM Os parâmetros de comparação são a melhor maneira de entender de quais recursos você precisará para hospedar o aplicativo.
 
 ## <a name="next-steps"></a>Próximos passos
-

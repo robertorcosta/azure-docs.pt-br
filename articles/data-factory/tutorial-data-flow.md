@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439462"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
 
@@ -57,10 +57,10 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
 
     b. Selecione **Criar novo**e insira o nome de um grupo de recursos. 
          
-    Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
+    Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
 6. Em **Versão**, selecione **V2**.
-7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são mostrados na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
-8. Clique em **Criar**. 
+7. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, o armazenamento do Azure e o SQL Database) e as computações (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+8. Selecione **Criar**. 
 9. Depois que a criação for concluída, você verá o aviso no centro de notificações. Selecione **Ir para o recurso** para navegar até a página do Data Factory.
 10. Clique em **Criar e Monitorar** para iniciar a IU do Azure Data Factory em uma guia separada.
 
@@ -95,13 +95,13 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow3.png)
 1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset1.png)
+    ![Dataset](media/tutorial-data-flow/dataset1.png)
 1. Escolha **DelimitedText**. Clique em Continuar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset2.png)
+    ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Nomeie seu DataSet **MoviesDB**. Na lista suspensa serviço vinculado, escolha **novo**.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset3.png)
+    ![Dataset](media/tutorial-data-flow/dataset3.png)
 1. Na tela de criação de serviço vinculado, nomeie o serviço vinculado ADLS Gen2 **ADLSGen2** e especifique o método de autenticação. Em seguida, insira suas credenciais de conexão. Neste tutorial, estamos usando a chave de conta para se conectar à nossa conta de armazenamento. Você pode clicar em **testar conexão** para verificar se suas credenciais foram inseridas corretamente. Clique em criar quando terminar.
 
     ![Serviço vinculado](media/tutorial-data-flow/ls1.png)
@@ -138,23 +138,23 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Filtrar](media/tutorial-data-flow/filter3.png)
 1. A próxima transformação que você adicionará é uma transformação **agregação** em **modificador de esquema**.
     
-    ![Agregação](media/tutorial-data-flow/agg1.png)
+    ![Agregado](media/tutorial-data-flow/agg1.png)
 1. Nomeie sua transformação agregada **AggregateComedyRatings**. Na guia **Agrupar por** , selecione **ano** na lista suspensa para agrupar as agregações pelo ano em que o filme surgiu.
     
-    ![Agregação](media/tutorial-data-flow/agg2.png)
+    ![Agregado](media/tutorial-data-flow/agg2.png)
 1. Vá para a guia **agregações** . Na caixa de texto à esquerda, nomeie a coluna de agregação **AverageComedyRating**. Clique na caixa de expressão à direita para inserir a expressão de agregação por meio do construtor de expressões.
     
-    ![Agregação](media/tutorial-data-flow/agg3.png)
+    ![Agregado](media/tutorial-data-flow/agg3.png)
 1. Para obter a média de **classificação**de coluna, use a função de agregação ```avg()```. Como a **classificação** é uma cadeia de caracteres e ```avg()``` leva em uma entrada numérica, devemos converter o valor em um número por meio da função ```toInteger()```. Essa expressão é semelhante a:
 
     ```avg(toInteger(Rating))```
     
     Clique em **salvar e concluir** quando terminar. 
 
-    ![Agregação](media/tutorial-data-flow/agg4.png)
+    ![Agregado](media/tutorial-data-flow/agg4.png)
 1. Vá para a guia **visualização de dados** para exibir a saída da transformação. Observe que apenas duas colunas estão lá, **year** e **AverageComedyRating**.
     
-    ![Agregação](media/tutorial-data-flow/agg3.png)
+    ![Agregado](media/tutorial-data-flow/agg3.png)
 1. Em seguida, você deseja adicionar uma transformação de **coletor** em **destino**.
     
     ![Coletor](media/tutorial-data-flow/sink1.png)
@@ -163,10 +163,10 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Coletor](media/tutorial-data-flow/sink2.png)
 1. Escolha **Azure data Lake Storage Gen2**. Clique em Continuar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset1.png)
+    ![Dataset](media/tutorial-data-flow/dataset1.png)
 1. Escolha **DelimitedText**. Clique em Continuar.
 
-    ![Conjunto de dados](media/tutorial-data-flow/dataset2.png)
+    ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Nomeie seu conjunto de **MoviesSink**de banco de seu coletor. Para o serviço vinculado, escolha o serviço vinculado ADLS Gen2 que você criou na etapa 6. Insira uma pasta de saída na qual os dados são gravados. Neste tutorial, estamos gravando na pasta ' output ' no contêiner ' sample-data '. A pasta não precisa existir com antecedência e pode ser criada dinamicamente. Defina **a primeira linha como o cabeçalho** como verdadeiro e selecione **nenhum** para o **esquema de importação**. Clique em Concluir.
     
     ![Coletor](media/tutorial-data-flow/sink3.png)
@@ -194,7 +194,7 @@ Se você seguiu este tutorial corretamente, deve ter escrito 83 linhas e 2 colun
 
 ## <a name="next-steps"></a>Próximos passos
 
-O pipeline neste tutorial executa um fluxo de dados que agrega a classificação média de Comedies de 1910 a 2000 e grava os dados em ADLS. Você aprendeu como:
+O pipeline neste tutorial executa um fluxo de dados que agrega a classificação média de Comedies de 1910 a 2000 e grava os dados em ADLS. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um data factory.

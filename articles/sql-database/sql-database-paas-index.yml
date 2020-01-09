@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Plataforma como serviço
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Banco de Dados SQL do Azure - Plataforma como Serviço
   meta.description: Learn about the PaaS capabilities of Azure SQL Database.
   services: sql-database
@@ -26,7 +25,7 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - title: Continuidade dos negócios
+          - title: Continuidade de negócios
             href: /azure/sql-database/sql-database-business-continuity
             html: '<p>O Banco de Dados SQL do Azure permite que seus negócios continuem operando em caso de interrupção, principalmente em sua infraestrutura de computação.</p>'
           - title: Alta disponibilidade

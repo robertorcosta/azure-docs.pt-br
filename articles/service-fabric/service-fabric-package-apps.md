@@ -1,25 +1,14 @@
 ---
-title: Empacotar um aplicativo do Azure Service Fabric | Microsoft Docs
-description: Como empacotar um aplicativo do Service Fabric antes de implantar em um cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Empacotar um aplicativo de Service Fabric do Azure
+description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do Azure e como se preparar para a implantação em um cluster.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718354"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639676"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
 
@@ -235,13 +224,13 @@ Para provisionar o pacote, use o provisionamento o externo, o que requer o URI d
 >[!NOTE]
 > O provisionamento com base no caminho relativo do repositório de imagens no momento não oferece suporte a arquivos `sfpkg`. Portanto, o `sfpkg` não deve ser copiado para o repositório de imagens.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias do aplicativo
+[Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias de aplicativo
 
-[Gerenciamento de parâmetros do aplicativo para vários ambientes][11] descreve como configurar os parâmetros e variáveis de ambiente para diferentes instâncias do aplicativo.
+[Gerenciar parâmetros de aplicativo para vários ambientes][11] descreve como configurar parâmetros e variáveis de ambiente para diferentes instâncias de aplicativo.
 
-[Configurar políticas de segurança para seu aplicativo][12] descreve como executar serviços sob políticas de segurança para restringir o acesso.
+[Configurar políticas de segurança para seu aplicativo][12] descreve como executar serviços em políticas de segurança para restringir o acesso.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

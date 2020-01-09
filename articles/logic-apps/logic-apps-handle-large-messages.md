@@ -1,18 +1,18 @@
 ---
-title: Processar mensagens grandes
-description: Saiba como tratar tamanhos de mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
+title: Manipular mensagens grandes usando agrupamento
+description: Saiba como lidar com tamanhos de mensagens grandes usando o agrupamento em tarefas automatizadas e fluxos de trabalho que você cria com aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456561"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 
@@ -113,18 +113,18 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Value | Type | Descrição |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | em partes | string | Indica que o conteúdo é carregado em partes |
-   | **x-ms-content-length** | <*content-length*> | Número inteiro | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
+   | **x-ms-transfer-mode** | em partes | String | Indica que o conteúdo é carregado em partes |
+   | **x-ms-content-length** | <*content-length*> | Integer | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
    ||||
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Type | obrigatórios | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Obrigatório | Description |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho da parte sugerido em bytes |
-   | **Localidade** | string | SIM | O local da URL para a qual enviar as mensagens HTTP PATCH |
+   | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
+   | **Localidade** | String | Sim | O local da URL para a qual enviar as mensagens HTTP PATCH |
    ||||
 
 3. Seu aplicativo lógico cria e envia mensagens HTTP PATCH de acompanhamento, cada uma com essas informações:
@@ -133,19 +133,19 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Value | Type | Descrição |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | string | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
-     | **Content-Type** | <*content-type*> | string | O tipo de conteúdo em partes |
-     | **Content-Length** | <*content-length*> | string | O comprimento do tamanho em bytes da parte atual |
+     | **Content-Range** | <*range*> | String | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
+     | **Content-Length** | <*content-length*> | String | O comprimento do tamanho em bytes da parte atual |
      |||||
 
 4. Após cada solicitação de PATCH, o ponto de extremidade confirma o recebimento de cada parte respondendo com o código de status "200" e os seguintes cabeçalhos de resposta:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Type | obrigatórios | Descrição |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Obrigatório | Description |
    |--------------------------------|------|----------|-------------|
-   | **Range** | string | SIM | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
-   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho da parte sugerido em bytes |
+   | **Range** | String | Sim | O intervalo de bytes para o conteúdo recebido pelo ponto de extremidade, por exemplo: "bytes = 0-1023" |   
+   | **x-ms-chunk-size** | Integer | Não | O tamanho da parte sugerido em bytes |
    ||||
 
 Por exemplo, esta definição de ação mostra uma solicitação HTTP POST para carregar o conteúdo em partes para um ponto de extremidade. Na propriedade `runTimeConfiguration` da ação, a propriedade `contentTransfer` define `transferMode` como `chunked`:

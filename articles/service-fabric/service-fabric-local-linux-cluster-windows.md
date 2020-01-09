@@ -1,25 +1,16 @@
 ---
-title: Configurar o cluster do Linux do Azure Service Fabric no Windows | Microsoft Docs
+title: Configurar o cluster do Azure Service Fabric Linux no Windows
 description: Este artigo aborda como configurar clusters do Service Fabric Linux executando em máquinas de desenvolvimento do Windows. Isto é particularmente útil para o desenvolvimento de plataformas cruzadas.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 806e77a928d25e30aed24147525f74507bc32795
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462986"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurar um cluster do Linux do Service Fabric no seu computador de desenvolvedor do Windows
 
@@ -30,7 +21,7 @@ Os clusters do Service Fabric baseados no Linux não são executados nativamente
 
 * Pelo menos 4 GB de RAM
 * Versão mais recente do [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker deve estar em execução no modo do Linux
+* O Docker deve estar em execução no modo Linux
 
 >[!TIP]
 > * Você pode seguir as etapas mencionadas na [documentação](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) de Docker oficial para instalar o Docker no Windows. 
@@ -121,7 +112,7 @@ Para configurar um contêiner local do Docker e ter um cluster do Service Fabric
  
  * O serviço DNS não é executado e não há suporte para [Problema 132](https://github.com/Microsoft/service-fabric/issues/132)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Introdução ao [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Confira outras [amostras de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

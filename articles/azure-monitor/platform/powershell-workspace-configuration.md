@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363516"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gerenciar Log Analytics espaço de trabalho no Azure Monitor usando o PowerShell
 
@@ -177,6 +177,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> O formato do parâmetro **CustomLogRawJson** que define a configuração de um log personalizado pode ser complexo. Use [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) para recuperar a configuração de um log personalizado existente. A propriedade **Properties** é a configuração necessária para o parâmetro **CustomLogRawJson** .
+
 No exemplo acima, regexDelimiter foi definido como "\\n" para nova linha. O delimitador de log também pode ser um carimbo de data/hora.  Estes são os formatos compatíveis:
 
 | Formatar | O formato JSON RegEx usa duas \\ para cada \ em um RegEx padrão; portanto,se estiver testando em um aplicativo RegEx, reduza \\ para \ | | |
@@ -198,24 +202,24 @@ Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recu
 
 | Tipo de recurso | Logs | Métricas |
 | --- | --- | --- |
-| Gateways de Aplicativo    | SIM | SIM |
-| Contas de Automação     | SIM | |
-| Contas do Lote          | SIM | SIM |
-| Data Lake Analytics     | SIM | |
-| Data Lake Store         | SIM | |
-| Pool SQL Elástico        |     | SIM |
-| Namespace do Hub de Eventos     |     | SIM |
-| Hubs IoT                |     | SIM |
-| Key Vault               | SIM | |
-| Load Balancers          | SIM | |
-| aplicativos Lógicos              | SIM | SIM |
-| Grupos de Segurança de Rede | SIM | |
-| Cache Redis do Azure             |     | SIM |
-| Serviços de pesquisa         | SIM | SIM |
-| Namespace do Barramento de Serviço   |     | SIM |
-| SQL (v12)               |     | SIM |
-| Sites da Web               |     | SIM |
-| Farms do servidor Web        |     | SIM |
+| Gateways de Aplicativo    | Sim | Sim |
+| Contas de Automação     | Sim | |
+| Contas do Lote          | Sim | Sim |
+| Data Lake Analytics     | Sim | |
+| Data Lake Store         | Sim | |
+| Pool SQL Elástico        |     | Sim |
+| Namespace do Hub de Eventos     |     | Sim |
+| Hubs IoT                |     | Sim |
+| Key Vault               | Sim | |
+| Load Balancers          | Sim | |
+| aplicativos Lógicos              | Sim | Sim |
+| Grupos de Segurança de Rede | Sim | |
+| Cache Redis do Azure             |     | Sim |
+| Serviços de pesquisa         | Sim | Sim |
+| Namespace do Barramento de Serviço   |     | Sim |
+| SQL (v12)               |     | Sim |
+| Sites da Web               |     | Sim |
+| Farms do servidor Web        |     | Sim |
 
 Para obter os detalhes das métricas disponíveis, consulte [métricas compatíveis com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 

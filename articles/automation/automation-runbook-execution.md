@@ -2,19 +2,15 @@
 title: Execução de runbook na Automação do Azure
 description: Descreve os detalhes de como um runbook na Automação do Azure é processado.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850747"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658110"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -32,17 +28,17 @@ Os trabalhos têm acesso aos recursos do Azure fazendo uma conexão à sua assin
 
 Os runbooks na Automação do Azure podem ser executados em uma área restrita no Azure ou em um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Uma área restrita é um ambiente compartilhado no Azure que pode ser usado por vários trabalhos. Os trabalhos que usam a mesma área restrita são restringidos pelas limitações de recurso da área restrita. Hybrid runbook workers podem executar runbooks diretamente no computador que está hospedando a função e em relação aos recursos no ambiente para gerenciar esses recursos locais. Runbooks são armazenados e gerenciados na Automação do Azure e, em seguida, entregues a um ou mais computadores atribuídos. A maioria dos runbooks pode ser facilmente executada nas áreas restritas do Azure. Há cenários específicos em que pode ser recomendada a escolha de um Hybrid Runbook ao invés de uma área restrita do Azure para execução do seu runbook. Veja a seguinte tabela com uma lista de alguns exemplos de cenário:
 
-|Tarefa|Melhor opção|Notas|
+|Tarefa|Melhor opção|Observações|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Com hospedagem no Azure, a autenticação é mais simples. Se você está usando o Hybrid Runbook Worker em uma VM do Azure, é possível usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que, por sua vez, tem menos latência|
 |Redução de custos operacionais|Área restrita do Azure|Não há sobrecarga de computação, nem a necessidade de uma VM|
-|Script de execução prolongada|Hybrid Runbook Worker|Áreas restritas do Azure têm [limitação de recursos](../azure-subscription-service-limits.md#automation-limits)|
+|Script de execução prolongada|Hybrid Runbook Worker|Áreas restritas do Azure têm [limitação de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Interação com serviços locais|Hybrid Runbook Worker|Pode ter acesso diretamente ao computador host|
 |Exigência de software de terceiros e executáveis|Hybrid Runbook Worker|Você gerencia o SO e pode instalar software|
 |Monitoramento de um arquivo ou uma pasta com um runbook|Hybrid Runbook Worker|Use uma [tarefa do Inspetor](automation-watchers-tutorial.md) em um Hybrid Runbook Worker|
-|O script usa muitos recursos|Hybrid Runbook Worker| Áreas restritas do Azure têm [limitação de recursos](../azure-subscription-service-limits.md#automation-limits)|
-|Uso de módulos com requisitos específicos| Hybrid Runbook Worker|Alguns exemplos incluem:</br> **WinSCP**: dependência de winscp.exe </br> **IISAdministration**: necessidade de que o IIS seja desabilitado|
+|O script usa muitos recursos|Hybrid Runbook Worker| Áreas restritas do Azure têm [limitação de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Uso de módulos com requisitos específicos| Hybrid Runbook Worker|Alguns exemplos são:</br> **WinSCP**: dependência de winscp.exe </br> **IISAdministration**: necessidade de que o IIS seja desabilitado|
 |Instalação do módulo que requer o instalador|Hybrid Runbook Worker|Os módulos para área restrita devem ser copiable|
 |Uso de runbooks ou módulos que exigem o .NET Framework diferente da versão 4.7.2|Hybrid Runbook Worker|Áreas restritas da Automação têm o .NET Framework 4.7.2 e não há maneira de atualizá-lo|
 |Scripts que exigem elevação|Hybrid Runbook Worker|As áreas restritas não permitem elevação. Para resolver isso, use uma Hybrid Runbook Worker e você pode desativar o UAC e usar `Invoke-Command` ao executar o comando que requer elevação|
@@ -201,7 +197,7 @@ Os trabalhos de runbook executados em áreas restritas do Azure não têm acesso
 
 A tabela a seguir descreve os diferentes status possíveis para um trabalho. O PowerShell tem dois tipos de erros, erros de finalização e sem finalização. Erros de finalização definem o status do runbook como **Falhou**, caso ocorram. Erros sem finalização permitem que o script continue mesmo depois de ocorrerem. Um exemplo de um erro sem finalização é usar o cmdlet `Get-ChildItem` com um caminho que não existe. O PowerShell vê que o caminho não existe, gera um erro e continua até a próxima pasta. Esse erro não definiria o status do runbook como **Falhou** e poderia ser marcado como **Concluído**. Para forçar um runbook a parar se houver um erro sem finalização, você pode usar `-ErrorAction Stop` no cmdlet.
 
-| Status | Descrição |
+| Status | Description |
 |:--- |:--- |
 | Concluído |Operação concluída com sucesso. |
 | Com falha |Para [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook falhou ao compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho sofreu uma exceção. |
@@ -211,7 +207,7 @@ A tabela a seguir descreve os diferentes status possíveis para um trabalho. O P
 | Continuando |O sistema está retomando o trabalho depois que ele ter sido suspenso. |
 | Executando |O trabalho está em execução. |
 | Executando, aguardando recursos |O trabalho foi descarregado, pois atingiu o limite de [fração justa](#fair-share) . Ele será retomado em breve do seu último ponto de verificação. |
-| Parado |O trabalho foi interrompido pelo usuário antes de ser concluído. |
+| Parada |O trabalho foi interrompido pelo usuário antes de ser concluído. |
 | Interrompendo |O sistema está parando o trabalho. |
 | Suspenso |O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começará desde o início do runbook. Se ele tiver um ponto de verificação, poderá iniciar novamente e retomar no último ponto de verificação. O runbook só é suspenso pelo sistema quando ocorre uma exceção. Por padrão, ErrorActionPreference é definido como **Continuar** o que significa que o trabalho continua a ser executado no caso de um erro. Se essa variável de preferência for definida como **Parar**, o trabalho será suspenso no caso de um erro. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
 | Suspensão |O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou de seu último ponto de verificação, ele será concluído antes de ser suspenso. Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
@@ -320,7 +316,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 Para compartilhar recursos entre todos os runbooks na nuvem, a automação do Azure descarrega temporariamente ou interrompe qualquer trabalho que tenha sido executado por mais de três horas. Os trabalhos para [runbooks com base em PowerShell](automation-runbook-types.md#powershell-runbooks) e [runbooks Python](automation-runbook-types.md#python-runbooks) são interrompidos e não são reiniciados, e o status do trabalho é mostrado como Parado.
 
-Para tarefas de execução prolongada, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não limitam o tempo de execução de um runbook. Os outros [limites](../azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers. Embora Hybrid runbook Workers não sejam limitados pelo limite de compartilhamento justo de 3 horas, os runbooks executados neles devem ser desenvolvidos para dar suporte a comportamentos de reinicialização de problemas de infraestrutura local inesperados.
+Para tarefas de execução prolongada, é recomendável usar um [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Os Hybrid Runbook Workers não são limitados por fração justa e não limitam o tempo de execução de um runbook. Os outros [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) do trabalho se aplicam a áreas restritas do Azure e ao Hybrid Runbook Workers. Embora Hybrid runbook Workers não sejam limitados pelo limite de compartilhamento justo de 3 horas, os runbooks executados neles devem ser desenvolvidos para dar suporte a comportamentos de reinicialização de problemas de infraestrutura local inesperados.
 
 Outra opção é otimizar o runbook usando runbooks filho. Se o runbook percorre continuamente a mesma função em diversos recursos, como uma operação de banco de dados em vários bancos de dados, você pode mover essa função para um [runbook filho](automation-child-runbooks.md) e chamá-la com o cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Cada um desses runbooks filho é executado em paralelo em processos separados. Esse comportamento reduz a quantidade total de tempo para o runbook pai concluir. Você pode usar o cmdlet [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) em seu runbook para verificar o status do trabalho para cada filho se houver operações que são executadas após a conclusão do runbook filho.
 

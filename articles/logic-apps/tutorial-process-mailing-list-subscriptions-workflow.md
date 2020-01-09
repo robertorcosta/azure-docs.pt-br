@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784656"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456602"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação usando os Aplicativos Lógicos do Azure
 
@@ -33,7 +33,7 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 ![Visão geral de aplicativo lógico concluído em alto nível](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Caso você não tenha uma assinatura, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
@@ -59,9 +59,9 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
    |----------|-------|-------------|
    | **Nome** | LA-MailingList | O nome do seu aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "LA-MailingList". |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | Seu nome da assinatura do Azure |
-   | **Grupo de recursos** | LA-MailingList-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), usado para organizar os recursos relacionados. Este exemplo usa "LA-MailingList-RG". |
+   | **Grupo de recursos** | LA-MailingList-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md), usado para organizar os recursos relacionados. Este exemplo usa "LA-MailingList-RG". |
    | **Localidade** | Oeste dos EUA | A região em que as informações de seu aplicativo lógico são armazenadas. Este exemplo usa "Leste dos EUA". |
-   | **Log Analytics** | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. |
+   | **Log Analytics** | Desativado | Mantenha a configuração **Desligado** para o log de diagnósticos. |
    ||||
 
 1. Depois que o Azure implanta seu aplicativo, na barra de ferramentas do Azure, selecione **Notificações** > **Ir para o recurso** para seu aplicativo lógico implantado.
@@ -203,7 +203,7 @@ Agora adicione uma ação que adiciona o membro aprovado à sua lista de endere�
 
    ![Fornecer informações para "Adicionar membros à lista"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **ID da lista** | Sim | `test-members-ML` | O nome da lista de endereçamento do MailChimp. Este exemplo usa "test-members-ML". |
    | **Status** | Sim | `subscribed` | Selecione o status da assinatura para o novo membro. Este exemplo usa "subscribed". <p>Para saber mais, confira [Gerenciar assinantes com a API do MailChimp](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
@@ -258,7 +258,7 @@ Em seguida, configure os emails para envio quando o membro aprovado tem êxito o
 
    ![Fornecer informações de email de êxito](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **Para** | Sim | <*your-email-address*> | O endereço de email para onde enviar o email de êxito. Para fins de teste, você pode usar seu próprio endereço de email. |
    | **Assunto** | Sim | <*subject-for-success-email*> | O assunto do email de êxito. Para este tutorial, digite este texto: <p>`Success! Member added to "test-members-ML": ` <p>Na lista conteúdo dinâmico, em **Adicionar membro à lista**, selecione a propriedade **Endereço de Email**. |
@@ -283,7 +283,7 @@ Em seguida, configure os emails para envio quando o membro aprovado tem êxito o
 
    ![Fornecer informações de email de falha](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Propriedade | Obrigatório | Value | DESCRIÇÃO |
+   | Propriedade | Obrigatório | Valor | DESCRIÇÃO |
    |----------|----------|-------|-------------|
    | **Para** | Sim | <*your-email-address*> | O endereço de email para onde enviar o email de falha. Para fins de teste, você pode usar seu próprio endereço de email. |
    | **Assunto** | Sim | <*subject-for-failure-email*> | O assunto do email de falha. Para este tutorial, digite este texto: <p>`Failed, member not added to "test-members-ML": ` <p>Na lista conteúdo dinâmico, em **Adicionar membro à lista**, selecione a propriedade **Endereço de Email**. |
@@ -318,7 +318,7 @@ Em seguida, teste seu aplicativo lógico, que agora se parece com este exemplo:
 
 Parabéns, você criou e executou um aplicativo lógico que integra informações entre serviços Azure, Microsoft e outros aplicativos SaaS.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisar mais do aplicativo lógico de exemplo, exclua o grupo de recursos que contém o aplicativo lógico e os recursos relacionados. 
 

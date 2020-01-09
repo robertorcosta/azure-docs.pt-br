@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ef63a159c132f5b565123eeb4824fb1ae5812ce1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444144"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Atividade If Condition no Azure Data Factory
 A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`. 
@@ -63,19 +63,19 @@ A atividade If Condition fornece a mesma funcionalidade que uma instrução if f
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
+Propriedade | Description | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | O nome da atividade de condição if. | Cadeia de caracteres | Sim
-Tipo | Deve ser definido para **IfCondition** | Cadeia de caracteres | Sim
+name | O nome da atividade de condição if. | String | Sim
+type | Deve ser definido para **IfCondition** | String | Sim
 expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
-ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Matriz | Sim
-ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Matriz | Sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Array | Sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Array | Sim
 
 ## <a name="example"></a>Exemplo
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do pipeline: routeSelection. Se o valor de routeSelection for true, os dados serão copiados para outputPath1. Se o valor de routeSelection for false, os dados serão copiados para outputPath2. 
 
 > [!NOTE]
-> Esta seção fornece definições de JSON e amostras de comandos do PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline do Data Factory usando definições de JSON e do Azure PowerShell, consulte o [tutorial: criar um Data Factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Esta seção fornece definições de JSON e comandos de exemplo do PowerShell para executar o pipeline. Para obter instruções com instruções passo a passo para criar um pipeline do Data Factory usando definições de JSON e do Azure PowerShell, consulte o [tutorial: criar um Data Factory usando o Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline com a atividade IF-Condition (Adfv2QuickStartPipeline.json)
 
@@ -196,10 +196,7 @@ Outro exemplo de expressão é:
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -288,7 +285,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

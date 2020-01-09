@@ -1,25 +1,15 @@
 ---
 title: Colocar os microsserviços do Azure Service Fabric em contêineres no Windows
 description: Como colocar em contêineres seus serviços de Reliable Services e Reliable Actors do Service Fabric no Windows.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: anmolah
-editor: roroutra
-ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466177"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric no Windows
 
@@ -34,7 +24,7 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
 
 1. Abra seu aplicativo do Service Fabric no Visual Studio.
 
-2. Adicione a classe [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) ao seu projeto. O código nessa classe é um auxiliar para carregar corretamente os binários de tempo de execução do Service Fabric dentro de seu aplicativo durante a execução dentro de um contêiner.
+2. Adicione a classe [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) ao seu projeto. O código nessa classe é um auxiliar para carregar corretamente os binários de runtime do Service Fabric dentro de seu aplicativo durante a execução dentro de um contêiner.
 
 3. Para cada pacote de código que você quer colocar em contêineres, inicialize o carregador no ponto de entrada do programa. Adicione o construtor estático mostrado no snippet de código a seguir ao seu arquivo de ponto de entrada do programa.
 
@@ -92,7 +82,7 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
    </CodePackage>
    ```
 
-8. Adicione o mapeamento de porta ao host para seu replicador e ponto de extremidade de serviço. Como essas duas portas são atribuídas em tempo de execução pelo Service Fabric, o ContainerPort é definido como zero para usar a porta atribuída para mapeamento.
+8. Adicione o mapeamento de porta ao host para seu replicador e ponto de extremidade de serviço. Como essas duas portas são atribuídas em runtime pelo Service Fabric, o ContainerPort é definido como zero para usar a porta atribuída para mapeamento.
 
    ```xml
    <Policies>
@@ -130,7 +120,7 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
 ```
 >
 
-10. Para testar esse aplicativo, você precisa implantá-lo em um cluster que esteja executando a versão 5.7 ou superior. Para a versão 6.1 do tempo de execução ou versões inferiores, você precisa editar e atualizar as configurações de cluster para habilitar essa versão prévia do recurso. Execute as etapas neste [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a configuração mostrada a seguir.
+10. Para testar esse aplicativo, você precisa implantá-lo em um cluster que esteja executando a versão 5.7 ou superior. Para a versão 6.1 do runtime ou versões inferiores, você precisa editar e atualizar as configurações de cluster para habilitar essa versão prévia do recurso. Execute as etapas neste [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a configuração mostrada a seguir.
     ```
       {
         "name": "Hosting",
@@ -147,6 +137,6 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
 
 Agora você deve ter um aplicativo do Service Fabric em contêineres executando seu cluster.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-get-started-containers.md).
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.

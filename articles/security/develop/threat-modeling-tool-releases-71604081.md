@@ -1,26 +1,18 @@
 ---
-title: Versões da Threat Modeling Tool – Microsoft Threat Modeling Tool Azure | Microsoft Docs
+title: Versão Microsoft Threat Modeling Tool 4/9/2019 – Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: jegeib
-ms.openlocfilehash: 6992ac58ebf8976714e5a478dd7b886efab2a4b7
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 488168b1a17d3f5fac1ae7cca0a37676063bfe03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934796"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552059"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versão de atualização do Threat Modeling Tool 7.1.60408.1-4/9/2019
 
@@ -47,11 +39,11 @@ A versão do cliente do Threat Modeling Tool agora é mostrada na tela inicial d
 
 ### <a name="support-links-have-been-updated"></a>Links de suporte foram atualizados
 
-Todos os links de suporte dentro da ferramenta foram atualizados para direcionar [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) os usuários para o em vez de um fórum do MSDN.
+Todos os links de suporte dentro da ferramenta foram atualizados para direcionar os usuários para [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) em vez de um fórum do MSDN.
 
 ## <a name="system-requirements"></a>Requisitos do sistema
 
-- Supported Operating Systems
+- Sistemas operacionais com suporte
   - [Atualização de Aniversário do Microsoft Windows 10 ou posterior](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
 - Versão necessária do .NET
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
@@ -62,6 +54,6 @@ Todos os links de suporte dentro da ferramenta foram atualizados para direcionar
 
 - A documentação da Threat Modeling Tool está localizada em [docs.microsoft.com](threat-modeling-tool.md) e inclui informações [sobre como usar a ferramenta](threat-modeling-tool-getting-started.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Baixe a versão mais recente da [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

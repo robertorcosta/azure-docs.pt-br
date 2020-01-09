@@ -1,27 +1,18 @@
 ---
-title: Criar seu primeiro aplicativo do Service Fabric em C# | Microsoft Docs
+title: Crie seu primeiro aplicativo Service Fabric noC#
 description: Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: f3b3d5c3dcea7d190724ae946a27c47b34a26c31
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: e7c5c30dc7cbfa0a3f5a8dc76899c5c8bad6e6ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462824"
 ---
-# <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
+# <a name="get-started-with-reliable-services"></a>Introdução aos Serviços Confiáveis
 > [!div class="op_single_selector"]
 > * [C# em Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java no Linux](service-fabric-reliable-services-quick-start-java.md)
@@ -35,8 +26,8 @@ Para começar a usar os Reliable Services, você só precisa entender alguns con
 
 * **Tipo de serviço**: esta é sua implementação de serviço. Ele é definido pela classe que você escreve que estende `StatelessService` e qualquer outro código ou dependências usadas nele, juntamente com um nome e um número de versão.
 * **Instância de serviço nomeada**: para executar seu serviço, criar instâncias nomeadas do tipo de serviço, bem como criar instâncias de objeto de um tipo de classe. Uma instância de serviço tem um nome na forma de um URI usando o esquema "fabric: /", por exemplo, "fabric:/MyApp/MyService".
-* **Host de serviço**: As instâncias de serviço nomeadas que você criar têm que ser executadas dentro do processo de um host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
-* **Registro do serviço**: o registro reúne tudo. O tipo de serviço deve ser registrado com o tempo de execução do Service Fabric em um host de serviço para permitir que o Service Fabric crie instâncias para executar.  
+* **Host de serviço**: as instâncias de serviço nomeado que você cria precisam executar dentro de um processo de host. O host de serviço é apenas um processo em que instâncias do serviço podem ser executadas.
+* **Registro de serviço**: o registro reúne tudo. O tipo de serviço deve ser registrado com o runtime do Service Fabric em um host de serviço para permitir que o Service Fabric crie instâncias para executar.  
 
 ## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
 Um serviço sem estado é um tipo de serviço que atualmente está na norma dos aplicativos em nuvem. Ele é considerado sem estado porque o serviço em si não contém dados que precisam ser armazenados de modo confiável nem altamente disponibilizados. Se uma instância de um serviço sem estado for desligada, todo seu estado interno será perdido. Nesse tipo de serviço, o estado deve ser mantido em um repositório externo, como em Tabelas do Azure ou um banco de dados SQL, para que ele se torne altamente disponível e confiável.
@@ -112,7 +103,7 @@ A plataforma chama esse método quando uma instância de um serviço é estabele
 
 Essa orquestração é gerenciada pelo sistema a fim de manter o serviço altamente disponível e devidamente balanceado.
 
-`RunAsync()` não deve bloquear sincronicamente. Sua implementação de RunAsync deve retornar uma tarefa ou esperar operações de execução longa ou de bloqueio para permitir que o tempo de execução continue. Observe que no loop `while(true)` no exemplo anterior, um retorno de tarefa `await Task.Delay()` é usado. Se sua carga de trabalho deve bloquear sincronicamente, agende uma nova tarefa com `Task.Run()` na sua implementação `RunAsync`.
+`RunAsync()` não deve bloquear sincronicamente. Sua implementação de RunAsync deve retornar uma tarefa ou esperar operações de execução longa ou de bloqueio para permitir que o runtime continue. Observe que no loop `while(true)` no exemplo anterior, um retorno de tarefa `await Task.Delay()` é usado. Se sua carga de trabalho deve bloquear sincronicamente, agende uma nova tarefa com `Task.Run()` na sua implementação `RunAsync`.
 
 O cancelamento da sua carga de trabalho é um esforço cooperativo orquestrado pelo token de cancelamento fornecido. O sistema aguardará o encerramento da tarefa (por conclusão bem-sucedida, cancelamento ou falha) antes de prosseguir. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair do `RunAsync()` o mais rapidamente possível quando o sistema solicita o cancelamento.
 
@@ -214,16 +205,16 @@ Depois que os serviços começaram a ser executados, você poderá exibir os eve
 
 ![Exibir Eventos de Diagnóstico no Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
 
-[Introdução: Serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md)
+[Introdução aos serviços de API Web do Service Fabric com auto-hospedagem OWIN](service-fabric-reliable-services-communication-webapi.md)
 
 [Saiba mais sobre as Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
 [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 
-[Atualização de aplicativo](service-fabric-application-upgrade.md)
+[Atualização do aplicativo](service-fabric-application-upgrade.md)
 
 [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354951"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar um banco de dados relacionam em um banco de dados individual dentro de C&#x23; e ADO.NET do Banco de Dados SQL do Azure
 
@@ -32,15 +32,15 @@ O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) no Micr
 *Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!TIP]
-> O módulo do Microsoft learn a seguir ajuda você a aprender gratuitamente como [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluindo a criação de um banco de dados simples.
+> O módulo do Microsoft Learn a seguir ajuda você a aprender gratuitamente como [Desenvolver e configurar um aplicativo ASP.NET que consulta um Banco de Dados SQL do Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluindo a criação de um banco de dados simples.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Uma instalação do [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou posterior.
 
 ## <a name="create-a-blank-single-database"></a>Criar um banco de dados em branco
 
-Um banco de dados individual no Banco de Dados SQL do Azure é criado com um conjunto definido de recursos de armazenamento e de computação. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
+Um banco de dados individual no Banco de Dados SQL do Azure é criado com um conjunto definido de recursos de armazenamento e de computação. O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) e é gerenciado usando um [servidor de banco de dados](sql-database-servers.md).
 
 Siga estas etapas para criar um banco de dados individual em branco.
 
@@ -114,7 +114,7 @@ Agora seu endereço IP pode passar pelo firewall de IP. Agora é possível se co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu tarefas básicas de banco de dados, como criar um banco de dados e tabelas, conectar-se ao banco de dados, carregar os dados e executar consultas. Você aprendeu como:
+Neste tutorial, você aprendeu tarefas básicas de banco de dados, como criar um banco de dados e tabelas, conectar-se ao banco de dados, carregar os dados e executar consultas. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um banco de dados

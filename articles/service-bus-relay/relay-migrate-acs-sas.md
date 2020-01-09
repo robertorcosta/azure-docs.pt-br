@@ -1,5 +1,5 @@
 ---
-title: Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado | Microsoft Docs
+title: Retransmissão do Azure-migrar para autorização de assinatura de acesso compartilhado
 description: Migrar aplicativos do Serviço de Controle de Acesso para SAS
 services: service-bus-relay
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 7f71b6884413309e6806658f25313c22e074a71b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8aec2483f39f698a62be60f6da6018f8981df423
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355041"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado
+# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Retransmissão do Azure-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
 Historicamente, os aplicativos da Retransmissão do Azure podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) fornecido diretamente pelo serviço de Retransmissão e um modelo federado no qual o gerenciamento de regras de autorização é feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/) e os tokens obtidos do ACS são passados para a Retransmissão para autorização do acesso aos recursos desejados.
 
@@ -60,7 +60,7 @@ Você pode fazer essa configuração nova e adicional do SAS localmente, em qual
 
 As regras de SAS não devem ser contas, mas são chaves de assinatura nomeadas associadas aos direitos. Assim, cenários nos quais o aplicativo cria várias identidades de serviço e lhes concede direitos de acesso a várias entidades ou ao namespace inteiro, ainda exigirão um intermediário de emissão de token. Você pode obter orientação com relação a esse intermediário [entrando em contato com o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a autenticação da Retransmissão do Azure, confira os tópicos a seguir:
 

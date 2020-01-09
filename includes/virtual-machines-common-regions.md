@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008435"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564781"
 ---
 É importante entender como e onde as VMs (máquinas virtuais) operam no Azure, juntamente com suas opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece uma visão geral dos recursos de redundância e disponibilidade do Azure.
 
@@ -29,7 +29,7 @@ O Azure tem algumas regiões especiais que podem ser úteis durante a criação 
 * **US Gov Virginia** e **US Gov Iowa**
   * Uma instância lógica e física do Azure isolada da rede, destinada a parceiros e órgãos do governo dos EUA, operada por cidadãos americanos selecionados. Inclui certificações de conformidade adicionais, como [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) e [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Leia mais sobre o [Azure Governamental](https://azure.microsoft.com/features/gov/).
 * **Norte da China** e **Leste da China**
-  * Essas regiões estão disponíveis por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, segundo a qual a Microsoft não mantém diretamente os data centers. Veja mais sobre o [Azure China 21vianet](http://www.windowsazure.cn/).
+  * Essas regiões estão disponíveis por meio de uma parceria exclusiva entre a Microsoft e a 21Vianet, segundo a qual a Microsoft não mantém diretamente os data centers. Veja mais sobre o [Azure China 21vianet](https://www.windowsazure.cn/).
 * **Centro da Alemanha** e **Nordeste Alemanha**
   * Essas regiões estão disponíveis por meio de um modelo de objeto de confiança de dados, por meio do qual os dados do cliente continuam na Alemanha sob o controle da T-Systems, uma empresa da Deutsche Telekom, que atua como o objeto de confiança dos dados da Alemanha.
 
@@ -42,10 +42,10 @@ Cada região do Azure é emparelhada com outra região na mesma área geográfic
 
 Exemplos de pares de regiões incluem:
 
-| Primário | Secundário |
+| Primária | Secundário |
 |:--- |:--- |
 | Oeste dos EUA |Leste dos EUA |
-| Norte da Europa |Europa Ocidental |
+| Europa Setentrional |Oeste da Europa |
 | Sudeste Asiático |Ásia Oriental |
 
 Você pode ver a [lista completa de pares de regiões aqui](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
@@ -65,7 +65,7 @@ Compreender as áreas e regiões do Azure torna-se importante quando você consi
   * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
 * ZRS (Armazenamento com redundância de zona)
   * Replica seus dados três vezes para duas ou três instalações, em uma única região ou em duas regiões.
-* Armazenamento com redundância geográfica (GRS)
+* GRS (armazenamento com redundância geográfica)
   * Replica seus dados para uma região secundária a centenas de quilômetros da região primária.
 * Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)
   * Replica os dados para uma região secundária, assim como acontece com o GRS, mas também fornece acesso somente leitura aos dados na localização secundária.
@@ -74,8 +74,8 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 
 | Estratégia de replicação | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Os dados são replicados entre várias instalações. |Não |sim |sim |sim |
-| Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |sim |
+| Os dados são replicados entre várias instalações. |Não |Sim |Sim |Sim |
+| Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
 Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).

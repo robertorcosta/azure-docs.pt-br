@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847859"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560249"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
 
@@ -32,7 +32,7 @@ Durante o estágio de auditoria, muitas organizações acham que:
 * Os usuários geralmente usam senhas não seguras.
 * Eles precisam informar os usuários sobre a próxima alteração na imposição de segurança, o possível impacto sobre eles e como escolher senhas mais seguras.
 
-Também é possível que uma validação de senha mais forte afete sua automação de implantação do controlador de domínio Active Directory existente. É recomendável que pelo menos uma promoção de DC e um rebaixamento de DC ocorram durante a avaliação do período de auditoria, a fim de ajudar a descobrir esses problemas com antecedência.  Para obter mais informações, veja:
+Também é possível que uma validação de senha mais forte afete sua automação de implantação do controlador de domínio Active Directory existente. É recomendável que pelo menos uma promoção de DC e um rebaixamento de DC ocorram durante a avaliação do período de auditoria, a fim de ajudar a descobrir esses problemas com antecedência.  Para obter mais informações, consulte:
 
 * [O Ntdsutil. exe não pode definir uma senha fraca do modo de reparo de serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [A promoção da réplica do controlador de domínio falha devido a uma senha fraca do modo de reparo do serviços de diretório](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -129,11 +129,13 @@ Há dois instaladores necessários para a proteção de senha do Azure AD. Eles 
      O resultado deve mostrar o **status** "Running".
 
 1. Registre o proxy.
-   * Após a conclusão da etapa 3, o serviço de proxy está em execução no computador. Mas o serviço ainda não tem as credenciais necessárias para se comunicar com o Azure AD. O registro com o Azure AD é necessário:
+   * Após a conclusão da etapa 3, o serviço de proxy está em execução no computador, mas ainda não tem as credenciais necessárias para se comunicar com o Azure AD. O registro com o Azure AD é necessário:
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Este cmdlet requer credenciais de administrador global para seu locatário do Azure. Você também precisa do local Active Directory privilégios de administrador de domínio no domínio raiz da floresta. Depois que esse comando for executado uma vez para um serviço de proxy, as invocações adicionais serão realizadas com sucesso, mas são desnecessárias.
+     Este cmdlet requer credenciais de administrador global para seu locatário do Azure. Você também precisa do local Active Directory privilégios de administrador de domínio no domínio raiz da floresta. Você também deve executar esse cmdlet usando uma conta com privilégios de administrador local.
+
+     Depois que esse comando for executado uma vez para um serviço de proxy, as invocações adicionais serão realizadas com sucesso, mas são desnecessárias.
 
       O cmdlet `Register-AzureADPasswordProtectionProxy` dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure, mas o terceiro modo não. Consulte os comentários abaixo para obter mais detalhes.
 
@@ -177,7 +179,9 @@ Há dois instaladores necessários para a proteção de senha do Azure AD. Eles 
    > Pode haver um atraso perceptível antes da conclusão na primeira vez em que esse cmdlet for executado para um locatário específico do Azure. A menos que uma falha seja relatada, não se preocupe com esse atraso.
 
 1. Registre a floresta.
-   * Você deve inicializar a floresta Active Directory local com as credenciais necessárias para se comunicar com o Azure usando o cmdlet `Register-AzureADPasswordProtectionForest` PowerShell. O cmdlet requer credenciais de administrador global para seu locatário do Azure. Ele também requer privilégios de administrador corporativo Active Directory local. Esta etapa é executada uma vez por floresta.
+   * Você deve inicializar a floresta Active Directory local com as credenciais necessárias para se comunicar com o Azure usando o cmdlet `Register-AzureADPasswordProtectionForest` PowerShell.
+
+      O cmdlet requer credenciais de administrador global para seu locatário do Azure.  Você também deve executar esse cmdlet usando uma conta com privilégios de administrador local. Ele também requer privilégios de administrador corporativo Active Directory local. Esta etapa é executada uma vez por floresta.
 
       O cmdlet `Register-AzureADPasswordProtectionForest` dá suporte aos três modos de autenticação a seguir. Os dois primeiros modos dão suporte à autenticação multifator do Azure, mas o terceiro modo não. Consulte os comentários abaixo para obter mais detalhes.
 
@@ -350,4 +354,4 @@ O design do software do agente de DC atenua os problemas comuns associados à al
 
 Agora que você instalou os serviços necessários para a proteção de senha do Azure AD nos servidores locais, [Execute a configuração pós-instalação e colete as informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 
-[Visão geral conceitual de proteção por senha do Azure AD](concept-password-ban-bad-on-premises.md)
+[ Visão geral conceitual da proteção por senha do Azure AD ](concept-password-ban-bad-on-premises.md)

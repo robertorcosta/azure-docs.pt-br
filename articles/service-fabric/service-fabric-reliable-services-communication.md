@@ -1,25 +1,16 @@
 ---
-title: Visão geral da comunicação dos Reliable Services | Microsoft Docs
+title: Visão geral da comunicação do Reliable Services
 description: Visão geral do modelo de comunicação dos Reliable Services, incluindo a abertura de ouvintes, a resolução de pontos de extremidade e a comunicação entre serviços.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
-ms.service: service-fabric
-ms.devlang: csharp, java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4d3deb7f3b7e7fb6334525886c6d5b8787a8f940
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c1a6cfa5227369bf1cde4af087019727c22c0c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462960"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services
 O Service Fabric do Azure como uma plataforma é totalmente independente quanto às comunicações entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura de aplicativo dos Reliable Services fornece algumas pilhas de comunicação internas, bem como APIs que você pode usar para criar componentes de comunicação personalizados.
@@ -205,7 +196,7 @@ O Service Fabric fornece uma API que permite aos clientes e outros serviços per
 A API dos Reliable Services fornece as bibliotecas a seguir para escrever clientes que se comunicam com serviços.
 
 ### <a name="service-endpoint-resolution"></a>Resolução de ponto de extremidade de serviço
-A primeira etapa para a comunicação com um serviço é resolver um endereço do ponto de extremidade da partição ou instância do serviço com o qual você deseja falar. A classe de utilitário `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` é um primitivo básico que ajuda os clientes a determinar o ponto de extremidade de um serviço no tempo de execução. Na terminologia do Service Fabric, o processo de determinar o ponto de extremidade de um serviço é conhecido como *resolução do ponto de extremidade de serviço*.
+A primeira etapa para a comunicação com um serviço é resolver um endereço do ponto de extremidade da partição ou instância do serviço com o qual você deseja falar. A classe de utilitário `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` é um primitivo básico que ajuda os clientes a determinar o ponto de extremidade de um serviço no runtime. Na terminologia do Service Fabric, o processo de determinar o ponto de extremidade de um serviço é conhecido como *resolução do ponto de extremidade de serviço*.
 
 Para se conectar aos serviços em um cluster, ServicePartitionResolver pode ser criado usando as configurações padrão. Este é o uso recomendado na maioria das situações:
 
@@ -430,7 +421,7 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [ASP.NET Core com Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [Comunicação WCF usando os Reliable Services](service-fabric-reliable-services-communication-wcf.md)

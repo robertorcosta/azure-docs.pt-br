@@ -1,31 +1,22 @@
 ---
-title: CLI do Azure Service Fabric – sfctl mesh | Microsoft Docs
-description: Descreve os comandos do sfctl mesh da CLI do Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric – malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar aplicativos de malha de Service Fabric.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: a97cf0a9dd9eccea2db60d73308338350102cb8c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 608efba614f17932b3bfb7852c16ffbeaca02457
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901109"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646068"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Excluir e gerenciar aplicativos de Malha do Service Fabric.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|Descrição|
+|Subgrupo|Description|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | Obter e excluir os recursos do aplicativo. |
 | [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | Obter os logs para o contêiner do pacote de código especificado para a réplica de um determinado serviço. |

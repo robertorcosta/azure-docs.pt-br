@@ -3,20 +3,16 @@ title: Descobrir qual software está instalado em seus computadores com a Automa
 description: Use o inventário para descobrir qual software está instalado nos computadores em seu ambiente.
 services: automation
 keywords: inventário, automação, alteração, acompanhamento
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
-ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420568"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir qual software está instalado em computadores Azure e não Azure
 
@@ -31,7 +27,7 @@ Neste tutorial, você aprenderá a:
 > * Exibir software instalado
 > * Pesquisar software instalado nos logs de inventário
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 

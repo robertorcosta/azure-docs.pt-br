@@ -1,24 +1,15 @@
 ---
-title: Criar um contêiner do Microsoft Azure Service Fabric para o servidor Apache Tomcat no Linux | Microsoft Docs
+title: Criar um contêiner para o Apache Tomcat no Linux
 description: Crie contêiner do Linux para expor um aplicativo em execução no servidor Apache Tomcat no Microsoft Azure Service Fabric. Crie uma imagem do Docker com o seu aplicativo e servidor do Apache Tomact, envie a imagem para um registro de contêiner por push, crie e implante um aplicativo de contêiner do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170599"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614410"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar contêiner do Service Fabric executando o servidor Apache Tomcat no Linux
 Apache Tomcat é uma implementação popular, livre das tecnologias Java Servlet e o servidor Java. Este artigo mostra como criar um contêiner com o Apache Tomcat e um aplicativo Web simples, implantar o contêiner para um cluster do Service Fabric executando o Linux e se conectar ao aplicativo Web.  
@@ -140,11 +131,11 @@ Agora que você já enviou por push a imagem do Tomcat para um registro de cont�
    ```
    Insira os valores a seguir quando solicitado:
 
-   * Nomeie seu aplicativo: ServiceFabricTomcat
+   * Nomeie o seu aplicativo: ServiceFabricTomcat
    * Nome do serviço de aplicativo: TomcatService
-   * Insira o nome da imagem: Forneça a URL para a imagem de contêiner no registro de contêiner; por exemplo, myregistry.azurecr.io/samples/tomcattest.
-   * Comandos: Deixe em branco. Como essa imagem tem um ponto de entrada de carga de trabalho-ponto definido, não é necessário especificar explicitamente os comandos de entrada (comandos executados dentro do contêiner, o que manterá o contêiner em execução depois da inicialização).
-   * Número de instâncias do aplicativo de contêiner de convidado: 1
+   * Insira o nome da imagem: forneça a URL da imagem de contêiner em um registro de contêiner, por exemplo, myregistry.azurecr.io/samples/tomcattest.
+   * Comandos: deixe essa opção em branco. Como essa imagem tem um ponto de entrada de carga de trabalho-ponto definido, não é necessário especificar explicitamente os comandos de entrada (comandos executados dentro do contêiner, o que manterá o contêiner em execução depois da inicialização).
+   * Número de instâncias do aplicativo de contêiner do convidado: 1
 
    ![Gerador de Yeoman do Service Fabric para contêineres](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
@@ -238,7 +229,7 @@ docker rmi tomcattest
 docker rmi myregistry.azurecr.io/samples/tomcattest
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para obter etapas rápidas nos recursos de contêiner do Linux adicionais, leia [Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux](service-fabric-get-started-containers-linux.md).
 * Para etapas mais detalhadas sobre contêineres do Linux, leia o tutorial [Criar um tutorial de aplicativo de contêiner do Linux](service-fabric-tutorial-create-container-images.md).
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-containers-overview.md).

@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429444"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -39,7 +39,7 @@ Cada dispositivo IoT Edge em produção precisa de um certificado de autoridade 
 
 Para reconhecer a função do certificado de CA do dispositivo, consulte [Como o IoT Edge do Azure usa certificados](iot-edge-certs.md).
 
-Para obter mais informações sobre como instalar certificados em um dispositivo IoT Edge e referenciá-los no arquivo config.yaml, consulte [Configure um dispositivo IoT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md). As etapas para configurar os certificados são as mesmas, independentemente de o dispositivo ser usado como gateway ou não. Esse artigo fornece scripts para gerar certificados de amostra somente para teste. Não use esses certificados de amostra em produção. 
+Para obter mais informações sobre como instalar certificados em um dispositivo IoT Edge e referenciá-los do arquivo config. YAML, consulte [instalar certificados de produção em um dispositivo IOT Edge](how-to-create-transparent-gateway.md). 
 
 ### <a name="have-a-device-management-plan"></a>Tenha um plano de gerenciamento de dispositivos
 
@@ -224,7 +224,7 @@ Você pode limitar o tamanho de todos os arquivos de log de contêiner nas opç�
 
 Adicione (ou acrescente) essas informações a um arquivo chamado `daemon.json` e coloque-o no local certo para a plataforma do dispositivo.
 
-| Plataforma | Location |
+| Plataforma | Local |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

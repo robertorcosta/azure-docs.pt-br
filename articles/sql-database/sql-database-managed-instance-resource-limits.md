@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443824"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -87,7 +87,7 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 > - O tamanho do arquivo de log e de dados nos bancos de dados de sistema e de usuário são incluídos no tamanho de armazenamento de instância que é comparado ao limite de tamanho de armazenamento máximo. Usar a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> para determinar o total o espaço usado pelos bancos de dados. Logs de erros não são persistentes e não são incluídos no tamanho. Backups não são incluídos no tamanho de armazenamento.
 > - A taxa de transferência e o IOPS na camada de Uso Geral também dependem do [tamanho do arquivo](#file-io-characteristics-in-general-purpose-tier) que não é explicitamente limitado pela instância gerenciada.
 > - Você pode criar outra réplica legível em uma região do Azure diferente usando grupos de failover automático.
-> - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1GB com IOPS de 5K máximo cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, você poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguma quantidade de IOPS também é usada para backups automáticos.
+> - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1 TB com 5K IOPS máximos cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguma quantidade de IOPS também é usada para backups automáticos.
 
 > [!NOTE]
 > Encontre mais informações sobre os [limites de recursos em pools de instâncias gerenciadas neste artigo](sql-database-instance-pools.md#instance-pools-resource-limitations).
@@ -96,9 +96,9 @@ A instância gerenciada tem duas camadas de serviço: [uso geral](sql-database-s
 
 No Uso Geral camada de serviço, cada arquivo de banco de dados está obtendo IOPS dedicados e taxa de transferência que depende do tamanho do arquivo. Arquivos maiores estão obtendo mais IOPS e taxa de transferência. As características de e/s dos arquivos de banco de dados são mostradas na tabela a seguir:
 
-| Tamanho do arquivo           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+| Tamanho de arquivo           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS por arquivo       | 500   | 1100 | 2\.300              | 5\.000              | 7500              | 7500              | 12.500   |
+| IOPS por arquivo       | 500   | 1100 | 2300              | 5\.000              | 7500              | 7500              | 12.500   |
 | Taxa de transferência por arquivo | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Se você notar alta latência de e/s em algum arquivo de banco de dados ou se perceber que o IOPS/taxa de transferência está atingindo o limite, você pode melhorar [o desempenho aumentando o tamanho do arquivo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
@@ -162,7 +162,7 @@ Para iniciar o processo de obtenção de uma cota maior:
 
      ![Cota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Clique em \\**Próximo**.
+3. Clique em **Próximo**.
 4. Na **guia problema** da nova solicitação de suporte:
    - Para **Gravidade**, selecione o nível de gravidade do problema.
    - Para **Detalhes**, forneça informações adicionais sobre o seu problema, incluindo mensagens de erro.
@@ -176,7 +176,7 @@ Para iniciar o processo de obtenção de uma cota maior:
      > - Número necessário de vCores, por camada de serviço em sub-redes existentes após o aumento da cota (se qualquer uma das sub-redes existentes precisar ser expandida.
      > - Número necessário de novas sub-redes e número total de vCores por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
 
-5. Clique em \\**Próximo**.
+5. Clique em **Próximo**.
 6. Na guia Informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 

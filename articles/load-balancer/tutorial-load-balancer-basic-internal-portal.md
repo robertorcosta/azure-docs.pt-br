@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453515"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
 
@@ -42,7 +42,7 @@ Primeiro, crie uma rede virtual (Vnet). Na rede virtual, crie duas VMs para usar
    
 1. No painel **Criar rede virtual**, insira ou selecione estes valores:
    
-   - **Nome**: digite *MyVNet*.
+   - **Name**: digite *MyVNet*.
    - **ResourceGroup**: selecione **Criar novo**, insira *MyResourceGroupLB* e selecione **OK**. 
    - **Sub-rede** > **Nome**: digite *MyBackendSubnet*.
    
@@ -93,8 +93,8 @@ Crie um balanceador de carga interno Básico usando o portal. O nome e o endere�
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Nome                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Leste dos EUA 2**.                                        |
     | Type          | selecione **Interno**.                                        |
     | SKU           | Selecione **Basic**.                          |
     | Rede virtual           | Selecione *MyVNet*.                          |    
@@ -120,7 +120,7 @@ Para distribuir o tráfego para as VMs, o balanceador de carga usa um pool de en
    
 1. Na página **Adicionar um pool de back-end**, insira ou selecione os seguintes valores:
    
-   - **Nome**: digite *MyBackendPool*.
+   - **Name**: digite *MyBackendPool*.
    - **Associado a**: Abra a lista suspensa e selecione **Conjunto de disponibilidade**.
    - **Conjunto de disponibilidade**: selecione **MyAvailabilitySet**.
    
@@ -149,7 +149,7 @@ Para permitir que o balanceador de carga monitore o status da VM, use uma invest
    
 1. Na página **Adicionar uma investigação de integridade**, insira ou selecione os seguintes valores:
    
-   - **Nome**: insira *MyHealthProbe*.
+   - **Name**: insira *MyHealthProbe*.
    - **Protocolo**: abra a lista suspensa e selecione **HTTP**. 
    - **Porta**: digite *80*. 
    - **Caminho**: aceite */* como o URI padrão. Você pode substituir esse valor por qualquer outro URI. 
@@ -174,7 +174,7 @@ A regra de balanceador de carga chamada **MyLoadBalancerRule** escuta a porta 80
    
 1. Na página **Adicionar regra de balanceamento de carga**, digite ou selecione os seguintes valores, se ainda não existirem:
    
-   - **Nome**: digite *MyLoadBalancerRule*.
+   - **Name**: digite *MyLoadBalancerRule*.
    - **Endereço IP de front-end:** digite *LoadBalancerFrontEnd* se não houver nenhum.
    - **Protocolo**: selecione **TCP**.
    - **Porta**: digite *80*.
@@ -254,7 +254,7 @@ Em cada servidor de back-end, use o PowerShell para instalar o IIS e substitua a
 
    ![Nova página padrão do IIS](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
    
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir o balanceador de carga e todos os recursos relacionados quando não precisar mais deles, abra o grupo de recursos **MyResourceGroupLB** e selecione **Excluir grupo de recursos**.
 

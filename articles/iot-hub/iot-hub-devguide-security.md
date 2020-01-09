@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429301"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -37,7 +37,7 @@ Você pode conceder [permissões](#iot-hub-permissions) das seguintes maneiras:
 
 * **Políticas de acesso compartilhado no nível do Hub IoT**. As políticas de acesso compartilhado podem conceder qualquer combinação de [permissões](#iot-hub-permissions). É possível definir políticas no [portal do Azure](https://portal.azure.com) programaticamente, usando as [APIs REST de Recursos do Hub IoT](/rest/api/iothub/iothubresource) ou usando a CLI [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest). Um hub IoT recém-criado tem as seguintes políticas padrão:
   
-  | Política de Acesso Compartilhado | Permissões |
+  | Política de acesso compartilhado | Permissões |
   | -------------------- | ----------- |
   | iothubowner | Toda Permissão |
   | serviço | Permissões **ServiceConnect** |
@@ -64,7 +64,7 @@ O Hub IoT do Azure concede acesso aos pontos de extremidade, verificando um toke
 As credenciais de segurança, como as chaves simétricas, nunca são enviadas pela conexão.
 
 > [!NOTE]
-> O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> O provedor de recursos do Hub IoT do Azure é protegido por meio de sua assinatura do Azure, assim como todos os provedores no [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Para saber mais sobre como construir e usar os tokens de segurança, confira o artigo [Tokens de segurança do Hub IoT](iot-hub-devguide-security.md#security-tokens).
 
@@ -134,7 +134,7 @@ O token de segurança tem o seguinte formato:
 
 Veja os valores esperados:
 
-| Valor | Descrição |
+| Valor | Description |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 no formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: a chave é decodificada da base64 e usada como chave para executar o cálculo de HMAC-SHA256. |
 | {resourceURI} |Prefixo de URI (por segmento) dos pontos de extremidade que podem ser acessados com esse token, começando com o nome de host do Hub IoT (sem protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
@@ -462,7 +462,7 @@ Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * O [suporte ao MQTT do Hub IoT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do Hub IoT ao protocolo MQTT.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como controlar o acesso ao Hub IoT, pode ser interessante ler os seguintes tópicos do Guia do desenvolvedor do Hub IoT:
 

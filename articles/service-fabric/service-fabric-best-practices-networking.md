@@ -1,31 +1,22 @@
 ---
-title: Melhores práticas de rede do Azure Service Fabric | Microsoft Docs
-description: Melhores práticas de gerenciamento de rede do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Práticas recomendadas de rede Service Fabric do Azure
+description: Práticas recomendadas e considerações de design para gerenciar a conectividade de rede usando o Azure Service Fabric.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262242"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551787"
 ---
 # <a name="networking"></a>Rede
 
 Conforme você cria e gerencia clusters do Azure Service Fabric, você fornece conectividade de rede para seus nós e seus aplicativos. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, balanceadores de carga e grupos de segurança de rede. Neste artigo, você aprenderá as melhores práticas para esses recursos.
 
-Examine [Padrões de rede do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) para saber como criar clusters que usam os seguintes recursos: Rede virtual ou sub-rede existente, endereço IP público estático, balanceador de carga somente interno ou balanceador de carga interno e externo.
+Examine os [padrões de rede Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) do Azure para saber como criar clusters que usam os seguintes recursos: rede virtual ou sub-rede existente, endereço IP público estático, balanceador de carga somente interno ou balanceador de carga interno e externo.
 
 ## <a name="infrastructure-networking"></a>Rede de infraestrutura
 Maximize o desempenho de sua Máquina Virtual com a Rede Acelerada declarando a propriedade enableAcceleratedNetworking no modelo do Resource Manager. O seguinte snippet refere-se a NetworkInterfaceConfigurations de um conjunto de dimensionamento de máquinas virtuais que habilita a Rede Acelerada:
@@ -48,7 +39,7 @@ Maximize o desempenho de sua Máquina Virtual com a Rede Acelerada declarando a 
 ```
 O cluster do Service Fabric pode ser provisionado no [Linux com a Rede Acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) e no [Windows com a Rede Acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-A Rede Acelerada é compatível com SKUs das Séries de Máquinas Virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. A Rede Acelerada foi testada com êxito usando o SKU Standard_DS8_v3 em 23/1/2019 em um Cluster do Windows no Service Fabric e usando o Standard_DS12_v2 em 29/01/2019 em um Cluster do Linux no Service Fabric.
+A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A Rede Acelerada foi testada com êxito usando o SKU Standard_DS8_v3 em 23/1/2019 em um Cluster do Windows no Service Fabric e usando o Standard_DS12_v2 em 29/01/2019 em um Cluster do Linux no Service Fabric.
 
 Para habilitar a Rede Acelerada em um cluster existente do Service Fabric, primeiro você precisará [Expandir um cluster do Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) para executar o seguinte:
 1. Provisionar um NodeType com a Rede Acelerada habilitada
@@ -60,7 +51,7 @@ A expansão da infraestrutura é necessária para habilitar a Rede Acelerada em 
 
 * Os clusters do Service Fabric podem ser implantados em uma rede virtual existente seguindo as etapas descritas em [Padrões de rede do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![Regras NSG do Service Fabric][NSGSetup]
+* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![Service Fabric regras NSG][NSGSetup]
 
 * O tipo de nó primário, que contém os serviços do sistema do Service Fabric, não precisa ser exposto por meio do balanceador de carga externo e pode ser exposto por um [balanceador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
@@ -74,10 +65,10 @@ A expansão da infraestrutura é necessária para habilitar a Rede Acelerada em 
 
 * Para contêineres do Windows hospedados em computadores gapped que não podem efetuar pull de camadas base do armazenamento em nuvem do Azure, substitua o comportamento da camada estrangeira usando o sinalizador [--Allow-unredistributable-artefatos](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) no daemon do Docker.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-* Criar um cluster em VMs ou em computadores executando o Windows Server: [Criação de cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Criar um cluster nas VMS ou computadores executando Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
+* Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Criar um cluster em VMs ou em computadores que estejam executando o Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

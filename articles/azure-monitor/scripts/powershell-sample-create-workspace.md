@@ -4,15 +4,15 @@ description: Script de exemplo do Azure PowerShell – criar um espaço de traba
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: sample
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/07/2017
-ms.openlocfilehash: 6aad6c6f0656bd317a808de13e340d5774cea49b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 242ba4d8487e25ae0d6c5fd7dc1525942deb2a64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363091"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Criar um espaço de trabalho do Log Analytics com o PowerShell
 
@@ -22,7 +22,7 @@ Esse script coloca rapidamente em funcionamento um espaço de trabalho do Azure 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

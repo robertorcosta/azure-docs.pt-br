@@ -8,12 +8,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 7d5e38e2ecfa2406ff0f58f73d828aa45d84c512
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429170"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um Hub IoT usando a API REST do provedor de recursos (.NET)
 
@@ -170,13 +170,13 @@ Agora, você pode concluir o aplicativo chamando o método **CreateIoTHub** ante
 > [!NOTE]
 > Este aplicativo de exemplo adiciona um Hub IoT Standard S1 pelo qual você será cobrado. Quando tiver terminado, você poderá excluir o Hub IoT por meio da [portal do Azure](https://portal.azure.com/) ou usando o cmdlet **Remove-AzResource** do PowerShell quando tiver terminado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você implantou um Hub IoT usando a API REST do provedor de recursos, convém explorar ainda mais:
 
 * Leia sobre os recursos da [API REST do provedor de recursos do Hub IOT](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
-* Leia [Azure Resource Manager visão geral](../azure-resource-manager/resource-group-overview.md) para saber mais sobre os recursos do Azure Resource Manager.
+* Leia [Azure Resource Manager visão geral](../azure-resource-manager/management/overview.md) para saber mais sobre os recursos do Azure Resource Manager.
 
 Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos:
 
@@ -186,4 +186,4 @@ Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

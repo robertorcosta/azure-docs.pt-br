@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429146"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub IoT do Azure para outra região
 
@@ -29,7 +29,7 @@ Este artigo explora maneiras de clonar um hub IoT e fornece algumas perguntas qu
 Para clonar um Hub, você precisa de uma assinatura com acesso administrativo ao Hub original. Você pode colocar o novo hub em um novo grupo de recursos e região, na mesma assinatura que o Hub original ou até mesmo em uma nova assinatura. Você simplesmente não pode usar o mesmo nome porque o nome do hub deve ser globalmente exclusivo.
 
 > [!NOTE]
-> Neste momento, não há nenhum recurso de primeira classe para clonar um hub IoT. É basicamente um processo manual e, portanto, é razoavelmente propenso a erros. A complexidade da clonagem de um hub é diretamente proporcional à complexidade do Hub. Por exemplo, clonar um hub IoT sem roteamento de mensagens é bem simples. Se você adicionar o roteamento de mensagens como apenas uma complexidade, a clonagem do hub se tornará pelo menos uma ordem de magnitude mais complicada. Se você também mover os recursos usados para os pontos de extremidade de roteamento, essa será outra ordem de magniture mais complicada. 
+> Neste momento, não há nenhum recurso disponível para clonar um hub IoT automaticamente. É basicamente um processo manual e, portanto, é razoavelmente propenso a erros. A complexidade da clonagem de um hub é diretamente proporcional à complexidade do Hub. Por exemplo, clonar um hub IoT sem roteamento de mensagens é bem simples. Se você adicionar o roteamento de mensagens como apenas uma complexidade, a clonagem do hub se tornará pelo menos uma ordem de magnitude mais complicada. Se você também mover os recursos usados para os pontos de extremidade de roteamento, essa será outra ordem de magniture mais complicada. 
 
 ## <a name="things-to-consider"></a>Itens a serem considerados
 
@@ -353,7 +353,7 @@ Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteam
 
 1. Na caixa de pesquisa, coloque "implantação de modelo" e selecione Enter.
 
-1. Selecione **implantação de modelo (implantar usando modelos personalizados)** . Isso levará você para uma tela para o Implantação de modelo. Clique em **Criar**. Você verá esta tela:
+1. Selecione **implantação de modelo (implantar usando modelos personalizados)** . Isso levará você para uma tela para o Implantação de modelo. Selecione **Criar**. Você verá esta tela:
 
    ![Captura de tela mostrando o comando para criar seu próprio modelo](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -411,7 +411,7 @@ Agora você terminou de migrar seu hub e seus dispositivos. Você pode ignorar a
 
 O aplicativo se destina ao .NET Core, para que você possa executá-lo no Windows ou no Linux. Você pode baixar o exemplo, recuperar suas cadeias de conexão, definir os sinalizadores para os quais você deseja executar e executá-lo. Você pode fazer isso sem nunca abrir o código.
 
-### <a name="downloading-the-sample"></a>Download da amostra
+### <a name="downloading-the-sample"></a>Baixar o exemplo
 
 1. Use os exemplos C# de IOT desta página: [exemplos de IOT do C#Azure para ](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Baixe o arquivo zip e descompacte-o no computador. 
 

@@ -1,5 +1,5 @@
 ---
-title: Capturar eventos de streaming usando o portal do Azure – Hubs de Eventos do Azure | Microsoft Docs
+title: Hubs de eventos-capturar eventos de streaming usando portal do Azure
 description: Este artigo descreve como habilitar a captura de eventos de streaming por meio de Hubs de Eventos do Azure usando o portal do Azure.
 services: event-hubs
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 18dea8e8e4cfcabec63e35dd302f6a5259721a8a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 267f7c47d101406463378ad12c295ace80aecb7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437232"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Habilitar a captura de eventos de streaming por meio de Hubs de Eventos do Azure
 
@@ -64,11 +64,11 @@ Para capturar dados em um Azure Data Lake Store, você pode criar uma conta do D
 
 Você pode configurar a Captura em hubs de eventos existentes que estejam em namespaces dos Hubs de Eventos. Para habilitar a Captura em um hub de eventos existente ou alterar as configurações da Captura, clique no namespace para carregar a tela de visão geral e, em seguida, clique no hub de eventos para o qual você deseja habilitar ou alterar a configuração da Captura. Por fim, clique na opção **Captura** do lado esquerdo da página aberta e edite as configurações, conforme exibido nas figuras abaixo:
 
-### <a name="azure-blob-storage"></a>Armazenamento do Blobs do Azure
+### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
 ![Configurar Armazenamento de Blobs do Azure][2]
 
-### <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
+### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ![Configurar o Azure Data Lake Storage][4]
 
@@ -77,7 +77,7 @@ Você pode configurar a Captura em hubs de eventos existentes que estejam em nam
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a captura de hubs de eventos lendo a [visão geral de captura dos hubs de eventos][capture-overview].
 - Você também pode configurar a Captura dos Hubs de Eventos usando modelos do Azure Resource Manager. Para saber mais, confira [Habilitar Captura usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).

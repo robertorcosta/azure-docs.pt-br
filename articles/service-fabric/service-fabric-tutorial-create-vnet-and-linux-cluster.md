@@ -1,26 +1,15 @@
 ---
-title: Criar um cluster do Service Fabric do Linux no Azure | Microsoft Docs
+title: Criar um cluster de Service Fabric do Linux no Azure
 description: Saiba como implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure existente usando o CLI do Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465401"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -53,13 +42,13 @@ No recurso **Microsoft.ServiceFabric/clusters**, um cluster do Linux é implanta
 
 * três tipos de nó
 * cinco nós no tipo de nó primário (configurável nos parâmetros de modelo), um nó em cada um dos outros tipos de nó
-* SO: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
+* Sistema operacional: Ubuntu 16.04 LTS (configurável nos parâmetros de modelo)
 * certificado protegidos (configurável nos parâmetros de modelo)
 * [Serviço DNS](service-fabric-dnsservice.md) está habilitado
 * [Nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Bronze (configurável nos parâmetros de modelo)
 * [Nível de confiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) de Prata (configurável nos parâmetros de modelo)
-* ponto de extremidade de conexão do cliente: 19000 (configurável nos parâmetros de modelo)
-* ponto de extremidade de gateway HTTP: 19080 (configurável nos parâmetros de modelo)
+* ponto de extremidade de conexão de cliente: 19000 (configurável nos parâmetros de modelo)
+* ponto de extremidade de conexão de cliente: 19080 (configurável nos parâmetros de modelo)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
@@ -81,14 +70,14 @@ Se forem necessárias outras portas de aplicativo, você precisará ajustar o re
 
 ## <a name="set-template-parameters"></a>Definir os parâmetros do modelo
 
-O arquivo de parâmetros [AzureDeploy.][parameters] Parameters declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
+O arquivo de parâmetros [AzureDeploy. Parameters][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Alguns dos parâmetros que você talvez precise modificar para sua implantação:
 
 |Parâmetro|Valor de exemplo|Observações|
 |---|---||
 |adminUserName|vmadmin| Um nome de usuário de administrador para as VMs do cluster. |
 |adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster.|
 |clusterName|mysfcluster123| Nome do cluster. |
-|location|southcentralus| Localização do cluster. |
+|local|southcentralus| Localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que já foi carregado em um cofre de chaves, preencha o valor da impressão digital SHA1 do certificado. Por exemplo, "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
 |certificateUrlValue|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha a URL do certificado. Por exemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha o valor do cofre de origem. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
@@ -158,11 +147,11 @@ Verifique se você está conectado e se o cluster está íntegro usando o comand
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não for imediatamente para o próximo artigo, [exclua o cluster](service-fabric-cluster-delete.md) para evitar a cobrança de encargos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [dimensionar um cluster.](service-fabric-tutorial-scale-cluster.md)
 

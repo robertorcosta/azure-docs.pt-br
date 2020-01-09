@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas do servidor de cache do Azure para Redis
-description: Saiba como resolver problemas comuns do servidor com o cache do Azure para Redis
+description: Saiba como resolver problemas comuns do lado do servidor com o cache do Azure para Redis, como pressão de memória, alta utilização de CPU, comandos de longa execução ou limitações de largura de banda.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: yegu
-ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433345"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solucionar problemas do servidor de cache do Azure para Redis
 
@@ -75,8 +75,8 @@ Para atenuar situações em que o uso de largura de banda de rede está próximo
 
 ## <a name="additional-information"></a>Informações adicionais
 
-- [Solucionar problemas do lado do cliente do cache do Azure para Redis](cache-troubleshoot-client.md)
-- [Qual oferta e tamanho do Cache do Azure para Redis devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Solucionar problemas no lado do cliente do Cache do Azure para Redis](cache-troubleshoot-client.md)
+- [Qual oferta de Cache do Azure para Redis e tamanho eu devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [Como medir e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Como monitorar o Cache do Azure para Redis](cache-how-to-monitor.md)
 - [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)

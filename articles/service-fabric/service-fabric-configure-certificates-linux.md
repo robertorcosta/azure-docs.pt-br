@@ -1,24 +1,15 @@
 ---
-title: Configurar certificados para aplicativos do Azure Service Fabric no Linux | Microsoft Docs
-description: Configurar certificados para seu aplicativo com o tempo de execução do Service Fabric em um cluster do Linux
-services: service-fabric
-documentationcenter: NA
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
+title: Configurar certificados para aplicativos no Linux
+description: Configurar certificados para seu aplicativo com o runtime do Service Fabric em um cluster do Linux
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ae25a02e6170972972c5b2b7e159ef39d1a3673
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 802e76614f51e1f6479a311e61a49d83b8125546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167331"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614580"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters do Linux
 
@@ -26,7 +17,7 @@ Este artigo fornece informações sobre como configurar certificados x. 509 em c
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Local e formato de certificados X.509 em nós do Linux
 
-Malha do serviço espera geralmente certificados x. 509 no */var/lib/sfcerts* diretório em nós de cluster do Linux. Isso é verdadeiro para certificados de cluster, os certificados de cliente, etc. Em alguns casos, você pode especificar um local diferente do *var/lib/sfcerts* pasta certificados. Por exemplo, com serviços confiáveis criados usando o SDK de Java de malha do serviço, você pode especificar um local diferente de pacote de configuração (Settings.xml) para alguns certificados específicos do aplicativo. Para obter mais informações, consulte [certificados referenciados no pacote de configuração (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
+Malha do serviço espera geralmente certificados x. 509 no */var/lib/sfcerts* diretório em nós de cluster do Linux. Isso é verdadeiro para certificados de cluster, certificados de cliente, etc. Em alguns casos, você pode especificar um local diferente da pasta *var/lib/sfcerts* para certificados. Por exemplo, com serviços confiáveis criados usando o SDK de Java de malha do serviço, você pode especificar um local diferente de pacote de configuração (Settings.xml) para alguns certificados específicos do aplicativo. Para obter mais informações, consulte [certificados referenciados no pacote de configuração (Settings.xml)](#certificates-referenced-in-the-configuration-package-settingsxml).
 
 Para clusters do Linux, o Service Fabric espera certificados deve existir como um arquivo. PEM que contém o certificado e a chave privada ou como um arquivo. crt que contém o certificado e um arquivo de chave que contém a chave privada. Todos os arquivos devem estar no formato PEM. 
 
@@ -101,7 +92,7 @@ O seguinte XML mostra uma seção **TransportSettings** baseada neste estilo.
 
 ## <a name="configure-a-reliable-services-app-to-run-on-linux-clusters"></a>Configurar um aplicativo de Reliable Services para executar em clusters do Linux
 
-Os SDKs do Service Fabric permitem que você se comunique com as APIs de tempo de execução do Service Fabric para aproveitar a plataforma. Quando você executa qualquer aplicativo que usa essa funcionalidade em clusters Linux seguros, é necessário configurar seu aplicativo com um certificado que possa ser usado para validar com o tempo de execução do Service Fabric. Aplicativos que contêm serviços Service Fabric Reliable Service escritos usando o .NET Core ou Java SDKs exigem essa configuração. 
+Os SDKs do Service Fabric permitem que você se comunique com as APIs de runtime do Service Fabric para aproveitar a plataforma. Quando você executa qualquer aplicativo que usa essa funcionalidade em clusters Linux seguros, é necessário configurar seu aplicativo com um certificado que possa ser usado para validar com o runtime do Service Fabric. Aplicativos que contêm serviços Service Fabric Reliable Service escritos usando o .NET Core ou Java SDKs exigem essa configuração. 
 
 Para configurar um aplicativo, adicione um elemento [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) sob a marca **Certificates**, localizada sob a marca **ApplicationManifest** no arquivo *ApplicationManifest.xml*. O XML seguinte mostra um certificado referenciado pela sua impressão digital: 
 

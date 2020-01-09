@@ -1,19 +1,16 @@
 ---
 title: Introdução à CLI do Azure Service Fabric
 description: Saiba como usar a CLI do Azure Service Fabric. Saiba como se conectar a um cluster e como gerenciar aplicativos.
-services: service-fabric
 author: jeffj6123
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: e0146504bd06a3c56de8113cc59c9eedd375d06f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4c3a41fe4dba351c10ad8488d4d339bc797597ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463383"
 ---
 # <a name="azure-service-fabric-cli"></a>CLI do Azure Service Fabric
 
@@ -114,7 +111,7 @@ Se a instalação no subsistema do Windows para Linux falhar com permissões de 
 sudo pip3 install sfctl
 ```
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte à visualização do Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (suporte à versão prévia do Service Fabric)
 
 Para instalar a CLI do Service Fabric no Red Hat, execute os seguintes comandos:
 

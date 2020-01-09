@@ -1,17 +1,17 @@
 ---
-title: Adicionar e chamar o Azure Functions de aplicativos lógicos do Azure
-description: Adicionar e executar o Azure Functions de aplicativos lógicos
+title: Adicionar e chamar Azure Functions de aplicativos lógicos do Azure
+description: Chamar e executar código personalizado em seu Azure Functions de tarefas e fluxos de trabalho automatizados em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792565"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453466"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar o Azure Functions de aplicativos lógicos do Azure
 
@@ -28,7 +28,7 @@ Para executar trechos de código sem criar o Azure functions, saiba como [Adicio
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Um aplicativo de funções do Azure, que é um contêiner do Azure functions, juntamente com sua função do Azure. Se você não tiver um aplicativo de funções, [crie primeiro o aplicativo de função](../azure-functions/functions-create-first-azure-function.md). Em seguida, você pode criar sua função fora do seu aplicativo lógico no portal do Azure ou [de dentro de seu aplicativo lógico](#create-function-designer) no designer de aplicativo lógico.
 

@@ -1,24 +1,14 @@
 ---
-title: Habilitar a criptografia de disco para o Azure Service Fabric clusters do Windows | Microsoft Docs
+title: Habilitar a criptografia de disco para clusters do Windows
 description: Este artigo descreve como habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure usando Azure Key Vault no Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599537"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614444"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Habilitar a criptografia de disco para nós de Cluster Service Fabric do Azure no Windows 
 > [!div class="op_single_selector"]
@@ -217,7 +207,7 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste ponto, você deve ter um cluster seguro e saber como habilitar e desabilitar a criptografia de disco para Service Fabric nós de cluster e conjuntos de dimensionamento de máquinas virtuais. Para obter diretrizes semelhantes sobre Service Fabric nós de cluster no Linux, consulte [criptografia de disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md).
 
 [customize-your-cluster-template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure#creating-a-custom-arm-template

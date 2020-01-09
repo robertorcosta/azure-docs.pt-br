@@ -1,7 +1,6 @@
 ---
 title: Solucionar problemas de saídas do Azure Stream Analytics
 description: Este artigo descreve técnicas para solucionar problemas de conexões de entrada em trabalhos do Azure Stream Analytics.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 65d01c5c4dd852cb424c75f170ce52156f1633cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354103"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
 
@@ -23,7 +22,7 @@ Esta página descreve problemas comuns com conexões de saída e como solucioná
 ## <a name="output-not-produced-by-job"></a>Saída não produzida pelo trabalho 
 1.  Verifique a conectividade com as saídas usando o botão **Testar Conexão** para cada uma das saídas.
 
-2.  Examine [**Métricas de Monitoramento**](stream-analytics-monitoring.md) na guia **Monitor**. Como os valores são agregados, as métricas são atrasadas em alguns minutos.
+2.  Examine as [**métricas de monitoramento**](stream-analytics-monitoring.md) na guia **Monitor** . Como os valores são agregados, as métricas são atrasadas em alguns minutos.
     - Se os Eventos de Entrada forem > 0, o trabalho poderá ler os dados de entrada. Se os Eventos de Entrada não forem > 0:
       - Para ver se a fonte de dados tem dados válidos, verifique-a usando o [Gerenciador do Barramento de Serviço](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). Essa seleção se aplica se o trabalho está usando o Hub de Eventos como entrada.
       - Verifique se o formato de serialização de dados e a codificação de dados são como esperado.
@@ -34,7 +33,7 @@ Esta página descreve problemas comuns com conexões de saída e como solucioná
       - O esquema de eventos pode não corresponder ao esquema definido ou esperado dos eventos na consulta.
       - Os tipos de dados de alguns dos campos no evento podem não corresponder às expectativas.
       
-    - Se os Erros em Tempo de Execução forem > 0, isso significa que o trabalho pode receber os dados, mas está gerando erros durante o processamento da consulta.
+    - Se os Erros em Runtime forem &gt; 0, isso significa que o trabalho pode receber os dados, mas está gerando erros durante o processamento da consulta.
       - Para encontrar os erros, acesse os [Logs de Auditoria](../azure-resource-manager/resource-group-audit.md) e filtre o status *Com Falha*.
       
     - Se os InputEvents forem > 0 e os OutputEvents forem = 0, isso significa que um dos seguintes casos é verdadeiro:
@@ -91,15 +90,15 @@ Observe as observações a seguir ao configurar IGNORE_DUP_KEY para vários tipo
 * É possível definir a opção IGNORE_DUP_KEY utilizando ALTER INDEX para um índice exclusivo, que é diferente da restrição PRIMARY KEY/UNIQUE e criada utilizando a definição CREATE INDEX ou INDEX.  
 * IGNORE_DUP_KEY não é aplicável para índices de repositório de coluna porque não é possível impor a exclusividade desses índices.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Nomes de coluna são letras minúsculas pelo Azure Stream Analytics
-Ao usar o nível de compatibilidade original (1.0), Azure Stream Analytics é usado para alterar os nomes de coluna para letras minúsculas. Esse comportamento foi corrigido em níveis de compatibilidade mais recente. Para preservar o caso, aconselhamos que os clientes a migrarem para o nível de compatibilidade 1.1 e posterior. Você pode encontrar mais informações sobre [nível de compatibilidade para trabalhos do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Os nomes de coluna são minúsculos por Azure Stream Analytics
+Ao usar o nível de compatibilidade original (1,0), Azure Stream Analytics usado para alterar nomes de coluna para letras minúsculas. Esse comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, aconselhamos os clientes a migrar para o nível de compatibilidade 1,1 e posterior. Você pode encontrar mais informações sobre o [nível de compatibilidade para trabalhos de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 
-## <a name="get-help"></a>Obter ajuda
+## <a name="get-help"></a>Obtenha ajuda
 
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

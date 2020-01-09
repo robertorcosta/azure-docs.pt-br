@@ -2,21 +2,17 @@
 title: Solucionar problemas de alterações em uma máquina virtual do Azure | Microsoft Docs
 description: Use o Controle de Alterações para solucionar problemas de alterações em uma máquina virtual do Azure.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: alteração, controle, automação
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420629"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -34,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Exibir alterações
 > * Configurar alertas
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -53,7 +49,7 @@ Primeiro, é necessário habilitar o Controle de alterações e Inventário para
 1. No menu à esquerda, selecione **Máquinas virtuais** e selecione uma VM na lista
 1. No menu à esquerda, na seção **OPERAÇÕES**, clique em **Inventário**. A página **Controle de alterações** será aberta.
 
-A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) **Controle de Alterações** é aberta. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
+A tela ![Habilitar alteração](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)**Controle de Alterações** é aberta. Configure o local, o espaço de trabalho do Log Analytics e a conta de Automação a serem usados e clique em **Habilitar**. Caso os campos estejam esmaecidos, isso significa que outra solução de automação está habilitada para a VM e o mesmo workspace e conta de Automação devem ser usados.
 
 Um workspace do [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) é usado para coletar dados gerados por recursos e serviços como Inventário.
 O workspace fornece um único local para examinar e analisar dados de várias fontes.
@@ -132,7 +128,7 @@ Na janela **Configuração do Workspace**, adicione as chaves do Registro do Win
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
-|Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*.conf"       |
+|Inserir o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*.conf"       |
 |Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório        |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |

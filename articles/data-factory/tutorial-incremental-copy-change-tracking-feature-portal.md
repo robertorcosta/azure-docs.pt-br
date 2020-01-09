@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 1b619ca7bb3b095a5707077beb3e0750dee1c2b7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f7ad05402745f17ff60dbaab8d736acc8f92196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439399"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 
@@ -67,7 +67,7 @@ Neste tutorial, você cria dois pipelines que executam as duas operações a seg
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para conhecer as etapas para criar um.
 * **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
 
@@ -169,7 +169,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
       - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
       - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
-        Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+        Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2 (Versão Prévia)** para a **versão**.
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
@@ -193,11 +193,11 @@ Nesta etapa, você vincula a Conta de Armazenamento do Azure ao data factory.
 
 1. Clique em **Conexões** e clique em **+ Novo**.
 
-   ![Botão de nova conexão](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
-2. Na janela **Novo serviço vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
+   ![Botão Nova conexão](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
+2. Na janela **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
-3. Na janela **Novo serviço vinculado** execute as seguintes etapas: 
+3. Na janela **Novo Serviço Vinculado**, execute estas etapas: 
 
     1. Insira **AzureStorageLinkedService** como o **Nome**. 
     2. Selecione sua conta de Armazenamento do Azure como o **Nome da conta de armazenamento**. 
@@ -414,10 +414,10 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
     2. Selecione **Parâmetro de importação**. 
     3. Na seção **Parâmetros de procedimento armazenado**, especifique os seguintes valores para os parâmetros: 
 
-        | NOME | Tipo | Valor | 
+        | Nome | Type | Valor | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | Cadeia de caracteres | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Atividade de procedimento armazenado - Parâmetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Conecte a atividade de Cópia à atividade de Procedimento armazenado**. Arraste o botão **verde** anexado à atividade de Cópia para a atividade de Procedimento armazenado. 

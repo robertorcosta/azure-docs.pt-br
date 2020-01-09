@@ -1,24 +1,24 @@
 ---
 title: A estrutura de Painéis do Azure | Microsoft Docs
-description: Este artigo explica a estrutura JSON de um Painel do Azure
+description: Percorra a estrutura JSON de um painel do Azure usando um painel de exemplo. Inclui referência a propriedades de recurso.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832786"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640356"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
@@ -293,18 +293,18 @@ Como os [painéis compartilhados do Azure são recursos](https://docs.microsoft.
 
 Vamos dividir as seções relevantes do JSON.  As propriedades de nível superior, __id__, __nome__, __tipo__, __local__ e __marcas__ são compartilhadas entre todos os tipos de recursos do Azure. Ou seja, elas não têm muita relação com o conteúdo do painel.
 
-### <a name="the-id-property"></a>A propriedade id
+### <a name="the-id-property"></a>A propriedade ID
 
-A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/architecture/best-practices/resource-naming). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
+A ID de recurso do Azure, sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/architecture/best-practices/resource-naming). Quando o portal cria um painel, ele geralmente escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criá-los programaticamente. 
 
 ### <a name="the-name-property"></a>A propriedade name
-O nome é o segmento da ID de recurso que não inclui informações de assinatura, tipo de recurso ou grupo de recursos. Basicamente, é o último segmento da ID de recurso.
+O nome é o segmento da ID do recurso que não inclui a assinatura, o tipo de recurso ou as informações do grupo de recursos. Basicamente, é o último segmento da ID do recurso.
 
 ### <a name="the-type-property"></a>A propriedade type
 Todos os painéis são do tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>A propriedade location
-Ao contrário de outros recursos, os painéis não têm um componente de tempo de execução.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Ao contrário de outros recursos, os painéis não têm um componente de runtime.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>A propriedade tags
 Marcas são um recurso comum de recursos do Azure que lhe permitem organizar seus recursos por pares de valor de nome arbitrário. Para os painéis, há uma marca especial chamada __título oculto__. Se seu painel tem essa propriedade preenchida, ele é usado como o nome de exibição para o painel no portal. As IDs de recurso do Azure não podem ser renomeadas, mas as marcas podem. Esta marca dá uma maneira de ter um nome de exibição renomeável para seu painel.
@@ -312,13 +312,13 @@ Marcas são um recurso comum de recursos do Azure que lhe permitem organizar seu
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>O objeto proprierties
-O objeto de propriedades contém duas propriedades, __lenses__ e __metadata__. A propriedade __lenses__ contém informações sobre os blocos (também conhecidos como partes) no painel.  A propriedade __metadata__ está disponível para futuros recursos potenciais.
+O objeto de propriedades contém duas propriedades, __lenses__ e __metadata__. A propriedade __lentes__ contém informações sobre os blocos no painel.  A propriedade __metadata__ está disponível para futuros recursos potenciais.
 
 ### <a name="the-lenses-property"></a>A propriedade lenses
 A propriedade __lenses__ contém o painel. Observe que o objeto lenses neste exemplo contém uma única propriedade chamada "0". As lentes são um conceito de agrupamento que não está implementado atualmente nos painéis. Por enquanto, todos os seus painéis têm essa propriedade única no objeto lens, novamente, chamada "0".
 
 ### <a name="the-lens-object"></a>O objeto lens
-O objeto sob o "0" contém duas propriedades, __order__ e __parts__.  Na versão atual de painéis, __ordem__ é sempre 0. A propriedade __parts__ contém um objeto que define as partes individuais (também conhecidas como blocos) no painel.
+O objeto sob o "0" contém duas propriedades, __order__ e __parts__.  Na versão atual de painéis, __ordem__ é sempre 0. A propriedade __Parts__ contém um objeto que define as partes individuais (também chamadas de blocos) no painel.
 
 O objeto __parts__ contém uma propriedade para cada parte, no qual o nome da propriedade é um número. Esse número não é significativo. 
 
@@ -429,6 +429,6 @@ Da mesma forma, o bloco de vídeo tem suas próprias configurações que contêm
 ```
 
 ### <a name="the-asset-object"></a>O objeto asset
-Os blocos que estão associados aos objetos de portal gerenciáveis de primeira classe (chamados de ativos) têm essa relação expressa pelo objeto asset.  Em nosso painel de exemplo, o bloco de máquina virtual contém a descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada de ID contém o identificador exclusivo para o ativo, nesse caso, a ID do recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no Portal.
+Os blocos que estão associados aos objetos de portal gerenciáveis de primeira classe (chamados de ativos) têm essa relação expressa pelo objeto asset.  Em nosso painel de exemplo, o bloco de máquina virtual contém a descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada de ID contém o identificador exclusivo para o ativo, nesse caso, a ID do recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

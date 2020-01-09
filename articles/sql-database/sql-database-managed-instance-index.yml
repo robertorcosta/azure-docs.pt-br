@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Instância gerenciada do SQL
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: 'Documentação da instância gerenciada – Tutoriais, Referência de API'
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
@@ -62,7 +61,7 @@ sections:
           - title: Camadas de serviço
             href: /azure/sql-database/sql-database-service-tiers-general-purpose-business-critical
             html: '<p>Escolha entre as camadas de serviço de Uso Geral e Comercialmente Crítico, dependendo das suas necessidades de negócios.</p>'
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: 'A instância gerenciada permite executar facilmente as tarefas básicas de gerenciamento usando o portal do Azure, a CLI do Azure e o Azure PowerShell. Saiba como executar tarefas básicas de gerenciamento usando os seguintes exemplos de início rápido:'

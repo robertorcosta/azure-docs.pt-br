@@ -3,19 +3,19 @@ title: Tratar eventos de ciclo de vida do Serviço de Nuvem | Microsoft Docs
 description: Saiba como os métodos de ciclo de vida de uma função de Serviço de Nuvem podem ser usados no .NET
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385806"
 ---
-# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
+# <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função de trabalho ou Web no .NET
 Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que oferece métodos a serem substituídos, permitindo que você responda a eventos de ciclo de vida. Para funções Web, essa classe é opcional e, portanto, deve ser usada para responder a eventos de ciclo de vida.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Estender a classe RoleEntryPoint
@@ -74,6 +74,9 @@ A substituição do método **Run** não é necessária; a implementação padr�
 ### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>Implementando os métodos de ciclo de vida do ASP.NET para uma função Web
 Você pode usar os métodos de ciclo de vida do ASP.NET além daqueles fornecidos pela classe **RoleEntryPoint** para gerenciar sequências de inicialização e de desligamento para uma função Web. Isso poderá ser útil para fins de compatibilidade se você estiver portando um aplicativo ASP.NET existente para o Azure. Os métodos de ciclo de vida do ASP.NET são chamados de dentro dos métodos **RoleEntryPoint** . O método **Application\_Start** é chamado após o término do método **RoleEntryPoint.OnStart**. O método **Application\_End** é chamado antes da chamada ao método **RoleEntryPoint.OnStop**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como [criar um pacote de serviços de nuvem](cloud-services-model-and-package.md).
+
+
+
 

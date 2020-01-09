@@ -1,6 +1,6 @@
 ---
-title: Rede para conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
-description: Propriedades da rede de configuração dos conjuntos de dimensionamento de máquina virtual do Azure.
+title: Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
+description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de dimensionamento de máquinas virtuais do Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 5be64ad2b3141791d5612aba84324278ea812875
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 390da9179280a1ab8898d1ccea4df81e3b98805a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244840"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647570"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -238,7 +238,7 @@ Exemplo de saída do [Azure Resource Explorer](https://resources.azure.com) e AP
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>Vários endereços IP por NIC
-Todas as NICs anexadas a uma VM em um conjunto de dimensionamento têm uma ou mais configurações IP associadas a elas. Cada configuração é atribuída a um endereço IP privado. Cada configuração também pode ter um recurso de endereço IP público associado a ela. Para entender quantos endereços IP podem ser atribuídos a uma NIC e quantos endereços IP públicos você pode usar em uma assinatura do Azure, confira [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Todas as NICs anexadas a uma VM em um conjunto de dimensionamento têm uma ou mais configurações IP associadas a elas. Cada configuração é atribuída a um endereço IP privado. Cada configuração também pode ter um recurso de endereço IP público associado a ela. Para entender quantos endereços IP podem ser atribuídos a uma NIC e quantos endereços IP públicos você pode usar em uma assinatura do Azure, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Várias NICs por máquina virtual
 Você pode ter até 8 NICs por máquina virtual, dependendo do tamanho da máquina. O número máximo de NICs por máquina está disponível no [artigo Tamanho de VM](../virtual-machines/windows/sizes.md). Todas as NICs conectadas a uma instância de VM devem se conectar à mesma rede virtual. As NICs podem se conectar a diferentes sub-redes, mas todas as sub-redes devem fazer parte da mesma rede virtual.
@@ -401,5 +401,5 @@ az vmss show \
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre as redes virtuais do Azure, confira [Visão geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

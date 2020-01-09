@@ -15,18 +15,18 @@ ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1191fb5c9aefb55896d5c44714f1061ff2674a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b83f10cd021f54dc16e196cb7a9ccd7c46fd2ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64415224"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659637"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrições e limites de serviço do AD do Azure
-Este artigo contém as restrições de uso e outros limites de serviço para o serviço Azure AD (Azure Active Directory). Se você estiver procurando o conjunto completo de limites de serviço do Microsoft Azure, veja [Assinatura do Azure e limites de serviços, cotas e restrições](../../azure-subscription-service-limits.md).
+Este artigo contém as restrições de uso e outros limites de serviço para o serviço Azure AD (Azure Active Directory). Se você estiver procurando o conjunto completo de limites de serviço do Microsoft Azure, veja [Assinatura do Azure e limites de serviços, cotas e restrições](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Inscrever-se no Azure como uma organização](../fundamentals/sign-up-organization.md)
 * [Como as assinaturas do Azure estão associadas ao Azure AD](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

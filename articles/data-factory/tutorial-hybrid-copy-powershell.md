@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922965"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439344"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 
@@ -36,7 +36,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Iniciar uma execução de pipeline.
 > * Monitorar a execução de pipeline.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -135,7 +135,7 @@ Instale a versão mais recente do Azure PowerShell caos ainda não a tenha em se
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Defina uma variável para o nome do grupo de recursos que você usará nos comandos do PowerShell posteriormente. Copie o comando a seguir para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) (entre aspas duplas; por exemplo, `"adfrg"`) e depois execute o comando. 
+1. Defina uma variável para o nome do grupo de recursos que você usará nos comandos do PowerShell posteriormente. Copie o comando a seguir para o PowerShell, especifique um nome para o [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) (entre aspas duplas; por exemplo, `"adfrg"`) e depois execute o comando. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -715,7 +715,7 @@ O pipeline cria automaticamente a pasta de saída chamada *fromonprem* no contê
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O pipeline nesse exemplo copia dados de uma localização para outra no Armazenamento de Blobs do Azure. Você aprendeu como:
+O pipeline nesse exemplo copia dados de uma localização para outra no Armazenamento de Blobs do Azure. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um data factory.

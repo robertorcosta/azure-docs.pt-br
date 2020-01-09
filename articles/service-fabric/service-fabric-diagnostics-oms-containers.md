@@ -1,29 +1,20 @@
 ---
-title: Monitorar contêineres no Azure Service Fabric com os logs do Azure Monitor | Microsoft Docs
-description: Use os logs do Azure Monitor para monitorar os contêineres em execução em clusters do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Monitorar contêineres com logs de Azure Monitor
+description: Use logs de Azure Monitor para monitorar contêineres em execução em clusters de Service Fabric do Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: d03d68560502821b9c343be983d9f7b5a83ed977
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60321855"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614427"
 ---
-# <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorar contêineres com os logs do Azure Monitor
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Monitorar contêineres com logs de Azure Monitor
  
-Este artigo aborda as etapas necessárias para configurar o solução de monitoramento de contêiner do Azure Monitor logs para exibir eventos de contêiner. Para configurar o cluster para coletar eventos de contêiner, consulte [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md). 
+Este artigo aborda as etapas necessárias para configurar a solução de monitoramento de contêiner de logs de Azure Monitor para exibir eventos de contêiner. Para configurar o cluster para coletar eventos de contêiner, consulte [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md). 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
@@ -32,9 +23,9 @@ Este artigo aborda as etapas necessárias para configurar o solução de monitor
 ## <a name="set-up-the-container-monitoring-solution"></a>Configurar a solução de monitoramento de contêineres
 
 > [!NOTE]
-> Você precisa ter o Azure Monitor logs configurado para seu cluster, bem como tem o agente do Log Analytics implantado em nós. Se você não fizer isso, siga as etapas em [configurar logs do Azure Monitor](service-fabric-diagnostics-oms-setup.md) e [adicione o agente do Log Analytics para um cluster](service-fabric-diagnostics-oms-agent.md) primeiro.
+> Você precisa ter Azure Monitor logs configurados para o cluster, bem como ter o agente de Log Analytics implantado em seus nós. Se não estiver, siga as etapas em [Configurar Logs de Azure monitor](service-fabric-diagnostics-oms-setup.md) e [adicione o agente de log Analytics a um cluster](service-fabric-diagnostics-oms-agent.md) primeiro.
 
-1. Depois que o cluster é configurado com os logs do Azure Monitor e o agente do Log Analytics, implante os contêineres. Aguarde até que os contêineres sejam implantados antes de passar para a próxima etapa.
+1. Depois que o cluster estiver configurado com os logs de Azure Monitor e o agente de Log Analytics, implante seus contêineres. Aguarde até que os contêineres sejam implantados antes de passar para a próxima etapa.
 
 2. No Azure Marketplace, pesquise *Solução de monitoramento de contêiner* e clique no recurso **Solução de monitoramento de contêiner** que aparecerá abaixo da categoria Monitoramento + Gerenciamento.
 
@@ -44,7 +35,7 @@ Este artigo aborda as etapas necessárias para configurar o solução de monitor
 
     ![Painel de análise de Log básica](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-O agente habilita a coleta de vários logs de contêineres específicos que podem ser consultadas nos logs do Azure Monitor ou usados para visualizar os indicadores de desempenho. Os tipos de log coletados são:
+O agente permite a coleta de vários logs específicos de contêiner que podem ser consultados em logs de Azure Monitor ou usados para visualizar indicadores de desempenho. Os tipos de log coletados são:
 
 * ContainerInventory: mostra informações sobre imagens, nome e localização do contêiner
 * ContainerImageInventory: informações sobre imagens implantadas, inclusive IDs ou tamanhos
@@ -54,8 +45,8 @@ O agente habilita a coleta de vários logs de contêineres específicos que pode
 
 
 
-## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [solução de contêineres de logs do Azure Monitor](../azure-monitor/insights/containers.md).
+## <a name="next-steps"></a>Próximos passos
+* Saiba mais sobre a [solução de contêineres de logs de Azure monitor](../azure-monitor/insights/containers.md).
 * Leia mais sobre a orquestração de contêineres no Service Fabric: [Service Fabric e contêineres](service-fabric-containers-overview.md)
-* Familiarize-se com o [pesquisa e consulta de log](../log-analytics/log-analytics-log-searches.md) recursos oferecidos como parte dos logs do Azure Monitor
-* Configurar logs do Azure Monitor para configurar [alertas automatizados](../log-analytics/log-analytics-alerts.md) regras para auxiliar na detecção e diagnóstico
+* Familiarize-se com os recursos de [pesquisa de logs e consulta](../log-analytics/log-analytics-log-searches.md) oferecidos como parte dos logs de Azure monitor
+* Configurar logs de Azure Monitor para configurar regras de [alerta automatizado](../log-analytics/log-analytics-alerts.md) para auxiliar na detecção e no diagnóstico

@@ -1,44 +1,33 @@
 ---
-title: Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric | Microsoft Docs
+title: Transações e modos de bloqueio em coleções confiáveis
 description: Gerenciador de estado confiável do Azure Service Fabric e Bloqueio e Transações de Coleções Confiáveis.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f27381aa0979b37c759f66d0e873126edc006d6d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599319"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614172"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
 
 ## <a name="transaction"></a>Transação
-Uma transação é uma sequência de operações realizadas como uma única unidade lógica de trabalho.
+Uma transação é uma sequência de operações executadas como uma única unidade lógica de trabalho.
 Uma transação deve exibir as propriedades ACID a seguir. Confira: https://technet.microsoft.com/library/ms190612)
-* **Atomicidade**: Uma transação deve ser uma unidade atômica de trabalho. Em outras palavras, todas as suas modificações de dados são realizadas ou nenhuma delas é realizada.
-* **Consistência**: Quando concluída, uma transação deve deixar todos os dados em um estado consistente. Todas as estruturas de dados internos devem estar corretas ao final da transação.
-* **Isolamento**: As modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um ITransaction é determinado pelo IReliableState que executa a operação.
-* **Durabilidade**: Após uma transação ser concluída, seus efeitos ficam permanentemente vigentes no sistema. As modificações persistem até mesmo no caso de uma falha do sistema.
+* **Atomicidade**: uma transação deve ser uma unidade atômica de trabalho. Em outras palavras, todas as suas modificações de dados são realizadas ou nenhuma delas é realizada.
+* **Consistência**: quando concluída, uma transação deve deixar todos os dados em um estado consistente. Todas as estruturas de dados internos devem estar corretas ao final da transação.
+* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um ITransaction é determinado pelo IReliableState que executa a operação.
+* **Durabilidade**: após uma transação ser concluída, seus efeitos ficam permanentemente vigentes no sistema. As modificações persistem até mesmo no caso de uma queda do sistema.
 
 ### <a name="isolation-levels"></a>Níveis de isolamento
 Nível de isolamento define o grau no qual a transação deve ser isolada de modificações feitas por outras transações.
 Há dois níveis de isolamento com suporte nas Coleções Confiáveis:
 
-* **Leitura repetida**: Especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. Para obter mais informações, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-* **Instantâneo**: Especifica que os dados lidos por qualquer instrução em uma transação são a versão transacionalmente consistente dos dados que existiam no início da transação.
+* **Leitura repetida**: especifica que as instruções não podem ler dados que foram modificados, mas ainda não foram confirmados por outras transações e que nenhuma outra transação pode modificar dados que foram lidos pela transação atual até que a transação atual seja concluída. Para obter mais informações, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Instantâneo**: especifica que os dados lidos por qualquer instrução em uma transação são a versão transacionalmente consistente dos dados que existiam no início da transação.
   A transação pode reconhecer apenas modificações de dados que foram confirmadas antes do início da transação.
-  Modificações de dados feitas por outras transações após o início da transação atual não são visíveis para instruções em execução na transação atual.
+  Modificações de dados efetuadas por outras transações após o início da transação atual não são visíveis para as instruções em execução na transação atual.
   O efeito é como se as instruções em uma transação obtivessem um instantâneo dos dados confirmados conforme existiam no início da transação.
   Os instantâneos são consistentes entre as Coleções Confiáveis.
   Para obter mais informações, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
@@ -58,7 +47,7 @@ A seguir está a tabela que descreve os padrões de nível de isolamento para op
 O Dicionário Confiável e a Fila Confiável dão suporte Read Your Writes.
 Em outras palavras, qualquer gravação em uma transação será visível para uma leitura seguinte que pertence à mesma transação.
 
-## <a name="locks"></a>Bloqueios
+## <a name="locks"></a>Locks
 Nas Coleções Confiáveis, todas as transações implementam um bloqueio de duas fases rigoroso: uma transação não libera os bloqueios que adquiriu até que a transação seja encerrada com uma confirmação ou anulação.
 
 Dicionário Confiável usa bloqueio para todas as operações de entidade única em nível de linha.
@@ -75,7 +64,7 @@ Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma f
 
 A matriz de compatibilidade de bloqueio pode ser encontrada na tabela a seguir:
 
-| Solicitação\concedida | Nenhum | Compartilhado | Atualização | Exclusivo |
+| Solicitação\concedida | Nenhum | Compartilhado | Atualizar | Exclusivo |
 | --- |:--- |:--- |:--- |:--- |
 | Compartilhado |Sem conflito |Sem conflito |Conflito |Conflito |
 | Atualizar |Sem conflito |Sem conflito |Conflito |Conflito |
@@ -88,7 +77,7 @@ Nesse caso, uma ou ambas as operações atingirão o tempo limite.
 
 Esse cenário de deadlock é um ótimo exemplo de como um Bloqueio de atualização pode evitar deadlocks.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 906ac3b28a512a866e712cefda4355ad901c258d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: aca1f8ce2c125cd90f2e61a7829be09bc81c3938
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464954"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
@@ -157,7 +157,7 @@ Remove-AzImage `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou uma imagem de VM personalizada. Você aprendeu como:
+Neste tutorial, você criou uma imagem de VM personalizada. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Aplicar Sysprep e generalizar VMs

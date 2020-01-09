@@ -1,6 +1,6 @@
 ---
 title: Enviar e receber mensagens AS2 para B2B
-description: Trocar mensagens AS2 para cenários de integração corporativa B2B usando o aplicativo lógico do Azure
+description: Trocar mensagens AS2 para cenários de integração corporativa B2B usando aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790722"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666696"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com Enterprise Integration Pack
 
@@ -51,7 +51,7 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Caso você ainda não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * O aplicativo lógico do qual você deseja usar o conector AS2 e um gatilho que inicia o fluxo de trabalho do aplicativo lógico. O conector do AS2 fornece apenas ações, não gatilhos. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -81,7 +81,7 @@ Este artigo mostra como adicionar as ações de codificação e decodificação 
 
 1. Agora, forneça informações para essas propriedades:
 
-   | Propriedade | Descrição |
+   | Propriedade | Description |
    |----------|-------------|
    | **Mensagem a ser codificada** | A carga da mensagem |
    | **AS2 de** | O identificador do remetente da mensagem conforme especificado pelo seu contrato AS2 |

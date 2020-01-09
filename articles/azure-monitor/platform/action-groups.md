@@ -2,18 +2,16 @@
 title: Criar e gerenciar grupos de ações no portal do Azure
 description: Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6b3d1ff76d4f7611da8e08dd4ce42293c805978e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423858"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659824"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -72,10 +70,10 @@ Depois de criar um grupo de ações, ele fica visível na seção **grupos de a�
 ## <a name="action-specific-information"></a>Informações específicas da ação
 
 > [!NOTE]
-> Consulte [limites de serviço de assinatura para o monitoramento](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) de limites numéricos em cada um dos itens abaixo.  
+> Consulte [limites de serviço de assinatura para o monitoramento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) de limites numéricos em cada um dos itens abaixo.  
 
 ### <a name="automation-runbook"></a>Runbook de automação
-Consulte os [limites do serviço de assinatura do Azure](../../azure-subscription-service-limits.md) para limites em cargas de runbook.
+Consulte os [limites do serviço de assinatura do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para limites em cargas de runbook.
 
 Você pode ter um número limitado de ações de runbook em um grupo de ações. 
 
@@ -90,7 +88,7 @@ Os emails serão enviados dos endereços de email a seguir. Certifique-se de que
 
 Você pode ter um número limitado de ações de email em um grupo de ações. Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>Função de Azure Resource Manager de email
+### <a name="email-azure-resource-manager-role"></a>Enviar email para a função do Azure Resource Manager
 Envie um email para os membros da função da assinatura.
 
 Você pode ter um número limitado de ações de email em um grupo de ações. Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .
@@ -105,7 +103,7 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 
 Você pode ter um número limitado de ações de ITSM em um grupo de ações. 
 
-### <a name="logic-app"></a>Aplicativo Lógico
+### <a name="logic-app"></a>Aplicativo de lógica
 Você pode ter um número limitado de ações de aplicativo lógico em um grupo de ação.
 
 ### <a name="secure-webhook"></a>Proteger webhook
@@ -113,7 +111,7 @@ Você pode ter um número limitado de ações de aplicativo lógico em um grupo 
 
 A ação de webhook de grupos de ações permite que você aproveite Azure Active Directory para proteger a conexão entre o grupo de ação e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, consulte [visão geral da plataforma Microsoft Identity (v 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-1. Crie um aplicativo do Azure AD para sua API Web protegida. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+1. Crie um aplicativo do Azure AD para sua API Web protegida. Confira https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure sua API protegida para ser chamada por um aplicativo daemon.
     
 1. Habilite grupos de ação para usar seu aplicativo do Azure AD.
@@ -199,7 +197,7 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>sms
+### <a name="sms"></a>SMS
 Consulte as [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) e o [comportamento de alerta do SMS](../../azure-monitor/platform/alerts-sms-behavior.md) para obter informações importantes adicionais.
 
 Você pode ter um número limitado de ações de SMS em um grupo de ações.  
@@ -235,7 +233,7 @@ Você pode ter um número limitado de ações de webhook em um grupo de ações.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Saiba mais sobre o [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)

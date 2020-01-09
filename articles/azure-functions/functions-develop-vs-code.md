@@ -3,12 +3,12 @@ title: Desenvolva Azure Functions usando Visual Studio Code
 description: Saiba como desenvolver e testar Azure Functions usando a extensão Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975577"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667553"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolva Azure Functions usando Visual Studio Code
 
@@ -94,10 +94,6 @@ Você também pode [Adicionar uma nova função ao seu projeto](#add-a-function-
 
 Exceto para gatilhos HTTP e de temporizador, as associações são implementadas em pacotes de extensão. Você deve instalar os pacotes de extensão para os gatilhos e as associações que precisam deles. O processo de instalação de extensões de associação depende do idioma do seu projeto.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Execute o comando [dotnet adicionar pacote](/dotnet/core/tools/dotnet-add-package) na janela do terminal para instalar os pacotes de extensão de que você precisa em seu projeto. O comando a seguir instala a extensão de armazenamento do Azure, que implementa associações para armazenamento de BLOBs, filas e tabelas.
@@ -105,6 +101,10 @@ Execute o comando [dotnet adicionar pacote](/dotnet/core/tools/dotnet-add-packag
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -114,13 +114,13 @@ Você pode adicionar uma nova função a um projeto existente usando um dos mode
 
 Os resultados dessa ação dependem do idioma do seu projeto:
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-Uma nova pasta é criada no projeto. A pasta contém um novo arquivo function. JSON e o novo arquivo de código JavaScript.
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Um novo C# arquivo de biblioteca de classes (. cs) é adicionado ao seu projeto.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+Uma nova pasta é criada no projeto. A pasta contém um novo arquivo function. JSON e o novo arquivo de código JavaScript.
 
 ---
 
@@ -130,6 +130,24 @@ Você pode expandir sua função adicionando associações de entrada e saída. 
 
 Os exemplos a seguir se conectam a uma fila de armazenamento chamada `outqueue`, em que a cadeia de conexão para a conta de armazenamento é definida na configuração do aplicativo `MyStorageConnection` em local. Settings. JSON.
 
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+Atualize o método de função para adicionar o seguinte parâmetro à definição do método de `Run`:
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+Esse código exige que você adicione a seguinte instrução de `using`:
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são gravadas em uma associação de saída quando a função é concluída. Você adiciona uma ou mais mensagens à coleção. Essas mensagens são enviadas para a fila quando a função é concluída.
+
+Para saber mais, consulte a documentação de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---c-example) .
+
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code permite que você adicione associações ao seu arquivo function. JSON seguindo um conjunto conveniente de prompts. Para criar uma associação, clique com o botão direito do mouse (Ctrl + clique em macOS) o arquivo **Function. JSON** em sua pasta de funções e selecione **Adicionar Associação**:
@@ -138,13 +156,13 @@ Visual Studio Code permite que você adicione associações ao seu arquivo funct
 
 Veja a seguir exemplos de prompts para definir uma nova associação de saída de armazenamento:
 
-| Prompt | Value | Descrição |
+| Prompt | Valor | Description |
 | -------- | ----- | ----------- |
 | **Selecionar direção de associação** | `out` | A associação é uma associação de saída. |
 | **Selecionar associação com direção** | `Azure Queue Storage` | A associação é uma associação de fila do Armazenamento do Azure. |
 | **O nome usado para identificar essa associação em seu código** | `msg` | Nome que identifica o parâmetro de associação referenciado em seu código. |
 | **A fila à qual a mensagem será enviada** | `outqueue` | O nome da fila na qual a associação escreve. Quando o *queueName* não existe, a associação o cria no primeiro uso. |
-| **Selecione a configuração de "local.setting.json"** | `MyStorageConnection` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
+| **Selecione configuração em "local. Settings. JSON"** | `MyStorageConnection` | O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de armazenamento. A configuração `AzureWebJobsStorage` contém a cadeia de conexão para a conta de armazenamento que você criou com o aplicativo de funções. |
 
 Neste exemplo, a seguinte associação é adicionada à matriz de `bindings` em seu arquivo function. JSON:
 
@@ -168,25 +186,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Para saber mais, consulte a referência de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---javascript-example) .
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-Atualize o método de função para adicionar o seguinte parâmetro à definição do método de `Run`:
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-Esse código exige que você adicione a seguinte instrução de `using`:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-O parâmetro `msg` é um tipo `ICollector<T>`, que representa uma coleção de mensagens que são gravadas em uma associação de saída quando a função é concluída. Você adiciona uma ou mais mensagens à coleção. Essas mensagens são enviadas para a fila quando a função é concluída.
-
-Para saber mais, consulte a documentação de [Associação de saída de armazenamento de filas](functions-bindings-storage-queue.md#output---c-example) .
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -218,7 +218,7 @@ As etapas a seguir publicam seu projeto em um novo aplicativo de funções criad
 
 1. Seguindo os prompts, forneça estas informações:
 
-    | Prompt | Value | Descrição |
+    | Prompt | Valor | Description |
     | ------ | ----- | ----------- |
     | Selecionar aplicativo de funções no Azure | Criar novos Aplicativo de funções no Azure | No prompt seguinte, digite um nome globalmente exclusivo que identifique o novo aplicativo de funções e selecione Enter. Caracteres válidos para um nome de aplicativo de funções são `a-z`, `0-9` e `-`. |
     | Selecionar um sistema operacional | Windows | O aplicativo de funções é executado no Windows. |
@@ -272,7 +272,7 @@ Para executar o projeto do Functions localmente, você deve atender a estes requ
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Ferramentas de CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Depurador para extensão Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou posterior](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
+    | **Python** | [Extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
 
     <sup>*</sup>Active LTS e versões LTS de manutenção (8.11.1 e 10.14.1 recomendadas).
 
@@ -311,7 +311,7 @@ Os valores em **ConnectionStrings** nunca são publicados.
 Os valores das configurações do aplicativo de funções também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte as seções de variáveis de ambiente desses artigos de referência específicos a um idioma:
 
 * [C# pré-compilado](functions-dotnet-class-library.md#environment-variables)
-* [Script do C# (. CSx)](functions-reference-csharp.md#environment-variables)
+* [Script do C# (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -383,7 +383,7 @@ Depois de concluir essas etapas, as chamadas feitas às ferramentas básicas sub
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com seus aplicativos de funções no Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes Azure Functions comandos estão disponíveis:
 
-|Azure Functions comando  | Descrição  |
+|Azure Functions comando  | Description  |
 |---------|---------|
 |**Adicionar novas configurações**  |  Cria uma nova configuração de aplicativo no Azure. Para saber mais, consulte [Publicar configurações do aplicativo](#publish-application-settings). Talvez você também precise [baixar essa configuração para suas configurações locais](#download-settings-from-azure). |
 | **Configurar a origem da implantação** | Conecta seu aplicativo de funções no Azure a um repositório git local. Para saber mais, consulte [implantação contínua para Azure Functions](functions-continuous-deployment.md). |

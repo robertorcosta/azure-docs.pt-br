@@ -1,25 +1,16 @@
 ---
-title: Plug-in do Service Fabric do Azure para Eclipse | Microsoft Docs
-description: Comece a usar o plug-in do Service Fabric para Eclipse.
-services: service-fabric
-documentationcenter: java
+title: Plug-in do Azure Service Fabric para Eclipse
+description: Saiba mais sobre como começar a usar o Azure Service Fabric em Java usando o Eclipse e o plug-in Service Fabric fornecido.
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: c15ca6d68512bc79ce4e5a27f5ce4f7ea6bc3080
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: b779873488f1fff754d4105249b28f545738c11b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035436"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645694"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para o desenvolvimento de aplicativos Eclipse Java
 O Eclipse é um dos IDEs (ambientes de desenvolvimento integrado) mais amplamente usados para desenvolvedores de Java. Neste artigo, descreveremos como configurar seu ambiente de desenvolvimento do Eclipse para trabalhar com o Azure Service Fabric. Saiba como instalar o plug-in do Service Fabric e criar e implantar o aplicativo do Service Fabric em um cluster do Service Fabric local ou remoto no Eclipse. 
@@ -40,12 +31,12 @@ Você pode instalar um plug-in do Service Fabric no Eclipse. O plug-in pode ajud
 
 Instale o Eclipse Neon ou posterior do [site do Eclipse](https://www.eclipse.org).  Instale também a versão 2.2.1 ou posterior do Buildship (plug-in do Service Fabric não é compatível com versões anteriores do Buildship):
 -   Para verificar as versões dos componentes instalados, no Eclipse, acesse **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**.
--   Para atualizar o Buildship, confira [Eclipse Buildship: Plug-ins do Eclipse para][buildship-update]gradle.
+-   Para atualizar a criação, consulte [criação do eclipse: plug-ins do Eclipse para gradle][buildship-update].
 -   Para verificar e instalar atualizações para o Eclipse, acesse **Ajuda** > **Verificar se há Atualizações**.
 
 Instale o plug-in do Service Fabric, no Eclipse, acesse **Ajuda** > **Instalar Novo Software**.
 1. Na caixa **trabalhar com** , digite https:\//DL.Microsoft.com/eclipse.
-2. Clique em **Adicionar** .
+2. Clique em **Adicionar**.
 
    ![Plug-in do Service Fabric para Eclipse][sf-eclipse-plugin-install]
 3. Selecione o plug-in do Service Fabric e clique em **Avançar**.
@@ -57,7 +48,7 @@ Se você já tiver o plug-in do Service Fabric instalado, instale a versão mais
 3. Após a atualização do plug-in do Service Fabric, atualize também o projeto Gradle.  Clique com botão direito em **build.gradle** e selecione **Atualizar**.
 
 > [!NOTE]
-> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local de plug-in Service Fabric\/(https:/dl.Microsoft.com/Eclipse/Azure/servicefabric).
+> Se a instalação ou atualização do plug-in do Service Fabric estiver lenta, isso poderá ser devido a uma configuração do Eclipse. O Eclipse coleta metadados sobre todas as alterações para atualizar sites que estão registrados com a instância do Eclipse. Para acelerar o processo de verificar e instalar uma atualização de plug-in do Service Fabric, acesse **Sites de Software Disponível**. Desmarque as caixas de seleção de todos os sites, exceto aquele que aponta para o local de plug-in Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Se o Eclipse não está funcionando conforme o esperado no seu Mac ou você precisa executar como superusuário), vá para a pasta **ECLIPSE_INSTALLATION_PATH** e navegue até a subpasta **Eclipse.app/Contents/MacOS**. Inicie o Eclipse executando `./eclipse`.
@@ -166,9 +157,9 @@ Para publicar seu aplicativo na nuvem, siga estas etapas:
 5. Para verificar se seu aplicativo está em execução, abra o Service Fabric Explorer no cluster do Azure em uma janela do navegador. No exemplo acima, isso seria: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expanda o nó **Aplicativos** e verifique se seu aplicativo está em execução. 
 
 
-Em clusters seguros do Linux, se seu aplicativo contiver serviços do Reliable Services, você também precisará configurar um certificado que seus serviços possam usar para chamar APIs de tempo de execução do Service Fabric. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
+Em clusters seguros do Linux, se seu aplicativo contiver serviços do Reliable Services, você também precisará configurar um certificado que seus serviços possam usar para chamar APIs de runtime do Service Fabric. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-Para obter uma rápida explicação de como implantar um aplicativo Reliable Services do Service Fabric escrito em Java em um cluster Linux seguro, confira [Início Rápido: Implante um aplicativo Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
+Para obter uma visão rápida de como implantar um aplicativo Service Fabric Reliable Services escrito em Java em um cluster seguro do Linux, consulte [início rápido: implantar um aplicativo java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Implantar um aplicativo do Service Fabric usando configurações de execução do Eclipse
 
@@ -231,9 +222,9 @@ A atualização do aplicativo leva alguns minutos. Você pode monitorar a atuali
 ## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrando os antigos aplicativos Java do Service Fabric para serem usados com o Maven
 Recentemente, movemos as bibliotecas Java do Service Fabric do SDK Java do Service Fabric para o repositório Maven. Embora os novos aplicativos gerados usando o Eclipse gerem projetos atualizados mais recentes (que serão capazes de trabalhar com o Maven), você poderá atualizar os aplicativos Java sem estado ou do ator existentes do Service Fabric, que estavam usando o SDK Java do Service Fabric antes, para usar as dependências Java do Service Fabric a partir do Maven. Siga as etapas mencionadas [aqui](service-fabric-migrate-old-javaapp-to-use-maven.md) para garantir o funcionamento do seu aplicativo mais antigo com o Maven.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para obter as etapas rápidas da criação do aplicativo Reliable Services Java e implantá-lo localmente e no Azure, confira [Início Rápido: Implante um aplicativo Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
+- Para obter etapas rápidas sobre como criar um aplicativo de serviço confiável Java e implantá-lo localmente e no Azure, consulte [início rápido: implantar um aplicativo java Reliable Services](./service-fabric-quickstart-java-reliable-services.md).
 - Para saber como depurar um aplicativo Java em seu cluster local, consulte [depurar um serviço Java no Eclipse](./service-fabric-debugging-your-application-java.md).
 - Para saber como monitorar e diagnosticar aplicativos do Service Fabric, consulte [monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

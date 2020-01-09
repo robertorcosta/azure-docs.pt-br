@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file
@@ -8,14 +8,14 @@ ms.topic: include
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/18/2019
-ms.openlocfilehash: 08833f869a7838fe893b8e941072078f89033c2b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e3cb977871af2e6cd7a59dd48505090dd29e8a76
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517846"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75541797"
 ---
-1. Entre no [Azure Machine Learning Studio](https://ml.azure.com).
+1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com).
 
 1. Atualize seu espaço de trabalho para a edição Enterprise.
 
@@ -38,5 +38,5 @@ ms.locfileid: "73517846"
 
 - **Importar dados** ou **Exportar** módulos de dados
         
-    Se você tiver um módulo **importar dados** ou **exportar dados** no experimento, precisará atualizar a fonte de dados para usar os armazenamentos. Para saber como criar um armazenamento de dados, confira [como acessar os dados nos serviços de armazenamento do Azure](../articles/machine-learning/service/how-to-access-data.md). As informações da sua conta de armazenamento em nuvem foram adicionadas nos comentários do módulo **importar dados** ou **exportar dados** para sua conveniência. 
+    Se você tiver um módulo **importar dados** ou **exportar dados** no experimento, precisará atualizar a fonte de dados para usar os armazenamentos. Para saber como criar um armazenamento de dados, confira [como acessar os dados nos serviços de armazenamento do Azure](../articles/machine-learning/how-to-access-data.md). As informações da sua conta de armazenamento em nuvem foram adicionadas nos comentários do módulo **importar dados** ou **exportar dados** para sua conveniência. 
       

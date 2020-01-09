@@ -4,12 +4,12 @@ description: Saiba como criar, gerenciar e excluir tabelas de rotas do Azure usa
 keywords: ansible, azure, devops, bash, playbook, networking, route, route table
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156498"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659790"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: Configurar as tabelas de rotas do Azure usando o Ansible
 
@@ -23,14 +23,14 @@ O Azure roteia o tráfego automaticamente entre redes virtuais, redes locais e s
 >
 > Criar uma tabela de rotas Criar uma rede virtual e uma sub-rede Associar uma tabela de rotas a uma sub-rede Desassociar uma tabela de rotas de uma sub-rede Criar e excluir rotas Consultar uma tabela de rotas Excluir uma tabela de rotas
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-O código do guia estratégico nesta seção cria uma tabela de rotas. Para obter informações sobre os limites da tabela de rotas, confira [limites do Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+O código do guia estratégico nesta seção cria uma tabela de rotas. Para obter informações sobre os limites da tabela de rotas, confira [limites do Azure](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Salve o guia estratégico a seguir como `route_table_create.yml`:
 

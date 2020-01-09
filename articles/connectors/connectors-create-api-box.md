@@ -1,20 +1,20 @@
 ---
 title: Conectar ao box
-description: Criar e gerenciar arquivos com APIs REST de caixa e Aplicativos Lógicos do Azure
+description: Automatizar tarefas e fluxos de trabalho que criam e gerenciam arquivos no box usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 38e061e918d445de07961af1789891f44c59090a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789872"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666764"
 ---
-# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Criar e gerenciar arquivos no Box com os Aplicativos Lógicos do Azure
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Criar e gerenciar arquivos no box usando aplicativos lógicos do Azure
 
 Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de dentro de um aplicativo lógico com o conector do Box. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos e outras ações, por exemplo:
 
@@ -31,7 +31,7 @@ Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de den
 
 * Uma [conta do Box](https://www.box.com/home)
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * O aplicativo lógico no qual você deseja acessar a conta do Box. Para iniciar seu aplicativo lógico com um gatilho do Box, é necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

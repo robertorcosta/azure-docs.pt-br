@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure DevOps Projects
 metadata:
-  document_id: null
   title: Documentação do Azure DevOps Projects – Guias de início rápido e tutoriais
   meta.description: null
   services: devops-project
@@ -26,7 +25,7 @@ abstract:
     href: 'https://channel9.msdn.com/Events/Connect/2017/T174/player/'
     width: 250
 sections:
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Saiba como compilar seu tipo de aplicativo e implantá-lo com sua escolha de serviço do Azure:'

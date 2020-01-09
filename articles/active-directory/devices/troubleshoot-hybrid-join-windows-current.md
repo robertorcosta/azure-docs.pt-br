@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379156"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689129"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas de dispositivos ingressados no Azure Active Directory híbrido 
 
@@ -26,7 +26,7 @@ Para outros clientes do Windows, consulte o artigo [solução de problemas de Az
 
 Este artigo pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](hybrid-azuread-join-plan.md) para dar suporte aos seguintes cenários:
 
-- Acesso condicional com base no dispositivo
+- Acesso Condicional baseado no dispositivo
 - [Roaming corporativo de configurações](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Configurar o Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
@@ -102,7 +102,8 @@ Esse campo indica se o dispositivo está registrado no Azure AD como um disposit
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-Esse campo indica se o dispositivo ingressou no Azure AD. Se o valor for **NO**, a associação ao Azure AD ainda não terá sido concluída. 
+Este campo indica se o dispositivo está Unido. O valor será **Sim** se o dispositivo for um dispositivo ingressado no Azure ad ou um dispositivo ingressado no Azure ad híbrido.
+Se o valor for **NO**, a associação ao Azure AD ainda não terá sido concluída. 
 
 Prossiga para as próximas etapas para solução de problemas.
 
@@ -373,7 +374,7 @@ Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as fa
 
 | Código de erro do servidor | Mensagem de erro do servidor | Motivos possíveis | Resolução |
 | --- | --- | --- | --- |
-| DirectoryError | Sua solicitação está limitada temporariamente. Tente após 300 segundos. | Erro esperado. Possivelmente devido à realização de várias solicitações de registro em sucessão rápida. | Tentar novamente o ingresso após o período de cooldown |
+| DirectoryError | A solicitação é restringida temporariamente. Tente após 300 segundos. | Erro esperado. Possivelmente devido à realização de várias solicitações de registro em sucessão rápida. | Tentar novamente o ingresso após o período de cooldown |
 
 ##### <a name="sync-join-server-errors"></a>Sincronizar erros do servidor de junção
 
@@ -407,7 +408,7 @@ Esses campos indicam se o usuário foi autenticado com êxito no Azure AD ao se 
 ## <a name="known-issues"></a>Problemas conhecidos
 - Em Configurações-> contas – > acessar trabalho ou escola, dispositivos ingressados no Azure AD híbrido podem mostrar duas contas diferentes, uma para o Azure AD e outra para o AD local, quando conectadas a hotspots móveis ou a redes WiFi externas. Isso é apenas um problema de interface do usuário e não tem nenhum impacto sobre a funcionalidade. 
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Continuar a [solução de problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
 

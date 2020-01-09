@@ -1,5 +1,6 @@
 ---
-title: Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+title: Perguntas frequentes sobre problemas de disponibilidade de aplicativos e serviços
+titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre o aplicativo e a disponibilidade do serviço para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386911"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de disponibilidade de aplicativo e serviço para os serviços de nuvem do Azure: Perguntas frequentes (FAQs)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Azure
 
 Este artigo inclui as perguntas frequentes sobre problemas de aplicativo e disponibilidade do serviço para [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>A minha função foi reciclada. Alguma atualização foi distribuída para meu serviço de nuvem?
-Aproximadamente uma vez por mês, a Microsoft libera uma nova versão do SO Convidado para VMs de PaaS do Microsoft Azure. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por vários outros fatores. Além disso, o Azure é executado em centenas de milhares de computadores. Portanto, é impossível prever a data e hora exatas em que suas funções serão reinicializadas. Podemos atualizar o RSS Feed de Atualização do SO Convidado com as informações mais recentes que temos, mas você deve considerar o horário relatado como um valor aproximado. Estamos cientes de que isso causa problemas para os clientes e estamos trabalhando em um plano limitar ou programar as reinicializações com mais precisão.
+Aproximadamente uma vez por mês, a Microsoft libera uma nova versão do SO Convidado para VMs de PaaS do Microsoft Azure. O SO convidado é apenas uma dessas atualizações no pipeline. Uma versão pode ser afetada por vários outros fatores. Além disso, o Azure é executado em centenas de milhares de computadores. Portanto, é impossível prever a data e hora exatas em que suas funções serão reinicializadas. Podemos atualizar o RSS Feed de Atualização do SO Convidado com as informações mais recentes que temos, mas você deve considerar o horário relatado como um valor aproximado. Estamos cientes de que isso causa problemas para os clientes e estamos trabalhando em um plano limitar ou programar as reinicializações com mais precisão.
 
 Para obter detalhes completos sobre atualizações recentes do SO Convidado, consulte [Versões do SO Convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 

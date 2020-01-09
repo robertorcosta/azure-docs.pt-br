@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 35eff70c12e6f98fa74a4180bf82a369c1ecfaa4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439834"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copiar arquivos de vários contêineres com o Azure Data Factory
 
@@ -25,7 +25,7 @@ Este artigo descreve um modelo de solução que você pode usar para copiar arqu
 > [!NOTE]
 > Se você quiser copiar arquivos de um único contêiner, é mais eficiente usar a [ferramenta copiar dados](copy-data-tool.md) para criar um pipeline com uma única atividade de cópia. O modelo neste artigo é mais do que você precisa para esse cenário simples.
 
-## <a name="about-this-solution-template"></a>Sobre esse modelo de solução
+## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
 Esse modelo enumera os contêineres do seu armazenamento de origem. Em seguida, ele copia esses contêineres para o repositório de destino.
 
@@ -34,11 +34,13 @@ O modelo contém três atividades:
 - **Foreach** Obtém a lista de contêineres da atividade **GetMetadata** e, em seguida, itera na lista e passa cada contêiner para a atividade de cópia.
 - **Copiar** copia cada contêiner do repositório de armazenamento de origem para o repositório de destino.
 
-O modelo define dois parâmetros:
-- *SourceFilePath* é o caminho do seu repositório de fonte de dados, onde você pode obter uma lista dos contêineres. Na maioria dos casos, o caminho é o diretório raiz, que contém várias pastas de contêiner. O valor padrão desse parâmetro é `/`.
-- *DestinationFilePath* é o caminho para o qual os arquivos serão copiados no armazenamento de destino. O valor padrão desse parâmetro é `/`.
+O modelo define os seguintes parâmetros:
+- *SourceFileFolder* é o caminho da pasta do armazenamento de fonte de dados, onde você pode obter uma lista dos contêineres. O caminho é o diretório raiz, que contém várias pastas de contêiner. O valor padrão desse parâmetro é `sourcefolder`.
+- *SourceFileDirectory* é o caminho da subpasta no diretório raiz do seu armazenamento de fonte de dados. O valor padrão desse parâmetro é `subfolder`.
+- *DestinationFileFolder* é o caminho da pasta para onde os arquivos serão copiados no armazenamento de destino. O valor padrão desse parâmetro é `destinationfolder`.
+- *DestinationFileDirectory* é o caminho da subpasta onde os arquivos serão copiados no armazenamento de destino. O valor padrão desse parâmetro é `subfolder`.
 
-## <a name="how-to-use-this-solution-template"></a>Como usar esse modelo de solução
+## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
 1. Vá para o modelo **copiar vários arquivos entre os repositórios** de arquivos. Crie uma **nova** conexão com o repositório de armazenamento de origem. O repositório de armazenamento de origem é onde você deseja copiar arquivos de vários contêineres.
 
@@ -50,7 +52,7 @@ O modelo define dois parâmetros:
 
 3. Selecione **Usar este modelo**.
 
-    ![Usar esse modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
+    ![Usar este modelo](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
 4. Você verá o pipeline, como no exemplo a seguir:
 

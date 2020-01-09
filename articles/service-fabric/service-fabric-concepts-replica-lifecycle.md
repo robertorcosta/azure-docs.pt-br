@@ -1,25 +1,16 @@
 ---
-title: Réplicas e instâncias no Azure Service Fabric | Microsoft Docs
-description: Entender réplicas e instâncias – sua função e ciclos de vida
-services: service-fabric
-documentationcenter: .net
+title: Réplicas e instâncias no Azure Service Fabric
+description: Saiba mais sobre réplicas e instâncias no Service Fabric, incluindo uma visão geral de seus ciclos de vida e funções.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882365"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614597"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instâncias 
 Este artigo fornece uma visão geral do ciclo de vida das réplicas de serviços com estado e instâncias de serviços sem monitoração de estado.
@@ -63,11 +54,11 @@ Uma réplica InBuild é uma réplica criada ou preparada para unir o conjunto de
 
 Se o host do aplicativo ou o nó de uma réplica InBuild falhar, ela fará a transição para o estado inoperante.
 
-   - **Réplicas do InBuild primárias**: As réplicas do InBuild primárias são as primeiras réplicas em uma partição. Geralmente, essa réplica ocorre quando a partição está sendo criada. As réplicas do InBuild primárias também surgem quando todas as réplicas de uma partição são reiniciadas ou removidas.
+   - **Réplicas InBuild primárias**: as réplicas InBuild primárias são as primeiras em uma partição. Geralmente, essa réplica ocorre quando a partição está sendo criada. As réplicas do InBuild primárias também surgem quando todas as réplicas de uma partição são reiniciadas ou removidas.
 
-   - **Réplicas IdleSecondary InBuild**: Essas são novas réplicas criadas pelo Gerenciador de recursos de Cluster ou réplicas existentes que estavam inoperantes e precisam ser adicionadas de volta ao conjunto. Essas réplicas são propagadas ou criadas pela primária antes de poderem ingressar no conjunto de réplicas como ActiveSecondary e participam da confirmação de quorum de operações.
+   - **Réplicas IdleSecondary InBuild**: são novas réplicas criadas pelo Gerenciador de Recursos de Cluster ou réplicas existentes que ficaram inoperantes e precisam ser adicionadas novamente ao conjunto. Essas réplicas são propagadas ou criadas pela primária antes de poderem ingressar no conjunto de réplicas como ActiveSecondary e participam da confirmação de quorum de operações.
 
-   - **Réplicas ActiveSecondary InBuild**: Esse estado é observado em algumas consultas. É uma otimização em que o conjunto de réplicas não está sendo alterado, mas uma réplica precisa ser criada. A própria réplica segue as transições de computador de estado normal (conforme descrito na seção sobre funções de réplica).
+   - **Réplicas ActiveSecondary InBuild**: este estado é observado em algumas consultas. É uma otimização em que o conjunto de réplicas não está sendo alterado, mas uma réplica precisa ser criada. A própria réplica segue as transições de computador de estado normal (conforme descrito na seção sobre funções de réplica).
 
 ### <a name="ready-rd"></a>Pronta (RD)
 Uma réplica Pronta é uma réplica que está participando da replicação e da confirmação de quorum de operações. O estado pronto é aplicável a réplicas primárias e secundárias ativas.
@@ -77,9 +68,9 @@ Se o host do aplicativo ou o nó de uma réplica pronta falhar, ela fará a tran
 ### <a name="closing-cl"></a>Fechamento (CL)
 Uma réplica entra no estado de fechamento nos seguintes cenários:
 
-- **Desligando o código para a réplica**: Talvez seja necessário desligar o código em execução para uma réplica do Service Fabric. Esse desligamento pode ocorrer por vários motivos. Por exemplo, isso pode ocorrer devido a uma atualização de aplicativo, de malha ou de infraestrutura ou devido a uma falha relatada pela réplica. Quando o fechamento da réplica for concluído, a réplica fará a transição para o estado inoperante. O estado persistente associado a esta réplica armazenada em disco não é limpo.
+- **Desligando o código para a réplica**: talvez o Service Fabric precise desligar o código em execução para uma réplica. Esse desligamento pode ocorrer por vários motivos. Por exemplo, isso pode ocorrer devido a uma atualização de aplicativo, de malha ou de infraestrutura ou devido a uma falha relatada pela réplica. Quando o fechamento da réplica for concluído, a réplica fará a transição para o estado inoperante. O estado persistente associado a esta réplica armazenada em disco não é limpo.
 
-- **Removendo a réplica do cluster**: O Service Fabric talvez seja necessário remover o estado persistente e desligar o código em execução para uma réplica. Esse desligamento pode ocorrer por vários motivos, por exemplo, balanceamento de carga.
+- **Removendo a réplica do cluster**: talvez o Service Fabric precise remover o estado persistente e desligar o código em execução para uma réplica. Esse desligamento pode ocorrer por vários motivos, por exemplo, balanceamento de carga.
 
 ### <a name="dropped-dd"></a>Removido (DD)
 No estado removido, a instância não está mais em execução no nó. Também não há mais nenhum estado no nó. Neste ponto, o Service Fabric mantém os metadados sobre essa instância, que é excluída definitivamente também.
@@ -116,32 +107,32 @@ A função da réplica não é relevante no estado em espera.
 ## <a name="replica-role"></a>Função da réplica 
 A função da réplica determina sua função no conjunto de réplicas:
 
-- **Primary (P)** : Há uma primária no conjunto de réplicas é responsável por executar operações leitura e gravação. 
-- **ActiveSecondary (S)** : Essas são réplicas que recebem atualizações de estado da primária, aplicação-las e, em seguida, enviam confirmações de volta. Há várias secundárias ativas no conjunto de réplicas. O número dessas secundárias ativas determina o número de falhas que o serviço pode manipular.
-- **IdleSecondary (I)** : Essas réplicas estão sendo criadas pela primária. Elas estão recebendo o estado da primária antes de poderem ser promovidas para a secundária ativa. 
-- **None (N)** : Essas réplicas não têm uma responsabilidade no conjunto de réplicas.
-- **Unknown (U)** : Essa é a função inicial de uma réplica antes de receber qualquer **ChangeRole** chamada à API do Service Fabric.
+- **Primary (P)** : há uma primária no conjunto de réplicas responsável por executar operações de leitura e de gravação. 
+- **ActiveSecondary (S)** : essas são réplicas que recebem atualizações de estado da primária e as aplica e enviam confirmações de volta. Há várias secundárias ativas no conjunto de réplicas. O número dessas secundárias ativas determina o número de falhas que o serviço pode manipular.
+- **IdleSecondary (I)** : essas réplicas estão sendo criadas pela primária. Elas estão recebendo o estado da primária antes de poderem ser promovidas para a secundária ativa. 
+- **None (N)** : essas réplicas não têm uma responsabilidade no conjunto de réplicas.
+- **Unknown (U)** : essa é a função inicial de uma réplica antes de receber qualquer chamada à API **ChangeRole** do Service Fabric.
 
 O diagrama a seguir ilustra as transições da função de réplica e alguns cenários de exemplo no qual elas podem ocorrer:
 
 ![Função da réplica](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> P: Criação de uma nova réplica primária.
-- U -> I: Criação de uma nova réplica ociosa.
-- U -> N: Exclusão de uma réplica em espera.
-- I -> S: A promoção de ociosidade secundário para o secundário ativo, de modo que suas confirmações contribuam para o quorum.
-- I -> P: Promoção de secundária ociosa para primária. Isso pode acontecer em reconfigurações especiais quando a secundária ociosa é a candidata correta a ser primária.
-- I -> N: Exclusão da réplica secundária ociosa.
-- S -> P: Promoção de secundária ativa para primária. Isso pode ocorrer devido ao failover da primária ou a uma movimentação primária iniciada pelo Gerenciador de Recursos de Cluster. Por exemplo, pode ser em resposta a uma atualização do aplicativo ou o balanceamento de carga.
-- S -> N: Exclusão da réplica secundária ativa.
-- P -> S: Rebaixamento da réplica primária. Isso pode ocorrer devido a uma movimentação primária iniciada pelo Gerenciador de Recursos de Cluster. Por exemplo, pode ser em resposta a uma atualização do aplicativo ou o balanceamento de carga.
-- P -> N: Exclusão da réplica primária.
+- U -> P: criação de uma nova réplica primária.
+- U -> I: criação de uma nova réplica ociosa.
+- U -> N: exclusão de uma réplica em espera.
+- I -> S: promoção da secundária ociosa para secundária ativa para que suas confirmações contribuam para o quorum.
+- I -> P: promoção de secundária ociosa para primária. Isso pode acontecer em reconfigurações especiais quando a secundária ociosa é a candidata correta a ser primária.
+- I -> N: exclusão da réplica secundária ociosa.
+- S -> P: promoção da secundária ativa para primária. Isso pode ocorrer devido ao failover da primária ou a uma movimentação primária iniciada pelo Gerenciador de Recursos de Cluster. Por exemplo, pode ser em resposta a uma atualização do aplicativo ou o balanceamento de carga.
+- S -> N: exclusão da réplica secundária ativa.
+- P -> S: rebaixamento da réplica primária. Isso pode ocorrer devido a uma movimentação primária iniciada pelo Gerenciador de Recursos de Cluster. Por exemplo, pode ser em resposta a uma atualização do aplicativo ou o balanceamento de carga.
+- P -> N: exclusão da réplica primária.
 
 > [!NOTE]
 > Os modelos de programação de nível mais alto, como [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md), ocultam o conceito de funções de réplica do desenvolvedor. Em Actors, a noção de uma função é desnecessária. Em Services, ela é amplamente simplificada para a maioria dos cenários.
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre os conceitos do Service Fabric, consulte o artigo a seguir:
 
 [Ciclo de vida dos Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)

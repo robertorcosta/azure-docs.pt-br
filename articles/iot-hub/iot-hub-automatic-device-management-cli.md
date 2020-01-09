@@ -1,37 +1,37 @@
 ---
-title: Gerenciamento automático de dispositivos em escala com o Azure IoT Hub (CLI) | Microsoft Docs
-description: Use o gerenciamento automático de dispositivo de IoT Hub do Azure para atribuir uma configuração para vários dispositivos de IoT
+title: Gerenciamento automático de dispositivos em escala com o Hub IoT do Azure (CLI) | Microsoft Docs
+description: Usar configurações automáticas do Hub IoT do Azure para gerenciar vários dispositivos ou módulos de IoT
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9a7e2d9874f049000dadcb3e46cccb2202b53698
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429283"
 ---
-# <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Gerenciamento automático de dispositivo do IoT em escala usando a CLI do Azure
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gerenciamento automático de módulos e dispositivos IoT usando o CLI do Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Gerenciamento automático de dispositivos no IoT Hub do Azure automatiza muitas das tarefas complexas e repetitivas de gerenciamento de frotas de dispositivo grandes. Com o gerenciamento automático de dispositivo, um conjunto de dispositivos com base em suas propriedades de destino, definir uma configuração desejada e, em seguida, permitir que o IoT Hub atualizar dispositivos quando eles entrarem no escopo. Esta atualização é feita usando um _configuração de dispositivo automático_, que permite que você resumir conclusão e conformidade, mescla de identificador e conflitos e distribuir as configurações em uma abordagem em fases.
+O gerenciamento automático de dispositivos no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas do gerenciamento de frotas de dispositivos grandes. Com o gerenciamento automático de dispositivos, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e, em seguida, permitir que o Hub IoT atualize os dispositivos quando eles entrarem no escopo. Essa atualização é feita usando uma _configuração automática de dispositivo_ ou _configuração automática de módulo_, que permite resumir a conclusão e a conformidade, lidar com a mesclagem e os conflitos e distribuir configurações em uma abordagem em fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Propriedades relatadas do dispositivo automático gerenciamento funciona atualizando um conjunto de dispositivos gêmeos com as propriedades desejadas e um resumo com base no dispositivo gêmeo de emissão de relatórios.  Ele introduz uma nova classe e um documento JSON chamado um *configuração* que tem três partes:
+O gerenciamento automático de dispositivo funciona atualizando um conjunto de dispositivos gêmeos ou gêmeos de módulo com as propriedades desejadas e relatando um resumo baseado em Propriedades relatadas de entrelaçamento.  Ele introduz uma nova classe e um documento JSON denominado uma *configuração* que tem três partes:
 
-* A **condição de destino** define o escopo de dispositivos gêmeos a serem atualizados. A condição de destino é especificada como uma consulta em marcas de dispositivos gêmeos e/ou propriedades reportadas.
+* A **condição de destino** define o escopo do dispositivo gêmeos ou gêmeos do módulo a ser atualizado. A condição de destino é especificada como uma consulta em marcas de dispositivos gêmeos e/ou propriedades reportadas.
 
-* O **conteúdo de destino** define as propriedades desejadas para serem adicionadas ou atualizadas nos dispositivos gêmeos de destino. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterado.
+* O **conteúdo de destino** define as propriedades desejadas a serem adicionadas ou atualizadas no dispositivo de destino gêmeos ou no módulo gêmeos. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterado.
 
-* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. Métricas personalizadas são especificadas como consultas nas propriedades reportados do dispositivo gêmeo.  As métricas do sistema são as métricas padrão que medem o status de atualização de gêmeos, como o número de dispositivos gêmeos que são o destino e o número de gêmeos foram atualizados com êxito.
+* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. As métricas personalizadas são especificadas como consultas em Propriedades relatadas de entrelaçamento.  As métricas do sistema são as métricas padrão que medem o status de atualização de entrelaçamento, como o número de gêmeos que são direcionadas e o número de gêmeos que foram atualizados com êxito.
 
-Configurações de dispositivo automático executam pela primeira vez logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Consultas de métricas executada cada vez que a configuração de dispositivo automático é executado.
+As configurações automáticas são executadas pela primeira vez logo após a configuração ser criada e, em seguida, em intervalos de cinco minutos. As consultas de métricas são executadas cada vez que a configuração automática é executada.
 
 ## <a name="cli-prerequisites"></a>Pré-requisitos da CLI
 
@@ -39,13 +39,15 @@ Configurações de dispositivo automático executam pela primeira vez logo após
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos gêmeos para configurar dispositivos
+## <a name="implement-twins"></a>Implementar gêmeos
 
-As configurações automáticas de dispositivo requerem o uso de dispositivos gêmeos para sincronizar o estado entre a nuvem e os dispositivos.  Consulte [Compreender e usar gêmeos de dispositivos no Hub IoT](iot-hub-devguide-device-twins.md) para obter orientações sobre o uso de gêmeos de dispositivos.
+As configurações automáticas de dispositivo requerem o uso de dispositivos gêmeos para sincronizar o estado entre a nuvem e os dispositivos.  Para saber mais, veja [Noções básicas e uso de dispositivos gêmeos no Hub IoT](iot-hub-devguide-device-twins.md).
 
-## <a name="identify-devices-using-tags"></a>Identificar dispositivos usando marcações
+As configurações automáticas de módulo exigem o uso do módulo gêmeos para sincronizar o estado entre a nuvem e os módulos. Para obter mais informações, consulte [entender e usar o módulo gêmeos no Hub IOT](iot-hub-devguide-module-twins.md).
 
-Antes de criar uma configuração, você deve especificar quais dispositivos você deseja afetar. O Azure IoT Hub identifica os dispositivos usando marcas no dispositivo gêmeo. Cada dispositivo pode ter várias marcações e você pode defini-las que qualquer modo que faça sentido para sua solução. Por exemplo, se você gerenciar dispositivos em locais diferentes, adicione as seguintes marcas para um dispositivo gêmeo:
+## <a name="use-tags-to-target-twins"></a>Usar marcas para gêmeos de destino
+
+Antes de criar uma configuração, você deve especificar quais dispositivos ou módulos você deseja afetar. O Hub IoT do Azure identifica dispositivos e usando marcas no dispositivo e identifica os módulos usando marcas no módulo. Cada dispositivo ou módulo pode ter várias marcas e você pode defini-las de qualquer maneira que faça sentido para sua solução. Por exemplo, se você gerenciar dispositivos em locais diferentes, adicione as seguintes marcas a um dispositivo.
 
 ```json
 "tags": {
@@ -58,9 +60,9 @@ Antes de criar uma configuração, você deve especificar quais dispositivos voc
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir as métricas e o conteúdo de destino
 
-O conteúdo de destino e a métrica de consultas são especificadas como propriedades relatadas para medir e propriedades desejadas ao conjunto de documentos JSON que descrevem o dispositivo gêmeos.  Para criar uma configuração de dispositivo automática usando a CLI do Azure, salve o conteúdo de destino e as métricas localmente como arquivos .txt. Você pode usar os caminhos de arquivo em uma seção posterior quando você executar o comando para aplicar a configuração para seu dispositivo.
+As consultas de conteúdo e métrica de destino são especificadas como documentos JSON que descrevem as propriedades desejadas do dispositivo ou do módulo "..." para definir e relatar Propriedades a serem medidas.  Para criar uma configuração automática usando CLI do Azure, salve o conteúdo e as métricas de destino localmente como arquivos. txt. Você usará os caminhos de arquivo em uma seção posterior quando executar o comando para aplicar a configuração ao seu dispositivo.
 
-A seguir é apresentando um exemplo de conteúdo de destino básico:
+Aqui está um exemplo de conteúdo de destino básico para uma configuração de dispositivo automática:
 
 ```json
 {
@@ -74,14 +76,38 @@ A seguir é apresentando um exemplo de conteúdo de destino básico:
 }
 ```
 
+As configurações automáticas de módulo se comportam de forma semelhante, mas você tem como destino `moduleContent` em vez de `deviceContent`
+
+```json
+{
+  "content": {
+    "moduleContent": {
+      "properties.desired.chillerWaterSettings": {
+        "temperature": 38,
+        "pressure": 78
+      }
+    }
+}
+```
+
 A seguir estão alguns exemplos de consultas de métricas:
 
 ```json
 {
   "queries": {
-    "Compliant": "select deviceId from devices where configurations.[[chillersettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='current'",
-    "Error": "select deviceId from devices where configurations.[[chillersettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='error'",
-    "Pending": "select deviceId from devices where configurations.[[chillersettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='pending'"
+    "Compliant": "select deviceId from devices where configurations.[[chillerdevicesettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='current'",
+    "Error": "select deviceId from devices where configurations.[[chillerdevicesettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='error'",
+    "Pending": "select deviceId from devices where configurations.[[chillerdevicesettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='pending'"
+  }
+}
+```
+
+As consultas de métricas para módulos também são semelhantes às consultas de dispositivos, mas você seleciona para `moduleId` de `devices.modules`. Por exemplo: 
+
+```json
+{
+  "queries": {
+    "Compliant": "select deviceId, moduleId from devices.module where configurations.[[chillermodulesettingswashington]].status = 'Applied' AND properties.reported.chillerWaterSettings.status='current'"
   }
 }
 ```
@@ -107,11 +133,11 @@ Use o comando a seguir para criar uma configuração:
 
 * --**hub-name** - Nome do Hub IoT no qual a configuração será criada. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-* --**target-condition** - Insira uma condição de destino para determinar quais dispositivos serão segmentados com essa configuração. A condição é baseada nas marcações do dispositivo gêmeo ou nas propriedades desejadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. 
+* --**target-Condition** -Insira uma condição de destino para determinar quais dispositivos ou módulos serão direcionados a essa configuração. Para configuração automática de dispositivo, a condição é baseada nas marcas de dispositivo ou nas propriedades de dispositivo de dispositivos de entrelaçamento e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.desired.devicemodel='4000x'`. Para a configuração automática de módulo, a condição é baseada nas marcas de módulo ou propriedades de módulo de entrelaçamento. Por exemplo, `from devices.modules where tags.environment='test'` ou `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
-* --**priority** - Um inteiro positivo. No caso de duas ou mais configurações a serem direcionadas ao mesmo dispositivo, será aplicada a configuração com o maior valor numérico para Prioridade.
+* --**priority** - Um inteiro positivo. Caso duas ou mais configurações sejam destinadas ao mesmo dispositivo ou módulo, a configuração com o maior valor numérico para prioridade será aplicada.
 
-* --**metrics** - Caminho para as consultas de métricas. As métricas fornecem contagens resumidas de vários estados em que um dispositivo pode relatar novamente após a aplicação de conteúdo da configuração. Por exemplo, você pode criar uma métrica para alterações de configurações pendentes, uma métrica de erros e uma métrica para alterações de configurações bem-sucedidas. 
+* --**metrics** - Caminho para as consultas de métricas. As métricas fornecem contagens de resumo dos vários Estados que um dispositivo ou módulo pode reportar depois de aplicar o conteúdo de configuração. Por exemplo, você pode criar uma métrica para alterações de configurações pendentes, uma métrica de erros e uma métrica para alterações de configurações bem-sucedidas. 
 
 ## <a name="monitor-a-configuration"></a>Monitorar uma configuração
 
@@ -126,15 +152,15 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hub-name** - Nome do Hub IoT no qual a configuração existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
-Inspecione a configuração na janela de comando. A propriedade **Metrics** lista uma contagem para cada métrica avaliada por cada hub:
+Inspecione a configuração na janela de comando. A propriedade de **métricas** lista uma contagem de cada métrica que é avaliada por cada Hub:
 
-* **targetedCount** - Uma métrica do sistema que especifica o número de dispositivos gêmeos no Hub IoT que correspondem à condição de direcionamento.
+* **targetedCount** -uma métrica do sistema que especifica o número de dispositivos gêmeos ou do módulo gêmeos no Hub IOT que correspondem à condição de destino.
 
-* **appliedCount** - Uma métrica de sistema especifica o número de dispositivos que tiveram o conteúdo de destino aplicado.
+* **appliedCount** -uma métrica do sistema especifica o número de dispositivos ou módulos que tiveram o conteúdo de destino aplicado.
 
-* **Sua métrica personalizada** -qualquer métricas que você definiu são métricas de usuário.
+* **Sua métrica personalizada** -quaisquer métricas que você definiu são métricas de usuário.
 
-É possível mostrar uma lista de IDs de dispositivos ou objetos para cada uma das métricas usando o comando a seguir:
+Você pode mostrar uma lista de IDs de dispositivo, IDs de módulo ou objetos para cada uma das métricas usando o seguinte comando:
 
 ```cli
 az iot hub configuration show-metric --config-id [configuration id] \
@@ -143,7 +169,7 @@ az iot hub configuration show-metric --config-id [configuration id] \
 
 * --**config-id** - O nome da implantação que existe no hub IoT.
 
-* --**metric-id** - O nome da métrica para a qual você deseja ver a lista de códigos de dispositivos, por exemplo `appliedCount`.
+* --**Metric-ID** -o nome da métrica para a qual você deseja ver a lista de IDs de dispositivo ou IDs de módulo, por exemplo `appliedCount`.
 
 * --**hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`.
 
@@ -155,11 +181,11 @@ Quando você modifica uma configuração, as alterações são replicadas imedia
 
 Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
 
-* Caso um dispositivo gêmeo não tenha atendido à condição de destino antiga, mas atenda à nova condição de destino e essa configuração tiver a prioridade mais alta para o dispositivo gêmeo, essa configuração será aplicada ao dispositivo gêmeo. 
+* Se um Altova não atender à condição de destino antiga, mas atender à nova condição de destino e essa configuração for a prioridade mais alta para esse pressione, essa configuração será aplicada. 
 
-* Se um dispositivo gêmeo não atende mais à condição de destino, as definições da configuração serão removidas e o dispositivo gêmeo será modificada pela próxima configuração de prioridade mais alta. 
+* Se um "n" em execução nesta configuração não atender mais à condição de destino, as configurações da configuração serão removidas e o número de teleatualização será modificado pela próxima configuração de prioridade mais alta. 
 
-* Se um dispositivo gêmeo que executa essa configuração no momento não atende à condição de destino e não atende a condição destino de quaisquer outras configurações, as definições da configuração serão removidas e nenhuma outra alteração será feita no dispositivo gêmeo. 
+* Se um "n" em execução nesta configuração não atender mais à condição de destino e não cumprir a condição de destino de nenhuma das outras configurações, as configurações da configuração serão removidas e nenhuma outra alteração será feita em. 
 
 Use o comando a seguir para atualizar uma configuração:
 
@@ -178,11 +204,11 @@ az iot hub configuration update --config-id [configuration id] \
 
     * rótulos 
 
-    * prioridade
+    * priority
 
 ## <a name="delete-a-configuration"></a>Excluir uma configuração
 
-Quando você exclui uma configuração, qualquer dispositivo gêmeo assume sua próxima configuração de prioridade mais alta. Se os dispositivos gêmeos não atendem a condição destino de qualquer outra configuração, não serão aplicadas outras configurações. 
+Quando você exclui uma configuração, qualquer dispositivo gêmeos ou módulo gêmeos assume sua próxima configuração de prioridade mais alta. Se gêmeos não atender à condição de destino de nenhuma outra configuração, nenhuma outra definição será aplicada. 
 
 Use o comando a seguir para excluir uma configuração:
 
@@ -194,9 +220,9 @@ az iot hub configuration delete --config-id [configuration id] \
 
 * --**hub-name** - Nome do Hub IoT no qual a configuração existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, você aprendeu a configurar e monitorar dispositivos de IoT em escala. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
+Neste artigo, você aprendeu a configurar e monitorar dispositivos IoT em escala. Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerencie suas identidades de dispositivo do Hub IoT em massa](iot-hub-bulk-identity-mgmt.md)
 * [Métricas do IoT Hub](iot-hub-metrics.md)

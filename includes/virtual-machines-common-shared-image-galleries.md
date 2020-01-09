@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875483"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663029"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -31,7 +31,7 @@ Se você tiver um grande número de imagens gerenciadas que precisa manter e des
 
 O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
-| Grupos | Descrição|
+| Grupos | Description|
 |----------|------------|
 | **Imagem gerenciada** | Uma imagem básica que pode ser usada sozinha ou usada para criar uma **versão de imagem** em uma galeria de imagens. As imagens gerenciadas são criadas a partir de VMs [generalizadas](#generalized-and-specialized-images) . Uma imagem gerenciada é um tipo especial de VHD que pode ser usado para criar várias VMs e agora pode ser usado para criar versões de imagem compartilhada. |
 | **Instantâneo** | Uma cópia de um VHD que pode ser usado para criar uma **versão de imagem**. Os instantâneos podem ser obtidos de uma VM [especializada](#generalized-and-specialized-images) (uma que não tenha sido generalizada) em seguida, usados sozinhos ou com instantâneos de discos de dados, para criar uma versão de imagem especializada.
@@ -150,8 +150,8 @@ Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de
 
 | Compartilhado com o usuário     | Galeria de Imagens Compartilhadas | Definição de imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Compartilhadas | SIM                  | SIM          | SIM                  |
-| Definição de imagem     | Não                   | SIM          | SIM                  |
+| Galeria de Imagens Compartilhadas | Sim                  | Sim          | Sim                  |
+| Definição de imagem     | Não                   | Sim          | Sim                  |
 
 É recomendável compartilhar no nível da galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -167,12 +167,12 @@ não há preço adicional para usar o serviço de Galeria de Imagens Compartilha
 Depois de criado, você pode fazer algumas alterações nos recursos da Galeria de imagens. Elas são limitadas a:
  
 Galeria de imagens compartilhadas:
-- Descrição
+- Description
 
 definição da imagem:
 - vCPUs recomendadas
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim da vida útil
 
 Versão da imagem:
@@ -239,9 +239,9 @@ Para listar todos os recursos da Galeria de imagens compartilhadas nas assinatur
  
 Sim. Há três cenários com base nos tipos de imagens que você pode ter.
 
- Cenário 1: se você tiver uma imagem gerenciada, poderá criar uma definição de imagem e a versão da imagem usando essa definição.
+ Cenário 1: se você tiver uma imagem gerenciada na mesma assinatura que o SIG, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
 
- Cenário 2: se você tiver uma imagem não gerenciada, poderá criar uma imagem gerenciada a partir dela e, em seguida, criar uma definição de imagem e uma versão de imagem a partir dela. 
+ Cenário 2: se você tiver uma imagem não gerenciada na mesma assinatura que o SIG, poderá criar uma imagem gerenciada a partir dela e, em seguida, criar uma definição de imagem e uma versão de imagem a partir dela. 
 
  Cenário 3: se você tiver um VHD em seu sistema de arquivos local, precisará carregar o VHD em uma imagem gerenciada e, em seguida, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
 

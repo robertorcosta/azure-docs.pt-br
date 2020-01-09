@@ -1,32 +1,23 @@
 ---
-title: Simular falhas nos microsserviços do Azure | Microsoft Docs
+title: Simular falhas nos microserviços do Azure
 description: Este artigo fala sobre as ações da Possibilidade de Teste encontradas na Malha de Serviço do Microsoft Azure.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: chackdan
-editor: heeldin
-ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465595"
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
 
 O Service Fabric fornece alguns cenários comuns de teste compostos por essas ações. É altamente recomendável utilizar esses cenários internos, que são escolhidos cuidadosamente para testar transições de estado comuns e casos de falha. No entanto, as ações podem ser usadas para criar cenários de teste personalizados quando você desejar adicionar cobertura para cenários que ainda não estão cobertos pelos cenários internos ou personalizados sob medida para seu aplicativo.
 
-As implementações das ações em C# são encontradas no assembly System.Fabric.dll. O módulo Service Fabric PowerShell é encontrado no assembly Microsoft.ServiceFabric.Powershell.dll. Como parte da instalação em tempo de execução, o módulo do PowerShell ServiceFabric é instalado para fins de facilidade de uso.
+As implementações das ações em C# são encontradas no assembly System.Fabric.dll. O módulo Service Fabric PowerShell é encontrado no assembly Microsoft.ServiceFabric.Powershell.dll. Como parte da instalação em runtime, o módulo do PowerShell ServiceFabric é instalado para fins de facilidade de uso.
 
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>Ações de falha normais x anormais
 As ações da Possibilidade de Teste são classificadas em dois blocos principais:
@@ -37,7 +28,7 @@ As ações da Possibilidade de Teste são classificadas em dois blocos principai
 Para validação de melhor qualidade, execute a carga de trabalho de serviço e comercial enquanto estiver induzindo várias falhas normais e anormais. Falhas anormais utilizam cenários em que o processo de serviço é interrompido abruptamente no meio de algum fluxo de trabalho. Isso testa o caminho de recuperação assim que a réplica do serviço é restaurada pelo Service Fabric. Isso ajudará na consistência dos dados de teste e a verificar se o estado do serviço é mantido corretamente após as falhas. O outro conjunto de falhas (falhas normais) testa se o serviço reage corretamente à movimentação das réplicas pelo Service Fabric. Isso testa o tratamento de cancelamento no método RunAsync. O serviço precisa verificar se o token de cancelamento que está sendo definido salva seu estado e encerra o método RunAsync corretamente.
 
 ## <a name="testability-actions-list"></a>Lista de ações da Possibilidade de Teste
-| Ação | DESCRIÇÃO | API gerenciada | Cmdlet do Powershell | Falhas normais/anormais |
+| Ação | Description | API gerenciada | Cmdlet do PowerShell | Falhas normais/anormais |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Remove todo o estado de teste do cluster em caso de desligamento repentino do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvokeDataLoss |Induz a perda de dados em uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
@@ -227,7 +218,7 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Cenários da possibilidade de teste](service-fabric-testability-scenarios.md)
 * Como testar seu serviço
   * [Simular falhas durante cargas de trabalho de serviço](service-fabric-testability-workload-tests.md)

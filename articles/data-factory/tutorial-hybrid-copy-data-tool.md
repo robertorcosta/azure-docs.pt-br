@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.openlocfilehash: e248c7f37c062fc69e5e42ae7d33e275c4b0aa19
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: db069571258bce8b79d223ce3115737061685b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439363"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -35,7 +35,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Usar a ferramenta Copy Data para criar um pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -123,7 +123,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
    - Selecione **Criar novo**e insira o nome de um grupo de recursos. 
         
-     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).
 1. Em **Versão**, selecione **V2**.
 1. Em **Local**, selecione o local para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo Data Factory podem estar em outros locais/regiões.
 1. Selecione **Criar**.
@@ -231,7 +231,7 @@ Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no seu 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O pipeline deste exemplo copia dados de um banco de dados do SQL Server local para um Armazenamento de blobs. Você aprendeu como: 
+O pipeline deste exemplo copia dados de um banco de dados do SQL Server local para um Armazenamento de blobs. Você aprendeu a: 
 
 > [!div class="checklist"]
 > * Criar um data factory.

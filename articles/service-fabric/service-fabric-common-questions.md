@@ -1,25 +1,15 @@
 ---
-title: Perguntas comuns sobre o Microsoft Azure Service Fabric | Microsoft Docs
-description: Perguntas frequentes e respostas sobre o Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Perguntas comuns sobre Microsoft Azure Service Fabric
+description: Perguntas frequentes sobre Service Fabric, incluindo recursos, casos de uso e cenários comuns.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481646"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614631"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Perguntas frequentes sobre o Service Fabric
 
@@ -135,7 +125,7 @@ Não. Não há suporte para VMs de baixa prioridade.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como meu aplicativo pode autenticar obter segredos no cofre de chaves?
 A seguir, os meios para o seu aplicativo obter credenciais para autenticação no KeyVault:
 
-A. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
+a. Durante o trabalho de criação / empacotamento de aplicativos, você pode inserir um certificado no pacote de dados do aplicativo SF e usá-lo para autenticar no KeyVault.
 B. Para hosts habilitados para MSI do conjunto de dimensionamento de máquinas virtuais, você pode desenvolver um SetupEntryPoint simples do PowerShell para seu aplicativo de it para obter [um token de acesso do ponto de extremidade do MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do keyvault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
@@ -191,6 +181,6 @@ Nós [anunciamos recentemente](https://blogs.msdn.microsoft.com/azureservicefabr
 
 Siga o [Blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) para obter mais detalhes à medida que eles forem anunciados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os [conceitos principais de Service Fabric](service-fabric-technical-overview.md) e [as práticas recomendadas](service-fabric-best-practices-overview.md) conceitos de malha Ice] (Service-Fabric-Technical-Overview.MD) e [as práticas recomendadas](service-fabric-best-practices-overview.md)

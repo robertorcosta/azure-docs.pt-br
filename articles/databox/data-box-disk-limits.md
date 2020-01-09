@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cd40c5d11414c91ff2f2febc0621e1e06f79e9cf
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646975"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613781"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites do Azure Data Box Disk
 
@@ -59,7 +59,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento do Azure
 
-Abaixo, são informados os limites do tamanho dos dados que são copiados para a conta de armazenamento. Verifique se os dados carregados por você estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse [Destinos de escala de Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [Destinos de escala de Arquivos do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Abaixo, são informados os limites do tamanho dos dados que são copiados para a conta de armazenamento. Verifique se os dados carregados por você estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse [Destinos de escala de Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage) e [Destinos de escala de Arquivos do Azure](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts).
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite padrão          |
 |---------------------------------------------------------------------|------------------------|
@@ -72,10 +72,10 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 
 | Tipo de objeto do Azure | Limite padrão                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de blocos        | Aproximadamente 4,75 TiB                                                 |
+| Blob de Blocos        | Aproximadamente 4,75 TiB                                                 |
 | Blob de páginas         | 8 TiB <br> (Cada arquivo carregado no formato de blob de páginas deve ter 512 bytes alinhados, caso contrário, o carregamento falhará. <br> O VHD e o VHDX são 512 bytes alinhados.) |
 |Arquivos do Azure        | 1 TiB <br> Máx. o tamanho do compartilhamento é 5 TiB     |
-| Discos gerenciados     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Managed Disks     |4 TiB <br> Para obter mais informações sobre tamanho e limites, consulte: <li>[Metas de escalabilidade para discos gerenciados](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenções de nomenclatura de arquivo, blob de páginas e blob de blocos do Azure
@@ -92,6 +92,6 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 |-------------------|-----------------------------------------------------------|
 | Nomes de discos gerenciados       | <li> O nome deve ter de 1 a 80 caracteres de comprimento. </li><li> O nome deve começar com uma letra ou número, terminar com uma letra, número ou sublinhado. </li><li> O nome pode conter apenas letras, números, sublinhados, pontos ou hifens. </li><li>   O nome não deve ter espaços ou `/`.                                              |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examinar [disco do data Box requisitos do sistema](data-box-disk-system-requirements.md)

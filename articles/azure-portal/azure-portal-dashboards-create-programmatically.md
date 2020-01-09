@@ -1,10 +1,10 @@
 ---
 title: Criar de maneira programática Painéis do Azure | Microsoft Docs
-description: Este artigo explica como criar programaticamente os Painéis do Azure.
+description: Você pode usar um painel no portal do Azure como um modelo para criar programaticamente painéis do Azure. Inclui referência JSON.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552094"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640339"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -26,7 +26,7 @@ Este documento explica o processo de criação e publicação de forma programá
 
 ![painel de amostra](./media/azure-portal-dashboards-create-programmatically/sample-dashboard.png)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os painéis compartilhados no Azure são [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) assim como máquinas virtuais e contas de armazenamento.  Portanto, eles podem ser gerenciados programaticamente por meio de [APIs REST do Azure Resource Manager](/rest/api/), [CLI do Azure](https://docs.microsoft.com/cli/azure), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) e muitos recursos do [Portal do Azure](https://portal.azure.com) compilados no topo dessas APIs para facilitar o gerenciamento de recursos.  
 

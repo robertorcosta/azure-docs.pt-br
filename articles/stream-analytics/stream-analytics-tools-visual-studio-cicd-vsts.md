@@ -1,7 +1,6 @@
 ---
 title: Implantar trabalhos do Azure Stream Analytics com CI/CD e o Azure DevOps
 description: Este artigo descreve como implantar um trabalho do Stream Analytics com CI/CD usando o Azure DevOps Services.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354429"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines
 Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Azure Pipelines. 
@@ -27,7 +26,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um pipeline de lançamento no Azure Pipelines
 > * Implantar e atualizar automaticamente um aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de começar, verifique se você tem:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -150,7 +149,7 @@ Ao escrever seu código, suas alterações são rastreadas automaticamente pelo 
 
 O push das alterações para o Azure DevOps Services dispara um build automaticamente.  Quando o pipeline de build é concluída com êxito, uma versão é criada automaticamente e inicia a atualização do trabalho no cluster.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, poderá interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
 

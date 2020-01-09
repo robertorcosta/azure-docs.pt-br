@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827145"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553062"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 
@@ -35,6 +35,7 @@ Considere os seguintes pré-requisitos:
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Crie seu grupo de failover e adicione seu banco de dados a ele usando o portal do Azure.
+
 
 1. Selecione **SQL do Azure** no menu de navegação do [portal do Azure](https://portal.azure.com) à esquerda. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. (Opcional) Selecione a estrela ao lado de **SQL do Azure** para marcá-lo como favorito e adicioná-lo como um item no menu de navegação à esquerda. 
 1. Selecione o banco de dados individual que você deseja adicionar ao grupo de failover. 
@@ -183,6 +184,9 @@ Reverta o grupo de failover de volta para o servidor primário:
 
 ---
 
+> [!IMPORTANT]
+> Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+
 ## <a name="elastic-pool"></a>Pool elástico
 Crie o grupo de failover e adicione um pool elástico a ele usando o portal do Azure ou o PowerShell.  
 
@@ -328,11 +332,14 @@ Fazer failover para o servidor secundário:
 
 ---
 
+> [!IMPORTANT]
+> Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível. 
+
 ## <a name="managed-instance"></a>Instância gerenciada
 
 Crie um grupo de failover entre duas instâncias gerenciadas usando o portal do Azure ou o PowerShell. 
 
-Você precisará criar um gateway para a rede virtual de cada instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover.
+Você precisará configurar o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou criar um gateway para a rede virtual de cada instância gerenciada, conectar os dois gateways e, em seguida, criar o grupo de failover. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Considere os seguintes pré-requisitos:
@@ -344,7 +351,7 @@ Considere os seguintes pré-requisitos:
 
 ### <a name="create-primary-virtual-network-gateway"></a>Criar gateway de rede virtual primária 
 
-Crie o gateway de rede virtual primária com o portal do Azure ou o PowerShell. 
+Se você não tiver configurado o [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), poderá criar o gateway de rede virtual primária com o portal do Azure ou o PowerShell. 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -650,7 +657,7 @@ O ponto de extremidade do ouvinte está na forma de `fog-name.database.windows.n
 - A remoção de um grupo de failover para um banco de dados único ou em pool não interrompe a replicação e não exclui o banco de dados replicado. Você precisará parar manualmente a replicação geográfica e excluir o banco de dados do servidor secundário se desejar adicionar um banco de dados individual ou em pool de volta a um grupo de failover depois que ele tiver sido removido. A falha de qualquer coisa pode resultar em um erro semelhante a `The operation cannot be performed due to multiple errors` ao tentar adicionar o banco de dados ao grupo de failover. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter etapas detalhadas sobre como configurar um grupo de failover, consulte os seguintes tutoriais:
 - [Adicionar um banco de dados individual a um grupo de failover](sql-database-single-database-failover-group-tutorial.md)

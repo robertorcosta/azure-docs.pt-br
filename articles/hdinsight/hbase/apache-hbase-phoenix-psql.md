@@ -2,18 +2,18 @@
 title: Carregamento em massa no Apache Phoenix usando psql – HDInsight do Azure
 description: Usar a ferramenta psql para carregar dados de carregamento em massa em tabelas Apache Phoenix no Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/10/2017
-ms.author: ashishth
-ms.openlocfilehash: f00f6bcf07cbdc5aeaeb04aeccf7e88cf4822dbf
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 845c4a62aee04a8acdc645ba4c41f1f5496537c3
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311718"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552603"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carregar dados em massa para o Apache Phoenix usando psql
 
@@ -27,13 +27,13 @@ A ferramenta `psql` é de thread único e é mais adequada para carregar megabyt
 
 O carregamento em massa com MapReduce é usado para volumes de dados muito maiores, normalmente em cenários de produção, pois o MapReduce usa vários threads.
 
-Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitado e se as configurações de tempo limite de consulta estão como o esperado.  Acesse o painel de [Apache Ambari](https://ambari.apache.org/) do cluster HDInsight, selecione HBase e, em seguida, a guia Configuração.  Role para baixo para verificar se o Apache Phoenix está definido como `enabled` conforme mostrado:
+Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitado e se as configurações de tempo limite de consulta estão como o esperado.  Acesse o painel do [Apache Ambari](https://ambari.apache.org/) do cluster HDInsight, selecione HBase e, em seguida, a guia configuração.  Role para baixo para verificar se Apache Phoenix está definido como `enabled` conforme mostrado:
 
 ![Configurações de Cluster de HDInsight do Apache Phoenix](./media/apache-hbase-phoenix-psql/apache-ambari-phoenix.png)
 
 ### <a name="use-psql-to-bulk-load-tables"></a>Use `psql` para tabelas de carregamento em massa
 
-1. Criar uma nova tabela e salve a consulta com o nome do arquivo `createCustomersTable.sql`.
+1. Crie um arquivo chamado `createCustomersTable.sql`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,77 +44,118 @@ Antes de iniciar o carregamento de dados, verifique se o Phoenix está habilitad
         Country varchar);
     ```
 
-2. Copie o arquivo CSV (conteúdos de exemplo mostrados) como `customers.csv` em um diretório `/tmp/` para carregar na sua tabela recém-criada.  Use o comando `hdfs` para copiar o arquivo CSV para o local de origem desejado.
+1. Crie um arquivo chamado `listCustomers.sql`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
 
+    ```sql
+    SELECT * from Customers;
     ```
+
+1. Crie um arquivo chamado `customers.csv`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
+
+    ```txt
     1,Samantha,260000.0,18,US
     2,Sam,10000.5,56,US
-    3,Anton,550150.0,Norway
-    ... 4997 more rows 
+    3,Anton,550150.0,42,Norway
     ```
 
-    ```bash
-    hdfs dfs -copyToLocal /example/data/customers.csv /tmp/
+1. Crie um arquivo chamado `customers2.csv`e copie o código abaixo para o arquivo. Em seguida, salve e feche o arquivo.
+
+    ```txt
+    4,Nicolle,180000.0,22,US
+    5,Kate,210000.5,24,Canada
+    6,Ben,45000.0,32,Poland
     ```
 
-3. Crie uma consulta SQL SELECT para verificar se os dados de entrada firam carregados corretamente e salve a consulta com o nome de arquivo `listCustomers.sql`. Você pode usar qualquer consulta SQL.
-     ```sql
-    SELECT Name, Income from Customers group by Country;
+1. Abra um prompt de comando e altere o diretório para o local dos arquivos recém-criados. Substitua CLUSTERname, abaixo, pelo nome real do cluster HBase. Em seguida, execute o código para carregar os arquivos para o cabeçalho do cluster:
+
+    ```cmd
+    scp customers.csv customers2.csv createCustomersTable.sql listCustomers.sql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/tmp
     ```
 
-4. Carregue os dados em massa abrindo uma *nova* janela de comando do Hadoop. Primeiro altere para o local do diretório de execução com o comando `cd` e, em seguida, use a ferramenta `psql` (comando `psql.py` do Python). 
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
 
-    O exemplo a seguir espera que você tenha copiado o arquivo `customers.csv` de uma conta de armazenamento para o diretório temporário local usando `hdfs` como na etapa 2 acima.
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. Na sua sessão SSH, altere o diretório para o local da ferramenta **psql** . Execute o comando a seguir:
 
     ```bash
     cd /usr/hdp/current/phoenix-client/bin
-
-    python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE]   
-    > Para determinar o nome `ZookeeperQuorum`, localize a cadeia de caracteres quorum [Apache ZooKeeper](https://zookeeper.apache.org/) no arquivo `/etc/hbase/conf/hbase-site.xml` com o nome de propriedade `hbase.zookeeper.quorum`.
+1. Carregar os dados em massa. O código a seguir criará a tabela **Customers** e, em seguida, carregará os dados.
 
-5. Após a conclusão da operação `psql`, você verá uma mensagem na janela de comando:
-
+    ```bash
+    python psql.py /tmp/createCustomersTable.sql /tmp/customers.csv
     ```
-    CSV Upsert complete. 5000 rows upserted
-    Time: 4.548 sec(s)
+
+    Após a conclusão da operação de `psql`, você deverá ver uma mensagem semelhante à seguinte:
+
+    ```output
+    csv columns from database.
+    CSV Upsert complete. 3 rows upserted
+    Time: 0.081 sec(s)
+    ```
+
+1. Você pode continuar a usar `psql` para exibir o conteúdo da tabela Customers. Execute o código abaixo:
+
+    ```bash
+    python psql.py /tmp/listCustomers.sql
+    ```
+
+    Como alternativa, você pode usar o [shell do HBase](./query-hbase-with-hbase-shell.md)ou o [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md) para consultar os dados.
+
+1. Carregar dados adicionais. Agora que a tabela já existe, o comando especifica a tabela. Execute o comando a seguir:
+
+    ```bash
+    python psql.py -t CUSTOMERS /tmp/customers2.csv
     ```
 
 ## <a name="use-mapreduce-to-bulk-load-tables"></a>Use MapReduce para tabelas de carregamento em massa
 
 Para carregamento de maior taxa de transferência distribuído pelo cluster, use a ferramenta de carregamento do MapReduce. Esse carregador primeiro converte todos os dados em HFiles e, em seguida, fornece o HFiles criado para o HBase.
 
+1. Esta seção continua com a sessão SSH e os objetos criados anteriormente. Crie a tabela **Customers** e o arquivo **Customers. csv** conforme necessário usando as etapas acima. Se necessário, restabeleça a conexão SSH.
+
+1. Truncar o conteúdo da tabela **Customers** . Em sua sessão SSH aberta, execute os comandos abaixo:
+
+    ```bash
+    hbase shell
+    truncate 'CUSTOMERS'
+    exit
+    ```
+
+1. Copie o arquivo de `customers.csv` do seu cabeçalho para o armazenamento do Azure.
+
+    ```bash
+    hdfs dfs -put /tmp/customers.csv wasbs:///tmp/customers.csv
+    ```
+
+1. Altere para o diretório de execução do comando de carregamento em massa do MapReduce:
+
+    ```bash
+    cd /usr/hdp/current/phoenix-client
+    ```
+
 1. Inicie o carregador de MapReduce CSV usando o `hadoop` com o jar do cliente Phoenix:
 
     ```bash
-    hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table CUSTOMERS --input /data/customers.csv
+    HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar phoenix-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /tmp/customers.csv
     ```
 
-2. Crie uma nova tabela com uma instrução SQL, assim como em `CreateCustomersTable.sql` anteriormente na etapa 1.
+    Quando o carregamento for concluído, você verá uma mensagem semelhante à seguinte:
 
-3. Para verificar o esquema da tabela, execute `!describe inputTable`.
-
-4. Determine o caminho local para seus dados de entrada, como o arquivo de exemplo `customers.csv`. Os arquivos de entrada podem estar em sua conta de armazenamento WASB/ADLS. No cenário de exemplo, os arquivos de entrada estão no diretório `<storage account parent>/inputFolderBulkLoad`.
-
-5. Altere para o diretório de execução do comando de carregamento em massa do MapReduce:
-
-    ```bash
-    cd /usr/hdp/current/phoenix-client/bin
+    ```output
+    19/12/18 18:30:57 INFO client.ConnectionManager$HConnectionImplementation: Closing master protocol: MasterService
+    19/12/18 18:30:57 INFO client.ConnectionManager$HConnectionImplementation: Closing zookeeper sessionid=0x26f15dcceff02c3
+    19/12/18 18:30:57 INFO zookeeper.ZooKeeper: Session: 0x26f15dcceff02c3 closed
+    19/12/18 18:30:57 INFO zookeeper.ClientCnxn: EventThread shut down
+    19/12/18 18:30:57 INFO mapreduce.AbstractBulkLoadTool: Incremental load complete for table=CUSTOMERS
+    19/12/18 18:30:57 INFO mapreduce.AbstractBulkLoadTool: Removing output directory /tmp/50254426-aba6-400e-88eb-8086d3dddb6
     ```
 
-6. Localize o valor do seu `ZookeeperQuorum` em `/etc/hbase/conf/hbase-site.xml`, com o nome de propriedade `hbase.zookeeper.quorum`.
-
-7. Defina o caminho de classe e execute o comando da ferramenta `CsvBulkLoadTool`:
-
-    ```bash
-    /usr/hdp/current/phoenix-client$ HADOOP_CLASSPATH=/usr/hdp/current/hbase-client/lib/hbase-protocol.jar:/etc/hbase/conf hadoop jar /usr/hdp/2.4.2.0-258/phoenix/phoenix-4.4.0.2.4.2.0-258-client.jar
-
-    org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
-    ```
-
-8. Para usar o MapReduce com o Azure Data Lake Storage, localize o diretório raiz do Data Lake Storage, que é o valor `hbase.rootdir` em `hbase-site.xml`. No comando a seguir, o diretório raiz do Data Lake Storage é `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. Neste comando, especifique as pastas de entrada e saída do Data Lake Storage como parâmetros:
+1. Para usar o MapReduce com o Azure Data Lake Storage, localize o diretório raiz do Data Lake Storage, que é o valor `hbase.rootdir` em `hbase-site.xml`. No comando a seguir, o diretório raiz do Data Lake Storage é `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`. Neste comando, especifique as pastas de entrada e saída do Data Lake Storage como parâmetros:
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -123,6 +164,8 @@ Para carregamento de maior taxa de transferência distribuído pelo cluster, use
 
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/temp/input/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure --output  adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/output1
     ```
+
+1. Para consultar e exibir os dados, você pode usar **psql** conforme descrito anteriormente. Você também pode usar o [shell do HBase](./query-hbase-with-hbase-shell.md)ou o [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md).
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -138,7 +181,7 @@ Para carregamento de maior taxa de transferência distribuído pelo cluster, use
 
 * Evite pontos de acesso de servidor regional. Se a chave de linha está aumentando de forma monotônica, gravações sequenciais HBase podem induzir à regionalização de pontos de acesso do servidor. *Distribuir* a chave de linha reduz gravações sequenciais. O Phoenix fornece uma maneira de distribuir de forma transparente a chave de linha com um byte de distribuição para uma tabela específica, conforme mencionado abaixo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Carregamento de dados em massa com o Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
 * [Usar o Apache Phoenix com clusters do Apache HBase baseado em Linux no HDInsight](../hbase/apache-hbase-query-with-phoenix.md)

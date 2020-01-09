@@ -1,18 +1,18 @@
 ---
-title: Detecção Inteligente - Degradação na taxa de gravidade de rastreamento, no Azure Application Insights | Microsoft Docs
-description: Monitore os rastreamentos de aplicativo com o Azure Application Insights para padrões incomuns na telemetria de rastreamento.
+title: Degradação na taxa de gravidade de rastreamento-insights de Aplicativo Azure
+description: Monitore rastreamentos de aplicativos com Aplicativo Azure insights para padrões incomuns na telemetria de rastreamento com detecção inteligente.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/27/2017
-ms.openlocfilehash: 83c1296beabaaae78289a653c6b30f6665f725c2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b51cb66b59589c9b58d9115dfa6cefce0a20f3c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432410"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradação na taxa de gravidade de rastreamento (visualização)
 
@@ -21,7 +21,7 @@ Os rastreamentos são amplamente usados em aplicativos, porque ajudam a contar a
 Este recurso não exige configuração especial, além de configurar o registro em log de rastreamento para o aplicativo (veja como configurar um ouvinte de log de rastreamento para [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) ou [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Ele permanece ativo quando o aplicativo gera telemetria de exceção suficiente.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando eu receberia este tipo de notificação de detecção inteligente?
-Você pode obter esse tipo de notificação se a taxa entre rastreamentos "bons" (rastreamentos registrados com um nível de *informações* ou *detalhado*) e rastreamentos "incorretos" (rastreamentos registrados com um nível de *aviso*, *erro*ou *fatal*) está degradando em um dia específico, em comparação com uma linha de base calculada nos sete dias anteriores.
+Você poderá obter esse tipo de notificação se a taxa entre rastreamentos "bons" (rastreamentos registrados com um nível de *informações* ou *detalhado*) e rastreamentos "incorretos" (rastreamentos registrados com um nível de *aviso*, *erro*ou *fatal*) estiver degradando em um dia específico, em comparação com uma linha de base calculada nos últimos sete dias.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Meu aplicativo definitivamente tem um problema?
 Não, uma notificação não significa que seu aplicativo definitivamente tem um problema. Embora uma degradação na taxa entre rastreamentos “bons” e “ruins” possa indicar um problema no aplicativo, essa alteração na taxa pode ser benigna. Por exemplo, o aumento pode ser devido a um fluxo de novo no aplicativo emitindo mais rastreamentos “ruins” do que fluxos existentes).

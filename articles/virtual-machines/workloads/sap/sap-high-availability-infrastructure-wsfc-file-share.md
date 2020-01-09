@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9b7ac97cb190073966f9be450e9f9e04014fbd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078047"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647536"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
@@ -39,8 +39,8 @@ ms.locfileid: "70078047"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -203,7 +203,7 @@ ms.locfileid: "70078047"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -213,7 +213,7 @@ Este documento descreve as etapas de preparação da infraestrutura do Azure nec
 
 Antes de iniciar a instalação, leia este artigo:
 
-* [Guia de arquitetura: Instâncias do SAP ASCS/SCS do cluster em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
+* [Guia de arquitetura: instâncias do SAP ASCS/SCS do cluster em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomes de host e endereços IP
@@ -226,13 +226,13 @@ Antes de iniciar a instalação, leia este artigo:
 | Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
 
 
-**Tabela 1**: Cluster ASCS/SCS
+**Tabela 1**: Cluster do ASCS/SCS
 
 | SAP \<SID> | Número da instância do SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabela 2**: Detalhes da instância do SAP ASCS/SCS
+**Tabela 2:** Detalhes da instância ASCS/SCS do SAP
 
 
 | Função de nome de host virtual | Nome de host virtual | Endereço IP estático | Conjunto de disponibilidade |
@@ -243,7 +243,7 @@ Antes de iniciar a instalação, leia este artigo:
 | Nome da rede de clusters | sofs-cl | 10.0.6.13 | N/D |
 | Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | N/D |
 
-**Tabela 3**: Cluster Servidor de Arquivos de Escalabilidade Horizontal
+**Tabela 3**: Cluster de Servidor de Arquivos de Escalabilidade Horizontal
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Implantar VMs em um cluster de ASCS/SCS do SAP, um cluster do Sistema de Gerenciamento de Banco de Dados (DBMS) e instâncias de servidor de aplicativos SAP
@@ -322,9 +322,9 @@ O modelo de Azure Resource Manager para implantar Servidor de Arquivos de Escala
 
 Recomendamos o uso de Discos Gerenciados.
 
-![Figura 1: Tela de interface do usuário para Servidor de Arquivos de Escalabilidade Horizontal modelo do Resource Manager com Managed disks][sap-ha-guide-figure-8010]
+![Figura 1: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Tela de interface do usuário para Servidor de Arquivos de Escalabilidade Horizontal modelo do Resource Manager com Managed disks_
+_**Figura 1**: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados_
 
 No modelo, faça o seguinte:
 1. Na caixa **Contagem de Vm**, digite uma contagem mínima de **2**.
@@ -336,9 +336,9 @@ No modelo, faça o seguinte:
 
 O modelo de Azure Resource Manager para implantar Servidor de Arquivos de Escalabilidade Horizontal com o Espaços de Armazenamento Diretos e discos não gerenciados do Azure está disponível no [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Tela de interface do usuário para o modelo de Azure Resource Manager Servidor de Arquivos de Escalabilidade Horizontal sem Managed disks][sap-ha-guide-figure-8011]
+![Figura 2: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Tela de interface do usuário para o modelo de Azure Resource Manager Servidor de Arquivos de Escalabilidade Horizontal sem Managed disks_
+_**Figura 2**: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados_
 
 Na caixa **Tipo de Conta de Armazenamento**, selecione **Armazenamento Premium**. Todas as outras configurações são iguais às dos discos gerenciados.
 
@@ -352,6 +352,6 @@ Depois de instalar com êxito o cluster do Windows Servidor de Arquivos de Escal
 
 Essas configurações foram testadas com clientes e oferecem um boa comprometimento. Eles são resistentes o suficiente, mas também fornecem um failover suficientemente rápido em condições de erro reais ou falha de VM.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias do SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]

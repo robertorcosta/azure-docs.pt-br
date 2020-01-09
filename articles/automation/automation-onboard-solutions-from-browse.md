@@ -2,19 +2,15 @@
 title: Saiba como integrar as soluções de gerenciamento de atualizações, controle de alterações e inventário para várias VMs na automação do Azure
 description: Saiba como integrar uma Máquina Virtual do Azure com soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário que fazem parte da Automação do Azure
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/11/2019
 ms.topic: article
-manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cc6e3f3aaa77d7691e0443ee74405058bde2dfa0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421852"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -105,11 +101,11 @@ Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de 
 
 * Iniciar e parar agendas de runbook da VM
 * Iniciar e parar runbooks da VM
-* variáveis
+* Variáveis
 
 Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação do seu espaço de trabalho Log Analytics. Em seu espaço de trabalho, selecione **conta de automação** em **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é possível ativar**. Há diferentes razões que algumas máquinas não podem ser ativadas. As seções a seguir mostram possíveis razões para o estado **Impossível ativar** em uma VM ao tentar integrar.
 
@@ -147,7 +143,7 @@ Ao integrar várias máquinas, pode haver máquinas que mostrem como **Não é p
 
 **Solução**: para integrar uma VM a uma solução, a VM deve estar em execução. Clique no link embutido **Iniciar VM** para iniciar a VM sem sair da página.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover uma VM do Gerenciamento de Atualizações:
 

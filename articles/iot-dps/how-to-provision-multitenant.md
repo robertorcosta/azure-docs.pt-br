@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434746"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
@@ -38,7 +38,7 @@ Este artigo usa uma amostra de dispositivo simulado com o [SDK do Azure IoT C](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
+* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -89,11 +89,11 @@ Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symm
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
-3. Em **Adicionar grupo de registros**, insira as informações a seguir e clique no botão **Salvar**.
+3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
 
     **Nome do grupo**: Insira **contoso-us-devices**.
 
-    **Tipo de atestado**: selecione **Chave simétrica**.
+    **Tipo de atestado**: Selecione **Chave simétrica**.
 
     **Gerar chaves automaticamente**: esta caixa de seleção já deve estar marcada.
 
@@ -191,20 +191,21 @@ Para fazer a limpeza, essas VMs serão adicionadas ao mesmo grupo de recursos qu
 
 Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exemplo que simulará a configuração de cada região do dispositivo de um locatário.
 
-
-1. Para cada VM, instale **Cmake**, **g++** , **gcc**, e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
+1. Para cada VM, instale **CMake**, **g + +** , **gcc**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando os seguintes comandos:
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Localize o nome da marca para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
 
-1. Clone o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) em ambas as VMs.
+1. Clone o [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) em ambas as VMs.  Use a marca que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Essa operação deve demorar alguns minutos.
@@ -248,7 +249,7 @@ Nesta seção, você clona o SDK do Azure IoT C em cada VM. O SDK contém um exe
 
 Ao usar o atestado de chave simétrica com registros em grupo, você não usa as chaves de registro de grupo diretamente. Em vez disso, você cria uma chave derivada e exclusiva para cada dispositivo e mencionada em [Registros de Grupo com chaves simétricas](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Para gerar a chave do dispositivo, use a chave mester de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
+Para gerar a chave do dispositivo, use a chave mestra de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
 
 Não inclua a chave mestra de grupo em seu código de dispositivo.
 
@@ -397,7 +398,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje continuar a trabalhar com recursos criados neste artigo, você pode mantê-los. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este artigo, a fim de evitar alterações desnecessárias.
 

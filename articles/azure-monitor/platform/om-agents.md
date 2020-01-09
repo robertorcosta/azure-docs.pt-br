@@ -4,15 +4,15 @@ description: Para manter seu investimento existente no System Center Operations 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 79fcbb6f972eb022ce4d0e47a608e6f0d053a9ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363652"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
 
@@ -73,15 +73,15 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |Grupos | Número da porta| Ignorar a Inspeção de HTTP|  
 |---------|------|-----------------------|  
 |**Agente**|||  
-|\*.ods.opinsights.azure.com| 443 |SIM|  
-|\*.oms.opinsights.azure.com| 443|SIM|  
-|\*.blob.core.windows.net| 443|SIM|  
-|\*.azure-automation.net| 443|SIM|  
+|\*.ods.opinsights.azure.com| 443 |Sim|  
+|\*.oms.opinsights.azure.com| 443|Sim|  
+|\*.blob.core.windows.net| 443|Sim|  
+|\*.azure-automation.net| 443|Sim|  
 |**Servidor de gerenciamento**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| SIM|  
-|\*.ods.opinsights.azure.com| 443| SIM|  
-|*.azure-automation.net | 443| SIM|  
+|\*.blob.core.windows.net| 443| Sim|  
+|\*.ods.opinsights.azure.com| 443| Sim|  
+|*.azure-automation.net | 443| Sim|  
 |**Operations Manager Console para Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -248,7 +248,7 @@ Pacotes de gerenciamento para as soluções que você habilitou que se integram 
     > O link **Remover** não estará disponível até depois de 14 dias, se não for detectada nenhuma atividade pelo grupo de gerenciamento conectado.  
     >
 
-1. Uma janela será exibida solicitando que você confirme se deseja continuar com a remoção.  Clique em **Sim** para confirmar.
+1. Uma janela será exibida solicitando que você confirme se deseja continuar com a remoção.  Clique em **Sim** para continuar.
 
 Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e o Conector do Advisor, salve o script do PowerShell abaixo em seu computador e execute-o usando os exemplos a seguir:
 

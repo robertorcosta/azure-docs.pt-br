@@ -3,8 +3,8 @@ title: Compartilhar painéis do Portal do Azure usando RBAC | Microsoft Docs
 description: Este artigo explica como compartilhar um painel no portal do Azure usando o Controle de Acesso Baseado em Função.
 services: azure-portal
 documentationcenter: ''
-author: tfitzmac
-manager: timlt
+author: mblythe
+manager: mtillman
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
@@ -13,15 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: tomfitz
-ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: da983a6a3c86be87f1a24b67252a40adac2fa59d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551889"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641377"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
+
 Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Permita que outras pessoas vejam seu painel usando o [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md) do Azure. Atribua um usuário ou grupo de usuários a uma função e essa função define se os usuários podem exibir ou modificar o painel publicado. 
 
 Todos os painéis publicados são implementados como recursos do Azure, o que significa que eles existem como itens gerenciáveis dentro de sua assinatura e estão contidos em um grupo de recursos.  Do ponto de vista do controle de acesso, os painéis não são diferentes de outros recursos, como uma máquina virtual ou uma conta de armazenamento.
@@ -36,11 +37,11 @@ Com o RBAC (Controle de Acesso Baseado em Função), você pode atribuir usuári
 
 * subscription
 * grupo de recursos
-* resource
+* recurso
 
 As permissões atribuídas são herdadas da assinatura até o recurso. O painel publicado é um recurso. Portanto, você já pode ter os usuários atribuídos a funções da assinatura que também funcionam para o painel publicado. 
 
-Aqui está um exemplo.  Digamos que você tenha uma assinatura do Azure e vários membros de sua equipe receberam as funções de **proprietário**, **colaborador** ou **leitor** da assinatura. Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura.  Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los.  Os usuários com acesso de leitor podem fazer edições locais em um painel publicado (por exemplo, ao solucionar um problema), mas não podem publicar essas alterações no servidor.  Eles terão a opção de fazer uma cópia privada do painel para uso pessoal.
+Veja um exemplo.  Digamos que você tenha uma assinatura do Azure e vários membros de sua equipe receberam as funções de **proprietário**, **colaborador** ou **leitor** da assinatura. Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura.  Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los.  Os usuários com acesso de leitor podem fazer edições locais em um painel publicado (por exemplo, ao solucionar um problema), mas não podem publicar essas alterações no servidor.  Eles terão a opção de fazer uma cópia privada do painel para uso pessoal.
 
 No entanto, você também pode atribuir permissões ao grupo de recursos que contém vários painéis ou a um painel individual. Por exemplo, você pode decidir que um grupo de usuários deve ter permissões limitadas na assinatura, mas um maior acesso a um painel específico. Você pode atribuir os usuários a uma função desse painel. 
 
@@ -59,7 +60,7 @@ Seu painel agora foi publicado. Se as permissões herdadas da assinatura são ad
 ## <a name="assign-access-to-a-dashboard"></a>Atribuir acesso a um painel
 1. Depois de publicar o painel, selecione **Gerenciar usuários**.
    
-     ![Gerenciar usuários](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![gerenciar usuários](./media/azure-portal-dashboard-share-access/manage-users.png)
 2. Você verá uma lista de usuários existentes que já estão atribuídos a uma função desse painel. A lista de usuários existentes será diferente da imagem abaixo. É provável que as atribuições sejam herdadas da assinatura. Para adicionar um novo usuário ou grupo, selecione **Adicionar**.
    
      ![adicionar usuário](./media/azure-portal-dashboard-share-access/existing-users.png)
@@ -74,7 +75,7 @@ Seu painel agora foi publicado. Se as permissões herdadas da assinatura são ad
    
      ![funções atribuídas](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## <a name="next-steps"></a>Próximas etapas
-* Para obter uma lista de funções, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md).
+## <a name="next-steps"></a>Próximos passos
+* Para obter uma lista de funções, confira [RBAC: funções internas](../role-based-access-control/built-in-roles.md).
 * Para saber sobre como gerenciar recursos, consulte [Gerenciar recursos do Azure pelo portal](resource-group-portal.md).
 

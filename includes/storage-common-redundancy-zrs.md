@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: tamram
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/28/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b7fddce8f682bc341b361a47f8e083cc281e90aa
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: ac3e87d7f921da2c1089eb6f2c7e61fc2c432f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463919"
 ---
 O armazenamento com redundância de zona (ZRS) replica seus dados de forma síncrona em três clusters de armazenamento em uma única região. Cada cluster de armazenamento é fisicamente separado dos outros e está localizado em sua própria zona de disponibilidade (AZ). Cada zona de disponibilidade &mdash;e o cluster ZRS dentro dela&mdash; é autônomo e inclui utilitários e recursos de rede separados. Uma solicitação de gravação para uma conta de armazenamento ZRS retorna com êxito somente depois que os dados são gravados em todas as réplicas entre os três clusters.
 
-Quando você armazena seus dados em uma conta de armazenamento usando a replicação do ZRS, você pode continuar a acessar e gerenciar seus dados se uma zona de disponibilidade ficar indisponível. O ZRS oferece excelente desempenho e baixa latência. O ZRS oferece os mesmos [alvos de escalabilidade](../articles/storage/common/storage-scalability-targets.md) que o [armazenamento localmente redundante (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
+Quando você armazena seus dados em uma conta de armazenamento usando a replicação do ZRS, você pode continuar a acessar e gerenciar seus dados se uma zona de disponibilidade ficar indisponível. O ZRS oferece excelente desempenho e baixa latência. O ZRS oferece as mesmas metas de escalabilidade que o [LRS (armazenamento com redundância local)](../articles/storage/common/storage-redundancy-lrs.md). Para obter mais informações sobre metas de escalabilidade para contas de armazenamento padrão, consulte [metas de escalabilidade para contas de armazenamento padrão](../articles/storage/common/scalability-targets-standard-account.md).
 
 Considere o ZRS para cenários que exigem consistência, durabilidade e alta disponibilidade. Mesmo se uma interrupção ou desastre natural tornar indisponível uma zona de disponibilidade, o ZRS oferece durabilidade para objetos de armazenamento de pelo menos 99.9999999999% (12,9s) em um determinado ano.
 

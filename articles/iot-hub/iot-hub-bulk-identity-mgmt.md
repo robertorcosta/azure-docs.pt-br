@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429250"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e exportar identidades de dispositivo do Hub IoT em massa
 
@@ -91,7 +91,7 @@ Somente um trabalho de importação ou exportação de dispositivo ativo é perm
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
-Use o método **ExportDevicesAsync** para exportar todo o registro de identidade de um Hub IoT para um contêiner de blobs do [Armazenamento do Azure](../storage/index.yml) usando uma [Assinatura de Acesso Compartilhado](../storage/common/storage-security-guide.md#authorization).
+Use o método **ExportDevicesAsync** para exportar todo o registro de identidade do Hub IOT para um contêiner de blobs de armazenamento do Azure usando uma SAS (assinatura de acesso compartilhado). Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../storage/common/storage-sas-overview.md).
 
 Esse método permite criar backups confiáveis das informações do dispositivo em um contêiner de blobs controlado por você.
 
@@ -257,7 +257,7 @@ Se o arquivo de importação incluir metadados gêmeos, esses metadados substitu
 
 Use a propriedade opcional **importMode** nos dados de serialização de importação para cada dispositivo para controlar o processo de importação por dispositivo. A propriedade **importMode** tem as seguintes opções:
 
-| importMode | DESCRIÇÃO |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
 | **create** |Se um dispositivo não existir com a **ID**especificada, ele será registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
@@ -419,7 +419,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a realizar operações em massa no registro de identidade em um Hub IoT. Muitas dessas operações, incluindo como mover dispositivos de um hub para outro, são usadas na [seção Gerenciando dispositivos registrados para o Hub IOT de como clonar um hub IOT](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
 

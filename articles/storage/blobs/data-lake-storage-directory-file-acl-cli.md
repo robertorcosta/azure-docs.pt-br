@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462594"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Usar CLI do Azure para arquivos & ACLs no Azure Data Lake Storage Gen2 (versão prévia)
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Usar CLI do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2 (versão prévia)
 
 Este artigo mostra como usar a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para criar e gerenciar diretórios, arquivos e permissões em contas de armazenamento que têm um namespace hierárquico. 
 
@@ -27,7 +27,7 @@ Este artigo mostra como usar a [CLI (interface de linha de comando) do Azure](ht
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+> * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Uma conta de armazenamento que tem o namespace hierárquico (HNS) habilitado. Siga [estas](data-lake-storage-quickstart-create-account.md) instruções para criar uma.
 > * CLI do Azure versão `2.0.67` ou superior.
 
@@ -42,7 +42,7 @@ Este artigo mostra como usar a [CLI (interface de linha de comando) do Azure](ht
    ```
    Se sua versão do CLI do Azure for menor que `2.0.67`, instale uma versão posterior. Consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Instale a extensão de `storage-preview`.
+3. Instale a extensão `storage-preview`.
 
    ```azurecli
    az extension add -n storage-preview
@@ -296,7 +296,7 @@ Este exemplo mostra todos os metadados definidos pelo usuário para o diretório
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 * [Amostra](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

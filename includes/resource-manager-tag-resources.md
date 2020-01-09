@@ -1,21 +1,21 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 01/03/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6d8f29e9272f3e05bb585c032240cce67c37d2bf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451538"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665168"
 ---
-1. Para exibir as marcas de um recurso ou um grupo de recursos, procura marcas existentes na visão geral. Se você não tiver aplicado marcas anteriormente, a lista estará vazia.
+1. Para exibir as marcas de um recurso ou grupo de recursos, procure as marcas existentes na visão geral. Se você não tiver aplicado marcas anteriormente, a lista estará vazia.
    
      ![Visualizar marcas para recurso ou grupo de recursos](./media/resource-manager-tag-resources/view-tags.png)
 1. Para adicionar uma marca, selecione **Clique aqui para adicionar marcas**.
@@ -52,7 +52,7 @@ Para atribuir marcas em massa para vários recursos:
 
 Para exibir todos os recursos com uma marca:
 
-1. No menu portal do Azure, selecione **todos os serviços**. Selecione **geral**e, em seguida, **marcas**.
+1. No menu do portal do Azure, selecione **Todos os serviços**. Selecione **geral**e, em seguida, **marcas**.
 
      ![Localizar por marca](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -63,11 +63,3 @@ Para exibir todos os recursos com uma marca:
 1. Todos os recursos com essa marca são exibidos.
 
      ![Visualizar recursos por marca](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. Para acesso rápido, fixe a exibição ao painel.
-
-     ![Fixar no painel](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. A exibição está disponível no painel.
-
-     ![Painel](./media/resource-manager-tag-resources/dashboard-with-view.png)

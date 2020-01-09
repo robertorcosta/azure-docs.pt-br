@@ -3,18 +3,18 @@ title: Estimando os custos do plano de consumo em Azure Functions
 description: Saiba como estimar melhor os custos que você pode incorrer ao executar seu aplicativo de funções em um plano de consumo no Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230870"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613051"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimando os custos do plano de consumo
 
-Atualmente, há três tipos de planos de hospedagem para um aplicativo executado no Azure Functions, com cada plano com seu próprio modelo de preços: 
+Atualmente, há três tipos de planos de hospedagem para um aplicativo que é executado no Azure Functions, com cada plano com seu próprio modelo de preços: 
 
-| Plano | DESCRIÇÃO |
+| Plano | Description |
 | ---- | ----------- |
 | [**Utilização**](functions-scale.md#consumption-plan) | Você é cobrado apenas pelo tempo em que seu aplicativo de funções é executado. Esse plano inclui uma[página de preços] de [concessão gratuita]em uma base por assinatura.|
 | [**Especiais**](functions-scale.md#premium-plan) | Fornece os mesmos recursos e mecanismo de dimensionamento que o plano de consumo, mas com o desempenho aprimorado e o acesso à VNET. O custo é baseado no tipo de preço escolhido. Para saber mais, confira [Azure Functions plano Premium](functions-premium-plan.md). |
@@ -45,7 +45,7 @@ Para funções em execução em um plano de consumo, o custo total é o custo de
 
 Ao estimar os custos gerais do seu aplicativo de funções e dos serviços relacionados, use a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?service=functions). 
 
-| Custo relacionado | DESCRIÇÃO |
+| Custo relacionado | Description |
 | ------------ | ----------- |
 | **Conta de armazenamento** | Cada aplicativo de funções requer que você tenha um associado Uso Geral [conta de armazenamento do Azure](../storage/common/storage-introduction.md#types-of-storage-accounts), que é [cobrado separadamente](https://azure.microsoft.com/pricing/details/storage/). Essa conta é usada internamente pelo tempo de execução do functions, mas você também pode usá-la para gatilhos e associações de armazenamento. Se você não tiver uma conta de armazenamento, uma será criada para você quando o aplicativo de funções for criado. Para saber mais, consulte [requisitos da conta de armazenamento](functions-scale.md#storage-account-requirements).|
 | **Application Insights** | As funções dependem de [Application insights](../azure-monitor/app/app-insights-overview.md) para fornecer uma experiência de monitoramento de alto desempenho para seus aplicativos de funções. Embora não seja necessário, você deve [habilitar a integração de Application insights](functions-monitoring.md#enable-application-insights-integration). Uma concessão gratuita de dados de telemetria é incluída todos os meses. Para saber mais, consulte [a página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). |
@@ -63,25 +63,25 @@ Os seguintes comportamentos de suas funções podem afetar o tempo de execução
 
 Em [sua fatura](/azure/billing/billing-download-azure-invoice), você pode exibir os dados relacionados ao custo das funções de **execuções totais** e funções de **tempo de execução**, juntamente com os custos de cobrança reais. No entanto, esses dados da fatura são uma agregação mensal para um período de nota fiscal passada. 
 
-Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) no [portal do Azure] ou APIs REST para obter esses dados.
+Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) no [Azure portal] ou APIs REST para obter esses dados.
 
 ### <a name="monitor-metrics-explorer"></a>Monitorar métricas Explorer
 
 Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) para exibir dados relacionados ao custo para seus aplicativos de função de plano de consumo em um formato gráfico. 
 
-1. Na parte superior da [portal do Azure] em Pesquisar **serviços, recursos e** pesquisa de documentos `monitor` e selecione **monitorar** em **Serviços**.
+1. Na parte superior da [Azure portal] em Pesquisar **serviços, recursos e** pesquisa de documentos `monitor` e selecione **monitorar** em **Serviços**.
 
 1. À esquerda, selecione **métricas** > **Selecione um recurso**e, em seguida, use as configurações abaixo da imagem para escolher seu aplicativo de funções.
 
     ![Selecione o recurso de aplicativo de funções](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |Configuração  |Valor sugerido  |DESCRIÇÃO  |
+    |Configuração  |Valor sugerido  |Description  |
     |---------|---------|---------|
-    | Assinatura    |  Sua assinatura  | A assinatura com seu aplicativo de funções.  |
+    | Subscription    |  Sua assinatura  | A assinatura com seu aplicativo de funções.  |
     | Grupo de recursos     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
     | Tipo de recurso     |  Serviços de Aplicativos | Os aplicativos de funções são mostrados como instâncias de serviços de aplicativos no monitor. |
-    | Recurso     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
+    | Grupos     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
 
 1. Selecione **aplicar** para escolher o aplicativo de funções como o recurso a ser monitorado.
 
@@ -99,7 +99,7 @@ Como o número de unidades de execução é muito maior do que a contagem de exe
 
 Este gráfico mostra um total de 1.110.000.000 `Function Execution Units` consumidos em um período de duas horas, medido em MB-milissegundos. Para converter em GB-segundos, divida por 1024000. Neste exemplo, o aplicativo de funções consumiu `1110000000 / 1024000 = 1083.98` GB-segundos. Você pode usar esse valor e multiplicar pelo preço atual do tempo de execução na[página de preços]da [página de preços do Functions], que oferece o custo dessas duas horas, supondo que você já tenha usado qualquer concessão gratuita de tempo de execução. 
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli"></a>Azure CLI
 
 O [CLI do Azure](/cli/azure/) tem comandos para recuperar métricas. Você pode usar a CLI de um ambiente de comando local ou diretamente do portal usando [Azure cloud Shell](../cloud-shell/overview.md). Por exemplo, o seguinte comando [AZ monitor de lista de métricas](/cli/azure/monitor/metrics#az-monitor-metrics-list) retorna dados por hora no mesmo período de tempo usado antes.
 
@@ -188,7 +188,7 @@ Esse comando retorna uma carga JSON semelhante ao exemplo a seguir:
   ]
 }
 ```
-Essa resposta específica mostra que de `2019-09-11T21:46` para `2019-09-11T23:18`, durante o qual o aplicativo consumiu 1110000000 MB-milissegundos (1083,98 GB-segundos).
+Essa resposta específica mostra que de `2019-09-11T21:46` para `2019-09-11T23:18`, o aplicativo consumiu 1110000000 MB-milissegundos (1083,98 GB-segundos).
 
 ## <a name="determine-memory-usage"></a>Determinar o uso de memória
 
@@ -206,7 +206,7 @@ performanceCounters
 
 Os resultados são semelhantes ao exemplo a seguir:
 
-| carimbo de data/hora \[UTC\]          | name          | Valor       |
+| carimbo de data/hora \[UTC\]          | name          | value       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14\.947 AM | Bytes Particulares | 209.932.288 |
 | 9/12/2019, 1:06:14\.994 AM | Bytes Particulares | 212.189.184 |
@@ -232,10 +232,10 @@ customMetrics
 | QueueTrigger MaxDurationMs | 90\.249                     |
 | QueueTrigger MinDurationMs | 8\.522                      |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre como monitorar aplicativos de funções](functions-monitoring.md)
 
 [página de preços]: https://azure.microsoft.com/pricing/details/functions/
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

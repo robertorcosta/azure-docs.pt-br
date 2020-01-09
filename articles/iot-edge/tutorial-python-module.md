@@ -10,16 +10,16 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c37d778fe9ad7d21943ed92452fae34b4b8771e7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429432"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python para dispositivos Linux
 
-Use o Visual Studio Code para desenvolver código do C e implantá-lo em um dispositivo Linux que executando o Azure IoT Edge. 
+Use o Visual Studio Code para desenvolver código em C e implantá-lo em um dispositivo Linux que está executando o Azure IoT Edge. 
 
 Use os módulos do Azure IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o conduz pela criação e implantação de um módulo do IoT Edge que filtra os dados de sensor no dispositivo do IoT Edge que você configurou no início rápido. Neste tutorial, você aprenderá como:    
 
@@ -34,9 +34,6 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-> [!NOTE]
-> O guia a seguir refere-se ao SDK do Python V1, que foi preterido desde então. No momento, estamos trabalhando para tornar este guia compatível com a V2. Volte a este espaço para conferir se há atualizações.
-
 ## <a name="solution-scope"></a>Escopo da solução
 
 Este tutorial demonstra como desenvolver um módulo em **Python** usando o **Visual Studio Code** e como implantá-lo em um **dispositivo Linux**. O IoT Edge não é compatível com módulos do Python para dispositivos Windows. 
@@ -48,7 +45,7 @@ Use a tabela a seguir para entender as opções para desenvolver e implantar mó
 | **Linux AMD64** | ![Use o VS Code para módulos do Python no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Use o VS Code para módulos do Python no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente de desenvolvimento para o desenvolvimento de contêiner do Linux: [Desenvolver módulos do IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir qualquer um desses tutoriais, você deve ter os seguintes pré-requisitos implementados: 
 
@@ -259,7 +256,7 @@ Usamos o módulo gêmeo PythonModule no manifesto de implantação para definir 
 
 6. Monitore as mensagens do dispositivo para nuvem recebidas. Você deve ver uma interrupção das mensagens até que o novo limite de temperatura seja atingido. 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 
 Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los. Você também pode continuar usando o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129330"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639864"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação de desastre regional para clusters do Azure Databricks
 
@@ -21,7 +21,7 @@ Este artigo descreve uma arquitetura de recuperação de desastre útil para clu
 
 ## <a name="azure-databricks-architecture"></a>Arquitetura do Azure Databricks
 
-Em um alto nível, ao criar um workspace do Azure Databricks do Portal do Azure, um [dispositivo gerenciado](../managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, Oeste dos EUA). Esse dispositivo é implantado em uma [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [Grupo de Segurança de Rede](../virtual-network/manage-network-security-group.md) e uma conta de Armazenamento do Azure, disponível em sua assinatura. A rede virtual oferece segurança em nível de perímetro ao workspace do Databricks e é protegida por meio do grupo de segurança de rede. Dentro do workspace, é possível criar clusters do Databricks fornecendo ao trabalhador e ao driver o tipo de VM e a versão do Databricks runtime. Os dados persistentes estão disponíveis em sua conta de armazenamento, que pode ser o armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Após a criação do cluster, será possível executar trabalhos por meio de pontos de extremidade ODBC/JDBC, APIs REST e blocos de anotações anexando-os a um cluster específico.
+Em um alto nível, ao criar um workspace do Azure Databricks do Portal do Azure, um [dispositivo gerenciado](../azure-resource-manager/managed-applications/overview.md) é implantado como um recurso do Azure em sua assinatura, na região do Azure escolhida (por exemplo, Oeste dos EUA). Esse dispositivo é implantado em uma [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com um [Grupo de Segurança de Rede](../virtual-network/manage-network-security-group.md) e uma conta de Armazenamento do Azure, disponível em sua assinatura. A rede virtual oferece segurança em nível de perímetro ao workspace do Databricks e é protegida por meio do grupo de segurança de rede. Dentro do workspace, é possível criar clusters do Databricks fornecendo ao trabalhador e ao driver o tipo de VM e a versão do Databricks runtime. Os dados persistentes estão disponíveis em sua conta de armazenamento, que pode ser o armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Após a criação do cluster, será possível executar trabalhos por meio de pontos de extremidade ODBC/JDBC, APIs REST e blocos de anotações anexando-os a um cluster específico.
 
 O painel de controle do Databricks gerencia e monitora o ambiente de workspace do Databricks. Qualquer operação de gerenciamento como criação de cluster será iniciada no painel de controle. Todos os metadados, como trabalhos agendados, são armazenados em um Banco de dados do Azure com replicação geográfica para obter tolerância a falhas.
 
@@ -90,7 +90,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
    > [!NOTE]
    > As bibliotecas não são copiadas nesta etapa, porque a API subjacente não dá suporte a elas.
 
-   Copiar e salvar o seguinte script python em um arquivo e executá-lo em sua linha de comando do Databricks. Por exemplo: `python scriptname.py`.
+   Copiar e salvar o seguinte script python em um arquivo e executá-lo em sua linha de comando do Databricks. Por exemplo, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
    O script fornecido a seguir imprime um mapeamento de IDs de cluster antigas para novas, o que poderia ser usado para migração de trabalhos posteriormente (para trabalhos configurados para usar clusters existentes).
 
-   Copiar e salvar o seguinte script python em um arquivo e executá-lo em sua linha de comando do Databricks. Por exemplo: `python scriptname.py`.
+   Copiar e salvar o seguinte script python em um arquivo e executá-lo em sua linha de comando do Databricks. Por exemplo, `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -310,6 +310,6 @@ Para criar sua própria topologia de recuperação de desastre regional, siga es
 
 Se você estiver usando outros serviços do Azure, certifique-se de implementar práticas recomendadas de recuperação de desastre para esses serviços também. Por exemplo, se você optar por usar uma instância de metastore do Hive externa, deverá considerar a recuperação de desastre para o [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), o [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)e/ou o [banco de dados do Azure para MySQL](../mysql/concepts-business-continuity.md). Para obter informações gerais sobre a recuperação de desastre, consulte [recuperação de desastre para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte a [documentação do Azure Databricks](index.yml).

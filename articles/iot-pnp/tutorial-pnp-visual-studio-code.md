@@ -3,18 +3,18 @@ title: Criar e testar um dispositivo da versão prévia do IoT Plug and Play | M
 description: Como desenvolvedor de dispositivos, saiba como usar o VS Code para criar e testar um modelo de funcionalidade do dispositivo para um dispositivo IoT Plug and Play Preview.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569893"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550257"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: Criar e testar um modelo de funcionalidade do dispositivo usando o Visual Studio Code
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Implementar os stubs no código gerado
 > * Executar o código para testar as interações com um hub IoT
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para trabalhar com o modelo de funcionalidade do dispositivo neste tutorial, você precisará do seguinte:
 
@@ -43,7 +43,7 @@ Para trabalhar com o modelo de funcionalidade do dispositivo neste tutorial, voc
 
 Para criar o código C gerado no Windows neste tutorial, você precisará do seguinte:
 
-* [Ferramentas de Build para o Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com **Ferramentas de build de C++** e cargas de trabalho do **Componente do gerenciador de pacotes NuGet**. Ou, se você já tiver, o [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
+* [Ferramentas de Build para o Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) com **Ferramentas de build de C++** e cargas de trabalho do **componente do gerenciador de pacotes NuGet**. Ou se você já tem o [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 com as mesmas cargas de trabalho instaladas.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
 

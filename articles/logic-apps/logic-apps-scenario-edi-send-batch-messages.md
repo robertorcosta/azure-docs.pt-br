@@ -1,20 +1,20 @@
 ---
 title: Mensagens EDI do processo em lote como um grupo
-description: Enviar e receber mensagens EDI como lotes, grupos ou coleções em aplicativos lógicos do Azure
+description: Enviar e receber mensagens EDI como lotes, grupos ou coleções usando o processamento em lotes em aplicativos lógicos do Azure
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792992"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666662"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens de EDI em lotes para parceiros comerciais com os Aplicativos Lógicos do Azure
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Trocar mensagens EDI como lotes ou grupos entre parceiros comerciais em aplicativos lógicos do Azure
 
 Em cenários de B2B (entre empresas), os parceiros geralmente trocam mensagens em grupos ou em *lotes*. Ao compilar uma solução de envio em lote com Aplicativos Lógicos, você pode enviar mensagens para parceiros comerciais e processar essas mensagens juntas em lotes. Este artigo mostra como processar mensagens de EDI em lotes, usando X12 como exemplo, criando um aplicativo lógico "remetente do lote" e um aplicativo lógico "receptor do lote". 
 
@@ -64,14 +64,14 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
 
 4. Defina propriedades de receptor do lote: 
 
-   | Propriedade | Value | Notas | 
+   | Propriedade | Valor | Observações | 
    |----------|-------|-------|
    | **Modo de lote** | Embutido |  |  
    | **Nome do lote** | TestBatch | Disponível apenas com o modo de lote **Embutido** | 
    | **Critérios de liberação** | Baseado em contagem de mensagens, Baseado no agendamento | Disponível apenas com o modo de lote **Embutido** | 
    | **Contagem de mensagens** | 10 | Disponível apenas com critérios de liberação **Baseados em contagem de mensagens** | 
    | **Intervalo** | 10 | Disponível apenas com critérios de liberação **Baseados no agendamento** | 
-   | **Frequência** | minuto | Disponível apenas com critérios de liberação **Baseados no agendamento** | 
+   | **Frequência** | minute | Disponível apenas com critérios de liberação **Baseados no agendamento** | 
    ||| 
 
    ![Fornecer detalhes do gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -93,7 +93,7 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
 
    4. Configure essas propriedades para a ação do codificador de lote:
 
-      | Propriedade | Descrição |
+      | Propriedade | Description |
       |----------|-------------|
       | **Nome do contrato do X12** | Abra a lista e selecione o contrato existente. <p>Se a lista estiver vazia, certifique-se de [vincular o aplicativo lógico à conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) que tiver o contrato desejado. | 
       | **BatchName** | Clique dentro dessa caixa e, após a exibição da lista de conteúdo dinâmico, selecione o token do **Nome do Lote**. | 
@@ -123,7 +123,7 @@ Para certificar-se de que o receptor do lote funciona conforme o esperado, você
 
 3. Configure as propriedades para a ação HTTP:
 
-   | Propriedade | Descrição | 
+   | Propriedade | Description | 
    |----------|-------------|
    | **Método** | Nessa lista, selecione **POST**. | 
    | **Uri** | Gere um URI para o compartimento de solicitação e, em seguida, insira esse URI nessa caixa. | 
@@ -173,7 +173,7 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
 
 4. Defina as propriedades do remetente do lote.
 
-   | Propriedade | Descrição | 
+   | Propriedade | Description | 
    |----------|-------------| 
    | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no runtime e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você quer enviar, que é o token do **Corpo** neste exemplo | 

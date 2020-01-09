@@ -1,25 +1,16 @@
 ---
-title: Visão geral do modelo de programação de Reliable Service do Service Fabric | Microsoft Docs
+title: Visão geral do modelo de programação de Reliable Service
 description: Saiba mais sobre o modelo de programação dos Serviços Confiáveis da Malha de Serviços e comece a desenvolver seus próprios serviços.
-services: Service-Fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: vturecek; mani-ramaswamy
-ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 1789c7489e58df09dccfde3e7ab106ef54b5c1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c8e4411c0bec23790b4f4c52fc4a3d1570edc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727005"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614240"
 ---
 # <a name="reliable-services-overview"></a>Visão geral dos Reliable Services
 O Azure Service Fabric simplifica o desenvolvimento e o gerenciamento de Reliable Services com e sem estado. Este tópico aborda:
@@ -70,7 +61,7 @@ Um serviço sem estado é aquele em que não há nenhum estado mantido dentro do
 
 Por exemplo, considere uma calculadora que não tenha memória e que receba todos os termos e operações para serem executados ao mesmo tempo.
 
-Nesse caso, o `RunAsync()` (C#) ou `runAsync()` (Java) do serviço pode estar vazio, pois não há processamentos de tarefas em segundo plano que o serviço precisa executar. Quando o serviço da calculadora for criado, ele retornará um `ICommunicationListener` (C#) ou `CommunicationListener` (Java) (por exemplo, [API Web](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conectará aos diferentes métodos de cálculo (por exemplo: "Add (n1, n2)") que definem a API pública da calculadora.
+Nesse caso, o `RunAsync()` (C#) ou `runAsync()` (Java) do serviço pode estar vazio, pois não há processamentos de tarefas em segundo plano que o serviço precisa executar. Quando o serviço da calculadora for criado, ele retornará um `ICommunicationListener` (C#) ou `CommunicationListener` (Java) (por exemplo, [API Web](service-fabric-reliable-services-communication-webapi.md)) que abre um ponto de extremidade de escuta em alguma porta. Esse ponto de extremidade de escuta se conectará aos diferentes métodos de cálculo (por exemplo: "Add(n1, n2)") que definem a API pública da calculadora.
 
 Quando é feita uma chamada de um cliente, o método apropriado é invocado e o serviço da calculadora executa as operações nos dados fornecidos e retorna o resultado. O estado não é armazenado.
 
@@ -98,13 +89,13 @@ Se um dos itens a seguir caracterizar as necessidades de serviço do aplicativo,
 * Seu código ou o estado dos aplicativos precisam ser altamente disponíveis com baixa latência em leituras e gravações.
 * Seu aplicativo precisa controlar a simultaneidade ou a granularidade das operações realizadas em uma ou mais Reliable Collections.
 * Você deseja gerenciar as comunicações e controlar o esquema de particionamento do seu serviço.
-* Seu código precisa de um ambiente de tempo de execução de thread livre.
-* Seu aplicativo precisa criar ou destruir Reliable Dictionaries, Queues ou Services completos no tempo de execução.
+* Seu código precisa de um ambiente de runtime de thread livre.
+* Seu aplicativo precisa criar ou destruir Reliable Dictionaries, Queues ou Services completos no runtime.
 * Você precisa controlar os recursos de backup e restauração fornecidos pelo Service Fabric por meio de programação para o estado do seu serviço.
 * Seu aplicativo precisa manter um histórico de alterações para suas unidades de estado.
 * Você deseja desenvolver ou consumir provedores de estado personalizados desenvolvidos por terceiros.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 * [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md)
 * [O modelo de programação de Reliable Actors](service-fabric-reliable-actors-introduction.md)

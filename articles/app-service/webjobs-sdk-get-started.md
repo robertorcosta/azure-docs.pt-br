@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684190"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640815"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -195,7 +195,7 @@ O emulador do Armazenamento do Microsoft Azure executado localmente não tem tod
 
 1. Escolha a mesma **Região** em que você criou seu aplicativo Serviço de Aplicativo ou uma região perto de você.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
    ![Criar Conta de Armazenamento](./media/webjobs-sdk-get-started/create-storage-account.png)
 
@@ -320,13 +320,13 @@ Nesta seção, execute as seguintes tarefas para configurar o registro em log do
 
 1. Na caixa **Cadeias de Conexão**, adicione a seguinte entrada.
 
-   |name  |Cadeia de conexão  |Tipo de Banco de Dados|
+   |Nome  |Cadeia de conexão  |Tipo de Banco de Dados|
    |---------|---------|------|
    |AzureWebJobsStorage | {a cadeia de conexão de armazenamento que você copiou anteriormente}|Personalizado|
 
 1. Se a caixa **Configurações do Aplicativo** não tiver uma chave de instrumentação do Application Insights, adicione uma que você copiou anteriormente. (A chave de instrumentação já pode estar lá, dependendo de como você criou o aplicativo Serviço de Aplicativo.)
 
-   |name  |Value  |
+   |Nome  |Valor  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {chave de instrumentação} |
 
@@ -399,21 +399,23 @@ Para aproveitar o registro em log do [Application Insights](../azure-monitor/app
 
 Nesta seção, você executa localmente de novo para verificar se os dados de registro em log agora estão indo para o Application Insights, bem como para o console.
 
-1. Use **Gerenciador de Servidores** no Visual Studio para criar uma mensagem da fila, da mesma forma que fez [anteriores](#trigger-the-function-in-azure), exceto insira *Hello App Insights!* como o texto da mensagem.
+1. Use **Gerenciador de servidores** no Visual Studio para criar uma mensagem da fila como você fez [anteriormente](#test-locally), exceto inserir *Hello app insights!* como o texto da mensagem.
 
 1. Execute o projeto.
 
-   O WebJobs SDK processa a mensagem da fila e você vê os logs na janela do console.
+   O SDK de trabalhos Web processa a mensagem da fila e você vê os logs na janela do console.
 
 1. Feche a janela do console.
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e vá para o recurso do Application Insights.
+1. Vá para a [portal do Azure](https://portal.azure.com/) para exibir o recurso de Application insights. Pesquise e selecione **Application Insights**.
+
+1. Escolha sua instância de Application Insights.
 
 1. Selecione **Pesquisar**.
 
    ![Selecionar Pesquisar](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Se você não vir a mensagem *Olá, App Insights!* , selecione **Atualizar** periodicamente por vários minutos. (Os logs não aparecem imediatamente porque leva algum tempo para o cliente do Application Insights liberar os logs que processa.)
+1. Se você não vir a mensagem *Olá, App Insights!* , selecione **Atualizar** periodicamente por vários minutos. (Os logs não aparecem imediatamente, pois leva algum tempo para que o cliente do Application Insights libere os logs que ele processa.)
 
    ![Logs no Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

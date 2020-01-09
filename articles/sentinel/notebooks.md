@@ -1,27 +1,21 @@
 ---
-title: Recursos de busca usando blocos de anotações no Azure Sentinel | Microsoft Docs
+title: Use blocos de anotações com o Azure Sentinel para a busca de segurança
 description: Este artigo descreve como usar blocos de anotações com os recursos de busca do Azure Sentinel.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
+ms.author: rkarlin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/25/2019
-ms.author: rkarlin
-ms.openlocfilehash: 1b78f6f0773e114a4dda536213e2684d8fbd706d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 44a37fb8d06040b0d872f15ab25bdd2c7ff685b8
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483268"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563693"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Use blocos de anotações do Jupyter para procurar ameaças de segurança
 
@@ -141,7 +135,7 @@ Os notebooks fornecidos são destinados como ferramentas úteis, como ilustraç�
 
 Agradecemos comentários, sejam sugestões, solicitações de recursos, blocos de anotações contribuídos, relatórios de bugs ou melhorias e adições a blocos de anotações existentes. Acesse o [GitHub da Comunidade do Azure Sentinel](https://github.com/Azure/Azure-Sentinel) para criar um problema ou bifurcar e carregar uma contribuição.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a começar a usar o Jupyter notebooks no Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 

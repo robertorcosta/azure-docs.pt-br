@@ -1,20 +1,16 @@
 ---
-title: Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric | Microsoft Docs
+title: Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
 description: Adicione Service Fabric suporte de orquestração de contêiner de malha a projetos de console e ASP.NET que usam o .NET Framework completo.
-services: service-fabric-mesh
-keywords: Colocar a malha do service fabric em um contêiner
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462041"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar um aplicativo .NET existente em um contêiner da Malha do Service Fabric
 
@@ -29,7 +25,7 @@ No Visual Studio 2017, é possível adicionar suporte à geração de contêiner
 
 * Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Verifique se você [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md). Isso inclui a instalação do tempo de execução do Service Fabric, SDK, Docker, Visual Studio 2017 e criar um cluster local.
+* Verifique se você [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md). Isso inclui a instalação do runtime do Service Fabric, SDK, Docker, Visual Studio 2017 e criar um cluster local.
 
 ## <a name="open-an-existing-net-app"></a>Abrir um aplicativo .NET existente
 
@@ -69,6 +65,6 @@ Depois que o suporte à orquestração de contêineres for adicionado ao seu apl
 
 Agora você pode publicar o aplicativo na Malha do Azure Service Fabric.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Veja como publicar um aplicativo na Malha do Service Fabric: [Tutorial - Implantar um aplicativo de Malha do Service Fabric para a Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

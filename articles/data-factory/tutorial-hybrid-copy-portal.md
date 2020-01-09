@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5b9bed971ff239c0c4b0d1cb923e845bd76957da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 099ff9b8d8a55456908748bee5779e4471d4bec6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439334"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um runtime de integração auto-hospedada, o qual move dados entre locais e armazenamentos de dados da nuvem.
@@ -35,7 +35,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Iniciar uma execução de pipeline.
 > * Monitorar a execução de pipeline.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Antes de começar, se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 
@@ -124,7 +124,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
    - Selecione **Criar novo**e insira o nome de um grupo de recursos.
         
-     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).
 1. Em **Versão**, selecione **V2**.
 1. Em **Local**, selecione o local para o data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo Data Factory podem estar em outras regiões.
 1. Selecione **Criar**.
@@ -237,7 +237,7 @@ O pipeline cria automaticamente a pasta de saída chamada *fromonprem* no contê
 
 
 ## <a name="next-steps"></a>Próximas etapas
-O pipeline neste exemplo copia dados de um local para outro no Armazenamento de blobs. Você aprendeu como:
+O pipeline neste exemplo copia dados de um local para outro no Armazenamento de blobs. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um data factory.

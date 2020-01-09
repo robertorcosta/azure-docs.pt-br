@@ -1,25 +1,14 @@
 ---
-title: Unidade testando serviços com estado no Azure Service Fabric | Microsoft Docs
+title: Serviços com estado de teste de unidade no Azure Service Fabric
 description: Aprenda sobre os conceitos e práticas de testes unitários do Service Fabric Stateful Services.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
-ms.author: atsenthi
-ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249261"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433920"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Unidade testando serviços com estado no Service Fabric
 
@@ -52,7 +41,7 @@ O Gerente de Estado deve ser tratado como um recurso remoto e, portanto, ridicul
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
 - IReliableQueue\<T >-> System. Collections. Generic. Queue\<T >
-- IReliableConcurrentQueue\<t >-> System. Collections. Current. ConcurrentQueue\<T >
+- IReliableConcurrentQueue\<T >-> System. Collections. Current. ConcurrentQueue\<T >
 
 #### <a name="many-state-manager-instances-single-storage"></a>Muitas instâncias do gerenciador de estado, armazenamento único
 Como mencionado anteriormente, o Gerenciador de Estado e as Coleções Confiáveis devem ser tratados como um recurso remoto. Portanto, esses recursos devem e serão ridicularizados nos testes de unidade. No entanto, ao executar várias instâncias de um serviço com estado, será um desafio manter cada gerenciador de estado ridicularizado em sincronia entre diferentes instâncias de serviço com estado. Quando o serviço com estado está sendo executado no cluster, o Service Fabric cuida de manter o gerenciador de estado de cada réplica secundária consistente com a réplica primária. Portanto, os testes devem se comportar da mesma forma que possam simular mudanças de função.
@@ -122,5 +111,5 @@ Processos longos ou assíncronos que devem ser encerrados quando um token de can
 #### <a name="verify-which-replicas-should-serve-requests"></a>Verificar quais réplicas devem atender a solicitações
 Os testes devem declarar o comportamento esperado se uma solicitação for roteada para uma réplica não primária. O Service Fabric fornece a capacidade de ter réplicas secundárias atendendo a solicitações. No entanto, as gravações em coleções confiáveis podem ocorrer apenas a partir da réplica primária. Se o seu aplicativo pretender que apenas as réplicas primárias atendam a solicitações ou que apenas um subconjunto de solicitações possa ser tratado por um secundário, os testes deverão confirmar o comportamento esperado para os casos positivos e negativos. O caso negativo sendo um pedido é roteado para uma réplica que não deve manipular a solicitação e, o positivo sendo o oposto.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como [serviços com monitoração de estado do teste de unidade](service-fabric-how-to-unit-test-stateful-services.md).

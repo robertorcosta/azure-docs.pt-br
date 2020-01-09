@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8e14b065132e648f9c800655cfe69e5a2ec80c41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432267"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crie relatórios interativos com pastas de trabalho do Azure Monitor
 
@@ -214,7 +214,7 @@ customEvents
 
 A consulta exibirá os resultados da seguinte maneira:
 
-![Menu suspenso de país/região](./media/usage-workbooks/012-country-dropdown.png)
+![Menu suspenso de país](./media/usage-workbooks/012-country-dropdown.png)
 
 Os menus suspensos são ferramentas incrivelmente poderosas para personalizar e criar relatórios interativos.
 
@@ -228,7 +228,7 @@ Tipos de parâmetro de intervalo de tempo têm intervalos padrão de 15 que vão
 
 O tipo de parâmetro de seletor de recurso fornece a capacidade de definir o escopo de seu relatório para determinados tipos de recursos. Um exemplo de pasta de trabalho predefinido que aproveita o tipo de seletor de recurso é a pasta de trabalho do **Failure Insights**.
 
-![Menu suspenso de país/região](./media/usage-workbooks/013-resource-picker.png)
+![Menu suspenso de país](./media/usage-workbooks/013-resource-picker.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Salvando e compartilhando pastas de trabalho com sua equipe
 

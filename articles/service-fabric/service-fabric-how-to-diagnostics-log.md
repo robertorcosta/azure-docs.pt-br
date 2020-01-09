@@ -1,25 +1,16 @@
 ---
-title: Gere eventos de log de um aplicativo de .NET Service Fabric no Azure ou num cluster autônomo
+title: Gerar eventos de log de um aplicativo .NET
 description: Saiba mais sobre como adicionar log ao seu aplicativo .NET Service Fabric hospedado em um cluster do Azure ou um cluster de autônomo.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/27/2018
 ms.author: srrengar
-ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c4721584e74bd7f7111c516f2d16bd190392bb5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482600"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614359"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Adicione um login ao aplicativo do Service Fabric
 
@@ -172,7 +163,7 @@ Alguns provedores de terceiros usam a abordagem descrita na seção anterior, in
    >[!NOTE]
    >É recomendável que você *não* use o `Log.Logger` estático com o exemplo anterior. O Service Fabric pode hospedar várias instâncias do mesmo tipo de serviço em um único processo. Se você usar o `Log.Logger`, estático, o último gravador de aprimoradores de propriedade mostrará valores para todas as instâncias em execução. É por isso que a variável _logger é uma variável de membro particular da classe de serviço. Além disso, você deve disponibilizar o `_logger` para código comum, que pode ser usado entre serviços.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Leia mais informações sobre [aplicativo de monitoramento de Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Leia sobre registro em log com [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [Diagnóstico do Windows Azure](service-fabric-diagnostics-event-aggregation-wad.md).

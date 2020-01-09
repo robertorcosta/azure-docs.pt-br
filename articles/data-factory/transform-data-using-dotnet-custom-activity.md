@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439536"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 
@@ -99,13 +99,13 @@ Neste exemplo, helloworld.exe é um aplicativo personalizado armazenado na pasta
 
 A tabela a seguir descreve os nomes e as descrições de propriedades que são específicas a esta atividade.
 
-| Propriedade              | Descrição                              | obrigatórios |
+| Propriedade              | Description                              | Obrigatório |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nome                  | Nome da atividade no pipeline     | SIM      |
-| Descrição           | Texto que descreve o que a atividade faz.  | Não       |
-| type                  | Para a atividade personalizada, o tipo de atividade é **Personalizado**. | SIM      |
-| linkedServiceName     | Serviço vinculado ao Lote do Azure. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  | SIM      |
-| command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já estiver disponível no nó do pool do Lote do Azure, resourceLinkedService e folderPath poderão ser ignorados. Por exemplo, você pode especificar o comando como `cmd /c dir`, que tem suporte nativo no nó do pool do Lote do Windows. | SIM      |
+| name                  | Nome da atividade no pipeline     | Sim      |
+| descrição           | Texto que descreve o que a atividade faz.  | Não       |
+| type                  | Para a atividade personalizada, o tipo de atividade é **Personalizado**. | Sim      |
+| linkedServiceName     | Serviço vinculado ao Lote do Azure. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  | Sim      |
+| command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já estiver disponível no nó do pool do Lote do Azure, resourceLinkedService e folderPath poderão ser ignorados. Por exemplo, você pode especificar o comando como `cmd /c dir`, que tem suporte nativo no nó do pool do Lote do Windows. | Sim      |
 | resourceLinkedService | Serviço de vinculado do Armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado é armazenado | Nenhum &#42;       |
 | folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências<br/><br/>Se você tiver dependências armazenadas em subpastas - ou seja, em uma estrutura hierárquica de pastas em *folderPath* - a estrutura de pastas estará nivelada quando os arquivos forem copiados para o Lote do Azure. Ou seja, todos os arquivos são copiados em uma única pasta sem subpastas. Para contornar esse comportamento, considere compactar os arquivos, copiando o arquivo compactado e, em seguida, descompactá-lo com código personalizado no local desejado. | Nenhum &#42;       |
 | referenceObjects      | Uma matriz de serviços vinculados e conjuntos de dados existentes. Os serviços vinculados e os conjuntos de dados referenciados são passados para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar os recursos do Data Factory | Não       |
@@ -121,7 +121,7 @@ A tabela a seguir descreve os nomes e as descrições de propriedades que são e
 
 A atividade personalizada define a conta de usuário automático do Lote do Azure para *acesso de não administrador com escopo de tarefa* (a especificação de usuário automático padrão). Você não pode alterar o nível de permissão da conta de usuário automático. Para obter mais informações, veja [Executar tarefas em contas de usuário no Lote | Contas de usuário automático](../batch/batch-user-accounts.md#auto-user-accounts).
 
-## <a name="executing-commands"></a>Execução de comandos
+## <a name="executing-commands"></a>Executando comandos
 
 É possível executar diretamente um comando usando a Atividade Personalizada. O exemplo a seguir executa o comando "eco Olá, mundo" nos nós de destino do Pool do Lote do Azure e imprime a saída para stdout.
 
@@ -174,7 +174,7 @@ Este exemplo mostra como você pode usar referenceObjects e extendedProperties p
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"
@@ -361,7 +361,7 @@ Para obter um exemplo completo de como o exemplo DLL e pipeline de ponta a ponta
 
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes.
 
-A fórmula de exemplo alcança o seguinte comportamento: quando o pool é inicialmente criado, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila). A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
+A fórmula de exemplo alcança o seguinte comportamento: quando o pool é criado pela primeira vez, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila). A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
 
 Fórmula de dimensionamento automático:
 

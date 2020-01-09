@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: d52aed98549478898cb3bd263d52eeae2a69ccfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925563"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439257"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure usando a Atividade Hive no Azure Data Factory
 
@@ -32,7 +32,7 @@ Neste tutorial, você pode usar o portal do Azure para criar um pipeline do Data
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,7 +88,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
    - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
    - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
-     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+     Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
 4. Selecione **V2** para a **versão**.
 5. Selecione o **local** do data factory. Somente os locais com suporte para a criação de data factories são mostrados na lista.
 6. Selecione **Fixar no painel**.     
@@ -100,7 +100,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
    
     ![Página inicial do data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Clique em **Criar e Monitorar** para iniciar a interface do usuário (IU) do Azure Data Factory em uma guia separada.
-11. Na página **introdução**, acesse a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir: 
+11. Na página de **introdução**, alterne para a guia **Editar** no painel esquerdo, conforme mostrado na imagem a seguir: 
 
     ![Guia Editar](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
@@ -157,10 +157,10 @@ Você cria e implanta dois serviços vinculados nesta seção:
 1. Alterne para a guia **Serviços Vinculados** e, em seguida, clique em **Novo**.
 
    ![Botão Novo serviço vinculado](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-linked-service.png)    
-2. Na página **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
+2. Na janela **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**. 
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-azure-storage.png)
-3. Na janela **Novo serviço vinculado** execute as seguintes etapas:
+3. Na janela **Novo Serviço Vinculado**, execute estas etapas:
 
     1. Insira **AzureStorageLinkedService** como o **Nome**.
     2. Selecione **MySelfHostedIR** para **Conectar por meio do runtime de integração**.
@@ -178,7 +178,7 @@ Você cria e implanta dois serviços vinculados nesta seção:
 2. Alterne para a guia **Computação**, selecione **Azure HDInsight** e clique em **Continuar**.
 
     ![Selecione Azure HDInsight](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight.png)
-3. Na janela **Novo serviço vinculado** execute as seguintes etapas:
+3. Na janela **Novo Serviço Vinculado**, execute estas etapas:
 
     1. Insira **AzureHDInsightLinkedService** no **Nome**.
     2. Selecione **Traga seu próprio HDInsight**. 
@@ -205,7 +205,7 @@ Observe os seguintes pontos:
 
 1. Na interface de usuário do Data Factory, clique em **+ (adição)** no painel esquerdo e clique em **Pipeline**. 
 
-    ![Menu de novo pipeline](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
+    ![Menu do novo pipeline](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
 2. Na caixa de ferramentas **Atividades**, expanda **HDInsight**e arraste e solte a atividade **Hive** para a superfície do designer de pipeline. 
 
     ![atividade de arrastar e soltar do Hive](./media/tutorial-transform-data-using-hive-in-vnet-portal/drag-drop-hive-activity.png)

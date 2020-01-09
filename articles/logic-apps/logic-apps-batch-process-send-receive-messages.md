@@ -1,6 +1,6 @@
 ---
 title: Processar mensagens em lote como um grupo
-description: Enviar e receber mensagens como lotes em Aplicativos Lógicos do Azure
+description: Enviar e receber mensagens em grupos entre seus fluxos de trabalho usando o processamento em lotes em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791567"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666747"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos Aplicativos Lógicos do Azure
 
@@ -55,7 +55,7 @@ Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como 
 
 3. Defina estas propriedades para o receptor do lote: 
 
-   | Propriedade | Descrição | 
+   | Propriedade | Description | 
    |----------|-------------|
    | **Modo de lote** | - **Inline**: para definir os critérios de liberação dentro do acionador de lote <br>- **Conta de Integração**: para definir várias configurações de critérios de liberação por meio de uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Com uma conta de integração, você pode manter essas configurações em um só lugar e não em aplicativos lógicos separados. | 
    | **Nome do lote** | O nome do seu lote, que é "TestBatch" neste exemplo, e se aplica apenas ao modo em lote **Inline** |  
@@ -168,7 +168,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
 
 3. Defina propriedades do remetente de lote:
 
-   | Propriedade | Descrição | 
+   | Propriedade | Description | 
    |----------|-------------| 
    | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no runtime e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você deseja enviar | 
@@ -186,7 +186,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
 
 4. Agora, configure uma partição para o lote. Na ação "Destinatáriolote", escolha **Mostrar opções avançadas** e definir essas propriedades:
 
-   | Propriedade | Descrição | 
+   | Propriedade | Description | 
    |----------|-------------| 
    | **Nome da partição** | Uma chave de partição exclusiva opcional a ser usada para dividir o lote de destino em subconjuntos lógicos e coletar mensagens com base nessa chave | 
    | **Id da mensagem** | Um identificador de mensagem opcional que é um identificador global exclusivo gerado (GUID) quando estiver vazio | 

@@ -1,25 +1,16 @@
 ---
-title: Criar um serviço baseado em ator no Azure Service Fabric | Microsoft Docs
+title: Criar um serviço baseado em ator no Azure Service Fabric
 description: Saiba como criar, depurar e implantar seu primeiro serviço baseado em ator em C# usando Reliable Actors do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: a6e4fb48653572139463738c82de632ff7d55074
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466258"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
 > [!div class="op_single_selector"]
@@ -56,7 +47,7 @@ A solução contém dois projetos:
 
 * **Projeto de serviço de ator (HelloWorld)** . Esse projeto define o serviço do Service Fabric que vai hospedar o ator. Ele contém a implementação do ator, *HelloWorld.cs*. Uma implementação de ator é uma classe que deriva do tipo de base `Actor` e implementa as interfaces definidas no projeto *MyActor.Interfaces*. Uma classe de ator também deve implementar um construtor que aceita uma instância `ActorService` e um `ActorId` e as passem para a classe de base `Actor`.
     
-    Este projeto também contém *Program.cs*, que registra classes de ator com o tempo de execução do Service Fabric usando `ActorRuntime.RegisterActorAsync<T>()`. A classe `HelloWorld` já está registrada. Todas as implementações de ator adicionais, adicionadas ao projeto, também devem ser registradas no método `Main()`.
+    Este projeto também contém *Program.cs*, que registra classes de ator com o runtime do Service Fabric usando `ActorRuntime.RegisterActorAsync<T>()`. A classe `HelloWorld` já está registrada. Todas as implementações de ator adicionais, adicionadas ao projeto, também devem ser registradas no método `Main()`.
 
 ## <a name="customize-the-helloworld-actor"></a>Personalizar o ator HelloWorld
 
@@ -116,7 +107,7 @@ Crie um aplicativo de console simples para chamar o serviço de ator.
 
     O pacote NuGet e todas as suas dependências estão instaladas no projeto ActorClient.
 
-5. O projeto de cliente também requer uma referência ao projeto de interfaces.  No projeto ActorClient, clique com o botão direito do mouse em **Dependências** e, em seguida, em **Adicionar referência...** .  Selecione **Projetos > Solução** (se ainda não estiver selecionado) e, em seguida, tique a caixa de seleção ao lado de **HelloWorld.Interfaces**.  Clique em **OK**.
+5. O projeto de cliente também requer uma referência ao projeto de interfaces.  No projeto ActorClient, clique com o botão direito do mouse em **dependências** e clique em **Adicionar referência..** ..  Selecione **projetos > solução** (se ainda não estiver selecionada) e, em seguida, marque a caixa de seleção ao lado de **HelloWorld. interfaces**.  Clique em **OK**.
     
     ![Caixa de diálogo Adicionar referência][7]
 
@@ -155,9 +146,9 @@ Quando a saída contiver o texto, *O aplicativo está pronto*, será possível t
 ![Saída do aplicativo][9]
 
 > [!TIP]
-> O tempo de execução dos Atores do Service Fabric emitem alguns [eventos e contadores de desempenho relacionados aos métodos de ator](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Eles são úteis para diagnóstico e monitoramento de desempenho.
+> O runtime dos Atores do Service Fabric emitem alguns [eventos e contadores de desempenho relacionados aos métodos de ator](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Eles são úteis para diagnóstico e monitoramento de desempenho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md).
 
 

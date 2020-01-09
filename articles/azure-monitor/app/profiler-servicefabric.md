@@ -1,5 +1,5 @@
 ---
-title: Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights | Microsoft Docs
+title: Perfil de aplicativos de Service Fabric dinâmicos do Azure com Application Insights
 description: Habilitar o Profiler para um aplicativo do Service Fabric
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,18 +8,18 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a7a64be3c73ea82c6bf3d905772f3278f9bda5df
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 162a8c3f90b7adab356ebb07c80b8de283fd818d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432398"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights
 
 Você também pode implantar o Application Insights Profiler nesses serviços:
-* [Serviço de aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços de nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Configurar a definição de implantação do ambiente

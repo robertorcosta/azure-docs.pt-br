@@ -2,19 +2,16 @@
 title: Gerenciar atualizações e patches para as VMs do Azure
 description: Este artigo fornece uma visão geral de como usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches das VMs do Azure e não Azure.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420652"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
@@ -31,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Agendar uma implantação de atualização
 > * Exibir os resultados de uma implantação
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -136,7 +133,7 @@ Para agendar uma nova implantação de atualização para a VM, vá para **Geren
 
 Em **Nova implantação de atualização**, especifique as seguintes informações:
 
-* **Nome**: insira um nome exclusivo para a implantação de atualização.
+* **Name**: insira um nome exclusivo para a implantação de atualização.
 
 * **Sistema operacional**: selecione o sistema operacional de destino para a implantação de atualização.
 
@@ -148,7 +145,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
   Os tipos de classificação são:
 
-   |SO  |Type  |
+   |Sistema operacional  |Type  |
    |---------|---------|
    |Windows     | Atualizações críticas</br>Atualizações de segurança</br>Pacotes cumulativos de atualização</br>Feature packs</br>Service packs</br>Atualizações de definição</br>Ferramentas</br>Atualizações        |
    |Linux     | Atualizações críticas ou de segurança</br>Outras atualizações       |
@@ -209,8 +206,8 @@ Em **Resultados da atualização** há um resumo do número total de atualizaç�
 A lista a seguir mostra os valores disponíveis:
 
 * **Nenhuma tentativa**: a atualização não foi instalada devido a tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Êxito**: A atualização foi bem-sucedida.
-* **Falha**: falha na atualização.
+* **Bem-sucedido**: A atualização foi bem-sucedida.
+* **Falhou**: Falha na atualização.
 
 Selecione **Todos os logs** para ver todas as entradas de log que a implantação criou.
 
@@ -224,7 +221,7 @@ Quando a implantação de atualização é bem-sucedida, um email semelhante ao 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Integrar uma VM para o Gerenciamento de Atualizações

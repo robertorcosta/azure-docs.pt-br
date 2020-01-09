@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682251"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640934"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -43,11 +43,11 @@ O armazenamento padrão, seja uma conta de Armazenamento do Azure ou um Azure Da
 
 Se você já tem uma conta de armazenamento ou o um Data Lake Storage que contém seus dados e deseja usar este armazenamento como o armazenamento de padrão do seu cluster, é necessário implantar o cluster nesse mesmo local.
 
-### <a name="storage-size"></a>Tamanho do armazenamento
+### <a name="storage-size"></a>Tamanho de armazenamento
 
 Depois de implantar um cluster HDInsight, você poderá anexar mais contas do Armazenamento do Azure ou acessar outros Data Lake Storage. Todas as suas contas de armazenamento devem residir no mesmo local que o cluster. Um Data Lake Storage pode estar em um local diferente, embora isso possa causar alguma latência na leitura/gravação de dados.
 
-O Armazenamento do Azure tem alguns [limites de capacidade](../azure-subscription-service-limits.md#storage-limits), enquanto o Data Lake Storage Gen1 é virtualmente ilimitado.
+O Armazenamento do Azure tem alguns [limites de capacidade](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), enquanto o Data Lake Storage Gen1 é virtualmente ilimitado.
 
 Um cluster pode acessar uma combinação de contas de armazenamento diferentes. Exemplos comuns incluem:
 
@@ -92,9 +92,19 @@ Você é cobrado pelo tempo de vida do cluster. Se houver apenas momentos espec�
 
 ## <a name="quotas"></a>Cotas
 
-Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade de cota atuais da sua assinatura. Ao atingir um limite de cota, você não poderá implantar novos clusters ou aumentar os clusters existentes, adicionando mais nós de trabalho. O único limite de cota é a cota de Núcleos de CPU que existe no nível da região para cada assinatura. Por exemplo, sua assinatura pode ter o limite de 30 núcleos na região Leste dos EUA. Se precisar solicitar um aumento de cota, siga estes passos:
+Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, verifique os limites de capacidade de cota atuais da sua assinatura. Ao atingir um limite de cota, você não poderá implantar novos clusters ou aumentar os clusters existentes, adicionando mais nós de trabalho. O único limite de cota é a cota de Núcleos de CPU que existe no nível da região para cada assinatura. Por exemplo, sua assinatura pode ter o limite de 30 núcleos na região Leste dos EUA. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+Para verificar os núcleos disponíveis, execute as seguintes etapas:
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Navegue até a página **visão geral** do cluster HDInsight. 
+3. No menu à esquerda, clique em **limites de cota**.
+
+   A página exibe o número de núcleos em uso, o número de núcleos disponíveis e o total de núcleos.
+
+Se precisar solicitar um aumento de cota, siga estes passos:
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione **ajuda + suporte** no lado inferior esquerdo da página.
 1. Selecione **Nova solicitação de suporte**.
 1. Na página **Nova solicitação de suporte**, na guia **Noções básicas**, selecione as opções a seguir:
@@ -115,9 +125,9 @@ Depois de determinar o tamanho, a escala e o tipo da VM do cluster de destino, v
 
 Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter, no máximo, 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter, no máximo, 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure os clusters no HDInsight com Apache Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como instalar e configurar clusters no HDInsight com Apache Hadoop, Spark, Kafka, Hive Interativo, HBase, Serviços ML ou Storm.
 * [Monitorar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): saiba mais sobre os principais cenários a serem monitorados em seu cluster HDInsight e que podem afetar a capacidade do seu cluster.

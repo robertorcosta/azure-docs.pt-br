@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4544f42e7c024b21c4ae050d9b11e0f9e2786d57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432334"
 ---
 # <a id="troubleshooting"></a>Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes pelos quais os instantâneos não são gerados. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
@@ -219,4 +219,4 @@ Se você não vir uma exceção com essa ID de instantâneo, a telemetria de exc
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de firewall ou proxy de rede
 
-Se o aplicativo se conectar à Internet por meio de um proxy ou firewall, talvez será necessário editar as regras para permitir que o aplicativo se comunique com o serviço de Depurador de Instantâneos. Veja uma [lista de endereços IP e portas usadas pelo Depurador de Instantâneos](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).
+Se o aplicativo se conectar à Internet por meio de um proxy ou firewall, talvez será necessário editar as regras para permitir que o aplicativo se comunique com o serviço de Depurador de Instantâneos. Os IPs usados pelo Depurador de Instantâneos são incluídos na marca de serviço do Azure Monitor.

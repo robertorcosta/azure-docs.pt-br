@@ -1,5 +1,6 @@
 ---
-title: Tutorial para o uso da configuração dinâmica da Configuração de Aplicativos do Azure em um aplicativo .NET Core | Microsoft Docs
+title: 'Tutorial: Usar configuração dinâmica em um aplicativo .NET Core'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração de aplicativos .NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185187"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433670"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Usar configuração dinâmica em um aplicativo .NET Core
 
@@ -36,7 +37,7 @@ Neste tutorial, você aprenderá como:
 > * Configure seu aplicativo .NET Core para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Consuma a configuração mais recente em seu aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 
@@ -119,7 +120,7 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
 
     ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
+1. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
 1. Selecione **Gerenciador de Configurações** e atualize os valores das seguintes chaves:
 
@@ -134,7 +135,7 @@ O método `ConfigureRefresh` é usado para especificar as configurações usadas
     > [!NOTE]
     > Uma vez que o tempo de expiração do cache foi definido como 10 segundos usando o método `SetCacheExpiration` ao especificar a configuração para a operação de atualização, o valor para a definição de configuração será atualizado apenas se pelo menos 10 segundos tiverem se passado desde a última atualização para essa configuração.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

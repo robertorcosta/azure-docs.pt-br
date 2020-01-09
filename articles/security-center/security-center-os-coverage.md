@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353314"
 ---
-# <a name="supported-platforms"></a>Plataformas com suporte 
+# <a name="supported-platforms"></a>Plataformas compatíveis 
 
 ## Máquinas virtuais/servidores<a name="vm-server"></a>
 
@@ -41,7 +41,7 @@ As seções a seguir listam os sistemas operacionais de servidor com suporte nos
 
 ### Sistemas operacionais Windows Server<a name="os-windows"></a>
 
-|SO|Com suporte na central de segurança do Azure|Suporte para integração com o Microsoft defender ATP|
+|SISTEMA OPERACIONAL|Com suporte na central de segurança do Azure|Suporte para integração com o Microsoft defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -56,7 +56,7 @@ Para saber mais sobre os recursos com suporte para os sistemas operacionais Wind
 
 * CentOS 6 e 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 e 7
+* Oracle Linux 6 e Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 e 7
 * Debian GNU/Linux 8 e 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
@@ -90,7 +90,7 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * PostGreSQL
 * MySQL
 * CosmosDB
-* Conta de Armazenamento
+* Conta de armazenamento
 * serviço de aplicativo
 * Função
 * Serviço de Nuvem
@@ -101,22 +101,22 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * Conta do Batch
 * Conta do Service Fabric
 * Conta de automação
-* Balanceador de carga
-* Pesquisar
+* Load Balancer
+* Pesquisa
 * Namespace do Barramento de Serviço
 * Stream Analytics
 * Namespace do Hub de Eventos
 * Aplicativos lógicos
 * Redis
-* Análises Data Lake
-* Data Lake Store
-* Cofre de chaves
+* Data Lake Analytics
+* Repositório Data Lake
+* Key Vault
 
 Para saber mais sobre os recursos com suporte para a lista acima de recursos de PaaS, consulte [recursos compatíveis com serviços de PaaS](security-center-services.md#paas-services).
 
 Também há suporte para a proteção para máquinas virtuais que residem no Azure Stack. Para obter mais informações sobre a integração da central de segurança com o Azure Stack, consulte integrar [suas máquinas virtuais Azure Stack à central de segurança](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [a central de segurança coleta dados e o agente de log Analytics](security-center-enable-data-collection.md).
 - Saiba como a [central de segurança gerencia e protege os dados](security-center-data-security.md).

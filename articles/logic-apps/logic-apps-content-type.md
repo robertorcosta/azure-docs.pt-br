@@ -1,17 +1,17 @@
 ---
 title: Lidar com tipos de conteúdo
-description: Saiba como os Aplicativos Lógicos manipulam tipos de conteúdo em tempo de design e tempo de execução
+description: Saiba como lidar com vários tipos de conteúdo em fluxos de trabalho durante o tempo de design e o tempo de execução em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791527"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666866"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
 

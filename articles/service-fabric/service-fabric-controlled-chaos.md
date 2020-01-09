@@ -1,25 +1,16 @@
 ---
-title: Induzir o Chaos em clusters do Service Fabric | Microsoft Docs
+title: Induzir caos em clusters de Service Fabric
 description: Como usar as APIs de serviço de Injeção de falhas e análise de cluster para gerenciar o Chaos no cluster.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: anmola
-editor: motanv
-ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 7a22b17d45218c2f78220f980605b3c211495606
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543734"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463176"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o Controlled Chaos em clusters do Service Fabric
 Os sistemas distribuídos em larga escala, como as infraestruturas de nuvem, não são confiáveis por natureza. O Azure Service Fabric permite aos desenvolvedores escrever serviços distribuídos confiáveis sobre uma infraestrutura não confiável. Para gravar serviços distribuídos robustos sobre uma infraestrutura não confiável, os desenvolvedores precisam poder testar a estabilidade de seus serviços enquanto a infraestrutura subjacente não confiável está passando por transições de estado complicadas devido a falhas.
@@ -70,10 +61,10 @@ Para obter quais falhas o Chaos induziu, você pode usar a API GetChaosReport (P
 * **WaitTimeBetweenIterations**: a quantidade de tempo de espera entre as iterações. Ou seja, a quantidade de tempo que pela qual o Chaos fará uma pausa após ter executado uma rodada de falhas e ter concluído a validação correspondente da integridade do cluster. Quanto maior o valor, menor é a taxa de injeção de falhas média.
 * **WaitTimeBetweenFaults**: o tempo de espera entre as duas falhas consecutivas em uma única iteração. Quanto maior o valor, menor a simultaneidade (ou a sobreposição entre) de falhas.
 * **ClusterHealthPolicy**: a política de integridade do cluster é usada para validar a integridade do cluster entre iterações do Chaos. Se a integridade do cluster estiver em erro ou se ocorrer uma exceção inesperada durante a execução de falhas, o Chaos aguardará 30 minutos antes da próxima verificação de integridade, para fornecer ao cluster algum tempo para se recuperar.
-* **Context**: uma coleção pares chave/valor do tipo (cadeia de caracteres, cadeia de caracteres). O mapa pode ser usado para registrar informações sobre a execução do Chaos. Não pode haver mais de 100 desses pares e cada cadeia de caracteres (chave ou valor) pode ter no máximo 4095 caracteres. Esse mapa é definido pelo iniciador da execução do Chaos para armazenar opcionalmente o contexto sobre a execução específica.
+* **Contexto**: uma coleção pares chave/valor do tipo (cadeia de caracteres, cadeia de caracteres). O mapa pode ser usado para registrar informações sobre a execução do Chaos. Não pode haver mais de 100 desses pares e cada cadeia de caracteres (chave ou valor) pode ter no máximo 4095 caracteres. Esse mapa é definido pelo iniciador da execução do Chaos para armazenar opcionalmente o contexto sobre a execução específica.
 * **ChaosTargetFilter**: este filtro pode ser usado para falhas de Chaos de destino somente para determinados tipos de nó ou apenas algumas instâncias de aplicativo. Se ChaosTargetFilter não for usado, Chaos falha em todas as entidades de cluster. Se ChaosTargetFilter for usado, Chaos falha apenas as entidades que atendem a especificação de ChaosTargetFilter. NodeTypeInclusionList e ApplicationInclusionList permitem apenas semântica de união. Em outras palavras, não é possível especificar uma interseção de NodeTypeInclusionList e ApplicationInclusionList. Por exemplo, não é possível especificar "falha deste aplicativo somente quando ele estiver nesse tipo de nó." Depois que uma entidade é incluída em NodeTypeInclusionList ou ApplicationInclusionList, essa entidade não pode ser excluída usando ChaosTargetFilter. Mesmo se não aparecer aplicativoX no ApplicationInclusionList, em alguns aplicativosX de iteração Chaos podem apresentar falha porque isso acontece de estar em um nó de nodeTypeY que está incluído no NodeTypeInclusionList. Se NodeTypeInclusionList e ApplicationInclusionList são nulos ou vazios, ArgumentException será lançada.
     * **NodeTypeInclusionList**: uma lista de tipos de nó para incluir em falhas de Chaos. Todos os tipos de falhas (reiniciar o nó, reiniciar codepackage, remover a réplica, reinicie a réplica, mover primário e mover secundário) estão habilitados para os nós desses tipos de nó. Se um nodetype (digamos NodeTypeX) não aparece na NodeTypeInclusionList, em seguida, as falhas de nível de nó(como NodeRestart) nunca serão habilitadas para os nós de NodeTypeX, mas falhas de pacote e de réplica de código ainda podem ser habilitadas para NodeTypeX se um aplicativo no ApplicationInclusionList acontece deve residir em um nó de NodeTypeX. No máximo 100 nomes de tipo de nó podem ser incluídos nessa lista, para aumentar esse número, uma atualização de configuração é necessária para a configuração de MaxNumberOfNodeTypesInChaosTargetFilter.
-    * **ApplicationInclusionList**: uma lista de URIs de aplicativo para incluir em falhas de Chaos. Todas as réplicas que pertencem aos serviços desses aplicativos são receptivos a falhas de réplica (reinicialização de réplica, remover réplica, mover primário e secundário de movimentação) por Chaos. Chaos pode reiniciar um pacote de código somente se o pacote de código hospeda réplicas somente desses aplicativos. Se um aplicativo não aparecer nessa lista, ele ainda pode falhar em alguma iteração do Chaos se o aplicativo terminar em um nó de um tipo de nó que está incluído em NodeTypeInclusionList. No entanto se aplicativoX for vinculado a nodeTypeY por meio de restrições de posicionamento e aplicativoX está ausente do ApplicationInclusionList e nodeTypeY está ausente do NodeTypeInclusionList, em seguida, aplicativoX será nunca interrompido. No máximo 1000 nomes de tipo de nó podem ser incluídos nessa lista, para aumentar esse número, uma atualização de configuração é necessária para a configuração de MaxNumberOfNodeTypesInChaosTargetFilter.
+    * **ApplicationInclusionList**: uma lista de URIs do aplicativo para incluir em falhas de Chaos. Todas as réplicas que pertencem aos serviços desses aplicativos são receptivos a falhas de réplica (reinicialização de réplica, remover réplica, mover primário e secundário de movimentação) por Chaos. Chaos pode reiniciar um pacote de código somente se o pacote de código hospeda réplicas somente desses aplicativos. Se um aplicativo não aparecer nessa lista, ele ainda pode falhar em alguma iteração do Chaos se o aplicativo terminar em um nó de um tipo de nó que está incluído em NodeTypeInclusionList. No entanto se aplicativoX for vinculado a nodeTypeY por meio de restrições de posicionamento e aplicativoX está ausente do ApplicationInclusionList e nodeTypeY está ausente do NodeTypeInclusionList, em seguida, aplicativoX será nunca interrompido. No máximo 1000 nomes de tipo de nó podem ser incluídos nessa lista, para aumentar esse número, uma atualização de configuração é necessária para a configuração de MaxNumberOfNodeTypesInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Como executar o Chaos
 

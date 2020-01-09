@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406423"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563268"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutorial: Criar um pipeline de enriquecimento de IA usando REST e Python
 
@@ -40,7 +40,7 @@ Este tutorial é executado no serviço gratuito, mas o número de transações g
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os serviços, as ferramentas e os dados a seguir são usados neste tutorial. 
 
@@ -87,7 +87,7 @@ Existem outras maneiras de especificar a cadeia de caracteres de conexão, como 
 ## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
 
 > [!Note]
-> Este artigo mostra como criar uma fonte de dados, um índice, um indexador e um conjunto de habilidades usando uma série de scripts Python. Para baixar o exemplo de notebook completo, vá para o [repositório Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> Este artigo mostra como criar uma fonte de dados, um índice, um indexador e um conjunto de habilidades usando uma série de scripts Python. Para baixar o exemplo de notebook completo, vá para o [repositório Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Use o Anaconda Navigator para iniciar o Jupyter Notebook e criar um novo notebook Python 3.
 
@@ -276,7 +276,7 @@ Nesta seção, você define o esquema de índice especificando os campos que ser
 
 Este exercício usa os seguintes campos e tipos de campo:
 
-| nomes de campo: | ID         | conteúdo   | languageCode | keyPhrases         | organizações     |
+| nomes de campo: | id         | content   | languageCode | keyPhrases         | organizações     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | nomes de campo: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -498,7 +498,7 @@ r = requests.delete(endpoint + "/skillsets/" + skillset_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Como seu código amadurece, talvez queira refinar uma estratégia de reconstrução. Para saber mais, confira [Como recompilar um índice](search-howto-reindex.md).
+Como seu código amadurece, talvez queira refinar uma estratégia de reconstrução. Para obter mais informações, confira [Como recompilar um índice](search-howto-reindex.md).
 
 ## <a name="takeaways"></a>Observações
 
@@ -508,7 +508,7 @@ Introduzimos [habilidades internas](cognitive-search-predefined-skills.md), com 
 
 Por fim, você aprendeu a testar os resultados e a redefinir o sistema para ter novas iterações. Você aprendeu que emitir consultas em relação ao índice retorna a saída criada pelo pipeline de indexação enriquecido. Nesta versão, há um mecanismo para exibir as construções internas (enriquecidas documentos criados pelo sistema). Também aprendeu a verificar o status do indexador e quais objetos devem ser excluídos antes de executar novamente um pipeline.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço da Pesquisa Cognitiva do Azure e o serviço Blob do Azure. Supondo que tenha colocado os dois serviços no mesmo grupo, exclua o grupo de recursos para eliminar permanentemente todo o seu conteúdo, inclusive os serviços e o conteúdo armazenado que criou para este tutorial. No portal, o nome do grupo de recurso está na página de Visão geral de cada serviço.
 

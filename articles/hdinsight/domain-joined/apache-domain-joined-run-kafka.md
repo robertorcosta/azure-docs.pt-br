@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435847"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (Versão Prévia)
 
@@ -48,7 +48,7 @@ Crie uma política de Ranger para **sales_user** e **marketing_user**.
 
 1. Abra o **interface do usuário administrador do Ranger**.
 
-2. Selecione  **\<ClusterName > _kafka** em **Kafka**. Uma política previamente configurada pode estar listada.
+2. Selecione **\<ClusterName > _kafka** em **Kafka**. Uma política previamente configurada pode estar listada.
 
 3. Selecione **Adicionar nova política** e insira os seguintes valores:
 
@@ -93,7 +93,7 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Substitua `DOMAINADMIN` pelo usuário administrador do cluster configurado durante a [criação do cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) e substitua `CLUSTERNAME` pelo nome do cluster. Se solicitado, insira a senha da conta de usuário administrador. Para saber mais sobre como usar o `SSH` com HDInsight, confira [Usar SSH com HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Substitua `DOMAINADMIN` pelo usuário administrador do cluster configurado durante a [criação do cluster](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp) e substitua `CLUSTERNAME` pelo nome do cluster. Se solicitado, insira a senha da conta de usuário administrador. Para saber mais sobre como usar o `SSH` com HDInsight, confira [Usar SSH com HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use os seguintes comandos para salvar o nome do cluster em uma variável e instalar um utilitário de análise JSON `jq`. Quando solicitado, insira o nome do cluster Kafka.
 
@@ -131,7 +131,7 @@ Com base nas políticas do Ranger configuradas, **sales_user** pode produzir/con
    ssh sales_user1@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-2. Execute o seguinte comando:
+2. Execute o comando a seguir:
 
    ```bash
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
@@ -185,11 +185,11 @@ Com base nas políticas do Ranger configuradas, **sales_user** pode produzir/con
 
    ![Eventos de acesso de auditoria da política de interface do usuário do Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não for continuar usando este aplicativo, exclua o cluster do Kafka que você criou seguindo estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Na caixa **Pesquisar** na parte superior, digite **HDInsight**.
 1. Selecione **Clusters do HDInsight** em **Serviços**.
 1. Na lista de clusters do HDInsight que aparece, clique em **…** ao lado do cluster que você criou para este tutorial. 

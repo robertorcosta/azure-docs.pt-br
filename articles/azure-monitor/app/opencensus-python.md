@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432478"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
@@ -38,13 +38,13 @@ Primeiro, você precisa criar um recurso de Application Insights no Azure Monito
 
 1. Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-   | Configuração        | Value           | Descrição  |
+   | Configuração        | Valor           | Description  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor global exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome do novo grupo de recursos para hospedar Application Insights dados |
    | **Localidade** | Leste dos EUA | Um local perto de você ou próximo de onde seu aplicativo está hospedado |
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumento com SDK OpenCensus Python para Azure Monitor
 
@@ -67,7 +67,7 @@ Aqui estão os exportadores que o OpenCensus fornece mapeado para os tipos de te
 
 ![Captura de tela do mapeamento de tipos de telemetria de OpenCensus para Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
 
-### <a name="trace"></a>Rastreamento
+### <a name="trace"></a>Trace
 
 > [!NOTE]
 > `Trace` no OpenCensus refere-se ao [rastreamento distribuído](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). O `AzureExporter` envia `requests` e `dependency` telemetria para Azure Monitor.
@@ -353,7 +353,7 @@ Aqui estão os exportadores que o OpenCensus fornece mapeado para os tipos de te
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+7. Para obter detalhes sobre como enriquecer seus logs com dados de contexto de rastreamento, consulte integração do OpenCensus Python [logs](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## <a name="view-your-data-with-queries"></a>Exibir seus dados com consultas
 

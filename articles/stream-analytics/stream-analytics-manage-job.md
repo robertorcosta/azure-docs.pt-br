@@ -1,20 +1,18 @@
 ---
 title: Tutorial – Criar e gerenciar um trabalho do Stream Analytics usando o portal do Azure
 description: Este tutorial fornece uma demonstração ponta a ponta sobre como usar o Azure Stream Analytics para analisar chamadas fraudulentas em um fluxo de chamadas telefônicas.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459561"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
 
@@ -30,12 +28,12 @@ Neste tutorial, você aprenderá como:
 > * Testar e iniciar o trabalho
 > * Visualizar os resultados no Power BI
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, execute as seguintes ações:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
-* Entre no [Portal do Azure](https://portal.azure.com/).
+* Entre no [portal do Azure](https://portal.azure.com/).
 * Faça o download do aplicativo gerador de evento de chamada telefônica [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) do Centro de Download da Microsoft ou obtenha o código-fonte no [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Você precisará de uma conta do Power BI.
 
@@ -45,7 +43,7 @@ Para que o Stream Analytics possa analisar o fluxo de dados de chamadas fraudule
 
 Use as seguintes etapas para criar um Hub de Eventos e enviar dados de chamada para ele:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Criar um recurso** > **Internet das Coisas** > **Hubs de Eventos**.
 
    ![Criar um Hub de Eventos do Azure no portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -53,7 +51,7 @@ Use as seguintes etapas para criar um Hub de Eventos e enviar dados de chamada p
 
    |**Configuração**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
-   |NOME     | myEventHubsNS        |  Um nome exclusivo para identificar o namespace de hub de eventos.       |
+   |Nome     | myEventHubsNS        |  Um nome exclusivo para identificar o namespace de hub de eventos.       |
    |Subscription     |   \<Sua assinatura\>      |   Selecione uma assinatura do Azure em que deseja criar o hub de eventos.      |
    |Resource group     |   MyASADemoRG      |  Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta.       |
    |Location     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
@@ -63,7 +61,7 @@ Use as seguintes etapas para criar um Hub de Eventos e enviar dados de chamada p
    ![Criar um namespace do hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Quando o namespace concluir a implantação, vá para **Todos os recursos** e localize *myEventHubsNS* na lista de recursos do Azure. Escolha *myEventHubsNS* para abri-lo.
-6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome** *MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
+6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome***MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
 
    ![Configuração do Hub de Eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
@@ -140,7 +138,7 @@ Agora que você tem um fluxo de eventos de chamada, pode criar um trabalho do St
    |Subscription    |  \<Sua assinatura\>   |   Selecione uma assinatura do Azure em que deseja criar o trabalho.       |
    |Resource group   |   MyASADemoRG      |   Selecione **Usar existente** e insira um novo nome de grupo de recursos para sua conta.      |
    |Location   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
-   |Ambiente de hospedagem    | Nuvem        |     Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud, e o Edge permite que você implante em um dispositivo IoT Edge.    |
+   |Ambiente de hospedagem    | Nuvem        |     Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud e o Edge permite que você implante em um dispositivo IoT Edge.    |
    |Unidades de transmissão     |    1       |      As unidades de streaming representam os recursos de computação necessários para executar um trabalho. Por padrão, esse valor é definido como 1. Para saber mais sobre como dimensionar unidades de streaming, confira o artigo [Entendendo e ajustando as unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Use as opções padrão nas configurações restantes, selecione **Criar** e aguarde até que a implantação seja concluída com êxito.

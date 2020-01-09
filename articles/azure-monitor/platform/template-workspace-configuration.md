@@ -4,21 +4,21 @@ description: Você pode usar os modelos do Azure Resource Manager para criar e c
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176387"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363346"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Os exemplos das tarefas que você pode executar com os modelos incluem:
+Você pode usar [modelos de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho do Log Analytics no Azure monitor. Os exemplos das tarefas que você pode executar com os modelos incluem:
 
 * Criar um workspace incluindo o tipo de preço de configuração 
 * Adicionar uma solução

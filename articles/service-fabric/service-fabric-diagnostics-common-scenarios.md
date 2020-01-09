@@ -1,29 +1,20 @@
 ---
-title: Cenários comuns de diagnóstico do Azure Service Fabric | Microsoft Docs
-description: Saiba como solucionar problemas de cenários comuns com o Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Cenários comuns do Azure Service Fabric diagnosticar
+description: Saiba mais sobre como solucionar problemas comuns de monitoramento e diagnóstico nos aplicativos Service Fabric do Azure.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394068"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645779"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
-Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as 3 camadas do service fabric: Aplicativos, Cluster e infraestrutura. Cada solução usa logs de Application Insights e Azure Monitor, ferramentas de monitoramento do Azure, para concluir cada cenário. As etapas em cada solução fornecem aos usuários uma introdução sobre como usar os logs Application Insights e Azure Monitor no contexto de Service Fabric.
+Este artigo ilustra os cenários comuns que os usuários encontraram na área de monitoramento e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as 3 camadas da malha do serviço: aplicativo, cluster e infraestrutura. Cada solução usa logs de Application Insights e Azure Monitor, ferramentas de monitoramento do Azure, para concluir cada cenário. As etapas em cada solução fornecem aos usuários uma introdução sobre como usar os logs Application Insights e Azure Monitor no contexto de Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -56,7 +47,7 @@ As soluções neste artigo usará as ferramentas a seguir. Recomendamos que voc�
 1. No mesmo recurso do Application Insights, você pode filtrar "solicitações" em vez de exceções e exibir todas as solicitações feitas
 2. Se estiver usando o SDK do Application Insights do Service Fabric, você poderá ver uma representação visual dos seus serviços conectados um ao outro e o número de solicitações com êxito e falha. À esquerda, clique em "Mapa do aplicativo"
 
-    ![Folha de mapa do aplicativo AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![Mapa de aplicativo do AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    Folha de mapa de aplicativo ![AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![mapa de aplicativos de AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Para obter mais informações sobre o mapa de aplicativo, visite a [documentação do Mapa do aplicativo](../azure-monitor/app/app-map.md)
 
@@ -101,7 +92,7 @@ A mesma exibição com todos os gráficos, você verá alguns blocos para o dese
 
 ## <a name="how-can-i-monitor-performance-counters"></a>Como posso monitorar contadores de desempenho?
 
-1. Depois que você tiver adicionado o Agente do Log Analytics ao cluster de que você precisa para adicionar contadores de desempenho específicos que você deseja controlar. Navegue até a página do Espaço de Trabalho do Log Analytics no portal – na página da solução, a guia de espaço de trabalho está no menu à esquerda.
+1. Depois de adicionar o agente de Log Analytics ao cluster, você precisará adicionar os contadores de desempenho específicos que deseja acompanhar. Navegue até a página do espaço de trabalho Log Analytics no portal – na página da solução, a guia espaço de trabalho está no menu à esquerda.
 
     ![Guia de espaço de trabalho do Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
@@ -141,7 +132,7 @@ Para acompanhar o desempenho de Reliable Services ou atores em seus aplicativos,
 
 Verifique esses links para a lista completa de contadores de desempenho em Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) e [Atores](service-fabric-reliable-actors-diagnostics.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar alertas no AI](../azure-monitor/app/alerts.md) para ser notificado sobre mudanças no desempenho ou uso
 * [Detecção Inteligente no Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise pró-ativa da telemetria enviada ao AI para avisá-lo sobre possíveis problemas de desempenho

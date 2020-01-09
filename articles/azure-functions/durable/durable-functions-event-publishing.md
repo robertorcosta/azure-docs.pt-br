@@ -3,12 +3,12 @@ title: Publicação de Funções Duráveis para a Grade de Eventos do Azure (vis
 description: Saiba como configurar a publicação automática da Grade de Eventos do Azure para Funções Duráveis.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231443"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613118"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicação de Funções Duráveis para a Grade de Eventos do Azure (visualização)
 
@@ -24,7 +24,7 @@ A seguir, alguns cenários em que esse recurso é útil:
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Instale [Microsoft. Azure. webjobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) em seu projeto Durable functions.
 * Instale o [Emulador de Armazenamento do Azure](../../storage/common/storage-use-emulator.md).
@@ -86,7 +86,7 @@ Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` em uma propriedade
 
 As propriedades de configuração da grade de eventos do Azure possíveis podem ser encontradas na [documentação do host. JSON](../functions-host-json.md#durabletask). Depois de configurar o arquivo de `host.json`, seu aplicativo de funções envia eventos de ciclo de vida para o tópico da grade de eventos. Isso funciona quando você executa seu aplicativo de funções localmente e no Azure. ' ' '
 
-Defina a configuração do aplicativo para a chave do tópico no Aplicativo de Funções e `local.setting.json`. O JSON a seguir é um exemplo do `local.settings.json` para depuração local. Substitua `<topic_key>` pela chave do tópico.  
+Defina a configuração do aplicativo para a chave do tópico no Aplicativo de Funções e `local.settings.json`. O JSON a seguir é um exemplo do `local.settings.json` para depuração local. Substitua `<topic_key>` pela chave do tópico.  
 
 ```json
 {
@@ -279,7 +279,7 @@ A lista a seguir explica o esquema de eventos de ciclo de vida:
 
 Para testar localmente, use [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Conhecer a instância de gerenciamento em Funções Duráveis](durable-functions-instance-management.md)

@@ -1,25 +1,16 @@
 ---
-title: Agregação de Eventos do Azure Service Fabric com Diagnóstico do Windows Azure | Microsoft Docs
+title: Agregação de eventos com o Windows Diagnóstico do Azure
 description: Saiba mais sobre a agregação e coleta de eventos utilizando o WAD para monitoramento e diagnóstico de clusters do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 555a8a823526a51b045b4a0314ef7610bf728e5b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 104fc212dc590c1366b8dd2cd276f70bdadee5db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242979"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614512"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -38,8 +29,8 @@ Uma maneira de fazer upload e coletar logs é utilizar a extensão WAD (Diagnós
 ## <a name="prerequisites"></a>Pré-requisitos
 As ferramentas a seguir são usadas neste artigo:
 
-* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+* [PowerShell do Azure](/powershell/azure/overview)
 * [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric

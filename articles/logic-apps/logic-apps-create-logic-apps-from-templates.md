@@ -1,6 +1,6 @@
 ---
-title: Criar fluxos de trabalho a partir de modelos
-description: Criar fluxos de trabalho mais rapidamente usando modelos de aplicativo lógico nos Aplicativos Lógicos do Azure
+title: Criar fluxos de trabalho de aplicativo lógico mais rapidamente usando modelos predefinidos
+description: Crie rapidamente fluxos de trabalho de aplicativo lógico usando modelos predefinidos fornecidos pelos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793190"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666815"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos
 
@@ -21,7 +21,7 @@ Para começar a criar fluxos de trabalho mais rapidamente, os Aplicativos Lógic
 
 Estas são algumas categorias de modelo:
 
-| Tipo do modelo | Descrição | 
+| Tipo do modelo | Description | 
 | ------------- | ----------- | 
 | Modelos de nuvem empresarial | Para integrar Blobs do Azure, Dynamics CRM, Salesforce, Box, além de incluir outros conectores para suas necessidades de nuvem empresarial. Por exemplo, você pode usar esses modelos para organizar clientes potenciais de negócios ou fazer backup dos dados de arquivos corporativos. | 
 | Modelos de produtividade pessoal | Melhore a produtividade pessoal definindo lembretes diários, transformando os itens de trabalho importantes em listas de tarefas e automatizando tarefas demoradas para uma única etapa de aprovação de usuário. | 
@@ -40,16 +40,16 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
 
    ![Portal do Azure, Novo, Enterprise Integration, Aplicativo Lógico](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
-3. Crie seu aplicativo lógico com as configurações na tabela abaixo desta imagem:
+3. Crie seu aplicativo lógico com as configurações na tabela da imagem:
 
    ![Defina os detalhes do aplicativo lógico](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Configuração | Value | Descrição | 
+   | Configuração | Valor | Description | 
    | ------- | ----- | ----------- | 
    | **Nome** | *nome-seu-aplicativo-lógico* | Forneça um nome exclusivo de aplicativo lógico. | 
    | **Assinatura** | *seu-nome-da-assinatura-do-Azure* | Selecione a assinatura do Azure que você deseja usar. | 
-   | **Grupo de recursos** | *seu-nome-do-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) para este aplicativo lógico e organize todos os recursos associados ao aplicativo. | 
-   | **Localidade** | *sua-região-do-datacenter-do-Azure* | Selecione a região do datacenter em que seu aplicativo lógico será implantado como, por exemplo, Oeste dos EUA. | 
+   | **Grupo de recursos** | *seu-nome-do-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) para este aplicativo lógico e organize todos os recursos associados ao aplicativo. | 
+   | **Localidade** | *sua-região-do-datacenter-do-Azure* | Selecione a região do datacenter para implantar seu aplicativo lógico, por exemplo, Oeste dos EUA. | 
    | **Log Analytics** | **Off** (padrão) ou **On** | Ative o [log de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio de [logs de Azure monitor](../log-analytics/log-analytics-overview.md). É necessário que você já tenha um espaço de trabalho do Log Analytics. | 
    |||| 
 
@@ -59,7 +59,7 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    > Se você não deseja fixar seu aplicativo lógico, é necessário localizar e abrir manualmente o aplicativo lógico após a implantação para poder continuar.
 
    Depois que o Azure implanta o aplicativo lógico, o Designer de Aplicativos Lógicos é exibido e mostra uma página com um vídeo de introdução. 
-   Neste vídeo, você encontrará modelos para padrões de aplicativos lógicos comuns. 
+   Nesse vídeo, você pode encontrar modelos para padrões de aplicativo lógico comuns. 
 
 5. Role a tela até passar pelo vídeo de introdução e pelos gatilhos comuns até **Modelos**. Escolha um modelo predefinido. Por exemplo:
 

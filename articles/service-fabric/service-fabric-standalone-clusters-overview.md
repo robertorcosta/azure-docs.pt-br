@@ -1,25 +1,16 @@
 ---
-title: Visão geral de clusters independentes do Service Fabric | Microsoft Docs
+title: Visão geral dos clusters Service Fabric autônomos
 description: Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752342"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465634"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Visão geral de clusters independentes do Service Fabric
 
@@ -29,7 +20,7 @@ Um tipo de nó define o tamanho, o número e as propriedades de um conjunto de n
 
 O processo de criação de um cluster do Service Fabric local é semelhante ao processo de criação de um cluster em qualquer nuvem escolhida com um conjunto de VMs. As etapas iniciais para provisionar as VMs são administradas pelo provedor da nuvem ou pelo ambiente local que você está usando. Depois que você tiver um conjunto de VMs com conectividade de rede habilitada entre elas, as etapas para configurar o pacote do Service Fabric, editar as configurações do cluster e executar os scripts de gerenciamento e criação do cluster serão idênticas. Isso garante que o seu conhecimento e experiência com a operação e o gerenciamento de clusters do Service Fabric poderão ser transferidos quando você optar por novos ambientes de hospedagem.
 
-## <a name="cluster-security"></a>Segurança de cluster
+## <a name="cluster-security"></a>Segurança do cluster
 Um cluster do Service Fabric é um recurso que pertence a você.  É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster.
 
 ### <a name="node-to-node-security"></a>Segurança de nó para nó
@@ -37,17 +28,17 @@ A segurança de nó para nó protege a comunicação entre as VMs ou os computad
 
 A segurança do Windows também pode ser habilitada para um cluster independente do Windows. Se você tem o Windows Server 2012 R2 e o Windows Active Directory, é recomendável usar a segurança do Windows com contas de serviço gerenciado de grupo. Caso contrário, use a segurança do Windows com contas do Windows.
 
-Para obter mais informações, confira a [Segurança de nó para nó](service-fabric-cluster-security.md#node-to-node-security)
+Para saber mais, confira a [segurança de nó para nó](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Segurança de cliente para nó
 A segurança de cliente para nó autentica clientes e ajuda a proteger a comunicação entre um cliente e nós individuais no cluster. Esse tipo de segurança ajuda a assegurar que somente usuários autorizados possam acessar o cluster e os aplicativos implantados no cluster. Os clientes são identificados exclusivamente por meio de suas credenciais de segurança do certificado X.509. Qualquer número de certificados de cliente opcionais podem ser usados para autenticar clientes usuários ou administradores no cluster.
 
 Além de certificados de cliente, o Azure Active Directory também pode ser configurado para autenticar clientes no cluster.
 
-Para obter mais informações, confira a [Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security)
+Para saber mais, leia [Segurança de cliente para nó](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: Função de administrador e função de usuário.  
+O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: função de Administrador e função de Usuário.  
 
 Para obter mais informações, leia [RBAC (Controle de acesso baseado em função)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -59,18 +50,18 @@ Para obter mais informações, leia [Dimensionamento de clusters independentes](
 
 ## <a name="upgrading"></a>Atualizando
 
-Um cluster autônomo é um recurso que é totalmente seu. Você é responsável por corrigir o sistema operacional subjacente e iniciar atualizações de malha. É possível configurar seu cluster para receber atualizações automáticas de tempo de execução quando a Microsoft lançar uma nova versão ou é possível optar por selecionar uma versão de tempo de execução com suporte que você queira. Além das atualizações de malha, você também pode aplicar patches no SO e atualizar a configuração do cluster, como os certificados ou as portas de aplicativo. 
+Um cluster autônomo é um recurso que é totalmente seu. Você é responsável por corrigir o sistema operacional subjacente e iniciar atualizações de malha. É possível configurar seu cluster para receber atualizações automáticas de runtime quando a Microsoft lançar uma nova versão ou é possível optar por selecionar uma versão de runtime com suporte que você queira. Além das atualizações de malha, você também pode aplicar patches no SO e atualizar a configuração do cluster, como os certificados ou as portas de aplicativo. 
 
 Para obter mais informações, leia [Atualização de clusters independentes](service-fabric-cluster-upgrade-standalone.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 É possível criar clusters em VMs ou em computadores que executem estes sistemas operacionais (ainda não há suporte para o Linux):
 
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 2019
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [proteger](service-fabric-cluster-security.md), [dimensionar](service-fabric-cluster-scaling-standalone.md) e [atualizar](service-fabric-cluster-upgrade-standalone.md) clusters independentes.
 
 Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md).

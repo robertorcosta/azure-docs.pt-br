@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric-eventos sfctl | Microsoft Docs
+title: CLI do Azure Service Fabric-eventos sfctl
 description: Descreve os comandos Service Fabric CLI sfctl Events.
-services: service-fabric
-documentationcenter: na
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 858fd1971a22b1db2d243838558c3792d3a60cc9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 35dfbdb3f8b84e797d35c8d7ec1020509f7e8b57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466054"
 ---
 # <a name="sfctl-events"></a>eventos de sfctl
 Recupere eventos do repositório de eventos (se o serviço EventStore já estiver instalado).
@@ -28,7 +19,7 @@ O serviço do sistema EventStore pode ser adicionado por meio de uma atualizaç�
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Comando|Description|
 | --- | --- |
 | todos os aplicativos – lista | Obtém todos os eventos relacionados a aplicativos. |
 | todos os nós-lista | Obtém todos os eventos relacionados a nós. |
@@ -49,7 +40,7 @@ A resposta é uma lista de objetos ApplicationEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
@@ -60,13 +51,13 @@ A resposta é uma lista de objetos ApplicationEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-all-nodes-list"></a>sfctl eventos todos-nós-lista
 Obtém todos os eventos relacionados a nós.
@@ -75,7 +66,7 @@ A resposta é uma lista de objetos NodeEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
@@ -86,13 +77,13 @@ A resposta é uma lista de objetos NodeEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-all-partitions-list"></a>sfctl eventos All-Partitions-List
 Obtém todos os eventos relacionados a partições.
@@ -101,7 +92,7 @@ A resposta é uma lista de objetos PartitionEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
@@ -112,13 +103,13 @@ A resposta é uma lista de objetos PartitionEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-all-services-list"></a>sfctl eventos All-lista de serviços
 Obtém todos os eventos relacionados a serviços.
@@ -127,7 +118,7 @@ A resposta é uma lista de objetos irregulares.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
@@ -138,13 +129,13 @@ A resposta é uma lista de objetos irregulares.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-application-list"></a>aplicativo de eventos sfctl – lista
 Obtém eventos relacionados ao aplicativo.
@@ -153,7 +144,7 @@ A resposta é uma lista de objetos ApplicationEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
@@ -165,13 +156,13 @@ A resposta é uma lista de objetos ApplicationEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-cluster-list"></a>lista de clusters de eventos sfctl
 Obtém todos os eventos relacionados ao cluster.
@@ -180,7 +171,7 @@ A resposta é uma lista de objetos ClusterEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --hora de início UTC [obrigatório] | A hora de início de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
@@ -191,13 +182,13 @@ A resposta é uma lista de objetos ClusterEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-node-list"></a>lista de nós de eventos do sfctl
 Obtém eventos relacionados a nós.
@@ -206,7 +197,7 @@ A resposta é uma lista de objetos NodeEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --node-name      [Obrigatório] | O nome do nó. |
@@ -218,13 +209,13 @@ A resposta é uma lista de objetos NodeEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-partition-all-replicas-list"></a>sfctl de eventos partição-todas as réplicas-lista
 Obtém todos os eventos relacionados a réplicas para uma partição.
@@ -233,7 +224,7 @@ A resposta é uma lista de objetos ReplicaEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --partition-id   [Obrigatório] | A identidade da partição. |
@@ -245,13 +236,13 @@ A resposta é uma lista de objetos ReplicaEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-partition-list"></a>partição de eventos sfctl – lista
 Obtém eventos relacionados à partição.
@@ -260,7 +251,7 @@ A resposta é uma lista de objetos PartitionEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --partition-id   [Obrigatório] | A identidade da partição. |
@@ -272,13 +263,13 @@ A resposta é uma lista de objetos PartitionEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-partition-replica-list"></a>sfctl de eventos de partição – lista de réplicas
 Obtém eventos relacionados à réplica de partição.
@@ -287,7 +278,7 @@ A resposta é uma lista de objetos ReplicaEvent.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --partition-id   [Obrigatório] | A identidade da partição. |
@@ -300,13 +291,13 @@ A resposta é uma lista de objetos ReplicaEvent.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-events-service-list"></a>serviço de eventos sfctl – lista
 Obtém eventos relacionados ao serviço.
@@ -315,7 +306,7 @@ A resposta é uma lista de objetos irregulares.
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --hora de término – UTC [obrigatório] | A hora de término de uma consulta de pesquisa em ISO UTC AAAA-MM-ddTHH\:mm\:ssZ. |
 | --service-id          [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
@@ -327,11 +318,11 @@ A resposta é uma lista de objetos irregulares.
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 

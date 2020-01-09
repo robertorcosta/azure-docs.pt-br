@@ -2,19 +2,15 @@
 title: Saída de runbook e mensagens na Automação do Azure
 description: Descreve como criar e recuperar mensagens de saída e de erro de runbooks na automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: af199439fedddaef5b1bd3b219a60db697fb25ab
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 34246d66a48baec160a83411511ed78948c5dd8d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849642"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421051"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 
@@ -22,7 +18,7 @@ A maioria dos runbooks de Automação do Azure tem alguma forma de saída. Essa 
 
 A tabela a seguir fornece uma breve descrição de cada um dos fluxos e o comportamento no portal do Azure dos runbooks publicados e quando [testar um runbook](automation-testing-runbook.md). Mais detalhes sobre cada fluxo são fornecidos nas seções posteriores.
 
-| Fluxo | Descrição | Publicação | Teste |
+| Fluxo | Description | Publicação | Teste |
 |:--- |:--- |:--- |:--- |
 | Saída |Objetos que se destinam a consumo de outros runbooks. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
 | Aviso |Mensagem de aviso para o usuário. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
@@ -170,7 +166,7 @@ O Windows PowerShell usa [variáveis de preferência](https://technet.microsoft.
 
 A tabela a seguir lista as variáveis de preferência que podem ser usadas em runbooks com seus valores válidos e padrão. Essa tabela inclui somente os valores que são válidos em um runbook. Os valores adicionais serão válidos para as variáveis de preferência quando usados no Windows PowerShell fora da Automação do Azure.
 
-| Variável | Valor Padrão | Valores Válidos |
+| Variável | Valor Padrão | Valores válidos |
 |:--- |:--- |:--- |
 | WarningPreference |Continuar |Interromper<br>Continuar<br>SilentlyContinue |
 | ErrorActionPreference |Continuar |Interromper<br>Continuar<br>SilentlyContinue |
@@ -178,7 +174,7 @@ A tabela a seguir lista as variáveis de preferência que podem ser usadas em ru
 
 A tabela a seguir lista o comportamento para os valores de variáveis de preferência válidos em runbooks.
 
-| Value | Comportamento |
+| Valor | Comportamento |
 |:--- |:--- |
 | Continuar |Registra em log a mensagem e continua executando o runbook. |
 | SilentlyContinue |Continua executando o runbook sem registrar em log a mensagem. Este valor tem o efeito de ignorar a mensagem. |

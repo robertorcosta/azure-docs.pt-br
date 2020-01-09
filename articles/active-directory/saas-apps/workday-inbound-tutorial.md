@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849320"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613748"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -120,7 +120,7 @@ Para facilitar os fluxos de trabalho de provisionamento entre o Workday e o Acti
 > O aplicativo "Workday" regular é utilizado para configurar logon único entre o Workday e o Azure Active Directory.
 
 Use o fluxograma de decisão abaixo para identificar quais aplicativos de provisionamento do Workday são relevantes para seu cenário.
-    ![Fluxograma de decisão](./media/workday-inbound-tutorial/wday_app_flowchart.png "DecisFluxograma de íon ")
+    ![Fluxograma de decisão](./media/workday-inbound-tutorial/wday_app_flowchart.png "Fluxograma de decisão")
 
 Use o sumário para ir até a seção relevante deste tutorial.
 
@@ -366,9 +366,9 @@ Esta seção fornece as etapas para o provisionamento de conta do usuário do Wo
 
 **Para configurar o Workday para provisionamento do Active Directory:**
 
-1. Acesse <https://portal.azure.com>
+1. Ir para <https://portal.azure.com>.
 
-2. Na barra de navegação esquerda, selecione **Azure Active Directory**
+2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
 3. Selecione **Aplicativos Empresariais** e, em seguida, **Todos os Aplicativos**.
 
@@ -376,9 +376,9 @@ Esta seção fornece as etapas para o provisionamento de conta do usuário do Wo
 
 5. Pesquise por **Provisionamento do Workday para Active Directory** e adicione esse aplicativo da galeria.
 
-6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**.
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Altere o **modo** de provisionamento para **automático**.
 
 8. Clique na faixa de informações exibida para baixar o agente de provisionamento. 
 
@@ -468,7 +468,7 @@ Nesta etapa, estabelecemos a conectividade com o workday e o Active Directory no
    * **Email de notificação –** digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
 
      > [!NOTE]
-     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine).
+     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Clique no botão **Conexão de Teste**. Se o teste de conexão for bem-sucedido, clique no botão **Salvar** na parte superior. Se ele falhar, verifique se as credenciais do Workday e as credenciais do AD configuradas na instalação de agente são válidas.
 
@@ -510,7 +510,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 1. Clique em um mapeamento de atributo existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior da tela para adicionar novos mapeamentos. Um mapeamento de atributo individual dá suporte para essas propriedades:
 
-      * **Tipo de mapeamento**
+      * **Tipo de Mapeamento**
 
          * **Direto** – grava o valor do atributo do Workday no atributo AD, sem alterações
 
@@ -527,7 +527,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
       * **Corresponder objetos utilizando esse atributo** – Se esse mapeamento deverá ou não ser utilizado para identificar usuários do Workday e Active Directory com exclusividade. Normalmente, esse valor é definido no campo ID do Trabalhador para o Workday que geralmente é mapeado para um dos atributos do ID do Funcionário no Active Directory.
 
-      * **Precedência de correspondência** – Vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum outro atributo correspondente será avaliado.
+      * **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum outro atributo correspondente será avaliado.
 
       * **Aplicar esse mapeamento**
 
@@ -591,9 +591,9 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
 **Para configurar o provisionamento do Workday to Azure Active Directory para usuários somente na nuvem:**
 
-1. Vá para <https://portal.azure.com>.
+1. Ir para <https://portal.azure.com>.
 
-2. Na barra de navegação esquerda, selecione **Azure Active Directory**
+2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
 3. Selecione **Aplicativos Empresariais** e, em seguida, **Todos os Aplicativos**.
 
@@ -601,9 +601,9 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
 5. Pesquise por **Workday para provisionamento do Azure AD** e adicione esse aplicativo da galeria.
 
-6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**.
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Altere o **modo** de provisionamento para **automático**.
 
 8. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
@@ -647,7 +647,7 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
 5. Clique em um mapeamento de atributo existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior da tela para adicionar novos mapeamentos. Um mapeamento de atributo individual dá suporte para essas propriedades:
 
-   * **Tipo de mapeamento**
+   * **Tipo de Mapeamento**
 
       * **Direto** – grava o valor do atributo do Workday no atributo AD, sem alterações
 
@@ -664,7 +664,7 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
    * **Corresponder objetos utilizando esse atributo** – se esse mapeamento deverá ou não ser utilizado para identificar usuários entre o Workday e o Azure AD com exclusividade. Normalmente, esse valor é definido no campo ID do Trabalhador para o Workday que normalmente é mapeado para o atributo ID do Funcionário (novo) ou um atributo de extensão no Azure AD.
 
-   * **Precedência de correspondência** – Vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
+   * **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, mais nenhum atributo correspondente será avaliado.
 
    * **Aplicar esse mapeamento**
 
@@ -688,9 +688,9 @@ Siga estas instruções para configurar o Write-back de endereços de email do u
 
 **Para configurar o conector de Write-back do Workday:**
 
-1. Acesse <https://portal.azure.com>
+1. Ir para <https://portal.azure.com>.
 
-2. Na barra de navegação esquerda, selecione **Azure Active Directory**
+2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
 3. Selecione **Aplicativos Empresariais** e, em seguida, **Todos os Aplicativos**.
 
@@ -698,9 +698,9 @@ Siga estas instruções para configurar o Write-back de endereços de email do u
 
 5. Pesquise por **Fazer write-back de Workday** e adicione esse aplicativo da galeria.
 
-6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
+6. Depois que o aplicativo for adicionado e a tela de detalhes do aplicativo for exibida, selecione **provisionamento**.
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Altere o **modo** de provisionamento para **automático**.
 
 8. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
@@ -905,7 +905,7 @@ Sim, um Agente de Provisionamento pode ser configurado para lidar com vários do
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
 
-* Na lista de agentes que aparecer, copie o valor do campo “id” do recurso cujo *resourceName* seja igual ao nome de domínio do AD.
+* Na lista de agentes que aparecem – Copie o valor do campo `id` do recurso cujo *resourceName* é igual ao seu nome de domínio do AD.
 * Cole o valor de ID nesse comando e execute o comando no PowerShell.
 
   ```powershell
@@ -946,7 +946,7 @@ Consulte também:
 
 Essa configuração pode ser feita definindo as **Ações do objeto de destino** na folha **Mapeamentos de atributos** conforme mostrado abaixo:
 
-![Atualizar ação](./media/workday-inbound-tutorial/wd_target_update_only.png)
+![Ação de atualizar](./media/workday-inbound-tutorial/wd_target_update_only.png)
 
 Marque a caixa de seleção “Atualizar” apenas para operações de atualização para o fluxo do Workday para o AD. 
 
@@ -960,7 +960,7 @@ A solução atualmente não dá suporte a atributos binários de configuração,
 * Clique em Mapeamentos de atributos 
 * Em **Mapeamentos**, selecione **Sincronizar trabalhadores do Workday com o Active Directory local** (ou **Sincronizar trabalhadores do Workday com o Azure AD**).
 * Na página de Mapeamentos de Atributos, role para baixo e marque a caixa “Mostrar opções avançadas”.  Clique em **Editar lista de atributos do Workday**
-* Na folha que é aberta, localize o atributo “Celular” e clique na linha para que você possa editar a ![RGPD de celular](./media/workday-inbound-tutorial/mobile_gdpr.png) da **expressão da API**
+* Na folha que é aberta, localize o atributo "Mobile" e clique na linha para que você possa editar a **expressão de API** ![Mobile GDPR](./media/workday-inbound-tutorial/mobile_gdpr.png)
 
 * Substitua a **expressão da API** pela seguinte expressão nova, que recupera o número de celular de trabalho somente se o “Sinalizador de uso público” estiver definido como “True” no Workday.
 
@@ -1191,7 +1191,7 @@ Esta seção aborda os erros comuns com o provisionamento de usuário do Workday
 |#|Cenário de erro |Causas prováveis|Resolução recomendada|
 |--|---|---|---|
 |1.| Erro ao instalar o agente de provisionamento com a mensagem de erro: o *serviço ' Microsoft Azure ad conectar o agente de provisionamento ' (AADConnectProvisioningAgent) falhou ao iniciar. Verifique se você tem privilégios suficientes para iniciar o sistema.* | Esse erro normalmente aparece se você está tentando instalar o agente de provisionamento em um controlador de domínio e a política de grupo impede que o serviço seja iniciado.  Ele também é visto se você tiver uma versão anterior do agente em execução e não o tiver desinstalado antes de iniciar uma nova instalação.| Instale o agente de provisionamento em um servidor que não seja um controlador de domínio. Certifique-se de que as versões anteriores do agente são desinstaladas antes de instalar o novo agente.|
-|2.| O serviço do Windows “Agente de Provisionamento do Microsoft Azure AD Connect” está no estado *Iniciando* e não muda para o estado *Em execução*. | Como parte da instalação, o assistente de agente cria uma conta local (**NT Service\\AADConnectProvisioningAgent**) no servidor e essa é a conta de **Logon** usada para iniciar o serviço. Se uma política de segurança em seu servidor Windows impede as contas locais de executarem os serviços, você encontrará esse erro. | Abra o *console de Serviços*. Clique com botão direito no serviço do Windows “Agente de Provisionamento do Microsoft Azure AD Connect” e, na guia Logon, especifique a conta de administrador de domínio para executar o serviço. Reinicie o serviço. |
+|2.| O serviço do Windows “Agente de Provisionamento do Microsoft Azure AD Connect” está no estado *Iniciando* e não muda para o estado *Em execução*. | Como parte da instalação, o assistente do agente cria uma conta local (**NT Service\\AADConnectProvisioningAgent**) no servidor e essa é a conta de logon usada para iniciar o serviço. Se uma política de segurança em seu servidor Windows impede as contas locais de executarem os serviços, você encontrará esse erro. | Abra o *console de Serviços*. Clique com o botão direito do mouse no serviço do Windows ' Microsoft Azure AD conectar agente de provisionamento ' e, na guia logon, especifique a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
 |3.| Ao configurar o agente de provisionamento com seu domínio do AD na etapa *Conectar o Active Directory*, o assistente leva muito tempo tentando carregar o esquema do AD e eventualmente expira. | Esse erro normalmente aparece se o assistente não puder entrar em contato com o servidor de controlador de domínio do AD devido a problemas de firewall. | Na tela do assistente *Conectar o Active Directory*, além de fornecer as credenciais para o seu domínio do AD, há uma opção chamada *Selecionar prioridade do controlador de domínio*. Use esta opção para selecionar um controlador de domínio que esteja no mesmo site que o servidor do agente e certifique-se de que não há nenhuma regra de firewall bloqueando a comunicação. |
 
 #### <a name="connectivity-errors"></a>Erros de conectividade

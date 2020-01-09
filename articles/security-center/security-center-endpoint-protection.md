@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748433"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552926"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
 
-A central de segurança do Azure fornece avaliações de integridade de versões [com suporte](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) das soluções do Endpoint Protection. Este artigo explica os cenários que levam à central de segurança para gerar as duas recomendações a seguir:
+A central de segurança do Azure fornece avaliações de integridade de versões [com suporte](security-center-services.md#supported-endpoint-protection-solutions-) das soluções do Endpoint Protection. Este artigo explica os cenários que levam à central de segurança para gerar as duas recomendações a seguir:
 
 * **Instalar soluções do Endpoint Protection em sua máquina virtual**
 * **Resolver problemas de integridade do Endpoint Protection em seus computadores**
@@ -55,7 +55,7 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Proteção de ponto de extremidade do Microsoft System Center
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** ao importar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** e em execução  **Resultados de Get-MProtComputerStatus** com **AMServiceEnabled = false**
+* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** ao importar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** e executar resultados **de Get-MProtComputerStatus** com **AMServiceEnabled = false**
 
 * A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** **Get-MprotComputerStatus** for executado e qualquer uma das seguintes situações ocorrer:
 
@@ -90,15 +90,15 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 ## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
 A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** quando qualquer uma das seguintes verificações não for atendida:
 
-* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-ou o
+Ou
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 
@@ -125,7 +125,7 @@ A central de segurança recomenda que você **"Instale soluções do Endpoint Pr
 
 * **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** existe
 
-* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
 A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas"** quando qualquer uma das seguintes verificações não for atendida:
 

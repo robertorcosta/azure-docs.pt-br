@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429799"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -57,9 +57,15 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 * Quantos usuários entraram em uma semana?
 * Qual é o status dessas entradas?
 
-Comece com [portal do Azure](https://portal.azure.com). Para acessar o relatório de entradas, selecione **entradas**, continue para o **monitoramento.** Pode levar até duas horas para que alguns registros de entrada sejam exibidos no Portal.
+No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Atividade de entrada](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Atividade de entrada")
+![Selecionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Atividade de entrada](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de entrada")
+
+Pode levar até duas horas para que alguns registros de entrada sejam exibidos no Portal.
 
 > [!IMPORTANT]
 > O relatório de entradas exibe apenas os **logins** interativos, isto é, os logins nos quais um usuário faz login manualmente usando seu nome de usuário e senha. Os logins não interativos, como a autenticação de serviço a serviço, não são exibidos no relatório de logins. 
@@ -79,7 +85,7 @@ Você pode personalizar o modo de exibição de lista clicando em **Colunas** na
 
 ![Atividade de entrada](./media/concept-sign-ins/19.png "Atividade de entrada")
 
-A caixa de diálogo **colunas** fornece acesso aos atributos selecionáveis. Em um relatório de entrada, você só pode ter atributos que não tenham uma relação um-para-muitos com outros atributos como coluna.
+A caixa de diálogo **colunas** fornece acesso aos atributos selecionáveis. Em um relatório de entrada, você não pode ter campos que tenham mais de um valor para uma determinada solicitação de entrada como coluna. Isso é, por exemplo, verdadeiro para detalhes de autenticação, dados de acesso condicional e local de rede.   
 
 ![Atividade de entrada](./media/concept-sign-ins/columns.png "Atividade de entrada")
 
@@ -107,14 +113,14 @@ O filtro **status de entrada** permite que você selecione:
 
 - Tudo
 - Sucesso
-- Failure
+- Falha
 
 O filtro **Acesso Condicional** permite que você selecione o status da política de Autoridade de Certificação para a entrada:
 
 - Tudo
 - Não aplicado
 - Sucesso
-- Failure
+- Falha
 
 O filtro **Data** permite definir um período de tempo para os dados retornados.  
 Os valores possíveis são:
@@ -153,7 +159,7 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
 
 Clique na opção **baixar** para criar um arquivo CSV ou JSON dos registros 250.000 mais recentes. Comece com [baixar os dados de entradas](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure.  
 
-![Baixar](./media/concept-sign-ins/71.png "Baixar")
+![Download](./media/concept-sign-ins/71.png "Baixar")
 
 > [!IMPORTANT]
 > O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
@@ -191,7 +197,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Location
+- Local
 - Endereço IP
 - Data
 - MFA obrigatório
@@ -222,7 +228,7 @@ Os gráficos de uso de aplicativo geram agregações semanais de entradas para o
 
 Se desejar, você pode definir o foco em um aplicativo específico.
 
-![Relatórios](./media/concept-sign-ins/single-app-usage-graph.png "Relatório")
+![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Relatório")
 
 Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 

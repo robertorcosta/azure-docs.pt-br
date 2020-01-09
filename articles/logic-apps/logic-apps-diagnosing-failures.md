@@ -1,17 +1,17 @@
 ---
-title: Solucionar problemas e diagnosticar falhas
-description: Saiba como solucionar problemas e diagnosticar falhas de fluxo de trabalho nos Aplicativos Lógicos do Azure
+title: Solucionar problemas e diagnosticar falhas de fluxo de trabalho
+description: Saiba como solucionar e diagnosticar problemas, erros e falhas em seus fluxos de trabalho em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790772"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666798"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solucionar problemas e diagnosticar falhas de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
@@ -24,7 +24,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 1. Para verificar se o gatilho foi disparado, escolha **Visão geral** no menu do aplicativo lógico. Em **Histórico de gatilho**, examine o status do gatilho.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar histórico de gatilho](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
@@ -34,7 +34,7 @@ Cada aplicativo lógico começa com o gatilho. Se o gatilho não disparar, verif
 
    Aqui estão os possíveis status para uma tentativa de disparo:
 
-   | Status | Descrição | 
+   | Status | Description | 
    | ------ | ----------- | 
    | **Êxito** | O gatilho verificou o ponto de extremidade e encontrou dados disponíveis. Normalmente, um status de "Disparado" também é exibida junto com esse status. Caso contrário, a definição do gatilho pode ter uma condição ou comando `SplitOn` que não foi atendido. <p>Esse status pode se aplicar a um gatilho manual, gatilho recorrente ou gatilho de sondagem. Um gatilho pode ser executado com êxito, mas a execução em si ainda pode falhar quando as ações gerarem erros sem tratamento. | 
    | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados disponíveis. | 
@@ -65,7 +65,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 1. No menu do aplicativo lógico, escolha **Visão geral**. Em **Histórico de execuções**, examine a execução do gatilho disparado.
 
    > [!TIP]
-   > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+   > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
    ![Examinar o histórico de execuções](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
@@ -75,7 +75,7 @@ Cada gatilho disparado inicia uma execução de fluxo de trabalho. É possível 
 
    Estes são os possíveis status para uma execução:
 
-   | Status | Descrição | 
+   | Status | Description | 
    | ------ | ----------- | 
    | **Êxito** | Todas as ações foram bem sucedidas. <p>Caso tenha ocorrido alguma falha em uma ação específica, uma ação posterior no fluxo de trabalho a tratou. | 
    | **Com falha** | Pelo menos uma ação falhou e nenhuma ação posterior no fluxo de trabalho estava configurada para tratar essa falha. | 

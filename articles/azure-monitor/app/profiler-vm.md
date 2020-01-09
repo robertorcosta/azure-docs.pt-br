@@ -1,5 +1,5 @@
 ---
-title: Criar perfis de aplicativos Web em execução em uma VM do Azure com o Application Insights Profiler | Microsoft Docs
+title: Criar perfil de aplicativos Web em uma VM do Azure-Application Insights Profiler
 description: Crie perfis de aplicativos Web em uma VM do Azure com o Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 046128fda385486f5a92d215e349760483c5dfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432359"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Crie perfis de aplicativos Web em execução em uma máquina virtual do Azure ou um conjunto de dimensionamento de máquinas virtuais definido com o Application Insights Profiler
 
@@ -89,7 +89,7 @@ Ainda não temos uma maneira de definir o coletor de Application Insights Profil
 
     ![Verificar se a extensão WAD está instalada][wadextension]
 
-2. Localize a extensão de diagnóstico de VM para sua VM. Vá para [https://resources.azure.com](https://resources.azure.com). Expanda seu grupo de recursos, Microsoft. Compute virtualMachines, nome da máquina virtual e extensões.  
+2. Localize a extensão de diagnóstico de VM para sua VM. Ir para [https://resources.azure.com](https://resources.azure.com). Expanda seu grupo de recursos, Microsoft. Compute virtualMachines, nome da máquina virtual e extensões.  
 
     ![Navegue até WAD config no Azure Resource Explorer][azureresourceexplorer]
 
@@ -109,7 +109,7 @@ Ainda não temos uma maneira de definir o coletor de Application Insights Profil
 ## <a name="can-profiler-run-on-on-premises-servers"></a>O Profiler pode ser executado em servidores locais?
 Não temos planos para dar suporte ao Application Insights Profiler para servidores locais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Gere tráfego para seu aplicativo (por exemplo, inicie um [teste de disponibilidade](monitor-web-app-availability.md)). Em seguida, espere de 10 a 15 minutos para que os rastreamentos comecem a ser enviados à instância do Application Insights.
 - Consulte [Rastreamentos do criador de perfil](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal do Azure.

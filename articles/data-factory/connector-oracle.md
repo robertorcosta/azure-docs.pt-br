@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: b43ec36f6f3a9111656892c65af2592fce6eaed2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5fd13531e438b8bcda8e3720758e338c964f77af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444246"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -66,10 +66,10 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Oracle**. | SIM |
-| connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. <br/>Marque este campo como um `SecureString` para armazená-lo com segurança no Data Factory. Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de conexão com suporte**: você pode optar por usar a **Oracle SID** ou o **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | SIM |
+| type | A propriedade type deve ser definida como: **Oracle**. | Sim |
+| connectionString | Especifica as informações necessárias para se conectar à instância do Banco de Dados Oracle. <br/>Você também pode colocar uma senha em Azure Key Vault e extrair a configuração de `password` da cadeia de conexão. Consulte os exemplos a seguir e [armazene as credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de conexão com suporte**: você pode optar por usar a **Oracle SID** ou o **Oracle Service Name** para identificar o banco de dados:<br>-Se você usar a SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Se você usar Service Name:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 >[!TIP]
@@ -77,7 +77,7 @@ O serviço vinculado do Oracle oferece suporte às seguintes propriedades:
 
 Mais propriedades de conexão que você pode definir na cadeia de conexão por seu caso:
 
-| Propriedade | Descrição | Valores permitidos |
+| Propriedade | Description | Valores permitidos |
 |:--- |:--- |:--- |
 | ArraySize |O número de bytes que o conector pode buscar em uma única viagem de ida e volta da rede. Por exemplo, `ArraySize=‭10485760‬`.<br/><br/>Valores maiores aumentam a taxa de transferência, reduzindo o número de vezes para buscar dados na rede. Valores menores aumentam o tempo de resposta, pois há menos de um atraso aguardando o servidor transmitir dados. | Um número inteiro de 1 a 4294967296 (4 GB). O valor padrão é `60000`. O valor 1 não define o número de bytes, mas indica alocar espaço para exatamente uma linha de dados. |
 
@@ -130,10 +130,7 @@ Para habilitar a criptografia na conexão do Oracle, há duas opções:
     "properties": {
         "type": "Oracle",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;"
-            }
+            "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -151,10 +148,7 @@ Para habilitar a criptografia na conexão do Oracle, há duas opções:
     "properties": {
         "type": "Oracle",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
-            },
+            "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -177,10 +171,10 @@ Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dad
 
 Para copiar dados de e para o Oracle, defina a propriedade Type do conjunto para `OracleTable`. Há suporte para as seguintes propriedades.
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do conjunto de conjuntos deve ser definida como `OracleTable`. | SIM |
-| schema | Nome do esquema. |Não para fonte, Sim para o coletor  |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como `OracleTable`. | Sim |
+| esquema | Nome do esquema. |Não para fonte, Sim para o coletor  |
 | tabela | Nome da tabela/exibição. |Não para fonte, Sim para o coletor  |
 | tableName | Nome da tabela/exibição com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Para uma nova carga de trabalho, use `schema` e `table`. | Não para fonte, Sim para o coletor |
 
@@ -216,9 +210,9 @@ Esta seção fornece uma lista das propriedades com suporte pela fonte e pelo co
 
 Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como `OracleSource`. As propriedades a seguir têm suporte na seção **source** da atividade de cópia.
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como `OracleSource`. | SIM |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como `OracleSource`. | Sim |
 | oracleReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Ao habilitar a carga particionada, você precisa vincular quaisquer parâmetros de partição internos correspondentes em sua consulta. Para obter exemplos, consulte a seção [cópia paralela do Oracle](#parallel-copy-from-oracle) . | Não |
 | partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Oracle. <br>Os valores permitidos são: **None** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja, não `None`), o grau de paralelismo para carregar dados simultaneamente de um Oracle Database é controlado pela configuração de [`parallelCopies`](copy-activity-performance.md#parallel-copy) na atividade de cópia. | Não |
 | partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None`. | Não |
@@ -263,9 +257,9 @@ Para copiar dados do Oracle, defina o tipo de fonte na atividade de cópia como 
 
 Para copiar dados para o Oracle, defina o tipo de coletor na atividade de cópia como `OracleSink`. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia.
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do coletor da atividade de cópia deve ser definida como `OracleSink`. | SIM |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como `OracleSink`. | Sim |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge `writeBatchSize`.<br/>Os valores permitidos são inteiro (número de linhas). |Não (o padrão é 10.000) |
 | writeBatchTimeout | O tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são período. Um exemplo é 00:30:00 (30 minutos). | Não |
 | preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no Oracle em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. | Não |
@@ -353,29 +347,29 @@ Quando você habilita a cópia particionada, o Data Factory executa consultas pa
 
 Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
-| Tipo de dados do Oracle | Tipo de dados provisório do Data Factory |
+| Tipo de dados de Oracle | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e superior) |
-| CHAR |string |
-| CLOB |string |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, cadeia de caracteres (se precisão > 28) |
 | INTEGER |Decimal, cadeia de caracteres (se precisão > 28) |
-| LONG |string |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |string |
-| NCLOB |string |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, cadeia de caracteres (se precisão > 28) |
-| NVARCHAR2 |string |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |string |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |string |
-| TIMESTAMP WITH TIME ZONE |string |
-| UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |string |
-| XML |string |
+| ROWID |String |
+| timestamp |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Número |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipo de dados INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND não têm suporte.

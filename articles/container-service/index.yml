@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Documentação do Serviço de Contêiner
 metadata:
-  document_id: null
   title: 'Documentação do Serviço de Contêiner do Azure - Tutoriais, Referência de API | Microsoft Docs'
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service

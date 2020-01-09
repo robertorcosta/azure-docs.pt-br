@@ -3,16 +3,16 @@ title: Montar o volume emptyDir para o grupo de contêineres
 description: Saiba como montar um volume emptyDir para compartilhar dados entre os contêineres em um grupo de contêineres em Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 02/08/2018
-ms.openlocfilehash: 0440bcc490b766c12b2117d2453557707df2a1c4
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 955423b685ebb3979271c7c2dc7e835a16100c2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533244"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552450"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montar um volume emptyDir em Instâncias de Contêiner do Azure
 
-Saiba como montar um volume *emptyDir* para compartilhar dados entre os contêineres em um grupo de contêineres em Instâncias de Contêiner do Azure.
+Saiba como montar um volume *emptyDir* para compartilhar dados entre os contêineres em um grupo de contêineres em Instâncias de Contêiner do Azure. Use volumes *emptyDir* como caches efêmeros para suas cargas de trabalho em contêineres.
 
 > [!NOTE]
 > A montagem de um volume *emptyDir* está atualmente restrita a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers).
@@ -27,7 +27,7 @@ Alguns exemplos usam para um volume *emptyDir*:
 * Ponto de verificação durante tarefas de longa execução
 * Armazenar dados recuperados por um contêiner secundário e fornecidos por um contêiner de aplicativos
 
-Os dados em um volume *emptyDir* são mantidos mesmo após falhas de contêiner. Os contêineres reiniciados, entretanto, não têm a garantia de manter os dados em um volume *emptyDir*.
+Os dados em um volume *emptyDir* são mantidos mesmo após falhas de contêiner. Os contêineres reiniciados, entretanto, não têm a garantia de manter os dados em um volume *emptyDir*. Se você parar um grupo de contêineres, o volume *emptyDir* não será persistido.
 
 ## <a name="mount-an-emptydir-volume"></a>Montar um volume emptyDir
 

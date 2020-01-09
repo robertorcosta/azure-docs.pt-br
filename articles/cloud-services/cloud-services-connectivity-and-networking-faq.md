@@ -1,5 +1,6 @@
 ---
-title: Perguntas frequentes sobre problemas de rede e conectividade para Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+title: Problemas de rede e de conectividade
+titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre conectividade e rede para Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386741"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividade e rede para serviços de nuvem do Azure: Perguntas frequentes (FAQs)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
 
 Este artigo inclui perguntas frequentes sobre os problemas de conectividade e rede para [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Para obter informações sobre tamanho, consulte a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md).
 
@@ -71,7 +72,7 @@ O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem?
 
-Você pode impedir o tráfego de entrada para o padrão de URL/nome do seu serviço da sua nuvem (por exemplo, \*. >.cloudapp.NET). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo,\.www MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
+Você pode impedir o tráfego de entrada para o padrão de URL/nome do seu serviço da sua nuvem (por exemplo, \*. >.cloudapp.NET). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo, www\.MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

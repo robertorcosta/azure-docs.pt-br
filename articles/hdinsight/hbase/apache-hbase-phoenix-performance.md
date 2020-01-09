@@ -2,18 +2,18 @@
 title: Desempenho do Phoenix no Azure HDInsight
 description: Práticas recomendadas para otimizar o desempenho de Apache Phoenix para clusters do Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810435"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552637"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de desempenho do Apache Phoenix
 
@@ -27,38 +27,38 @@ O design de esquema de uma tabela do Phoenix inclui design de chave primária, d
 
 ### <a name="primary-key-design"></a>Design de chave primária
 
-A chave primária definida em uma tabela no Phoenix determina como os dados são armazenados dentro do rowkey da tabela subjacente do HBase. No HBase, a única maneira de acessar uma linha específica é com o rowkey. Além disso, os dados armazenados em uma tabela do HBase são classificados pelo rowkey. O Phoenix cria o valor do rowkey concatenando os valores de cada uma das colunas na linha, na ordem em que elas são definidas na chave primária.
+A chave primária definida em uma tabela no Phoenix determina como os dados são armazenados dentro do rowkey da tabela subjacente do HBase. No HBase, a única maneira de acessar uma linha específica é com o rowkey. Além disso, os dados armazenados em uma tabela do HBase são classificados pelo rowkey. O Phoenix cria o valor RowKey concatenando os valores de cada uma das colunas na linha, na ordem em que eles são definidos na chave primária.
 
 Por exemplo, uma tabela para contatos tem o nome, sobrenome, número de telefone e endereço, todos na mesma família de colunas. Você pode definir uma chave primária com base em um número de sequência crescente:
 
-|rowkey|       endereço|   telefone| firstName| lastName|
+|rowkey|       address|   phone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
+|  1\.000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 No entanto, se você consultar com frequência por lastName, esta chave primária pode não ser bem executada, porque cada consulta requer uma verificação de tabela completa para ler o valor de cada lastName. Em vez disso, você pode definir uma chave primária nas colunas lastName, firstName e número do seguro social. Esta última coluna é para evitar a ambiguidade de dois residentes no mesmo endereço com o mesmo nome, como pai e filho.
 
-|rowkey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
+|  1\.000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Com essa nova chave primária, chaves de linhas geradas pelo Phoenix seriam:
 
-|rowkey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Na primeira linha acima, os dados para o rowkey são representados conforme mostrado:
 
-|rowkey|       key|   value| 
+|rowkey|       chave|   value|
 |------|--------------------|---|
-|  Dole-John-111|endereço |1111 San Gabriel Dr.|  
-|  Dole-John-111|telefone |1-425-000-0002|  
+|  Dole-John-111|address |1111 San Gabriel Dr.|  
+|  Dole-John-111|phone |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole-John-111|socialSecurityNum |111|
 
 Agora, este rowkey armazena uma cópia duplicada dos dados. Considere o tamanho e o número de colunas que você inclui em sua chave primária, pois esse valor é incluído com todas as células na tabela subjacente do HBase.
 
@@ -72,7 +72,7 @@ Além disso, se determinadas colunas tendem a ser acessadas em conjunto, coloque
 
 ### <a name="column-design"></a>Design da coluna
 
-* Mantenha colunas VARCHAR abaixo de cerca de 1 MB devido a custos de E/S de colunas grandes. Ao processar consultas, o HBase materializa células por completo antes de enviá-las para o cliente, que as recebe por completo antes de repassá-las ao código do aplicativo.
+* Mantenha as colunas VARCHAR em cerca de 1 MB devido aos custos de e/s de colunas grandes. Ao processar consultas, o HBase materializa células por completo antes de enviá-las para o cliente, que as recebe por completo antes de repassá-las ao código do aplicativo.
 * Armazene valores de coluna usando um formato compacto como protobuf, Avro, msgpack ou BSON. JSON não é recomendado, pois é maior.
 * Considere compactar os dados antes de armazenar para reduzir a latência e custos de E/S.
 
@@ -109,11 +109,11 @@ Durante a criação dos índices:
 
 ### <a name="use-covered-indexes"></a>Usar índices abrangidos
 
-Índices abrangidos são índices que incluem dados da linha além os valores que são indexados. Depois de localizar a entrada de índice desejada, não é necessário para acessar a tabela primária.
+Índices abrangidos são índices que incluem dados da linha além os valores que são indexados. Depois de encontrar a entrada de índice desejada, não há necessidade de acessar a tabela primária.
 
 Por exemplo, no exemplo de tabela de contato, você pode criar um índice secundário apenas na coluna socialSecurityNum. Esse índice secundário aceleraria as consultas que filtram por valores socialSecurityNum, mas recuperar outros valores de campo exigiria outra leitura em relação à tabela principal.
 
-|rowkey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|rowkey|       address|   phone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -153,7 +153,7 @@ Em [SQLLine](http://sqlline.sourceforge.net/), use EXPLAIN seguido por sua consu
 
 Por exemplo, digamos que você tenha uma tabela chamada VOOS que armazena informações de atrasos de voo.
 
-Para selecionar todos os voos com um airlineid de `19805`, onde airlineid é um campo que não está na chave primária nem em nenhum índice:
+Para selecionar todos os vôos com um traço de linha de `19805`, em que a linha de entrada é um campo que não está na chave primária ou em qualquer índice:
 
     select * from "FLIGHTS" where airlineid = '19805';
 
@@ -208,15 +208,15 @@ As diretrizes a seguir descrevem alguns padrões comuns.
 
 ### <a name="read-heavy-workloads"></a>Cargas de trabalho com uso intenso de leitura
 
-Para casos de uso com uso intenso de leitura, verifique se está usando índices. Além disso, para economizar em sobrecarga de tempo de leitura, considere a criação de índices abrangidos.
+Para casos de uso intensivo de leitura, verifique se você está usando índices. Além disso, para economizar em sobrecarga de tempo de leitura, considere a criação de índices abrangidos.
 
 ### <a name="write-heavy-workloads"></a>Cargas de trabalho com uso intenso de gravação
 
-Para cargas de trabalho com uso intenso de gravação em que a chave primária aumenta de forma monotônica, crie salt buckets para ajudar a evitar pontos de acesso de gravação, às custas da taxa de transferência de leitura geral devido às verificações adicionais necessárias. Além disso, ao usar UPSERT para gravar um grande número de registros, desative a confirmação automática e armazene os registros em lote.
+Para cargas de trabalho com excesso de gravação em que a chave primária está aumentando de forma monotônico, crie buckets Salt para ajudar a evitar pontos de interrupções de gravação, às custas da taxa de transferência de leitura geral, devido às verificações adicionais necessárias. Além disso, ao usar UPSERT para gravar um grande número de registros, desative a confirmação automática e armazene os registros em lote.
 
 ### <a name="bulk-deletes"></a>Exclusões em massa
 
-Ao excluir um conjunto de dados grande, ative a confirmação automática antes de emitir a consulta DELETE, para que o cliente não precise se lembrar das chaves de linha para todas as linhas excluídas. A confirmação automática impede que o cliente armazene as linhas afetadas buffer com DELETE, de forma que o Phoenix possa excluí-las diretamente nos servidores regionais sem a despesa de retorná-los para o cliente.
+Ao excluir um conjunto de dados grande, ative a confirmação automática antes de emitir a consulta de exclusão, para que o cliente não precise se lembrar das chaves de linha de todas as linhas excluídas. A confirmação automática impede que o cliente armazene as linhas afetadas buffer com DELETE, de forma que o Phoenix possa excluí-las diretamente nos servidores regionais sem a despesa de retorná-los para o cliente.
 
 ### <a name="immutable-and-append-only"></a>Imutável e somente acréscimo
 
@@ -226,7 +226,7 @@ Se seu cenário favorece a velocidade de gravação na integridade dos dados, co
 
 Para obter mais detalhes sobre esta e outras opções, consulte [Gramática do Apache Phoenix](https://phoenix.apache.org/language/index.html#options).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Guia de ajuste do Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Índices Secundários](https://phoenix.apache.org/secondary_indexing.html)

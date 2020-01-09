@@ -1,32 +1,23 @@
 ---
-title: CLI do Azure Service Fabric - sfctl sa-cluster | Microsoft Docs
-description: Descreve os comandos do cluster independente sfctl da CLI do Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-sfctl SA-cluster
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar clusters autônomos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 765d7d76cb13758417bb3927ff9620026ca763b1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901007"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646017"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gerencie clusters autônomos do Service Fabric.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Comando|Description|
 | --- | --- |
 | config | Obtenha a configuração de cluster autônomo do Service Fabric. |
 | config-upgrade | Comece a atualizar a configuração de um cluster autônomo do Service Fabric. |
@@ -39,20 +30,20 @@ A configuração do cluster contém propriedades do cluster que incluem diferent
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --configuration-api-version [Obrigatório] | A versão da API da configuração do json do cluster autônomo. |
 | --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
 Comece a atualizar a configuração de um cluster autônomo do Service Fabric.
@@ -61,7 +52,7 @@ Valide os parâmetros de upgrade da configuração fornecidos e comece a atualiz
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --cluster-config            [Obrigatório] | A configuração do cluster. |
 | --application-health-policies | O JSON codificava o dicionário de pares de nome de tipo de aplicativo e percentual máximo não íntegro antes de gerar o erro. |
@@ -78,13 +69,13 @@ Valide os parâmetros de upgrade da configuração fornecidos e comece a atualiz
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -101,19 +92,19 @@ Obtenha detalhes do status de atualização de configuração do cluster de um c
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
 ## <a name="next-steps"></a>Próximos passos

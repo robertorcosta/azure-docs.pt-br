@@ -2,17 +2,17 @@
 title: O que são os Serviços de Nuvem do Azure | Microsoft Docs
 description: Saiba mais sobre o que são os Serviços de Nuvem do Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386843"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
 Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
@@ -23,9 +23,9 @@ Mais controle também significa menos facilidade de uso. A menos que você preci
 
 Há dois tipos de funções do Serviço de Nuvem do Azure. A única diferença entre os dois é o modo como sua função é hospedada nas VMs:
 
-* **Função Web**: Implanta e hospeda o aplicativo automaticamente por IIS.
+* **Função da Web**: implanta e hospeda o aplicativo automaticamente por IIS.
 
-* **Função de trabalho**: não usa IIS e executa o aplicativo de modo autônomo.
+* **Função de Trabalho**: não usa IIS e executa o aplicativo de modo autônomo.
 
 Por exemplo, um aplicativo simples pode usar apenas uma única função web, atendendo a um site. Um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários e, em seguida, passar essas solicitações a uma função de trabalho para processamento. (Essa comunicação pode usar [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) ou [Armazenamento de Filas do Azure](../storage/common/storage-introduction.md).)
 
@@ -38,16 +38,19 @@ Com os Serviços de Nuvem do Azure, você não cria máquinas virtuais. Em vez d
 
 Um aplicativo dos Serviços de Nuvem do Azure geralmente é disponibilizado aos usuários por um processo de duas etapas. Primeiro, o desenvolvedor [carrega o aplicativo](cloud-services-how-to-create-deploy-portal.md) na área de preparo da plataforma. Quando o desenvolvedor estiver pronto para ativar o aplicativo, ele usará o Portal do Azure para trocar o preparo pela produção. Essa [troca entre o preparo e a produção](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) pode ser feita sem tempo de inatividade, o que permite que um aplicativo em execução seja atualizado para uma nova versão sem perturbar seus usuários.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 Os Serviços de Nuvem do Azure também fornecem monitoramento. Assim como as Máquinas Virtuais, ele detecta um servidor físico com falha e reinicia as VMs que estavam em execução nesse servidor em um novo computador. Mas os Serviços de Nuvem do Azure também detectam as VMs e os aplicativos com falha, não apenas as falhas de hardware. Diferentemente das Máquinas Virtuais, os Serviços têm um representante dentro de cada função Web e de trabalho, de modo que podem iniciar novas instâncias de aplicativo e VMs quando uma falha ocorre.
 
 A natureza da PaaS dos Serviços de Nuvem do Azure tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem do Azure não deve manter o estado de suas próprias VMs no sistema de arquivos. Ao contrário das VMs criadas com Máquinas Virtuais, gravações feitas para VMs de Serviços de Nuvem do Azure não são persistentes. Não há nada como um disco de dados de Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem do Azure deve gravar explicitamente todo o estado no Banco de Dados SQL do Azure, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Criar um aplicativo de serviço de nuvem em .NET](cloud-services-dotnet-get-started.md) 
 * [Criar um aplicativo de serviço de nuvem em Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Criar um aplicativo de serviço de nuvem em PHP](../cloud-services-php-create-web-role.md) 
 * [Criar um aplicativo de serviço de nuvem no Python](cloud-services-python-ptvs.md)
+
+
+
 
 
 

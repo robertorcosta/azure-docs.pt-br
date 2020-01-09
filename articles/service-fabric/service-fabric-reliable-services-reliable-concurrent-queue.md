@@ -1,25 +1,14 @@
 ---
 title: ReliableConcurrentQueue no Azure Service Fabric
 description: ReliableConcurrentQueue é uma fila de alta taxa de transferência que permite filas paralelas e remover filas.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: raja,tyadam,masnider,vturecek
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350282"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462732"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução a ReliableConcurrentQueue no Azure Service Fabric
 Fila Simultânea Confiável é uma fila assíncrona, transacional e replicada quais apresenta alta simultaneidade para operações de enfileirar e remover da fila. Ele é projetado para oferecer alta taxa de transferência e baixa latência flexibilizando a rígida ordenação de PEPS fornecida pela [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx) e, em vez disso, fornece uma ordenação de melhor esforço.
@@ -81,7 +70,7 @@ Suponha que a tarefa tenha sido concluída com êxito e que não tenham ocorrido
 > 20, 10
 
 
-- *Caso 2: Tarefa enfileiramento paralelo*
+- *Caso 2: Tarefa paralela de enfileiramento*
 
 ```
 // Parallel Task 1
@@ -313,7 +302,7 @@ do
 } while (ret.HasValue);
 ```
 
-### <a name="peek"></a>Espiada
+### <a name="peek"></a>Espiar
 ReliableConcurrentQueue não fornece a API *TryPeekAsync*. Os usuários podem obter a semântica da espiada usando um *TryDequeueAsync* e, em seguida, anulando a transação. Neste exemplo, remoções da fila serão processadas somente se o valor do item for maior do que *10*.
 
 ```

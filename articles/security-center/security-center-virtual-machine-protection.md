@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 4a6d733b490edd892136f6febcc90c29a5a865e1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766796"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552994"
 ---
 # <a name="protect-your-machines-and-applications"></a>Proteja seus computadores e aplicativos
-Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que o orientam durante o processo de configuração dos controles necessários. 
+Quando a central de segurança do Azure identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
 
-Este artigo explica a página **computação e aplicativos** da seção segurança de recursos da central de segurança do Azure. Ele também descreve algumas das recomendações que você verá lá.
+Este artigo explica a página **computação e aplicativos** da seção segurança de recursos da central de segurança.
 
-Para obter uma lista completa das recomendações para computação e serviços de aplicativos, consulte [computação e recomendações de aplicativo](recommendations-compute-and-apps.md).
+Para obter uma lista completa das recomendações que podem ser exibidas nesta página, consulte [recomendações de armazenamento e dados](recommendations-reference.md#recs-computeapp).
+
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>Exibir a segurança de seus recursos de computação e aplicativos
 
-![Painel da Central de Segurança](./media/security-center-virtual-machine-recommendations/overview.png)
+[painel da central de segurança ![](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 Para exibir o status dos seus recursos de computação e aplicativos, selecione **computação & aplicativos** em **recursos** na barra lateral da central de segurança. As seguintes guias estão disponíveis:
 
@@ -74,7 +75,8 @@ O ícone que aparece em cada recomendação ajuda a identificar rapidamente a VM
 
 Para detalhar as recomendações de segurança para cada VM, clique na VM.
 Veja aqui os detalhes de segurança da VM ou do computador. Na parte inferior, você pode ver a ação recomendada e a gravidade de cada problema.
-![Serviços de nuvem](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+
+[serviços de nuvem ![](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>Serviços de nuvem
 Para serviços de nuvem, uma recomendação será criada quando a versão do sistema operacional estiver desatualizada.
@@ -141,6 +143,7 @@ Se você quiser definir todos os conjuntos de dimensionamento existentes para in
 ## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes artigos:
 
+* [Lista de referências completa das recomendações de segurança da central de segurança do Azure](recommendations-reference.md)
 * [Monitorar identidade e acesso na Central de Segurança do Azure](security-center-identity-access.md)
 * [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md)
 * [Protegendo o serviço do SQL Azure na Central de Segurança do Azure](security-center-sql-service-recommendations.md)

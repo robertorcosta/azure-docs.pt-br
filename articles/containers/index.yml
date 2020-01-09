@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure para Contêineres
 metadata:
-  document_id: null
   title: 'Azure para contêineres – guias início rápido, tutoriais, referência de API'
   description: 'Introdução ao gerenciamento e à implantação de aplicativos de contêiner com o Azure usando guias de início rápido, tutoriais e ferramentas para contêineres.'
   keywords: 'Azure, Contêineres, Docker, API, Kubernetes'
@@ -22,7 +21,7 @@ sections:
       - type: markdown
         text: |
           Introdução ao gerenciamento e à implantação de aplicativos de contêiner com as ferramentas e os serviços do Azure para contêineres. 
-  - title: Guia de início rápido de 5 minutos
+  - title: Guias de início rápido de 5 minutos
     items:
       - type: paragraph
         text: Saiba como usar contêineres com os serviços do Azure.
@@ -51,7 +50,7 @@ sections:
             title: Executar aplicativo de contêiner sob demanda nas Instâncias de Contêiner do Azure
             image:
               src: /azure/media/index/containerinstances.svg
-  - title: Tutoriais Passo a Passo
+  - title: Tutoriais passo a passo
     items:
       - type: paragraph
         text: 'Saiba como implantar, gerenciar e atualizar aplicativos de contêiner usando os serviços do Azure'

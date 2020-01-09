@@ -3,20 +3,20 @@ title: Tarefas de inicialização comuns para Serviços de Nuvem | Microsoft Doc
 description: Oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar na função Web ou função de trabalho de seus serviços de nuvem.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385789"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de inicialização comuns do Serviço de Nuvem
-Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do registro ou o início de um processo de longa duração. 
+Este artigo oferece alguns exemplos de tarefas de inicialização comuns que talvez você queira executar no serviço de nuvem. Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração. 
 
 Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionamento das tarefas de inicialização e, especificamente, como criar as entradas que definem uma tarefa de inicialização.
 
@@ -119,13 +119,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicionar regras de firewall
-No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [EndPoints] no arquivo [ServiceDefinition.csdef].
+No Azure, há efetivamente dois firewalls. O primeiro firewall controla conexões entre a máquina virtual e o mundo externo. Esse firewall é controlado pelo elemento [Pontos de extremidade] no arquivo [ServiceDefinition.csdef].
 
 O segundo firewall controla conexões entre a máquina virtual e os processos dessa máquina virtual. Esse firewall pode ser controlada pela ferramenta de linha de comando `netsh advfirewall firewall`.
 
 O Azure cria regras de firewall para processos iniciados em suas funções. Por exemplo, quando você inicia um serviço ou um programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que o serviço ser comunique com a Internet. No entanto, se você criar um serviço que é iniciado por um processo fora de sua função (como um serviço COM+ ou uma tarefa agendada do Windows), precisará criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Essas regras de firewall podem ser criadas usando uma tarefa de inicialização.
 
-Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][tarefa]  **elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
+Uma tarefa de inicialização que cria uma regra de firewall deve ter um [executionContext][tarefa]**elevado**. Adicione a seguinte tarefa de inicialização ao arquivo [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -300,7 +300,7 @@ Você pode fazer com que sua tarefa de inicialização execute etapas diferentes
 
 Essa capacidade de executar ações diferentes no emulador de computação e na nuvem pode ser obtida criando uma variável de ambiente no arquivo [ServiceDefinition.csdef]. Você testa então essa variável de ambiente para um valor em sua tarefa de inicialização.
 
-Para criar a variável de ambiente, adicione o elemento [Variable]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
+Para criar a variável de ambiente, adicione o elemento [Variável]/[RoleInstanceValue] e crie um valor XPath de `/RoleEnvironment/Deployment/@emulated`. O valor da variável de ambiente **%ComputeEmulatorRunning%** é `true` na execução no emulador de computação e `false` na execução na nuvem.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -493,7 +493,7 @@ Nem todas as reciclagens de função incluem uma reinicialização, mas todas as
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>Usar o armazenamento local para armazenar arquivos que devem ser acessados na função
 Se você quiser copiar ou criar um arquivo enquanto sua tarefa de inicialização estiver acessível para sua função, esse arquivo deverá ser colocado no armazenamento local. Confira a [seção anterior](#create-files-in-local-storage-from-a-startup-task).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Examine o [modelo de serviço e o pacote da nuvem](cloud-services-model-and-package.md)
 
 Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
@@ -505,10 +505,13 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[EndPoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Pontos de extremidade]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+
+
+
