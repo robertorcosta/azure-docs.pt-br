@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373969"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 
@@ -81,7 +81,7 @@ Se você usar os modelos do Resource Manager a seguir, dois discos de dados prem
 
 * [Criar VM com backup automatizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [Criar VM com aplicação de patch automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-* [Criar a VM com a integração de AKV](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
+* [Criar VM com integração de AKV](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
 ### <a name="quickstart-template"></a>Modelo de início rápido
 
@@ -110,7 +110,6 @@ Você pode modificar as configurações de disco para as unidades que foram conf
 ![Configurar o armazenamento para a VM do SQL Server existente](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-
 ## <a name="storage-configuration"></a>Configuração de armazenamento
 
 Esta seção fornece uma referência para as alterações de configuração de armazenamento que o Azure executa automaticamente durante o provisionamento ou configuração de VM do SQL no portal do Azure.
@@ -124,14 +123,14 @@ Para saber mais sobre preços, consulte a página [Preços de armazenamento](htt
 
 O Azure usa as configurações a seguir para criar o pool de armazenamento em VMs do SQL Server.
 
-| Configuração | Value |
+| Configuração | Valor |
 | --- | --- |
 | Tamanho da distribuição |256 KB (Data warehouse); 64 KB (Transacional) |
 | Tamanhos de disco |1 TB cada |
 | Cache |Leitura |
 | Tamanho da alocação |Tamanho da unidade de alocação de NTFS de 64 KB |
 | Recuperação | Recuperação simples (sem resiliência) |
-| Número de colunas |Número de discos de dados até 8<sup>1</sup> |
+| Número de Colunas |Número de discos de dados até 8<sup>1</sup> |
 
 
 <sup>1</sup>Após a criação do pool de armazenamento, você não pode alterar o número de colunas no pool de armazenamento.
@@ -141,7 +140,7 @@ O Azure usa as configurações a seguir para criar o pool de armazenamento em VM
 
 A tabela a seguir descreve as três opções de tipo de carga de trabalho disponíveis e suas otimizações correspondentes:
 
-| Tipo de carga de trabalho | Descrição | Otimizações |
+| Tipo de carga de trabalho | Description | Otimizações |
 | --- | --- | --- |
 | **Geral** |Configuração padrão que oferece suporte à maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados |Sinalizador de Rastreamento 1117<br/>Sinalizador de Rastreamento 1118 |

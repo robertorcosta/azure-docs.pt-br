@@ -1,25 +1,16 @@
 ---
-title: Gerenciamento de estado dos Reliable Actors | Microsoft Docs
+title: Gerenciamento de estado dos Reliable Actors
 description: Descreve como o estado dos Reliable Actors é gerenciado, persistido e replicado para alta disponibilidade.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 65dd47ab21ca4b1c50e0f17b73e7bc4eae8a96e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9962d4333e458243670d1005ad2ccfbc0bb7c92a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348910"
 ---
 # <a name="reliable-actors-state-management"></a>Gerenciamento de estado dos Reliable Actors
 Reliable Actors são objetos single-threaded que podem encapsular a lógica e o estado. Como os atores são executados nos Reliable Services, eles podem manter o estado de modo confiável usando os mesmos mecanismos de persistência e replicação. Dessa forma, os atores não perdem seu estado após falhas, na reativação após a coleta de lixo ou quando são movidos entre nós em um cluster devido ao balanceamento de recursos ou às atualizações.
@@ -29,9 +20,9 @@ Todos os Reliable Actors são considerados *com estado* , pois cada instância d
 
 Mesmo que os atores sejam considerados com estado, isso não significa que eles devem armazenar o estado de modo confiável. Os atores podem escolher o nível de persistência de estado e replicação com base em seus requisitos de armazenamento de dados:
 
-* **Estado persistente**: Estado é persistido em disco e replicado para três ou mais réplicas. O estado persistente é a opção de armazenamento de estado mais duradoura, na qual o estado pode persistir após a interrupção completa do cluster.
-* **Estado volátil**: Estado é replicado para três ou mais réplicas e mantido apenas na memória. O estado volátil proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido no disco. Portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
-* **Nenhum estado persistente**: Estado não é replicado ou gravado no disco, use somente para atores que não precisam manter o estado de modo confiável.
+* **Estado persistente:** o estado é persistido em disco e replicado para três ou mais réplicas. O estado persistente é a opção de armazenamento de estado mais duradoura, na qual o estado pode persistir após a interrupção completa do cluster.
+* **Estado volátil:** o estado é replicado para três ou mais réplicas e mantido apenas na memória. O estado volátil proporciona resiliência contra falhas de nó e de ator, e durante atualizações e balanceamento de recursos. No entanto, o estado não é persistido no disco. Portanto, se todas as réplicas forem perdidas ao mesmo tempo, o estado também será perdido.
+* **Nenhum estado persistente**: O estado não é replicado ou gravado no disco, use apenas para os atores não necessários para manter o estado de forma confiável.
 
 Cada nível de persistência é apenas um *provedor de estado* e uma configuração de *replicação* diferentes do serviço. A decisão de gravar ou não o estado em disco depende do provedor de estado – o componente que armazena o estado em um serviço confiável. A replicação depende de quantas réplicas são implantadas com um serviço. Assim como acontece com os Reliable Services, o provedor de estado e a contagem de réplicas podem ser definidos manualmente com facilidade. A estrutura de ator fornece um atributo, que, quando usado em um ator, seleciona automaticamente um provedor de estado padrão e gera automaticamente as configurações de contagem de réplicas, a fim de alcançar uma dessas três configurações de persistência. O atributo StatePersistence não será herdado pela classe derivada. Cada tipo de Ator deve fornecer seu nível de StatePersistence.
 
@@ -81,7 +72,7 @@ class MyActorImpl extends FabricActor implements MyActor
 Essa configuração usa um provedor de estado somente na memória e define a contagem de réplicas como 1.
 
 ### <a name="defaults-and-generated-settings"></a>Padrões e configurações geradas
-Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado automaticamente para você em tempo de execução quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**.
+Ao usar o atributo `StatePersistence`, um provedor de estado será selecionado automaticamente para você em runtime quando o serviço de ator for iniciado. No entanto, a contagem de réplicas é definida no tempo de compilação pelas ferramentas de build de ator do Visual Studio. As ferramentas de build geram automaticamente um *serviço padrão* para o serviço de ator no ApplicationManifest.xml. Os parâmetros são criados para **tamanho mín. do conjunto de réplicas** e **tamanho de destino do conjunto de réplicas**.
 
 Você pode alterar esses parâmetros manualmente. Mas, sempre que o atributo `StatePersistence` for alterado, os parâmetros serão definidos como os valores padrão de tamanho do conjunto de réplicas para o atributo `StatePersistence` selecionado, substituindo os valores anteriores. Em outras palavras, os valores definidos em ServiceManifest.xml serão substituídos *somente* no momento do build quando você alterar o valor do atributo `StatePersistence`.
 
@@ -125,7 +116,7 @@ Você deve ter uma diretiva clara sobre como gerenciar o tamanho do estado de ca
  
 Se você vir que o tamanho do arquivo de banco de dados de um serviço de atores está aumentando para além do tamanho esperado, certifique-se de que você esteja seguindo as diretrizes anteriores. Se você estiver seguindo essas diretrizes e ainda houver problemas de tamanho de arquivo do banco de dados, você deverá [abrir um tíquete de suporte](service-fabric-support.md) com a equipe de produto para obter ajuda.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O estado que é armazenado no Reliable Actors deve ser serializado antes de ser gravado no disco e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

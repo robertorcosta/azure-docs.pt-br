@@ -1,5 +1,6 @@
 ---
-title: Status do cenário de migração de banco de dados | Microsoft Docs
+title: Status do cenário de migração de banco de dados
+titleSuffix: Azure Database Migration Service
 description: Saiba mais sobre o status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
@@ -11,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 9ea070ea86a4d0d5e7101e82450235a59c936d2d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 03fb6a1aff62df878417da55a7da7b42186b3462
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437670"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -44,7 +45,7 @@ As tabelas a seguir mostram quais cenários de migração têm suporte ao usar o
 
 A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dados do Azure em migrações offline.
 
-| Destino  | Origem | Suporte | Status |
+| Escolha o destino  | Origem | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | SQL para RDS |  |  |
@@ -64,7 +65,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 
 A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dados do Azure em migrações online.
 
-| Destino  | Origem | Suporte | Status |
+| Escolha o destino  | Origem | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | SQL para RDS | ✔ | GA |
@@ -81,6 +82,6 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 |   | PostgreSQL para RDS | ✔ | GA |
 |   | Oracle | ✔ | Versão prévia pública |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral do serviço de migração de banco de dados do Azure e da disponibilidade regional, consulte o artigo o [que é o serviço de migração de banco de dados](dms-overview.md)
