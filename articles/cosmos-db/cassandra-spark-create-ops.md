@@ -1,5 +1,5 @@
 ---
-title: Criar/inserir dados na API do Cassandra do Azure Cosmos DB do Spark
+title: Criar ou inserir dados em Azure Cosmos DB API do Cassandra do Spark
 description: Este artigo fornece detalhes de como inserir dados de exemplo nas tabelas da API do Cassandra do Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: aea646e7a390d5b53f0d4b388cfecd0c80fb19da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eb23a3d8b1098110bd8b75faa22cc483637d183
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60894038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442116"
 ---
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados na API do Cassandra do Azure Cosmos DB do Spark
  
@@ -134,12 +134,12 @@ use books_ks;
 select * from books;
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de inserir dados na tabela da API do Cassandra do Azure Cosmos DB, prossiga para os artigos a seguir para executar outras operações nos dados armazenados na API do Cassandra do Cosmos DB:
  
 * [Operações de leitura](cassandra-spark-read-ops.md)
-* [Operações de upsert](cassandra-spark-upsert-ops.md)
+* [Operações de Upsert](cassandra-spark-upsert-ops.md)
 * [Excluir operações](cassandra-spark-delete-ops.md)
 * [Aggregation operations](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)

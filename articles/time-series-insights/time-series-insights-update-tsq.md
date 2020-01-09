@@ -1,6 +1,6 @@
 ---
 title: Consulta de dados na visualização-Azure Time Series Insights | Microsoft Docs
-description: Saiba mais sobre Azure Time Series Insights a consulta de dados de visualização.
+description: Visão geral dos conceitos de consulta de dados e da API REST HTTP na visualização Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374571"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Consulta de dados na visualização Azure Time Series Insights
 
@@ -39,8 +39,8 @@ Há suporte para as APIs principais a seguir.
 
 As seguintes APIs de ambiente estão disponíveis:
 
-* [Obter API do ambiente](/rest/api/time-series-insights/management/environments/get): retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
-* [Obter API de disponibilidade do ambiente](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): retorna a distribuição da contagem de eventos sobre o `$ts`do carimbo de data/hora do evento. Essa API ajuda a determinar se há eventos no carimbo de data/hora retornando a contagem de eventos, se existir.
+* [Obter a API de ambientes](/rest/api/time-series-insights/management/environments/get): retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
+* [Obter API de disponibilidade de ambientes](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): retorna a distribuição da contagem de eventos sobre o `$ts`do carimbo de data/hora do evento. Essa API ajuda a determinar se há eventos no carimbo de data/hora retornando a contagem de eventos, se existir.
 * [Obter API do esquema de evento](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): retorna os metadados do esquema de evento para um determinado intervalo de pesquisa. Essa API ajuda a recuperar todos os metadados e as propriedades disponíveis no esquema para determinado período pesquisado.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>APIs TSM-Q (Consulta do modelo do Time Series)
@@ -71,7 +71,7 @@ As seguintes APIs de consulta de série temporal estão disponíveis. Essas APIs
 
   A API de agregação de série retorna um valor de série temporal para cada variável e intervalo. Os valores são com base na ID do Time Series e no conjunto de variáveis que foram fornecidos. A API de agregação de série consegue fazer uma redução usando as variáveis armazenadas no modelo do Time Series ou embutidas para agregar ou coletar exemplo dos dados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na versão prévia do Azure Time Series insights.
 - Leia o artigo Time Series Insights Preview [Data Modeling](./time-series-insights-update-tsm.md) .

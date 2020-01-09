@@ -1,25 +1,16 @@
 ---
-title: Polimorfismo na estrutura Reliable Actors | Microsoft Docs
+title: Polimorfismo na estrutura Reliable Actors
 description: Crie hierarquias de interfaces .NET e tipos na estrutura Reliable Actors para reutilizar a funcionalidade e as definições da API.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: vturecek
-ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c14b3006184f7bd6dcd1eb67be11bd0214957d72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e485463f41cdfbadeb166ecbb3a86d4a32c1589
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348933"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Polimorfismo na estrutura Reliable Actors
 A estrutura Reliable Actors permite que você crie atores usando muitas das mesmas técnicas que usaria no design orientado a objeto. Uma dessas técnicas é o polimorfismo, que permite que tipos e interfaces herdem de pais mais generalizados. A herança na estrutura de Reliable Actors geralmente segue o modelo de .NET com algumas restrições adicionais. No caso de Java/Linux, ele segue o modelo de Java.
@@ -94,7 +85,7 @@ public class Circle extends ShapeImpl implements Circle
 
 Observe o atributo `ActorService` no tipo de ator. Esse atributo informa à estrutura Reliable Actor que ela deverá criar automaticamente um serviço de hospedagem de atores desse tipo. Em alguns casos, você poderá criar um tipo base que destina-se somente para o compartilhamento de recursos com subtipos e nunca será usado para criar uma instância de atores concretos. Nesses casos, você deve usar a palavra-chave `abstract` para indicar que você nunca criará um ator com base nesse tipo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Veja [Como a estrutura Reliable Actors aproveita a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md) para oferecer estado consistente, escalabilidade e confiabilidade.
 * Saiba mais sobre o [ciclo de vida do ator](service-fabric-reliable-actors-lifecycle.md).
 

@@ -1,25 +1,14 @@
 ---
-title: Escalar ou reduzir horizontalmente um cluster do Service Fabric | Microsoft Docs
+title: Dimensionar ou reduzir horizontalmente um Service Fabric cluster
 description: Dimensione um cluster de Service Fabric de entrada ou saída para corresponder à demanda definindo regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais. Adicionar ou remover nós de um cluster do Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/12/2019
-ms.author: atsenthi
-ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599903"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451953"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou escalar um cluster horizontalmente
 
@@ -63,7 +52,7 @@ Atualmente, o recurso de escala automática não é controlado pelas cargas que 
 Siga estas instruções [para configurar o dimensionamento automático para cada conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Em um cenário de redução vertical, a menos que o tipo de nó tenha um [nível][durability] de durabilidade ouro ou prata, você precisará chamar o [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) com o nome do nó apropriado. Para a durabilidade de bronze, não é recomendável reduzir mais de um nó por vez.
+> Em um cenário de redução vertical, a menos que o tipo de nó tenha um [nível de durabilidade][durability] ouro ou prata, você precisará chamar o [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) com o nome do nó apropriado. Para a durabilidade de bronze, não é recomendável reduzir mais de um nó por vez.
 > 
 > 
 
@@ -125,7 +114,7 @@ O cluster do Service Fabric precisa saber que este nó será removido. Você pre
 PowerShell: `Disable-ServiceFabricNode`  
 sfctl: `sfctl node disable`
 
-2. Pare o nó de modo que o tempo de execução do Service Fabric seja desligado corretamente e o aplicativo obtenha uma solicitação de encerramento.  
+2. Pare o nó de modo que o runtime do Service Fabric seja desligado corretamente e o aplicativo obtenha uma solicitação de encerramento.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
 sfctl: `sfctl node transition --node-transition-type Stop`
 
@@ -258,7 +247,7 @@ Confira [os detalhes sobre os níveis de durabilidade aqui](service-fabric-clust
 > 
 > 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Leia os seguintes artigos para saber também sobre como planejar a capacidade do cluster, atualizar um cluster e particionar os serviços:
 
 * [Planejar a capacidade do cluster](service-fabric-cluster-capacity.md)

@@ -1,25 +1,14 @@
 ---
-title: Criar um aplicativo Java de reliable actors do Azure Service Fabric no Linux | Microsoft Docs
+title: Criar um aplicativo Java do Azure Service Fabric Reliable Actors no Linux
 description: Saiba como criar e implantar um aplicativo de reliable actors do Java Service Fabric em cinco minutos.
-services: service-fabric
-documentationcenter: java
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2018
-ms.author: atsenthi
-ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458171"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Crie seu primeiro aplicativo Java de Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -46,12 +35,12 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
 Para começar a usar os Reliable Actors, você só precisa entender alguns conceitos básicos:
 
 * **Serviço do ator**. Os Reliable Actors são empacotados em Reliable Services que podem ser implantados na infraestrutura do Service Fabric. As instâncias de ator são ativadas em uma instância de serviço nomeado.
-* **Registro do ator**. Como ocorre com Reliable Services, um serviço de Reliable Actor precisa ser registrado com o tempo de execução do Service Fabric. Além disso, o tipo de ator precisa ser registrado com o tempo de execução do ator.
+* **Registro do ator**. Como ocorre com Reliable Services, um serviço de Reliable Actor precisa ser registrado com o runtime do Service Fabric. Além disso, o tipo de ator precisa ser registrado com o runtime do ator.
 * **Interface do Ator**. A interface do ator é usada para definir uma interface pública fortemente tipada de um ator. Na terminologia do modelo de Reliable Actor, a interface do ator define os tipos de mensagem que o ator pode entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para “enviar” (de modo assíncrono) mensagens ao ator. Os Reliable Actors pode implantar várias interfaces.
 * **Classe ActorProxy**. A classe ActorProxy é usada por aplicativos cliente para invocar os métodos expostos por meio de suas interfaces de ator. A classe ActorProxy apresenta duas funcionalidades importantes:
   
-  * Resolução de nomes: Ela consegue localizar o ator no cluster (localizar o nó do cluster no qual ele está hospedado).
-  * Tratamento de falhas: Ela pode repetir as invocações do método e resolver novamente o local do ator, por exemplo, depois que uma falha exige que ele seja relocado para outro nó no cluster.
+  * Resolução do nome: ela consegue localizar o ator no cluster (localizar o nó do cluster no qual ele está hospedado).
+  * Tratamento de falhas: ela pode repetir as invocações do método e resolver novamente o local do ator, por exemplo, depois que uma falha exige que ele seja relocado para outro nó no cluster.
 
 Vale a pena mencionar as seguintes regras que pertencem às interfaces de ator:
 
@@ -162,7 +151,7 @@ public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor 
 ```
 
 ### <a name="actor-registration"></a>Registro do ator
-O serviço de ator deve ser registrado com um tipo de serviço no tempo de execução do Service Fabric. Para que o Serviço de Ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no Serviço de Ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores.
+O serviço de ator deve ser registrado com um tipo de serviço no runtime do Service Fabric. Para que o Serviço de Ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no Serviço de Ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
 
@@ -219,7 +208,7 @@ Depois da implantação do aplicativo, abra um navegador e navegue até [Service
 Em seguida, expanda o nó **Aplicativos** e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implantar o aplicativo em um cluster seguro do Linux no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução do Service Fabric. Isso permite que os serviços de Reliable Actors se comuniquem com as APIs de tempo de execução do Service Fabric subjacente. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implantar o aplicativo em um cluster seguro do Linux no Azure, você precisa configurar um certificado para validar seu aplicativo com o runtime do Service Fabric. Isso permite que os serviços de Reliable Actors se comuniquem com as APIs de runtime do Service Fabric subjacente. Para obter mais informações, consulte [Configurar um aplicativo de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicie o cliente de teste e execute um failover
@@ -303,7 +292,7 @@ Suporte de Reliable Services do Service Fabric para seu aplicativo.
   }
   ```
 
-### <a name="others"></a>Outros
+### <a name="others"></a>Diversos
 #### <a name="transport"></a>Transporte
 
 Suporte da camada de transporte para aplicativo Java do Service Fabric. Você não precisa adicionar explicitamente essa dependência aos seus aplicativos Reliable Actor ou Service, a menos que programe na camada de transporte.
@@ -346,7 +335,7 @@ Suporte no nível do sistema para o Service Fabric, que se comunica com a execu�
   }
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como criar seu primeiro aplicativo em Java do Service Fabric no Linux usando o Eclipse](service-fabric-get-started-eclipse.md)
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)

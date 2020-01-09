@@ -1,5 +1,5 @@
 ---
-title: Usar a biblioteca .NET bulk executor do grafo para executar operações em massa na API Gremlin do Azure Cosmos DB
+title: Usar a biblioteca .NET do executor em massa do grafo com a API Azure Cosmos DB Gremlin
 description: Saiba como usar a biblioteca bulk executor para importar dados gráficos em massa para um contêiner da API Gremlin do Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442177"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Usar a biblioteca .NET bulk executor do grafo para executar operações em massa na API Gremlin do Azure Cosmos DB
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Esse repositório contém o exemplo GraphBulkExecutor com os seguintes arquivos:
 
-Arquivo|Descrição
+Arquivo|Description
 ---|---
 `App.config`|É aqui que o aplicativo e os parâmetros específicos do banco de dados são especificados. Primeiro, esse arquivo precisa ser modificado para se conectar ao banco de dados de destino e às coleções.
 `Program.cs`| Esse arquivo contém a lógica por trás da criação da coleção `DocumentClient`, do tratamento das limpezas e do envio das solicitações do bulk executor.
@@ -136,7 +136,7 @@ Arquivo|Descrição
 
 No arquivo `App.config`, os itens a seguir são os valores de configuração que podem ser fornecidos:
 
-Configuração|Descrição
+Configuração|Description
 ---|---
 `EndPointUrl`|Este é **seu ponto de extremidade do SDK do .NET**, localizado na folha Visão geral de sua conta do banco de dados da API Gremlin do Azure Cosmos DB. O identificador tem o formato: `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Essa é a Chave Primária ou Secundária listada em sua conta do Azure Cosmos DB. Saiba mais sobre [Como proteger o acesso aos dados do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 21582a5a17a3c6f67182173bfe08d80c48765f7d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 28d3d83acad5e609947b029bc8e585193834e346
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446519"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar contêineres do reconhecedor de formulário (versão prévia)
 
@@ -22,22 +22,25 @@ O Reconhecimento de Formulários do Azure aplica tecnologia de aprendizado de m�
 
 Para reduzir a complexidade e integrar facilmente um modelo de Reconhecimento de Formulários personalizado ao seu processo de automação de fluxo de trabalho ou a outro aplicativo, você pode chamar o modelo usando uma API REST simples. Somente cinco documentos de formulário (ou um formulário vazio e dois formulários preenchidos) são necessários, para que você possa obter resultados de forma rápida, precisa e adaptada ao seu conteúdo específico. Não é necessária intervenção manual intensa nem ampla experiência em ciência de dados. E não é necessária rotulagem nem anotação de dados.
 
+> [!IMPORTANT]
+> No momento, os contêineres do reconhecedor de formulário usam a versão 1,0 da API do reconhecedor de formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
+
 |Função|Recursos|
 |-|-|
 |Reconhecimento de Formulários| <li>Processa arquivos PDF, PNG e JPG<li>Treina modelos personalizados com um mínimo de cinco formas do mesmo layout <li>Extrai pares chave-valor e informações de tabela <li>Usa o recurso de Reconhecimento de Texto da API de Pesquisa Visual Computacional dos Serviços Cognitivos do Azure para detectar e extrair texto impresso de imagens em formulários<li>Não exige anotação nem rotulagem|
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de usar contêineres de Reconhecimento de Formulários, é necessário atender aos seguintes pré-requisitos:
 
-|obrigatórios|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como Registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
 |A CLI do Azure| Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no host.|
-|Recurso da API de Pesquisa Visual Computacional| Para processar imagens e documentos digitalizados, é necessário ter um recurso da Pesquisa Visual Computacional. Acesse o recurso de Reconhecimento de Texto como um recurso do Azure (API REST ou SDK) ou como um *contêiner* do [cognitive-services-recognize-text](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull). Os valores de cobrança normais se aplicam. <br><br>Transmita a chave de API e os pontos de extremidade para seu recurso de Pesquisa Visual Computacional (contêiner de nuvem do Azure ou serviços cognitivas). Use essa chave de API e o ponto de extremidade como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se você usar o contêiner *cognitive-services-recognize-text*, certifique-se de que:<br><br>A chave da Pesquisa Visual Computacional para o contêiner do Reconhecimento de Formulários seja a chave especificada no comando `docker run` da Pesquisa Visual Computacional para o contêiner do *cognitive-services-recognize-text*.<br>O ponto de extremidade de cobrança é o ponto de extremidade do contêiner (por exemplo, `http://localhost:5000`). Se você usar os contêineres da Pesquisa Visual Computacional e do Reconhecimento de Formulários juntos no mesmo host, eles não poderão ser iniciados com a porta padrão *5000*. |
+|Recurso da API de Pesquisa Visual Computacional| Para processar imagens e documentos digitalizados, é necessário ter um recurso da Pesquisa Visual Computacional. Você pode acessar o recurso de Reconhecimento de Texto como um recurso do Azure (a API REST ou o SDK) ou um [contêiner](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) *cognitiva-Services-Recognize-Text* . Os valores de cobrança normais se aplicam. <br><br>Transmita a chave de API e os pontos de extremidade para seu recurso de Pesquisa Visual Computacional (contêiner de nuvem do Azure ou serviços cognitivas). Use essa chave de API e o ponto de extremidade como **{COMPUTER_VISION_API_KEY}** e **{COMPUTER_VISION_ENDPOINT_URI}** .<br><br> Se você usar o contêiner *cognitive-services-recognize-text*, certifique-se de que:<br><br>A chave da Pesquisa Visual Computacional para o contêiner do Reconhecimento de Formulários seja a chave especificada no comando `docker run` da Pesquisa Visual Computacional para o contêiner do *cognitive-services-recognize-text*.<br>O ponto de extremidade de cobrança é o ponto de extremidade do contêiner (por exemplo, `http://localhost:5000`). Se você usar os contêineres da Pesquisa Visual Computacional e do Reconhecimento de Formulários juntos no mesmo host, eles não poderão ser iniciados com a porta padrão *5000*. |
 |Recurso do Reconhecimento de Formulários |Para usar esses contêineres, é necessário ter:<br><br>Um recurso do **reconhecedor** do Azure Form para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral e chaves do **reconhecedor** do portal do Azure Form e os dois valores são necessários para iniciar o contêiner.<br><br>**{FORM_RECOGNIZER_API_KEY}** : uma das duas chaves de recurso disponíveis na página chaves<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}** : o ponto de extremidade conforme fornecido na página Visão geral|
 
 ## <a name="gathering-required-parameters"></a>Coletando parâmetros necessários
@@ -75,7 +78,7 @@ Primeiro, é necessário preencher e enviar o [formulário de solicitação de a
 
 Os núcleos de CPU e a memória mínimos e recomendados a serem alocados para cada contêiner do Reconhecimento de Formulários são descritos na tabela a seguir:
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Reconhecimento de Formulários | 2 núcleos, 4 GB de memória | 4 núcleos, 8 GB de memória |
 | Reconhecimento de Texto | 1 núcleo, 8 GB de memória | 2 núcleos, 8 GB de memória |
@@ -159,7 +162,7 @@ Esse comando:
 
 Para a combinação de Reconhecimento de Formulários e Reconhecimento de Texto hospedada localmente no mesmo host, use os dois comandos de exemplo da CLI do Docker a seguir:
 
-Executar o primeiro contêiner na porta 5000. 
+Execute o primeiro contêiner na porta 5000. 
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -237,7 +240,7 @@ services:
 ```
 
 > [!IMPORTANT]
-> As opções `Eula`, `Billing` e `ApiKey`, bem como `FormRecognizer:ComputerVisionApiKey` e `FormRecognizer:ComputerVisionEndpointUri`, precisam ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado. Para obter mais informações, confira [Cobrança](#billing).
+> As opções `Eula`, `Billing` e `ApiKey`, bem como `FormRecognizer:ComputerVisionApiKey` e `FormRecognizer:ComputerVisionEndpointUri`, precisam ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado. Para mais informações, consulte [Faturamento](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
@@ -301,7 +304,7 @@ O contêiner fornece as APIs do ponto de extremidade REST, que podem ser encontr
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você executar o contêiner com uma [montagem](form-recognizer-container-configuration.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem durante a inicialização ou execução do contêiner.
 
@@ -313,7 +316,7 @@ Os contêineres do Reconhecimento de Formulários enviam informações de cobran
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Para obter mais informações sobre essas opções, confira [Configurar os contêineres](form-recognizer-container-configuration.md).
+Para obter mais informações sobre essas opções, consulte [Configurar contêineres](form-recognizer-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -332,7 +335,7 @@ Neste artigo, você aprendeu conceitos e o fluxo de trabalho para baixar, instal
 > [!IMPORTANT]
 >  Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Revise [Configurar contêineres](form-recognizer-container-configuration.md) para configurações.
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md).

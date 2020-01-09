@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422351"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -38,9 +38,20 @@ Baixar| [Baixar o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6157
 Enquanto passarmos por esse processo, o número de versão da versão será mostrado com um "X" na posição do número de liberação secundária, como em "1.3. X. 0" – isso indica que as notas de versão deste documento são válidas para todas as versões que começam com "1,3.". Assim que finalizamos o processo de liberação, o número de versão de lançamento será atualizado para a versão lançada mais recentemente e o status da versão será atualizado para "liberado para download e atualização automática".
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O status da versão indicará se uma versão foi disponibilizada para atualização automática ou apenas para baixar. Se a atualização automática foi habilitada no seu servidor do Azure AD Connect, então esse servidor atualizará automaticamente para a versão mais recente do Azure AD Connect que é liberado para atualização automática. Observe que nem todas as configurações do Azure AD Connect estão qualificadas para atualização automática. Siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
+>[!IMPORTANT]
+> A partir de 1º de novembro de 2020, começaremos a implementar um processo de substituição no qual as versões de Azure AD Connect lançadas há mais de 18 meses serão preteridas. Nesse momento, vamos começar esse processo preterindo todas as versões do Azure AD Connect com a versão 1.1.751.0 (lançada em 4/12/2018) e mais antigamente, e continuaremos a avaliar a substituição de versões mais antigas do Azure AD Connect sempre que uma nova versão for lançada.
+>
+> Você precisa verificar se está executando uma versão recente do Azure AD Connect para receber uma experiência de suporte ideal. 
+>
+>Se você executar uma versão preterida do Azure AD Connect talvez você não tenha as correções de segurança mais recentes, melhorias de desempenho, solução de problemas e ferramentas de diagnóstico e aprimoramentos de serviço e, se precisar de suporte, talvez não seja possível fornecer o nível de atender às necessidades da sua organização.
+>
+>Se você tiver habilitado Azure AD Connect para sincronização, logo começará automaticamente a receber notificações de integridade que avisam sobre as substituições futuras quando você estiver executando uma das versões mais antigas.
+>
+>Veja [Este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar Azure ad Connect para a versão mais recente.
+
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Status de liberação
-12/6/2019: versão para download. Não disponível por meio da atualização automática.
+12/9/2019: versão para download. Não disponível por meio da atualização automática.
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Atualizamos a sincronização de hash de senha para Azure AD Domain Services para considerar adequadamente o preenchimento em hashes Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do AAD para o Azure AD Domain Services.
 - Adicionamos suporte para sessões confiáveis entre o agente de autenticação e o barramento de serviço.
@@ -129,8 +140,8 @@ Em determinadas circunstâncias, os servidores que foram atualizados automaticam
 > Para resolver isso, você precisa importar o módulo **AdSync** e executar o cmdlet`Set-ADSyncDirSyncConfiguration` PowerShell no servidor Azure ad Connect.  Você pode usar as seguintes etapas:
 >
 >1. Abrir o PowerShell no modo administrador
->2. Execute o `Import-Module "ADSync"`
->3. Execute o `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+>2. Execute `Import-Module "ADSync"`
+>3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
 ### <a name="release-status"></a>Status de liberação 
 
@@ -483,18 +494,18 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Type     | name                          | Acesso               | Aplica-se A
+Tipo     | Nome                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-PERMITIR    | SYSTEM                        | Controle Total         | Este objeto  |
-PERMITIR    | Administradores Corporativos             | Controle Total         | Este objeto  |
-PERMITIR    | Administradores de Domínio                 | Controle Total         | Este objeto  |
-PERMITIR    | Administradores                | Controle Total         | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
+Permitir    | SYSTEM                        | Controle Total         | Este objeto  |
+Permitir    | Administradores Corporativos             | Controle Total         | Este objeto  |
+Permitir    | Administradores de Domínio                 | Controle Total         | Este objeto  |
+Permitir    | Administradores                | Controle Total         | Este objeto  |
+Permitir    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
+Permitir    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
+Permitir    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
+Permitir    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
+Permitir    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
+Permitir    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as configurações para a conta do AD DS você pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell atribuirá as permissões mencionadas acima para a conta do AD DS.
 
@@ -1346,4 +1357,4 @@ Lançamento: setembro de 2014
 **Versão inicial do Azure AD Sync.**
 
 ## <a name="next-steps"></a>Próximos passos
-Saiba mais sobre como [Integrar suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md).
+Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

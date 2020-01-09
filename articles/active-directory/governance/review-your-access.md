@@ -1,5 +1,5 @@
 ---
-title: Examine o acesso a grupos ou aplicativos nas revisões de acesso-Azure Active Directory | Microsoft Docs
+title: Examine o acesso a grupos & aplicativos nas revisões de acesso – Azure AD
 description: Saiba como revisar seu próprio acesso a grupos ou aplicativos em Azure Active Directory revisões de acesso.
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422398"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou aplicativos nas revisões de acesso do Azure AD
 
@@ -79,6 +79,6 @@ Depois de abrir a revisão de acesso, você poderá ver seu acesso.
     > [!NOTE]
     > Se você indicou que não precisa mais de acesso, não será removido imediatamente. Você será removido quando a revisão terminar ou quando um administrador parar a revisão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Concluir uma revisão de acesso de grupos ou aplicativos](complete-access-review.md)

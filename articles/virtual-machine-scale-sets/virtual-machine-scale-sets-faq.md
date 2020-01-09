@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
-description: Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais.
+title: Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
+description: Obtenha respostas para as perguntas mais frequentes sobre conjuntos de dimensionamento de máquinas virtuais no Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 47ea23f3018e9d28c0ccfd6640b3d365103ab9ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779420"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356211"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -72,7 +72,7 @@ Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculaçõe
 Sim! Para obter mais informações, confira a [documentação de zona de conjunto de dimensionamento](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
-## <a name="autoscale"></a>Dimensionamento automático
+## <a name="autoscale"></a>Autoescala
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quais são as práticas recomendadas para o Dimensionamento Automático do Azure?
 
@@ -134,7 +134,7 @@ Para configurar o dimensionamento automático em um conjunto de dimensionamento 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Se eu tiver interrompido (desalocado) uma VM, essa VM será iniciada como parte de uma operação de dimensionamento automático?
 
-Nº Se as regras de dimensionamento automático exigirem outras instâncias de VM como parte de um conjunto de dimensionamento, uma nova instância de VM será criada. Instâncias VM que são interrompidas (desalocadas) não são iniciadas como parte de um evento de dimensionamento automático. No entanto, essas VMs interrompidas (desalocadas) poderão ser excluídas como parte de um evento de dimensionamento automático que aumenta o número de instâncias, da mesma maneira que qualquer instância de VM pode ser excluída com base na ordem de ID da instância de VM.
+Não. Se as regras de dimensionamento automático exigirem outras instâncias de VM como parte de um conjunto de dimensionamento, uma nova instância de VM será criada. Instâncias VM que são interrompidas (desalocadas) não são iniciadas como parte de um evento de dimensionamento automático. No entanto, essas VMs interrompidas (desalocadas) poderão ser excluídas como parte de um evento de dimensionamento automático que aumenta o número de instâncias, da mesma maneira que qualquer instância de VM pode ser excluída com base na ordem de ID da instância de VM.
 
 
 
@@ -229,17 +229,17 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 }
 ```
 
-Nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
+Nome do elemento linuxConfiguration | Obrigatório | Tipo | Description
 --- | --- | --- | ---
-ssh | Não | Collection | Especifica a configuração da chave SSH para um SO Linux
-path | Sim | Cadeia | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
-keyData | Sim | Cadeia | Especifica uma chave pública SSH codificada em base64
+ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
+caminho | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
+keyData | Sim | String | Especifica uma chave pública SSH codificada em base64
 
 Para obter um exemplo, consulte [o modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando executo `Update-AzVmss` depois de adicionar mais de um certificado no mesmo cofre de chaves, posso ver a seguinte mensagem:
 
->Update-AzVmss: O segredo da lista contém instâncias repetidas de/subscriptions/\<My-Subscription-ID >/resourceGroups/Internal-RG-dev/Providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, que não é permitido.
+>Update-AzVmss: o segredo da lista contém instâncias repetidas de/subscriptions/\<minha-Subscription-ID >/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, que não é permitido.
 
 Isso poderá ocorrer se você tentar adicionar novamente o mesmo cofre, em vez de usar um novo certificado de cofre para o cofre de origem existente. O comando `Add-AzVmssSecret` não funcionará corretamente se você estiver adicionando segredos adicionais.
 
@@ -343,6 +343,13 @@ Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft
 
 Sim. Você pode ver alguns modelos de MSI de exemplo nos modelos de início rápido do Azure para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## <a name="deleting"></a>Excluindo 
+
+### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Os bloqueios definidos em vigor nas instâncias do conjunto de dimensionamento de máquinas virtuais serão respeitados ao excluir instâncias?
+
+No portal do Azure, você tem a capacidade de excluir uma instância individual ou excluir em massa selecionando várias instâncias. Se você tentar excluir uma única instância que tenha um bloqueio no local, o bloqueio será respeitado e não será possível excluir a instância. No entanto, se você selecionar várias instâncias em massa e qualquer uma dessas instâncias tiver um bloqueio em vigor, os bloqueios não serão respeitados e todas as instâncias selecionadas serão excluídas. 
+ 
+No CLI do Azure, você só tem a capacidade de excluir uma instância individual. Se você tentar excluir uma única instância que tenha um bloqueio em vigor, o bloqueio será respeitado e você não poderá excluir essa instância. 
 
 ## <a name="extensions"></a>Extensões
 
@@ -507,7 +514,7 @@ Sim. Um Grupo de Segurança de Rede pode ser aplicado diretamente a um conjunto 
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Como faço uma troca de VIP para os conjuntos de dimensionamento de máquinas virtuais na mesma assinatura e mesma região?
 
-Se você tiver dois conjuntos de dimensionamento de máquina virtual com front-ends do Azure Load Balancer e eles estiverem na mesma assinatura e região, poderá desalocar os endereços IP públicos de cada um deles e atribuir ao outro. Confira [Troca de VIP: Implantação azul-verde no Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) para ver um exemplo. Isso significa um atraso, já que os recursos são desalocados/alocados no nível da rede. Uma opção mais rápida é usar o Gateway de Aplicativo do Azure com dois pools de back-end e uma regra de roteamento. Como alternativa, você pode hospedar o aplicativo no [serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/), que fornece suporte para a alternância rápida entre slots de preparo e de produção.
+Se você tiver dois conjuntos de dimensionamento de máquina virtual com front-ends do Azure Load Balancer e eles estiverem na mesma assinatura e região, poderá desalocar os endereços IP públicos de cada um deles e atribuir ao outro. Consulte [Permuta de VIP: implantação azul-verde no Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) para ver um exemplo. Isso significa um atraso, já que os recursos são desalocados/alocados no nível da rede. Uma opção mais rápida é usar o Gateway de Aplicativo do Azure com dois pools de back-end e uma regra de roteamento. Como alternativa, você pode hospedar o aplicativo no [serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/), que fornece suporte para a alternância rápida entre slots de preparo e de produção.
 
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Como especifico um intervalo de endereços IP privados para usar na alocação estática do endereço IP privado?
 
@@ -564,7 +571,7 @@ Para criar um conjunto de dimensionamento de VM que atribui um endereço IP púb
 
 Sim. Você pode adicionar as IDs de recurso para vários pools de endereços de back-end do gateway de aplicativo à lista _applicationGatewayBackendAddressPools_ na seção _ipConfigurations_ do seu perfil de rede do conjunto de dimensionamento.
 
-## <a name="scale"></a>Dimensionar
+## <a name="scale"></a>Escala
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>No qual situação eu criaria um conjunto de dimensionamento de máquinas virtuais com menos de duas VMs?
 
@@ -686,7 +693,7 @@ Para obter informações de propriedade para cada VM sem fazer várias chamadas,
 
 Não, você não pode passar argumentos de extensão diferentes para diferentes VMs em um conjunto de dimensionamento de máquinas virtuais. No entanto, as extensões podem agir com base nas propriedades exclusivas da VM na qual estão em execução, como no nome da máquina. As extensões também podem consultar os metadados de instância em http://169.254.169.254 para obter mais informações sobre a VM.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Por que existem lacunas entre os nomes de máquina e as IDs da VM do conjunto de dimensionamento de máquinas virtuais? Por exemplo:  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Por que existem lacunas entre os nomes de máquina e as IDs da VM do conjunto de dimensionamento de máquinas virtuais? Por exemplo: 0, 1, 3...
 
 Existem lacunas entre os nomes de máquina e as IDs da VM do conjunto de dimensionamento de máquinas virtuais, porque a propriedade **overprovision** de seu conjunto de dimensionamento de máquinas virtuais está é definida para o valor padrão **true**. Se o excesso de provisionamento estiver definido para **true**, mais VMs que o solicitado serão criadas. Então, as VMs extras são excluídas. Neste caso, você tem maior confiabilidade na implantação, mas às custas das regras de nomenclatura e de NAT (Network Address Translation) contínuos.
 
