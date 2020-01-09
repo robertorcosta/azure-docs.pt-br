@@ -47,9 +47,10 @@
           href: media-services-portal-live-passthrough-get-started.md
         - name: .NET
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
-- name: Como
+- name: Instruções
   items:
     - name: Componentes herdados
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: Migrar do Codificador de Mídia do Azure
@@ -228,7 +229,7 @@
               href: media-services-rest-get-media-processor.md
         - name: Códigos do Erro
           href: media-services-encoding-error-codes.md
-        - name: Preteridos
+        - name: Preterido
           items:
             - name: Empacotamento estático e criptografia
               href: media-services-static-packaging.md
@@ -321,7 +322,7 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Design de DRM múltiplos de referência
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analise
+    - name: Analisar
       href: media-services-analytics-overview.md
       items:
         - name: Analisar mídia usando o portal do Azure
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: Componentes herdados
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Mídia do Azure
