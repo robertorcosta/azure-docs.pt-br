@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890538"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457147"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -30,7 +30,7 @@ O back-end da sua solução pode usar [configurações de dispositivo automátic
 ## <a name="azure-classic-cli"></a>CLI clássica do Azure
 O [CLI clássico do Azure](../cli-install-nodejs.md) é uma ferramenta de comando baseada em shell, de plataforma cruzada e código aberto para criar e gerenciar recursos no Microsoft Azure. Esta versão da CLI deve ser usada apenas para implantações clássicas.
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure.
 
 
@@ -46,13 +46,13 @@ As [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemNam
 ## <a name="azure-portal"></a>Portal do Azure
 O [portal do Microsoft Azure](https://portal.azure.com) é um local central no qual você pode provisionar e gerenciar os recursos do Azure. Ele organiza seu conteúdo usando _folhas_.
 
-## <a name="azure-powershell"></a>PowerShell do Azure
+## <a name="azure-powershell"></a>Azure PowerShell
 O [Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que você pode usar para gerenciar o Azure com o Windows PowerShell. É possível usar os cmdlets para criar, testar, implantar e gerenciar soluções e serviços entregues pela plataforma Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir os recursos da sua solução em uma única operação coordenada.
+O [Azure Resource Manager](../azure-resource-manager/management/overview.md) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir os recursos da sua solução em uma única operação coordenada.
 
-## <a name="azure-service-bus"></a>Barramento de Serviço do Azure
+## <a name="azure-service-bus"></a>Service Bus do Azure
 O [Barramento de Serviço](../service-bus/index.md) fornece a comunicação habilitada para nuvem com mensagens corporativas e comunicações retransmitidas que o ajudam a conectar soluções locais com a nuvem. Alguns tutoriais do Hub IoT utilizam [filas](../service-bus-messaging/service-bus-messaging-overview.md) do Barramento de Serviço.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
@@ -114,7 +114,7 @@ O [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/to
 ## <a name="device-identity"></a>Identidade do dispositivo
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
 
-## <a name="device-management"></a>Gerenciamento de dispositivos
+## <a name="device-management"></a>Gerenciamento de dispositivo
 O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao gerenciamento dos dispositivos na sua solução de IoT incluindo planejamento, provisionamento, configuração, monitoramento e desativação.
 
 ## <a name="device-management-patterns"></a>Padrões de gerenciamento de dispositivos
@@ -170,13 +170,13 @@ A [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) é uma 
 ## <a name="iot-hub-resource-rest-api"></a>API REST de Recursos do Hub IoT
 Você pode usar a [API REST dos recursos do Hub IoT](https://docs.microsoft.com/rest/api/iothub/iothubresource) para gerenciar os hubs IoT em sua [assinatura do Azure](#subscription) que executam operações como criar, atualizar e excluir hubs.
 
-## <a name="iot-solution-accelerators"></a>Aceleradores de solução do IoT
+## <a name="iot-solution-accelerators"></a>Aceleradores de solução de IoT
 Os aceleradores de solução do Azure IoT incluem vários serviços do Azure para oferecer diferentes soluções. Essas soluções permitem que você realize rapidamente implementações de ponta a ponta de cenários comuns de IoT. Para obter mais informações, consulte [O que são os aceleradores de solução do Azure IoT?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli"></a>A extensão IoT para o CLI do Azure 
 [A extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
 
-## <a name="job"></a>trabalho
+## <a name="job"></a>Trabalho
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa  para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
 
 ## <a name="modules"></a>Módulos
@@ -205,7 +205,7 @@ Quando você se conecta a um ponto de extremidade voltado para o dispositivo ou 
 ## <a name="protocol-gateway"></a>Gateway de protocolo
 Um gateway de protocolo geralmente é implantado na nuvem e fornece serviços de conversão de protocolo para dispositivos que se conectam ao [Hub IoT](#iot-hub). Para saber mais, confira [O que é o Hub IoT do Azure?](about-iot-hub.md)
 
-## <a name="quotas-and-throttling"></a>Cotas e limitação
+## <a name="quotas-and-throttling"></a>Cotas e limitações
 Há várias [cotas](iot-hub-devguide-quotas-throttling.md) que se aplicam ao uso do [Hub IoT](#iot-hub), muitas delas variam de acordo com a camada do hub IoT. O [Hub IoT](#iot-hub) também aplica [limitações](iot-hub-devguide-quotas-throttling.md) ao uso do serviço em tempo de execução.
 
 ## <a name="reported-configuration"></a>Configuração relatada
@@ -226,7 +226,7 @@ Configurar [as regras de roteamento](iot-hub-devguide-messages-read-custom.md) e
 ## <a name="sasl-plain"></a>SASL SIMPLES
 SASL PLAIN é um protocolo que o protocolo AMQP usa para transferir tokens de segurança.
 
-## <a name="service-rest-api"></a>API REST do Serviço
+## <a name="service-rest-api"></a>API REST do serviço
 Você pode usar a [API REST de Serviço](https://docs.microsoft.com/rest/api/iothub/service) da solução de back-end para gerenciar seus dispositivos. A API permite recuperar e atualizar as propriedades de [dispositivos gêmeos](#device-twin) e chamar [métodos diretos](#direct-method) e [trabalhos](#job) programados. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
@@ -241,7 +241,7 @@ Para sua conveniência, muitos dos tutoriais do Hub IoT usam dispositivos simula
 ## <a name="solution"></a>Solução
 Uma _solução_ pode se referir a uma solução do Visual Studio que inclua um ou mais projetos. Uma _solução_ também pode se referir a uma solução IoT que inclua elementos como dispositivos, [aplicativos de dispositivo](#device-app), um hub IoT, outros serviços do Azure e [aplicativos de back-end](#back-end-app).
 
-## <a name="subscription"></a>Assinatura
+## <a name="subscription"></a>Subscription
 Uma assinatura do Azure é onde ocorre a cobrança. Cada recurso do Azure que você cria ou serviço do Azure que usa está associado a uma única assinatura. Muitas cotas também se aplicam ao nível de uma assinatura.
 
 ## <a name="system-properties"></a>Propriedades do sistema
