@@ -4,15 +4,15 @@ description: Este artigo descreve como parar de monitorar suas máquinas virtuai
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/05/2018
-ms.openlocfilehash: 70e71688fde5aff4002c7d49b1408bcefeab1eed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2d58b501429a47c3011fc727f756edeeb7775e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399300"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Desabilitar o monitoramento de suas VMs no Azure Monitor para VMs (versão prévia)
 
@@ -20,7 +20,7 @@ Depois de habilitar o monitoramento de suas VMs (máquinas virtuais), você pode
 
 Atualmente, Azure Monitor para VMs não dá suporte à desabilitação seletiva de monitoramento de VM. Seu espaço de trabalho do Log Analytics pode dar suporte a Azure Monitor para VMs e outras soluções. Ele também pode coletar outros dados de monitoramento. Se seu espaço de trabalho do Log Analytics fornece esses serviços, você precisa entender o efeito e os métodos de desabilitar o monitoramento antes de começar.
 
-Azure Monitor para VMs se baseia nos seguintes componentes para oferecer sua experiência:
+O Azure Monitor para VMs depende dos seguintes componentes para fornecer sua experiência:
 
 * Um espaço de trabalho Log Analytics, que armazena dados de monitoramento de VMs e outras fontes.
 * Uma coleção de contadores de desempenho configurados no espaço de trabalho. A coleção atualiza a configuração de monitoramento em todas as VMs conectadas ao espaço de trabalho.
@@ -44,7 +44,7 @@ Se você ainda precisar do espaço de trabalho Log Analytics, siga estas etapas 
 >
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Na portal do Azure, selecione **todos os serviços**. Na lista de recursos, digite **log Analytics**. Conforme você começa a digitar, a lista filtra as sugestões com base em sua entrada. Selecione **log Analytics**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Conforme você começa a digitar, a lista filtra as sugestões com base em sua entrada. Selecione **Log Analytics**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que você escolheu quando habilitou Azure Monitor para VMs.
 4. À esquerda, selecione **soluções**.  
 5. Na lista de soluções, selecione **InfrastructureInsights (nome do espaço de trabalho)** . Na página **visão geral** da solução, selecione **excluir**. Quando for solicitado a confirmar, selecione **Sim**.  
@@ -65,7 +65,7 @@ Se seu espaço de trabalho do Log Analytics ainda precisar de suporte ao monitor
 > Se você remover o agente de Log Analytics, impedirá que esses serviços e soluções gerenciem proativamente sua VM. 
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
-2. No portal do Azure, selecione **máquinas virtuais**. 
+2. No Portal do Azure, selecione **Máquinas Virtuais**. 
 3. Na lista, selecione uma VM. 
 4. À esquerda, selecione **extensões**. Na página **extensões** , selecione **DependencyAgent**.
 5. Na página Propriedades da extensão, selecione **desinstalar**.

@@ -1,32 +1,23 @@
 ---
-title: Propriedade do Azure Service Fabric CLI - sfctl | Microsoft Docs
-description: Descreve os comandos de propriedade sfctl CLI de malha do serviço.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-Propriedade sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para propriedades de texto e consulta.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901066"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639098"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Propriedades de armazenamento e a consulta em nomes do Service Fabric.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Comando|Description|
 | --- | --- |
 | excluir | Exclui a propriedade especificada do Service Fabric. |
 | get | Obtém a propriedade especificada do Service Fabric. |
@@ -40,7 +31,7 @@ Exclui a propriedade do Service Fabric especificada em um determinado nome. Uma 
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | -nome de propriedade [requerido] | Especifica o nome da propriedade a ser obtida. |
@@ -48,13 +39,13 @@ Exclui a propriedade do Service Fabric especificada em um determinado nome. Uma 
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-property-get"></a>get de propriedade sfctl
 Obtém a propriedade especificada do Service Fabric.
@@ -63,7 +54,7 @@ Obtém a propriedade do Service Fabric especificada em um determinado nome. Isso
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | -nome de propriedade [requerido] | Especifica o nome da propriedade a ser obtida. |
@@ -71,13 +62,13 @@ Obtém a propriedade do Service Fabric especificada em um determinado nome. Isso
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-property-list"></a>lista de propriedades sfctl
 Obtém informações sobre todas as propriedades de malha do serviço em um determinado nome.
@@ -86,7 +77,7 @@ Um nome de malha do serviço pode ter um ou mais propriedades nomeadas que armaz
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
@@ -95,13 +86,13 @@ Um nome de malha do serviço pode ter um ou mais propriedades nomeadas que armaz
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-property-put"></a>sfctl propriedade put
 Cria ou atualiza uma propriedade de malha do serviço.
@@ -110,7 +101,7 @@ Cria ou atualiza a propriedade de malha do serviço especificada em um determina
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | -nome de propriedade [requerido] | O nome da propriedade do Service Fabric. |
@@ -120,13 +111,13 @@ Cria ou atualiza a propriedade de malha do serviço especificada em um determina
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 
 ## <a name="next-steps"></a>Próximos passos

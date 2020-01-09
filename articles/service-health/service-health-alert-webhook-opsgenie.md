@@ -1,19 +1,17 @@
 ---
-title: Enviar alertas de integridade do serviço do Azure com o OpsGenie usando webhooks
+title: Enviar alertas de integridade do serviço do Azure com OpsGenie usando WebHooks
 description: Obtenha notificações personalizadas sobre eventos de integridade do serviço na instância do OpsGenie.
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465238"
 ---
-# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com o OpsGenie usando webhooks
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com OpsGenie usando WebHooks
 
 Este artigo mostra como configurar alertas de integridade do serviço do Azure com o OpsGenie usando um webhook. Usando a Integração de Integridade do Serviço do Azure do [OpsGenie](https://www.opsgenie.com/), você pode encaminhar alertas de Integridade do Serviço do Azure para o OpsGenie. O OpsGenie pode determinar as pessoas certas a serem notificadas com base em plantões, usando email, mensagens de texto (SMS), chamadas telefônicas, notificações por push do iOS e Android e escalonando alertas até que o alerta seja confirmado ou fechado.
 
@@ -44,11 +42,11 @@ Este artigo mostra como configurar alertas de integridade do serviço do Azure c
 
 1. Defina na lista de **Ações**:
 
-    a. **Tipo de ação:** *Webhook*
+    a. **Tipo de ação:** *webhook*
 
-    b. **Detalhes:** A **URL de Integração** do OpsGenie salva anteriormente.
+    b. **Detalhes:** a **URL de Integração** do OpsGenie salva anteriormente.
 
-    c. **Nome:** Nome, alias ou identificador do webhook.
+    c. **Nome:** o nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a criação do alerta.
 
@@ -61,11 +59,11 @@ Este artigo mostra como configurar alertas de integridade do serviço do Azure c
 
 1. Adicione à lista de **Ações**:
 
-    a. **Tipo de ação:** *Webhook*
+    a. **Tipo de ação:** *webhook*
 
-    b. **Detalhes:** A **URL de Integração** do OpsGenie salva anteriormente.
+    b. **Detalhes:** a **URL de Integração** do OpsGenie salva anteriormente.
 
-    c. **Nome:** Nome, alias ou identificador do webhook.
+    c. **Nome:** o nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
@@ -85,7 +83,7 @@ Este artigo mostra como configurar alertas de integridade do serviço do Azure c
 
 1. Acesse o [OpsGenie](https://www.opsgenie.com/) para confirmar se a integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).

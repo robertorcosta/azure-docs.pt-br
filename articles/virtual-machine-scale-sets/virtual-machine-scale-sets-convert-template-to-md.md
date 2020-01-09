@@ -1,6 +1,6 @@
 ---
-title: Conversão de um modelo de conjunto de dimensionamento do Azure Resource Manager para usar disco gerenciado | Microsoft Docs
-description: Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado.
+title: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
+description: Converta um modelo de conjunto de dimensionamento de máquinas virtuais Azure Resource Manager em um modelo de conjunto de dimensionamento de disco gerenciado.
 keywords: conjuntos de escala de máquina virtual
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6419da8e87ac32e763e3e796bb49daa562d68030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359606"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversão de um modelo de conjunto de dimensionamento para um modelo de conjunto de dimensionamento de disco gerenciado
 
@@ -143,7 +143,7 @@ Se você especificar `n` discos nesta matriz, cada VM no conjunto de dimensionam
 Para saber mais sobre como usar discos de dados com conjuntos de dimensionamento, veja [este artigo](./virtual-machine-scale-sets-attached-disks.md).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para modelos do Resource Manager de exemplo usando conjuntos de dimensionamento, pesquise "vmss" no [repositório GitHub de Modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).

@@ -1,20 +1,18 @@
 ---
 title: Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 description: Saiba mais sobre realizar a saída de dados para o SQL Azure do Azure Stream Analytics e alcançar maiores taxas de transferência de gravação.
-services: stream-analytics
 author: chetanmsft
 ms.author: chetang
-manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 7845833a0269514c8fdbd093e18d4516ff9567d9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443613"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 
@@ -24,7 +22,7 @@ A saída do SQL no Azure Stream Analytics dá suporte à gravação em paralelo 
 
 Aqui estão algumas configurações dentro de cada serviço que podem ajudar a melhorar a taxa de transferência geral de sua solução.
 
-## <a name="azure-stream-analytics"></a>Stream Analytics do Azure
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
 - **Herdar Particionamento** – essa opção de configuração de saída SQL permite herdar o esquema de particionamento de sua entrada ou etapa de consulta anterior. Com esse recurso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para seu trabalho, espere ver melhores taxas de transferência. Esse particionamento já acontece automaticamente para muitas outras [saídas](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Bloqueio de tabela (TABLOCK) também será desabilitado para inserções em massa feitas com essa opção.
 

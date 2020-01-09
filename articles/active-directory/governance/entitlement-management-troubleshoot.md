@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Solucionar problemas de gerenciamento de direitos-Azure AD
 description: Saiba mais sobre alguns itens que você deve verificar para ajudá-lo a solucionar problemas de gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f7e5e6168e8b365a04040f595f30e68e4e82f0a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e291a032c1aac45ebc783126e69b524e1d0af95b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422486"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -57,7 +57,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Se um novo usuário externo, que não tenha sido assinado anteriormente no seu diretório, receber um pacote de acesso, incluindo um site do SharePoint Online, seu pacote de acesso será exibido como não totalmente entregue até que sua conta seja provisionada no SharePoint Online. Para obter mais informações sobre configurações de compartilhamento, consulte [examinar suas configurações de compartilhamento externo do SharePoint Online](entitlement-management-external-users.md#review-your-sharepoint-online-external-sharing-settings).
 
-## <a name="requests"></a>Requests
+## <a name="requests"></a>Solicitações
 
 * Quando um usuário quiser solicitar acesso a um pacote do Access, verifique se ele está usando o **link meu portal de acesso** para o pacote de acesso. Para obter mais informações, consulte [compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md).
 

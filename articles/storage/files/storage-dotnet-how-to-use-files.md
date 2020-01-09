@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6f2159ddf3e3039dc0c38fc8f942c508ac177f06
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460354"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -23,7 +23,7 @@ Este tutorial demonstra as noções básicas de usar o .NET para desenvolver apl
 
 * Obter o conteúdo de um arquivo.
 * Defina o tamanho máximo ou a *cota* para o compartilhamento de arquivos.
-* Crie uma assinatura de acesso compartilhado (chave SAS) para um arquivo que usa uma política de acesso compartilhado definida no compartilhamento.
+* Crie uma assinatura de acesso compartilhado (chave SAS) para um arquivo que usa uma política de acesso armazenada definida no compartilhamento.
 * Copie um arquivo em outro arquivo na mesma conta de armazenamento.
 * Copie um arquivo em um blob na mesma conta de armazenamento.
 * Use as métricas de armazenamento do Azure para solução de problemas.
@@ -34,7 +34,7 @@ Para saber mais sobre os arquivos do Azure, confira [o que são os arquivos do A
 
 ## <a name="understanding-the-net-apis"></a>Compreendendo as APIs do .NET
 
-Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos clientes: SMB (Protocolo SMB) e REST. No .NET, as APIs `System.IO` e `WindowsAzure.Storage` abstraim essas abordagens.
+Os Arquivos do Azure fornecem duas abordagens amplas para aplicativos cliente: protocolo SMB e REST. No .NET, as APIs `System.IO` e `WindowsAzure.Storage` abstraim essas abordagens.
 
 API | Quando usar | Observações
 ----|-------------|------
@@ -49,7 +49,7 @@ No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seg
 1. Em **criar um novo projeto**, escolha **aplicativo de console (.NET Framework)** para C#e, em seguida, selecione **Avançar**.
 1. Em **configurar seu novo projeto**, insira um nome para o aplicativo e selecione **criar**.
 
-Você pode adicionar todos os exemplos de código neste tutorial ao método `Main()` do arquivo `Program.cs` do seu aplicativo de console.
+Você pode adicionar todos os exemplos de código neste tutorial ao método `Main()` do arquivo de `Program.cs` do seu aplicativo de console.
 
 Você pode usar a biblioteca de cliente de armazenamento do Azure em qualquer tipo de aplicativo .NET. Esses tipos incluem um serviço de nuvem do Azure ou aplicativo Web, e aplicativos móveis e de desktop. Neste guia, usamos um aplicativo de console para simplificar.
 
@@ -84,7 +84,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvar as credenciais da conta de armazenamento no arquivo app. config
 
-Em seguida, salve suas credenciais no arquivo `App.config` do seu projeto. No **Gerenciador de soluções**, clique duas vezes em `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir. Substitua `myaccount` pelo nome da sua conta de armazenamento e `mykey` pela sua chave de conta de armazenamento.
+Em seguida, salve suas credenciais no arquivo de `App.config` do seu projeto. Em **Gerenciador de soluções**, clique duas vezes em `App.config` e edite o arquivo para que ele seja semelhante ao exemplo a seguir. Substitua `myaccount` pelo nome da sua conta de armazenamento e `mykey` pela sua chave de conta de armazenamento.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -103,7 +103,7 @@ Em seguida, salve suas credenciais no arquivo `App.config` do seu projeto. No **
 
 ## <a name="add-using-directives"></a>Adicionar diretivas using
 
-No **Gerenciador de soluções**, abra o arquivo `Program.cs` e adicione o seguinte usando as diretivas na parte superior do arquivo.
+No **Gerenciador de soluções**, abra o arquivo de `Program.cs` e adicione as seguintes diretivas using à parte superior do arquivo.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -192,9 +192,9 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Gerar uma assinatura de acesso compartilhado para um arquivo ou compartilhamento de arquivos
 
-A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode gerar uma SAS (assinatura de acesso compartilhado) para um compartilhamento de arquivos ou para um arquivo individual. Você também pode criar uma política de acesso compartilhado em um compartilhamento de arquivos para gerenciar assinaturas de acesso compartilhado. É recomendável criar uma política de acesso compartilhado, pois ela permite revogar a SAS se ela for comprometida.
+A partir da versão 5.x da Biblioteca de Cliente do Armazenamento do Azure, você pode gerar uma SAS (assinatura de acesso compartilhado) para um compartilhamento de arquivos ou para um arquivo individual. Você também pode criar uma política de acesso armazenada em um compartilhamento de arquivos para gerenciar assinaturas de acesso compartilhado. É recomendável criar uma política de acesso armazenada porque ela permite revogar a SAS se ela for comprometida.
 
-O exemplo a seguir cria uma política de acesso compartilhado em um compartilhamento. O exemplo usa essa política para fornecer as restrições para uma SAS em um arquivo no compartilhamento.
+O exemplo a seguir cria uma política de acesso armazenada em um compartilhamento. O exemplo usa essa política para fornecer as restrições para uma SAS em um arquivo no compartilhamento.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -212,7 +212,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -222,7 +222,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
@@ -428,14 +428,14 @@ Você pode habilitar as métricas para arquivos do Azure do [portal do Azure](ht
 
 O exemplo de código a seguir mostra como usar a Biblioteca de Cliente de Armazenamento para .NET para habilitar as métricas para os Arquivos do Azure.
 
-Primeiro, adicione as seguintes diretivas `using` ao arquivo `Program.cs`, juntamente com aquelas que você adicionou acima:
+Primeiro, adicione as seguintes diretivas de `using` ao arquivo de `Program.cs`, juntamente com aquelas que você adicionou acima:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Embora os BLOBs do Azure, as tabelas do Azure e as filas do Azure usem o tipo `ServiceProperties` compartilhado no namespace `Microsoft.Azure.Storage.Shared.Protocol`, os arquivos do Azure usam seu próprio tipo, o tipo `FileServiceProperties` no namespace `Microsoft.Azure.Storage.File.Protocol`. Você deve referenciar ambos os namespaces do seu código, no entanto, para que o código a seguir seja compilado.
+Embora os BLOBs do Azure, as tabelas do Azure e as filas do Azure usem o tipo de `ServiceProperties` compartilhado no namespace `Microsoft.Azure.Storage.Shared.Protocol`, os arquivos do Azure usam seu próprio tipo, o `FileServiceProperties` tipo no namespace `Microsoft.Azure.Storage.File.Protocol`. Você deve referenciar ambos os namespaces do seu código, no entanto, para que o código a seguir seja compilado.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -480,7 +480,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 Se você encontrar algum problema, poderá consultar [solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os arquivos do Azure, consulte os seguintes recursos:
 
@@ -497,7 +497,7 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 
 ### <a name="reference"></a>Referência
 
-* [APIs de armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage)
+* [APIs do Armazenamento do Microsoft Azure para .NET](/dotnet/api/overview/azure/storage)
 * [API REST do serviço de arquivo](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>Postagens no blog

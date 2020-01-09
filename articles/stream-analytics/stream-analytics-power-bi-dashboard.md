@@ -1,21 +1,20 @@
 ---
 title: Integração do painel de controle do Power BI com o Azure Stream Analytics
 description: Este artigo descreve como usar um painel do Power BI em tempo real para visualizar dados de um trabalho do Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431641"
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: um painel de análise em tempo real para dados de streaming
 
 O Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o [Microsoft Power BI](https://powerbi.com/). Neste artigo, você saberá como criar ferramentas de business intelligence usando o Power BI como uma saída de seus trabalhos do Stream Analytics do Azure. Você também aprenderá a criar e usar um painel em tempo real.
 
@@ -26,7 +25,7 @@ Você pode assistir a [um vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) q
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, verifique se você tem o seguinte:
+Antes de começar, verifique se você tem:
 
 * Uma conta do Azure.
 * Uma conta para o Power BI. Você pode usar uma conta corporativa ou de estudante.
@@ -38,14 +37,14 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
 
 1. No Portal do Azure, abra o trabalho do Stream Analytics criado anteriormente. Se você usou o nome sugerido, o trabalho é nomeado `sa_frauddetection_job_demo`.
 
-2. No menu à esquerda, selecione **saídas** sob **topologia do trabalho**. Em seguida, selecione **+ adicionar** e escolha **Power BI** no menu suspenso.
+2. No menu à esquerda, selecione **saídas** em **topologia do trabalho**. Em seguida, selecione **+ Adicionar** e escolha **Power bi** no menu suspenso.
 
 3. Escolha **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e marque **Autorizar**:
 
    |**Configuração**  |**Valor sugerido**  |
    |---------|---------|
    |Alias de saída  |  CallStream-PowerBI  |
-   |Nome do conjunto de dados  |   SA-conjunto de dados  |
+   |Nome do conjunto de dados  |   SA-conjunto de um  |
    |Nome da tabela |  chamadas fraudulentas  |
 
    ![Configurar a saída do Stream Analytics](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
@@ -61,8 +60,8 @@ No tutorial de detecção de fraudes em tempo real, a saída é enviada para o A
 
 O conjunto de dados é criado com as seguintes configurações:
 
-* **defaultRetentionPolicy: BasicFIFO** -dados são FIFO, com um máximo de 200.000 linhas.
-* **defaultMode: pushStreaming** -o conjunto de dados dá suporte a blocos de streaming e visuais com base em relatórios tradicionais (também conhecido como push).
+* **defaultRetentionPolicy: BasicFIFO** -os dados são FIFO, com um máximo de 200.000 linhas.
+* **: pushStreaming** -o conjunto de um é compatível com blocos de streaming e visuais baseados em relatórios tradicionais (também conhecido como push).
 
 Atualmente, não é possível criar conjuntos de dados com outros sinalizadores.
 
@@ -100,7 +99,7 @@ Para saber mais sobre conjuntos de dados do Power BI, consulte a referência à 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 
 ## <a name="test-the-query"></a>Testar a consulta
@@ -109,23 +108,23 @@ Esta etapa é opcional, mas recomendada.
 
 1. Se o aplicativo TelcoStreaming não estiver em execução, inicie-o seguindo estas etapas:
 
-    * Abra um Prompt de comando.
+    * Abra o Prompt de Comando.
     * Vá para a pasta em que os arquivos telcodatagen.exe.config e telcogenerator.exe.config modificado estão.
-    * Execute o seguinte comando:
+    * Execute o comando a seguir:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. No **consulta** para seu trabalho do Stream Analytics, clique nos pontos ao lado de `CallStream` de entrada e, em seguida, selecione **amostras de dados de entrada**.
+2. Na página **consulta** de seu trabalho de Stream Analytics, clique nos pontos ao lado da entrada `CallStream` e, em seguida, selecione **dados de exemplo da entrada**.
 
 3. Especifique que você deseja dados equivalentes a três minutos e clique em **OK**. Aguarde até ser notificado de que a amostragem dos dados foi realizada.
 
-4. Clique em **teste** e examine os resultados.
+4. Clique em **testar** e examine os resultados.
 
 ## <a name="run-the-job"></a>Executar o trabalho
 
-1. Verifique se que o aplicativo TelcoStreaming está em execução.
+1. Verifique se o aplicativo TelcoStreaming está em execução.
 
-2. Navegue até a **visão geral** página do seu trabalho de Stream Analytics e selecione **iniciar**.
+2. Navegue até a página de **visão geral** de seu trabalho de Stream Analytics e selecione **Iniciar**.
 
     ![Iniciar o trabalho do Stream Analytics](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -158,7 +157,7 @@ O trabalho do Stream Analytics começa procurando chamadas fraudulentas no fluxo
 
     ![Detalhes da visualização para o novo bloco](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Clique em **Avançar**.
+7. Clique em **Próximo**.
 
 8. Preencha os detalhes do bloco, tais como um título e subtítulo.
 
@@ -235,10 +234,10 @@ De modo similar, se um trabalho iniciar depois que o token tiver expirado, ocorr
 
 Depois que a autorização foi atualizada com o Power BI, um alerta verde é exibida na área de autorização para refletir se o problema foi resolvido.
 
-## <a name="get-help"></a>Obter ajuda
+## <a name="get-help"></a>Obtenha ajuda
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)

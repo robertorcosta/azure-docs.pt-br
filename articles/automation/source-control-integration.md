@@ -2,21 +2,17 @@
 title: Integração do controle do código-fonte na Automação do Azure
 description: Este artigo descreve a integração de controle de origem com o GitHub na Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 837ebd71886e9435a44080b06c079623c3936c69
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417060"
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Integração do controle de origem na Automação do Azure
+# <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
 O controle do código-fonte permite que você mantenha seus runbooks em sua conta de automação atualizados com seus scripts em seu GitHub ou Azure Repos repositório de controle do código-fonte. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção. A integração de controle do código-fonte com automação dá suporte à sincronização de direção única no repositório do controle do código-fonte.
 
@@ -45,7 +41,7 @@ Escolha **Tipo de controle do código-fonte** e clique em **Autenticar**. Uma ja
 
 Na página **Resumo de controle do código-fonte**, preencha as informações e clique em **Salvar**. A tabela a seguir fornece uma descrição dos campos disponíveis.
 
-|Propriedade  |Descrição  |
+|Propriedade  |Description  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte. *Esse nome deve conter apenas letras e números.*        |
 |Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Azure Repos (git)</br> Azure Repos (TFVC)        |
@@ -54,7 +50,7 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo:/Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.*        |
 |Sincronização automática<sup>1</sup>     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
 |Publicar runbook     | Se definido como **on**, após os runbooks serem sincronizados do controle do código-fonte, eles serão publicados automaticamente.         |
-|Descrição     | Um campo de texto para fornecer detalhes adicionais        |
+|Description     | Um campo de texto para fornecer detalhes adicionais        |
 
 <sup>1</sup> para habilitar a sincronização automática ao configurar a integração do controle do código-fonte com o Azure Repos, você deve ser um administrador do projeto.
 
@@ -93,7 +89,7 @@ O controle do código-fonte requer algumas permissões mínimas para tokens de a
 
 Para obter mais informações sobre como criar um token de acesso pessoal no GitHub, visite [criando um token de acesso pessoal para a linha de comando](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Escopo  |Descrição  |
+|Escopo  |Description  |
 |---------|---------|
 |**repositório**     |         |
 |repo:status     | Acessar status de confirmação         |
@@ -182,4 +178,4 @@ Atualmente, não há nenhuma maneira de atualizar o token de acesso no controle 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+Para aprender mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425333"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -54,7 +54,7 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador de autenticação privilegiada
 
 * Caso tenham se passado 30 dias decorridos de uma assinatura de avaliação; ou
-* Um domínio personalizado esteja presente, como contoso.com; ou
+* Um domínio personalizado foi configurado para seu locatário do Azure AD, como *contoso.com*; or
 * O Azure AD Connect está sincronizando identidades do seu diretório local
 
 ### <a name="exceptions"></a>Exceções
@@ -62,7 +62,7 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
 Uma política de duas portas requer um tipo de dados de autenticação, como um endereço de email *ou* um número de telefone. Uma política de uma porta aplica-se nas seguintes circunstâncias:
 
 * Ela esteja dentro dos primeiros 30 dias de uma assinatura; ou
-* Um domínio personalizado não esteja presente (*.onmicrosoft.com); e
+* Um domínio personalizado não foi configurado para seu locatário do Azure AD, portanto, está usando o padrão * *. onmicrosoft.com*. Observe que o domínio padrão * *. onmicrosoft.com* não é recomendado para uso em produção; e
 * O Azure AD Connect não está sincronizando identidades
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário

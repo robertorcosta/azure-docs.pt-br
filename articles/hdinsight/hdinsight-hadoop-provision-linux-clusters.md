@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 0b977cb9fe2df1627ad9a2e07b00ffb0e749ed39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 39f22cc3cb026d4bed1dbe937e0e220b7bdceec7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498254"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435569"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
 
@@ -25,15 +25,15 @@ Saiba como instalar e configurar clusters no HDInsight com o Apache Hadoop, Apac
 Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para processamento distribuído de tarefas. O Azure HDInsight manipula os detalhes de implementação da instalação e configuração de nós individuais, portanto, você precisa fornecer apenas informações de configuração geral.
 
 > [!IMPORTANT]  
-> A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Saiba como [excluir um cluster.](hdinsight-delete-cluster.md)
+> A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança é rateada por minuto, portanto, você sempre deve excluir seu cluster quando ele não está mais em uso. Saiba como [excluir um cluster.](hdinsight-delete-cluster.md)
 
 ## <a name="cluster-setup-methods"></a>Métodos de instalação de cluster
 
 A tabela a seguir mostra os diferentes métodos que você pode usar para configurar um cluster HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de comando | API REST | . |
+| Clusters criados com | Navegador da Web | Linha de comando | API REST | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [PowerShell do Azure](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -57,7 +57,7 @@ Siga as instruções na tela. Os detalhes são fornecidos abaixo para:
 
 ## <a name="resource-group-name"></a>Nome do grupo de recursos
 
-O [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) ajuda você a trabalhar com os recursos de seu aplicativo como um grupo, chamado de grupo de recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada.
+O [Azure Resource Manager](../azure-resource-manager/management/overview.md) ajuda você a trabalhar com os recursos de seu aplicativo como um grupo, chamado de grupo de recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada.
 
 ## <a name="cluster-types"></a> Tipos de cluster e configuração
 
@@ -74,7 +74,7 @@ Atualmente, o Azure HDInsight apresenta os seguintes tipos de cluster, cada um c
 | [Kafka](kafka/apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real |
 | [ML Services](r-server/r-server-overview.md) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
 | [Spark](spark/apache-spark-overview.md) |Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
-| [Storm](storm/apache-storm-overview.md) |Processamento de eventos em tempo real |
+| [Storm](storm/apache-storm-overview.md) |Processamento de evento em tempo real |
 
 ### <a name="hdinsight-version"></a>Versão do HDInsight
 
@@ -108,7 +108,7 @@ O nome de usuário do SSH tem as seguintes restrições:
 * Caracteres especiais permitidos: _ e @
 * Caracteres não permitidos: #;. "',\/: '! *? $ (){}[] < > | &--= +% ~ ^ espaço
 * Comprimento máximo: 64
-* Nomes reservados: Hadoop, usuários, oozie, Hive, mapred, ambari-QA, Zookeeper, tez, HDFS, sqoop, yarn, hcat, AMS, HBase, Storm, administrador, administrador, usuário, Usuário1, teste, Usuário2, Test1, usuário3, admin1, 1, 123, a, actuser, ADM, admin2, ASPNET, backup, console, David, convidado, John, proprietário, raiz, servidor, SQL, suporte, Support_388945a0, sys, test2, test3, User4, User5, Spark
+* Nomes reservados: Hadoop, usuários, oozie, Hive, mapred, ambari-QA, Zookeeper, tez, HDFS, sqoop, yarn, hcat, AMS, HBase, Storm, administrador, administrador, usuário, Usuário1, teste, Usuário2, Test1, usuário3, admin1, 1, 123, a, actuser, ADM, admin2, ASPNET, backup, console, David, convidado, John, proprietário, raiz, servidor, SQL, suporte, support_388945a0, sys, test2, test3, User4, User5, Spark
 
 O Pacote de Segurança Empresarial permite que você integre o HDInsight com o Active Directory e o Apache Ranger. Vários usuários podem ser criados usando o pacote de segurança empresarial.
 
@@ -122,7 +122,7 @@ Embora uma instalação local do Hadoop use o HDFS (Sistema de Arquivos Distribu
 
 Os clusters HDInsight podem usar as seguintes opções de armazenamento:
 
-* Azure Data Lake Storage Gen2
+* Azure Data Lake Store Gen2
 * Azure Data Lake Storage Gen1
 * Armazenamento do Azure Uso Geral v2
 * Armazenamento do Azure Uso Geral v1
@@ -187,7 +187,7 @@ Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no
 
 | Tipo | Nós | Diagrama |
 | --- | --- | --- |
-| O Hadoop |Nó de cabeçalho (2), nó de trabalho (1 +) |![Nós de cluster Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Nó de cabeçalho (2), nó de trabalho (1 +) |![Nós de cluster Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeçalho (2), Servidor de região (1 +), Nó mestre/do ZooKeeper (3) |![Configuração de tipo de cluster HBase do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nó do Nimbus (2), Servidor do supervisor (1+), Nó do ZooKeeper (3) |![Configuração de tipo de cluster do HDInsight Storm](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Nó de cabeçalho (2), nó de trabalho (1 +), nó ZooKeeper (3) (gratuito para o tamanho de VM a1 ZooKeeper) |![Configuração de tipo de cluster HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
@@ -214,7 +214,7 @@ Quando você usa o portal do Azure para configurar o cluster, o tamanho do nó e
 
 ![HDInsight escolha o tamanho do seu nó](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-pricing-hadoop.png)
 
-### <a name="virtual-machine-sizes"></a>Tamanhos de máquina virtual
+### <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
 
 Quando você implantar clusters, escolha os recursos de computação com base na solução que você planeja implantar. As VMs a seguir são usadas para clusters HDInsight:
 
@@ -272,7 +272,7 @@ Alguns componentes nativos do Java, como Apache Mahout e Cascading, podem ser ex
 
 Para saber mais, confira [Personalizar clusters HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Solucionar problemas de falhas de criação de cluster com o Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 * [O que são o HDInsight, o ecossistema do Apache Hadoop e os clusters Hadoop?](hadoop/apache-hadoop-introduction.md)

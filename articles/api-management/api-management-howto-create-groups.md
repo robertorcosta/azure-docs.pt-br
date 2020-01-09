@@ -1,5 +1,6 @@
 ---
-title: Gerenciar contas de desenvolvedor usando grupos no Gerenciamento de API do Azure | Microsoft Docs
+title: Gerenciar contas de desenvolvedor usando grupos no gerenciamento de API do Azure
+titleSuffix: Azure API Management
 description: Aprenda a gerenciar contas de desenvolvedores usando grupos em Gerenciamento de API do Azure
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430721"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Como criar e usar grupos para gerenciar contas de desenvolvedor no Gerenciamento de API do Azure
 
@@ -39,7 +40,7 @@ Além de criar e gerenciar grupos no portal do editor, você pode criar e gerenc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as tarefas neste artigo: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
+Complete as tarefas neste artigo: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

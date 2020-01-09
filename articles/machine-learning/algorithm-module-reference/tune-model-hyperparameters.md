@@ -1,7 +1,7 @@
 ---
 title: Ajustar os hiperparâmetros de modelo
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo ajustar hiperparâmetros de modelo no serviço de Azure Machine Learning para executar uma varredura de parâmetro em um modelo para determinar as configurações de parâmetro ideais.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo ajustar hiperparâmetros de modelo em Azure Machine Learning para executar uma limpeza de parâmetro em um modelo para determinar as configurações de parâmetro ideais.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428401"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
@@ -153,7 +153,7 @@ No entanto, durante o treinamento, você deve escolher uma *única* métrica a s
 Quase todos os aprendizes no Azure Machine Learning dão suporte à validação cruzada com uma varredura de parâmetro integrada, que permite escolher os parâmetros com os quais o pipeline será escolhido. Se o aprendiz não der suporte à definição de um intervalo de valores, você ainda poderá usá-lo em validação cruzada. Nesse caso, um intervalo de valores permitidos é selecionado para a varredura. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

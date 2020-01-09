@@ -1,25 +1,20 @@
 ---
-title: Criar uma VM do Azure gerenciada a partir de um VHD local generalizado
+title: Criar uma VM com base em um VHD generalizado carregado
 description: Carregar um VHD generalizado no Azure e usá-lo para criar novas VMs, no modelo de implantação do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: d0995fed61d169cc173ca01767c2e48f4f798b0d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c482caf2407c89ffdb6c55c9184c31e2e3197c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464942"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure
 
@@ -33,11 +28,9 @@ Para um exemplo de script, consulte [Script de exemplo para carregar um VHD no A
 - Examine [Planejar a migração para Discos Gerenciados](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) antes de iniciar a migração para [Discos Gerenciados](managed-disks-overview.md).
 
  
-
-
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalize a VM de origem usando o Sysprep
 
-O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre Sysprep, consulte a [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Se você ainda não fez isso, precisará de Sysprep a VM antes de carregar o VHD no Azure. O Sysprep remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Para obter detalhes sobre Sysprep, consulte a [Visão geral do Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Verifique se as funções de servidor em execução no computador são suportadas pelo Sysprep. Para obter mais informações, consulte [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -47,49 +40,58 @@ Verifique se as funções de servidor em execução no computador são suportada
 > 
 
 1. Entre na máquina virtual Windows.
-2. Abra uma janela de prompt de comando como administrador. Altere o diretório para % windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
+2. Abra uma janela de prompt de comando como administrador. Mude para o diretório para %windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
 3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Configuração Inicial pelo Usuário do Sistema (OOBE)** e verifique se a caixa de seleção **Generalizar** está ativada.
-4. Para **Opções de Desligamento**, selecione **Desligamento**.
+4. Para **Opções de Desligamento**, selecione **Desligar**.
 5. Selecione **OK**.
    
     ![Inicie o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Quando o Sysprep for concluído, desligará a máquina virtual. Não reinicie a VM.
 
 
-## <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD na sua conta de armazenamento
+## <a name="upload-the-vhd"></a>Carregar o VHD 
 
 Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter instruções, consulte [carregar um VHD no Azure usando Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
-## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Criar uma imagem gerenciada usando o VHD carregado 
 
-Crie uma imagem gerenciada do seu disco de gerenciamento generalizado do sistema operacional. Substitua os valores a seguir com suas próprias informações.
+Depois que o VHD for carregado no disco gerenciado, você precisará usar [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk) para obter o disco gerenciado.
 
-
-Primeiro, defina alguns parâmetros:
-
-```powershell
-$location = "East US" 
-$imageName = "myImage"
+```azurepowershell-interactive
+$disk = Get-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 ```
 
-Crie a imagem usando o VHD do SO generalizado.
+## <a name="create-the-image"></a>Criar a imagem
+Crie uma imagem gerenciada do seu disco de gerenciamento generalizado do sistema operacional. Substitua os valores a seguir com suas próprias informações.
+
+Primeiro, defina algumas variáveis:
 
 ```powershell
+$location = 'East US'
+$imageName = 'myImage'
+$rgName = 'myResourceGroup'
+```
+
+Crie a imagem usando seu disco gerenciado.
+
+```azurepowershell-interactive
 $imageConfig = New-AzImageConfig `
    -Location $location
 $imageConfig = Set-AzImageOsDisk `
    -Image $imageConfig `
-   -OsType Windows `
    -OsState Generalized `
-   -BlobUri $urlOfUploadedImageVhd `
-   -DiskSizeGB 20
-New-AzImage `
+   -OsType Windows `
+   -ManagedDiskId $disk.Id
+```
+
+Crie a imagem.
+
+```azurepowershell-interactive
+$image = New-AzImage `
    -ImageName $imageName `
    -ResourceGroupName $rgName `
    -Image $imageConfig
 ```
-
 
 ## <a name="create-the-vm"></a>Criar a VM
 
@@ -100,7 +102,7 @@ Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da ima
 New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
-    -ImageName $imageName `
+    -Image $image.Id `
     -Location $location `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
@@ -110,7 +112,7 @@ New-AzVm `
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Logue na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 71339565eed9f41f8f32da852a727c82df482662
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2865ce640389c0250f14a53088a94aff15ddf1c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460675"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory
 
@@ -26,9 +26,10 @@ Escolher o método de autenticação correto é a principal preocupação para o
 
 3. É a base de todos os outros recursos de segurança avançada e experiência do usuário no Azure AD.
 
-4. O método de autenticação é difícil de ser alterado depois de implementado.
+Identidade é o novo plano de controle da segurança de ti, então a autenticação é a proteção de acesso de uma organização para o novo mundo da nuvem. As organizações precisam de um plano de controle de identidade que reforce a segurança e mantenha os aplicativos de nuvem protegidos contra invasores.
 
-A identidade é o novo plano de controle da segurança de TI. Portanto, a autenticação é a proteção de acesso de uma organização para o novo mundo da nuvem. As organizações precisam de um plano de controle de identidade que reforce a segurança e mantenha os aplicativos de nuvem protegidos contra invasores.
+> [!NOTE]
+> Alterar seu método de autenticação requer planejamento, teste e potencialmente tempo de inatividade. A [distribuição em etapas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) é uma ótima maneira de testar e migrar gradualmente da Federação para a autenticação na nuvem.
 
 ### <a name="out-of-scope"></a>Fora do escopo
 As organizações que não têm um espaço de diretório local existente não são o foco deste artigo. Normalmente, essas empresas criam identidades somente na nuvem, o que não requer uma solução de identidade híbrida. As identidades somente na nuvem existem apenas na nuvem e não estão associadas a identidades locais correspondentes.
@@ -69,7 +70,7 @@ Detalhes sobre questões de decisão:
 
 1. O Microsoft Azure AD pode manipular a entrada para usuários sem depender de componentes locais para verificar senhas.
 2. O Azure AD pode transferir a entrada do usuário para um provedor de autenticação confiável, como o AD FS da Microsoft.
-3. Se você precisar aplicar políticas de segurança de Active Directory em nível de usuário, como conta expirada, conta desabilitada, senha expirada, conta bloqueada e horas de entrada em cada entrada de usuário, o Azure AD exigirá alguns componentes locais.
+3. Se você precisar aplicar políticas de segurança do Active Directory em nível de usuário, como conta expirada, conta desativada, senha expirada, bloqueio de conta e horas de login na entrada de cada usuário, o Azure AD exigirá alguns componentes locais.
 4. Recursos de login não suportados de forma nativa pelo Microsoft Azure Active Directory:
    * Entrar usando cartões inteligentes ou certificados.
    * Entrar usando o servidor MFA local.
@@ -100,7 +101,7 @@ Detalhes sobre questões de decisão:
 * **Considerações**. No momento, a sincronização de hash de senha não impõe imediatamente as alterações nos estados da conta local. Nessa situação, um usuário tem acesso aos aplicativos de nuvem até que o estado da conta do usuário seja sincronizado com o Azure AD. As organizações podem desejar superar essa limitação executando um novo ciclo de sincronização depois que os administradores fizerem atualizações em massa nos estados da conta do usuário local. Um exemplo é a desabilitação de contas.
 
 > [!NOTE]
-> No momento, os estados de senha expirada e conta bloqueada não estão sincronizados com o Azure AD usando o Azure AD Connect. Quando você altera a senha de um usuário e define o sinalizador o *usuário deve alterar a senha no próximo logon* , o hash de senha não será sincronizado com o Azure AD com o Azure ad Connect, até que o usuário altere sua senha.
+> No momento, os estados de senha expirada e conta bloqueada não estão sincronizados com o Azure AD usando o Azure AD Connect. Quando você altera a senha de um usuário e define o sinalizador o *usuário deve alterar a senha no próximo logon* , o hash de senha não será sincronizado com o Azure AD com o Azure ad Connect até que o usuário altere sua senha.
 
 Veja [como implementar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) para obter as etapas de implantação.
 
@@ -112,7 +113,7 @@ Veja [como implementar a sincronização de hash de senha](../../active-director
 
 * **Experiência do usuário**. Para melhorar a experiência de entrada dos usuários, implante o SSO contínuo com a Autenticação de Passagem. O SSO contínuo elimina prompts desnecessários após a entrada dos usuários.
 
-* **Cenários avançados**. A autenticação de passagem impõe a política de conta local no momento da entrada. Por exemplo, o acesso é negado quando o estado da conta de um usuário local é desabilitado, bloqueado, tem a [senha expirada](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou está fora do horário de entrada permitida do usuário.
+* **Cenários avançados**. A autenticação de passagem impõe a política de conta local no momento da entrada. Por exemplo, o acesso é negado quando o estado da conta de um usuário local é desabilitado, bloqueado ou sua [senha expira](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou a tentativa de logon fica fora das horas em que o usuário tem permissão para entrar.
 
     As organizações que exigem autenticação multifator com autenticação de passagem devem usar a MFA (autenticação multifator do Azure) ou [controles personalizados de acesso condicional](../../active-directory/conditional-access/controls.md#custom-controls-preview). Essas organizações não podem usar um método de autenticação multifator local ou de terceiros que dependa da Federação. Os recursos avançados exigem a implantação da sincronização de hash de senha, independentemente de você escolher ou não a autenticação de passagem. Um exemplo é o relatório de credenciais vazadas do Identity Protection.
 
@@ -137,7 +138,7 @@ Consulte a [implementação da autenticação de passagem](../../active-director
   * Autenticação que exige certificados ou cartões inteligentes.
   * Servidores MFA locais ou provedores multifatores de terceiros que exigem um provedor de identidade federada.
   * Autenticação usando soluções de autenticação de terceiros. Consulte a [lista de compatibilidade de federação do Azure AD](../../active-directory/hybrid/how-to-connect-fed-compatibility.md).
-  * Entrada que exige um sAMAccountName, por exemplo, DOMAIN\nome de usuário, em vez de um nome UPN, por exemplo, user@domain.com.
+  * Entrar que exige um sAMAccountName, por exemplo, domínio \ nomedeusuário, em vez de um UPN (nome principal do usuário), por exemplo, user@domain.com.
 
 * **Continuidade dos negócios**. Normalmente, os sistemas federados exigem uma matriz com balanceamento de carga de servidores, conhecida como um farm. Esse farm é configurado em uma rede interna e topologia de rede de perímetro para garantir a alta disponibilidade para as solicitações de autenticação.
 
@@ -145,7 +146,7 @@ Consulte a [implementação da autenticação de passagem](../../active-director
 
 * **Considerações**. Normalmente, os sistemas federados exigem um investimento mais significativo em infraestrutura local. A maioria das organizações escolherá essa opção caso já tenha um investimento de federação local. E se houver um requisito imperativo dos negócios para uso de um provedor de identidade única. A federação é mais complexa de operar e de resolver problemas em comparação com soluções de autenticação na nuvem.
 
-Para um domínio não roteável que não pode ser verificado no Azure AD, é necessário fazer uma configuração extra para implementar a entrada da ID de usuário. Esse requisito é conhecido como suporte à ID de logon alternativa. Consulte [Configurando a ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) para ver requisitos e limitações. Se você optar por usar um provedor de autenticação multifator de terceiros com federação, verifique se o provedor dá suporte ao WS-Trust para permitir que os dispositivos ingressem no Azure AD.
+Para um domínio não roteável que não pode ser verificado no Azure AD, você precisa de uma configuração extra para implementar a entrada de ID de usuário. Esse requisito é conhecido como suporte à ID de logon alternativa. Consulte [Configurando a ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) para ver requisitos e limitações. Se você optar por usar um provedor de autenticação multifator de terceiros com federação, verifique se o provedor dá suporte ao WS-Trust para permitir que os dispositivos ingressem no Azure AD.
 
 Veja [Implantando servidores de federação](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) para obter as etapas de implantação.
 
@@ -172,12 +173,12 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 
 |Consideração|Sincronização de hash de senha + SSO Contínuo|Autenticação de Passagem + SSO Contínuo|Federação com o AD FS|
 |:-----|:-----|:-----|:-----|
-|Onde a autenticação ocorre?|Na nuvem|Na nuvem, após uma troca de verificação de senha segura com o agente de autenticação local|Configuração local|
-|Quais são os requisitos de servidor local além do sistema de provisionamento: Azure AD Connect?|nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores WAP na rede de perímetro/DMZ|
-|Quais são os requisitos de Internet e de redes locais, além do sistema de provisionamento?|nenhum|[Acesso à Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores executando agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) aos servidores WAP no perímetro<br><br>Acesso à rede de entrada aos servidores AD FS por meio dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
-|Há algum requisito de certificado SSL?|Não|Não|sim|
-|Há alguma solução de monitoramento de integridade?|Não requerido|Status do agente fornecido pelo [Centro de administração do Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|sim|
+|Onde a autenticação ocorre?|Na nuvem|Na nuvem, após uma troca de verificação de senha segura com o agente de autenticação local|Local|
+|Quais são os requisitos de servidor local além do sistema de provisionamento: Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores WAP na rede de perímetro/DMZ|
+|Quais são os requisitos de Internet e de redes locais, além do sistema de provisionamento?|Nenhum|[Acesso à Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores executando agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) aos servidores WAP no perímetro<br><br>Acesso à rede de entrada aos servidores AD FS por meio dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
+|Há algum requisito de certificado SSL?|Não|Não|Sim|
+|Há alguma solução de monitoramento de integridade?|Não obrigatório|Status do agente fornecido pelo [Centro de administração do Azure Active Directory](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim, com [SSO Contínuo](../../active-directory/hybrid/how-to-connect-sso.md)|Sim|
 |Há suporte para quais tipos de entrada?|Nome Principal do Usuário + senha<br><br>Autenticação integrada do Windows usando o [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-install-custom.md)|Nome Principal do Usuário + senha<br><br>Autenticação integrada do Windows usando o [SSO contínuo](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de logon alternativa](../../active-directory/hybrid/how-to-connect-pta-faq.md)|Nome Principal do Usuário + senha<br><br>sAMAccountName + senha<br><br>Autenticação integrada do Windows<br><br>[Autenticação de certificado e cartão inteligente](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Há suporte para o Windows Hello for Business?|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requer nível funcional do domínio do Windows Server 2016*|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quais são as opções de autenticação multifator?|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de Terceiros](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controles personalizados com acesso condicional *](../../active-directory/conditional-access/controls.md)|
@@ -199,13 +200,13 @@ Use ou habilite a sincronização de hash de senha para o método de autenticaç
 
     Para evitar pontos únicos de falha, implante servidores redundantes. Assim, as solicitações de autenticação sempre serão atendidas se um componente falhar. A autenticação de passagem e a federação também dependem dos controladores de domínio para responder às solicitações de autenticação, que também podem falhar. Muitos desses componentes precisam de manutenção para permanecerem íntegros. Há uma probabilidade maior de interrupções quando a manutenção não é planejada e implementada corretamente. Evite interrupções usando a sincronização de hash de senha, porque o serviço de autenticação na nuvem do Microsoft Azure AD é dimensionado globalmente e está sempre disponível.
 
-2. **Sobrevivência à interrupção local**.  As consequências de uma interrupção local devido a um ataque cibernético ou desastre podem ser significativas, variando de danos à reputação da marca até a paralisação da organização que não consegue conter o ataque. Recentemente, muitas organizações foram vítimas de ataques de malware, incluindo ransomware direcionado, o que fez seus servidores locais ficarem inativos. Quando a Microsoft ajuda os clientes a lidar com esses tipos de ataques, ela observa duas categorias de organizações:
+2. **Sobrevivência à interrupção local**.  As consequências de uma interrupção local devido a um ataque cibernético ou desastre podem ser significativas, variando de danos à reputação da marca até a paralisação da organização que não consegue conter o ataque. Recentemente, muitas organizações eram vítimas de ataques de malware, incluindo ransomware direcionado, que fazia com que seus servidores locais estivessem inativos. Quando a Microsoft ajuda os clientes a lidar com esses tipos de ataques, ela observa duas categorias de organizações:
 
    * As organizações que anteriormente ativaram a sincronização de hash de senha alteraram seu método de autenticação para usar a sincronização de hash de senha. Elas voltaram a ficar online em questão de horas. Usando o acesso ao email por meio do Office 365, elas trabalharam para resolver os problemas e acessar outras cargas de trabalho baseadas em nuvem.
 
    * As organizações que anteriormente não habilitaram a sincronização de hash de senha tinham que recorrer a sistemas de email de consumidor externo não confiáveis para que as comunicações resolvam problemas. Nesses casos, levava semanas para restaurar sua infraestrutura de identidade local, antes que os usuários conseguissem entrar em aplicativos baseados em nuvem novamente.
 
-3. **Proteção de identidade**. Uma das melhores maneiras de proteger os usuários na nuvem é o Azure AD Identity Protection com o Azure AD Premium P2. A Microsoft examina a Internet continuamente para ver se há listas de usuários e de senhas comercializadas e disponibilizadas por atores mal-intencionados na dark Web. O Azure AD poderá usar essas informações para verificar se os nomes de usuário e senhas em sua organização estiverem comprometidos. Portanto, é fundamental habilitar a sincronização de hash de senha, independentemente do método de autenticação usado, seja a autenticação federada, seja a de passagem. As credenciais vazadas são apresentadas como um relatório. Use essas informações para bloquear ou forçar os usuários a alterar suas senhas quando tentarem entrar com senhas vazadas.
+3. **Proteção de identidade**. Uma das melhores maneiras de proteger os usuários na nuvem é o Azure AD Identity Protection com o Azure AD Premium P2. A Microsoft examina a Internet continuamente para ver se há listas de usuários e de senhas comercializadas e disponibilizadas por atores mal-intencionados na dark Web. O Azure AD poderá usar essas informações para verificar se os nomes de usuário e senhas em sua organização estiverem comprometidos. Portanto, é essencial habilitar a sincronização de hash de senha, não importa qual método de autenticação você usa, se é uma autenticação federada ou de passagem. As credenciais vazadas são apresentadas como um relatório. Use essas informações para bloquear ou forçar os usuários a alterar suas senhas quando tentarem entrar com senhas vazadas.
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -213,7 +214,7 @@ Este artigo descreve várias opções de autenticação que as organizações po
 
 Considere cada método de autenticação. O esforço para implantar a solução e a experiência do usuário do processo de entrada atende aos seus requisitos de negócios? Avalie se a organização precisa dos cenários avançados e dos recursos de continuidade dos negócios de cada método de autenticação. Por fim, avalie as considerações de cada método de autenticação. Algum deles impede a implementação de sua escolha?
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Atualmente, as ameaças estão presentes 24 horas por dia e vêm de qualquer lugar. Implemente o método de autenticação correto e isso atenuará os riscos de segurança e protegerá as identidades.
 

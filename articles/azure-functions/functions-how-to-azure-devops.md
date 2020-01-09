@@ -1,16 +1,16 @@
 ---
-title: Fornecer atualizações de código de função continuamente usando o Azure DevOps-Azure Functions
+title: Atualizar continuamente o código do aplicativo de funções usando o Azure DevOps
 description: Saiba como configurar um pipeline DevOps do Azure que tem como destino Azure Functions.
 author: ahmedelnably
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: e2dbcadab662caf641716272db1f860c3a6bafa5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1358ac667903e5a1a3f00e4f069a448f0cfdc8f7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230531"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531574"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
 
@@ -25,7 +25,7 @@ Você tem duas opções para definir seu pipeline:
 
 Para criar um pipeline baseado em YAML, primeiro crie seu aplicativo e, em seguida, implante o aplicativo.
 
-### <a name="build-your-app"></a>Compilar seu aplicativo
+### <a name="build-your-app"></a>Crie seu aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para implantar seu aplicativo de funções no Azure.
 
@@ -57,7 +57,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### <a name="javascript"></a>JavaScript
@@ -85,7 +85,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### <a name="python"></a>Python
@@ -119,7 +119,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 #### <a name="powershell"></a>PowerShell
 
@@ -138,7 +138,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 ### <a name="deploy-your-app"></a>Implantar seu aplicativo
@@ -184,7 +184,7 @@ steps:
 
 Os modelos no Azure DevOps são grupos predefinidos de tarefas que criam ou implantam um aplicativo.
 
-### <a name="build-your-app"></a>Compilar seu aplicativo
+### <a name="build-your-app"></a>Crie seu aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para atualizar seu aplicativo de funções no Azure.
 
@@ -234,7 +234,7 @@ Para criar um pipeline de compilação no Azure, use o [comando](/cli/azure/func
 
     - Você deve ser o administrador do projeto no Azure DevOps.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine a [Azure Functions visão geral](functions-overview.md).
 - Examine a [visão geral do Azure DevOps](/azure/devops/pipelines/).

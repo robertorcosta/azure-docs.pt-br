@@ -1,20 +1,14 @@
 ---
-title: Introdução ao Azure Advisor | Microsoft Docs
+title: Introdução ao Azure Advisor
 description: Introdução ao Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443147"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -25,7 +19,7 @@ Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementa
 
 ## <a name="get-recommendations"></a>Obter recomendações
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, clique em **Assistente**.  Se você não visualizar o Assistente no painel esquerdo, clique em **Todos os serviços**.  No painel do menu de serviço, em **Monitoramento e Gerenciamento**, clique em **Assistente**. O painel Assistente é exibido.
 
@@ -33,7 +27,7 @@ Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementa
 
 1. O painel Assistente exibirá um resumo das suas recomendações para todas as assinaturas selecionadas.  Você pode escolher as assinaturas para as quais você deseja que as recomendações sejam exibidas usando a lista suspensa de filtro de assinatura.
 
-1. Para obter recomendações para uma categoria específica, clique em uma das guias: **Alta disponibilidade**, **Segurança**, **Desempenho**, ou **Custo**. 
+1. Para obter recomendações para uma categoria específica, clique em uma das guias: **Alta Disponibilidade**, **Segurança**, **Desempenho** ou **Custo**. 
 
    ![Painel do Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -94,7 +88,7 @@ Você pode ter grupos de recursos ou assinaturas para os quais você não deseja
 
 Este procedimento configura a regra média de utilização da CPU para a recomendação de máquina virtual de baixo uso.
 
-Advisor monitora a utilização de máquinas virtuais por 7 dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Virtual máquinas são consideradas baixa utilização se a utilização da CPU é de 5% ou menos e sua utilização de rede é menor que 2%, ou se a carga de trabalho atual pode ser acomodada em um menor tamanho de máquina virtual.
+O Advisor monitora o uso de máquinas virtuais por 7 dias e identifica máquinas virtuais de baixa utilização. As máquinas virtuais são consideradas de baixa utilização se a utilização da CPU for de 5% ou menos e sua utilização de rede for menor que 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho de máquina virtual menor.
 
 Se você deseja ser mais agressivo na identificação de máquinas virtuais de baixo uso, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.  A regra de utilização da CPU pode ser definida como 5%, 10%, 15% ou 20%.
 
@@ -125,7 +119,7 @@ O Assistente permite que você baixe um resumo das suas recomendações.  Você 
 
 A opção de download respeita eventuais filtros que você tenha aplicado no painel do Assistente.  Se você selecionar a opção de download ao exibir uma categoria de recomendação específica ou uma recomendação, o resumo baixado só incluirá informações para essa categoria ou recomendação. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Assistente, consulte:
 

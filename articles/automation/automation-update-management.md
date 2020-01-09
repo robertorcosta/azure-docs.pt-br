@@ -2,19 +2,15 @@
 title: Solução Gerenciamento de Atualizações no Azure
 description: Este artigo descreve como usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações para seus computadores Windows e Linux.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/03/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 06d7ede1e9b91832f908c87a22cca37ec2866365
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420346"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -73,7 +69,7 @@ Não há suporte para um computador registrado para Gerenciamento de Atualizaç�
 
 A tabela a seguir lista os sistemas operacionais com suporte para avaliações de atualização. A aplicação de patch requer um Hybrid Runbook Worker. Para obter informações sobre requisitos de Hybrid Runbook Worker, consulte os guias de instalação para instalar um [Hybrid runbook Worker do Windows](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) e um [Hybrid runbook Worker do Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
-|Sistema operacional  |Notas  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Server 2019 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2016 (datacenter/Data Center Core/Standard)<br><br>Windows Server 2012 R2 (datacenter/padrão)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM e SP1 Standard)||
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. A aplicação de patch com base na classificação requer `yum` para retornar dados de segurança que o CentOS não tem em suas versões RTM. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, consulte [Atualizar classificações no Linux](#linux-2).          |
@@ -89,7 +85,7 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 
 A tabela a seguir lista os sistemas operacionais sem suporte:
 
-|Sistema operacional  |Notas  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Client     | Os sistemas operacionais clientes (como Windows 7 e Windows 10) não têm suporte.        |
 |Windows Server 2016 Nano Server     | Sem suporte.       |
@@ -158,11 +154,11 @@ Para obter mais informações sobre como os pacotes de gerenciamento de soluçã
 
 A tabela a seguir descreve as fontes conectadas às quais essa solução dá suporte:
 
-| Fonte conectada | Com suporte | Descrição |
+| Fonte conectada | Com suporte | Description |
 | --- | --- | --- |
-| Agentes do Windows |SIM |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
-| Agentes do Linux |SIM |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |SIM |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/><br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
+| Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
+| Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br/><br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 
@@ -183,7 +179,7 @@ Os endereços a seguir são necessários especificamente para gerenciamento de a
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.azure-automation.net|*.Azure automation.us|
 
 Para computadores Windows, você também deve permitir o tráfego para qualquer ponto de extremidade exigido pelo Windows Update. Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [problemas relacionados ao http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)local, também deverá permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -217,7 +213,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 
 ### <a name="windows"></a>Windows
 
-|Classificação  |Descrição  |
+|classificação  |Description  |
 |---------|---------|
 |Atualizações críticas     | Uma atualização para um problema específico que aborda um bug crítico não relacionado à segurança.        |
 |Atualizações de segurança     | Uma atualização para um problema específico do produto relacionadas à segurança.        |
@@ -230,7 +226,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 
 ### <a name="linux-2"></a>Linux
 
-|Classificação  |Descrição  |
+|classificação  |Description  |
 |---------|---------|
 |Atualizações críticas ou de segurança     | Atualizações para um problema específico ou um problema relacionado à segurança específico do produto.         |
 |Outras atualizações     | Todas as outras atualizações que não são críticas por natureza ou que não são atualizações de segurança.        |

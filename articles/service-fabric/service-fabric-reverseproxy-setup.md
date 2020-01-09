@@ -1,24 +1,15 @@
 ---
-title: Proxy reverso de configuração do Azure Service Fabric | Microsoft Docs
-description: Entenda como configurar o proxy reverso do Service Fabric.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
+title: Service Fabric do Azure configurar o proxy reverso
+description: Entenda como configurar e configurar o serviço de proxy reverso para um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 131440036896d323cbf821d7a220328456e1db36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933905"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645439"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Defina e configure o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço opcional no Azure Service Fabric que ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http. Para saber mais, confira [Proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como instalar e configurar o proxy reverso no cluster. 
@@ -50,7 +41,7 @@ Para um cluster existente, você pode exportar o modelo do Gerenciador de Recurs
 
 Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com as etapas a seguir:
 
-1. Defina uma porta para o proxy inverso na [seção Parâmetros](../azure-resource-manager/resource-group-authoring-templates.md) do modelo.
+1. Defina uma porta para o proxy inverso na [seção Parâmetros](../azure-resource-manager/templates/template-syntax.md) do modelo.
 
     ```json
     "SFReverseProxyPort": {
@@ -61,7 +52,7 @@ Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com
         }
     },
     ```
-2. Especifique a porta para cada um dos objetos nodetype em [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Seção do tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Especifique a porta para cada um dos objetos NodeType na [seção tipo de recurso](../azure-resource-manager/templates/template-syntax.md) [**Microsoft. ServicePortal/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) .
 
     A porta é identificada pelo nome do parâmetro, reverseProxyEndpointPort.
 
@@ -83,7 +74,7 @@ Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com
         ...
     }
     ```
-3. Para configurar certificados SSL na porta de proxy Inverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na **seção tipo de recurso** [Microsoft.ServiceFabric/clusters](../resource-group-authoring-templates.md).
+3. Para configurar certificados SSL na porta para o proxy reverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na [seção tipo de recurso](../resource-group-authoring-templates.md) **Microsoft. ServicePortal/clusters** .
 
     ```json
     {
@@ -107,7 +98,7 @@ Depois de ter um modelo do Gerenciador de Recursos, habilite o proxy reverso com
     ```
 
 ### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Suporte um certificado de proxy reverso diferente do certificado de cluster
- Se o certificado de proxy reverso é diferente do certificado que protege o cluster, o certificado especificado anteriormente deve ser instalado na máquina virtual e adicionado à ACL (lista de controle de acesso) para que o Service Fabric possa acessá-lo. Isso pode ser feito na [ **seção de tipo de recurso**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) [ Microsoft.Compute/virtualMachineScaleSets](../resource-group-authoring-templates.md). Para instalação, adicione o certificado ao osProfile. A seção de extensão do modelo pode atualizar o certificado na ACL.
+ Se o certificado de proxy reverso é diferente do certificado que protege o cluster, o certificado especificado anteriormente deve ser instalado na máquina virtual e adicionado à ACL (lista de controle de acesso) para que o Service Fabric possa acessá-lo. Isso pode ser feito na [seção tipo de recurso](../resource-group-authoring-templates.md) [**Microsoft. Compute/virtualMachineScaleSets**](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachinescalesets) . Para instalação, adicione o certificado ao osProfile. A seção de extensão do modelo pode atualizar o certificado na ACL.
 
   ```json
   {
@@ -261,7 +252,7 @@ Se você quiser expor um proxy reverso publicamente para um cluster autônomo, a
 
 ### <a name="expose-the-reverse-proxy-via-resource-manager-templates"></a>Expor o proxy reverso, por meio de modelos do Gerenciador de Recursos
 
-O JSON a seguir referencia o mesmo modelo que é usado em [Habilitar o proxy reverso por meio de modelos do Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Consulte a seção do documento para obter informações sobre como criar um modelo do Gerenciador de Recursos ou exportar um modelo para um cluster existente.  As alterações são feitas para a [seção do tipo de recurso](../resource-group-authoring-templates.md) [**Microsoft.Network/loadBalancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers).
+O JSON a seguir referencia o mesmo modelo que é usado em [Habilitar o proxy reverso por meio de modelos do Azure Resource Manager](#enable-reverse-proxy-via-azure-resource-manager-templates). Consulte a seção do documento para obter informações sobre como criar um modelo do Gerenciador de Recursos ou exportar um modelo para um cluster existente.  As alterações são feitas na [seção tipo de recurso](../resource-group-authoring-templates.md) [**Microsoft. Network/balancers**](https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers) .
 
     ```json
     {

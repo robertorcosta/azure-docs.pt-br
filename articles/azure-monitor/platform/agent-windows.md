@@ -4,15 +4,15 @@ description: Este artigo descreve como conectar computadores Windows hospedados 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420423"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689987"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar computadores Windows ao Azure Monitor
 
@@ -38,7 +38,7 @@ Para entender a configuração com suporte, revise [suporte para sistemas operac
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID do workspace e a chave
 Antes de instalar o agente do Log Analytics para Windows, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações são necessárias durante a instalação de cada método de instalação para configurar corretamente o agente e garantir que ele possa se comunicar com êxito com Azure Monitor no Azure comercial e na nuvem do governo dos EUA. 
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. Na portal do Azure, procure e selecione espaços de **trabalho do log Analytics**.
 2. Na lista de workspaces do Log Analytics, selecione o workspace que pretende configurar o agente a qual relatar.
 3. Selecione **Configurações avançadas**.<br><br> ![Configurações avançadas do Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selecione **Fontes Conectadas** e depois **Servidores Windows**.   
@@ -188,9 +188,9 @@ No computador, no **Painel de Controle**, localize o item **Microsoft Monitoring
 
 Você também pode executar uma consulta de log simples no portal do Azure.  
 
-1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Azure monitor**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Azure monitor**.  
-2. Selecione **logs** no menu. 
-2. No painel logs, no campo de consulta tipo:  
+1. No portal do Azure, procure e selecione **Monitor**.
+1. Selecione **logs** no menu.
+1. No painel **logs** , no campo de consulta tipo:  
 
     ```
     Heartbeat 
@@ -200,7 +200,7 @@ Você também pode executar uma consulta de log simples no portal do Azure.
 
 Nos resultados de pesquisa retornados, você deverá ver os registros de pulsação para o computador, indicando que está conectado e relatando para o serviço.   
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine [o gerenciamento e a manutenção do agente de log Analytics para Windows e Linux](agent-manage.md) para saber mais sobre como reconfigurar, atualizar ou remover o agente da máquina virtual.
 

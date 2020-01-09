@@ -4,20 +4,20 @@ description: O MAP é um recurso do Azure Monitor para VMs. Ele descobre automat
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450716"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Use o recurso de mapa de Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo
 No Azure Monitor para VMs, você pode exibir componentes de aplicativos descobertos em VMs (máquinas virtuais) do Windows e Linux que são executadas no Azure ou no seu ambiente. Você pode observar as VMs de duas maneiras. Exiba um mapa diretamente de uma VM ou exiba um mapa de Azure Monitor para ver os componentes em grupos de VMs. Este artigo o ajudará a entender esses dois métodos de exibição e como usar o recurso de mapa. 
 
-Para obter informações sobre como configurar o Azure Monitor para VMs, confira [Habilitar o Azure Monitor para VMs](vminsights-enable-overview.md).
+Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no [portal do Azure](https://portal.azure.com).
@@ -115,7 +115,7 @@ Por padrão, o mapa mostra os últimos 30 minutos. Se você quiser ver como as d
 ![Visão geral do mapa de VM direta](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias**  > **insights (versão prévia)** .
+>Você também pode acessar um mapa para uma instância específica do modo de exibição de **instâncias** para o conjunto de dimensionamento de máquinas virtuais. Na seção **configurações** , vá para **instâncias** > **insights (versão prévia)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Exibir um mapa do Azure Monitor
 

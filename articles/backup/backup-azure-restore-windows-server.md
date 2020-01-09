@@ -4,12 +4,12 @@ description: Neste artigo, saiba como restaurar os dados armazenados no Azure pa
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450020"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação do Azure Resource Manager
 
@@ -21,14 +21,14 @@ Este artigo explica como restaurar dados de um cofre de backup. Para restaurar d
 Use o recurso de Restauração Instantânea para montar um instantâneo de ponto de recuperação gravável como volume de recuperação. Em seguida, é possível explorar os arquivos de volume de recuperação e de cópia em um computador local e, assim, restaurar arquivos de forma seletiva.
 
 > [!NOTE]
-> A [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/help/3216528?preview) será necessária se você desejar usar a Restauração Instantânea para restaurar dados. Além disso, os dados de backup devem ser protegidos em cofres nas localidades listadas no artigo de suporte. Consulte a [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/help/3216528?preview) para obter a lista mais recente de localidades que oferecem suporte à Restauração Instantânea.
+> A [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) será necessária se você desejar usar a Restauração Instantânea para restaurar dados. Além disso, os dados de backup devem ser protegidos em cofres nas localidades listadas no artigo de suporte. Consulte a [atualização do Backup do Azure de janeiro de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) para obter a lista mais recente de localidades que oferecem suporte à Restauração Instantânea.
 >
 
-Usar a Restauração Instantânea com os cofres dos Serviços de Recuperação no Portal do Azure. Se você tiver armazenado os dados em cofres de Backup, eles terão sido convertidos em cofres dos Serviços de Recuperação. Se você quiser usar a restauração do instantâneo, baixe a atualização de MARS e siga os procedimentos que mencionam restauração instantânea.
+Usar a Restauração Instantânea com os cofres dos Serviços de Recuperação no Portal do Azure. Se você tiver armazenado os dados em cofres de Backup, eles terão sido convertidos em cofres dos Serviços de Recuperação. Se desejar usar a Restauração Instantânea, baixe a atualização do MARS e siga os procedimentos que mencionam a Restauração Instantânea.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Usar a Restauração Instantânea para recuperar dados no mesmo computador
+## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>Use a Restauração Instantânea para recuperar dados no mesmo computador
 
 Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo computador (do qual o backup foi feito), as etapas a seguir o ajudarão a recuperar os dados.
 
@@ -142,6 +142,6 @@ Essas etapas incluem a seguinte terminologia:
     > Se você não selecionar **Desmontar**, o volume de recuperação permanecerá montado por seis horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.
     >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você restaurou seus arquivos e pastas, poderá [gerenciar seus backups](backup-azure-manage-windows-server.md).

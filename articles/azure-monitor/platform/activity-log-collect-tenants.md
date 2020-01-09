@@ -4,20 +4,21 @@ description: Use os hubs de eventos e os aplicativos lógicos para coletar dados
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e202885c695e4d8cdadaf8640d7ed01b05b70ad9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931829"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529993"
 ---
-# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory
+# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory (Herdado)
 
-> [!WARNING]
-> Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](diagnostic-settings-subscription.md).
+> [!NOTE]
+> Este artigo descreve o método herdado para configurar o log de atividades do Azure em locatários do Azure a serem coletados em um espaço de trabalho Log Analytics.  Agora você pode coletar o log de atividades em um espaço de trabalho Log Analytics usando uma configuração de diagnóstico semelhante a como você coleta logs de recursos. Consulte [coletar e analisar logs de atividades do Azure no espaço de trabalho log Analytics no Azure monitor](activity-log-collect.md).
+
 
 Este artigo percorre um método para coletar os logs de atividades do Azure em um espaço de trabalho Log Analytics no Azure Monitor usando o conector do coletor de dados do Azure Log Analytics para aplicativos lógicos. Use o processo neste artigo quando precisar enviar logs para um workspace em um locatário diferente do Azure Active Directory. Por exemplo, se você for um provedor de serviço gerenciado, convém coletar logs de atividade de assinatura do cliente e armazená-los em um espaço de trabalho do Log Analytics em sua própria assinatura.
 
@@ -124,16 +125,16 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
 
     ![Criar aplicativo lógico](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Configuração | Descrição  |
+   |Configuração | Description  |
    |:---|:---|
-   | name           | Nome exclusivo para o aplicativo lógico. |
+   | Nome           | Nome exclusivo para o aplicativo lógico. |
    | Subscription   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
    | Grupo de recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
-   | Location       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
+   | Local       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
    | Log Analytics  | Selecione se você deseja registrar em log o status de cada execução do seu aplicativo lógico em um espaço de trabalho Log Analytics.  |
 
     
-3. Clique em **Criar**. Quando aparecer uma notificação de **Implantação bem-sucedida**, clique em **Acessar recursos** para abrir seu aplicativo lógico.
+3. Selecione **Criar**. Quando aparecer uma notificação de **Implantação bem-sucedida**, clique em **Acessar recursos** para abrir seu aplicativo lógico.
 
 4. Em **Modelos**, escolha **Aplicativo lógico em branco**. 
 
@@ -147,7 +148,7 @@ O Designer de Aplicativos Lógicos agora mostra os conectores disponíveis e seu
 
    ![imagem de adição de gatilho do hub de eventos em aplicativos lógicos](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Quando você for solicitado a fornecer credenciais, conecte-se ao namespace do Hubs de Eventos. Insira um nome à sua conexão e, em seguida, a cadeia de conexão que você copiou.  Clique em **Criar**.
+2. Quando você for solicitado a fornecer credenciais, conecte-se ao namespace do Hubs de Eventos. Insira um nome à sua conexão e, em seguida, a cadeia de conexão que você copiou.  Selecione **Criar**.
 
    ![imagem de adição da conexão do hub de eventos em aplicativos lógicos](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 
@@ -299,7 +300,7 @@ A ação do [coletor de dados do Azure log Analytics](https://docs.microsoft.com
 
     ![Configure a ação de envio de dados](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Configuração        | Value           | Descrição  |
+   |Configuração        | Valor           | Description  |
    |---------------|---------------------------|--------------|
    |Corpo da solicitação JSON  | **Saída** da ação **Compor** | Recupera os registros do corpo da ação Compor. |
    | Campo de Log Personalizado | AzureActivity | Nome da tabela de log Personalizada a ser criada no espaço de trabalho Log Analytics para armazenar os dados importados. |
@@ -322,7 +323,7 @@ Para ver informações detalhadas sobre cada etapa, clique no nome da etapa para
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Etapa 5 - Exibir o log de atividades do Azure no Log Analytics
 A etapa final é verificar o espaço de trabalho do Log Analytics para certificar-se de que os dados estão sendo coletados conforme o esperado.
 
-1. No Portal do Azure, clique em **Todos os serviços**, localizado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
 2. Na lista de workspaces do Log Analytics, selecione um workspace.
 3.  Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `AzureActivity_CL` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta. Se você não nomeou seu log personalizado *AzureActivity*, digite o nome que você escolheu e acrescente `_CL`.
 

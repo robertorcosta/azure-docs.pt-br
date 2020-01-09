@@ -2,23 +2,25 @@
 title: Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 description: Saiba como conectar-se de forma privada a uma conta de armazenamento no Azure usando um ponto de extremidade privado.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357559"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
 
 Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual do Azure, uma conta de armazenamento com um ponto de extremidade privado usando o portal do Azure. Em seguida, você pode acessar com segurança a conta de armazenamento da VM.
 
+> [!NOTE]
+> Os pontos de extremidade privados não são permitidos em conjunto com pontos de extremidade de serviço na mesma sub-rede!
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -34,13 +36,13 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | name | Insira *MyVirtualNetwork*. |
+    | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Location | Selecione **WestCentralUS**.|
+    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Local | Selecione **WestCentralUS**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -53,11 +55,11 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
+    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **WestCentralUS**. |
@@ -80,7 +82,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
@@ -101,11 +103,11 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 
 1. Em **criar conta de armazenamento-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da conta de armazenamento  | Insira *mystorageaccount*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     | Região | Selecione **WestCentralUS**. |
@@ -119,13 +121,13 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 5. Em **criar uma conta de armazenamento – rede**, selecione **Adicionar ponto de extremidade privado**. 
 6. Em **criar ponto de extremidade privado**, insira ou selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    |Location|Selecione **WestCentralUS**.|
-    |name|Insira *myPrivateEndpoint*.  |
+    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
+    |Local|Selecione **WestCentralUS**.|
+    |Nome|Insira *myPrivateEndpoint*.  |
     |Subrecurso de armazenamento|Deixe o **blob**padrão. |
     | **REDE** |  |
     | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
@@ -141,7 +143,7 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
 11. Selecione **chaves de acesso** no menu conteúdo à esquerda.
 12. Selecione **copiar** na cadeia de conexão para key1.
  
-## <a name="connect-to-a-vm-from-the-internet"></a>Conectar uma VM a partir da Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
 Conecte-se à VM *myVm* da Internet da seguinte forma:
 
@@ -151,7 +153,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 1. Selecione **Baixar Arquivo RDP**. O Azure cria um arquivo *.rdp* (protocolo RDP) e ele é baixado no computador.
 
-1. Abra o arquivo *. rdp baixado* .
+1. Abra o arquivo *downloaded.rdp*.
 
     1. Se solicitado, selecione **Conectar**.
 
@@ -198,7 +200,7 @@ Opções adicionais para acessar a conta de armazenamento:
 - O utilitário AzCopy é outra opção para transferência de dados programável por scripts de alto desempenho para o armazenamento do Azure. Use AzCopy para transferir dados para e do armazenamento de Blobs, Arquivo e Tabela. 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando você terminar de usar o ponto de extremidade privado, a conta de armazenamento e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
 2. Selecione **Excluir grupo de recursos**. 

@@ -1,7 +1,7 @@
 ---
 title: 'Avaliar Recomendador: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo avaliar Recomendador no serviço de Azure Machine Learning para avaliar a precisão das previsões de modelo de recomendação.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo avaliar Recomendador no Azure Machine Learning para avaliar a precisão das previsões do modelo de recomendação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428548"
 ---
-# <a name="evaluate-recommender"></a>Avaliar Recomendador
+# <a name="evaluate-recommender"></a>Avaliar o sistema de recomendação
 
 Este artigo descreve como usar o módulo avaliar Recomendador no Azure Machine Learning designer (versão prévia). O objetivo é medir a precisão das previsões que um modelo de recomendação fez. Usando esse módulo, você pode avaliar diferentes tipos de recomendações:  
   
@@ -25,8 +25,8 @@ Este artigo descreve como usar o módulo avaliar Recomendador no Azure Machine L
   
 Quando você cria previsões usando um modelo de recomendação, resultados ligeiramente diferentes são retornados para cada um desses tipos de previsão com suporte. O módulo avaliar Recomendador deduz o tipo de previsão do formato de coluna do conjunto de linha de DataSet. Por exemplo, o conjunto de marcação pode conter:
 
-- usuários-item-processamentos de classificação
-- usuários e seus itens recomendados
+- Usuários-item-processamentos de classificação
+- Usuários e seus itens recomendados
 
 O módulo também aplica as métricas de desempenho apropriadas, com base no tipo de previsão que está sendo feita. 
 
@@ -39,11 +39,11 @@ O módulo avaliar Recomendador compara a saída de previsão usando um modelo de
 
 Avaliar Recomendador requer os seguintes conjuntos de dados como entrada. 
   
-#### <a name="test-dataset"></a>Testar conjunto de teste
+#### <a name="test-dataset"></a>Conjunto de dados de teste
 
 O conjunto de dados de teste contém o "princípio de verdade" na forma de processamentos de classificação de usuário-item.  
 
-#### <a name="scored-dataset"></a>Conjunto de marcação
+#### <a name="scored-dataset"></a>Conjunto de dados classificado
 
 O conjunto de marcação contém as previsões que o modelo de recomendação gerou.  
   
@@ -88,6 +88,6 @@ Avaliar Recomendador computa o NDCG (lucro cumulativo médio normalizado) e o re
 Como é impossível saber a verdadeira "verdadeira verdade" para os itens recomendados, avaliar Recomendador usa as classificações de item de usuário no conjunto de dados de teste como ganhos no cálculo do NDCG. Para avaliar, o módulo de Pontuação de recomendação deve produzir apenas recomendações para itens com classificações de "terra terrestre" (no conjunto de testes).  
   
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

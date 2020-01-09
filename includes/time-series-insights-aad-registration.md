@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: c3eeb59809a4028702022e8a18db633a26b01d5c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460407"
 ---
 1. No [portal do Azure](https://ms.portal.azure.com/), selecione **Azure Active Directory** > **Registros de aplicativo** > **Novo registro**.
 
@@ -41,7 +41,7 @@ ms.locfileid: "74980865"
 
     1. Habilite o fluxo de concessão implícita verificando **tokens de acesso** ou **tokens de ID**.
 
-   [![Criar um novo segredo do cliente](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![criar URIs de redirecionamento e configurar a concessão implícita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    Clique em **Save** (Salvar).
 

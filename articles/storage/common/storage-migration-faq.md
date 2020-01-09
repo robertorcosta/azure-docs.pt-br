@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351271"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas frequentes sobre a migração do Armazenamento do Azure
 
 Este artigo responde perguntas frequentes sobre a migração do Armazenamento do Azure. 
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 **Como criar um script para copiar arquivos de um contêiner para outro?**
 
-Para copiar arquivos entre contêineres, use o AzCopy. Veja os exemplos a seguir:
+Para copiar arquivos entre contêineres, use o AzCopy. Consulte o seguinte exemplo:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
@@ -171,7 +171,7 @@ Quando você cria uma conta de armazenamento, pode selecionar a região primári
 
 **Onde posso saber mais sobre o SSE (Criptografia do Serviço de Armazenamento) do Azure?**  
   
-Confira os seguintes artigos:
+Veja os artigos a seguir:
 
 -  [Guia de segurança do Armazenamento do Azure](storage-security-guide.md)
 
@@ -259,7 +259,7 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 -   Use um token SAS (assinatura de acesso compartilhado) para fornecer acesso a um recurso. 
 
--   Forneça a um usuário a chave primária ou secundária da conta de armazenamento. Para saber mais, confira [Gerenciar sua conta de armazenamento](storage-account-manage.md#access-keys).
+-   Forneça a um usuário a chave primária ou secundária da conta de armazenamento. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](storage-account-keys-manage.md).
 
 -   Altere a política de acesso para permitir o acesso anônimo. Para saber mais, confira [Conceder permissões de usuário anônimo a contêineres e blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -275,7 +275,7 @@ Para dar a outras pessoas acesso aos meus recursos de armazenamento:
 
 -   Se você estiver usando um armazenamento com redundância de zona ou armazenamento com redundância geográfica, não poderá acessar dados da região secundária, a menos que você inicie um failover a uma região. Para obter mais informações sobre o processo de failover, confira [Recuperação de desastre e failover da conta de armazenamento (versão prévia) no Armazenamento do Azure](storage-disaster-recovery-guidance.md).
 
--   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos seguintes métodos:  
+-   Se você estiver usando armazenamento com redundância geográfica com acesso de leitura, poderá acessar dados da região secundária a qualquer hora. Use um dos métodos a seguir:  
       
     - **AzCopy**: acrescente **-secondary** ao nome da conta de armazenamento na URL para acessar o ponto de extremidade secundário. Por exemplo:  
      

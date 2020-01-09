@@ -1,5 +1,6 @@
 ---
-title: Exemplo de política de gerenciamento de API do Azure – Gerar Assinatura de Acesso Compartilhado | Microsoft Docs
+title: Política de gerenciamento de API de exemplo – gerar assinatura de acesso compartilhado
+titleSuffix: Azure API Management
 description: 'Exemplo de política de gerenciamento de API do Azure: demonstra como gerar uma Assinatura de Acesso Compartilhado usando expressões e como encaminhar a solicitação para o armazenamento do Azure com a política rewrite-uri.'
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 45e29673e264f64c976cce664eaf749636400c7f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0f003bc268af6b7f8bd6b046ae84734dbefeac28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442453"
 ---
 # <a name="generate-shared-access-signature"></a>Gerar a Assinatura de Acesso Compartilhado
 
@@ -29,7 +30,7 @@ Cole o código no bloco de **entrada**.
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Generate Shared Access Signature and forward request to Azure storage.policy.xml)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as políticas de APIM:
 

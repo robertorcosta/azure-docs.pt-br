@@ -1,6 +1,6 @@
 ---
-title: Guia de treinamento para fazer a transição de Registros de aplicativo (Herdado) para a nova experiência de Registros de aplicativo no portal do Azure
-description: Uma introdução à nova experiência de registro de aplicativo no portal do Azure
+title: Novo guia de treinamento de registro de aplicativo do portal do Azure
+description: Apresenta a nova experiência de registro de aplicativo portal do Azure
 services: active-directory
 author: archieag
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3726ebbe0ebc3725a885c847f33760ebd7e2e8b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424671"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transição de Registros de aplicativo (herdados) para a nova experiência de Registros de aplicativo no portal do Azure
+# <a name="new-azure-portal-app-registration-training-guide"></a>Novo guia de treinamento de registro de aplicativo do portal do Azure
 
 Você pode encontrar muitos aprimoramentos na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver familiarizado com a experiência de Registros de aplicativo (herdada) no portal do Azure, use este guia de treinamento para começar a usar a nova experiência.
 

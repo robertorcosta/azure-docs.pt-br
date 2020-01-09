@@ -1,18 +1,14 @@
 ---
 title: Perguntas comuns sobre a recuperação de desastres do Hyper-V com o Azure Site Recovery
 description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954052"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498199"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
@@ -202,14 +198,17 @@ O Site Recovery não instala explicitamente nada nas VMs do Hyper-V ativadas par
 ### <a name="how-do-i-fail-over-to-azure"></a>Como fazer failover para o Azure?
 
 Você pode executar um failover planejado ou não planejado de VMs Hyper-V locais para o Azure.
-    - Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
-    - Você pode executar um failover não planejado se o seu site primário não está acessível.
-    - Você pode fazer o failover de um único computador ou criar planos de recuperação para orquestrar o failover de várias máquinas virtuais.
-    - Você executa um failover. Após a conclusão do primeiro estágio do failover, você deverá ser capaz de ver as VMs de réplica criadas no Azure. Você pode atribuir um endereço IP público à VM, se necessário. Você confirma então o failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
+
+- Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
+- Você pode executar um failover não planejado se o seu site primário não está acessível.
+- Você pode fazer o failover de um único computador ou criar planos de recuperação para orquestrar o failover de várias máquinas virtuais.
+- O failover está em duas partes:
+    - Após a conclusão do primeiro estágio do failover, você deverá ser capaz de ver as VMs de réplica criadas no Azure. Você pode atribuir um endereço IP público à VM, se necessário.
+    - Você confirma então o failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Como fazer para acessar VMs do Azure após o failover?
-Após o failover, você poderá acessar as VMs do Azure por meio de uma conexão segura com a Internet, por meio de uma VPN site a site ou por meio do Microsoft Azure ExpressRoute. Você precisará preparar uma série de coisas para se conectar. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Após o failover, você poderá acessar as VMs do Azure por meio de uma conexão segura com a Internet, por meio de uma VPN site a site ou por meio do Microsoft Azure ExpressRoute. Você precisará preparar uma série de coisas para se conectar. [Saiba mais](failover-failback-overview.md#connect-to-azure-after-failover).
 
 ### <a name="is-failed-over-data-resilient"></a>Failover de dados é resiliente?
 O Azure foi desenvolvido para resiliência. O Site Recovery foi projetado para failover em um datacenter do Azure secundário, de acordo com o SLA do Azure. Quando ocorre um failover, garantimos que seus metadados e cofres permaneçam na mesma região geográfica escolhida para o cofre.
@@ -232,4 +231,4 @@ Depois que sua infraestrutura local estiver funcionando novamente, você poderá
 5. Após o failback das cargas de trabalho, você habilita a replicação inversa, de modo que as VMs locais são replicadas novamente para o Azure.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>É possível fazer failback para um local diferente?
-Sim, se você fez failover no Azure poderá fazer failback para um local diferente, se o original não estiver disponível. [Saiba mais](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
+Sim, se você fez failover no Azure poderá fazer failback para um local diferente, se o original não estiver disponível. [Saiba mais](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).

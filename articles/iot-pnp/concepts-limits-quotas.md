@@ -3,20 +3,20 @@ title: Pré-limites e cotas Plug and Play visualização de IoT | Microsoft Docs
 description: Entenda os limites, as cotas e a limitação que se aplicam quando você usa a visualização de Plug and Play de IoT.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2df8a8820422a22b0512e24c4b052377cb0e61e0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879559"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531370"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, cotas e limitações da visualização do IoT Plug and Play
 
-Este artigo explica os limites, as cotas e a limitação específicos do Plug and Play IoT que se aplicam à visualização pública. Há cotas [e limitação do Hub IOT](../iot-hub/iot-hub-devguide-quotas-throttling.md) que também se aplicam.
+Este artigo explica os limites, as cotas e a limitação específicos do Plug and Play IoT que se aplicam à visualização pública. Há [cotas e limitação do Hub IOT](../iot-hub/iot-hub-devguide-quotas-throttling.md) que também se aplicam.
 
 ## <a name="iot-hub"></a>Hub IoT
 
@@ -57,6 +57,6 @@ Para a visualização pública, os limites e as cotas a seguir se aplicam a um r
 
 A biblioteca do analisador segue os limites que se aplicam à [linguagem de definição de entrelaçamento digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Uma próxima etapa sugerida é aprender a [se conectar e interagir com um dispositivo de plug and Play de IOT](./howto-develop-solution.md).

@@ -1,17 +1,17 @@
 ---
-title: Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
+title: Parceiros de desenvolvimento de aplicativos e migração para Azure Cosmos DB
 description: Lista os parceiros da Microsoft com soluções de migração compatíveis com o Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 2ba6b04efbce5b7911037fbc5f14373cc962035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257353"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530690"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
 
@@ -21,8 +21,8 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 |**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contato**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | [Migração de dados](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) do MongoDB para o Azure Cosmos DB. <br/> O Imanis Data permite que empresas globais migrem de maneira rápida e fácil seus bancos de dados MongoDB locais ou em nuvem para o Azure Cosmos DB. O Imanis Data oferece uma abordagem de migração na nuvem sem agente e sempre incremental para armazenamentos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Site](http://www.imanisdata.com/)      |
-|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> Striim simplifica a coleção em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log para o Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
+|![ImanisData][1]   | Migração de dados do MongoDB para Azure Cosmos DB. <br/> O Imanis Data permite que empresas globais migrem de maneira rápida e fácil seus bancos de dados MongoDB locais ou em nuvem para o Azure Cosmos DB. O Imanis Data oferece uma abordagem de migração na nuvem sem agente e sempre incremental para armazenamentos de dados do MongoDB que simplifica a migração e reduz significativamente o tempo de inatividade.|  EUA  |   [Site](https://www.cohesity.com/products/imanis-data/)      |
+|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleta em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log em Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
 
@@ -54,7 +54,7 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 | ![Xpand IT][25] | Desenvolvimento de novos aplicativos | Portugal, Reino Unido| [Site](https://www.xpand-it.com/)|
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outros parceiros da Microsoft, consulte o silte [Microsoft Partner](https://partner.microsoft.com/en-US/).
 

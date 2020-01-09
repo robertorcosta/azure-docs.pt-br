@@ -1,20 +1,19 @@
 ---
 title: '& Do Excel Apache Hadoop com o driver ODBC-Azure HDInsight'
 description: Saiba como configurar e usar o driver ODBC do Microsoft Hive para Excel para consultar dados em clusters HDInsight no Microsoft Excel.
-keywords: hadoop excel,hive excel,hive odbc
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 37cb05c4bf3822c9dc21b1fa9cd0ea4a2ba6d933
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/11/2019
+ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435825"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
@@ -49,11 +48,11 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 1. Digite ou selecione os valores a seguir:
 
-   | Propriedade | Descrição |
+   | Propriedade | Description |
    | --- | --- |
-   |  Nome da fonte de dados |Forneça um nome para a sua fonte de dados |
-   |  Hosts |Digite `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net` |
-   |  Porta |Use **443**. (Essa porta foi alterada de 563 para 443.) |
+   |  Nome da Fonte de Dados |Forneça um nome para a sua fonte de dados |
+   |  Hosts |Digite `HDInsightClusterName.azurehdinsight.net`. Por exemplo, `myHDICluster.azurehdinsight.net`. Observação: há suporte para `HDInsightClusterName-int.azurehdinsight.net` contanto que a VM do cliente seja emparelhada com a mesma rede virtual. |
+   |  Port |Use **443**. (Essa porta foi alterada de 563 para 443.) |
    |  Banco de dados |Use **padrão**. |
    |  Mecanismo |Selecione **Serviço do Microsoft Azure HDInsight** |
    |  Nome do Usuário |Insira o nome de usuário HTTP do cluster HDInsight. O nome de usuário padrão é **admin**. |
@@ -61,13 +60,13 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 1. Opcional: selecione **Opções avançadas...**  
 
-   | . | Descrição |
+   | Parâmetro | Description |
    | --- | --- |
    |  Use Consulta Nativa |Quando selecionado, o driver ODBC NÃO tenta converter TSQL em HiveQL. Você deve usá-lo somente se você for 100% certeza de que está enviando instruções HiveQL puras. Ao conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure, deixe-a desmarcada. |
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |
    |  Comprimento de coluna de cadeia de caracteres padrão, Comprimento da coluna binária e Escala da coluna decimal |Os tamanhos e as precisões dos tipos de dados podem afetar a maneira como os dados são retornados. Eles farão com que informações incorretas sejam retornadas devido à perda de precisão e/ou truncamento. |
 
-    ![Opções de configuração de DSN avançadas](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opções de configuração de DSN avançadas")
+    ![Opções de configuração avançada de DSN](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Opções de configuração avançada de DSN")
 
 1. Selecione **Testar** para testar a fonte de dados. Quando a fonte de dados estiver configurada corretamente, o resultado do teste mostrará **SUCESSO!** .  
 

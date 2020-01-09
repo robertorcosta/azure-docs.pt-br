@@ -1,17 +1,14 @@
 ---
-title: Visão geral do Azure Resource Health | Microsoft Docs
+title: Visão geral do Azure Resource Health
 description: Visão geral do Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356789"
 ---
 # <a name="resource-health-overview"></a>Visão geral de Resource Health
  
@@ -53,7 +50,7 @@ Eventos que não são de plataforma são disparados por ações do usuário. Os 
 
 ![Status de "não disponível" para uma máquina virtual devido a um evento de não plataforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>Unknown (desconhecido)
 
 *Desconhecido* significa que Resource Health não recebeu informações sobre o recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva do estado do recurso, ele é um ponto de dados importante para a solução de problemas.
 
@@ -83,11 +80,11 @@ Você pode acessar 14 dias de histórico na seção **histórico de integridade*
 
 ![Lista de eventos do Resource Health nas últimas duas semanas](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 
 Abrir Resource Health para um recurso:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Procure o recurso.
 3. No menu de recursos no painel esquerdo, selecione **Resource Health**.
 
@@ -97,7 +94,7 @@ Também é possível acessar o Resource Health, selecionando **Todos os serviço
 
 ![Abrir o Resource Health a partir de "Todos os serviços"](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira estas referências para saber mais sobre Resource Health:
 -  [Tipos de recursos e verificações de integridade no Azure Resource Health](resource-health-checks-resource-types.md)

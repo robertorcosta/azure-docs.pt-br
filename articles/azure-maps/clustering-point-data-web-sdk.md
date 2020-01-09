@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433027"
 ---
 # <a name="clustering-point-data"></a>Dados do ponto de cluster
 
@@ -48,7 +48,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 A classe `DataSource` também tem os seguintes métodos relacionados ao clustering:
 
-| Método | Tipo de retorno | DESCRIÇÃO |
+| Método | Tipo de retorno | Description |
 |--------|-------------|-------------|
 | getClusterChildren(clusterId: number) | O recurso de&lt;de matriz de promessa&lt;&lt;geometria, qualquer&gt; \|&gt;de forma &gt; | Recupera os filhos do cluster fornecido no próximo nível de zoom. Esses filhos podem ser uma combinação de formas e subclusters. Os subclusters serão recursos com propriedades correspondentes a ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Número de&lt;de promessa&gt; | Calcula um nível de zoom no qual o cluster começará a se expandir ou separar. |
@@ -88,12 +88,12 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>mapa de calor pond
 
 Quando ocorrem eventos de mouse em uma camada que contém pontos de dados clusterizados, o ponto de dados clusterizado será retornado ao evento como um objeto de recurso de ponto geojson. Esse recurso de ponto terá as seguintes propriedades:
 
-| Nome da propriedade | Digite | DESCRIÇÃO |
-|---------------|------|-------------|
-| cluster | boolean | Indica se o recurso representa um cluster. |
-| cluster_id | cadeia de caracteres | Uma ID exclusiva para o cluster que pode ser usada com os métodos DataSource `getClusterExpansionZoom`, `getClusterChildren`e `getClusterLeaves`. |
-| point_count | número | O número de pontos que o cluster contém. |
-| point_count_abbreviated | cadeia de caracteres | Uma cadeia de caracteres que abrevia o valor de `point_count` se for longo. (por exemplo, 4.000 torna-se 4K) |
+| Nome da propriedade             | Tipo    | Description   |
+|---------------------------|---------|---------------|
+| `cluster`                 | booleano | Indica se o recurso representa um cluster. |
+| `cluster_id`              | cadeia de caracteres  | Uma ID exclusiva para o cluster que pode ser usada com os métodos DataSource `getClusterExpansionZoom`, `getClusterChildren`e `getClusterLeaves`. |
+| `point_count`             | número  | O número de pontos que o cluster contém.  |
+| `point_count_abbreviated` | cadeia de caracteres  | Uma cadeia de caracteres que abrevia o valor de `point_count` se for longo. (por exemplo, 4.000 torna-se 4K)  |
 
 Este exemplo usa uma camada de bolha que renderiza pontos de cluster e adiciona um evento de clique que, quando disparado, calcula e aplica zoom ao mapa para o próximo nível de zoom no qual o cluster será separado usando o método `getClusterExpansionZoom` da classe `DataSource` e a propriedade `cluster_id` do ponto de dados clusterizado clicado. 
 
@@ -123,7 +123,7 @@ O exemplo a seguir usa uma expressão de agregação para calcular uma contagem 
 Consulte o cluster de caneta que <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agrega</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
@@ -134,7 +134,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 > [Objeto dataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [namespace do Atlas. Math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
+> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
 
 Consulte exemplos de código para adicionar funcionalidade ao seu aplicativo:
 
@@ -142,7 +142,7 @@ Consulte exemplos de código para adicionar funcionalidade ao seu aplicativo:
 > [Adicionar uma camada de bolhas](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de símbolos](map-add-pin.md)
+> [Adicionar uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada do mapa de calor](map-add-heat-map-layer.md)

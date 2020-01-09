@@ -1,20 +1,20 @@
 ---
 title: Conectar-se ao vídeo do Office 365
-description: Gerenciar vídeos com as APIs REST do Vídeo do Office 365 e os Aplicativos Lógicos do Azure
+description: Automatizar tarefas e fluxos de trabalho que gerenciam vídeos no vídeo do Office 365 usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/18/2016
 tags: connectors
-ms.openlocfilehash: bf3c7c4faac3fcd4dd0c3f368fbe18a224ed591b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8ac6b7b411e7f42dd076c5b16e7b500a819c617f
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789470"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665778"
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Introdução ao conector de Vídeo do Office365
+# <a name="manage-videos-in-office365-video-by-using-azure-logic-apps"></a>Gerenciar vídeos no vídeo do Office365 usando aplicativos lógicos do Azure
 
 Conecte-se ao Vídeo do Office 365 para obter informações sobre um vídeo do Office 365, obter uma lista de vídeos e muito mais. Com o Vídeo do Office 365, é possível:
 
@@ -26,7 +26,7 @@ Por exemplo, é possível usar o conector da Pesquisa do Bing para pesquisar ví
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Criar uma conexão com o conector do Vídeo do Office 365
+## <a name="connect-to-office365-video"></a>Conectar ao vídeo do Office365
 
 Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar em sua conta de Vídeo do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
 
@@ -36,7 +36,7 @@ Depois de criar a conexão, insira as propriedades do vídeo do Office 365, como
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/office365videoconnector/).
+Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/office365videoconnector/).
 
 ## <a name="next-steps"></a>Próximos passos
 

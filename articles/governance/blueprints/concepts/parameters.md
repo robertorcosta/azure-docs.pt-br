@@ -3,12 +3,12 @@ title: Use parâmetros para criar blueprints dinâmicos
 description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá-los para criar plantas dinâmicas e seguras.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128923"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644963"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -22,7 +22,7 @@ Um exemplo simples é o artefato do grupo de recursos. Quando um grupo de recurs
 
 A solução para esse problema é parâmetros. Blueprints permite que você defina o valor de cada propriedade do artefato durante a atribuição a uma assinatura. O parâmetro possibilita a reutilização de um blueprint que cria um grupo de recursos e outros recursos em uma única assinatura sem conflito.
 
-## <a name="blueprint-parameters"></a>Parâmetros de plano gráfico
+## <a name="blueprint-parameters"></a>Parâmetros de blueprint
 
 Por meio da API REST, os parâmetros podem ser criados no próprio blueprint. Esses parâmetros são diferentes dos parâmetros em cada um dos artefatos suportados. Quando um parâmetro é criado no blueprint, ele pode ser usado pelos artefatos nesse blueprint. Um exemplo pode ser o prefixo para nomenclatura do grupo de recursos. O artefato pode usar o parâmetro blueprint para criar um parâmetro "principalmente dinâmico". Como o parâmetro também pode ser definido durante a atribuição, esse padrão permite uma consistência que pode aderir às regras de nomenclatura. Para obter as etapas, confira [definindo parâmetros estáticos – parâmetro do nível de blueprint](#blueprint-level-parameter).
 
@@ -40,7 +40,7 @@ Se a atribuição Blueprint usar uma **identidade gerenciada atribuída pelo sis
 Se a atribuição Blueprint usar uma **identidade gerenciada atribuída pelo usuário**, o Key Vault referenciado _poderá_ existir em uma assinatura centralizada. A identidade gerenciada deve receber os direitos apropriados no Key Vault antes da atribuição de Blueprint.
 
 > [!IMPORTANT]
-> Em ambos os casos, o Key Vault deve ter **habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **políticas de acesso** . Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> Em ambos os casos, o Key Vault deve ter **habilitar acesso ao Azure Resource Manager para implantação de modelo** configurada na página **políticas de acesso** . Para obter instruções sobre como habilitar esse recurso, confira [Key Vault – Habilitar implantação de modelo](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 Para obter mais informações sobre o Azure Key Vault, confira [Visão geral do Key Vault](../../../key-vault/key-vault-overview.md).
 
@@ -72,7 +72,7 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 Em cada URI da API REST, há variáveis usadas que precisam ser substituídas com seus próprios valores:
 
-- `{YourMG}` - Substitua pelo nome do seu grupo de gerenciamento
+- `{YourMG}`: substitua pelo nome do seu grupo de gerenciamento
 - `{subscriptionId}`: substitua por sua ID da assinatura
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível do Blueprint
@@ -232,7 +232,7 @@ Definir **parâmetros dinâmicos** durante a atribuição é feito inserindo o v
   }
   ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a lista de [funções de plantas](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).

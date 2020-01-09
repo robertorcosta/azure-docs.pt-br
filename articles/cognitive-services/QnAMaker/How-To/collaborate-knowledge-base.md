@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 01/03/2020
 ms.author: diberry
-ms.openlocfilehash: d9c91d54fb357807682cd57f46b04454e4e2cfec
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b5adc7ebacde056a141ca3b361b9eb2ea7900a39
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876660"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660742"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar com sua base de dados de conhecimento
 
-O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o [Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) do Azure. 
+QnA Maker permite que várias pessoas colaborem em todas as bases de dados de conhecimento no mesmo recurso de QnA Maker. Esse recurso é fornecido com o [Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) do Azure.
 
 Execute as seguintes etapas para compartilhar seu serviço QnA Maker com alguém:
 
@@ -47,7 +47,7 @@ Quando a pessoa, você compartilhou seu serviço de QnA Maker com, faz logon no 
 
 Lembre-se de que não é possível compartilhar uma base de Conhecimento específica em um serviço do QnA Maker. Se desejar um controle de acesso mais granular, considere distribuir as bases de dados de conhecimento em diferentes serviços do QnA Maker.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Testar uma base de dados de conhecimento](./test-knowledge-base.md)

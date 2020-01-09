@@ -3,18 +3,18 @@ title: Glossário de termos – IoT Plug and Play Preview | Microsoft Docs
 description: Conceitos – um glossário de termos comuns relacionados à visualização da IoT Plug and Play.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890352"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531194"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -28,7 +28,7 @@ Você pode usar o site do [portal do Azure Certified para IOT](https://aka.ms/AC
 - Encontre [modelos de capacidade de dispositivo](#device-capability-model).
 - Publique um modelo de capacidade de dispositivo no [repositório de modelo público](#public-model-repository).
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
 O CLI do Azure é uma ferramenta de linha de comando de plataforma cruzada para gerenciar recursos do Azure. A extensão do Azure IoT para o CLI do Azure é uma ferramenta de linha de comando para interagir com e testar [dispositivos de plug and Play IOT](#iot-plug-and-play-device). Você pode usar a extensão para:
 
@@ -119,7 +119,7 @@ Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital d
 
 O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/preview/overview-iot-central-get-connected.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
-## <a name="device-registration"></a>Registro de dispositivos
+## <a name="device-registration"></a>Registro do dispositivo
 
 Antes que um [dispositivo iot plug and Play](#iot-plug-and-play-device) possa se conectar a uma solução de IOT, ele deve ser registrado com a solução. O [Azure IOT central](#azure-iot-central) usa o [serviço de provisionamento de dispositivos](#device-provisioning-service) para gerenciar o registro de dispositivos. Em uma solução de IoT personalizada, você pode registrar dispositivos com o Hub IoT no portal do Azure ou de forma programática.
 
@@ -155,7 +155,7 @@ A linguagem de consulta do Hub IoT é usada para várias finalidades. Por exempl
 
 Um dispositivo de Plug and Play IoT normalmente é um dispositivo de computação independente de pequena escala que coleta dados ou controla outros dispositivos, e que executa software ou firmware que implementa um [modelo de capacidade de dispositivo](#device-capability-model).  Por exemplo, um dispositivo IoT Plug and Play pode ser um dispositivo de monitoramento ambiental ou um controlador para um sistema de irrigação inteligente do agricultura. Você pode escrever uma solução de IoT hospedada na nuvem para comando, controlar e receber dados de dispositivos de Plug and Play de IoT. O [Catálogo de dispositivos Azure Certified para IOT](#certified-for-iot-device-catalog) lista os dispositivos plug and Play IOT disponíveis. Cada dispositivo de Plug and Play IoT no catálogo foi validado e tem um [modelo de funcionalidade de dispositivo](#device-capability-model).
 
-## <a name="microsoft-partner-center"></a>Centro de parceiros da Microsoft
+## <a name="microsoft-partner-center"></a>Centro de Parceiros da Microsoft
 
 O [Microsoft Partner Center](https://docs.microsoft.com/partner-center/) é onde sua organização gerencia sua relação de ponta a ponta com a Microsoft. Você precisa de uma conta do Microsoft Partner Center para poder certificar seu [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) no portal do [Azure Certified para IOT](#azure-certified-for-iot-portal).
 
@@ -183,7 +183,7 @@ Há um único repositório de modelo público que armazena [modelos de recursos 
 
 Uma ID de registro identifica exclusivamente um dispositivo no [serviço de provisionamento de dispositivos](#device-provisioning-service). Essa ID não é igual à ID do dispositivo que é um identificador exclusivo para um dispositivo em um [Hub IOT](#azure-iot-hub).
 
-## <a name="scope-id"></a>ID do escopo
+## <a name="scope-id"></a>ID de escopo
 
 O escopo da ID de escopo identifica exclusivamente uma instância do [serviço de provisionamento de dispositivos](#device-provisioning-service) .
 

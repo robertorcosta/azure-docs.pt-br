@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447706"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -30,8 +30,8 @@ Seu serviço de QnA Maker lida com dois tipos de chaves: **chaves de assinatura*
 
 |Nome|Local|Finalidade|
 |--|--|--|
-|Chave de assinatura|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
-|Chave do ponto de extremidade|[Portal de QnA Maker](http://www.qnamaker.ai)|Essas chaves são usadas para acessar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
+|Chave de assinatura|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Essas chaves são usadas para acessar as [APIs do serviço de gerenciamento de QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave do ponto de extremidade|[Portal de QnA Maker](https://www.qnamaker.ai)|Essas chaves são usadas para acessar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
 
 ## <a name="create-a-new-qna-maker-service"></a>Criar um novo serviço do QnA Maker
 
@@ -63,7 +63,7 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
 
     * Escolha se deseja ou não habilitar **Application insights**. Se o **Application Insights** estiver habilitado, o QnA Maker coletará a telemetria em tráfego, logs de chat e erros.
     * Escolha o **local do Application insights** no qual o recurso de Application insights será implantado.
-    * Para medidas de economia de custo, você pode [compartilhar](#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker. 
+    * Como medida de economia de custo, você pode [compartilhar](#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para o QnA Maker.
 
 1. Depois que todos os campos forem validados, selecione **criar**. O processo pode levar alguns minutos para ser concluído.
 
@@ -106,12 +106,12 @@ As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do Q
 
 QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e beneficiar-se do compartilhamento de custos, use a tabela a seguir para entender o que você pode e não consegue compartilhar:
 
-|O Barramento de|Compartilhar|Motivo|
+|Serviço|Compartilhe|Motivo|
 |--|--|--|
-|Serviços Cognitivos|X|Não é possível por design|
+|Serviços cognitivos|X|Não é possível por design|
 |Plano do Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|
-|Serviço de Aplicativo|X|Não é possível por design|
-|Application Insights|✔|Pode ser compartilhada|
+|Serviço de aplicativo|X|Não é possível por design|
+|Percepções sobre o Aplicativo|✔|Pode ser compartilhada|
 |Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; Ele não pode ser usado por outras pessoas.<br>2. o mapa de sinônimos pelo nome `synonym-map` é reservado para o serviço QnAMaker.<br>3. o número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
 
 Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
@@ -124,7 +124,7 @@ Se você criar um serviço QnA por meio de modelos de Azure Resource Manager, po
 
 ## <a name="upgrade-qna-maker"></a>Atualizar QnA Maker
 
-|Atualizar|Motivo|
+|Atualize|Motivo|
 |--|--|
 |[Atualizar](#upgrade-qna-maker-sku) o SKU de gerenciamento de QnA Maker|Você deseja ter mais perguntas e respostas em sua base de dados de conhecimento.|
 |[Atualizar](#upgrade-app-service) o SKU do serviço de aplicativo|Sua base de dados de conhecimento precisa atender a mais solicitações do aplicativo cliente, como um bot de chat.|
@@ -185,7 +185,7 @@ No momento, não é possível realizar uma atualização in-loco da SKU do Azure
 
 ## <a name="get-the-latest-runtime-updates"></a>Obter as atualizações de tempo de execução mais recentes
 
-O tempo de execução do QnAMaker faz parte da instância do serviço de Azure App que é implantada quando você [cria um serviço QnAMaker](./set-up-qnamaker-service-azure.md) no portal do Azure. Atualizações são feitas periodicamente para o tempo de execução. A instância do serviço de aplicativo QnA Maker está no modo de atualização automática após a versão da extensão do site de abril de 2019 (versão 5 +). Essa atualização foi projetada para cuidar do tempo de inatividade ZERO durante as atualizações.
+O tempo de execução do QnAMaker faz parte da instância do serviço de Azure App que é implantada quando você [cria um serviço QnAMaker](./set-up-qnamaker-service-azure.md) no portal do Azure. Atualizações são feitas periodicamente para o runtime. A instância do serviço de aplicativo QnA Maker está no modo de atualização automática após a versão da extensão do site de abril de 2019 (versão 5 +). Essa atualização foi projetada para cuidar do tempo de inatividade ZERO durante as atualizações.
 
 Você pode verificar sua versão atual em https://www.qnamaker.ai/UserSettings. Se sua versão for anterior à versão 5. x, você deverá reiniciar o serviço de aplicativo para aplicar as atualizações mais recentes:
 
@@ -205,7 +205,7 @@ Você pode verificar sua versão atual em https://www.qnamaker.ai/UserSettings. 
 
 O serviço de gerenciamento do QnA Maker é usado somente para o portal de QnA Maker e para o processamento de dados inicial. Esse serviço está disponível apenas na região oeste dos EUA. Nenhum dado do cliente é armazenado neste serviço oeste dos EUA.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 

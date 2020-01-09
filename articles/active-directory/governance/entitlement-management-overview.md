@@ -1,5 +1,5 @@
 ---
-title: O que é o gerenciamento de direitos do Azure AD? -Azure Active Directory
+title: O que é gerenciamento de direitos? -Azure AD
 description: Obtenha uma visão geral do gerenciamento de direitos Azure Active Directory e como você pode usá-lo para gerenciar o acesso a grupos, aplicativos e sites do SharePoint Online para usuários internos e externos.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422565"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -114,11 +114,11 @@ Os pacotes do Access não substituem outros mecanismos para atribuição de aces
 
 Para entender melhor o gerenciamento de direitos e sua documentação, você pode consultar novamente a lista de termos a seguir.
 
-| Termo | DESCRIÇÃO |
+| Prazo | Description |
 | --- | --- |
 | pacote de acesso | Um pacote de recursos que uma equipe ou projeto precisa e é regido por políticas. Um pacote do Access sempre está contido em um catálogo. Você criaria um novo pacote de acesso para um cenário no qual os usuários precisam solicitar acesso.  |
 | solicitação de acesso | Uma solicitação para acessar os recursos em um pacote do Access. Normalmente, uma solicitação passa por um fluxo de trabalho de aprovação.  Se aprovada, o usuário solicitante receberá uma atribuição de pacote de acesso. |
-| Design | Uma atribuição de um pacote de acesso a um usuário garante que o usuário tenha todas as funções de recurso desse pacote de acesso.  As atribuições de pacote do Access normalmente têm um limite de tempo antes de expirarem. |
+| atribuição | Uma atribuição de um pacote de acesso a um usuário garante que o usuário tenha todas as funções de recurso desse pacote de acesso.  As atribuições de pacote do Access normalmente têm um limite de tempo antes de expirarem. |
 | catálogo | Um contêiner de recursos relacionados e pacotes de acesso.  Os catálogos são usados para delegação, para que não administradores possam criar seus próprios pacotes de acesso. Os proprietários do catálogo podem adicionar recursos que eles possuem a um catálogo. |
 | criador do catálogo | Uma coleção de usuários que estão autorizados a criar novos catálogos.  Quando um usuário não administrador que está autorizado a ser um criador de catálogo cria um novo catálogo, ele se torna automaticamente o proprietário desse catálogo. |
 | organização conectada | Um diretório ou domínio do Azure AD externo com o qual você tem uma relação. Os usuários de uma organização conectada podem ser especificados em uma política como tendo permissão para solicitar acesso. |
@@ -146,7 +146,7 @@ Como parte das licenças para usuários Membros, você também pode permitir que
 
 Para obter informações sobre como atribuir licenças a seus usuários, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md). Observe que o gerenciamento de direitos atualmente não impõe a atribuição de licença para os usuários.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Tutorial: criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

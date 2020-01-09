@@ -1,22 +1,21 @@
 ---
 title: Análise de JSON e AVRO no Azure Stream Analytics
 description: Este artigo descreve como operar em tipos de dados complexos, como matrizes, JSON, CSV dados formatados.
-services: stream-analytics
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: daf5b97e4ac586f89e5964ee16ee73c86f59b01d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431602"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analisar dados JSON e Avro no Azure Stream Analytics
 
-O Azure Stream Analytics dão suporte a eventos de processamento nos formatos de dados CSV, JSON e Avro. Dados JSON e Avro podem ser estruturados e contenham alguns tipos complexos, como matrizes e objetos aninhados (registros). 
+Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro. Os dados JSON e Avro podem ser estruturados e conter alguns tipos complexos, como objetos aninhados (registros) e matrizes. 
 
 
 
@@ -48,8 +47,8 @@ Tipos de dados de registro são usados para representar matrizes JSON e Avro qua
 ```
 
 
-### <a name="access-nested-fields-in-known-schema"></a>Campos de acesso aninhado no esquema conhecido
-Use a notação de ponto (.) para acessar facilmente os campos aninhados diretamente em sua consulta. Por exemplo, essa consulta seleciona as coordenadas de Latitude e Longitude sob a propriedade local nos dados JSON anteriores. A notação de ponto pode ser usada para navegar vários níveis, conforme mostrado abaixo.
+### <a name="access-nested-fields-in-known-schema"></a>Acessar campos aninhados no esquema conhecido
+Use a notação de ponto (.) para acessar facilmente campos aninhados diretamente da sua consulta. Por exemplo, essa consulta seleciona as coordenadas de latitude e longitude sob a propriedade Location nos dados JSON anteriores. A notação de ponto pode ser usada para navegar por vários níveis, conforme mostrado abaixo.
 
 ```SQL
 SELECT
@@ -60,7 +59,7 @@ SELECT
 FROM input
 ```
 
-### <a name="select-all-properties"></a>Selecione todas as propriedades
+### <a name="select-all-properties"></a>Selecionar todas as propriedades
 Você pode selecionar todas as propriedades de um registro aninhado usando o curinga'*'. Considere o exemplo a seguir:
 
 ```SQL
@@ -78,10 +77,10 @@ O resultado é:
 ```
 
 
-### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Campos aninhado de acesso ao nome da propriedade é uma variável
-Use o [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) funcionará se o nome da propriedade é uma variável. 
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Acessar campos aninhados quando o nome da propriedade for uma variável
+Use a função [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) se o nome da propriedade for uma variável. 
 
-Por exemplo, imagine que um fluxo de dados de exemplo precisa ser unida com limites de recipiente de dados de referência para cada sensor do dispositivo. Abaixo está um trecho de código desses dados de referência.
+Por exemplo, imagine um fluxo de dados de exemplo precisa ser Unido a dados de referência que contenham limites para cada sensor de dispositivo. Um trecho desses dados de referência é mostrado abaixo.
 
 ```json
 {
@@ -104,8 +103,8 @@ WHERE
     -- the where statement selects the property value coming from the reference data
 ```
 
-### <a name="convert-record-fields-into-separate-events"></a>Converter os campos de registro em eventos separados
-Para converter os campos de registro em eventos separados, use o operador [APLICAR](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) junto com a função [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics). Por exemplo, se o exemplo anterior tinha vários registros para SensorReading, a consulta a seguir serviria para extraí-los em diferentes eventos:
+### <a name="convert-record-fields-into-separate-events"></a>Converter campos de registro em eventos separados
+Para converter os campos de registro em eventos separados, use o operador [APLICAR](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) junto com a função [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics). Por exemplo, se o exemplo anterior tivesse vários registros para SensorReading, a consulta a seguir poderia ser usada para extraí-los em eventos diferentes:
 
 ```SQL
 SELECT
@@ -133,7 +132,7 @@ SELECT
 FROM input
 ```
 
-### <a name="select-array-length"></a>Selecione o tamanho da matriz
+### <a name="select-array-length"></a>Selecionar comprimento da matriz
 
 ```SQL
 SELECT
@@ -141,7 +140,7 @@ SELECT
 FROM input
 ```
 
-### <a name="convert-array-elements-into-separate-events"></a>Converter os elementos da matriz em eventos separados
+### <a name="convert-array-elements-into-separate-events"></a>Converter elementos de matriz em eventos separados
 Selecione todos os elementos de matriz como eventos individuais. O operador [APLICAR](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) junto com a função [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) interna extrai todos os elementos da matriz como eventos individuais:
 
 ```SQL
@@ -153,5 +152,5 @@ CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
 ```
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte Também
 [Tipos de dados no Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

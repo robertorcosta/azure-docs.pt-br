@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961946"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531489"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -83,12 +83,12 @@ O formato da chamada HTTP do ponto de extremidade v3 foi alterado.
 
 Se desejar consultar por versão, primeiro você precisará [publicar via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com `"directVersionPublish":true`. Consulte o ponto de extremidade que referencia a ID de versão em vez do nome do slot.
 
-|VERSÃO DA API DE PREVISÃO|FORMA|URL|
+|VERSÃO DA API DE PREVISÃO|METHOD|URL|
 |--|--|--|
 |V3|GET|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Slots/<b>{slot-Name}</b>/Predict? Query =<b>{Query}</b>|
 |V3|POST|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Slots/<b>{slot-Name}</b>/Predict|
 |V2|GET|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Versions/<b>{version-ID}</b>/Predict? consulta =<b>{Query}</b>|
-|V2|POST|https://<b>{Region}</b>. API.cognitive.Microsoft.com/Luis/<b>predição</b><b>v 3.0</b>/apps/<b>{app-ID}</b>/Versions/<b>{version-ID}</b>/Predict|
+|V2|POST|https://<b>{Region}</b>. api.cognitive.microsoft.com/luis/<b>preditiva</b>/<b>v 3.0</b>/apps/<b>{app-ID}</b>/Versions/<b>{version-ID}</b>/Predict|
 
 |Valores válidos para `SLOT-NAME`|
 |--|
@@ -101,12 +101,12 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 
 A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 
-|Nome do parâmetro|Digite|Versão|Padrão|Finalidade|
+|Nome do parâmetro|Tipo|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
-|`log`|Booleano|V2 & v3|false|Armazenar consulta no arquivo de log. O valor padrão é falso.| 
+|`log`|booleano|V2 & v3|false|Armazenar consulta no arquivo de log. O valor padrão é falso.| 
 |`query`|cadeia de caracteres|Somente V3|Nenhum padrão-ele é necessário na solicitação GET|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
-|`show-all-intents`|Booleano|Somente V3|false|Retorne todas as intenções com a pontuação correspondente no objeto **preditiva. retenções** . As intenções são retornadas como objetos em um objeto de `intents` pai. Isso permite o acesso programático sem a necessidade de encontrar a intenção em uma matriz: `prediction.intents.give`. Em v2, elas foram retornadas em uma matriz. |
-|`verbose`|Booleano|V2 & v3|false|**Em v2**, quando definido como true, todas as intenções previstas foram retornadas. Se você precisar de todas as intenções previstas, use o parâmetro v3 de `show-all-intents`.<br><br>**No v3**, esse parâmetro fornece apenas detalhes de metadados de entidade de previsão de entidade.  |
+|`show-all-intents`|booleano|Somente V3|false|Retorne todas as intenções com a pontuação correspondente no objeto **preditiva. retenções** . As intenções são retornadas como objetos em um objeto de `intents` pai. Isso permite o acesso programático sem a necessidade de encontrar a intenção em uma matriz: `prediction.intents.give`. Em v2, elas foram retornadas em uma matriz. |
+|`verbose`|booleano|V2 & v3|false|**Em v2**, quando definido como true, todas as intenções previstas foram retornadas. Se você precisar de todas as intenções previstas, use o parâmetro v3 de `show-all-intents`.<br><br>**No v3**, esse parâmetro fornece apenas detalhes de metadados de entidade de previsão de entidade.  |
 |`timezoneOffset`|cadeia de caracteres|V2|-|Fuso horário aplicado às entidades datetimeV2.|
 |`datetimeReference`|cadeia de caracteres|V3|-|[Fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) aplicado às entidades datetimeV2. Substitui `timezoneOffset` de v2.|
 
@@ -125,13 +125,13 @@ A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 }
 ```
 
-|Propriedade|Digite|Versão|Padrão|Finalidade|
+|Propriedade|Tipo|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
-|`dynamicLists`|array|Somente V3|Não obrigatório.|As [listas dinâmicas](#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
-|`externalEntities`|array|Somente V3|Não obrigatório.|[Entidades externas](#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
+|`dynamicLists`|matriz|Somente V3|Não obrigatório.|As [listas dinâmicas](#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
+|`externalEntities`|matriz|Somente V3|Não obrigatório.|[Entidades externas](#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
 |`options.datetimeReference`|cadeia de caracteres|Somente V3|Nenhum padrão|Usado para determinar o [deslocamento de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para o datetimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|Booleano|Somente V3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
-|`query`|cadeia de caracteres|Somente V3|Obrigatório.|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
+|`options.preferExternalEntities`|booleano|Somente V3|false|Especifica se a [entidade externa do usuário (com o mesmo nome da entidade existente)](#override-existing-model-predictions) é usada ou a entidade existente no modelo é usada para previsão. |
+|`query`|cadeia de caracteres|Somente V3|Obrigatórios.|**Em v2**, o expressão a ser previsto está no parâmetro `q`. <br><br>**No v3**, a funcionalidade é passada no parâmetro `query`.|
 
 
 
@@ -351,7 +351,7 @@ A resposta de previsão inclui a entidade externa, com todas as outras entidades
 
 A propriedade de opções de `preferExternalEntities` especifica que, se o usuário enviar uma entidade externa que se sobrepõe a uma entidade prevista com o mesmo nome, LUIS escolherá a entidade passada ou a entidade existente no modelo. 
 
-Por exemplo, considere o `today I'm free`de consulta. LUIS detecta `today` como um datetimeV2 com a seguinte resposta:
+Por exemplo, considere a consulta `today I'm free`. LUIS detecta `today` como um datetimeV2 com a seguinte resposta:
 
 ```JSON
 "datetimeV2": [
@@ -469,6 +469,6 @@ A resposta de previsão inclui essa entidade de lista, com todas as outras entid
 
 A API v2 não será preterida por pelo menos 9 meses após a visualização v3. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use a documentação da API V3 para atualizar as chamadas REST existentes para as APIs de [ponto de extremidade](https://aka.ms/luis-api-v3) do Luis. 

@@ -4,15 +4,15 @@ description: Azure Monitor pode ler os logs dos serviços do Azure que gravam di
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
-ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3e8968f544e347b7b4cfe6db484c2ce8bd404820
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395987"
 ---
 # <a name="collect-azure-resource-logs-from-azure-storage"></a>Coletar logs de recursos do Azure do armazenamento do Azure
 
@@ -30,10 +30,10 @@ O Diagnóstico do Azure é uma extensão do Azure que permite coletar dados de d
 
 Para Azure Monitor coletar esses logs de Diagnóstico do Azure, os logs devem estar nos seguintes locais:
 
-| Tipo de Log | Tipo de recurso | Location |
+| Tipo de Log | Tipo de recurso | Local |
 | --- | --- | --- |
 | Logs do IIS |Máquinas virtuais <br> Funções da Web <br> Funções de trabalho |wad-iis-logfiles (Armazenamento de Blobs) |
-| syslog |Máquinas virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
+| Syslog |Máquinas virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
 | Eventos operacionais do Service Fabric |Nós do Service Fabric |WADServiceFabricSystemEventTable |
 | Eventos dos Reliable Actors do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableActorEventTable |
 | Arquitetura de Serviços Confiáveis do Service Fabric |Nós do Service Fabric |WADServiceFabricReliableServiceEventTable |

@@ -1,25 +1,14 @@
 ---
-title: Particionar serviços do Service Fabric | Microsoft Docs
+title: Particionando serviços de Service Fabric
 description: Descreve como particionar os serviços com estado do Service Fabric. As partições permitem o armazenamento de dados em computadores locais para que dados e computação sejam dimensionados juntos.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711811"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434074"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Particionar Reliable Services do Service Fabric
 Este artigo fornece uma introdução aos conceitos básicos de particionamento de Reliable Services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -55,11 +44,11 @@ A Figura 2 mostra a distribuição de 10 partições antes e depois do dimension
 Como resultado a expansão é atingida pois as solicitações de clientes são distribuídas entre computadores, o desempenho geral do aplicativo é aprimorado e a contenção no acesso a partes de dados é reduzida.
 
 ## <a name="plan-for-partitioning"></a>Plano de particionamento
-Antes de implementar um serviço, sempre considere a estratégia de particionamento necessária para escalar horizontalmente. Há maneiras diferentes, mas todas elas voltadas para o que o aplicativo precisa atingir. Para o contexto deste artigo, vamos considerar alguns dos aspectos mais importantes.
+Antes de implementar um serviço, você deve sempre considerar a estratégia de particionamento necessária para escalar horizontalmente. Há diferentes maneiras, mas todas elas se concentram no que o aplicativo precisa atingir. Para o contexto deste artigo, vamos considerar alguns dos aspectos mais importantes.
 
 Uma boa abordagem é pensar sobre a estrutura do estado que precisará ser particionado como a primeira etapa.
 
-Veja abaixo um exemplo simples Se você fosse criar um serviço para uma pesquisa de toda a região, você pode criar uma partição para cada cidade no município. Em seguida, poderia armazenar os votos para cada pessoa na cidade na partição que corresponde à cidade. A Figura 3 ilustra um conjunto de pessoas e a cidade em que residem.
+Veja abaixo um exemplo simples Se você fosse criar um serviço para uma sondagem em todo o Condado, poderia criar uma partição para cada cidade na região. Em seguida, poderia armazenar os votos para cada pessoa na cidade na partição que corresponde à cidade. A Figura 3 ilustra um conjunto de pessoas e a cidade em que residem.
 
 ![Partição simples](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -163,9 +152,9 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
    
     Várias réplicas do serviço podem ser hospedadas no mesmo computador, portanto, esse endereço deve ser exclusivo para a réplica. É por isso que a ID de partição + ID da réplica estão na URL. HttpListener pode escutar em vários endereços na mesma porta, se o prefixo de URL for exclusivo.
    
-    O GUID extra existe para um caso avançado em que as réplicas secundárias também escutam solicitações de somente leitura. Quando esse for o caso, você deve certificar-se de que um novo endereço exclusivo é usado durante a transição do principal para o secundário para forçar os clientes a resolver o endereço novamente. '+' é usado como o endereço aqui, de modo que a réplica escute em todos os hosts disponíveis (IP, FQDN, localhost etc.) O código abaixo mostra um exemplo.
+    O GUID extra existe para um caso avançado em que as réplicas secundárias também escutam solicitações de somente leitura. Quando esse for o caso, você deve certificar-se de que um novo endereço exclusivo é usado durante a transição do principal para o secundário para forçar os clientes a resolver o endereço novamente. ' + ' é usado como o endereço aqui para que a réplica escute em todos os hosts disponíveis (IP, FQDN, localhost, etc.) O código a seguir mostra um exemplo.
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     A URL de escuta é dada ao HttpListener. A URL publicada é a URL que será publicada para o Serviço de Nomenclatura da Malha de Serviço, que é usado para descoberta de serviço. Os clientes pedirão esse endereço por meio desse serviço de descoberta. O endereço que os clientes obtêm precisa ter o IP ou o FQDN do nó real para se conectar. Por isso, você precisa substituir '+' pelo IP ou FQDN do nó conforme mostrado acima.
 9. A última etapa é adicionar a lógica de processamento ao serviço, conforme mostrado abaixo.
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -249,7 +238,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     ```
 13. Você precisa retornar uma coleção de ServiceInstanceListeners na classe Web. Novamente, você pode optar por implementar um HttpCommunicationListener simples.
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     ```
 14. Agora você precisa implementar a lógica de processamento. O HttpCommunicationListener chama `ProcessInputRequest` quando chega uma solicitação. Vamos prosseguir e adicionar o código a abaixo.
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     
     Vamos ver o passo a passo. O código lê a primeira letra do parâmetro da cadeia de caracteres de consulta `lastname` dentro de um char. Isso determina a chave de partição para essa letra, subtraindo o valor hexadecimal de `A` do valor hexadecimal da primeira letra do último nome.
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Uma vez que queremos literalmente ter uma partição por letra, podemos usar 0 c
     Lembre-se de que, neste exemplo, estamos usando 26 partições com uma chave de partição por partição.
     Em seguida, obtemos a partição de serviço `partition` para essa chave usando o método `ResolveAsync` no objeto `servicePartitionResolver`. `servicePartitionResolver` é definido como
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     O método `ResolveAsync` usa o URI do serviço, a chave da partição e um token de cancelamento como parâmetros. O URI do serviço para o serviço de processamento é `fabric:/AlphabetPartitions/Processing`. Em seguida, obtemos o ponto de extremidade da partição.
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     Por fim, criamos a URL do ponto de extremidade mais a querystring e chamamos o serviço de processamento.
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     
@@ -363,7 +352,7 @@ O código-fonte completo do exemplo está disponível no [GitHub](https://github
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e subprocessos de bifurcação de ator
 O Service Fabric não dá suporte a serviços confiáveis e, subsequentemente, a subprocessos confiáveis de bifurcação de atores. Um exemplo do motivo pelo qual não há suporte para ele é o fato de que [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) não pode ser usado para registrar um subprocesso sem suporte e que tokens de cancelamento são enviados somente para processos registrados, resultando em diversos tipos de problemas, como falhas de atualização, quando os subprocessos não são fechados depois que o processo pai recebe um token de cancelamento. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter informações sobre os conceitos de malha do serviço, consulte:
 
 * [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)

@@ -4,15 +4,15 @@ description: Este artigo descreve as diferentes tarefas de gerenciamento que nor
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7e9725c2a33bd63b7ce6751f346da17eb68fe6f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364757"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciar e manter o agente de Log Analytics para o Windows e Linux
 
@@ -58,7 +58,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 4. Na caixa de diálogo **Microsoft Monitoring Agent configuração** , clique em **concordo** para aceitar o contrato de licença.
 
-5. Na caixa de diálogo **Microsoft Monitoring Agent instalação** , clique em **Atualizar**. A página de status exibe o progresso da atualização.
+5. Na caixa de diálogo **Configuração do Agente de Monitoramento da Microsoft** , clique em **Atualizar**. A página de status exibe o progresso da atualização.
 
 6. Quando a **configuração de Microsoft Monitoring Agent foi concluída com êxito.** aparecerá, clique em **concluir**.
 
@@ -68,7 +68,7 @@ Você pode baixar a versão mais recente do agente do Windows do seu espaço de 
 
 2. Para extrair os arquivos de instalação do agente de um prompt de comando com privilégios elevados, execute `MMASetup-<platform>.exe /c` e será solicitado que você especifique o caminho para extrair os arquivos. Como alternativa, você poderá especificar o caminho ao passar os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
-3. Execute o comando a seguir, em que D:\ é o local para o arquivo de log de atualização.
+3. Execute o seguinte comando, em que D:\ é o local para o arquivo de log de atualização.
 
     ```dos
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1
@@ -91,7 +91,7 @@ As etapas nesta seção são necessárias quando você deseja não apenas reconf
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Abra o **Painel de controle**.
+2. Abra o **Painel de Controle**.
 
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Azure Log Analytics**.
 
@@ -174,7 +174,7 @@ Para configurar o agente para se comunicar com o serviço por meio de um servido
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Abra o **Painel de controle**.
+2. Abra o **Painel de Controle**.
 
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Configurações de proxy**.
 
@@ -263,7 +263,7 @@ Execute as seguintes etapas para configurar o agente do Log Analytics para Windo
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Abra o **Painel de controle**.
+2. Abra o **Painel de Controle**.
 
 3. Abra o **Microsoft Monitoring Agent** e clique na guia **Operations Manager**.
 

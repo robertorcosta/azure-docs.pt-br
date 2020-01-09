@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 66f0e0cd2bd09e22260574992f92f7210bd6aa51
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428717"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chamar ou disparar aplicativos lógicos usando o Azure Functions e o barramento de serviço do Azure
 
@@ -19,7 +19,7 @@ Você pode usar [Azure Functions](../azure-functions/functions-overview.md) para
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Um namespace do barramento de serviço do Azure. Se você não tiver um namespace, [primeiro crie seu namespace](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -125,7 +125,7 @@ Em seguida, crie a função que atuará como o gatilho e escutará a fila.
 
    Este exemplo usa o [método`Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) no modo [assíncrono](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) . Para obter mais informações, consulte [programação assíncrona com Async e Await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;

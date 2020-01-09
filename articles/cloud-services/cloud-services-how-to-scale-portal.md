@@ -2,17 +2,17 @@
 title: Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Docs
 description: Saiba como usar o portal para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360830"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
 
@@ -26,7 +26,7 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 
 * A colocação em escala é afetada pelo uso de núcleo.
 
-    As instâncias de função maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, digamos que sua assinatura tenha um limite de 20 núcleos. Ao executar um aplicativo com dois serviços de nuvem de tamanho médio (um total de quatro núcleos), você poderá escalar verticalmente outras implantações de serviço de nuvem na sua assinatura pelos 16 núcleos restantes. Para saber mais sobre tamanhos, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md).
+    As instâncias de função maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, digamos que sua assinatura tenha um limite de 20 núcleos. Ao executar um aplicativo com dois serviços de nuvem de tamanho médio (um total de quatro núcleos), você poderá escalar verticalmente outras implantações de serviço de nuvem na sua assinatura pelos 16 núcleos restantes. Para saber mais sobre os tamanhos, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md).
 
 * Você pode dimensionar com base em um limite de mensagens da fila. Para obter mais informações sobre como usar as filas, confira [Como usar o serviço de Armazenamento de Filas](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
@@ -41,7 +41,7 @@ Você deve considerar as seguintes informações antes de configurar a colocaç�
 Após selecionar o serviço de nuvem, a folha de serviço de nuvem deverá estar visível.
 
 1. Na folha de serviço de nuvem, no bloco **Funções e Instâncias** , selecione o nome do serviço de nuvem.   
-   **IMPORTANTE**: Certifique-se de clicar na função serviço de nuvem, não na instância de função que está abaixo da função.
+   **IMPORTANTE**: certifique-se de clicar na função de serviço de nuvem, não na instância de função que está abaixo da função.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecione o bloco **escala** .
@@ -66,7 +66,7 @@ Depois de configurar o perfil e as regras, selecione o ícone **Salvar** na part
 #### <a name="profile"></a>Perfil
 O perfil define as instâncias mínimas e máximas da escala, e também quando esse intervalo de escala estará ativo.
 
-* **Sempre**
+* **Always**
 
     Sempre mantenha esse intervalo de instâncias disponível.  
 
@@ -105,3 +105,6 @@ Essa configuração remove o dimensionamento automático da função. Em seguida
 3. Instâncias da função para dimensionar.
 
 Depois de definir as configurações de escala, selecione o ícone **Salvar** na parte superior.
+
+
+

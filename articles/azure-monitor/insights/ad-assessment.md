@@ -4,15 +4,15 @@ description: É possível usar a solução Verificação de Integridade do Activ
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: bdc84a9213bd98981040775d3fec90f45edac54f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f0de484d58085f598988589d18495c9a6fe1b374
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406128"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Azure Monitor
 
@@ -36,7 +36,7 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de integridade Active Directory requer uma versão com suporte do .NET Framework 4.5.2 ou superior instalada em cada computador que tenha o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
+* A solução de verificação de integridade Active Directory requer uma versão com suporte do .NET Framework 4.6.2 ou superior instalada em cada computador que tenha o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
 * A solução oferece suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e 2012 R2 e o Windows Server 2016.
 * Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure. Não há nenhuma configuração adicional necessária.
 
@@ -101,7 +101,7 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da verificação da integridade
+## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
 
 Após a instalação, é possível exibir o resumo das recomendações usando o bloco Verificação de Integridade do Active Directory na página de solução no Portal do Azure.
 

@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 450f40c8ba49028d99143d7cf2b2995eb354f8fd
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928709"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551617"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -73,7 +73,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** sob o título de segurança no seu painel de servidor/banco de dados SQL.
 
-    <a id="auditing-screenshot"></a> ![Painel de navegação][1]
+    <a id="auditing-screenshot"></a>![painel de navegação][1]
 
 3. Se preferir configurar uma política de auditoria de servidor, selecione o link **Exibir configurações do servidor** na página de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados nesse servidor.
 
@@ -109,7 +109,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
     ![Hub de Eventos](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
 9. Clique em **Save** (Salvar).
-10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da API REST.
+10. Se quiser personalizar os eventos auditados, você poderá fazer isso por meio de [cmdlets do PowerShell](#subheading-7) ou da [API REST](#subheading-9).
 11. Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](sql-database-threat-detection-get-started.md).
 
 > [!IMPORTANT]
@@ -243,7 +243,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 - Ao usar a autenticação do AAD, falha logons registros serão *não* aparecem no log de auditoria do SQL. Para exibir logs de auditoria de logon com falha, você precisa visitar o [portal do Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra os detalhes desses eventos.
 
 
-## <a id="subheading-7"></a>Gerenciar a auditoria do Banco de Dados SQL usando o Azure PowerShell
+## <a id="subheading-7"></a>Gerenciar a auditoria de banco de dados e SQL Server do Azure usando Azure PowerShell
 
 **Cmdlets do PowerShell (incluindo suporte para a cláusula WHERE da filtragem adicional)** :
 
@@ -256,7 +256,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 Para obter um exemplo de script, confira [Configurar a auditoria e a detecção de ameaças usando o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Gerenciar a auditoria do banco de dados SQL usando a API REST
+## <a id="subheading-8"></a>Gerenciar a auditoria de banco de dados e SQL Server do Azure usando a API REST
 
 **API REST**:
 
@@ -272,7 +272,7 @@ Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 - [Obter política de auditoria *estendida* do banco de dados](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obter política de auditoria *estendida* do servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gerenciar a auditoria do banco de dados SQL usando modelos de Azure Resource Manager
+## <a id="subheading-9"></a>Gerenciar a auditoria de banco de dados e SQL Server do Azure usando modelos de Azure Resource Manager
 
 Você pode gerenciar a auditoria de banco de dados SQL do Azure usando os modelos do[ Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), de acordo com estes exemplos:
 
@@ -289,10 +289,9 @@ Você pode gerenciar a auditoria de banco de dados SQL do Azure usando os modelo
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

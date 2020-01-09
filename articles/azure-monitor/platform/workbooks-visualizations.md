@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394480"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor visualizações da pasta de trabalho
 
@@ -60,7 +60,7 @@ As pastas de trabalho dão suporte a gráficos para logs e fontes de dados de m�
 
 #### <a name="log-chart-parameters"></a>Parâmetros do gráfico de log
 
-| . | Explicação | Exemplo |
+| Parâmetro | Explicação | Exemplo |
 | ------------- |:-------------|:-------------|
 | `Query Type` | O tipo de consulta a ser usado | Log, grafo de recursos do Azure, etc. |
 | `Resource Type` | O tipo de recurso para o destino | Application Insights, Log Analytics ou Azure-First |
@@ -83,7 +83,7 @@ As pastas de trabalho dão suporte a gráficos para logs e fontes de dados de m�
 
 #### <a name="metric-chart-parameters"></a>Parâmetros do gráfico de métrica
 
-| . | Explicação | Exemplo |
+| Parâmetro | Explicação | Exemplo |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | O tipo de recurso para o destino | Armazenamento ou máquina virtual. |
 | `Resources` | Um conjunto de recursos dos quais obter o valor de métricas | MyStorage1 |

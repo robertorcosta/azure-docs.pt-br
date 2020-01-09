@@ -1,24 +1,14 @@
 ---
 title: Criar uma regra do Azure Load Balancer para um cluster
 description: Configure um Azure Load Balancer para abrir portas para seu cluster do Azure Service Fabric.
-services: service-fabric
-documentationcenter: na
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 2e730ae8ecf6f1fab12aff23cab0ac3aa246233a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173355"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351473"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um cluster do Service Fabric
 
@@ -44,7 +34,7 @@ Para criar uma regra de balanceador de carga, você precisa coletar as seguintes
 - Porta externa.
 - Porta interna.
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 É preciso apenas um único comando para criar uma regra de balanceador de carga com a **CLI do Azure**. Você só precisa saber o nome do balanceador de carga e do grupo de recursos para criar uma nova regra.
 
 >[!NOTE]
@@ -60,7 +50,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte tabela:
 
-| Parâmetro | Descrição |
+| Parâmetro | Description |
 | --------- | ----------- |
 | `--backend-port`  | A porta em que o aplicativo do Service Fabric está escutando. |
 | `--frontend-port` | A porta que o balanceador de carga expõe para conexões externas. |
@@ -108,6 +98,6 @@ Em relação ao comando `New-AzLoadBalancerRuleConfig`, o `-FrontendPort` repres
 >[!NOTE]
 >Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [rede no Service Fabric](service-fabric-patterns-networking.md).

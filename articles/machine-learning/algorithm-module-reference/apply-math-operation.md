@@ -1,7 +1,7 @@
 ---
 title: Aplicar operação matemática
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo aplicar operação matemática no serviço Azure Machine Learning para aplicar uma operação matemática a valores de coluna em um pipeline.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo aplicar operação matemática em Azure Machine Learning para aplicar uma operação matemática a valores de coluna em um pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428602"
 ---
 # <a name="apply-math-operation"></a>Aplicar operação matemática
 
@@ -32,7 +32,7 @@ Depois de definir uma operação e executar o pipeline, os valores são adiciona
 
 Procure a operação que você precisa nessas categorias:  
 
-- [Básico](#basic-math-operations)  
+- [Basic](#basic-math-operations)  
   
      As funções na categoria **básica** podem ser usadas para manipular um único valor ou coluna de valores. Por exemplo, você pode obter o valor absoluto de todos os números em uma coluna ou calcular a raiz quadrada de cada valor em uma coluna.  
   
@@ -72,7 +72,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
 1.  Selecione uma ou mais colunas de origem nas quais executar o cálculo.   
   
     - Qualquer coluna escolhida deve ser um tipo de dados numérico. 
-    - O intervalo de dados deve ser válido para a operação matemática selecionada. Caso contrário, pode ocorrer um erro ou um resultado NaN (não um número). Por exemplo, ln (-1,0) é uma operação inválida e resulta em um valor de `NaN`.
+    - O intervalo de dados deve ser válido para a operação matemática selecionada. Caso contrário, poderá ocorrer um erro ou o resultado NaN (não um número). Por exemplo, ln (-1,0) é uma operação inválida e resulta em um valor de `NaN`.
   
 1.  Clique em **categoria** para selecionar o **tipo** de operação matemática a ser executada.
     
@@ -82,7 +82,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
   
 1.  Use a opção **modo de saída** para indicar como você deseja que a operação matemática seja gerada: 
 
-    - **Acrescentar**. Todas as colunas usadas como entradas são incluídas no conjunto de informações de saída, mais uma coluna adicional é anexada que contém os resultados da operação matemática.
+    - **Append**. Todas as colunas usadas como entradas são incluídas no conjunto de informações de saída, mais uma coluna adicional é anexada que contém os resultados da operação matemática.
     - **Inplace**. Os valores nas colunas usadas como entradas são substituídos pelos novos valores calculados. 
     - **ResultOnly**. Uma única coluna é retornada contendo os resultados da operação matemática.
   
@@ -92,7 +92,7 @@ Cada instância desse módulo pode executar apenas um tipo de operação de cada
 
 Se você gerar os resultados usando as opções **Append** ou **ResultOnly** , os cabeçalhos de coluna do conjunto de resultados retornado indicarão a operação e as colunas que foram usadas. Por exemplo, se você comparar duas colunas usando o operador **Equals** , os resultados teriam a seguinte aparência:  
   
--   **Equals (Col2_Col1)** , indicando que você testou o Col2 em relação a col1.  
+-   **Equals (Col2_Col1)** , indicando que você testou Col2 em col1.  
 -   **Equals (Col2_ $10)** , indicando que você comparou a coluna 2 com a constante 10.  
 
 Mesmo que você use a opção de **local** , os dados de origem não são excluídos ou alterados; a coluna no DataSet original ainda está disponível no designer. Para exibir os dados originais, você pode conectar o módulo [adicionar colunas](add-columns.md) e associá-lo à saída de **aplicar operação matemática**.  
@@ -103,7 +103,7 @@ As funções na categoria **básica** geralmente usam um único valor de uma col
   
  O Azure Machine Learning dá suporte às seguintes funções na categoria **básica** :  
 
-### <a name="abs"></a>ABS
+### <a name="abs"></a>Abs
 
 Retorna o valor absoluto das colunas selecionadas.  
   
@@ -113,7 +113,7 @@ Retorna uma tangente inversa de quatro quadrantes.
 
 Selecione as colunas que contêm as coordenadas de ponto. Para o segundo argumento, que corresponde à coordenada x, você também pode especificar uma constante.  
 
-Corresponde à função ATAN2 no MATLAB.  
+Corresponde à função ATAN2 no Matlab.  
 
 ### <a name="conj"></a>Conj
 
@@ -126,9 +126,9 @@ Calcula a raiz do cubo para os valores na coluna selecionada.
 ### <a name="doublefactorial"></a>DoubleFactorial  
  Calcula o fatorial duplo para valores na coluna selecionada. O fatorial duplo é uma extensão da função fatorial normal e é indicado como x!!.  
 
-### <a name="eps"></a>PostScript
+### <a name="eps"></a>Eps
 
-Retorna o tamanho da lacuna entre o valor atual e o número mais alto, de precisão dupla. Corresponde à função EPS no MATLAB.  
+Retorna o tamanho do espaço entre o valor atual e o próximo número mais alto de precisão dupla. Corresponde à função EPS no Matlab.  
   
 ### <a name="exp"></a>Exp
 
@@ -162,7 +162,7 @@ Retorna o logaritmo natural dos valores na coluna selecionada.
 
 Retorna o logaritmo natural mais um para os valores na coluna selecionada.  
 
-### <a name="log"></a>Registro
+### <a name="log"></a>Log
 
 Retorna o log dos valores na coluna selecionada, dada a base especificada.  
 
@@ -192,7 +192,7 @@ Primeiro, selecione as colunas que contêm a **base**, que deve ser um float, us
 
 No **segundo tipo de argumento**, selecione a coluna que contém o expoente ou especifique uma constante a ser usada como expoente.  
 
-Se o segundo argumento for uma coluna, cada valor na coluna será usado como o expoente para a linha correspondente. Se o segundo argumento for uma constante, digite o valor para o expoente na caixa de texto do **segundo argumento** .  
+Se o segundo argumento é uma coluna, cada valor na coluna é usado como o exponente para a linha correspondente. Se o segundo argumento for uma constante, digite o valor para o expoente na caixa de texto do **segundo argumento** .  
 
 ### <a name="sqrt"></a>Sqrt
 
@@ -206,14 +206,14 @@ Para cada valor na coluna selecionada, multiplica o valor por PI e, em seguida, 
 
 Quadrados os valores na coluna selecionada.  
 
-## <a name="comparison-operations"></a>Operações de comparação  
+## <a name="comparison-operations"></a>Operadores de comparação  
 
 Use as funções de comparação no Azure Machine Learning designer a qualquer momento que você precisar testar dois conjuntos de valores entre si. Por exemplo, em um pipeline, talvez seja necessário fazer essas operações de comparação:  
 
 - Avaliar uma coluna do modelo de Pontuação de probabilidade em relação a um valor limite.
 - Determine se dois conjuntos de resultados são os mesmos. Para cada linha diferente, adicione um sinalizador falso que pode ser usado para processamento adicional ou filtragem.  
 
-### <a name="equalto"></a>Igual a
+### <a name="equalto"></a>EqualTo
 
 Retornará true se os valores forem iguais.  
 
@@ -233,7 +233,7 @@ Retornará true se os valores no **conjunto de colunas** forem menores que a con
 
 Retornará true se os valores no **conjunto de colunas** forem menores ou iguais à constante especificada, ou menor ou igual aos valores correspondentes na coluna de comparação.  
 
-### <a name="notequalto"></a>Não igual a
+### <a name="notequalto"></a>NotEqualTo
 
 Retornará true se os valores na **coluna definida** não forem iguais à constante ou à coluna de comparação e retornará false se forem iguais.  
 
@@ -245,20 +245,20 @@ Retorna o valor maior — o valor em **coluna definida** ou o valor na coluna co
 
 Retorna o valor menor — o valor em **coluna definida** ou o valor na coluna constante ou comparação  
   
-##  <a name="arithmetic-operations"></a>Operações aritméticas   
+##  <a name="arithmetic-operations"></a>Operadores aritméticos   
 
 Inclui as operações aritméticas básicas: adição e subtração, divisão e multiplicação.  Como a maioria das operações é binária, exigindo dois números, você primeiro escolhe a operação e, em seguida, escolhe a coluna ou os números a serem usados no primeiro e segundo argumentos.
 
 A ordem na qual você escolhe as colunas para divisão e subtração pode parecer muito intuitiva; no entanto, para facilitar a compreensão dos resultados, o título da coluna fornece o nome da operação e a ordem na qual as colunas foram usadas.
 
-Operação|Num1|Num2|Coluna de resultado|Valor do resultado|
+Operação|Núm1|Núm2|Coluna de resultado|Valor do resultado|
 ----|----|----|----|----
 |Adição|1|5|Adicionar (Num2_Num1)| 4|
-|Multiplicação|1|5|Multiple (Num2_Num1)|5|
+|Multiplicação|1|5|Vários (Num2_Num1)|5|
 |Subtração|1|5|Subtrair (Num2_Num1)|4|
 |Subtração|0|1|Subtrair (Num2_Num1)|0|
 |Divisão|1|5|Dividir (Num2_Num1)|5|
-|Divisão|0|1|Dividir (Num2_Num1)|Infinito|
+|Divisão|0|1|Dividir (Num2_Num1)|Infinity|
 
 ### <a name="add"></a>Adicionar
 
@@ -286,7 +286,7 @@ O designer de Azure Machine Learning dá suporte a uma variedade de operações 
 
 - Para usar um valor de precisão diferente para cada linha em seu conjunto de linhas, defina **tipo de precisão** como **ColumnSet**e escolha a coluna que contém os valores de precisão apropriados.  
 
-### <a name="ceiling"></a>Limite
+### <a name="ceiling"></a>Ceiling
 
 Retorna o teto para os valores na **coluna definida**.  
 
@@ -298,7 +298,7 @@ Retorna o teto quadrado para os valores na **coluna definida**.
 
 Retorna o piso para os valores na **coluna definida**, para a precisão especificada.  
 
-### <a name="mod"></a>resto
+### <a name="mod"></a>Mod
 
 Retorna a parte fracionária dos valores na **coluna definida**para a precisão especificada.  
 
@@ -306,7 +306,7 @@ Retorna a parte fracionária dos valores na **coluna definida**para a precisão 
 
 Retorna a parte fracionária dos valores na **coluna definida**para a precisão especificada.  
 
-### <a name="remainder"></a>Final
+### <a name="remainder"></a>Restante
 
 Retorna o resto dos valores na **coluna definida**.  
 
@@ -322,7 +322,7 @@ Retorna os valores na **coluna definida**, arredondados para baixo até o númer
 
 Retorna os valores na **coluna definida**, arredondado para cima até o número especificado de dígitos.  
 
-### <a name="toeven"></a>Até mesmo
+### <a name="toeven"></a>ToEven
 
 Retorna os valores na **coluna definida**, arredondados para o número inteiro mais próximo, par.  
 
@@ -330,7 +330,7 @@ Retorna os valores na **coluna definida**, arredondados para o número inteiro m
 
 Retorna os valores na **coluna definida**, arredondado para o número ímpar mais próximo, o inteiro.  
 
-### <a name="truncate"></a>Truncar
+### <a name="truncate"></a>Truncate
 
 Trunca os valores na **coluna definida** removendo todos os dígitos não permitidos pela precisão especificada.  
   
@@ -348,15 +348,15 @@ Retorna o valor do integral elíptica incompleto.
 
 ### <a name="ellipticintegralk"></a>EllipticIntegralK
 
-Retorna o valor do integral elíptica completo (K).  
+Retorna o valor da integral elíptica completa (K).  
 
-### <a name="erf"></a>ERF
+### <a name="erf"></a>Erf
 
-Retorna o valor da função Error.  
+Retorna o valor da função de erro.  
 
-A função Error (também chamada de função de erro magnetizar) é uma função especial da forma sigmoide que é usada na probabilidade de descrever a difusão.  
+A função de erro (também chamada de função de erro Gauss) é uma função especial de forma sigmoide que é usada na probabilidade para descrever a difusão.  
 
-### <a name="erfc"></a>ERFC
+### <a name="erfc"></a>Erfc
 
 Retorna o valor da função de erro complementar.  
 
@@ -366,11 +366,11 @@ ERFC é definido como 1 – ERF (x).
 
 Retorna o valor da função de erro dimensionada.  
 
-A versão dimensionada da função Error pode ser usada para evitar o estouro negativo.  
+Uma versão dimensionada da função de erro pode ser usada para evitar estouro aritmético.  
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Retorna o valor da função de ERF inversa.  
+Retorna o valor da função erf inversa.  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 
@@ -380,43 +380,43 @@ Retorna o valor da Ei integral exponencial.
 
 Retorna o valor da função gama.  
 
-### <a name="gammaln"></a>LNGAMA
+### <a name="gammaln"></a>GammaLn
 
 Retorna o logaritmo natural da função gama.  
 
 ### <a name="gammaregularizedp"></a>GammaRegularizedP
 
-Retorna o valor da função gama incompleta regular.  
+Retorna o valor da função gama incompleta regularizada.  
 
 Essa função usa um segundo argumento, que pode ser fornecido como uma constante ou uma coluna de valores.  
 
 ### <a name="gammaregularizedpinverse"></a>GammaRegularizedPInverse
 
-Retorna o valor da função gama incompleta regularmente invertida.  
+Retorna o valor da função gama incompleta regularizada inversa.  
 
 Essa função usa um segundo argumento, que pode ser fornecido como uma constante ou uma coluna de valores.  
 
 ### <a name="gammaregularizedq"></a>GammaRegularizedQ  
 
-Retorna o valor da função gama incompleta regular.  
+Retorna o valor da função gama incompleta regularizada.  
 
 Essa função usa um segundo argumento, que pode ser fornecido como uma constante ou uma coluna de valores.  
 
 ### <a name="gammaregularizedqinverse"></a>GammaRegularizedQInverse
 
-Retorna o valor da função gama incompleta regularização invertida generalizada.
+Retorna o valor da função gama incompleta regularizada generalizada inversa.
 
 Essa função usa um segundo argumento, que pode ser fornecido como uma constante ou uma coluna de valores.  
 
-### <a name="polygamma"></a>Poligama
+### <a name="polygamma"></a>PolyGamma
 
-Retorna o valor da função de poligama.  
+Retorna o valor da função poligama.  
 
 Essa função usa um segundo argumento, que pode ser fornecido como uma constante ou uma coluna de valores.
 
 ##  <a name="trigonometric-functions"></a>Funções trigonométricas 
 
-Essa categoria iIncludes a maioria das funções trigonométricas trigonométricas e inversas importantes. Todas as funções trigonométricas são unários e não exigem argumentos adicionais.  
+Essa categoria iIncludes a maioria das funções trigonométricas trigonométricas e inversas importantes. Todas as funções trigonométricas são unárias e não requerem nenhum argumento adicional.  
 
 ### <a name="acos"></a>Acos
 
@@ -430,7 +430,7 @@ Calcula o arco cosseno dos valores de coluna, em graus.
 
 Calcula o arco cosseno hiperbólico dos valores de coluna.  
 
-### <a name="acot"></a>ACOT
+### <a name="acot"></a>Acot
 
 Calcula o arco cotangente dos valores da coluna.  
 
@@ -461,7 +461,7 @@ Calcula o arcosecante dos valores de coluna, em graus.
 
 Calcula o arcosecante hiperbólico dos valores de coluna.  
 
-### <a name="asin"></a>ASIN
+### <a name="asin"></a>Asin
 
 Calcula o arco seno dos valores da coluna.  
 
@@ -473,7 +473,7 @@ Calcula o arco seno dos valores de coluna, em graus.
 
 Calcula o arco seno hiperbólico para os valores de coluna.  
 
-### <a name="atan"></a>ATAN
+### <a name="atan"></a>Atan
 
 Calcula o arco tangente dos valores de coluna.  
 
@@ -485,7 +485,7 @@ Calcula o arco tangente dos valores de coluna, em graus.
 
 Calcula o arco tangente hiperbólico dos valores de coluna.  
 
-### <a name="cos"></a>Exibi
+### <a name="cos"></a>Cos
 
 Calcula o cosseno dos valores de coluna.  
 
@@ -508,7 +508,7 @@ Calcula a cotangente para os valores de coluna, em graus.
 ### <a name="coth"></a>Coth
 Calcula a cotangente hiperbólica para os valores de coluna.  
 
-### <a name="csc"></a>CSC
+### <a name="csc"></a>Csc
 
 Calcula a cossecante para os valores de coluna.  
 
@@ -524,7 +524,7 @@ Calcula a cossecante hiperbólica para os valores de coluna.
 
 Converte graus em radianos.  
 
-### <a name="sec"></a>Seção
+### <a name="sec"></a>Sec
 
 Calcula a secante dos valores da coluna.  
 
@@ -556,7 +556,7 @@ Calcula o seno para os valores de coluna, em graus.
 
 Calcula o seno hiperbólico dos valores de coluna.  
 
-### <a name="tan"></a>queimado
+### <a name="tan"></a>Tan
 
 Calcula a tangente dos valores da coluna.  
 
@@ -574,7 +574,7 @@ Tenha cuidado ao selecionar mais de uma coluna como o segundo operador. Os resul
 
 Suponha que o conjunto de seus conjuntos de linhas tenha várias colunas e você adicione o conjunto de um a ele mesmo. Nos resultados, cada coluna é adicionada a si mesma, da seguinte maneira:  
   
-|Num1|Num2|Num3|Adicionar (Num1_Num1)|Adicionar (Num2_Num2)|Adicionar (Num3_Num3)|
+|Núm1|Núm2|Num3|Adicionar (Num1_Num1)|Adicionar (Num2_Num2)|Adicionar (Num3_Num3)|
 |----|----|----|----|----|----|
 |1|5|2|2|10|4|
 |2|3|-1|4|6|-2|
@@ -588,6 +588,6 @@ Como alternativa, use um dos seguintes módulos para fazer todos os cálculos de
 + [Executar script Python](execute-python-script.md)
 + [Aplicar transformação SQL](apply-sql-transformation.md)   
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

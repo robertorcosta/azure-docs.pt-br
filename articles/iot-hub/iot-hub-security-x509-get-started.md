@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824079"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457014"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança de X.509 em seu Hub IoT do Azure
 
@@ -99,7 +99,7 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
 1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
 
-    ```CSharp
+    ```csharp
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using System.Security.Cryptography.X509Certificates;
@@ -107,7 +107,7 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
 1. Adicione os seguintes campos à classe **programa** :
 
-    ```CSharp
+    ```csharp
         private static int MESSAGE_COUNT = 5;
         private const int TEMPERATURE_THRESHOLD = 30;
         private static String deviceId = "<your-device-id>";
@@ -120,7 +120,7 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
 1. Adicione a função a seguir para criar números aleatórios de temperatura e umidade e envie esses valores para o hub:
 
-    ```CSharp
+    ```csharp
     static async Task SendEvent(DeviceClient deviceClient)
     {
         string dataBuffer;
@@ -142,7 +142,7 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
 1. Por fim, adicione as linhas de código a seguir à função **principal** , substituindo os espaços reservados _Device-ID_, _seu-IOT-Hub-Name_e o _caminho absoluto-para-seu-Device-pfx-File_ conforme exigido pela sua instalação.
 
-    ```CSharp
+    ```csharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
@@ -183,7 +183,7 @@ Em seguida, mostraremos como criar um aplicativo C# para simular o dispositivo X
 
    ![Executar aplicativo de dispositivo](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como proteger sua solução IoT, confira:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479377"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530945"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -47,9 +47,9 @@ As soluções de segurança do Azure implantadas da Central de Segurança serão
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gerenciar soluções de segurança integrada do Azure e outras fontes de dados
 
-1. Entre no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Entre no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
-2. No menu **Microsoft Azure**, selecione **Central de Segurança**. A **Central de Segurança – Visão geral** é aberta.
+2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
 
 3. No menu da Central de Segurança, selecione **Soluções de segurança**.
 
@@ -135,7 +135,7 @@ Consulte o artigo [fluxo de atividades do Stream a seguir para os hubs de evento
 
 Rotear dados de monitoramento para um Hub de Eventos com o Azure Monitor permite fácil integração com as ferramentas de monitoramento e o SIEM de parceiro.
 
-Consulte o seguinte artigo para obter a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
+Consulte o seguinte artigo para obter a lista de [Siems com suporte](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub)
 
 ### <a name="example-for-querying-data"></a>Exemplo de consulta de dados 
 
@@ -148,7 +148,7 @@ Aqui estão algumas consultas Splunk que você pode usar para efetuar pull de da
 | Obter informações de alertas: hora, nome, estado, ID e assinatura | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a integrar as soluções de parceiro à Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
 

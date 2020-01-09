@@ -1,18 +1,18 @@
 ---
-title: Recursos de renderização - Lote do Azure
-description: Como usar os recursos de renderização de Lote do Azure
+title: Usando funcionalidades de renderização-lote do Azure
+description: Como usar os recursos de renderização do lote do Azure. Tente usar o aplicativo Batch Explorer, seja diretamente ou invocado de um plug-in de aplicativo cliente.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dff44f0b5b4b02c39c4c63f23ff64d55ca9d833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d181b9b2495ebd106bb068b78131fa90c2f6d62c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449676"
 ---
 # <a name="using-azure-batch-rendering"></a>Usar a renderização de Lote do Azure
 
@@ -32,7 +32,7 @@ Há várias maneiras de usar a renderização de Lote do Azure:
 
 A melhor forma de experimentar o Lote do Azure e a maneira mais simples para os usuários finais, que não são desenvolvedores e nem especialistas do Azure, é usar o aplicativo Batch Explorer diretamente ou invocando a partir de um plug-in de aplicativo cliente.
 
-## <a name="using-batch-explorer"></a>Usar o Batch Explorer
+## <a name="using-batch-explorer"></a>Usando o Explorador do Lote
 
 Para um tutorial passo a passo para usar o Batch Explorer para executar a renderização, consulte o [tutorial do Blender](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
 
@@ -62,7 +62,7 @@ Plug-ins estão disponíveis para alguns dos aplicativos clientes.  Os plug-ins 
 * [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
 * [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para exemplos de renderização de Lote, experimente os dois tutoriais:
 

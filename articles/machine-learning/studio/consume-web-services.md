@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 1a567e8f910ccf539038a19eef0319f21833f336
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a53128605e1f124cbd26fb679e799822b8abad29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454802"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Como consumir um serviço Web Azure Machine Learning Studio (clássico)
 
@@ -29,10 +29,10 @@ Você pode encontrar mais informações sobre como criar e implantar um serviço
 
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Com o serviço Web do Azure Machine Learning, um aplicativo externo se comunica com um modelo de pontuação do fluxo de trabalho do Machine Learning em tempo real. Uma chamada do serviço Web do Machine Learning retorna resultados de previsão para um aplicativo externo. Para fazer uma chamada de serviço Web do Machine Learning, transmita uma chave de API que é criada quando você implanta uma previsão. O serviço Web do Machine Learning baseia-se em REST, uma opção popular de arquitetura para projetos de programação da Web.
 
-A versão clássica do Azure Machine Learning Studio tem dois tipos de serviços:
+Azure Machine Learning Studio (clássico) tem dois tipos de serviços:
 
 * RRS (serviço de solicitação-resposta) – um serviço de baixa latência e altamente escalonável que fornece uma interface para os modelos sem estado criados e implantados a partir do Machine Learning Studio (clássico).
 * Serviço de Execução de Lote (BES) – Um serviço assíncrono que pontua um lote de registros de dados.
@@ -76,7 +76,7 @@ A ajuda da API do Machine Learning contém detalhes sobre um serviço Web de pre
 1. Clique no serviço Web com o qual está trabalhando.
 2. Clique no ponto de extremidade para o qual deseja exibir uma página de ajuda da API.
 3. No menu superior, clique em **Consumir**.
-4. Clique na **página de ajuda da API** nos pontos de extremidade Solicitação de Resposta ou Execução em Lote
+4. Clique na **página de ajuda da API** nos pontos de extremidade Solicitação de Resposta ou Execução em Lote.
 
 **Como exibir a ajuda da API do Machine Learning para um novo serviço Web**
 

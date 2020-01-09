@@ -1,6 +1,6 @@
 ---
-title: Proteger aplicativos de página única com o fluxo implícito da plataforma de identidade da Microsoft | Azure
-description: Criando aplicativos Web usando a implementação da plataforma de identidade da Microsoft do fluxo implícito para aplicativos de página única.
+title: Fluxo de concessão implícita do OAuth 2,0 – plataforma de identidade da Microsoft | Azure
+description: Proteger aplicativos de página única usando o fluxo implícito da plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8afae9535c190c05bca3153dfbe5279cd4c47968
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a73056914d08cc9c0c90b1c91cc67c18eaad86da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423236"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de concessão implícita
 
@@ -74,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Para testar a entrada usando o fluxo implícito, clique em <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Depois de entrar, seu navegador deve ser redirecionado para `https://localhost/myapp/` com um `id_token` na barra de endereços.
 >
 
-| . |  | Descrição |
+| Parâmetro |  | Description |
 | --- | --- | --- |
 | `tenant` | obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | obrigatório | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
@@ -104,7 +104,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| . | Descrição |
+| Parâmetro | Description |
 | --- | --- |
 | `access_token` |Incluído se `response_type` incluir `token`. O token de acesso que o aplicativo solicitou. O token de acesso não deve ser decodificado ou inspecionado de outra forma, ele deve ser tratado como uma cadeia de caracteres opaca. |
 | `token_type` |Incluído se `response_type` incluir `token`. Sempre será `Bearer`. |
@@ -123,7 +123,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| . | Descrição |
+| Parâmetro | Description |
 | --- | --- |
 | `error` |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
@@ -172,7 +172,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| . | Descrição |
+| Parâmetro | Description |
 | --- | --- |
 | `access_token` |Incluído se `response_type` incluir `token`. O token de acesso solicitado pelo aplicativo, nesse caso para o Microsoft Graph. O token de acesso não deve ser decodificado ou inspecionado de outra forma, ele deve ser tratado como uma cadeia de caracteres opaca. |
 | `token_type` | Sempre será `Bearer`. |
@@ -191,7 +191,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| . | Descrição |
+| Parâmetro | Description |
 | --- | --- |
 | `error` |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
@@ -210,7 +210,7 @@ O `end_session_endpoint` OpenID Connect permite que seu aplicativo envie uma sol
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| . |  | Descrição |
+| Parâmetro |  | Description |
 | --- | --- | --- |
 | `tenant` |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | recomendável | A URL para a qual o usuário deve retornar após a conclusão do logoff. Esse valor deve corresponder a um dos URIs de redirecionamento registrados no aplicativo. Se não estiver incluído, o usuário receberá uma mensagem genérica do ponto de extremidade da plataforma Microsoft Identity. |

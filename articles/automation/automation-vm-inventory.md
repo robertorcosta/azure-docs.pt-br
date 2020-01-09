@@ -2,20 +2,16 @@
 title: Gerenciar uma máquina virtual do Azure com a coleta de inventário | Microsoft Docs
 description: Gerenciar uma máquina virtual com a coleta de inventário
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: inventário, automação, alteração, acompanhamento
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61304061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419820"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
@@ -29,14 +25,14 @@ Este artigo pressupõe que você tem uma VM para configurar a solução. Se voc�
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Habilitar a coleta de inventário de página de recursos da máquina virtual
 
 1. No Portal do Azure, no painel esquerdo, selecione **Máquinas virtuais**.
 2. Na lista de máquinas virtuais, selecione uma máquina virtual.
 3. No menu **Recurso**, em **Operações**, selecione **Inventário**.
-4. Selecione um espaço de trabalho do Log Analytics para armazenar seus logs de dados.
+4. Selecione um espaço de trabalho Log Analytics para armazenar seus logs de dados.
     Se nenhum workspace estiver disponível para essa região, será solicitado que você crie uma conta de automação e um workspace padrão.
 5. Para iniciar a integração de seu computador, selecione **Habilitar**.
 
@@ -60,7 +56,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ### <a name="windows-registry"></a>Registro do Windows
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Description  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
@@ -69,21 +65,21 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ### <a name="windows-files"></a>Arquivos do Windows
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Description  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
-|Insira o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"
+|Inserir o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"
 
 ### <a name="linux-files"></a>Arquivos do Linux
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Description  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
-|Insira o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*.conf"       |
+|Inserir o Caminho     | O caminho para verificar o arquivo. Por exemplo: "/etc/*.conf"       |
 |Tipo de caminho     | Tipo de item a ser rastreado; possíveis valores são: Arquivo e Diretório        |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
@@ -91,7 +87,7 @@ As tabelas a seguir fornecem informações sobre cada propriedade que pode ser c
 
 ## <a name="manage-machine-groups"></a>Gerenciar grupos de computadores
 
-Inventário permite que você crie e exiba grupos de computadores nos logs do Azure Monitor. Grupos de computadores são coleções de computadores definidos por uma consulta nos logs do Azure Monitor.
+O inventário permite criar e exibir grupos de computadores em logs de Azure Monitor. Grupos de computadores são coleções de computadores definidos por uma consulta em logs de Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -118,13 +114,13 @@ Para remover sua máquina virtual do gerenciamento de inventário:
 3. Na lista, selecione a máquina virtual que você deseja desconectar. A máquina virtual tem uma marca de seleção verde ao lado de **Este workspace** na coluna **Conexão OMS**.
 
    >[!NOTE]
-   >OMS agora é chamado de logs do Azure Monitor.
+   >O OMS agora é conhecido como logs de Azure Monitor.
    
 4. Na parte superior da página seguinte, selecione **Desconectar**.
 5. Na janela de confirmação, selecione **Sim**.
     Essa ação desconecta a máquina do gerenciamento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o gerenciamento de alterações em configurações de arquivos e do Registro em suas máquinas virtuais, consulte [Controlar alterações de software em seu ambiente com a solução Controle de Alterações](../log-analytics/log-analytics-change-tracking.md).
 * Para saber mais sobre como gerenciar atualizações de pacote e do Windows para máquinas virtuais, consulte [A solução de Gerenciamento de Atualizações no Azure](../operations-management-suite/oms-solution-update-management.md).

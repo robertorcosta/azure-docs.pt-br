@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d032bf1241f355af110ee8f4da38ff4685bd2e3f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932288"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530044"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para o provisionamento de usuário do Azure AD (versão prévia)
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar dados de trabalho do SuccessFactors Employee central no Azure Active Directory, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../manage-apps/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central. 
@@ -165,7 +165,7 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do Succ
 
 6. Após adicionar o aplicativo e a tela de detalhes do aplicativo for exibida, selecione **Provisionamento**
 
-7. Altere o **Modo de** **Provisionamento** para **Automático**
+7. Alterar o **modo** de provisionamento para **automático**
 
 8. Conclua a seção **Credenciais de Administrador**, conforme a seguir:
 
@@ -176,8 +176,8 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do Succ
    * **URL do locatário –** Insira o nome do ponto de extremidade dos serviços de API OData do SuccessFactors. Insira apenas o nome do host do servidor sem http ou HTTPS. Esse valor deve ser semelhante a: **API-Server-Name.successfactors.com**.
 
    * **Email de notificação –** digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Clique no botão **Conexão de Teste**. Se o teste de conexão for bem-sucedido, clique no botão **Salvar** na parte superior. Se falhar, verifique se as credenciais e a URL do SuccessFactors são válidas.
     >[!div class="mx-imgBorder"]
@@ -223,7 +223,7 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
 1. Clique em um mapeamento de atributo existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior da tela para adicionar novos mapeamentos. Um mapeamento de atributo individual dá suporte para essas propriedades:
 
-      * **Tipo de mapeamento**
+      * **Tipo de Mapeamento**
 
          * **Direto** – grava o valor do atributo SuccessFactors para o atributo do AD, sem alterações
 
@@ -240,7 +240,7 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
 
       * **Corresponder objetos usando este atributo** – se este mapeamento deve ou não ser usado para identificar exclusivamente os usuários entre SuccessFactors e Active Directory. Esse valor é normalmente definido no campo ID de trabalho para SuccessFactors, que normalmente é mapeado para um dos atributos de ID de funcionário em Active Directory.
 
-      * **Precedência de correspondência** – Vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum outro atributo correspondente será avaliado.
+      * **Precedência de correspondência** – vários atributos de correspondência podem ser definidos. Quando houver múltiplos, os atributos serão avaliados na ordem definida por esse campo. Assim que uma correspondência for encontrada, nenhum outro atributo correspondente será avaliado.
 
       * **Aplicar esse mapeamento**
 

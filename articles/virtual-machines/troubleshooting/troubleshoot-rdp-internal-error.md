@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451217"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota
 
 Este artigo descreve um erro que você pode enfrentar ao tentar se conectar a uma VM (máquina virtual) do Windows no Microsoft Azure.
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -54,7 +54,7 @@ Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#r
 Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se o Console Serial não estiver habilitado na sua VM, vá até a seção [reparar a VM offline](#repair-the-vm-offline).
 
-#### <a name="step-1-check-the-rdp-port"></a>Etapa: 1: verificar a porta do RDP
+#### <a name="step-1-check-the-rdp-port"></a>Etapa 1: verificar a porta do RDP
 
 1. Em uma instância do PowerShell, use [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
 ) para verificar se a porta 8080 é usada por outros aplicativos:
@@ -86,7 +86,7 @@ Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-co
 
     3. [Atualize o grupo de segurança de rede para a nova porta](../../virtual-network/security-overview.md) na porta de RDP do portal do Azure.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Etapa 2: Definir as permissões corretas no certificado autoassinado RDP
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Etapa 2: definir as permissões corretas no certificado autoassinado RDP
 
 1.  Em uma instância do PowerShell, execute os comandos a seguir individualmente para renovar o certificado autoassinado do RDP:
 
@@ -135,7 +135,7 @@ Conectar-se ao [Console Serial e abrir uma instância do PowerShell](./serial-co
 
 4. Reinicie a VM, depois tente Iniciar uma conexão de Área de Trabalho Remota à VM. Se o erro ainda ocorrer, vá para a próxima etapa.
 
-Etapa 3: Habilitar todas as versões com suporte do TLS
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Etapa 3: habilitar todas as versões com suporte do TLS
 
 O cliente RDP usa o TLS 1.0 como o protocolo padrão. No entanto, ele pode ser alterado para TLS 1.1, que se tornou o novo padrão. Se o TLS 1.1 estiver desabilitado na VM, a conexão falhará.
 1.  Em uma instância CMD, habilite o protocolo TLS:
@@ -160,7 +160,7 @@ O cliente RDP usa o TLS 1.0 como o protocolo padrão. No entanto, ele pode ser a
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
-2. Depois que o disco do sistema operacional é anexado à VM de recuperação, verifique se o disco está sinalizado como **on-line** no console de gerenciamento de disco. Observe a letra da unidade atribuída ao disco de SO anexado.
+2. Depois que o disco do sistema operacional é anexado à VM de recuperação, verifique se o disco está sinalizado como **on-line** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
 3. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
 #### <a name="enable-dump-log-and-serial-console"></a>Habilitar o log de despejo e o Console Serial
@@ -263,7 +263,7 @@ Para habilitar o log de despejo e o Console Serial, execute o script a seguir.
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
-5.  [Desanexe o disco de SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md), depois verifique se o problema for resolvido.
+5.  [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md) e verifique se o problema foi resolvido.
 
 
 

@@ -1,53 +1,53 @@
 ---
-title: Visualize os dados do gráfico na API do Gremlin do Azure Cosmos DB
-description: Saiba como integrar dados de grafo do BD Cosmos do Azure com soluções de visualização (Linkurious Enterprise, Intelligence de Cambridge).
+title: Visualize os dados do grafo em Azure Cosmos DB API do Gremlin
+description: Saiba como integrar Azure Cosmos DB dados de grafo com soluções de visualização (Linkurious Enterprise, inteligência de Cambridge).
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.openlocfilehash: efe47cc5453a7259da37dcb3c33edcdfbea6d8c8
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1cabe57a0e7f2869a30973c8bbc8b4b38f664d81
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672632"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500030"
 ---
-# <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualizar dados gráficos armazenados na API do Gremlin do Azure Cosmos DB com soluções de visualização de dados
+# <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualizar dados de grafo armazenados em Azure Cosmos DB API Gremlin com soluções de visualização de dados
 
-Você pode visualizar os dados armazenados na API do Gremlin do Azure Cosmos DB por meio de várias soluções de visualização de dados. As soluções a seguir são recomendadas pela [Apache Tinkerpop comunidade](http://tinkerpop.apache.org/#poweredby) para visualização de dados do gráfico.
+Você pode visualizar os dados armazenados em Azure Cosmos DB API Gremlin usando várias soluções de visualização de dados. As soluções a seguir são recomendadas pela [comunidade do Apache Tinkerpop](https://tinkerpop.apache.org/#poweredby) para visualização de dados do Graph.
 
 ## <a name="linkurious-enterprise"></a>Linkurious Enterprise
 
-![Logotipo de Linkurious](./media/graph-visualization/linkurious-logo.jpg)
+![Logotipo do Linkurious](./media/graph-visualization/linkurious-logo.jpg)
 
-[Linkurious Enterprise](https://linkurio.us/product/) usa tecnologia e dados de visualização para transformar conjuntos de dados complexos em redes visual interativas do graph. A plataforma se conecta às fontes de dados e permite que os investigadores navegue sem interrupções em bilhões de entidades e relações. O resultado é uma nova capacidade de detectar relações suspeitas sem Malabarismo com consultas ou tabelas.
+O [Linkurious Enterprise](https://linkurio.us/product/) usa a tecnologia de grafo e a visualização de dados para transformar conjuntos complexos em redes visuais interativas. A plataforma se conecta às suas fontes de dados e permite que os investigadores naveguem diretamente entre bilhões de entidades e relações. O resultado é uma nova capacidade de detectar relações suspeitas sem fazer malabarismos com consultas ou tabelas.
 
-A interface interativa do Linkurious Enterprise oferece uma maneira fácil para investigar dados complexos. Você pode procurar entidades específicas, expanda conexões a fim de descobrir as relações ocultas e aplicar layouts de sua escolha para simplificar os redes complexas. Linkurious Enterprise agora é compatível com a API do Gremlin do Azure Cosmos DB. Ele é adequado para cenários de visualização de gráfico de ponta a ponta e dá suporte à leitura e gravação de recursos da interface do usuário. Você pode solicitar um [demonstração de Linkurious com o Azure Cosmos DB](https://linkurio.us/contact/)
+A interface interativa do Linkurious Enterprise oferece uma maneira fácil de investigar dados complexos. Você pode pesquisar entidades específicas, expandir as conexões para descobrir relações ocultas e aplicar layouts de sua escolha para Untangle redes complexas. O Linkurious Enterprise agora é compatível com a API do Gremlin Azure Cosmos DB. Ele é adequado para cenários de visualização de grafo de ponta a ponta e dá suporte a recursos de leitura e gravação da interface do usuário. Você pode solicitar uma [demonstração de Linkurious com Azure Cosmos DB](https://linkurio.us/contact/)
 
-![Demonstração de Linkurious](./media/graph-visualization/linkurious-demo.gif)
+![Demonstração do Linkurious](./media/graph-visualization/linkurious-demo.gif)
 
-## <a name="cambridge-intelligence"></a>Intelligence de Cambridge
+## <a name="cambridge-intelligence"></a>Inteligência de Cambridge
 
-![Logotipo do Intelligence de Cambridge](./media/graph-visualization/ci-logo.png)
+![Logotipo de inteligência de Cambridge](./media/graph-visualization/ci-logo.png)
 
-[Inteligência de Cambridge](https://cambridge-intelligence.com/products/) kits de ferramentas de visualização de gráfico agora dão suporte ao Azure Cosmos DB. As seguir kits de ferramentas de visualização dois têm suporte pelo Azure Cosmos DB:
+As toolkits [de visualização de grafo da inteligência de Cambridge](https://cambridge-intelligence.com/products/) agora oferecem suporte a Azure Cosmos DB. Os dois kits de opções de visualização a seguir têm suporte pelo Azure Cosmos DB:
 
-- [Linhas para os desenvolvedores de JavaScript](https://cambridge-intelligence.com/keylines/)
+- [Linhas de KEYLINE para desenvolvedores de JavaScript](https://cambridge-intelligence.com/keylines/)
 
-- [Gráfico novamente para desenvolvedores do React](https://cambridge-intelligence.com/regraph/)
+- [Crie um novo grafo para reagir aos desenvolvedores](https://cambridge-intelligence.com/regraph/)
 
-![Demonstração de Intelligence de Cambridge](./media/graph-visualization/ci-demo-2.gif)
+![Demonstração de inteligência de Cambridge](./media/graph-visualization/ci-demo-2.gif)
 
-Esses kits de ferramentas permitem que você crie aplicativos para o seu caso de uso de análise e visualização de gráfico de alto desempenho. Eles aproveitam a renderização de Web gráficos Library(WebGL) poderosa e código cuidadosamente criado para dar aos usuários uma experiência de visualização rápida e inteligente. Essas ferramentas são compatíveis com qualquer navegador, o dispositivo, o servidor ou o banco de dados e são fornecidos com os tutoriais passo a passo, APIs totalmente documentadas e Demonstrações interativas.
+Esses toolkits permitem que você projete aplicativos de análise e visualização de gráficos de alto desempenho para seu caso de uso. Eles aproveitam a renderização poderosa da WebGL (biblioteca gráfica da Web) e um código cuidadosamente criado para dar aos usuários uma experiência de visualização rápida e criteriosa. Essas ferramentas são compatíveis com qualquer navegador, dispositivo, servidor ou banco de dados e são fornecidas com tutoriais passo a passo, APIs totalmente documentadas e demonstrações interativas.
 
-![Demonstração de Intelligence de Cambridge](./media/graph-visualization/ci-demo-1.gif)
+![Demonstração de inteligência de Cambridge](./media/graph-visualization/ci-demo-1.gif)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
  
-- [Experimente os kits de ferramentas](https://cambridge-intelligence.com/try/)
-- [Visão geral da tecnologia de linhas](https://cambridge-intelligence.com/keylines/technology/)
-- [Visão geral da tecnologia do Graph novamente](https://cambridge-intelligence.com/regraph/technology/)
-- [Casos de uso de visualização de gráfico](https://cambridge-intelligence.com/use-cases/)
+- [Experimente os toolkits](https://cambridge-intelligence.com/try/)
+- [Visão geral da tecnologia KEYLINE](https://cambridge-intelligence.com/keylines/technology/)
+- [Visão geral da tecnologia de novo gráfico](https://cambridge-intelligence.com/regraph/technology/)
+- [Casos de uso de visualização de grafo](https://cambridge-intelligence.com/use-cases/)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415103"
 ---
 # <a name="get-help-with-your-system"></a>Obter ajuda com o sistema
 
@@ -19,13 +19,13 @@ Se precisar de ajuda com o Avere vFXT para Azure, estas serão as diferentes man
 
 * **Problema com o Avere vFXT** – use o portal do Azure para abrir um tíquete de suporte para seu Avere vFXT conforme descrito [abaixo](#open-a-support-ticket-for-your-avere-vfxt).
 * **Cota** – se tiver um problema relacionado à cota, [solicite um aumento de cota](#request-a-quota-increase)
-* **Documentação e exemplos** – se tiver problemas com esta documentação ou exemplos, role até a parte inferior da página com problema e use a seção de **Comentários** para pesquisar entre os problemas existentes ou registrar um novo, se necessário.  
+* **Documentação e exemplos** – se tiver problemas com esta documentação ou exemplos, role até a parte inferior da página com problema e use a seção de **Comentários** para pesquisar entre os problemas existentes ou registrar um novo, se necessário.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Abrir um tíquete de suporte para o Avere vFXT
 
-Se tiver problemas para implantar ou usar o Avere vFXT, solicite ajuda por meio do portal do Azure.  
+Se tiver problemas para implantar ou usar o Avere vFXT, solicite ajuda por meio do portal do Azure.
 
-Siga estas etapas para garantir que o tíquete de suporte seja marcado com um recurso de seu cluster. Marcar o tíquete nos ajuda a encaminhá-lo para o recurso de suporte correto. 
+Siga estas etapas para garantir que o tíquete de suporte seja marcado com um recurso de seu cluster. Marcar o tíquete nos ajuda a encaminhá-lo para o recurso de suporte correto.
 
 1. Em [https://portal.azure.com](https://portal.azure.com), selecione **Grupos de Recursos**.
 
@@ -43,7 +43,7 @@ Siga estas etapas para garantir que o tíquete de suporte seja marcado com um re
 
     ![captura da tela da nova solicitação de suporte no portal do Azure com o cabeçalho "Básico" e um círculo ao redor do item "Serviço". O botão "Todos os serviços" está selecionado e o campo do menu suspenso tem o valor "Avere vFXT"](media/avere-vfxt-ticket-service.png)
 
-1. Na segunda página, escolha o tipo de problema e a categoria que melhor correspondem ao seu problema. Adicione um título curto e uma descrição que inclua a hora em que o problema ocorreu. 
+1. Na segunda página, escolha o tipo de problema e a categoria que melhor correspondem ao seu problema. Adicione um título curto e uma descrição que inclua a hora em que o problema ocorreu.
 
    ![captura da tela da nova solicitação de suporte com o cabeçalho "Problema", que contém vários campos que precisam ser preenchidos](media/avere-vfxt-ticket-problem.png)
 

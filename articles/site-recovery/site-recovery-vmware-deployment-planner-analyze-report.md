@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961370"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495865"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
 
@@ -178,7 +178,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 **Nome da VM**: o nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VMDKs) que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
 
-**Compatibilidade de VM**: os valores são **Sim** e **Sim**\*. **Sim**\* é para instâncias em que a VM é adequada para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
+**Compatibilidade de VM**: os valores são **Sim** e **Sim\*** . **Sim**\* é para instâncias em que a VM é adequada para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
 * <128 GB é P10.
 * 128 GB até 256 GB é um P15
 * 256 GB a 512 GB é um P20.
@@ -221,10 +221,7 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 
 **Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
 
-* O tamanho do disco é > 4095 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco de dados maiores que 4095 GB.
-
-* O disco do sistema operacional é >2048 GB. Atualmente, o Armazenamento do Azure não dá suporte a tamanhos de disco do sistema operacional maiores que 2048 GB.
-
+* Tamanho incorreto do disco de dados ou tamanho de disco do so incorreto. [Examine](vmware-physical-azure-support-matrix.md#azure-vm-requirements) os limites de suporte. 
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.
 
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 7500 por disco.
@@ -284,5 +281,5 @@ Esses são números médios, pressupondo uma sobreposição de E/S de 30%. O Sit
 Saiba mais sobre [estimativa de custo](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [estimativa de custo](site-recovery-vmware-deployment-planner-cost-estimation.md).

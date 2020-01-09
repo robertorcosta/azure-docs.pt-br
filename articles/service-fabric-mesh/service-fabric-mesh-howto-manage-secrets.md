@@ -1,27 +1,21 @@
 ---
-title: Gerenciar segredos do aplicativo da Malha do Azure Service Fabric | Microsoft Docs
+title: Gerenciar segredos do aplicativo de malha de Service Fabric do Azure
 description: Gerencie os Segredos de aplicativos para que você possa criar e implantar um aplicativo de Malha do Service Fabric com segurança.
-services: service-fabric-mesh
-keywords: segredos
-author: athinanthny
-ms.author: atsenthi
 ms.date: 4/2/2019
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chackdan
-ms.openlocfilehash: ef3f04437aca7b6ad9aab8806d54e65d00159d87
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d7946092a0bebe374404870fcd711ad33cc98b11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461923"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerenciar segredos do aplicativo de Malha do Azure Service Fabric
 A Malha do Service Fabric dá suporte aos Segredos como recursos do Azure. Um segredo da Malha do Service Fabric pode ser qualquer informação de texto confidencial como cadeias de conexão de armazenamento, senhas ou outros valores que devem ser armazenados e transmitidos de forma segura. Este artigo mostra como usar o Serviço de Repositório Seguro do Service Fabric para implantar e manter Segredos.
 
 Um Segredo de aplicativo de Malha consiste em:
 * Um recurso **Segredos**, que é um contêiner que armazena os segredos de texto. Os segredos contidos no recurso **Segredos** são armazenados e transmitidos de forma segura.
-* Um ou mais recursos **Segredos/Valores** que são armazenados no contêiner do recurso **Segredos**. Cada recurso **Segredos/valores** é diferenciado por um número de versão. Não é possível modificar a versão de um recurso **Segredos/valores**, anexe apenas uma nova versão.
+* Um ou mais recursos **Segredos/Valores** que são armazenados no contêiner do recurso **Segredos**. Cada recurso **Segredos/Valores** é diferenciado por um número de versão. Não é possível modificar a versão de um recurso **Segredos/valores**, anexe apenas uma nova versão.
 
 O gerenciamento dos Segredos é composto pelas seguintes etapas:
 1. Declare um recurso de **segredos** de malha em um arquivo YAML ou JSON do modelo de recurso do Azure usando as definições de ContentType e SecretsStoreRef do tipo inlinedValue.
@@ -247,6 +241,6 @@ az mesh secretvalue show --Resource-group <myResourceGroup> --secret-name <mySec
 az mesh secretvalue delete --Resource-group <myResourceGroup> --secret-name <mySecret> --version <N>
 ```
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 Para saber mais sobre Malha do Service Fabric, leia a visão geral:
 - [Visão geral da Malha do Service Fabric](service-fabric-mesh-overview.md)

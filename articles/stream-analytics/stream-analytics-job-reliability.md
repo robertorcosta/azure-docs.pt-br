@@ -1,24 +1,23 @@
 ---
 title: Evitar interrupções de serviço nos trabalhos do Azure Stream Analytics
 description: Este artigo descreve as diretrizes para tornar o upgrade dos trabalhos do Stream Analytics mais resiliente.
-services: stream-analytics
 author: jseb225
 ms.author: sidram
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e38f8a923daa210d8aa5b56631e5f8157d4b3f70
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d2d21e081b274bd985c48dac91fff5203a6b5b8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425984"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantir a confiabilidade do trabalho do Stream Analytics durante atualizações do serviço
 
-A capacidade de introduzir novos aprimoramentos e funcionalidades de serviço em um ritmo acelerado faz parte do serviço completamente gerenciado. Como resultado, o Stream Analytics pode ter uma implantação semanal (ou mais frequente) da atualização do serviço. Não importa a quantidade de testes realizados, ainda existe o risco de um trabalho atualmente em execução ser interrompido devido à introdução de um bug. Se você estiver executando missão crítica trabalhos, esses riscos precisam ser evitados. Você pode reduzir esse risco por seguir do Azure **[região emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** modelo. 
+A capacidade de introduzir novos aprimoramentos e funcionalidades de serviço em um ritmo acelerado faz parte do serviço completamente gerenciado. Como resultado, o Stream Analytics pode ter uma implantação semanal (ou mais frequente) da atualização do serviço. Não importa a quantidade de testes realizados, ainda existe o risco de um trabalho atualmente em execução ser interrompido devido à introdução de um bug. Se você estiver executando trabalhos de missão crítica, esses riscos precisam ser evitados. Você pode reduzir esse risco seguindo o modelo de **[região emparelhada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** do Azure. 
 
 ## <a name="how-do-azure-paired-regions-address-this-concern"></a>Como as regiões emparelhadas do Azure podem resolver essa questão?
 
@@ -28,9 +27,9 @@ _Com exceção da Índia central_ (cuja região emparelhada, sul da Índia, não
 
 O artigo em **[regiões de disponibilidade e emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** tem as informações mais atualizadas sobre quais regiões são emparelhadas.
 
-É recomendável implantar trabalhos idênticos para ambas as regiões emparelhadas. Você deve, em seguida, [monitorar esses trabalhos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) para ser notificado quando algo inesperado acontecer. Se um desses trabalhos extremidades para cima em uma [estado de falha](https://docs.microsoft.com/azure/stream-analytics/job-states) após uma atualização de serviço do Stream Analytics, você pode contatar o atendimento ao cliente para ajudar a identificar a causa raiz. Você também deve fazer failover dos consumidores downstream para a saída de trabalho seja íntegra.
+É recomendável implantar trabalhos idênticos em ambas as regiões emparelhadas. Em seguida, você deve [monitorar esses trabalhos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) para ser notificado quando algo inesperado ocorrer. Se um desses trabalhos terminar em um estado de [falha](https://docs.microsoft.com/azure/stream-analytics/job-states) após uma atualização de serviço Stream Analytics, você poderá entrar em contato com o atendimento ao cliente para ajudar a identificar a causa raiz. Você também deve fazer failover de todos os consumidores downstream para a saída do trabalho íntegro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)

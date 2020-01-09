@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450193"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -61,7 +61,7 @@ O backup do Azure fornece diferentes agentes de backup, dependendo do tipo de co
 
 A tabela a seguir explica os diferentes tipos de backups e quando eles são usados:
 
-**Tipo de backup** | **Detalhes** | **Uso**
+**Tipo de backup** | **Detalhes** | **Usage**
 --- | --- | ---
 **Full** | Um backup completo contém a fonte de dados inteira. Consome mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado no backup inicial.
 **Differential** |  Um backup diferencial armazena os blocos que foram alterados desde o backup completo inicial. O usa uma quantidade menor de rede e armazenamento e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre os backups posteriores são transferidos e armazenados. | Não é usada pelo Backup do Azure.
@@ -71,7 +71,7 @@ A tabela a seguir explica os diferentes tipos de backups e quando eles são usad
 
 A tabela a seguir explica os diferentes tipos de backups usados para bancos de dados SQL Server e com que frequência eles são usados:
 
-**Tipo de backup** | **Detalhes** | **Uso**
+**Tipo de backup** | **Detalhes** | **Usage**
 --- | --- | ---
 **Backup completo** | Um backup completo do banco de dados faz backup do banco de dados inteiro. Ele contém todos os dados em um banco de dado específico ou em um conjunto de grupos ou arquivos de arquivo. Um backup completo também contém logs suficientes para recuperar esses dados. | No máximo, você pode acionar um backup completo por dia.<br/><br/> Você pode optar por fazer um backup completo em um intervalo diário ou semanal.
 **Backup diferencial** | Um backup diferencial é baseado no backup de dados completos mais recente e anterior.<br/><br/> Ele captura apenas os dados que foram alterados desde o backup completo. |  No máximo, você pode acionar um backup diferencial por dia.<br/><br/> Você não pode configurar um backup completo e um backup diferencial no mesmo dia.
@@ -94,10 +94,10 @@ A tabela a seguir resume os recursos com suporte para os diferentes tipos de bac
 
 **Recurso** | **Backup direto de arquivos e pastas (usando o agente MARS)** | **Backup de VM do Azure** | **Computadores ou aplicativos com o DPM/MABS**
 --- | --- | --- | ---
-Fazer backup para o cofre | ![sim][green] | ![sim][green] | ![sim][green]
-Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![sim][green]
-Compactar os dados enviados para backup | ![sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![sim][green]
-Executa o backup incremental |![sim][green] |![sim][green] |![sim][green]
+Fazer backup para o cofre | ![Sim][green] | ![Sim][green] | ![Sim][green]
+Fazer backup no disco do DPM/MABS e, em seguida, para o Azure | | | ![Sim][green]
+Compactar os dados enviados para backup | ![Sim][green] | Nenhuma compactação é usada durante a transferência de dados. O armazenamento está um pouco inflado, mas a restauração é mais rápida.  | ![Sim][green]
+Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente.
 
 ![Chave de tabela](./media/backup-architecture/table-key.png)
@@ -174,7 +174,7 @@ Para obter mais informações sobre o armazenamento em disco e os tipos de disco
 Você pode fazer backup de VMs do Azure usando o armazenamento Premium com o backup do Azure:
 
 - Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-* , na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
-- Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). Não modifique o local de preparo.
+- Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de página Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
 - O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/windows/disks-types.md#billing).
 
@@ -193,7 +193,7 @@ Ao restaurar VMs com discos gerenciados, você pode restaurar para uma VM comple
 - Durante o processo de restauração, o Azure lida com os discos gerenciados. Se você estiver usando a opção de conta de armazenamento, você gerenciará a conta de armazenamento que é criada durante o processo de restauração.
 - Se você restaurar uma VM gerenciada criptografada, verifique se as chaves e os segredos da VM existem no cofre de chaves antes de iniciar o processo de restauração.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine a matriz de suporte para [saber mais sobre os recursos e limitações com suporte para cenários de backup](backup-support-matrix.md).
 - Configure o backup para um destes cenários:

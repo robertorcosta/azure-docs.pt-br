@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: c9beda9c271c755c9ea61498b24a9e40bde35a7e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975101"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434707"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como provisionar dispositivos herdados usando chaves simétricas
 
@@ -25,7 +25,7 @@ Este artigo parte do princípio que nem um HSM nem um certificado são opções 
 
 Este artigo também pressupõe que a atualização do dispositivo ocorre em um ambiente seguro para impedir acesso não autorizado à chave mestre de grupo ou à chave do dispositivo derivada.
 
-Este artigo é orientado para uma estação de trabalho baseada no Windows. No entanto, é possível executar os procedimentos no Linux. Para um exemplo do Linux, consulte [Como provisionar para multilocação](how-to-provision-multitenant.md).
+Este artigo é orientado para uma estação de trabalho baseada no Windows. No entanto, é possível executar os procedimentos no Linux. Para um exemplo do Linux, confira [Como provisionar para multilocação](how-to-provision-multitenant.md).
 
 > [!NOTE]
 > O exemplo usado neste artigo é escrito em C. Também há um [ C# exemplo de chave simétrica de provisionamento de dispositivos](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) disponível. Para usar este exemplo, baixe ou clone o repositório [Azure-IOT-Samples-Csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) e siga as instruções embutidas no código de exemplo. Você pode seguir as instruções neste artigo para criar um grupo de registro de chave simétrica usando o portal e para localizar o escopo da ID e as chaves primárias e secundárias necessárias para executar o exemplo. Você também pode criar registros individuais usando o exemplo.
@@ -43,10 +43,13 @@ O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão que o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md).
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
-* Versão mais recente do [Git](https://git-scm.com/download/) instalada.
+* Conclusão do guia de início rápido [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 
+Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, consulte a seção apropriada em [preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK do.
+
+* O [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 com a carga de [trabalho C++' desenvolvimento de desktop com '](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
+
+* Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparar um ambiente de desenvolvimento do SDK de C do IoT do Azure
 
@@ -58,23 +61,26 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de compilação CMake.
 
-2. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório GitHub do SDK de C do IoT do Azure:
-    
+2. Localize o nome da marca para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK.
+
+3. Abra um prompt de comando ou o shell Bash do Git. Execute os comandos a seguir para clonar a versão mais recente do repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) . Use a marca que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     Essa operação deve demorar alguns minutos.
 
-
-3. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta. 
+4. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório `azure-iot-sdk-c`:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. Execute o comando a seguir, que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório `cmake`. 
+5. Execute o comando a seguir, que cria uma versão do SDK específica para a plataforma cliente de desenvolvimento. Uma solução do Visual Studio para o dispositivo simulado será gerada no diretório `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -105,11 +111,11 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Este dispositivo 
 
 2. Selecione a guia **Gerenciar registros** e clique no botão **Adicionar grupo de registros** na parte superior da página. 
 
-3. Em **Adicionar grupo de registros**, insira as informações a seguir e clique no botão **Salvar**.
+3. Em **Adicionar Grupo de Registros**, insira as informações a seguir e clique no botão **Salvar**.
 
    - **Nome do grupo**: insira **mylegacydevices**.
 
-   - **Tipo de atestado**: selecione **Chave simétrica**.
+   - **Tipo de atestado**: Selecione **Chave simétrica**.
 
    - **Autogerar Chaves**: marque essa caixa.
 
@@ -139,7 +145,7 @@ Crie uma ID de registro exclusiva para seu dispositivo. Os caracteres válidos s
 
 ## <a name="derive-a-device-key"></a>Derivar uma chave de dispositivo 
 
-Para gerar a chave do dispositivo, use a chave mester de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
+Para gerar a chave do dispositivo, use a chave mestra de grupo para computar o [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID de registro de dispositivo único para cada um dos dispositivos, depois converta o resultado no formato Base64.
 
 Não inclua a chave mestra de grupo em seu código de dispositivo.
 
@@ -217,7 +223,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Encontre a definição da função `main()` no mesmo arquivo. Verifique se a variável `hsm_type` está definida como `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
+5. Encontre a definição da função `main()` no mesmo arquivo. Certifique-se de que a variável `hsm_type` está configurada para `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;

@@ -4,15 +4,15 @@ description: Você pode usar a solução System Center Operations Manager Health
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402859"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -34,7 +34,7 @@ Depois de adicionar a solução e uma avaliação ser executada, as informaçõe
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 
-A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, o Microsoft System Center 2012 R2 Operations Manager, o Microsoft System Center 2016 Operations Manager, o Microsoft System Center 2016 Operations Manager e o Microsoft System Centro Operations Manager 1807
+A solução funciona com o Microsoft System Center 2012 Operations Manager Service Pack 1, o Microsoft System Center 2012 R2 Operations Manager, o Microsoft System Center 2016 Operations Manager, o Microsoft System Center 2016 Operations Manager e o Microsoft System Central Operations Manager 1807. Uma versão com suporte do .NET Framework 4.6.2 deve ser instalada em cada servidor de gerenciamento.
 
 Use as informações a seguir para instalar e configurar a solução.
 
@@ -202,7 +202,7 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação, considerando a natureza de seus serviços de TI e as necessidades comerciais de sua organização.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da verificação da integridade
+## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
 
 Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Para saber mais sobre soluções de instalação, consulte [Instalar uma solução de gerenciamento](../../azure-monitor/insights/solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco Verificação de Integridade do System Center Operations Manager na página **Visão Geral** do workspace no portal do Azure.
 
@@ -269,7 +269,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 - [Configurar a regra do System Center Operations Manager Health Check](#configure-the-health-check-rule)
 
 
-*Há uma maneira de configurar a frequência com a qual a verificação é executada?* Sim. Consulte [Configurar a frequência de execução](#configure-the-run-frequency).
+*Existe alguma maneira de configurar a frequência de execução da verificação?* Sim. Consulte [Configurar a frequência de execução](#configure-the-run-frequency).
 
 *Se outro servidor for descoberto após ter adicionado a solução de Verificação de Integridade do System Center Operations Manager, ele será verificado?* Sim, após a descoberta, ele será verificado deste ponto em diante; por padrão, a cada sete dias.
 

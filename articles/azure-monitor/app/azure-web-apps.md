@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407245"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -77,9 +77,9 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-Há suporte para as seguintes versões do .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2
+Há suporte para as seguintes versões do .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2 ASP.NET Core 3,0
 
-Para direcionar a estrutura completa do .NET Core, a implantação independente e o ASP.NET Core 3,0 **não têm suporte** no momento com o monitoramento baseado em agente/extensão. (A[Instrumentação manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) por meio de código funcionará em todos os cenários anteriores.)
+No momento, **não há suporte para** a estrutura completa do .NET Core, implantação independente e aplicativos baseados em Linux com monitoramento baseado em agente/extensão. (A[Instrumentação manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) por meio de código funcionará em todos os cenários anteriores.)
 
 1. **Selecione o Application Insights** no painel de controle do Azure para seu serviço de aplicativo.
 
@@ -92,7 +92,7 @@ Para direcionar a estrutura completa do .NET Core, a implantação independente 
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. O .NET Core oferece uma **coleção recomendada** ou **desabilitada** para o .net Core 2,0, 2,1 e 2,2.
+2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. O .NET Core oferece uma **coleção recomendada** ou **desabilitada** para o .net Core 2,0, 2,1, 2,2 e 3,0.
 
     ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -168,7 +168,7 @@ Para habilitar a coleta de telemetria com Application Insights, somente as confi
 
 ### <a name="application-settings-definitions"></a>Definições de configurações do aplicativo
 
-|Nome da configuração do aplicativo |  Definição | Value |
+|Nome da configuração do aplicativo |  Definição | Valor |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensão principal, que controla o monitoramento do tempo de execução. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  Somente no modo padrão, os recursos essenciais são habilitados para garantir o desempenho ideal. | `default` ou `recommended`. |
@@ -349,7 +349,7 @@ A partir da versão 2.8.9, a extensão de site pré-instalada é usada. Se você
 
 Se a atualização for feita a partir de uma versão anterior à 2.5.1, verifique se as DLLs ApplicationInsigths são removidas da pasta bin do aplicativo [consulte as etapas de solução de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Abaixo está nosso guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente para aplicativos .NET e .NET Core em execução em serviços de Azure App.
 
@@ -377,7 +377,7 @@ Abaixo está nosso guia de solução de problemas passo a passo para o monitoram
 
 A tabela a seguir fornece uma explicação mais detalhada do que esses valores significam, suas causas subjacentes e correções recomendadas:
 
-|Valor do problema|Explicação|Correção
+|Valor do problema|Explicação|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada. Pode ser devido a uma referência a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`ou `Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas por padrão em determinados modelos do Visual Studio, e as versões mais antigas do Visual Studio podem adicionar referências a `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando o .NET Core 2,1 ou 2,2 e se referir a [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage, ele levará em Application insights e a extensão será retirada. | Os clientes no .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-Package Microsoft. AspNetCore. app em vez disso.|

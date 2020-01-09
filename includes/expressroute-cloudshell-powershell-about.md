@@ -1,21 +1,21 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 11/05/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a78a44f9e4dd1b64ae989dffa04892a490b986d4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ff5a42150140035105298802a7ce8b4d0e25959c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436930"
 ---
-Você pode usar Azure Cloud Shell para executar a maioria dos cmdlets do PowerShell em vez de instalar o Azure PowerShell localmente. Azure Cloud Shell é um shell interativo gratuito que tem ferramentas comuns do Azure pré-instalado e está configurado para usar com sua conta.
+Você pode usar Azure Cloud Shell para executar a maioria dos cmdlets do PowerShell e comandos da CLI, em vez de instalar o Azure PowerShell ou a CLI localmente. Azure Cloud Shell é um shell interativo gratuito que tem ferramentas comuns do Azure pré-instalado e está configurado para usar com sua conta.
 Para executar qualquer código contido neste artigo no Azure Cloud Shell, abra uma sessão do Cloud Shell, use o botão **Copiar** em um bloco de códigos para copiar o código e colá-lo na sessão do Cloud Shell com __Ctrl+Shift+V__ no Windows e no Linux ou __Cmd+Shift+V__ no macOS. O texto colado não é executado automaticamente, pressione **Enter** para executar o código.
 
 Há algumas maneiras de inicializar o Cloud Shell:

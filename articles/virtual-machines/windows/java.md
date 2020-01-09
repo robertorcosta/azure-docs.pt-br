@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358302"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Criar e gerenciar VMs Windows no Azure usando o Java
 
-Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure de suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos de VM usando o Java. Você aprenderá como:
+Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure suporte. Este artigo aborda a criação, o gerenciamento e a exclusão de recursos de VM usando o Java. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar um projeto do Maven
+> * Criar um projeto Maven
 > * Adicionar dependências
 > * Criar credenciais
 > * Criar recursos
@@ -36,7 +36,7 @@ Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines
 
 São necessários cerca de 20 minutos para a conclusão destas etapas.
 
-## <a name="create-a-maven-project"></a>Criar um projeto do Maven
+## <a name="create-a-maven-project"></a>Criar um projeto Maven
 
 1. Se você ainda não fez isso, instale o [Java](https://aka.ms/azure-jdks).
 2. Instale o [Maven](https://maven.apache.org/download.cgi).
@@ -116,7 +116,7 @@ São necessários cerca de 20 minutos para a conclusão destas etapas.
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Além disso, registre o ID do aplicativo, a chave de autenticação e o ID do locatário que serão necessários em uma etapa posterior.
+Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Você também deve registrar a ID do aplicativo, a chave de autenticação e a ID de locatário que precisará em uma etapa posterior.
 
 ### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 
@@ -188,7 +188,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
+Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao bloco try no método principal:
 
@@ -202,7 +202,7 @@ ResourceGroup resourceGroup = azure.resourceGroups()
 
 ### <a name="create-the-availability-set"></a>Criar o conjunto de disponibilidade
 
-Os [Conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
+Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.
 
 Para criar o conjunto de disponibilidade, adicione este código ao bloco try no método principal:
 
@@ -217,7 +217,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Criar um endereço IP público
 
-Um [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
+Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.
 
 Para criar o endereço IP público para a máquina virtual, adicione este código ao bloco try no método principal:
 
@@ -418,7 +418,7 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>Redimensionar a VM
 
-Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte[Tamanhos de VM](sizes.md).  
+Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual. Para obter mais informações, consulte [Tamanhos de VM](sizes.md).  
 
 Para alterar o tamanho da máquina virtual, adicione este código ao bloco try no método principal:
 
@@ -470,6 +470,6 @@ Devem ser necessários cerca de cinco minutos para o aplicativo de console execu
 2. Antes de pressionar **Enter** para iniciar a exclusão de recursos, reserve alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no status de implantação para ver informações sobre a implantação.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre como usar as [bibliotecas do Azure para Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
 

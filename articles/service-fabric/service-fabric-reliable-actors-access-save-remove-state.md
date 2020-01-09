@@ -1,25 +1,16 @@
 ---
-title: Gerenciar o estado do Azure Service Fabric | Microsoft Docs
-description: Saiba como acessar, salvar e remover o estado dos Reliable Actors do Microsoft Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Gerenciar o estado de Service Fabric do Azure
+description: Saiba mais sobre como acessar, salvar e remover o estado de um ator confiável do Azure Service Fabric e considerações ao criar um aplicativo.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725390"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645626"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acessar, salvar e remover estado dos Reliable Actors
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) são objetos single-threaded que podem encapsular a lógica e o estado e manter o estado de forma confiável. Cada instância de ator tem seu próprio [gerenciador de estado](service-fabric-reliable-actors-state-management.md): uma estrutura de dados semelhante a um dicionário que armazena pares chave-valor de forma confiável. O gerenciador de estado é um wrapper em torno de um provedor de estado. Você pode usá-lo para armazenar dados, independentemente da [configuração de persistência](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) utilizada.
@@ -324,7 +315,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O estado que é armazenado no Reliable Actors deve ser serializado antes de ser gravado no disco e replicado para alta disponibilidade. Saiba mais sobre a [Serialização de tipo de ator](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848265"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425287"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
 A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização, acessíveis através do portal do Azure. A tabela a seguir lista os relatórios possíveis:
 
-| Relate | Location | Descrição |
+| Relate | Local | Description |
 |:--- |:--- |:--- |
 | Histórico de usuário bloqueado | O Azure AD > Security > MFA > bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
@@ -117,7 +117,7 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 
 **Acesso condicional** Encontre informações sobre políticas de acesso condicional que afetaram a tentativa de entrada, incluindo:
 
-- Nome da política
+- Nome de política
 - Controles de concessão
 - Controles de sessão
 - Result
@@ -134,11 +134,21 @@ Identifique os usuários que não se registraram para MFA usando o PowerShell a 
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
+Identifique os usuários e os métodos de saída registrados. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
+
 ## <a name="possible-results-in-activity-reports"></a>Resultados possíveis em relatórios de atividades
 
 A tabela a seguir pode ser usada para solucionar problemas de autenticação multifator usando a versão baixada do relatório de atividade de autenticação multifator. Eles não aparecerão diretamente no portal do Azure.
 
-| Resultado da chamada | Descrição | Descrição ampla |
+| Resultado da chamada | Description | Descrição ampla |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN Inserido | O usuário inseriu um PIN.  Se a autenticação for bem-sucedida, elas entraram no PIN correto.  Se a autenticação for negada, elas inseriram um PIN incorreto ou o usuário será definido como modo padrão. |
 | SUCCESS_NO_PIN | Somente # inserido | Se o usuário estiver configurado para o modo PIN e a autenticação for negada, isso significa que ele não inseriu o PIN e só digitou #.  Se o usuário estiver configurado para o modo Padrão e a autenticação for bem-sucedida, isso significa que ele só digitou #, que é a ação correta no modo Padrão. |

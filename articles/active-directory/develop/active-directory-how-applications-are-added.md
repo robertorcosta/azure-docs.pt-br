@@ -1,5 +1,5 @@
 ---
-title: Como e por que adicionar aplicativos ao Azure AD
+title: Como e por que aplicativos são adicionados ao Azure AD
 titleSuffix: Microsoft identity platform
 description: O que significa para um aplicativo ser adicionado ao Microsoft Azure AD e como são adicionados?
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f031389dc37fbf48f8a69db8c42419eed9605373
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9f4814026de5ba92d6470c503f8d316c0ceba0da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424742"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 
@@ -107,7 +107,7 @@ Os aplicativos que você adiciona (representados como **Aplicativo (seu)** no di
   * Mapeamentos de atributos (provisionamento do usuário)
 * Para obter informações mais detalhadas sobre a entidade de serviço e os objetos de aplicativo, consulte a documentação de referência da API REST do Microsoft Azure AD Graph:
   * [Aplicativo](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Entidade de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Entidade de Serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos integram-se ao Microsoft Azure AD?
 

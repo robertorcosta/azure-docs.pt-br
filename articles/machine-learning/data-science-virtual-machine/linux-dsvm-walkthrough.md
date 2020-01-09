@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428384"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma Máquina Virtual de Ciência de Dados do Linux no Azure
 
@@ -24,7 +24,7 @@ As tarefas de ciência de dados demonstradas neste passo a passos seguem as etap
 
 Neste tutorial, analisamos o conjunto de [baseado em spam](https://archive.ics.uci.edu/ml/datasets/spambase) . Baseado em spam é um conjunto de emails que são marcados como spam ou Ham (não spam). O baseado em spam também contém algumas estatísticas sobre o conteúdo dos emails. Falaremos sobre as estatísticas posteriormente no passo a passo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para poder usar um DSVM do Linux, você deve ter os seguintes pré-requisitos:
 
@@ -174,17 +174,17 @@ Também tentaremos um modelo de floresta aleatória. As florestas aleatórias tr
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Implantar um modelo para Azure Machine Learning Studio (clássico)
 
-[Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) é um serviço de nuvem que torna mais fácil criar e implantar modelos de análise preditiva. Um recurso interessante da versão clássica do Azure Machine Learning Studio é sua capacidade de publicar qualquer função do R como um serviço Web. O pacote R Azure Machine Learning Studio facilita a implantação, diretamente da sessão do R no DSVM.
+[Azure Machine Learning Studio (clássico)](https://studio.azureml.net/) é um serviço de nuvem que torna mais fácil criar e implantar modelos de análise preditiva. Um bom recurso do Azure Machine Learning Studio (clássico) é a sua capacidade de publicar qualquer função do R como um serviço Web. O pacote R Azure Machine Learning Studio (clássico) facilita a implantação, diretamente da sessão do R no DSVM.
 
 Para implantar o código da árvore de decisão da seção anterior, entre no Azure Machine Learning Studio (clássico). Você precisa de sua ID do workspace e de um token de autorização para entrar. Para localizar esses valores e inicializar as variáveis de Azure Machine Learning com elas, conclua estas etapas:
 
 1. No menu à esquerda, selecione **configurações**. Observe o valor da **ID do espaço de trabalho**.
 
-   ![A ID do espaço de trabalho Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![A ID do espaço de trabalho Azure Machine Learning Studio (clássico)](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. Selecione a guia **tokens de autorização** . Observe o valor do **token de autorização primário**.
 
-   ![O token de autorização primária Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![O token de autorização primário Azure Machine Learning Studio (clássico)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Carregue o pacote do **AzureML** e defina os valores das variáveis com o token e a ID do espaço de trabalho em sua sessão do R no DSVM:
 
         if(!require("AzureML")) install.packages("AzureML")
@@ -546,7 +546,7 @@ Em seguida, consulte usando sqlcmd:
 
 Você também pode consultar usando SQuirreL SQL. Siga as etapas semelhantes ao PostgreSQL usando o driver JDBC SQL Server. O driver JDBC está na pasta/usr/share/java/jdbcdrivers/sqljdbc42.jar
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral dos artigos que orientam você pelas tarefas que compõem o processo de ciência de dados no Azure, consulte [processo de ciência de dados de equipe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 

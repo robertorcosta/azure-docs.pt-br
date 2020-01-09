@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67876796"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561636"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>O StorSimple como destino de backup com o Backup Exec
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O Azure StorSimple é uma solução de armazenamento de nuvem híbrida da Microsoft. O StorSimple atende às complexidades do crescimento exponencial de dados, usando uma conta de armazenamento do Azure como uma extensão da solução local e dos dados postos em camadas automaticamente no armazenamento local e no armazenamento em nuvem.
 
@@ -37,7 +37,7 @@ As informações nesse artigo são mais úteis para administradores de backup, a
 
 ## <a name="supported-versions"></a>Versões com suporte
 
--   [Backup Exec 16 e versões posteriores](http://backupexec.com/compatibility)
+-   [Backup Exec 16 e versões posteriores](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Atualização 3 e versões posteriores](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -313,7 +313,7 @@ Veja esta exemplo de uma agenda de rotação GFS de quatro semanas, mensal e anu
 | Frequência/tipo de backup | Completo | Incremental (1 a 5 dias)  |   
 |---|---|---|
 | Semanal (1 a 4 semanas) | Sábado | Segunda a sexta-feira |
-| Mensal  | Sábado  |   |
+| Gasto mensal  | Sábado  |   |
 | Anual | Sábado  |   |
 
 
@@ -379,7 +379,7 @@ A tabela a seguir mostra como configurar backups para execução no local e disc
 A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemplo de agenda do GFS: Agenda semanal, mensal e anual da rotação do GFS
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo GFS: agendamento de rotação GFS semanal, mensal e anual
 
 | Semana | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Incremental dia 4 | Incremental dia 5 |
 |---|---|---|---|---|---|---|
@@ -387,7 +387,7 @@ A capacidade total do \* inclui 17 TiB de discos do StorSimple e 1 TiB de volume
 | Semana 2 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 3 | StorSimple semanas 2 a 4 |   |   |   |   |   |
 | Semana 4 | StorSimple semanas 2 a 4 |   |   |   |   |   |
-| Mensal | StorSimple mensal |   |   |   |   |   |
+| Gasto mensal | StorSimple mensal |   |   |   |   |   |
 | Anual | StorSimple anual  |   |   |   |   |   |
 
 
@@ -483,11 +483,11 @@ Um desastre pode ser causado por uma variedade de fatores. A tabela a seguir lis
 Os documentos a seguir foram mencionados neste artigo:
 
 - [Configuração de Multipath I/O de StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: provisionamento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: provisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Usando unidades GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas compartilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](storsimple-device-failover-disaster-recovery.md).

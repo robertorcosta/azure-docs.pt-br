@@ -4,15 +4,15 @@ description: Este artigo descreve como entender a integridade das máquinas virt
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 5fd5295e52f0fef5e1432fdb2f81d2ba0e1717e8
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e01223783130ea6b276db26bab709e2b51a8f76d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109771"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399785"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -24,7 +24,7 @@ A exibição do estado de integridade geral de uma VM do Azure e do sistema oper
 
 Este artigo mostra como avaliar, investigar e resolver rapidamente problemas de integridade quando eles são detectados pelo recurso de integridade de Azure Monitor para VMs.
 
-Para obter informações sobre como configurar o Azure Monitor para VMs, confira [Habilitar o Azure Monitor para VMs](vminsights-enable-overview.md).
+Para obter informações sobre como configurar o Monitor do Azure para VMs, consulte [Ativar o Monitor do Azure para VMs](vminsights-enable-overview.md).
 
 >[!NOTE]
 >Recentemente, [anunciamos alterações](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
@@ -34,19 +34,19 @@ Para obter informações sobre como configurar o Azure Monitor para VMs, confira
 
 Esta seção descreve os critérios de integridade padrão para monitorar as VMs do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para enviar um alerta quando detectam uma condição não íntegra.
 
-| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Limite | Alertar no estado | Severity | Categoria da carga de trabalho | 
+| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Limite | Alertar no estado | Gravidade | Categoria da carga de trabalho | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disco lógico online | 5 | 15 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
 | Espaço livre em disco lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
 | % de Inodes livres do disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
 | % de espaço livre no Disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
 | Status do adaptador de rede | 5 | 15 | <> | 1 (verdadeiro) | Aviso | Sev2 | Linux | 
-| Memória de megabytes disponíveis do sistema operacional | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
+| Memória Disponível em Megabytes do Sistema Operacional | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
 | Média de disco s/leitura de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
 | Média de disco s/transferência de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
 | Média de disco s/gravação de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
 | Status do disco | 5 | 25 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
-| Porcentagem total de tempo do processador do sistema operacional | 5 | 10 | >= | 95% | Crítico | Sev1 | Linux | 
+| Porcentagem Total de Tempo do Processador do Sistema Operacional | 5 | 10 | >= | 95% | Crítico | Sev1 | Linux | 
 | Porcentagem de utilização de CPU total | 5 | 10 | >= | 95% | Crítico | Sev1 | Windows | 
 | Erro ou corrupção do sistema de arquivos | 60 | 60 | <> | 4 | Crítico | Sev1 | Windows | 
 | Média de Segundos de Disco por Gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
@@ -71,8 +71,8 @@ Esta seção descreve os critérios de integridade padrão para monitorar as VMs
 | Páginas de memória por segundo | 5 | 10 | >= | 5\.000/s | Aviso | Sev1 | Windows | 
 | Porcentagem de memória confirmada em uso | 5 | 10 | > | 80% | Crítico | Sev1 | Windows | 
 | Média de segundos de disco por transferência | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Média de segundos de disco por gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
-| Comprimento da Fila do Disco Atual | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
+| Média de Segundos de Disco por Gravação | 1 | 15 | > | 0.04 s | Aviso | Sev2 | Windows | 
+| Comprimento da fila atual de disco | 5 | 60 | >= | 32 | Aviso | Sev2 | Windows | 
 | Tempo ocioso percentual do disco | 5 | 60 | >= | 20% | Aviso | Sev2 | Windows | 
 
 >[!NOTE]
@@ -105,10 +105,10 @@ Os estados de integridade definidos para uma VM estão descritos na seguinte tab
 
 |ícone |Estado de integridade |Significado |
 |-----|-------------|---------------|
-| |Healthy |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
+| |Integridade |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
 | |Crítico |O estado não está dentro da condição de integridade definida, indicando que um ou mais problemas críticos foram detectados. Esses problemas devem ser resolvidos para restaurar a funcionalidade normal. Com um monitor de rollup pai, o estado de integridade acumula e reflete o estado de melhor caso ou pior caso do filho.|
 | |Aviso |O estado está entre dois limites para a condição de integridade definida, em que um indica um estado de aviso e o outro indica um estado crítico (três limites de estado de integridade podem ser configurados) ou quando um problema não crítico pode causar problemas críticos se não resolvidos. Com um monitor de rollup pai, se um ou mais filhos estiverem em um estado de aviso, o pai refletirá um estado de aviso. Se um filho estiver em um estado crítico e outro filho em um estado de aviso, o rollup pai mostrará o estado de integridade como crítico.|
-| |Desconhecido |O estado não pode ser computado por vários motivos. A seção a seguir fornece detalhes adicionais e possíveis soluções. |
+| |Unknown (desconhecido) |O estado não pode ser computado por vários motivos. A seção a seguir fornece detalhes adicionais e possíveis soluções. |
 
 Um estado de integridade desconhecido pode ser causado pelos seguintes problemas:
 
@@ -179,7 +179,7 @@ Para saber mais, consulte [Diagnóstico de integridade](#health-diagnostics).
 
 Selecionar **Visualizar todos os critérios de integridade** abre uma página mostrando uma lista de todos os critérios de integridade disponíveis com esse recurso. As informações podem ser filtradas com base nas seguintes opções:
 
-* **Digite**. Há três tipos de critérios de integridade para avaliar condições e acumular o estado de integridade geral de uma VM monitorada:
+* **Type**. Há três tipos de critérios de integridade para avaliar condições e acumular o estado de integridade geral de uma VM monitorada:
     - **Unidade**. Mede algum aspecto de uma VM. Esse tipo de critério de integridade pode estar verificando um contador de desempenho para determinar o desempenho do componente, executando um script para executar uma transação sintética ou observando um evento que indica um erro. O filtro é definido como unidade por padrão.
     - **Dependência**. Fornece um acúmulo de integridade entre entidades diferentes. Esse critério de integridade permite que a integridade de uma entidade dependa da integridade de outro tipo de entidade da qual ela depende para uma operação bem-sucedida.
     - **Agregação**. Fornece um estado de integridade combinado de critérios de integridade semelhantes. Os critérios de integridade de unidade e de dependência normalmente são configurados sob um critério de integridade agregado. Além de fornecer uma melhor organização geral dos diversos critérios de integridade direcionados a uma entidade, o critério de integridade agregado fornece um estado de saúde exclusivo para categorias distintas das entidades.
@@ -217,7 +217,7 @@ O estado de um critério de integridade é definido por um dos quatro tipos: **c
 A página **diagnóstico de integridade** tem três seções principais:
 
 * Modelo de componente
-* Critérios de integridade
+* Critérios de Integridade
 * Alterações de estado
 
 ![Seções da página de diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-02.png)
@@ -300,17 +300,17 @@ Os alertas de outros tipos de recursos ou serviços não devem ser incluídos ne
 
 Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
 
-|Coluna |DESCRIÇÃO |
+|Column |Description |
 |-------|------------|
-|Assinatura |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. |
-|grupo de recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+|Subscription |Selecione uma assinatura do Azure. Apenas alertas na assinatura selecionada são incluídos na exibição. |
+|Grupo de recursos |Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 |Tipo de recurso |Selecione um ou mais tipos de recurso. Por padrão, somente os alertas de destino **Máquinas virtuais** estão selecionados e incluídos nessa exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
-|Recurso |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
-|Severity |Selecione a gravidade do alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
+|Grupos |Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
+|Gravidade |Selecione a gravidade do alerta ou selecione **Tudo** para incluir alertas de todas as gravidades. |
 |Monitorar condição |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
 |Estado de alerta |Selecione um estado de alerta, **novo**, **reconhecer**, **fechado**ou **todos** para incluir alertas de todos os Estados. |
 |Monitorar serviço |Selecione um serviço ou selecione **Tudo** para incluir todos os serviços. Somente os alertas do VM insights têm suporte para esse recurso.|
-|Intervalo de tempo| Apenas alertas acionados dentro da janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+|Intervalo de horas| Apenas alertas acionados dentro da janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Quando você seleciona um alerta, a página de **detalhes do alerta** é exibida. Esta página fornece detalhes do alerta e permite que você altere seu estado.
 
@@ -325,7 +325,7 @@ Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar
 Você pode alterar um estado de alerta para um ou vários alertas selecionando-os e, em seguida, selecionando **alterar estado** na página **todos os alertas** no canto superior esquerdo. Selecione um dos Estados no painel **alterar estado do alerta** , adicione uma descrição da alteração no campo **Comentário** e, em seguida, selecione **OK** para confirmar suas alterações. Quando as informações são verificadas e as alterações são aplicadas, acompanhe o progresso em **notificações** no menu.
 
 ### <a name="configure-alerts"></a>Configurar alertas
-Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Especificamente:
+Você não pode gerenciar determinadas tarefas de gerenciamento de alertas do portal do Azure. Essas tarefas devem ser executadas usando a [API REST do Azure monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Mais especificamente:
 
 - Habilitando ou desabilitando um alerta para critérios de integridade
 - Configurando notificações para alertas de critérios de integridade
@@ -436,7 +436,7 @@ O Azure Monitor para VMs Health dá suporte a notificações de SMS e email quan
     }
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
 

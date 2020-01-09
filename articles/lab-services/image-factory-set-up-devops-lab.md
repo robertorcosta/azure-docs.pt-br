@@ -1,6 +1,6 @@
 ---
-title: Executar uma fábrica de imagem de DevOps do Azure no Azure DevTest Labs | Microsoft Docs
-description: Saiba como criar uma fábrica de imagem personalizada no Azure DevTest Labs.
+title: Executar uma fábrica de imagens do Azure DevOps no Azure DevTest Labs | Microsoft Docs
+description: Saiba como criar uma fábrica de imagens Personalizada no Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,119 +12,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320184"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638945"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagem do Azure DevOps
-Este artigo aborda todas as preparações necessárias para executar a fábrica de imagem de DevOps do Azure (anteriormente conhecido como Visual Studio Team Services).
+Este artigo aborda todas as preparações necessárias para executar a fábrica de imagens do Azure DevOps (anteriormente Visual Studio Team Services).
 
 > [!NOTE]
-> Qualquer mecanismo de orquestração funcionará! DevOps do Azure não é obrigatório. A fábrica de imagem é executada usando scripts do PowerShell do Azure, então ele pode ser executado manualmente, usando o Agendador de tarefas do Windows, outros sistemas de CI/CD e assim por diante.
+> Qualquer mecanismo de orquestração funcionará! O Azure DevOps não é obrigatório. A fábrica de imagens é executada usando Azure PowerShell scripts, portanto, pode ser executada manualmente, usando o Windows Agendador de Tarefas, outros sistemas de CI/CD e assim por diante.
 
-## <a name="create-a-lab-for-the-image-factory"></a>Criar um laboratório para a fábrica de imagem
-A primeira etapa na configuração de fábrica de imagem é criar um laboratório no Azure DevTest Labs. Este laboratório é o laboratório de fábrica de imagem onde criamos as máquinas virtuais e salvar imagens personalizadas. Este laboratório é considerado como parte do processo geral de fábrica de imagem. Depois de criar um laboratório, certifique-se de salvar o nome, pois você precisará dele mais tarde.
+## <a name="create-a-lab-for-the-image-factory"></a>Criar um laboratório para a fábrica de imagens
+A primeira etapa na configuração da fábrica de imagens é criar um laboratório no Azure DevTest Labs. Este laboratório é o laboratório de fábrica de imagens onde criamos as máquinas virtuais e salvamos imagens personalizadas. Este laboratório é considerado como parte do processo de fábrica de imagem geral. Depois de criar um laboratório, certifique-se de salvar o nome, pois você precisará dele mais tarde.
 
 ## <a name="scripts-and-templates"></a>Scripts e modelos
-A próxima etapa na adoção de fábrica de imagem para sua equipe é entender o que está disponível. Os scripts de fábrica de imagem e modelos estão disponíveis publicamente na [repositório do GitHub do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Aqui está uma descrição das partes:
+A próxima etapa na adoção da fábrica de imagens para sua equipe é entender o que está disponível. Os modelos e os scripts do Image Factory estão disponíveis publicamente no [repositório GitHub do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Aqui está um contorno das partes:
 
-- Fábrica de imagem. É a pasta raiz.
-    - Configuração. As entradas para a fábrica de imagem
-        - GoldenImages. Esta pasta contém arquivos JSON que representam as definições de imagens personalizadas.
-        - Labs.JSON. Arquivo onde as equipes se inscrever para receber imagens personalizadas específicas.
-- Scripts. O mecanismo para a fábrica de imagem.
+- Fábrica de imagens. É a pasta raiz.
+    - Configuração. As entradas para a fábrica de imagens
+        - GoldenImages. Essa pasta contém arquivos JSON que representam as definições de imagens personalizadas.
+        - Labs. JSON. Arquivo em que as equipes se inscrevem para receber imagens personalizadas específicas.
+- Deles. O mecanismo para a fábrica de imagens.
 
 Os artigos nesta seção fornecem mais detalhes sobre esses scripts e modelos.
 
-## <a name="create-an-azure-devops-team-project"></a>Criar um projeto de equipe de DevOps do Azure
-DevOps do Azure permitem que você armazene o código-fonte, execute o PowerShell do Azure em um só lugar. Você pode agendar execuções recorrentes para manter as imagens atualizadas. Há bons recursos para registrar em log os resultados para diagnosticar problemas.  Usando o Azure DevOps não é um requisito no entanto, você pode usar qualquer estrutura/mecanismo que pode se conectar ao Azure e pode executar o PowerShell do Azure.
+## <a name="create-an-azure-devops-team-project"></a>Criar um projeto de equipe do Azure DevOps
+O Azure DevOps permite armazenar o código-fonte, executar o Azure PowerShell em um único local. Você pode agendar execuções recorrentes para manter as imagens atualizadas. Há boas instalações para registrar os resultados para diagnosticar problemas.  No entanto, usar o Azure DevOps não é um requisito, você pode usar qualquer equipamento/mecanismo que possa se conectar ao Azure e executar Azure PowerShell.
 
-Se você tiver uma conta de DevOps existente ou um projeto que você deseja usar em vez disso, ignore esta etapa.
+Se você tiver uma conta ou projeto DevOps existente que gostaria de usar em vez disso, ignore esta etapa.
 
-Para começar, crie uma conta gratuita no DevOps do Azure. Visite https://www.visualstudio.com/ e selecione **comece de graça** imediatamente sob **DevOps do Azure** (anteriormente conhecido como VSTS). Você precisará escolher um nome de conta exclusivo e certifique-se optar por gerenciar código usando o Git. Depois de criar, salve a URL para seu projeto de equipe. Aqui está um exemplo de URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
+Para começar, crie uma conta gratuita no Azure DevOps. Visite https://www.visualstudio.com/ e selecione introdução **para o gratuito** direito em **Azure DEVOPS** (anteriormente VSTS). Você precisará escolher um nome de conta exclusivo e ter certeza de que deseja gerenciar o código usando o git. Depois que isso for criado, salve a URL em seu projeto de equipe. Aqui está um exemplo de URL: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
-## <a name="check-in-the-image-factory-to-git"></a>Fazer check-in a fábrica de imagem para o Git
-Todos os o PowerShell, modelos e configuração para a fábrica de imagem estão localizados na [repositório público do GitHub do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). É a maneira mais rápida para obter o código em seu novo projeto de equipe importar um repositório. Isso extrairá o repositório inteiro do DevTest Labs (de modo que você obterá docs extras e exemplos).
+## <a name="check-in-the-image-factory-to-git"></a>Fazer check-in da fábrica de imagens para git
+Todos os modelos e a configuração do PowerShell para o Image Factory estão localizados no [repositório GitHub público do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). A maneira mais rápida de colocar o código em seu novo projeto de equipe é importar um repositório. Isso efetua pull em todo o repositório do DevTest Labs (portanto, você obterá documentos e amostras adicionais).
 
-1. Visite o projeto de DevOps do Azure que você criou na etapa anterior (URL se parece com **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
+1. Visite o projeto DevOps do Azure que você criou na etapa anterior (a URL é semelhante a **https:\//\<accountname >. VisualStudio. com/MyFirstProject**).
 2. Selecione **importar um repositório**.
-3. Insira o **URL de clone** para o repositório de laboratórios de desenvolvimento/teste: `https://github.com/Azure/azure-devtestlab`.
+3. Insira a **URL de clone** para o repositório do DevTest Labs: `https://github.com/Azure/azure-devtestlab`.
 4. Selecione **Importar**.
 
-    ![Importar do repositório de Git](./media/set-up-devops-lab/import-git-repo.png)
+    ![Importar repositório git](./media/set-up-devops-lab/import-git-repo.png)
 
-Se você quiser apenas fazer check-in exatamente o que é necessário (os arquivos de fábrica de imagem), siga as etapas [aqui](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs) clonar o repositório Git e enviar por push somente os arquivos localizados na **scripts/ImageFactory** directory.
+Se você decidir apenas fazer check-in exatamente do que é necessário (os arquivos de fábrica de imagem), siga as etapas [aqui](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs) para clonar o repositório git e enviar por push somente os arquivos localizados no diretório **scripts/ImageFactory** .
 
-## <a name="create-a-build-and-connect-to-azure"></a>Criar uma compilação e conecte-se para o Azure
-Neste ponto, você tem os arquivos de origem armazenados em um repositório Git no DevOps do Azure. Agora, você precisa configurar um pipeline para executar o PowerShell do Azure. Há muitas opções para executar essas etapas. Neste artigo, você usa a definição de compilação para manter a simplicidade, mas ele funciona com a compilação de DevOps, versão de DevOps (únicos ou vários ambientes), outros mecanismos de execução como o Agendador de tarefas do Windows ou qualquer outro equipamento que pode executar o PowerShell do Azure.
+## <a name="create-a-build-and-connect-to-azure"></a>Criar uma compilação e conectar-se ao Azure
+Neste ponto, você tem os arquivos de origem armazenados em um repositório git no Azure DevOps. Agora, você precisa configurar um pipeline para executar o Azure PowerShell. Há muitas opções para executar essas etapas. Neste artigo, você usa a definição de Build para simplificar, mas funciona com a compilação DevOps, a versão DevOps (ambientes únicos ou múltiplos), outros mecanismos de execução como o Windows Agendador de Tarefas ou qualquer outro conjunto que possa executar Azure PowerShell.
 
 > [!NOTE]
-> Um ponto importante para ter em mente que alguns dos arquivos do PowerShell levar muito tempo para ser executado quando há muita (10 +) imagens personalizadas para criar. Agentes de Build/versão de DevOps hospedado gratuito tem um tempo limite de 30 minutos, para que você não pode usar o agente hospedado gratuito após começar a criar muitas imagens. Esse desafio de tempo limite se aplica a qualquer agente que você decida usar, é uma boa ideia verificar com antecedência que você pode estender os tempos limite típicos para scripts de longa execução do Azure PowerShell. No caso de DevOps do Azure, você pode usar agentes hospedados pagos ou usar seu próprio agente de compilação.
+> Um ponto importante para ter em mente que alguns dos arquivos do PowerShell demoram muito para serem executados quando há muito (mais de 10) imagens personalizadas a serem criadas. Os agentes de Build/versão do DevOps hospedados gratuitamente têm um tempo limite de 30 min, portanto, você não pode usar o agente hospedado gratuito depois de começar a criar várias imagens. Esse desafio de tempo limite se aplica a qualquer conjunto que você decida usar, é bom verificar antecipadamente que você pode estender os tempos limite típicos para scripts de Azure PowerShell de longa execução. No caso do Azure DevOps, você pode usar agentes hospedados pagos ou usar seu próprio agente de compilação.
 
-1. Para iniciar, selecione **configurar compilação** na home page do seu projeto de DevOps:
+1. Para iniciar, selecione **Configurar compilação** na página inicial do seu projeto DevOps:
 
     ![Botão de compilação da configuração](./media/set-up-devops-lab/setup-build-button.png)
-2. Especifique um **nome** para a compilação (por exemplo: Criar e fornecer imagens para laboratórios de desenvolvimento/teste).
-3. Selecione uma **vazio** definição de compilação e, em seguida, selecione **aplicar** para criar sua compilação.
-4. Nesse estágio, você pode escolher **hospedado** para o agente de compilação.
-5. **Salvar** a definição de compilação.
+2. Especifique um **nome** para a compilação (por exemplo: compilar e entregar imagens para DevTest Labs).
+3. Selecione uma definição de compilação **vazia** e selecione **aplicar** para criar sua compilação.
+4. Neste estágio, você pode escolher **hospedado** para o agente de compilação.
+5. **Salve** a definição de compilação.
 
-    ![Definição de compilação](./media/set-up-devops-lab/build-definition.png)
+    ![Definição da compilação](./media/set-up-devops-lab/build-definition.png)
 
 ## <a name="configure-the-build-variables"></a>Configurar as variáveis de compilação
-Para simplificar os parâmetros de linha de comando, encapsule os valores de chave que orientam a fábrica de imagem para um conjunto de variáveis de compilação. Selecione o **variáveis** guia e você verá uma lista das diversas variáveis de padrão. Aqui está a lista de variáveis para entrar no Azure DevOps:
+Para simplificar os parâmetros de linha de comando, encapsular os valores de chave que orientam o alocador de imagem a um conjunto de variáveis de compilação. Selecione a guia **variáveis** e você verá uma lista de várias variáveis padrão. Aqui está a lista de variáveis a serem inseridas no Azure DevOps:
 
 
-| Nome de variável | Value | Observações |
+| Nome de variável | Valor | Observações |
 | ------------- | ----- | ----- |
-| ConfigurationLocation | /Scripts/ImageFactory/Configuration | Esse é o caminho completo no repositório para o **configuração** pasta. Se você importou o repositório inteiro acima, o valor para a esquerda está correto. Caso contrário, atualize para apontar para o local de configuração. |
-| DevTestLabName | MyImageFactory | O nome do laboratório no Azure DevTest Labs usado como a fábrica para produzir imagens. Se você não tiver uma, crie um. Certifique-se de que o laboratório é na mesma assinatura que o ponto de extremidade de serviço tem acesso ao. |
+| ConfigurationLocation | /Scripts/ImageFactory/Configuration | Este é o caminho completo no repositório para a pasta de **configuração** . Se você importou todo o repositório acima, o valor à esquerda estará correto. Caso contrário, atualize para apontar para o local de configuração. |
+| DevTestLabName | MyImageFactory | O nome do laboratório em Azure DevTest Labs usado como a fábrica para produzir imagens. Se você não tiver um, crie um. Verifique se o laboratório está na mesma assinatura à qual o ponto de extremidade de serviço tem acesso. |
 | ImageRetention | 1 | O número de imagens que você deseja salvar de cada tipo. Defina o valor padrão como 1. |
-| MachinePassword | ******* | A senha da conta de administrador interno para as máquinas virtuais. Esta é uma conta transitória, portanto certifique-se de que ele é seguro. Selecione o pequeno ícone de cadeado à direita para garantir que ele é uma cadeia de caracteres segura. |
-| MachineUserName | ImageFactoryUser | O nome da conta de administrador interno para as máquinas virtuais. Esta é uma conta transitória. |
-| StandardTimeoutMinutes | 30 | O tempo limite que deveríamos esperar para operações do Azure regulares. |
-| SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | A ID da assinatura em que o laboratório existe e que o ponto de extremidade de serviço tem acesso ao. |
-| VMSize | Standard_A3 | O tamanho da máquina virtual a ser usado para o **criar** etapa. As VMs criadas são transitórias. O tamanho deve ser aquele que [habilitada para o laboratório](devtest-lab-set-lab-policy.md). Confirme se há suficiente [cota de núcleos de assinatura](../azure-subscription-service-limits.md).
+| MachinePassword | ******* | A senha da conta de administrador interna para as máquinas virtuais. Essa é uma conta transitória, portanto, certifique-se de que ela seja segura. Selecione o pequeno ícone de bloqueio à direita para garantir que seja uma cadeia de caracteres segura. |
+| MachineUserName | ImageFactoryUser | O nome de usuário da conta de administrador interno para as máquinas virtuais. Esta é uma conta transitória. |
+| StandardTimeoutMinutes | 30 | O tempo limite que devemos aguardar para operações regulares do Azure. |
+| SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | A ID da assinatura na qual o laboratório existe e a qual o ponto de extremidade de serviço tem acesso. |
+| VMSize | Standard_A3 | O tamanho da máquina virtual a ser usado para a etapa de **criação** . As VMs criadas são transitórias. O tamanho deve ser aquele que está [habilitado para o laboratório](devtest-lab-set-lab-policy.md). Confirme se há cota de [núcleos de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md)suficiente.
 
-![As variáveis de compilação](./media/set-up-devops-lab/configure-build-variables.png)
+![Variáveis de compilação](./media/set-up-devops-lab/configure-build-variables.png)
 
-## <a name="connect-to-azure"></a>Conecte-se ao Azure
-A próxima etapa é configurar o serviço principal. Esta é uma identidade no Azure Active Directory que permite que o agente de compilação do DevOps operar no Azure em nome do usuário. Para configurá-lo, inicie com a adição é a primeira etapa de Build do Azure PowerShell.
+## <a name="connect-to-azure"></a>Conectar-se ao Azure
+A próxima etapa é configurar a entidade de serviço. Essa é uma identidade no Azure Active Directory que permite que o agente de compilação do DevOps opere no Azure em nome do usuário. Para configurá-lo, comece com a adição de você primeiro Azure PowerShell etapa de Build.
 
-1. Selecione **adicionar tarefa**.
-2. Pesquise **o Azure PowerShell**.
-3. Depois de encontrá-lo, selecione **adicionar** para adicionar a tarefa para a compilação. Quando você fizer isso, você verá a tarefa são exibidos no lado esquerdo como adicionado.
+1. Selecione **Adicionar tarefa**.
+2. Procure **Azure PowerShell**.
+3. Depois de encontrá-lo, selecione **Adicionar** para adicionar a tarefa à compilação. Ao fazer isso, você verá que a tarefa aparece no lado esquerdo como adicionada.
 
-![Configurar a etapa do PowerShell](./media/set-up-devops-lab/set-up-powershell-step.png)
+![Configurar etapa do PowerShell](./media/set-up-devops-lab/set-up-powershell-step.png)
 
-A maneira mais rápida para configurar o serviço principal é permitir que o Azure DevOps fazê-lo para nós.
+A maneira mais rápida de configurar uma entidade de serviço é deixar que o Azure DevOps faça isso para nós.
 
-1. Selecione o **tarefa** você acabou de adicionar.
-2. Para **tipo de Conexão do Azure**, escolha **do Azure Resource Manager**.
-3. Selecione o **gerenciar** link para configurar a entidade de serviço.
+1. Selecione a **tarefa** que você acabou de adicionar.
+2. Para **tipo de conexão do Azure**, escolha **Azure Resource Manager**.
+3. Selecione o link **gerenciar** para configurar a entidade de serviço.
 
-Para obter mais informações, consulte este [postagem de blog](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Quando você seleciona os **gerenciar** link, você entrará no lugar certo em DevOps (segunda captura de tela na postagem do blog) para configurar a conexão para o Azure. Certifique-se de escolher **ponto de extremidade de serviço do Azure Resource Manager** ao configurar isso.
+Para mais informações, confira essa [postagem no blog](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Ao selecionar o link **gerenciar** , você vai para o lugar certo no DevOps (segunda captura de tela na postagem do blog) para configurar a conexão com o Azure. Certifique-se de escolher **Azure Resource Manager ponto de extremidade de serviço** ao configurá-lo.
 
-## <a name="complete-the-build-task"></a>Concluir a tarefa de build
-Se você selecionar a tarefa de build, você verá todos os detalhes no painel à direita deve ser preenchido.
+## <a name="complete-the-build-task"></a>Concluir a tarefa de compilação
+Se você selecionar a tarefa de compilação, verá todos os detalhes no painel à direita que devem ser preenchidos.
 
-1. Primeiro, nomeie a tarefa de build: **Criar máquinas virtuais**.
-2. Escolha o **entidade de serviço** criado escolhendo **do Azure Resource Manager**
+1. Primeiro, nomeie a tarefa de compilação: **criar máquinas virtuais**.
+2. Escolha a **entidade de serviço** que você criou escolhendo **Azure Resource Manager**
 3. Escolha o **ponto de extremidade de serviço**.
-4. Para **caminho de Script**, selecione **... (reticências)**  à direita.
-5. Navegue até **MakeGoldenImageVMs.ps1** script.
-6. Parâmetros de script devem ter esta aparência: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+4. Para **caminho de script**, selecione **... (reticências)** à direita.
+5. Navegue até o script **MakeGoldenImageVMs. ps1** .
+6. Os parâmetros do script devem ser assim: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![Concluir a definição de compilação](./media/set-up-devops-lab/complete-build-definition.png)
 
 
-## <a name="queue-the-build"></a>Enfileirar o build
-Vamos verificar se você tem tudo configurado corretamente, bastando enfileirar uma nova compilação. Enquanto a compilação está em execução, alterne para o [portal do Azure](https://portal.azure.com) e selecione **todas as máquinas virtuais** em seu laboratório de fábrica de imagem para confirmar que tudo está funcionando corretamente. Você deverá ver três máquinas virtuais são criadas no laboratório.
+## <a name="queue-the-build"></a>Enfileirar a compilação
+Vamos verificar se tudo está configurado corretamente ao enfileirar uma nova compilação. Enquanto a compilação estiver em execução, alterne para o [portal do Azure](https://portal.azure.com) e selecione em **todas as máquinas virtuais** no laboratório da fábrica de imagens para confirmar se tudo está funcionando corretamente. Você deve ver três máquinas virtuais serem criadas no laboratório.
 
-![VMs do laboratório](./media/set-up-devops-lab/vms-in-lab.png)
+![VMs no laboratório](./media/set-up-devops-lab/vms-in-lab.png)
 
-## <a name="next-steps"></a>Próximas etapas
-A primeira etapa na configuração de fábrica de imagem com base no Azure DevTest Labs é concluída. No próximo artigo na série, você os receba VMs generalizada e salvos em imagens personalizadas. Em seguida, você os tiver distribuído para todos os seus laboratórios. Consulte o próximo artigo na série: [Salvar imagens personalizadas e distribuir a vários laboratórios da](image-factory-save-distribute-custom-images.md).
+## <a name="next-steps"></a>Próximos passos
+A primeira etapa na configuração da fábrica de imagens com base em Azure DevTest Labs foi concluída. No próximo artigo da série, você obtém essas VMs generalizadas e salvas em imagens personalizadas. Em seguida, você os tem distribuído para todos os seus outros laboratórios. Consulte o próximo artigo da série: [salvar imagens personalizadas e distribuir para vários laboratórios](image-factory-save-distribute-custom-images.md).

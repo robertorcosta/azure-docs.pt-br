@@ -1,20 +1,19 @@
 ---
 title: Negociação de alta frequência usando Azure Stream Analytics
 description: Como fazer um treinamento e pontuação do modelo de regressão linear em um trabalho do Azure Stream Analytics.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d3c1a730c34632403669794bdd97f95e3b3662d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426218"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de transação de alta frequência com o Stream Analytics
 A combinação da linguagem SQL e das funções UDFs (funções definidas pelo usuário) e UDAs (agregações definidas pelo usuário) de JavaScript no Azure Stream Analytics permite aos usuários a execução de análises avançadas. As análises avançadas podem incluir treinamento de aprendizado de máquina online e pontuação, bem como a simulação de processo com estado. Este artigo descreve como executar regressão linear em um trabalho do Azure Stream Analytics que faz classificação e pontuação contínuas em um cenário de transação de alta frequência.

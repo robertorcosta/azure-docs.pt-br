@@ -3,17 +3,17 @@ title: Serviços de nuvem e certificados de gerenciamento | Microsoft Docs
 description: Saiba como criar e usar certificados com o Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 3c84c6832856986a45be7d275fb94a6c5fc066f0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359198"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361340"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Visão geral sobre certificados para os Serviços de Nuvem do Azure
 Os certificados são usados no Azure para serviços de nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com o gerenciamento de API ([certificados de gerenciamento](#what-are-management-certificates)). Esse tópico fornece uma visão geral de ambos os tipos de certificado, como [criá-los](#create) e implantá-los no Azure.
@@ -58,7 +58,7 @@ Você pode usar qualquer ferramenta disponível para criar um certificado autoas
     > Você não pode adquirir um certificado SSL para o domínio cloudapp.net (ou para qualquer um relacionado ao Azure); o nome de assunto do certificado deve corresponder ao nome do domínio personalizado usado para acessar o aplicativo. Por exemplo, **contoso.net** e não **contoso.cloudapp.net**.
 
 * Mínimo de criptografia de 2048 bits.
-* **Apenas Certificado de Serviço**: o certificado do cliente deve residir no repositório de certificados *Pessoal*.
+* **Apenas Certificado de Serviço**: o certificado do cliente deve residir no repositório de certificados *Pessoal* .
 
 Há duas maneiras fáceis de criar um certificado no Windows, com o utilitário `makecert.exe` ou o IIS.
 
@@ -82,14 +82,17 @@ Se você quiser usar este [certificado com o portal de gerenciamento](../azure-a
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
-### <a name="internet-information-services-iis"></a>IIS (Serviços de Informações da Internet)
+### <a name="internet-information-services-iis"></a>Serviços de Informações da Internet (IIS)
 Há muitas páginas na Internet que tratam de como fazer isso com o IIS. [Este](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) é um ótimo site que descobri e que acho que explica bem. 
 
 ### <a name="linux"></a>Linux
 [Este](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artigo descreve como criar certificados com SSH.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Carregar seu certificado de serviço no portal do Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Carregar um [certificado de gerenciamento de API](../azure-api-management-certs.md) no portal do Azure.
+
+
+
 

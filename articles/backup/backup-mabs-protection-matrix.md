@@ -3,12 +3,12 @@ title: Que tipo de backup o Servidor de Backup do Azure pode fazer
 description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449883"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Servidor de Backup do Azure
 
@@ -82,9 +82,23 @@ Este artigo lista os vários servidores e as cargas de trabalho que você pode p
 
 ## <a name="azure-expressroute-support"></a>Suporte do Azure ExpressRoute
 
-Se o Azure ExpressRoute estiver configurado com o emparelhamento privado ou da Microsoft, ele não poderá ser usado para fazer backup dos dados no Azure.
+Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelhamento público (disponível para circuitos antigos) e o emparelhamento da Microsoft. Não há suporte para backup em emparelhamento privado.
 
-Se o Azure ExpressRoute estiver configurado com o emparelhamento público, ele poderá ser usado para fazer backup dos dados no Azure.
+Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
+
+* Azure Active Directory (12076:5060)
+* Região Microsoft Azure (de acordo com o local do cofre dos serviços de recuperação)
+* Armazenamento do Azure (de acordo com o local do cofre dos serviços de recuperação)
+
+Para obter mais detalhes, consulte os [requisitos de roteamento do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.
@@ -93,17 +107,17 @@ Se o Azure ExpressRoute estiver configurado com o emparelhamento público, ele p
 
 O Servidor de Backup do Azure pode proteger dados nos seguintes aplicativos em cluster:
 
-- Servidores de arquivos
+* Servidores de arquivos
 
-- SQL Server
+* SQL Server
 
-- Hyper-V – se você proteger um cluster Hyper-V usando o agente de proteção MABS expandido, não poderá adicionar proteção secundária para as cargas de trabalho protegidas do Hyper-V.
+* Hyper-V – se você proteger um cluster Hyper-V usando o agente de proteção MABS expandido, não poderá adicionar proteção secundária para as cargas de trabalho protegidas do Hyper-V.
 
     Se você executar o Hyper-V no Windows Server 2008 R2, instale a atualização descrita na KB [975354](https://support.microsoft.com/kb/975354).
     Se você executar o Hyper-V no Windows Server 2008 R2 em uma configuração de cluster, instale o SP2 e a KB [971394](https://support.microsoft.com/kb/971394).
 
-- Exchange Server – o Servidor de Backup do Azure pode proteger clusters de discos não compartilhados para as versões com suporte do Exchange Server (replicação contínua de cluster) e também pode proteger o Exchange Server configurado para replicação contínua local.
+* Exchange Server – o Servidor de Backup do Azure pode proteger clusters de discos não compartilhados para as versões com suporte do Exchange Server (replicação contínua de cluster) e também pode proteger o Exchange Server configurado para replicação contínua local.
 
-- SQL Server – o Servidor de Backup do Azure não oferece suporte a backup de bancos de dados do SQL Server hospedados em volumes compartilhados de cluster (CSVs).
+* SQL Server – o Servidor de Backup do Azure não oferece suporte a backup de bancos de dados do SQL Server hospedados em volumes compartilhados de cluster (CSVs).
 
 Servidor de Backup do Azure pode proteger as cargas de trabalho de cluster que estão localizadas no mesmo domínio que o servidor MABS e em um domínio filho ou confiável. Se você deseja proteger fontes de dados em grupos de trabalho ou domínios não confiáveis, use NTLM ou autenticação de certificados para um único servidor ou autenticação de certificados apenas para um cluster.

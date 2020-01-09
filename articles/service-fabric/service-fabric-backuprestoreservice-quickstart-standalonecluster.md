@@ -1,27 +1,18 @@
 ---
 title: Backup/restauração periódicos no Azure Service Fabric autônomo
 description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: feec830a81b9afe572e05bb6be21ad39edd7af04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 938cbbde9f53c52350ef64715f6c61c4aa961057
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232479"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526236"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric
+# <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup e restauração periódicos em um Service Fabric autônomo
 > [!div class="op_single_selector"]
 > * [Clusters no Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters independentes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -53,7 +44,7 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 - Suspender backups temporariamente
 - Gerenciamento de backups de retenção (em breve)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Service Fabric cluster com a versão 6,4 ou superior do fabric. Consulte o [artigo](service-fabric-cluster-creation-for-windows-server.md) para ver as etapas para baixar o pacote necessário.
 * Certificado X.509 para criptografia de segredos necessária para se conectar ao armazenamento para armazenar backups. Consulte o [artigo](service-fabric-windows-cluster-x509-security.md) para saber como adquirir ou criar um certificado X.509 autoassinado.
 
@@ -295,7 +286,7 @@ Para exibir os backups em Service Fabric Explorer, navegue até uma partição e
 - Service Fabric cmdlets do PowerShell estão no modo de visualização.
 - Não há suporte para clusters do Service Fabric no Linux.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Noções básicas sobre a configuração de backup periódico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Referência da API REST de backup e restauração](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838427"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427709"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Escolha os parâmetros para otimizar seus algoritmos no Azure Machine Learning Studio (clássico)
 
@@ -23,7 +23,7 @@ Este tópico descreve como escolher o conjunto de hiperparâmetros corretos para
 
 
 
-Há várias maneiras de realizar a seleção de modelo. No Machine Learning, a validação cruzada é um dos métodos mais amplamente usados para seleção de modelo e é o mecanismo de seleção de modelo padrão na versão clássica do Azure Machine Learning Studio. Como a versão clássica do Azure Machine Learning Studio dá suporte a R e Python, você sempre pode implementar seus próprios mecanismos de seleção de modelo usando o R ou o Python.
+Há várias maneiras de realizar a seleção de modelo. No Machine Learning, a validação cruzada é um dos métodos mais amplamente usados para seleção de modelo e é o mecanismo de seleção de modelo padrão no Azure Machine Learning Studio (clássico). Como Azure Machine Learning Studio (clássico) dá suporte a R e Python, você sempre pode implementar seus próprios mecanismos de seleção de modelo usando o R ou o Python.
 
 Há quatro etapas no processo de localizar o melhor conjunto de parâmetros:
 
@@ -32,7 +32,7 @@ Há quatro etapas no processo de localizar o melhor conjunto de parâmetros:
 3. **Definir métrica**: decida qual métrica deve ser usada para determinar o melhor conjunto de parâmetros, como precisão, erro de raiz quadrada média, precisão, recall ou pontuação f.
 4. **Treinar, avaliar e comparar**: para cada combinação exclusiva de valores de parâmetros, a validação cruzada é executada por e com base na métrica de erro que você definir. Após a avaliação e a comparação, você pode escolher o modelo com melhor desempenho.
 
-A imagem a seguir mostra como isso pode ser obtido na versão clássica do Azure Machine Learning Studio.
+A imagem a seguir ilustra como isso pode ser obtido no Azure Machine Learning Studio (clássico).
 
 ![Localizar o melhor conjunto de parâmetros](./media/algorithm-parameters-optimize/fig1.png)
 

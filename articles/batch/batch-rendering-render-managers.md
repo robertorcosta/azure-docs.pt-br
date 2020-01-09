@@ -1,18 +1,18 @@
 ---
 title: Suporte para gerenciador de reinicialização - Lote do Azure
-description: Usar o Azure para renderização com a integração do gerenciador de renderização de Lote do Azure
+description: Usando a integração do Gerenciador de renderização do lote do Azure. Saiba mais sobre o suporte interno ou Complementos para gerentes de processamento populares.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449692"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Usar o Lote do Azure com gerenciadores de farm de renderização
 
@@ -26,7 +26,7 @@ Há suporte aos seguintes gerenciadores de renderização:
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
-## <a name="azure-render-hub"></a>Hub de renderização do Azure
+## <a name="azure-render-hub"></a>Hub de Renderização do Azure
 
 O Hub de renderização do Azure simplifica a criação e o gerenciamento de farms de renderização do Azure.  O Hub de renderização tem suporte nativo para PipelineFx Qube e prazo 10.  Para obter mais informações e instruções detalhadas, consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
 
@@ -46,6 +46,6 @@ Para um exemplo de um cliente Royal Render usando a integração do Azure, consu
 
 O Hub de renderização do Azure dá suporte a gerentes de renderização populares, incluindo prazo.  Para obter instruções sobre como implantar e usar o Hub de renderização, consulte [o repositório GitHub](https://github.com/Azure/azure-render-hub).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Experimente a integração do Lote do Azure para o gerenciador de renderização, usando o plug-in apropriado e as instruções no GitHub, onde aplicável.

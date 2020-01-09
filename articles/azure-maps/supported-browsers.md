@@ -7,13 +7,13 @@ ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
-ms.openlocfilehash: d867e9a1afcb495aee7e8b0e0b3b001104f48a4c
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+manager: cpendle
+ms.openlocfilehash: 6aa256f026033a8b204b3c2ab1080f9f63ef63d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432796"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navegadores compatíveis com o SDK Web
 
@@ -29,7 +29,7 @@ if (!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>Área de Trabalho
+## <a name="desktop"></a>Desktop
 
 O SDK da Web do Azure Maps dá suporte aos seguintes navegadores da área de trabalho:
 
@@ -40,7 +40,7 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores da área de tra
 
 Consulte também [direcionar navegadores herdados](#Target-Legacy-Browsers) mais adiante neste artigo.
 
-## <a name="mobile"></a>Celular
+## <a name="mobile"></a>Celulares
 
 O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
@@ -59,20 +59,20 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
 Os seguintes módulos do SDK da Web também têm suporte no node. js:
 
-- Módulo de serviços ([módulo NPM](https://www.npmjs.com/package/azure-maps-rest)de[documentação](how-to-use-services-module.md) | )
+- Módulo de serviços ([documentação](how-to-use-services-module.md) | [módulo NPM](https://www.npmjs.com/package/azure-maps-rest))
 
 ## <a name="Target-Legacy-Browsers"></a>Direcionar navegadores herdados
 
-Talvez você queira direcionar para navegadores mais antigos que não dão suporte a WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que você use os serviços do Azure Maps junto com um controle de mapa de código-fonte aberto como [Leaflet](https://leafletjs.com/). Veja um exemplo:
+Talvez você queira direcionar para navegadores mais antigos que não dão suporte a WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que você use os serviços do Azure Maps junto com um controle de mapa de código-fonte aberto como [Leaflet](https://leafletjs.com/). Aqui está um exemplo:
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mapas do Azure + Leaflet" src="//codepen.io/azuremaps/embed/GeLgyx/?height=500&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+Consulte a caneta <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> pelo Azure maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o SDK da Web do Azure Maps:
 

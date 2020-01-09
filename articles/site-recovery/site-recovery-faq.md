@@ -1,18 +1,14 @@
 ---
 title: Perguntas gerais sobre o serviço de Azure Site Recovery
 description: Este artigo discute perguntas gerais populares sobre Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078531"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497543"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre Azure Site Recovery
 
@@ -82,7 +78,7 @@ Sim. Nenhuma instância protegida gera cobranças do Azure Site Recovery durante
 
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, serei cobrado por outras tarifas do Azure?
 
-Sim, mesmo que Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá incorrer em encargos pelo armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também poderá gerar encargos de computação do Azure.
+Sim, mesmo que Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá incorrer em encargos pelo armazenamento do Azure, transações de armazenamento e transferência de dados. Uma máquina virtual recuperada também poderá gerar tarifas de computação do Azure.
 
 
 ### <a name="is-there-a-cost-associated-to-perform-disaster-recovery-drillstest-failover"></a>Há um custo associado para executar testes de recuperação de desastres/failover de teste?
@@ -158,7 +154,7 @@ Nosso parceiro, Riverbed, fornece orientações detalhadas sobre como trabalhar 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>É possível usar o ExpressRoute para replicar máquinas virtuais no Azure?
 Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md) para replicar máquinas virtuais locais no Azure.
 
-- Azure Site Recovery replica dados para um armazenamento do Azure por meio de um ponto de extremidade público. Você precisa configurar [o emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou usar um [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) existente (preterido para novos circuitos) para usar o ExpressRoute para replicação de site Recovery.
+- Azure Site Recovery replica dados para um armazenamento do Azure por meio de um ponto de extremidade público. Você precisa configurar [o emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou usar um [emparelhamento público](../expressroute/about-public-peering.md) existente (preterido para novos circuitos) para usar o ExpressRoute para replicação de site Recovery.
 - Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação.
 - Não há suporte para a replicação sobre emparelhamento privado.
 - Se você estiver protegendo máquinas VMware ou máquinas físicas, verifique se os [requisitos de rede](vmware-azure-configuration-server-requirements.md#network-requirements) do servidor de configuração também são atendidos. A conectividade com URLs específicas é exigida pelo servidor de configuração para orquestração da replicação do Site Recovery. O ExpressRoute não pode ser usado para essa conectividade.
@@ -167,7 +163,7 @@ Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se eu replicar para o Azure, que tipo de conta de armazenamento ou disco gerenciado eu preciso?
 
-Você precisa de um armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A conta deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure. O Managed disks dá suporte apenas a LRS.
+Você precisa de um armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure. O Managed disks dá suporte apenas a LRS.
 
 ### <a name="how-often-can-i-replicate-data"></a>Com que frequência posso replicar dados?
 * **Hyper-V:** As VMs do Hyper-V podem ser replicadas a cada 30 segundos (exceto para armazenamento Premium), cinco minutos ou 15 minutos.
@@ -197,7 +193,7 @@ Sim. Você pode ler mais sobre a limitação de largura de banda nestes artigos:
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se eu estiver fazendo o failover para o Azure, como posso acessar as VMs do Azure após a tolerância a falhas?
 
-Você pode acessar as VMs do Azure em uma conexão segura da Internet, em uma VPN site a site ou na ExpressRoute do Azure. Você precisa preparar várias coisas para se conectar. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Você pode acessar as VMs do Azure em uma conexão segura da Internet, em uma VPN site a site ou na Azure ExpressRoute. Você precisa preparar várias coisas para se conectar. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Se eu fizer failover no Azure, como o Azure poderá garantir a resiliência dos meus dados?
@@ -219,7 +215,7 @@ Para automatizar, você pode usar o Orchestrator ou o Operations Manager local p
 Sim, você pode usar a recuperação em uma localização alternativa para fazer failback para um host diferente do Azure.
 
 * [Para máquinas virtuais VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Para máquinas virtuais Hyper-V](hyper-v-azure-failback.md#perform-failback)
+* [Para máquinas virtuais Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## <a name="automation"></a>Automação
 
@@ -236,6 +232,6 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Res
 
 [Saiba mais](site-recovery-whats-new.md) sobre novas atualizações e [Obtenha informações de rollup](service-updates-how-to.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Leia a [visão geral do Site Recovery](site-recovery-overview.md)
 

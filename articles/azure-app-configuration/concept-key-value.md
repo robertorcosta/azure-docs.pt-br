@@ -1,23 +1,17 @@
 ---
-title: Repositório de pares chave-valor da Configuração de Aplicativo do Azure | Microsoft Docs
-description: Uma visão geral de como os dados de configuração são armazenados na Configuração de Aplicativo Azure AD
-services: azure-app-configuration
-documentationcenter: ''
+title: Chave de configuração de Azure App-repositório de valor
+description: Uma visão geral de como os dados de configuração são armazenados na configuração do Azure App.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 11e019e276944e0c3f50d604420046979b5f3fbb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185231"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495277"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
@@ -102,7 +96,7 @@ Os valores atribuídos às chaves também são cadeias de caracteres Unicode. Us
 
 Os dados de configuração armazenados em um repositório de Configuração de Aplicativos, que inclui todas as chaves e todos os valores, são criptografados em repouso e em trânsito. A Configuração de Aplicativo não é uma solução substituta do Azure Key Vault. Não armazene segredos do aplicativo nele.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Instantâneo pontual](./concept-point-time-snapshot.md)  
 * [Gerenciamento de recursos](./concept-feature-management.md)  

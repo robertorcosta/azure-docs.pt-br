@@ -2,17 +2,17 @@
 title: O que é um modelo do Serviço de Nuvem e pacote | Microsoft Docs
 description: Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360694"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)* , configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)* . Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -200,7 +200,7 @@ Você pode atualizar a configuração do seu serviço de nuvem enquanto ele é e
 * **Alterando a impressão digital do certificado**  
   Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure deixará a instância offline normalmente para atualizar o certificado e a deixará online novamente após a alteração ser concluída.
 
-### <a name="handling-configuration-changes-with-service-runtime-events"></a>Tratando alterações de configuração com eventos de tempo de execução do serviço
+### <a name="handling-configuration-changes-with-service-runtime-events"></a>Tratando alterações de configuração com eventos de runtime do serviço
 A [Biblioteca de Tempo de Execução do Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) inclui o namespace [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)), que fornece classes para interagir com o ambiente do Azure de uma função. A classe [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) define os seguintes eventos que são disparados antes e depois de uma alteração de configuração:
 
 * **[Alterando](/previous-versions/azure/reference/ee758134(v=azure.100)) eventos**  
@@ -270,7 +270,7 @@ Onde as variáveis são definidas da seguinte maneira:
 | \[PhysicalPath\] |Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço. |
 | \[RoleAssemblyName\] |O nome do arquivo binário para a função. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Estou criando um pacote de serviço de nuvem e desejo...
 
 * [Configurar a área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]
@@ -289,3 +289,6 @@ Estou usando o Visual Studio e desejo...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

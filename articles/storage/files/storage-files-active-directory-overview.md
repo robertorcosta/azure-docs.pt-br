@@ -1,17 +1,17 @@
 ---
-title: Visão geral da autenticação de Azure Active Directory sobre o SMB para arquivos do Azure – armazenamento do Azure
+title: Visão geral-Azure AD Domain Services autorização-arquivos do Azure
 description: Os arquivos do Azure oferecem suporte à autenticação baseada em identidade sobre SMB (protocolo de mensagens do servidor) por meio dos serviços de domínio do Azure Active Directory (AD do Azure). As máquinas virtuais Windows (VMs) associadas ao domínio podem acessar os compartilhamentos de arquivos do Azure usando as credenciais do Azure AD.
 author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 93db726a2cac14109e542972ce851943b290962f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460292"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Visão geral do suporte à autenticação do Azure AD DS (serviço de domínio Azure Active Directory) de arquivos do Azure para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -83,9 +83,9 @@ Os arquivos do Azure agora dão suporte à preservação de ACLs de diretório o
 ## <a name="pricing"></a>Preços
 Não há nenhum custo adicional de serviço para habilitar a autenticação do Azure AD por SMB em sua conta de armazenamento. Para obter mais informações sobre preços, consulte as páginas [Preços dos Arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [Preços do Azure AD Domain Services](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre a autenticação de Arquivos do Azure e do Azure AD por SMB, consulte estes recursos:
 
 - [Introdução aos Arquivos do Azure](storage-files-introduction.md)
 - [Habilitar a autenticação de Azure Active Directory sobre o SMB para arquivos do Azure](storage-files-active-directory-enable.md)
-- [Perguntas frequentes](storage-files-faq.md)
+- [perguntas frequentes](storage-files-faq.md)

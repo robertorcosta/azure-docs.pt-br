@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407625"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
 
@@ -86,8 +86,8 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad e Tobago                      | ✓ |   |  ✓| 
 | Ilhas Turcas e Caicos                 | ✓ |   |  ✓| 
-| Territórios insulares dos EUA                    | ✓ |   |  ✓| 
-| Ilhas Virgens dos EUA                      | ✓ |   |  ✓| 
+| Territórios Insulares dos EUA                    | ✓ |   |  ✓| 
+| Ilhas Virgens dos Estados Unidos                      | ✓ |   |  ✓| 
 | Estados Unidos                            | ✓ | ✓ |  ✓| 
 | Uruguai                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -110,8 +110,8 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | República Centro-Africana    | ✓               |                              |        ✓| 
 | Chad                        | ✓               |                              |        ✓| 
 | Ilhas Comores                     | ✓               |                              |        ✓| 
-| Congo (RDC)                 | ✓               |                              |        ✓|
-| Côte d' Ivoire               | ✓               |                              |        ✓| 
+| Congo (República Democrática)                 | ✓               |                              |        ✓|
+| Côte d’Ivoire               | ✓               |                              |        ✓| 
 | Djibuti                    | ✓               |                              |        ✓| 
 | Egito                       | ✓               |                              |        ✓| 
 | Guiné Equatorial           | ✓               |                              |        ✓| 
@@ -151,7 +151,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Reunião                     | ✓               |                              |        ✓| 
 | Ruanda                      | ✓               |                              |        ✓| 
 | Santa Helena, ascensão e Tristão da Cunha        | ✓               |                              |        ✓| 
-| São Tomé e Príncipe       | ✓               |                              |        ✓| 
+| São Tomé and Príncipe       | ✓               |                              |        ✓| 
 | Arábia Saudita                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
 | Seychelles                  | ✓               |                              |        ✓| 

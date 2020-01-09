@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621445"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646686"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight usando o firewall
 
@@ -75,8 +75,8 @@ Crie uma coleção de regras de aplicativo que permita que o cluster envie e rec
 
     | Nome | Endereços de origem | Protocolo: porta | FQDNS de destino | Observações |
     | --- | --- | --- | --- | --- |
-    | Rule_2 | * | https: 443 | login.windows.net | Permite a atividade de logon do Windows |
-    | Rule_3 | * | https: 443 | login.microsoftonline.com | Permite a atividade de logon do Windows |
+    | Rule_2 | * | https:443 | login.windows.net | Permite a atividade de logon do Windows |
+    | Rule_3 | * | https:443 | login.microsoftonline.com | Permite a atividade de logon do Windows |
     | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Substitua `storage_account_name` pelo nome da conta de armazenamento real. Se o seu cluster tiver o suporte de WASB, adicione uma regra para WASB. Para usar somente conexões HTTPS, certifique-se de que ["transferência segura necessária"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esteja habilitada na conta de armazenamento. |
 
    ![Título: inserir detalhes da coleção de regras de aplicativo](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -103,7 +103,7 @@ Crie as regras de rede para configurar corretamente o cluster HDInsight.
 
     | Nome | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Observações |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Serviço de tempo |
+    | Rule_1 | UDP | * | * | 123 | Serviço de data/hora |
     | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se você estiver usando Enterprise Security Package (ESP), adicione uma regra de rede na seção endereços IP que permite a comunicação com o AAD-DS para clusters ESP. Você pode encontrar os endereços IP dos controladores de domínio na seção AAD-DS no portal |
     | Rule_3 | TCP | * | Endereço IP da sua conta de Data Lake Storage | * | Se você estiver usando Azure Data Lake Storage, poderá adicionar uma regra de rede na seção endereços IP para resolver um problema SNI com ADLS Gen1 e Gen2. Essa opção roteará o tráfego para o firewall, o que pode resultar em custos mais altos para cargas de dados grandes, mas o tráfego será registrado em log e auditável nos logs de firewall. Determine o endereço IP para sua conta de Data Lake Storage. Você pode usar um comando do PowerShell como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` para resolver o FQDN para um endereço IP.|
     | Rule_4 | TCP | * | * | 12000 | Adicional Se você estiver usando Log Analytics, crie uma regra de rede na seção endereços IP para habilitar a comunicação com seu espaço de trabalho do Log Analytics. |
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 A integração do firewall do Azure com logs de Azure Monitor é útil ao obter um aplicativo funcionando quando você não está ciente de todas as dependências do aplicativo. Saiba mais sobre os logs do Azure Monitor em [Analisar dados de log no Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Para saber mais sobre os limites de escala do firewall do Azure e a solicitação aumenta, consulte [este](../azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [perguntas frequentes](../firewall/firewall-faq.md).
+Para saber mais sobre os limites de escala do firewall do Azure e a solicitação aumenta, consulte [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [perguntas frequentes](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Acesso ao cluster
 
@@ -241,6 +241,6 @@ As instruções anteriores ajudam você a configurar o Firewall do Azure para re
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Arquitetura de rede virtual do Azure HDInsight](hdinsight-virtual-network-architecture.md)

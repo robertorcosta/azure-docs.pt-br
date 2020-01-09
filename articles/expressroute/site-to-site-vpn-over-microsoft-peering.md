@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436806"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurar uma VPN site a site no emparelhamento da Microsoft para ExpressRoute
 
@@ -130,7 +130,7 @@ O diagrama a seguir mostra a visão geral abstraída da rede de exemplo:
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Sobre os exemplos de modelo do Azure Resource Manager
 
-Nos exemplos, o gateway de VPN e as terminações de túnel IPsec são configurados usando um modelo de Azure Resource Manager. Se você for novo no uso de modelos do Resource Manager ou para compreender os fundamentos de modelo do Resource Manager, consulte [Entender a estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). O modelo nesta seção cria um novo ambiente do Azure (VNet). No entanto, se você tiver uma rede virtual existente, poderá referenciá-la no modelo. Se você não estiver familiarizado com as configurações de site a site de IPsec/IKE de gateway de VPN, consulte [Criar uma conexão site a site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+Nos exemplos, o gateway de VPN e as terminações de túnel IPsec são configurados usando um modelo de Azure Resource Manager. Se você for novo no uso de modelos do Resource Manager ou para compreender os fundamentos de modelo do Resource Manager, consulte [Entender a estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). O modelo nesta seção cria um novo ambiente do Azure (VNet). No entanto, se você tiver uma rede virtual existente, poderá referenciá-la no modelo. Se você não estiver familiarizado com as configurações de site a site de IPsec/IKE de gateway de VPN, consulte [Criar uma conexão site a site](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >Você não precisa usar modelos do Azure Resource Manager para criar esta configuração. Você pode criar essa configuração usando o Portal do Azure ou o PowerShell.
@@ -707,7 +707,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 2
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar o Monitor de Desempenho de Rede para ExpressRoute](how-to-npm.md)
 

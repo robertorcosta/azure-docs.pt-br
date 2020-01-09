@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d1d781ee16cd1c78f03b58288bf75e036e38cf00
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267132"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681218"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Adicionar sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator
 
@@ -28,7 +28,7 @@ Se a organização usa a verificação de dois fatores, você pode configurar su
 
 ## <a name="add-your-work-or-school-account"></a>Adicionar a conta corporativa ou de estudante
 
-1. Em seu computador, vá para a página [Verificação de segurança adicional](https://aka.ms/mfasetup).
+1. Em seu computador, vá para a página [Verificação de segurança adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
     >[!Note]
     >Caso não veja a página **Verificação de segurança adicional**, é possível que o administrador tenha ativado a experiência de informações de segurança (versão prévia). Se esse for o caso, você deverá seguir as instruções da seção [Configurar informações de segurança para usar um aplicativo Authenticator](security-info-setup-auth-app.md). Se não for o caso, você precisará entrar em contato com o suporte técnico da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [visão geral de informações de segurança (versão prévia)](user-help-security-info-overview.md).
@@ -53,7 +53,7 @@ Se a organização usa a verificação de dois fatores, você pode configurar su
 
     ![Tela de contas](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 

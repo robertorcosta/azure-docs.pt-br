@@ -1,17 +1,17 @@
 ---
-title: Como escrever procedimentos armazenados e gatilhos usando a API de consulta do JavaScript no Azure Cosmos DB
+title: Escrever procedimentos armazenados e gatilhos usando a API de consulta JavaScript no Azure Cosmos DB
 description: Saiba como escrever procedimentos armazenados e gatilhos usando a API de Consulta do JavaScript no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96ecd77cb955d5e63cdcae8657e3096bbbadba89
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441721"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos armazenados e gatilhos no Azure Cosmos DB usando a API de consulta do JavaScript
 
@@ -78,7 +78,7 @@ function insertDocumentAndUpdateMetadata(item) {
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira os seguintes artigos para saber mais sobre procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB:
 

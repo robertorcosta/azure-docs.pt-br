@@ -3,24 +3,24 @@ title: Instalar o .NET em funções dos Serviços de Nuvem do Azure | Microsoft 
 description: Este artigo descreve como instalar manualmente o .NET Framework em funções de trabalho e web de seu serviço de nuvem
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
-ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359639"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360983"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidas com o SO convidado do Azure. Você pode usar o .NET no SO convidado para configurar as funções Web e de trabalho de seu serviço de nuvem.
 
-Por exemplo, você pode instalar o .NET 4.6.2 na família de SOs Convidados 4, que não é fornecida com nenhuma versão do .NET 4.6. (A família de SOs convidados 5 é fornecida com o .NET 4.6.) Para obter as informações mais recentes sobre as versões do SO convidado do Azure, consulte [Notícias de versão do SO Convidado do Azure](cloud-services-guestos-update-matrix.md). 
+Por exemplo, você pode instalar o .NET 4.6.2 na família de SOs Convidados 4, que não é fornecida com nenhuma versão do .NET 4.6. (A família de sistemas operacionais convidados 5 vem com o .NET 4,6.) Para obter as informações mais recentes sobre as versões do sistema operacional convidado do Azure, consulte [notícias de versão do SO convidado do Azure](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
 >O SDK 2.9 do Azure contém uma restrição da implantação do .NET 4.6 na família de SOs convidados 4 ou inferior. Uma correção para essa restrição está disponível no site [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9).
@@ -234,3 +234,6 @@ Quando você implanta o serviço de nuvem, as tarefas de inicialização instala
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

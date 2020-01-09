@@ -3,17 +3,17 @@ title: Usar o Visual Studio e o Visual Studio Code para criar dispositivos de vi
 description: Use o Visual Studio e Visual Studio Code para acelerar a criação de modelos de dispositivos IoT Plug and Play e implementar o código do dispositivo.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748041"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531319"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Usar o Visual Studio e Visual Studio Code para criar dispositivos de Plug and Play IoT
 
@@ -99,7 +99,7 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg usand
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
-    Verifique se a versão do `cmake` está acima de **2.8.12** e se a versão do **gcc** está acima de **4.4.7**.
+    Verifique se a versão do `cmake` é superior a **2.8.12** e se a versão do **GCC** é superior a **4.4.7**.
 
     ```bash
     cmake --version
@@ -121,7 +121,7 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg usand
     ./vcpkg integrate install
     ```
 
-1. Instalar o SDK do dispositivo do Azure IoT C Vcpkg:
+1. Instalar o Vcpkg do SDK do dispositivo do Azure IoT C:
 
     ```bash
     ./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
@@ -150,13 +150,13 @@ Para criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg usand
 
 ### <a name="windows"></a>Windows
 
-Para criar o código do dispositivo junto com o SDK do dispositivo C no Windows usando o CMake e os compiladores C/C++ do Visual Studio na linha de comando, consulte o [início rápido do IOT plug and Play](./quickstart-create-pnp-device.md). As etapas a seguir mostram como criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg como projeto CMake no Visual Studio.
+Para criar o código do dispositivo junto com o SDK do dispositivo C no Windows usando o CMake e os compiladores C/C++ do Visual Studio na linha de comando, consulte o [início rápido do IOT plug and Play](./quickstart-create-pnp-device-windows.md). As etapas a seguir mostram como criar o código do dispositivo junto com o SDK do dispositivo C Vcpkg como projeto CMake no Visual Studio.
 
-1. Siga as etapas no guia de [início rápido](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) para instalar o SDK do dispositivo IOT do Azure para C via Vcpkg.
+1. Siga as etapas no guia de [início rápido](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment) para instalar o SDK do dispositivo IOT do Azure para C via Vcpkg.
 
 1. Instalar o [Visual Studio 2019 (Comunidade, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) – certifique-se de incluir o componente **Gerenciador de pacotes NuGet** e o desenvolvimento de **desktop com C++**  carga de trabalho.
 
-1. Abra o Visual Studio, escolha **arquivo > abrir > CMake..** para abrir o `CMakeLists.txt` na pasta contém o código gerado.
+1. Abra o Visual Studio, escolha **arquivo > abrir > CMake...** para abrir o `CMakeLists.txt` na pasta contém o código gerado.
 
 1. Na barra de ferramentas **geral** , localize o menu suspenso **configurações** . Selecione **gerenciar configuração** para adicionar a configuração CMake para seu projeto.
 
@@ -256,6 +256,6 @@ O gerador de código pode gerar o código novamente se você atualizar o DCM ou 
 
 As ferramentas do Azure IoT são um projeto de código aberto no GitHub. Para quaisquer problemas e solicitações de recursos, você pode [criar um problema no GitHub](https://github.com/microsoft/vscode-azure-iot-tools/issues/new).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo de instruções, você aprendeu a usar o Visual Studio e a Visual Studio Code para gerar o esqueleto do código C para implementar o aplicativo do dispositivo. Uma próxima etapa sugerida é aprender a [instalar e usar a ferramenta Azure IOT Explorer](./howto-install-iot-explorer.md) .

@@ -1,20 +1,18 @@
 ---
 title: Agregações do JavaScript definidas pelo usuário no Azure Stream Analytics
 description: Este artigo descreve como executar a mecânica de consulta avançada com agregações definidas pelo usuário do JavaScript no Azure Stream Analytics.
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 6c590ae62e080a6681e49c87264089f9a5f4ce2f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: d9b37810146f66806be9b8ce7a38f8dac31facb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426084"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics agregações definidas pelo usuário do JavaScript
  
@@ -80,7 +78,7 @@ Cada UDA do JavaScript é definida por uma declaração de objeto Function. Veja
 
 ### <a name="function-alias"></a>Alias da função
 
-O alias da função é o identificador da UDA. Quando chamado em consultas do Stream Analytics, sempre use o alias da UDA junto com "uda." prefixo.
+O alias da função é o identificador da UDA. Quando chamado em consultas do Stream Analytics, sempre use o alias da UDA junto com "uda." .
 
 ### <a name="function-type"></a>Tipo de função
 
@@ -225,11 +223,11 @@ Crie um arquivo JSON local com o conteúdo abaixo, carregue o arquivo para o tra
 ]
 ```
 
-## <a name="get-help"></a>Obter ajuda
+## <a name="get-help"></a>Obtenha ajuda
 
 Para obter ajuda adicional, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

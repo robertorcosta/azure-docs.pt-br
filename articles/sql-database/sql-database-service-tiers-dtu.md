@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539321"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562112"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
@@ -31,7 +31,7 @@ As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por
 
 Escolher uma camada de serviço depende principalmente da continuidade dos negócios, armazenamento e requisitos de desempenho.
 
-||Basic|Standard|Premium|
+||Básico|Padrão|Premium|
 | :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |Contrato de Nível de Serviço de tempo de atividade|99,99%|99,99%|99,99%|
@@ -54,9 +54,9 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU de banco de dados único e limite de armazenamento
 
-Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
+Os tamanhos da computação são expressos em termos de DTUs (unidades de transação de banco de dados) para bancos de dados individuais e de eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para obter mais informações sobre DTUs e eDTUs, consulte [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
-||Basic|Standard|Premium|
+||Básico|Padrão|Premium|
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Máximo de DTUs | 5 | 3000 | 4000 | 
@@ -67,7 +67,7 @@ Os tamanhos da computação são expressos em termos de DTUs (unidades de transa
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU de pool elástico, armazenamento e limites de banco de dados em pool
 
-| | **Básico** | **Standard** | **Premium** |
+| | **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Tamanho máximo de armazenamento por banco de dados  | 2 GB | 1 TB | 1 TB |
 | Tamanho máximo de armazenamento por pool | 156 GB | 4 TB | 4 TB |
@@ -109,7 +109,7 @@ O banco de dados é dimensionado com base em um "fator de escala". O fator de es
 
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela a seguir. Cada transação é projetada para realçar um conjunto de características do sistema em particular no mecanismo de banco de dados e no hardware do sistema, com alto contraste em relação às outras transações. Essa abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho geral. Por exemplo, a transação "Leitura Intensa" gera um número significativo de operações de leitura do disco.
 
-| Tipo de transação | Descrição |
+| Tipo de transação | Description |
 | --- | --- |
 | Leitura Simples |SELECT; na memória; somente leitura |
 | Leitura Média |SELECT; maior parte na memória; somente leitura |
@@ -171,8 +171,8 @@ As principais métricas no parâmetro de comparação são a taxa de transferên
 | Classe de serviço | Medida de taxa de transferência | Requisito de tempo de resposta |
 | --- | --- | --- |
 | Premium |Transações por segundo |95º percentil em 0,5 segundo |
-| Standard |Transações por minuto |90º percentil em 1,0 segundo |
-| Basic |Transações por hora |80º percentil em 2,0 segundos |
+| Padrão |Transações por minuto |90º percentil em 1,0 segundo |
+| Básico |Transações por hora |80º percentil em 2,0 segundos |
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -1,18 +1,18 @@
 ---
-title: Tipos de função na extensão de Durable Functions de Azure Functions
+title: Tipos de função no Azure Durable Functions
 description: Saiba mais sobre os tipos de funções e funções que dão suporte à comunicação de função a função em uma orquestração de Durable Functions no Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7a485f31ed7e112745cf3b45bbfe348e6a2e0fd3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35ef9d8731e169e890f5985ce01215fec5d6e3de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433274"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de Durable Functions e recursos (Azure Functions)
+# <a name="durable-functions-types-and-features"></a>Tipos de Durable Functions e recursos
 
 As Durable Functions são uma extensão do [Azure Functions](../functions-overview.md). Você pode usar Durable Functions para orquestração com estado da execução da função. Um aplicativo de funções durável é uma solução composta por diferentes funções do Azure. As funções podem reproduzir funções diferentes em uma orquestração de função durável. 
 
@@ -59,7 +59,7 @@ As funções de orquestrador são disparadas por uma [Associação de gatilho de
 
 Além de disparar o Orchestrator ou as funções de entidade, a ligação de *cliente durável* pode ser usada para interagir com orquestrações e entidades em execução. Por exemplo, orquestrações podem ser consultadas, encerradas e podem ter eventos gerados. Para obter mais informações sobre como gerenciar orquestrações e entidades, consulte o artigo [Gerenciamento de instâncias](durable-functions-instance-management.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para começar, crie sua primeira função durável no ou [C#](durable-functions-create-first-csharp.md) no [JavaScript](quickstart-js-vscode.md).
 

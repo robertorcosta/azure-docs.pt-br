@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407669"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: aplicativos distribuídos por triagem
 
@@ -69,13 +69,13 @@ Selecione **ir para detalhes** para explorar a experiência de transação de po
 
 ![Captura de tela de detalhes da transação de ponta a ponta](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Exibir na análise
+### <a name="view-logs-analytics"></a>Exibir logs (análise)
 
-Para consultar e investigar ainda mais os dados do aplicativos, clique em **Exibir na análise**.
+Para consultar e investigar ainda mais os dados de aplicativos, clique em **Exibir nos logs (análise)** .
 
-![Captura de tela do botão Exibir na análise](media/app-map/view-in-analytics.png)
+![Captura de tela do botão Exibir na análise](media/app-map/view-logs.png)
 
-![Captura de tela da experiência de análise](media/app-map/analytics.png)
+![Captura de tela da experiência de análise. Gráfico de linhas Resumindo a duração média da resposta de uma solicitação nas últimas 12 horas.](media/app-map/log-analytics.png)
 
 ### <a name="alerts"></a>Alertas
 
@@ -230,13 +230,13 @@ Para as [definições oficiais](https://github.com/Microsoft/ApplicationInsights
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Como alternativa, a **instância de função de nuvem** pode ser útil para cenários em que o nome da função de **nuvem** informa que o problema está em algum lugar no front-end da Web, mas você pode estar executando seu front-end da Web em vários servidores com balanceamento de carga, para que possa Aprofunde-se em uma camada mais profunda por meio de consultas de Kusto e saiba se o problema está afetando todos os servidores/instâncias de front-end da Web ou se apenas um pode ser extremamente importante.
+Como alternativa, a **instância de função de nuvem** pode ser útil para cenários em que o nome da função de **nuvem** informa que o problema está em algum lugar no front-end da Web, mas você pode estar executando seu front-end da Web em vários servidores com balanceamento de carga, de modo que seja capaz de analisar uma camada mais profunda por meio de consultas Kusto e saber se o problema está afetando todos os servidores/instâncias de front-end da Web, ou apenas um pode ser extremamente importante.
 
 Um cenário em que você talvez queira substituir o valor para a instância de função de nuvem poderia ser se seu aplicativo estiver sendo executado em um ambiente em contêineres, onde apenas saber se o servidor individual pode não ser informações suficientes para localizar um determinado problema.
 
 Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores de telemetria, consulte [Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você estiver tendo dificuldades para obter o Mapa do aplicativo para trabalhar conforme esperado, tente essas etapas:
 
@@ -274,7 +274,7 @@ Para fornecer feedback, use a opção de feedback.
 
 ![Imagem de MapLink-1](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como a correlação funciona em Application Insights consulte o [artigo correlação de telemetria](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
 * A [experiência de diagnóstico de transação de ponta a ponta](transaction-diagnostics.md) correlaciona a telemetria do lado do servidor em todos os seus Application insights componentes monitorados em uma única exibição.

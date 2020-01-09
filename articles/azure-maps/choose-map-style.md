@@ -1,5 +1,6 @@
 ---
-title: Funcionalidades de estilo de mapa no Azure Mapas | Microsoft Docs
+title: Escolha um estilo de mapa no Azure Mapas
+titleSuffix: Azure Maps
 description: Saiba mais sobre as funcionalidades relacionadas ao estilo do Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
@@ -8,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1d3d1b5904eded9f35c5ba628bea6426e7afaf0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881978"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531540"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Escolha um estilo de mapa no Azure Mapas
 
@@ -21,7 +22,7 @@ Muitos dos [estilos de mapa com suporte no mapas do Azure](./supported-map-style
 
 ## <a name="set-style-on-map-load"></a>Definir estilo no carregamento do mapa
 
-No código a seguir, a `style` opção do mapa é definida como `grayscale_dark` na inicialização.
+No código a seguir, a opção `style` do mapa é definida como `grayscale_dark` na inicialização.
 
 <br/>
 
@@ -47,9 +48,9 @@ O código a seguir adiciona um [StyleControl](/javascript/api/azure-maps-control
 </iframe>
 
 > [!TIP]
-> Por padrão, o controle seletor de estilo lista todos os estilos disponíveis ao usar o tipo de preço S0 de mapas do Azure por padrão. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista `mapStyle` na opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como. `"all"`
+> Por padrão, o controle seletor de estilo lista todos os estilos disponíveis ao usar o tipo de preço S0 de mapas do Azure por padrão. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a opção `mapStyles` do seletor de estilo como `"all"`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as classes e os métodos usados neste artigo:
 

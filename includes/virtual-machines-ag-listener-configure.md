@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468860"
 ---
 O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o grupo de disponibilidade do SQL Server escuta. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
 
@@ -76,7 +76,7 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Selecione a guia **Dependências** . Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
+    c. Clique na guia **dependências** . Verifique se o endereço IP é uma dependência. Se não for, defina uma dependência no endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm dependências OR, e não AND. Clique em **OK**. 
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -140,4 +140,4 @@ Se necessário, repita as etapas acima para definir os parâmetros do cluster pa
    b. Defina os parâmetros de cluster executando o script do PowerShell em um dos nós do cluster.  
 
 >[!WARNING]
->A porta de investigação de integridade do ouvinte do grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP principal do cluster. Nestes exemplos, a porta do ouvinte é 59999, e o endereço IP principal do cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.
+>A porta de investigação de integridade do ouvinte do grupo de disponibilidade deve ser diferente da porta de investigação de integridade do endereço IP principal do cluster. Nesses exemplos, a porta do ouvinte é 59999 e a porta de investigação de integridade do endereço IP do núcleo do cluster é 58888. Ambas as portas exigem uma regra de firewall de entrada de permissão.

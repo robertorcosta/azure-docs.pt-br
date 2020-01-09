@@ -1,16 +1,16 @@
 ---
-title: Perfil e ID de usuário para uso com Azure Notebooks
+title: Perfil do usuário e ID para uso com Azure Notebooks versão prévia
 description: Como criar e gerenciar seu perfil de usuário e a ID de usuário com Azure Notebooks, que se torna parte da URL de blocos de anotações compartilhados.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277602"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646272"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e ID de usuário do Azure Notebooks
+# <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Seu perfil e ID de usuário para Azure Notebooks versão prévia
 
 No espaço de colaboração avançado do Azure Notebooks, o perfil do usuário apresenta a imagem pública para outras pessoas:
 
@@ -23,6 +23,8 @@ A ID de usuário faz parte das URLs que você usa para compartilhar projetos e n
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Arquivos de projeto.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: clones de projetos específicos.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: a visualização em HTML de um arquivo ou bloco de anotações específico.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>Sua ID de usuário
 
@@ -56,7 +58,7 @@ Para editar seu perfil, use o comando **Editar Informações de Perfil** na sua 
 | Configurações de privacidade | Fornece dois comandos:<ul><li>**Exportar Meu Perfil**: cria e baixa um arquivo *.zip* contendo todas as informações que o Azure Notebooks salva no seu perfil, incluindo fotos, informações de perfil e logs de segurança.</li><li>**Excluir minha conta**: exclui permanentemente todas as suas informações pessoais armazenadas no Azure notebooks.</li></ul> |
 | Ativar Recursos do Site | Permite controlar aspectos do comportamento do Azure Notebooks:<ul><li>**Front-end unificado para notebooks**: permite inicialização mais rápida do notebook e melhor persistência.</li><li>**Executar no JupyterLab por padrão**: por padrão, o Azure notebooks fornece uma interface de usuário simples que é adequada para a maioria dos usuários. O JupyterLab fornece uma interface mais avançada, porém mais complexa para usuários experientes.</li><li>**Site VNext**: permite o layout da Web modernizado mostrado nesta documentação.</li></ul> |
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 > [!div class="nextstepaction"]
 > [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

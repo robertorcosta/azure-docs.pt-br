@@ -4,15 +4,15 @@ description: Saiba como excluir seu espaço de trabalho do Log Analytics se tive
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/28/2019
-ms.openlocfilehash: b8fdefb5e8555e90b5c9065672f4593e5bf98e06
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2b54dd5161312a081d439b3e10d2cb4bf9014d52
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326505"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496535"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Excluir e restaurar o espaço de trabalho do Azure Log Analytics
 
@@ -20,7 +20,10 @@ Este artigo explica o conceito de exclusão reversível do espaço de trabalho d
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Considerações ao excluir um espaço de trabalho
 
-Quando você exclui um espaço de trabalho Log Analytics, uma operação de exclusão reversível é executada para permitir a recuperação do espaço de trabalho, incluindo seus dados e agentes conectados dentro de 14 dias, se a exclusão foi acidental ou intencional. Após o período de exclusão reversível, o espaço de trabalho e seus dados são não recuperáveis – os dados são enfileirados para exclusão permanente dentro de 30 dias e o nome do espaço de trabalho está disponível e pode ser usado para criar um novo espaço de trabalho.
+Quando você exclui um espaço de trabalho Log Analytics, uma operação de exclusão reversível é executada para permitir a recuperação do espaço de trabalho, incluindo seus dados e agentes conectados dentro de 14 dias, se a exclusão foi acidental ou intencional. Após o período de exclusão reversível, o recurso de espaço de trabalho e seus dados são não recuperáveis – seus dados são enfileirados para exclusão permanente e completamente limpos dentro de 30 dias. O nome do espaço de trabalho é ' liberado ' e você pode usá-lo para criar um novo espaço de trabalho.
+
+> [!NOTE]
+> O comportamento de exclusão reversível não pode ser desativado. Em breve, adicionaremos uma opção para substituir a exclusão reversível ao usar uma marca ' Force ' na operação de exclusão.
 
 Você deseja ter cuidado ao excluir um espaço de trabalho porque pode haver dados e configurações importantes que podem afetar negativamente a operação do serviço. Examine quais agentes, soluções e outros serviços e fontes do Azure que armazenam seus dados em Log Analytics, como:
 
@@ -41,14 +44,19 @@ A operação de exclusão do espaço de trabalho remove o recurso do Gerenciador
 
 Você pode excluir um espaço de trabalho usando o [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), a [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)ou na [portal do Azure](https://portal.azure.com).
 
-### <a name="delete-workspace-in-azure-portal"></a>Excluir espaço de trabalho no portal do Azure
+### <a name="azure-portal"></a>Portal do Azure
 
 1. Para entrar, vá para a [portal do Azure](https://portal.azure.com). 
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Pesquise **Espaços de trabalho do Log Analytics**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho e clique em **excluir** na parte superior do painel central.
    ![Opção de exclusão do painel de propriedades do workspace](media/delete-workspace/log-analytics-delete-workspace.png)
 4. Quando a janela de mensagem de confirmação for exibida solicitando que você confirme a exclusão do workspace, clique em **Sim**.
    ![Confirmar exclusão do workspace](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+
+### <a name="powershell"></a>PowerShell
+```PowerShell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "ContosResourceGroup" -Name "MyWorkspace"
+```
 
 ## <a name="recover-workspace"></a>Recuperar espaço de trabalho
 
@@ -56,7 +64,7 @@ Se você tiver permissões de colaborador para a assinatura e o grupo de recurso
 
 Você pode recuperar um espaço de trabalho recriando-o usando o seguinte espaço de trabalho criar métodos: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , contanto que as propriedades a seguir sejam preenchidas com os detalhes do espaço de trabalho excluído:
 
-* ID da assinatura
+* ID da Assinatura
 * Nome do Grupo de Recursos
 * Nome do workspace
 * Região

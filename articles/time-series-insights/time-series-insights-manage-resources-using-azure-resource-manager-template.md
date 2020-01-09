@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452854"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights usando modelos do Azure Resource Manager
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar e implantar Time Series Insights recursos usando
 
 O Time Series Insights oferece suporte aos seguintes recursos:
 
-   | Grupos | Descrição |
+   | Grupos | Description |
    | --- | --- |
    | Ambiente | Um ambiente de Time Series Insights é um agrupamento lógico de eventos que são lidos de agentes de evento, armazenados e disponibilizados para consulta. Para obter mais informações, consulte [planejar seu ambiente de Azure Time Series insights](time-series-insights-environment-planning.md) |
    | Origem do Evento | Uma fonte de evento é uma conexão com um agente de eventos de onde o Time Series Insights lê e ingere eventos no ambiente. As fontes de evento com suporte no momento são o Hub IoT e o Hub de Eventos. |
@@ -59,7 +59,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
    * Parâmetros obrigatórios
 
-     | . | Descrição |
+     | Parâmetro | Description |
      | --- | --- |
      | eventHubNamespaceName | O namespace do hub de eventos de origem. |
      | eventHubName | O nome do hub de eventos de origem. |
@@ -71,7 +71,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
 
    * Parâmetros opcionais
 
-     | . | Descrição |
+     | Parâmetro | Description |
      | --- | --- |
      | existingEventHubResourceId | Uma ID de recurso opcional de um Hub de Eventos existente que será conectada ao ambiente do Time Series Insights através da fonte do evento. **OBSERVAÇÃO:** o usuário que vai implantar o modelo deve ter privilégios para executar a operação listkeys no Hub de Eventos. Se nenhum valor for transmitido, um novo hub de eventos será criado pelo modelo. |
      | environmentDisplayName | Um nome amigável opcional para exibição nas ferramentas ou interfaces de usuário em vez do nome do ambiente. |
@@ -119,7 +119,7 @@ O procedimento a seguir descreve como usar o PowerShell para implantar um modelo
      }
      ```
   
-    * Para saber mais, consulte o tópico [Parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+    * Para saber mais, consulte o tópico [Parâmetros](../azure-resource-manager/templates/parameter-files.md).
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implantar o modelo de início rápido localmente usando o PowerShell
 

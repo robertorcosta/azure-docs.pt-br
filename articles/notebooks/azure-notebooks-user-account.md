@@ -1,22 +1,24 @@
 ---
-title: Entre no Azure Notebooks
+title: Entrar no Azure Notebooks visualização
 description: Configure sua conta de usuário para blocos de anotações do Azure usando uma conta da Microsoft ou uma conta de trabalho/estudante.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: a2d8c8180dfb5dc31e273c7953a57f40cf31238d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277633"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646289"
 ---
-# <a name="your-user-account-for-azure-notebooks"></a>Sua conta de usuário para o Microsoft Azure Notebooks
+# <a name="your-user-account-for-azure-notebooks-preview"></a>Sua conta de usuário para Azure Notebooks versão prévia
 
 Você pode usar o Azure Notebooks com ou sem entrar com uma conta de usuário:
 
 - Sem precisar entrar, você pode criar e executar blocos de anotações, mas não é possível manter blocos de anotações ou arquivos de dados como parte dos projetos. Os usuários que recebem um link para um Azure Notebook, por exemplo, podem aproveitar o bloco de anotações sem a necessidade de entrar.
 - Quando conectado, o Azure Notebooks retém todos os seus projetos com sua conta. Usuários conectados também tem uma ID de usuário que permite compartilhar seus projetos e notebooks com outras pessoas.
-  - Quando a conta usada para Microsoft Azure Notebooks também está associada uma assinatura do Azure, você obtém benefícios adicionais como a execução de blocos de anotações em servidores mais poderosos, criação de blocos de anotações privados e conceder permissões a blocos de anotações para usuários individuais.
+- Quando a conta usada para Microsoft Azure Notebooks também está associada uma assinatura do Azure, você obtém benefícios adicionais como a execução de blocos de anotações em servidores mais poderosos, criação de blocos de anotações privados e conceder permissões a blocos de anotações para usuários individuais.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Entrar no Azure Notebooks requer uma Conta da Microsoft ou uma conta "Corporativa ou de estudante". Você será solicitado para sua conta ao selecionar o **Entrar** no canto superior direito da página Notebooks:
 
@@ -61,7 +63,7 @@ O administrador de uma conta organizacional deve fornecer o consentimento em nom
 
 Para fornecer consentimento como um administrador, use a [página de consentimento do administrador](https://notebooks.azure.com/account/adminConsent), que orienta você pelo processo.
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 > [!div class="nextstepaction"]
 > [Editar seu perfil e ID de usuário](azure-notebooks-user-profile.md)

@@ -1,20 +1,16 @@
 ---
-title: Otimizar o desempenho do Visual Studio para projetos da malha do Azure Service Fabric | Microsoft Docs
+title: Otimizar o Visual Studio para o Azure Service Fabric malha
 description: Esse artigo mostra como otimizar o desempenho do Visual Studio para projetos da malha do Service Fabric para que sua primeira execução de depuração (F5) seja muito mais rápida.
-services: service-fabric-mesh
-keywords: otimizar o desempenho de depuração
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 04aeaa6b008b50789f4380e4bb98beba3957c2e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 40c4e9972a3d83a5dd8247bacac12e9d67a15f66
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663426"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497986"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Visual Studio para projetos da malha do Service Fabric
 
@@ -30,6 +26,6 @@ No Visual Studio,em **Ferramentas** > **Opções**  > **Ferramentas da malha do 
 
 Quando você vê mensagens na janela de saída das Ferramentas do Service Fabric que o Visual Studio está 'extraindo imagens', 'aquecendo' ou 'removendo o aplicativo', elas se referem às configurações acima. Você pode desativar essas configurações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Leia o [Tutorial de Depurar um aplicativo de malha](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

@@ -7,21 +7,21 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: f76134ffc6a7becb9b5719dcb3d826130b7cfa86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453273"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Avalie grandes números de VMs VMware para migração para o Azure
 
 
-Este artigo descreve como avaliar números grandes (35000) de VMs VMware locais para migração para o Azure, usando a ferramenta de avaliação de servidor migrações para Azure
+Este artigo descreve como avaliar números grandes (35000) de VMs VMware locais para migração para o Azure, usando a ferramenta de avaliação de servidor migrações para Azure.
 
 As [Migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros. 
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 > [!div class="checklist"]
 > * Planeje a avaliação em escala.
 > * Configure as permissões do Azure e prepare o VMware para avaliação.
@@ -36,9 +36,9 @@ Neste artigo, você aprenderá a:
 
 Ao planejar a avaliação de um grande número de VMs VMware, há algumas coisas a considerar:
 
-- **Planejar projetos**de migrações para Azure: Descubra como implantar projetos de migrações para Azure. Por exemplo, se seus data centers estiverem em geografias diferentes, ou se você precisar armazenar metadados relacionados à migração, à avaliação ou ao migrar em uma geografia diferente, talvez precise de vários projetos. 
-- **Dispositivos de plano**: As migrações para Azure usam um dispositivo de migrações do Azure local, implantado como uma VM do VMware, para descobrir continuamente as VMs. O dispositivo monitora as alterações de ambiente, como adicionar VMs, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos você precisa implantar.
-- **Planejar contas para descoberta**: O dispositivo de migrações para Azure usa uma conta com acesso a vCenter Server para descobrir VMs para avaliação e migração. Se você estiver descobrindo mais de 10.000 VMs, configure várias contas.
+- **Planejar projetos de migrações para Azure**: Descubra como implantar projetos de migrações para Azure. Por exemplo, se seus data centers estiverem em geografias diferentes, ou se você precisar armazenar metadados relacionados à migração, à avaliação ou ao migrar em uma geografia diferente, talvez precise de vários projetos. 
+- **Dispositivos de plano**: as migrações para Azure usam um dispositivo de migrações do Azure local, implantado como uma VM VMware, para descobrir continuamente as VMs. O dispositivo monitora as alterações de ambiente, como adicionar VMs, discos ou adaptadores de rede. Ele também envia metadados e dados de desempenho sobre eles para o Azure. Você precisa descobrir quantos dispositivos você precisa implantar.
+- **Planejar contas para descoberta**: o dispositivo de migrações para Azure usa uma conta com acesso a vCenter Server para descobrir VMs para avaliação e migração. Se você estiver descobrindo mais de 10.000 VMs, configure várias contas.
 
 
 ## <a name="planning-limits"></a>Limites de planejamento
@@ -49,13 +49,13 @@ Use os limites resumidos nesta tabela para planejamento.
 --- | --- 
 **Projetos de migrações para Azure** | Avalie até 35.000 VMs em um projeto.
 **Dispositivo de migrações para Azure** | Um dispositivo pode descobrir até 10.000 VMs em um vCenter Server.<br/> Um dispositivo só pode se conectar a um único vCenter Server.<br/> Um dispositivo só pode ser associado a um único projeto de migrações para Azure.<br/>  Qualquer número de dispositivos pode ser associado a um único projeto de migrações para Azure. <br/><br/> 
-**Grupo** | Você pode adicionar até 35.000 VMs em um único grupo.
+**Agrupar** | Você pode adicionar até 35.000 VMs em um único grupo.
 **Avaliação de migrações para Azure** | Você pode avaliar até 35.000 VMs em uma única avaliação.
 
 Com esses limites em mente, aqui estão alguns exemplos de implantações:
 
 
-**vCenter Server** | **VMs no servidor** | **Recomendações** | **Ação**
+**vCenter Server** | **VMs no servidor** | **Recomendação** | **Ação**
 ---|---|---
 Um | < 10.000 | Um projeto de migrações para Azure.<br/> Um dispositivo.<br/> Uma conta do vCenter para descoberta. | Configure o dispositivo, conecte-se a vCenter Server com uma conta.
 Um | > 10.000 | Um projeto de migrações para Azure.<br/> Vários dispositivos.<br/> Várias contas do vCenter. | Configure o dispositivo para cada 10.000 VMs.<br/><br/> Configure as contas do vCenter e divida o inventário para limitar o acesso de uma conta a menos de 10.000 VMs.<br/> Conecte cada dispositivo ao vCenter Server com uma conta.<br/> Você pode analisar dependências entre computadores que são descobertos com dispositivos diferentes.
@@ -69,7 +69,7 @@ Se você estiver planejando um ambiente multilocatário, poderá fazer o escopo 
 
 - Você pode definir o escopo de descoberta do dispositivo para um vCenter Server data centers, clusters ou pasta de clusters, hosts ou pasta de hosts ou VMs individuais.
 - Se o seu ambiente for compartilhado entre locatários e você quiser descobrir cada locatário separadamente, você poderá usar o escopo de acesso à conta do vCenter que o dispositivo usa para descoberta. 
-    - Talvez você queira fazer o escopo por pastas de VM se os locatários compartilharem hosts. As migrações para Azure não poderão descobrir VMs se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. Se você pretende definir o escopo da descoberta por pastas de VM, faça isso verificando se a conta do vCenter tem acesso somente leitura atribuído em um nível de VM. Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#scoping-discovery).
+    - Talvez você queira fazer o escopo por pastas de VM se os locatários compartilharem hosts. As migrações para Azure não poderão descobrir VMs se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. Se você pretende definir o escopo da descoberta por pastas de VM, faça isso verificando se a conta do vCenter tem acesso somente leitura atribuído em um nível de VM. Saiba mais sobre a descoberta de escopo [aqui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 
 ## <a name="prepare-for-assessment"></a>Preparar para avaliação
 
@@ -100,7 +100,7 @@ De acordo com seus requisitos de planejamento, faça o seguinte:
 Siga as instruções neste [tutorial](tutorial-assess-vmware.md) para definir essas configurações.
     
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo você:
  

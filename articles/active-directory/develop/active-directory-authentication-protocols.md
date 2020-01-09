@@ -1,6 +1,6 @@
 ---
-title: Protocolos de autenticação do Azure Active Directory | Microsoft Docs
-description: Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)
+title: Protocolos de autenticação da plataforma de identidade da Microsoft | Microsoft Docs
+description: Uma visão geral dos protocolos de autenticação com suporte na plataforma de identidade da Microsoft
 author: rwike77
 services: active-directory
 manager: CelesteDG
@@ -9,34 +9,33 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b370736a5e4994651499716e3a923cf59465ca96
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 94917d601de24388600bae3434f1d03a35bffd33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424772"
 ---
-# <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticação do Azure Active Directory
+# <a name="microsoft-identity-platform-authentication-protocols"></a>Protocolos de autenticação da plataforma Microsoft Identity
 
-O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos de autenticação e autorização mais usados. Os tópicos nesta seção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluem uma revisão dos tipos de declarações com suporte, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
+A plataforma de identidade da Microsoft dá suporte a vários dos protocolos de autenticação e autorização mais amplamente usados. Os tópicos nesta seção descrevem os protocolos com suporte e sua implementação na plataforma Microsoft Identity. Os tópicos incluem uma revisão dos tipos de declarações com suporte, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
 
 ## <a name="authentication-protocols-articles-and-reference"></a>Artigos e referência de protocolos de autenticação
 
-* [Informações importantes sobre substituição de chave de assinatura no Azure AD](active-directory-signing-key-rollover.md) – Saiba mais sobre a cadência de substituição de chave de assinatura no Azure AD, as alterações que você pode fazer para atualizar a chave automaticamente e discussões sobre como atualizar os cenários mais comuns do aplicativo.
-* [Token Suportado e Tipos de Declaração](v1-id-and-access-tokens.md) - Saiba mais sobre as declarações nos tokens que o Azure AD emite.
-* [Metadados de federação](azure-ad-federation-metadata.md) - Saiba como localizar e interpretar os documentos de metadados que o Azure AD gera.
-* [OAuth 2.0 no Azure AD](v1-protocols-oauth-code.md) - Saiba mais sobre a implementação do OAuth 2.0 no Azure AD.
-* [OpenID Connect 1.0](v1-protocols-openid-connect-code.md) - Saiba como usar o OAuth 2.0, um protocolo de autorização para autenticação.
-* [Serviço para Chamadas de Serviço com Credenciais do Cliente](v1-oauth2-client-creds-grant-flow.md) – Saiba como utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviços.
-* [Serviço para Chamadas de Serviço com Fluxo Em Nome De](v1-oauth2-on-behalf-of-flow.md) – Saiba como utilizar o fluxo de Em Nome De OAuth 2.0 para chamadas de serviços.
-* [Referência de protocolo SAML](active-directory-saml-protocol-reference.md) - Saiba mais sobre os perfis de logon único e logout único SAML do Azure AD.
+* [Informações importantes sobre a substituição de chave de assinatura na plataforma de identidade da Microsoft](active-directory-signing-key-rollover.md) – saiba mais sobre a cadência da substituição de chave de assinatura da plataforma de identidade da Microsoft, as alterações que você pode fazer para atualizar a chave automaticamente e discussão sobre como atualizar os cenários de aplicativos mais comuns.
+* [Tipos de declaração e token com suporte](id-tokens.md) -saiba mais sobre as declarações nos tokens que a plataforma de identidade da Microsoft emite.
+* [Oauth 2,0 na plataforma de identidade da Microsoft](v2-oauth2-auth-code-flow.md) -saiba mais sobre a implementação do OAuth 2,0 na plataforma Microsoft Identity.
+* [OpenID Connect 1.0](v2-protocols-oidc.md) - Saiba como usar o OAuth 2.0, um protocolo de autorização para autenticação.
+* [Serviço para Chamadas de Serviço com Credenciais do Cliente](v2-oauth2-client-creds-grant-flow.md) – Saiba como utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviços.
+* [Serviço para Chamadas de Serviço com Fluxo Em Nome De](v2-oauth2-on-behalf-of-flow.md) – Saiba como utilizar o fluxo de Em Nome De OAuth 2.0 para chamadas de serviços.
+* [Referência de protocolo SAML](active-directory-saml-protocol-reference.md) -saiba mais sobre os perfis SAML de logon único e logout único da plataforma de identidade da Microsoft.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
-* [Guia do desenvolvedor do Active Directory do Azure](v1-overview.md)
-* [Exemplos de código do Active Directory](sample-v1-code.md)
+* [Visão geral da plataforma Microsoft Identity](v2-overview.md)
+* [Exemplos de código do Active Directory](sample-v2-code.md)

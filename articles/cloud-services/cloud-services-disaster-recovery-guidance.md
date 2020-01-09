@@ -1,5 +1,6 @@
 ---
-title: O que fazer caso uma interrupção de serviço do Azure afete os Serviços de Nuvem do Azure | Microsoft Docs
+title: Lidando com uma interrupção de serviço do Azure que afeta os serviços de nuvem do Azure
+titleSuffix: Azure Cloud Services
 description: Saiba o que fazer no caso uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure.
 services: cloud-services
 documentationcenter: ''
@@ -9,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361204"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer no caso de uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
@@ -52,7 +53,7 @@ Dependendo das fontes de dados do aplicativo, você precisa verificar os procedi
 ## <a name="option-3-wait-for-recovery"></a>Opção 3: aguardar a recuperação
 Nesse caso, não é necessária nenhuma ação de sua parte, mas seu serviço ficará indisponível até que a região seja restaurada. Você pode ver o status atual do serviço no [Painel de integridade do serviço do Azure](https://azure.microsoft.com/status/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre como implementar uma estratégia de alta disponibilidade e recuperação de desastres, consulte [Recuperação de desastres e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [Orientação técnica sobre a resiliência do Azure](/azure/architecture/checklist/resiliency-per-service).

@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839671"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454821"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio (clássico)
 
 Azure Machine Learning Studio (clássico) fornece as ferramentas necessárias para desenvolver um modelo de análise preditiva e, em seguida, operacionalá-lo implantando-o como um serviço Web do Azure.
 
-Para fazer isso, você usa a versão clássica do Studio para criar um experimento chamado teste de *treinamento* -onde você treina, classifica e edita seu modelo. Quando estiver satisfeito, você terá o modelo pronto para implantação convertendo o teste de treinamento em um *teste preditivo* que é configurado para pontuar dados do usuário.
+Para fazer isso, use o Studio (clássico) para criar um experimento chamado teste de *treinamento* -onde você treina, classifica e edita seu modelo. Quando estiver satisfeito, você terá o modelo pronto para implantação convertendo o teste de treinamento em um *teste preditivo* que é configurado para pontuar dados do usuário.
 
 Você pode ver um exemplo desse processo no [tutorial 1: prever o risco de crédito](tutorial-part1-credit-risk.md).
 
@@ -28,7 +28,7 @@ Este artigo aprofunda-se nos detalhes de como um teste de treinamento é convert
 
 
 
-## <a name="overview"></a>Visão geral 
+## <a name="overview"></a>Visão Geral 
 
 O processo de conversão de um teste de treinamento em um teste preditivo envolve três etapas:
 
@@ -50,7 +50,7 @@ Depois de executar o teste (clique em **EXECUTAR** na parte inferior da tela do 
 
 Por exemplo, o seguinte experimento treina um modelo de árvore de decisão de duas classes aumentada usando dados de censo de exemplo:
 
-![Experimento de treinamento](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
+![experimento de treinamento](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 Os módulos nesse experimento executam basicamente quatro funções diferentes:
 

@@ -1,5 +1,5 @@
 ---
-title: Personalizar declarações para aplicativos de locatário do Azure AD
+title: Personalizar declarações do aplicativo de locatário do Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Esta página descreve o mapeamento de declarações no Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918416"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531064"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -45,7 +45,7 @@ Uma política de mapeamento de declarações é um tipo de objeto de **Política
 
 Há determinados conjuntos de declarações que definem como e quando elas são usadas em tokens.
 
-| Conjunto de declarações | Descrição |
+| Conjunto de declarações | Description |
 |---|---|
 | Conjunto de declarações de núcleo | Estão presentes em todos os tokens, independentemente da política. Essas declarações também são consideradas restritas e não podem ser modificadas. |
 | Conjunto de declarações básicas | Inclui as declarações que são emitidas por padrão para os tokens (além do conjunto de declarações principais). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
@@ -143,7 +143,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| Senha |
+| password |
 | platf |
 | polids |
 | pop_jwk |
@@ -163,7 +163,7 @@ Há determinados conjuntos de declarações que definem como e quando elas são 
 | scope |
 | scp |
 | sid |
-| signature |
+| assinatura |
 | signin_state |
 | src1 |
 | src2 |
@@ -285,15 +285,15 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
 
-| Origem | ID | Descrição |
+| Origem | ID | Description |
 |-----|-----|-----|
 | Usuário | sobrenome | Nome da família |
 | Usuário | givenname | Nome |
 | Usuário | displayname | Nome de exibição |
 | Usuário | objectid | ObjectID |
 | Usuário | mail | Endereço de Email |
-| Usuário | userprincipalname | Nome principal do usuário |
-| Usuário | department|Departamento|
+| Usuário | userprincipalname | Nome UPN |
+| Usuário | department|department|
 | Usuário | onpremisessamaccountname | Nome da conta SAM local |
 | Usuário | netbiosname| Nome NetBios |
 | Usuário | dnsdomainname | Nome de Domínio DNS |
@@ -320,7 +320,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | extensionattribute14 | Atributo de extensão 14 |
 | Usuário | extensionattribute15 | Atributo de extensão 15 |
 | Usuário | othermail | Outro email |
-| Usuário | country | País/Região |
+| Usuário | country | País |
 | Usuário | city | Cidade |
 | Usuário | state | Estado |
 | Usuário | jobtitle | Cargo |
@@ -359,9 +359,9 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformationMethod|Entrada esperada|Saída esperada|Descrição|
+|TransformationMethod|Entrada esperada|Saída esperada|Description|
 |-----|-----|-----|-----|
-|Ingressar|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
+|Join|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver nenhum sinal \@ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
 
 **InputClaims:** use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
@@ -385,10 +385,10 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
 
-|Origem|ID|Descrição|
+|Origem|ID|Description|
 |-----|-----|-----|
 | Usuário | mail|Endereço de Email|
-| Usuário | userprincipalname|Nome principal do usuário|
+| Usuário | userprincipalname|Nome UPN|
 | Usuário | onpremisessamaccountname|Nome da conta SAM local|
 | Usuário | employeeid|ID do funcionário|
 | Usuário | extensionattribute1 | Atributo de extensão 1 |
@@ -412,11 +412,17 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 | TransformationMethod | Restrições |
 | ----- | ----- |
 | ExtractMailPrefix | Nenhum |
-| Ingressar | O sufixo que está sendo acrescentado deve ser um domínio verificado do locatário do recurso. |
+| Join | O sufixo que está sendo acrescentado deve ser um domínio verificado do locatário do recurso. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento de declarações habilitado devem verificar um URI especial para suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados. Para adicionar uma chave de assinatura personalizada, você pode usar o cmdlet do Azure PowerShell `new-azureadapplicationkeycredential` para criar uma credencial de chave simétrica para seu objeto de aplicativo. Para obter mais informações sobre este cmdlet do Azure PowerShell, clique [aqui](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+
+Os aplicativos que têm o mapeamento de declarações habilitado devem validar suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Abaixo está o formato do documento de metadados do OpenID Connect que você deve usar: 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>Cenários entre locatários
 
@@ -519,6 +525,6 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)

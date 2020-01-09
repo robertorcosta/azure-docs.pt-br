@@ -1,7 +1,7 @@
 ---
 title: 'Modelo de validação cruzada: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo modelo de validação cruzada no serviço de Azure Machine Learning para validação cruzada de estimativas de parâmetros para classificação ou modelos de regressão Particionando os dados.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo modelo de validação cruzada em Azure Machine Learning para validar as estimativas de parâmetro de classificação ou regressão cruzada, Particionando os dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428554"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
@@ -28,7 +28,7 @@ O modelo de validação cruzada também retorna resultados previstos e probabili
 
 1. A validação cruzada divide aleatoriamente os dados de treinamento em dobras. 
 
-   O algoritmo assume o padrão de 10 dobras se você não tiver particionado anteriormente o conjunto de os. Para dividir o conjunto de espaço em um número diferente de dobras, você pode usar o módulo [partição e exemplo](partition-and-sample.md) e indicar quantas dobras deseja usar.  
+   O algoritmo padroniza para 10 dobras se anteriormente você não particionou do conjunto de dados. Para dividir o conjunto de espaço em um número diferente de dobras, você pode usar o módulo [partição e exemplo](partition-and-sample.md) e indicar quantas dobras deseja usar.  
 
 2.  O módulo separa os dados na dobra 1 para usar para validação. (Às vezes, isso é chamado de *dobra*de controle.) O módulo usa as dobras restantes para treinar um modelo. 
 
@@ -82,15 +82,15 @@ Nesse cenário, você treina e testa o modelo usando o modelo de validação cru
 
 Depois que todas as iterações forem concluídas, o modelo de validação cruzada criará pontuações para todo o conjunto de resultados. Ele também cria métricas de desempenho que você pode usar para avaliar a qualidade do modelo.
 
-### <a name="scored-results"></a>Resultados pontuados
+### <a name="scored-results"></a>Resultados classificados
 
 A primeira saída do módulo fornece os dados de origem para cada linha, junto com alguns valores previstos e probabilidades relacionadas. 
 
 Para exibir esses resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **resultados pontuados**e, em seguida, selecione **Visualizar**.
 
-| Nome da nova coluna      | DESCRIÇÃO                              |
+| Nome da nova coluna      | Description                              |
 | -------------------- | ---------------------------------------- |
-| Rótulos pontuados        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
+| Rótulos classificados        | Essa coluna é adicionada ao final do conjunto de uma. Ele contém o valor previsto para cada linha. |
 | Probabilidades pontuadas | Essa coluna é adicionada ao final do conjunto de uma. Indica a probabilidade estimada do valor em **Rótulos pontuados**. |
 | Número de dobra          | Indica o índice de base zero do dobramento ao qual cada linha de dados foi atribuída durante a validação cruzada. |
 
@@ -103,7 +103,7 @@ Neste relatório, as dobras são listadas por valor de índice, em ordem crescen
 Para exibir esses resultados, no pipeline, clique com o botão direito do mouse no módulo modelo de validação cruzada. Selecione **resultados da avaliação por dobra**e, em seguida, selecione **Visualizar**.
 
 
-|Nome da coluna| DESCRIÇÃO|
+|Nome da coluna| Description|
 |----|----|
 |Número de dobra| Um identificador para cada dobra. Se você tiver criado cinco dobras, haveria cinco subconjuntos de dados, numerados de 0 a 4.
 |Número de exemplos em dobra|O número de linhas atribuídas a cada dobra. Eles devem ser aproximadamente iguais. |
@@ -125,7 +125,7 @@ O módulo também inclui as seguintes métricas para cada dobra, dependendo do t
 + Não há necessidade de dividir o conjunto de linhas em conjuntos de treinamento e teste quando você usa a validação cruzada para medir a precisão do modelo. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

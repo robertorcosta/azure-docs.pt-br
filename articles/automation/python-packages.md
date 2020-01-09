@@ -2,25 +2,21 @@
 title: Gerenciar pacotes do Python 2 no Automação do Azure
 description: Este artigo descreve como gerenciar pacotes do Python 2 na Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/25/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: f20865b92df2a197410f209cf921c5e573723286
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 05d892edf20cda228bc566b30b0b693ea7c4a184
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417639"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerenciar pacotes do Python 2 no Automação do Azure
 
 A Automação do Azure permite executar runbooks do Python 2 no Azure e no Hybrid Runbook Worker do Linux. Para ajudar na simplificação de runbooks, é possível usar pacotes do Python para importar os módulos que forem necessários. Este artigo descreve como você gerencia e usa pacotes do Python na Automação do Azure.
 
-## <a name="import-packages"></a>Importe os pacotes
+## <a name="import-packages"></a>Importar pacotes
 
 Na sua Conta de Automação, selecione **pacotes do Python 2** em **Recursos Compartilhar**. Clique em **+ Adicionar um pacote do Python 2**.
 

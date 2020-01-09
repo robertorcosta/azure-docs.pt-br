@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric – monitoramento de desempenho com a extensão de Diagnóstico do Windows Azure|Microsoft Docs
+title: Monitoramento de desempenho com o Windows Diagnóstico do Azure
 description: Use o Diagnóstico do Microsoft Azure para coletar contadores de desempenho para os clusters do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e29c32c27e7f6c62eb2c6a9cbe2e4d3f1294f038
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0819ca02d088aeb9ada5de1269467f70242bbcca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155157"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609902"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Microsoft Azure do Windows
 
@@ -200,7 +191,7 @@ Aqui está um exemplo de configuração com o contador para o *Tempo Total do Pr
 
 1. Quando a atualização terminar de ser executada (leva de 15 a 45 minutos, dependendo da primeira implantação e do tamanho do grupo de recursos), o WAD deve coletar os contadores de desempenho e enviá-los para a tabela denominada WADPerformanceCountersTable na conta de armazenamento associada seu cluster. Consulte seus contadores de desempenho no Application Insights ao [adicionar o coletor de IA ao modelo do Gerenciador de Recursos](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Colete mais contadores de desempenho para o cluster. Consulte [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista de contadores que você deve coletar.
 * [Use monitoramento e diagnóstico com uma VM Windows e modelos do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para fazer outras modificações em seu `WadCfg`, incluindo a configuração de contas de armazenamento adicionais para as quais enviar dados de diagnóstico.
-* Visite o [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verifique se a sintaxe está correta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verificar se a sintaxe está correta.
+* Visite o [WadCfg Builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo do zero e verifique se a sintaxe está correta. (https://azure.github.io/azure-diagnostics-tools/config-builder/) criar um modelo a partir do zero e verificar se a sintaxe está correta.

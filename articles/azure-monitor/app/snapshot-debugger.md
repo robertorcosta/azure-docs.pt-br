@@ -1,5 +1,5 @@
 ---
-title: Depurador de Instantâneos do Application Insights do Azure para aplicativos .NET | Microsoft Docs
+title: Depurador de Instantâneos de informações do Aplicativo Azure para aplicativos .NET
 description: Depure instantâneos são coletados automaticamente quando exceções forem geradas na produção de aplicativos .NET
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: brahmnes
-ms.openlocfilehash: 33a9db5fa9f31a0c4548ecdeb6c0ca2f12ac8246
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 681190a23fd09402ae96c328b7d98044baf3444e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406387"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneo (visualização) no [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora a telemetria de exceção de seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](../../azure-monitor/app/asp-net-exceptions.md) no portal de Application insights.
@@ -29,7 +29,7 @@ Coleta de instantâneo está disponível para:
 
 Os ambientes a seguir são suportados:
 
-* [Serviço de aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) executando a família de sistemas operacionais 4 ou posterior
 * [Serviços de Service Fabric do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) em execução no Windows Server 2012 R2 ou posterior
 * [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) que executam o Windows Server 2012 R2 ou posterior
@@ -134,8 +134,8 @@ No entanto, nos Serviços de Aplicativos do Azure, o Coletor de Instantâneo pod
 ## <a name="next-steps"></a>Próximos passos
 Habilite Depurador de Instantâneos Application Insights para seu aplicativo:
 
-* [Serviço de aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços de nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviço de Aplicativo do Azure](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços de Nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Service Fabric do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais ou físicas locais](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

@@ -1,5 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple início rápido – criar serviço
+title: 'Início rápido: criar serviço de CloudSimple do VMware'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Saiba como criar o serviço CloudSimple, nós de compra e nós de reserva
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8ca8c5cacd2b1a1a7b4f70615831d2901510045e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828899"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452375"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Início rápido-criar solução VMware do Azure por serviço CloudSimple
 
@@ -83,7 +84,7 @@ Para configurar a capacidade paga conforme o uso para um ambiente de nuvem priva
 13. Examine as configurações. Para modificar as configurações, clique em **anterior**.
 14. Selecione **Criar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar nuvem privada e configurar o ambiente](quickstart-create-private-cloud.md)
 * Saiba mais sobre o [serviço CloudSimple](https://docs.azure.cloudsimple.com/cloudsimple-service)

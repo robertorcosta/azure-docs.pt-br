@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a3fcff9f895fba3574bbce976087295018ab51c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792959"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428736"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Crie seu primeiro aplicativo sem servidor usando os aplicativos lógicos do Azure e o Azure Functions no Visual Studio
 
@@ -21,7 +21,7 @@ Você pode desenvolver e implantar aplicativos de nuvem rapidamente usando as fe
 
 Para criar um aplicativo sem servidor no Visual Studio, você precisa:
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * As ferramentas a seguir. Se você ainda não os tiver, baixe e instale-os.
 
@@ -56,7 +56,7 @@ Para criar um aplicativo sem servidor no Visual Studio, você precisa:
 
 ## <a name="create-a-resource-group-project"></a>Criar um projeto de grupo de recursos
 
-Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para o aplicativo sem servidor. No Azure, você cria recursos em um *grupo de recursos*, que é uma coleção lógica usada para organizar, gerenciar e implantar recursos para um aplicativo inteiro como um único ativo. Para um aplicativo sem servidor no Azure, o grupo de recursos contém recursos para os Aplicativos Lógicos do Azure e Azure Functions. Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para o aplicativo sem servidor. No Azure, você cria recursos em um *grupo de recursos*, que é uma coleção lógica usada para organizar, gerenciar e implantar recursos para um aplicativo inteiro como um único ativo. Para um aplicativo sem servidor no Azure, o grupo de recursos contém recursos para os Aplicativos Lógicos do Azure e Azure Functions. Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Inicie o Visual Studio e entre usando sua conta do Azure.
 

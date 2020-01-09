@@ -1,25 +1,16 @@
 ---
-title: Gerenciar aplicativos para vários ambientes no Azure Service Fabric | Microsoft Docs
+title: Gerenciar aplicativos para vários ambientes
 description: Os aplicativos do Azure Service Fabric podem ser executados em clusters que variam de tamanho de um computador para milhares de computadores. Em alguns casos, você desejará configurar seu aplicativo de forma diferente para esses ambientes variados. Este artigo aborda como definir parâmetros de aplicativo diferentes por ambiente.
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719219"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609835"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gerenciar aplicativos para vários ambientes
 
@@ -53,7 +44,7 @@ Ao criar instâncias de um aplicativo nomeado no Service Fabric, você tem a op�
   - Usando o sfctl, o comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) aceita parâmetros como uma cadeia de caracteres JSON. O script install.sh usa sfctl.
   - O Visual Studio fornece um conjunto de arquivos de parâmetro na pasta Parâmetros no projeto do aplicativo. Esses arquivos de parâmetro são usados durante a publicação do Visual Studio, usando o Azure DevOps Services ou o Team Foundation Server. No Visual Studio, os arquivos de parâmetro são passados para o script Deploy-FabricApplication.ps1.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Os artigos a seguir mostram como usar alguns dos conceitos descritos aqui:
 
 - [Como especificar variáveis de ambiente para serviços no Service Fabric](service-fabric-how-to-specify-environment-variables.md)

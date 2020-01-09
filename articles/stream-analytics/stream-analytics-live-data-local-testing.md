@@ -1,7 +1,6 @@
 ---
 title: Testar dados dinâmicos com o Azure Stream Analytics para Visual Studio
 description: Saiba como testar seu trabalho do Azure Stream Analytics localmente usando dados de streaming ao vivo.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479727"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426047"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio (Versão Prévia)
 
@@ -24,7 +23,7 @@ Ferramentas do Azure Stream Analytics para Visual Studio permitem que você test
 
 Há suporte para as seguintes opções de testes locais:
 
-|**Input**  |**Saída**  |**Tipo de Trabalho**  |
+|**Entrada**  |**Saída**  |**Tipo de Trabalho**  |
 |---------|---------|---------|
 |Dados estáticos locais   |  Dados estáticos locais   |   Nuvem/Borda |
 |Dados de entrada dinâmicos   |  Dados estáticos locais   |   Nuvem |
@@ -63,7 +62,7 @@ Há suporte para as seguintes opções de testes locais:
 
 * Somente opções de entrada de nuvem têm suporte para [políticas de tempo](stream-analytics-out-of-order-and-late-events.md), as opções de entrada locais, não.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um trabalho do Stream Analytics usando ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md)
 * [Instalar o Azure Stream Analytics Tools para o Microsoft Visual Studio](stream-analytics-tools-for-visual-studio-install.md)

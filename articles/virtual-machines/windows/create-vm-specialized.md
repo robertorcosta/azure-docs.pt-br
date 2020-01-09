@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460194"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -70,7 +70,7 @@ Agora você pode carregar um VHD diretamente em um disco gerenciado. Para obter 
 
 Você pode criar uma cópia de uma VM que usa discos gerenciados, tirando um instantâneo da VM e usando esse instantâneo para criar um novo disco gerenciado e uma nova VM.
 
-Se você quiser copiar uma VM existente para outra região, talvez queira usar azcopy para criar [uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+Se você quiser copiar uma VM existente para outra região, talvez queira usar o azcopy para [criar uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>Tirar um instantâneo do disco do sistema operacional
 
@@ -274,6 +274,6 @@ $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Logue na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md).
 

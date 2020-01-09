@@ -2,19 +2,15 @@
 title: Migrar as implantações de atualização do OMS para Azure
 description: Este artigo descreve como migrar as implantações de atualização do OMS para Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417775"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implantações de atualização do OMS para Azure
 
@@ -57,16 +53,16 @@ O painel **Nova implantação de atualizações** é aberto. Insira valores para
 
 Para que os Computadores atualizem, selecione a pesquisa salva usada pela implantação do OMS existente.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
-|name |Nome exclusivo para identificar a Implantação de Atualizações. |
-|Sistema operacional| Selecione **Linux** ou **Windows**.|
+|Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
+|Sistema Operacional| Selecione **Linux** ou **Windows**.|
 |Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
 |Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o artigo KB sem o prefixo **KB**. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
 |Configurações de agendamento|Selecione o tempo para iniciar e selecione **Uma Vez** ou **Recorrente** para a recorrência. | 
 | Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou superior a 6 horas. |
-| Reinicialize o controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
+| Reinicialize o controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (Padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
 
 Clique em **Implantações de atualização agendadas** para exibir o status da implantação da atualização criada recentemente.
 

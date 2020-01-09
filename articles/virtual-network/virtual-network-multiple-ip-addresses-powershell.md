@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
-ms.openlocfilehash: e9bad6ad614855c543ee6d75d4e6f4dc8e2255aa
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876221"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647315"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
 
@@ -97,7 +97,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
 
 6. Defina a configuração de IP primário da NIC. Caso você não tenha usado o valor definido anteriormente, altere 10.0.0.4 para um endereço válido na sub-rede que você criou. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída retorna *True*. Se não está disponível, a saída retorna *False* e uma lista de endereços disponíveis. 
 
-    Nos comandos a seguir, **substitua \<o nome exclusivo do Replace-com-seu > pelo nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Este é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
+    Nos comandos a seguir, **substitua \<> de nome de substituição com o nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Esse é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
 
     ```powershell
     
@@ -122,7 +122,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     Quando você atribuir várias configurações de IP a uma NIC, uma configuração deverá ser atribuída como a *-Primary*.
 
     > [!NOTE]
-    > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
+    > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 7. Defina as configurações de IP secundário da NIC. Você pode adicionar, remover ou alterar as configurações conforme necessário. Cada configuração de IP deve ter um endereço IP privado atribuído. Cada configuração pode, opcionalmente, ter um endereço IP público atribuído.
 
@@ -261,7 +261,7 @@ Você pode adicionar Endereços IP Públicos e privados a um adaptador de rede d
    Um endereço IP público é adicionado por meio da associação de um recurso de endereço IP público a uma nova configuração de IP ou a uma configuração de IP existente. Conclua as etapas em uma das seções a seguir, quando você precisar.
 
    > [!NOTE]
-   > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
+   > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
    >
 
    **Associar o recurso de endereço IP público a uma nova configuração de IP**

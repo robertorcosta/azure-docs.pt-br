@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 14c4ddd5d95abb223fb30e2ce07496e7f2773257
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 29aab4437b7d77b9a00b5745d68dcb5c44a4efe6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434217"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implantar e monitorar módulos do IoT Edge em escala usando a CLI do Azure
 
@@ -28,7 +28,7 @@ Neste artigo, você configura a CLI do Azure e a extensão IoT. Em seguida, voc�
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
 * [Dispositivos do IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) com o runtime do IoT Edge instalado.
-* A [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu ambiente. No mínimo, a versão da CLI do Azure deve ser 2.0.24 ou superior. Use `az --version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
 * A [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
@@ -51,13 +51,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
             "settings": {
               "minDockerVersion": "v1.25",
               "loggingOptions": "",
-              "registryCredentials": {
-                "registryName": {
-                  "username": "",
-                  "password": "",
-                  "address": ""
-                }
-              }
+              "registryCredentials": {}
             }
           },
           "systemModules": {
@@ -74,7 +68,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                "createOptions": "{}"
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
@@ -96,7 +90,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
         "properties.desired": {
           "schemaVersion": "1.0",
           "routes": {
-            "route": "FROM /* INTO $upstream"
+            "upstream": "FROM /messages/* INTO $upstream"
           },
           "storeAndForwardConfiguration": {
             "timeToLiveSecs": 7200
@@ -104,12 +98,68 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
         }
       },
       "SimulatedTemperatureSensor": {
-        "properties.desired": {}
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
       }
     }
   }
 }
 ```
+
+## <a name="layered-deployment"></a>Implantação em camadas
+
+Implantações em camadas são um tipo de implantação automática que pode ser empilhada umas sobre as outras. Para obter mais informações sobre implantações em camadas, consulte [entender IOT Edge implantações automáticas para dispositivos únicos ou em escala](module-deployment-monitoring.md). 
+
+Implantações em camadas podem ser criadas e gerenciadas com o CLI do Azure como qualquer implantação automática, com apenas algumas diferenças. Depois que uma implantação em camadas é criada, o mesmo CLI do Azure funciona para implantações em camadas da mesma forma que qualquer implantação. Para criar uma implantação em camadas, adicione o sinalizador `--layered` ao comando criar. 
+
+A segunda diferença está na construção do manifesto de implantação. Embora a implantação automática padrão deva conter os módulos de tempo de execução do sistema além de quaisquer módulos de usuário, as implantações em camadas só podem conter módulos de usuário. Em vez disso, as implantações em camadas precisam de uma implantação automática padrão também em um dispositivo, para fornecer os componentes necessários de cada dispositivo IoT Edge, como os módulos de tempo de execução do sistema. 
+
+Aqui está um manifesto de implantação em camadas básico com um módulo como um exemplo: 
+
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired.modules.SimulatedTemperatureSensor": {
+          "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": ""
+          },
+          "type": "docker",
+          "status": "running",
+          "restartPolicy": "always",
+          "version": "1.0"
+        }
+      },
+      "$edgeHub": {
+        "properties.desired.routes.upstream": "FROM /messages/* INTO $upstream"
+      },
+      "SimulatedTemperatureSensor": {
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
+      }
+    }
+  }
+}
+```
+
+O exemplo anterior mostrou uma configuração de implantação em camadas `properties.desired` para um módulo. Se essa implantação em camadas tiver como destino um dispositivo em que o mesmo módulo já foi aplicado, ele substituirá as propriedades desejadas existentes. Para atualizar, em vez de substituir as propriedades desejadas, você pode definir uma nova subseção. Por exemplo: 
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+Para obter mais informações sobre como configurar o módulo gêmeos em implantações em camadas, consulte [implantação em camadas](module-deployment-monitoring.md#layered-deployment)
 
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos usando marcações
 
@@ -138,14 +188,18 @@ Use o comando [AZ IOT Edge Deployment Create](https://docs.microsoft.com/cli/azu
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
+Use o mesmo comando com o sinalizador `--layered` para criar um deploymet em camadas.
+
 O comando de criação de implantação usa os seguintes parâmetros: 
 
-* **--deployment-id** - O nome da implantação que será criada no Hub IoT. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
+* **--em camadas** – um sinalizador opcional para identificar a implantação como uma implantação em camadas.
+* **--deployment-id** - O nome da implantação que será criada no Hub IoT. Dê à sua implantação um nome exclusivo com até 128 letras minúsculas. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`. Parâmetro necessário. 
+* **--content** - Caminho do arquivo para o manifesto de implantação JSON. Parâmetro necessário. 
 * **--hub-name** - Nome do hub IoT no qual a implantação será criada. O hub deve estar na assinatura atual. Altere sua assinatura atual com o comando `az account set -s [subscription name]`.
-* **--content** - Caminho do arquivo para o manifesto de implantação JSON. 
 * **--labels** - Adicione rótulos para ajudar a acompanhar as implantações. Rótulos são pares de Nome e Valor que descrevem a implantação. Os rótulos usam a formatação JSON para os nomes e valores. Por exemplo, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition** - Insira uma condição de destino para determinar quais dispositivos serão segmentados com essa implantação. A condição é baseada nas marcas de dispositivo ou nas propriedades relatadas do dispositivo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority** - Um inteiro positivo. No caso de duas ou mais implantações serem direcionadas ao mesmo dispositivo, será aplicada a implantação com o maior valor numérico para Prioridade.
+* **--métricas** – crie métricas que consultam as propriedades relatadas edgeHub para acompanhar o status de uma implantação. As métricas usam a entrada JSON ou um FilePath. Por exemplo, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`. 
 
 ## <a name="monitor-a-deployment"></a>Monitorar uma implantação
 
@@ -156,7 +210,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 ```
 
 O comando Deployment show usa os seguintes parâmetros:
-* **--deployment-id** - O nome da implantação que existe no hub IoT.
+* **--deployment-id** - O nome da implantação que existe no hub IoT. Parâmetro necessário. 
 * **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
 
 Inspecione a implantação na janela de comando. A propriedade de **métricas** lista uma contagem de cada métrica que é avaliada por cada Hub:
@@ -174,8 +228,8 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 
 O comando Deployment show-Metric usa os seguintes parâmetros: 
 * **--deployment-id** - O nome da implantação que existe no hub IoT.
-* **--metric-id** - O nome da métrica para a qual você deseja ver a lista de códigos de dispositivos, por exemplo `reportedFailedCount`
-* **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`
+* **--Metric-ID** -o nome da métrica para a qual você deseja ver a lista de IDs de dispositivo, por exemplo `reportedFailedCount`.
+* **--hub-name** - Nome do hub IoT no qual a implantação existe. O hub deve estar na assinatura atual. Alterne para a assinatura desejada com o comando `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Modificar uma implantação
 
@@ -186,6 +240,8 @@ Se você atualizar a condição de destino, ocorrerão as seguintes atualizaçõ
 * Caso um dispositivo não tenha atendido à condição de destino antiga, mas atenda à nova condição de destino e essa implantação tiver a prioridade mais alta para o dispositivo, essa implantação será aplicada ao dispositivo. 
 * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino, ele desinstalará essa implantação e usará a próxima implantação com a prioridade mais alta. 
 * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino e não atenda à condição de destino de todas as outras implantações, nenhuma alteração ocorrerá no dispositivo. O dispositivo continua executando seus módulos atuais em seu estado atual, mas não é mais gerenciado como parte dessa implantação. Depois que ele atende à condição de destino de qualquer outra implantação, ele desinstala essa implantação e usa a nova. 
+
+Você não pode atualizar o conteúdo de uma implantação, que inclui os módulos e rotas definidos no manifesto de implantação. Se você quiser atualizar o conteúdo de uma implantação, faça isso criando uma nova implantação que se destina aos mesmos dispositivos com uma prioridade mais alta. Você pode modificar determinadas propriedades de um módulo existente, incluindo a condição de destino, os rótulos, as métricas e a prioridade. 
 
 Use o comando [AZ IOT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) para atualizar uma implantação:
 
@@ -199,7 +255,9 @@ O comando de atualização de implantação usa os seguintes parâmetros:
 * **--set** - Atualize uma propriedade na implantação. Você pode atualizar as seguintes propriedades:
   * targetCondition - por exemplo `targetCondition=tags.location.state='Oregon'`
   * rótulos 
-  * prioridade
+  * priority
+* **--Add** -adiciona uma nova propriedade à implantação, incluindo condições ou rótulos de destino. 
+* **--Remove** -remove uma propriedade existente, incluindo condições ou rótulos de destino. 
 
 
 ## <a name="delete-a-deployment"></a>Excluir uma implantação

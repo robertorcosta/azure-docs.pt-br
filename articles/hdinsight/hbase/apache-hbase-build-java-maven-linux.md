@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.openlocfilehash: c948d07bed99f1286e27d645fde7b96fdc699c02
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive,seodec18
+ms.date: 12/24/2019
+ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311698"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495789"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
@@ -36,6 +36,7 @@ As etapas deste documento usam o [Apache Maven](https://maven.apache.org/) para 
 * Um editor de texto. Este artigo usa o bloco de notas da Microsoft.
 
 ## <a name="test-environment"></a>Ambiente de teste
+
 O ambiente usado para este artigo foi um computador que executa o Windows 10.  Os comandos foram executados em um prompt de comando e os vários arquivos foram editados com o bloco de notas. Modifique de acordo com o seu ambiente.
 
 Em um prompt de comando, insira os comandos abaixo para criar um ambiente de trabalho:
@@ -58,11 +59,11 @@ cd C:\HDI
 
     Esse comando cria um diretório chamado `hbaseapp` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho para `hbaseapp`. O terceiro comando cria um novo diretório, `conf`, que será usado posteriormente. O diretório `hbaseapp` contém os seguintes itens:
 
-    * `pom.xml`:  O ](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)POM (Modelo de Objeto de Projeto) contém informações e detalhes de configuração usados para compilar o projeto.
-    * `src\main\java\com\microsoft\examples`: Contém o código do aplicativo.
-    * `src\test\java\com\microsoft\examples`: Contém testes para o aplicativo.
+    * `pom.xml`: o modelo de objeto de projeto ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém informações e detalhes de configuração usados para compilar o projeto.
+    * `src\main\java\com\microsoft\examples`: contém o código do aplicativo.
+    * `src\test\java\com\microsoft\examples`: contém testes para o seu aplicativo.
 
-2. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java` e `App.java` inserindo os comandos abaixo:
+2. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java`e `App.java` inserindo os comandos abaixo:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -71,7 +72,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>Atualize o modelo do objeto do projeto
 
-Para obter uma referência completa do arquivo pom. xml, consulte https://maven.apache.org/pom.html.  Abra `pom.xml` digitando o comando a seguir:
+Para obter uma referência completa do arquivo pom. xml, consulte https://maven.apache.org/pom.html.  Abra `pom.xml` inserindo o comando abaixo:
 
 ```cmd
 notepad pom.xml
@@ -79,12 +80,12 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>Adicionar dependências
 
-No `pom.xml`, adicione o seguinte texto na seção `<dependencies>`:
+Em `pom.xml`, adicione o seguinte texto na seção `<dependencies>`:
 
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -110,7 +111,7 @@ Para saber mais sobre as versões e os componentes do HDInsight, consulte [Quais
 
 Plug-ins do Maven permitem que você personalize os estágios de compilação do projeto. Esta seção será usada para adicionar plug-ins, recursos e outras opções de configuração de compilação.
 
-Adicione o código a seguir ao arquivo `pom.xml` e salve e feche o arquivo. Esse texto deve estar dentro das marcas `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
+Adicione o seguinte código ao arquivo de `pom.xml` e, em seguida, salve e feche o arquivo. Esse texto deve estar dentro das marcas `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
 
 ```xml
 <build>
@@ -128,7 +129,7 @@ Adicione o código a seguir ao arquivo `pom.xml` e salve e feche o arquivo. Esse
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -408,7 +409,7 @@ As etapas a seguir usam `scp` para copiar o JAR para o nó principal primário d
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. Para criar uma tabela do HBase usando o aplicativo Java, use o seguinte comando em sua conexão SSH aberta:
+3. Para criar uma tabela do HBase usando o aplicativo Java, use o seguinte comando em sua conexão SSH aberta:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -645,7 +646,7 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
    * **Add-HDInsightFile** – utilizado para carregar arquivos no cluster
    * **Start-HBaseExample** - utilizado para executar as classes criadas anteriormente
 
-2. Salve o arquivo `hbase-runner.psm1` no diretório `hbaseapp`.
+2. Salve o arquivo de `hbase-runner.psm1` no diretório `hbaseapp`.
 
 3. Registre os módulos com Azure PowerShell. Abra uma nova janela de Azure PowerShell e edite o comando abaixo, substituindo `CLUSTERNAME` pelo nome do cluster. Em seguida, insira os seguintes comandos:
 
@@ -702,6 +703,6 @@ As etapas a seguir usam o [módulo Azure PowerShell AZ](https://docs.microsoft.c
 
 Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido durante a execução do trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba como usar o sqlline com o Apache HBase](apache-hbase-query-with-phoenix.md)

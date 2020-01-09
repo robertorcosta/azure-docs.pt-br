@@ -1,19 +1,16 @@
 ---
-title: Enviar alertas de integridade do serviço do Azure com o ServiceNow usando webhooks
+title: Enviar alertas de integridade do serviço do Azure com o ServiceNow
 description: Obtenha notificações personalizadas sobre eventos de integridade do serviço na instância do ServiceNow.
-author: stephbaron
-ms.author: stbaron
 ms.topic: article
-ms.service: service-health
 ms.date: 06/10/2019
-ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f332b1e0e188797da172b4ae63f6e5ef1a97e59c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067115"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551600"
 ---
-# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com o ServiceNow usando webhooks
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Enviar alertas de integridade do serviço do Azure com o ServiceNow usando WebHooks
 
 Este artigo mostra como integrar os alertas de integridade do serviço do Azure com o ServiceNow usando um webhook. Depois de configurar a integração do webhook com a instância do ServiceNow, você receberá alertas por meio de sua infraestrutura de notificação existente quando problemas do serviço do Azure o afetarem. Sempre que um alerta de Integridade do Serviço do Azure é disparado, ele chama um webhook por meio da API REST com Script do ServiceNow.
 
@@ -153,11 +150,11 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Defina na lista de **Ações**:
 
-    a. **Tipo de ação:** *Webhook*
+    a. **Tipo de ação:** *webhook*
 
-    b. **Detalhes:** A **URL de Integração** do ServiceNow salva anteriormente.
+    b. **Detalhes:** a **URL de Integração** do ServiceNow salva anteriormente.
 
-    c. **Nome:** Nome, alias ou identificador do webhook.
+    c. **Nome:** o nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a criação do alerta.
 
@@ -170,11 +167,11 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Adicione à lista de **Ações**:
 
-    a. **Tipo de ação:** *Webhook*
+    a. **Tipo de ação:** *webhook*
 
-    b. **Detalhes:** A **URL de Integração** do ServiceNow salva anteriormente.
+    b. **Detalhes:** a **URL de Integração** do ServiceNow salva anteriormente.
 
-    c. **Nome:** Nome, alias ou identificador do webhook.
+    c. **Nome:** o nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
@@ -194,7 +191,7 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
 1. Acesse o [ServiceNow](https://www.servicenow.com/) para confirmar se a integração foi configurada com êxito.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
 - Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../azure-monitor/platform/service-notifications.md).

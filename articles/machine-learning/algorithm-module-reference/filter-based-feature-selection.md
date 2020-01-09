@@ -1,7 +1,7 @@
 ---
 title: 'Seleção de recursos baseada em filtro: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo seleção de recursos baseada em filtro no serviço de Azure Machine Learning para identificar os recursos em um conjunto de informações com o maior poder de previsão.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo seleção de recursos baseada em filtro no Azure Machine Learning para identificar os recursos em um conjunto de informações com o maior poder de previsão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f8ae4982f7602cd7403a78517fec79fa95d33aa2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428519"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de recursos baseada em filtro
 
@@ -30,7 +30,7 @@ O módulo gera um conjunto de resultados que contém as melhores colunas de recu
 
 Esse módulo para seleção de recursos é chamado de "baseado em filtro" porque você usa a métrica selecionada para localizar atributos irrelevantes. Em seguida, você filtra colunas redundantes do seu modelo. Você escolhe uma medida estatística única que atenda aos seus dados e o módulo calcula uma pontuação para cada coluna de recurso. As colunas são retornadas classificadas por suas pontuações de recursos. 
 
-Ao escolher os recursos certos, é possível melhorar a precisão e a eficiência da classificação. 
+Escolhendo os recursos corretos, você melhorará muito a precisão e a eficiência da classificação. 
 
 Normalmente, você usa apenas as colunas com as melhores pontuações para criar seu modelo de previsão. Colunas com pontuações de seleção de recursos insatisfatórios podem ser deixadas no conjunto de e ignoradas quando você cria um modelo.  
 
@@ -40,13 +40,13 @@ O módulo seleção de recursos baseada em filtro fornece uma variedade de métr
 
 -   **Correlação de Pearson**  
 
-    A estatística de correlação de Pearson ou o coeficiente de correlação de Pearson também é conhecido em modelos estatísticos como o valor de `r`. Para quaisquer duas variáveis, ele retorna um valor que indica a força da correlação.
+    A estatística de correlação de Pearson ou o coeficiente de correlação de Pearson também é conhecido em modelos estatísticos como o valor de `r`. Para duas variáveis quaisquer, ele retorna um valor que indica a intensidade da correlação.
 
-    O coeficiente de correlação de Pearson é calculado por meio da covariância de duas variáveis e da divisão pelo produto de seus desvios padrão. As alterações de escala nas duas variáveis não afetam o coeficiente.  
+    O coeficiente de correlação de Pearson é calculado usando a covariância de duas variáveis e dividindo-se pelo produto de seus desvios padrão. As alterações de escala nas duas variáveis não afetam o coeficiente.  
 
 -   **Qui-quadrado**  
 
-    O teste qui-quadrado de duas vias é um método estatístico que mede como os valores de fechamento esperados são para resultados reais. O método supõe que as variáveis sejam aleatórias e desenhadas a partir de um exemplo adequado de variáveis independentes. A estatística qui-quadrada resultante indica a distância em que os resultados são do resultado esperado (aleatório).  
+    O teste qui-quadrado bidirecional é um método estatístico que mede o quão distante os valores esperados estão dos resultados reais. O método pressupõe que variáveis são aleatórias e desenha a partir de um exemplo adequado das variáveis independentes. A estatística qui-quadrada resultante indica o quão longe os resultados estão do resultado esperado (aleatório).  
 
 
 > [!TIP]
@@ -86,7 +86,7 @@ Você escolhe uma métrica estatística padrão. O módulo computa a correlaçã
 
     - O número mínimo de recursos que você pode especificar é um, mas recomendamos que você aumente esse valor.  
 
-    - Se o número especificado de recursos desejados for maior que o número de colunas no conjunto de linhas, todos os recursos serão retornados. Até mesmo recursos com zero pontuações são retornados.  
+    - Se o número de recursos desejados especificado for maior que o número de colunas no conjunto de dados, todos os recursos serão retornados. Até mesmo recursos com zero pontuações são retornados.  
 
     - Se você especificar menos colunas de resultado do que as colunas de recurso, os recursos serão classificados por Pontuação decrescente. Somente os recursos principais são retornados. 
 
@@ -133,7 +133,7 @@ Se você usar a correlação de Pearson em um recurso numérico e um rótulo cat
 -   Se uma coluna designada como uma coluna de recurso tiver todos os valores ausentes, o módulo atribuirá uma pontuação zero.   
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

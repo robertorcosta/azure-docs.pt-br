@@ -1,32 +1,23 @@
 ---
-title: CLI do Azure Service Fabric - agenda do sfctl chao | Microsoft Docs
-description: Descreve os comandos da agenda sfctl chaos da CLI do Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-agenda de caos sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o agendamento de caos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897551"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639166"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
-Obtenha e defina a agenda do caos.
+Obter e definir a agenda do caos.
 
 ## <a name="commands"></a>Comandos
 
-|Command|Descrição|
+|Comando|Description|
 | --- | --- |
 | get | Obter a Agenda de Caos define quando e como executar o Caos. |
 | set | Defina a agenda usada por Chaos. |
@@ -38,19 +29,19 @@ Obtém a versão da Agenda de Caos em uso e Agenda de Caos que define quando e c
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>definir agenda do sfctl chaos
 Defina a agenda usada por Chaos.
@@ -59,7 +50,7 @@ O Caos agendará automaticamente execuções com base na Agenda do Caos. O agend
 
 ### <a name="arguments"></a>Argumentos
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
 | --chaos-parameters-dictionary | Lista codificada JSON que representa um mapeamento de nomes de cadeia de caracteres para ChaosParameters a ser usado por trabalhos codificados para Trabalhos. |
 | --expiry-date-utc | Data e hora de quando parar de usar a Agenda para agendar o Caos.  Padrão\: 9999-12-31T23\:59\:59.999Z. |
@@ -70,13 +61,13 @@ O Caos agendará automaticamente execuções com base na Agenda do Caos. O agend
 
 ### <a name="global-arguments"></a>Argumentos globais
 
-|Argumento|Descrição|
+|Argumento|Description|
 | --- | --- |
-| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
-| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ### <a name="examples"></a>Exemplos
 

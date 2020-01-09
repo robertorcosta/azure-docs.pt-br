@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415067"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autorizar não proprietários a implantar o Avere vFXT
 
@@ -19,11 +19,11 @@ Estas instruções são uma solução alternativa que permite que um usuário se
 
 (A maneira recomendada de implantar o sistema do Avere vFXT é fazer com que um usuário com privilégios de proprietário realize as etapas de criação, conforme explicado em [Preparar para criar o Avere vFXT](avere-vfxt-prereqs.md).)  
 
-A solução alternativa envolve a criação de uma função de acesso adicional que fornece aos usuários permissões suficientes para instalar o cluster. A função deve ser criada por um proprietário da assinatura e um proprietário deve atribuí-la aos usuários apropriados. 
+A solução alternativa envolve a criação de uma função de acesso adicional que fornece aos usuários permissões suficientes para instalar o cluster. A função deve ser criada por um proprietário da assinatura e um proprietário deve atribuí-la aos usuários apropriados.
 
-O proprietário da assinatura também deve [aceitar os termos de uso](avere-vfxt-prereqs.md) da imagem do marketplace do Avere vFXT. 
+O proprietário da assinatura também deve [aceitar os termos de uso](avere-vfxt-prereqs.md) da imagem do marketplace do Avere vFXT.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Todas essas etapas devem ser executadas por um usuário com privilégios de proprietário na assinatura que será usada para o cluster.
 
 1. Copie estas linhas e salve-as em um arquivo (por exemplo, `averecreatecluster.json`). Use sua ID da assinatura na instrução `AssignableScopes`.
@@ -49,7 +49,7 @@ O proprietário da assinatura também deve [aceitar os termos de uso](avere-vfxt
            "Microsoft.Network/routeTables/routes/delete",
            "Microsoft.Network/virtualNetworks/subnets/join/action",
            "Microsoft.Network/virtualNetworks/subnets/read",
-   
+
            "Microsoft.Resources/subscriptions/resourceGroups/read",
            "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
            "Microsoft.Storage/*/read",
@@ -63,6 +63,7 @@ O proprietário da assinatura também deve [aceitar os termos de uso](avere-vfxt
    `az role definition create --role-definition <PATH_TO_FILE>`
 
     Exemplo:
+
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json
     ```
@@ -71,7 +72,7 @@ O proprietário da assinatura também deve [aceitar os termos de uso](avere-vfxt
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Após esse procedimento, todos os usuários atribuídos a essa função terão as seguintes permissões para a assinatura: 
+Após esse procedimento, todos os usuários atribuídos a essa função terão as seguintes permissões para a assinatura:
 
 * Criar e configurar a infraestrutura de rede
 * Criar o controlador de cluster

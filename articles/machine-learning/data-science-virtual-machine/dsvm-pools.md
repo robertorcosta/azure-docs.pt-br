@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c5b7f4eaac91e79dde625ea00bfb6b1ea8782b31
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052990"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530605"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um pool compartilhado de Máquinas Virtuais de Ciência de Dados
 
 Neste artigo, você aprenderá a criar um pool compartilhado de máquinas virtuais de ciência de dados (DSVMs) para uma equipe. Os benefícios de usar um pool compartilhado incluem melhor utilização de recursos, colaboração e compartilhamento mais fáceis e gerenciamento mais eficaz de recursos de DSVM.
 
-Você pode usar vários métodos e tecnologias para criar um pool de DSVMs. Este artigo se concentra em pools de VMs (máquinas virtuais) interativas. Uma infraestrutura de computação gerenciada alternativa é a Computação do Azure Machine Learning. Para obter mais informações, consulte [Configurar destinos de computação](../service/how-to-set-up-training-targets.md#amlcompute).
+Você pode usar vários métodos e tecnologias para criar um pool de DSVMs. Este artigo se concentra em pools de VMs (máquinas virtuais) interativas. Uma infraestrutura de computação gerenciada alternativa é a Computação do Azure Machine Learning. Para obter mais informações, consulte [Configurar destinos de computação](../how-to-set-up-training-targets.md#amlcompute).
 
 ## <a name="interactive-vm-pool"></a>Pool VM interativo
 

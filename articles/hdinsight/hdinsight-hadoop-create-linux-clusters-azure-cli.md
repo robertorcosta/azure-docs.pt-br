@@ -2,18 +2,18 @@
 title: Criar clusters Apache Hadoop usando o CLI do Azure-Azure HDInsight
 description: Saiba como criar clusters do Azure HDInsight usando o CLI do Azure de plataforma cruzada.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: hrasheed
-ms.openlocfilehash: 09696f5a3df7cc4170c57b862a11bbd5a82e2bc9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 80a13e504b7cb075692256d5c813a95c51002ab6
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494797"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495131"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar os clusters do HDInsight usando a CLI do Azure
 
@@ -33,7 +33,7 @@ CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Insta
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-1. Faça logon na sua assinatura do Azure. Se você planeja usar o Azure Cloud Shell, basta selecionar **Experimente** no canto superior direito do bloco de código. Caso contrário, insira o comando a seguir:
+1. Acesse a sua assinatura do Azure. Se você planeja usar Azure Cloud Shell, selecione **Experimente** no canto superior direito do bloco de código. Caso contrário, insira o comando a seguir:
 
     ```azurecli-interactive
     az login
@@ -44,7 +44,7 @@ CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Insta
 
 2. Configure as variáveis de ambiente. O uso de variáveis neste artigo baseia-se no bash. Pequenas variações serão necessárias para outros ambientes. Consulte [AZ-hdinsight-Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) para obter uma lista completa de possíveis parâmetros para a criação do cluster.
 
-    |Parâmetro | DESCRIÇÃO |
+    |Parâmetro | Description |
     |---|---|
     |`--size`| O número de nós de trabalho no cluster. Este artigo usa a variável `clusterSizeInNodes` como o valor passado para `--size`. |
     |`--version`| a versão do cluster do HDInsight. Este artigo usa a variável `clusterVersion` como o valor passado para `--version`. Consulte também: [versões do HDInsight com suporte](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
@@ -60,7 +60,7 @@ CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Insta
     export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
     export httpCredential='PASSWORD'
     export sshCredentials='PASSWORD'
-    
+
     export AZURE_STORAGE_CONTAINER=$clusterName
     export clusterSizeInNodes=1
     export clusterVersion=3.6
@@ -132,9 +132,9 @@ CLI do Azure. Se você ainda não tiver instalado a CLI do Azure, confira [Insta
     > [!IMPORTANT]  
     > Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster.
 
-    Pode levar vários minutos para que o processo de criação de cluster seja concluído. Geralmente, cerca de 15 minutos.
+    Pode levar vários minutos para que o processo de criação do cluster seja concluído. Geralmente, cerca de 15 minutos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após a conclusão do artigo, convém excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso.
 
@@ -165,9 +165,9 @@ az group delete \
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Agora que você criou com êxito um cluster HDInsight usando a CLI do Azure, use o seguinte para aprender a trabalhar com o seu cluster:
+Agora que você criou com êxito um cluster HDInsight usando o CLI do Azure, use o seguinte para aprender a trabalhar com o cluster:
 
 ### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 

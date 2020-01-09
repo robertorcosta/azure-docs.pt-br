@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427374"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
 
-Este artigo mostra como mover dados de um Banco de Dados do SQL Server no local para um Banco de Dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o Azure Data Factory (ADF).
+Este artigo mostra como mover dados de um SQL Server local de um banco de dados para um banco de SQL Azure do armazenamento de BLOBs do Azure usando o Azure Data Factory (ADF): esse método é uma abordagem herdada com suporte que tem as vantagens de uma cópia de preparo replicada, embora [sugerimos examinar nossa página datamigration para obter as opções mais recentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Para conferir uma tabela que resume diversas opções de movimentação de dados para um Banco de Dados SQL do Azure, consulte [Mover dados para um Banco de Dados SQL do Azure para o Azure Machine Learning](move-sql-azure.md).
 
@@ -43,7 +43,7 @@ Criamos um pipeline do ADF que compõe duas atividades de migração de dados. J
 * copiar dados da conta de armazenamento de blob do Azure para um banco de dados SQL do Azure.
 
 > [!NOTE]
-> As etapas mostradas aqui foram adaptadas do tutorial mais detalhado fornecido pela equipe do ADF: [Copiar dados de um banco de dados do SQL Server local para o armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) Referências às seções relevantes desse tópico são fornecidas quando apropriado.
+> As etapas mostradas aqui foram adaptadas a partir do tutorial mais detalhado fornecido pela equipe do ADF: [copiar dados de uma SQL Server local de banco de dado para o armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) as referências às seções relevantes desse tópico são fornecidas quando apropriado.
 >
 >
 
@@ -51,8 +51,8 @@ Criamos um pipeline do ADF que compõe duas atividades de migração de dados. J
 Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-account-manage.md#access-keys).
-* Acesso a um **Banco de dados SQL do Azure**. Se você deve configurar um banco de dados SQL, o tópico [Introdução ao banco de dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um banco de dados do SQL Azure.
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
+* Acesso a um **Banco de dados SQL do Azure**. Se você precisar configurar um banco de dados SQL do Azure, o tópico [introdução com Banco de dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornecerá informações sobre como provisionar uma nova instância de um banco de dados SQL do Azure.
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Você pode adaptar o procedimento fornecido aqui para um conjunto de seus própr
 As instruções para criar um novo Azure Data Factory e um grupo de recursos no [Portal do Azure](https://portal.azure.com/) são fornecidas em [Create an Azure Data Factory (Criar um Azure Data Factory)](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nomeie a nova instância ADF como *adfdsp* e nomeie o grupo de recursos criado como *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o Microsoft Integration Runtime do Azure Data Factory
-O Microsoft Integration Runtime é uma infraestrutura de integração de dados gerenciados do cliente usados pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Esse tempo de execução foi denominado "Gateway de Gerenciamento de Dados".
+O Microsoft Integration Runtime é uma infraestrutura de integração de dados gerenciados do cliente usados pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Esse runtime foi denominado "Gateway de Gerenciamento de Dados".
 
 Para configurar, [siga as instruções para criar um pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
@@ -77,7 +77,7 @@ Para configurar, [siga as instruções para criar um pipeline](https://docs.micr
 Um serviço vinculado define as informações necessárias para o Azure Data Factory conectar-se a um recurso de dados. Temos três recursos neste cenário para os quais os serviços vinculados são necessários:
 
 1. SQL Server local
-2. Armazenamento do Blobs do Azure
+2. Armazenamento de Blobs do Azure
 3. Banco de Dados SQL do Azure
 
 O procedimento passo a passo para criar serviços vinculados é fornecido em [Create linked services (Criar serviços vinculados)](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
@@ -99,7 +99,7 @@ As definições baseadas em JSON nas tabelas usam os seguintes nomes:
 Três definições de tabela são necessárias para este pipeline do ADF:
 
 1. [Tabela do SQL local](#adf-table-onprem-sql)
-2. [Tabela de blob](#adf-table-blob-store)
+2. [Tabela de BLOBs](#adf-table-blob-store)
 3. [Tabela do SQL Azure](#adf-table-azure-sql)
 
 > [!NOTE]

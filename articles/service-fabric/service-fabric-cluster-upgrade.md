@@ -1,25 +1,14 @@
 ---
 title: Atualizar um cluster do Azure Service Fabric
 description: Saiba como atualizar a versão ou a configuração de um cluster do Azure Service Fabric.  Este artigo descreve a configuração do modo de atualização do cluster, atualizando certificados, adicionado portas do aplicativo, fazendo patches do SO e o que você puder esperar quando as atualizações forem realizadas
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
-ms.author: atsenthi
-ms.openlocfilehash: 161c720fbcc9370aaf273b241e88a7184f47371b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 156693a9c9a3950c16a620a2a43b1f36718c4133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013314"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434016"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 
@@ -27,7 +16,7 @@ Para qualquer sistema moderno, oferecer a possibilidade de atualização é fund
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlando a versão de malha que é executada em seu cluster
 
-Certifique-se de manter o cluster sempre executando uma [versão compatível do Fabric](service-fabric-versions.md). Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar sua vida útil após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas no blog da equipe do Service Fabric. Então, a nova versão está disponível para escolha.
+Certifique-se de manter o cluster sempre executando uma [versão compatível do Fabric](service-fabric-versions.md). Quando anunciamos o lançamento de uma nova versão do Service Fabric, a versão anterior é programada para encerrar seu tempo de vida após um mínimo de 60 dias a partir da data desse anúncio. As novas versões são anunciadas no blog da equipe do Service Fabric. Então, a nova versão está disponível para escolha.
 
 14 dias antes da expiração da versão do cluster em execução, um evento de integridade é gerado, colocando seu cluster em um estado de integridade de aviso. O cluster permanecerá em um estado de aviso até você atualize para uma versão do Fabric com suporte.
 
@@ -102,7 +91,7 @@ Muitas configurações diferentes podem ser personalizadas em um cluster, como o
 O aplicativo de orquestração de patch (POA) é um aplicativo do Service Fabric que automatiza a correção do sistema operacional em um cluster do Service Fabric sem tempo de inatividade. O [Aplicativo de Orquestração de Patches para Windows](service-fabric-patch-orchestration-application.md) pode ser implantado em seu cluster para instalar os patches de maneira orquestrada, mantendo os serviços disponíveis o tempo todo.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md)

@@ -1,19 +1,14 @@
 ---
 title: O que são as notificações de integridade do serviço do Azure?
 description: As notificações de integridade do serviço permitem exibir mensagens de integridade do serviço publicadas pelo Microsoft Azure.
-author: stephbaron
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
+ms.topic: article
 ms.date: 4/12/2018
-ms.author: stbaron
-ms.subservice: logs
-ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451562"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
 
@@ -29,7 +24,7 @@ Há diversas classes de notificações de integridade do serviço:
 
 Cada notificação de integridade do serviço inclui detalhes sobre o escopo e o impacto em seus recursos. Os detalhes incluem:
 
-Nome da propriedade | DESCRIÇÃO
+Nome da propriedade | Description
 -------- | -----------
 canais | Um dos seguintes valores: **Admin** ou **Operação**.
 correlationId | Geralmente, um GUID no formato de cadeia de caracteres. Eventos que pertencem à mesma ação geralmente compartilham a mesma correlationId.
@@ -44,8 +39,8 @@ submissionTimestamp | Carimbo de hora quando o evento tornou-se disponível para
 subscriptionId | A assinatura do Azure na qual esse evento foi registrado.
 status | Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: **Iniciado**, **Em Andamento**, **Êxito**, **Falha**, **Ativo** e **Resolvido**.
 operationName | O nome da operação.
-categoria | Esta propriedade é sempre **ServiceHealth**.
-ResourceId | ID do recurso afetado.
+category | Esta propriedade é sempre **ServiceHealth**.
+resourceId | ID do recurso afetado.
 Properties.title | O título localizado dessa comunicação. Inglês é o padrão.
 Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
 Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **informativo**, **incidente**, **manutenção**ou **segurança**.
@@ -53,7 +48,7 @@ Properties.trackingId | O incidente ao qual esse evento está associado. Use-a p
 Properties.impactedServices | Um blob JSON com escape que descreve as regiões e os serviços afetados pelo incidente. Uma lista de Services, que, individualmente, tem um **ServiceName** e uma lista de ImpactedRegions, que têm um **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
 Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
-Properties.stage | Os valores possíveis para **Incidente** e **Segurança** são **Ativo,** **Resolvido** ou **RCA**. Para **ActionRequired** ou **Informational**, o único valor é **Ativo**. Para **Manutenção** são: **Ativo**, **Planejado**, **EmAndamento**, **Cancelado**, **Reagendado**, **Resolvido** ou **Concluído**.
+Properties.stage | Os valores possíveis para **incidente**e **segurança** são **ativo,** **resolvido** ou **RCA**. Para **ActionRequired** ou **Informational**, o único valor é **Ativo**. Para **Manutenção** são: **Ativo**, **Planejado**, **EmAndamento**, **Cancelado**, **Reagendado**, **Resolvido** ou **Concluído**.
 Properties.communicationId | A comunicação à qual esse evento está associado.
 
 ### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de integridade de serviço

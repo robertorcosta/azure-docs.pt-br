@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 4c02632c44d095a6d1d1c583a1ab201acad63bf9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229007"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435263"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Enviar trabalhos a partir das Ferramentas do R para Visual Studio
 
-[Ferramentas R para Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) é uma extensão gratuita e de código-fonte aberto para as edições Community (gratuita), Professional e Enterprise do [Visual Studio 2017](https://www.visualstudio.com/downloads/), e [Visual Studio 2015 Atualização 3](https://go.microsoft.com/fwlink/?LinkId=691129) ou superior. O RTVS não está disponível para o [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
+[Ferramentas R para Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) é uma extensão gratuita e de código-fonte aberto para as edições Community (gratuita), Professional e Enterprise do [Visual Studio 2017](https://www.visualstudio.com/downloads/), e [Visual Studio 2015 Atualização 3](https://go.microsoft.com/fwlink/?LinkId=691129) ou superior. O RTVS não está disponível para o [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019).
 
 RTVS aprimora seu fluxo de trabalho de R, oferecendo ferramentas como o [janela de R Interativo](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (conclusão de código), [plotar visualização](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) por meio de bibliotecas de R como ggplot2 e ggviz, [depuração de código de R](https://docs.microsoft.com/visualstudio/rtvs/debugging)e muito mais.
 
-## <a name="set-up-your-environment"></a>Configure seu ambiente
+## <a name="set-up-your-environment"></a>Definir seu ambiente
 
 1. Instalar [Ferramentas do R para Visual Studio](/visualstudio/rtvs/installing-r-tools-for-visual-studio).
 
@@ -131,7 +131,7 @@ Usando um Microsoft ML Server/Microsoft R Client de um computador com Windows eq
     rxStopEngine(mySparkCluster)
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Opções de contexto de computação para o ML Services no HDInsight](r-server-compute-contexts.md)
 * [Combinar ScaleR e SparkR](../hdinsight-hadoop-r-scaler-sparkr.md) fornece um exemplo de previsões de atraso de voo aérea.

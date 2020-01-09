@@ -1,17 +1,17 @@
 ---
-title: Modelos de Azure Resource Manager para a API do Gremlin Azure Cosmos DB
+title: Modelos do Resource Manager para Azure Cosmos DB API do Gremlin
 description: Use modelos de Azure Resource Manager para criar e configurar Azure Cosmos DB API Gremlin.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: c5ddea40c384496f2790ae4ab7c88888f1e9120a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 857af7ecd9ff3d7b3c771d048a802c6d3c1e5e4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441640"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gerenciar Azure Cosmos DB recursos da API Gremlin usando modelos de Azure Resource Manager
 
@@ -53,7 +53,7 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 O comando `az cosmosdb show` mostra a conta recém-criada do Azure Cosmos depois que ela é provisionada. Se você optar por usar uma versão instalada localmente do CLI do Azure em vez de usar Cloud Shell, consulte o artigo [CLI do Azure](/cli/azure/) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Estes são alguns recursos adicionais:
 

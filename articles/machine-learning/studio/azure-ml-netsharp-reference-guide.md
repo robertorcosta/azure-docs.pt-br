@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427681"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guia para a linguagem de especificação de rede neural net # para Azure Machine Learning Studio (clássico)
 
@@ -56,7 +56,7 @@ Adicionalmente, a Net# dá suporte aos quatro tipos de grupos de conexão avanç
 
 ## <a name="supported-customizations"></a>Personalizações com suporte
 
-A arquitetura dos modelos de rede neural que você cria na versão clássica do Azure Machine Learning Studio pode ser amplamente personalizada com o uso de net #. Você pode:
+A arquitetura dos modelos de rede neural que você cria no Azure Machine Learning Studio (clássico) pode ser amplamente personalizada com o uso de net #. Você pode:
 
 + Criar camadas ocultas e controlar o número de nós em cada camada.
 + Especifique como as camadas devem conectar-se umas às outras.

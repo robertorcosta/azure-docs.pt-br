@@ -1,30 +1,21 @@
 ---
-title: Azure Service Fabric Events | Microsoft Docs
+title: Eventos de Service Fabric do Azure
 description: Saiba mais sobre os eventos do Service Fabric fornecidos para ajudá-lo a monitorar o cluster do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451720"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
 
 A plataforma do Service Fabric grava vários eventos estruturados para atividades operacionais chave acontecendo dentro do seu cluster. Esses variam de atualizações de cluster a decisões de posicionamento de réplica. Cada evento do Service Fabric expõe mapas para uma das seguintes entidades no cluster:
-* HDInsight
+* Cluster
 * Aplicativo
 * Serviço
 * Partition
@@ -40,14 +31,14 @@ Aqui estão alguns exemplos de cenários para os quais você deve ver eventos em
 * Exclusão do Aplicativo/Implantação de serviço: não há eventos para cada aplicativo, serviço e contêiner, sendo criado ou excluído e útil ao escalar dentro ou fora, por exemplo, aumentar o número de réplicas
 * Movimentos de partição (reconfiguração): sempre que uma partição com estado passa por uma reconfiguração (uma alteração no conjunto de réplicas), um evento é registrado. Isso é útil se você estiver tentando entender com que frequência seu conjunto de réplicas de partição está sendo alterado ou fazer failover, ou rastrear qual nó estava executando sua réplica primária a qualquer ponto no tempo.
 * Eventos de caos: ao usar o serviço [Caos](service-fabric-controlled-chaos.md) do Service Fabric, você verá eventos toda vez que o serviço for iniciado ou interrompido, ou quando ele injetar uma falha no sistema.
-* Eventos de integridade: O Service Fabric expõe eventos de integridade sempre que um aviso ou um relatório de integridade de erro é criado, ou uma entidade volta para um estado de integridade Okey ou um relatório de integridade expire. Esses eventos são muito úteis para rastrear as estatísticas de integridade históricas para uma entidade. 
+* Eventos de integridade: o Service Fabric expõe eventos de integridade sempre que um aviso ou um relatório de integridade de erro é criado, ou uma entidade volta para um estado de integridade OK ou um relatório de integridade expira. Esses eventos são muito úteis para rastrear as estatísticas de integridade históricas para uma entidade. 
 
 ## <a name="how-to-access-events"></a>Como acessar os eventos
 
 Há algumas maneiras diferentes pelas quais os eventos do Service Fabric podem ser acessados:
-* Os eventos são registrados por meio de canais padrão como logs de eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que dá suporte a estes como logs do Azure Monitor. Por padrão, clusters criados no portal do têm o diagnóstico ativado e tem o agente de diagnóstico do Windows Azure enviando eventos no armazenamento de tabelas do Azure, mas você ainda precisará integrá-lo a recurso do log analytics. Leia mais sobre como configurar o [agente de diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster para pegar mais logs ou contadores de desempenho e a [integração de logs do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* Os eventos são registrados por meio de canais padrão, como logs de eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que ofereça suporte a esses logs de Azure Monitor. Por padrão, os clusters criados no portal têm o diagnóstico ativado e têm o agente de diagnóstico do Windows Azure enviando os eventos para o armazenamento de tabelas do Azure, mas você ainda precisa integrá-lo com o recurso do log Analytics. Leia mais sobre como configurar o [agente de diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster para selecionar mais logs ou contadores de desempenho e a integração de logs de [Azure monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * APIs de Rest do serviço EventStore que permitem que você consulte o cluster diretamente ou por meio da biblioteca de clientes do Service Fabric. Consulte [Consultar APIs do EventStore para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Obtenha mais informações sobre o monitoramento de seu cluster - [Monitoramento do cluster e da plataforma](service-fabric-diagnostics-event-generation-infra.md).
 * Saiba mais sobre o serviço EventStore - [Visão geral do serviço EventStore](service-fabric-diagnostics-eventstore.md)

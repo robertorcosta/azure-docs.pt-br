@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428981"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurar contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contêiner para tipos de laboratório gerenciados, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório no Azure Lab Services e fornece acesso aos proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, exibir todas as contas de laboratório ou excluir uma conta de laboratório.
@@ -32,7 +32,7 @@ Para conectar uma rede virtual como uma rede de mesmo nível à rede virtual do 
 1. Para **rede virtual de mesmo nível**, selecione **habilitado** ou **desabilitado**. O valor padrão é **desabilitado**. Para habilitar a rede virtual de mesmo nível, execute as seguintes etapas: 
     1. Selecione **Habilitado**.
     2. Selecione a **VNet** na lista suspensa. 
-3. Na barra de ferramentas, selecione **Salvar**. 
+3. Selecione **Salvar** na barra de ferramentas. 
 
 Os laboratórios criados nessa conta estão conectados à rede virtual selecionada. Eles podem acessar os recursos na rede virtual selecionada. Para obter mais informações, consulte [conectar a rede do seu laboratório a uma rede virtual de mesmo nível no Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
@@ -45,7 +45,7 @@ Você pode permitir que o criador do laboratório crie laboratórios em um local
 2. Para **permitir que o criador do laboratório escolha o local do laboratório**, selecione **habilitado** se desejar que o criador do laboratório possa selecionar um local para o laboratório. Se ele estiver desabilitado, os laboratórios serão criados automaticamente no mesmo local em que a conta de laboratório existe. 
     
     Esse campo é desabilitado quando você seleciona uma rede virtual para o campo **rede virtual par** . É porque os laboratórios na conta do laboratório devem estar na mesma região que a conta do laboratório para que eles acessem os recursos na rede virtual do par. 
-1. Na barra de ferramentas, selecione **Salvar**. 
+1. Selecione **Salvar** na barra de ferramentas. 
 
     ![Definir configuração de local do laboratório](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
 
@@ -60,12 +60,12 @@ Aqui estão algumas restrições ao especificar o intervalo de endereços que vo
 
 1. Na página **conta do laboratório** , selecione **configuração de laboratórios** no menu à esquerda.
 2. Para o campo **intervalo de endereços** , especifique o intervalo de endereços para as VMs que serão criadas no laboratório. O intervalo de endereços deve estar na notação CIDR (roteamento entre domínios sem classificação) (exemplo: 10.20.0.0/23). As máquinas virtuais do laboratório serão criadas nesse intervalo de endereços.
-3. Na barra de ferramentas, selecione **Salvar**. 
+3. Selecione **Salvar** na barra de ferramentas. 
 
     ![Configurar intervalo de endereços](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)
 
 ## <a name="add-a-user-to-the-lab-creator-role"></a>Adicionar um usuário à função de criador de laboratório
-Para configurar um laboratório de curso em uma conta de laboratório, o usuário deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta usada para criar a conta de laboratório é automaticamente adicionada a essa função. Se você planeja usar a mesma conta de usuário para criar um laboratório de curso, poderá pular esta etapa. Para usar outra conta de usuário para criar um laboratório de sala de aula, execute as seguintes etapas: 
+Para configurar um laboratório de curso em uma conta de laboratório, o usuário deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta usada para criar a conta de laboratório é automaticamente adicionada a essa função. Se você planeja usar a mesma conta de usuário para criar um laboratório de curso, poderá pular esta etapa. Para usar outra conta de usuário e criar um laboratório de curso, siga estas etapas: 
 
 Para fornecer aos educadores a permissão para criar laboratórios para suas classes, adicione-os à função de **Criador de Laboratório**:
 
@@ -133,9 +133,17 @@ Na página **Opções de entrada** , selecione **entrar com o GitHub**.
 
 Por fim, eles são solicitados a criar um conta Microsoft que esteja vinculado à sua conta do GitHub. Ele ocorre automaticamente quando o instrutor seleciona **Avançar**.  O instrutor é imediatamente conectado e conectado ao laboratório da sala de aula.
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>Desligamento automático de VMs na desconexão
+Você pode habilitar ou desabilitar o desligamento automático de VMs do laboratório do Windows (modelo ou aluno) depois que uma conexão de área de trabalho remota for desconectada. Você também pode especificar quanto tempo as VMs devem aguardar até que o usuário se reconecte antes de desligar automaticamente.
 
-## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos:
+![Configuração de desligamento automático na conta do laboratório](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+Essa configuração se aplica a todos os laboratórios criados na conta do laboratório. Um proprietário de laboratório pode substituir essa configuração no nível de laboratório. A alteração nessa configuração na conta do laboratório afetará apenas os laboratórios criados depois que a alteração for feita.
+
+Para saber mais sobre como um proprietário de laboratório pode definir essa configuração no nível de laboratório, consulte [Este artigo](how-to-enable-shutdown-disconnect.md)
+
+## <a name="next-steps"></a>Próximos passos
+Veja os artigos a seguir:
 
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
 - [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)

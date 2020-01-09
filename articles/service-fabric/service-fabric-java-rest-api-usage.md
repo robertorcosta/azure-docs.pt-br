@@ -1,25 +1,16 @@
 ---
-title: APIs do Cliente Java do Azure Service Fabric | Microsoft Docs
+title: APIs do Cliente Java do Microsoft Azure Service Fabric
 description: Gerar e usar as API do cliente Java do Service Fabric utilizando a especificação API REST do cliente Service Fabric
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 97bba87331965b0f7ce20ec2ee089e0e18f72457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a243c1cd0ab0dcb93a1cc6169c89ba18606f346
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451676"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>APIs do Cliente Java do Microsoft Azure Service Fabric
 
@@ -126,13 +117,13 @@ Siga as etapas mencionadas abaixo para gerar o código cliente Java do Service F
 Para cada API, você encontrará quatro sobrecargas de implementação. Se houver parâmetros opcionais, então, você encontrará mais quatro variações, incluindo esses parâmetros opcionais. Por exemplo, considere a API ``removeReplica``.
  1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**
     * Essa é a variante síncrona da chamada à API removeReplica
- 2. **público ServiceFuture\<Void > removeReplicaAsync (nodeName, partitionId UUID, replicaId de cadeia de caracteres, booliano forceRemove, tempo limite longo ServiceCallback final da cadeia de caracteres\<Void > serviceCallback)**
+ 2. **Public infuturo\<void > removeReplicaAsync (cadeia de caracteres NodeName, UUID PartitionID, String replicaId, Boolean forceRemove, Long timeout, outcallback final\<void > filecallback)**
     * Essa variante de chamada à API poderá ser utilizada, se você quiser usar a programação assíncrona baseada no futuro e usar retornos de chamada
- 3. **público observável\<Void > removeReplicaAsync (cadeia de caracteres nodeName, partitionId UUID, replicaId de cadeia de caracteres)**
+ 3. **Public observed\<void > removeReplicaAsync (String NodeName, UUID PartitionID, String replicaId)**
     * Essa variante da chamada à API poderá ser utilizada, se você quiser usar a programação assíncrona reativa
- 4. **público observável\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (cadeia de caracteres nodeName, partitionId UUID, replicaId de cadeia de caracteres)**
+ 4. **Public observed\<inresponse\<void > > removeReplicaWithServiceResponseAsync (String NodeName, UUID PartitionID, String replicaId)**
     * Essa variante da chamada à API poderá ser utilizada, se você quiser usar a programação assíncrona reativa e lidar com resposta de REST bruta
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre as [APIS REST do Service Fabric REST](https://docs.microsoft.com/rest/api/servicefabric/)
 

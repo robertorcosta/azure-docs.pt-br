@@ -1,18 +1,20 @@
 ---
-title: Usar Azure Machine Learning no Azure Notebooks
-description: Uma visão geral dos blocos de anotações de exemplo para Azure Machine Learning que você pode usar com Azure Notebooks.
-ms.topic: article
+title: Usar Azure Machine Learning na visualização Azure Notebooks
+description: Uma visão geral dos blocos de anotações de exemplo para Azure Machine Learning que você pode usar com Azure Notebooks visualização.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e3c4fbdf35bf7ea1f4dddbceb9d7235c67ed13a4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3c0e0e9ccea079d7e8f4e35e9af2a0e1c1ec5051
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277450"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646945"
 ---
-# <a name="use-azure-machine-learning-in-a-notebook"></a>Usar Azure Machine Learning em um bloco de anotações
+# <a name="use-azure-machine-learning-in-azure-notebooks-preview"></a>Usar Azure Machine Learning na visualização Azure Notebooks
 
 Azure Notebooks vem pré-configurado com o ambiente necessário para trabalhar com [Azure Machine Learning](/azure/machine-learning/service/). Você pode clonar facilmente um projeto de exemplo em sua conta do Notebooks para explorar uma variedade de cenários do Machine Learning.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-the-sample-into-your-account"></a>Clonar o exemplo em sua conta
 
@@ -33,7 +35,7 @@ Azure Notebooks vem pré-configurado com o ambiente necessário para trabalhar c
 
 1. Quando a configuração estiver concluída, selecione **01. Getting-Started** para abrir a pasta que contém treze blocos de anotações de amostra diferentes, cada um deles é auto-explicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A documentação Azure Machine Learning contém uma variedade de outros recursos que orientam você durante o trabalho com Machine Learning em blocos de anotações:
 

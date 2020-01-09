@@ -1,18 +1,18 @@
 ---
 title: Conectar-se ao Dropbox
-description: Carregar e gerenciar arquivos com as APIs REST do Dropbox e os Aplicativos Lógicos do Azure
+description: Automatizar tarefas e fluxos de trabalho que carregam e gerenciam arquivos no Dropbox usando o aplicativo lógico do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: b38f9b9626e5eec0272256aacc71f7503a006dd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789824"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665744"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carregar e gerenciar arquivos no Dropbox usando o aplicativo lógico do Azure
 
@@ -22,7 +22,7 @@ Este artigo mostra como se conectar ao dropbox de seu aplicativo lógico e, em s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Uma [conta do Dropbox](https://www.dropbox.com/), que você pode assinar gratuitamente. Suas credenciais de conta são necessárias para criar uma conexão entre seu aplicativo lógico e sua conta do dropbox.
 
@@ -64,7 +64,7 @@ Na lista ações, selecione esta ação: **obter o conteúdo do arquivo usando o
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo OpenAPI (anteriormente Swagger) do conector, consulte a [página de referência do conector](/connectors/dropbox/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/dropbox/).
 
 ## <a name="next-steps"></a>Próximos passos
 

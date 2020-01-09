@@ -1,25 +1,16 @@
 ---
-title: Resource Manager de Cluster do Service Fabric – políticas de posicionamento | Microsoft Docs
+title: Gerenciador de recursos de Cluster Service Fabric-políticas de posicionamento
 description: Visão geral das políticas de posicionamento adicionais e das regras para os Serviços do Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9861faeaf4ab4049de7404a9e6f8b59a9445fe5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452179"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Políticas de posicionamento para serviços do Service Fabric
 As políticas de posicionamento são regras adicionais que podem ser usadas para administrar o posicionamento de serviço em alguns cenários específicos, menos comuns. Alguns exemplos desses cenários são:
@@ -45,8 +36,8 @@ A política de posicionamento **InvalidDomain** permite especificar que um deter
 
 <center>
 
-![Exemplo de domínio inválido][Image1]
-</center>
+![][Image1]
+de exemplo de domínio inválido </center>
 
 Código:
 
@@ -56,7 +47,7 @@ invalidDomain.DomainName = "fd:/DCEast"; //regulations prohibit this workload he
 serviceDescription.PlacementPolicies.Add(invalidDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("InvalidDomain,fd:/DCEast”)
@@ -66,7 +57,7 @@ A política de posicionamento de domínio necessário requer que o serviço este
 
 <center>
 
-![Exemplo de domínio necessário][Image2]
+![exemplo de domínio necessário][Image2]
 </center>
 
 Código:
@@ -77,7 +68,7 @@ requiredDomain.DomainName = "fd:/DC01/RK03/BL2";
 serviceDescription.PlacementPolicies.Add(requiredDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomain,fd:/DC01/RK03/BL2")
@@ -88,8 +79,8 @@ O Domínio Primário Preferencial especifica o domínio de falha no qual colocar
 
 <center>
 
-![Domínios primários preferenciais e Failover][Image3]
-</center>
+![domínios primários preferenciais e][Image3]
+de failover </center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
@@ -97,7 +88,7 @@ primaryDomain.DomainName = "fd:/EastUS/";
 serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("PreferredPrimaryDomain,fd:/EastUS")
@@ -123,7 +114,7 @@ ServicePlacementRequireDomainDistributionPolicyDescription distributeDomain = ne
 serviceDescription.PlacementPolicies.Add(distributeDomain);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementPolicy @("RequiredDomainDistribution")
@@ -131,7 +122,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Agora, seria possível usar essas configurações para serviços em um cluster que não tenha sido distribuído geograficamente? Seria, mas também não há um bom motivo para isso. As configurações de domínio obrigatórias, inválidas e preferenciais devem ser evitadas, a menos que os cenários as exijam. Não faz sentido tentar forçar uma determinada carga de trabalho a ser executada em um único rack ou preferir algum segmento do seu cluster local em vez de outro. Diferentes configurações de hardware devem ser distribuídas entre domínios de falha e manipuladas por propriedades de nó e restrições de posicionamento normais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png

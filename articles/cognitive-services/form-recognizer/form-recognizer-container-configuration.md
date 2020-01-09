@@ -9,18 +9,21 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a0b0d0d95e1ffd50faba19f1665ea5dae737b124
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379616"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurar contêineres do Reconhecimento de Formulários
 
 Usando os contêineres do Reconhecimento de Formulários do Azure, é possível criar uma arquitetura de aplicativo otimizada para aproveitar as funcionalidades de nuvem robustas e a localidade de borda.
 
 Configure o ambiente de tempo de execução do contêiner do Reconhecimento de Formulários usando os argumentos de comando `docker run`. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Para ver alguns exemplos, consulte a seção ["Exemplos de comandos docker run"](#example-docker-run-commands). As configurações específicas do contêiner são as configurações de cobrança.
+
+> [!IMPORTANT]
+> No momento, os contêineres do reconhecedor de formulário usam a versão 1,0 da API do reconhecedor de formulário. Você pode acessar a versão mais recente da API usando o serviço gerenciado em vez disso.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -29,7 +32,7 @@ Configure o ambiente de tempo de execução do contêiner do Reconhecimento de F
 > [!IMPORTANT]
 > As configurações [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-setting) são usadas em conjunto. Você precisa fornecer valores válidos para as três configurações; caso contrário, seu contêiner não será iniciado. Para obter mais informações sobre como usar essas configurações para instanciar um contêiner, consulte [Faturamento](form-recognizer-container-howto.md#billing).
 
-## <a name="apikey-configuration-setting"></a>Definição de configuração ApiKey
+## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
 A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. O valor da ApiKey precisa ser uma chave válida para o recurso de _Reconhecimento de Formulários_ especificado para `Billing` na seção "Definição de configuração de cobrança".
 
@@ -45,9 +48,9 @@ A configuração `Billing` especifica o URI do ponto de extremidade do recurso _
 
 Você pode encontrar essa configuração no portal do Azure, em **Visão Geral do Reconhecimento de Formulários**, em **Ponto de extremidade**.
 
-|Obrigatório| Nome | Tipo de dados | DESCRIÇÃO |
+|Obrigatório| Nome | Tipo de dados | Description |
 |--|------|-----------|-------------|
-|Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
+|Sim| `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](form-recognizer-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Configuração de EULA
 
@@ -74,10 +77,10 @@ O contêiner do Reconhecimento de Formulários exige uma montagem de entrada e u
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, a localização de montagem do [computador host](form-recognizer-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões de conta de serviço do Docker e as permissões da localização de montagem do host.
 
-|Opcional| Nome | Tipo de dados | DESCRIÇÃO |
+|Opcional| Nome | Tipo de dados | Description |
 |-------|------|-----------|-------------|
-|Obrigatório| `Input` | Cadeia de caracteres | O destino de montagem de entrada. O valor padrão é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obrigatório| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obrigatório| `Input` | String | O destino de montagem de entrada. O valor padrão é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obrigatório| `Output` | String | O destino de montagem de saída. O valor padrão é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos docker run de exemplo
 
@@ -88,7 +91,7 @@ Os exemplos a seguir usam as definições de configuração para ilustrar como e
 
 Substitua {_argument_name_} na tabela a seguir por seus próprios valores:
 
-| Placeholder | Valor |
+| Espaço reservado | Valor |
 |-------------|-------|
 | **{FORM_RECOGNIZER_API_KEY}** | A chave usada para iniciar o contêiner. Ela está disponível na página Chaves de Reconhecimento de Formulários do portal do Azure. |
 | **{FORM_RECOGNIZER_ENDPOINT_URI}** | O valor de URI do ponto de extremidade de cobrança está disponível na página Visão Geral do Reconhecimento de Formulários do portal do Azure.|
@@ -100,7 +103,7 @@ Consulte [coletando parâmetros necessários](form-recognizer-container-howto.md
 [!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Para executar o contêiner, especifique as opções `Eula`, `Billing` e `ApiKey`; caso contrário, o contêiner não será iniciado. Para obter mais informações, confira [Cobrança](#billing-configuration-setting).
+> Para executar o contêiner, especifique as opções `Eula`, `Billing` e `ApiKey`; caso contrário, o contêiner não será iniciado. Para mais informações, consulte [Faturamento](#billing-configuration-setting).
 
 ## <a name="form-recognizer-container-docker-examples"></a>Exemplos do Docker do contêiner do Reconhecimento de Formulários
 
@@ -135,6 +138,6 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Como [Instalar e executar contêineres](form-recognizer-container-howto.md).

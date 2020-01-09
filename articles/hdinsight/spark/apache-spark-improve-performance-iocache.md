@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/23/2019
+ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494647"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494994"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
 
@@ -22,7 +22,7 @@ A maioria dos SSDs fornece mais de 1 GB por segundo de largura de banda. Essa la
 
 > [!Note]  
 > Atualmente, o Cache de E/S usa o RubiX como um componente de cache, mas isso pode mudar em futuras versões do serviço. Use interfaces de Cache de E/S e não obtenha qualquer dependência diretamente na implementação do RubiX.
->O cache de e/s só tem suporte no armazenamento de BLOBs do Azure no momento. 
+>O cache de e/s só tem suporte no armazenamento de BLOBs do Azure no momento.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Benefícios do Cache de E/S do Azure HDInsight
 
@@ -32,24 +32,22 @@ Você não precisa fazer nenhuma alteração em seus trabalhos do Spark para ver
 
 ## <a name="getting-started"></a>Introdução
 
-O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévia. O Cache de E/S está disponível em clusters Spark do Azure HDInsight 3.6+, que executam o Apache Spark 2.3.  Para ativar o Cache de E/S, faça o seguinte:
+O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévia. O Cache de E/S está disponível em clusters Spark do Azure HDInsight 3.6+, que executam o Apache Spark 2.3.  Para ativar o cache de e/s no HDInsight 4,0, execute as seguintes etapas:
 
-1. Selecione o cluster HDInsight no [portal do Azure](https://portal.azure.com).
-
-1. Na página **Visão geral** (aberta por padrão quando você seleciona o cluster), selecione **Página inicial do Ambari** em **Painéis do Cluster**.
+1. Em um navegador da Web, navegue até `https://CLUSTERNAME.azurehdinsight.net`, em que `CLUSTERNAME` é o nome do cluster.
 
 1. Selecione o serviço **Cache de E/S** à esquerda.
 
-1. Selecione **Ações** e **Ativar**.
+1. Selecione **ações** (**ações de serviço** no HDI 3,6) e **ative**.
 
     ![Habilitando o serviço de cache de e/s no Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Habilitando o serviço de cache de e/s no Ambari")
 
 1. Confirme a reinicialização de todos os serviços afetados no cluster.
 
->[!NOTE]  
+> [!NOTE]  
 > Mesmo que a barra de progresso mostre ativado, o Cache de E/S, na verdade, não estará habilitado até que você reinicie os outros serviços afetados.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solução de problemas
   
 Você pode receber erros de espaço em disco ao executar trabalhos do Spark depois de habilitar o Cache de E/S. Esses erros acontecem porque o Spark também usa o armazenamento de disco local para armazenar dados durante operações de embaralhamento. O Spark poderá ocupar todo o espaço do SSD, já que o Cache de E/S está habilitado e o espaço para armazenamento do Spark é reduzido. A quantidade de espaço padrão usado pelo Cache de E/S é de metade do espaço total do SSD. O uso de espaço em disco para o Cache de E/S é configurável no Ambari. Se você receber erros de espaço em disco, reduza a quantidade de espaço de SSD usada pelo Cache de E/S e reinicie o serviço. Para alterar o espaço definido para o Cache de E/S, execute as seguintes etapas:
 
@@ -75,8 +73,8 @@ Você pode receber erros de espaço em disco ao executar trabalhos do Spark depo
 
 1. Selecione **Confirmar Reiniciar Tudo**.
 
-Se isso não funcionar, desabilite o Cache de E/S.
+Se isso não funcionar, desabilite o cache de e/s.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia mais sobre o Cache de E/S, incluindo os benchmarks de desempenho nesta postagem no blog: [Trabalhos do Apache Spark ficam até nove vezes mais rápidos com o Cache de E/S do HDInsight](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+Leia mais sobre o Cache de E/S, incluindo os benchmarks de desempenho nesta postagem no blog: [Trabalhos do Apache Spark ficam até nove vezes mais rápidos com o Cache de E/S do HDInsight](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

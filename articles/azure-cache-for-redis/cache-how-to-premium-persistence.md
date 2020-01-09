@@ -1,22 +1,22 @@
 ---
-title: Como configurar a persistência de dados de um Cache Redis do Azure Premium
+title: Configurar a persistência de dados-cache Premium do Azure para Redis
 description: Saiba como configurar e gerenciar a persistência de dados para as instâncias da camada Premium do Cache Redis do Azure
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: yegu
-ms.openlocfilehash: b74a16735b44d081a79b17716bdbc72357a36013
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412840"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados de um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar a persistência em uma instância Premium do Cache Redis do Azure.
 
-Para obter informações sobre outros recursos de Cache Premium, consulte [Introdução à camada Premium do Cache do Azure para Redis](cache-premium-tier-intro.md).
+Para saber mais sobre outros recursos Premium de cache, consulte [Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md).
 
 ## <a name="what-is-data-persistence"></a>O que é a persistência de dados?
 A [persistência do Redis](https://redis.io/topics/persistence) permite persistir os dados armazenados no Redis. Você também pode tirar instantâneos e fazer backup dos dados, que podem ser carregados em caso de falha de hardware. Essa é uma enorme vantagem em relação às camadas Básica ou Standard, em que todos os dados são armazenados na memória e pode haver uma possível perda de dados em caso de falha quando os nós do Cache estiverem inativos. 
@@ -121,7 +121,7 @@ Para saber mais sobre o desempenho ao usar a persistência de AOF, veja [A persi
 Para a persistência de RDB e AOF:
 
 * Se você tiver dimensionado para um tamanho maior, não haverá nenhum impacto.
-* Se você tiver dimensionado para um tamanho menor e tem uma configuração personalizada dos [bancos de dados](cache-configure.md#databases) maior que o [limite dos bancos de dados](cache-configure.md#databases) para o novo tamanho, os dados nesses bancos de dados não serão restaurados. Para obter mais informações, consulte [A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+* Se você tiver dimensionado para um tamanho menor e tem uma configuração personalizada dos [bancos de dados](cache-configure.md#databases) maior que o [limite dos bancos de dados](cache-configure.md#databases) para o novo tamanho, os dados nesses bancos de dados não serão restaurados. Para obter mais informações, consulte [A configuração dos meus bancos de dados personalizados é afetada durante o dimensionamento?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * Se você tiver dimensionado para um tamanho menor e não houver espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [allkeys-lru](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso alterar a frequência de backup de RDB depois de criar o cache?
@@ -160,7 +160,7 @@ Para saber mais sobre dimensionamento, confira [O que acontecerá se eu tiver di
 
 Os dados armazenados em arquivos AOF são divididos em vários blobs de página por nó a fim de aumentar o desempenho de gravação dos dados no armazenamento. A tabela a seguir exibe quantos blobs de página são usados para cada tipo de preço:
 
-| Camada premium | Blobs |
+| Camada Premium | Blobs |
 |--------------|-------|
 | P1           | 4 por fragmento    |
 | P2           | 8 por fragmento    |
@@ -172,7 +172,7 @@ Quando o clustering estiver habilitado, cada fragmento no cache terá seu própr
 Após uma regeneração, dois conjuntos de arquivos AOF existirão no armazenamento. As regenerações ocorrem em segundo plano e acrescentam ao primeiro conjunto de arquivos, enquanto as operações de conjunto que são enviadas ao cache durante a regeneração acrescentam ao segundo conjunto. Um backup é armazenado temporariamente durante regenerações no caso de falha, mas é excluída imediatamente após a conclusão de uma regeneração.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Aprenda a usar mais recursos de cache premium.
 
 * [Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md)

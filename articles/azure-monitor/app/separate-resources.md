@@ -1,5 +1,5 @@
 ---
-title: Separar a telemetria do desenvolvimento, teste e lançamento no Azure Application Insights | Microsoft Docs
+title: Separando telemetria no Aplicativo Azure insights
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c58a54dd4916b5687d46cbf4b816bd656113f9ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406405"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
 
@@ -50,7 +50,7 @@ Defina a chave em um método de inicialização como global.aspx.cs em um servi�
 
 Nesse exemplo, as ikeys para os diferentes recursos são colocadas em diferentes versões do arquivo de configuração da Web. Trocar o arquivo de configuração da Web, que pode ser realizado como parte do script versão, alternará o recurso de destino.
 
-### <a name="web-pages"></a>Páginas da Web
+### <a name="web-pages"></a>Página da Web
 O iKey também é usado nas páginas da Web do seu aplicativo, no [script que você obteve na folha início rápido](../../azure-monitor/app/javascript.md). Em vez de codificá-la literalmente no script, gere-a a partir do estado do servidor. Por exemplo, em um aplicativo ASP.NET:
 
 *JavaScript no Razor*
@@ -151,7 +151,7 @@ No entanto, observe que o número de versão da compilação é gerado apenas pe
 Se usar o Azure DevOps, você poderá [obter um marcador de anotação](../../azure-monitor/app/annotations.md) adicionado a seus gráficos sempre que lançar uma nova versão. A imagem a seguir mostra como esse marcador é exibido.
 
 ![Captura de tela de anotação de versão de exemplo em um gráfico](media/separate-resources/release-annotation.png)
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Recursos compartilhados para várias funções](../../azure-monitor/app/app-map.md)
 * [Criar um Inicializador de Telemetria para distinguir variantes A | B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

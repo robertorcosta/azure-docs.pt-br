@@ -6,24 +6,24 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Saiba como configurar a integração contínua/implantação contínua usando o Azure DevOps com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438454"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
 
 Este artigo orienta você pela configuração da integração contínua/implantação contínua (CI/CD) ao Serviço de Kubernetes do Azure (AKS) com o Dev Spaces habilitado. A CI/CD para o AKS permite que as atualizações de aplicativo sejam implantadas automaticamente sempre que o código confirmado é enviado para seu repositório de origem. Usar a CI/CD em conjunto com um cluster habilitado para o Dev Spaces é útil porque pode manter uma linha de base do aplicativo atualizada para o trabalho da equipe.
 
-![Exemplo de diagrama de CI/CD](../media/common/ci-cd-simple.png)
+![Exemplo de diagrama CI/CD](../media/common/ci-cd-simple.png)
 
 Embora este artigo oriente você com o Azure DevOps, os mesmos conceitos se aplicariam aos sistemas de CI/CD, como Jenkins, TeamCity, etc.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * [Cluster do Serviço de Kubernetes do Azure (AKS) com o Azure Dev Spaces habilitado](../get-started-netcore.md)
 * [CLI do Azure Dev Spaces instalado](upgrade-tools.md)
 * [Organização do Azure DevOps com um projeto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
@@ -77,7 +77,7 @@ Para criar um pipeline desse arquivo:
 1. Selecione a opção para criar um **novo** pipeline de compilação.
 1. Selecione **GitHub** como a origem, autorize com sua conta do GitHub, se necessário, e selecione a ramificação _azds_updates_ da sua versão bifurcada do repositório de aplicativos de exemplo _dev-Spaces_ .
 1. Selecione **configuração como código**ou **YAML**, como seu modelo.
-1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o botão **...** . Por exemplo: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o botão **...** . Por exemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Vá para a guia **variáveis** .
 1. Adicione manualmente _dockerId_ como uma variável, que é o nome de usuário de sua [conta de administrador do Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). (Mencionado nos pré-requisitos do artigo)
 1. Adicione manualmente _dockerPassword_ como uma variável, que é a senha da sua conta do administrador do [Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). Certifique-se de especificar _dockerPassword_ como um Segredo (selecionando o ícone de bloqueio) para fins de segurança.
@@ -183,7 +183,7 @@ Aqui está um exemplo de estrutura de namespace que dá suporte ao desenvolvimen
 >
 > Talvez seja necessário excluir todos os pods no namespace `prod` depois de fazer isso, para que possam ser recriados sem a instrumentação do Dev Spaces.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o desenvolvimento da equipe usando o Azure Dev Spaces](../team-development-netcore.md)

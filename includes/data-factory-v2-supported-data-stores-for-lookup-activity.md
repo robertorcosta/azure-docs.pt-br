@@ -1,19 +1,19 @@
 ---
-title: Arquivo de inclusão
+title: incluir arquivo
 description: conectores com suporte para a Atividade de Pesquisa
 services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 527114adbe2422148605fd878723ae74fa7c3304
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440468"
 ---
 | Categoria | Armazenamento de dados |
 |:--- |:--- |
@@ -28,9 +28,9 @@ ms.locfileid: "72958429"
 | &nbsp; |[Arquivos do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Banco de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Instância Gerenciada do Banco de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
-| &nbsp; |[SQL Data Warehouse do Azure](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
+| &nbsp; |[Análise do Azure Synapse (anteriormente SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
-| **Banco de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| **Backup de banco de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
 | &nbsp; |[Aprofundar-se](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |

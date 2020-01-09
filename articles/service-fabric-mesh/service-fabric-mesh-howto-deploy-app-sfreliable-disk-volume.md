@@ -1,25 +1,17 @@
 ---
-title: Usar o volume de disco confiável Service Fabric altamente disponível em um aplicativo de malha de Service Fabric do Azure | Microsoft Docs
+title: Service Fabric volume de disco confiável com malha de Service Fabric
 description: Saiba como armazenar estado em uma plicativo da Malha do Service Fabric montando o volume baseado em Disco Confiável do Service Fabric dentro do contêiner usando a CLI do Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: ashishnegi
-manager: raunakpandya
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f26fe70afe7d9e2872f06ac6da7143556278b1b0
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036147"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497960"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 
 O método comum de persistir o estado com aplicativos de contêiner é usar o armazenamento remoto, como o armazenamento de arquivos do Azure ou banco de dados como o Azure Cosmos DB. Isso resulta em significativa leitura e gravação de latência de rede e o armazenamento remoto.
@@ -89,7 +81,7 @@ Exclua com frequência os recursos que não estão mais sendo utilizados no Azur
 az group delete --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Exiba o aplicativo de exemplo do Disco de para Volume Confiável do Service Fabric no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Para saber mais sobre o modelo de recursos do Service Fabric, consulte [modelo de recursos de Malha do Service Fabric](service-fabric-mesh-service-fabric-resources.md).

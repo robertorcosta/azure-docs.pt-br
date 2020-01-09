@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f28f153eff11e2b4d705b874609a95a9def8d4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9aa2bf2bb2e77f5e543b53b583ddeeacd46de243
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424189"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
 
@@ -119,7 +119,7 @@ Nem todas as concessões ainda têm suporte na MSAL.NET e no ponto de extremidad
 
 Veja as seguintes concessões com suporte na ADAL.NET e MSAL.NET para aplicativos Móveis e da Área de Trabalho
 
-Concessão | ADAL.NET | MSAL.NET
+Conceder | ADAL.NET | MSAL.NET
 ----- |----- | -----
 Interativo | [Autenticação Interativa](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Adquirir tokens interativamente na MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Autenticação Integrada do Windows | [Autenticação integrada no Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication)
@@ -130,7 +130,7 @@ Fluxo de código do dispositivo | [Perfil de dispositivo para dispositivos sem n
 
 Aqui estão as concessões com suporte no ADAL.NET e MSAL.NET para aplicativos Web, APIs Web e aplicativos daemon:
 
-Tipo de aplicativo | Concessão | ADAL.NET | MSAL.NET
+Tipo de aplicativo | Conceder | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Aplicativo Web, API Web, daemon | Credenciais do cliente | [Fluxos de credencial do cliente na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Fluxos de credencial do cliente na MSAL.NET](msal-authentication-flows.md#client-credentials))
 API Web | Em nome de | [Serviço para chamadas de serviço em nome do usuário com ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [On-Behalf-Of (em nome de) na MSAL.NET](msal-authentication-flows.md#on-behalf-of)
@@ -174,7 +174,7 @@ Por exemplo, para acessar em nome do usuário uma API Web v1.0 cujo URI da ID do
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Se você quiser ler e gravar com a MSAL.NET do Azure Active Directory usando a API do Graph do AAD (https://graph.windows.net/) , crie uma lista de escopos, como no snippet a seguir:
+Se você quiser ler e escrever com o Azure Active Directory da MSAL.NET usando a API do grafo do Azure Active Directory (https://graph.windows.net/) , você criaria uma lista de escopos, como no snippet a seguir:
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
@@ -223,7 +223,7 @@ O MSAL.NET não expõe tokens de atualização, por motivos de segurança: MSAL 
 
 Felizmente, o MSAL.NET agora tem uma API que permite migrar seus tokens de atualização anteriores (adquiridos com a ADAL) para o `IConfidentialClientApplication`:
 
-```CSharp
+```csharp
 /// <summary>
 /// Acquires an access token from an existing refresh token and stores it and the refresh token into 
 /// the application user token cache, where it will be available for further AcquireTokenSilent calls.

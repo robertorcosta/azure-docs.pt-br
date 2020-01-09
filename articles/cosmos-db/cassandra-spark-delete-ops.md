@@ -1,5 +1,5 @@
 ---
-title: Excluir operações contra a API do Azure Cosmos DB Cassandra da Spark
+title: Operações Delete no Azure Cosmos DB API do Cassandra do Spark
 description: Este artigo detalha como excluir dados em tabelas na API do Azure Cosmos DB Cassandra da Spark
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fc9e0dabd226952bea3bd14da0747c5b6292c2e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442083"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Excluir dados nas tabelas da API do Cassete do Azure Cosmos DB do Spark
 
@@ -356,9 +356,9 @@ CassandraRow{book_id: b00501, book_author: Arthur Conan Doyle, book_name: The me
 deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datastax.spark.connector.CassandraRow] = CassandraTableScanRDD[145] at RDD at CassandraRDD.scala:19
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para executar operações de cópia de dados e de agregação, consulte-
  
-* [Operações de agregação](cassandra-spark-aggregation-ops.md)
+* [Aggregation operations](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia de tabela](cassandra-spark-table-copy-ops.md)

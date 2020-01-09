@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438820"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -25,7 +25,7 @@ ms.locfileid: "74927948"
 > * [Versão 2 (versão atual)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Atividades personalizadas na V2](../transform-data-using-dotnet-custom-activity.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Atividades personalizadas na V2](../transform-data-using-dotnet-custom-activity.md).
 
 Há dois tipos de atividades que você pode usar em um pipeline do Azure Data Factory.
 
@@ -58,8 +58,8 @@ Para o tutorial, crie uma conta do Lote do Azure com um pool de VMs. Siga estas 
     3. Para usar um pool existente, clique em **Pools** no menu e anote a **ID** do pool. Se você não tiver um pool existente, siga para a próxima etapa.
 2. Crie um pool do **Lote do Azure**.
 
-   1. No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Contas do Batch**.
-   2. Escolha sua conta do Lote do Azure para abrir a folha **Conta do Lote** .
+   1. No [Portal do Azure](https://portal.azure.com), clique em **Procurar** no menu à esquerda e clique em **Contas do Lote**.
+   2. Selecione sua a conta do Lote do Azure para abrir a folha **Conta do Batch** .
    3. Clique no bloco **Pools** .
    4. Na folha **Pools** , clique no botão Adicionar na barra de ferramentas para adicionar um pool.
       1. Insira uma ID para o pool (ID do Pool). Observe a **ID do pool**; você precisa dela ao criar a solução Data Factory.
@@ -375,7 +375,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
 12. Crie um arquivo zip **MyDotNetActivity.zip** contendo todos os binários na \<pasta do projeto\>\bin\Debug. Inclua o arquivo **MyDotNetActivity.pdb** para obter detalhes adicionais, como número de linha no código-fonte que causou o problema, se houver falha.
 
     > [!IMPORTANT]
-    > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível mais elevado**, sem subpastas.
+    > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
 
     ![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
 14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir.
@@ -440,7 +440,7 @@ Serviços vinculados vinculam armazenamentos de dados ou serviços de computaç�
 2. Clique em **Novo armazenamento de dados** na barra de comandos e escolha **Armazenamento do Azure**. Você deve ver o script JSON para criar um serviço de armazenamento vinculado do Azure no editor.
 
     ![Novo armazenamento de dados – Armazenamento do Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Substitua o `<accountname>` pelo nome de sua conta de armazenamento do Azure e `<accountkey>` pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, confira [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+3. Substitua o `<accountname>` pelo nome de sua conta de armazenamento do Azure e `<accountkey>` pela chave de acesso da conta de armazenamento do Azure. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
     ![Serviço vinculado do Armazenamento do Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
@@ -697,9 +697,9 @@ A solução de problemas consiste em algumas técnicas básicas:
 
    Verifique **system-0.log** para quaisquer mensagens de erro e exceções do sistema.
 4. Inclua o arquivo **PDB** no arquivo zip para que os detalhes do erro tenham informações como **pilha de chamadas** quando ocorrer um erro.
-5. Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível mais elevado**, sem subpastas.
+5. Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
 6. Verifique se **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) e **packageLinkedService** (devem apontar para o armazenamento de blobs do Azure de **uso geral** que contém o arquivo zip) estão definidos com os valores corretos.
-7. Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia da folha **OutputDataset** e clique em **Executar**.
+7. Se você corrigir um erro e quiser reprocessar a fatia, clique com o botão direito do mouse na fatia na folha **OutputDataset** e clique em **Executar**.
 8. Se você vir o erro a seguir, você está usando o pacote do armazenamento do Azure de versão > 4.3.0. O iniciador do serviço de Fábrica de Dados requer a versão 4.3 do WindowsAzure.Storage. Consulte a seção [Isolamento de Appdomain](#appdomain-isolation) para ver uma solução alternativa se você precisar usar a versão mais recente do assembly de armazenamento do Azure.
 
     ```
@@ -760,7 +760,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes.
 
-A fórmula de exemplo alcança o seguinte comportamento: quando o pool é inicialmente criado, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila).  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
+A fórmula de exemplo alcança o seguinte comportamento: quando o pool é criado pela primeira vez, ele começa com uma VM. A métrica de $PendingTasks define o número de tarefas em execução + estado ativo (em fila).  A fórmula localiza o número médio de tarefas pendentes nos últimos 180 segundos e define TargetDedicated adequadamente. Isso garante que TargetDedicated nunca ultrapasse 25 VMs. Assim, o pool aumenta automaticamente conforme novas tarefas são enviadas e, conforme as tarefas são concluídas, as VMs se liberam uma a uma e são reduzidas pelo dimensionamento automático. startingNumberOfVMs e maxNumberofVMs podem ser ajustados às suas necessidades.
 
 Fórmula de dimensionamento automático:
 

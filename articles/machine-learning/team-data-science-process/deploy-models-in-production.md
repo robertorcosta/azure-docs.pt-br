@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6f371d07fdf09aae6ce4396f0916758f8588506b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670303"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526763"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implantar modelos para produção para desempenhar um papel ativo na tomada de decisões de negócios
 
@@ -25,7 +25,7 @@ A implantação de produção permite que um modelo execute uma função ativa e
 
 Há várias abordagens e plataformas para colocar modelos em produção. Veja algumas opções:
 
-- [Onde implantar modelos com Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Onde implantar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Implantação de um modelo no SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -41,6 +41,6 @@ Há várias abordagens e plataformas para colocar modelos em produção. Veja al
 
 Quando vários modelos estão em produção, pode ser útil executar [Testes de A/B](https://en.wikipedia.org/wiki/A/B_testing) para comparar o desempenho dos modelos. 
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles serão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
+Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 

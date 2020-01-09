@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450655"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
 
@@ -50,7 +50,7 @@ Use o procedimento a seguir para definir um arquivo de log personalizado.  Role 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Etapa 1. Abrir o Custom Log Wizard (Assistente de Log Personalizado)
 O Assistente de Log Personalizado é executado no portal do Azure e permite que você defina um novo log personalizado para ser coletado.
 
-1. No portal do Azure, selecione **workspaces do Log Analytics** > seu workspace > **Configurações Avançadas**.
+1. No portal do Azure, escolha **workspaces do Log Analytics** > seu workspace > **Configurações Avançadas**.
 2. Clique em **Dados** > **Logs personalizados**.
 3. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
 4. Clique e **Adicionar+** para abrir o Custom Log Wizard (Assistente de Log Personalizado).
@@ -63,10 +63,10 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated de cada registro armazenado no Azure Monitor será preenchido com a data/hora especificada para essa entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Azure Monitor coletou a entrada.
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em \\**Próximo**.
+2. Clique em **Próximo**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em \\**Próximo**.
+5. Clique em **Próximo**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
@@ -75,7 +75,7 @@ Por exemplo, um aplicativo pode criar um arquivo de log por dia com a data inclu
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar diferentes arquivos de log.
 
-| Descrição | path |
+| Description | Caminho |
 |:--- |:--- |
 | Todos os arquivos em *C:\Logs* com extensão .txt no agente do Windows |C:\Logs\\\*.txt |
 | Todos os arquivos em *C:\Logs* cujo nome começa com log e uma extensão .txt no agente do Windows |C:\Logs\log\*.txt |
@@ -118,7 +118,7 @@ Todo o conteúdo da entrada de log é gravado em uma única propriedade chamada 
 ## <a name="custom-log-record-properties"></a>Propriedades de registro do log personalizado
 Os registros de log personalizado têm um tipo com o nome do log que você fornece e as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registro foi coletado pelo Azure Monitor.  Se o log usar um delimitador baseado na hora, essa será a hora coletada da entrada. |
 | SourceSystem |Tipo de registro do qual os dados foram coletados. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux: todos os agentes do Linux |

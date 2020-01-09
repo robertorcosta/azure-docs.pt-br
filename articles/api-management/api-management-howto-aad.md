@@ -1,5 +1,6 @@
 ---
-title: Autorizar contas de desenvolvedor usando o Azure Active Directory - Gerenciamento de API do Azure | Microsoft Docs
+title: Autorizar contas de desenvolvedor usando Azure Active Directory
+titleSuffix: Azure API Management
 description: Como autorizar usuários usando o Active Directory do Azure no Gerenciamento de API.
 services: api-management
 documentationcenter: API Management
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442809"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
 Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os usuários do Azure Active Directory (Azure AD). Este guia também mostra como gerenciar grupos de usuários do Azure AD, adicionando grupos externos que contêm os usuários.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 - Importar e publicar uma instância de gerenciamento de API do Azure. Para obter mais informações, consulte [Importar e publicar](import-and-publish.md).
@@ -32,8 +33,8 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de desenvolvedor usando o Azure AD
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
-2. Escolha ![seta](./media/api-management-howto-aad/arrow.png).
+1. Entre no [portal do Azure](https://portal.azure.com). 
+2. Selecionar ![seta](./media/api-management-howto-aad/arrow.png).
 3. Digite **api** na caixa de pesquisa.
 4. Selecione **Serviços de Gerenciamento de API**.
 5. Selecione uma instância do Serviço de Gerenciamento de API.
@@ -49,7 +50,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
    ![Etapas para adicionar um provedor de identidade no portal do Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. No navegador, abra uma guia diferente. 
 11. Navegue até o [portal do Azure-registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar um aplicativo no Active Directory.
-12. Em **gerenciar**, selecione **registros de aplicativo**.
+12. Em **Gerenciar**, selecione **Registros de aplicativo**.
 13. Selecione **Novo registro**. Na página **registrar um aplicativo** , defina os valores da seguinte maneira:
     
 * Defina o **nome** como um nome significativo. por exemplo, *portal do desenvolvedor*
@@ -59,7 +60,7 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
 14.  Depois que o aplicativo for registrado, copie a **ID do aplicativo (cliente)** da página **visão geral** . 
 15. Volte para a instância de gerenciamento de API. Na janela **Adicionar provedor de identidade** , Cole o valor da **ID do aplicativo (cliente)** na caixa **ID do cliente** .
-16. Volte para a configuração do Azure AD, selecione **certificados & segredos** em **gerenciar**. Selecione o botão **novo segredo do cliente** . Insira um valor em **Descrição**, selecione qualquer opção para **expirar** e escolha **Adicionar**. Copie o valor do segredo do cliente antes de sair da página. Isso será necessário na próxima etapa. 
+16. Volte para a configuração do Azure AD, selecione **certificados & segredos** em **gerenciar**. Selecione o botão **Novo segredo do cliente**. Insira um valor em **Descrição**, escolha uma opção para **Expira** e escolha **Adicionar**. Copie o valor do segredo do cliente antes de sair da página. Isso será necessário na próxima etapa. 
 17. Em **gerenciar**, selecione **autenticação** e, em seguida, selecione **tokens de ID** em **concessão implícita**
 18. Volte para a instância de gerenciamento de API, Cole o segredo na caixa **segredo do cliente** .
 
