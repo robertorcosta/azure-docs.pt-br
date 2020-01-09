@@ -4,7 +4,7 @@
   items:
     - name: O que é o Gerenciador de dados do Azure?
       href: data-explorer-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar o cluster e o banco de dados – Portal do Azure
@@ -32,6 +32,8 @@
       href: ingest-data-overview.md
     - name: Visão geral da visualização de dados
       href: viz-overview.md
+    - name: Visão geral da segurança
+      href: security.md
 - name: Guias de instruções
   items:
     - name: Criar o cluster e o banco de dados
@@ -52,30 +54,30 @@
           items:
             - name: Portal do Azure
               href: ingest-data-event-hub.md
-            - name: Python
-              href: data-connection-event-hub-python.md
             - name: 'C#'
               href: data-connection-event-hub-csharp.md
+            - name: Python
+              href: data-connection-event-hub-python.md
             - name: Modelo do Azure Resource Manager
               href: data-connection-event-hub-resource-manager.md
         - name: Grade de Eventos
           items:
             - name: Portal do Azure
               href: ingest-data-event-grid.md
-            - name: Python
-              href: data-connection-event-grid-python.md
             - name: 'C#'
               href: data-connection-event-grid-csharp.md
+            - name: Python
+              href: data-connection-event-grid-python.md
             - name: Modelo do Azure Resource Manager
               href: data-connection-event-grid-resource-manager.md
         - name: Hub IoT
           items:
             - name: Portal do Azure
               href: ingest-data-iot-hub.md
-            - name: Python
-              href: data-connection-iot-hub-python.md
             - name: 'C#'
               href: data-connection-iot-hub-csharp.md
+            - name: Python
+              href: data-connection-iot-hub-python.md
             - name: Modelo do Azure Resource Manager
               href: data-connection-iot-hub-resource-manager.md
         - name: Ingestão com um clique
@@ -126,7 +128,7 @@
               href: power-bi-connector.md
             - name: consulta importada
               href: power-bi-imported-query.md
-            - name: Consulta SQL
+            - name: consulta SQL
               href: power-bi-sql-query.md
         - name: Excel
           items:
@@ -144,9 +146,21 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+    - name: Seguro
+      items:
+        - name: Gerenciar a segurança do cluster
+          href: manage-cluster-security.md
+        - name: Configurar identidades gerenciadas
+          href: managed-identities.md
+        - name: Configurar chaves gerenciadas pelo cliente
+          items:
+            - name: 'C#'
+              href: customer-managed-keys-csharp.md
+            - name: Modelo do Azure Resource Manager
+              href: customer-managed-keys-resource-manager.md
     - name: Gerenciar
       items:
-        - name: HDInsight
+        - name: Cluster
           items:
             - name: Selecionar SKU de VM do cluster
               href: manage-cluster-choose-sku.md
@@ -154,8 +168,6 @@
               href: manage-cluster-horizontal-scaling.md
             - name: Gerenciar escala vertical do cluster
               href: manage-cluster-vertical-scaling.md
-            - name: Gerenciar a segurança do cluster
-              href: manage-cluster-security.md
             - name: Verificar integridade do cluster
               href: check-cluster-health.md
         - name: Banco de dados
@@ -170,7 +182,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: Dados
+        - name: data
           items:
             - name: Excluir dados
               href: delete-data.md

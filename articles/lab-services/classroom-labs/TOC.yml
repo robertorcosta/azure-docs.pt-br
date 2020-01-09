@@ -56,6 +56,8 @@
           href: how-to-attach-detach-shared-image-gallery.md
         - name: Adicionar usuário como um proprietário a um laboratório de sala de aula
           href: how-to-add-user-lab-owner.md
+        - name: Configurações de firewall para o Azure Lab Services
+          href: how-to-configure-firewall-settings.md
     - name: Criar e configurar laboratórios de sala de aula (instrutor)
       items:
         - name: Criar e gerenciar laboratórios de sala de aula

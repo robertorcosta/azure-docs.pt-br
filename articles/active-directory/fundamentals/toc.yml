@@ -7,13 +7,15 @@
       href: active-directory-whatis.md
     - name: Novidades no Azure Active Directory
       href: whats-new.md
-- name: Guia de início rápido
+- name: Inícios rápidos
+  expanded: true
   items:
     - name: Acessar o portal e criar um locatário
       href: active-directory-access-create-new-tenant.md
     - name: Exibir grupos com membros atribuídos
       href: active-directory-groups-view-azure-portal.md
 - name: Conceitos
+  expanded: true
   items:
     - name: Pontuação da segurança de identidade
       href: identity-secure-score.md
@@ -37,6 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Armazenamento de dados de identidade da UE
       href: active-directory-data-storage-eu.md
+    - name: Armazenamento de dados de identidade da Austrália
+      href: active-directory-data-storage-australia.md
     - name: Novidades do Microsoft 365 Governo
       href: whats-new-microsoft-365-government.md
     - name: Referência de operações do Azure AD
@@ -97,6 +101,7 @@
         - name: Restaurar um usuário excluído
           href: active-directory-users-restore.md
 - name: Recursos
+  expanded: true
   items:
     - name: Obter suporte para o Azure Active Directory
       href: active-directory-troubleshooting-support-howto.md
