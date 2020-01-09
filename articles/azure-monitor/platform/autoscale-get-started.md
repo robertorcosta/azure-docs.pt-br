@@ -1,19 +1,15 @@
 ---
 title: Introdução ao dimensionamento automático no Azure
 description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de nuvem, máquina virtual ou conjunto de dimensionamento de máquinas virtuais no Azure.
-author: rajram
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: rajram
 ms.subservice: autoscale
-ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60788423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396344"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -33,9 +29,9 @@ Você pode usar o painel de filtro na parte superior para reduzir o escopo da li
 
 Para cada recurso, você encontrará a contagem de instâncias atual e o status de dimensionamento automático. O status de dimensionamento automático pode ser:
 
-- **Não configurado**: Você ainda não habilitou o dimensionamento automático para este recurso.
-- **Habilitado**: Você habilitou o dimensionamento automático para este recurso.
-- **Desabilitado**: Você desabilitou o dimensionamento automático para este recurso.
+- **Não configurado**: você ainda não habilitou o dimensionamento automático para este recurso.
+- **Habilitado**: você habilitou o dimensionamento automático para este recurso.
+- **Desabilitado**: você desabilitou o dimensionamento automático para este recurso.
 
 ## <a name="create-your-first-autoscale-setting"></a>Crie sua primeira configuração de dimensionamento automático
 
@@ -58,7 +54,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -88,7 +84,7 @@ Além de dimensionar com base na CPU, você também pode definir seu dimensionam
 ### <a name="view-the-scale-history-of-your-resource"></a>Exibir o histórico de dimensionamento de seu recurso
 Sempre que o recurso é expandido/reduzido, um evento é registrado no log de atividades. Você pode exibir o histórico de dimensionamento do seu recurso nas últimas 24 horas acessando a guia **Histórico de execução**.
 
-![Hist. de ex.][11]
+![Histórico da execução][11]
 
 Se quiser exibir o histórico completo de dimensionamento (de até 90 dias), selecione **Clique aqui para ver mais detalhes**. O log de atividade é aberto, com Dimensionamento Automático pré-selecionado para seu recurso e categoria.
 
@@ -114,7 +110,7 @@ Agora, você pode definir o número de instâncias para o qual deseja dimensiona
 
 Você sempre pode retornar para o dimensionamento automático clicando em **Habilitar dimensionamento automático** e **Salvar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

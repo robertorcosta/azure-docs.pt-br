@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 828e8ae68286d7c208462d77a31a764427c79637
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755278"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382116"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com as listas de termos personalizadas no console de API
 
 A lista de termos global padrão do Content Moderator do Azure é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, você precisará de examinar os termos que são específicos para sua organização. Por exemplo, você talvez queira marcar nomes de concorrentes para análise adicional. 
 
-Use a [API de Gerenciamento de Lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) para criar listas de termos personalizadas para usar com a API de Moderação de Texto. A operação **Texto - Examinar** verifica se há obscenidades em seu texto e também compara o texto em listas negras personalizadas e compartilhadas.
+Use a [API de Gerenciamento de Lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) para criar listas de termos personalizadas para usar com a API de Moderação de Texto. A operação de **tela de texto** examina o texto em busca de profanação e também compara o texto com o bloqueio personalizado e compartilhado.
 
 > [!NOTE]
 > Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos**.
@@ -38,7 +38,7 @@ Você pode usar a API de Gerenciamento de Lista para realizar as seguintes taref
 
 ## <a name="use-the-api-console"></a>Usar o console de API
 
-Antes de você pode testar a API no console on-line, você precisa da chave de assinatura. Esta chave está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Esta chave está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
@@ -125,7 +125,7 @@ Excluir um termo ou uma lista é simples. Você pode usar a API para realizar as
 
 - Excluir um termo. (**Termo - Excluir**)
 - Excluir todos os termos em uma lista sem excluir a lista. (**Termo - Excluir todos os termos**)
-- Exclua uma lista e todo seu conteúdo. (**Listas de termos - Excluir**)
+- Excluir uma lista e todo seu conteúdo. (**Listas de termos - Excluir**)
 
 Este exemplo exclui um único termo.
 

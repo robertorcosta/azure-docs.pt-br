@@ -3,23 +3,23 @@ title: Tamanhos de máquinas virtuais para serviços de Nuvem do Azure | Microso
 description: Lista os tamanhos diferentes da máquina virtual (e IDs) para funções Web e de trabalho do serviço de nuvem do Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 0df9ee859ae8e341537f5e832d9ff90e9736cb0c
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: tagore
+ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443009"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660419"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos dos serviços de nuvem
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Cada tamanho tem uma ID que você coloca em seu [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na página [Preços de Serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/).
 
 > [!NOTE]
-> Para ver os limites relacionados do Azure, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
+> Para ver os limites relacionados do Azure, confira [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md)
 >
 >
 
@@ -37,11 +37,11 @@ O tamanho da máquina virtual afeta os preços. O tamanho também afeta a capaci
 As considerações a seguir podem ajudá-lo a escolher um tamanho:
 
 * Os tamanhos A8-A11 e série H também são conhecidos como *instâncias de computação intensiva*. O hardware de datacenter do Azure que executa esses tamanhos é projetado e otimizado para aplicativos de uso intensivo de computação e rede, incluindo aplicativos, modelagem e simulações de cluster HPC (computação de alto desempenho). A série de A8-A11 usa Intel Xeon E5-2670 a 2,6 GHz e a série H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Para obter informações detalhadas e considerações sobre o uso desses tamanhos, veja [Tamanhos de VM de computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* As séries Dv3, Dv2, D e G são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm uma maior demanda de memória. Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
-* Alguns dos hosts físicos em data centers do Azure podem não aceitar tamanhos de máquina virtual maiores, como A5 – A11. Como resultado, você poderá ver a mensagem de erro **Falha ao configurar a máquina virtual {nome da máquina}** ou **Falha ao criar a máquina virtual {nome da máquina}** ao redimensionar uma máquina virtual existente para um novo tamanho, criar uma nova máquina virtual em uma rede virtual criada antes de 16 de abril de 2013 ou adicionar uma nova máquina virtual a um serviço de nuvem existente. Confira [Erro: “Falha ao configurar a máquina virtual”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) no fórum de suporte de soluções alternativas para cada cenário de implantação.
+* As séries Dv3, Dv2, D e G são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de disco local ou que têm uma maior demanda de memória. Elas oferecem uma potente combinação para aplicativos de nível empresarial.
+* Alguns dos hosts físicos em data centers do Azure podem não aceitar tamanhos de máquina virtual maiores, como A5 – A11. Como resultado, você poderá ver a mensagem de erro **Falha ao configurar a máquina virtual {nome da máquina}** ou **Falha ao criar a máquina virtual {nome da máquina}** ao redimensionar uma máquina virtual existente para um novo tamanho, criar uma nova máquina virtual em uma rede virtual criada antes de 16 de abril de 2013 ou adicionar uma nova máquina virtual a um serviço de nuvem existente. Confira [Erro: "Falha ao configurar a máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) no fórum de suporte de soluções alternativas para cada cenário de implantação.
 * Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho. Para aumentar a cota, entre em contato com o Suporte do Azure.
 
-## <a name="performance-considerations"></a>Considerações sobre o desempenho
+## <a name="performance-considerations"></a>Considerações de desempenho
 Criamos o conceito da ACU (Unidade de Computação do Azure) para fornecer uma maneira de comparar o desempenho de computação (CPU) entre SKUs do Azure e para identificar qual SKU poderá melhor satisfazer suas necessidades de desempenho.  A ACU atualmente é padronizada como uma VM pequena (Standard_A1) sendo 100 e todas as SKUs representam, aproximadamente, o quanto a SKU pode executar um parâmetro de comparação padrão mais rapidamente.
 
 > [!IMPORTANT]
@@ -79,12 +79,12 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário: GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / baixa |
-| Pequeno           | 1         | 1,75         | 225                  | 1 / moderada |
-| Médio          | 2         | 3.5          | 490                  | 1 / moderada |
-| Grande           | 4         | 7            | 1000                 | 2 / alta |
+| Pequena           | 1         | 1,75         | 225                  | 1 / moderada |
+| Média          | 2         | 3,5          | 490                  | 1 / moderada |
+| Grande           | 4         | 7            | 1\.000                 | 2 / alta |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / alta |
 | A5              | 2         | 14           | 490                  | 1 / moderada |
-| A6              | 4         | 28           | 1000                 | 2 / alta |
+| A6              | 4         | 28           | 1\.000                 | 2 / alta |
 | A7              | 8         | 56           | 2040                 | 4 / alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
@@ -112,10 +112,10 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 | Standard_A8m_v2 | 8         | 64           | 80                   | 8 / alta                     |
 
 
-## <a name="d-series"></a>Série D
+## <a name="d-series"></a>D-series
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_D1     | 1         | 3.5          | 50                   | 1 / moderada |
+| Standard_D1     | 1         | 3,5          | 50                   | 1 / moderada |
 | Standard_D2     | 2         | 7            | 100                  | 2 / alta |
 | Standard_D3     | 4         | 14           | 200                  | 4 / alta |
 | Standard_D4     | 8         | 28           | 400                  | 8 / alta |
@@ -127,7 +127,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 ## <a name="dv2-series"></a>Série Dv2
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_D1_v2  | 1         | 3.5          | 50                   | 1 / moderada |
+| Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / moderada |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / alta |
 | Standard_D3_v2  | 4         | 14           | 200                  | 4 / alta |
 | Standard_D4_v2  | 8         | 28           | 400                  | 8 / alta |
@@ -136,9 +136,9 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 | Standard_D12_v2 | 4         | 28           | 200                  | 4 / alta |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8 / alta |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremamente alta |
-| Standard_D15_v2 | 20        | 140          | 1\.000                | 8 / extremamente alta |
+| Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremamente alta |
 
-## <a name="dv3-series"></a>Dv3-series
+## <a name="dv3-series"></a>Série Dv3
 
 | Tamanho            | Núcleos de CPU | Memória: GiB   | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
@@ -149,7 +149,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 | Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremamente alta |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremamente alta |
 
-## <a name="ev3-series"></a>Ev3-series
+## <a name="ev3-series"></a>Série Ev3
 
 | Tamanho            | Núcleos de CPU | Memória: GiB   | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
@@ -161,13 +161,13 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremamente alta |
 
 
-## <a name="g-series"></a>Série G
+## <a name="g-series"></a>G-series
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / alta |
 | Standard_G2     | 4         | 56           | 768                  |2 / alta |
 | Standard_G3     | 8         | 112          | 1\.536                |4 / muito alta |
-| Standard_G4     | 16        | 224          | 3,072                |8 / extremamente alta |
+| Standard_G4     | 16        | 224          | 3\.072                |8 / extremamente alta |
 | Standard_G5     | 32        | 448          | 6\.144                |8 / extremamente alta |
 
 ## <a name="h-series"></a>Série H
@@ -177,9 +177,9 @@ Além de potência de CPU considerável, a série H oferece diversas opções pa
 
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_H8     | 8         | 56           | 1000                 | 8 / alta |
+| Standard_H8     | 8         | 56           | 1\.000                 | 8 / alta |
 | Standard_H16    | 16        | 112          | 2000                 | 8 / muito alta |
-| Standard_H8m    | 8         | 112          | 1000                 | 8 / alta |
+| Standard_H8m    | 8         | 112          | 1\.000                 | 8 / alta |
 | Standard_H16m   | 16        | 224          | 2000                 | 8 / muito alta |
 | Standard_H16r*  | 16        | 112          | 2000                 | 8 / muito alta |
 | Standard_H16mr* | 16        | 224          | 2000                 | 8 / muito alta |
@@ -213,6 +213,9 @@ Você pode usar o PowerShell ou a API REST para obter uma lista de tamanhos. A A
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
-## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
+## <a name="next-steps"></a>Próximos passos
+* Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * Saiba mais [sobre tamanhos de VM de computação de alto desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabalho do HPC.
+
+
+

@@ -1,19 +1,14 @@
 ---
-title: Reduza os custos de serviço usando Assistente do Azure | Microsoft Docs
+title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443119"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduza os custos de serviço usando o Assistente do Azure
 
@@ -21,7 +16,7 @@ O Advisor ajuda você a otimizar e a reduzir seus gastos gerais com o Azure, ide
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar o gasto da máquina virtual redimensionando ou desligando instâncias subutilizadas 
 
-Embora alguns cenários de aplicativos possam resultar na baixa utilização por design, normalmente, é possível economizar dinheiro gerenciando o tamanho e o número de máquinas virtuais. Os modelos de avaliação avançada do Advisor consideram que máquinas virtuais sejam desligadas quando P95th do máximo do valor máximo da utilização da CPU for menor que 3% e a utilização da rede for inferior a 2% em um período de 7 dias. As máquinas virtuais são consideradas para o tamanho certo quando é possível ajustar a carga atual em uma SKU menor (dentro da mesma família de SKUs) ou um número menor de instância, de modo que a carga atual não ultrapasse 80% de utilização quando cargas de trabalho não voltadas para o usuário e não acima de 40% quando a carga de trabalho voltada para o usuário. Aqui, o tipo de carga de trabalho é determinado analisando as características de utilização da CPU da carga de trabalho.
+Embora alguns cenários de aplicativos possam resultar na baixa utilização por design, normalmente, é possível economizar dinheiro gerenciando o tamanho e o número de máquinas virtuais. Os modelos de avaliação avançada do Advisor consideram as máquinas virtuais para desligar quando P95th do valor máximo de máximo da utilização da CPU for menor que 3% e a utilização da rede for inferior a 2% em um período de 7 dias. As máquinas virtuais são consideradas para o tamanho certo quando é possível ajustar a carga atual em uma SKU menor (dentro da mesma família de SKUs) ou um número menor de instância, de modo que a carga atual não ultrapasse 80% de utilização quando cargas de trabalho não voltadas para o usuário e não acima de 40% quando a carga de trabalho voltada para o usuário. Aqui, o tipo de carga de trabalho é determinado analisando as características de utilização da CPU da carga de trabalho.
 
 As ações recomendadas são desligadas ou redimensionadas, específicas ao recurso recomendado para o. O Advisor mostra a economia de custos estimada para ações recomendadas – redimensionar ou desligar. Além disso, para a ação recomendada de redimensionamento, o Advisor fornece informações de SKU atuais e de destino. 
 
@@ -50,15 +45,17 @@ O Advisor identifica endereços IP públicos que não estão associados atualmen
 O Azure Advisor detectará Azure Data Factory pipelines que falham repetidamente e recomendam que você resolva os problemas ou exclua os pipelines com falha se eles não forem mais necessários. Você será cobrado por esses pipelines mesmo se eles não estiverem servindo você enquanto estiverem falhando. 
 
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Usar instantâneos padrão para Managed Disks
-Para economizar 60% do custo, é recomendável armazenar seus instantâneos no armazenamento padrão, independentemente do tipo de armazenamento do disco pai. Essa é a opção padrão para instantâneos de Managed Disks. O assistente do Azure identificará os instantâneos armazenados no armazenamento Premium e recomendará migrar seu instantâneo do Premium para o armazenamento Standard. [Saiba mais sobre os preços do disco gerenciado](https://aka.ms/aa_manageddisksnapshot_learnmore)
+Para economizar 60% do custo, é recomendável armazenar seus instantâneos no Armazenamento Standard do Azure, independentemente do tipo de armazenamento do disco principal. Essa opção é a opção padrão para instantâneos de Managed Disks. O assistente do Azure identificará os instantâneos armazenados no armazenamento Premium e recomendará migrar seu instantâneo do Premium para o armazenamento Standard. [Saiba mais sobre os preços do disco gerenciado](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
-2.  No painel do Assistente, clique na guia **Custo**.
+1. Pesquise e selecione [**Advisor**](https://aka.ms/azureadvisordashboard) em qualquer página.
 
-## <a name="next-steps"></a>Próximas etapas
+1. No painel do **Advisor** , selecione a guia **custo** .
+
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Assistente, consulte:
 * [Introdução ao Advisor](advisor-overview.md)

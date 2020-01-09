@@ -1,24 +1,16 @@
 ---
-title: Azure Service Fabric Reliable Services | Microsoft Docs
-description: Saiba mais sobre os eventos de ciclo de vida no Service Fabric Reliable Services.
-services: service-fabric
-documentationcenter: java
+title: Ciclo de vida de Reliable Services de Service Fabric do Azure
+description: Saiba mais sobre os eventos de ciclo de vida em um aplicativo de Reliable Services de Service Fabric do Azure usando Java para serviços com e sem estado.
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 36c1ff2ace944d84120bf456060c7504170a814c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772934"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639591"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida de Reliable Services
 > [!div class="op_single_selector"]
@@ -135,7 +127,7 @@ Uma parte importante de testar e validar os Reliable Services é manipular as ex
 * Falhas no caminho `onCloseAsync()` faz com que `onAbort()` seja chamado. Essa chamada é uma oportunidade de melhor esforço de última chance para o serviço ser limpo e liberar quaisquer recursos ocupados. Ele geralmente é chamado quando é detectada uma falha permanente no nó ou quando a malha de serviço não pode gerenciar confiavelmente o ciclo de vida da instância do serviço devido a falhas internas.
 * `OnChangeRoleAsync()` é chamado quando a réplica de serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as Coleções Confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). A maior parte do trabalho em um serviço com estado é executado na réplica primária. Réplicas secundárias podem realizar validação somente leitura, geração de relatórios, mineração de dados ou outros trabalhos somente leitura.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start-java.md)
 

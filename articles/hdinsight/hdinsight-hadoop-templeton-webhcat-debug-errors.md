@@ -2,18 +2,18 @@
 title: Entenda e resolva erros do WebHCat no Azure HDInsight
 description: Saiba sobre erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555008"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638843"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat no HDInsight
 
@@ -21,17 +21,11 @@ Saiba mais sobre erros recebidos ao usar o WebHCat com HDInsight e como resolvê
 
 ## <a name="what-is-webhcat"></a>O que é o WebHCat
 
-O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma camada de gerenciamento de armazenamento e tabela para Apache Hadoop. O WebHCat é habilitado por padrão em clusters do HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho etc. sem logon no cluster.
+O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma camada de gerenciamento de armazenamento e tabela para Apache Hadoop. O WebHCat é habilitado por padrão em clusters HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho e assim por diante, sem fazer logon no cluster.
 
 ## <a name="modifying-configuration"></a>Modificando a configuração
 
-> [!IMPORTANT]  
-> Vários dos erros listados neste documento ocorrerem porque um máximo configurado foi excedido. Quando a etapa de solução menciona que você pode alterar um valor, use um dos seguintes para realizar a alteração:
-
-* Para clusters do **Windows** : use uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [Desenvolver ações de script](hdinsight-hadoop-script-actions-linux.md).
-
-* Para clusters do **Linux** : Use o Apache Ambari (Web ou API REST) para modificar o valor. Para obter mais informações, consulte [Gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
+Vários dos erros listados neste documento ocorrerem porque um máximo configurado foi excedido. Quando a etapa de resolução mencionar que você pode alterar um valor, use o Apache Ambari (Web ou API REST) para modificar o valor. Para obter mais informações, consulte [Gerenciar o HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>Configuração padrão
 
@@ -49,7 +43,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 | Causa | Resolução |
 | --- | --- |
-| Você excedeu o máximo de solicitações simultâneas atendidas pelo WebHCat por minuto (padrão de 20) |Reduza a carga de trabalho para garantir que não sejam enviadas mais do que o número máximo de solicitações simultâneas ou aumente o limite de solicitações simultâneas modificando `templeton.exec.max-procs`. Para obter mais informações, consulte [Modificar a configuração](#modifying-configuration) |
+| Você excedeu o máximo de solicitações simultâneas atendidas por WebHCat por minuto (padrão 20) |Reduza sua carga de trabalho para garantir que você não envie mais do que o número máximo de solicitações simultâneas ou aumente o limite de solicitações simultâneas modificando `templeton.exec.max-procs`. Para obter mais informações, consulte [Modificar a configuração](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Servidor indisponível
 
@@ -77,7 +71,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 | --- | --- |
 | A coleta de lixo interna está ocorrendo no processo do WebHCat |Aguarde até que a coleta de lixo seja concluída ou reinicie o serviço do WebHCat |
 | Tempo limite atingido ao aguardar uma resposta do serviço ResourceManager. Esse erro pode ocorrer quando o número de aplicativos ativos atinge o máximo configurado (padrão de 10.000) |Aguarde até que os trabalhos em execução no momento sejam concluídos ou aumente o limite de trabalhos simultâneos modificando `yarn.scheduler.capacity.maximum-applications`. Para obter mais informações, consulte a seção [Modificar a configuração](#modifying-configuration). |
-| Tentar recuperar todos os trabalhos por meio da chamada [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) quando `Fields` está definido como `*` |Não recupere *todos* os detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes de trabalhos somente maiores que determinada ID de trabalho. Ou não use `Fields` |
+| Tentar recuperar todos os trabalhos por meio da chamada [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) quando `Fields` está definido como `*` |Não recupere *todos os* detalhes do trabalho. Em vez disso, use `jobid` para recuperar detalhes de trabalhos somente maiores que determinada ID de trabalho. Ou, não use `Fields` |
 | O serviço do WebHCat está inativo durante o failover do HeadNode |Aguarde dois minutos e repita a operação |
 | Há mais de 500 trabalhos pendentes enviados por meio do WebHCat |Aguarde até que os trabalhos pendentes no momento sejam concluídos antes de enviar mais trabalhos |
 

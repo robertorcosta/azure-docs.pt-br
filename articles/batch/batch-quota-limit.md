@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b63032baa60d18f3d9d98fc403bdc1087c6c9b6b
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350102"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660674"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -41,11 +41,11 @@ Observe também que as cotas não são valores garantidos. As cotas podem variar
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Cotas de núcleo no modo de assinatura de usuário
 
-Se você tiver criado uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de forma diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
+Se você tiver criado uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de forma diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="pool-size-limits"></a>Limites de tamanho do pool
 
-Os limites de tamanho do pool são definidos pelo serviço de lote. Ao contrário das cotas de [recursos](#resource-quotas), esses valores não podem ser alterados. Somente os pools com comunicação entre nós e imagens personalizadas têm restrições diferentes da cota padrão.
+Os limites de tamanho do pool são definidos pelo serviço de lote. Ao contrário das [cotas de recursos](#resource-quotas), esses valores não podem ser alterados. Somente os pools com comunicação entre nós e imagens personalizadas têm restrições diferentes da cota padrão.
 
 | **Recurso** | **Limite máximo** |
 | --- | --- |
@@ -54,13 +54,13 @@ Os limites de tamanho do pool são definidos pelo serviço de lote. Ao contrári
 | Modo de alocação de pool de assinatura do Lote | 80 |
 | **Nós de computação no [pool criado com um recurso de imagem gerenciada](batch-custom-images.md)** <sup>1</sup> ||
 | Nós dedicados | 2000 |
-| Nós de baixa prioridade | 1000 |
+| Nós de baixa prioridade | 1\.000 |
 
 <sup>1</sup> Para pools que não têm comunicação entre nós ativada.
 
 ## <a name="other-limits"></a>Outros limites
 
-Limites adicionais definidos pelo serviço de lote. Ao contrário das cotas de [recursos](#resource-quotas), esses valores não podem ser alterados.
+Limites adicionais definidos pelo serviço de lote. Ao contrário das [cotas de recursos](#resource-quotas), esses valores não podem ser alterados.
 
 | **Recurso** | **Limite máximo** |
 | --- | --- |
@@ -93,7 +93,7 @@ Siga estas etapas para solicitar um aumento de cota para sua conta do lote ou su
 1. Selecione **Nova solicitação de suporte** > **Fundamentos**.
 1. Em **Noções básicas**:
    
-    a.  > **Serviço do tipo de problema e limites de assinatura (cotas)**
+    a. **Tipo de problema** > **limites de serviço e assinatura (cotas)**
    
     b. Selecione sua assinatura.
    
@@ -115,7 +115,7 @@ Siga estas etapas para solicitar um aumento de cota para sua conta do lote ou su
     * **Por região**  
         Valores que se aplicam a todas as contas do lote em uma região e incluem o número de contas do lote por região por assinatura.
 
-    A cota de baixa prioridade é um único valor em todas as séries da VM. Se você precisar de SKUs restritos, deverá selecionar núcleos de **baixa prioridade** e incluir as famílias de VMs a serem solicitadas.
+    A cota de baixa prioridade é um único valor em todas as séries da VM. Se você precisar de SKUs restritos, deverá selecionar **núcleos de baixa prioridade** e incluir as famílias de VMs a serem solicitadas.
 
     b. Selecione uma **severidade** de acordo com o impacto do seu [negócio][support_sev].
 
@@ -139,13 +139,13 @@ Os pools de lota na Configuração de Máquina virtual implantada em uma rede vi
 * Um [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * Um [balanceador de carga](../load-balancer/load-balancer-overview.md)
 
-Esses recursos são alocados na assinatura que contém a rede virtual fornecida ao criar o pool de Lote. Esses recursos são limitados pelas [cotas de recursos](../azure-subscription-service-limits.md) da assinatura. Se você planejar implantações de grande pool em uma rede virtual, verifique as cotas da assinatura para esses recursos. Se necessário, solicite um aumento no portal do Azure, selecionando **Ajuda + suporte**.
+Esses recursos são alocados na assinatura que contém a rede virtual fornecida ao criar o pool de Lote. Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Se você planejar implantações de grande pool em uma rede virtual, verifique as cotas da assinatura para esses recursos. Se necessário, solicite um aumento no portal do Azure, selecionando **Ajuda + suporte**.
 
 
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Criar uma conta do Lote do Azure usando o portal do Azure](batch-account-create-portal.md)
 * [Visão geral dos recursos do Lote do Azure](batch-api-basics.md)
-* [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md)
+* [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

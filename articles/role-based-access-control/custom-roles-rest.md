@@ -1,5 +1,5 @@
 ---
-title: Criar funções personalizadas ou atualizadas para recursos do Azure usando a API REST – Azure | Microsoft Docs
+title: Criar ou atualizar funções personalizadas para recursos do Azure usando a API REST – Azure | Microsoft Docs
 description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando a API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452931"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando a API REST
 
@@ -38,7 +38,7 @@ Para listar todas as funções personalizadas em um diretório, use as [definiç
 
 1. Substitua *{Filter}* pelo tipo de função.
 
-    | Filtrar | Descrição |
+    | Filtrar | Description |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrar com base no tipo CustomRole |
 
@@ -54,15 +54,15 @@ Para listar funções personalizadas em um escopo, use as [definições de funç
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
 1. Substitua *{Filter}* pelo tipo de função.
 
-    | Filtrar | Descrição |
+    | Filtrar | Description |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrar com base no tipo CustomRole |
 
@@ -78,15 +78,15 @@ Para obter informações sobre uma função personalizada por seu nome de exibi�
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
 1. Substitua *{Filter}* pelo nome de exibição da função.
 
-    | Filtrar | Descrição |
+    | Filtrar | Description |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use a forma codificada da URL do nome de exibição exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -104,10 +104,10 @@ Para obter informações sobre uma função personalizada por seu identificador 
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função.
@@ -152,10 +152,10 @@ Para criar uma função personalizada, use [Definições de Função - Criar ou 
 
 1. Dentro da URI, substita *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
@@ -217,10 +217,10 @@ Para atualizar uma função personalizada, use [Definições de Função - Criar
 
 1. Dentro da URI, substita *{scope}* pelo primeiro `assignableScopes` da função personalizada.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
@@ -301,10 +301,10 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 
 1. Dentro da URI, substitua *{scope}* pelo escopo para o qual você deseja excluir a função personalizada.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleDefinitionId}* pelo identificador GUID de definição da função personalizada.
@@ -313,4 +313,4 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST](role-assignments-rest.md)
-- [Referência de API REST](/rest/api/azure/)
+- [Referência de API REST do Azure](/rest/api/azure/)

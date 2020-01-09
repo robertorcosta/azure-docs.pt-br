@@ -1,18 +1,18 @@
 ---
 title: Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
-description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para reconhecer padrões de usuário, executar análise de dados em tempo real e visualização.
+description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para entender os padrões do usuário, executar análise e visualização de dados em tempo real
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442064"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -45,7 +45,7 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
 
 3. **Feed de alterações:** O feed de alterações escutará as alterações no contêiner Cosmos do Azure. Todas as vezes que um novo documento for adicionado à coleção (ou seja, quando um evento ocorrer como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item), o feed de alterações disparará um [Azure Functions](../azure-functions/functions-overview.md).  
 
-4. **Função do Azure:** a Função do Azure processa os novos dados e os envia para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md).  
+4. **Azure Functions:** o Azure Functions processa os novos dados e envia-os para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md).  
 
 5. **Hub de Eventos:** o Hub de Eventos do Azure armazena esses eventos e envia-os para o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para executar análises adicionais.  
 
@@ -208,7 +208,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 5. Navegue de volta para a página de trabalho do Stream Analytics e selecione **Saídas**.  
 
-6. Selecione **+ adicionar**. Em seguida, selecione**Power BI** no menu suspenso.  
+6. Selecione **+ Adicionar**. Em seguida, selecione**Power BI** no menu suspenso.  
 
 7. Para criar uma nova saída do Power BI para visualizar o preço médio, execute as seguintes ações:
 
@@ -236,7 +236,7 @@ O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para proc
 
 11. Agora, retorne para **streamjob1** e selecione o botão **Iniciar** na parte superior da página. O Azure Stream Analytics pode demorar alguns minutos para inicializar, mas você verá a mudança de "Início" para "Executando".
 
-## <a name="connect-to-power-bi"></a>Conectar o Power BI
+## <a name="connect-to-power-bi"></a>Conecte-se ao Power BI
 
 O Power BI é um conjunto de ferramentas de análise de negócios para analisar dados e compartilhar insights. É um ótimo exemplo de como você pode visualizar estrategicamente os dados analisados.
 
@@ -250,7 +250,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
  
 5. Selecione **averagePrice** em **SEUS CONJUNTOS DE DADOS** e, em seguida, selecione **Avançar**.  
 
-6. No campo **Tipo de Visualização**, escolha **Gráfico de barras clusterizado** no menu suspenso. Em **Eixo**, adicione ação. Ignore a **Legenda** sem adicionar nada. Em seguida, na próxima seção, chamada **Valore**, adicione **avg**. Selecione **Avançar**, depois nomeie o gráfico e selecione **Aplicar**. Um novo gráfico no painel deverá ser exibido!  
+6. No campo **Tipo de Visualização**, escolha **Gráfico de barras clusterizado** no menu suspenso. Em **Eixo**, adicione ação. Ignore a **Legenda** sem adicionar nada. Em seguida, na próxima seção chamada **Value**, adicione **AVG**. Selecione **Avançar**, então, título do gráfico e selecione **aplicar**. Um novo gráfico no painel deverá ser exibido!  
 
 7. Agora, se você quiser visualizar mais métricas, volte para **streamjob1** e crie mais três saídas com os seguintes campos.
 
@@ -328,7 +328,7 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 2. Selecione a coleção **topItems** e, em **Escala e configurações**, defina a **Vida Útil** como **30 segundos** para que a coleção topItems seja atualizada a cada 30 segundos.
 
-   ![Tempo para ficar ao vivo](./media/changefeed-ecommerce-solution/time-to-live.png)
+   ![Vida útil](./media/changefeed-ecommerce-solution/time-to-live.png)
 
 3. Para preencher a coleção **topItems** com os itens comprados com mais frequência, navegue de volta para **streamjob1** e adicione uma nova **Saída**. Selecione **Cosmos DB**.
 
@@ -392,7 +392,7 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 Para excluir os recursos criados durante este laboratório, navegue até o grupo de recursos no [portal do Azure](https://portal.azure.com/) e, em seguida, selecione **Excluir grupo de recursos** no menu superior da página e siga as instruções fornecidas.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
   
 * Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md) 
 * [Solução de notificação de feed de alterações](change-feed-hl7-fhir-logic-apps.md) para organização de serviços de saúde usando Azure Cosmos DB.

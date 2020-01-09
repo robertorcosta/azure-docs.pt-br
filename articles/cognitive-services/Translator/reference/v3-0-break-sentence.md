@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835883"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446690"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>3\.0 da API de tradução de texto: BreakSentence
 
@@ -35,13 +35,13 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
     <td>*Parâmetro de consulta obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>idioma</td>
+    <td>Linguagem</td>
     <td>*Parâmetro de consulta opcional*.<br/>Marcação de idioma que identifica o idioma do texto de entrada. Se um código não for especificado, a detecção automática de idioma será aplicada.</td>
   </tr>
   <tr>
@@ -50,11 +50,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
 </table> 
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Description</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
@@ -92,7 +92,7 @@ As seguintes limitações se aplicam:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
   * `sentLen`: uma matriz de inteiros que representa os comprimentos das frases no elemento de texto. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença. 
 
@@ -109,7 +109,7 @@ Um exemplo de resposta JSON é:
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -121,8 +121,8 @@ Um exemplo de resposta JSON é:
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th width="20%">headers</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar a solicitação. É usado para fins de solução de problemas.</td>
@@ -135,7 +135,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>DESCRIÇÃO</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Sucesso.</td>

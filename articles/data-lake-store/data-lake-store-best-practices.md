@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878936"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638928"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar o Microsoft Azure Data Lake Storeage Gen1
 
@@ -23,7 +23,7 @@ ms.locfileid: "60878936"
 
 Neste artigo, você aprenderá sobre as melhores práticas e considerações para trabalhar com o Azure Data Lake Storage Gen1. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento do Data Lake Storage Gen1. Antes do Data Lake Storage Gen1, trabalhar com Big Data em serviços como o Microsoft Azure HDInsight era realmente complexo. Era necessário fragmentar dados em várias contas de Armazenamento de Blobs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser alcançados. Com o Data Lake Storage Gen1, a maioria dos limites rígidos para tamanho e desempenho foi removida. No entanto, ainda há algumas considerações que este artigo abrange para que seja possível obter o melhor desempenho com o Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerações sobre segurança
+## <a name="security-considerations"></a>Considerações de segurança
 
 O Azure Data Lake Storage Gen1 oferece controles de acesso POSIX e auditoria detalhada para usuários, grupos e entidades de serviço do Microsoft Azure AD (Azure Active Directory). Esses controles de acesso podem ser configurados para arquivos e pastas existentes. Os controles de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos arquivos ou pastas. Quando as permissões forem definidas para pastas existentes e objetos secundários, as permissões deverão ser propagadas recursivamente em cada objeto. Se houver um grande número de arquivos, a propagação das permissões poderá demorar muito tempo. O tempo escolhido pode variar entre 30 e 50 objetos processados por segundo. Portanto, planeje a estrutura de pasta e os grupos de usuários adequadamente. Caso contrário, atrasos e problemas imprevistos poderão ocorrer ao trabalhar com os dados.
 
@@ -33,7 +33,7 @@ Suponha que você tenha uma pasta com 100.000 objetos filho. Se você aceitar o 
 
 Ao trabalhar com Big Data no Data Lake Storage Gen1, é provável que uma entidade de serviço seja usada para permitir que serviços como o Azure HDInsight trabalhem com os dados. No entanto, poderá haver casos em que usuários individuais também precisarão ter acesso aos dados. Nesses casos, será necessário utilizar os [grupos de segurança](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) do Azure Active Directory, em vez de atribuir usuários individuais a pastas e arquivos.
 
-Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen1. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-subscription-service-limits.md#data-lake-store-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask) e outros).
+Quando permissões são atribuídas a um grupo de segurança, adicionar ou remover usuários do grupo não exigirá atualizações para o Data Lake Storage Gen1. Isso também ajuda a garantir que você não exceda o limite de [32 ACLs de acesso e padrão](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (isso inclui as quatro ACLs de estilo POSIX que sempre estão associadas a cada arquivo e pasta: [o usuário proprietário](data-lake-store-access-control.md#the-owning-user), [o grupo proprietário](data-lake-store-access-control.md#the-owning-group), [a máscara](data-lake-store-access-control.md#the-mask) e outros).
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
@@ -98,7 +98,7 @@ Para a resiliência de dados com o Data Lake Storage Gen1, é recomendável real
 
 A seguir, são apresentadas as três principais opções recomendadas para orquestrar a replicação entre as contas do Data Lake Storage Gen1 e as principais diferenças entre cada uma delas.
 
-|  |Distcp  |Fábrica de dados do Azure  |AdlCopy  |
+|  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de escala**     | Limitado por nós de trabalho        | Limitado por unidades de Movimentação de Dados de Nuvem        | Limitado por unidades do Analytics        |
 |**Oferece suporte à cópia deltas**     |   Sim      | Não         | Não         |
@@ -140,7 +140,7 @@ Se o envio de logs do Data Lake Storage Gen1 não estiver ativado, o Azure HDIns
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Quando a propriedade estiver configurada e os nós forem reiniciados, o diagnóstico do Data Lake Storage Gen1 será gravado nos logs YARN nos nós (/tmp/\<user\>/yarn.log) e detalhes importantes, como erros ou limitação (código de erro HTTP 429), poderão ser monitorados. Esta mesma informação também pode ser monitorada em logs do Azure Monitor ou onde os logs são enviados para o [diagnóstico](data-lake-store-diagnostic-logs.md) folha da conta do Data Lake armazenamento Gen1. É recomendável ter pelo menos o log do lado do cliente ativado ou usar a opção de envio de logs com o Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
+Quando a propriedade estiver configurada e os nós forem reiniciados, o diagnóstico do Data Lake Storage Gen1 será gravado nos logs YARN nos nós (/tmp/\<user\>/yarn.log) e detalhes importantes, como erros ou limitação (código de erro HTTP 429), poderão ser monitorados. Essas mesmas informações também podem ser monitoradas nos logs de Azure Monitor ou onde os logs são enviados para a folha [diagnóstico](data-lake-store-diagnostic-logs.md) da conta de data Lake Storage Gen1. É recomendável ter pelo menos o log do lado do cliente ativado ou usar a opção de envio de logs com o Data Lake Storage Gen1 para visibilidade operacional e depuração mais fácil.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas
 
@@ -179,7 +179,7 @@ Por exemplo, uma empresa de marketing que recebe extratos de dados diários de a
 
 No caso comum de dados em lotes que estão sendo processados diretamente em bancos de dados, como Hive ou Bancos de Dados SQL tradicionais, não há necessidade de uma pasta **/in** ou **/out**, uma vez que a saída já entra em uma pasta separada para a tabela de Hive ou banco de dados externo. Por exemplo, os extratos diários dos clientes descarregariam em suas respectivas pastas e a orquestração tanto pelo Azure Data Factory, Apache Oozie ou pelo Apache Airflow dispararia um trabalho do Hive ou Spark diário para processar e gravar os dados em uma tabela de Hive.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Controle de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md)

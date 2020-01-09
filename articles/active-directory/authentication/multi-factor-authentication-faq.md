@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86cce0ee2a4966e2c2c8d74ad63a50976c199eb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425147"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -26,9 +26,12 @@ Estas perguntas frequentes respondem a perguntas comuns sobre a Autenticação M
 
 > [!IMPORTANT]
 > A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Novos clientes que queiram exigir a autenticação multifator de seus usuários devem usar a autenticação multifator do Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, futuras atualizações e gerar credenciais de ativação como de costume.
+> 
+> O licenciamento baseado em consumo não estará mais disponível para novos clientes a partir de 1º de setembro de 2018.
+> A partir de 1º de setembro de 2018, novos provedores de autenticação podem não ser mais criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A Autenticação Multifator continuará sendo um recurso disponível nas licenças do Azure AD Premium.
+
 > [!NOTE]
 > As informações compartilhadas abaixo em relação à Servidor de Autenticação Multifator do Azure só são aplicáveis a usuários que já têm o servidor MFA em execução.
-
 
 **P: Como o Servidor de Autenticação Multifator do Azure lida com os dados do usuário?**
 
@@ -41,7 +44,7 @@ Quando solicitações de autenticação são enviadas ao serviço de nuvem, dado
 * **Endereço de Email** (opcional)
 * **Número de Telefone** (ao usar uma chamada de voz ou autenticação SMS)
 * **Token de Dispositivo** (ao usar a autenticação de aplicativos móveis)
-* **Modo de autenticação**
+* **Modo de Autenticação**
 * **Resultado da autenticação**
 * **Nome do Servidor de Autenticação Multifator**
 * **IP do Servidor de Autenticação Multifator**

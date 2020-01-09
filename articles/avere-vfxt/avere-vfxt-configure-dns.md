@@ -6,24 +6,24 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 11ff310dae3c4733283d965a518df42a0711ce01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256273"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416053"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
 
-Esta seção contém noções básicas sobre a configuração de um sistema DNS para o balanceamento de carga de seu cluster do Avere vFXT. 
+Esta seção contém noções básicas sobre a configuração de um sistema DNS para o balanceamento de carga de seu cluster do Avere vFXT.
 
-Este documento *não inclui* instruções para configurar e gerenciar um servidor DNS no ambiente do Azure. 
+Este documento *não inclui* instruções para configurar e gerenciar um servidor DNS no ambiente do Azure.
 
-Em vez de usar o DNS com round robin para balancear a carga de um cluster do vFXT no Azure, considere usar métodos manuais para atribuir endereços IP de maneira uniforme entre os clientes quando eles estiverem montados. Vários métodos são descritos em [Montar o cluster do Avere](avere-vfxt-mount-clients.md). 
+Em vez de usar o DNS com round robin para balancear a carga de um cluster do vFXT no Azure, considere usar métodos manuais para atribuir endereços IP de maneira uniforme entre os clientes quando eles estiverem montados. Vários métodos são descritos em [Montar o cluster do Avere](avere-vfxt-mount-clients.md).
 
-Tenha em mente as informações a seguir ao decidir se deseja ou não usar um servidor DNS: 
+Tenha em mente as informações a seguir ao decidir se deseja ou não usar um servidor DNS:
 
-* Se o sistema é acessado apenas por clientes NFS, não é necessário usar DNS – é possível especificar todos os endereços de rede usando endereços IP numéricos. 
+* Se o sistema é acessado apenas por clientes NFS, não é necessário usar DNS – é possível especificar todos os endereços de rede usando endereços IP numéricos.
 
 * Se o sistema dá suporte ao acesso de SMB (CIFS), o DNS é necessário, pois você precisa especificar um domínio DNS para o servidor do Active Directory.
 
@@ -41,12 +41,12 @@ Para atingir o desempenho ideal, configure seu servidor DNS para lidar com ender
 
 Um vserver do cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso do cliente com registros e ponteiros A conforme ilustrado.
 
-![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png) 
+![diagrama de DNS Round Robin do cluster do avere](media/avere-vfxt-rrdns-diagram.png)
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada endereço IP voltado ao cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são chamados de vs1-client-IP-* para maior clareza, mas na produção você provavelmente deve usar algo mais conciso, como cliente*.)
 
-Os clientes montam o cluster usando o nome do vserver como argumento do servidor. 
+Os clientes montam o cluster usando o nome do vserver como argumento do servidor.
 
 Modifique o arquivo ``named.conf`` do servidor DNS para definir a ordem cíclica para as consultas em seu vserver. Essa opção garante que todos os valores disponíveis sejam percorridos. Adicione uma instrução semelhante à seguinte:
 
@@ -58,7 +58,7 @@ options {
 };
 ```
 
-Os seguintes comandos nsupdate fornecem um exemplo de como configurar o de DNS corretamente:
+Os comandos ``nsupdate`` a seguir mostram um exemplo de como configurar o DNS corretamente:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -81,5 +81,3 @@ Especifique o servidor DNS que o cluster do vFXT usa na página de configuraçã
 * Domínios de pesquisa DNS
 
 Leia [Configurações de DNS](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) no Guia de Configuração de Cluster do Avere para obter mais detalhes sobre como usar essa página.
-
-

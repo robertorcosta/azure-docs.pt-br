@@ -1,19 +1,14 @@
 ---
 title: Exibir Azure Monitor para implantações de contêineres (visualização) | Microsoft Docs
 description: Este artigo descreve a exibição em tempo real de implantações do kubernetes sem usar o kubectl no Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404767"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Como exibir implantações (visualização) em tempo real
 
@@ -27,7 +22,7 @@ Com Azure Monitor para contêineres, o recurso Exibir implantações (versão pr
 
 Para saber mais, examine a documentação do kubernetes sobre [implantações](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
@@ -67,7 +62,7 @@ Você também pode filtrar por eventos de namespace ou de nível de cluster. Par
 
 ![As implantações exibem dados dinâmicos no console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para continuar aprendendo a usar o Azure Monitor e monitorar outros aspectos do cluster do AKS, confira [Exibir integridade do Serviço de Kubernetes do Azure](container-insights-analyze.md).
 

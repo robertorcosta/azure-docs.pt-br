@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4352fbf71b23aedc1dddd3e454b58196d4f5a6e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078466"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638197"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
 
@@ -37,8 +37,8 @@ ms.locfileid: "70078466"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -224,16 +224,16 @@ ms.locfileid: "70078466"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
 ## <a name="terminology-definitions"></a>Definições de terminologia
 
-**Alta disponibilidade**: Refere-se a um conjunto de tecnologias que minimiza as interrupções de TI proporcionando a continuidade dos negócios de serviços de TI por meio de componentes redundantes e tolerantes a falhas ou protegidos contra failover no *mesmo* data center. Em nosso caso, o data center reside em uma região do Azure.
+**Alta disponibilidade**: diz respeito a um conjunto de tecnologias que minimiza as interrupções da TI, proporcionando a continuidade dos serviços de TI por meio de componentes redundantes e tolerantes a falhas ou protegidos contra failover no *mesmo* data center. Em nosso caso, o data center reside em uma região do Azure.
 
-**Recuperação de desastre**: Também se refere à redução da interrupção dos serviços de TI e sua recuperação, mas em *vários* data centers que podem estar a centenas de quilômetros de distância uns dos outros. Em nosso caso, os data centers podem residir em várias regiões do Azure na mesma região geopolítica ou em locais estabelecidos por você como cliente.
+**Recuperação de desastre**: também se refere à minimizar interrupções de dos serviços de IT e à recuperação de dados, mas em *vários* data centers que podem estar a centenas de quilômetros uns dos outros. Em nosso caso, os data centers podem residir em várias regiões do Azure na mesma região geopolítica ou em locais estabelecidos por você como cliente.
 
 
 ## <a name="overview-of-high-availability"></a>Visão geral de alta disponibilidade
@@ -349,9 +349,9 @@ As seções a seguir abordam como alcançar alta disponibilidade para todos os t
 
 Normalmente, não é necessária uma solução específica de alta disponibilidade para servidor de aplicativos SAP e instâncias de diálogo. Você atinge alta disponibilidade por redundância e configura várias instâncias de caixa de diálogo em várias instâncias de máquinas virtuais do Azure. Você deve ter pelo menos duas instâncias do aplicativo SAP instaladas em duas máquinas virtuais do Azure.
 
-![Figura 1: Servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
+![Figura 1: servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
 
-_**Figura 1:** Servidor de aplicativos SAP de alta disponibilidade_
+_**Figura 1:** servidor de aplicativos SAP de alta disponibilidade_
 
 Você deve colocar todas as máquinas virtuais que hospedam instâncias do servidor de aplicativos SAP no mesmo conjunto de disponibilidade do Azure. Um conjunto de disponibilidade do Azure garante que:
 
@@ -367,14 +367,14 @@ O número de domínios de falha e atualização que podem ser usados por um conj
 
 Se você implanta algumas instâncias do servidor de aplicativos SAP em suas VMs dedicadas e supondo que temos cinco domínios de atualização, o quadro a seguir surge no final. O número máximo real de domínios de falha e atualização dentro de um conjunto de disponibilidade pode vir a mudar no futuro:
 
-![Figura 2: Alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure][planning-guide-figure-3000]
- _**Figura 2:** Alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure_
+![Figura 2: alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure][planning-guide-figure-3000]
+ _**Figura 2:** alta disponibilidade dos servidores de aplicativos SAP em um conjunto de disponibilidade do Azure_
 
 Para obter mais informações, consulte [gerenciar a disponibilidade de máquinas virtuais do Windows no Azure][azure-virtual-machines-manage-availability].
 
 Para obter mais informações, consulte a seção [conjuntos de disponibilidade do Azure][planning-guide-3.2.3] do documento planejamento e implementação de máquinas virtuais do Azure para SAP NetWeaver.
 
-**Somente discos não gerenciados:** Como a conta de armazenamento do Azure é um possível ponto único de falha, é importante ter pelo menos duas contas de armazenamento do Azure, nas quais pelo menos duas máquinas virtuais estejam distribuídas. Em uma configuração ideal, os discos de cada máquina virtual que está executando uma instância de diálogo SAP deveria ser implantada em uma conta de armazenamento diferente.
+**Somente discos não gerenciados:** como a conta de armazenamento do Azure é um possível ponto único de falha, é importante ter pelo menos duas contas de armazenamento do Azure nas quais pelo menos duas máquinas virtuais estejam distribuídas. Em uma configuração ideal, os discos de cada máquina virtual que está executando uma instância de diálogo SAP deveria ser implantada em uma conta de armazenamento diferente.
 
 > [!IMPORTANT]
 > Recomendamos que você use os discos gerenciados do Azure nas instalações de alta disponibilidade do SAP. Como os discos gerenciados alinham-se automaticamente ao conjunto de disponibilidade da máquina virtual à qual eles estão conectados, eles aumentam a disponibilidade da sua máquina virtual e dos serviços que estão em execução nela.  
@@ -387,9 +387,9 @@ Para obter mais informações, consulte a seção [conjuntos de disponibilidade 
 
 Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solução tem duas variantes:
 
-* **Agrupar a instância do SAP ASCS/SCS em um cluster usando discos compartilhados clusterizados**: Para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk].   
+* **Clusterizar a instância do SAP ASCS/SCS usando discos compartilhados clusterizados**: para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado do cluster][sap-high-availability-guide-wsfc-shared-disk].   
 
-* **Agrupar a instância do SAP ASCS/SCS em um cluster usando um compartilhamento de arquivo**: Para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share].
+* **Clusterizar a instância do SAP ASCS/SCS usando o compartilhamento de arquivos**: para obter mais informações sobre essa arquitetura, consulte [cluster de uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share].
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Linux
 
@@ -416,9 +416,9 @@ Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em
 
 O DBMS também é um ponto único de contato em um sistema SAP. Você precisa protegê-lo usando uma solução de alta disponibilidade. A figura a seguir mostra uma solução de alta disponibilidade Always On do SQL Server no Clustering de Failover do Windows Server e no balanceador interno de carga do Azure. O AlwaysOn do SQL Server replica os arquivos de log e dados do DBMS usando sua própria replicação DBMS. Nesse caso, você não precisa de disco compartilhado de cluster, o que simplifica toda a configuração.
 
-![Figura 3: Exemplo de um DBMS SAP de alta disponibilidade, com o AlwaysOn do SQL Server][sap-ha-guide-figure-2003]
+![Figura 3: exemplo de um DBMS SAP de alta disponibilidade com o Always On do SQL Server][sap-ha-guide-figure-2003]
 
-_**Figura 3:** Exemplo de um DBMS SAP de alta disponibilidade, com o AlwaysOn do SQL Server_
+_**Figura 3:** exemplo de um DBMS SAP de alta disponibilidade com o Always On do SQL Server_
 
 Para saber mais sobre o clustering do DBMS do SQL Server no Azure usando o modelo de implantação do Azure Resource Manager, confira estes artigos:
 

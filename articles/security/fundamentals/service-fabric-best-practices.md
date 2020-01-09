@@ -1,31 +1,23 @@
 ---
-title: Melhores práticas de segurança do Azure Service Fabric | Microsoft Docs
+title: Práticas recomendadas para a segurança de Service Fabric do Azure
 description: Este artigo fornece um conjunto de melhores práticas de segurança do Azure Service Fabric.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934619"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548812"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
 
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrar na implementação de cargas de trabalho essenciais e críticas que são escalonáveis, confiáveis e gerenciáveis.
 
 Para cada prática recomendada, vamos explicar:
 
@@ -65,13 +57,13 @@ Os clusters devem ser protegidos para evitar que usuários não autorizados se c
 
 Há três [cenários](../../service-fabric/service-fabric-cluster-security.md) para implementar a segurança de cluster usando diversas tecnologias:
 
--   Segurança nó a nó: Esse cenário protege a comunicação entre as VMs e os computadores do cluster. Esse tipo de segurança faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
+-   Segurança nó a nó: Esse cenário protege a comunicação entre VMs e computadores no cluster. Esse tipo de segurança faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
 Nesse cenário, os clusters em execução no Azure ou clusters autônomos que sáo executados no Windows podem usar a [segurança de certificado](../../service-fabric/service-fabric-windows-cluster-x509-security.md) ou então a [segurança do Windows](../../service-fabric/service-fabric-windows-cluster-windows-security.md) para computadores Windows Server.
--   Segurança cliente a nó: Esse cenário protege a comunicação entre um cliente do Service Fabric e os nós individuais do cluster.
--   RBAC (Controle de Acesso Baseado em Função): Esse cenário usa identidades separadas (certificados, o Azure AD e assim por diante) para cada função de cliente de usuário e administrador que acessa o cluster. Especifique as identidades de função ao criar o cluster.
+-   Segurança cliente a nó: Esse cenário protege a comunicação entre um cliente do Service Fabric e nós individuais do cluster.
+-   Controle de acesso baseado em função (RBAC): Esse cenário usa identidades separadas (certificados, o Azure AD, e assim por diante) para cada função de cliente de usuário e administrador que acessa o cluster. Especifique as identidades de função ao criar o cluster.
 
 >[!NOTE]
->**Recomendação de segurança para clusters do Azure:** Use a segurança do Azure AD para autenticar clientes e certificados para a segurança nó a nó.
+>**Recomendação de segurança para clusters do Azure:** Use a segurança do Azure AD para autenticar clientes e certificados para a segurança de nó a nó.
 
 Para configurar o cluster do Windows autônomo, confira [Definir as configurações de cluster do Windows autônomo](../../service-fabric/service-fabric-cluster-manifest.md).
 
@@ -102,12 +94,12 @@ Se um cluster não for seguro, qualquer pessoa pode se conectar ao cluster de fo
 
 Para saber mais sobre como usar os certificados X.509, confira [Adicionar ou remover certificados para um cluster do Service Fabric](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md).
 
-## <a name="configure-security-policies"></a>Configure as políticas de segurança
+## <a name="configure-security-policies"></a>Configurar políticas de segurança
 O Service Fabric também protege os recursos que são usados por aplicativos. Recursos, como arquivos, diretórios e certificados são armazenados em contas de usuário quando o aplicativo é implantado. Esse recurso torna os aplicativos em execução mais protegidos uns dos outros, mesmo em um ambiente hospedado compartilhado.
 
--   Usar um usuário ou um grupo de domínio do Active Directory: Execute o serviço com as credenciais de uma conta de usuário ou grupo do Active Directory. Certifique-se de usar o Active Directory local em seu domínio e não o Azure Active Directory. Acesse outros recursos do domínio que receberam permissões usando um usuário ou grupo de domínio. Por exemplo, recursos, como compartilhamentos de arquivos.
+-   Use um grupo de domínio ou usuário do Active Directory: Execute o serviço com as credenciais de uma conta de usuário ou de grupo do Active Directory. Certifique-se de usar o Active Directory local em seu domínio e não o Azure Active Directory. Acesse outros recursos do domínio que receberam permissões usando um usuário ou grupo de domínio. Por exemplo, recursos, como compartilhamentos de arquivos.
 
--   Atribua uma política de acesso de segurança a pontos de extremidade HTTP e HTTPS: Especifique a propriedade **SecurityAccessPolicy** para aplicar uma política **RunAs** a um serviço quando o manifesto do serviço declarar recursos de ponto de extremidade com HTTP. Portas alocadas para os pontos de extremidade HTTP são listas de acesso controlado corretamente para a conta de usuário RunAs onde o serviço é executado. Quando a política não é definida, o http.sys não possui acesso ao serviço e você receberá falhas em chamadas do cliente.
+-   Atribuir uma política de acesso de segurança para pontos de extremidade HTTP e HTTPS: Especifique a propriedade **SecurityAccessPolicy** aplicar uma política **RunAs** a um serviço quando o manifesto do serviço declara recursos de ponto de extremidade com HTTP. Portas alocadas para os pontos de extremidade HTTP são listas de acesso controlado corretamente para a conta de usuário RunAs onde o serviço é executado. Quando a política não é definida, o http.sys não possui acesso ao serviço e você receberá falhas em chamadas do cliente.
 
 Para saber como usar políticas de segurança em um cluster do Service Fabric, confira [Configurar políticas de segurança para o seu aplicativo](../../service-fabric/service-fabric-application-runas-security.md).
 
@@ -152,7 +144,7 @@ O protocolo HTTP não é seguro e está sujeito a ataques de interceptação. Da
 Para saber mais sobre como usar certificados SSL, consulte [Configurar SSL para aplicativos do Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Usar segurança e isolamento de rede com o Azure Service Fabric
-Configurar um cluster seguro 3 nodetype usando o [modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) como exemplo. Controle o tráfego de rede de entrada e saída usando o modelo e os Grupos de Segurança de Rede.
+Configurar um cluster seguro 3 nodetype usando o [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) como exemplo. Controle o tráfego de rede de entrada e saída usando o modelo e os Grupos de Segurança de Rede.
 
 O modelo tem um Grupo de Segurança de Rede para cada conjunto de dimensionamento de máquinas virtuais a fim de controlar o tráfego dentro e fora do conjunto. Por padrão, as regras são configuradas para permitir todo o tráfego necessário aos serviços do sistema e às portas de aplicativo especificadas no modelo. Examine essas regras e faça alterações de acordo com suas necessidades, incluindo adicionar novas regras para seus aplicativos.
 
@@ -177,14 +169,14 @@ Há duas etapas básicas para configurar um cofre de chaves:
 Para saber mais sobre como configurar um cofre de chaves, confira [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
 ## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
-Depois de criar os aplicativos para representar seu cluster, atribua os usuários às funções com suporte no Service Fabric para leitura e administrador. É possível atribuir essas funções usando o Portal do Azure.
+Depois de criar os aplicativos para representar o cluster, atribua os usuários às funções com suporte pelo Service Fabric: somente leitura e administrador. Você pode atribuir essas funções usando o portal do Azure.
 
 >[!NOTE]
 > Para obter mais informações sobre como usar funções no Service Fabric, consulte [Controle de acesso baseado em função para clientes do Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md).
 
 O Azure Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um [cluster do Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrador e usuário. O administrador do cluster pode usar o controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. O controle de acesso torna o cluster mais seguro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Lista de verificação de segurança do Service Fabric](service-fabric-checklist.md)
 - Configurar o [ambiente de desenvolvimento](../../service-fabric/service-fabric-get-started.md) do Service Fabric.

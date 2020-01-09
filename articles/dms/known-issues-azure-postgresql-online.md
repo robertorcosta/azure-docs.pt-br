@@ -1,6 +1,7 @@
 ---
-title: Artigo sobre problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL-servidor único | Microsoft Docs
-description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL.
+title: 'Problemas conhecidos: migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL'
+titleSuffix: Azure Database Migration Service
+description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações online do PostgreSQL para o banco de dados do Azure para PostgreSQL-servidor único usando o serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 10/27/2019
-ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c5c0015c5034dd3b30b716264fd97e9881b3fe67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437865"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online do PostgreSQL para o BD do Azure para PostgreSQL-servidor único
 
@@ -34,7 +37,7 @@ Problemas conhecidos e limitações associadas a migrações online do PostgreSQ
   - **wal_level** = lógica
   - **max_replication_slots** = [número máximo de bancos de dados para migração]; Se você quiser migrar quatro bancos de dados, defina o valor como 4
   - **max_wal_senders** = [número de bancos de dados executados simultaneamente]; o valor recomendado é 10
-- Adicionar o IP do agente DMS à origem PostgreSQL pg_hba. conf
+- Adicionar o IP do agente DMS ao PostgreSQL de origem pg_hba. conf
   1. Anote o endereço IP do DMS após concluir o provisionamento de uma instância do DMS.
   2. Adicione o endereço IP ao arquivo pg_hba.conf conforme mostrado:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422942"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência geral do guia de operações do Azure Active Directory
 
@@ -58,7 +58,7 @@ Ao examinar sua lista, você pode achar necessário atribuir um proprietário pa
 
 Ter as versões mais atualizadas dos componentes locais fornece ao cliente todas as atualizações de segurança mais recentes, melhorias de desempenho, bem como funcionalidades que podem ajudar a simplificar ainda mais o ambiente. A maioria dos componentes tem uma configuração de atualização automática, que automatizará o processo de atualização.
 
-Esses componentes incluem:
+Entre esses componentes estão:
 
 - Azure AD Connect
 - Conectores do Proxy de Aplicativo do Azure AD
@@ -107,7 +107,7 @@ A adoção de práticas recomendadas pode ajudar na operação ideal de agentes 
 #### <a name="on-premises-agents-management-recommended-reading"></a>Leitura recomendada do gerenciamento de agentes locais
 
 - [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Autenticação de passagem do Azure AD – início rápido](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Autenticação de passagem do Azure AD – início rápido](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Gerenciamento em escala
 
@@ -131,8 +131,8 @@ Há dois endereços "de" usados pelo Azure AD: <o365mc@email2.microsoft.com>, qu
 
 - [Revisões de acesso do Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
-- [Gerenciamento de identidades com privilégios do AD do Azure](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
+- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
+- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Notificações de certificado de expiração do aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - Notificações do serviço de provisionamento do Aplicativo Enterprise
 
@@ -162,13 +162,13 @@ Se AD FS for usado somente para a Federação do Azure AD, há alguns pontos de 
 
 As organizações devem bloquear o acesso aos computadores com componentes híbridos locais da mesma maneira que o seu domínio local. Por exemplo, um operador de backup ou administrador do Hyper-V não deve ser capaz de fazer logon no servidor de Azure AD Connect para alterar as regras.
 
-O modelo de camada administrativa Active Directory foi projetado para proteger sistemas de identidade usando um conjunto de zonas de buffer entre controle total do ambiente (camada 0) e os ativos de estação de trabalho de alto risco que os invasores freqüentemente comprometem. ![Diagrama mostrando as três camadas do modelo de camada](./media/active-directory-ops-guide/active-directory-ops-img18.png)
+O modelo de camada administrativa Active Directory foi projetado para proteger sistemas de identidade usando um conjunto de zonas de buffer entre controle total do ambiente (camada 0) e os ativos de estação de trabalho de alto risco que os invasores freqüentemente comprometem. ![Diagrama que mostra as três camadas do modelo de Camadas](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
 O [modelo de camada](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) é composto de três níveis e inclui apenas contas administrativas, não contas de usuário padrão.
 
-- **Camada 0** -controle direto de identidades corporativas no ambiente. A camada 0 inclui contas, grupos e outros ativos que têm controle administrativo direto ou indireto do Active Directory floresta, domínios ou controladores de domínio e todos os ativos. A sensibilidade de segurança de todos os ativos da camada 0 é equivalente, pois eles são todos efetivamente no controle.
-- **Camada 1** -controle de aplicativos e servidores corporativos. Os ativos da camada 1 incluem sistemas operacionais de servidor, serviços de nuvem e aplicativos empresariais. As contas de administrador da camada 1 têm controle administrativo de uma quantidade significativa de valor comercial que é hospedada nesses ativos. Uma função de exemplo comum são os administradores de servidor que mantêm esses sistemas operacionais com a capacidade de afetar todos os serviços corporativos.
-- **Camada 2** -controle de estações de trabalho e dispositivos do usuário. As contas de administrador da camada 2 têm controle administrativo de uma quantidade significativa de valor comercial que é hospedada em estações de trabalho e dispositivos do usuário. Os exemplos incluem administradores de suporte técnico e de computador, pois eles podem afetar a integridade de praticamente qualquer dado de usuário.
+- **Camada 0** -controle direto de identidades corporativas no ambiente. A Camada 0 inclui contas, grupos e outros recursos que têm controle administrativo direto ou indireto sobre as florestas, domínios ou controladores de domínio do Active Directory, e todos os ativos que eles contêm. A sensibilidade da segurança de todos os ativos de Camada 0 é equivalente, pois todos estão controlando uns aos outros.
+- **Camada 1** -controle de aplicativos e servidores corporativos. Entre os ativos de Camada 1 estão sistemas operacionais de servidor, serviços de nuvem e aplicativos corporativos. Contas de administrador de Camada 1 têm controle administrativo sobre uma quantidade considerável de conteúdo corporativo hospedada nesses ativos. Uma função de exemplo comum é a de administradores de servidor, que proporciona a esses sistemas operacionais a capacidade de afetar todos os serviços corporativos.
+- **Camada 2** -controle de estações de trabalho e dispositivos do usuário. Contas de administrador de Camada 2 têm controle administrativo sobre uma quantidade considerável de conteúdo corporativo hospedada em estações de trabalho e dispositivos do usuário. Entre os exemplos estão Suporte técnico e administradores de suporte ao computador, pois podem afetar a integridade de quase todos os dados do usuário.
 
 Bloqueie o acesso a componentes de identidade locais, como Azure AD Connect, AD FS e serviços SQL da mesma maneira como você faz para controladores de domínio.
 

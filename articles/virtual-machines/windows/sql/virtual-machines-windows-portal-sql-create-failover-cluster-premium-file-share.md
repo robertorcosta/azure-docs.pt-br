@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465000"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -55,7 +55,7 @@ Muitas cargas de trabalho têm intermitência de e/s, portanto, é uma boa ideia
 
 Para obter mais informações sobre o desempenho de compartilhamento de arquivos premium, consulte [níveis de desempenho de compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
 
-### <a name="licensing-and-pricing"></a>Licenciamento e preço
+### <a name="licensing-and-pricing"></a>Licenciamento e preços
 
 Em máquinas virtuais do Azure, você pode licenciar SQL Server usando imagens de VM PAYG (pré-pago) ou BYOL (traga sua própria licença). O tipo de imagem que você escolhe afeta como você é cobrado.
 
@@ -84,7 +84,6 @@ Antes de concluir as etapas neste artigo, você já deve ter:
    - Um endereço IP para cada FCI.
 - DNS configurado na rede do Azure, apontando para os controladores de domínio.
 - Um [compartilhamento de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) com base na cota de armazenamento do seu banco de dados para seus arquivos.
-- Um compartilhamento de arquivos para backups que é diferente do compartilhamento de arquivos Premium usado para seus arquivos de dados. Esse compartilhamento de arquivos pode ser Standard ou Premium.
 
 Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de failover. A primeira etapa é criar as máquinas virtuais.
 
@@ -100,7 +99,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
    1. Na portal do Azure, selecione **criar um recurso** para abrir o Azure Marketplace. Procure **Conjunto de disponibilidade**.
    1. Selecione **conjunto de disponibilidade**.
-   1. Clique em **Criar**.
+   1. Selecione **Criar**.
    1. Em **criar conjunto de disponibilidade**, forneça estes valores:
       - **Nome**: um nome para o conjunto de disponibilidade.
       - **Assinatura**: sua assinatura do Azure.
@@ -135,7 +134,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
 1. Depois que o Azure criar suas máquinas virtuais, conecte-se a cada uma usando o RDP.
 
-   Quando você se conecta pela primeira vez a uma máquina virtual usando o RDP, um prompt pergunta se você deseja permitir que o computador seja detectável na rede. Selecione **Sim**.
+   Quando você se conecta pela primeira vez a uma máquina virtual usando o RDP, um prompt pergunta se você deseja permitir que o computador seja detectável na rede. Selecione **Sim** na barra superior.
 
 1. Se você estiver usando uma das imagens de máquina virtual com base em SQL Server, remova a instância de SQL Server.
 
@@ -144,7 +143,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
    1. Selecione a instância padrão.
    1. Remova todos os recursos em **Serviços de Mecanismo de Banco de Dados**. Não remova os **recursos compartilhados**. Você verá algo semelhante à captura de tela a seguir:
 
-        ![Selecionar recursos](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
+        ![Selecionar Recursos](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
    1. Selecione **Avançar**e, em seguida, selecione **remover**.
 
@@ -152,7 +151,7 @@ Com esses pré-requisitos em vigor, você pode começar a criar seu cluster de f
 
    Em cada máquina virtual, abra essas portas no firewall do Windows:
 
-   | Finalidade | Porta TCP | Notas
+   | Finalidade | Porta TCP | Observações
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se você tiver usado uma imagem da galeria, essa porta será aberta automaticamente.
    | Investigação de integridade | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.
@@ -326,7 +325,7 @@ Para criar o balanceador de carga:
 
 1. Selecione **Adicionar**. Pesquise **Load Balancer**no Azure Marketplace. Selecione **Load Balancer**.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 1. Configure o balanceador de carga usando os seguintes valores:
 
@@ -459,7 +458,7 @@ Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja disponível. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

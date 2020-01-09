@@ -1,25 +1,18 @@
 ---
-title: Criar cluster do Azure Service Fabric no Windows Server e Linux | Microsoft Docs
+title: Criar clusters no Windows Server e no Linux
 description: Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390370"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614665"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -29,7 +22,7 @@ O tipo de nó define o tamanho, o número e as propriedades de um conjunto de n�
 ## <a name="cluster-components-and-resources"></a>Recursos e componentes do cluster
 O cluster do Service Fabric no Azure é um recurso do Azure que usa e interage com outros recursos do Azure:
 * Placas de rede virtual e de VMs
-* conjuntos de dimensionamento de máquinas virtuais
+* conjuntos de escala de máquina virtual
 * redes virtuais
 * balanceadores de carga
 * contas de armazenamento
@@ -38,7 +31,7 @@ O cluster do Service Fabric no Azure é um recurso do Azure que usa e interage c
 ![Cluster do Service Fabric][Image]
 
 ### <a name="virtual-machine"></a>Máquina virtual
-Uma [máquina virtual](/azure/virtual-machines/) que é parte de um cluster é chamada de nó, embora, tecnicamente, um nó de cluster seja um processo de tempo de execução do Service Fabric. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características, como as [propriedades de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Cada máquina ou VM possui um serviço de início automático, *FabricHost.exe*, que começa a ser executado na inicialização e, depois, inicia dois executáveis: *Fabric.exe* e *FabricGateway.exe*, que compõem o nó. Uma implantação de produção é um nó por máquina virtual ou física. Para cenários de teste, é possível hospedar vários nós em um único computador ou VM, executando várias instâncias do *Fabric.exe* e do *FabricGateway.exe*.
+Uma [máquina virtual](/azure/virtual-machines/) que é parte de um cluster é chamada de nó, embora, tecnicamente, um nó de cluster seja um processo de runtime do Service Fabric. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características, como as [propriedades de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Cada máquina ou VM possui um serviço de início automático, *FabricHost.exe*, que começa a ser executado na inicialização e, depois, inicia dois executáveis: *Fabric.exe* e *FabricGateway.exe*, que compõem o nó. Uma implantação de produção é um nó por máquina virtual ou física. Para cenários de teste, é possível hospedar vários nós em um único computador ou VM, executando várias instâncias do *Fabric.exe* e do *FabricGateway.exe*.
 
 Cada VM é associada a uma placa de interface de rede virtual (NIC), e a cada NIC é atribuído um endereço IP privado.  Uma VM é atribuída a uma rede virtual e a um balanceador local por meio da NIC.
 
@@ -47,7 +40,7 @@ Todas as VMs em um cluster são colocadas em uma rede virtual.  Todos os nós no
 ### <a name="scale-setnode-type"></a>Conjunto de dimensionamento/Tipo de nó
 Ao criar um cluster, você define um ou mais tipos de nó.  Os nós, ou VMs, em um tipo de nó têm o mesmo tamanho e características, como o número de CPUs, memória, número de discos e disco I/O.  Por exemplo, um tipo de nó pode ser para VMs pequenas, VMs de front-end com portas abertas para a internet, enquanto o outro tipo de nó pode ser para VMs grandes e VMs de back-end que processam dados. Nos clusters do Azure, cada tipo de nó é mapeado para um [conjunto de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/).
 
-Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure Service Fabric configura uma escala de dimensionamento separada. O tempo de execução do Service Fabric é inicializado em cada máquina virtual no conjunto de dimensionamento usando as extensões de VM do Azure. Cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter a SKU de sistema operacional em execução em cada nó de cluster, ter conjuntos diferentes de portas abertas e usar métricas de capacidade diferentes. Um conjunto de dimensionamento tem cinco [domínios de atualização](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e cinco [domínios de falha](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) e pode ter até 100 VMs.  É possível criar clusters de mais de 100 nós, criando vários tipos de nó/conjuntos de dimensionamento.
+Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure Service Fabric configura uma escala de dimensionamento separada. O runtime do Service Fabric é inicializado em cada máquina virtual no conjunto de dimensionamento usando as extensões de VM do Azure. Cada tipo de nó pode ser escalado vertical ou horizontalmente de forma independente, ter a SKU de sistema operacional em execução em cada nó de cluster, ter conjuntos diferentes de portas abertas e usar métricas de capacidade diferentes. Um conjunto de dimensionamento tem cinco [domínios de atualização](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e cinco [domínios de falha](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) e pode ter até 100 VMs.  É possível criar clusters de mais de 100 nós, criando vários tipos de nó/conjuntos de dimensionamento.
 
 > [!IMPORTANT]
 > Escolher o número de tipos de nó do cluster e as propriedades de cada tipo de nó (tamanho, primário, voltado para a internet, número de VMs, etc.) é uma tarefa importante.  Para saber mais, confira as [considerações de planejamento de capacidade de cluster](service-fabric-cluster-capacity.md).
@@ -55,18 +48,18 @@ Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma c
 Para saber mais, confira os [tipos de nós do Service Fabric e os conjuntos de dimensionamento de máquina virtual](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo de DNS.  Quando você provisiona um cluster com *&lt;nomedocluster&gt;* , o nome DNS *&lt;nomedocluster&gt; &lt;local&gt;. cloudapp.azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
+As instâncias de VM são unidas atrás de um [balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado a um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e a um rótulo de DNS.  Quando você provisiona um cluster com *&lt;nomedocluster&gt;* , o nome DNS *&lt;nomedocluster&gt;&lt;local&gt;. cloudapp.azure.com* é o rótulo DNS associado ao balanceador de carga na frente do conjunto de dimensionamento.
 
 As VMs em um cluster têm apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  O tráfego de gerenciamento e de serviço são roteados por meio do balanceador de carga voltado ao público.  O tráfego de rede é roteado para essas máquinas por meio de regras NAT (os clientes se conectam a nós/instâncias específicas) ou de regras de balanceamento de carga (o tráfego vai para as VMs round robin).  Um balanceador de carga tem um IP público associado a um nome DNS no formato: *&lt;nomedocluster&gt;.&lt;local&gt;.cloudapp.azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se você definir vários tipos de nós em um cluster, é criado um balanceador de carga para cada tipo de nó/conjunto de dimensionamento. Ou, é possível configurar um balanceador de carga único para vários tipos de nó.  O tipo de nó primário tem o rótulo DNS *&lt;nomedocluster&gt;.&lt;local&gt;.cloudapp.azure.com*, outros tipos de nó têm o rótulo DNS *&lt;nomedocluster&gt;-&lt;tipodenó&gt;.&lt;local&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 A [conta de armazenamento do Azure](/azure/storage/common/storage-introduction) e os Managed Disks oferecem suporte a cada tipo de nó de cluster.
 
-## <a name="cluster-security"></a>Segurança de cluster
+## <a name="cluster-security"></a>Segurança do cluster
 Um cluster do Service Fabric é um recurso que pertence a você.  É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. 
 
 ### <a name="node-to-node-security"></a>Segurança de nó para nó
-A segurança de nó para nó protege a comunicação entre as VMs ou os computadores em um cluster. Esse cenário de segurança faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo.  É necessário um certificado de cluster para proteger o tráfego de cluster e fornecer autenticação de servidor e de cluster.  Os certificados autoassinados podem ser usados para clusters de teste, mas deve ser usado um certificado de uma autoridade de certificação confiável para proteger os clusters de produção.
+A segurança de nó para nó protege a comunicação entre as VMs ou os computadores em um cluster. Esse cenário de segurança faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster. O Service Fabric usa certificados x.509 para proteger um cluster e fornecer recursos de segurança do aplicativo.  É necessário um certificado de cluster para proteger o tráfego de cluster e fornecer autenticação de servidor e de cluster.  Os certificados autoassinados podem ser usados para clusters de teste, mas deve ser usado um certificado de uma autoridade de certificação confiável para proteger clusters de produção.
 
 Para saber mais, confira a [segurança de nó para nó](service-fabric-cluster-security.md#node-to-node-security)
 
@@ -80,7 +73,7 @@ Para saber mais, leia [Segurança de cliente para nó](service-fabric-cluster-se
 ### <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
 O Controle de Acesso Baseado em Função (RBAC) permite atribuir controles de acesso refinado a recursos do Azure.  Você pode atribuir regras de acesso diferentes para assinaturas, grupos de recursos e recursos.  As regras de RBAC são herdadas ao longo da hierarquia de recursos, a menos que sejam substituídas em um nível inferior.  Você pode atribuir qualquer usuário ou grupos de usuários em seu AAD com regras de RBAC, de modo que esses usuários e grupos designados possam modificar o cluster.  Para saber mais, confira a [visão geral do RBAC do Azure](/azure/role-based-access-control/overview).
 
-O Service Fabric também oferece suporte ao controle de acesso a diferentes grupos de usuários a fim de limitar o acesso a determinadas operações de cluster. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: Função de administrador e função de usuário.  
+O Service Fabric também dá suporte ao controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de usuários. Isso ajuda a tornar o cluster mais seguro. Dois tipos de controle de acesso têm suporte para clientes que se conectam a um cluster: função de Administrador e função de Usuário.  
 
 Para saber mais, confira o item sobre o [Controle de Acesso Baseado em Função (RBAC) do Service Fabric](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
@@ -96,22 +89,22 @@ As demandas de aplicativos alteram ao longo do tempo. Talvez seja necessário au
 Para saber mais, confira o artigo sobre o [Dimensionamento de clusters do Azure](service-fabric-cluster-scaling.md).
 
 ## <a name="upgrading"></a>Atualizando
-Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. A Microsoft é responsável por aplicar patch ao sistema operacional subjacente e realizar atualizações de tempo de execução do Service Fabric em seu cluster. É possível definir que seu cluster receba atualizações automáticas de tempo de atualização quando a Microsoft lançar uma nova versão ou é possível optar por selecionar uma versão de tempo de execução com suporte que você queira. Além das atualizações de tempo de execução, também é possível atualizar a configuração do cluster, como certificados ou portas de aplicativo.
+Um cluster do Azure Service Fabric é um recurso cujo proprietário é você, mas que é parcialmente gerenciado pela Microsoft. A Microsoft é responsável por aplicar patch ao sistema operacional subjacente e realizar atualizações de runtime do Service Fabric em seu cluster. É possível configurar seu cluster para receber atualizações automáticas de runtime quando a Microsoft lançar uma nova versão ou é possível optar por selecionar uma versão de runtime com suporte que você queira. Além das atualizações de runtime, também é possível atualizar a configuração do cluster, como certificados ou portas de aplicativo.
 
 Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 É possível criar clusters em máquinas virtuais que executem estes sistemas operacionais:
 
 | Sistema operacional | Versão de Service Fabric mais antiga com suporte |
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6.0 |
+| Windows Server 1709 | 6,0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 
 Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
@@ -120,7 +113,7 @@ Para obter informações adicionais, consulte [versões de cluster com suporte n
 >
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre como [proteger](service-fabric-cluster-security.md), [dimensionar](service-fabric-cluster-scaling.md) e [fazer upgrade](service-fabric-cluster-upgrade.md) de clusters do Azure.
 
 Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md).

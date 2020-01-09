@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440434"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
 A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -59,13 +59,13 @@ A atividade de execução de pipeline permite que um pipeline do Data Factory in
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
+Propriedade | Description | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade de execução de pipeline. | Cadeia de caracteres | Sim
-Tipo | Deve ser definido como: **ExecutePipeline**. | Cadeia de caracteres | Sim
+name | Nome da atividade de execução de pipeline. | String | Sim
+type | Deve ser definido como: **ExecutePipeline**. | String | Sim
 pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
-waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é falso. | Booliano | Não
+waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Boolean | Não
 
 ## <a name="sample"></a>Amostra
 Este cenário tem dois pipelines:
@@ -168,10 +168,7 @@ Este cenário tem dois pipelines:
     "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": {
-        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-        "type": "SecureString"
-      }
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=*****"
     }
   }
 }
@@ -254,7 +251,7 @@ O pipeline mestre encaminha esses valores para o pipeline invocado, conforme mos
 }
 
 ```
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Para cada atividade](control-flow-for-each-activity.md)

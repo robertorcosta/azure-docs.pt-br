@@ -7,18 +7,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457073"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
 Este artigo explica as cotas de um hub IoT e fornece informações para ajudá-lo a entender como a limitação funciona.
 
-## <a name="quotas-and-throttling"></a>Cotas e limitação
+## <a name="quotas-and-throttling"></a>Cotas e limitações
 
 Cada assinatura do Azure pode ter no máximo 50 hubs IoT e pelo menos um hub Gratuito.
 
@@ -104,8 +104,8 @@ IoT Hub impõe outros limites operacionais:
 | Mensagens do dispositivo para a nuvem | Tamanho máximo da mensagem 256 KB |
 | Mensagens de nuvem para dispositivo<sup>1</sup> | Tamanho máximo da mensagem 64 KB. O máximo de mensagens pendentes para entrega é de 50 por dispositivo. |
 | Método direto<sup>1</sup> | O tamanho de payload do método direto máximo é 128 KB. |
-| Configurações automáticas de dispositivo<sup>1</sup> | 100 configurações por hub SKU pago. 20 configurações por hub SKU gratuito. |
-| IoT Edge implantações automáticas<sup>1</sup> | 20 módulos por implantação. 100 implantações por hub SKU pago. 10 implantações por Hub SKU gratuito. |
+| Configurações automáticas de dispositivo e módulo<sup>1</sup> | 100 configurações por hub SKU pago. 20 configurações por hub SKU gratuito. |
+| IoT Edge implantações automáticas<sup>1</sup> | 20 módulos por implantação. 100 implantações (incluindo implantações em camadas) por Hub SKU pago. 10 implantações por Hub SKU gratuito. |
 | Gêmeos<sup>1</sup> | O tamanho máximo das seções desejadas e das propriedades relatadas são 32 KB. O tamanho máximo da seção de marcas é 8 KB. |
 
 <sup>1</sup>Esse recurso não está disponível na camada básica do Hub IoT. Para obter mais informações, consulte [Como escolher o Hub IoT correto](iot-hub-scaling.md).
@@ -126,7 +126,7 @@ Várias unidades de Hub IoT afetam limitação, conforme descrito anteriormente,
 
 No caso de aumentos inesperados na latência da operação, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para uma discussão aprofundada do comportamento de limitação do Hub IoT, confira a postagem do blog [A limitação do Hub IoT e você](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/).
 

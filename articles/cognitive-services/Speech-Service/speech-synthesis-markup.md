@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815510"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562520"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Linguagem de marcação de síntese de fala (SSML)
 
@@ -55,11 +55,11 @@ Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos s�
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| version | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | obrigatórios |
-| xml:lang | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, **en**) ou o código de idioma e o país/região em maiúsculas (por exemplo, **en-US**). | obrigatórios |
-| xmlns | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é https://www.w3.org/2001/10/synthesis. | obrigatórios |
+| version | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Obrigatório |
+| xml:lang | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, **en**) ou o código de idioma e o país/região em maiúsculas (por exemplo, **en-US**). | Obrigatório |
+| xmlns | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é https://www.w3.org/2001/10/synthesis. | Obrigatório |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para conversão de texto em fala
 
@@ -75,9 +75,9 @@ O elemento `voice` é obrigatório. Ele é usado para especificar a voz que é u
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| Nome | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | obrigatórios |
+| name | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Obrigatório |
 
 **Exemplo**
 
@@ -98,9 +98,9 @@ Dentro do elemento `speak`, você pode especificar várias vozes para a saída d
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| Nome | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | obrigatórios |
+| name | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Obrigatório |
 
 **Exemplo**
 
@@ -136,17 +136,19 @@ As alterações são aplicadas no nível da frase e o estilo varia de acordo com
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | type | Especifica o estilo de fala. Atualmente, os estilos de fala são específicos da voz. | Obrigatório se estiver ajustando o estilo de fala para uma voz neural. Se estiver usando `mstts:express-as`, o tipo deverá ser fornecido. Se um valor inválido for fornecido, esse elemento será ignorado. |
 
 Use esta tabela para determinar quais estilos de fala têm suporte para cada voz neural.
 
-| Voz | Type | Descrição |
+| Voz | Tipo | Description |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Expressa uma emoção positiva e feliz |
 | | type=`empathy` | Expressa uma noção de preocupar e compreensão |
 | | type=`chat` | Fale em um tom casual e relaxado |
+| | type=`newscast` | Expressa um tom formal, semelhante a difusões de notícias |
+| | type=`customerservice` | Fale de forma amigável e paciente como atendimento ao cliente |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expressa um tom formal, semelhante a difusões de notícias |
 | | type=`sentiment` | Transmite uma mensagem ou uma história ao toque |
 
@@ -180,18 +182,18 @@ Use o elemento `break` para inserir pausas (ou interrupções) entre palavras ou
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| segurança | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>Nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>fortes</li><li>x-Strong</li></ul> | Opcional |
+| segurança | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>none</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | time | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são 2S e 500 | Opcional |
 
-| Força | Descrição |
+| Força | Description |
 |----------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms |
 | x-fraco | 250 ms |
 | baixas | 500 ms |
 | média | 750 ms |
-| fortes | 1000 MS |
+| forte | 1000 MS |
 | x-Strong | 1250 MS |
 
 
@@ -251,7 +253,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | alfabeto | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no atributo `ph`. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>IPA &ndash; alfabeto fonético internacional</li><li>&ndash; SAPI Speech API conjunto de telefone</li><li>Conjunto de telefone universal &ndash; ups</li></ul>O alfabeto aplica-se somente ao fonema no elemento. Para obter mais informações, consulte [referência de alfabeto fonético](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Opcional |
 | espaço | Uma cadeia de caracteres que contém telefones que especificam a pronúncia da palavra no elemento `phoneme`. Se a cadeia de caracteres especificada contiver telefones não reconhecidos, o serviço de conversão de texto em fala (TTS) rejeitará todo o documento SSML e produzirá nenhuma saída de fala especificada no documento. | Necessário se estiver usando fonemas. |
@@ -288,9 +290,9 @@ Como os valores de atributo prosódico podem variar em um intervalo maior, o rec
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| zumbi | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, 600Hz.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: + 80Hz ou-2st. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>baixa</li><li>média</li><li>alto</li><li>x-alto</li><li>padrão</li></ul></li></ul>. | Opcional |
+| zumbi | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, 600Hz.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: + 80Hz ou-2st. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alto</li><li>padrão</li></ul></li></ul>. | Opcional |
 | Contour | Não há suporte para contorno em vozes neurais. A delimitação representa as alterações em pitch para o conteúdo de fala como uma matriz de destinos em posições de tempo especificadas na saída de fala. Cada destino é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros Especifica o local da alteração de timbre como uma porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir a densidade, usando um valor relativo ou um valor de enumeração para pitch (consulte `pitch`). | Opcional |
 | range  | Um valor que representa o intervalo de timbre do texto. Você pode expressar `range` usando os mesmos valores absolutos, valores relativos ou valores de enumeração usados para descrever `pitch`. | Opcional |
 | taxa  | Indica a taxa de fala do texto. Você pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta em uma metade da taxa. Um valor de *3* resulta em uma viagem da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>padrão</li></ul></li></ul> | Opcional |
@@ -371,9 +373,9 @@ As alterações de timbre podem ser aplicadas a vozes padrão na palavra ou no n
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| interpretar como | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | obrigatórios |
+| interpretar como | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
 | format | Fornece informações adicionais sobre a formatação exata do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. O SSML define formatos para tipos de conteúdo que os usam (consulte a tabela abaixo). | Opcional |
 | detalhes | Indica o nível de detalhe a ser falado. Por exemplo, esse atributo pode solicitar que o mecanismo de síntese de fala pronuncia as marcas de pontuação. Não há valores padrão definidos para `detail`. | Opcional |
 
@@ -383,7 +385,7 @@ A seguir estão os tipos de conteúdo com suporte para os atributos `interpret-a
 
 | interpretar como | format | Interpretação |
 |--------------|--------|----------------|
-| endereço | | O texto é falado como um endereço. O mecanismo de síntese de fala pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Como "Estou em 150th tribunal norte leste de Redmond, Washington." |
+| address | | O texto é falado como um endereço. O mecanismo de síntese de fala pronuncia:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Como "Estou em 150th tribunal norte leste de Redmond, Washington." |
 | Cardinal, número | | O texto é falado como um número cardinal. O mecanismo de síntese de fala pronuncia:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Como "há três alternativas". |
 | caracteres, soletração | | O texto é falado como letras individuais (escritas). O mecanismo de síntese de fala pronuncia:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Como "T E S T". |
 | date  | dmy, MDY, ymd, ydm, YM, My, MD, DM, d, m, y | O texto é falado como uma data. O atributo `format` especifica o formato da data (*d = dia, m = mês e y = ano*). O mecanismo de síntese de fala pronuncia:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Como "hoje é de outubro de nineteenth 2016." |
@@ -393,7 +395,7 @@ A seguir estão os tipos de conteúdo com suporte para os atributos `interpret-a
 | telefone  | | O texto é falado como um número de telefone. O atributo `format` pode conter dígitos que representam um código de país. Por exemplo, "1" para o Estados Unidos ou "39" para a Itália. O mecanismo de síntese de fala pode usar essas informações para orientar sua pronúncia de um número de telefone. O número de telefone também pode incluir o código do país e, nesse caso, tem precedência sobre o código do país na `format`. O mecanismo de síntese de fala pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "meu número é código de área 8 8 8 5 5 5 1 2 1 2." |
 | time | hms12, hms24 | O texto é falado como uma hora. O atributo `format` especifica se a hora é especificada usando um relógio de 12 horas (hms12) ou um relógio de 24 horas (hms24). Use dois-pontos para separar números que representam horas, minutos e segundos. Estes são exemplos de tempo válidos: 12:35, 1:14:32, 08:15 e 02:50:45. O mecanismo de síntese de fala pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "o treinamento faz parte de quatro A M". |
 
-**Uso**
+**Usage**
 
 O elemento `say-as` pode conter apenas texto.
 
@@ -433,7 +435,7 @@ Qualquer áudio incluído no documento SSML deve atender a estes requisitos:
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | src | Especifica o local/URL do arquivo de áudio. | Necessário se estiver usando o elemento Audio em seu documento SSML. |
 
@@ -466,7 +468,7 @@ Somente um arquivo de áudio de segundo plano é permitido por documento SSML. N
 
 **Atributos**
 
-| Atributo | Descrição | Obrigatório/Opcional |
+| Atributo | Description | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | src | Especifica o local/URL do arquivo de áudio de segundo plano. | Necessário se estiver usando áudio de fundo em seu documento SSML. |
 | volume | Especifica o volume do arquivo de áudio de segundo plano. **Valores aceitos**: `0` a `100` inclusive. O valor padrão é `1`. | Opcional |

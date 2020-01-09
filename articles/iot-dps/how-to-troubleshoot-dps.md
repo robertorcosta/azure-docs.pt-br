@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974812"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646465"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
@@ -32,7 +32,7 @@ O procedimento a seguir descreve como exibir e configurar o alerta na métrica d
 4. Selecione a métrica desejada. 
    <br />Atualmente, há três métricas para o DPS:
 
-    | Nome da métrica | Descrição |
+    | Nome da métrica | Description |
     |-------|------------|
     | Tentativas de atestado | Número de dispositivos que tentaram autenticar com o serviço de provisionamento de dispositivos|
     | Tentativas de Registro | Número de dispositivos que tentaram registrar no Hub IoT após a autenticação bem-sucedida|
@@ -58,7 +58,7 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 
 5. Habilite os logs desejados a serem coletados.
 
-    | Nome do log | Descrição |
+    | Nome do log | Description |
     |-------|------------|
     | DeviceOperations | Logs relacionados aos eventos de conexão do dispositivo |
     | ServiceOperations | Logs de eventos relacionados ao uso do SDK do serviço (por exemplo, criação ou atualização de grupos de registro)|
@@ -75,11 +75,11 @@ Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../
 ## <a name="common-error-codes"></a>Códigos de erro comum
 Use esta tabela para entender e resolver erros comuns.
 
-| Código do Erro| Descrição | Código de status HTTP |
+| Código do Erro| Description | Código de status HTTP |
 |-------|------------|------------|
 | 400 | O corpo da solicitação não é válido; por exemplo, ele não pode ser analisado ou o objeto não pode ser validado.| 400 formato inadequado |
 | 401 | O token de autorização não pode ser validado; por exemplo, ele está expirado ou não se aplica ao URI da solicitação. Esse código de erro também é retornado para dispositivos como parte do fluxo de atestado do TPM. | 401 Não Autorizado|
 | 404 | A instância do serviço de provisionamento de dispositivos ou um recurso (por exemplo, um registro) não existe. |404 Não Encontrado |
 | 412 | A ETag na solicitação não corresponde à ETag do recurso existente, de acordo com o RFC7232. | 412 falha na pré-condição |
-| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
+| 429 | As operações estão sendo limitadas pelo serviço. Para limites de serviço específicos, consulte [limites do serviço de provisionamento de dispositivos no Hub IOT](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 número excessivo de solicitações |
 | 500 | Ocorreu um erro interno. | 500 Erro Interno do Servidor|

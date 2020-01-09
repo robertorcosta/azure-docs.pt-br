@@ -1,18 +1,15 @@
 ---
 title: Obter eventos de integridade de recursos do Azure usando a API REST | Microsoft Docs
 description: Use as APIs REST do Azure para obter os eventos de integridade para seus recursos do Azure.
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451387"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obter Resource Health usando a API REST 
 
@@ -32,14 +29,14 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
+|Cabeçalho da solicitação|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obrigatório. Defina como `application/json`.|  
-|*Authorization:*|Obrigatório. Defina como um `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |  
+|*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
+|*Autorização:*|Obrigatórios. Defina como um token de [acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)de `Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-| NOME | DESCRIÇÃO |
+| Nome | Description |
 | :--- | :---------- |
 | subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento abrange a versão da API `2015-04-01`, incluída na URL acima.  |

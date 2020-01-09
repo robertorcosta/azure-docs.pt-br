@@ -1,23 +1,18 @@
 ---
 title: Unificar vários recursos do Application Insights do Azure Monitor | Microsoft Docs
 description: Este artigo fornece detalhes sobre como usar uma função nos Logs do Azure Monitor para consultar vários recursos do Application Insights e visualizar esses dados.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: magoedte
-ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650127"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364961"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
 Este artigo descreve como consultar e exibir todos os seus Application Insights dados de log em um único local, mesmo quando eles estão em assinaturas diferentes do Azure, como uma substituição para a reprovação da Conector do Application Insights. O número de recursos de Application Insights que você pode incluir em uma única consulta é limitado a 100.
@@ -103,17 +98,17 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | duração |
-| AvailabilityMessage | mensagem |
-| AvailabilityRunLocation | localização |
+| AvailabilityDuration | duration |
+| AvailabilityMessage | message |
+| AvailabilityRunLocation | local |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
-| Browser | client_browser |
+| Navegador | client_browser |
 | Cidade | client_city |
 | ClientIP | client_IP |
-| Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| Computador | cloud_RoleInstance | 
+| País | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -121,22 +116,22 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | mensagem | 
+| ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| OS | client_OS | 
+| SISTEMA OPERACIONAL | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | duração | 
+| PageViewDuration | duration | 
 | PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | duração | 
+| RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | success | 
+| RequestSuccess | sucesso | 
 | ResponseCode | resultCode | 
-| Role | cloud_RoleName |
+| Função | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
@@ -144,6 +139,6 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | URL | url |
 | UserAccountId | user_AccountId |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use a [Pesquisa de Logs](../../azure-monitor/log-query/log-query-overview.md) para exibir informações detalhadas dos aplicativos do Application Insights.

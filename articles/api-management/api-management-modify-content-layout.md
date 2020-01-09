@@ -1,5 +1,6 @@
 ---
-title: Modificar conteúdo da página no portal do desenvolvedor no Gerenciamento de API do Azure | Microsoft Docs
+title: Modificar o conteúdo da página no portal do desenvolvedor no gerenciamento de API
+titleSuffix: Azure API Management
 description: Saiba como editar o conteúdo da página no portal do desenvolvedor no Gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072282"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430627"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o layout de páginas no portal do desenvolvedor no Gerenciamento de API do Azure
 Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
@@ -41,7 +42,7 @@ Todos os widgets são editáveis.
 
 Na edição de página de rotina, em geral, a modificação é feita somente no widget de conteúdo, que terá conteúdo diferente para cada página.
 
-## <a name="modify-layout-widget"> </a>Modificação do conteúdo de um widget de layout
+## <a name="modify-layout-widget"> </a>Modificando o conteúdo de um widget de layout
 
 O Portal do Desenvolvedor pode ser acessado no Portal do Azure.
 

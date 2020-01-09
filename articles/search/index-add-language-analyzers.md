@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460804"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Adicionar analisadores de idioma a campos de cadeia de caracteres em um índice de Pesquisa Cognitiva do Azure
 
@@ -48,7 +48,10 @@ O analisador padrão é Lucene Standard, que funciona bem para o inglês, mas ta
 
 ## <a name="configuring-analyzers"></a>Configurar analisadores
 
-Os analisadores de idiomas são usados no estado em que se encontram. Para cada campo na definição do índice, você pode definir a propriedade **analyzer** para um nome de analisador que especifica a pilha de idiomas e linguística (Microsoft ou Lucene). O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições de hotéis em inglês, francês e espanhol, existentes lado a lado no mesmo índice. Como alternativa, em vez do **analyzer**, você pode usar o **indexAnalyzer** e o **searchAnalyzer** para ter regras de análises diferentes no tempo de consulta e de indexação. 
+Os analisadores de idiomas são usados no estado em que se encontram. Para cada campo na definição do índice, você pode definir a propriedade **analyzer** para um nome de analisador que especifica a pilha de idiomas e linguística (Microsoft ou Lucene). O mesmo analisador será aplicado durante a indexação e a pesquisa desse campo. Por exemplo, você pode ter campos separados para descrições de hotéis em inglês, francês e espanhol, existentes lado a lado no mesmo índice.
+
+> [!NOTE]
+> Não é possível usar um analisador de linguagem diferente no tempo de indexação do que no momento da consulta para um campo. Esse recurso é reservado para [analisadores personalizados](index-add-custom-analyzers.md). Por esse motivo, se você tentar definir as propriedades **searchAnalyzer** ou **indexAnalyzer** como o nome de um analisador de idioma, a API REST retornará uma resposta de erro. Em vez disso, você deve usar a propriedade **Analyzer** .
 
 Use o parâmetro de consulta **searchFields** para descrever qual campo específico a um idioma pesquisar em suas consultas. Você pode examinar os exemplos de consultas que incluem a propriedade analisador em [Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
@@ -59,7 +62,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 ## <a name="language-analyzer-list"></a>Lista de analisador de idioma 
  Veja abaixo uma lista de idiomas com suporte juntamente com nomes de analisador da Lucene e da Microsoft.  
 
-|idioma|Nome do analisador da Microsoft|Nome do analisador da Lucene|  
+|Idioma|Nome do analisador da Microsoft|Nome do analisador da Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Armênia||hy.Lucene|  
@@ -67,7 +70,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 |Basco||Eu.Lucene|  
 |Búlgaro|bg.microsoft|BG.Lucene|  
 |Catalão|ca.microsoft|CA.Lucene|  
-|Chinês (simplificado)|zh-Hans.microsoft|zh-Hans.lucene|  
+|Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
 |Chinês (tradicional)|zh-Hant.microsoft|zh-Hant.lucene|  
 |Croata|hr.microsoft||  
 |Tcheco|cs.microsoft|cs.lucene|  
@@ -89,7 +92,7 @@ Para obter mais informações sobre propriedades de índice, consulte [criar ín
 |Irlandês||GA.Lucene|  
 |Italiano|it.microsoft|it.lucene|  
 |Japonês|ja.microsoft|ja.lucene|  
-|Canarim|kn.microsoft||  
+|canarim|kn.microsoft||  
 |Coreano|ko.Microsoft|ko.lucene|  
 |Letão|lv.microsoft|lv.lucene|  
 |Lituano|lt.microsoft||  

@@ -1,6 +1,7 @@
 ---
-title: Artigo sobre problemas conhecidos/limitações de migração com migrações online do Oracle para o banco de dados do Azure para PostgreSQL-servidor único | Microsoft Docs
-description: Saiba mais sobre problemas conhecidos/limitações de migração com migrações online do Oracle para o banco de dados do Azure para PostgreSQL.
+title: 'Problemas conhecidos: migrar do Oracle para o banco de dados do Azure para PostgreSQL'
+titleSuffix: Azure Database Migration Service
+description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações online do Oracle para o banco de dados do Azure para PostgreSQL-servidor único usando o serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: ecd2750926fd04c84d2d6b48f5fde06363dd15df
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0a1f46698ddb966c315d08a794dd710a74295f97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437810"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemas conhecidos/limitações de migração com migrações online do Oracle para o BD do Azure para PostgreSQL-servidor único
 
@@ -41,7 +42,7 @@ Os seguintes tipos de texto **não** serão migrados:
 
 - BFILE
 - ROWID
-- REFERÊNCIA
+- REF
 - UROWID
 - ANYDATA
 - SDO_GEOMETRY
@@ -61,7 +62,7 @@ Além disso, colunas BLOB/CLOB vazias são mapeadas para NULL no destino.
 - Somente no Oracle 12, não há suporte para alterações nas colunas LOB (migradas).
 - Não há suporte para atualizações em colunas XMLTYPE e LOB (migradas).
 
-## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
+## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
 - Os clientes devem usar o SYSDBA para se conectar ao Oracle.
 - As alterações de dados resultantes de operações de partição/subpartição (adicionar, descartar, trocar e TRUNCAr) não serão migradas e poderão causar os seguintes erros:

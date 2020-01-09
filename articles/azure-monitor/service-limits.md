@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: 37401a8eb2a8da82cef4854ab41e40b81ba429fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 236e41bcbb7055c4fda55ecd535bb0eccf224bcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394247"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites de serviço Azure Monitor
 
@@ -30,7 +30,7 @@ Este artigo lista os limites em diferentes áreas do Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
-## <a name="log-analytics-workspaces"></a>Espaços de trabalho do Log Analytics
+## <a name="log-analytics-workspaces"></a>Workspaces do Log Analytics
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
 
@@ -40,6 +40,6 @@ Este artigo lista os limites em diferentes áreas do Azure Monitor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Preços de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
+- [Preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitorando o uso e os custos estimados no Azure Monitor](platform/usage-estimated-costs.md)
-- [Gerenciar o uso e os custos de Application Insights](app/pricing.md)
+- [Gerenciar o uso e os custos do Application Insights](app/pricing.md)

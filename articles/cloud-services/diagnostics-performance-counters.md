@@ -3,17 +3,17 @@ title: Coletar em Contadores de Desempenho nos Serviços de Nuvem do Microsoft A
 description: Saiba como descobrir, usar e criar contadores de desempenho nos Serviços de Nuvem com o Application Insights e Diagnóstico do Microsoft Azure.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: gwallace
-ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: tagore
+ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68358942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385579"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Coletar contadores de desempenho para o Serviço de Nuvem do Azure
 
@@ -76,7 +76,7 @@ Esses caminhos de contador individuais podem ser adicionados à estrutura de dia
 
 Um contador de desempenho pode ser adicionado ao serviço de nuvem para o Diagnóstico do Azure ou Application Insights.
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>Percepções sobre o Aplicativo
 
 O Azure Application Insights para Serviços de Nuvem permite especificar quais contadores de desempenho deseja coletar. Após [Adicionar o Application Insights ao seu projeto ](../azure-monitor/app/cloudservices.md#sdk), um arquivo de configuração nomeado **ApplicationInsights.config** será adicionado ao seu projeto do Visual Studio. Este arquivo de configuração define o tipo de informação que Application Insights coleta e envia para o Azure.
 
@@ -103,7 +103,7 @@ Cada contador de desempenho é representado como um elemento `<Add>` em `<Counte
 
 O Application Insights coleta automaticamente os seguintes contadores de desempenho:
 
-* \Process(??APP_WIN32_PROC??)\% Tempo do Processador
+* \Process (?? APP_WIN32_PROC??)\% tempo do processador
 * \Memória\Bytes Disponíveis
 * \.Exceções NET CLR (?. APP_CLR_PROC?)\# de exceções lançadas / s
 * \Processo(??APP_WIN32_PROC??)\Bytes Privados
@@ -234,7 +234,7 @@ counterServiceUsed.Increment();
 Agora que o aplicativo utiliza o contador personalizado, será necessário configurar o Diagnóstico do Azure ou o Application Insights para acompanhar o contador.
 
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>Percepções sobre o Aplicativo
 
 Conforme indicado anteriormente, os contadores de desempenho para o Application Insights são definidos no arquivo **ApplicationInsights.config**. Abra **ApplicationInsights.config** e localize o elemento **ApplicationInsights** > **TelemetryModules** > **Adicionar** > **Contadores**. Crie um elemento-filho `<Add>` e defina o atributo `PerformanceCounter` para a categoria e o nome do contador de desempenho que você criou em seu código. Defina o atributo `ReportAs` como um nome amigável que deseja ver no portal.
 
@@ -292,3 +292,6 @@ Como indicado anteriormente, os contadores de desempenho que você deseja coleta
 - [Contadores de desempenho do sistema no Application Insights](../azure-monitor/app/performance-counters.md)
 - [Especificar um Caminho do Contador](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Esquema do Diagnóstico do Azure - Contadores de Desempenho](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+
+
+

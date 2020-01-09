@@ -1,5 +1,6 @@
 ---
-title: Monitorar APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Moesif | Microsoft Docs
+title: Monitorar APIs com gerenciamento de API do Azure, hubs de eventos e Moesif
+titleSuffix: Azure API Management
 description: O exemplo de aplicativo que demonstra a política log-to-eventhub, conectando o Gerenciamento de API do Azure, os Hubs de Eventos do Azure e o Moesif para registro em log e monitoramento de HTTP
 services: api-management
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a0717bf7a284668af4808acae3050cc7f42f836
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442535"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorar suas APIs com Gerenciamento de API do Azure, os Hubs de Eventos e Moesif
 O [serviço Gerenciamento de API](api-management-key-concepts.md) oferece muitos recursos para aprimorar o processamento de solicitações HTTP enviadas à API do HTTP. No entanto, a existência das solicitações e respostas é transitória. A solicitação é feita e flui pelo serviço Gerenciamento de API para a API de back-end. Sua API processa a solicitação e uma resposta flui de volta para o consumidor da API. O serviço Gerenciamento de API mantém algumas estatísticas importantes sobre as APIs para exibição no painel do portal do Azure, mas fora isso, os detalhes são apagados.
@@ -293,7 +294,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-O `MoesifHttpMessageProcessor` tira proveito de uma [biblioteca de API C# para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio por push dos dados de evento de HTTP para o respectivo serviço. Para enviar dados HTTP para a API de Coletor do Moesif, você precisa de uma conta e uma ID de aplicativo. É possível obter uma ID de aplicativo Moesif ao criar uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, acessando o _Menu no canto superior direito_ -> _Configuração do aplicativo_.
+O `MoesifHttpMessageProcessor` tira proveito de uma [biblioteca de API C# para Moesif](https://www.moesif.com/docs/api?csharp#events) que facilita o envio por push dos dados de evento de HTTP para o respectivo serviço. Para enviar dados HTTP para a API do coletor do Moesif, você precisa de uma conta e uma ID do aplicativo. Você Obtém uma ID do aplicativo Moesif criando uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, acesse o _Menu superior direito_ -> _configuração do aplicativo_.
 
 ## <a name="complete-sample"></a>Exemplo completo
 O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e os testes do exemplo estão no GitHub. Para executar o exemplo, você precisará de um [Serviço de Gerenciamento de API](get-started-create-service-instance.md), de um [Hub de Eventos conectado](api-management-howto-log-event-hubs.md) e de uma [Conta de Armazenamento](../storage/common/storage-create-storage-account.md).   
@@ -307,7 +308,7 @@ Na imagem animada a seguir, você pode ver uma solicitação sendo feita em uma 
 ## <a name="summary"></a>Resumo
 O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o tráfego HTTP que entra e sai de suas APIs. Os Hubs de Eventos do Azure são uma solução escalonável de baixo custo para capturar esse tráfego e mantê-lo em sistemas de processamento secundários para registro em log, monitoramento e outras análise sofisticadas. A conexão a sistemas de monitoramento de tráfego de terceiros, como o Moesif, usa apenas algumas dezenas de linhas de código.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre Hubs de Eventos do Azure
   * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)

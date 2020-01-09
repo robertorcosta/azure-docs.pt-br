@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c3c94805c18b0a7a3052158871c5fafce2dd5a33
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933693"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660708"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -34,7 +34,7 @@ Este artigo aborda as diversas entidades que compõem as fórmulas de dimensiona
 > [!IMPORTANT]
 > Ao criar uma conta do Lote será possível especificar a [configuração da conta](batch-api-basics.md#account), que determinará se os pools serão alocados em uma assinatura do serviço de Lote (o padrão) ou na sua assinatura de usuário. Se a conta do Lote foi criada com a configuração de Serviço de Lote padrão, essa conta será limitada a um número máximo de núcleos que poderá ser utilizado para processamento. As escalas de serviço de Lote calculam os nós apenas até esse limite de núcleos. Por esse motivo, o serviço de Lote talvez não alcance o número de nós de computação de destino especificado por uma fórmula de autoescala. Consulte [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter informações sobre como exibir e aumentar as cotas da conta.
 >
->Se a conta foi criada com a configuração Assinatura de Usuário, essa conta irá compartilhar a cota de núcleos para a assinatura. Para saber mais, confira[Limites das Máquinas Virtuais](../azure-subscription-service-limits.md#virtual-machines-limits) e [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md).
+>Se a conta foi criada com a configuração Assinatura de Usuário, essa conta irá compartilhar a cota de núcleos para a assinatura. Para saber mais, confira[Limites das Máquinas Virtuais](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) e [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
@@ -89,7 +89,7 @@ $NodeDeallocationOption = taskcompletion;
 
 Este exemplo cria um pool que começa com 25 nós de baixa prioridade. Toda vez que um nó de baixa prioridade é preempção, ele é substituído por um nó dedicado. Assim como no primeiro exemplo, a variável `maxNumberofVMs` impede que o pool exceda 25 VMs. Este exemplo é útil para aproveitar as VMs de baixa prioridade, garantindo também que apenas um número fixo de preempçãos ocorrerá durante o tempo de vida do pool.
 
-## <a name="variables"></a>variáveis
+## <a name="variables"></a>Variáveis
 
 Você pode usar as variáveis **definidas pelo serviço** e **definidas pelo usuário** em suas fórmulas de dimensionamento automático. As variáveis definidas pelo serviço são incorporadas ao serviço de Lote. Algumas variáveis definidas pelo serviço são de leitura e gravação e algumas são somente leitura. Variáveis definidas pelo usuário são as variáveis que você definir. Na fórmula de exemplo mostrada na seção anterior, `$TargetDedicatedNodes` e `$PendingTasks` são variáveis definidas pelo serviço. As variáveis de `startingNumberOfVMs` e `maxNumberofVMs` são variáveis definidas pelo usuário.
 
@@ -102,7 +102,7 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 
 É possível obter e definir os valores dessas variáveis definidas pelo serviço para gerenciar o número de nós de computação em um pool:
 
-| Variáveis definidas pelo serviço de leitura/gravação | Descrição |
+| Variáveis definidas pelo serviço de leitura/gravação | Description |
 | --- | --- |
 | $TargetDedicatedNodes |O número de nós de computação dedicados de destino para o pool. O número de nós dedicados é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós dedicados de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. <br /><br /> Um pool em uma conta criada com a configuração do Serviço de Lote talvez não consiga atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. Um pool em uma conta criada com a configuração de Assinatura de Usuário poderá não atingir seu destino, se o destino exceder a cota de núcleos compartilhada para a assinatura.|
 | $TargetLowPriorityNodes |O número de destino de nós de computação de baixa prioridade para o pool. O número de nós de baixa prioridade é especificado como um destino porque um pool nem sempre consegue o número de nós desejado. Por exemplo, se o número de nós de baixa prioridade de destino for modificado por uma avaliação de autoescala antes que o pool tenha alcançado o destino inicial, então, o pool poderá não alcançar o destino. Um pool também não poderá atingir seu destino, se o destino exceder um nó da conta do Lote ou uma cota de núcleos. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [usar VMs de baixa prioridade com o lote](batch-low-pri-vms.md). |
@@ -115,7 +115,7 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 
 É possível obter o valor dessas variáveis definidas pelo serviço para fazer ajustes que se são baseados em métricas do serviço de Lote:
 
-| Variáveis somente leitura definidas pelo serviço | Descrição |
+| Variáveis somente leitura definidas pelo serviço | Description |
 | --- | --- |
 | $CPUPercent |O percentual médio de utilização da CPU. |
 | $WallClockSeconds |O número de segundos consumidos. |
@@ -146,10 +146,10 @@ As tabelas a seguir mostram as variáveis de leitura e gravação e de somente l
 
 Esses tipos têm suporte em uma fórmula:
 
-* Duplo
+* double
 * doubleVec
 * doubleVecList
-* string
+* cadeia de caracteres
 * timestamp - timestamp é uma estrutura composta que contém os seguintes elementos:
 
   * ano
@@ -178,7 +178,7 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 
 | Operação | Operadores com suporte | Tipo de resultado |
 | --- | --- | --- |
-| double *operador* double |+, -, *, / |Duplo |
+| double *operador* double |+, -, *, / |double |
 | double *operador* timeinterval |* |timeinterval |
 | doubleVec *operador* double |+, -, *, / |doubleVec |
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
@@ -187,40 +187,40 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 | timeinterval *operador* timestamp |+ |timestamp |
 | timestamp *operador* timeinterval |+ |timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
-| *operador*double |-, ! |Duplo |
+| *operador*double |-, ! |double |
 | *operador*timeinterval |- |timeinterval |
-| double *operador* double |<, <=, ==, >=, >, != |Duplo |
-| string *operador* string |<, <=, ==, >=, >, != |Duplo |
-| timestamp *operador* timestamp |<, <=, ==, >=, >, != |Duplo |
-| timeinterval *operador* timeinterval |<, <=, ==, >=, >, != |Duplo |
-| double *operador* double |&&, &#124;&#124; |Duplo |
+| double *operador* double |<, <=, ==, >=, >, != |double |
+| string *operador* string |<, <=, ==, >=, >, != |double |
+| timestamp *operador* timestamp |<, <=, ==, >=, >, != |double |
+| timeinterval *operador* timeinterval |<, <=, ==, >=, >, != |double |
+| double *operador* double |&&, &#124;&#124; |double |
 
 Ao testar um double com um operador ternário (`double ? statement1 : statement2`), um item diferente de zero é **true** e zero é **false**.
 
 ## <a name="functions"></a>Funções
 Essas **funções** predefinidas estão disponíveis para usar na definição de uma fórmula de dimensionamento automático.
 
-| Função | Tipo de retorno | Descrição |
+| Função | Tipo de retorno | Description |
 | --- | --- | --- |
-| avg(doubleVecList) |Duplo |Retorna o valor médio de todos os valores em doubleVecList. |
-| len(doubleVecList) |Duplo |Retorna o comprimento do vetor criado por meio de doubleVecList. |
-| lg(double) |Duplo |Retorna o logaritmo na base 2 do double. |
+| avg(doubleVecList) |double |Retorna o valor médio de todos os valores em doubleVecList. |
+| len(doubleVecList) |double |Retorna o comprimento do vetor criado por meio de doubleVecList. |
+| lg(double) |double |Retorna o logaritmo na base 2 do double. |
 | lg(doubleVecList) |doubleVec |Retorna o logaritmo de componentes na base 2 do doubleVecList. Um vec(double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão double lg(double) será assumida. |
-| ln(double) |Duplo |Retorna o logaritmo natural do double. |
+| ln(double) |double |Retorna o logaritmo natural do double. |
 | ln(doubleVecList) |doubleVec |Retorna o logaritmo natural do double. |
-| log(double) |Duplo |Retorna o logaritmo na base 10 do double. |
+| log(double) |double |Retorna o logaritmo na base 10 do double. |
 | log(doubleVecList) |doubleVec |Retorna o logaritmo de componentes na base 10 do doubleVecList. Um vec(double) deve ser passado explicitamente para o parâmetro double único. Caso contrário, a versão double log(double) será assumida. |
-| max(doubleVecList) |Duplo |Retorna o valor máximo em doubleVecList. |
-| min(doubleVecList) |Duplo |Retorna o valor mínimo em doubleVecList. |
-| norm(doubleVecList) |Duplo |Retorna a norma dupla do vetor criado por meio de doubleVecList. |
-| percentile(doubleVec v, double p) |Duplo |Retorna o elemento percentil do vetor v. |
-| rand() |Duplo |Retorna um valor aleatório entre 0,0 e 1,0. |
-| range(doubleVecList) |Duplo |Retorna a diferença entre os valores mínimo e máximo em doubleVecList. |
-| std(doubleVecList) |Duplo |Retorna o desvio padrão da amostra dos valores em doubleVecList. |
+| max(doubleVecList) |double |Retorna o valor máximo em doubleVecList. |
+| min(doubleVecList) |double |Retorna o valor mínimo em doubleVecList. |
+| norm(doubleVecList) |double |Retorna a norma dupla do vetor criado por meio de doubleVecList. |
+| percentile(doubleVec v, double p) |double |Retorna o elemento percentil do vetor v. |
+| rand() |double |Retorna um valor aleatório entre 0,0 e 1,0. |
+| range(doubleVecList) |double |Retorna a diferença entre os valores mínimo e máximo em doubleVecList. |
+| std(doubleVecList) |double |Retorna o desvio padrão da amostra dos valores em doubleVecList. |
 | stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
-| sum(doubleVecList) |Duplo |Retorna a soma de todos os componentes em doubleVecList. |
+| sum(doubleVecList) |double |Retorna a soma de todos os componentes em doubleVecList. |
 | time(string dateTime="") |timestamp |Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123. |
-| val(doubleVec v, double i) |Duplo |Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero. |
+| val(doubleVec v, double i) |double |Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela anterior podem aceitar uma lista como um argumento. A lista separada por vírgulas é qualquer combinação de *double* e *doubleVec*. Por exemplo:
 
@@ -236,7 +236,7 @@ As fórmulas de dimensionamento automático atuam em dados de métricas (exemplo
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Método | Descrição |
+| Método | Description |
 | --- | --- |
 | GetSample() |O método `GetSample()` retorna um vetor de exemplos de dados.<br/><br/>Uma amostra é de 30 segundos de dados de métrica. Em outras palavras, os exemplos são obtidos a cada 30 segundos. Mas, conforme mencionado abaixo, há um atraso entre o momento em que uma amostra é coletada e o momento em que ela fica disponível para uma fórmula. Como tal, é possível que nem todas as amostras para um determinado período de tempo estejam disponíveis para avaliação por uma fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica o número de amostras a serem obtidas dos exemplos mais recentes que foram coletados.<br/><br/>`GetSample(1)` retorna a última amostra disponível. No entanto, para métricas como `$CPUPercent`, isso não deve ser usado porque é impossível saber *quando* a amostra foi coletada. Pode ser recente ou, devido a problemas do sistema, muito mais antigo. É melhor nesses casos usar um intervalo de tempo, conforme mostrado abaixo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados de exemplo. Opcionalmente, também especifica a porcentagem de amostras que devem estar disponíveis no período de tempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` retornaria 20 exemplos, se todos os exemplos nos últimos 10 minutos estiverem presentes no histórico CPUPercent. No entanto, se o último minuto do histórico não estivesse disponível, apenas 18 exemplos seriam retornados. Nesse caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` falhará porque apenas 90% dos exemplos estão disponíveis.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` teria êxito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica um intervalo de tempo para coleta de dados, com uma hora de início e uma hora de término.<br/><br/>Conforme mencionado acima, há um atraso entre quando uma amostra é coletada e quando ela está disponível para uma fórmula. Considere esse atraso ao utilizar o método `GetSample`. Veja `GetSamplePercent` abaixo. |
 | GetSamplePeriod() |Retorna o período das amostras que foram colhidas de um conjunto de dados históricos de exemplo. |
@@ -247,7 +247,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Exemplos, porcentagem de exemplo e método *GetSample()*
 A operação principal de uma fórmula de dimensionamento automático é obter os dados de métrica de tarefa e recurso e ajustar o tamanho do pool baseado nesses dados. Assim, é importante ter um claro entendimento de como as fórmulas de autoescala interagem com dados de métricas (exemplos).
 
-**Exemplos**
+**Amostras**
 
 O serviço de Lote periodicamente obtém exemplos de métricas das tarefas e recursos e disponibiliza-os para suas fórmulas de autoescala. Esses exemplos são gravados a cada 30 segundos pelo serviço de Lote. No entanto, normalmente há algum atraso entre quando esses exemplos foram gravados e quando eles são disponibilizados para as fórmulas de autoescala (e podem ser lidos por elas). Além disso, devido a vários fatores, como rede ou outros problemas de infraestrutura, os exemplos podem não ser gravados em um intervalo específico.
 
@@ -295,7 +295,7 @@ Você pode usar as métricas do recurso e da tarefa quando estiver definindo uma
 <table>
   <tr>
     <th>Métrica</th>
-    <th>Descrição</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td><b>Recurso</b></td>
@@ -394,7 +394,7 @@ Para criar um pool habilitado para dimensionamento automático em .NET, siga as 
 1. (Opcional) Defina a propriedade [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é de 15 minutos).
 1. Confirmar o pool com [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-O snippet de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros C# trechos de código neste artigo,`myBatchClient`é uma instância corretamente inicializada da classe [BatchClient][net_batchclient] .
+O snippet de código a seguir cria um pool habilitado para autoescala em .NET. A fórmula de autoescala do pool define o número de nós dedicados de destino para 5 às segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros C# trechos de código neste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient] .
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(

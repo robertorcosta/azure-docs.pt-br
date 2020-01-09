@@ -4,15 +4,15 @@ description: Este artigo fornece detalhes para configurar o Agente do Log Analyt
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395841"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -42,9 +42,9 @@ A seguir, temos o formato para o arquivo de autenticação de OMI do MySQL
 
 As entradas no arquivo de autenticação são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:--|:--|
-| Porta | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
+| Port | Representa a porta atual em que a instância do MySQL está escutando. A porta 0 significa que as propriedades a seguir são usadas para a instância padrão. |
 | Endereço de Ligação| Endereço de associação atual de MySQL. |
 | Nome de Usuário| Usuário do MySQL a utilizar para monitorar a instância do servidor MySQL. |
 | Senha codificada em Base64| Senha do usuário de monitoramento do MySQL codificada em Base64. |
@@ -55,7 +55,7 @@ O arquivo de autenticação de OMI do MySQL pode definir um número da porta e u
 
 A tabela a seguir tem configurações de instância de exemplo 
 
-| Descrição | Arquivo |
+| Description | Arquivo |
 |:--|:--|
 | Instância padrão e instância com porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Instância padrão e instância com porta 3308 e nome de usuário e senha diferentes. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -71,7 +71,7 @@ Incluído com a instalação do provedor de OMI do MySQL temos um programa de ar
 
 A tabela a seguir fornece detalhes sobre a sintaxe para usar mycimprovauth.
 
-| Operação | Exemplo | Descrição
+| Operação | Exemplo | Description
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | Define se o arquivo de autenticação será atualizado automaticamente ao reiniciar ou atualizar. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Define a instância padrão no arquivo de autenticação de OMI do MySQL.<br>O campo de senha deve ser inserido em texto sem formatação – a senha no arquivo de autenticação de OMI do MySQL será codificada em Base 64. |

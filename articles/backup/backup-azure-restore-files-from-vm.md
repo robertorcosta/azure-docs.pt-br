@@ -3,12 +3,12 @@ title: Recuperar arquivos e pastas do backup de VM do Azure
 description: Neste artigo, saiba como recuperar arquivos e pastas de um ponto de recuperação de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392555"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -211,9 +211,9 @@ O script também exige componentes Python e bash para executar e se conectar com
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Recuperação de arquivos de backups de máquina virtual com discos grandes
 
-Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure cujo número de discos está > 16 e cada tamanho de disco é > 4 TB.
+Esta seção explica como executar a recuperação de arquivos de backups de máquinas virtuais do Azure cujo número de discos está > 16 e cada tamanho de disco é > 32 TB.
 
-Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (> 16) ou discos grandes (> 4 TB cada) são usados, os seguintes pontos de ação são recomendados:
+Como o processo de recuperação de arquivo anexa todos os discos do backup, quando um grande número de discos (> 16) ou discos grandes (> 32 TB cada) são usados, os seguintes pontos de ação são recomendados:
 
 - Mantenha um servidor de restauração separado (VMs de D2v3 de VM do Azure) para recuperação de arquivos. Você pode usar essa recuperação de arquivo somente e desligar quando não for necessário. Não é recomendável restaurar no computador original, pois ele terá um impacto significativo na própria VM.
 - Em seguida, execute o script uma vez para verificar se a operação de recuperação de arquivo foi concluída com sucesso.
@@ -238,7 +238,7 @@ Como o processo de recuperação de arquivo anexa todos os discos do backup, qua
 - Cada vez que o usuário baixa um script, o backup do Azure inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, isso levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do portal/PowerShell/CLI, aguardar 20-30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
 - Após a recuperação de arquivos, certifique-se de voltar ao portal para clicar em "desmontar discos" para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você tiver problemas durante a recuperação de arquivos de máquinas virtuais, verifique a tabela a seguir para obter informações adicionais.
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2430b5135a5d3f7ad1f9ef0bd17d9149bf48ee
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b59470a187fe060bd5e9a2c1bd84e63f598770df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793460"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690793"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -27,7 +27,7 @@ Este artigo descreve como registrar seu SQL Server VM (máquina virtual) no Azur
 
 A implantação de uma imagem SQL Server VM do Azure Marketplace por meio do portal do Azure registra automaticamente a VM SQL Server com o provedor de recursos. No entanto, se você optar por instalar automaticamente o SQL Server em uma máquina virtual do Azure ou provisionar uma máquina virtual do Azure de um VHD personalizado, deverá registrar sua VM SQL Server com o provedor de recursos para:
 
-- **Benefícios do recurso**: registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md), bem como recursos de monitoramento e gerenciamento. Ele também desbloqueia a flexibilidade de [Licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM implantadas do Azure Marketplace. 
+- **Benefícios do recurso**: registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md), bem como recursos de monitoramento e gerenciamento. Ele também desbloqueia a flexibilidade de [licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM implantadas do Azure Marketplace. 
 
 - **Conformidade**: o registro com o provedor de recursos de VM do SQL oferece um método simplificado para atender à necessidade de notificar a Microsoft de que o benefício híbrido do Azure foi habilitado conforme especificado nos termos do produto. Esse processo nega a necessidade de gerenciar os formulários de registro de licenciamento para cada recurso.  
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre os benefícios de usar o provedor de recurso
 Para registrar sua VM SQL Server com o provedor de recursos, você precisará de: 
 
 - Uma [assinatura do Azure](https://azure.microsoft.com/free/).
-- Um modelo de recurso do Azure [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) implantada na nuvem pública. 
+- Um modelo de recurso do Azure [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) implantada na nuvem pública ou do Azure governamental. 
 - A versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli) ou do [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Modos de gerenciamento
@@ -286,8 +286,7 @@ Verifique o status atual de registro da VM SQL Server usando o AZ CLI ou o Power
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -349,7 +348,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 O provedor de recursos de VM do SQL só dá suporte a:
 - SQL Server VMs implantadas por meio do Azure Resource Manager. Não há suporte para VMs SQL Server implantadas por meio do modelo clássico. 
-- SQL Server VMs implantadas na nuvem pública. Não há suporte para implantações na nuvem privada ou governamental. 
+- SQL Server VMs implantadas na nuvem pública ou do Azure governamental. Não há suporte para implantações em outras nuvens privadas ou governamentais. 
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes 
@@ -435,7 +434,7 @@ Sim. SQL Server instâncias de cluster de failover em uma VM do Azure podem ser 
 Sim. Não há restrições para registrar uma instância de SQL Server em uma VM do Azure com o provedor de recursos de VM do SQL se você estiver participando de uma configuração de grupo de disponibilidade Always On.
 
 **Qual é o custo de registro com o provedor de recursos da VM do SQL ou com a atualização para o modo de gerenciamento completo?**
-Nenhuma. Não há nenhuma taxa associada ao registro com o provedor de recursos da VM do SQL ou com o uso de qualquer um dos três modos de gerenciamento. O gerenciamento de sua VM SQL Server com o provedor de recursos é completamente gratuito. 
+Nenhum. Não há nenhuma taxa associada ao registro com o provedor de recursos da VM do SQL ou com o uso de qualquer um dos três modos de gerenciamento. O gerenciamento de sua VM SQL Server com o provedor de recursos é completamente gratuito. 
 
 **Qual é o impacto no desempenho do uso dos diferentes modos de gerenciamento?**
 Não há nenhum impacto ao usar os modos *noagent* e de gerenciamento *leve* . Há um impacto mínimo ao usar o modo de gerenciamento *completo* de dois serviços que são instalados no sistema operacional. Eles podem ser monitorados por meio do Gerenciador de tarefas e vistos no console interno de serviços do Windows. 

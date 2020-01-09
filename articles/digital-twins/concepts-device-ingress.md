@@ -1,19 +1,19 @@
 ---
 title: Conectividade do dispositivo e entrada de telemetria-Azure digital gêmeos | Microsoft Docs
-description: Saiba como conectar e carregar um dispositivo no Azure digital gêmeos.
+description: Saiba como conectar, carregar e enviar telemetria de um dispositivo IoT no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 529baf6a3eedf1d7490e8138642e90928a209876
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 01/03/2020
+ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010121"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660334"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Conectividade do dispositivo e entrada de telemetria
 
@@ -45,7 +45,7 @@ Fazer uma chamada GET na API do Dispositivo com um parâmetro `includes=Connecti
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
 
-| . | Substitua por |
+| Parâmetro | Substitua por |
 | --- | --- |
 | *YOUR_DEVICE_GUID* | A ID do dispositivo |
 
@@ -67,17 +67,17 @@ Você pode personalizar o payload e o formato de mensagem do dispositivo para at
 
  O conteúdo da carga útil de uma **Mensagem** pode ser um dado arbitrário de até 256 KB de tamanho. Existem alguns requisitos esperados para as propriedades do tipo [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). A tabela mostra as propriedades obrigatórias e opcionais com suporte do sistema.
 
-| Nome da propriedade | Valor | obrigatórios | DESCRIÇÃO |
+| Nome da propriedade | Valor | Obrigatório | Description |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | sim | Um valor constante que identifica uma mensagem para o sistema. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | sim | Um identificador exclusivo do sensor que envia a **Mensagem**. Esse valor deve corresponder a uma propriedade **HardwareId** do objeto para o sistema para processá-lo. Por exemplo: `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Não | Uma cadeia de data formatada [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que identifica o tempo de amostragem da carga útil. Por exemplo: `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | Não | Um UUID que foi usado para eventos de rastreamento em todo o sistema. Por exemplo: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-Telemetry** | 1.0 | Sim | Um valor constante que identifica uma mensagem para o sistema. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | Sim | Um identificador exclusivo do sensor que envia a **Mensagem**. Esse valor deve corresponder a uma propriedade **HardwareId** do objeto para o sistema para processá-lo. Por exemplo, `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | Não | Uma cadeia de data formatada [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) que identifica o tempo de amostragem da carga útil. Por exemplo, `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | Não | Um UUID que foi usado para eventos de rastreamento em todo o sistema. Por exemplo, `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Envie sua mensagem para Gêmeos Digitais
 
 Use a chamada DeviceEvent [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventasync?view=azure-dotnet) ou [SendEventBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.sendeventbatchasync?view=azure-dotnet) para enviar sua mensagem para Gêmeos Digitais.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender sobre o processamento de dados do Azure Digital Twins e os recursos de funções definidas pelo usuário, leia [Processamento de dados do Gêmeos Digitais do Azure e funções definidas pelo usuário](concepts-user-defined-functions.md).

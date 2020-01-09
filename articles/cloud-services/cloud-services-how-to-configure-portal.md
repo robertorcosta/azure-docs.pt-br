@@ -3,21 +3,21 @@ title: Como configurar um serviço de nuvem (portal) | Microsoft Docs
 description: Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361000"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 
-Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no portal do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
+Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no portal do Azure. Ou, se você quiser atualizar seus arquivos de configuração diretamente, baixe um arquivo de configuração de serviço a atualizar e depois carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer forma, as atualizações de configuração são enviadas para todas as instâncias da função.
 
 Você também pode gerenciar as instâncias de suas funções de serviço de nuvem ou da área de trabalho remota para elas.
 
@@ -44,7 +44,7 @@ Se você precisar direcionar para uma versão específica do sistema operacional
 >[!IMPORTANT]
 > Escolher uma versão específica do SO desabilita as atualizações automáticas do sistema operacional e torna os patches sua responsabilidade. Você deve garantir que suas instâncias de função recebam as atualizações, caso contrário você pode expor seu aplicativo a vulnerabilidades de segurança.
 
-## <a name="monitoring"></a>Monitorando
+## <a name="monitoring"></a>Monitoramento
 
 Você pode adicionar alertas para o seu serviço de nuvem. Clique em **Configurações** > **Regras de Alerta** > **Adicionar alerta**.
 
@@ -95,12 +95,15 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
     ![Baixar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Após atualizar o arquivo de configuração de serviço, carregue e aplique as atualizações da configuração:
 
-    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o arquivo .cscfg e clique em **OK**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

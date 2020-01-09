@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278427"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690916"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorar visualmente Azure Data Factory
 
@@ -114,6 +114,12 @@ Você pode executar novamente as atividades dentro de um pipeline. Selecione **E
 
 ![Selecionar uma execução de atividade](media/monitor-visually/rerun-activities-image2.png)
 
+### <a name="rerun-from-failed-activity"></a>Executar novamente a partir da atividade com falha
+
+Se uma atividade falhar, expirar ou for cancelada, você poderá executar novamente o pipeline a partir dessa atividade com falha selecionando **executar novamente a partir da atividade com falha**.
+
+![Executar novamente a atividade com falha](media/monitor-visually/rerun-failed-activity.png)
+
 ### <a name="view-rerun-history"></a>Exibir o histórico de novas execuções
 
 Exiba o histórico de novas execuções para todas as execuções de pipeline na exibição de lista.
@@ -183,6 +189,6 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 
     ![Opções para criar uma regra de alerta](media/monitor-visually/alerts09.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como monitorar e gerenciar pipelines, confira o artigo [monitorar e gerenciar pipelines programaticamente](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) .

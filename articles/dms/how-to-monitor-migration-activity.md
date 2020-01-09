@@ -1,5 +1,5 @@
 ---
-title: Usar o Serviço de Migração de Banco de Dados do Azure para monitorar a atividade de migração | Microsoft Docs
+title: Monitorar a atividade de migração-serviço de migração de banco de dados do Azure
 description: Aprenda a usar o Serviço de Migração de Banco de Dados do Azure para monitorar a atividade de migração.
 services: database-migration
 author: HJToland3
@@ -8,17 +8,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532793"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437931"
 ---
-# <a name="monitor-migration-activity"></a>Monitorar a atividade de migração
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorar a atividade de migração usando o serviço de migração de banco de dados do Azure
 Neste artigo, você aprenderá a monitorar o progresso de uma migração em nível de banco de dados e em nível de tabela.
 
 ## <a name="monitor-at-the-database-level"></a>Monitorar em nível de banco de dados
@@ -46,7 +46,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>A atividade de migração está em execução.</td>
     </tr>
     <tr>
-      <td>Bem-sucedida</td>
+      <td>Teve êxito</td>
       <td>A atividade de migração foi bem-sucedida sem problemas.</td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>O pipeline do DMS está em execução e executando a migração.</td>
     </tr>
     <tr>
-      <td>Concluído</td>
+      <td>Completo</td>
       <td>Migração concluída.</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ A tabela a seguir lista os campos na folha de nível de banco de dados e descrev
       <td>Clique no link para mostrar detalhes do erro.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duração</strong></td>
+      <td rowspan="1" class="duration"><strong>Duration</strong></td>
       <td>N/D</td>
       <td>Tempo total desde a inicialização da atividade de migração até a conclusão da migração ou a falha de migração.</td>
     </tr>
@@ -108,7 +108,7 @@ A parte inferior da folha lista as tabelas e mostra um resumo rápido do andamen
 
 A tabela a seguir descreve os campos mostrados nos detalhes de nível de tabela.
 
-| Nome do campo        | DESCRIÇÃO       |
+| Nome do campo        | Description       |
 | ------------- | ------------- |
 | **Carregamento completo concluído**      | Número de tabelas com o carregamento de dados completo concluído. |
 | **Carregamento completo na fila**      | Número de tabelas que estão sendo enfileiradas para o carregamento completo.      |
@@ -129,17 +129,17 @@ Há duas guias que mostram o progresso da migração no carregamento completo e 
 
 A tabela a seguir descreve os campos mostrados no andamento da migração em nível de tabela.
 
-| Nome do campo        | DESCRIÇÃO       |
+| Nome do campo        | Description       |
 | ------------- | ------------- |
 | **Status – sincronizando**      | A sincronização contínua está em execução. |
 | **Inserção**      | Número de inserções da CDA nas linhas aplicadas ao destino.      |
 | **Atualização** | O número de atualizações da CDA nas linhas aplicadas ao destino.      |
-| **Excluir**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
+| **Delete (excluir)**      | Número de exclusões da CDA nas linhas aplicadas ao destino. |
 | **Total Aplicado**      | Total de atualizações, inserções e exclusões da CDA nas linhas aplicadas ao destino. |
-| **Erros de Dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: Não é possível criar uma linha de tamanho %d maior que o tamanho máximo permitido de linha %d, 8114: Erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
+| **Erros de Dados** | O número de erros de dados ocorridos nesta tabela. Alguns exemplos dos erros são *511: não é possível criar uma linha do tamanho %d que é maior que o tamanho de linha máximo permitido de %d, 8114: erro ao converter o tipo de dados %ls em %ls.*  O cliente deve consultar os detalhes do erro na tabela dms_apply_exceptions no destino do Azure.    |
 
 > [!NOTE]
 > Os valores da CDA de Inserção, Atualização, Exclusão e Total Aplicado poderão diminuir quando o banco de dados for substituído ou a migração for reiniciada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Verificar as diretrizes de migração no [Guia de Migração de Banco de Dados da Microsoft](https://datamigration.microsoft.com/).

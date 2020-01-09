@@ -1,30 +1,21 @@
 ---
-title: Alterar as configurações de ReliableDictionaryActorStateProvider nos Atores do Azure Service Fabric | Microsoft Docs
+title: Alterar configurações de ReliableDictionaryActorStateProvider
 description: Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo ReliableDictionaryActorStateProvider.
-services: Service-Fabric
-documentationcenter: .net
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbd6f7cd3ade753c659464522408aa715cce48f9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727124"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609733"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configurando Reliable Actors--ReliableDictionaryActorStateProvider
 A configuração padrão do ReliableDictionaryActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Visual Studio dentro da pasta Config para o ator especificado.
 
-O tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo settings.xml e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
+O runtime do Service Fabric do Azure procura nomes de seção predefinidos no arquivo settings.xml e consome os valores de configuração ao criar os componentes de runtime subjacentes.
 
 > [!NOTE]
 > **Não** exclua/modifique os nomes de seção das configurações a seguir no arquivo settings.xml que é gerado na solução do Visual Studio.
@@ -33,13 +24,13 @@ O tempo de execução do Service Fabric do Azure procura nomes de seção predef
 
 Também há definições globais que afetam a configuração de ReliableDictionaryActorStateProvider.
 
-## <a name="global-configuration"></a>Configuração global
+## <a name="global-configuration"></a>Configuração Global
 A configuração global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. Observe que as alterações no manifesto do cluster afetam todos os serviços que usam ReliableDictionaryActorStateProvider e os serviços com estado confiáveis.
 
-O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e os serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
+O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
-### <a name="configuration-names"></a>Nomes da configuração
-| NOME | Unidade | Valor padrão | Comentários |
+### <a name="configuration-names"></a>Nomes de configuração
+| Nome | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
 | WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem limite |Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir. |
@@ -63,7 +54,7 @@ O agente tem um pool de memória global alocado da memória kernel não paginada
 
 As configurações SharedLogId e SharedLogPath sempre são usadas juntas para definir o GUID e o local para o log compartilhado padrão de todos os nós no cluster. O log compartilhado padrão é usado para todos os serviços confiáveis que não especificam as configurações em settings.xml para o serviço específico. Para melhor desempenho, os arquivos de log compartilhados devem ser colocados em discos usados exclusivamente para o arquivo de log compartilhado para reduzir a contenção.
 
-SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós.  SharedLogId e SharedLogPath não precisam ser especificados para que SharedLogSizeInMB seja especificado.
+SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós.  SharedLogId e SharedLogPath não precisam ser especificadas para que SharedLogSizeInMB seja especificada.
 
 ## <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não podem ver o tráfego de replicação uns dos outros, garantindo que os dados que têm alta disponibilidade também estejam seguros.
@@ -83,8 +74,8 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 ### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Nomes da configuração
-| NOME | Unidade | Valor padrão | Comentários |
+### <a name="configuration-names"></a>Nomes de configuração
+| Nome | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
 | ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Veja [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto de extremidade no manifesto do serviço. |
@@ -93,8 +84,8 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |200 |Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação. |
 | MaxRecordSizeInKB |KB |1024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
-| OptimizeLogForLowerDiskUsage |Boolean |verdadeiro |Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação. |
-| SharedLogId |GUID |"" |Especifica um guid exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Quando verdadeiro, o log é configurado de forma que o arquivo de log dedicado da replicação seja criado usando um arquivo esparso do NTFS. Isso reduz o uso do espaço real em disco para o arquivo. Quando falso, o arquivo é criado com alocações fixas que oferecem o melhor desempenho de gravação. |
+| SharedLogId |guid |"" |Especifica um guid exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
 | SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
 
 ## <a name="sample-configuration-file"></a>Arquivo de exemplo de configuração

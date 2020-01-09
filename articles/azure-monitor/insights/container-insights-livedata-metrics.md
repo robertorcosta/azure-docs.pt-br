@@ -1,24 +1,14 @@
 ---
 title: Exibir métricas em tempo real com Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve a exibição em tempo real de métricas sem usar o kubectl com Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 4608058d347888ab77bd4303600f00b270d6fed5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404944"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como exibir métricas em tempo real
 
@@ -34,7 +24,7 @@ Este artigo fornece uma visão geral detalhada e ajuda você a entender como usa
 
 Para obter ajuda com a configuração ou solução de problemas do recurso de dados dinâmicos (versão prévia), examine nosso [Guia de instalação](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Como funciona 
+## <a name="how-it-works"></a>Como isso funciona 
 
 O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
@@ -92,6 +82,6 @@ Esse gráfico de desempenho é mapeado para um equivalente de invocar `kubectl g
 >[!NOTE]
 >Os nomes de status como interpretados pelo `kubectl` podem não corresponder exatamente ao gráfico. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para criar alertas, visualizações ou executar análise adicional de seus clusters.

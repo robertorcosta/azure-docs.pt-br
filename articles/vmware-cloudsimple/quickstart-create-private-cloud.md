@@ -1,5 +1,6 @@
 ---
-title: Solução do Azure VMware por CloudSimple início rápido – criar uma nuvem privada
+title: 'Início rápido: criar uma nuvem privada'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Saiba como criar e configurar uma nuvem privada com a solução do Azure VMware por CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452386"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 

@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 96adcfa4bbfc4ed0066ccfbdbe57f9840e8b07f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438800"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Ao usar o Azure Data Factory para suas necessidades de integração de dados, talvez você precise reutilizar o mesmo padrão em diversos ambientes ou implementar a mesma tarefa repetidamente na mesma solução. Modelos ajudam você a implementar e gerenciar estes cenários de forma fácil. Modelos no Azure Data Factory são ideais para cenários que envolvem reutilização e repetição.
 
 Considere a situação em que uma organização tem 10 instalações de produção em todo o mundo. Os logs de cada fábrica são armazenados em um banco de dados do SQL Server local separado. A empresa deseja criar uma única data warehouse na nuvem para análise ad hoc. Ele também quer ter a mesma lógica, mas configurações diferentes para ambientes de desenvolvimento, teste e produção.
@@ -32,7 +32,7 @@ Nesse caso, uma tarefa precisa ser repetida dentro do mesmo ambiente, mas com va
 Além disso, como a organização deseja implantar essas 10 data factories diversas vezes em vários ambientes, os modelos podem usar a **reutilização** ao utilizar arquivos de parâmetros separados para ambientes de desenvolvimento, teste e produção.
 
 ## <a name="templating-with-azure-resource-manager"></a>Modelagem com o Azure Resource Manager
-[Modelos do Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) são uma ótima maneira de obter modelagem no Azure Data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como modelos de Azure Resource Manager funcionam com todos/quase todos os serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos dos ativos do Azure. Consulte [Criando modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Resource Manager em geral.
+[Modelos do Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) são uma ótima maneira de obter modelagem no Azure Data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como modelos de Azure Resource Manager funcionam com todos/quase todos os serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos dos ativos do Azure. Consulte [Criando modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para saber mais sobre os modelos do Resource Manager em geral.
 
 ## <a name="tutorials"></a>Tutoriais
 Consulte os tutoriais a seguir para obter instruções passo a passo para criar entidades de Data Factory usando modelos do Resource Manager:

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706255"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644589"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: perguntas frequentes
 
@@ -114,7 +114,7 @@ Não, não é possível executar Apache Kafka e Apache Spark no mesmo cluster HD
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Como fazer alterar o fuso horário em Ambari?
 
-1. Abra a interface do usuário da Web do amAmbari em https://CLUSTERNAME.azurehdinsight.net, em que CLUSTERname é o nome do cluster.
+1. Abra a interface do usuário da Web do amAmbari em `https://CLUSTERNAME.azurehdinsight.net`, em que CLUSTERname é o nome do cluster.
 2. No canto superior direito, selecione Admin | Configurações. 
 
    ![Configurações de Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -216,7 +216,7 @@ Para unir VMs a um domínio, você deve ter um controlador de domínio. O Azure 
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>Posso usar um certificado autoassinado em uma instalação LDAP segura do AAD-DS e provisionar um cluster ESP?
 
-É recomendável usar um certificado emitido por uma autoridade de certificação, mas também há suporte para o uso de um certificado autoassinado no ESP. Para obter mais informações, veja:
+É recomendável usar um certificado emitido por uma autoridade de certificação, mas também há suporte para o uso de um certificado autoassinado no ESP. Para obter mais informações, consulte:
 
 - [Habilitar Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -263,7 +263,7 @@ Você pode encontrar suas configurações em **Data Lake Storage Gen1 acesso** e
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>Como calcular o uso de contas de armazenamento e contêineres de BLOB para meus clusters HDInsight?
 
-Faça uma das opções a seguir:
+Realize um dos seguintes procedimentos:
 
 - [Usar o PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
@@ -293,7 +293,7 @@ done
 
 No momento, não existe nenhum plug-in do Ranger para armazenamento de BLOBs e Azure Data Lake Storage Gen1 ou Gen2. Para clusters ESP, você deve usar Azure Data Lake Storage, porque você pode, pelo menos, definir as permissões refinadas manualmente no nível do sistema de arquivos usando as ferramentas do HDFS. Além disso, ao usar Azure Data Lake Storage, os clusters ESP farão parte do controle de acesso do sistema de arquivos usando Azure Active Directory no nível do cluster. 
 
-Você pode atribuir políticas de acesso a dados aos grupos de segurança dos seus usuários usando o Gerenciador de Armazenamento do Azure. Para obter mais informações, veja:
+Você pode atribuir políticas de acesso a dados aos grupos de segurança dos seus usuários usando o Gerenciador de Armazenamento do Azure. Para obter mais informações, consulte:
 
 - [Como fazer definir permissões para que os usuários do Azure AD consultem dados em Data Lake Storage Gen2 usando o hive ou outros serviços?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Definir permissões no nível do arquivo e do diretório usando o Gerenciador de Armazenamento do Azure com o Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)

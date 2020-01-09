@@ -1,5 +1,5 @@
 ---
-title: Escalabilidade e metas de desempenho para discos de VM no Windows-Microsoft Azure
+title: Escalabilidade e metas de desempenho para discos de máquina virtual no Windows
 description: Saiba mais sobre escalabilidade e metas de desempenho para discos de máquina virtual anexados a VMs executando Windows.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: c525ec4becbfda305343a3c7244d5975d60604a3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dee3da6b6aa38a60ed1109009ba5a292a131ce97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039756"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645150"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Escalabilidade e metas de desempenho para discos de máquina virtual no Windows
 
@@ -33,4 +33,4 @@ Tamanhos demarcados com um asterisco estão atualmente em visualização. Consul
 
 ## <a name="see-also"></a>Consulte também
 
-[Assinatura do Azure e limite de serviços, cotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Assinatura do Azure e limite de serviços, cotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

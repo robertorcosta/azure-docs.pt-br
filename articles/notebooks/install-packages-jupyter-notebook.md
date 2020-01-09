@@ -1,20 +1,22 @@
 ---
-title: Instalar pacotes em um Jupyter Notebook no Azure
-description: Como instalar pacotes Python, R e F# de dentro de um Jupyter Notebook em execução no Azure.
-ms.topic: article
+title: Instalar pacotes no Jupyter notebooks – versão prévia do Azure Notebooks
+description: Saiba como instalar o Python, o R e F# pacotes de dentro de um notebook Jupyter em execução no Azure.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d85c8e936ce7c8bf38ec7bc9c27d9066cc8b155
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277542"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646221"
 ---
-# <a name="install-packages-from-within-a-notebook"></a>Instalar pacotes de dentro de um notebook
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Instalar pacotes de dentro do Azure Notebooks versão prévia
 
 Embora você possa configurar o [ambiente para o notebook no nível do projeto](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), talvez você queira instalar pacotes diretamente dentro de um notebook individual.
 
 Os pacotes instalados do notebook aplicam-se apenas à sessão atual do servidor. As instalações de pacote não persistem quando o servidor é desligado.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
@@ -66,12 +68,12 @@ Em seguida, carregue o gerador de paket:
 #load "Paket.Generated.Refs.fsx"
 ```
 
-Abra o biblioteca:
+Abra a biblioteca:
 ```fsharp
 open MathNet.Numerics
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
 - [Como: apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)

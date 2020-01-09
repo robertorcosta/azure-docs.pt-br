@@ -4,15 +4,15 @@ description: O Syslog é um protocolo de registro de eventos em log que é comum
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932429"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450623"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Fontes de dados de syslog no Azure Monitor
 O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.  
@@ -32,7 +32,7 @@ Os seguintes recursos têm suporte com o coletor de syslog:
 * daemon
 * auth
 * syslog
-* LPR
+* lpr
 * news
 * uucp
 * cron
@@ -48,7 +48,7 @@ O agente do Log Analytics para Linux coletará apenas eventos com as instalaçõ
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no Portal do Azure
 Configure o Syslog no menu [Menu de Dados nas Configurações Avançadas](agent-data-sources.md#configuring-data-sources). Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
-Você pode adicionar um novo recurso, digitando seu nome e clicando em **+** . Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar. Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
+Você pode adicionar um novo recurso selecionando primeiro a opção **aplicar abaixo a configuração em meus computadores** e, em seguida, digitando seu nome e clicando em **+** . Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar. Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
 
 ![Configurar Syslog](media/data-sources-syslog/configure.png)
 
@@ -195,7 +195,7 @@ Após concluir as alterações, será necessário reiniciar o Syslog e o serviç
 ## <a name="syslog-record-properties"></a>Propriedades de registro do syslog
 Os registros do syslog têm um tipo de **Syslog** e têm as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | Recurso |Define a parte do sistema que gerou a mensagem. |
@@ -209,9 +209,9 @@ Os registros do syslog têm um tipo de **Syslog** e têm as propriedades na tabe
 ## <a name="log-queries-with-syslog-records"></a>Consultas do log com registros do Syslog
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do Syslog.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:--- |:--- |
-| syslog |Todos os Syslogs. |
+| Syslog |Todos os Syslogs. |
 | Syslog &#124; where SeverityLevel == "error" |Todos os registros do Syslog com a severidade de erro. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |Contagem de registros do Syslog por computador. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Contagem de registros do Syslog por recurso. |

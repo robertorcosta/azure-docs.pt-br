@@ -1,7 +1,7 @@
 ---
 title: SMOTE
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo SMOTE no serviço de Azure Machine Learning para aumentar o número de exemplos de incidência baixa em um conjunto de informações usando a sobreamostragem.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo SMOTE no Azure Machine Learning para aumentar o número de exemplos de incidência baixa em um conjunto de informações usando a sobreamostragem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: d78e3d0d30cc44f2f30b1a856297f2c31d8f8469
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717023"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428444"
 ---
 # <a name="smote"></a>SMOTE
 
@@ -34,7 +34,7 @@ O SMOTE usa todo o conjunto de dados como uma entrada, mas aumenta a porcentagem
   
 ## <a name="examples"></a>Exemplos  
 
-É recomendável que você tente usar o SMOTE com um pequeno conjunto de pequenos para ver como ele funciona. O exemplo a seguir usa o conjunto de itens de doação de sangue disponível no designer de Azure Machine Learning.
+Recomendamos que você tente usar o SMOTE com um conjunto de dados menor para ver como funciona. O exemplo a seguir usa o conjunto de itens de doação de sangue disponível no designer de Azure Machine Learning.
   
 Se você adicionar o conjunto de registros a um pipeline e selecionar **Visualizar** na saída do conjunto de resultados, poderá ver que das 748 linhas ou casos no conjunto de registros, 570 casos (76%) são da classe 0 e 178 casos (24%) são da classe 1. Embora esse resultado não seja extremamente desbalanceado, a classe 1 representa as pessoas que donateu sangue, portanto, essas linhas contêm o *espaço de recurso* que você deseja modelar.
  
@@ -42,7 +42,7 @@ Para aumentar o número de casos, você pode definir o valor de **SMOTE percentu
 
 ||Classe 0|Classe 1|total|  
 |-|-------------|-------------|-----------|  
-|Conjunto de um original<br /><br /> (equivalente a **SMOTE percentual** = **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
+|Conjunto de dados original<br /><br /> (equivalente a **SMOTE percentual** = **0**)|570<br /><br /> 76%|178<br /><br /> 24|748|  
 |**Percentual de SMOTE** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
 |**Percentual de SMOTE** = **200**|570<br /><br /> 52%|534<br /><br /> 48%|1\.104|  
 |**Percentual de SMOTE** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1\.282|  
@@ -73,7 +73,7 @@ Para aumentar o número de casos, você pode definir o valor de **SMOTE percentu
     > [!NOTE]
     > Use somente múltiplos de 100 para o percentual de SMOTE.
 
-6.  Use a opção **número de vizinhos mais próximos** para determinar o tamanho do espaço de recurso que o algoritmo SMOTE usa na criação de novos casos. Um vizinho mais próximo é uma linha de dados (um caso) que é semelhante a um caso de destino. A distância entre dois casos é medida pela combinação dos vetores ponderados de todos os recursos.  
+6.  Use a opção **número de vizinhos mais próximos** para determinar o tamanho do espaço de recurso que o algoritmo SMOTE usa na criação de novos casos. Um vizinho mais próximo é uma linha de dados (um caso) que é semelhante a um caso de destino. A distância entre duas ocorrências é medida pela combinação dos vetores de peso de todos os recursos.  
   
     + Ao aumentar o número de vizinhos mais próximos, você obtém recursos de mais casos.
     + Mantendo o número de vizinhos mais próximos baixos, você usa recursos que são mais semelhantes aos do exemplo original.  
@@ -97,7 +97,7 @@ Para aumentar o número de casos, você pode definir o valor de **SMOTE percentu
   + Técnicas de Ensemble que ajudam o aprendiz diretamente usando clustering, bagging ou aumento adaptável.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

@@ -2,14 +2,14 @@
 title: Associações para Funções Duráveis – Azure
 description: Como usar gatilhos e associações para a extensão de Durable Functions do Azure Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233035"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410208"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Funções Duráveis (Azure Functions)
 
@@ -87,7 +87,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> O objeto `context` no JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo](../functions-reference-node.md#context-object). Você pode acessar os métodos de orquestração por meio da propriedade `context` do objeto `df`.
+> O objeto `context` no JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo](../functions-reference-node.md#context-object). Você pode acessar os métodos de orquestração por meio da propriedade `df` do objeto `context`.
 
 > [!NOTE]
 > Os orquestradores JavaScript devem usar `return`. A biblioteca `durable-functions` é responsável por chamar o método `context.done`.
@@ -398,7 +398,7 @@ Cada função de entidade tem um tipo de parâmetro de `IDurableEntityContext`, 
 * **Deletestate ()** : exclui o estado da entidade. 
 * **Getinput\<TInput > ()** : Obtém a entrada para a operação atual. O parâmetro de tipo de `TInput` deve ser um tipo primitivo ou serializável por JSON.
 * **Return (ARG)** : retorna um valor para a orquestração que chamou a operação. O parâmetro `arg` deve ser um objeto primitivo ou serializável por JSON.
-* **SignalEntity (EntityId, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula e o parâmetro `input` deve ser um objeto primitivo ou serializável em JSON.
+* **SignalEntity (EntityId, scheduledTimeUtc, operação, entrada)** : envia uma mensagem unidirecional para uma entidade. O parâmetro `operation` deve ser uma cadeia de caracteres não nula, o `scheduledTimeUtc` opcional deve ser um DateTime UTC no qual invocar a operação e o parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
 * **CreateNewOrchestration (orchestratorFunctionName, entrada)** : inicia uma nova orquestração. O parâmetro `input` deve ser um objeto primitivo ou serializável por JSON.
 
 O objeto `IDurableEntityContext` passado para a função de entidade pode ser acessado usando a propriedade `Entity.Current` Async-local. Essa abordagem é conveniente ao usar o modelo de programação baseado em classe.
@@ -456,7 +456,7 @@ O estado dessa entidade é um objeto do tipo `Counter`, que contém um campo que
 Para obter mais informações sobre a sintaxe baseada em classe e como usá-la, confira [Definir classes de entidade](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 > [!NOTE]
-> O método de ponto de entrada de função com o atributo `[FunctionName]` *deve* ser declarado `static` ao usar classes de entidade. Métodos de ponto de entrada não estáticos podem resultar em várias inicializações de objeto e potencialmente outros comportamentos indefinidos.
+> O método de ponto de entrada de função com o atributo `[FunctionName]`*deve* ser declarado `static` ao usar classes de entidade. Métodos de ponto de entrada não estáticos podem resultar em várias inicializações de objeto e potencialmente outros comportamentos indefinidos.
 
 As classes de entidade têm mecanismos especiais para interagir com associações e injeção de dependência do .NET. Para obter mais informações, consulte [construção de entidade](durable-functions-dotnet-entities.md#entity-construction).
 
@@ -519,7 +519,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ Em funções do .NET, você normalmente se associa a `IDurableEntityClient`, que
 
 * **ReadEntityStateAsync\<t >** : lê o estado de uma entidade. Ele retorna uma resposta que indica se a entidade de destino existe e, em caso afirmativo, qual é seu estado.
 * **SignalEntityAsync**: envia uma mensagem unidirecional para uma entidade e aguarda que ela seja enfileirada.
+* **ListEntitiesAsync**: consulta o estado de várias entidades. As entidades podem ser consultadas por *nome* e *pela última hora da operação*.
 
 Não é necessário criar a entidade de destino antes de enviar um sinal-o estado da entidade pode ser criado de dentro da função de entidade que manipula o sinal.
 
@@ -640,7 +641,7 @@ module.exports = async function (context) {
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência de API HTTP interna para gerenciamento de instância](durable-functions-http-api.md)

@@ -1,25 +1,14 @@
 ---
-title: Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric | Microsoft Docs
-description: Diretrizes e recomendações para usar as Coleções Confiáveis do Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Diretrizes para coleções confiáveis
+description: Diretrizes e recomendações para usar Service Fabric coleções confiáveis em um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 12/10/2017
-ms.author: atsenthi
-ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 37c734205877f9e0cb98ef2834462691e8e483d9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599344"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645473"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -52,7 +41,7 @@ Eis aqui algumas coisas que se deve manter em mente:
   As leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
 * Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.  
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gerenciando dados
@@ -60,6 +49,6 @@ Eis aqui algumas coisas que se deve manter em mente:
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
-* Outros
+* Diversos
   * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
   * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

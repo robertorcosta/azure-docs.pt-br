@@ -5,15 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: f9ed841d347d99a2208971d164bbd7b9044e3b09
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436852"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um emparelhamento público para o emparelhamento da Microsoft
 
@@ -63,8 +62,8 @@ Instruções detalhadas para habilitar o emparelhamento da Microsoft podem ser e
 
 Verifique se o emparelhamento da Microsoft está habilitado e se os prefixos públicos anunciados estão no estado configurado.
 
-* [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)<br>
-* [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)<br>
+* [Azure portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)<br>
+* [PowerShell do Azure](expressroute-howto-routing-arm.md#getmsft)<br>
 * [CLI do Azure](howto-routing-cli.md#getmsft)
 
 ## <a name="routefilter"></a>3. configurar e anexar um filtro de rota ao circuito
@@ -83,14 +82,13 @@ Use um dos artigos a seguir para configurar filtros de rota:
 
 Depois de verificar se o emparelhamento da Microsoft está configurado e se os prefixos que você deseja consumir estão corretamente anunciados no emparelhamento da Microsoft, você poderá excluir o emparelhamento público. Para excluir o emparelhamento público, use um dos seguintes artigos:
 
-* [Excluir o emparelhamento público do Azure usando o portal do Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Excluir o emparelhamento público do Azure usando o Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [Excluir o emparelhamento público do Azure usando a CLI](howto-routing-cli.md#deletepublic)
+* [Excluir o emparelhamento público do Azure usando o Azure PowerShell](about-public-peering.md#powershell)
+* [Excluir o emparelhamento público do Azure usando a CLI](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. exibir emparelhamentos
   
 Você pode ver uma lista de todos os circuitos ExpressRoute e emparelhamentos no portal do Azure. Para obter mais informações, consulte [detalhes de emparelhamento do modo de exibição da Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre o ExpressRoute](expressroute-faqs.md).
+Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

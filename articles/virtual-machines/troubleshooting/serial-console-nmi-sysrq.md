@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: d5c647bac2bc6abc85a74531e052f0f3a54b2047
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451259"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>System Request (SysRq)
 SysRq é uma sequência de teclas compreendidas pelo kernel do sistema operacional Linux, que pode disparar um conjunto de ações predefinidas. Esses comandos são frequentemente usados quando a solução de problemas ou recuperação de máquina virtual não puder ser executada por meio da administração tradicional (por exemplo, se a VM não estiver respondendo). Usar o recurso SysRq do Console Serial do Azure irá imitar o pressionamento da tecla SysRq e os caracteres digitados em um teclado físico.
 
-Depois que a sequência SysRq for entregue, a configuração de kernel irá controlar como o sistema responde. Para obter informações sobre como habilitar e desabilitar SysRq, consulte o *Guia do Administrador do SysRq* [texto](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
+Depois que a sequência SysRq for entregue, a configuração de kernel irá controlar como o sistema responde. Para obter informações sobre como habilitar e desabilitar o SysRq, consulte o [texto](https://aka.ms/kernelorgsysreqdoc) do *Guia de administração do SysRq* | [redução](https://aka.ms/linuxsysrq).
 
 O Console Serial do Azure pode ser usado para enviar um SysRq para uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo.
 
@@ -37,7 +37,7 @@ Escolher "Enviar Comando de SysRq" abrirá uma caixa de diálogo, que fornecerá
 
 O comando SysRq não pode ser usado em máquinas virtuais que estão paradas ou cujo kernel está em um estado não responsivo. (por exemplo, um pânico de kernel).
 
-### <a name="enable-sysrq"></a>Habilitar SysRq 
+### <a name="enable-sysrq"></a>Habilitar SysRq
 Conforme descrito no *Guia do Administrador do SysRq* acima, o SysRq pode ser configurado de modo que todos os comandos, nenhum deles ou apenas determinados comandos estejam disponíveis. Você pode habilitar todos os comandos de SysRq usando a etapa abaixo, mas eles não permanecerão em vigor após uma reinicialização:
 ```
 echo "1" >/proc/sys/kernel/sysrq
@@ -48,7 +48,7 @@ Para tornar a configuração do SysReq persistente, você pode fazer o seguinte 
 1. Reinicializar ou atualizar sysctl executando <br>
     `sysctl -p`
 
-### <a name="command-keys"></a>Teclas de Comando 
+### <a name="command-keys"></a>Teclas de Comando
 No Guia do Administrador do SysRq acima:
 
 |Comando| Função
@@ -62,7 +62,7 @@ No Guia do Administrador do SysRq acima:
 |``h``  |   Exibirá a ajuda (qualquer outra chave diferente daquelas listadas aqui também exibirá a ajuda, mas ``h`` é fácil de lembrar :-)
 |``i``  |    Envie um SIGKILL para todos os processos, exceto para init.
 |``j``  |    Forçar "Apenas descongelá-lo" - sistemas de arquivos congelados por FIFREEZE ioctl.
-|``k``  |    A Chave de Acesso Seguro (SAK) encerra todos os programas no console do virtual atual. OBSERVAÇÃO:  confira os comentários importantes a seguir, na seção SAK.
+|``k``  |    A Chave de Acesso Seguro (SAK) encerra todos os programas no console do virtual atual. OBSERVAÇÃO: consulte os comentários importantes abaixo na seção SAK.
 |``l``  |    Mostra um backtrace de pilha para todas as CPUs ativas.
 |``m``  |    Despejará as informações da memória atual no console.
 |``n``  |    Usado para facilitar as tarefas de RT
@@ -97,7 +97,7 @@ Para obter a documentação específica de distribuição em SysRq e as etapas p
 #### <a name="coreos"></a>CoreOS ####
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="non-maskable-interrupt-nmi"></a>Interrupção Não Mascarável (NMI) 
+## <a name="non-maskable-interrupt-nmi"></a>Interrupção Não Mascarável (NMI)
 Uma interrupção não mascarável (NMI) foi projetada para criar um sinal que o software em uma máquina virtual não irá ignorar. Historicamente, as NMIs são usadas para monitorar os problemas de hardware em sistemas que necessitam de tempos de resposta específicos.  Atualmente, os programadores e administradores de sistema geralmente usam NMI como um mecanismo para depurar ou solucionar problemas de sistemas que não estão respondendo.
 
 O Console Serial pode ser usado para enviar uma NMI a uma máquina virtual do Azure usando o ícone de teclado na barra de comandos mostrada abaixo. Depois que a NMI for entregue, a configuração de máquina virtual irá controlar como o sistema responde.  Os sistemas operacionais Linux poderão ser configurados para parar e criar um despejo de memória quando o sistema operacional receber uma NMI.
@@ -111,23 +111,23 @@ Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de ker
 1. Reinicializar ou atualizar sysctl executando <br>
     `sysctl -p`
 
-Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, confira: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
- 
-### <a name="ubuntu"></a>Ubuntu 
+Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consulte: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
+
+### <a name="ubuntu"></a>Ubuntu
  - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
-### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat
  - [O que é uma NMI e para qual finalidade posso usá-la?](https://access.redhat.com/solutions/4127)
  - [Como posso configurar meu sistema para parar quando for efetuado o push do comutador NMI?](https://access.redhat.com/solutions/125103)
  - [Guia do Administrador de Despejo de Memória](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
-### <a name="suse"></a>SUSE 
+### <a name="suse"></a>SUSE
 - [Configurar a captura de despejo de núcleo de kernel](https://www.suse.com/support/kb/doc/?id=3374462)
 
-### <a name="coreos"></a>CoreOS 
+### <a name="coreos"></a>CoreOS
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * A página principal da documentação do Linux do Console Serial está localizada [aqui](serial-console-linux.md).
 * Usar o Console Serial para inicializar em [GRUB e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
 * O Console Serial também está disponível para VMs do [Windows](serial-console-windows.md)

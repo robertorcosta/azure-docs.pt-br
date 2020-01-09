@@ -1,275 +1,150 @@
 ---
 title: Conectar-se ao banco de dados do IBM Informix
-description: Gerenciar recursos com as APIs REST do IBM Informix e os Aplicativos Lógicos do Azure
+description: Automatizar tarefas e fluxos de trabalho que gerenciam os recursos armazenados no IBM Informix usando o aplicativo lógico do Azure
 services: logic-apps
 ms.suite: integration
 author: gplarsen
 ms.author: plarsen
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: d6f768bc76d19c0aa21a245c008a4b05588f8f43
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ebedb68f8826642437f53e5c5fa8cd0843e7c20e
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789738"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665812"
 ---
-# <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
-O Microsoft Connector para Informix conecta os Aplicativos Lógicos aos recursos armazenados em um banco de dados IBM Informix. O conector Informix inclui um cliente Microsoft para se comunicar com computadores de servidores Informix remotos em uma rede TCP/IP. Isso inclui bancos de dados de nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais usando o gateway de dados local. Veja a [lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas e versões do IBM Informix com suporte (neste tópico).
+# <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gerenciar recursos do banco de dados IBM Informix usando aplicativos lógicos do Azure
 
-O conector oferece suporte às seguintes operações de banco de dados:
-
-* Listar tabelas do banco de dados
-* Ler uma linha usando SELECT
-* Ler todas as linhas usando SELECT
-* Adicionar uma linha usando INSERT
-* Alterar uma linha usando UPDATE
-* Remover uma linha usando DELETE
-
-Este tópico mostra como usar o Conector em um aplicativo lógico para processar as operações do banco de dados.
-
-Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-## <a name="available-actions"></a>Ações disponíveis
-Este conector dá suporte às seguintes ações do aplicativo lógico:
-
-* Getables
-* GetRow
-* GetRows
-* InsertRow
-* UpdateRow
-* DeleteRow
-
-## <a name="list-tables"></a>Listar tabelas
-A criação de um aplicativo lógico para qualquer operação é composta de várias etapas executadas por meio do portal do Microsoft Azure.
-
-No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um banco de dados Informix. Essa ação instrui o conector a processar uma instrução de esquema Informix, como `CALL SYSIBM.SQLTABLES`.
-
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome**, como `InformixgetTables`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
-
-### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
-1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2. Na lista de **gatilhos**, selecione **Recorrência**. 
-3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**.  
-4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **informix** na caixa de edição **Procurar mais ações** e selecione **Informix - Obter tabelas (Visualização)** .
-   
-   ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
-6. No painel de configuração **Informix - Obter tabelas**, marque **caixa de seleção** para habilitar **Conectar via gateway de dados local**. Observe que as configurações mudam de nuvem para local.
-   
-   * Digite o valor para **Servidor**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `ibmserver01:9089`.
-   * Digite o valor para o **Banco de Dados**. Por exemplo, digite `nwind`.
-   * Selecione o valor para a **Autenticação**. Por exemplo, selecione **Básica**.
-   * Digite o valor para o **Nome de Usuário**. Por exemplo, digite `informix`.
-   * Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
-   * Selecione o valor para o **Gateway**. Por exemplo, selecione **datagateway01**.
-7. Selecione **Criar** e, em seguida, **Salvar**. 
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
-8. Na folha **InformixgetTables**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-9. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, clique em **Get_tables**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir uma lista de tabelas.
-   
-   ![](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
-
-## <a name="create-the-connections"></a>Criar as conexões
-Este conector dá suporte às conexões com os bancos de dados no local e na nuvem usando as propriedades de conexão a seguir. 
-
-| Propriedade | Descrição |
-| --- | --- |
-| server |Obrigatório. Aceita um valor da cadeia de caracteres que representa um endereço TCP/IP ou alias no formato IPv4 ou IPv6, seguido de (delimitado por dois pontos) um número de porta TCP/IP. |
-| database |Obrigatório. Aceita um valor da cadeia de caracteres que representa um Nome do Banco de Dados Relacional (RDBNAM) DRDA. O Informix aceita uma cadeia de caracteres de 128 bytes (o banco de dados é conhecido como um nome de banco de dados IBM Informix (dbname)). |
-| autenticação |Opcional. Aceita um valor de item de lista, Básica ou Windows (kerberos). |
-| Nome de Usuário |Obrigatório. Aceita um valor de cadeia de caracteres. |
-| Senha |Obrigatório. Aceita um valor de cadeia de caracteres. |
-| Gateway |Obrigatório. Aceita um valor de item da lista, que representa o gateway de dados local definido para os Aplicativos Lógicos no grupo de armazenamento. |
-
-## <a name="create-the-on-premises-gateway-connection"></a>Criar a conexão de gateway local
-Este conector pode acessar um banco de dados do Informix local por meio do gateway de dados local. Consulte os tópicos do gateway para obter mais informações. 
-
-1. No painel de configuração **Gateways**, marque a **caixa de seleção** para habilitar **Conectar via gateway**. Veja as configurações mudarem de nuvem para local.
-2. Digite o valor para **Servidor**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `ibmserver01:9089`.
-3. Digite o valor para o **Banco de Dados**. Por exemplo, digite `nwind`.
-4. Selecione o valor para a **Autenticação**. Por exemplo, selecione **Básica**.
-5. Digite o valor para o **Nome de Usuário**. Por exemplo, digite `informix`.
-6. Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
-7. Selecione o valor para o **Gateway**. Por exemplo, selecione **datagateway01**.
-8. Selecione **Criar** para continuar. 
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorOnPremisesDataGatewayConnection.png)
-
-## <a name="create-the-cloud-connection"></a>Criar a conexão de nuvem
-Este conector pode acessar uma nuvem de banco de dados Informix. 
-
-1. No painel de configuração **Gateways**, deixe a **caixa de seleção** desabilitada (não clicada) **Conectar via gateway**. 
-2. Digite o valor para o **Nome da conexão**. Por exemplo, digite `hisdemo2`.
-3. Digite o valor para o **Nome do servidor Informix**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `hisdemo2.cloudapp.net:9089`.
-4. Digite o valor para **nome do banco de dados Informix**. Por exemplo, digite `nwind`.
-5. Digite o valor para o **Nome de Usuário**. Por exemplo, digite `informix`.
-6. Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
-7. Selecione **Criar** para continuar. 
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
-
-## <a name="fetch-all-rows-using-select"></a>Buscar todas as linhas usando SELECT
-Você pode criar uma ação de aplicativo lógico para buscar todas as linhas na tabela do Informix. Essa ação instrui o conector a processar uma instrução SELECT do Informix, como `SELECT * FROM AREA`.
-
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **nome** (por exemplo, "**InformixgetRows**"), a **assinatura**, o **grupo de recursos**, o **local**e o plano do **serviço de aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
-
-### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
-1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2. Na lista de **gatilhos**, selecione **Recorrência**. 
-3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
-4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **informix** na caixa de edição **Procurar mais ações** e selecione **Informix - Obter linhas (Visualização)** .
-6. Na ação **Obter linhas (Visualização)** , selecione **Alterar conexão**.
-7. No painel de configuração **Conexões**, selecione **Criar novo**. 
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorNewConnection.png)
-8. No painel de configuração **Gateways**, deixe a **caixa de seleção** desabilitada (não clicada) **Conectar via gateway**.
-   
-   * Digite o valor para o **Nome da conexão**. Por exemplo, digite `HISDEMO2`.
-   * Digite o valor para o **Nome do servidor Informix**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `HISDEMO2.cloudapp.net:9089`.
-   * Digite o valor para **nome do banco de dados Informix**. Por exemplo, digite `NWIND`.
-   * Digite o valor para o **Nome de Usuário**. Por exemplo, digite `informix`.
-   * Digite o valor para a **Senha**. Por exemplo, digite `Password1`.
-9. Selecione **Criar** para continuar.
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorCloudConnection.png)
-10. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-11. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-12. Clique em **Salvar**. 
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorGetRowsTableName.png)
-13. Na folha **InformixgetRows**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-14. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir uma lista de linhas.
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
-
-## <a name="add-one-row-using-insert"></a>Adicionar uma linha usando INSERT
-Você pode criar uma ação de aplicativo lógico para adicionar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução de inserção da Informix, como `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
-
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome**, como `InformixinsertRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
-
-### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
-1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2. Na lista de **gatilhos**, selecione **Recorrência**. 
-3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
-4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **informix** na caixa de edição **Procurar mais ações** e selecione **Informix - Inserir linha (Visualização)** .
-6. Na ação **Obter linhas (Visualização)** , selecione **Alterar conexão**. 
-7. No painel de configuração **Conexões** , selecione uma conexão. Por exemplo, selecione **hisdemo2**.
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Area 99999` e digite `102` para **REGIONID**. 
-10. Clique em **Salvar**.
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorInsertRowValues.png)
-11. Na folha **InformixinsertRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-12. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a nova linha.
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
-
-## <a name="fetch-one-row-using-select"></a>Buscar uma linha usando SELECT
-Você pode criar uma ação de aplicativo lógico para buscar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução SELECT WHERE do Informix, como `SELECT FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome**, como `InformixgetRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
-
-### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
-1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2. Na lista de **gatilhos**, selecione **Recorrência**. 
-3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
-4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **informix** na caixa de edição **Procurar mais ações** e selecione **Informix - Obter linhas (Visualização)** .
-6. Na ação **Obter linhas (Visualização)** , selecione **Alterar conexão**. 
-7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
-10. Opcionalmente, selecione **Mostrar opções avançadas** para especificar as opções de consulta.
-11. Clique em **Salvar**. 
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorGetRowValues.png)
-12. Na folha **InformixgetRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-13. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a linha.
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
-
-## <a name="change-one-row-using-update"></a>Alterar uma linha usando UPDATE
-Você pode criar uma ação de aplicativo lógico para alterar uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução de atualização da Informix, como `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
-
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome**, como `InformixupdateRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
-
-### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
-1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2. Na lista de **gatilhos**, selecione **Recorrência**. 
-3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
-4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **informix** na caixa de edição **Procurar mais ações** e selecione **Informix - Atualizar linha (Visualização)** .
-6. Na ação **Obter linhas (Visualização)** , selecione **Alterar conexão**. 
-7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**, digite `Updated 99999` e digite `102` para **REGIONID**. 
-10. Clique em **Salvar**. 
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowValues.png)
-11. Na folha **InformixupdateRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-12. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a nova linha.
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
-
-## <a name="remove-one-row-using-delete"></a>Remover uma linha usando DELETE
-Você pode criar uma ação de aplicativo lógico para remover uma linha em uma tabela do Informix. Essa ação instrui o conector a processar uma instrução DELETE do Informix, como `DELETE FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
-1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome**, como `InformixdeleteRow`, **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
-
-### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
-1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**.
-2. Na lista de **gatilhos**, selecione **Recorrência**. 
-3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
-4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **informix** na caixa de edição **Procurar mais ações** e selecione **Informix - Excluir linha (Visualização)** .
-6. Na ação **Obter linhas (Visualização)** , selecione **Alterar conexão**. 
-7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
-   
-    ![](./media/connectors-create-api-informix/InformixconnectorChangeConnection.png)
-8. Na lista **Nome da tabela**, selecione a **seta para baixo** e selecione **AREA**.
-9. Insira valores para todas as colunas necessárias (confira o asterisco vermelho). Por exemplo, digite `99999` para **AREAID**. 
-10. Clique em **Salvar**. 
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowValues.png)
-11. Na folha **InformixdeleteRow**, na lista **Todas as execuções** em **Resumo**, selecione o item listado primeiro (a execução mais recente).
-12. Na folha **Execução do aplicativo lógico**, selecione **Detalhes da Execução**. Na lista **Ação**, selecione **Get_rows**. Confira o valor de **Status**, que deve ser **Êxito**. Selecione o **link Entradas** para exibir as entradas. Selecione o **link Saídas**e exiba as saídas, que deverão incluir a linha excluída.
-    
-    ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
-
-## <a name="supported-informix-platforms-and-versions"></a>Versões e plataformas Informix com suporte
-Este conector dá suporte às versões do IBM Informix à seguir quando configurado para dar suporte a conexões a conexões de cliente DRDA (Distributed Relational Database Architecture).
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Informix](/connectors/informix/), você pode criar tarefas automatizadas e fluxos de trabalho que gerenciam recursos em um banco de dados IBM Informix. Esse conector inclui um cliente da Microsoft que se comunica com computadores remotos do servidor Informix em uma rede TCP/IP, incluindo bancos de dados baseados em nuvem, como o IBM Informix para Windows em execução na virtualização do Azure e bancos de dados locais quando você usa o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Você pode se conectar a essas plataformas e versões da Informix se elas estiverem configuradas para dar suporte a conexões de cliente DRDA (arquitetura de banco de dados relacional distribuído):
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
+Este tópico mostra como usar o Conector em um aplicativo lógico para processar as operações do banco de dados.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+
+* Para bancos de dados locais, [faça o download e instale o gateway de dados](../logic-apps/logic-apps-gateway-install.md) local em um computador local e, em seguida, [crie um recurso de gateway de dados do Azure no portal do Azure](../logic-apps/logic-apps-gateway-connection.md).
+
+* O aplicativo lógico em que você precisa ter acesso ao seu banco de dados Informix. Esse conector fornece apenas ações, de modo que seu aplicativo lógico já deve começar com um gatilho, por exemplo, o [gatilho de recorrência](../connectors/connectors-native-recurrence.md). 
+
+## <a name="add-an-informix-action"></a>Adicionar uma ação de Informix
+
+1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer de aplicativo lógico, se já não estiver aberto.
+
+1. Na etapa em que você deseja adicionar a ação da Informix, selecione **nova etapa**.
+
+   Para adicionar uma ação entre etapas existentes, mova o mouse sobre a seta de conexão. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
+
+1. Na caixa de pesquisa, insira `informix` como o filtro. Na lista de ações, selecione a ação desejada, por exemplo:
+
+   ![Selecione a ação da Informix a ser executada](./media/connectors-create-api-informix/select-informix-connector-action.png)
+
+   O conector fornece essas ações, que executam as operações de banco de dados correspondentes:
+
+   * Obter tabelas-listar tabelas de banco de dados usando uma instrução `CALL`
+   * Obter linhas-ler todas as linhas usando uma instrução `SELECT *`
+   * Obter linha-ler uma linha usando uma instrução `SELECT WHERE`
+   * Adicionar uma linha usando uma instrução `INSERT`
+   * Editar uma linha usando uma instrução `UPDATE`
+   * Excluir uma linha usando uma instrução `DELETE`
+
+1. Se você for solicitado a fornecer detalhes de conexão para seu banco de dados Informix, siga as [etapas para criar a conexão](#create-connection)e continue com a próxima etapa.
+
+1. Forneça as informações para a ação selecionada:
+
+   | Ação | Description | Propriedades e descrições |
+   |--------|-------------|-----------------------------|
+   | **Obter tabelas** | Listar tabelas de banco de dados executando uma instrução de chamada Informix. | Nenhum |
+   | **Obter linhas** | Busque todas as linhas na tabela especificada executando uma instrução de `SELECT *` do Informix. | **Nome da tabela**: o nome da tabela Informix que você deseja <p><p>Para adicionar outras propriedades a essa ação, selecione-as na lista **Adicionar novo parâmetro** . Para obter mais informações, consulte o [tópico de referência do conector](/connectors/informix/). |
+   | **Obter linha** | Busque uma linha da tabela especificada executando uma instrução de `SELECT WHERE` da Informix. | **nome da tabela**de - : o nome da tabela Informix que você deseja <br>**ID de linha**de - : a ID exclusiva da linha, por exemplo, `9999` |
+   | **Inserir linha** | Adicione uma linha à tabela Informix especificada executando uma instrução de `INSERT` do Informix. | **nome da tabela**de - : o nome da tabela Informix que você deseja <br>**Item**de - : a linha com os valores a serem adicionados |
+   | **Atualizar linha** | Altere uma linha na tabela Informix especificada executando uma instrução de `UPDATE` do Informix. | **nome da tabela**de - : o nome da tabela Informix que você deseja <br>**ID de linha**de - : a ID exclusiva da linha a ser atualizada, por exemplo, `9999` <br>- **linha**: a linha com os valores atualizados, por exemplo, `102` |
+   | **Excluir linha** | Remova uma linha da tabela Informix especificada executando uma instrução de `DELETE` do Informix. | **nome da tabela**de - : o nome da tabela Informix que você deseja <br>**ID de linha**de - : a ID exclusiva da linha a ser excluída, por exemplo, `9999` |
+   ||||
+
+1. Salve seu aplicativo lógico. Agora, [teste seu aplicativo lógico](#test-logic-app) ou continue criando seu aplicativo lógico.
+
+<a name="create-connection"></a>
+
+## <a name="connect-to-informix"></a>Conectar-se ao Informix
+
+1. Se o seu aplicativo lógico se conectar a um banco de dados local, selecione **conectar por meio do gateway do data local**.
+
+1. Forneça essas informações de conexão e, em seguida, selecione **criar**.
+
+   | Propriedade | Propriedade JSON | Obrigatório | Valor de exemplo | Description |
+   |----------|---------------|----------|---------------|-------------|
+   | Nome da conexão | `name` | Sim | `informix-demo-connection` | O nome a ser usado para a conexão com o banco de dados Informix |
+   | Servidor | `server` | Sim | -Cloud: `informixdemo.cloudapp.net:9089` <br>-Local: `informixdemo:9089` | O endereço TCP/IP ou alias que está no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP |
+   | Banco de dados | `database` | Sim | `nwind` | O nome do banco de dados relacional DRDA (RDBNAM) ou o nome do banco de dados Informix (dbname). A Informix aceita uma cadeia de caracteres de 128 bytes. |
+   | Autenticação | `authentication` | Somente local | **Básico** ou **Windows** (Kerberos) | O tipo de autenticação exigido pelo seu banco de dados Informix. Essa propriedade só aparece quando você seleciona **conectar por meio do gateway de dados local**. |
+   | Nome de Usuário | `username` | Não | <> *de nome de usuário do banco de dados* | Um nome de usuário para o banco de dados |
+   | Senha | `password` | Não | *banco de dados <-senha*> | Uma senha para o banco de dados |
+   | Gateway | `gateway` | Somente local | -<> *de assinatura do Azure*<br>-<*Azure-on-premises-data-gateway-resource*> | A assinatura do Azure e o nome do recurso do Azure para o gateway de dados local que você criou na portal do Azure. As propriedades e as subpropriedades de **Gateway** só aparecem quando você seleciona **conectar por meio do gateway de dados local**. |
+   ||||||
+
+   Por exemplo:
+
+   * **Banco de dados de nuvem**
+
+     ![Informações de conexão do banco de dados de nuvem](./media/connectors-create-api-informix/informix-cloud-connection.png)
+
+   * **Banco de dados local**
+
+     ![Informações de conexão de banco de dados local](./media/connectors-create-api-informix/informix-on-premises-connection.png)
+
+1. Salve seu aplicativo lógico.
+
+<a name="test-logic-app"></a>
+
+## <a name="test-your-logic-app"></a>Como testar o seu aplicativo lógico
+
+1. Na barra de ferramentas do designer do aplicativo lógico, selecione **executar**. Depois que o aplicativo lógico for executado, você poderá exibir as saídas dessa execução.
+
+1. No menu do seu aplicativo lógico, selecione **visão geral**. No painel Visão geral, em **resumo** > **execuções de histórico**, selecione a execução mais recente.
+
+1. Em **execução do aplicativo lógico**, selecione **detalhes da execução**.
+
+1. Na lista ações, selecione a ação com as saídas que você deseja exibir, por exemplo, **Get_tables**.
+
+   Se a ação tiver sido bem-sucedida, sua propriedade **status** será marcada como **bem-sucedida**.
+
+1. Para exibir as entradas, em **link de entradas**, selecione o link de URL. Para exibir as saídas, no link de **link de saídas** , selecione o link de URL. Aqui estão algumas saídas de exemplo:
+
+   * **Obter tabelas** mostra uma lista de tabelas:
+
+     ![Saídas da ação "obter tabelas"](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
+
+   * **Get_rows** mostra uma lista de linhas:
+
+     ![Saídas da ação "obter linhas"](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
+
+   * **Get_row** mostra a linha especificada:
+
+     ![Saídas da ação "obter linha"](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
+
+   * **Insert_row** mostra a nova linha:
+
+     ![Saídas da ação "Inserir linha"](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
+
+   * **Update_row** mostra a linha atualizada:
+
+     ![Saídas da ação "atualizar linha"](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
+
+   * **Delete_row** mostra a linha excluída:
+
+     ![Saídas da ação "Excluir linha"](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
+
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/informix/). 
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição do Swagger do conector, examine a [página de referência do conector](/connectors/informix/).
 
 ## <a name="next-steps"></a>Próximos passos
-[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](apis-list.md)

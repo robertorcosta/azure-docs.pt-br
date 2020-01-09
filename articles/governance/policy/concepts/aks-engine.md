@@ -3,16 +3,16 @@ title: Saiba Azure Policy para o mecanismo AKS
 description: Saiba como Azure Policy usa o CustomResourceDefinitions e o agente de política aberto do gatekeeper V3 para gerenciar clusters com o mecanismo do AKS.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267262"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436437"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Entender Azure Policy para o mecanismo AKS
 
-O Azure Policy integra-se ao [AKs Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md), um sistema que fornece ferramentas convenientes para inicializar rapidamente um cluster kubernetes autogerenciado no Azure. Essa integração permite imposição e garantias em escala em seus clusters autogerenciados do mecanismo do AKS de maneira centralizada e consistente. Ao estender o uso do protocolo OPA ( [Open Policy Agent](https://www.openpolicyagent.org/) [) v3 (](https://github.com/open-policy-agent/gatekeeper) beta), um _webhook do controlador de admissão_ para kubernetes, Azure Policy torna possível gerenciar e relatar o estado de conformidade de seus recursos do Azure e do mecanismo de AKs clusters autogerenciados de um único lugar.
+O Azure Policy integra-se ao [AKs Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md), um sistema que fornece ferramentas convenientes para inicializar rapidamente um cluster kubernetes autogerenciado no Azure. Essa integração permite imposição e garantias em escala em seus clusters autogerenciados do mecanismo do AKS de maneira centralizada e consistente. Ao estender o uso do OPA ( [Open Policy Agent](https://www.openpolicyagent.org/) [) V2 V3 (beta),](https://github.com/open-policy-agent/gatekeeper) um _webhook do controlador de admissão_ para kubernetes, Azure Policy torna possível gerenciar e relatar o estado de conformidade dos seus recursos do Azure e clusters autogerenciados do mecanismo de AKs de um único lugar.
 
 > [!NOTE]
 > Azure Policy para o mecanismo AKS está em visualização pública e não tem SLA. O gatekeeper v3 está em beta e tem suporte da comunidade de software livre. O serviço só dá suporte a definições de políticas internas e a um único cluster de mecanismo AKS para cada grupo de recursos configurado com uma entidade de serviço.
@@ -20,7 +20,7 @@ O Azure Policy integra-se ao [AKs Engine](https://github.com/Azure/aks-engine/bl
 > [!IMPORTANT]
 > Para obter suporte para Azure Policy para AKS Engine, AKS Engine ou gatekeeper v3, crie um [novo problema](https://github.com/Azure/aks-engine/issues/new/choose) no repositório GitHub do mecanismo de AKs.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para habilitar e usar Azure Policy para o mecanismo AKS com seu cluster kubernetes autogerenciado no Azure, execute as seguintes ações:
 
@@ -29,13 +29,13 @@ Para habilitar e usar Azure Policy para o mecanismo AKS com seu cluster kubernet
 - [Atribuir uma definição de política para o mecanismo de AKS](#built-in-policies)
 - [Aguardar validação](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. PolicyInsights** e criar uma atribuição de função para a entidade de serviço de cluster. 
 
-1. Para habilitar o provedor de recursos, siga as etapas em [provedores de recursos e tipos](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) ou execute o comando CLI do Azure ou Azure PowerShell:
+1. Para habilitar o provedor de recursos, siga as etapas em [provedores de recursos e tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) ou execute o comando CLI do Azure ou Azure PowerShell:
 
-   - CLI do Azure
+   - Azure CLI
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
@@ -255,7 +255,7 @@ Para remover o complemento de Azure Policy e o gatekeeper do seu cluster de meca
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Dados de diagnóstico coletados pelo complemento Azure Policy
 
-O complemento Azure Policy do kubernetes coleta dados de diagnóstico de cluster limitados. Esses dados de diagnóstico são dados técnicos vitais relacionados ao software e ao desempenho. Ele é usado das seguintes maneiras:
+O complemento Azure Policy do kubernetes coleta dados de diagnóstico de cluster limitados. Esses dados de diagnóstico são dados técnicos vitais relacionados ao software e ao desempenho. Ele é usada das seguintes maneiras:
 
 - Manter o complemento Azure Policy atualizado
 - Mantenha Azure Policy complemento seguro, confiável e com bom desempenho
@@ -276,7 +276,7 @@ As informações coletadas pelo complemento não são dados pessoais. Os detalhe
 - Exceções/erros encontrados por Azure Policy complemento durante a instalação do agente na avaliação da política
 - Número de políticas de gatekeeper não instaladas pelo complemento Azure Policy
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar a [Estrutura de definição de política](definition-structure.md).

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4d3c74db9a0c4e13ee7c17eb78552d8c11cd7afb
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 5669b606d7dc06483641c2bdd6ef27c82e75bf4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422516"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431869"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados
 
@@ -54,7 +54,7 @@ Cada regra da rede virtual se aplica a todo o seu servidor de banco de dados SQL
 Há uma separação de funções de segurança na administração de pontos de extremidade de serviço de rede virtual. A ação é necessária em cada uma das seguintes funções:
 
 - **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
-- **Administrador de banco de dados:** &nbsp; atualizar a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao servidor de Banco de dados SQL do Microsoft Azure.
+- **Administrador de banco de dados:** &nbsp; atualizar a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao servidor do banco de dados SQL.
 
 *Alternativa de RBAC:*
 
@@ -110,7 +110,7 @@ O Armazenamento do Azure implementou o mesmo recurso que permite que você limit
 
 O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase com a conta será interrompida. Para habilitar cenários de importação e exportação do PolyBase com o SQL Data Warehouse do Azure que se conectam ao Armazenamento do Azure protegido para VNet, siga as etapas indicadas abaixo:
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 - Instalar o Azure PowerShell usando este [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
@@ -158,15 +158,15 @@ O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure
        > - Não é necessário especificar SECRET com a chave de acesso de Armazenamento do Azure, porque esse mecanismo usa [Identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
        > - O nome IDENTITY deve ser **'Managed Service Identity'** para que a conectividade do PolyBase funcione com a conta de armazenamento do Azure protegida para VNet.
 
-   1. Criar fonte de dados externa com o esquema abfss:// para conectar-se a sua conta de armazenamento de uso geral v2 usando o PolyBase:
+   1. Crie uma fonte de dados externa com o esquema `abfss://` para se conectar à sua conta de armazenamento de uso geral v2 usando o polybase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blobs ou de uso geral v1, primeiro remova essas tabelas externas e, em seguida, remova a fonte de dados externa correspondente. Em seguida, crie a fonte de dados externa com o esquema abfss:// que se conecta à conta de armazenamento de uso geral v2 acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Use o [Assistente para gerar e publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criação para todas as tabelas externas com facilidade.
-       > - Para saber mais sobre o esquema abfss://, confira este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Se você já tiver tabelas externas associadas à conta de armazenamento de blobs ou de uso geral v1, primeiro remova essas tabelas externas e, em seguida, remova a fonte de dados externa correspondente. Em seguida, crie uma fonte de dados externa com o esquema de `abfss://` se conectando à conta de armazenamento de uso geral v2 como acima e recrie todas as tabelas externas usando essa nova fonte de dados externa. Use o [Assistente para gerar e publicar scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) para gerar scripts de criação para todas as tabelas externas com facilidade.
+       > - Para obter mais informações sobre o esquema de `abfss://`, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
        > - Para saber mais sobre CREATE EXTERNAL DATA SOURCE, confira este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
    1. Consulte normalmente usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
@@ -224,7 +224,7 @@ Internamente, os cmdlets do PowerShell para ações de VNet do SQL chamam APIs R
 
 - [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de serviço de rede virtual específico *nome do tipo* relevante para o banco de dados SQL do Azure.
 
@@ -235,9 +235,9 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 ## <a name="azure-portal-steps"></a>etapas do portal do Azure
 
-1. Entre no [Portal do Azure][http-azure-portal-link-ref-477t].
+1. Entre no [portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Em seguida, navegue até o portal de **servidores SQL**&gt;**Firewall / Redes virtuais**.
+2. Procure e selecione **servidores SQL**e, em seguida, selecione o servidor. Em **segurança**, selecione **firewalls e redes virtuais**.
 
 3. Defina o controle **Permitir acesso aos serviços do Azure** como OFF.
 
@@ -252,7 +252,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
     > [!TIP]
     > Você deve incluir o **prefixo de endereço** correto para a sua sub-rede. É possível encontrar o valor no portal.
-    > Navegue até **Todos os recursos** &gt; **Todos os tipos** &gt; **Redes virtuais**. O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **Sub-redes**. A coluna **INTERVALO DE ENDEREÇOS** tem o prefixo de endereço de que você precisa.
+    > Navegue por **todos os recursos** &gt; **todos os tipos** &gt; **redes virtuais**. O filtro exibe suas redes virtuais. Clique em sua rede virtual e, em seguida, clique em **Sub-redes**. A coluna **INTERVALO DE ENDEREÇOS** tem o prefixo de endereço de que você precisa.
 
     ![Preencha os campos para a nova regra.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -278,7 +278,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 
 O recurso da regra da rede virtual para o Banco de Dados SQL do Azure se tornou disponível no final de setembro de 2017.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Use o PowerShell para criar um ponto de extremidade de serviço de rede virtual e uma regra de rede virtual para o banco de dados SQL do Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Regras de rede virtual: operações][rest-api-virtual-network-rules-operations-862r] com APIs REST

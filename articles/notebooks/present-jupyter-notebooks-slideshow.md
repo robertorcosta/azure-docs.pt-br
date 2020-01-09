@@ -1,18 +1,20 @@
 ---
-title: Apresentar um Jupyter Notebook como uma apresentação de slides no Azure
-description: Como configurar as células para o modo de apresentação de slides em um notebook Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão RISE.
-ms.topic: article
+title: Apresentar um notebook Jupyter como uma apresentação de slides sobre Azure Notebooks visualização
+description: Saiba como configurar células para o modo de apresentação de slides em um notebook Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão de elevação.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277587"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647111"
 ---
-# <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides de notebook
+# <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Executar uma apresentação de slides do bloco de notas em Azure Notebooks visualização
 
 O Azure Notebooks é pré-configurado com a Extensão de Slides de Jupyter/IPython (RISE) que permite que você apresente um notebook diretamente como apresentação de slides. Em uma apresentação de slides, as células são normalmente exibidas uma por vez usando um tamanho de fonte que é apropriado para apresentar em telas grandes e você ainda pode executar o código em vez de alternar para um computador separado de demonstração.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 A imagem a seguir mostra a exibição de notebook padrão, no qual você pode ver tudo isso Markdown e células de código:
 
@@ -50,7 +52,7 @@ Se você pegar um notebook aleatório e usá-lo para uma apresentação de slide
     | Slide | A célula é um slide principal, navegada usando as setas à esquerda e direita do controle de navegação. |
     | Subslide | A célula esta “abaixo” do slide principal, navegado usando a seta para baixo do controle de navegação. A seta para cima retorna para o slide principal. Subslides são usados para o material secundário que você poderia ignorar no caminho principal de uma apresentação, mas está prontamente disponível, se necessário. |
     | Fragmento | Conteúdo da célula aparece no contexto do slide anterior ou subslide ao usar a seta para baixo de navegação (um fragmento é removido ao usar a seta para cima). Você pode usar um fragmento com uma célula de código para fazer com que esse código apareça dentro de um slide, ou você pode usar vários fragmentos para fazer os marcadores de texto aparecerem um por um (veja o exemplo na próxima seção). Uma vez que os fragmentos são construídos no slide atual, os fragmentos em excesso não ficarão visíveis na parte inferior da janela do navegador. |
-    | Skip | A célula não é mostrada na apresentação de slides. |
+    | Ignorar | A célula não é mostrada na apresentação de slides. |
     | Observações | A célula contém anotações do falante, que não são mostradas na apresentação de slides. |
 
 1. Inicialmente, é útil escolher **Slide** para cada célula. Você pode executar a apresentação de slides e fazer os ajustes apropriados.
@@ -86,11 +88,11 @@ Uma vez que a apresentação de slides processa fragmentos com espaçamento mais
     ![A saída de célula de código aparece na apresentação de slides](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > A saída de célula é considerada parte da célula em uma apresentação de slides. Se você executar uma célula no bloco de anotações ou modo de exibição de apresentação de slides, a saída é exibida em outra exibição. Para limpar a saída, use a **Célula** > **Saídas Atuais** > **comando** Limpar (para a célula atual) ou **Célula**  >  **Todas as saídas** > **Limpar** (para todas as células).
+    > A saída de célula é considerada parte da célula em uma apresentação de slides. Se você executar uma célula no bloco de anotações ou modo de exibição de apresentação de slides, a saída é exibida em outra exibição. Para limpar a saída, use a **Célula** > **Saídas Atuais** > **comando** Limpar (para a célula atual) ou **Célula** > **Todas as saídas** > **Limpar** (para todas as células).
 
 1. Quando tiver terminado a apresentação de slides, use o **X** para retornar à exibição de bloco de anotações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
 - [Como instalar pacotes de dentro de um bloco de anotações](install-packages-jupyter-notebook.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035454"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561279"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implantar a plataforma de contêiner OpenShift 3,11 no Azure
 
@@ -27,7 +27,7 @@ Você pode usar um dos vários métodos para implantar a plataforma de contêine
 
 - Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.openshift.com/container-platform) do OpenShift Container Platform.
 - Você também pode usar um [modelo do Gerenciador de Recursos](https://github.com/Microsoft/openshift-container-platform/) existente que simplifica a implantação do cluster do OpenShift Container Platform.
-- Outra opção é usar a [Oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Outra opção é usar a [Oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Para ambas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância Red Hat Enterprise Linux é registrada na Assinatura do Red Hat e anexada à ID do Pool que contém os direitos para o OpenShift Container Platform.
 Certifique-se de que você tenha uma senha, uma ID do Pool e um Nome de usuário de gerente de Assinatura do Red Hat (RHSM) válidos. Você pode usar uma Chave de Ativação, ID da Organização e ID do Pool. Você pode verificar essas informações entrando em https://access.redhat.com.
@@ -47,9 +47,9 @@ Se os mestres privados e o roteador privado forem selecionados, o nome de domín
 
 Após a implantação bem-sucedida, o nó de bastiões é o único nó com um IP público no qual você pode SSH.  Mesmo que os nós mestres estejam configurados para acesso público, eles não são expostos para acesso SSH.
 
-Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, crie um fork do repositório do GitHub e altere os itens apropriados.
+Para implantar usando o modelo do Resource Manager, você usa um arquivo de parâmetros para fornecer os parâmetros de entrada. Para personalizar ainda mais a implantação, bifurque o repositório do GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem, mas não se limitam a:
+Algumas opções comuns de personalização incluem, mas não estão limitadas a:
 
 - Tamanho de VM de bastião (variável em azuredeploy.json)
 - Convenções de nomenclatura (variáveis em azuredeploy.json)
@@ -248,7 +248,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Arquivo Parameters. JSON explicado
 
-| Propriedade | DESCRIÇÃO | Opções válidas | Valor padrão |
+| Propriedade | Description | Opções válidas | Valor Padrão |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL para artefatos (JSON, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Região do Azure para implantar recursos |  |  |
@@ -258,7 +258,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `cnsVmSize` | Tamanho da VM do nó do armazenamento nativo do contêiner (CNS). Selecione um dos tamanhos de VM permitidos listados no arquivo azuredeploy. JSON |  | Standard_E4s_v3 |
 | `osImageType` | A imagem RHEL a ser usada. defaultgallery: sob demanda; Marketplace: imagem de terceiros | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Se `osImageType` for Marketplace, insira os valores apropriados para ' publicador ', ' oferta ', ' SKU ', ' versão ' da oferta do Marketplace. Este parâmetro é um tipo de objeto |  |  |
-| `storageKind` | O tipo de armazenamento a ser usado  | gerenciado<br> não gerenciados | gerenciado |
+| `storageKind` | O tipo de armazenamento a ser usado  | gerenciado<br> não gerenciado | gerenciado |
 | `openshiftClusterPrefix` | Prefixo de cluster usado para configurar os nomes de host para todos os nós.  Entre 1 e 20 caracteres |  | mycluster |
 | `minoVersion` | A versão secundária da plataforma de contêiner do OpenShift 3,11 a ser implantada |  | 69 |
 | `masterInstanceCount` | Número de nós mestres a serem implantados | 1, 3, 5 | 3 |
@@ -269,9 +269,9 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `dataDiskSize` | Tamanho do disco de dados a ser anexado aos nós para o volume do Docker (em GB) | 32, 64, 128, 256, 512, 1024, 2048 | 64 |
 | `cnsGlusterDiskSize` | Tamanho do disco de dados a ser anexado aos nós do CNS para uso pelo GlusterFS (em GB | 32, 64, 128, 256, 512, 1024, 2048 | 128 |
 | `adminUsername` | Nome de usuário do administrador para o logon do sistema operacional (VM) e o usuário OpenShift inicial |  | ocpadmin |
-| `enableMetrics` | Habilitar métricas. As métricas exigem mais recursos, portanto, selecione o tamanho adequado para a máquina virtual de infraestrutura | verdadeiro <br> false | false |
-| `enableLogging` | Habilite o registro em log. o Pod elasticsearch requer 8 GB de RAM, portanto, selecione o tamanho adequado para a VM de infraestrutura | verdadeiro <br> false | false |
-| `enableCNS` | Habilitar o armazenamento nativo do contêiner | verdadeiro <br> false | false |
+| `enableMetrics` | Habilitar métricas. As métricas exigem mais recursos, portanto, selecione o tamanho adequado para a máquina virtual de infraestrutura | true <br> false | false |
+| `enableLogging` | Habilite o registro em log. o Pod elasticsearch requer 8 GB de RAM, portanto, selecione o tamanho adequado para a VM de infraestrutura | true <br> false | false |
+| `enableCNS` | Habilitar o armazenamento nativo do contêiner | true <br> false | false |
 | `rhsmUsernameOrOrgId` | Nome de usuário ou ID da organização do Red Hat Subscription Manager |  |  |
 | `rhsmPoolId` | A ID do pool do Gerenciador de assinaturas do Red Hat que contém seus direitos de OpenShift para nós de computação |  |  |
 | `rhsmBrokerPoolId` | A ID do pool do Gerenciador de assinaturas do Red Hat que contém seus direitos de OpenShift para nós mestres e de infra-estrutura. Se você não tiver IDs de pool diferentes, insira a mesma ID de pool que ' rhsmPoolId ' |  |
@@ -279,12 +279,12 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `keyVaultSubscriptionId` | A ID da assinatura que contém o Key Vault |  |  |
 | `keyVaultResourceGroup` | O nome do grupo de recursos que contém o Key Vault |  |  |
 | `keyVaultName` | O nome da Key Vault que você criou |  |  |
-| `enableAzure` | Habilitar o provedor de nuvem do Azure | verdadeiro <br> false | verdadeiro |
+| `enableAzure` | Habilitar o provedor de nuvem do Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory ID do cliente também conhecida como ID do aplicativo para a entidade de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | nenhum |
-| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | padrão <br> Personalizar | padrão |
+| `domainName` | Nome do nome de domínio personalizado a ser usado (se aplicável). Defina como "nenhum" se não estiver implantando um cluster totalmente privado |  | none |
+| `masterClusterDnsType` | Tipo de domínio do console Web do OpenShift. ' default ' usará o rótulo DNS do IP de infraestrutura principal. ' Custom ' permite que você defina seu próprio nome | padrão <br> personalizado | padrão |
 | `masterClusterDns` | O nome DNS personalizado a ser usado para acessar o console Web OpenShift se você selecionou ' Custom ' para `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará nip.io.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> Personalizar | nipio |
+| `routingSubDomainType` | Se definido como ' nipio ', `routingSubDomain` usará nip.io.  Use ' Custom ' se você tiver seu próprio domínio que deseja usar para roteamento | nipio <br> personalizado | nipio |
 | `routingSubDomain` | O nome DNS do curinga que você deseja usar para roteamento se selecionou ' personalizado ' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se deseja usar uma rede virtual existente ou criar uma nova rede virtual | pré-existente <br> novo | novo |
 | `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede virtual se você selecionou ' novo ' para `virtualNetworkNewOrExisting` |  | resourceGroup().name |
@@ -304,8 +304,8 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `masterPrivateClusterIp` | Se nós mestres privados forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para nós mestres. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós mestres públicos forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.1.0.200 |
 | `routerClusterType` | Especifique se o cluster usa nós de infraestrutura privada ou pública. Se privado for escolhido, os nós de infra-estrutura não serão expostos à Internet por meio de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | público <br> privado | público |
 | `routerPrivateClusterIp` | Se os nós de infraestrutura privada forem selecionados, um endereço IP privado deverá ser especificado para ser usado pelo balanceador de carga interno para os nós de infraestrutura. Esse IP estático deve estar dentro do bloco CIDR para a sub-rede mestre e ainda não está em uso. Se os nós de infraestrutura pública forem selecionados, esse valor não será usado, mas ainda deverá ser especificado |  | 10.2.0.200 |
-| `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> Personalizar | selfsigned |
-| `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> Personalizar | selfsigned |
+| `routingCertType` | Usar certificado personalizado para o domínio de roteamento ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> personalizado | selfsigned |
+| `masterCertType` | Usar certificado personalizado para o domínio mestre ou o certificado autoassinado padrão-siga as instruções na seção de **certificados personalizados** | selfsigned <br> personalizado | selfsigned |
 
 <br>
 
@@ -341,7 +341,7 @@ Quando a implantação for concluída, recupere a conexão da seção de saída 
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
 
@@ -349,7 +349,7 @@ Quando não for mais necessário, você pode usar o comando [az group delete](/c
 az group delete --name openshiftrg
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Tarefas de pós-implantação](./openshift-container-platform-3x-post-deployment.md)
 - [Solução de problemas de implantação do OpenShift no Azure](./openshift-container-platform-3x-troubleshooting.md)

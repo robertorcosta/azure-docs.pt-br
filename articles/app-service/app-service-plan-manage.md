@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628031515a9b0fdf3aa7b7ec88ee1b6b7f41f51
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672203"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681152"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 
@@ -24,11 +24,15 @@ Um [Plano do Serviço de Aplicativo do Azure](overview-hosting-plans.md) fornece
 
 Você pode criar um Plano do Serviço de Aplicativo vazio ou pode criar um plano como parte da criação de um aplicativo.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **novo** > **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
+1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
 
-   ![Crie um aplicativo no portal do Azure.][createWebApp]
+   ![Crie um recurso no portal do Azure.][createResource] 
 
-2. Configure a seção **detalhes da instância** antes de configurar o plano do serviço de aplicativo. As configurações, como **publicar** e **sistemas operacionais** , podem alterar os tipos de preço disponíveis para seu plano do serviço de aplicativo. A **região** determina onde o plano do serviço de aplicativo é criado.
+1. Selecione **novo** > **aplicativo Web** ou outro tipo de aplicativo do serviço de aplicativo.
+
+   ![Crie um aplicativo no portal do Azure.][createWebApp] 
+
+2. Configure a seção **detalhes da instância** antes de configurar o plano do serviço de aplicativo. As configurações, como **publicar** e **sistemas operacionais** , podem alterar os tipos de preço disponíveis para seu plano do serviço de aplicativo. A **região** determina onde o plano do serviço de aplicativo é criado. 
    
 3. Na seção **plano do serviço de aplicativo** , selecione um plano existente ou crie um plano selecionando **criar novo**.
 
@@ -48,7 +52,7 @@ Você pode mover um aplicativo para outro Plano do Serviço de Aplicativo, desde
 > Você não pode especificar o espaço da web que deseja ao criar um plano, mas é possível garantir que um plano seja criado no mesmo espaço da Web de um plano existente. Em resumo, todos os planos criados com o mesmo grupo de recursos e combinação de regiões são implementados no mesmo espaço da web. Por exemplo, se você criou um plano no grupo de recursos A e na região B, qualquer plano criado subsequentemente no grupo de recursos A e na região B será implantado no mesmo espaço da Web. Observe que os planos não é possível mover espaços Web depois que elas forem criadas, para que você não pode mover um plano para "mesmo espaço da Web" como outro plano, movendo-o para outro grupo de recursos.
 > 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo que você deseja mover.
+1. Na [portal do Azure](https://portal.azure.com), procure e selecione serviços de **aplicativos** e selecione o aplicativo que você deseja mover.
 
 2. No menu à esquerda, selecione **Alterar plano do serviço de aplicativo**.
 
@@ -97,3 +101,4 @@ Para evitar encargos inesperados, quando você excluir o último aplicativo em u
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

@@ -1,25 +1,16 @@
 ---
-title: Proxy reverso do Azure Service Fabric | Microsoft Docs
+title: Proxy reverso do Azure Service Fabric
 description: Usar o proxy reverso do Service Fabric para comunicação com microsserviços de dentro e fora do cluster.
-services: service-fabric
-documentationcenter: .net
 author: BharatNarasimman
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464305"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -44,8 +35,8 @@ Proxy reverso expõe um ou mais pontos de extremidade no nó local para serviço
 > **Plataformas com suporte**
 >
 > Proxy reverso no Service Fabric atualmente dá suporte às seguintes plataformas
-> * *Cluster Windows*: Windows 8 e posterior ou Windows Server 2012 e posterior
-> * *Cluster Linux*: Atualmente, o Proxy Reverso não está disponível para clusters Linux
+> * *Cluster do Windows*: Windows 8 e posteriores ou Windows Server 2012 e posteriores
+> * *Cluster do Linux*: proxy reverso não está disponível no momento para clusters do Linux
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Alcançar microsserviços de fora do cluster
@@ -74,20 +65,20 @@ O proxy reverso usa um formato de URI (Uniform Resource Identifier) específico 
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** O proxy reverso pode ser configurado para aceitar tráfego HTTP ou HTTPS. Para o encaminhamento HTTPS, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md) após a configuração do proxy reverso para escutar o HTTPS.
-* **FQDN (nome de domínio totalmente qualificado) do cluster | IP interno:** Para clientes externos, é possível configurar o proxy reverso para que seja acessível através do domínio do cluster como, por exemplo, mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy reverso é executado em todos os nós. Para o tráfego interno, o proxy reverso pode ser alcançado no localhost ou em qualquer IP de nó interno (por exemplo, 10.0.0.1).
-* **Porta:** Essa é a porta, como 19081, que foi especificada para o proxy reverso.
-* **ServiceInstanceName:** Esse é o nome totalmente qualificado da instância de serviço implantada que você está tentando acessar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/* , você usaria *myapp/myservice*.
+* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. Para o encaminhamento HTTPS, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md) após a configuração do proxy reverso para escutar o HTTPS.
+* **FQDN (nome de domínio totalmente qualificado) do cluster | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster, por exemplo, mycluster.eastus.cloudapp.azure.com. Por padrão, o proxy reverso é executado em todos os nós. Para o tráfego interno, o proxy reverso pode ser alcançado no localhost ou em qualquer IP de nó interno (por exemplo, 10.0.0.1).
+* **Porta:** essa é a porta, como 19081, que foi especificada para o proxy reverso.
+* **ServiceInstanceName:** esse é o nome totalmente qualificado da instância de serviço implantado que você está tentando alcançar sem o esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/* , você usaria *myapp/myservice*.
 
     O nome da instância de serviço diferencia maiúsculas de minúsculas. O uso de maiúsculas e minúsculas diferentes no nome da instância de serviço da URL causa uma falha das solicitações com 404 (Não Encontrado).
-* **Sufixo do caminho:** Esse é o caminho real da URL, como *myapi/values/add/3*, para o serviço que você quer conectar.
-* **PartitionKey:** Para um serviço particionado, essa é a chave de partição computada da partição que você quer alcançar. Observe que isso *não* é o GUID da ID da partição. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
-* **PartitionKind:** Esse é o esquema de partição de serviço. Isso pode ser 'Int64Range' ou 'Named'. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
+* **Caminho de sufixo:** esse é o caminho de URL real, por exemplo, *myapi/values/add/3*, para o serviço ao qual você deseja se conectar.
+* **PartitionKey:** para um serviço particionado, esta é a chave de partição computada da partição que você deseja alcançar. Observe que isso *não* é o GUID da ID da partição. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
+* **PartitionKind:** o esquema de partição de serviço. Isso pode ser 'Int64Range' ou 'Named'. Esse parâmetro não é necessário para serviços usando o esquema de partição de singleton.
 * **ListenerName** Os pontos de extremidade do serviço estão no formato {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}. Quando o serviço expõe vários pontos de extremidade, isso identifica o ponto de extremidade ao qual solicitação do cliente deve ser encaminhada. Isso poderá ser omitido se o serviço tiver somente um ouvinte.
 * **TargetReplicaSelector** Especifica como a réplica de destino ou a instância deve ser selecionada.
-  * Quando o serviço de destino for com estado, o TargetReplicaSelector poderá ser um dos seguintes:  'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Quando esse parâmetro não é especificado, o padrão é 'PrimaryReplica'.
+  * Quando o serviço de destino tem monitoração de estado, TargetReplicaSelector pode ser um dos seguintes: 'PrimaryReplica', 'RandomSecondaryReplica' ou 'RandomReplica'. Quando esse parâmetro não é especificado, o padrão é 'PrimaryReplica'.
   * Quando o serviço de destino não tem monitoração de estado, o proxy reverso escolhe uma instância aleatória da partição de serviço para encaminhar a solicitação a ela.
-* **Time limite:**  Isso especifica o tempo limite da solicitação HTTP criada pelo proxy reverso para o serviço em nome da solicitação do cliente. O valor padrão é de 60 segundos. Este é um parâmetro opcional.
+* **Tempo limite:** especifica o tempo limite da solicitação HTTP criada pelo proxy inverso para o serviço em nome da solicitação do cliente. O valor padrão é 60 segundos. Esse é um parâmetro opcional.
 
 ### <a name="example-usage"></a>Exemplo de uso
 Por exemplo, vamos pegar o serviço *fabric:/MyApp/MyService* que abre um ouvinte HTTP na URL a seguir:
@@ -132,8 +123,8 @@ No entanto, réplicas ou instâncias de serviço podem compartilhar um processo 
 
 Nessa situação, é provável que o servidor Web esteja disponível no processo de host e respondendo às solicitações, mas a instância de serviço resolvido ou a réplica não está mais disponível no host. Nesse caso, o gateway receberá uma resposta HTTP 404 do servidor Web. Como resultado, uma resposta de HTTP 404 pode ter dois significados distintos:
 
-- Caso Nº 1: O endereço do serviço está correto, mas o recurso que o usuário solicitou não existe.
-- Caso Nº 2: O endereço do serviço está incorreto e o recurso que o usuário solicitou pode existir em um nó diferente.
+- Caso n. 1: o endereço do serviço está correto, mas o recurso solicitado pelo usuário não existe.
+- Caso n. 2: o endereço do serviço está incorreto e o recurso solicitado pelo usuário talvez exista em um nó diferente.
 
 No primeiro caso, ele é um HTTP 404 normal, que é considerado um erro de usuário. No entanto, no segundo caso, o usuário solicitou um recurso que existe. O proxy reverso não pôde localizá-lo porque o serviço em si foi movido. O proxy reverso precisa resolver o endereço novamente e repetir a solicitação.
 
@@ -158,7 +149,7 @@ Para o cluster local, `Fabric_NodeIPOrFQDN` é definido como "localhost" por pad
 
 Os serviços do Service Fabric executados nos contêineres do Docker Compose exigem uma configuração especial http: ou https: docker-compose.yml *Portas seção*. Para obter mais informações, consulte [Docker Compose suporte à implantação no Azure Service Fabric](service-fabric-docker-compose.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Definir e configurar proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
 * [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Diagnosticar eventos de proxy reverso](service-fabric-reverse-proxy-diagnostics.md)

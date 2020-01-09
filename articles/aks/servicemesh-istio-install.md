@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2768c2d4cef68dcf25e25c047aaa69653af5e0b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170857"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561731"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e usar o Istio no AKS (Serviço de Kubernetes do Azure)
 
@@ -25,7 +25,7 @@ Este artigo mostra como instalar o Istio. O binário do İSTİO `istioctl` Clien
 >
 > As versões de `1.4.x` do İSTİO foram testadas pela equipe do İSTİO em relação às versões do kubernetes `1.13`, `1.14``1.15`. Você pode encontrar versões adicionais do İSTİO em [versões do GitHub-İSTİO][istio-github-releases], informações sobre cada uma das versões em [İSTİO News][istio-release-notes] e versões de kubernetes com suporte em [perguntas frequentes][istio-faq]sobre o İSTİO.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Baixar e instalar o binário do cliente İSTİO istioctl
@@ -136,7 +136,7 @@ spec:
 Instale o İSTİO usando o comando `istioctl apply` e o `istio.aks.yaml` arquivo de especificação do plano de controle do İSTİO acima da seguinte maneira:
 
 ```console
-istioctl manifest apply -f istio.aks.yaml
+istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
 ```
 
 O instalador implantará uma série de [crds][kubernetes-crd] e, em seguida, gerenciará as dependências para instalar todos os objetos relevantes definidos para essa configuração de İSTİO. Você deverá ver algo semelhante ao trecho de saída a seguir.
@@ -246,7 +246,7 @@ kubectl get svc --namespace istio-system --output wide
 
 A saída de exemplo a seguir mostra os serviços que devem estar em execução agora:
 
-- serviços `istio-*`s
+- Serviços do `istio-*`
 - `jaeger-*`, `tracing`e `zipkin` serviços de rastreamento de complemento
 - `prometheus` serviço de métricas complementares
 - `grafana` o serviço de painel de análise e monitoramento do complemento
@@ -361,7 +361,9 @@ istioctl dashboard envoy <pod-name>.<namespace>
 Para remover o İSTİO do cluster do AKS, use o comando `istioctl manifest generate` com o arquivo de especificação `istio.aks.yaml` plano de controle İSTİO. Isso gerará o manifesto implantado, que será redirecionado para `kubectl delete` a fim de remover todos os componentes instalados e o namespace `istio-system`.
 
 ```console
-istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
+istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 
+
+kubectl delete -f istio-components-aks -R
 ```
 
 ### <a name="remove-istio-crds-and-secrets"></a>Remover İSTİO CRDs e segredos
@@ -386,7 +388,7 @@ Os comandos acima excluem todos os componentes e namespace İSTİO, mas ainda co
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A documentação a seguir descreve como você pode usar o İSTİO para fornecer roteamento inteligente para distribuir uma versão do canário:
 

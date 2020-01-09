@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: 2a22039b3499f1ba0f2d7acb2e86a1991d35a380
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202127"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665761"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerenciar incidentes de segurança na central de segurança do Azure
 
@@ -40,7 +40,7 @@ Na Central de Segurança, um incidente de segurança é uma agregação de todos
    > [!NOTE]
    > O mesmo alerta pode existir como parte de um incidente, bem como ser visível como um alerta autônomo.
 
-    ![Detalhes do alerta](./media/security-center-incident/security-center-incident-alert.png)
+    ![Detalhes do Alerta](./media/security-center-incident/security-center-incident-alert.png)
 
 1. Siga as etapas de correção fornecidas para cada alerta.
 
@@ -55,7 +55,7 @@ Os tópicos a seguir orientam você pelos diferentes alertas, de acordo com os t
 Os tópicos a seguir explicam como a central de segurança usa a telemetria diferente que ela coleta da integração com a infraestrutura do Azure, para aplicar camadas de proteção adicionais para recursos implantados no Azure:
 
 * [Alertas da camada de serviço](security-center-alerts-service-layer.md)
-* [Integração com os produtos de segurança do Azure](security-center-alerts-integration.md)
+* [Detecção de ameaças para o Azure WAF e a proteção contra DDoS do Azure](security-center-alerts-integration.md)
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu a usar os recursos de incidente de segurança na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira o seguinte:

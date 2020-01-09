@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 75490edfd30541aa641656a2ccc17a259bfbe927
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f9a04d767ffeb5112e2b06ed319a3c28f3b7f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406527"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar Application Insights recursos usando o PowerShell
 
@@ -164,7 +164,8 @@ Criar um novo arquivo .json - vamos chamá-lo de `template1.json` neste exemplo.
                 "location": "[parameters('appLocation')]",
                 "tags": {},
                 "properties": {
-                    "ApplicationId": "[parameters('appName')]"
+                    "ApplicationId": "[parameters('appName')]",
+                    "retentionInDays": "[parameters('retentionInDays')]"
                 },
                 "dependsOn": []
             },
@@ -178,7 +179,6 @@ Criar um novo arquivo .json - vamos chamá-lo de `template1.json` neste exemplo.
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -394,13 +394,13 @@ Para automatizar a criação de qualquer outro recurso de qualquer variante, cri
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>Parametrizar o modelo
-Agora você tem que substituir os nomes específicos por parâmetros. Para [parametrizar um modelo](../../azure-resource-manager/resource-group-authoring-templates.md), escreva expressões que usam um [conjunto de funções auxiliares](../../azure-resource-manager/resource-group-template-functions.md). 
+Agora você tem que substituir os nomes específicos por parâmetros. Para [parametrizar um modelo](../../azure-resource-manager/templates/template-syntax.md), escreva expressões que usam um [conjunto de funções auxiliares](../../azure-resource-manager/resource-group-template-functions.md). 
 
 Você não pode parametrizar apenas uma parte de uma cadeia de caracteres, então use `concat()` para criar cadeias de caracteres.
 
 Estes são exemplos das substituições que você vai querer fazer. Há várias ocorrências de cada substituição. Talvez seja necessário outras em seu modelo. Esses exemplos usam os parâmetros e variáveis definidos na parte superior do modelo.
 
-| find | substitua por |
+| localizar | substitua por |
 | --- | --- |
 | `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>`resourceId('microsoft.insights/components',` <br/> `parameters('appName')))]"` |
 | `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |

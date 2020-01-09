@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427167"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Funcionalidades e considerações de transação do Marketplace comercial
 
@@ -163,7 +163,7 @@ Os clientes também podem pagar usando um cartão de crédito e uma fatura mensa
 
 Por exemplo, se o cliente compra usando um cartão de crédito:
 
-|Descrição    |    Data  |
+|Description    |    Data  |
 |----------|----------|
 |Período de ordem   | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (mês)   | 30 de agosto de 2018 |
@@ -177,7 +177,7 @@ Por exemplo, se o cliente compra usando um cartão de crédito:
 
 Se o cliente comprar usando um Enterprise Agreement:
 
-| Descrição |    Data  |
+| Description |    Data  |
 |----------|----------|
 |Período de ordem | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (trimestre) | 30 de setembro de 2018 |
@@ -223,7 +223,7 @@ Os requisitos de transação para diferentes tipos de oferta são abordados nest
 - Uma conta Microsoft e informações financeiras são necessárias para a opção Transact Publishing, independentemente do modelo de preços da oferta.
 - As informações financeiras obrigatórias incluem a conta de pagamento e o perfil de imposto.
 
-Para obter mais informações sobre como configurar essas contas, consulte [gerenciar sua conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Para obter mais informações sobre como configurar essas contas, consulte [gerenciar sua conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
 
 ### <a name="requirements-for-specific-offer-types"></a>Requisitos para tipos de oferta específica

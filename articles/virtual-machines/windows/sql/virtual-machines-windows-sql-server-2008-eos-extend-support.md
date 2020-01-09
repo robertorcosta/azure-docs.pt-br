@@ -14,20 +14,22 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c93538982b7fd7bb2f5ac25027ed92cc6ccbfa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357842"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estender o suporte para SQL Server 2008 e SQL Server 2008 R2 com o Azure
 
-SQL Server 2008 e SQL Server 2008 R2 estão se aproximando do [ciclo de vida do fim do suporte (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Como muitos clientes ainda estão usando ambas as versões, estamos fornecendo várias opções para continuar a obter suporte. Você pode migrar suas instâncias de SQL Server locais para VMs (máquinas virtuais) do Azure, migrar para o banco de dados SQL do Azure ou manter-se no local e comprar atualizações de segurança estendidas.
+SQL Server 2008 e SQL Server 2008 R2 atingiram o [ciclo de vida do fim de suporte (EOS)](https://www.microsoft.com/sql-server/sql-server-2008). Como muitos clientes ainda estão usando ambas as versões, estamos fornecendo várias opções para continuar a obter suporte. Você pode migrar suas instâncias de SQL Server locais para VMs (máquinas virtuais) do Azure, migrar para o banco de dados SQL do Azure ou manter-se no local e comprar atualizações de segurança estendidas.
 
 Ao contrário de uma instância gerenciada, migrar para uma VM do Azure não exige a recertificação de seus aplicativos. E, ao contrário de ficar no local, você receberá patches de segurança estendidos gratuitos migrando para uma VM do Azure.
 
 O restante deste artigo fornece considerações para migrar sua instância de SQL Server para uma VM do Azure.
+
+Para obter mais informações sobre o fim das opções de suporte, consulte [fim do suporte](/sql/sql-server/end-of-support/sql-server-end-of-life-overview).
 
 ## <a name="provisioning"></a>Provisionamento
 
@@ -50,13 +52,13 @@ As instâncias autoinstaladas do SQL Server 2008 ou SQL Server 2008 R2 em uma VM
 ## <a name="migration"></a>Migração
 Você pode migrar instâncias de SQL Server de EOS para uma VM do Azure com métodos de backup/restauração manuais. Esse é o método de migração mais comum do local para uma VM do Azure.
 
-### <a name="azure-site-recovery"></a>Azure Site Recovery
+### <a name="azure-site-recovery"></a>Recuperação de Site do Azure
 
 Para migrações em massa, recomendamos o serviço [Azure site Recovery](/azure/site-recovery/site-recovery-overview) . Com o Azure Site Recovery, os clientes podem replicar toda a VM, incluindo SQL Server do local para a VM do Azure.
 
 SQL Server requer instantâneos de Azure Site Recovery consistentes com o aplicativo para garantir a recuperação. Azure Site Recovery dá suporte a instantâneos consistentes com o aplicativo com um intervalo mínimo de 1 hora. O RPO (objetivo de ponto de recuperação) mínimo possível para SQL Server com migrações de Azure Site Recovery é de 1 hora. O RTO (objetivo de tempo de recuperação) é 2 horas mais SQL Server tempo de recuperação.
 
-### <a name="database-migration-service"></a>Serviço de Migração de Banco de Dados
+### <a name="database-migration-service"></a>Serviço de Migração do Banco de Dados
 
 O [serviço de migração de banco de dados](/azure/dms/dms-overview) é uma opção para clientes se eles estiverem migrando do local para uma VM do Azure atualizando SQL Server para a versão 2012 ou posterior.
 
@@ -74,7 +76,7 @@ As atualizações de segurança estendidas para VMs SQL Server são entregues po
 *Automated patching* está habilitada por padrão. A aplicação de patch automatizada permite que o Azure aplique patches automaticamente no SQL Server e no sistema operacional. Você pode especificar um dia da semana, hora e duração para uma janela de manutenção se a extensão SQL Server IaaS estiver instalada. O Azure realiza a aplicação de patch na janela de manutenção. O agendamento do período de manutenção usa a localidade da VM para a hora.  Para obter mais informações, consulte [aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-automated-patching.md).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Migre sua VM SQL Server para o Azure:
 
@@ -87,3 +89,7 @@ Introdução ao SQL Server em máquinas virtuais do Azure:
 Obtenha respostas para perguntas frequentes sobre VMs SQL Server:
 
 * [Perguntas frequentes para SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-faq.md)
+
+Saiba mais sobre o fim das opções de suporte e as atualizações de segurança estendidas:
+
+* [Fim do suporte](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [atualizações de segurança estendidas](/sql/sql-server/end-of-support/sql-server-extended-security-updates)

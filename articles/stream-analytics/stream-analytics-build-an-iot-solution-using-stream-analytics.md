@@ -1,20 +1,19 @@
 ---
 title: Compilar uma solução de IoT usando o Azure Stream Analytics
 description: Tutorial de introdução da solução de IoT Stream Analytics de um cenário de pedágio
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426454"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -55,7 +54,7 @@ O fluxo de dados de entrada contém informações sobre os carros que entram nas
 
 Aqui está uma breve descrição das colunas:
 
-| Coluna | DESCRIÇÃO |
+| Column | Description |
 | --- | --- |
 | TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
 | EntryTime |A data e hora da entrada do veículo na cabine de pedágio no horário UTC |
@@ -73,16 +72,16 @@ O fluxo de dados de saída contém informações sobre os carros que estão sain
 
 | **TollId** | **ExitTime** | **PlacaDeCarro** |
 | --- | --- | --- |
-| 1 |2014-09-10T12:03:00.0000000Z |JNB 7001 |
-| 1 |2014-09-10T12:03:00.0000000Z |1001 YXZ |
-| 3 |2014-09-10T12:04:00.0000000Z |ABC 1004 |
-| 2 |2014-09-10T12:07:00.0000000Z |1003 XYZ |
-| 1 |2014-09-10T12:08:00.0000000Z |1007 BNJ |
-| 2 |2014-09-10T12:07:00.0000000Z |CDE 1007 |
+| 1 |2014-09-10T12:03:00.0000000 Z |JNB 7001 |
+| 1 |2014-09-10T12:03:00.0000000 Z |1001 YXZ |
+| 3 |2014-09-10T12:04:00.0000000 Z |ABC 1004 |
+| 2 |2014-09-10T12:07:00.0000000 Z |1003 XYZ |
+| 1 |2014-09-10T12:08:00.0000000 Z |1007 BNJ |
+| 2 |2014-09-10T12:07:00.0000000 Z |CDE 1007 |
 
 Aqui está uma breve descrição das colunas:
 
-| Coluna | DESCRIÇÃO |
+| Column | Description |
 | --- | --- |
 | TollID |A ID da cabine de pedágio que identifica exclusivamente uma cabine de pedágio |
 | ExitTime |A data e hora de saída do veículo da cabine de pedágio no horário UTC |
@@ -102,11 +101,11 @@ A solução usa um instantâneo estático de um banco de dados de registro de ve
 
 Aqui está uma breve descrição das colunas:
 
-| Coluna | DESCRIÇÃO |
+| Column | Description |
 | --- | --- |
 | PlacaDeCarro |O número da placa de licença do veículo |
 | RegistrationId |A ID de registro do veículo |
-| Expirado |O status do registro do veículo: 0, se o registro do veículo estiver ativo; 1, se o registro estiver vencido |
+| Expirado |O status de registro do veículo: 0 se o registro do veículo estiver ativo, 1 se estiver vencido |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurar o ambiente para o Stream Analytics do Azure
 Para completar essa solução, você precisará de uma assinatura do Microsoft Azure. Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -172,7 +171,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
    - O **Registro** é uma conexão do Armazenamento de Blobs do Azure, apontando para um arquivo registration.json estático usado para pesquisas, conforme necessário. Essa entrada de dados de referência é usada em variações posteriores da sintaxe de consulta.
 
 4. Examinar as Saídas do trabalho de exemplo do TollApp.
-   - **O cosmos DB** saída é um contêiner de banco de dados do Cosmos que recebe eventos de coletor de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
+   - **Cosmos DB** saída é um contêiner de banco de dados cosmos que recebe os eventos de coletor de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar o trabalho de streaming do TollApp
 Siga estas etapas para iniciar o trabalho de streaming:
@@ -284,7 +283,7 @@ Saída de exemplo:
 ```
 
 ## <a name="scale-out-the-job"></a>Escalar horizontalmente o trabalho
-O Azure Stream Analytics foi projetado para escalar de maneira elástica, de modo que seja possível manipular grandes volumes de dados. A consulta do Azure Stream Analytics pode usar uma cláusula **PARTITION BY** para informar ao sistema que essa etapa escala horizontalmente. **PartitionId** é uma coluna especial adicionada pelo sistema e corresponde à ID da partição de entrada (hub de evento).
+O Azure Stream Analytics foi projetado para escalar de maneira elástica, de modo que seja possível manipular grandes volumes de dados. A consulta Azure Stream Analytics pode usar uma cláusula **Partition by** para informar ao sistema que essa etapa escala horizontalmente. **PartitionID** é uma coluna especial que o sistema adiciona para corresponder à ID de partição da entrada (Hub de eventos).
 
 Para escalar horizontalmente a consulta para partições, edite a sintaxe de consulta para o código a seguir:
 ```sql

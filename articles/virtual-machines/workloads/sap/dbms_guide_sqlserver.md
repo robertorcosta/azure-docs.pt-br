@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328304"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645796"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -77,8 +77,8 @@ ms.locfileid: "74328304"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide_general.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "74328304"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74328304"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -415,7 +415,7 @@ O segundo método é descrito mais próximos no artigo [SQL Server Backup para U
 - Vários blobs de blocos do Azure (até 64), que permitem que um tamanho do backup teórico de 12 TB. No entanto, testes com bancos de dados do cliente revelaram que o tamanho máximo de backup pode ser menor do que seu limite teórico. Nesse caso, você é responsável por gerenciar também os backups de retenção de backups e o acesso.
 
 
-### <a name="automated-backup-for-sql-server"></a>Backup automatizado para SQL Server
+### <a name="automated-backup-for-sql-server"></a>Backup Automatizado para o SQL Server
 O Backup Automatizado fornece um serviço de backup automático para edições do SQL Server Standard e Enterprise em execução em uma VM do Windows no Azure. Esse serviço é fornecido pela [Extensão do SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), que é instalado automaticamente em imagens de máquinas virtuais do Windows do SQL Server no Portal do Azure. Se você implantar suas próprias imagens de sistema operacional com o SQL Server instalado, você precisará instalar as extensões de VM separadamente. As etapas necessárias estão documentadas neste [artigo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Mais detalhes sobre os recursos desse método podem ser encontrados nesses artigos:
@@ -531,7 +531,7 @@ Nos casos em que você move os bancos de dados do SAP SQL Server do local para o
  
 Tratando o aplicativo de criptografia TDE sem apenas uma carga de trabalho SAP, você deve testar a configuração específica se é melhor aplicar TDE ao seu banco de dados SAP local ou fazer isso no Azure. No Azure, você certamente tem mais flexibilidade em termos de infraestrutura em excesso de provisionamento e reduzir a infra-estrutura depois TDE foi aplicada.
 
-### <a name="using-azure-key-vault"></a>Usando o Azure Key Vault
+### <a name="using-azure-key-vault"></a>Como usar o Azure Key Vault
 O Azure oferece o serviço de uma [Key Vault](https://azure.microsoft.com/services/key-vault/) para armazenar chaves de criptografia. SQL Server no outro lado oferece um conector para aproveitar o Azure Key Vault como repositório para os certificados TDE.
 
 Lista de mais detalhes para usar o Azure Key Vault para a TDE do SQL Server, como:
@@ -552,7 +552,7 @@ Há muitas recomendações neste guia e recomendamos que você o leia mais de um
 1. Use a versão mais recente do DBMS, como SQL Server 2017, que tem mais vantagens no Azure. 
 2. Planeje cuidadosamente sua estrutura de sistema da SAP no Azure para balancear o layout do arquivo de dados e as restrições do Azure:
    * Não tenha discos demais, mas tenha espaço suficiente para garantir que você possa atingir seu IOPS necessário.
-   * Se você não usar Managed Disks, lembre-se de que o IOPS também é limitado por conta de armazenamento do Azure e que as contas de armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-subscription-service-limits]). 
+   * Se você não usar Managed Disks, lembre-se de que o IOPS também é limitado por conta de armazenamento do Azure e que as contas de armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-resource-manager/management/azure-subscription-service-limits]). 
    * Somente divida entre discos se você precisar obter uma maior taxa de transferência.
 3. Nunca instale software nem coloque nenhum arquivo que exija persistência na unidade D:\, uma vez que ela não é permanente e tudo nessa unidade é perdido em uma reinicialização do Windows.
 4. Não use cache de disco para o Armazenamento Standard do Azure.

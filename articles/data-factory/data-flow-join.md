@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/17/2019
-ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930336"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644742"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformação de junção no fluxo de dados de mapeamento
 
@@ -25,11 +25,14 @@ O mapeamento de fluxos de dados atualmente dá suporte a cinco tipos de junção
 
 ### <a name="inner-join"></a>Junção interna
 
-Junção interna somente gera linhas que têm valores correspondentes em ambas as tabelas.
+A junção interna só gera linhas que têm valores correspondentes em ambas as tabelas.
 
 ### <a name="left-outer"></a>Externa esquerda
 
 A junção externa esquerda retorna todas as linhas do fluxo à esquerda e os registros correspondentes do fluxo à direita. Se uma linha do fluxo à esquerda não tiver correspondência, as colunas de saída do fluxo à direita serão definidas como NULL. A saída será as linhas retornadas por uma junção interna mais as linhas não correspondentes do fluxo à esquerda.
+
+> [!NOTE]
+> O mecanismo do Spark usado pelos fluxos de dados ocasionalmente poderá ser possível nos produtos cartesianos em suas condições de junção. Quando esse for o caso, você poderá alternar para uma junção cruzada personalizada e inserir manualmente sua condição de junção. Isso pode resultar em um desempenho mais lento em seus fluxos de dados, pois o mecanismo de execução pode precisar calcular todas as linhas de ambos os lados da relação e, em seguida, filtrar as linhas.
 
 ### <a name="right-outer"></a>Externa direita
 
@@ -39,9 +42,16 @@ A junção externa direita retorna todas as linhas do fluxo à direita e os regi
 
 A junção externa completa gera todas as colunas e linhas de ambos os lados com valores nulos para colunas que não são correspondentes.
 
-### <a name="cross-join"></a>União cruzada
+### <a name="custom-cross-join"></a>Junção cruzada personalizada
 
-A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condição. Se você estiver usando uma condição que não seja de igualdade, especifique uma expressão personalizada como condição de junção cruzada. O fluxo de saída será todas as linhas que atendem à condição de junção. Para criar um produto cartesiano que produza todas as combinações de linhas, especifique `true()` como sua condição de junção.
+A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condição. Se você estiver usando uma condição que não seja de igualdade, especifique uma expressão personalizada como condição de junção cruzada. O fluxo de saída será todas as linhas que atendem à condição de junção.
+
+Você pode usar esse tipo de junção para junções não-correlacionadas e condições de ```OR```.
+
+Se você quiser produzir explicitamente um produto cartesiano completo, use a transformação coluna derivada em cada um dos dois fluxos independentes antes da junção para criar uma chave sintética na qual corresponder. Por exemplo, crie uma nova coluna na coluna derivada em cada fluxo chamado ```SyntheticKey``` e defina-a como ```1```. Em seguida, use ```a.SyntheticKey == b.SyntheticKey``` como sua expressão de junção personalizada.
+
+> [!NOTE]
+> Certifique-se de incluir pelo menos uma coluna de cada lado da relação esquerda e direita em uma junção cruzada personalizada. A execução de Junções cruzadas com valores estáticos em vez de colunas de cada lado resulta em verificações completas de todo o conjunto de dados, fazendo com que o fluxo do seu data seja executado inadequadamente.
 
 ## <a name="configuration"></a>Configuração
 
@@ -49,7 +59,7 @@ A junção cruzada gera o produto cruzado dos dois fluxos com base em uma condi�
 1. Selecione seu **tipo de junção**
 1. Escolha em quais colunas de chave você deseja fazer a correspondência para a condição de junção. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
 
-![Transformação de junção](media/data-flow/join.png "Ingressar")
+![Transformação de junção](media/data-flow/join.png "Join")
 
 ## <a name="optimizing-join-performance"></a>Otimizando o desempenho da junção
 
@@ -84,7 +94,7 @@ Ao testar as transformações de junção com a visualização de dados no modo 
 
 ### <a name="inner-join-example"></a>Exemplo de junção interna
 
-O exemplo abaixo é uma transformação de junção chamada `JoinMatchedData` que usa fluxo à esquerda `TripData` e `TripFare`de fluxo à direita.  A condição de junção é a expressão `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que retorna true se as colunas `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` em cada fluxo correspondem. O `joinType` é `'inner'`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
+O exemplo abaixo é uma transformação de junção chamada `JoinMatchedData` que usa fluxo à esquerda `TripData` e `TripFare`de fluxo à direita.  A condição de junção é a expressão `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` que retorna true se as colunas `hack_license`, `medallion`, `vendor_id`e `pickup_datetime` em cada fluxo correspondem. O parâmetro `joinType` é `'inner'`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
@@ -104,9 +114,9 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="cross-join-example"></a>Exemplo de junção cruzada
+### <a name="custom-cross-join-example"></a>Exemplo de junção cruzada personalizada
 
-O exemplo abaixo é uma transformação de junção chamada `CartesianProduct` que usa fluxo à esquerda `TripData` e `TripFare`de fluxo à direita. Essa transformação usa dois fluxos e retorna um produto cartesiano de suas linhas. A condição de junção é `true()` porque gera um produto cartesiano completo. O `joinType` é `cross`. Estamos habilitando a difusão somente no fluxo à esquerda para que `broadcast` tenha o valor `'left'`.
+O exemplo abaixo é uma transformação de junção chamada `JoiningColumns` que usa fluxo à esquerda `LeftStream` e `RightStream`de fluxo à direita. Essa transformação usa dois fluxos e une todas as linhas nas quais a coluna `leftstreamcolumn` é maior que a coluna `rightstreamcolumn`. O parâmetro `joinType` é `cross`. A difusão não está habilitada `broadcast` tem valor `'none'`.
 
 No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
@@ -115,12 +125,12 @@ No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 O script de fluxo de dados para essa transformação está no trecho de código abaixo:
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
         joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## <a name="next-steps"></a>Próximos passos

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 340c9192b43cbcf2daacfb791d85135518dd970c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6eab9ac7cf4547cb7fe3e736c16c3c0bd5f5bd9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425880"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adicionar ou remover uma delegação de sub-rede
 
@@ -40,10 +40,10 @@ Nesta seção, você criará uma rede virtual e a sub-rede que você delegará p
     | ------- | ----- |
     | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.0.0.0/16*. |
-    | Assinatura | Selecione sua assinatura.|
+    | Subscription | Selecione sua assinatura.|
     | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
     | Local | Selecione **lesteus**.|
-    | Sub-rede – Nome | Insira *mysubnet*. |
+    | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.0.0.0/24*. |
     |||
 1. Deixe o restante como padrão e, em seguida, selecione **criar**.
@@ -70,7 +70,7 @@ Nesta seção, você delega a sub-rede que criou na seção anterior para um ser
 3. Selecione **sub-redes**, em **configurações**e, em seguida, selecione **mysubnet**.
 4. Na página *mysubnet* , para a lista **delegação de sub-rede** , selecione **nenhum** dos serviços listados em **delegar sub-rede a um serviço**. 
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -89,7 +89,7 @@ O exemplo a seguir cria um grupo de recursos chamado **myResourceGroup** na loca
 
 ```
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Crie uma rede virtual
 Crie uma rede virtual chamada **myVnet** com uma sub-rede chamada **mySubnet** no **myResourceGroup** usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
@@ -124,7 +124,7 @@ Use [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network
 Para verificar se a delegação foi aplicada, use [AZ Network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Verifique se o serviço é delegado à sub-rede sob a propriedade **ServiceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
   --vnet-name myVnet
@@ -177,7 +177,7 @@ A saída do comando é um colchete nulo:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Conecte-se ao Azure
+### <a name="connect-to-azure"></a>Conectar-se ao Azure
 
 ```azurepowershell-interactive
   Connect-AzAccount
@@ -252,5 +252,5 @@ Use [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/g
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como [gerenciar sub-redes no Azure](virtual-network-manage-subnet.md).

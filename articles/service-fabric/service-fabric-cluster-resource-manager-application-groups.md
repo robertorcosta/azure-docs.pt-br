@@ -1,25 +1,16 @@
 ---
-title: Gerenciador de Recursos de Cluster do Service Fabric – Grupos de Aplicativos | Microsoft Docs
+title: Gerenciador de recursos de Cluster Service Fabric-grupos de aplicativos
 description: Visão geral da funcionalidade de Grupo de Aplicativos no Gerenciador de Recursos de Cluster do Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452144"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicativos
 O Cluster Resource Manager do Service Fabric geralmente gerencia os recursos de cluster distribuindo a carga (representada por meio de [Métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric gerencia a capacidade dos nós no cluster e o cluster como um todo por meio da [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). As métricas e a capacidade funcionam muito bem para muitas cargas de trabalho, mas padrões que fazem uso intenso de diferentes Instâncias de Aplicativos do Service Fabric às vezes trazem requisitos adicionais. Por exemplo, você pode querer:
@@ -37,7 +28,7 @@ A imagem a seguir mostra uma instância de aplicativo com e sem um número máxi
 
 <center>
 
-![Instância do aplicativo definindo o número máximo de nós][Image1]
+![instância do aplicativo definindo o número máximo de nós][Image1]
 </center>
 
 No exemplo à esquerda, o aplicativo não tem um número máximo de nós definidos, e ele tem três serviços. O Cluster Resource Manager distribuiu todas as réplicas em seis nós disponíveis para obter o melhor equilíbrio no cluster (o comportamento padrão). No exemplo à direita, vemos o mesmo aplicativo limitado a três nós.
@@ -78,7 +69,7 @@ Para cada métrica do aplicativo, há dois valores que podem ser definidos:
 - **Capacidade Máxima do Nó** – essa configuração especifica a carga total máxima para o aplicativo em um único nó. Se a carga ultrapassar essa capacidade, o Gerenciador de Recursos de Cluster move réplicas para outros nós de forma que a carga diminua.
 
 
-Powershell:
+PowerShell:
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -Metrics @("MetricName:Metric1,MaximumNodeCapacity:100,MaximumApplicationCapacity:1000")
@@ -119,7 +110,7 @@ Vejamos um exemplo de reserva de capacidade:
 
 <center>
 
-![Instâncias do aplicativo definindo a capacidade reservada][Image2]
+![instâncias de aplicativo definindo a capacidade reservada][Image2]
 </center>
 
 No exemplo à esquerda, os aplicativos não têm nenhuma Capacidade de Aplicativo definida. O Cluster Resource Manager equilibra tudo de acordo com as regras normais.
@@ -159,7 +150,7 @@ O Service Fabric reserva a capacidade em dois nós para Application1 e não perm
 ## <a name="obtaining-the-application-load-information"></a>Obtendo as informações de carga do aplicativo
 Para cada aplicativo que tem capacidade de aplicativos definida por uma ou mais métricas que você pode obter as informações sobre a carga de agregada relatada por réplicas de seus serviços.
 
-Powershell:
+PowerShell:
 
 ``` posh
 Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
@@ -180,10 +171,10 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 A consulta ApplicationLoad retorna as informações básicas sobre a Capacidade do Aplicativo que foi especificada para o aplicativo. Essas informações incluem as informações de Nós Mínimos e Nós Máximos e o número que o aplicativo está ocupando atualmente. Elas também incluem informações sobre cada métrica de carga do aplicativo, incluindo:
 
-* Nome da métrica: Nome da métrica.
-* Capacidade de reserva: Capacidade do cluster é reservada para esse aplicativo no cluster.
-* Carga do aplicativo: Carga total de réplicas de filho deste aplicativo.
-* Capacidade do aplicativo: Máximo permitido de valor de carga do aplicativo.
+* Nome da Métrica: o nome da métrica.
+* Capacidade de Reserva: a Capacidade do Cluster reservada no cluster para esse Aplicativo.
+* Carga do Aplicativo: a Carga Total de réplicas filho deste Aplicativo.
+* Capacidade do Aplicativo: valor máximo permitido de Carga do Aplicativo.
 
 ## <a name="removing-application-capacity"></a>Removendo a capacidade do aplicativo
 Depois que os parâmetros de Capacidade do Aplicativo estão definidos para um aplicativo, eles podem ser removidos usando cmdlets de Atualizar APIs de Aplicativo ou PowerShell. Por exemplo:
@@ -210,10 +201,10 @@ As restrições são aplicadas durante a criação e a atualização de aplicati
 - Não tente usar os recursos de Grupo de Aplicativos para restringir o aplicativo a um subconjunto de nós _específico_. Em outras palavras, você pode especificar que o aplicativo seja executado em no máximo cinco nós, mas não quais cinco nós específicos no cluster. A restrição de um aplicativo a nós específicos pode ser obtida usando restrições de posicionamento para os serviços.
 - Não tente usar a Capacidade do Aplicativo para garantir que dois serviços do mesmo aplicativo sejam colocados nos mesmos nós. Em vez disso, use [afinidade](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) ou [restrições de posicionamento](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
-- Comece do princípio e [veja uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 - Para obter mais informações sobre como as métricas funcionam em geral, leia sobre [Métricas de Carga do Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
 - O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 

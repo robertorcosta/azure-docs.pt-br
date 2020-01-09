@@ -1,25 +1,16 @@
 ---
-title: Migrar do Java SDK para Maven - Atualizar Aplicativos Java do Azure Service Fabric antigos para usar Maven | Microsoft Docs
+title: Migrar do SDK do Java para o Maven
 description: Atualize aplicativos Java mais antigos que costumavam usar o SDK de Java do Service Fabric para buscar as dependências de Java do Service Fabric do Maven. Depois de concluir esta instalação, os seus aplicativos Java mais antigos poderiam ser compilados.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718387"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609801"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualize seu aplicativo Java de Service Fabric anterior para buscar bibliotecas Java do Maven
 Recentemente, movemos os binários de Java do Service Fabric do SDK de Java do Service Fabric para hospedagem do Maven. Agora você pode usar **mavencentral** para buscar as dependências mais recentes de Java do Service Fabric. Esse início rápido o ajuda a atualizar seus aplicativos Java existentes, que você criou anteriormente para ser usado com o SDK de Java do Service Fabric, usando qualquer modelo Yeoman ou Eclipse, para ser compatível com a compilação baseada em Maven.
@@ -88,7 +79,7 @@ Suporte do Serviço sem Estado do Service Fabric para seu aplicativo.
   }
   ```
 
-### <a name="others"></a>Outros
+### <a name="others"></a>Diversos
 #### <a name="transport"></a>Transporte
 
 Suporte da camada de transporte para aplicativo Java do Service Fabric. Você não precisa adicionar explicitamente essa dependência aos seus aplicativos Reliable Actor ou Service, a menos que programe na camada de transporte.
@@ -167,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-Agora, ao buscar as dependências do Maven, o ``build.gradle`` **atualizado** teria as partes correspondentes conforme a seguir -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
         mavenCentral()
@@ -241,7 +232,7 @@ dependencies {
 .
 .
 ```
-Agora, ao buscar as dependências do Maven, o ``build.gradle`` **atualizado** teria as partes correspondentes conforme a seguir -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
     mavenCentral()
@@ -313,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-Agora, ao buscar as dependências do Maven, o ``build.gradle`` **atualizado** teria as partes correspondentes conforme a seguir -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
     mavenCentral()
@@ -413,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-Agora, ao buscar as dependências do Maven, o ``build.gradle`` **atualizado** teria as partes correspondentes conforme a seguir -
+Agora, para buscar as dependências do Maven, as ``build.gradle`` **atualizadas** teriam as partes correspondentes da seguinte maneira:
 ```
 repositories {
     mavenCentral()
@@ -473,7 +464,7 @@ task copyDeps<< {
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Criar e implantar seu primeiro aplicativo Java do Service Fabric no Linux usando o plug-in Service Fabric para o Eclipse](service-fabric-get-started-eclipse.md)

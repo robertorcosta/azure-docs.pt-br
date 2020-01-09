@@ -1,5 +1,5 @@
 ---
-title: Autenticando e autorizando com Coleções de Workspaces do Power BI | Microsoft Docs
+title: Autenticar e autorizar Power BI coleções de espaço de trabalho
 description: Autenticando e autorizando com Coleções de Workspaces do Power BI.
 services: power-bi-workspace-collections
 author: rkarlin
@@ -8,12 +8,12 @@ ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8fcd7caffb041c57090d7256361421cb49a9a5fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672499"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427105"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -36,12 +36,12 @@ Os tokens de aplicativo são um JWT (Token Web JSON) assinado por uma das suas c
 
 O token de seu aplicativo pode conter as seguintes declarações:
 
-| Declaração | DESCRIÇÃO |    
+| Declaração | Description |    
 | --- | --- |
 | **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
 | **aud** |O destinatário pretendido do token. Para o uso de Coleções de Workspaces do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
-| **type** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
+| **tipo** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
 | **wcn** |Nome da coleção de workspaces para o qual o token foi emitido. |
 | **wid** |ID do workspace para o qual o token foi emitido. |
 | **rid** |ID ddo relatório para o qual o token foi emitido. |
@@ -92,7 +92,7 @@ Ao usar os tokens de inserção, convém restringir o uso de recursos aos quais 
 
 A seguir estão os escopos disponíveis para as Coleções de Workspaces do Power BI.
 
-|Escopo|DESCRIÇÃO|
+|Escopo|Description|
 |---|---|
 |Dataset.Read|Fornece permissão para ler o conjunto de dados especificado.|
 |Dataset.Write|Fornece permissão para gravar o conjunto de dados especificado.|
@@ -142,11 +142,11 @@ Body
 
 |Operação|Recurso de destino|Permissões de token|
 |---|---|---|
-|Criar (na memória) um novo relatório com base em um conjunto de dados.|Conjunto de dados|Dataset.Read|
-|Criar (na memória) um novo relatório com base em um conjunto de dados e salvar o relatório.|Conjunto de dados|* Dataset.Read<br>* Workspace.Report.Create|
-|Exibir e explorar/Editar (na memória) um relatório existente. Report.Read implica Dataset.Read. Report.Read não permite o salvamento de edições.|Relatório|Report.Read|
-|Editar e salvar um relatório existente.|Relatório|Report.ReadWrite|
-|Salvar uma cópia de um relatório (Salvar como).|Relatório|* Report.Read<br>* Workspace.Report.Copy|
+|Criar (na memória) um novo relatório com base em um conjunto de dados.|Dataset|Dataset.Read|
+|Criar (na memória) um novo relatório com base em um conjunto de dados e salvar o relatório.|Dataset|* Dataset.Read<br>* Workspace.Report.Create|
+|Exibir e explorar/Editar (na memória) um relatório existente. Report.Read implica Dataset.Read. Report.Read não permite o salvamento de edições.|Relate|Report.Read|
+|Editar e salvar um relatório existente.|Relate|Report.ReadWrite|
+|Salvar uma cópia de um relatório (Salvar como).|Relate|* Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>Como funciona o fluxo
 1. Copie as chaves de API para o seu aplicativo. Você pode obter as chaves no **Portal do Azure**.
@@ -172,7 +172,7 @@ Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o 
 
 ![Exemplo de relatório inserido no aplicativo](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Introdução ao exemplo de Coleções de Workspaces do Microsoft Power BI](get-started-sample.md)  

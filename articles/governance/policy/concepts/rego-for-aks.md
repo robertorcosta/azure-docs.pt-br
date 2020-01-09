@@ -3,12 +3,12 @@ title: Saiba Azure Policy do serviço kubernetes do Azure
 description: Saiba como Azure Policy usa o rego e o agente de política aberto para gerenciar clusters no serviço kubernetes do Azure.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436400"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Entender Azure Policy para o serviço kubernetes do Azure
 
@@ -18,7 +18,7 @@ Ao estender o uso do [gatekeeper](https://github.com/open-policy-agent/gatekeepe
 > [!NOTE]
 > Azure Policy para AKS está em visualização limitada e só dá suporte a definições de políticas internas.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para habilitar e usar Azure Policy para AKS com o cluster AKS, execute as seguintes ações:
 
@@ -29,11 +29,11 @@ Para habilitar e usar Azure Policy para AKS com o cluster AKS, execute as seguin
 
 ## <a name="opt-in-for-preview"></a>Aceitar para visualização
 
-Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. ContainerService** e o provedor de recursos **Microsoft. PolicyInsights** , em seguida, ser aprovada para Participe da versão prévia. Para ingressar na versão prévia, siga estas etapas na portal do Azure ou com CLI do Azure:
+Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar o provedor de recursos **Microsoft. ContainerService** e o provedor de recursos **Microsoft. PolicyInsights** e, em seguida, ser aprovada para ingressar na versão prévia. Para ingressar na versão prévia, siga estas etapas na portal do Azure ou com CLI do Azure:
 
 - Portal do Azure:
 
-  1. Registre os provedores de recursos **Microsoft. ContainerService** e **Microsoft. PolicyInsights** . Para obter as etapas, consulte [provedores de recursos e tipos](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registre os provedores de recursos **Microsoft. ContainerService** e **Microsoft. PolicyInsights** . Para obter as etapas, consulte [provedores de recursos e tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
 
@@ -89,7 +89,7 @@ O _complemento Azure Policy_ para kubernetes conecta o serviço de Azure Policy 
 
 ### <a name="installing-the-add-on"></a>Instalando o complemento
 
-#### <a name="prerequisites"></a>pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
 Antes de instalar o complemento no cluster do AKS, a extensão de visualização deve ser instalada. Esta etapa é feita com CLI do Azure:
 
@@ -140,7 +140,7 @@ Depois que os pré-requisitos forem concluídos, instale o complemento Azure Pol
      > [!NOTE]
      > Se o botão **habilitar complemento** estiver esmaecido, a assinatura ainda não foi adicionada à versão prévia. Consulte [aceitar para visualizar](#opt-in-for-preview) as etapas necessárias.
 
-- CLI do Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -220,7 +220,7 @@ Para remover o complemento Azure Policy do cluster do AKS, use o portal do Azure
 
      ![Desabilitar o Azure Policy para o complemento AKS](../media/rego-for-aks/disable-policy-add-on.png)
 
-- CLI do Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -230,7 +230,7 @@ Para remover o complemento Azure Policy do cluster do AKS, use o portal do Azure
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Dados de diagnóstico coletados pelo complemento Azure Policy
 
-O complemento Azure Policy do kubernetes coleta dados de diagnóstico de cluster limitados. Esses dados de diagnóstico são dados técnicos vitais relacionados ao software e ao desempenho. Ele é usado das seguintes maneiras:
+O complemento Azure Policy do kubernetes coleta dados de diagnóstico de cluster limitados. Esses dados de diagnóstico são dados técnicos vitais relacionados ao software e ao desempenho. Ele é usada das seguintes maneiras:
 
 - Manter Azure Policy complemento atualizado
 - Mantenha Azure Policy complemento seguro, confiável e com bom desempenho
@@ -251,7 +251,7 @@ As informações coletadas pelo complemento não são dados pessoais. Os detalhe
 - Exceções/erros encontrados por Azure Policy complemento durante a instalação do agente na avaliação da política
 - Número de políticas de gatekeeper não instaladas pelo complemento Azure Policy
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar a [Estrutura de definição de política](definition-structure.md).

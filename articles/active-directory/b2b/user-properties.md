@@ -1,6 +1,6 @@
 ---
-title: Propriedades de um B2B convidados do usuário – Azure Active Directory | Microsoft Docs
-description: Propriedades do usuário convidado B2B do Active Directory e estados antes e após o resgate do convite do Azure
+title: Propriedades de um usuário convidado B2B-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory Propriedades e Estados do usuário convidado B2B antes e após o resgate do convite
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,28 +12,28 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1416dacd65024457e713547223f5c35290b3d15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa282afdf910c2449b5d5ea0bc5e38a396f3aa02
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65768161"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608849"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
-Este artigo descreve as propriedades e os estados do objeto de usuário convidado B2B no Azure Active Directory (Azure AD) antes e após o resgate do convite. Um usuário de colaboração do Azure business-to-business (B2B) é um usuário com UserType = convidado. Normalmente, esse usuário convidado representa uma organização parceira e, por padrão, tem privilégios limitados no diretório que convida.
+Este artigo descreve as propriedades e os Estados do objeto de usuário convidado B2B no Azure Active Directory (AD do Azure) antes e após o resgate do convite. Um usuário de colaboração B2B (entre empresas) do Azure AD é um usuário com UserType = convidado. Normalmente, esse usuário convidado representa uma organização parceira e, por padrão, tem privilégios limitados no diretório que convida.
 
 Dependendo das necessidades da organização que convida, um usuário de colaboração B2B do AD do Azure pode estar em um dos seguintes estados de conta:
 
-- Estado 1: hospedado em uma instância externa do Azure AD e representado como usuário convidado na organização que convida. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário convidado. Se a organização do parceiro não usar o Azure AD, o usuário convidado no Azure AD ainda será criado. Os requisitos são o resgate do convite e a verificação do endereço de email pelo Azure AD. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
+- Estado 1: hospedado em uma instância externa do AD do Azure, representado como um usuário convidado na organização que convida. Nesse caso, o usuário B2B entra usando uma conta do Azure AD que pertence ao locatário convidado. Se a organização do parceiro não usar o Azure AD, o usuário convidado no Azure AD ainda será criado. Os requisitos são o resgate do convite e a verificação do endereço de email pelo Azure AD. Essa disposição também é chamada de locação JIT (just-in-time) ou, às vezes, de locação "viral".
 
-- Estado 2: hospedado em uma conta da Microsoft ou outra conta e representado como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta Microsoft ou uma conta social (google.com ou semelhante). A identidade do usuário convidado é criada como uma conta Microsoft no diretório da organização que fez o convite durante o resgate de oferta.
+- Estado 2: hospedado em uma conta da Microsoft ou outra e representada como um usuário convidado na organização host. Nesse caso, o usuário convidado entra com uma conta Microsoft ou uma conta social (google.com ou semelhante). A identidade do usuário convidado é criada como uma conta Microsoft no diretório da organização que fez o convite durante o resgate de oferta.
 
-- Estado 3: hospedado no Active Directory local da organização host e sincronizado com o Azure AD da organização host. É possível usar o Azure AD Connect para sincronizar as contas de parceiros com a nuvem como usuários B2B do Azure AD com UserType = Convidado. Confira [Conceder às contas de parceiros gerenciadas localmente acesso a recursos na nuvem](hybrid-on-premises-to-cloud.md).
+- Estado 3: hospedado no Active Directory local da organização host e sincronizado com o AD do Azure da organização host. É possível usar o Azure AD Connect para sincronizar as contas de parceiros com a nuvem como usuários B2B do Azure AD com UserType = Convidado. Confira [Conceder às contas de parceiros gerenciadas localmente acesso a recursos na nuvem](hybrid-on-premises-to-cloud.md).
 
-- Estado 4: hospedado na organização do Azure AD com UserType = Convidado e com credenciais que a organização host gerencia.
+- Estado 4: hospedado no Azure AD da organização host com UserType = convidado e credenciais que a organização host gerencia.
 
-  ![Diagrama ilustrando os estados do quatro usuário](media/user-properties/redemption-diagram.png)
+  ![Diagrama ilustrando os quatro Estados do usuário](media/user-properties/redemption-diagram.png)
 
 
 Agora, vamos ver a aparência de um usuário de colaboração B2B do Azure AD no Azure AD.
@@ -42,7 +42,7 @@ Agora, vamos ver a aparência de um usuário de colaboração B2B do Azure AD no
 
 Contas de Estado 1 e 2 são resultado do convite de usuários a colaborar usando as credenciais dos usuários convidados. Quando o convite é enviado inicialmente para o usuário convidado, uma conta é criada em seu diretório. Essa conta não tem credenciais associadas a ela, porque a autenticação é executada pelo provedor de identidade do usuário convidado. A propriedade **Origem** da conta do usuário convidado em seu diretório é definida como **Usuário convidado**. 
 
-![Captura de tela mostrando as propriedades do usuário antes do resgate de oferta](media/user-properties/before-redemption.png)
+![Captura de tela mostrando as propriedades do usuário antes da oferta de resgate](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>após o resgate do convite
 
@@ -63,19 +63,19 @@ Para usuários convidados nos Estados 3 e 4, a **Origem** é definida como **Azu
 Essa propriedade indica a relação entre o usuário e o locatário do host. Essa propriedade pode assumir dois valores:
 - Membro: este valor indica um funcionário da organização host e um usuário na folha de pagamento da organização. Por exemplo, provavelmente esse usuário poderá acessar somente os sites internos. Esse usuário não é considerado um colaborador externo.
 
-- Convidado: esse valor indica um usuário que não é considerado interno à empresa, como um colaborador externo, parceiro ou cliente. Um usuário como esse não deve receber um memorando interno do CEO ou benefícios da empresa, por exemplo.
+- Convidado: esse valor indica um usuário que não é considerado interno para a empresa, como um colaborador externo, parceiro ou cliente. Um usuário como esse não deve receber um memorando interno do CEO ou benefícios da empresa, por exemplo.
 
   > [!NOTE]
   > O UserType não tem nenhuma relação com o tipo de acesso do usuário, nem com a função do diretório do usuário e assim por diante. Essa propriedade só indica a relação do usuário com a organização host, e permite que a organização aplique as políticas que dependem desse atributo.
 
-### <a name="source"></a>source
+### <a name="source"></a>Origem
 Essa propriedade indica o tipo de acesso do usuário.
 
 - Usuário convidado: esse usuário foi convidado, mas ainda não resgatou seu convite.
 
-- Active Directory Externo: esse usuário está hospedado em uma organização externa e é autenticado com uma conta do Azure AD que pertence a outra organização. Esse tipo de acesso corresponde ao Estado 1.
+- Active Directory externo: esse usuário está hospedado em uma organização externa e é autenticado com uma conta do AD do Azure que pertence a outra organização. Esse tipo de acesso corresponde ao Estado 1.
 
-- Conta Microsoft: este usuário está hospedado em uma conta Microsoft e é autenticado usando uma conta Microsoft. Esse tipo de acesso corresponde ao Estado 2.
+- Conta da Microsoft: este usuário está hospedado em uma conta da Microsoft e é autenticado usando uma conta da Microsoft. Esse tipo de acesso corresponde ao Estado 2.
 
 - Active Directory do Windows Server: este usuário faz logon no Active Directory local que pertence a esta organização. Esse tipo de acesso corresponde ao Estado 3.
 
@@ -88,7 +88,7 @@ Normalmente, um usuário B2B do Azure AD e o usuário convidado são sinônimos.
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Filtragem de usuários convidados no diretório
 
-![Captura de tela mostrando o filtro para os usuários convidados](media/user-properties/filter-guest-users.png)
+![Captura de tela mostrando o filtro para usuários convidados](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Converter UserType
 É possível converter o UserType de Membro para Convidado e vice-versa usando o PowerShell. No entanto, a propriedade UserType representa a relação do usuário com a organização. Portanto, o valor dessa propriedade só deverá ser alterado se a relação entre o usuário e a organização mudar. Se o relacionamento do usuário for alterado, o nome UPN também deverá ser alterado? O usuário poderá acessar os mesmos recursos? Uma caixa de correio deve ser atribuída? Não recomendamos alterar o UserType no PowerShell como uma atividade atômica. Além disso, caso essa propriedade se torne imutável usando o PowerShell, é melhor não assumir uma dependência desse valor.
@@ -98,12 +98,12 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 
 É possível desligar as limitações padrão para que um usuário convidado no diretório da empresa receba as mesmas permissões que um membro.
 
-![Captura de tela mostrando os usuários externos opção nas configurações do usuário](media/user-properties/remove-guest-limitations.png)
+![Captura de tela mostrando a opção usuários externos nas configurações do usuário](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
-Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, confira **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Gerenciar acesso para convidado em Grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 
+Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, confira **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Gerenciar acesso para convidado em Grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 * [Tokens de usuário de colaboração B2B](user-token.md)

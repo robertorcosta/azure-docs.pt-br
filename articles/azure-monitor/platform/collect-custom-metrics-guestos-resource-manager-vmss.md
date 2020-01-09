@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286129"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364077"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
 
@@ -23,11 +23,11 @@ Usando a extensão do [Windows Azure Diagnostics](diagnostics-extension-overview
 
 O artigo descreve o processo para enviar métricas de desempenho do SO convidado de um conjunto de dimensionamento de máquinas virtuais do Windows para o armazenamento de dados do Azure Monitor. A partir do Windows Azure Diagnostics versão 1.11, você pode escrever métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. Ao armazená-los nesse local, você pode acessar as mesmas ações que estão disponíveis para as métricas da plataforma. As ações incluem alertas, gráficos, roteamento, acesso da API REST e muito mais em tempo real. No passado, a extensão do Diagnóstico do Windows Azure era gravada no Armazenamento do Azure, mas não no armazenamento de dados do Monitor do Azure.  
 
-Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações de modelos](../../azure-resource-manager/resource-group-overview.md) e sua estrutura e sintaxe.  
+Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações de modelos](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
@@ -233,7 +233,7 @@ Salve e feche ambos os arquivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implantar o modelo do Resource Manager 
 
 > [!NOTE]  
-> Você deve estar executando a extensão 1.5 ou superior do Diagnóstico do Azure **e** ter a propriedade **autoUpgradeMinorVersion:** definida como **verdadeira** no modelo do Resource Manager. O Azure, então, carrega a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
+> Você deve estar executando a extensão 1.5 ou superior do Diagnóstico do Azure **e** ter a propriedade **autoUpgradeMinorVersion:** definida como **verdadeira** no modelo do Resource Manager. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
 
 
 Para implantar o modelo do Resource Manager, use o Azure PowerShell:  
@@ -246,7 +246,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o seguinte comando: 
+1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o comando a seguir: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
@@ -270,9 +270,9 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    > Você pode encontrar erros ao redor selecionado **vmSkuSize**. Nesse caso, volte ao seu arquivo **azuredeploy.json** e atualize o valor padrão do parâmetro **vmSkuSize**. É recomendável que você tente **Standard_DS1_v2**. 
 
 
-## <a name="chart-your-metrics"></a>Traçar um gráfico das métricas 
+## <a name="chart-your-metrics"></a>Fazer um gráfico das métricas 
 
-1. Entre no Portal do Azure. 
+1. Entre no portal do Azure. 
 
 1. No menu à esquerda, selecione **Monitor**. 
 
@@ -284,7 +284,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
 
 1. No menu suspenso de recursos, selecione o conjunto de escalas da máquina virtual que você criou.  
 
-1. No menu suspenso de namespaces, selecione **azure.vm.windows.guest**. 
+1. No menu suspenso namespaces, selecione **azure.vm.windows.guest**. 
 
 1. No menu suspenso de métricas, selecione **Memória\%Bytes Confirmados em Uso**.  
 
@@ -292,7 +292,7 @@ Você também pode optar por usar as dimensões nessa métrica para traçar uma 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
+## <a name="next-steps"></a>Próximos passos
+- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 
 

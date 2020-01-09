@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: b37844ff93ed1cfb631c2d8da12d0729f61f44ed
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2b9293e3c1ce280117ea40c43715f4dcd98de66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427635"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)
 
@@ -41,14 +41,14 @@ Como alternativa, você pode usar a validação cruzada para executar várias op
 Nas seções a seguir, criaremos modelos simples de regressão e classificação e avaliaremos seu desempenho, usando os módulos [avaliar modelo][evaluate-model] e [modelo de validação cruzada][cross-validate-model] .
 
 ## <a name="evaluating-a-regression-model"></a>Avaliar um Modelo de regressão
-Suponha que desejamos prever o preço de um carro usando recursos como dimensões, potência, especificações de mecanismo e assim por diante. Este é um problema comum de regressão, em que a variável de destino (*preço*) é um valor numérico contínuo. Podemos ajustar um modelo de regressão linear que, considerando os valores de recursos de um determinado carro, pode prever o preço desse carro. Esse modelo de regressão pode ser usado para a pontuação do mesmo conjunto de dados no qual treinamos. Assim que tivermos os preços de carro previstos, podemos avaliar o desempenho do modelo examinando o quanto as previsões se desviam dos preços reais em média. Para ilustrar isso, usamos o *conjunto de dados de preços de automóvel (brutos)* disponível na seção DataSets **salvos** em ml Studio (clássico).
+Suponha que desejamos prever o preço de um carro usando recursos como dimensões, potência, especificações de mecanismo e assim por diante. Este é um problema comum de regressão, em que a variável de destino (*preço*) é um valor numérico contínuo. Podemos ajustar um modelo de regressão linear que, considerando os valores de recursos de um determinado carro, pode prever o preço desse carro. Esse modelo de regressão pode ser usado para a pontuação do mesmo conjunto de dados no qual treinamos. Assim que tivermos os preços de carro previstos, podemos avaliar o desempenho do modelo examinando o quanto as previsões se desviam dos preços reais em média. Para ilustrar isso, usamos o *conjunto de dados de preços de automóvel (brutos)* disponível na seção DataSets **salvos** em Machine Learning Studio (clássico).
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
-Adicione os seguintes módulos ao seu espaço de trabalho na versão clássica do Azure Machine Learning Studio:
+Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
 * Dados de preço de automóvel (Brutos)
 * [Regressão linear][linear-regression]
-* [Modelo de treinamento][train-model]
+* [Treinar Modelo][train-model]
 * [Modelo de Pontuação][score-model]
 * [Avaliar modelo][evaluate-model]
 
@@ -83,14 +83,14 @@ Depois de executar o experimento, você pode inspecionar os resultados da avalia
 Figura 4. Resultados de Validação cruzada de um modelo de regressão.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Avaliar um modelo de classificação binária
-Em um cenário de classificação binária, a variável de destino tem somente dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Suponha que você terá um conjunto de dados de funcionários adultos com algumas variáveis demográficas e de emprego e que você será solicitado a prever o nível de renda, uma variável binária com os valores {“<=50 K”, “>50 K”}. Em outras palavras, a classe negativa representa os funcionários que recebem um valor menor ou igual a 50 mil por ano, e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, podemos treinar um modelo, pontuar alguns dados e avaliar os resultados. A principal diferença aqui é a escolha das métricas da versão clássica do Azure Machine Learning Studio computações e saídas. Para ilustrar o cenário de previsão de nível de renda, usaremos o conjunto de [conteúdo adulto](https://archive.ics.uci.edu/ml/datasets/Adult) para criar um experimento de estúdio (clássico) e avaliar o desempenho de um modelo de regressão logística de duas classes, um classificador binário comumente usado.
+Em um cenário de classificação binária, a variável de destino tem somente dois resultados possíveis, por exemplo: {0, 1} ou {falso, verdadeiro}, {negativo, positivo}. Suponha que você terá um conjunto de dados de funcionários adultos com algumas variáveis demográficas e de emprego e que você será solicitado a prever o nível de renda, uma variável binária com os valores {“<=50 K”, “>50 K”}. Em outras palavras, a classe negativa representa os funcionários que recebem um valor menor ou igual a 50 mil por ano, e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, podemos treinar um modelo, pontuar alguns dados e avaliar os resultados. A principal diferença aqui é a escolha das métricas Azure Machine Learning Studio as computações e saídas (clássicas). Para ilustrar o cenário de previsão de nível de renda, usaremos o conjunto de [conteúdo adulto](https://archive.ics.uci.edu/ml/datasets/Adult) para criar um experimento de estúdio (clássico) e avaliar o desempenho de um modelo de regressão logística de duas classes, um classificador binário comumente usado.
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
-Adicione os seguintes módulos ao seu espaço de trabalho na versão clássica do Azure Machine Learning Studio:
+Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
 * Conjunto de dados de classificação binária de receita no recenseamento adulto
 * [Regressão logística de duas classes][two-class-logistic-regression]
-* [Modelo de treinamento][train-model]
+* [Treinar Modelo][train-model]
 * [Modelo de Pontuação][score-model]
 * [Avaliar modelo][evaluate-model]
 
@@ -105,7 +105,7 @@ Depois de executar o experimento, você pode clicar na porta de saída do módul
 
 A precisão é simplesmente a proporção das instâncias classificadas corretamente. Geralmente, ela é a primeira métrica a observar ao avaliar um classificador. No entanto, quando os dados de teste não estão desbalanceados (em que a maioria das instâncias pertence a uma das classes), ou você está mais interessado no desempenho em qualquer uma das classes, a precisão realmente não captura a eficácia de um classificador. No cenário de classificação de nível de renda, suponha que você esteja testando em alguns dados em que 99% das instâncias representam pessoas que ganham um valor menor ou igual a 50 mil por ano. É possível obter uma precisão de 0,99 prevendo a classe “<=50K” para todas as instâncias. O classificador parece estar fazendo um bom trabalho em geral nesse caso, mas na realidade, ele não consegue classificar qualquer uma das pessoas com um recebimento mais elevado (% 1) corretamente.
 
-Por esse motivo, é útil computar métricas adicionais que capturam aspectos mais específicos da avaliação. Antes de entrar em detalhes sobre essas métricas, é importante compreender a matriz de confusão de uma avaliação de classificação binária. Os rótulos de classe no conjunto de treinamento podem assumir apenas dois valores possíveis, que geralmente nos referimos como positivos ou negativos. As instâncias positivas e negativas que um classificador prevê corretamente são chamadas verdadeiros positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas de falsos positivos (FP) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de instâncias que se enquadram em cada uma dessas quatro categorias. A versão clássica do Azure Machine Learning Studio decide automaticamente qual das duas classes no DataSet é a classe positiva. Se os rótulos de classe forem inteiros ou boolianos, as instâncias de rotuladas como 'true' ou '1' serão atribuídas à classe positiva. Se os rótulos forem cadeias de caracteres, como com o conjunto de tempo de renda, os rótulos serão classificados em ordem alfabética e o primeiro nível será escolhido como a classe negativa, enquanto o segundo nível é a classe positiva.
+Por esse motivo, é útil computar métricas adicionais que capturam aspectos mais específicos da avaliação. Antes de entrar em detalhes sobre essas métricas, é importante compreender a matriz de confusão de uma avaliação de classificação binária. Os rótulos de classe no conjunto de treinamento podem assumir apenas dois valores possíveis, que geralmente nos referimos como positivos ou negativos. As instâncias positivas e negativas que um classificador prevê corretamente são chamadas verdadeiros positivos (TP) e verdadeiros negativos (TN), respectivamente. Da mesma forma, as instâncias classificadas incorretamente são chamadas de falsos positivos (FP) e falsos negativos (FN). A matriz de confusão é simplesmente uma tabela que mostra o número de instâncias que se enquadram em cada uma dessas quatro categorias. Azure Machine Learning Studio (clássico) decide automaticamente qual das duas classes no DataSet é a classe positiva. Se os rótulos de classe forem inteiros ou boolianos, as instâncias de rotuladas como 'true' ou '1' serão atribuídas à classe positiva. Se os rótulos forem cadeias de caracteres, como com o conjunto de tempo de renda, os rótulos serão classificados em ordem alfabética e o primeiro nível será escolhido como a classe negativa, enquanto o segundo nível é a classe positiva.
 
 ![Matriz de confusão de classificação binária](./media/evaluate-model-performance/6a.png)
 
@@ -136,12 +136,12 @@ Figura 9. Resultados de validação cruzada de um classificador binário.
 Neste experimento, usaremos o conjunto de testes de [íris](https://archive.ics.uci.edu/ml/datasets/Iris "Íris") popular, que contém instâncias de três tipos diferentes (classes) da planta íris. Há quatro valores de recursos (comprimento/largura e comprimento/largura de pétala) para cada instância. Nos experimentos anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de valores. Aqui, usaremos o módulo [dividir dados][split] para criar dois subconjuntos dos dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados íris está publicamente disponível no [repositório do Machine Learning UCI](https://archive.ics.uci.edu/ml/index.html)e pode ser baixado usando um módulo [importar dados][import-data] .
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
-Adicione os seguintes módulos ao seu espaço de trabalho na versão clássica do Azure Machine Learning Studio:
+Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* [Importar Dados][import-data]
+* [Importar dados][import-data]
 * [Floresta de decisão multiclasse][multiclass-decision-forest]
-* [Dividir dados][split]
-* [Modelo de treinamento][train-model]
+* [Dividir Dados][split]
+* [Treinar Modelo][train-model]
 * [Modelo de Pontuação][score-model]
 * [Avaliar modelo][evaluate-model]
 

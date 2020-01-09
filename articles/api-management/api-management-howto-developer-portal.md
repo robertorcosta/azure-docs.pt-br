@@ -1,5 +1,6 @@
 ---
-title: Visão geral do portal do desenvolvedor de gerenciamento de API do Azure – gerenciamento de API do Azure | Microsoft Docs
+title: Visão geral do portal do desenvolvedor de gerenciamento de API do Azure
+titleSuffix: Azure API Management
 description: Saiba mais sobre o portal do desenvolvedor no gerenciamento de API.
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442602"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão geral do portal do desenvolvedor do gerenciamento de API do Azure
 
@@ -67,7 +68,7 @@ O *conteúdo de gerenciamento de API* inclui entidades como APIs, operações, p
 
 O portal é baseado em uma bifurcação adaptada da [estrutura Paperbits](https://paperbits.io/). A funcionalidade original do Paperbits foi estendida para fornecer widgets específicos de gerenciamento de API (por exemplo, uma lista de APIs, uma lista de produtos) e um conector para o serviço de gerenciamento de API para salvar e recuperar conteúdo.
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a> Perguntas frequentes
 
 Nesta seção, respondemos a perguntas comuns sobre o novo portal do desenvolvedor, que são de natureza geral. Para perguntas específicas para a versão hospedada internamente, consulte [a seção wiki do repositório do GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
@@ -209,7 +210,7 @@ Se o serviço de gerenciamento de API estiver em uma VNet, consulte a pergunta d
 
 A falha de chamada também pode ser causada por um certificado SSL, que é atribuído a um domínio personalizado e não é confiável para o navegador. Como uma mitigação, você pode remover o ponto de extremidade de gerenciamento domínio personalizado-o gerenciamento de API voltará ao ponto de extremidade padrão com um certificado confiável.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o novo portal do desenvolvedor:
 

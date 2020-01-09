@@ -1,5 +1,5 @@
 ---
-title: Migrar workspace e projetos do Hub do Microsoft Translator? - Tradutor personalizado
+title: Migrar workspace e projetos do Hub do Microsoft Translator? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo explica como migrar seu espaço de trabalho de Hub e projetos para o tradutor personalizado de serviços cognitivas do Azure.
 author: swmachan
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446774"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar workspace e projetos do Hub para o Tradutor Personalizado
 
@@ -27,7 +27,7 @@ Estas ações são executadas durante a migração:
 * Em algum momento, a pontuação BLEU migrada do treinamento do Hub poderá ser encontrada na página TrainingDetails do modelo no cabeçalho “Pontuação BLEU no Hub de TA”.
 
 > [!Note] 
-> Para que um treinamento tenha sucesso, o tradutor personalizado requer um mínimo de 10.000 frases extraídas exclusivas. O tradutor personalizado não pode conduzir um treinamento com menos do que o [mínimo sugerido](sentence-alignment.md#suggested-minimum-number-of-sentences).
+> Para que um treinamento tenha sucesso, o tradutor personalizado requer um mínimo de 10.000 frases extraídas exclusivas. O tradutor personalizado não pode conduzir um treinamento com menos do que o [mínimo sugerido](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Encontrar a ID do workspace do Tradutor Personalizado
 
@@ -132,7 +132,7 @@ Esta tabela compara os recursos entre o Microsoft Translator Hub e o conversor p
 
 |   | Hub | Tradutor personalizado |
 |:-----|:----:|:----:|
-|Status do recurso de personalização   | Disponibilidade geral  | Disponibilidade geral |
+|Status do recurso de personalização   | Disponibilidade Geral  | Disponibilidade Geral |
 | Versão da API de texto  | V2    | V3  |
 | Personalização de SMT | Sim   | Não |
 | Personalização de NMT | Não    | Sim |
@@ -143,7 +143,7 @@ Esta tabela compara os recursos entre o Microsoft Translator Hub e o conversor p
 
 Se você for uma comunidade ou organização trabalhando na criação de um novo sistema de linguagem para o Microsoft Translator, acesse [custommt@microsoft.com](mailto:custommt@microsoft.com) para obter mais informações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Treinar um modelo](how-to-train-model.md).
 - Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

@@ -3,19 +3,19 @@ title: Como usar o diagnóstico do Azure (.NET) com os Serviços de Nuvem | Micr
 description: Usando o diagnóstico do Azure para coletar dados dos Serviços de Nuvem do Azure para depuração, medição de desempenho, monitoramento, análise de tráfego e muito mais.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: gwallace
-ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: d5a4e5ce40726ea36734a0dcf751b79225d5e153
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361106"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitando o Diagnóstico do Azure nos Serviços de Nuvem do Azure
 Confira [Visão geral do Diagnóstico do Azure](../azure-diagnostics.md) para obter informações preliminares sobre o Diagnóstico do Azure.
@@ -26,7 +26,7 @@ Este passo a passo descreve como implementar uma função de trabalho do Azure q
 ### <a name="prerequisites"></a>Pré-requisitos
 Esse artigo assume que você tem uma assinatura do Azure e está usando o Visual Studio com o SDK do Azure. Se você não tiver uma conta do Azure, será possível se inscrever para um [Teste Gratuito][Free Trial]. Certifique-se de [Instalar e configurar o PowerShell do Azure, versão 0.8.7 ou posterior][Install and configure Azure PowerShell version 0.8.7 or later].
 
-### <a name="step-1-create-a-worker-role"></a>Etapa 1: Criar uma função de trabalho
+### <a name="step-1-create-a-worker-role"></a>Etapa 1: criar uma função de trabalho
 1. Inicie o **Visual Studio**.
 2. Crie um projeto **Serviço de Nuvem do Azure** no modelo **Nuvem** destinado ao .NET Framework 4.5.  Atribua o nome "WadExample" ao projeto e clique em Ok.
 3. Selecione **Função de Trabalho** e clique em Ok. O projeto será criado.
@@ -34,8 +34,8 @@ Esse artigo assume que você tem uma assinatura do Azure e está usando o Visual
 5. Na guia **Configuração**, desmarque **Habilitar Diagnóstico** para desabilitar o Diagnostics 1.0 (SDK 2.4 do Azure e mais recente).
 6. Compile sua solução para verificar que você não tem erros.
 
-### <a name="step-2-instrument-your-code"></a>Etapa 2: Instrumentalize seu código
-Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleEventSourceWriter, herdada da [classe EventSource][EventSource Class], implementa quatro métodos de registro em log: **SendEnums**, **MessageMethod**, **SetOther** e HighFreq. O primeiro parâmetro para o método **WriteEvent** define a ID para o respectivo evento. O método Executar implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
+### <a name="step-2-instrument-your-code"></a>Etapa 2: Instrumentalizar seu código
+Substitua os conteúdos do WorkerRole.cs pelo código a seguir. A classe SampleEventSourceWriter, herdada da [classe EventSource][EventSource Class], implementa quatro métodos de registro em log: **SendEnums**, **MessageMethod**, **Other** e **HighFreq**. O primeiro parâmetro para o método **WriteEvent** define a ID para o respectivo evento. O método Executar implementa um loop infinito que chama cada um dos métodos de registro implementados na classe **SampleEventSourceWriter** a cada 10 segundos.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -118,7 +118,7 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Etapa 3: Implantar sua função de trabalho
+### <a name="step-3-deploy-your-worker-role"></a>Etapa 3: Implantar sua Função de Trabalho
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -130,7 +130,7 @@ namespace WorkerRole1
 6. Modifique quaisquer outras **Configurações** como for apropriado e clique em **Publicar**.
 7. Após a implantação ter sido concluída, verifique no Portal do Azure se seu serviço de nuvem está em estado de **Execução**.
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Etapa 4: Criar o arquivo de configuração do Diagnóstico e instalar a extensão
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Etapa 4: Criar seu arquivo de configuração do Diagnostics e instalar a extensão
 1. Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:
 
     ```powershell
@@ -166,8 +166,8 @@ namespace WorkerRole1
 </PublicConfig>
 ```
 
-### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Etapa 5: Instalar o Diagnóstico em sua Função de Trabalho
-Os cmdlets do PowerShell para gerenciar o Diagnóstico em uma função Web ou função de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
+### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Etapa 5: instalar o Diagnostics em sua Função de Trabalho
+Os cmdlets do PowerShell para gerenciar o diagnóstico em uma função web ou de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1. Abra o PowerShell do Azure.
 2. Execute o script para instalar o Diagnostics na sua função de trabalho (substitua o *StorageAccountKey* com a chave de conta de armazenamento para sua conta de armazenamento wadexample e *config_path* com o caminho até o arquivo *WadExample.xml*):
@@ -201,3 +201,6 @@ Caso tenha problemas, veja [Solucionando problemas do Diagnóstico do Azure](../
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+
+
+

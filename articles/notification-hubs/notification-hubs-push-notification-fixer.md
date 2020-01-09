@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378374"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticar notificações eliminadas nos hubs de notificação do Azure
 
@@ -103,7 +103,7 @@ Cada lote é enviado para o serviço de notificação por push, que, por sua vez
 
 Nesse caso, o registro com falha é removido do banco de dados. Em seguida, tentamos entregar a notificação novamente para o restante dos dispositivos nesse lote.
 
-Para obter mais informações de erro sobre a tentativa de entrega com falha em relação a um registro, você pode usar as APIs REST dos hubs de notificação [por telemetria de mensagem: obter telemetria de mensagem de notificação](https://msdn.microsoft.com/library/azure/mt608135.aspx) e [comentários de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para obter o código de exemplo, consulte o [Exemplo de envio de REST](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Para obter mais informações de erro sobre a tentativa de entrega com falha em relação a um registro, você pode usar as APIs REST dos hubs de notificação [por telemetria de mensagem: obter telemetria de mensagem de notificação](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) e [comentários de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para obter o código de exemplo, consulte o [Exemplo de envio de REST](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemas do serviço de notificação por push
 
@@ -162,7 +162,7 @@ Você pode usar a página de **envio de teste** para enviar uma mensagem de noti
 > [!NOTE]
 > Use o Visual Studio para editar os registros somente durante o desenvolvimento/teste e com um número limitado de registros. Se você precisar editar seus registros em massa, considere o uso da funcionalidade exportar e importar Registro descrita em [como: exportar e modificar registros em massa](https://msdn.microsoft.com/library/dn790624.aspx).
 
-#### <a name="service-bus-explorer"></a>Service Bus Explorer ####
+#### <a name="service-bus-explorer"></a>Gerenciador de Barramento de Serviço ####
 
 Muitos clientes usam o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer) para exibir e gerenciar seus hubs de notificação. O Gerenciador de Barramento de Serviço é um projeto de software livre. 
 
@@ -261,7 +261,7 @@ No portal, é possível obter uma visão geral rápida de todas as atividades no
 
 4. Se as configurações de autenticação para o hub de notificação estiverem incorretas, a mensagem **Erro de autenticação do PNS** será exibida. É uma boa indicação para verificar as credenciais do serviço de notificação por push.
 
-#### <a name="programmatic-access"></a>Acesso Programático ####
+#### <a name="programmatic-access"></a>Acesso programático ####
 
 Para obter mais informações sobre o acesso programático, consulte [acesso programático](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 

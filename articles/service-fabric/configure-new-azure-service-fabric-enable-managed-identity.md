@@ -1,18 +1,14 @@
 ---
-title: Service Fabric do Azure – implantar um novo cluster de Service Fabric do Azure com suporte para identidade gerenciada | Microsoft Docs
+title: Implantar um novo cluster Service Fabric com identidade gerenciada
 description: Este artigo mostra como criar um novo cluster Service Fabric com identidade gerenciada habilitada
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cb32251c2507f3def7f5e830af15828ff2f04c29
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 4893fe47de78445a7dccb4f5800498b30cd6c1f2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640713"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614852"
 ---
 # <a name="create-a-new-azure-service-fabric-cluster-with-managed-identity-support-preview"></a>Criar um novo cluster de Service Fabric do Azure com suporte de identidade gerenciada (versão prévia)
 
@@ -38,7 +34,7 @@ Para habilitar o serviço de token de identidade gerenciado no momento da criaç
 ]
 ```
 
-## <a name="errors"></a>Erros
+## <a name="errors"></a>Errors
 
 Se a implantação falhar com essa mensagem, isso significa que o cluster não está na versão necessária do Service Fabric (o tempo de execução mínimo com suporte é 6,5 CU2):
 
@@ -57,7 +53,7 @@ Se a implantação falhar com essa mensagem, isso significa que o cluster não e
 
 * [Habilitar o suporte de identidade gerenciada em um cluster existente do Azure Service Fabric](./configure-existing-cluster-enable-managed-identity-token-service.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Implantar um aplicativo de Service Fabric do Azure com uma identidade gerenciada atribuída pelo usuário](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Aproveite a identidade gerenciada de um aplicativo Service Fabric do código de serviço](./how-to-managed-identity-service-fabric-app-code.md)

@@ -2,18 +2,18 @@
 title: Use o Apache Hadoop Hive com o Curl no HDInsight - Azure
 description: Saiba como enviar remotamente trabalhos do Apache Pig para o Azure HDInsight usando a rotação.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.custom: hdinsightactive
+ms.date: 01/06/2020
+ms.openlocfilehash: 3bb09f1958685a3474b49d2d194e89fe81a80076
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736098"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690486"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
 
@@ -27,36 +27,38 @@ Aprenda a usar a API REST do WebHCat para executar consultas do Apache Hive com 
 
 * Um cliente REST. Este documento usa [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) no Windows PowerShell e a [ondulação](https://curl.haxx.se/) no [bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-* Se você usar bash, também precisará de JQ, um processador de linha de comando JSON.  Veja [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* Se você usar bash, também precisará de JQ, um processador JSON de linha de comando.  Confira [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 ## <a name="base-uri-for-rest-api"></a>URI de base para a API REST
 
-O URI (Uniform Resource Identifier base) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, em `CLUSTERNAME` que é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI`CLUSTERNAME.azurehdinsight.net`() não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
+O URI (Uniform Resource Identifier base) para a API REST no HDInsight é `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, em que `CLUSTERNAME` é o nome do cluster.  Os nomes de cluster nos URIs diferenciam **maiúsculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome de domínio totalmente qualificado) do URI (`CLUSTERNAME.azurehdinsight.net`) não diferencia maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.
 
 ## <a name="authentication"></a>Autenticação
 
 Ao usar o cURL ou qualquer outra comunicação REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight. A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor, sempre faça solicitações usando HTTPS (HTTP seguro).
 
 ### <a name="setup-preserve-credentials"></a>Instalação (preservar credenciais)
+
 Preserve suas credenciais para evitar reinseri-las para cada exemplo.  O nome do cluster será preservado em uma etapa separada.
 
-**A. Raso**  
-Edite o script a seguir `PASSWORD` substituindo pela sua senha real.  Em seguida, digite o comando.
+**A. bash**  
+Edite o script abaixo, substituindo `PASSWORD` pela sua senha real.  Em seguida, digite o comando.
 
 ```bash
 export password='PASSWORD'
 ```  
 
-**B. O** PowerShell executa o código abaixo e insere suas credenciais na janela pop-up:
+**B. o PowerShell** executa o código abaixo e insere suas credenciais na janela pop-up:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### <a name="identify-correctly-cased-cluster-name"></a>Identificar o nome do cluster em maiúscula corretamente
-A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado.  As etapas aqui mostrarão o capital real e, em seguida, o armazenará em uma variável para todos os exemplos subsequentes.
 
-Edite os scripts abaixo para `CLUSTERNAME` substituir pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
+A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado.  As etapas aqui mostrarão o capital real e, em seguida, o armazenará em uma variável para todos os exemplos posteriores.
+
+Edite os scripts abaixo para substituir `CLUSTERNAME` pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiúsculas de minúsculas.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -73,7 +75,7 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-## <a id="curl"></a>Executar um trabalho do Hive
+## <a name="run-a-hive-query"></a>Executar um trabalho do Hive
 
 1. Para verificar se você pode se conectar ao cluster HDInsight, use os seguintes comandos:
 
@@ -144,7 +146,7 @@ $clusterName
 
    Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE` - Se a tabela já existir, ela será excluída.
+   * `DROP TABLE`-se a tabela já existir, ela será excluída.
    * `CREATE EXTERNAL TABLE` - Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
      > [!NOTE]  
@@ -153,7 +155,7 @@ $clusterName
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
    * `ROW FORMAT` – o modo como os dados são formatados. Os campos em cada log são separados por um espaço.
-   * `STORED AS TEXTFILE LOCATION` - O local em que os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`-onde os dados são armazenados (o diretório de exemplo/dados) e que são armazenados como texto.
    * `SELECT` – Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]** . Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
 
      > [!NOTE]  
@@ -185,15 +187,11 @@ $clusterName
 
     Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
 
-## <a id="nextsteps"></a>Próximas etapas
-
-Para obter informações gerais sobre o Hive com HDInsight:
-
-* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight:
 
-* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter mais informações sobre a API REST usada nesse documento, consulte o documento [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

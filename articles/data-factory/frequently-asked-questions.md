@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674726"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644691"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 Este artigo fornece respostas a perguntas frequentes sobre o Azure Data Factory.  
@@ -67,7 +67,7 @@ Azure Data Factory ferramentas visuais permitem o desenvolvimento e a depuraçã
 Não é necessário publicar suas alterações no serviço de data factory antes de selecionar **depurar**. Isso é útil em cenários em que você deseja garantir que as novas adições ou alterações funcionem conforme o esperado antes de atualizar seus data factory fluxos de trabalho em ambientes de desenvolvimento, teste ou produção. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Capacidade de implantar pacotes do SSIS no Azure 
-Se você quiser mover as cargas de trabalho do SSIS, poderá criar um Data Factory e provisionar um tempo de execução de integração do Azure-SSIS. Um tempo de execução de integração do Azure-SSIS é um cluster totalmente gerenciado de VMs do Azure (nós) que são dedicados a executar seus pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte o tutorial [Implantar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+Se você quiser mover as cargas de trabalho do SSIS, poderá criar um Data Factory e provisionar um runtime de integração do Azure-SSIS. Um tempo de execução de integração do Azure-SSIS é um cluster totalmente gerenciado de VMs do Azure (nós) que são dedicados a executar seus pacotes SSIS na nuvem. Para obter instruções passo a passo, consulte o tutorial [Implantar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
 ### <a name="sdks"></a>SDKs
 Se você for um usuário avançado e estiver procurando uma interface programática, Data Factory fornecerá um rico conjunto de SDKs que você pode usar para criar, gerenciar ou monitorar pipelines usando seu IDE favorito. O suporte à linguagem inclui .NET, PowerShell, Python e REST.
@@ -82,7 +82,7 @@ Desde a versão prévia pública inicial em 2017, Data Factory adicionou os segu
 -   Banco de dados SQL com pontos de extremidade de serviço de rede virtual
 -   Instância gerenciada
 -   Pool elástico
--   Suporte para uma rede virtual Azure Resource Manager sobre uma rede virtual clássica a ser preterida no futuro, o que permite injetar/unir seu tempo de execução de integração do Azure-SSIS a uma rede virtual configurada para o banco de dados SQL com o serviço de rede virtual acesso a dados de pontos de extremidade/MI/local. Para obter mais informações, consulte também [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+-   O suporte para uma rede virtual Azure Resource Manager sobre uma rede virtual clássica será preterido no futuro, o que permite injetar/unir seu tempo de execução de integração do Azure-SSIS a uma rede virtual configurada para banco de dados SQL com pontos de extremidade de serviço de rede virtual/acesso a dados de MI/local. Para obter mais informações, consulte também [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 -   Suporte para autenticação do Azure Active Directory (Azure AD) e autenticação do SQL para se conectar ao SSISDB, permitindo a autenticação do Azure AD com sua identidade Data Factory gerenciada para recursos do Azure
 -   Suporte para trazer sua própria licença de SQL Server local para obter economias de custo substanciais da opção Benefício Híbrido do Azure
 -   Suporte para Enterprise Edition do tempo de execução de integração do Azure-SSIS que permite usar recursos avançados/Premium, uma interface de instalação personalizada para instalar componentes/extensões adicionais e um ecossistema de parceiros. Para obter mais informações, consulte também [Enterprise Edition, instalação personalizada e extensibilidade de terceiros para SSIS no ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
@@ -98,10 +98,10 @@ O Integration Runtime é a infraestrutura de computação que o Azure Data Facto
 
 Você pode implantar uma ou várias instâncias do tempo de execução de integração conforme necessário para mover e transformar dados. O Integration Runtime pode ser executado em uma rede pública do Azure ou em uma rede privada (local, rede virtual do Azure ou Amazon Web Services nuvem privada virtual [VPC]). 
 
-Para obter mais informações, consulte [Tempo de execução de integração no Azure Data Factory](concepts-integration-runtime.md).
+Para obter mais informações, consulte [runtime de integração no Azure Data Factory](concepts-integration-runtime.md).
 
-## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>O que é o limite do número de tempos de execução de integração?
-Não há nenhum limite rígido quanto ao número de instâncias de tempo de execução de integração que você pode ter em um data factory. Entretanto, há um limite de número de núcleos de VM que o tempo de execução de integração pode usar por assinatura para a execução de pacotes do SSIS. Para saber mais, confira [Limites do Data Factory](../azure-subscription-service-limits.md#data-factory-limits).
+## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>O que é o limite do número de runtimes de integração?
+Não há nenhum limite rígido quanto ao número de instâncias de runtime de integração que você pode ter em um data factory. Entretanto, há um limite de número de núcleos de VM que o runtime de integração pode usar por assinatura para a execução de pacotes do SSIS. Para saber mais, confira [Limites do Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Quais são os conceitos de nível superior do Azure Data Factory?
 Uma assinatura do Azure pode ter uma ou mais instâncias (ou data factories) do Azure Data Factory. O Azure Data Factory contém quatro componentes principais que trabalham juntos como uma plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para movimentação e transformação dos dados.
@@ -112,10 +112,10 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamen
 ### <a name="data-flows"></a>Fluxos de dados
 Fluxos de dados são objetos que você cria visualmente no Data Factory que transforma dados em escala em serviços de back-end do Spark. Você não precisa entender a programação ou os internos do Spark. Basta criar sua intenção de transformação de dados usando grafos (mapeamento) ou planilhas (Wrangling).
 
-### <a name="activities"></a>atividades
+### <a name="activities"></a>Atividades
 As atividades representam uma etapa de processamento em um pipeline. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um armazenamento de dados para outro armazenamento de dados. Da mesma forma, você pode usar uma atividade do Hive que executa uma consulta de Hive em um cluster do Azure HDInsight para transformar ou analisar seus dados. O Data Factory dá suporte a três tipos de atividades: atividades de movimentação de dados, atividades de transformação de dados e atividades de controle.
 
-### <a name="datasets"></a>Conjunto de dados
+### <a name="datasets"></a>Conjuntos de dados
 Os conjuntos de dados representam as estruturas de dados nos repositórios de dados, que simplesmente apontam para ou fazem referência aos dados que você deseja usar em suas atividades como entradas ou saídas. 
 
 ### <a name="linked-services"></a>Serviços vinculados
@@ -132,7 +132,7 @@ Gatilhos representam as unidades de processamento que determinam quando a execu�
 ### <a name="pipeline-runs"></a>Execuções de pipeline
 Uma execução de pipeline é uma instância da uma execução do pipeline. Normalmente, você instancia uma execução do pipeline passando argumentos para os parâmetros definidos no pipeline. Você pode passar os argumentos manualmente ou dentro da definição do gatilho.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 Os parâmetros são pares chave-valor em uma configuração somente leitura. Você define parâmetros em um pipeline e passa os argumentos para os parâmetros definidos durante a execução de um contexto de execução. O contexto de execução é criado por um gatilho ou de um pipeline que você executa manualmente. As atividades no pipeline consomem os valores de parâmetro.
 
 Um conjunto de um DataSet é um parâmetro fortemente tipado e uma entidade que você pode reutilizar ou fazer referência a ele. Uma atividade pode referenciar conjuntos de os e pode consumir as propriedades que são definidas na definição do conjunto de linhas.
@@ -147,7 +147,7 @@ Para obter mais informações sobre os conceitos do Data Factory, confira os seg
 
 - [Conjuntos de dados e serviços vinculados](concepts-datasets-linked-services.md)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Tempo de execução de integração](concepts-integration-runtime.md)
+- [runtime de integração](concepts-integration-runtime.md)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>O que é o modelo de preços Data Factory?
 Para os detalhes de preço do Azure Data Factory, consulte [Detalhes de preço do Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
@@ -179,7 +179,7 @@ Sim. Uma saída de atividade pode ser consumida em uma atividade subsequente com
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como tratar normalmente o valores nulos em uma saída de atividade? 
 Você pode usar o constructo `@coalesce` nas expressões para manipular valores nulos normalmente. 
 
-## <a name="mapping-data-flows"></a>Mapeando fluxos de dados
+## <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Preciso de ajuda para solucionar problemas de minha lógica de fluxo de dados. Quais informações eu preciso fornecer para obter ajuda?
 
@@ -201,19 +201,19 @@ O IR auto-hospedado é uma construção de pipeline do ADF que você pode usar c
 
 Atualmente, há suporte para o fluxo de dados Wrangling em data factories criadas nas seguintes regiões:
 
-* Leste da Austrália
+* Austrália Oriental
 * Canadá Central
 * Índia Central
-* Centro dos EUA
+* EUA Central
 * Leste dos EUA
 * Leste dos EUA 2
 * Leste do Japão
-* Norte da Europa
+* Europa Setentrional
 * Sudeste Asiático
-* Centro-Sul dos Estados Unidos
+* Centro-Sul dos EUA
 * Sul do Reino Unido
 * Centro-Oeste dos EUA
-* Europa Ocidental
+* Oeste da Europa
 * Oeste dos EUA
 * Oeste dos EUA 2
 
@@ -247,31 +247,31 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * short
 * double
 * real
-* flutuante
+* FLOAT
 * char
-* nchar
+* NCHAR
 * varchar
-* nvarchar
+* NVARCHAR
 * inteiro
 * int
 * bit
 * booleano
-* smallint
-* tinyint
-* bigint
-* longo
-* texto
-* data
-* datetime
+* SMALLINT
+* TINYINT
+* BIGINT
+* long
+* text
+* date
+* DATETIME
 * datetime2
 * smalldatetime
 * timestamp
-* uniqueidentifier
-* xml
+* UNIQUEIDENTIFIER
+* Xml
 
 Outros tipos de dados terão suporte no futuro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter instruções passo a passo para criar um data factory, consulte os tutoriais a seguir:
 
 - [Início rápido: criar um data factory](quickstart-create-data-factory-dot-net.md)

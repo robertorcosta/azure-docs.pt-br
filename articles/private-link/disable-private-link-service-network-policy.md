@@ -2,17 +2,17 @@
 title: 'Desabilitar políticas de rede para o endereço IP de origem do serviço de vínculo privado do Azure '
 description: Saiba como desabilitar as políticas de rede para o link privado do Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22dbb12de0793db8aac12f610ff94380542d426a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c6bd64d141341e0b7fa5641e04320a95d7951bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453003"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Desabilitar políticas de rede para o IP de origem do serviço de vínculo privado
 
@@ -70,6 +70,6 @@ Esta seção descreve como desabilitar políticas de ponto de extremidade privad
 } 
  
 ```
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o [ponto de extremidade privado do Azure](private-endpoint-overview.md)
  

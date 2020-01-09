@@ -2,19 +2,15 @@
 title: Parâmetro de entrada do Runbook
 description: Os parâmetros de entrada do runbook aumentam a flexibilidade dos runbooks permitindo transmitir dados para um runbook quando ele é iniciado. Este artigo descreve os diferentes cenários em que os parâmetros de entrada são usados em runbooks.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b16219c34ea30b4229195c8f019dfa8e1f147d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417596"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetro de entrada do Runbook
 
@@ -30,8 +26,8 @@ O PowerShell e os runbooks de Fluxo de Trabalho do PowerShell na Automação do 
 
 | **Propriedade** | **Descrição** |
 |:--- |:--- |
-| `Type` |Obrigatório. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
-| `Name` |Obrigatório. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
+| `Type` |Obrigatórios. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
+| `Name` |Obrigatórios. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
 | `Mandatory` |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se você definir isso como **\$verdadeiro**, um valor deverá ser fornecido quando o runbook for iniciado. Se você definir isso como **\$falso**, um valor será opcional. |
 | `Default value` |Opcional. Especifica um valor que é usado para o parâmetro se um valor não for transmitido ao iniciar o runbook. Um valor padrão pode ser definido para qualquer parâmetro e tornará automaticamente o parâmetro opcional, independentemente da configuração obrigatória. |
 
@@ -73,7 +69,7 @@ Poderá passar o seguinte valor para o parâmetro:
 ```
 
 > [!NOTE]
-> Quando você não transmite nenhum valor a um parâmetro `[String]` opcional que tenha um _valor padrão_ de `\$null`, o valor do parâmetro será uma _sequência vazia_,  **não** `\$null`.
+> Quando você não passa nenhum valor para um parâmetro de tipo de `[String]` opcional que tem um _valor padrão_ de `\$null`, o valor do parâmetro será uma _cadeia de caracteres vazia_, **não** `\$null`.
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Como configurar parâmetros de entrada em runbooks gráficos
 
@@ -94,7 +90,7 @@ Você pode usar a atividade [**Write-Output**](/powershell/module/microsoft.powe
 
    | **Propriedade** | **Descrição** |
    |:--- |:--- |
-   | `Name` |Obrigatório. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
+   | `Name` |Obrigatórios. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
    | `Description` |Opcional. Descrição da finalidade do parâmetro de entrada. |
    | `Type` |Opcional. O tipo de dados esperado para o valor do parâmetro. Os tipos de parâmetro com suporte são **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se um tipo de dados não estiver selecionado, será usado **String**por padrão. |
    | `Mandatory` |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se você escolher **sim**, um valor deverá ser fornecido quando o runbook for iniciado. Se você escolher **não**, um valor não será necessário quando o runbook for iniciado, e um valor padrão poderá ser definido. |

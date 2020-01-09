@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428911"
 ---
-# <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
-## <a name="overview"></a>Visão geral
+# <a name="devtest-labs-concepts"></a>Conceitos dos DevTest Labs
+## <a name="overview"></a>Visão Geral
 A lista a seguir contém as principais definições e conceitos dos Laboratórios de Desenvolvimento/Teste:
 
 ## <a name="labs"></a>Laboratórios
@@ -44,14 +44,14 @@ No DevTest Labs, um ambiente refere-se a uma coleção de recursos do Azure em u
 ## <a name="base-images"></a>Imagens base
 Imagens base são imagens de VM com todas as ferramentas e configurações pré-instaladas e configuradas para criar uma VM rapidamente. Você pode provisionar uma VM escolhendo uma base existente e adicionando um artefato para instalar o agente de teste. Você pode salvar a VM provisionada como base para que a base possa ser usada sem precisar reinstalar o agente de teste para cada provisionamento da VM.
 
-## <a name="artifacts"></a>Artefatos
+## <a name="artifacts"></a>Artifacts
 Artefatos são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Os artefatos podem ser:
 
 * Ferramentas que você deseja instalar na VM, por exemplo, agentes, Fiddler e Visual Studio.
 * Ações que você deseja executar na VM - como clonar um repositório.
 * Aplicativos que você deseja testar.
 
-Os artefatos são arquivos JSON do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que contêm instruções para realizar a implantação e aplicar a configuração.
+Os artefatos são arquivos JSON do [Azure Resource Manager](../azure-resource-manager/management/overview.md) que contêm instruções para realizar a implantação e aplicar a configuração.
 
 ## <a name="artifact-repositories"></a>Repositórios de artefatos
 Repositórios de artefatos são repositórios git nos quais os artefatos são verificados. Os repositórios de artefato podem ser adicionados a vários laboratórios da sua organização, permitindo a reutilização e compartilhamento.
@@ -89,5 +89,5 @@ Todos os conceitos discutidos neste artigo podem ser configurados usando modelos
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Criar um laboratório no DevTest Labs](devtest-lab-create-lab.md)

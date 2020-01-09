@@ -1,19 +1,14 @@
 ---
-title: Melhore o excellency operacional para suas assinaturas do Azure com o Azure Advisor | Microsoft Docs
-description: Use o Advisor para otimizar e ficar maduro em excelência operacional para suas assinaturas do Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Melhorar o excellency operacional para suas assinaturas do Azure com o Azure Advisor
+description: Use o Advisor para otimizar e ficar maduro em excelência operacional para suas assinaturas do Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443066"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Obtenha excelência operacional com o Azure Advisor
 
@@ -37,7 +32,7 @@ O Azure Advisor detectará regras de alerta com consultas inválidas especificad
 
 ## <a name="follow-best-practices-using-azure-policy"></a>Siga as práticas recomendadas usando Azure Policy
 
-O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar políticas. Essas políticas impõem diferentes regras e efeitos sobre seus recursos. Abaixo estão as recomendações de política do Azure para ajudá-lo a obter o excellency operacional: 
+O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar políticas. Essas políticas impõem diferentes regras e efeitos em seus recursos. Abaixo estão as recomendações de política do Azure para ajudá-lo a obter o excellency operacional: 
 1. Gerenciar marcas usando Azure Policy: essa política adiciona ou substitui a marca e o valor especificados quando qualquer recurso é criado ou atualizado. Os recursos existentes podem ser corrigidos disparando uma tarefa de correção. Além disso, isso não modifica marcas em grupos de recursos.
 2. Impor os requisitos de conformidade geográfica usando o Azure Policy: a política permite restringir os locais que sua organização pode especificar ao implantar recursos. 
 3. Especificar SKUs de máquina virtual permitidas para implantações: essa política permite que você especifique um conjunto de SKUs de máquina virtual que sua organização pode implantar.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802721"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646482"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -39,7 +39,7 @@ Todos os recursos do Microsoft Azure são criados na região do Azure e assinatu
 
 ## <a name="subscriptions"></a>Assinaturas
 
-Você pode implantar tantas redes virtuais, quanto for necessário em cada assinatura, até o [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm assinaturas diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações de assinaturas, consulte [Governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+Você pode implantar tantas redes virtuais, quanto for necessário em cada assinatura, até o [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm assinaturas diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações de assinaturas, consulte [Governança de assinatura](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentação
 
@@ -51,14 +51,14 @@ Uma rede virtual é uma parte virtual, isolada da rede pública do Azure. Cada r
 
 - Os requisitos de segurança organizacional existem para isolar o tráfego em redes virtuais separadas? Você pode optar por conectar redes virtuais ou não. Se você se conectar a redes virtuais, será possível implementar um dispositivo virtual de rede, como um firewall, para controlar o fluxo de tráfego entre as redes virtuais. Para obter mais informações, confira [segurança](#security) e [conectividade](#connectivity).
 - Há algum requisito organizacional para as redes virtuais de isolamento em [assinaturas](#subscriptions) ou [regiões](#regions) separadas?
-- Uma [interface de rede](virtual-network-network-interface.md) permite que uma máquina virtual se comunique com outros recursos. Cada interface pode ter um ou mais endereços IP públicos ou privados atribuídos a ela. Quantas interfaces de rede e [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) são necessários em uma rede virtual? Há [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para o número de endereços IP públicos e privados que você pode ter dentro de uma rede virtual.
+- Uma [interface de rede](virtual-network-network-interface.md) permite que uma máquina virtual se comunique com outros recursos. Cada interface pode ter um ou mais endereços IP públicos ou privados atribuídos a ela. Quantas interfaces de rede e [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) são necessários em uma rede virtual? Há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para o número de endereços IP públicos e privados que você pode ter dentro de uma rede virtual.
 - Você deseja conectar a rede virtual à outra rede virtual na rede local? Você pode optar por conectar a algumas redes virtuais entre si ou redes locais, mas não outras. Para obter mais informações, consulte [conectividade](#connectivity). Cada rede virtual que você se conectar a outra rede virtual ou a rede local, deve ter um espaço de endereço exclusivo. Cada rede virtual tem um ou mais intervalos de endereço público ou privado atribuídos ao seu espaço de endereço. Um intervalo de endereços é especificado em roteamento do domínio de internet de classes (CIDR), como 10.0.0.0/16. Saiba mais sobre [intervalos de endereços](manage-virtual-network.md#add-or-remove-an-address-range) para redes virtuais.
 - Você tem os requisitos de administração organizacional de recursos em diferentes redes virtuais? Em caso positivo, você pode separar os recursos em uma rede virtual separado para simplificar [atribuição de permissão](#permissions) a indivíduos na sua organização ou atribuir diferentes políticas para diferentes redes virtuais.
 - Quando você implanta alguns recursos de serviço do Azure em uma rede virtual, eles criam sua própria rede virtual. Para determinar se um serviço do Azure cria sua própria rede virtual, consulte as informações para cada [serviço do Azure que pode ser implantado em uma rede virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### <a name="subnets"></a>Sub-redes
 
-Uma rede virtual pode ser segmentada em uma ou mais sub-redes até o [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Coisas a serem consideradas ao decidir se deseja criar uma sub-rede, ou várias redes virtuais em uma assinatura:
+Uma rede virtual pode ser segmentada em uma ou mais sub-redes até o [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Coisas a serem consideradas ao decidir se deseja criar uma sub-rede, ou várias redes virtuais em uma assinatura:
 
 - Cada sub-rede deve ter um intervalo de endereço exclusivo, especificado no formato CIDR, dentro no espaço de endereço da rede virtual. O intervalo não pode sobrepor-se com outros intervalos de endereços de sub-rede dentro da rede virtual.
 - Se você planeja implantar alguns recursos de serviço do Azure em uma rede virtual, podem exigir, ou criar suas próprias sub-redes, assim deve haver espaço não alocado para fazerem isso. Para determinar se um serviço do Azure cria sua própria sub-rede, consulte as informações para cada [serviço do Azure que pode ser implantado em uma rede virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Por exemplo, se você se conectar a uma rede virtual a uma rede local usando um Gateway de VPN do Microsoft Azure, a rede virtual deve ter uma sub-rede dedicada para o gateway. Saiba mais sobre [as sub-redes de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
@@ -115,6 +115,6 @@ O Azure Policy habilita que você crie, atribua ou gerencie definições de pol�
 
 As políticas são aplicadas à hierarquia a seguir: grupo de gerenciamento, assinatura e grupo de recursos. Saiba mais sobre os modelos da [política do Azure](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implantar uma rede virtual [modelo de política](policy-samples.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre todas as tarefas, configurações e opções para uma [rede virtual](manage-virtual-network.md), [sub-rede e ponto de extremidade de serviço](virtual-network-manage-subnet.md), [adaptador de rede](virtual-network-network-interface.md), [emparelhamento](virtual-network-manage-peering.md),  [grupo de segurança de aplicativo e rede](manage-network-security-group.md) ou [tabelas de rotas](manage-route-table.md).

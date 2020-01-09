@@ -2,24 +2,24 @@
 layout: HubPage
 hide_bc: false
 title: Documentação de dados de log do Azure Monitor | Microsoft Docs
-description: Azure Monitor pode coletar fontes diferentes como dados de log e armazená-las para correlação e análise usando sua linguagem de consulta.
+description: O Azure Monitor pode coletar fontes diferentes como dados de log e armazená-los para correlação e análise usando sua linguagem de consulta.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: hub-page
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/29/2019
-ms.openlocfilehash: 407e18008c947f95204ea073db31b5f2279a5a4c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 903644b9e2f23e7bab4af2dbda0a07039ca3399a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597318"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406176"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentação de dados de log do Azure Monitor</h1>
-        <p>Azure Monitor pode coletar fontes diferentes como dados de log e armazená-las para correlação e análise usando sua linguagem de consulta.</p>
+        <p>O Azure Monitor pode coletar fontes diferentes como dados de log e armazená-los para correlação e análise usando sua linguagem de consulta.</p>
         <p>Explore nosso conteúdo mais popular sobre como planejar, coletar e analisar dados de log.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
@@ -45,12 +45,12 @@ ms.locfileid: "72597318"
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3>Aprenda os conceitos básicos</h3> 
+                                                                    <h3>Conhecer os conceitos básicos</h3> 
                                                                     <p> 
-                                                                        <a href="/azure/azure-monitor/overview">O que é Azure Monitor?</a><br/>
-                                                                        <a href="/azure/azure-monitor/azure-monitor-rebrand">Alterações de identidade visual</a><br/>
+                                                                        <a href="/azure/azure-monitor/overview">O que é o Azure Monitor?</a><br/>
+                                                                        <a href="/azure/azure-monitor/azure-monitor-rebrand">Alterações de marca</a><br/>
                                                                         <a href="/azure/azure-monitor/platform/data-sources">Monitorando fontes de dados</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/service-providers">Considerações de design para provedores de serviços</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">Considerações de design para Provedores de Serviço</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -69,19 +69,19 @@ ms.locfileid: "72597318"
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3>Entender a segurança</h3> 
+                                                                    <h3>Noções básicas de segurança</h3> 
                                                                     <p>
                                                                         <a href="/azure/azure-monitor/platform/data-security">Dados de log</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">Manipulação de dados de log pessoal</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/roles-permissions-security">Permissões de função e segurança</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">Administração de dados de log pessoais</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/roles-permissions-security">Permissões de funções e segurança</a><br/>
                                                                     </p>
                                                                     <br>
-                                                                     <h3>Gerenciar espaço de trabalho</h3>
+                                                                     <h3>Gerenciar workspace</h3>
                                                                     <p>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace">Criar espaço de trabalho no portal do Azure</a><br/>
-                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Criar espaço de trabalho com CLI do Azure</a><br/>
-                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Criar espaço de trabalho com Azure PowerShell</a><br/>
-                                                                  <a href="/azure/azure-monitor/platform/delete-workspace">Excluir espaço de trabalho</a><br/>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace">Criar workspace no portal do Azure</a><br/>
+                                                                    <a href="/azure/azure-monitor/learn/quick-create-workspace-cli">Criar workspace com a CLI do Azure</a><br/>
+                                                                   <a href="/azure/azure-monitor/learn/quick-create-workspace-posh">Criar workspace com o Azure PowerShell</a><br/>
+                                                                  <a href="/azure/azure-monitor/platform/delete-workspace">Excluir workspace</a><br/>
                                                                  </p>
                                                                 </div>
                                                             </div>
@@ -98,24 +98,24 @@ ms.locfileid: "72597318"
                                                     <div class="cardText">
                                                     <h3>Monitoramento</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-collection">Métricas e logs</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Tempo de ingestão de dados de log</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-collection">Métrica e logs</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Horário da ingestão de dados no log</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>Fontes de dados</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-sources">Overview<br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources">Visão geral<br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-windows-events">Eventos do Windows</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-performance-counters">Contadores de desempenho do Windows e do Linux</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-linux-applications">Desempenho do aplicativo Linux</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-json">Dados JSON personalizados</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-collectd">Dados de desempenho coletados</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Alertas de Nagios e Zabbix</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Alertas do Nagios e do Zabbix</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-syslog">Syslog</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-iis-logs">Logs do IIS</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-custom-logs">Logs personalizados</a><br/>
                                                             <a href="/azure/azure-monitor/platform/custom-fields">Campos Personalizados</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-collector-api">API do coletor de dados</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-collector-api">API do Coletor de dados</a><br/>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -135,9 +135,9 @@ ms.locfileid: "72597318"
                                                         <h3>Analisar os dados</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/log-query/get-started-queries">Introdução às consultas</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/search-queries">Entender consultas de log</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/search-queries">Noções básicas de consultas de log</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/portals">Portais de consulta de log</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/query-language">Referência de linguagem de consulta de log</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/query-language">Referência da linguagem de consulta de log</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/cross-workspace-query">Consulta entre recursos</a><br/>
                                                         </p>
                                                         <br>

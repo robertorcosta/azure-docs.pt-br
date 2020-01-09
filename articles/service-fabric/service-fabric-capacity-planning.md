@@ -1,25 +1,14 @@
 ---
-title: Planejamento de capacidade para aplicativos Service Fabric | Microsoft Docs
+title: Planejamento de capacidade para aplicativos Service Fabric
 description: Descreve como identificar o número de nós de computação necessários para um aplicativo do Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: markfuss
-editor: ''
-ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: cae701e34c3934e8ba8a289e7804e8852f6b5288
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: cd5a5c55ff873e4891ac63361d0c4a0b56d70109
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377201"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planejamento de capacidade para Aplicativos do Service Fabric
 Este documento ensina a você como estimar a quantidade de recursos (CPU, RAM, armazenamento de disco) necessários para a execução dos aplicativos Service Fabric. É comum os requisitos de recursos mudarem ao longo do tempo. Normalmente, você precisa de alguns recursos enquanto desenvolve/testa seu serviço e, posteriormente, precisa de mais recursos à medida que entra na fase de produção e a popularidade de seu aplicativo aumenta. Ao projetar o aplicativo, pense nos requisitos de longo prazo e faça escolhas que permitam a ampliação do serviço, a fim de atender à alta demanda dos clientes.
@@ -28,12 +17,12 @@ Este documento ensina a você como estimar a quantidade de recursos (CPU, RAM, a
 
 Alguns serviços gerenciam nenhum ou poucos dados nas VMs em si. Portanto, o planejamento de capacidade para esses serviços deve se concentrar principalmente no desempenho, o que significa selecionar as CPUs apropriadas (núcleos e velocidade) das VMs. Além disso, você deve considerar a largura de banda da rede, incluindo a frequência das transferências de rede e a quantidade de dados que está sendo transferida. Se o serviço precisar ser executado com qualidade à medida que o uso do serviço aumenta, você poderá adicionar mais VMs ao cluster e balancear a carga das solicitações de rede em todas as VMs.
 
-Para serviços que gerenciam grandes volumes dados nas VMs, o planejamento de capacidade deve se concentrar principalmente no tamanho. Portanto, você deve considerar cuidadosamente a capacidade de RAM e o armazenamento de disco da VM. O sistema de gerenciamento de memória virtual no Windows faz o espaço em disco se parecer com a memória RAM para o código do aplicativo. Além disso, o tempo de execução do Service Fabric fornece a paginação inteligente mantendo apenas dados dinâmicos na memória e movendo dados sem vida para o disco. Assim, os aplicativos usam mais memória do que está fisicamente disponível na VM. Ter mais RAM simplesmente aumenta o desempenho, pois a VM pode manter mais armazenamento em disco na RAM. A máquina virtual que você selecionar deve ter um disco grande o suficiente para armazenar os dados que você deseja na VM. Da mesma forma, a VM deve ter RAM suficiente para fornecer o desempenho desejado. Se os dados do serviço crescerem com o tempo, você poderá adicionar mais VMs ao cluster e particionar os dados em todas as VMs.
+Para serviços que gerenciam grandes volumes dados nas VMs, o planejamento de capacidade deve se concentrar principalmente no tamanho. Portanto, você deve considerar cuidadosamente a capacidade de RAM e o armazenamento de disco da VM. O sistema de gerenciamento de memória virtual no Windows faz o espaço em disco se parecer com a memória RAM para o código do aplicativo. Além disso, o runtime do Service Fabric fornece a paginação inteligente mantendo apenas dados dinâmicos na memória e movendo dados sem vida para o disco. Assim, os aplicativos usam mais memória do que está fisicamente disponível na VM. Ter mais RAM simplesmente aumenta o desempenho, pois a VM pode manter mais armazenamento em disco na RAM. A máquina virtual que você selecionar deve ter um disco grande o suficiente para armazenar os dados que você deseja na VM. Da mesma forma, a VM deve ter RAM suficiente para fornecer o desempenho desejado. Se os dados do serviço crescerem com o tempo, você poderá adicionar mais VMs ao cluster e particionar os dados em todas as VMs.
 
 ## <a name="determine-how-many-nodes-you-need"></a>Determinar quantos nós são necessários
 O particionamento do serviço permite que você escale horizontalmente os dados do serviço. Para obter mais informações sobre particionamento, consulte [Particionamento do Service Fabric](service-fabric-concepts-partitioning.md). Cada partição deve se ajustar a uma única VM, mas várias partições (pequenas) podem ser colocadas em uma única VM. Portanto, ter mais partições pequenas fornece maior flexibilidade do que ter poucas partições maiores. A desvantagem é que ter muitas partições aumenta a sobrecarga do Service Fabric e você não pode executar operações transacionadas entre partições. Também há a possibilidade demais tráfego de rede se o seu código de serviço precisar constantemente acessar partes dos dados que residem em partições diferentes. Ao projetar seu serviço, você deve considerar cuidadosamente esses prós e contras para chegar a uma estratégia de particionamento eficiente.
 
-Vamos supor que seu aplicativo tem um único serviço com estado, com um tamanho de armazenamento que você espera aumentar para determinado tamanho de BD em GB em um ano. Você está disposto a adicionar mais aplicativos (e partições) conforme for crescendo depois desse ano.  O RF (fator de replicação), que determina o número de réplicas para o serviço afeta o tamanho de BD total. O tamanho de BD total em todas as réplicas é o fator de replicação multiplicado pelo tamanho de BD.  Tamanho do nó representa a RAM/espaço em disco por nó que você deseja usar para seu serviço. Para melhor desempenho, o tamanho de BD deve caber na memória no cluster e um tamanho do nó ao redor da RAM da VM deve ser escolhido. Ao alocar um tamanho de nó maior que a capacidade de RAM, você dependerá da paginação fornecida pelo tempo de execução do Service Fabric. Assim, o desempenho pode não ser ideal se seus dados inteiros são considerados dinâmicos (desde então, os dados são paginados como entrada/saída). No entanto, para muitos serviços em que apenas uma fração dos dados é dinâmica, é mais econômico.
+Vamos supor que seu aplicativo tem um único serviço com estado, com um tamanho de armazenamento que você espera aumentar para determinado tamanho de BD em GB em um ano. Você está disposto a adicionar mais aplicativos (e partições) conforme for crescendo depois desse ano.  O RF (fator de replicação), que determina o número de réplicas para o serviço afeta o tamanho de BD total. O tamanho de BD total em todas as réplicas é o fator de replicação multiplicado pelo tamanho de BD.  Tamanho do nó representa a RAM/espaço em disco por nó que você deseja usar para seu serviço. Para melhor desempenho, o tamanho de BD deve caber na memória no cluster e um tamanho do nó ao redor da RAM da VM deve ser escolhido. Ao alocar um tamanho de nó maior que a capacidade de RAM, você dependerá da paginação fornecida pelo runtime do Service Fabric. Assim, o desempenho pode não ser ideal se seus dados inteiros são considerados dinâmicos (desde então, os dados são paginados como entrada/saída). No entanto, para muitos serviços em que apenas uma fração dos dados é dinâmica, é mais econômico.
 
 O número de nós exigidos para obter o desempenho máximo pode ser calculado da seguinte maneira:
 
@@ -59,7 +48,7 @@ Agora, com base em todas essas informações, a planilha mostra que você pode o
 
 ![Planilha para cálculo de custo][Image1]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira [particionamento Service Fabric serviços][10] para saber mais sobre como particionar seu serviço.
 
 <!--Image references-->

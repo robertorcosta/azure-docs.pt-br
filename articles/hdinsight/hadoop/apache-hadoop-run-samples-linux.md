@@ -1,20 +1,19 @@
 ---
 title: Executar exemplos de MapReduce do Apache Hadoop no HDInsight - Azure
 description: Comece a usar os exemplos de MapReduce em arquivos jar incluídos no HDInsight. Utilize SSH para se conectar ao cluster e use o comando do Hadoop para executar trabalhos de exemplo.
-keywords: jar de exemplo do hadoop, jar de exemplos do hadoop, exemplos de mapreduce do hadoop, exemplos de mapreduce
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/12/2019
+ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435745"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos de MapReduce incluídos no HDInsight
 
@@ -30,44 +29,44 @@ Saiba como executar os exemplos de MapReduce incluídos com Apache Hadoop no HDI
 
 ## <a name="the-mapreduce-examples"></a>Os exemplos do MapReduce
 
-**Local**: Os exemplos estão localizados no cluster HDInsight em `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+Os exemplos estão localizados no cluster HDInsight em `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`. O código-fonte para esses exemplos está incluído no cluster HDInsight em `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
-**Conteúdo**: Os exemplos a seguir estão contidos neste arquivo:
+Os exemplos a seguir estão contidos neste arquivo:
 
-* `aggregatewordcount`: Um programa do MapReduce baseado em Agregação que conta as palavras nos arquivos de entrada.
-* `aggregatewordhist`: Um programa do MapReduce baseado em Agregação que computa o histograma das palavras nos arquivos de entrada.
-* `bbp`: Um programa do MapReduce que usa Bailey-Borwein-Plouffe para computar os dígitos exatos de Pi.
-* `dbcount`: Um trabalho de exemplo que conta os logs de pageview armazenados em um banco de dados.
-* `distbbp`: Um programa do MapReduce que usa uma fórmula do tipo BBP para computar os bits exatos de Pi.
-* `grep`: Um programa do MapReduce que conta as correspondências de uma regex na entrada.
-* `join`: Um trabalho que faz a união de conjuntos de dados classificados e particionados igualmente.
-* `multifilewc`: Um trabalho que conta palavras de vários arquivos.
-* `pentomino`: Um programa do MapReduce para organizar peças lado a lado visando encontrar soluções para problemas de pentomino.
-* `pi`: Um programa do MapReduce que estima Pi usando um método semelhante ao de Monte Carlo.
-* `randomtextwriter`: Um programa do MapReduce que grava 10 GB de dados textuais aleatórios por nó.
-* `randomwriter`: Um programa do MapReduce que grava 10 GB de dados aleatórios por nó.
-* `secondarysort`: Um exemplo que define uma classificação secundária para a fase de redução.
-* `sort`: Um programa do MapReduce que classifica os dados gravados pelo gravador aleatório.
-* `sudoku`: Um solucionador de sudoku.
-* `teragen`: Gera dados para o terasort.
-* `terasort`: Executa o terasort.
-* `teravalidate`: Verificação dos resultados do terasort.
-* `wordcount`: Um programa do MapReduce que conta as palavras nos arquivos de entrada.
-* `wordmean`: Um programa do MapReduce que calcula o tamanho médio das palavras nos arquivos de entrada.
-* `wordmedian`: Um programa do MapReduce que calcula o tamanho mediano das palavras nos arquivos de entrada.
-* `wordstandarddeviation`: Um programa do MapReduce que calcula o desvio padrão do tamanho das palavras nos arquivos de entrada.
-
-**Código-fonte**: O código-fonte para esses exemplos está incluído no cluster HDInsight em `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+|Amostra |Description |
+|---|---|
+|aggregatewordcount|Conta as palavras nos arquivos de entrada.|
+|aggregatewordhist|Computa o histograma das palavras nos arquivos de entrada.|
+|BBP|Usa Bailey-Borwein-Plouffe para computar os dígitos exatos de PI.|
+|dbcount|Conta os logs de Pageview armazenados em um banco de dados.|
+|distbbp|Usa uma fórmula de tipo BBP para computar bits exatos de PI.|
+|grep|Conta as correspondências de um Regex na entrada.|
+|join|Executa uma junção sobre conjuntos de valores classificados e particionados igualmente.|
+|multifilewc|Conta palavras de vários arquivos.|
+|pentomino|Programa de layout de bloco para encontrar soluções para problemas de pentomino.|
+|pi|Estima PI usando um método de Carlo quase monte.|
+|randomtextwriter|Grava 10 GB de dados textuais aleatórios por nó.|
+|randomwriter|Grava 10 GB de dados aleatórios por nó.|
+|SecondarySort|Define uma classificação secundária para a fase de redução.|
+|sort|Classifica os dados gravados pelo gravador aleatório.|
+|Sudoku|Um solucionador de sudoku.|
+|teragen|Gera dados para o terasort.|
+|terasort|Executa o terasort.|
+|teravalidate|Verificação dos resultados do terasort.|
+|WordCount|Conta as palavras nos arquivos de entrada.|
+|wordmean|Conta o comprimento médio das palavras nos arquivos de entrada.|
+|wordmedian|Conta o comprimento mediano das palavras nos arquivos de entrada.|
+|wordstandarddeviation|Conta o desvio padrão do comprimento das palavras nos arquivos de entrada.|
 
 ## <a name="run-the-wordcount-example"></a>Executar o exemplo de wordcount
 
-1. Conecte-se ao HDInsight usando o SSH. Substitua `CLUSTER` com o nome do cluster e, em seguida, digite o seguinte comando:
+1. Conecte-se ao HDInsight usando o SSH. Substitua `CLUSTER` pelo nome do cluster e, em seguida, digite o seguinte comando:
 
     ```cmd
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. No prompt `username@#######:~$` , use o comando a seguir para listar os exemplos:
+2. Na sessão SSH, use o seguinte comando para listar os exemplos:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -83,11 +82,13 @@ Saiba como executar os exemplos de MapReduce incluídos com Apache Hadoop no HDI
 
     Você receberá a seguinte mensagem:
 
-        Usage: wordcount <in> [<in>...] <out>
+    ```output
+    Usage: wordcount <in> [<in>...] <out>
+    ```
 
     Essa mensagem indica que você pode fornecer vários caminhos de entrada para os documentos de origem. O caminho final é o local em que a saída (contagem de palavras em documentos de origem) está armazenada.
 
-4. Use o seguinte para contar todas as palavras nos blocos de anotações de Leonardo da Vinci, que são fornecidos como dados de exemplo com o cluster:
+4. Use o seguinte para contar todas as palavras nos blocos de anotações do Leonardo da Vinci, que são fornecidas como dados de exemplo com o cluster:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -153,7 +154,7 @@ Os resultados são semelhantes ao texto a seguir:
 
 ## <a name="pi--example"></a>Exemplo de pi (π)
 
-O exemplo do pi usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi. Pontos são colocados aleatoriamente em um quadrado de unidade. O quadrado também contém um círculo. A probabilidade de que os pontos caiam dentro do círculo é igual à área do círculo, pi/4. O valor de pi pode ser estimado do valor de 4R. R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
+O exemplo do pi usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi. Pontos são colocados aleatoriamente em um quadrado de unidade. O quadrado também contém um círculo. A probabilidade de os pontos ficarem dentro do círculo é igual à área do círculo, PI/4. O valor de pi pode ser estimado do valor de 4R. R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
 
 Use o seguinte comando para executar o exemplo. O comando usa 16 mapas com 10.000.000 amostras cada um para estimar o valor de pi:
 
@@ -163,21 +164,21 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 O valor retornado por este comando deve ser semelhante a **3,14159155000000000000**. Para referência, as 10 primeiras casas decimais de pi são 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>Exemplo de GraySort de 10 GB
+## <a name="10-gb-graysort-example"></a>exemplo de GraySort de 10 GB
 
 GraySort é um tipo de parâmetro de comparação. A métrica é a taxa de classificação (TB/minuto) que é obtida durante a classificação de grandes quantidades de dados, geralmente um mínimo de 100 TB.
 
-Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos de MapReduce desenvolvidos por Owen O'Malley e Arun Murthy. Esses aplicativos ganharam o benchmark de classificação de terabytes anual de uso geral ("Daytona") em 2009, com uma taxa de 0,578 TB/min (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o [parâmetro de comparação classificação](https://sortbenchmark.org/) site.
+Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos de MapReduce desenvolvidos por Owen O'Malley e Arun Murthy. Esses aplicativos ganharam o parâmetro de comparação anual de classificação de terabytes de uso geral ("Daytona") em 2009, com uma taxa de 0,578 TB/min (100 TB em 173 minutos). Para obter mais informações sobre esse e outros parâmetros de comparação de classificação, consulte o site de [comparação de classificação](https://sortbenchmark.org/) .
 
 Este exemplo usa três conjuntos de programas MapReduce:
 
-* **TeraGen**: Um programa do MapReduce que gera linhas de dados para classificar
+* **TeraGen**: um programa de MapReduce que gera linhas de dados para classificar
 
-* **TeraSort**: Amostra os dados de entrada e usa o MapReduce para classificar os dados em uma ordem total
+* **TeraSort**: cria amostras dos dados de entrada e usa o MapReduce para classificar os dados em uma ordem total
 
     A TeraSort é uma classificação de MapReduce padrão, exceto por um particionador personalizado. O particionador usa uma lista classificada de N-1 chaves amostradas que definem o intervalo de chave para cada redução. Em particular, todas as chaves dessa amostra[i-1] <= chave < amostra[i] são enviadas para reduzir i. Esse particionador garante que as saídas da redução i sejam todas menores do que a saída da redução i+1.
 
-* **TeraValidate**: Um programa do MapReduce que valida se a saída é classificada globalmente
+* **TeraValidate**: um programa de MapReduce que valida que a saída é classificada globalmente
 
     Ele cria um mapa por arquivo no diretório de saída, e cada mapa garante que cada chave seja menor ou igual à anterior. A função map gera registros das primeiras e últimas chaves de cada arquivo. A função de redução garante que a primeira chave do arquivo i seja maior do que a última chave do arquivo i-1. Todos os problemas são relatados como uma saída da fase de redução, com as chaves que estão fora de ordem.
 
@@ -205,10 +206,9 @@ Use as seguintes etapas para gerar dados, classificar e validar a saída:
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters do HDInsight baseados em Linux. Para obter tutoriais sobre como usar o Pig, o Hive e o MapReduce com o HDInsight, consulte os seguintes tópicos:
 
-* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Usar MapReduce com Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

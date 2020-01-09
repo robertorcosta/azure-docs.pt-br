@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 6526f27177b5fb8640deb5302d8cb3aa4acf1a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e5b1880a12cda440a5772de80b8ec67b8f7ed5c3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824267"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665389"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -81,7 +81,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
   **eu realmente quero ver um recurso específico adicionado aos arquivos do Azure. Você pode adicioná-lo?**  
     A equipe do serviço Arquivos do Azure quer ouvir todos os comentários que você tem a fazer sobre nosso serviço. Vote nas solicitações de recurso no [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Estamos ansiosos para surpreendê-lo com muitos recursos novos.
 
-## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
+## <a name="azure-file-sync"></a>Sincronização de arquivos do Azure
 
 * <a id="afs-region-availability"></a>
   **Quais regiões têm suporte para Sincronização de Arquivos do Azure?**  
@@ -127,20 +127,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="afs-files-excluded"></a>
   **Quais arquivos ou pastas são excluídas automaticamente pela Sincronização de arquivos do Azure?**  
-    Por padrão, a Sincronização de Arquivos do Azure exclui os arquivos abaixo:
-  * desktop.ini
-  * thumbs.db
-  * ehthumbs.db
-  * ~$\*.\*
-  * \*.laccdb
-  * \*.tmp
-  * 635D02A9D91C401B97884B82B3BCDAEA.\*
-
-    As pastas abaixo também são excluídas por padrão:
-
-  * \SystemVolumeInformation
-  * \$RECYCLE. BIN
-  * \SyncShareState
+  Consulte [arquivos ignorados](storage-sync-files-planning.md#files-skipped).
 
 * <a id="afs-os-support"></a>
   **Posso usar a Sincronização de arquivos do Azure com o Windows Server 2008 R2, Linux ou o dispositivo NAS (armazenamento conectado à rede)?**  
@@ -374,7 +361,7 @@ posso **aproveitar a autenticação do azure AD DS de arquivos do Azure em compa
 
 * <a id="rest-rename"></a>
 **Há uma operação de renomeação na API REST?**  
-    Não no momento.
+    No momento, não.
 
 * <a id="nested-shares"></a>
 posso **configurar compartilhamentos aninhados? Em outras palavras, um compartilhamento em um compartilhamento?**  

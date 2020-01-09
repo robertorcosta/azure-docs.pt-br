@@ -1,5 +1,5 @@
 ---
-title: Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Criar um novo pacote de acesso no gerenciamento de direitos-Azure AD
 description: Saiba como criar um novo pacote de acesso de recursos que você deseja compartilhar no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,18 +16,18 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422688"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
 Um pacote do Access permite que você faça uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. Este artigo descreve como criar um novo pacote de acesso.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Todos os pacotes de acesso devem ser colocados em um contêiner chamado catálogo. Um catálogo define quais recursos você pode adicionar ao seu pacote de acesso. Se você não especificar um catálogo, seu pacote de acesso será colocado no catálogo geral. No momento, não é possível mover um pacote do Access existente para um catálogo diferente.
 
@@ -57,7 +57,7 @@ Aqui estão as etapas de alto nível para criar um novo pacote de acesso.
 
 **Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Clique em **Azure Active Directory** e, em seguida, clique em **Governança de Identidade**.
 
@@ -83,7 +83,7 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
     O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Você também pode adicionar mais proprietários de catálogo posteriormente.
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 
 ## <a name="resource-roles"></a>Funções de recurso
 
@@ -105,7 +105,7 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
     ![Pacote de acesso-seleção de função de recurso](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 
 ## <a name="requests"></a>Solicitações
 
@@ -131,7 +131,7 @@ Na guia **revisar + criar** , você pode examinar as configurações e verificar
 
     O novo pacote de acesso aparece na lista de pacotes de acesso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recurso para um pacote de acesso](entitlement-management-access-package-resources.md)

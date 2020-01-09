@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 40697925d399962399da499e0469198a0e997f66
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461164"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
 Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Windows Server permite usar as licenças locais do Windows Server e executar máquinas virtuais do Windows no Azure por um custo reduzido. Você pode usa o Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com Windows OS. Este artigo percorre as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para Windows Server e como você pode atualizar VMs existentes e em execução. Para saber mais sobre licenciamento e economia de custo do Benefício Híbrido do Azure para Windows Server, consulte a [página de licenciamento do Benefício Híbrido do Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!Important]
-> Cada licença de 2 processadores ou cada conjunto de licenças de 16 núcleos tem direito a duas instâncias de até 8 núcleos ou uma instância de até 16 núcleos. O Benefício Híbrido do Azure para licenças Standard Edition só pode ser usado uma vez localmente ou no Azure. Os benefícios da Datacenter Edition permitem o uso simultâneo localmente e no Azure.
+> Cada licença de dois processadores ou cada conjunto de licenças de 16 núcleos tem direito a duas instâncias de até oito núcleos ou uma instância de até 16 núcleos. O Benefício Híbrido do Azure para licenças Standard Edition só pode ser usado uma vez localmente ou no Azure. Os benefícios da Datacenter Edition permitem o uso simultâneo localmente e no Azure.
 >
 
 > [!Important]
@@ -195,10 +195,10 @@ O exemplo a seguir usa um modelo ARM com uma imagem do Windows Server 2016 Datac
 ```
 Você também pode aprender mais sobre como [Modificar um conjunto de escala de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para outras maneiras de atualizar sua escala definida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Leia mais sobre [Como economizar dinheiro com o Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Leia sobre as [Perguntas frequentes sobre Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
 - Leia mais sobre [Orientação detalhada sobre licenciamento do Benefício Híbrido do Azure para Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - Saiba mais sobre como o [Benefício Híbrido do Azure para Windows Server e o Azure Site Recovery tornam a migração de aplicativos para o Azure ainda mais econômica](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 - Saiba mais sobre o [Windows 10 no Azure com Direitos de Hospedagem Multilocatário](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Saiba mais sobre como [Usar os modelos do Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- Saiba mais sobre como [Usar os modelos do Resource Manager](../../azure-resource-manager/management/overview.md)

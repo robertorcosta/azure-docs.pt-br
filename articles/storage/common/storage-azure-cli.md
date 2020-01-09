@@ -1,5 +1,5 @@
 ---
-title: Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Docs
+title: Usando a CLI do Azure com o Armazenamento do Azure
 description: Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460463"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Usando a CLI do Azure com o Armazenamento do Azure
 
@@ -33,8 +33,8 @@ Os exemplos neste guia supõem o uso do shell Bash no Ubuntu, mas outras platafo
 Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Ele também pressupõe que você é capaz de satisfazer os requisitos de criação de conta especificados abaixo para o serviço do Azure e de Armazenamento.
 
 ### <a name="accounts"></a>Contas
-* **Conta do Azure**: Caso ainda não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/).
-* **Conta de armazenamento**: Confira [Criar uma conta de armazenamento](storage-quickstart-create-account.md) em [Sobre contas de armazenamento do Azure](storage-create-storage-account.md).
+* **Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* **Conta de armazenamento**: veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md) em [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 
@@ -173,9 +173,9 @@ Done
 > A saída anterior está no formato de **tabela**. Você pode especificar qual formato de saída deve ser usado definindo o argumento `--output` nos comandos da sua CLI ou defina-o globalmente usando `az configure`.
 >
 
-## <a name="manage-storage-accounts"></a>Gerenciar contas de armazenamento
+## <a name="manage-storage-accounts"></a>Gerenciar contar de armazenamento
 
-### <a name="create-a-new-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
 Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento. Depois de configurar seu computador para se conectar à sua assinatura, você pode criar uma nova conta de Armazenamento do Azure.
 
 ```azurecli
@@ -186,17 +186,17 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Obrigatório]: Local. Por exemplo, “Oeste dos EUA”.
-* `--name` [Obrigatório]: O nome da conta de armazenamento. O nome deve conter entre 3 e 24 caracteres, usando apenas alfanuméricos minúsculo.
-* `--resource-group` [Obrigatório]: Nome do grupo de recursos.
-* `--sku` [Obrigatório]: O SKU da conta de armazenamento. Valores permitidos:
+* `--location` [Obrigatório]: local. Por exemplo, “Oeste dos EUA”.
+* `--name` [Obrigatório]: o nome da conta de armazenamento. O nome deve conter entre 3 e 24 caracteres, usando apenas alfanuméricos minúsculo.
+* `--resource-group` [Obrigatório]: nome do grupo de recursos.
+* `--sku` [Obrigatório]: o SKU da conta de armazenamento. Valores permitidos:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
-  * `Standard_GZRS`apresentação
-  * `Standard_RAGZRS`apresentação
+  * `Standard_GZRS` (versão prévia)
+  * `Standard_RAGZRS` (versão prévia)
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Definir as variáveis de ambiente da conta de armazenamento padrão do Azure
 
@@ -247,9 +247,9 @@ az storage container create --name <container_name>
 
 Você pode definir um dos três níveis de acesso de leitura para um novo contêiner especificando o argumento `--public-access` opcional:
 
-* `off` (padrão): Os dados do contêiner são privados para o proprietário da conta.
-* `blob`: Acesso público de leitura para blobs.
-* `container`: Acesso público de leitura e listagem a todo o contêiner.
+* `off` (padrão): os dados do contêiner são privados para o proprietário da conta.
+* `blob`: acesso de leitura público para blobs.
+* `container`: acesso de leitura e listagem público para todo o contêiner.
 
 Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md).
 
@@ -331,7 +331,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 
 ### <a name="set-the-content-type"></a>Definir o tipo de conteúdo
 
-O tipo de conteúdo, também conhecido como o tipo MIME, identifica o formato dos dados no blob. Navegadores e outros software usam o tipo de conteúdo para determinar como processar os dados. Por exemplo, o tipo de conteúdo para imagens PNG `image/png`é. Para definir o tipo de conteúdo, use `blob update` o comando:
+O tipo de conteúdo, também conhecido como o tipo MIME, identifica o formato dos dados no blob. Navegadores e outros software usam o tipo de conteúdo para determinar como processar os dados. Por exemplo, o tipo de conteúdo para imagens PNG é `image/png`. Para definir o tipo de conteúdo, use o comando `blob update`:
 
 ```azurecli
 az storage blob update
@@ -534,7 +534,7 @@ Saída de exemplo
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Veja alguns recursos adicionais para aprender mais sobre como trabalhar com a CLI do Azure. 
 
 * [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

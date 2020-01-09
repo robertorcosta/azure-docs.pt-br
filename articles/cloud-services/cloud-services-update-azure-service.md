@@ -2,17 +2,17 @@
 title: Como atualizar um serviço de nuvem | Microsoft Docs
 description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: tagore
+ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360337"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -88,7 +88,7 @@ O diagrama a seguir ilustra como a atualização ocorre se você estiver atualiz
 
 Este próximo diagrama ilustra como a atualização ocorre se você estiver atualizando somente uma única função:
 
-![Atualizar função](media/cloud-services-update-azure-service/IC345880.png "Atualizar função")  
+![Função de atualização](media/cloud-services-update-azure-service/IC345880.png "Atualizar função")  
 
 Durante uma atualização automática, o Azure Fabric Controller avalia periodicamente a integridade do serviço de nuvem a fim de determinar quando é seguro passar ao próximo UD. Essa avaliação de integridade é executada de acordo com a função e considera apenas instâncias na versão mais recente (ou seja, instâncias de UDs que já foram descritos). Ela verifica se um número mínimo de instâncias de função, para cada função, atingiu um estado de terminal satisfatório.
 
@@ -134,7 +134,7 @@ Essa funcionalidade é fornecida pelos seguintes recursos:
   1. O elemento Locked permite a você detectar quando uma operação de mutação pode ser chamada em uma determinada implantação.
   2. O elemento RollbackAllowed permite detectar quando a operação [Reversão de atualização ou upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) pode ser chamada em uma determinada implantação.
 
-  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. Basta confirmar se RollbackAllowed está definido como true. Esses elementos só serão retornados se esses métodos forem invocados usando o cabeçalho de solicitação definido como "x-MS-Version: 2011-10-01 "ou uma versão posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
+  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. Basta confirmar se RollbackAllowed está definido como true. Esses elementos retornam apenas se esses métodos forem chamados usando o cabeçalho de solicitação definido como "x-ms-version: 2011-10-01" ou uma versão posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
 
 Há algumas situações nas quais não há suporte para uma reversão de uma atualização ou upgrade, entre elas:
 
@@ -155,11 +155,11 @@ Após o recebimento da solicitação inicial de atualização ou upgrade pelo co
 
 Iniciar uma segunda operação de atualização enquanto a primeira atualização está em andamento terá um desempenho semelhante à operação de reversão. Se a segunda atualização estiver em modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente fazendo com que vários domínios de atualização fiquem offline no mesmo período.
 
-As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação](/previous-versions/azure/reference/ee460793(v=azure.100))de atualização, status de [implantação de atualização](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100))e [reverter atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)).
+As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [Implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)), [Status da implantação de atualização](/previous-versions/azure/reference/ee460808(v=azure.100)), [Excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100)) e [Reversão de atualização ou upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 Duas operações, [Obter a implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), retornam o sinalizador Locked, que pode ser examinado a fim de determinar se uma operação de mutação pode ser chamada em uma determinada implantação.
 
-Para chamar a versão desses métodos que retorna o sinalizador bloqueado, você deve definir o cabeçalho de solicitação como "x-MS-Version: 2011-10-01 "ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
+Para chamar a versão desses métodos que retorna o sinalizador Locked, você deve definir o cabeçalho de solicitação como "x-ms-version: 2011-10-01" ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
@@ -179,7 +179,10 @@ O diagrama a seguir ilustra como é a distribuição de um serviço que contém 
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)  
 [Como monitorar serviços de nuvem](cloud-services-how-to-monitor.md)  
-[Como configurar os Serviços de Nuvem](cloud-services-how-to-configure-portal.md)  
+[Como configurar serviços de nuvem](cloud-services-how-to-configure-portal.md)  
+
+
+

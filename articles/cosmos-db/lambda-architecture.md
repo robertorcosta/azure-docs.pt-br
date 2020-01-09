@@ -1,19 +1,19 @@
 ---
-title: Arquitetura lambda com Azure Cosmos DB e HDInsight (Apache Spark)
+title: Arquitetura lambda com Azure Cosmos DB e Apache Spark
 description: Este artigo descreve como implementar uma arquitetura lambda usando o Azure Cosmos DB, HDInsight e Spark
 ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 56f293600d876a5bc52b618ce8eed044e93f424d
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d16a9b07ffb77145a6903bfb0de387c2b94c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616883"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441765"
 ---
-# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>O Azure Cosmos DB: Implementar uma arquitetura lambda na plataforma Azure 
+# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: implementar uma arquitetura lambda na plataforma Azure 
 
 As arquiteturas lambda permitem o processamento de dados eficiente de conjuntos de dados em massa. As arquiteturas lambda usam processamento em lotes, processamento de fluxos e uma camada de serviço para minimizar a latência envolvida em consulta de Big Data. 
 
@@ -59,7 +59,7 @@ O que é importante nessas camadas:
  4. A **camada de velocidade** utiliza HDInsight (Apache Spark) para ler o feed de alterações do Azure Cosmos DB. Isso permite manter seus dados, além de consultar e processá-lo simultaneamente.
  5. Todas as consultas podem ser respondidas, mesclando os resultados das exibições de lote e exibições em tempo real ou executando ping individualmente.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Exemplo de Código: Fluxo estruturado do Spark para um feed de alterações do Azure Cosmos DB
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Exemplo de código: fluxo estruturado do Spark para um feed de alterações do Azure Cosmos DB
 Para executar um protótipo rápido do feed de alterações do Azure Cosmos DB como parte da **camada de velocidade**, é possível testá-lo usando dados do Twitter como parte do exemplo [Alterações de processamento de fluxo usando o feed de alterações do Azure Cosmos DB e Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark). Para iniciar rapidamente a saída do Twitter, consulte o exemplo de código em [Feed de transmissão do Twitter para Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed). Com o exemplo anterior, você está carregando dados do Twitter no Azure Cosmos DB e pode configurar seu Cluster HDInsight (Apache Spark) para conectar-se ao feed de alterações. Para obter mais informações sobre como definir essa configuração, consulte [Configurar o Apache Spark para o Conector do Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup).  
 
 O snippet de código a seguir mostra como configurar `spark-shell` para executar um trabalho de streaming estruturado para conectar-se a um feed de alterações do Azure Cosmos DB, que analisa o fluxo de dados do Twitter em tempo real para executar uma contagem de intervalo de execução.
@@ -103,7 +103,7 @@ Para obter mais informações sobre o feed de alterações do Azure Cosmos DB, c
 
 * [Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB](change-feed.md)
 * [Introdução à biblioteca do processador do feed de alterações do Azure Cosmos DB](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/)
-* [Alterações no processamento de fluxo: Feed de alterações do Azure CosmosDB + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
+* [Alterações de processamento de fluxo: feed de alterações do Azure CosmosDB + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
 
 ## <a name="batch-and-serving-layers"></a>Camadas de serviço e lote
 Como os novos dados são carregados no Azure Cosmos DB (onde o feed de alterações está sendo usado para a camada de velocidade), esse é o local onde o **conjunto de dados mestre** (um conjunto de dados brutos de somente acréscimo e imutável) reside. A partir desse ponto, use o HDInsight (Apache Spark) para executar as funções de pré-cálculo da **camada de lote** até a **camada de serviço**, conforme mostrado na imagem a seguir:
@@ -118,7 +118,7 @@ O que é importante nessas camadas:
  4. A **camada de velocidade** é discutida neste artigo mais adiante.
  5. Todas as consultas podem ser respondidas, mesclando os resultados das exibições de lote e exibições em tempo real ou executando ping individualmente.
 
-### <a name="code-example-pre-computing-batch-views"></a>Exemplo de código: Exibições em lote de pré-computação
+### <a name="code-example-pre-computing-batch-views"></a>Exemplo de código: pré-computação de exibições de lote
 Para mostrar como executar exibições pré-calculadas no seu **conjunto de dados mestre** do Apache Spark para o Azure Cosmos DB, use os seguintes snippets de códigos dos blocos de notas de [Arquitetura lambda reprojetada - Camada de lote](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) e [Arquitetura lambda reprojetada - Lote para camada de serviço](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb). Nesse cenário, use os dados do Twitter armazenados no Azure Cosmos DB.
 
 Vamos começar criando a conexão de configuração para os dados do Twitter no Azure Cosmos DB usando o código PySpark abaixo.
@@ -194,7 +194,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 
 Esta última instrução agora salvou o Spark dataframe em um novo contêiner Cosmos do Azure; da perspectiva da arquitetura lambda, essa é a **exibição do lote** dentro da **camada de serviço**.
  
-#### <a name="resources"></a>Recursos
+#### <a name="resources"></a>Implante
 
 Para obter códigos de exemplos completos, consulte [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda) incluindo:
 * Arquitetura lambda reprojetada - Camada de lote [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
@@ -240,9 +240,9 @@ var streamingQuery = streamingQueryWriter.start()
 
 ```
 
-## <a name="lambda-architecture-rearchitected"></a>Arquitetura lambda: Reprojetada
+## <a name="lambda-architecture-rearchitected"></a>Arquitetura lambda: reprojetada
 Conforme observado nas seções anteriores, é possível simplificar a arquitetura lambda original usando os seguintes componentes:
-* Azure Cosmos DB
+* BD Cosmos do Azure
 * A biblioteca de feed de alterações do Azure Cosmos DB para evitar a necessidade de multicast dos dados entre as camadas de velocidade e lote
 * Apache Spark no HDInsight
 * O Conector do Spark para Azure Cosmos DB
@@ -256,18 +256,18 @@ Com esse design, são necessários apenas dois serviços gerenciados, o Azure Co
  4. A camada de velocidade compensa o tempo de processamento (para a camada de serviço) e lida apenas com dados recentes.
  5. Todas as consultas podem ser respondidas mesclando os resultados das exibições de lote e exibições em tempo real.
 
-### <a name="resources"></a>Recursos
+### <a name="resources"></a>Implante
 
-* **Novos dados**: O [ feed de transmissão do Twitter para CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), que é o mecanismo para enviar por push novos dados para o Azure Cosmos DB.
-* **Camada do lote:** A camada do lote é composta pelo *conjunto de dados mestre* (conjunto de dados brutos somente acréscimo e imutável) e a capacidade de pré-computar exibições de lote dos dados que são enviados por push para a **camada de serviço**.
+* **Novos dados**: o [feed de transmissão do Twitter para CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), qual é o mecanismo para enviar por push novos dados para o Azure Cosmos DB.
+* **Camada de lote:** a camada do lote é composta pelo *conjunto de dados mestre* (conjunto de dados brutos somente acréscimo e imutável) e a capacidade de pré-computar exibições de lote dos dados que são enviados por push para a **camada de serviço**.
    * A **Arquitetura lambda reprojetada - Camada de lote** bloco de nota [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) consulta o *conjunto de dados mestre* das exibições de lote.
-* **Camada de serviço:** A **camada de serviço** é composta pelos dados pré-computados resultando em exibições de lote (por exemplo, agregações, segmentações específicas, etc.) para consultas rápidas.
+* **Camada de serviço:** a **camada de serviço** é composta pelos dados pré-computados resultando em exibições de lote (por exemplo, agregações, segmentações específicas e etc.) para consultas rápidas.
   * A **Arquitetura lambda reprojetada - Lote para camada de serviço** bloco de nota [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) envia por push os dados do lote para a camada de serviço, isto é, o Spark consulta uma coleção de lote de tweets, processa-a e armazena-a em outra coleção (um lote computado).
-    * **Camada de velocidade:** A **camada de velocidade** é composta pelo Spark utilizando o feed de alterações do Azure Cosmos DB para ler e agir imediatamente. Os dados também podem ser salvos para *RT computado*, de modo que outros sistemas possam consultar os dados processados em tempo real, em comparação à execução de uma consulta em tempo real.
+    * **Camada de velocidade:** a **camada de velocidade** é composto pelo Spark utilizando o feed de alterações do Azure Cosmos DB para ler e agir imediatamente. Os dados também podem ser salvos para *RT computado*, de modo que outros sistemas possam consultar os dados processados em tempo real, em comparação à execução de uma consulta em tempo real.
   * O scala script da [Consulta de streaming do feed de alterações do Cosmos DB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) executa uma consulta de streaming a partir do feed de alterações do Azure Cosmos DB para computar uma contagem do intervalo do spark-shell.
   * O scala script da [Consulta Tag de streaming do feed de alterações do Cosmos DB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) executa uma consulta de streaming a partir do feed de alterações do Azure Cosmos DB para computar uma contagem do intervalo de tags do spark-shell.
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se você ainda não baixou, baixe o conector do Spark ao Azure Cosmos DB no repositório GitHub [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) e explore os recursos adicionais no repositório:
 * [Arquitetura lambda](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)
 * [Exemplos de agregações distribuídas](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)

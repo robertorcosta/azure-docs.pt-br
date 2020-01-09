@@ -15,12 +15,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350900"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -29,7 +29,7 @@ Este guia oferece detalhes sobre as diferentes opções disponíveis quando voc�
 Use este guia para criar sua própria VM do SQL Server. Ou use-o como uma referência para as opções disponíveis no portal do Azure.
 
 > [!TIP]
-> Se você tiver dúvidas sobre máquinas virtuais do SQL Server, confira as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+> Em caso de dúvidas sobre máquinas virtuais do SQL Server, consulte as [Perguntas frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -64,10 +64,10 @@ Na folha **Informações Básicas**, forneça as seguintes informações:
 * Em **detalhes do projeto**, verifique se a assinatura correta está selecionada. 
 *  Na seção **grupo de recursos** , selecione um grupo de recursos existente na lista ou escolha **criar novo** para criar um novo grupo de recursos. Um grupo de recursos é uma coleção de recursos relacionados no Azure (máquinas virtuais, contas de armazenamento, redes virtuais etc.). 
 
-    ![Assinatura](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
-  > O uso de um novo grupo de recursos é útil se você estiver apenas testando ou aprendendo sobre implantações do SQL Server no Azure. Após concluir o teste, exclua o grupo de recursos para excluir automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
+  > O uso de um novo grupo de recursos é útil se você estiver apenas testando ou aprendendo sobre implantações do SQL Server no Azure. Após concluir o teste, exclua o grupo de recursos para excluir automaticamente a VM e todos os recursos associados a esse grupo de recursos. Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
 
 
 * Em **Detalhes da instância**:
@@ -185,7 +185,7 @@ Para armazenar segredos de segurança no Azure para criptografia, selecione **co
 
 A tabela a seguir lista os parâmetros necessários para configurar a integração do Cofre da Chave do Azure.
 
-| PARÂMETRO | Descrição | EXEMPLO |
+| PARÂMETRO | DESCRIPTION | EXEMPLO |
 | --- | --- | --- |
 | **URL do cofre da chave** |O local do cofre da chave. |https:\//contosokeyvault.vault.azure.net/ |
 | **Nome de entidade** |Nome de entidade de serviço do Active Directory do Azure Ele também é chamado de ID do Cliente. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
@@ -202,7 +202,7 @@ Na guia **configurações de SQL Server** , em **configuração de armazenamento
 
 Em **Armazenamento otimizado para**, escolha uma das seguintes opções:
 
-* **Geral** é a configuração padrão e oferece suporte para a maioria das cargas de trabalho.
+* **Geral** é a configuração padrão e dá suporte à maioria das cargas de trabalho.
 * O **processamento transacional** otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados.
 * **Data warehouse** otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios.
 
@@ -210,7 +210,7 @@ Em **Armazenamento otimizado para**, escolha uma das seguintes opções:
 
 Você pode optar por deixar os valores em padrão ou pode alterar manualmente a topologia de armazenamento para atender às suas necessidades de IOPS. Para obter mais informações, consulte [configuração de armazenamento](virtual-machines-windows-sql-server-storage-configuration.md). 
 
-### <a name="sql-server-license"></a>Licença de SQL Server
+### <a name="sql-server-license"></a>Licença do SQL Server
 Se você for um cliente do Software Assurance, poderá utilizar o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para trazer sua própria licença de SQL Server e salvar os recursos. 
 
 ![Licença da VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
@@ -221,7 +221,7 @@ Se você for um cliente do Software Assurance, poderá utilizar o [benefício h�
 
 ![Aplicação de patch automatizada da VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
 
-Para saber mais, confira [Aplicação automatizada de patch para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-automated-patching.md).
+Para saber mais, consulte [Aplicação de Patch Automatizada para SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-patching.md).
 
 ### <a name="automated-backup"></a>Backup Automatizado
 
@@ -242,7 +242,7 @@ Para criptografar o backup, clique em **Habilitar**. Em seguida, especifique a *
 Para obter mais informações, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
 
 
-### <a name="machine-learning-services"></a>Serviços de Machine Learning
+### <a name="machine-learning-services"></a>Serviços do Machine Learning
 
 Você tem a opção de habilitar [serviços de Machine Learning](/sql/advanced-analytics/). Essa opção permite que você use o Machine Learning com Python e R no SQL Server 2017. Selecione **habilitar** na janela **configurações de SQL Server** .
 
@@ -281,6 +281,6 @@ As seções a seguir mostram como se conectar à sua instância de VM do SQL Ser
   > Este exemplo usa a porta comum 1433. No entanto, esse valor precisará ser modificado se uma porta diferente (como 1401) tiver sido especificada durante a implantação da VM de SQL Server. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como usar o SQL Server no Azure, consulte [SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e as [Perguntas Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).

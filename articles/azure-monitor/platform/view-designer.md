@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363193"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -32,7 +32,7 @@ As exibições são exibidas na página de **visão geral** Azure Monitor no por
 
 As exibições criadas com o Designer de Exibição contêm os elementos descritos na tabela a seguir:
 
-| Parte | Descrição |
+| Parte | Description |
 |:--- |:--- |
 | Blocos | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
@@ -49,7 +49,7 @@ As exibições que foram criadas com o Designer de Exibição exibem as opções
 
 As opções estão descritas na tabela a seguir:
 
-| Opção | Descrição |
+| Opção | Description |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
 | Logs      | Abre o [log Analytics](../log-query/portals.md) para analisar dados com consultas de log. |
@@ -95,12 +95,12 @@ As opções para trabalhar com exibições no modo de edição são descritas na
 
 ![Editar menu](media/view-designer/edit-menu.png)
 
-| Opção | Descrição |
+| Opção | Description |
 |:--|:--|
 | Salvar        | Salva as alterações e fecha a exibição. |
 | Cancelar      | Descarta as alterações e fecha a exibição. |
 | Excluir Exibição | Exclui a exibição. |
-| Exportação      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
+| Exportar      | Exporta a exibição para um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que você poderá importar para outro workspace. O nome do arquivo é o nome da exibição e tem uma extensão *omsview*. |
 | Importar      | Importa o arquivo *omsview* que foi exportado de outro workspace. Essa ação substitui a configuração da exibição existente. |
 | Clonar       | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 

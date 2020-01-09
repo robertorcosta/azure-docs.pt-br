@@ -10,23 +10,23 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: acac881a790644532121697e6b79e57a98b168fe
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454711"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo em Azure Machine Learning Studio (clássico)
 Este tópico explica como Visualizar e interpretar os resultados de previsão em Azure Machine Learning Studio (clássico). Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
 
 
-Há quatro tipos principais de modelos de aprendizado de máquina na versão clássica do Azure Machine Learning Studio:
+Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning Studio (clássico):
 
-* Classificação
-* clustering
-* regressão
+* classificação
+* Clustering
+* Regressão
 * Sistemas de recomendação
 
 Os módulos usados para previsão sobre esses modelos são:
@@ -39,9 +39,9 @@ Este documento explica como interpretar os resultados de previsão para cada um 
 
 Este tópico aborda a interpretação de previsão, mas não a avaliação do modelo. Para obter mais informações sobre como avaliar seu modelo, consulte [como avaliar o desempenho do modelo no Azure Machine Learning Studio (clássico)](evaluate-model-performance.md).
 
-Se você for novo na versão clássica do Azure Machine Learning Studio e precisar de ajuda para criar um experimento simples para começar, consulte [criar um experimento simples no Azure Machine Learning Studio (clássico)](create-experiment.md).
+Se você for novo no Azure Machine Learning Studio (clássico) e precisar de ajuda para criar um experimento simples para começar, consulte [criar um experimento simples no Azure Machine Learning Studio (clássico)](create-experiment.md).
 
-## <a name="classification"></a>Classificação
+## <a name="classification"></a>classificação
 Há duas subcategorias de problemas de classificação:
 
 * Problemas com apenas duas classes (classificação de duas classes ou binária)
@@ -52,7 +52,7 @@ Azure Machine Learning Studio (clássico) tem diferentes módulos para lidar com
 ### <a name="two-class-classification"></a>Classificação de duas classes
 **Teste de exemplo**
 
-Um exemplo de problema de classificação de duas classes é a classificação de flores íris. A tarefa é classificar as flores íris com base em suas características. O conjunto de dados íris fornecido na versão clássica do Azure Machine Learning Studio é um subconjunto do [conjunto de dados íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) populares contendo instâncias de apenas duas espécies de flor (classes 0 e 1). Há quatro características para cada flor (comprimento da sépala, largura da sépala, comprimento da pétala e largura da pétala).
+Um exemplo de problema de classificação de duas classes é a classificação de flores íris. A tarefa é classificar as flores íris com base em suas características. O conjunto de dados íris fornecido na Azure Machine Learning Studio (clássico) é um subconjunto do [conjunto de dados íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) popular que contém instâncias de apenas duas espécies de flor (classes 0 e 1). Há quatro características para cada flor (comprimento da sépala, largura da sépala, comprimento da pétala e largura da pétala).
 
 ![Captura de tela do experimento íris](./media/interpret-model-results/1.png)
 
@@ -137,7 +137,7 @@ Após a publicação e a execução do serviço Web e a inserção de alguns val
 
 Figura 10. Resultado do serviço Web da classificação multiclasses
 
-## <a name="regression"></a>regressão
+## <a name="regression"></a>Regressão
 Os problemas de regressão são diferentes dos problemas de classificação. Em um problema de classificação, você tenta prever classes distintas, como a qual classe uma flor íris pertence. Mas, como é possível ver no exemplo de problema de regressão a seguir, você está tentando prever uma variável contínua, como o preço de um carro.
 
 **Teste de exemplo**
@@ -174,7 +174,7 @@ Executando o serviço Web, o resultado é semelhante à Figura 14. O preço prev
 
 Figura 14. Resultado do serviço Web de um problema de regressão do preço de automóveis
 
-## <a name="clustering"></a>clustering
+## <a name="clustering"></a>Clustering
 **Teste de exemplo**
 
 Vamos usar novamente o conjunto de dados Íris para criar um teste de clustering. Aqui, é possível filtrar os rótulos de classe no conjunto de dados para que ele tenha apenas as características e possa ser usado para clustering. Neste caso de uso de Íris, especifique o número de clusters como dois durante o processo de treinamento, o que significa que você agruparia as flores em duas classes. O teste é mostrado na Figura 15.
@@ -226,7 +226,7 @@ Para sistemas de recomendação, você pode usar o problema de recomendação de
 * Dados de recursos do cliente
 * Dados de recurso de restaurante
 
-Há várias coisas que podemos fazer com o módulo [treinar recomendador Matchbox][train-matchbox-recommender] na versão clássica do Azure Machine Learning Studio:
+Há várias coisas que podemos fazer com o módulo [treinar recomendador Matchbox][train-matchbox-recommender] no Azure Machine Learning Studio (clássico):
 
 * Prever as classificações de um determinado usuário e item
 * Itens recomendados a um determinado usuário
@@ -245,7 +245,7 @@ Figura 20. Teste do sistema de recomendação
 
 **Interpretação de resultado**
 
-**Prever as classificações de um determinado usuário e item**
+**Previsão das classificações de um determinado usuário e item**
 
 Ao selecionar **Previsão de Classificação** em **Tipo de previsão de recomendação**, você pede que o sistema de recomendação preveja a classificação de um determinado usuário e item. A visualização da saída de [recomendação do Matchbox de Pontuação][score-matchbox-recommender] é semelhante à figura 21.
 

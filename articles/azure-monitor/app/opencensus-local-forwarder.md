@@ -1,5 +1,5 @@
 ---
-title: Encaminhador local de rastreamento distribuído do Aplicativo Azure insights OpenCensus (visualização) | Microsoft docs
+title: Encaminhador local do Aplicativo Azure insights OpenCensus (visualização)
 description: Encaminhe períodos e rastreamento distribuído OpenCensus em linguagens como Python e Go para o Azure Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,16 +8,16 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 25c6c82fa1179a9173f42c3a5a4e95a371dd49c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406600"
 ---
 # <a name="local-forwarder-preview"></a>Encaminhador local (visualização)
 
-O encaminhador local é um agente que coleta telemetria do Application Insights ou do [OpenCensus](https://opencensus.io/) de vários SDKs e a encaminha ao Application Insights. Pode ser executado em Windows e Linux. Também é possível executá-lo em macOS, mas ele não tem suporte oficial no momento.
+O encaminhador local é um agente que coleta telemetria do Application Insights ou do [OpenCensus](https://opencensus.io/) de vários SDKs e a encaminha ao Application Insights. Ele pode ser executado em Windows e Linux. Também é possível executá-lo em macOS, mas ele não tem suporte oficial no momento.
 
 ## <a name="running-local-forwarder"></a>Como executar o encaminhador local
 
@@ -74,7 +74,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 #### <a name="console-application"></a>Aplicativo de console
 
 Para determinados casos de uso, pode ser útil executar o encaminhador local como um aplicativo de console. A versão vem com as seguintes versões executáveis do host do console:
-* um binário .NET Core dependente de estrutura */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. A execução desse binário requer um tempo de execução do .NET Core instalado. Confira esta [página](https://www.microsoft.com/net/download/dotnet-core/2.1) de download para obter detalhes.
+* um binário .NET Core dependente de estrutura */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. A execução desse binário requer um runtime do .NET Core instalado. Confira esta [página](https://www.microsoft.com/net/download/dotnet-core/2.1) de download para obter detalhes.
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
@@ -87,7 +87,7 @@ Para determinados casos de uso, pode ser útil executar o encaminhador local com
 ### <a name="linux"></a>Linux
 
 Assim como acontece com o Windows, a versão vem com as seguintes versões executáveis do host do console:
-* um binário .NET Core dependente de estrutura */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. A execução desse binário requer um tempo de execução do .NET Core instalado. Confira esta [página](https://www.microsoft.com/net/download/dotnet-core/2.1) de download para obter detalhes.
+* um binário .NET Core dependente de estrutura */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. A execução desse binário requer um runtime do .NET Core instalado. Confira esta [página](https://www.microsoft.com/net/download/dotnet-core/2.1) de download para obter detalhes.
 
 ```batchfile
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll

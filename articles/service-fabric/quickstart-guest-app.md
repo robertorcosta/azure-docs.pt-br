@@ -1,25 +1,14 @@
 ---
-title: Implantar rapidamente um aplicativo existente em um cluster do Azure Service Fabric
+title: Implantar rapidamente um aplicativo existente em um cluster
 description: Use um cluster do Azure Service Fabric para hospedar um aplicativo Node.js existente com o Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9153fc4cd60cb892532db49bf4339b517320b1a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592458"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614835"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
@@ -57,7 +46,7 @@ Nomeie o serviço **MyGuestService** e defina as opções à direita com os segu
 | Pasta do Pacote de Código       | _&lt;a pasta com seu aplicativo Node.js&gt;_ |
 | Comportamento do Pacote de Código     | Copiar o conteúdo da pasta para o projeto |
 | Programa                   | node.exe |
-| Arguments                 | server.js |
+| Argumentos                 | server.js |
 | Pasta de trabalho            | CodePackage |
 
 Pressione **OK**.
@@ -108,13 +97,13 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se você já não fez isso, escolha uma conta do Azure para implantação. Se você ainda não tiver um, [Inscreva-se para um][create-account].
 
-Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione **&lt;criar novo cluster... que&gt;** abre a janela do navegador da Web para a Portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Em **Ponto de Extremidade de Conexão**, selecione o cluster do Service Fabric para implantação. Se você não tiver um, selecione **&lt;criar novo cluster...&gt;** que abre a janela do navegador da Web para o portal do Azure. Para saber mais, confira [Criar um cluster no portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando você cria o cluster do Service Fabric, defina a configuração **Pontos de extremidade personalizados** como **80**.
 
 ![Configuração de tipo de nó do Service Fabric com o ponto de extremidade personalizado][custom-endpoint]
 
-A criação de um novo cluster do Service Fabric leva algum tempo para concluir. Depois que o cluster for criado, acesse o diálogo Publicar e selecione  **&lt;Atualizar&gt;** . O novo cluster está listado na caixa suspensa. Selecione-o.
+A criação de um novo cluster do Service Fabric leva algum tempo para concluir. Depois que o cluster for criado, acesse o diálogo Publicar e selecione **&lt;Atualizar&gt;** . O novo cluster está listado na caixa suspensa. Selecione-o.
 
 Pressione **Publicar** e aguarde até que a implantação seja concluída.
 
@@ -130,13 +119,13 @@ Verifique a folha de visão geral do endereço do serviço. Use o nome de domín
 
 ![Folha de visão geral do Service Fabric no portal do Azure][overview]
 
-Navegue até esse endereço, onde você verá a `HELLO WORLD` resposta.
+Navegue até esse endereço, onde você verá a resposta `HELLO WORLD`.
 
 ## <a name="delete-the-cluster"></a>Excluir o cluster
 
 Não se esqueça de excluir todos os recursos que você criou para este guia de início rápido, pois você é cobrado por esses recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Leia mais sobre [executáveis convidados](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->

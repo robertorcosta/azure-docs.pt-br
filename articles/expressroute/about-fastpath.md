@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ff1dac312bcb4df1e1afc9679df09fc8a2b28ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c03be46207e7698d0557729c546488412c0cc5dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74897358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437093"
 ---
 # <a name="about-expressroute-fastpath"></a>Sobre o ExpressRoute FastPath
 
@@ -26,14 +26,24 @@ O FastPath está disponível em todos os circuitos do ExpressRoute.
 
 ### <a name="gateways"></a>Gateways
 
-O FastPath ainda exige que um gateway de rede virtual seja criado para trocar rotas entre a rede virtual e a rede local. Para obter mais informações sobre gateways de rede virtual e ExpressRoute, consulte [gateways de rede virtual do expressroute](expressroute-about-virtual-network-gateways.md).
+O FastPath ainda exige que um gateway de rede virtual seja criado para trocar rotas entre a rede virtual e a rede local. Para obter mais informações sobre gateways de rede virtual e ExpressRoute, incluindo informações de desempenho e SKUs de gateway, consulte [gateways de rede virtual do ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
-O gateway de rede virtual deve ser:
+Para configurar o FastPath, o gateway de rede virtual deve ser:
 
 * Ultra Desempenho
 * ErGw3AZ
 
-## <a name="supported-features"></a>Recursos com suporte
+#### <a name="aggthroughput"></a>Desempenhos estimados por SKU de gateway
+A tabela a seguir mostra os tipos de gateway e os desempenhos estimados. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
+
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+
+> [!IMPORTANT]
+> O desempenho do aplicativo depende de vários fatores, como a latência de ponta a ponta e o número de fluxos de tráfego abertos pelo aplicativo. Os números na tabela representam o limite superior que o aplicativo, teoricamente, pode atingir em um ambiente ideal.
+>
+>
+
+## <a name="supported-features"></a>Recursos compatíveis
 
 Embora o FastPath dê suporte à maioria das configurações, ele não oferece suporte aos seguintes recursos:
 

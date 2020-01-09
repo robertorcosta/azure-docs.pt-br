@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359997"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar credenciais da conta de armazenamento para o StorSimple Virtual Array
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 A seção **Configuração** da folha do serviço Gerenciador de Dispositivos do StorSimple da sua Matriz Virtual StorSimple apresenta os parâmetros globais do serviço que podem ser criados no serviço StorSimple Manager. Esses parâmetros podem ser aplicados a todos os dispositivos conectados ao serviço e incluem:
 
 * Credenciais da conta de armazenamento
@@ -65,7 +65,7 @@ Use os procedimentos a seguir para adicionar as credenciais de conta de armazena
 * Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço Gerenciador de Dispositivos
 * Para adicionar uma credencial de conta de armazenamento do Azure que esteja fora da assinatura do serviço Gerenciador de Dispositivos
 
-#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço do Gerenciador de Dispositivos
+#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Para adicionar uma credencial de conta de armazenamento com a mesma assinatura do Azure como o serviço Gerenciador de Dispositivos
 
 1. Navegue até seu serviço Gerenciador de Dispositivos, selecione e clique duas vezes nele. Isso abre a folha **Visão geral**.
 2. Selecione **Credenciais da conta de armazenamento** na seção **Configuração**.
@@ -110,7 +110,7 @@ Você pode editar uma credencial de conta de armazenamento usada pelo seu dispos
 4. Na folha **Propriedades** da credencial de conta de armazenamento, faça o seguinte:
    
    1. Se necessário, você poderá modificar a seleção **Habilitar modo SSL** .
-   2. Você pode escolher gerar novamente as chaves de acesso da credencial de conta de armazenamento. Para obter mais informações, confira [Regenerar as chaves da conta de armazenamento](../storage/common/storage-account-manage.md#access-keys). Forneça a nova chave de credencial de conta de armazenamento. Para uma conta de armazenamento do Azure, essa é a chave de acesso principal.
+   2. Você pode escolher gerar novamente as chaves de acesso da credencial de conta de armazenamento. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md). Forneça a nova chave de credencial de conta de armazenamento. Para uma conta de armazenamento do Azure, essa é a chave de acesso principal.
    3. Clique em **Salvar** na parte superior da folha **Propriedades** para salvar as configurações. As configurações são atualizadas na folha **Credenciais de conta de armazenamento**.
       
       ![Editar uma credencial de conta de armazenamento](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)
@@ -150,6 +150,6 @@ Para informar o serviço Gerenciador de Dispositivos StorSimple da alteração, 
    
     ![Sincronizar chave de acesso](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Aprenda como [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

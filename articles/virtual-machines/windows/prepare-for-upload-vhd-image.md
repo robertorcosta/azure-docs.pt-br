@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461118"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -78,6 +78,10 @@ Nesse comando, substitua o valor de `-Path` pelo caminho para o disco rígido vi
 Se você tiver uma imagem de VM do Windows no [formato de arquivo VMDK](https://en.wikipedia.org/wiki/VMDK), use o [conversor de máquina virtual da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497) para convertê-la em formato VHD. Para obter mais informações, consulte [como converter um VMDK do VMware para um VHD do Hyper-V](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Definir configurações do Windows para o Azure
+
+> [!NOTE]
+> A plataforma Azure monta um arquivo ISO para o DVD-ROM quando uma VM do Windows é criada a partir de uma imagem generalizada.
+> Por esse motivo, o DVD-ROM deve ser habilitado no sistema operacional na imagem generalizada. Se estiver desabilitada, a VM do Windows ficará presa no OOBE.
 
 Na VM que você planeja carregar no Azure, execute os seguintes comandos em uma janela de [prompt de comandos com privilégios elevados](https://technet.microsoft.com/library/cc947813.aspx):
 
@@ -148,12 +152,11 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## <a name="update-remote-desktop-registry-settings"></a>Atualizar configurações do registro da área de trabalho remota
 Verifique se as seguintes configurações estão definidas corretamente para acesso remoto:
 
 >[!NOTE] 
->Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Você pode ignorar essa mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
+>Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Ignore essa mensagem. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
 
 1. O protocolo RDP está habilitado:
    
@@ -216,7 +219,7 @@ Verifique se as seguintes configurações estão definidas corretamente para ace
 
 9. Se a VM for parte de um domínio, verifique as políticas a seguir para certificar-se de que as configurações anteriores não sejam revertidas. 
     
-    | Objetivo                                     | Política                                                                                                                                                       | Value                                                                                    |
+    | Goal                                     | Política                                                                                                                                                       | Valor                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP está habilitado                           | Configuração do Computador\Diretivas\Configurações do Windows\Modelos Administrativos\Componentes\Serviços de Área de Trabalho Remota\Host de Sessão da Área de Trabalho Remota\Conexões         | Permitir que os usuários se conectem remotamente usando a Área de Trabalho Remota                                  |
     | Diretiva de grupo do NLA                         | Configurações\Modelos Administrativos\Componentes\Serviços de Área de Trabalho Remota\Host de Sessão da Área de Trabalho Remota\Segurança                                                    | Exigir autenticação de usuário para acesso remoto usando NLA |
@@ -250,7 +253,7 @@ Verifique se as seguintes configurações estão definidas corretamente para ace
    ``` 
 5. Se a VM for parte de um domínio, verifique as seguintes políticas do Azure AD para certificar-se de que as configurações anteriores não são revertidas. 
 
-    | Objetivo                                 | Política                                                                                                                                                  | Value                                   |
+    | Goal                                 | Política                                                                                                                                                  | Valor                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Habilitar os perfis do Firewall do Windows | Configuração do Computador\Políticas\Configurações do Windows\Modelos Administrativos\Rede\Conexão de Rede\Firewall do Windows\Perfil de Domínio\Firewall do Windows   | Proteger todas as conexões de rede         |
     | Habilitar o RDP                           | Configuração do Computador\Políticas\Configurações do Windows\Modelos Administrativos\Rede\Conexão de Rede\Firewall do Windows\Perfil de Domínio\Firewall do Windows   | Permitir exceções de área de trabalho remota de entrada |
@@ -358,7 +361,7 @@ Verifique se a VM está íntegra, segura e RDP acessível:
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
 O ideal é que você mantenha a máquina atualizada no *nível do patch*. Se isso não for possível, verifique se as atualizações a seguir estão instaladas. Para obter as atualizações mais recentes, consulte as páginas do histórico do Windows Update: [Windows 10 e Windows server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/help/4009470) e [Windows 7 SP1 e Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
-| Componente               | Binário         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | V1703 do Windows 10    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+| Componente               | Binário         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Armazenamento                 | disk.sys       | 6.1.7601.23403 – KB3125574                | 6.2.9200.17638/6.2.9200.21757 – KB3137061 | 6.3.9600.18203 – KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 – KB3125574                | 6.2.9200.17188/6.2.9200.21306 – KB3018489 | 6.3.9600.18573 – KB4022726         | 10.0.14393.1358 – KB4022715                             | 10.0.15063.332             | -                                               | -                                               |

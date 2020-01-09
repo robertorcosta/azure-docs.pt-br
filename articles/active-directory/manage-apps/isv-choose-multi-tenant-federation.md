@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c05ad3eace1219e19e0bfb117d3ec8de68a756f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443385"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Escolha o protocolo de Federação correto para seu aplicativo multilocatário
 
@@ -30,7 +30,7 @@ A tabela a seguir compara
 * SAML (Security Assertion Markup Language)
 * Especificação Web Services Federation (WSFed)
 
-| Recurso| OAuth/OIDC| SAML/WSFed |
+| Capacidade| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -44,7 +44,7 @@ A tabela a seguir compara
 
 ## <a name="oauth-20-and-open-id-connect"></a>OAuth 2,0 e Open ID Connect
 
-O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para autorização. OIDC (OpenID Connect) é uma camada de autenticação de identidade [padrão do setor](https://openid.net/connect/) criada com base no protocolo Oath 2,0.
+O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para autorização. OIDC (OpenID Connect) é uma camada de autenticação de identidade [padrão do setor](https://openid.net/connect/) criada com base no protocolo OAuth 2,0.
 
 ### <a name="benefits"></a>Benefícios
 
@@ -94,7 +94,7 @@ O uso de qualquer um dos protocolos acima para SSO permite que o acesso do seu a
 
 Se você estiver usando o Open ID Connect para autenticar, sua experiência de desenvolvimento será simples porque você usará o OAuth2, a base do Open ID Connect, para adquirir tokens que podem ser usados para invocar Microsoft Graph APIs. Se seu aplicativo estiver usando SAML ou WSFed, você deverá adicionar código adicional em seu aplicativo para obter essas OAuth2 para adquirir os tokens necessários para invocar Microsoft Graph APIs. 
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
 [Habilitar o SSO para seu aplicativo multilocatário](isv-sso-content.md)
 

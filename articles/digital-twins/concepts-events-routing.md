@@ -7,17 +7,17 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 01/03/2020
+ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889698"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660317"
 ---
-# <a name="routing-events-and-messages"></a>Roteamento de eventos e mensagens
+# <a name="routing-iot-events-and-messages"></a>Roteando eventos e mensagens de IoT
 
-As soluções de IoT geralmente unem vários serviços poderosos que incluem armazenamento, análises e muito mais. Este artigo descreve como conectar os aplicativos Gêmeos Digitais do Azure aos serviços analíticos, AI e de armazenamento do Azure para fornecer insight e funcionalidades mais profundas.
+Internet das Coisas soluções muitas vezes une vários serviços poderosos que incluem armazenamento, análise e muito mais. Este artigo descreve como conectar os aplicativos Gêmeos Digitais do Azure aos serviços analíticos, AI e de armazenamento do Azure para fornecer insight e funcionalidades mais profundas.
 
 ## <a name="route-types"></a>Tipos de rota  
 
@@ -64,7 +64,7 @@ O recurso de Gêmeos Digitais do Azure atualmente tem suporte para os seguintes 
 >[!NOTE]  
 >Para obter mais informações sobre como criar endpoints e exemplos de esquema de eventos, consulte [Egress e endpoints](how-to-egress-endpoints.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre os limites de visualização do Gêmeos Digitais do Azure, consulte [Limites do serviço de visualização pública](concepts-service-limits.md).
 

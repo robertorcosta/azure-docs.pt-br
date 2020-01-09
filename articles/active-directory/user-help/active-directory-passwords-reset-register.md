@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279048"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681354"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 
@@ -29,7 +29,7 @@ Como um usuário final, você poderá redefinir sua senha ou desbloquear sua con
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registrar ou confirmar dados de autenticação com SSPR
 
-1. Abra o navegador da Web em seu dispositivo e vá para o [página de registro de redefinição de senha](https://aka.ms/ssprsetup).
+1. Abra o navegador da Web em seu dispositivo e vá para o [página de registro de redefinição de senha](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 2. Digite o nome de usuário e a senha fornecida pelo administrador.
 3. Dependendo de como sua equipe de TI tiver configurado as coisas, uma ou mais das seguintes opções estarão disponíveis para configuração e verificação. Se o administrador tem sua permissão para usar suas informações, eles podem preencher algumas informações para você.
     * **Telefone comercial**: somente o administrador pode definir essa opção.
@@ -56,7 +56,7 @@ Seus administradores podem exigir que você confirme seus métodos de verificaç
 | Recebo uma mensagem de erro "sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha. <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Essa mensagem aparece porque a equipe de TI não habilitou a redefinição de senha para a organização usando o link **Não é possível acessar sua conta** ou não licenciou você para usar o recurso. <br> <br> Para redefinir sua senha, selecione o link **Contate um administrador**. Um email será enviado para a equipe de TI da sua empresa. O email informa o desejo de redefinir sua senha no Office 365, para que eles possam habilitar o recurso para você. |
 | Recebo uma mensagem de erro "não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | A mensagem aparece porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para se registrar na redefinição de senha, vá para a [página de registro de redefinição de senha](https://aka.ms/ssprsetup) depois de recuperar o acesso à sua conta. <br> <br> Para redefinir a senha, selecione o link **Contate um administrador** e envie um email à equipe de TI da empresa. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Alterar a senha usando a redefinição de senha de autoatendimento](active-directory-passwords-update-your-own-password.md)
 * [Página de registro de redefinição de senha](https://aka.ms/ssprsetup)

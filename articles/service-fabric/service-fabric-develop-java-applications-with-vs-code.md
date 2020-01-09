@@ -1,25 +1,16 @@
 ---
-title: Desenvolver aplicativos Java do Microsoft Azure Service Fabric com o Visual Studio Code | Microsoft Docs
+title: Desenvolva aplicativos Java com Visual Studio Code
 description: Este artigo mostra como compilar, implantar e depurar aplicativos do Java do Microsoft Azure Service Fabric usando o Visual Studio Code.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393813"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610039"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos Java do Microsoft Azure Service Fabric com o Visual Studio Code
 
@@ -52,7 +43,7 @@ Abra o VS Code.  Clique no ícone do Explorer na **Barra de atividade** e clique
 ## <a name="build-the-application"></a>Compilar o aplicativo
 
 1. Aperte (Ctrl + Shift + p) para abrir a **Paleta de comandos** no visual Studio Code.
-2. Pesquise e selecione o comando **Service Fabric: Compilar Aplicativo**. A saída de compilação é enviada para o terminal integrado.
+2. Pesquise e selecione o **Service Fabric: criar comando do Aplicativo**. A saída de compilação é enviada para o terminal integrado.
 
    ![Criar comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-build-application.png)
 
@@ -62,7 +53,7 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 > [!IMPORTANT]
 > Não há suporte para a implantação de aplicativos Java para o cluster local nos computadores do Windows.
 
-1. Na **Paleta de comandos**, selecione o comando **Service Fabric: Implantar Aplicativo (Localhost)** . A saída do processo de instalação é enviada para o terminal integrado.
+1. Da **Paleta de Comandos**, selecione o **Service Fabric: comando implantar o aplicativo (Localhost)** . A saída do processo de instalação é enviada para o terminal integrado.
 
    ![Implantar o comando de aplicativo no Visual Studio Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +65,7 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 
    ![Aplicativo de votação no navegador](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. Para remover o aplicativo do cluster, selecione o **do Service Fabric: Remover aplicativo** comando a partir de **paleta de comandos**. A saída do processo de desinstalação é enviada para o terminal integrado. Você pode usar o Service Fabric Explorer para verificar que o aplicativo foi removido do cluster local.
+5. Para remover o aplicativo do cluster, selecione o comando **Service Fabric: Remover Aplicativo** da **paleta de comandos**. A saída do processo de desinstalação é enviada para o terminal integrado. Você pode usar o Service Fabric Explorer para verificar que o aplicativo foi removido do cluster local.
 
 ## <a name="debug-the-application"></a>Depurar o aplicativo
 Ao depurar aplicativos no Visual Studio Code, o aplicativo deve estar executando em um cluster local. Pontos de interrupção, em seguida, podem ser adicionados ao código.
@@ -105,7 +96,7 @@ Comente o comando na linha 6 (use “#”) e adicione o seguinte comando na part
 
    ![Configuração de depuração para a launch.json](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. Implantar o aplicativo no cluster local usando o **do Service Fabric: Implantar o aplicativo (Localhost)** comando. Verifique se o aplicativo está em execução no Service Fabric Explorer. Seu aplicativo agora está pronto para ser depurado.
+4. Implantar o aplicativo no cluster local usando o **Service Fabric: implantar o comando do aplicativo (Localhost)** . Verifique se o aplicativo está em execução no Service Fabric Explorer. Seu aplicativo agora está pronto para ser depurado.
 
 Para definir um ponto de interrupção, conclua as seguintes etapas:
 
@@ -127,8 +118,8 @@ Para definir um ponto de interrupção, conclua as seguintes etapas:
    
    ![Desconectado do depurador](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. Quando terminar a depuração, você poderá usar o comando **Service Fabric: Remover aplicativo** comando para remover o aplicativo de votação do seu cluster local. 
+5. Quando você terminar a depuração, você pode usar o **Service Fabric: remover o comando do aplicativo** para remover o aplicativo de votação do seu cluster local. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [Desenvolver aplicativos Service Fabric do C# com Visual Studio Code](./service-fabric-develop-csharp-applications-with-vs-code.md).

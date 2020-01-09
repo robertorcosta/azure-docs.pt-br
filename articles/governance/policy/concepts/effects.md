@@ -3,12 +3,12 @@ title: Entender como funcionam os efeitos
 description: As definições de Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436360"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -16,19 +16,19 @@ Cada definição de política no Azure Policy tem um único efeito. Esse efeito 
 
 Atualmente, há suporte para esses efeitos em uma definição de política:
 
-- [Anexar](#append)
-- [Audit](#audit)
+- [Acrescentar](#append)
+- [Auditoria](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Negar](#deny)
+- [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desabilitado](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (visualização)
 - [EnforceRegoPolicy](#enforceregopolicy) (visualização)
-- [Alterar](#modify)
+- [Modificar](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
-As solicitações para criar ou atualizar um recurso por meio de Azure Resource Manager são avaliadas por Azure Policy primeiro. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
+Solicitações para criar ou atualizar um recurso por meio do Azure Resource Manager são avaliadas primeiro pelo Azure Policy. Azure Policy cria uma lista de todas as atribuições que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. O Azure Policy processa vários dos efeitos antes de entregar a solicitação ao provedor de recursos apropriado. Isso impede o processamento desnecessário por um provedor de recursos quando um recurso não atende aos controles de governança criados de Azure Policy.
 
 - **Desabilitado** é marcado primeiro para determinar se a regra de política deve ser avaliada.
 - **Acréscimo** e **modificação** são então avaliados. Como o pode alterar a solicitação, uma alteração feita pode impedir o disparo de um efeito de auditoria ou negação.
@@ -158,7 +158,7 @@ A matriz de propriedades de **operações** torna possível alterar várias marc
 
 A propriedade **Operation** tem as seguintes opções:
 
-|Operação |DESCRIÇÃO |
+|Operação |Description |
 |-|-|
 |addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
 |Adicionar |Adiciona a marca e o valor definidos ao recurso. |
@@ -210,7 +210,7 @@ Exemplo 2: Remova a marca de `env` e adicione a marca de `environment` ou substi
 }
 ```
 
-## <a name="deny"></a>NEGAR
+## <a name="deny"></a>Negar
 
 O efeito deny é usado para impedir uma solicitação de recurso que não corresponde aos padrões definidos em uma definição de política e leva à falha da solicitação.
 
@@ -327,7 +327,7 @@ Exemplo: avalia máquinas virtuais para determinar se a extensão antimalware ex
 Semelhante a AuditIfNotExists, uma definição de política DeployIfNotExists executa uma implantação de modelo quando a condição é atendida.
 
 > [!NOTE]
-> [Modelos aninhados](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) são compatíveis com **deployIfNotExists**, mas [modelos vinculados](../../../azure-resource-manager/resource-group-linked-templates.md) não são compatíveis atualmente.
+> [Modelos aninhados](../../../azure-resource-manager/templates/linked-templates.md#nested-template) são compatíveis com **deployIfNotExists**, mas [modelos vinculados](../../../azure-resource-manager/templates/linked-templates.md#linked-template) não são compatíveis atualmente.
 
 ### <a name="deployifnotexists-evaluation"></a>Avaliação de DeployIfNotExists
 
@@ -566,7 +566,7 @@ Se ambas as políticas 1 e 2 tiveram o efeito negar, a situação será alterada
 
 Cada atribuição é avaliada individualmente. Assim, não existe chance de um recurso passar por uma brecha nas diferenças de escopo. O resultado de políticas em camadas ou sobreposição de políticas é considerado **cumulativo mais restritivo**. Por exemplo, se as políticas 1 e 2 tivessem efeito deny, um recurso seria bloqueado pelas políticas conflitantes e sobrepostas. Caso ainda precise que o recurso seja criado no escopo de destino, revise as exclusões em cada atribuição para validar que as políticas corretas estão afetando os escopos corretos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](definition-structure.md).

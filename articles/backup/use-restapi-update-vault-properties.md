@@ -4,12 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998739"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390550"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|name  |Type  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,16 +83,16 @@ As seguintes definições comuns são usadas para criar um corpo de solicitaçã
 
 Para obter mais detalhes, consulte [a documentação da API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|name  |obrigatórios  |Type  |Descrição  |
+|Nome  |Obrigatório  |Tipo  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   string      |  eTag Opcional       |
-|location     |  true       |string         |   Local do recurso      |
+|eTag     |         |   String      |  eTag Opcional       |
+|local     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |marcas     |         | Objeto        |     Marcações de recursos    |
 
 #### <a name="example-request-body"></a>Exemplo do corpo de solicitação
 
-O exemplo a seguir é usado para atualizar a exclusão reversível de estado para ' disabled '.
+O exemplo a seguir é usado para atualizar o estado de exclusão reversível para ' disabled '.
 
 ```json
 {
@@ -107,7 +107,7 @@ O exemplo a seguir é usado para atualizar a exclusão reversível de estado par
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|name  |Type  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

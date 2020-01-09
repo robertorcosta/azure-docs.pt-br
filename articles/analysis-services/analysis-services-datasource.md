@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7616bcdaf2a2ae6f80b0c1e964f311ef5409a64f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442774"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -20,17 +20,17 @@ As fontes de dados e conectores mostrados no Assistente para obter dados ou tabe
 
 ## <a name="azure-data-sources"></a>Fontes de dados do Azure
 
-|Fonte de dados  |Na memória  |DirectQuery  |Notas |
+|Fonte de dados  |Na memória  |DirectQuery  |Observações |
 |---------|---------|---------|---------|
-|Banco de dados SQL do Azure      |   SIM      |    SIM      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   SIM      |   SIM       |<sup>[2](#azprovider)</sup>|
-|Armazenamento de Blobs do Azure      |   SIM       |    Não      | <sup>[1](#tab1400a)</sup> |
-|Armazenamento de Tabelas do Azure     |   SIM       |    Não      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  SIM        |  Não        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   SIM       |    Não      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   SIM       |    Não      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|HDFS do Azure HDInsight    |     SIM     |   Não       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   SIM       |   Não       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Banco de dados SQL do Azure      |   Sim      |    Sim      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure SQL Data Warehouse      |   Sim      |   Sim       |<sup>[2](#azprovider)</sup>|
+|Armazenamento de Blobs do Azure      |   Sim       |    Não      | <sup>[1](#tab1400a)</sup> |
+|Armazenamento de Tabelas do Azure     |   Sim       |    Não      | <sup>[1](#tab1400a)</sup>|
+|BD Cosmos do Azure     |  Sim        |  Não        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Sim       |    Não      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Sim       |    Não      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|HDFS do Azure HDInsight    |     Sim     |   Não       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Sim       |   Não       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **Observações:**    
@@ -42,37 +42,37 @@ no momento, não há suporte para o conector de <a name="gen2">5</a> ADLS Gen2, 
 
 ## <a name="other-data-sources"></a>Outras fontes de dados
 
-|Fonte de dados | Na memória | DirectQuery |Notas   |
+|Fonte de dados | Na memória | DirectQuery |Observações   |
 |  --- | --- | --- | --- |
-|Banco de Dados do Access     |  SIM | Não |  |
-|Active Directory     |  SIM | Não | <sup>[152](#tab1400b)</sup>  |
-|Serviços de análise     |  SIM | Não |  |
-|Analytics Platform System     |  SIM | Não |  |
-|Arquivo CSV  |SIM | Não |  |
-|Dynamics 365     |  SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Pasta de trabalho do Excel     |  SIM | Não |  |
-|Exchange      |  SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Pasta      |SIM | Não | <sup>[152](#tab1400b)</sup> |
-|IBM Informix  |SIM | Não |  |
-|Documento JSON      |  SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Linhas de binário      | SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Banco de dados MySQL     | SIM | Não |  |
-|Feed OData      |  SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Consulta ODBC     | SIM | Não |  |
-|OLE DB     |   SIM | Não |  |
-|Oracle  | SIM  |SIM  | <sup>[99](#oracle)</sup> |
-|Banco de Dados PostgreSQL   | SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Objetos do Salesforce|  SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Relatórios do Salesforce |SIM | Não | <sup>[152](#tab1400b)</sup> |
-|SAP HANA     |  SIM | Não |  |
-|SAP Business Warehouse    |  SIM | Não | <sup>[152](#tab1400b)</sup> |
-|Lista do SharePoint      |   SIM | Não | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |SIM   | SIM  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
-|SQL Server Data Warehouse |SIM   | SIM  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Banco de dados Sybase     |  SIM | Não |  |
-|Teradata | SIM  | SIM  | <sup>[254](#teradata)</sup> |
-|Arquivo TXT  |SIM | Não |  |
-|Tabela XML    |  SIM | Não | <sup>[152](#tab1400b)</sup> |
+|Banco de dados do Access     |  Sim | Não |  |
+|Active Directory     |  Sim | Não | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  Sim | Não |  |
+|Sistema de plataforma de análise     |  Sim | Não |  |
+|Arquivo CSV  |Sim | Não |  |
+|Dynamics 365     |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Pasta de trabalho do Excel     |  Sim | Não |  |
+|Exchange      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Pasta      |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |Sim | Não |  |
+|Documento JSON      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Linhas de binário      | Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Banco de dados MySQL     | Sim | Não |  |
+|Feed OData      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Consulta ODBC     | Sim | Não |  |
+|OLE DB     |   Sim | Não |  |
+|Oracle  | Sim  |Sim  | <sup>[9](#oracle)</sup> |
+|Banco de dados PostgreSQL   | Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Objetos do Salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Relatórios do Salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  Sim | Não |  |
+|SAP Business Warehouse    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Lista do SharePoint      |   Sim | Não | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |Sim   | Sim  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
+|SQL Server Data Warehouse |Sim   | Sim  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Banco de dados Sybase     |  Sim | Não |  |
+|Teradata | Sim  | Sim  | <sup>[10](#teradata)</sup> |
+|Arquivo TXT  |Sim | Não |  |
+|Tabela XML    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Observações:**    
@@ -87,7 +87,7 @@ Conectar-se a fontes de dados locais de um servidor Azure Analysis Services requ
 
 ## <a name="understanding-providers"></a>Entendendo provedores
 
-Ao criar projetos de modelo tabular 1400 e superiores no Visual Studio, por padrão, você não especifica um provedor de dados ao se conectar a uma fonte de dados usando **obter dados**. Os modelos tabulares 1400 e superiores usam [Power Query](/power-query/power-query-what-is-power-query.md) conectores para gerenciar conexões, consultas de dados e mashups entre a fonte de dados e Analysis Services. Às vezes, elas são chamadas de conexões de fonte de dados *estruturadas* nessas configurações de propriedade de conexão definidas para você. No entanto, você pode habilitar fontes de dados herdadas. Quando habilitado, você pode usar o **Assistente de importação de tabela** para se conectar a determinadas fontes de dados tradicionalmente suportadas em tabela 1200 e modelos inferiores como *herdado*ou fontes de dados de *provedor* . Quando especificado como uma fonte de dados de provedor, você pode especificar um provedor de dados específico e outras propriedades avançadas de conexão. Por exemplo, você pode se conectar a um SQL Server local data warehouse ou até mesmo um banco de dados SQL do Azure como uma fonte de dado herdada. Em seguida, você pode selecionar o driver de OLE DB para SQL Server provedor de dados MSOLEDBSQL. Nesse caso, a seleção de um provedor de dados OLE DB pode fornecer um desempenho aprimorado sobre o conector de Power Query. 
+Ao criar projetos de modelo tabular 1400 e superiores no Visual Studio, por padrão, você não especifica um provedor de dados ao se conectar a uma fonte de dados usando **obter dados**. Os modelos tabulares 1400 e superiores usam [Power Query](/power-query/power-query-what-is-power-query) conectores para gerenciar conexões, consultas de dados e mashups entre a fonte de dados e Analysis Services. Às vezes, elas são chamadas de conexões de fonte de dados *estruturadas* nessas configurações de propriedade de conexão definidas para você. No entanto, você pode habilitar fontes de dados herdadas. Quando habilitado, você pode usar o **Assistente de importação de tabela** para se conectar a determinadas fontes de dados tradicionalmente suportadas em tabela 1200 e modelos inferiores como *herdado*ou fontes de dados de *provedor* . Quando especificado como uma fonte de dados de provedor, você pode especificar um provedor de dados específico e outras propriedades avançadas de conexão. Por exemplo, você pode se conectar a um SQL Server local data warehouse ou até mesmo um banco de dados SQL do Azure como uma fonte de dado herdada. Em seguida, você pode selecionar o driver de OLE DB para SQL Server provedor de dados MSOLEDBSQL. Nesse caso, a seleção de um provedor de dados OLE DB pode fornecer um desempenho aprimorado sobre o conector de Power Query. 
 
 Ao usar o assistente de importação de tabela no Visual Studio, as conexões com qualquer fonte de dados exigem um provedor de dados. Um provedor de dados padrão é selecionado para você. Você pode alterar o provedor de dados, se necessário. O tipo de provedor escolhido pode depender do desempenho, independentemente de o modelo estar usando armazenamento na memória ou DirectQuery, e qual Analysis Services plataforma na qual você implanta o modelo.
 

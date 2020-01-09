@@ -1,25 +1,16 @@
 ---
-title: Monitoramento de integridade do Service Fabric | Microsoft Docs
+title: Monitoramento de integridade no Service Fabric
 description: Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60949112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433894"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -37,7 +28,7 @@ O Repositório de Integridade mantém informações relacionadas à integridade 
 ## <a name="health-entities-and-hierarchy"></a>Hierarquia e entidades de integridade
 As entidades de integridade são organizadas em uma hierarquia lógica que captura as interações e dependências entre diferentes entidades. O repositório de integridade cria automaticamente entidades e hierarquia com base nos relatórios recebidos dos componentes do Service Fabric.
 
-As entidades de integridade espelham as entidades do Service Fabric. (Por exemplo, a **entidade de aplicativo de integridade** corresponde a uma instância do aplicativo implantada no cluster, enquanto a **entidade de nó de integridade** corresponde a um nó de cluster do Service Fabric). A hierarquia de integridade captura as interações das entidades do sistema e é a base para a avaliação avançada de integridade. Você pode aprender sobre os principais conceitos do Service Fabric em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para saber mais sobre aplicativos, confira [Modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
+As entidades de integridade espelham as entidades do Service Fabric. (Por exemplo, a **entidade de aplicativo de integridade** corresponde a uma instância de aplicativo implantada no cluster, enquanto a entidade do nó de **integridade** corresponde a um nó de Cluster Service Fabric.) A hierarquia de integridade captura as interações das entidades do sistema e é a base para a avaliação de integridade avançada. Você pode aprender sobre os principais conceitos do Service Fabric em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para saber mais sobre aplicativos, confira [Modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
 
 As entidades de integridade e a hierarquia proporcionam relatório, depuração e monitoramento efetivos do cluster e dos aplicativos. O modelo de integridade oferece uma representação precisa e *granular* da integridade das muitas partes móveis do cluster.
 
@@ -67,7 +58,7 @@ Os watchdogs internos e externos podem reportar as mesmas entidades com base na 
 Planeje para investir em como relatar e responder à integridade durante o criação de um serviço de nuvem grande. Esse investimento inicial facilita a depuração, o monitoramento e a operação do serviço.
 
 ## <a name="health-states"></a>Estados de integridade
-O Service Fabric usa três estados de integridade para descrever se uma entidade está íntegra ou não: OK, aviso e erro. Qualquer relatório enviado ao Repositório de Integridade deve especificar um desses estados. O resultado da avaliação de integridade é um desses estados.
+O Service Fabric usa três estados de integridade para descrever se uma entidade está íntegra ou não: OK, Aviso e Erro. Qualquer relatório enviado ao Repositório de Integridade deve especificar um desses estados. O resultado da avaliação de integridade é um desses estados.
 
 Os [estados de integridade](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) possíveis são:
 
@@ -196,7 +187,7 @@ Os [relatórios de integridade](https://docs.microsoft.com/dotnet/api/system.fab
 * **SourceId**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
 * **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. nenhuma.
+  * Cluster. Nenhum.
   * Nó. Nome do nó (cadeia de caracteres).
   * Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.
@@ -208,7 +199,7 @@ Os [relatórios de integridade](https://docs.microsoft.com/dotnet/api/system.fab
 * **Description**. Uma cadeia de caracteres que permite ao relator fornecer informações detalhadas sobre o evento de integridade. **SourceId**, **Property** e **HealthState** devem descrever o relatório por completo. A descrição adiciona informações legíveis sobre o relatório. O texto facilita para que os administradores e os usuários entendam o relatório de integridade.
 * **HealthState**. Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de integridade do relatório. Os valores aceitáveis são OK, Aviso e Erro.
 * **TimeToLive**. Um período de tempo que indica por quanto tempo o relatório de integridade é válido. Em conjunto com **RemoveWhenExpired**, permite que o repositório de integridade saiba como avaliar eventos expirados. Por padrão, o valor é infinito e o relatório é válido indefinidamente.
-* **RemoveWhenExpired**. Um booliano. Se definido como verdadeiro, o relatório de integridade expirado será removido automaticamente do Repositório de Integridade e o relatório não afetará a avaliação da integridade da entidade. Usado quando o relatório for válido apenas por um período especificado de tempo e o relator não precisar removê-lo explicitamente. Ele também é usado para excluir relatórios do repositório de integridade (por exemplo, um watchdog é alterado e interrompe o envio de relatórios com propriedade e origem anteriores). Portanto, ele pode enviar um relatório com TimeToLive curto e RemoveWhenExpired para eliminar qualquer estado anterior do Repositório de Integridade. Se o valor for definido como false, o relatório expirado será tratado como erro na avaliação de integridade. O valor false indica ao repositório de integridade que a origem deve relatar periodicamente essa propriedade. Caso contrário, deve haver algo errado com o watchdog. A integridade do watchdog é capturada ao considerar o evento como um erro.
+* **RemoveWhenExpired**. Um booliano. Se definido como verdadeiro, o relatório de integridade expirado será removido automaticamente do Repositório de Integridade e o relatório não afetará a avaliação da integridade da entidade. Usado quando o relatório é válido apenas por um período de tempo especificado, e o reporter não precisa limpá-lo explicitamente. Ele também é usado para excluir relatórios do repositório de integridade (por exemplo, um Watchdog é alterado e para de enviar relatórios com a origem e a propriedade anteriores). Portanto, ele pode enviar um relatório com TimeToLive curto e RemoveWhenExpired para eliminar qualquer estado anterior do Repositório de Integridade. Se o valor for definido como false, o relatório expirado será tratado como erro na avaliação de integridade. O valor false indica ao repositório de integridade que a origem deve relatar periodicamente essa propriedade. Caso contrário, deve haver algo errado com o watchdog. A integridade do watchdog é capturada ao considerar o evento como um erro.
 * **SequenceNumber**. Um inteiro positivo que sempre precisa ser aumentado, pois ele representa a ordem dos relatórios. Ele é usado pelo Repositório de Integridade para detectar relatórios obsoletos que são recebidos em atraso devido a atrasos na rede ou outros problemas. Um relatório é rejeitado se o número da sequência for menor ou igual ao aplicado mais recentemente para a mesma entidade, origem e propriedade. Se não for especificado, o número de sequência é gerado automaticamente. É necessário colocar o número de sequência apenas ao relatar transições de estado. Nessa situação, a origem precisa lembrar quais relatórios enviou e manter as informações de recuperação no failover.
 
 Essas quatro informações: SourceId, identificador da entidade, Propriedade e HealthState são obrigatórios para cada relatório de integridade. A cadeia de caracteres SourceId não pode iniciar com o prefixo "**System.** ", que é reservado para relatórios do sistema. Para a mesma entidade, há apenas um relatório para a mesma origem e propriedade. Vários relatórios para a mesma fonte e propriedade substituirão uns aos outros, seja no lado do cliente de integridade (se estiverem divididos em lotes), seja no lado do Repositório de Integridade. A substituição é baseada nos números da sequência: relatórios mais recentes (com número de sequência mais alto) substituem os relatórios mais antigos.
@@ -229,7 +220,7 @@ Os campos de transição de estado podem ser usados para gerar alertas mais inte
 * Alertar apenas em condições que mudaram nos últimos X minutos. Se um relatório estiver em estado de erro desde antes da hora especificada, ele poderá ser ignorado pois já tinha sido sinalizado anteriormente.
 * Se uma propriedade estiver alternando entre aviso e erro, determine por quanto tempo ele esteve não íntegro (isto é, não OK). Por exemplo, um alerta se a propriedade não esteve íntegra por mais de 5 minutos pode ser traduzido em: (HealthState != Ok e Agora - LastOkTransitionTime > 5 minutos).
 
-## <a name="example-report-and-evaluate-application-health"></a>Exemplo: Relatar e avaliar a integridade do aplicativo
+## <a name="example-report-and-evaluate-application-health"></a>Exemplo: relatar e avaliar integridade do aplicativo
 O exemplo a seguir envia um relatório de integridade por meio PowerShell no aplicativo **fabric:/WordCount** da origem **MyWatchdog**. O relatório de integridade contém informações sobre a propriedade de integridade "availability" em um estado de integridade de erro, com TimeToLive infinito. Em seguida, ele consulta a integridade do aplicativo, que retornará erro do estado de integridade agregada e o evento de integridade relatado como parte da lista de eventos de integridade.
 
 ```powershell
@@ -303,7 +294,7 @@ Outros sistemas têm um único serviço centralizado no nível de cluster, que a
 
 O modelo de integridade é muito usado para monitoramento e diagnóstico, para avaliar a integridade do cluster e do aplicativo, bem como para atualizações monitoradas. Outros serviços usam os dados de integridade para executar reparos automáticos, para criar histórico de integridade do cluster e para emitir alertas em determinadas condições.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

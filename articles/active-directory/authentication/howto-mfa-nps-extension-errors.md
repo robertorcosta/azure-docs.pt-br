@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e93666c9a6388fb008bbe85c836d732685ed63a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d67d1d318bf823145a57d2e55774695d151996
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848316"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425311"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure
 
@@ -95,6 +95,10 @@ Se você encontrar um desses erros, recomendamos que [contate o suporte](#contac
 ### <a name="troubleshoot-user-accounts"></a>Solução de problemas de contas de usuário
 
 Se os usuários estiverem [tendo problemas com a verificação em duas etapas](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ajude-os a diagnosticar os problemas por conta própria.
+
+### <a name="health-check-script"></a>Script de verificação de integridade
+
+O [script de verificação de integridade da extensão NPS do Azure MFA](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) está disponível na galeria do TechNet para executar uma verificação de integridade básica ao solucionar problemas da extensão NPS. Execute o script e escolha a opção 3.
 
 ### <a name="contact-microsoft-support"></a>Contatar Suporte da Microsoft
 

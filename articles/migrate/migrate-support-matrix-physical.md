@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454628"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matriz de suporte para avaliação e migração de servidor físico
 
@@ -40,7 +40,7 @@ A tabela resume os cenários com suporte para servidores físicos.
 
   **Geografia** | **Local de armazenamento de metadados**
   --- | ---
-  Azure Government | US Gov Virginia
+  Azure Governamental | US Gov - Virgínia
   Pacífico Asiático | Ásia Oriental ou sudeste asiático
   Austrália | Leste da Austrália ou sudeste da Austrália
   Brasil | Sul do Brasil
@@ -73,7 +73,7 @@ Para avaliação, as migrações para Azure executam um dispositivo leve para de
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Implantação de dispositivo**   |  Você pode implantar o dispositivo em um servidor físico ou em uma máquina virtual.<br/>  O computador host deve estar executando o Windows Server 2012 R2 ou posterior.<br/> O host precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
+| **Implantação de dispositivo**   |  O script do instalador do dispositivo pode ser baixado do portal (em uma pasta compactada). <br/> Você pode descompactar a pasta e executar o script do PowerShell (AzureMigrateInstaller. ps1) em um servidor físico dedicado ou em uma máquina virtual para configurar o dispositivo.<br/>  O computador escolhido para instalar o dispositivo deve estar executando o Windows Server 2016.<br/> O computador precisa de espaço suficiente para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e acesso à Internet.
 | **Projeto de migrações para Azure**  |  Um dispositivo pode ser associado a um único projeto.<br/> Qualquer número de dispositivos pode ser associado a um único projeto.<br/> Você pode avaliar até 35.000 computadores em um projeto.
 | **Descoberta**              | Um único dispositivo pode descobrir até 250 servidores.
 | **Grupo de avaliação**       | Você pode adicionar até 35.000 computadores em um único grupo.
@@ -92,7 +92,7 @@ Para avaliar as VMs, o dispositivo de migrações para Azure precisa de conectiv
 **URL** | **Detalhes**  
 --- | ---
 *. portal.azure.com | Navegação para a portal do Azure
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Entre em sua assinatura do Azure
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Entre na sua assinatura do Azure
 *.microsoftonline.com <br/> *.microsoftonline p.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 management.azure.com | Criação de aplicativos de Azure Active Directory para comunicações de dispositivo para serviço.
 dc.services.visualstudio.com | Log e monitoramento
@@ -109,9 +109,9 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 **Dispositivo** | **Conexão**
 --- | ---
 **Baseado** | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Conexões de saída nas portas 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
-**Servidores físicos** | **Windows:** Conexões de entrada nas portas 443, 5989 para efetuar pull de metadados de configuração e desempenho de servidores Windows. <br/> **Linux:**  Conexões de entrada na porta 22 (UDP) para efetuar pull de metadados de configuração e desempenho de servidores Linux. |
+**Servidores físicos** | **Windows:** Conexões de entrada na porta 443, as portas WinRM 5985 (HTTP) e 5986 (HTTPS) para efetuar pull de metadados de configuração e desempenho de servidores Windows. <br/> **Linux:**  Conexões de entrada na porta 22 (UDP) para efetuar pull de metadados de configuração e desempenho de servidores Linux. |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Prepare-se para a avaliação do servidor físico](tutorial-prepare-physical.md) para avaliação e migração de servidor físico.

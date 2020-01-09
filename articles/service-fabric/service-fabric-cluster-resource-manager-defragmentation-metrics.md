@@ -1,25 +1,16 @@
 ---
-title: Desfragmentação de métricas no Azure Service Fabric | Microsoft Docs
-description: Uma visão geral do uso de desfragmentação ou como uma estratégia de métricas no Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Desfragmentação de métricas no Azure Service Fabric
+description: Saiba como usar a desfragmentação, ou empacotamento, como uma estratégia para métricas em Service Fabric. Essa técnica é útil para serviços muito grandes.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bba459be4408f4a4bc438bb33b0570a91e84f2cd
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844372"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563353"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
 A estratégia padrão do Gerenciador de Recursos do Service Fabric para gerenciar métricas de carga no cluster é distribuir a carga. Garantir que os nós sejam utilizados de maneira uniforme evita pontos altos e baixos que levam à contenção e ao desperdício de recursos. A distribuição das cargas de trabalho no cluster também é a opção mais segura em termos de sobrevivência a falhas, uma vez que garante que uma falha não destruirá um grande percentual de uma determinada carga de trabalho. 
@@ -42,7 +33,7 @@ O diagrama a seguir fornece uma representação visual de dois clusters, um dele
 
 <center>
 
-![Comparando Clusters balanceados e desfragmentados][Image1]
+![comparar clusters balanceados e desfragmentados][Image1]
 </center>
 
 No caso do cluster balanceado, considere o número de movimentações que seria necessário para colocar um dos maiores objetos de serviço. No cluster desfragmentado, a carga de trabalho grande pode ser colocada nos nós quatro ou cinco sem precisar esperar que outros serviços se movam.
@@ -97,7 +88,7 @@ via ClusterConfig.json para implantações Autônomas ou Template.json para clus
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 

@@ -11,12 +11,12 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33d8fc804d339d3808e5231998fbba41cd4ee9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8a7da1bf80025cfe9b59c42f3338254b86f2ff05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376334"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
 
@@ -45,7 +45,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Criar um SQL Data Warehouse em branco
 
-Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação] memória-Concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) e em um [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
+Uma SQL Data Warehouse do Azure é criada com um conjunto definido de [recursos de computação] memória-Concurrency-limits.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) e em um [servidor lógico SQL do Azure](../sql-database/sql-database-features.md). 
 
 Siga estas etapas para criar um SQL Data Warehouse em branco. 
 
@@ -57,7 +57,7 @@ Siga estas etapas para criar um SQL Data Warehouse em branco.
 
 3. Preencha o formulário do SQL Data Warehouse com as seguintes informações:   
 
-   | Configuração | Valor sugerido | DESCRIÇÃO | 
+   | Configuração | Valor sugerido | Description | 
    | ------- | --------------- | ----------- | 
    | **Nome do banco de dados** | meuDataWarehouseDeExemplo | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers). | 
    | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Siga estas etapas para criar um SQL Data Warehouse em branco.
 
 4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
-    | Configuração | Valor sugerido | DESCRIÇÃO | 
+    | Configuração | Valor sugerido | Description | 
     | ------- | --------------- | ----------- |
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). | 
     | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -120,7 +120,7 @@ O serviço do SQL Data Warehouse cria um firewall no nível do servidor que impe
 
 4. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+5. Clique em **Save** (Salvar). Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
 6. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
 
@@ -147,7 +147,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
 2. Na caixa de diálogo **Conectar ao Servidor**, insira as informações a seguir:
 
-    | Configuração      | Valor sugerido | DESCRIÇÃO | 
+    | Configuração      | Valor sugerido | Description | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
     | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante a este: **mynewserver-20180430.database.windows.net**. |
@@ -157,9 +157,9 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
 
     ![conectar-se ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. Clique em **Conectar**. A janela Pesquisador de Objetos abre no SSMS. 
+4. Clique em **Conectar**. A janela Pesquisador de Objetos será aberta no SSMS. 
 
-5. No Pesquisador de Objetos, expanda **Bancos de dados**. Em seguida, expanda **Bancos de dados do sistema** e **mestre** para exibir os objetos no banco de dados mestre.  Expanda **mySampleDatabase** para exibir os objetos no novo banco de dados.
+5. No Pesquisador de Objetos, expanda **Bancos de Dados**. Em seguida, expanda **Bancos de dados do sistema** e **mestre** para exibir os objetos no banco de dados mestre.  Expanda **mySampleDatabase** para exibir os objetos no novo banco de dados.
 
     ![objetos de banco de dados](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
@@ -171,7 +171,7 @@ A conta do administrador do servidor é destinada a executar operações de gere
 
 Como você está, no momento, conectado como o administrador do servidor, é possível criar logons e usuários. Use estas etapas para criar um logon e um usuário chamado **LoaderRC20**. Em seguida, atribua o usuário à classe de recurso **staticrc20**. 
 
-1.  No SSMS, clique com o botão direito do mouse em **mestre** para mostrar um menu suspenso e escolha **Nova consulta**. Uma nova janela de consulta é aberta.
+1.  No SSMS, clique com o botão direito do mouse em **mestre** para mostrar um menu suspenso e escolha **Nova consulta**. Uma janela de nova consulta é aberta.
 
     ![Nova consulta no mestre](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -606,7 +606,7 @@ O carregamento usando o polybase e a autenticação por meio de identidades gere
 
 Consulte a [documentação](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) a seguir se desejar configurar pontos de extremidade de serviço de rede virtual para SQL data warehouse. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você está sendo cobrado por recursos de computação e por dados que você carregou em seu data warehouse. Eles são cobrados separadamente. 
 
@@ -617,7 +617,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com) e clique no seu data warehouse.
 
-    ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Para pausar a computação, clique no botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, clique **Iniciar**.
 
@@ -627,7 +627,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 5. Para remover o grupo de recursos, clique em **meuGrupoDeRecursos** e, em seguida, clique em **Excluir grupo de recursos**.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e depois usou a instrução CREATE TABLE AS SELECT do PolyBase para carregar dados em seu data warehouse. 
 
 Você fez essas coisas:

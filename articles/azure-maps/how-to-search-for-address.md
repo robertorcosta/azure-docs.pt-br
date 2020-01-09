@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432954"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Encontrar um endereço usando o serviço de pesquisa do Azure Maps
 
@@ -26,9 +26,9 @@ Neste artigo, você aprenderá a:
 * Fazer uma [pesquisa de endereço inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para pesquisar um endereço
 * Procurar uma cruzada usando o [endereço de pesquisa API de várias ruas inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer todas as chamadas para as APIs do serviço de mapas, você precisa de uma conta de mapas e chave. Para obter informações sobre como criar uma conta, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para recuperar uma chave de assinatura primária para sua conta.
+Para fazer todas as chamadas para as APIs do serviço de mapas, você precisa de uma conta de mapas e chave. Siga as instruções em [criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Maps e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Maps, consulte [gerenciar a autenticação no Azure Maps](./how-to-manage-authentication.md).
 
 Este artigo usa o [aplicativo Postman](https://www.getpostman.com/apps) para criar chamadas REST. Você pode usar qualquer ambiente de desenvolvimento de API que você preferir.
 
@@ -46,7 +46,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
 
     ![Pesquisa Difusa](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | . | Valor sugerido |
+    | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL de Solicitação | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
@@ -62,7 +62,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
-    | query | pizza |
+    | Consulta | pizza |
 
 4. Clique em **Enviar** e analise o corpo da resposta.
 
@@ -87,7 +87,7 @@ A maioria das consultas de pesquisa é padronizada para `maxFuzzyLevel=1` para o
     | Chave | Valor |
     |-----|------------|
     | lat | 47.620525 |
-    | long | -122.349274 |
+    | lon | -122.349274 |
 
 ## <a name="search-for-address-properties-and-coordinates"></a>Pesquisar propriedades e coordenadas de endereço
 
@@ -98,7 +98,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     ![Pesquisa de Endereço](./media/how-to-search-for-address/address_search_url.png)
   
-    | . | Valor sugerido |
+    | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL de Solicitação | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
@@ -112,7 +112,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
-    | query | Rua Cosme Velho, 513, Rio de Janeiro, 22241-090 |
+    | Consulta | Rua Cosme Velho, 513, Rio de Janeiro, 22241-090 |
   
 4. Clique em **Enviar** e analise o corpo da resposta.
   
@@ -127,7 +127,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | typeahead | verdadeiro |
+    | typeahead | true |
 
     O sinalizador **typeahead** informa à API de Pesquisa de Endereço para tratar a consulta como uma entrada parcial e retornar uma matriz de valores de previsão.
 
@@ -139,7 +139,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
     ![URL de Pesquisa Invertida de Endereço](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | . | Valor sugerido |
+    | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL de Solicitação | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
@@ -153,7 +153,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
-    | query | 47.591180,-122.332700 |
+    | Consulta | 47.591180,-122.332700 |
   
 4. Clique em **Enviar** e analise o corpo da resposta.
 
@@ -163,7 +163,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | número | verdadeiro |
+    | número | true |
 
     Se o parâmetro de consulta [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é enviado com a solicitação, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição ajustada para o número.
   
@@ -171,7 +171,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | returnSpeedLimit | verdadeiro |
+    | returnSpeedLimit | true |
   
     Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) é definido, a resposta retorna o limite de velocidade indicado.
 
@@ -179,7 +179,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | returnRoadUse | verdadeiro |
+    | returnRoadUse | true |
 
     Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) parâmetro de consulta for definido, a resposta retorna a matriz de uso de estrada para códigos geográficos reversos no nível da rua.
 
@@ -187,7 +187,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | roadUse | verdadeiro |
+    | roadUse | true |
 
     Você pode restringir a consulta invertida de geocodificação para um tipo específico de estrada usando o parâmetro de consulta [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse).
   
@@ -199,7 +199,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
   
     ![Pesquisa Invertida de Endereço de Cruzamento](./media/how-to-search-for-address/reverse_address_search_url.png)
   
-    | . | Valor sugerido |
+    | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
     | URL de Solicitação | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
@@ -211,10 +211,10 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
     |------------------|-------------------------|
     | api-version | 1.0 |
     | subscription-key | \<sua chave de mapas do Azure\> |
-    | query | 47.591180,-122.332700 |
+    | Consulta | 47.591180,-122.332700 |
   
 4. Clique em **Enviar** e analise o corpo da resposta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Explore a documentação da [API do serviço de pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search).

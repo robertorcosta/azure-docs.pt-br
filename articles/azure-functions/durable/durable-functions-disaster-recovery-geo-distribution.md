@@ -1,25 +1,23 @@
 ---
-title: Recuperação de desastre e distribuição geográfica em Funções Duráveis - Azure
+title: Recuperação de desastre e distribuição geográfica do Azure Durable Functions
 description: Saiba mais sobre recuperação de desastre e distribuição geográfica em Funções Duráveis.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ba459d2d2f3aaf595c1d834e2b29a231e3b2bb12
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433342"
 ---
-# <a name="disaster-recovery-and-geo-distribution"></a>Recuperação de desastres e distribuição geográfica
-
-## <a name="overview"></a>Visão geral
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Recuperação de desastre e distribuição geográfica no Azure Durable Functions
 
 Nas Durable Functions, todos os estados são persistentes no Armazenamento do Azure. Um [hub de tarefas](durable-functions-task-hubs.md) é um contêiner lógico dos recursos do Armazenamento do Azure usado para orquestrações. Funções de orquestrador e atividade só podem interagir entre si quando pertencem ao mesmo hub de tarefas.
 Os cenários descritos propõem opções de implantação para aumentar a disponibilidade e minimizar o tempo de inatividade durante as atividades de recuperação de desastre.
 
-É importante observar que esses cenários são baseados nas configurações ativa-passiva, pois são guiados pelo uso do Armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de Tráfego monitorará o aplicativo de função (ativo) principal quanto à disponibilidade. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](https://azure.microsoft.com/services/traffic-manager/) do [Gerenciador de Tráfego](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
+É importante observar que esses cenários são baseados nas configurações ativa-passiva, pois são guiados pelo uso do Armazenamento do Azure. Esse padrão consiste em implantar um aplicativo de função (passivo) de backup em uma região diferente. O Gerenciador de Tráfego monitorará o aplicativo de função (ativo) principal quanto à disponibilidade. Ele fará failover para o aplicativo de função de backup se o principal falhar. Para obter mais informações, consulte [Método de roteamento de tráfego por prioridade](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) do [Gerenciador de Tráfego](https://azure.microsoft.com/services/traffic-manager/).
 
 >[!NOTE]
 >
@@ -83,6 +81,6 @@ Assim como acontece com os outros cenários, há considerações importantes:
 
 ![Diagrama mostrando o cenário 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode ler mais sobre [Projetar aplicativos altamente disponíveis usando RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

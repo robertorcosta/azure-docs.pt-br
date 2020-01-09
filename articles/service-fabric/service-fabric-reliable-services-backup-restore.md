@@ -1,25 +1,16 @@
 ---
-title: Backup e restauração do Service Fabric | Microsoft Docs
-description: Documentação conceitual de backup e restauração do Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Backup e restauração de Service Fabric
+description: Documentação conceitual para Service Fabric backup e restauração, um serviço para configurar o backup de serviços confiáveis com estado e Reliable Actors.
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 712069a34b6bc5d8aa4bcbab3fdbf9fc9cd8958b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723829"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645541"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Fazer backup e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de alta disponibilidade que replica o estado em vários nós a fim de manter essa alta disponibilidade.  Portanto, mesmo se um nó do cluster falhar, os serviços continuarão disponíveis. Embora essa redundância interna fornecida pela plataforma possa ser suficiente para algumas pessoas, em certos casos é recomendável fazer o backup dos dados do serviço (em um repositório externo).
@@ -89,7 +80,7 @@ Os usuários podem aumentar a probabilidade de conseguirem fazer backups increme
 Aumentar esses valores aumentará a utilização de disco por réplica.
 Para mais informações, confira [Configuração do Reliable Services](service-fabric-reliable-services-configuration.md)
 
-`BackupInfo` fornece informações sobre o backup, incluindo a localização da pasta em que o tempo de execução salvou o backup (`BackupInfo.Directory`). A função de retorno de chamada pode mover `BackupInfo.Directory` para um repositório externo ou para outro local.  Além disso, esta função retorna um booliano que indica se ele foi capaz de mover a pasta de backup para seu local de destino.
+`BackupInfo` fornece informações sobre o backup, incluindo a localização da pasta em que o runtime salvou o backup (`BackupInfo.Directory`). A função de retorno de chamada pode mover `BackupInfo.Directory` para um repositório externo ou para outro local.  Além disso, esta função retorna um booliano que indica se ele foi capaz de mover a pasta de backup para seu local de destino.
 
 O código a seguir demonstra como o método `BackupCallbackAsync` pode ser usado para carregar o backup no Armazenamento do Azure:
 
@@ -121,7 +112,7 @@ Em geral, os casos em que você talvez precise executar uma operação de restau
 Embora muitas abordagens sejam possíveis, oferecemos alguns exemplos sobre como usar `RestoreAsync` para se recuperar dos cenários acima.
 
 ## <a name="partition-data-loss-in-reliable-services"></a>Perda de dados de partição em Reliable Services
-Nesse caso, o tempo de execução detectaria automaticamente a perda de dados e invocaria a API `OnDataLossAsync`.
+Nesse caso, o runtime detectaria automaticamente a perda de dados e invocaria a API `OnDataLossAsync`.
 
 O autor do serviço precisa executar o seguinte para fazer a recuperação:
 
@@ -160,7 +151,7 @@ Por exemplo, se ele contiver o backup completo, o primeiro e o terceiro backup i
 ## <a name="deleted-or-lost-service"></a>Serviço perdido ou excluído
 Se um serviço for removido, primeiro recrie o serviço antes de restaurar os dados.  É importante criar o serviço com a mesma configuração, por exemplo, esquema de particionamento, para que os dados possam ser restaurados com perfeição.  Quando o serviço estiver funcionando, a API para restauração de dados (`OnDataLossAsync` acima) precisará ser invocada em todas as partições desse serviço. Uma maneira de conseguir isso é usando [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) em cada partição.  
 
-Neste ponto, a implementação é igual à do cenário anterior. Cada partição deve restaurar o backup mais recente relevante do armazenamento externo. Uma limitação é que a ID de partição pode ter sido alterada, uma vez que o tempo de execução cria IDs de partição dinamicamente. Portanto, o serviço precisa armazenar o nome do serviço e as informações de partição apropriadas para identificar o backup correto mais recente para restauração em cada partição.
+Neste ponto, a implementação é igual à do cenário anterior. Cada partição deve restaurar o backup mais recente relevante do armazenamento externo. Uma limitação é que a ID de partição pode ter sido alterada, uma vez que o runtime cria IDs de partição dinamicamente. Portanto, o serviço precisa armazenar o nome do serviço e as informações de partição apropriadas para identificar o backup correto mais recente para restauração em cada partição.
 
 > [!NOTE]
 > Não é recomendável usar `FabricClient.ServiceManager.InvokeDataLossAsync` em cada partição para restaurar o serviço inteiro, visto que isso pode corromper o estado do cluster.
@@ -249,7 +240,7 @@ Veja mais alguns detalhes sobre backup e restauração.
 ### <a name="backup"></a>Backup
 O Gerenciador de Estado Confiável permite a criação de backups consistentes sem bloquear as operações de leitura e gravação. Para fazer isso, ele utiliza um mecanismo de ponto de verificação e persistência de log.  O Gerenciador de Estado Confiável usa pontos de verificação (leves) difusos em determinados pontos para aliviar a pressão do log transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gerenciador de Estado Confiável instrui todos os objetos Reliable a copiar seus arquivos de ponto de verificação mais recentes em uma pasta de backup local.  Em seguida, o Gerenciador de Estado Confiável copia todos os registros de log, desde o "ponteiro inicial" até o registro de log mais recente, na pasta de backup.  Como todos os registros de log, até o mais recente, são incluídos no backup e o Gerenciador de Estado Confiável preserva o registro em log write-ahead, o Gerenciador de Estado Confiável garante que todas as transações confirmadas (`CommitAsync` retornou com êxito) sejam incluídas no backup.
 
-As transações confirmadas após `BackupAsync` ser chamado podem ou não estar no backup.  Depois da pasta de backup local ter sido populada pela plataforma (ou seja, o backup local é concluído pelo tempo de execução), o retorno de chamada de backup do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de backups para um local externo, por exemplo, o Armazenamento do Azure.
+As transações confirmadas após `BackupAsync` ser chamado podem ou não estar no backup.  Depois da pasta de backup local ter sido populada pela plataforma (ou seja, o backup local é concluído pelo runtime), o retorno de chamada de backup do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de backups para um local externo, por exemplo, o Armazenamento do Azure.
 
 ### <a name="restore"></a>Restaurar
 O Gerenciador de Estado Confiável permite a restauração de um backup usando a API `RestoreAsync`.  
@@ -262,7 +253,7 @@ A API continua sendo chamada, até que um serviço conclua essa API com êxito, 
 
 Primeiro, `RestoreAsync` descarta todos os estados existentes na réplica primária na qual foi chamado. Depois, o Gerenciador de Estado Confiável cria todos os objetos Reliable que existem na pasta de backup. Em seguida, os objetos Reliable são instruídos a restaurar a partir dos pontos de verificação na pasta de backup. Finalmente, o Gerenciador de Reliable State recupera seu próprio estado a partir dos registros de log na pasta de backup e executa a recuperação. Como parte do processo de recuperação, as operações que começaram do "ponto inicial" e confirmaram os registros de log na pasta de backup serão reproduzidas para os objetos Reliable. Essa etapa garante que o estado recuperado seja consistente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
   - [Coleções Confiáveis](service-fabric-work-with-reliable-collections.md)
   - [Início Rápido dos Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)

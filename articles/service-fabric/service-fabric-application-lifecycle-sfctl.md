@@ -1,19 +1,16 @@
 ---
-title: Gerenciar aplicativos do Azure Service Fabric usando a CLI do Azure Service Fabric (sfctl)
+title: Gerenciar aplicativos de Service Fabric do Azure usando o sfctl
 description: Saiba como implantar e remover aplicativos de um cluster do Azure Service Fabric usando a CLI do Azure Service Fabric
-services: service-fabric
 author: Christina-Kang
-manager: chackdan
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db271d479fd84e5338d53cc25ecc0122d856c442
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621370"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610226"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Gerenciar um aplicativo do Azure Service Fabric usando a CLI do Azure Service Fabric (sfctl)
 
@@ -25,7 +22,7 @@ Saiba como criar e excluir os aplicativos que estão em execução em um cluster
 
 * Tenha um pacote de aplicativos do Service Fabric pronto para ser implantado. Para obter mais informações sobre como criar e empacotar um aplicativo, leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md).
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para implantar um novo aplicativo, execute estas etapas:
 
@@ -165,7 +162,7 @@ Quando uma atualização de aplicativo estiver em andamento, o status poderá se
 
 Por fim, se uma atualização estiver em andamento e precisar ser cancelada, você poderá usar `sfctl application upgrade-rollback` para reverter a atualização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Noções básicas do Service Fabric](service-fabric-cli.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)

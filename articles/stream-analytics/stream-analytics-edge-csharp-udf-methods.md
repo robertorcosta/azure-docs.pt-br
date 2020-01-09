@@ -1,33 +1,30 @@
 ---
 title: Desenvolver funções de .NET Standard para trabalhos de Azure Stream Analytics (versão prévia)
 description: Saiba como escrever funções definidas pelo usuário em c# para trabalhos de Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426309"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver .NET Standard funções definidas pelo usuário para trabalhos de Azure Stream Analytics (versão prévia)
 
-O Azure Stream Analytics oferece uma linguagem de consulta semelhante à SQL para executar transformações e cálculos sobre fluxos de dados de eventos. Há muitas funções internas, mas alguns cenários complexos exigem flexibilidade adicional. Com as UDF (funções definidas pelo usuário) do .NET Standard, é possível invocar suas próprias funções gravadas em qualquer linguagem padrão do .NET (C#, F# etc.) para estender a linguagem de consulta do Stream Analytics. As UDFs permitem que você execute cálculos matemáticos complexos, importe modelos de ML personalizados usando ML.NET e use lógica de imputação personalizada para dados ausentes. O recurso UDF para trabalhos de Stream Analytics está atualmente em visualização e não deve ser usado em cargas de trabalho de produção.
+O Azure Stream Analytics oferece uma linguagem de consulta semelhante à SQL para executar transformações e cálculos sobre fluxos de dados de eventos. Há muitas funções internas, mas alguns cenários complexos exigem flexibilidade adicional. Com as UDF (funções definidas pelo usuário) do .NET Standard, é possível invocar suas próprias funções gravadas em qualquer linguagem padrão do .NET (C#, F# etc.) para estender a linguagem de consulta do Stream Analytics. As UDFs permitem que você execute cálculos matemáticos complexos, importe modelos de ML personalizados usando ML.NET e use lógica de imputação personalizada para dados ausentes. O recurso UDF para trabalhos do Stream Analytics está atualmente em versão prévia e não deve ser usado nas cargas de trabalho de produção.
 
 A função definida pelo usuário do .NET para trabalhos de nuvem está disponível em:
-* EUA Central ocidental (disponível)
-* Europa Setentrional (disponível)
-* Leste dos EUA (disponível)
-* Oeste dos EUA (distribuindo em breve)
-* Leste dos EUA 2 (distribuindo em breve)
-* Europa Ocidental (acumulando em breve)
+* Centro-Oeste dos EUA
+* Europa Setentrional
+* Leste dos EUA
+* Oeste dos EUA
+* Leste dos EUA 2
+* Oeste da Europa
 
 Se você estiver interessado em usar esse recurso em qualquer outra região, poderá [solicitar acesso](https://aka.ms/ccodereqregion).
 
@@ -48,9 +45,9 @@ O formato de qualquer pacote UDF possui o caminho `/UserCustomCode/CLR/*`. As DL
 
 |**Tipo de UDF (C#)**  |**Tipo do Azure Stream Analytics**  |
 |---------|---------|
-|longo  |  bigint   |
-|Duplo  |  Duplo   |
-|string  |  nvarchar(max)   |
+|long  |  BIGINT   |
+|double  |  double   |
+|cadeia de caracteres  |  nvarchar(max)   |
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |objeto  |  IRecord   |
@@ -123,12 +120,12 @@ Expanda o **a configuração de código definidos pelo usuário** seção e, em 
 
    |**Configuração**|**Valor Sugerido**|
    |-------|---------------|
-   |Recurso de configurações de armazenamento global|Escolha fonte de dados da conta atual|
-   |Assinatura de configurações de armazenamento global| < sua assinatura >|
-   |Conta de armazenamento de configurações de armazenamento global| < sua conta de armazenamento >|
-   |Recurso de configurações de armazenamento de código personalizado|Escolha fonte de dados da conta atual|
-   |Conta de armazenamento de configurações de armazenamento de código personalizado|< sua conta de armazenamento >|
-   |Contêiner de configurações de armazenamento de código personalizado|< seu contêiner de armazenamento >|
+   |Recurso de Configurações de Armazenamento Global|Escolha fonte de dados da conta atual|
+   |Assinatura de Configurações de Armazenamento Global| <sua assinatura>|
+   |Conta de armazenamento das Configurações de Armazenamento Global| <sua conta de armazenamento>|
+   |Recurso de Configurações de Armazenamento de Código Personalizado|Escolha fonte de dados da conta atual|
+   |Conta de Armazenamento de Configurações de Armazenamento de Código Personalizado|<sua conta de armazenamento>|
+   |Contêiner de Configurações de Armazenamento de Código Personalizado|<seu contêiner de armazenamento>|
    |Origem do assembly de código personalizado|Pacotes de assembly existentes da nuvem|
    |Origem do assembly de código personalizado|UserCustomCode. zip|
 

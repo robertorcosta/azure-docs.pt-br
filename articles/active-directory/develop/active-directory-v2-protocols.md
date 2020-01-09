@@ -1,5 +1,5 @@
 ---
-title: Protocolos de autorização com suporte na plataforma Microsoft Identity | Azure
+title: Protocolos OAuth 2,0 e OpenID Connect-plataforma Microsoft Identity | Azure
 description: Um guia para os protocolos OAuth 2,0 e OpenID Connect que são suportados pelo ponto de extremidade da plataforma Microsoft Identity.
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7b25f1753e6dcb415927ee6278c36b3b179dd353
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424728"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade da Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft
 
 O ponto de extremidade da plataforma de identidade da Microsoft para identidade como serviço com protocolos padrão do setor, OpenID Connect e OAuth 2,0. Embora o serviço esteja em conformidade com o padrão, pode haver diferenças sutis entre duas implementações diferentes desses protocolos. As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente, ou usar uma biblioteca de software livre de terceiros ao invés de usar uma de nossas [bibliotecas de software livre](reference-v2-libraries.md).
 
@@ -60,7 +60,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Em que o `{tenant}` pode ter um de quatro valores diferente:
 
-| Value | Descrição |
+| Valor | Description |
 | --- | --- |
 | `common` | Permite que os usuários com contas pessoais da Microsoft e contas corporativas/de estudante do Azure AD entrem no aplicativo. |
 | `organizations` | Permite que somente usuários com contas corporativas/de estudante do Azure AD entrem no aplicativo. |

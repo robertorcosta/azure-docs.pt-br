@@ -1,17 +1,17 @@
 ---
 title: Conectar-se a uma conta do Azure cosmos com o link privado do Azure
 description: Saiba como acessar com segurança a conta do Azure Cosmos de uma VM criando um ponto de extremidade privado.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430312"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure
 
@@ -33,13 +33,13 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar rede virtual**, insira ou selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
-    | name | Insira *MyVirtualNetwork*. |
+    | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
-    | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
-    | Location | Selecione **WestCentralUS**.|
+    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroup*, depois selecione **OK**. |
+    | Local | Selecione **WestCentralUS**.|
     | Sub-rede – Nome | Insira *mySubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
     |||
@@ -52,11 +52,11 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscription | Selecione sua assinatura. |
-    | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
+    | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.  |
     | **DETALHES DA INSTÂNCIA** |  |
     | Nome da máquina virtual | Insira *myVm*. |
     | Região | Selecione **WestCentralUS**. |
@@ -79,7 +79,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 
 1. Em **Criar uma máquina virtual – Rede**, selecione estas informações:
 
-    | Configuração | Value |
+    | Configuração | Valor |
     | ------- | ----- |
     | Rede virtual | Deixe o padrão **MyVirtualNetwork**.  |
     | Espaço de endereço | Deixar o padrão **10.1.0.0/24**.|
@@ -101,7 +101,7 @@ Crie uma [conta da API do SQL do Azure Cosmos](../cosmos-db/create-cosmosdb-reso
 
 Crie um link privado para sua conta do Azure Cosmos, conforme descrito na seção [criar um link privado usando a Portal do Azure](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) do artigo vinculado.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Conectar uma VM a partir da Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 
 Conecte-se à VM *myVm* da Internet da seguinte forma:
 
@@ -161,7 +161,7 @@ Nesta seção, você se conectará de forma privada à conta do Azure Cosmos usa
 
 1. Feche a conexão de área de trabalho remota para *myVM*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você terminar de usar o ponto de extremidade privado, a conta do Azure Cosmos e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
 

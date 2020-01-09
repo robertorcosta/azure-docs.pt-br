@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565334"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644912"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -40,7 +40,7 @@ No momento, estamos trabalhando para migrar Postagens de blog existentes (exclui
 Lançaremos atualizações de interrupção usando nosso identificador do Twitter a partir de agora em diante. Siga-nos no Twitter para obter atualizações mais recentes sobre interrupções e bugs conhecidos.
 
 ### <a name="twitter"></a>Twitter
-Nosso identificador do Twitter:[@azlabservices](https://twitter.com/azlabservices)
+Nosso identificador do Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>Geral
 ### <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
@@ -50,7 +50,7 @@ Se sua pergunta não estiver listada aqui, informe-nos, para que possamos ajudá
 - Para alcançar um público maior, poste uma pergunta no [Fórum do MSDN do Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Envolva-se com a equipe do Azure DevTest Labs e outros membros da comunidade.
 - Para solicitações de recurso, envie solicitações e ideias para o [User Voice do Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
-### <a name="what-is-a-microsoft-account"></a>O que é uma conta da Microsoft?
+### <a name="what-is-a-microsoft-account"></a>O que é uma conta da Microsoft?
 Uma conta da Microsoft é uma conta que você utiliza para quase tudo o que faz com os serviços e dispositivos da Microsoft. É um endereço de email e senha que você usa para entrar no Skype, Outlook.com, OneDrive, Windows Phone, Azure e Xbox Live. Uma conta única significa que seus arquivos, fotos, contatos e configurações, podem seguir você em qualquer dispositivo.
  
 > [!NOTE]
@@ -88,7 +88,7 @@ O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em f
 Dentro do escopo do DevTest Labs, há dois tipos de funções para definir permissões de usuário:
 
 - **Proprietário de laboratório**: um proprietário de laboratório tem acesso a qualquer recurso no laboratório. Um proprietário de laboratório pode modificar políticas, ler e gravar para quaisquer VMs, alterar a rede virtual e assim por diante.
-- **Usuário do laboratório**: um usuário de laboratório pode exibir todos os recursos de laboratório, como VMs, políticas e redes virtuais. No entanto, um usuário de laboratório não pode modificar políticas ou VMs que foram criadas por outros usuários.
+- **Usuário de laboratório**: um usuário de laboratório pode exibir todos os recursos de laboratório, tais como VMs, políticas e redes virtuais. No entanto, um usuário de laboratório não pode modificar políticas ou VMs que foram criadas por outros usuários.
 
 Você também pode criar funções personalizadas no DevTest Labs. Para saber como criar funções personalizadas no DevTest Labs, consulte [Conceder permissões de usuário para políticas específicas do laboratório](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -162,11 +162,11 @@ Cenário de grupo de recursos comuns:
 Talvez você queira estender as convenções de nomenclatura empresariais atuais para operações do Azure e torná-las consistentes em todo o ambiente do DevTest Labs. Ao implantar o DevTest Labs, é recomendável que você tenha políticas iniciais específicas. Você implanta essas políticas por um script central e modelos JSON para impor consistência. Políticas de nomenclatura podem ser implementadas por meio de políticas do Azure aplicadas no nível da assinatura. Para obter exemplos de JSON para o Azure Policy, confira [Exemplos do Azure Policy](../governance/policy/samples/index.md).
 
 ### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Quantos laboratórios posso criar na mesma assinatura?
-Não há um limite específico quanto ao número de laboratórios que podem ser criados por assinatura. No entanto, a quantidade de recursos usados por assinatura é limitada. Você pode ler sobre os [limites e cotas para assinaturas do Azure](../azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Não há um limite específico quanto ao número de laboratórios que podem ser criados por assinatura. No entanto, a quantidade de recursos usados por assinatura é limitada. Você pode ler sobre os [limites e cotas para assinaturas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>Quantas VMs posso criar por laboratório?
-Não há nenhum limite específico quanto ao número de VMs que podem ser criadas por laboratório. No entanto, os recursos usados (núcleos de VMs, endereços IP públicos, etc.) são limitados por assinatura. Você pode ler sobre os [limites e cotas para assinaturas do Azure](../azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Não há nenhum limite específico quanto ao número de VMs que podem ser criadas por laboratório. No entanto, os recursos usados (núcleos de VMs, endereços IP públicos, etc.) são limitados por assinatura. Você pode ler sobre os [limites e cotas para assinaturas do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) e sobre [como aumentar esses limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>Como fazer determinar a taxa de usuários por laboratório e o número total de laboratórios necessários em uma organização?
 É recomendável que as unidades de negócios e os grupos de desenvolvimento associados com o mesmo projeto de desenvolvimento sejam associados com o mesmo laboratório. Isso permite que os mesmos tipos de políticas, imagens e políticas de desligamento sejam aplicadas a ambos os grupos.
@@ -176,7 +176,7 @@ Você também precisará considerar os limites geográficos. Por exemplo, os des
 Você também pode usar um laboratório para um projeto específico dentro de Azure DevOps Projects. Em seguida, você aplica a segurança por meio de um grupo especificado do Azure Active Directory, o que permite o acesso a ambos os conjunto de recursos. A rede virtual atribuída ao laboratório pode ser outro limite para consolidar os usuários.
 
 ### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>Como podemos evitar a exclusão de recursos dentro de um laboratório?
-É recomendável que você defina permissões apropriadas no nível do laboratório, para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **Usuários do DevTest Labs**. O desenvolvedor líder ou o líder de infraestrutura deve ser o **Proprietário do DevTest Labs**. Recomendamos que você tenha apenas dois proprietários de laboratório. Essa política se estende ao repositório de código para evitar corrupção. Os usuários do laboratório têm direitos para usar recursos, mas não podem atualizar as políticas de laboratório. Confira o artigo a seguir, que lista as funções e os direitos de cada grupo interno tem em um laboratório: [Adicionar proprietários e usuários ao Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+É recomendável que você defina permissões apropriadas no nível do laboratório, para que somente usuários autorizados possam excluir recursos ou alterar políticas de laboratório. Os desenvolvedores devem ser colocados dentro do grupo **Usuários do DevTest Labs**. O desenvolvedor líder ou o líder de infraestrutura deve ser o **Proprietário do DevTest Labs**. Recomendamos que você tenha apenas dois proprietários de laboratório. Essa política se estende ao repositório de código para evitar corrupção. Os usuários do laboratório têm direitos para usar recursos, mas não podem atualizar as políticas de laboratório. Confira o artigo a seguir, que lista as funções e os direitos de cada grupo interno em um laboratório: [Adicionar proprietários e usuários no Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Como faço para compartilhar um link direto para o meu laboratório?
 
@@ -285,7 +285,7 @@ Para automatizar o upload de arquivos VHD para criar imagens personalizadas, voc
 
 Para localizar a conta de armazenamento de destino associada a seu laboratório:
 
-1.  Entre no [Portal do Azure](https://portal.azure.com).
+1.  Entre no [portal do Azure](https://portal.azure.com).
 2.  Selecione **Grupos de Recursos** no menu esquerdo.
 3.  Localize e selecione o grupo de recursos associado ao seu laboratório.
 4.  Em **Visão geral**, selecione uma das contas de armazenamento.
@@ -304,7 +304,7 @@ O Microsoft Azure Marketplace deve ser usado por padrão, a menos que você tenh
 - Condições de conformidade ou regulamentares (por exemplo, políticas de segurança) que devem estar em vigor para todas as máquinas.
 - O uso de imagens personalizadas não deve ser considerado levemente. Elas apresentam complexidade extra, já que você deve gerenciar arquivos VHD para essas imagens base subjacentes. Também será preciso aplicar patches frequentemente nas imagens base com atualizações de software. Essas atualizações incluem novas atualizações do sistema operacional (SO) e todas as alterações de atualizações ou configurações necessárias para o pacote de software.
 
-## <a name="artifacts"></a>Artefatos
+## <a name="artifacts"></a>Artifacts
 
 ### <a name="what-are-artifacts"></a>O que são os artefatos?
 Artefatos são elementos personalizáveis que podem ser usados para implantar os bits mais recentes ou as ferramentas de desenvolvimento em uma VM. Anexe artefatos à VM quando criá-la. Depois que a VM é provisionada, os artefatos a implantam e configuram. Vários artefatos pré-existentes estão disponíveis em nosso [repositório GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Você também pode [criar seus próprios artefatos](devtest-lab-artifact-author.md).
@@ -313,7 +313,7 @@ Artefatos são elementos personalizáveis que podem ser usados para implantar os
 Para saber como obter logs relacionados ao artefato com falha, veja [Como diagnosticar falhas de artefato no DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md).
 
 ### <a name="when-should-an-organization-use-a-public-artifact-repository-vs-private-artifact-repository-in-devtest-labs"></a>Quando uma organização deve usar um repositório de artefatos público ou usar um repositório de artefatos privado no DevTest Labs?
-O [repositório de artefatos público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) fornece um conjunto inicial de pacotes de software que são mais comumente usados. Isso ajuda com implantação rápida, sem a necessidade de investir tempo para reproduzir as ferramentas para desenvolvedores e suplementos comuns. Você pode optar por implantar seu próprio repositório. Você pode usar um repositório público e um privado em paralelo. Você também pode optar por desabilitar o repositório público. Os critérios para implantar um repositório privado devem ser orientados pelas seguintes perguntas e considerações:
+O [repositório de artefatos público](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) fornece um conjunto inicial de pacotes de software que são mais comumente usados. Isso ajuda na implantação rápida sem a necessidade de investir tempo para reproduzir ferramentas de desenvolvimento e suplementos comuns. Você pode optar por implantar seu próprio repositório privado. Você pode usar um repositório público e um privado em paralelo. Você também pode optar por desabilitar o repositório público. Os critérios para implantar um repositório privado devem ser orientados pelas seguintes perguntas e considerações:
 
 - A organização tem um requisito de ter software corporativo licenciado como parte de sua oferta do DevTest Labs? Se a resposta for sim, um repositório privado deverá ser criado.
 - A organização desenvolve software personalizado que fornece uma operação específica, que é exigida como parte do processo geral de provisionamento? Se a resposta for sim, um repositório privado deverá ser implantado.
@@ -352,7 +352,7 @@ Se suas VMs precisarem interagir com a infraestrutura existente, considere usar 
 
 Considere usar o padrão de emparelhamento VNet aqui ([modelo hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) também. Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas. Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual. 
 
-Há [limites](../azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser aumentado para 100.
+Há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser aumentado para 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>Quando devo usar um IP compartilhado, um IP público ou um IP privado?
  

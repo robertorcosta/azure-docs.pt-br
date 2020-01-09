@@ -1,25 +1,16 @@
 ---
-title: Atualizar a configuração de um cluster autônomo do Service Fabric do Azure | Microsoft Docs
+title: Atualize a configuração de um cluster independente
 description: Aprenda a atualizar a configuração que executa um cluster autônomo do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387121"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610107"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
 
@@ -59,7 +50,7 @@ Ou use este script:
 TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File> -OldClusterConfigFilePath <Path to the old Configuration File> -FabricRuntimePackagePath <Path to the .cab file which you want to test the configuration against>
 ```
 
-Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, nó IP, etc. O novo JSON de configuração do cluster contra é testado com relação ao antigo e gera erros na janela do PowerShell se houver qualquer problema.
+Algumas configurações não podem ser atualizadas, como pontos de extremidade, nome do cluster, IP do nó, etc. O novo JSON de configuração de cluster é testado em relação ao antigo e gera erros na janela do PowerShell se houver um problema.
 
 ## <a name="upgrade-the-cluster-configuration"></a>Atualizar a configuração do cluster
 Para atualizar a configuração do cluster, execute o comando [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). A atualização de configuração é processada domínio de atualização por domínio de atualização.
@@ -73,16 +64,16 @@ Um certificado de cluster é usado para autenticação entre os nós de cluster.
 
 Há suporte para quatro opções:  
 
-* Atualização de um certificado: O caminho de atualização é certificado A (primário) -> certificado B (primário) -> certificado C (primário) ->...
+* Atualização de um certificado: o caminho de atualização é Certificado A (Primário)-> Certificado B (Primário)-> Certificado C (Primário)->....
 
-* Atualização de dois certificados: O caminho de atualização é certificado A (primário) -> certificado A (primário) e B (secundário) -> certificado B (primário) -> certificado B (primário) e C (secundário) -> certificado C (primário) ->...
+* Atualização de dois certificados: o caminho de atualização é Certificado A (Primário) - > Certificado A (Primário) e B (Secundário) -> Certificado B (Primário) -> Certificado B (Primário) e C (Secundário) -> Certificado C (Primário)->....
 
-* Atualização do tipo de certificado: Configuração de certificados com base em CommonName configuração <> – com base em impressão digital do certificado. Por exemplo, impressão digital do certificado (primária) e a impressão digital B (secundários) -> certificado CommonName C.
+* Atualização do tipo de certificado: configuração de certificados com base em CommonName configuração <-> com base em impressão digital do certificado. Por exemplo, impressão digital do certificado (primária) e a impressão digital B (secundários) -> certificado CommonName C.
 
-* Atualização da impressão digital do emissor do certificado: O caminho de atualização é certificado CN = A, IssuerThumbprint CN=a,issuerthumbprint=IT1 (primário) -> certificado = A, IssuerThumbprint = IT1, IT2 (primário) -> certificado CN=A,ISSUERTHUMBPRINT=IT1,IT2 = A, IssuerThumbprint CN=a,issuerthumbprint=it2 (principal).
+* Atualização da impressão digital do emissor do certificado: o caminho de atualização é Certificado CN=A,IssuerThumbprint=IT1 (Principal) -> Certificado CN=A,IssuerThumbprint=IT1,IT2 (Principal) -> Certificado CN=A,IssuerThumbprint=IT2 (Principal).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba como personalizar algumas das [configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md).
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md).

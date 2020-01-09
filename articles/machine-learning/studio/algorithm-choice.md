@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: c69b4c15397dc13f36a707f932c2464a4ff94ca7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2073123a61e919c10caaaea141f776e842f4d717
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838477"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427746"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>Como escolher algoritmos para Azure Machine Learning Studio (clássico)
 
@@ -23,7 +23,7 @@ ms.locfileid: "73838477"
 
 A resposta à pergunta "Qual algoritmo de aprendizado de máquina devo usar?" sempre será "Depende". Depende do tamanho, da qualidade e da natureza dos dados. Depende do que você deseja fazer com a resposta. Depende de como o cálculo do algoritmo foi traduzido em instruções para o computador que você está usando. E depende de quanto tempo você tem. Até mesmo os cientistas de dados mais experientes não podem determinar qual algoritmo terá o melhor desempenho antes de experimentá-lo.
 
-Machine Learning Studio (clássico) fornece algoritmos de ponta, como árvores de decisão aumentadas escalonáveis, sistemas de recomendação Bayesiana, redes neurais profundas e selvas de decisão desenvolvidos no Microsoft Research. Pacotes de aprendizado de máquina escalonáveis de software livre, como Vowpal Wabbit, também estão incluídos. A versão clássica do Machine Learning Studio dá suporte a algoritmos de aprendizado de máquina para classificação de multiclasse e binária, regressão e clustering. Confira a lista completa de [Módulos do Machine Learning](/azure/machine-learning/studio-module-reference/index).
+Machine Learning Studio (clássico) fornece algoritmos de ponta, como árvores de decisão aumentadas escalonáveis, sistemas de recomendação Bayesiana, redes neurais profundas e selvas de decisão desenvolvidos no Microsoft Research. Pacotes de aprendizado de máquina escalonáveis de software livre, como Vowpal Wabbit, também estão incluídos. Machine Learning Studio (clássico) dá suporte a algoritmos de aprendizado de máquina para classificação, regressão e clustering de multiclasse e binária. Confira a lista completa de [Módulos do Machine Learning](/azure/machine-learning/studio-module-reference/index).
 A documentação fornece algumas informações sobre cada algoritmo e sobre como ajustar os parâmetros para otimizar o algoritmo para seu uso.  
 
 
@@ -49,7 +49,7 @@ Essas recomendações são comentários e dicas compilados de vários cientistas
 
 Os algoritmos de aprendizado supervisionados fazem previsões com base em um conjunto de exemplos. Por exemplo, os preços de ações históricas podem ser usados para fazer palpites sobre preços futuros. Cada exemplo usado para treinamento é rotulado com o valor de seu interesse — neste caso, o preço da ação. Um algoritmo de aprendizado supervisionado procura por padrões nesses rótulos de valor. Ele pode usar qualquer informação que possa ser relevante – o dia da semana, a temporada, os dados financeiros da empresa, o tipo de setor, a presença de eventos geopolíticos perturbadores – e cada algoritmo procura tipos diferentes de padrões. Depois que o algoritmo tiver encontrado o melhor padrão possível, usará esse padrão para fazer previsões para dados de testes sem rótulos — os preços de amanhã.
 
-O aprendizado supervisionado é um tipo popular e útil de aprendizado de máquina. Com uma exceção, todos os módulos na versão clássica do Azure Machine Learning Studio são algoritmos de aprendizado supervisionados. Há vários tipos específicos de aprendizado supervisionado que são representados dentro de Azure Machine Learning Studio (clássico): classificação, regressão e detecção de anomalias.
+O aprendizado supervisionado é um tipo popular e útil de aprendizado de máquina. Com uma exceção, todos os módulos no Azure Machine Learning Studio (clássico) são algoritmos de aprendizado supervisionados. Há vários tipos específicos de aprendizado supervisionado que são representados dentro de Azure Machine Learning Studio (clássico): classificação, regressão e detecção de anomalias.
 
 * **Classificação**. Quando os dados estiverem sendo usados para prever uma categoria, o aprendizado supervisionado também será chamado de classificação. Esse é o caso ao atribuir uma imagem como uma foto de um ‘gato’ ou de um ‘cachorro’. Quando há apenas duas opções, isso é chamado de **classificação binomial** ou de **duas classes**. Quando houver mais categorias, como na previsão do vencedor do torneio NCAA March Madness, esse problema é conhecido como **classificação multiclasse**.
 * **Regressão**. Quando um valor estiver sendo previsto, assim como acontece com preços de cotações, o aprendizado supervisionado será chamado de regressão.
@@ -83,11 +83,11 @@ Os algoritmos de regressão linear supõem que as tendências de dados seguem um
 
 ![Limite de classe não linear](./media/algorithm-choice/image1.png)
 
-***Limite de classe não linear*** *- contar com um algoritmo de classificação linear resultaria em baixa precisão*
+***Limite de classe não linear*** *-depender de um algoritmo de classificação linear resultaria em baixa precisão*
 
 ![Dados com uma tendência não linear](./media/algorithm-choice/image2.png)
 
-***Dados com uma tendência não linear*** *- usar um método de regressão linear geraria erros muito maiores do que o necessário*
+***Dados com uma tendência não linear*** *– usar um método de regressão linear geraria erros muito maiores do que o necessário*
 
 Apesar de seus riscos, os algoritmos lineares são muito populares como uma primeira linha de ataque. Eles tendem a ser algoritmicamente simples e rápidos de treinar.
 
@@ -95,7 +95,7 @@ Apesar de seus riscos, os algoritmos lineares são muito populares como uma prim
 
 Os parâmetros são os botões que o cientista de dados precisa girar ao configurar um algoritmo. Eles são números que afetam o comportamento do algoritmo, como tolerância a erros ou o número de iterações, ou opções entre variantes de como o algoritmo se comporta. O tempo de treinamento e a precisão do algoritmo às vezes podem ser muito importantes para obter apenas as configurações corretas. Normalmente, os algoritmos com um grande número de parâmetros exigem a mais avaliação e o erro para encontrar uma boa combinação.
 
-Como alternativa, há um bloco de módulo de [limpeza de parâmetro](algorithm-parameters-optimize.md) na versão clássica do Azure Machine Learning Studio que tenta automaticamente todas as combinações de parâmetros em qualquer granularidade escolhida. Embora essa seja uma excelente maneira de certificar-se de que você tenha estendido o espaço de parâmetro, o tempo necessário para treinar o modelo aumenta exponencialmente com o número de parâmetros.
+Como alternativa, há um bloco de módulo de [limpeza de parâmetro](algorithm-parameters-optimize.md) em Azure Machine Learning Studio (clássico) que tenta automaticamente todas as combinações de parâmetro em qualquer granularidade escolhida. Embora essa seja uma excelente maneira de certificar-se de que você tenha estendido o espaço de parâmetro, o tempo necessário para treinar o modelo aumenta exponencialmente com o número de parâmetros.
 
 A vantagem é que ter muitos parâmetros geralmente indica que um algoritmo tem mais flexibilidade. Geralmente, isso pode atingir uma precisão muito boa, desde que você encontre a combinação certa de configurações de parâmetro.
 
@@ -155,13 +155,13 @@ Como mencionado anteriormente, a [regressão linear](/azure/machine-learning/stu
 
 ***Dados com uma tendência linear***
 
-### <a name="logistic-regression"></a>regressão logística
+### <a name="logistic-regression"></a>Regressão logística
 
 Embora inclua ' regressão ' no nome, a regressão logística é, na verdade, uma ferramenta poderosa para classificação de [duas classes](/azure/machine-learning/studio-module-reference/two-class-logistic-regression) e [multiclasse](/azure/machine-learning/studio-module-reference/multiclass-logistic-regression) . É rápida e simples. O fato de que ela usa uma curva em forma de ‘S’ em vez de uma linha reta faz com que ela seja uma opção natural para a divisão de dados em grupos. A regressão logística oferece limites de classe lineares e, portanto, quando for usá-la, verifique se uma aproximação linear serve para você.
 
 ![Regressão logística para dados de duas classes com apenas um recurso](./media/algorithm-choice/image4.png)
 
-***Uma regressão logística para dados de duas classes com apenas um recurso*** *- o limite de classe é o ponto no qual a curva logística é mais próxima de ambas as classes*
+***Uma regressão logística para dados de duas classes com apenas um recurso*** *– o limite de classe é o ponto em que a curva logística é tão próxima de ambas as classes*
 
 ### <a name="trees-forests-and-jungles"></a>Árvores, florestas e selvas
 
@@ -179,7 +179,7 @@ As árvores de decisão aumentadas evitam o superajuste ao limitarem o número d
 
 ### <a name="neural-networks-and-perceptrons"></a>Redes neurais e perceptrons
 
-As redes neurais são algoritmos de aprendizado inspirados no cérebro que cobrem problemas [multiclasse](/azure/machine-learning/studio-module-reference/multiclass-neural-network), de [duas classes](/azure/machine-learning/studio-module-reference/two-class-neural-network) e de [regressão](/azure/machine-learning/studio-module-reference/neural-network-regression). Eles são fornecidos em uma variedade infinita, mas as redes neurais dentro da versão clássica do Azure Machine Learning Studio são toda a forma de grafos acíclico direcionados. Isso significa que os recursos de entrada são passados para a frente (nunca para trás) por meio de uma sequência de camadas transformadas em saídas. Em cada camada, as entradas são ponderadas em várias combinações, somadas e passadas para a próxima camada. Essa combinação de cálculos simples resulta na capacidade de aprender limites de classe e tendências de dados sofisticados, aparentemente mágicos. As redes de várias camadas desse tipo executam o “aprendizado profundo” que alimenta tantos relatórios técnicos e a ficção científica.
+As redes neurais são algoritmos de aprendizado inspirados no cérebro que cobrem problemas [multiclasse](/azure/machine-learning/studio-module-reference/multiclass-neural-network), de [duas classes](/azure/machine-learning/studio-module-reference/two-class-neural-network) e de [regressão](/azure/machine-learning/studio-module-reference/neural-network-regression). Eles são fornecidos em uma variedade infinita, mas as redes neurais dentro do Azure Machine Learning Studio (clássico) são toda a forma de grafos acíclico direcionados. Isso significa que os recursos de entrada são passados para a frente (nunca para trás) por meio de uma sequência de camadas transformadas em saídas. Em cada camada, as entradas são ponderadas em várias combinações, somadas e passadas para a próxima camada. Essa combinação de cálculos simples resulta na capacidade de aprender limites de classe e tendências de dados sofisticados, aparentemente mágicos. As redes de várias camadas desse tipo executam o “aprendizado profundo” que alimenta tantos relatórios técnicos e a ficção científica.
 
 No entanto, esse alto desempenho tem um preço. As redes neurais podem ter um treinamento muito longo, particularmente para grandes conjuntos de dados com muitos recursos. Elas também têm mais parâmetros do que a maioria dos algoritmos, o que significa que a limpeza de parâmetros aumenta muito o tempo de treinamento.
 E para as pessoas brilhantes que desejam [especificar sua própria estrutura de rede](azure-ml-netsharp-reference-guide.md), as possibilidades são inesgotáveis.
@@ -205,7 +205,7 @@ Usando uma extensão inteligente de SVMs não lineares, a [SVM de uma classe](/a
 
 ### <a name="bayesian-methods"></a>Métodos Bayesianos
 
-Os métodos Bayesianos possuem uma qualidade altamente desejável: eles evitam o superajuste. Eles fazem isso fazendo algumas suposições com antecedência sobre a distribuição provável da resposta. Outro subproduto dessa abordagem é que eles têm muito poucos parâmetros. A versão clássica do Azure Machine Learning Studio tem algoritmos Bayesiana para a classificação ([máquina de ponto de Bayes de duas classes](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) e regressão ([regressão linear Bayesiana](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
+Os métodos Bayesianos possuem uma qualidade altamente desejável: eles evitam o superajuste. Eles fazem isso fazendo algumas suposições com antecedência sobre a distribuição provável da resposta. Outro subproduto dessa abordagem é que eles têm muito poucos parâmetros. Azure Machine Learning Studio (clássico) tem algoritmos Bayesiana para a classificação ([máquina de ponto de Bayes de duas classes](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) e regressão ([regressão linear Bayesiana](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Observe que eles supõem que os dados podem ser divididos ou ajustados com uma linha reta.
 
 Em uma nota histórica, os computadores de ponto de Bayes foram desenvolvidos no Microsoft Research. Eles têm algum trabalho teórico excepcionalmente belo por trás deles. O aluno interessado será direcionado para o [artigo original no JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e para um [blog perspicaz de Chris Bishop](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
@@ -220,7 +220,7 @@ Se você tiver um objetivo muito específico, este talvez seja o seu dia de sort
 
 ![Detecção de anomalias baseada em PCA](./media/algorithm-choice/image8.png)
 
-***Detecção de anomalias baseada em PCA*** *- a grande maioria dos dados se encaixa em uma distribuição estereotipada; os pontos que desviarem drasticamente dessa distribuição são suspeitos*
+***Detecção de anomalias baseada em PCA*** *– a grande maioria dos dados se enquadra em uma distribuição de estereótipo; os pontos deviating drasticamente dessa distribuição são suspeitos*
 
 ![Conjunto de dados agrupados usando K-means](./media/algorithm-choice/image9.png)
 
@@ -232,7 +232,7 @@ Há também um conjunto [classificador multiclasse um contra todos](/azure/machi
 
 ***Um par de classificadores de duas classes é combinado para formar um classificador de três classes***
 
-A versão clássica do Azure Machine Learning Studio também inclui acesso a uma poderosa estrutura de aprendizado de máquina sob o título de [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
+Azure Machine Learning Studio (clássico) também inclui acesso a uma poderosa estrutura de aprendizado de máquina sob o título de [Vowpal Wabbit](/azure/machine-learning/studio-module-reference/train-vowpal-wabbit-version-7-4-model).
 O VW desafia a categorização aqui, já que pode aprender problemas de classificação e de regressão e pode até aprender de dados parcialmente sem rótulo. Você pode configurá-lo para usar qualquer um de vários algoritmos, funções de perda e algoritmos de otimização de aprendizado. Ele foi projetado desde o início para ser eficiente, paralelo e extremamente rápido. Ele lida com conjuntos de recursos absurdamente grandes com pouco esforço aparente.
 Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é uma entrada de Fórmula 1 em um campo de algoritmos de stock cars. Nem todo problema se ajustará ao VW, mas se ele se ajustar, poderá valer a pena seguir a curva de aprendizado em sua interface. Ele também está disponível como [código-fonte aberto autônomo](https://github.com/JohnLangford/vowpal_wabbit) em várias linguagens.
 
@@ -242,4 +242,4 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio (clássico), consulte [inicializar o modelo](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) no algoritmo de Machine Learning Studio (clássico) e na ajuda do módulo.
 
-* Para obter uma lista completa alfabética de algoritmos e módulos na versão clássica do Machine Learning Studio, consulte [a lista de a-Z de módulos Machine Learning Studio (clássico)](/azure/machine-learning/studio-module-reference/a-z-module-list) no algoritmo Machine Learning Studio (clássico) e na ajuda do módulo.
+* Para obter uma lista completa alfabética de algoritmos e módulos em Machine Learning Studio (clássico), consulte [a lista de a-Z de módulos Machine Learning Studio (clássico)](/azure/machine-learning/studio-module-reference/a-z-module-list) no algoritmo Machine Learning Studio (clássico) e na ajuda do módulo.

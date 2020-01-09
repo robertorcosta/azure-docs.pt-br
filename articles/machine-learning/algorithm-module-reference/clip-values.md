@@ -1,7 +1,7 @@
 ---
-title: Valores de clipe
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo valores de clipes no serviço Azure Machine Learning para detectar exceções e recortar ou substituir seus valores.
+title: Recortar valores
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo valores de clipes em Azure Machine Learning para detectar exceções e recortar ou substituir seus valores.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493836"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428597"
 ---
-# <a name="clip-values"></a>Valores de clipe
+# <a name="clip-values"></a>Recortar valores
 
 Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
 
@@ -90,11 +90,11 @@ Se você precisar aplicar métodos de recorte ou diferentes critérios a algumas
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exemplos de recorte usando percentils
 
-Para entender como o recorte por percentils funciona, considere um conjunto de registros com 10 linhas, que têm uma instância de cada um dos valores de 1-10.  
+Para entender como funciona o recorte de percentuais, considere um conjunto de dados com 10 linhas, que tenham uma instância cada dos valores de 1 a 10.  
   
-- Se você estiver usando o percentil como o limite superior, no valor do 90 º percentil, 90 por cento de todos os valores no conjunto de um deve ser menor que esse valor.  
+- Se você estiver usando o percentil como o limite superior, o valor para o 90º percentil, 90 por cento de todos os valores no conjunto de dados deverá ser menor que esse valor.  
   
-- Se você estiver usando o percentil como o limite inferior, no valor do décimo percentil, 10 por cento de todos os valores no conjunto de um deve ser menor que esse valor.  
+- Se você estiver usando o percentil como o limite inferior, o valor para o 10º percentil, 10 por cento de todos os valores no conjunto de dados deverá ser menor que esse valor.  
   
 1.  Para o **conjunto de limites**, escolha **ClipPeaksAndSubPeaks**.  
   
@@ -114,10 +114,10 @@ Agora, experimente o mesmo pipeline usando 60 como o limite superior do percenti
   
 1.  Substituir por limite; Percentual superior = 60; Percentual inferior = 40  
   
-|Dados originais|Substituir por ausente|Substituir pelo limite|  
+|Dados originais|Substituir por ausente|Substituir por limite|  
 |-------------------|--------------------------|----------------------------|  
 |1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> TRUE|4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO| 
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

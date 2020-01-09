@@ -1,19 +1,18 @@
 ---
 title: Transmitir dados como entrada no Azure Stream Analytics
 description: Saiba mais sobre como configurar uma conexão de dados no Azure Stream Analytics. As entradas incluem um fluxo de dados de eventos e também dados de referência.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606474"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646839"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -31,7 +30,7 @@ O Stream Analytics oferece suporte à compactação em todas as fontes de entrad
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou testar entradas
 
-Você pode usar o [portal do Azure](stream-analytics-quick-create-portal.md), o [Visual Studio](stream-analytics-quick-create-vs.md)e o [Visual Studio Code](quick-create-vs-code.md) para adicionar e exibir ou editar as entradas existentes em seu trabalho de streaming. Você também pode testar conexões de entrada e [testar consultas](stream-analytics-manage-job.md#test-your-query) de dados de exemplo do portal do Azure, do [Visual Studio](stream-analytics-vs-tools-local-run.md)e do [Visual Studio Code](vscode-local-run.md). Ao escrever uma consulta, você lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
+Você pode usar o [portal do Azure](stream-analytics-quick-create-portal.md), o [Visual Studio](stream-analytics-quick-create-vs.md)e o [Visual Studio Code](quick-create-vs-code.md) para adicionar e exibir ou editar as entradas existentes em seu trabalho de streaming. Você também pode testar conexões de entrada e [testar consultas](stream-analytics-manage-job.md#test-your-query) de dados de exemplo do portal do Azure, do [Visual Studio](stream-analytics-vs-tools-local-run.md)e do [Visual Studio Code](visual-studio-code-local-run.md). Ao escrever uma consulta, você lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados dos Hubs de Eventos
@@ -48,7 +47,7 @@ Cada entrada do trabalho do Hub de Eventos do Stream Analytics deve ser configur
 
 A tabela a seguir explica cada propriedade na página **Nova entrada** no portal do Azure para transmitir entrada de dados de um hub de eventos:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 | --- | --- |
 | **Alias de entrada** |Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
 | **Assinatura** | Escolha a assinatura na qual existem os recursos de hub de Eventos. | 
@@ -62,7 +61,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 
 Quando seus dados forem provenientes de uma entrada de fluxo de Hub de Eventos, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 | --- | --- |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado pelo Stream Analytics. |
 | **EventEnqueuedUtcTime** |A data e a hora em que o evento foi recebido pelos Hubs de eventos. |
@@ -96,7 +95,7 @@ Cada entrada do Hub IoT do Stream Analytics deve ser configurada para ter seu pr
 
 A tabela a seguir explica cada propriedade na página **Nova entrada** no portal do Azure, quando você configura um Hub IoT como entrada de fluxo.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 | --- | --- |
 | **Alias de entrada** | Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada.|
 | **Assinatura** | Escolha a assinatura na qual existem os recursos de Hub IoT existentes. | 
@@ -112,7 +111,7 @@ A tabela a seguir explica cada propriedade na página **Nova entrada** no portal
 
 Ao usar dados de fluxo provenientes de um Hub IoT, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 | --- | --- |
 | **EventProcessedUtcTime** | A data e a hora em que o evento foi processado. |
 | **EventEnqueuedUtcTime** | A data e a hora em que o evento foi recebido pelo Hub IoT. |
@@ -148,23 +147,23 @@ Carregar um número muito grande de blobs de uma vez pode fazer com que Stream A
 
 A tabela a seguir explica cada propriedade na página **Nova entrada** no portal do Azure, quando você configura o Armazenamento de Blobs como uma entrada de fluxo.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 | --- | --- |
 | **Alias de entrada** | Um nome amigável que você usa na consulta do trabalho para fazer referência a essa entrada. |
 | **Assinatura** | Escolha a assinatura na qual existem os recursos de Hub IoT existentes. | 
 | **Conta de armazenamento** | O nome da conta de armazenamento em que estão localizados os arquivos de blob. |
 | **Chave de conta de armazenamento** | A chave secreta associada à conta de armazenamento. Essa opção é preenchida automaticamente, a menos que você selecione a opção de fornecer as configurações do Armazenamento de Blobs manualmente. |
 | **Contêiner** | O contêiner para o blob de entrada. Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço de Armazenamento de Blobs do Azure, você deve especificar um contêiner para aquele blob. Você pode escolher **Usar contêiner existente** ou **Criar novo** para ter um novo contêiner criado.|
-| **Padrão do caminho** (opcional) | O caminho do arquivo usado para localizar os blobs no contêiner especificado. Se você quiser ler BLOBs da raiz do contêiner, não defina um padrão de caminho. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}` ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere `*` não é um valor permitido para o prefixo de caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blobs do Azure</a> válidos são permitidos. Não inclua nomes de contêiner ou de arquivo. |
+| **Padrão do caminho** (opcional) | O caminho do arquivo usado para localizar os blobs no contêiner especificado. Se você quiser ler BLOBs da raiz do contêiner, não defina um padrão de caminho. No caminho, você pode optar por especificar uma ou mais instâncias das três variáveis a seguir: `{date}`, `{time}` ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O caractere `*` não é um valor permitido para o prefixo de caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de blobs do Azure</a> válidos são permitidos. Não inclua nomes de contêiner ou nomes de arquivo. |
 | **Formato de data** (opcional) | Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Exemplo: `YYYY/MM/DD` |
-| **Formato de hora** (opcional) |  Se você usar a variável de hora no caminho, o formato de hora no qual os arquivos são organizados. Atualmente, o único valor com suporte é `HH` para horas. |
+| **Formato de hora** (opcional) |  Se você usar a variável de data no caminho, o formato de data no qual os arquivos são organizados. Atualmente, o único valor com suporte é `HH` para horas. |
 | **Formato de serialização do evento** | O formato de serialização (JSON, CSV, Avro ou [outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Verifique se o formato JSON está alinhado com a especificação e não inclui um 0 à esquerda para números decimais. |
 | **Codificação** | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | **Compactação** | O tipo de compactação usado para ler o fluxo de dados de entrada, como None (padrão), GZip ou Deflate. |
 
 Quando seus dados forem provenientes de uma fonte de Armazenamento de Blobs, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 | --- | --- |
 | **BlobName** |O nome do blob de entrada de onde o evento veio. |
 | **EventProcessedUtcTime** |A data e a hora em que o evento foi processado pelo Stream Analytics. |
@@ -181,7 +180,7 @@ SELECT
 FROM Input
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
 

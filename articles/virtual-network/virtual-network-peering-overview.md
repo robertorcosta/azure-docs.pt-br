@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328371"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646737"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -91,9 +91,9 @@ As seguintes restrições se aplicam somente quando as redes virtuais são empar
 * Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um Load Balancer interno básico (ILB) em uma rede virtual emparelhada globalmente.
 * Alguns serviços que usam um balanceador de carga básico não funcionam em emparelhamento de rede virtual global. Para obter mais informações, consulte [quais são as restrições relacionadas ao emparelhamento de VNet global e aos balanceadores de carga?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-Para obter mais informações, consulte [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre o número de emparelhamentos com suporte, consulte [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Para obter mais informações, consulte [requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre o número de emparelhamentos com suporte, consulte [limites de rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-## <a name="permissions"></a>permissões
+## <a name="permissions"></a>Permissões
 
 Para saber mais sobre as permissões necessárias para criar um emparelhamento de rede virtual, consulte [permissões](virtual-network-manage-peering.md#permissions).
 
@@ -106,11 +106,11 @@ O tráfego de gateway é uma propriedade de emparelhamento que permite que uma r
 >[!NOTE]
 > Uma versão anterior deste documento declarava que os encargos de emparelhamento de rede virtual não se aplicam ao tráfego de gateway. Agora, ele reflete os preços precisos de acordo com a página de preços.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Você pode criar um emparelhamento entre duas redes virtuais. As redes podem pertencer à mesma assinatura, a modelos de implantação diferentes na mesma assinatura ou a assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-    |Modelo de implantação do Azure             | Assinatura  |
+    |Modelo de implantação do Azure             | Subscription  |
     |---------                          |---------|
     |Ambos Resource Manager              |[Idêntica](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|

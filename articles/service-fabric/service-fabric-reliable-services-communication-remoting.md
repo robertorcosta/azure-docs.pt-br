@@ -1,25 +1,16 @@
 ---
-title: Comunicação remota do serviço usando C# no Service Fabric | Microsoft Docs
+title: Comunicação remota do serviço C# usando no Service Fabric
 description: A comunicação remota do Service Fabric permite que os clientes e serviços se comuniquem com serviços C# que usam a chamada de procedimento remoto.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433877"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em C# com Reliable Services
 
@@ -322,7 +313,7 @@ Siga estas etapas:
 Para atualizar da V1 para a V2 (compatível com interface, conhecida como V2_1), são necessárias atualizações de duas etapas. Siga as etapas deste tutorial.
 
 > [!NOTE]
-> Ao atualizar do v1 para o v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
+> Ao atualizar da v1 para a v2, verifique se o namespace `Remoting` está atualizado para usar v2. Exemplo: ' Microsoft. FabricTransport. Services. Remoting. v2. Client '
 >
 >
 
@@ -556,7 +547,7 @@ Siga estas etapas:
       });
       ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicação do Windows Communication Foundation com Reliable Services](service-fabric-reliable-services-communication-wcf.md)

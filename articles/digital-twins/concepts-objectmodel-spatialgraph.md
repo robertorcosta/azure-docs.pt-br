@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/30/2019
+ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010097"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562588"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
@@ -58,7 +58,7 @@ Outras categorias de objetos são:
 
 Grafo espacial é o grafo hierárquico de espaços, dispositivos e pessoas definido no modelo de objeto de Gêmeos Digitais. O grafo espacial dá suporte para herança, filtragem, travessia, escalabilidade e extensibilidade. É possível gerenciar e interagir com o grafo espacial com uma coleção de APIs REST.
 
-Se você implantar um serviço de Gêmeos Digitais na assinatura, você se tornará o administrador global do nó raiz. Você receberá automaticamente o acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de Espaço. Provisione serviços usando a API de Dispositivo e os sensores usando a API do Sensor. [Ferramentas de software livre](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para provisionar o grafo em massa.
+Se você implantar um serviço de Gêmeos Digitais na assinatura, você se tornará o administrador global do nó raiz. Você receberá automaticamente o acesso completo a toda a estrutura. Provisione espaços no grafo usando a API de Espaço. Provisione serviços usando a API de Dispositivo e os sensores usando a API do Sensor. As [ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) também estão disponíveis para provisionar o grafo em massa.
 
 **Herança de grafo**. A herança aplica-se às permissões e propriedades que descendem de um nó pai para todos os nós abaixo dele. Por exemplo, quando uma função é atribuída a um usuário em um determinado nó, o usuário tem as permissões dessa função para o nó fornecido e para cada nó abaixo dele. Cada chave de propriedade e tipo estendido definido para um determinado nó é herdado por todos os nós abaixo desse nó.
 
@@ -78,7 +78,7 @@ Após implantar os Gêmeos Digitais pelo [portal do Azure](https://portal.azure.
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOME | Substitua por |
+| Nome | Substitua por |
 | --- | --- |
 | NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
 | SUA_LOCALIZAÇÃO | Em qual região do servidor de sua instância está hospedada |
@@ -97,7 +97,7 @@ Saiba mais sobre [como usar o Swagger](how-to-use-swagger.md).
 
 Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). As APIs seguem as [convenções de Diretrizes da API REST da Microsoft](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retorna coleções é compatível com opções de consulta do sistema [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre conectividade do dispositivo e como enviar mensagens de telemetria para Gêmeos Digitais, leia [Entrada de telemetria e conectividade do dispositivo de Gêmeos Digitais do Azure](concepts-device-ingress.md).
 

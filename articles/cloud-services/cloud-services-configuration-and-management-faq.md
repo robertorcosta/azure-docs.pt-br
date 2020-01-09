@@ -1,5 +1,6 @@
 ---
-title: Problemas de configuração e gerenciamento para perguntas frequentes sobre Serviços de Nuvem do Microsoft Azure | Microsoft Docs
+title: Perguntas frequentes sobre problemas de configuração e gerenciamento
+titleSuffix: Azure Cloud Services
 description: Este artigo lista as perguntas frequentes sobre a configuração e o gerenciamento de Serviços de Nuvem do Microsoft Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161759"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660606"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -195,7 +196,7 @@ O Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do clien
 5. Reinicie seu servidor.
 6. Vá para o **Site da Web padrão** e, em **Associações**, crie uma nova associação TLS com o certificado autoassinado recém-criado. 
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
 - [Vídeo: HTTP/2 no Windows 10: navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -276,7 +277,7 @@ Ela também pode ser adicionada como uma configuração no IIS. Use o comando ab
 Use o script de inicialização do IIS do artigo [tarefas comuns de inicialização](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe).
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>O que é o limite de cota para meu serviço de nuvem?
-Consulte [Limites específicos do serviço](../azure-subscription-service-limits.md#subscription-limits).
+Consulte [Limites específicos do serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que a unidade na VM do meu serviço de nuvem mostra muito pouco espaço livre em disco?
 Esse comportamento é esperado e não deve causar nenhum problema ao seu aplicativo. Registro em log está ativado para a unidade %approot% em VMs virtuais de PaaS do Azure, que consome basicamente o dobro da quantidade de espaço que os arquivos normalmente ocupam. No entanto, há vários elementos a serem considerados que essencialmente transformam isso em um não problema.
@@ -310,7 +311,7 @@ A associação de SNI pode ser configurada usando o cmdlet do PowerShell **New-W
     
 Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o $sslFlags poderia ser um dos valores como o seguinte:
 
-|Value|Significado|
+|Valor|Significado|
 ------|------
 |0|Nenhuma SNI|
 |1|SNI habilitada|

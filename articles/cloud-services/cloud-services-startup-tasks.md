@@ -2,17 +2,17 @@
 title: Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Docs
 description: As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360303"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de inicialização para um serviço de nuvem
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
@@ -23,7 +23,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
 > 
 
 ## <a name="how-startup-tasks-work"></a>Como funcionam as tarefas de inicialização
-As tarefas de inicialização são as ações executadas antes de suas funções começarem e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Tarefa] dentro do elemento [Startup]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
+As tarefas de inicialização são as ações executadas antes de suas funções começarem e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Tarefa] dentro do elemento [Inicialização]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
 
 As variáveis de ambiente passam informações para uma tarefa de inicialização e o armazenamento local pode ser usado para transmitir informações para fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o caminho para um programa que você deseja instalar e arquivos podem ser gravados no armazenamento local que poderá então ser lido posteriormente por suas funções.
 
@@ -93,7 +93,7 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 **executionContext** - especifica o nível de privilégio para a tarefa de inicialização. O nível de privilégio pode ser limitado ou elevado:
 
 * **limitado**  
-  A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Tempo de execução] também é **limitado**, os privilégios do usuário são usados.
+  A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também é **limitado**, os privilégios do usuário são usados.
 * **elevado**  
   A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.  
 
@@ -121,13 +121,13 @@ A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDe
 ## <a name="environment-variables"></a>Variáveis de ambiente
 As variáveis de ambiente são uma maneira de passar informações para uma tarefa de inicialização. Por exemplo, você pode colocar o caminho para um blob que contenha um programa a ser instalado, ou números de porta que sua função usará, ou configurações para controlar recursos de sua tarefa de inicialização.
 
-Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment] . Ambas estão na seção [Ambiente] do arquivo [ServiceDefinition.csdef] e usam o elemento [Variable] e o atributo **name**.
+Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment] . Ambas estão na seção [Ambiente] do arquivo [ServiceDefinition.csdef] e usam o elemento [Variável] e o atributo **name**.
 
-As variáveis de ambiente estáticas usam o atributo **value** do elemento [Variable] . O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem um valor estático "**1.0.0.0**". Outro exemplo seria criar uma variável de ambiente **StagingOrProduction** que você pode definir manualmente para os valores de "**preparo**" ou "**produção**" para executar ações diferentes de inicialização com base no valor da variável de ambiente **StagingOrProduction**.
+As variáveis de ambiente estáticas usam o atributo **value** do elemento [Variável] . O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem um valor estático "**1.0.0.0**". Outro exemplo seria criar uma variável de ambiente **StagingOrProduction** que você pode definir manualmente para os valores de "**preparo**" ou "**produção**" para executar ações diferentes de inicialização com base no valor da variável de ambiente **StagingOrProduction**.
 
-As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variable] . Em vez disso, o elemento-filho [RoleInstanceValue], com o devido valor do atributo **XPath**, é usado para criar uma variável de ambiente com base em um membro específico da classe [RoleEnvironment]. Os valores do atributo **XPath** para acessar os diversos valores [RoleEnvironment] podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
+As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variável] . Em vez disso, o elemento-filho [RoleInstanceValue], com o devido valor do atributo **XPath**, é usado para criar uma variável de ambiente com base em um membro específico da classe [RoleEnvironment]. Os valores do atributo **XPath** para acessar os diversos valores [RoleEnvironment] podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
 
-Por exemplo, para criar uma variável de ambiente "**true**" quando a instância está em execução no emulador de computação, e "**false**" quando em execução na nuvem, use os seguintes elementos [Variable] e [RoleInstanceValue] :
+Por exemplo, para criar uma variável de ambiente "**true**" quando a instância está em execução no emulador de computação, e "**false**" quando em execução na nuvem, use os seguintes elementos [Variável] e [RoleInstanceValue] :
 
 ```xml
 <Startup>
@@ -148,16 +148,19 @@ Por exemplo, para criar uma variável de ambiente "**true**" quando a instância
 </Startup>
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-startup-tasks-common.md) com seu Serviço de Nuvem.
 
 [Empacote](cloud-services-model-and-package.md) seu Serviço de Nuvem.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Tempo de execução]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Inicialização]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
+
+

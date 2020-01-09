@@ -1,5 +1,6 @@
 ---
-title: Proteger uma API usando OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API | Microsoft Docs
+title: Proteger uma API usando o OAuth 2,0 com o AAD e o gerenciamento de API
+titleSuffix: Azure API Management
 description: Saiba como proteger um back-end da API da Web com o Azure Active Directory e Gerenciamento de API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 82341f29ffda03c5f047d7566ff64884c6698b07
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442507"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API usando OAuth 2.0 com o Azure Active Directory e o Gerenciamento de API
 
@@ -32,7 +33,7 @@ Para seguir as etapas deste artigo, você precisa ter:
 * Uma API sendo publicada que use a instância de Gerenciamento de API
 * Um locatário do Azure AD
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 A seguir é apresentada uma visão geral das etapas:
 
@@ -60,9 +61,7 @@ Para proteger uma API com o Azure AD, a primeira etapa é registrar no Azure AD 
 
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior.
 
-Quando o aplicativo for criado, anote a **ID do aplicativo** para uso em uma etapa posterior. 
-
-1. Selecione **expor uma API** e clique em **salvar e continuar** para criar um URI de ID de aplicativo.
+1. Selecione **expor uma API** e defina o **URI da ID do aplicativo** com o valor padrão. Registre esse valor para mais tarde.
 
 1. Na página **Adicionar um escopo** , crie um novo escopo com suporte pela API. (por exemplo, ler) e clique em *Adicionar escopo* para criar o escopo. Repita essa etapa para adicionar todos os escopos com suporte pela sua API.
 
@@ -78,9 +77,9 @@ Todos os aplicativos cliente que chamam a API também precisam ser registrados c
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo: 
     - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `client-app`. 
-    - Na seção **tipos de conta com suporte** , selecione **contas em qualquer diretório organizacional**. 
+    - Na seção **Tipos de conta com suporte**, escolha **Contas em qualquer diretório organizacional**. 
 
-1. Na seção **URI de redirecionamento** , selecione `Web` e insira a URL`https://contoso5.portal.azure-api.net/signin`
+1. Na seção **URI de redirecionamento** , selecione `Web` e insira a URL `https://contoso5.portal.azure-api.net/signin`
 
 1. Selecione **Registrar** para criar o aplicativo. 
 
@@ -106,7 +105,7 @@ Agora que você já registrou um aplicativo para representar a API e outro para 
 
 1. Em **selecionar uma API**, localize e selecione `backend-app`.
 
-1. Em **permissões delegadas**, selecione as permissões apropriadas para `backend-app` , em seguida, clique em **adicionar permissões**.
+1. Em **permissões delegadas**, selecione as permissões apropriadas para `backend-app` e clique em **adicionar permissões**.
 
 1. Opcionalmente, na página **permissões de API** , clique em **conceder consentimento de administrador para < seu nome de locatário >** na parte inferior da página para conceder consentimento em nome de todos os usuários neste diretório. 
 
@@ -148,11 +147,11 @@ Neste exemplo, o Console do Desenvolvedor é o aplicativo cliente. As etapas a s
 
 1. Logo após o segredo do cliente, está a **URL de redirecionamento** para o tipo de concessão de código de autorização. Anote essa URL.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
-1. Volte para a página **Configurações** do aplicativo cliente.
+1. Volte para o aplicativo cliente e selecione **autenticação**.
 
-1. Selecione **URLs de resposta** e cole a **URL de redirecionamento** na primeira linha. Neste exemplo, você substituiu `https://localhost` pela URL na primeira linha.  
+1. Em **URIs de redirecionamento**, selecione o tipo como **Web**, Cole o **Redirect_url** em **URI de redirecionamento**e, em seguida, salve.
 
 Agora que você já configurou um servidor de autorização OAuth 2.0, o Console do Desenvolvedor pode obter tokens de acesso do Azure AD. 
 
@@ -194,16 +193,16 @@ Agora que a autorização de usuário do OAuth 2,0 está habilitada em sua API, 
 
 Neste ponto, quando um usuário tenta fazer uma chamada a partir do Console do Desenvolvedor, é solicitado o logon. O console do desenvolvedor Obtém um token de acesso em nome do usuário e inclui o token na solicitação feita à API.
 
-No entanto, e se alguém chamar sua API sem um token ou com um token inválido? Por exemplo, tente chamar a API sem o `Authorization` cabeçalho, a chamada ainda passará. Isso porque o Gerenciamento de API não valida o token de acesso nesse momento. Ele simplesmente passa o cabeçalho de `Authorization` para a API de back-end.
+No entanto, e se alguém chamar sua API sem um token ou com um token inválido? Por exemplo, tente chamar a API sem o cabeçalho `Authorization`, a chamada ainda passará. Isso porque o Gerenciamento de API não valida o token de acesso nesse momento. Ele simplesmente passa o cabeçalho de `Authorization` para a API de back-end.
 
-Você pode usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar solicitações no Gerenciamento de API, validando os tokens de acesso de cada solicitação de entrada. Se uma solicitação não tiver um token válido, o Gerenciamento de API a bloqueará. Por exemplo, adicione a seguinte política à `<inbound>` seção política `Echo API`do. Ela verifica a declaração de audiência em um token de acesso e retorna uma mensagem de erro se o token não é válido. Para obter informações sobre como configurar as políticas, confira [Definir ou editar políticas](set-edit-policies.md).
+Você pode usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar solicitações no Gerenciamento de API, validando os tokens de acesso de cada solicitação de entrada. Se uma solicitação não tiver um token válido, o Gerenciamento de API a bloqueará. Por exemplo, adicione a seguinte política à seção de política de `<inbound>` do `Echo API`. Ela verifica a declaração de audiência em um token de acesso e retorna uma mensagem de erro se o token não é válido. Para obter informações sobre como configurar as políticas, confira [Definir ou editar políticas](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID of backend-app}</value>
+            <value>{Application ID URI of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>
@@ -213,7 +212,7 @@ Você pode usar a política [Validar JWT](api-management-access-restriction-poli
 
 Neste guia, você usou o Console do Desenvolvedor no Gerenciamento de API como o aplicativo cliente de exemplo para chamar a `Echo API` protegida pelo OAuth 2.0. Para saber mais sobre como criar um aplicativo e implementar o OAuth 2.0, confira [Exemplos de código do Microsoft Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre o [Azure Active Directory e o OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Confira mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre o Gerenciamento de API.
 * Para outras maneiras de proteger seu serviço de back-end, confira [Autenticação de certificado mútuo](api-management-howto-mutual-certificates.md).

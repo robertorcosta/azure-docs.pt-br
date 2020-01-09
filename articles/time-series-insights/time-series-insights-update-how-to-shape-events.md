@@ -1,6 +1,6 @@
 ---
 title: Eventos de forma-Azure Time Series Insights | Microsoft Docs
-description: Saiba como formatar eventos com Azure Time Series Insights visualização.
+description: Saiba mais sobre as práticas recomendadas e como formatar eventos para consulta na visualização do Azure time insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452604"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formatar eventos com Versão Prévia do Azure Time Series Insights
 
@@ -117,7 +117,7 @@ A instância de série temporal contém metadados de dispositivo. Esses metadado
 
 A Versão Prévia do Time Series Insights une uma tabela (após o nivelamento) durante o tempo de consulta. A tabela inclui colunas adicionais, como **Tipo**. O exemplo a seguir demonstra como você pode [Formatar](./time-series-insights-send-events.md#supported-json-shapes) seus dados de telemetria.
 
-| deviceId  | Digite | L1 | L2 | timestamp | Taxa de series_Flow ft3/s | series_Engine de pressão do óleo psi |
+| deviceId  | Tipo | L1 | L2 | timestamp | Taxa de series_Flow ft3/s | series_Engine de pressão do óleo psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULADOR | Sistema de Bateria | 2018-01-17T01:17:00Z |   1,0172575712203979 |    34,7 |
 | `FXXX` | Default_Type | SIMULADOR |   Sistema de Bateria |    2018-01-17T01:17:00Z | 2,445906400680542 |  49,2 |
@@ -154,7 +154,7 @@ No exemplo acima, a propriedade de `data_flow` achatada apresentaria uma colisã
 > Nos casos em que as propriedades duplicadas estão presentes na mesma carga de evento devido ao nivelamento ou outro mecanismo, o valor mais recente da propriedade é armazenado, overwritting quaisquer valores anteriores.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para colocar essas diretrizes em prática, confira [Sintaxe de consulta da Versão Prévia do Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para o Time Series Insights API REST de visualização para acesso a dados.
 - Para saber mais sobre formas JSON com suporte, confira [Formas JSON com suporte](./time-series-insights-send-events.md#supported-json-shapes).

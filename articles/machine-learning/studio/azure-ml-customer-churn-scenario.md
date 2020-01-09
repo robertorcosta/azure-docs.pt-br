@@ -10,15 +10,15 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427697"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analisar a rotatividade de clientes usando Azure Machine Learning Studio (clássico)
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de rotatividade de clientes criado usando Azure Machine Learning Studio (clássico). Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
@@ -71,7 +71,7 @@ Uma adição interessante nesse caso é a análise de big data. As empresas de t
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementando o arquétipo de modelagem no Machine Learning Studio (clássico)
-Dado o problema descrito acima, qual é a melhor maneira de implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como isso foi feito usando a versão clássica do Azure Machine Learning Studio.  
+Dado o problema descrito acima, qual é a melhor maneira de implementar uma abordagem integrada de modelagem e pontuação? Nesta seção, demonstraremos como isso é feito usando Azure Machine Learning Studio (clássico).  
 
 A abordagem multimodelo é essencial ao projetar um arquétipo global para variação. Até mesmo a parte de pontuação (preditiva) da abordagem deve ser multimodelo.  
 
@@ -135,7 +135,7 @@ Também enviamos o conjunto de dados para um modelo comparável criado usando a 
 Nesta seção, apresentamos nossas descobertas sobre a precisão dos modelos, com base no conjunto de dados de pontuação.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Precisão e exatidão da pontuação
-Em geral, a implementação na versão clássica do Azure Machine Learning Studio está atrás da SAS em precisão em cerca de 10-15% (área sob a curva ou AUC).  
+Em geral, a implementação no Azure Machine Learning Studio (clássico) está atrás da SAS em precisão em cerca de 10-15% (área sob a curva ou AUC).  
 
 No entanto, a métrica mais importante na variação é a taxa de classificação incorreta, ou seja, dos maiores N variantes previstos pelo classificador, quais deles **não** variaram de fato e ainda assim receberam tratamento especial? O diagrama a seguir compara essa taxa de classificação incorreta em todos os modelos:  
 
@@ -167,7 +167,7 @@ O diagrama a seguir, da Wikipédia, representa a relação em um gráfico vívid
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisão e exatidão para modelo de árvore de decisão aprimorado
 O gráfico a seguir exibe os resultados brutos de pontuação usando o protótipo de Machine Learning para o modelo de árvore de decisão aprimorado, que vem a ser o mais preciso dentre os quatro modelos:  
 
-![Trecho de tabela que mostra Exatidão, Precisão, Recall, Pontuação F, AUC, Perda Média de Log e Perda de Log de Treinamento para quatro algoritmos](./media/azure-ml-customer-churn-scenario/churn-9.png)
+![Snippet de tabela que mostra Exatidão, Precisão, Recall, Pontuação F, AUC, Perda Média de Log e Perda de Log de Treinamento para quatro algoritmos](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Figura 11: Características do modelo de árvore de decisão aprimorado*
 
@@ -178,7 +178,7 @@ A tabela a seguir resume o desempenho dos algoritmos:
 
 *Tabela 1. Desempenho geral (precisão) dos algoritmos*
 
-| LR | BT | AP | SVM |
+| LR | BT | Pacífico Asiático | SVM |
 | --- | --- | --- | --- |
 | Modelo médio |O melhor modelo |Subdesempenhando |Modelo médio |
 
@@ -200,13 +200,13 @@ Essa observação importante muitas vezes é ignorada pela empresa, que geralmen
 
 No entanto, a promessa de análise de autoatendimento usando Machine Learning Studio (clássico) é que as quatro categorias de informações, classificadas por divisão ou departamento, se tornam uma fonte valiosa para o aprendizado de máquina sobre a rotatividade.  
 
-Outro recurso empolgante na versão clássica do Azure Machine Learning Studio é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um diferencial importante da versão clássica do Azure Machine Learning Studio no mercado.  
+Outro recurso empolgante em Azure Machine Learning Studio (clássico) é a capacidade de adicionar um módulo personalizado ao repositório de módulos predefinidos que já estão disponíveis. Essa capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um diferencial importante do Azure Machine Learning Studio (clássico) no mercado.  
 
 Esperamos continuar com este tópico no futuro, especialmente relacionado à análise de big data.
   
 
 ## <a name="conclusion"></a>Conclusão
-Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de Pontuação e o implementamos usando a versão clássica do Azure Machine Learning Studio. Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
+Este documento descreve uma abordagem sensata para lidar com o problema comum de variação do cliente usando uma estrutura genérica. Consideramos um protótipo para modelos de Pontuação e o implementamos usando Azure Machine Learning Studio (clássico). Por fim, avaliamos a exatidão e o desempenho do protótipo da solução com relação a algoritmos comparáveis em SAS.  
 
  
 

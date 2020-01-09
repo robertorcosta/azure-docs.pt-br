@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440466"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -53,11 +53,11 @@ As seguintes fontes de dados são compatíveis com a atividade Lookup. O maior n
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Nome | DESCRIÇÃO | Tipo | Obrigatório?
+Nome | Description | Tipo | Obrigatório?
 ---- | ----------- | ---- | --------
 dataset | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes na seção **Propriedades do conjunto de dados** em cada artigo de conector correspondente. | Pares chave/valor | Sim
-fonte | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | Sim
-firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Booliano | Não. O padrão é `true`.
+source | Contém propriedades de origem específicas do banco de dados, as mesmas que as da origem da atividade Copy. Obtenha detalhes na seção **Propriedades da atividade Copy** em cada artigo de conector correspondente. | Pares chave/valor | Sim
+firstRowOnly | Indica se deve-se retornar apenas a primeira linha ou todas as linhas. | Boolean | Não. O padrão é `true`.
 
 > [!NOTE]
 > 
@@ -100,7 +100,7 @@ O resultado de pesquisa é retornado na seção `output` do resultado da execuç
     ```
 
 ### <a name="copy-activity-example"></a>Exemplo da atividade Copy
-Neste exemplo, a atividade Copy copia dados de uma tabela SQL em uma instância do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure. O nome da tabela SQL é armazenado em um arquivo JSON em armazenamento de Blob. A atividade Lookup pesquisa o nome da tabela em tempo de execução. O JSON é modificado dinamicamente usando essa abordagem. Não é necessário reimplantar pipelines ou conjuntos de dados. 
+Neste exemplo, a atividade Copy copia dados de uma tabela SQL em uma instância do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure. O nome da tabela SQL é armazenado em um arquivo JSON em armazenamento de Blob. A atividade Lookup pesquisa o nome da tabela em runtime. O JSON é modificado dinamicamente usando essa abordagem. Não é necessário reimplantar pipelines ou conjuntos de dados. 
 
 Este exemplo demonstra a pesquisa apenas para a primeira linha. Para pesquisar por todas as linhas e para encadear os resultados com a atividade ForEach, consulte os exemplos em [Copiar várias tabelas em massa usando o Azure Data Factory](tutorial-bulk-copy.md).
 
@@ -238,10 +238,7 @@ Esta conta de armazenamento contém o arquivo JSON com os nomes das tabelas SQL.
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -258,10 +255,7 @@ Esta instância de Banco de Dados SQL do Azure contém os dados a serem copiados
         "type": "AzureSqlDatabase",
         "description": "",
         "typeProperties": {
-            "connectionString": {
-                "value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-                "type": "SecureString"
-            }
+            "connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
         }
     }
 }
@@ -306,7 +300,7 @@ Aqui estão algumas limitações da atividade de pesquisa e soluções alternati
 | A atividade de pesquisa tem um máximo de 5.000 linhas e um tamanho máximo de 2 MB. | Crie um pipeline de dois níveis onde o pipeline externo itera em um pipeline interno que recupera os dados que não excedem o máximo de linhas ou o tamanho. |
 | | |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 
 - [Atividade de execução de pipeline](control-flow-execute-pipeline-activity.md)

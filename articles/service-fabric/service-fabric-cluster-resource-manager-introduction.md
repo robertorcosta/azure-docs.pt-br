@@ -1,25 +1,16 @@
 ---
-title: Introdução ao Resource Manager de Cluster do Service Fabric | Microsoft Docs
-description: Uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Introdução ao Gerenciador de recursos de Cluster Service Fabric
+description: Saiba mais sobre o Gerenciador de recursos de Cluster Service Fabric, uma maneira de gerenciar a orquestração dos serviços do seu aplicativo.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743643"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563319"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introdução ao Gerenciador de Recursos de Cluster do Service Fabric
 Tradicionalmente, gerenciar sistemas de TI ou serviços online significava dedicar computadores ou máquinas virtuais específicas a esses serviços ou sistemas específicos. Os serviços foram projetados como camadas. Deveria haver uma camada da "Web" e uma camada de "dados" ou "armazenamento". Os aplicativos teriam uma camada de mensagens, em que solicitações de entrada e de saída fluíam, bem como um conjunto de computadores dedicados ao cache. Cada camada ou tipo de carga de trabalho tinha computadores específicos dedicados: o banco de dados tinha dois computadores dedicados a ele, enquanto os servidores Web contavam com alguns. Se um tipo específico de carga de trabalho fizesse com que os computadores em que ele estava tivessem utilização alta demais, você adicionaria mais computadores com a mesma configuração a essa camada. No entanto, nem todas as cargas de trabalho podiam ser dimensionadas tão facilmente – especialmente com a camada de dados, normalmente você substituiria os computadores por computadores maiores. Fácil. Se uma máquina falhava, essa parte do aplicativo geral era executada com menor capacidade até que o computador pudesse ser restaurado. Ainda assim, relativamente fácil (mesmo que não necessariamente divertido).
@@ -53,8 +44,8 @@ Embora algumas dessas estratégias sejam interessantes, o Gerenciador de Recurso
 
 Como o Gerenciador de Recursos de Cluster é responsável por mover os serviços, ele contém um conjunto de recursos diferente em comparação com o que você encontraria em um balanceador de carga de rede. Isso acontece porque os balanceadores de carga de rede entregam o tráfego de rede em que os serviços já estão, mesmo que esse local não seja ideal para executar o próprio serviço. O Gerenciador de Recursos de Cluster do Service Fabric utiliza estratégias fundamentalmente diferentes para garantir que os recursos do cluster sejam utilizados com eficiência.
 
-## <a name="next-steps"></a>Próximas etapas
-- Para obter informações sobre a arquitetura e fluxo de informações dentro do Gerenciador de recursos de Cluster, fazer check-out [neste artigo](service-fabric-cluster-resource-manager-architecture.md)
+## <a name="next-steps"></a>Próximos passos
+- Para obter informações sobre a arquitetura e o fluxo de informações no Gerenciador de recursos de cluster, confira [Este artigo](service-fabric-cluster-resource-manager-architecture.md)
 - O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre as métricas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)

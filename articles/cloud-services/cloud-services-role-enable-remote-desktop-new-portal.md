@@ -1,5 +1,6 @@
 ---
-title: Usando o portal, habilite Área de Trabalho Remota para uma função (serviços de nuvem do Azure)
+title: Usar o portal para habilitar Área de Trabalho Remota para uma função
+titleSuffix: Azure Cloud Services
 description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota
 services: cloud-services
 documentationcenter: ''
@@ -8,17 +9,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
-ms.openlocfilehash: 50447beabefefcaa723a26ed4388354b9590c36e
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298450"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360592"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 

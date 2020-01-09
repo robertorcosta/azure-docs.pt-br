@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454647"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurar a visualização de dependência sem agente para avaliação
 
@@ -19,7 +19,7 @@ Este artigo descreve como configurar o mapeamento de dependência sem agente nas
 
 > [!IMPORTANT]
 > A visualização de dependência sem agente está atualmente em versão prévia para VMs VMware do Azure descobertas usando um dispositivo de migrações para Azure.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Essa visualização é coberta pelo atendimento ao cliente e pode ser usada para cargas de trabalho de produção.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="about-dependency-mapping"></a>Sobre mapeamento de dependência
@@ -57,7 +57,7 @@ A visualização de dependência sem agente não exige a instalação de agentes
 - Verifique se as VMs VMware têm suporte para a visualização de dependência sem agente, conforme resumido na tabela a seguir.
 
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 Os sistemas operacionais com suporte para a visualização de dependência sem agente são os seguintes.
 
@@ -85,7 +85,7 @@ Adicione a conta da seguinte maneira:
 3. Escolha o **sistema operacional**.
 4. Forneça um nome amigável para a conta.
 5. Forneça o **nome de usuário** e a **senha**
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -138,6 +138,6 @@ Escolha os computadores nos quais você deseja parar a descoberta de dependênci
 5. Clique em **parar descoberta de dependência**
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Agrupar os computadores](how-to-create-a-group.md)

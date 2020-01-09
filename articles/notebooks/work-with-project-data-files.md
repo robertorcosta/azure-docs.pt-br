@@ -1,18 +1,20 @@
 ---
-title: Importar e exportar dados com projetos no Azure Notebooks
-description: Como trazer dados para um projeto do Azure Notebooks de fontes externas e como exportar dados de um projeto.
-ms.topic: article
+title: Importar e exportar dados com projetos com Azure Notebooks visualização
+description: Saiba como inserir dados em um Azure Notebooks projeto de visualização de fontes externas e como exportar dados de um projeto do.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277394"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646969"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabalhar com arquivos de dados em projetos do Azure Notebook
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabalhar com arquivos de dados em Azure Notebooks projetos de visualização
 
 Os dados são a força vital de muitos blocos de notas do Jupyter, especialmente os blocos de notas utilizados na ciência de dados. Com o Azure Notebooks, é fácil importar de várias fontes para um projeto e, em seguida, usar esses dados dos blocos de anotações. Você também pode fazer com que os blocos de anotações gerem dados que serão armazenados no projeto e que poderão ser baixados para serem usados em outro lugar.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 O menu **Dados** dentro de um bloco de anotações em execução também disponibiliza comandos **Carregar** e **Fazer o download** que funcionam com arquivos no projeto e com arquivos temporários da sessão atual do bloco de anotações.
 
@@ -34,7 +36,7 @@ Você pode trazer arquivos para um projeto no painel do projeto ou em um bloco d
 
    - **Da URL**: Insira o endereço de origem no campo **URL do arquivo** e o nome do arquivo para atribuir ao bloco de anotações em seu projeto no campo nome do **arquivo** . Em seguida, escolha **+ Adicionar Arquivo** para adicionar a URL à lista de carregamento. Repita o processo para todas as URLs adicionais e escolha **Concluído**.
 
-     ![Carregar popup da URL](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
 
    - **Em computador**: arraste e solte arquivos para o pop-up, ou selecione **escolher arquivos**, navegue até e selecione os arquivos de dados que deseja importar. Você pode soltar ou escolher qualquer número de arquivos, de qualquer tipo e formato, já que é o código no bloco de anotações que abre o arquivo e analisa seus dados.
 
@@ -110,6 +112,6 @@ Você também pode escolher um arquivo e usar o comando **Fazer o download** (at
 
 1. O bloco de anotações prepara um único arquivo *.zip* que contém os arquivos escolhidos e eles são salvos como você normalmente faz em seu navegador. O bloco de anotações cria um arquivo *.zip* mesmo quando você baixa um único arquivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)

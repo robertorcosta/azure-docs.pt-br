@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427582"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportar e excluir dados de usuário no produto do Azure Machine Learning Studio (clássico)
 
-Você pode excluir ou exportar dados no produto armazenados por Azure Machine Learning Studio (clássico) usando o portal do Azure, a interface do Studio (clássico), o PowerShell e as APIs REST autenticadas. Este artigo mostra como fazer isso. 
+Você pode excluir ou exportar dados no produto armazenados por Azure Machine Learning Studio (clássico) usando o portal do Azure, a interface do Studio (clássico), o PowerShell e as APIs REST autenticadas. Este artigo informa como fazer isso. 
 
-Os dados de telemetria podem ser acessados através do portal de Privacidade do Azure. 
+É possível acessar os dados telemétricos por meio do Portal de Privacidade do Azure. 
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -70,8 +70,8 @@ Os usuários também podem excluir o workspace inteiro:
 ![Excluir um espaço de trabalho gratuito no Machine Learning Studio (clássico)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>Exportar dados do estúdio (clássico) com o PowerShell
-Use o PowerShell para exportar todas as suas informações para um formato portátil da versão clássica do Azure Machine Learning Studio usando comandos. Para obter informações, consulte o artigo [módulo do PowerShell para Azure Machine Learning Studio (clássico)](powershell-module.md) .
+Use o PowerShell para exportar todas as suas informações para um formato portátil do Azure Machine Learning Studio (clássico) usando comandos. Para obter informações, consulte o artigo [módulo do PowerShell para Azure Machine Learning Studio (clássico)](powershell-module.md) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter a documentação que aborda os serviços Web e a cobrança do plano de compromisso, consulte [Azure Machine Learning Studio (clássico) referência da API REST](https://docs.microsoft.com/rest/api/machinelearning/). 

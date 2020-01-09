@@ -2,20 +2,16 @@
 title: Controlar alterações com a Automação do Azure
 description: A solução Controle de Alterações ajuda a identificar alterações no software e Serviço Windows que ocorrem no ambiente.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850543"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418742"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -95,7 +91,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivo em computador
 2. Na página **Controle de Alterações**, selecione **Arquivos Linux** e, em seguida, clique em **+ Adicionar** para adicionar o novo arquivo para controle.
 3. Em **Adicionar o Arquivo do Linux para o Controle de Alterações**, insira as informações para o arquivo ou para o diretório rastrear e clique em **Salvar**.
 
-|Propriedade  |Descrição  |
+|Propriedade  |Description  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
@@ -118,7 +114,7 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 2. Na página **Controle de Alterações**, selecione **Arquivos do Windows** e, em seguida, clique em **+ Adicionar** para adicionar o novo arquivo para controle.
 3. Em **Adicionar o Arquivo do Windows para o Controle de Alterações**, insira as informações para o arquivo a controlar e clique em **Salvar**.
 
-|Propriedade  |Descrição  |
+|Propriedade  |Description  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
@@ -150,7 +146,7 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 2. Na página **Controle de Alterações**, selecione **Registro do Windows** e, em seguida, clique em **+ Adicionar** para adicionar um novo registro para controle.
 3. Em **Adicionar Registro do Windows para Controle de Alterações**, insira as informações para a chave rastrear e clique em **Salvar**.
 
-|Propriedade  |Descrição  |
+|Propriedade  |Description  |
 |---------|---------|
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave de registro a ser rastreada.        |
@@ -250,7 +246,7 @@ Os seguintes endereços são necessários especificamente para o controle de alt
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.azure-automation.net|*.Azure automation.us|
 
 ## <a name="use-change-tracking"></a>Use o Controle de Alterações
 
@@ -264,7 +260,7 @@ Ao clicar em uma alteração ou evento, as informações detalhadas sobre essa a
 
 ![imagem dos detalhes do controle de alterações](./media/change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Pesquisar logs
+## <a name="search-logs"></a>Pesquisa da logs
 
 Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos logs. Com a página **controle de alterações** aberta, clique em **log Analytics**, isso abrirá a página **logs** .
 
@@ -272,7 +268,7 @@ Além dos detalhes fornecidos no portal, é possível fazer as pesquisas nos log
 
 A tabela a seguir fornece pesquisas de logs de exemplo para os registros de alterações coletados por essa solução:
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
 |ConfigurationData<br>&#124; onde   ConfigDataType == "WindowsServices" e SvcStartupType == "Auto"<br>&#124; onde SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) por SoftwareName, Computer         | Mostra os registros de inventário mais recentes para os Serviços do Windows que foram configurados para Automático, mas foram relatados como Parados<br>Os resultados estão limitados ao registro mais recente desse SoftwareName e Computador      |
 |ConfigurationChange<br>&#124; onde ConfigChangeType == "Software" e ChangeCategory == "Removed"<br>&#124; ordenar por TimeGenerated desc|Mostra os registros de alterações do software removido|
@@ -301,7 +297,7 @@ Após configurar os parâmetros e a lógica, podemos aplicar o alerta ao ambient
 
 Embora os alertas sobre alterações ao arquivo de Hosts sejam uma boa aplicação de alertas para Controle de Alterações ou dados de Inventário, há muitos outros cenários para alertas, incluindo casos definidos juntamente com suas consultas de exemplo na seção a seguir.
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; em que ConfigChangeType == "Files" e FileSystemPath contêm " c:\\windows\\system32\\drivers\\"|Útil para controlar alterações a arquivos críticos do sistema|
 |ConfigurationChange <br>&#124; em que FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para controlar modificações a arquivos de configuração chave|

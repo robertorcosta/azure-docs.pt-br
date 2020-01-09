@@ -1,21 +1,14 @@
 ---
-title: Introdução ao Azure Advisor | Microsoft Docs
+title: Introdução ao Azure Advisor
 description: Use o Azure Advisor para otimizar as implantações do Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
-ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443088"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -51,12 +44,12 @@ Se você não pretende tomar uma ação imediata em uma recomendação, você po
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="how-do-i-access-advisor"></a>Como acesso o Advisor?
+### <a name="how-do-i-access-advisor"></a>Como posso acessar o Assistente?
 Você pode acessar o Advisor pelo [Portal do Azure](https://aka.ms/azureadvisordashboard). Entre no [Portal](https://portal.azure.com), localize o **Assistente** no menu de navegação ou pesquise por ele no menu **Todos os serviços**.
 
 Você também pode exibir as recomendações do Assistente por meio interface de recursos da máquina virtual. Escolha uma máquina virtual e role até as recomendações do Advisor no menu. 
 
-### <a name="what-permissions-do-i-need-to-access-advisor"></a>De quais permissões preciso para acessar o Advisor?
+### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quais são as permissões necessárias para acessar o Assistente?
  
 Você pode acessar as recomendações do Assistente como *Proprietário*, *Colaborador* ou *Leitor* de uma assinatura.
 
@@ -70,7 +63,7 @@ O Azure Advisor também inclui suas recomendações da [central de segurança do
 
 Para adiar ou ignorar uma recomendação, clique no link **Adiar**. Você pode especificar um período de adiamento ou selecione **Nunca** para ignorar a recomendação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Assistente, consulte:
 

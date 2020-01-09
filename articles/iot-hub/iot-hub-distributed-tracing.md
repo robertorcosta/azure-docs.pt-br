@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457058"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -30,7 +30,7 @@ A ativação do rastreamento distribuído para o Hub IoT oferece a capacidade de
 
 Neste artigo, você deve usar o [SDK do dispositivo IoT do Azure para C](iot-hub-device-sdk-c-intro.md) com rastreamento distribuído. O suporte ao rastreamento distribuído ainda está em andamento para os outros SDKs.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Atualmente, a versão prévia do rastreamento distribuído só é compatível com os Hubs IoT criados nas seguintes regiões:
 
@@ -88,22 +88,23 @@ Essas instruções servem para compilar o exemplo no Windows. Para outros ambien
 
 ### <a name="clone-the-source-code-and-initialize"></a>Clonar o código-fonte e inicializar
 
-1. Instale a [carga de trabalho "Desenvolvimento de área de trabalho com C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) para Visual Studio 2015 ou 2017.
+1. Instale [a carga de trabalho C++"desenvolvimento de desktops com"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) para o Visual Studio 2019. Também há suporte para o Visual Studio 2017 e 2015.
 
 1. Instale o [CMake](https://cmake.org/). Para verificar se ele está no `PATH` digite `cmake -version` em um prompt de comando.
 
-1. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório do GitHub [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
+1. Abra um prompt de comando ou o shell Bash do Git. Execute os seguintes comandos para clonar a versão mais recente do repositório GitHub do [SDK do Azure IOT C](https://github.com/Azure/azure-iot-sdk-c) :
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Essa operação deve demorar alguns minutos.
 
-1. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta.
+1. Crie um subdiretório `cmake` no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório `azure-iot-sdk-c`:
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -197,7 +198,7 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 1. Escolha uma **taxa de amostragem** entre 0% e 100%.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. Aguarde alguns segundos e pressione **Atualizar**, Em seguida, se for confirmado com sucesso pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
 
@@ -240,10 +241,10 @@ Para atualizar a configuração da amostragem do rastreamento distribuído para 
 }
 ```
 
-| Nome do elemento | obrigatórios | Digite | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | Tipo | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | sim | Inteiro | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1` está Habilitado e `2` está Desabilitado. |
-| `sampling_rate` | sim | Inteiro | Esse valor é uma porcentagem. Somente valores de `0` para `100` (inclusive) são permitidos.  |
+| `sampling_mode` | Sim | Integer | Atualmente, há suporte para dois valores de modo para ativar e desativar a amostragem. `1` está Habilitado e `2` está Desabilitado. |
+| `sampling_rate` | Sim | Integer | Esse valor é uma porcentagem. Somente valores de `0` para `100` (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consultar e visualizar
 
@@ -271,7 +272,7 @@ Os logs de exemplo conforme mostrados pelo Log Analytics:
 
 Para entender os diferentes tipos de logs, confira [Logs de diagnóstico do Azure Hub IoT](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
-### <a name="application-map"></a>Mapa de aplicativo
+### <a name="application-map"></a>Mapa de Aplicativos
 
 Para visualizar o fluxo de mensagens de IoT, configure o aplicativo de exemplo do Mapa do aplicativo. O aplicativo de exemplo envia os logs de rastreamento distribuído ao [Mapa do aplicativo](../application-insights/app-insights-app-map.md) usando uma função do Azure e um Hub de eventos.
 
@@ -316,7 +317,7 @@ Uma vez habilitado, o suporte ao rastreamento distribuído para o Hub IoT seguir
 - O recurso gêmeo de nuvem para dispositivo não está disponível para a [camada básica do Hub IoT](iot-hub-scaling.md#basic-and-standard-tiers). No entanto, o Hub IoT ainda realizará o log no Azure Monitor se ele vir um cabeçalho de contexto de rastreamento adequadamente composto.
 - Para garantir uma operação eficiente, o Hub IoT imporá uma aceleração na taxa de registro que poderá ocorrer como parte do rastreamento distribuído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre o padrão geral do rastreamento distribuído em microsserviços, confira [Padrão de arquitetura do microsserviço: rastreamento distribuído](https://microservices.io/patterns/observability/distributed-tracing.html).
 - Para definir a configuração para aplicar configurações de rastreamento distribuído a um grande número de dispositivos, confira [Configurar e monitorar dispositivos IoT em escala](iot-hub-auto-device-config.md).

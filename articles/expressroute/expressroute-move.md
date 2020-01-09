@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076653"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645898"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos do ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos
 Este artigo fornece uma visão geral do que significa mover um circuito do ExpressRoute do clássico para o modelo de implantação do Azure Resource Manager.
@@ -39,7 +39,7 @@ Você pode habilitar os circuitos do ExpressRoute criados no modelo de implanta�
 * O acesso ao modelo de implantação clássico é controlado pelo parâmetro **allowClassicOperations** no circuito do ExpressRoute.
 
 > [!IMPORTANT]
-> Todas as cotas documentadas na página de [limites do serviço](../azure-subscription-service-limits.md) aplicam-se. Por exemplo, um circuito padrão pode ter no máximo 10 links de rede virtual/conexões nos modelos de implantação clássico e do Gerenciador de Recursos.
+> Todas as cotas documentadas na página de [limites do serviço](../azure-resource-manager/management/azure-subscription-service-limits.md) aplicam-se. Por exemplo, um circuito padrão pode ter no máximo 10 links de rede virtual/conexões nos modelos de implantação clássico e do Gerenciador de Recursos.
 > 
 > 
 
@@ -90,7 +90,7 @@ Esta seção descreve o que não tem suporte para os circuitos do ExpressRoute:
 ## <a name="configuration"></a>Configuração
 Siga as instruções descritas em [Mover um circuito do ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos](expressroute-howto-move-arm.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Migrar as redes virtuais vinculadas ao circuito do ExpressRoute a partir do modelo clássico para o modelo do Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Para obter informações sobre o fluxo de trabalho, consulte [Fluxos de trabalho de provisionamento e estados do circuito do ExpressRoute](expressroute-workflows.md).
 * Para configurar sua conexão do ExpressRoute:

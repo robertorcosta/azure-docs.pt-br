@@ -1,25 +1,14 @@
 ---
-title: Lista de verificação de preparação da produção do Microsoft Azure Service Fabric| Microsoft Docs
+title: Lista de verificação de preparação de produção do Azure Service Fabric
 description: Prepare o aplicativo do Service Fabric e o cluster prontos para produção seguindo as melhores práticas.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/05/2019
-ms.author: atsenthi
-ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376793"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação de preparação para produção
 
@@ -27,7 +16,7 @@ O aplicativo e o cluster estão prontos para receber tráfego de produção? Exe
 
 
 ## <a name="prerequisites-for-production"></a>Pré-requisitos para produção
-1. Práticas recomendadas do Azure Service Fabric: [Design de aplicativos](./service-fabric-best-practices-applications.md), [segurança](./service-fabric-best-practices-security.md), [rede](./service-fabric-best-practices-networking.md), [planejamento de capacidade e dimensionamento](./service-fabric-best-practices-capacity-scaling.md), [Infraestrutura como código](./service-fabric-best-practices-infrastructure-as-code.md)e [monitoramento e diagnóstico](./service-fabric-best-practices-monitoring.md). 
+1. Práticas recomendadas do Azure Service Fabric: [design de aplicativo](./service-fabric-best-practices-applications.md), [segurança](./service-fabric-best-practices-security.md), [rede](./service-fabric-best-practices-networking.md), [planejamento de capacidade e dimensionamento](./service-fabric-best-practices-capacity-scaling.md), [Infraestrutura como código](./service-fabric-best-practices-infrastructure-as-code.md)e [monitoramento e diagnóstico](./service-fabric-best-practices-monitoring.md). 
 1. Implementar a configuração de segurança dos Reliable Actors se o modelo de programação de Atores estiver sendo usado
 1. Para clusters com mais de 20 núcleos ou 10 nós, crie um tipo de nó primário dedicado para serviços do sistema. Adicione [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para reservar o tipo de nó primário para serviços do sistema.
 1. Use D2v2 ou SKU superior para o tipo de nó primário. É recomendável separar uma SKU com pelo menos 50 GB de capacidade de disco rígido.
@@ -65,7 +54,7 @@ Embora as listas acima sejam pré-requisitos para entrar em produção, os segui
 1. Implante um watchdog personalizado que está monitorando o aplicativo e [carregue](service-fabric-cluster-resource-manager-metrics.md) relatórios para [balanceamento de recursos](service-fabric-cluster-resource-manager-balancing.md). 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Implantar um cluster do Windows do Service Fabric](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * [Implantar um cluster do Linux do Service Fabric](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.

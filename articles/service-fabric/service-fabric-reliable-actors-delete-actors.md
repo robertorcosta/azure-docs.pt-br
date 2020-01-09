@@ -1,25 +1,16 @@
 ---
-title: Excluir os atores do Microsoft Azure Service Fabric | Microsoft Docs
-description: Saiba como excluir manualmente o Reliable Actors do Service Fabric e o respectivo estado.
-services: service-fabric
-documentationcenter: .net
+title: Excluir atores de Service Fabric do Azure
+description: Saiba como excluir manualmente e completamente Reliable Actors e seu estado em um aplicativo de Service Fabric do Azure.
 author: amanbha
-manager: chackdan
-editor: vturecek
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b90c5a10c64e273f1c8f48c7bf5713859796db65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726597"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645609"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Excluir Reliable Actors e o respectivo estado
 A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas não remove os dados que são armazenados no Gerenciador de Estado de um ator. Quando um ator é reativado, seus dados são novamente disponibilizados a ele através do Gerenciador de Estado. Nos casos em que atores armazenam dados no Gerenciador de Estado e são desativados, mas nunca reativados, pode ser necessário eliminar seus dados.
@@ -51,7 +42,7 @@ Os efeitos de excluir um ator são descritos abaixo de acordo com o estado, ativ
 * **Ator inativo**
   * Seu estado é excluído permanentemente.
 
-Um ator não pode chamar a exclusão em si mesmo a partir de um de seus métodos de ator porque o ator não pode ser excluído durante a execução em um contexto de chamada de ator, no qual o tempo de execução obteve um bloqueio em torno da chamada de ator para impor o acesso single-threaded.
+Um ator não pode chamar a exclusão em si mesmo a partir de um de seus métodos de ator porque o ator não pode ser excluído durante a execução em um contexto de chamada de ator, no qual o runtime obteve um bloqueio em torno da chamada de ator para impor o acesso single-threaded.
 
 Para obter mais informações sobre Reliable Actors, leia o seguinte:
 * [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)

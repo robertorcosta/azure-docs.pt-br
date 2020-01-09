@@ -1,24 +1,16 @@
 ---
-title: Preparação para implantação de cluster autônomo do Azure Service Fabric | Microsoft Docs
+title: Preparação de implantação de cluster autônomo
 description: Documentação relacionada à preparação do ambiente e à criação da configuração de cluster a ser considerada antes de implantar um cluster voltado para a manipulação de uma carga de trabalho de produção.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 8b9f659098e563a3dc0692530ad798a5c763551f
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133409"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610056"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar a implantação de cluster Autônomo do Service Fabric
 
@@ -93,7 +85,7 @@ Depois que a configuração do cluster tiver todas as configurações definidas 
 
 <a id="environmentsetup"></a>
 
-## <a name="environment-setup"></a>Configuração do ambiente
+## <a name="environment-setup"></a>Configuração de ambiente
 
 Quando um administrador de cluster configura um cluster autônomo do Service Fabric, o ambiente precisa ser configurado com os seguintes critérios: <br>
 1. O usuário que está criando o cluster deve ter privilégios de segurança de nível de administrador para todos os computadores listados como nós no arquivo de configuração do cluster.
@@ -167,5 +159,5 @@ No momento, este módulo de teste de configuração não valida a configuração
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Criar um cluster autônomo em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md)

@@ -4,14 +4,14 @@ description: Como definir destinos de armazenamento para que o cache HPC do Azur
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166654"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647197"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -33,6 +33,8 @@ No portal do Azure, abra sua instância de cache e clique em **destinos de armaz
 
 Um novo destino de armazenamento de BLOBs precisa de um contêiner de blob vazio ou um contêiner que é preenchido com dados no formato do sistema de arquivos da nuvem de cache do HPC do Azure. Leia mais sobre pré-carregando um contêiner de BLOBs em [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
+Você pode criar um novo contêiner desta página logo antes de adicioná-lo.
+
 Para definir um contêiner de blob do Azure, insira essas informações.
 
 ![captura de tela da página Adicionar destino de armazenamento, preenchida com informações para um novo destino de armazenamento de BLOBs do Azure](media/hpc-cache-add-blob.png)
@@ -41,13 +43,15 @@ Para definir um contêiner de blob do Azure, insira essas informações.
 
 * **Nome do destino de armazenamento** -defina um nome que identifique esse destino de armazenamento no cache do HPC do Azure.
 * **Tipo de destino** -escolha **blob**.
-* **Conta de armazenamento** -selecione a conta com o contêiner que você deseja usar.
+* **Conta de armazenamento** -selecione a conta que você deseja usar.
 
   Você precisará autorizar a instância de cache a acessar a conta de armazenamento, conforme descrito em [Adicionar as funções de acesso](#add-the-access-control-roles-to-your-account).
 
   Para obter informações sobre o tipo de conta de armazenamento que você pode usar, leia [requisitos de armazenamento de BLOBs](hpc-cache-prereqs.md#blob-storage-requirements).
 
-* **Contêiner de armazenamento** -selecione o contêiner de BLOB para este destino.
+* **Contêiner de armazenamento** -selecione o contêiner de BLOB para este destino ou clique em **criar novo**.
+
+  ![captura de tela da caixa de diálogo para especificar o nome e o nível de acesso (privado) para o novo contêiner](media/add-blob-new-container.png)
 
 * **Caminho do namespace virtual** -defina o caminho do arquivo voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
 
@@ -146,11 +150,11 @@ Esta tabela resume as diferenças do modelo de uso:
 
 | Modelo de uso | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
 | ---- | ---- | ---- | ---- |
-| Leia gravações pesadas e frequentes | Ler | Nunca | nenhum |
+| Leia gravações pesadas e frequentes | Leitura | Nunca | Nenhum |
 | Mais de 15% de gravações | Leitura/gravação | Nunca | 1 hora |
-| Clientes ignoram o cache | Ler | 30 segundos | nenhum |
+| Clientes ignoram o cache | Leitura | 30 segundos | Nenhum |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar destinos de armazenamento, considere uma destas tarefas:
 

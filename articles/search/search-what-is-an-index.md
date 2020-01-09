@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460755"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Criar um índice básico no Azure Pesquisa Cognitiva
 
@@ -37,7 +37,7 @@ Normalmente, chegar no design de índice correto é obtido por meio de várias i
 
 3. Baixe o esquema de índice usando a [API REST Obter índice](https://docs.microsoft.com/rest/api/searchservice/get-index) e uma ferramenta de teste da Web como [Postman](search-get-started-postman.md). Agora você tem uma representação JSON do índice criado no portal. 
 
-   Você está mudando para uma abordagem baseada em código neste momento. O portal não é adequado para iteração, porque não é possível editar um índice já criado. Mas é possível usar o Postman e REST para as tarefas restantes.
+   Você está mudando para uma abordagem baseada em código neste momento. O portal não é adequado para iteração porque você não pode editar um índice que já foi criado. Mas é possível usar o Postman e REST para as tarefas restantes.
 
 4. [Carregue seu índice com os dados](search-what-is-data-import.md). O Azure Pesquisa Cognitiva aceita documentos JSON. Para carregar seus dados de maneira programática, é possível usar o Postman com documentos JSON no conteúdo da solicitação. Se os dados não estiverem expressados facilmente como JSON, essa etapa será a mais trabalhosa.
 
@@ -145,7 +145,7 @@ A [*coleção de campos*](#fields-collection) normalmente é a maior parte de um
 Quando você define o esquema, deve especificar o nome, tipo e atributos de cada campo no índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar como o campo será usado. A tabela a seguir enumera os tipos e atributos que você pode especificar.
 
 ### <a name="data-types"></a>Tipos de dados
-| Type | Descrição |
+| Tipo | Description |
 | --- | --- |
 | *Edm.String* |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação e assim por diante). |
 | *Collection(Edm.String)* |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
@@ -166,7 +166,7 @@ Outros atributos determinam como um campo é usado em um aplicativo. Por exemplo
 
 As APIs usadas para criar um índice têm comportamentos padrão variados. Para as [APIs REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), a maioria dos atributos é habilitada por padrão (por exemplo, **pesquisável** e **recuperável** são verdadeiros para campos de cadeia de caracteres) e, muitas vezes, você só precisa defini-los se desejar desativá-los. Para o SDK do .NET, o oposto é true. Em qualquer propriedade que você não definir explicitamente, o padrão é desabilitar o comportamento de pesquisa correspondente, a menos que você o habilite especificamente.
 
-| Atributo | Descrição |
+| Atributo | Description |
 | --- | --- |
 | `key` |Uma cadeia de caracteres que fornece a ID exclusiva de cada documento, usada para pesquisar documentos. Todos os índices devem ter uma chave. Somente um campo pode ser a chave e seu tipo deve ser definido para Edm.String. |
 | `retrievable` |Especifica se um campo pode ser retornado em um resultado da pesquisa. |
@@ -175,10 +175,9 @@ As APIs usadas para criar um índice têm comportamentos padrão variados. Para 
 | `facetable` |Permite que um campo seja usado em uma estrutura de [navegação mista](search-faceted-navigation.md) para a filtragem autodirecionada do usuário. Normalmente, os campos que contêm valores repetidos que você pode usar para agrupar vários documentos (por exemplo, vários documentos que estejam em uma única categoria de marca ou de serviço) funcionam melhor como facetas. |
 | `searchable` |Marca o campo como texto completo pesquisável. |
 
+## <a name="index-size"></a>Tamanho do índice
 
-## <a name="storage-implications"></a>Implicações de armazenamento
-
-Os atributos selecionados têm um impacto no armazenamento. A captura de tela a seguir ilustra padrões de armazenamento de índice resultantes de várias combinações de atributos.
+O tamanho de um índice é determinado pelo tamanho dos documentos que você carrega, além da configuração de índice, como se você inclui sugestores e como você define atributos em campos individuais. A captura de tela a seguir ilustra padrões de armazenamento de índice resultantes de várias combinações de atributos.
 
 O índice é baseado na fonte de dados de [exemplo interna de imóveis](search-get-started-portal.md) , que você pode indexar e consultar no Portal. Embora os esquemas de índice não sejam mostrados, é possível inferir os atributos com base no nome do índice. Por exemplo, o índice *realestate-searchable* tem o atributo **searchable** selecionado e nada mais, o índice *realestate-retrievable* tem o atributo **retrievable** selecionado e nada mais e assim por diante.
 
@@ -186,13 +185,13 @@ O índice é baseado na fonte de dados de [exemplo interna de imóveis](search-g
 
 Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. A configuração **recuperável** aumenta o tamanho do índice? Não. A adição de campos a um **Sugestor** aumenta o tamanho do índice? Sim.
 
-Os índices que dão suporte à filtragem e à classificação são proporcionalmente maiores do que os índices que dão suporte apenas à pesquisa de texto completo. O motivo é que isso filtra e classifica consultas em correspondências exatas, assim os documentos são armazenados intactos. Por outro lado, os campos pesquisáveis que dão suporte à pesquisa de texto completo e difusa usam índices invertidos, populados com termos indexados que consomem menos espaço do que documentos inteiros.
+Os índices que dão suporte ao filtro e à classificação são proporcionalmente maiores que aqueles que dão suporte à pesquisa de texto completo. As operações filtrar e classificar verificam correspondências exatas, exigindo a presença de documentos intactos. Por outro lado, os campos pesquisáveis que dão suporte à pesquisa de texto completo e difusa usam índices invertidos, populados com termos indexados que consomem menos espaço do que documentos inteiros. 
 
 > [!Note]
 > A arquitetura de armazenamento é considerada um detalhe de implementação do Azure Pesquisa Cognitiva e pode ser alterada sem aviso prévio. Não há nenhuma garantia de que o comportamento atual persistirá no futuro.
 
 ## <a name="suggesters"></a>Sugestões
-Um sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou digitação antecipada em pesquisas. Normalmente, cadeias de caracteres de pesquisa parciais são enviadas às [Sugestões (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de frases sugeridas. 
+Um sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou digitação antecipada em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de documentos ou frases sugeridos. 
 
 Os campos adicionados a um sugestor são usados para criar termos de pesquisa de digitação antecipada. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para saber mais sobre como criar uma estrutura de sugestor, confira [Add suggesters](index-add-suggesters.md) (Adicionar sugestores).
 

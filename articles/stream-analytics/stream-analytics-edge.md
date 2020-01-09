@@ -4,16 +4,16 @@ description: Crie trabalhos do Edge no Azure Stream Analytics e implante-os nos 
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff2a7e571c771a73c46959f35e341d861533bb55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976427"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426325"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics no IoT Edge
  
@@ -44,7 +44,7 @@ O ASA usa o Hub IoT para implantar os trabalhos de borda para o(s) dispositivo(s
 ### <a name="installation-instructions"></a>Instruções de instalação
 As etapas de alto nível são descritas na tabela a seguir. Mais detalhes são fornecidos nas seções a seguir.
 
-|      |Etapa   | Notas   |
+|      |Etapa   | Observações   |
 | ---   | ---   |  ---      |
 | 1   | **Criar um contêiner de armazenamento**   | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente.     |
 | 2   | **Criar um trabalho de borda ASA**   |  Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem**. <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge.     |
@@ -151,7 +151,7 @@ No entanto, os recursos a seguir ainda não têm suporte para trabalhos de borda
 * Uso de mais de 14 agregações em uma única etapa.
 * Formato AVRO para entrada/saída. No momento, há suporte apenas para CSV e JSON.
 * Os seguintes operadores SQL:
-    * PARTIÇÃO POR
+    * PARTITION BY
     * GetMetadataPropertyValue
 
 

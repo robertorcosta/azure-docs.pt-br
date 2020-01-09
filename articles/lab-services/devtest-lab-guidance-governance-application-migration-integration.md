@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560642"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644879"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governança da infraestrutura do Azure DevTest Labs – Integração e migração de aplicativos
 Depois que seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecido, você precisará pensar sobre as perguntas a seguir:
@@ -93,7 +93,7 @@ Quando devo criar uma nova rede virtual para meu ambiente de Laboratórios de De
 ### <a name="answer"></a>Resposta
 Se suas VMs precisam interagir com a infraestrutura existente, você deve considerar usar uma rede virtual existente dentro de seu ambiente de Laboratórios de Desenvolvimento/Teste. Além disso, se você usar o ExpressRoute, é possível minimizar a quantidade de VNets/sub-redes, de modo que você não fragmente seu espaço de endereço IP que fica atribuído para uso nas assinaturas. Você também deve considerar usar o padrão de VNet Peering aqui (modelo de Hub-Spoke). Essa abordagem permite a comunicação de vnet/sub-rede entre assinaturas dentro de uma determinada região, embora o emparelhamento entre regiões seja um recurso ainda por vir na rede do Azure.
 
-Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual. No entanto, observe que há [limites](../azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser aumentado para 100.
+Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual. No entanto, observe que há [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser aumentado para 100.
 
 ## <a name="shared-public-or-private-ip"></a>IP compartilhado, público ou privado
 
@@ -117,7 +117,7 @@ Há uma regra com relação a quantas máquinas virtuais devo definir por usuár
 Ao considerar o número de máquinas virtuais por usuário ou por laboratório, há três principais preocupações:
 
 - O **custo geral** que a equipe pode gastar em recursos do laboratório. É fácil acelerar várias máquinas. Para controlar os custos, um mecanismo serve para limitar o número de máquinas virtuais por usuário e/ou por laboratório
-- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é 800 grupos de recursos por assinatura. Os Laboratórios de Desenvolvimento/Teste criam um novo grupo de recursos para cada máquina virtual (a menos que sejam usados IPs públicos compartilhados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderão se ajustar a aproximadamente 79 máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios em si) = 79 máquinas virtuais por laboratório.
+- O número total de máquinas virtuais em um laboratório é afetado pelas [cotas de nível de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md) disponíveis. Um dos limites superiores é 800 grupos de recursos por assinatura. Os Laboratórios de Desenvolvimento/Teste criam um novo grupo de recursos para cada máquina virtual (a menos que sejam usados IPs públicos compartilhados). Se houver 10 laboratórios em uma assinatura, os laboratórios poderão se ajustar a aproximadamente 79 máquinas virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios em si) = 79 máquinas virtuais por laboratório.
 - Se o laboratório é conectado ao local por meio da Rota Expressa (por exemplo), há **espaços de endereço IP definidos disponíveis** para a VNet/sub-rede. Para garantir que as máquinas virtuais no laboratório não falhem ao serem criadas (erro: não é possível obter o endereço IP), os proprietários de laboratório podem especificar o máximo de máquinas virtuais por laboratório alinhado com o espaço de endereço IP disponível.
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos

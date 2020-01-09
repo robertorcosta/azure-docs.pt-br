@@ -1,25 +1,16 @@
 ---
-title: CLI do Azure Service Fabric - sfctl | Microsoft Docs
-description: Descreve os comandos do sfctl da CLI do Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: CLI do Azure Service Fabric-sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos e subgrupos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 7e7fc7bbc65e92960d7839f6531ef1f7c1935ed3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 518e60ee92a637533fdf5ab44053d1a1c8757bbe
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900872"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645235"
 ---
 # <a name="sfctl"></a>sfctl
 Comandos para gerenciar clusters e entidades do Service Fabric. Esta versão é compatível com o tempo de execução do Service Fabric 6,5.
@@ -27,7 +18,7 @@ Comandos para gerenciar clusters e entidades do Service Fabric. Esta versão é 
 Os comandos seguem o padrão de substantivo-verbo. Confira subgrupos para saber mais.
 
 ## <a name="subgroups"></a>Subgrupos
-|Subgrupo|Descrição|
+|Subgrupo|Description|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md) | Criar, excluir e gerenciar aplicativos e tipos de aplicativo. |
 | [chaos](service-fabric-sfctl-chaos.md) | Iniciar, parar e emitir relatórios sobre o serviço de teste de caos. |

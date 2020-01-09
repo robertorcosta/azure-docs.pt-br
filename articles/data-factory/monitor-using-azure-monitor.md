@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 67709ef96ffb8190812d625c04cd9749c0ebb900
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684626"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645184"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alertar e monitorar fábricas de dados usando Azure Monitor
 
@@ -57,14 +57,14 @@ Use as configurações de diagnóstico para configurar os logs de diagnóstico p
 
 #### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Criar ou atualizar uma configuração de diagnóstico na API REST do monitor
 
-##### <a name="request"></a>Solicitação
+##### <a name="request"></a>Solicitar
 
 ```
 PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
@@ -112,16 +112,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | --- | --- | --- |
-| **storageAccountId** |Cadeia de caracteres | A ID de recurso da conta de armazenamento para a qual você deseja enviar os logs de diagnóstico. |
-| **serviceBusRuleId** |Cadeia de caracteres | A ID da regra de barramento de serviço do namespace do barramento de serviço no qual você deseja que os hubs de eventos sejam criados para os logs de diagnóstico de streaming. A ID da regra tem o formato `{service bus resource ID}/authorizationrules/{key name}`.|
+| **storageAccountId** |String | A ID de recurso da conta de armazenamento para a qual você deseja enviar os logs de diagnóstico. |
+| **serviceBusRuleId** |String | A ID da regra de barramento de serviço do namespace do barramento de serviço no qual você deseja que os hubs de eventos sejam criados para os logs de diagnóstico de streaming. A ID da regra tem o formato `{service bus resource ID}/authorizationrules/{key name}`.|
 | **workspaceId** | Tipo complexo | Uma matriz de detalhamentos de tempo de métrica e suas políticas de retenção. O valor desta propriedade está vazio. |
-|**metrics**| Valores de parâmetro da execução do pipeline a serem passados para o pipeline invocado| Um objeto JSON que mapeia nomes de parâmetro para valores de argumento. |
+|**métricas**| Valores de parâmetro da execução do pipeline a serem passados para o pipeline invocado| Um objeto JSON que mapeia nomes de parâmetro para valores de argumento. |
 | **logs**| Tipo complexo| O nome de uma categoria de log de diagnóstico para um tipo de recurso. Para obter a lista de categorias de log de diagnóstico para um recurso, execute uma operação obter diagnóstico-configurações. |
-| **category**| Cadeia de caracteres| Uma matriz de categorias de log e suas políticas de retenção. |
-| **timeGrain** | Cadeia de caracteres | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor da propriedade deve ser `PT1M`, que especifica um minuto. |
-| **habilitado**| Booliano | Especifica se a coleta da categoria de métrica ou de log está habilitada para este recurso. |
+| **category**| String| Uma matriz de categorias de log e suas políticas de retenção. |
+| **timeGrain** | String | A granularidade das métricas, que são capturadas no formato de duração ISO 8601. O valor da propriedade deve ser `PT1M`, que especifica um minuto. |
+| **habilitado**| Boolean | Especifica se a coleta da categoria de métrica ou de log está habilitada para este recurso. |
 | **retentionPolicy**| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou de log. Esta propriedade é usada somente para contas de armazenamento. |
 |**dias**| Int| O número de dias para manter as métricas ou os logs. Se o valor da propriedade for 0, os logs serão mantidos para sempre. Esta propriedade é usada somente para contas de armazenamento. |
 
@@ -178,14 +178,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 #### <a name="get-information-about-diagnostics-settings-in-the-monitor-rest-api"></a>Obter informações sobre as configurações de diagnóstico na API REST do monitor
 
-##### <a name="request"></a>Solicitação
+##### <a name="request"></a>Solicitar
 
 ```
 GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
 * Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
@@ -287,21 +287,21 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO | Exemplo |
+| Propriedade | Tipo | Description | Exemplo |
 | --- | --- | --- | --- |
-| **Level** |Cadeia de caracteres | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
-| **correlationId** |Cadeia de caracteres | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Cadeia de caracteres | A hora do evento no formato UTC de TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**activityRunId**| Cadeia de caracteres| A ID da execução da atividade. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|**pipelineRunId**| Cadeia de caracteres| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**resourceId**| Cadeia de caracteres | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Cadeia de caracteres | A categoria dos logs de diagnóstico. Defina o valor da propriedade como `ActivityRuns`. | `ActivityRuns` |
-|**geral**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade como `Informational`. | `Informational` |
-|**operationName**| Cadeia de caracteres | O nome da atividade com seu status. Se a atividade for a pulsação inicial, o valor da propriedade será `MyActivity -`. Se a atividade for a pulsação final, o valor da propriedade será `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
-|**pipelineName**| Cadeia de caracteres | O nome do pipeline. | `MyPipeline` |
-|**activityName**| Cadeia de caracteres | O nome da atividade. | `MyActivity` |
-|**iniciar**| Cadeia de caracteres | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`|
-|**completo**| Cadeia de caracteres | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar que uma atividade foi iniciada, mas ainda não terminou, o valor da propriedade será `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
+| **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
+| **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | A hora do evento no formato UTC de TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**activityRunId**| String| A ID da execução da atividade. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| String| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| String | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | A categoria dos logs de diagnóstico. Defina o valor da propriedade `ActivityRuns`. | `ActivityRuns` |
+|**level**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**operationName**| String | O nome da atividade com seu status. Se a atividade for a pulsação inicial, o valor da propriedade será `MyActivity -`. Se a atividade for a pulsação final, o valor da propriedade será `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
+|**pipelineName**| String | O nome do pipeline. | `MyPipeline` |
+|**activityName**| String | O nome da atividade. | `MyActivity` |
+|**start**| String | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`|
+|**end**| String | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar que uma atividade foi iniciada, mas ainda não terminou, o valor da propriedade será `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Atributos de log de execução de pipeline
 
@@ -333,20 +333,20 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 }
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO | Exemplo |
+| Propriedade | Tipo | Description | Exemplo |
 | --- | --- | --- | --- |
-| **Level** |Cadeia de caracteres | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
-| **correlationId** |Cadeia de caracteres | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Cadeia de caracteres | A hora do evento no formato UTC de TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**runId**| Cadeia de caracteres| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**resourceId**| Cadeia de caracteres | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Cadeia de caracteres | A categoria dos logs de diagnóstico. Defina o valor da propriedade como `PipelineRuns`. | `PipelineRuns` |
-|**geral**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade como `Informational`. | `Informational` |
-|**operationName**| Cadeia de caracteres | O nome do pipeline junto com seu status. Depois que a execução do pipeline for concluída, o valor da propriedade será `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
-|**pipelineName**| Cadeia de caracteres | O nome do pipeline. | `MyPipeline` |
-|**iniciar**| Cadeia de caracteres | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`. |
-|**completo**| Cadeia de caracteres | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar uma atividade iniciada mas ainda não tiver sido encerrada, o valor da propriedade será `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
-|**status**| Cadeia de caracteres | O status final da execução do pipeline. Os valores de propriedade possíveis são `Succeeded` e `Failed`. | `Succeeded`|
+| **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
+| **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | A hora do evento no formato UTC de TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| String| A ID da execução do pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| String | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | A categoria dos logs de diagnóstico. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
+|**level**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**operationName**| String | O nome do pipeline junto com seu status. Depois que a execução do pipeline for concluída, o valor da propriedade será `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
+|**pipelineName**| String | O nome do pipeline. | `MyPipeline` |
+|**start**| String | A hora de início da atividade é executada no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`. |
+|**end**| String | A hora de término da atividade é executada no formato UTC de TimeSpan. Se o log de diagnóstico mostrar uma atividade iniciada mas ainda não tiver sido encerrada, o valor da propriedade será `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
+|**status**| String | O status final da execução do pipeline. Os valores de propriedade possíveis são `Succeeded` e `Failed`. | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Gatilho-executar atributos de log
 
@@ -377,21 +377,21 @@ Para obter mais informações, consulte [configurações de diagnóstico](https:
 
 ```
 
-| Propriedade | Tipo | DESCRIÇÃO | Exemplo |
+| Propriedade | Tipo | Description | Exemplo |
 | --- | --- | --- | --- |
-| **Level** |Cadeia de caracteres | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
-| **correlationId** |Cadeia de caracteres | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Cadeia de caracteres | A hora do evento no formato UTC de TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**triggerId**| Cadeia de caracteres| A ID da execução do gatilho. | `08587023010602533858661257311` |
-|**resourceId**| Cadeia de caracteres | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Cadeia de caracteres | A categoria dos logs de diagnóstico. Defina o valor da propriedade como `PipelineRuns`. | `PipelineRuns` |
-|**geral**| Cadeia de caracteres | O nível dos logs de diagnóstico. Defina o valor da propriedade como `Informational`. | `Informational` |
-|**operationName**| Cadeia de caracteres | O nome do gatilho com seu status final, que indica se o gatilho foi acionado com êxito. Se a pulsação tiver sido bem-sucedida, o valor da propriedade será `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
-|**triggerName**| Cadeia de caracteres | O nome do gatilho. | `MyTrigger` |
-|**triggerType**| Cadeia de caracteres | O tipo do gatilho. Os valores de propriedade possíveis são `Manual Trigger` e `Schedule Trigger`. | `ScheduleTrigger` |
-|**triggerEvent**| Cadeia de caracteres | O evento do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**iniciar**| Cadeia de caracteres | A hora de início do acionamento do gatilho no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`|
-|**status**| Cadeia de caracteres | O status final que mostra se o gatilho foi acionado com êxito. Os valores de propriedade possíveis são `Succeeded` e `Failed`. | `Succeeded`|
+| **Level** |String | O nível dos logs de diagnóstico. Para logs de execução de atividade, defina o valor da propriedade como 4. | `4` |
+| **correlationId** |String | A ID exclusiva para acompanhar uma solicitação específica. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | A hora do evento no formato UTC de TimeSpan `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| String| A ID da execução do gatilho. | `08587023010602533858661257311` |
+|**resourceId**| String | A ID associada ao recurso de data Factory. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | A categoria dos logs de diagnóstico. Defina o valor da propriedade `PipelineRuns`. | `PipelineRuns` |
+|**level**| String | O nível dos logs de diagnóstico. Defina o valor da propriedade `Informational`. | `Informational` |
+|**operationName**| String | O nome do gatilho com seu status final, que indica se o gatilho foi acionado com êxito. Se a pulsação tiver sido bem-sucedida, o valor da propriedade será `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
+|**triggerName**| String | O nome do gatilho. | `MyTrigger` |
+|**triggerType**| String | O tipo do gatilho. Os valores de propriedade possíveis são `Manual Trigger` e `Schedule Trigger`. | `ScheduleTrigger` |
+|**triggerEvent**| String | O evento do gatilho. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**start**| String | A hora de início do acionamento do gatilho no formato UTC de TimeSpan. | `2017-06-26T20:55:29.5007959Z`|
+|**status**| String | O status final que mostra se o gatilho foi acionado com êxito. Os valores de propriedade possíveis são `Succeeded` e `Failed`. | `Succeeded`|
 
 ### <a name="log-analytics-schema"></a>Esquema de Log Analytics
 
@@ -408,11 +408,11 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Entrada | Entrada | Dinâmico |
     | $. Properties. Der | Saída | Dinâmico |
     | $. Properties. Erro. errorCode | ErrorCode | int |
-    | $. Properties. Erro. mensagem | errorMessage | string |
+    | $. Properties. Erro. mensagem | ErrorMessage | cadeia de caracteres |
     | $. Properties. Ao | Erro | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
-    | $. Properties. Parâmetro | parâmetros | Dinâmico |
-    | $. Properties. Sistemaparameters | Sistemaparameters | Dinâmico |
+    | $. Properties. Parâmetro | Parâmetros | Dinâmico |
+    | $. Properties. Sistemaparameters | SystemParameters | Dinâmico |
     | $. Properties. Sinalizadores | Marcas | Dinâmico |
     
 ## <a name="metrics"></a>Métricas
@@ -431,6 +431,9 @@ Azure Data Factory versão 2 emite as métricas a seguir.
 | TriggerFailedRuns    | Métricas de execuções do gatilho com falha     | Contagem    | Total                | O número total de execuções de gatilho que falharam em uma janela de minuto.      |
 
 Para acessar as métricas, conclua as instruções em [Azure monitor plataforma de dados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+
+> [!NOTE]
+> Somente os eventos concluídos, atividade disparada e execuções de pipeline são emitidos. Em andamento e na área restrita/as execuções de depuração **não** são emitidas. 
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Monitorar Data Factory métricas com Azure Monitor
 
@@ -464,12 +467,12 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
 
     ![Nomeie suas configurações e selecione um espaço de trabalho do log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações dessa data factory. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 
 * No modo _específico do recurso_ , os logs de diagnóstico de Azure data Factory fluxo em tabelas _ADFPipelineRun_, _ADFTriggerRun_e _ADFActivityRun_
-* No modo de _diagnóstico do Azure_ , os logs de diagnóstico fluem para a tabela _AzureDiagnostics_
+* No modo _Diagnóstico do Azure_, os logs de diagnóstico fluem para a tabela _AzureDiagnostics_
 
 > [!NOTE]
 > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é altamente recomendável selecionar o modo específico do recurso. Para obter mais informações, consulte [log Analytics limitações conhecidas](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
@@ -552,5 +555,5 @@ Entre no portal do Azure e selecione **monitorar** > **alertas** para criar aler
 
     ![Definir um grupo de ação](media/monitor-using-azure-monitor/alerts_image12.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Monitorar e gerenciar pipelines programaticamente](monitor-programmatically.md)

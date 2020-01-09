@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f62406a341c7e1467cdf17b21662bb5c0993881c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358353"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -36,12 +36,12 @@ O ponto de extremidade está disponível em um endereço IP não roteável conhe
 
 Esse serviço está disponível nas regiões do Azure disponíveis para o público geral. Nem todas as versões de API podem estar disponíveis em todas as regiões do Azure.
 
-Regions                                        | Disponibilidade?                                 | Versões com suporte
+Regiões                                        | Disponibilidade?                                 | Versões compatíveis
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
-[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure China:](https://www.azure.cn/)                                                     | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
+[Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure China:](https://www.azure.cn/)                                                     | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível de forma geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
 
 A tabela é atualizada quando há atualizações de serviço e/ou novas versões com suporte ficam disponíveis.
 
@@ -103,9 +103,9 @@ A tabela a seguir é uma referência de outros formatos de dados que pode oferec
 
 API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
-/instance | json | texto
-/scheduledevents | json | nenhum
-/attested | json | nenhum
+/instance | json | text
+/scheduledevents | json | none
+/attested | json | none
 
 Para acessar um formato de resposta não padrão, especifique o formato solicitado como um parâmetro de cadeia de caracteres de consulta na solicitação. Por exemplo:
 
@@ -341,10 +341,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>As seguintes APIs estão disponíveis por meio do ponto de extremidade de metadados:
 
-Dados | DESCRIÇÃO | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 atestados | Confira [Dados Atestados](#attested-data) | 01-10-2018
-identidade | Identidades gerenciadas para recursos do Azure. Veja [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | {1}01-02-2018{2}
+identidade | Identidades gerenciadas para recursos do Azure. Veja [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 01-02-2018
 instance | Consulte [API de instância](#instance-api) | 2017-04-02
 scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
 
@@ -354,11 +354,11 @@ scheduledevents | Consulte [Eventos agendados](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > Por meio do ponto de extremidade de metadados, as categorias a seguir são acessadas por meio de instância/computação
 
-Dados | DESCRIÇÃO | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure em que a VM está sendo executada | 01-10-2018
 customData | Ver [dados personalizados](#custom-data) | 2019-02-01
-location | Região do Azure na qual a máquina virtual está sendo executada | 2017-04-02
+local | Região do Azure na qual a máquina virtual está sendo executada | 2017-04-02
 name | Nome da VM | 2017-04-02
 oferta | Informações da oferta para a imagem da VM e estão presentes apenas para imagens implantadas na Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
@@ -369,11 +369,11 @@ platformFaultDomain | [Domínio de falha](manage-availability.md) no qual a máq
 provider | Provedor da VM | 01-10-2018
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
 publicador | Publicador da imagem da máquina virtual | 2017-04-02
-resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a sua Máquina Virtual | 2017-08-01
-ResourceId | A ID [totalmente qualificada](https://docs.microsoft.com/rest/api/resources/resources/getbyid) do recurso | 2019-03-11
+resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para a sua Máquina Virtual | 2017-08-01
+resourceId | A ID [totalmente qualificada](https://docs.microsoft.com/rest/api/resources/resources/getbyid) do recurso | 2019-03-11
 sku | SKU específica para a imagem da máquina virtual | 2017-04-02
 subscriptionId | Assinatura do Azure para a Máquina Virtual | 2017-08-01
-Marcas | [Marcas](../../azure-resource-manager/resource-group-using-tags.md) para a sua Máquina Virtual  | 2017-08-01
+marcas | [Marcas](../../azure-resource-manager/resource-group-using-tags.md) para a sua Máquina Virtual  | 2017-08-01
 marcações | Marcas formatadas como uma matriz JSON para facilitar a análise programática  | 2019-06-04
 version | Versão da imagem da máquina virtual | 2017-04-02
 vmId | [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a máquina virtual | 2017-04-02
@@ -386,7 +386,7 @@ zona | [Zona de Disponibilidade](../../availability-zones/az-overview.md) da má
 > [!NOTE]
 > Por meio do ponto de extremidade de metadados, as categorias a seguir são acessadas por meio de instância/rede/interface
 
-Dados | DESCRIÇÃO | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual | 2017-04-02
 IPv4/privateIpAddress | Endereço IPv4 local da máquina virtual | 2017-04-02
@@ -545,7 +545,7 @@ AzurePublicCloud
 
 As regiões e os valores do ambiente do Azure estão listados abaixo.
 
- Regions | Azure Environment
+ Regiões | Azure Environment
 ---------|-----------------
 [Todas as regiões globais do Azure disponíveis](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -641,10 +641,10 @@ Verification successful
 }
 ```
 
-Dados | DESCRIÇÃO
+Dados | Description
 -----|------------
 nonce | Cadeia de caracteres opcional fornecida pelo usuário com a solicitação. Se nenhuma nonce tiver sido fornecida na solicitação, o carimbo de data/hora UTC atual será retornado
-plan | O [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) de uma VM em uma imagem do Azure Marketplace, contém nome, produto e editor
+plan | O [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) de uma VM em uma imagem do Azure Marketplace contém nome, produto e editor
 timestamp/createdOn | O carimbo de data/hora em que o primeiro documento assinado foi criado
 timestamp/expiresOn | O carimbo de data/hora em que o documento assinado expira
 vmId |  [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a máquina virtual
@@ -758,7 +758,7 @@ My custom data.
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exemplos de como chamar o serviço de metadados usando diferentes idiomas dentro da VM 
 
-idioma | Exemplo
+Idioma | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
@@ -768,7 +768,7 @@ C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
-Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+PERL       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
@@ -798,6 +798,6 @@ Puppet | https://github.com/keirans/azuremetadata
 
     ![Serviço de Metadados de Instância](./media/instance-metadata-service/InstanceMetadata-support.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [Eventos Agendados](scheduled-events.md)

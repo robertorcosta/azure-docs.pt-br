@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
-ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 45c04cc32733873061bd6ff44b2e5484b106a893
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406649"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -28,7 +28,7 @@ O novo painel de visão geral agora inicia por padrão:
 
 A seleção de intervalo de tempo foi simplificada para uma interface de um clique simples.
 
-![Intervalo de tempo](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+![Intervalo de horas](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
 O desempenho geral foi aumentado significativamente. Você tem acesso a recursos populares como **Pesquisa** e **Análise**. Cada bloco de KPI de atualização dinâmica padrão fornece insight sobre os recursos do Visual Studio Online Application Insights. Para saber mais sobre solicitações com falha, selecione **Falhas** no cabeçalho **Investigar**:
 
@@ -55,7 +55,7 @@ Para navegar de volta para a experiência de visão geral basta selecionar:
 
 ![Botão Visão geral](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você selecionar **definir configurações de bloco** e definir um intervalo de tempo personalizado acima de 31 dias, seu painel não será exibido além de 31 dias de dados, mesmo com a retenção de dados padrão de 90 dias. Atualmente, não há nenhuma solução alternativa para esse comportamento.
 

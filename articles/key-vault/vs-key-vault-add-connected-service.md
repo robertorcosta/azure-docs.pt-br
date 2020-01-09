@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457006"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá como adicionar facilmente tudo o que você prec
 
 Para obter detalhes sobre as alterações que os Serviços Conectados realizam em seu projeto para habilitar o Key Vault, confira [Serviço Conectado do Key Vault — O que aconteceu com meu projeto do ASP.NET 4.7.1](#how-your-aspnet-framework-project-is-modified) ou [Serviço Conectado do Key Vault — O que aconteceu com meu projeto do ASP.NET Core](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Uma assinatura do Azure**. Se você não tiver uma assinatura, Inscreva-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual studio 2019 versão 16,3** ou posterior ou **visual studio 2017 versão 15,7** com a carga de trabalho de **desenvolvimento da Web** instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -112,7 +112,7 @@ Agora, você pode acessar seus segredos no código. As próximas etapas são dif
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. Em seguida, abra um dos arquivos de paginação, como *index.cshtml.cs* e escreva o seguinte código:
@@ -174,7 +174,7 @@ Você pode configurar a configuração para que o arquivo Web. config tenha um v
    ```
 1. Execute o aplicativo localmente no depurador, alterne para a guia **sobre** e verifique se o valor da Key Vault é exibido.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o Key Vault e os recursos relacionados. Para excluir o grupo de recursos pelo portal:
 
@@ -182,7 +182,7 @@ Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o Key 
 2. Selecione **Excluir grupo de recursos**.
 3. Na caixa **digite o nome do grupo de recursos:** , insira o nome do grupo de recursos e selecione **excluir**.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se o Key Vault estiver sendo executado em um conta Microsoft diferente daquele em que você está conectado ao Visual Studio (por exemplo, o Key Vault está sendo executado em sua conta corporativa, mas o Visual Studio está usando sua conta privada), você recebe um erro no arquivo Program.cs , que o Visual Studio não pode obter acesso ao Key Vault. Para corrigir esse problema:
 
@@ -205,7 +205,7 @@ Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao a
 
 Afeta as referências de .NET do arquivo de projeto e as referências de pacote NuGet.
 
-| Digite | Referência |
+| Tipo | Referência |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -241,7 +241,7 @@ Esta seção identifica as alterações exatas feitas em um projeto ASP.NET ao a
 
 Afeta o arquivo de projeto referências do .NET e `packages.config` (referências do NuGet).
 
-| Digite | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
@@ -259,7 +259,7 @@ Afeta o arquivo de projeto referências do .NET e `packages.config` (referência
 
 ### <a name="webconfig-or-appconfig-changes"></a>alterações de web.config ou app.config
 
-- Adicionadas as entradas de configuração a seguir:
+- Adicionadas as seguintes entradas de configuração:
 
     ```xml
     <configSections>
@@ -285,7 +285,7 @@ Afeta o arquivo de projeto referências do .NET e `packages.config` (referência
 - Criação de um grupo de recursos (ou uso de um existente).
 - Criação de um Key Vault no grupo de recursos especificado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você seguiu este tutorial, suas permissões de Key Vault são configuradas para serem executadas com sua própria assinatura do Azure, mas isso pode não ser desejável para um cenário de produção. Você pode criar uma identidade gerenciada para gerenciar o acesso de Key Vault para seu aplicativo. Consulte [fornecer autenticação de Key Vault com uma identidade gerenciada](/azure/key-vault/managed-identity).
 

@@ -1,25 +1,14 @@
 ---
-title: Implantar um executável existente ao Service Fabric do Azure | Microsoft Docs
+title: Implantar um executável existente no Azure Service Fabric
 description: Aprenda a empacotar um aplicativo existente como um executável de convidado, para que ele possa ser implantado em um cluster do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: atsenthi
-ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377099"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empacotar e implantar um executável existente no Service Fabric
 Ao empacotar um executável já existente como [executável convidado](service-fabric-guest-executables-introduction.md), você pode optar por usar um modelo de projeto do Visual Studio ou [criar o pacote de aplicativos manualmente](#manually). Usando o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados pelo novo modelo de projeto para você.
@@ -143,7 +132,7 @@ O elemento CodePackage especifica o local (e a versão) do código do serviço.
 
 O elemento `Name` é usado para especificar o nome do diretório no pacote de aplicativos que contém o código do serviço. `CodePackage` também tem o atributo `version`. Isso pode ser usado para especificar a versão do código e também pode ser usado para atualizar o código do serviço usando a infraestrutura de gerenciamento de ciclo de vida de aplicativo no Service Fabric.
 
-#### <a name="optional-update-setupentrypoint"></a>Opcional: Atualizar o SetupEntrypoint
+#### <a name="optional-update-setupentrypoint"></a>Opcional: atualizar SetupEntrypoint
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -296,7 +285,7 @@ Se navegar até o diretório usando o Gerenciador de Servidores, você poderá l
 
 ![Local do log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Consulte os seguintes artigos para tarefas e informações relacionadas.
 
 * [Amostra de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), incluindo um link para o pré-lançamento da ferramenta de empacotamento

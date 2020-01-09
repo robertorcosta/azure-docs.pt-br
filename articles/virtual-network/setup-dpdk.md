@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 876e64cd29aabe1fd4274872800a29cf1a83a0d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350500"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar o DPDK em uma máquina virtual Linux
 
@@ -33,10 +33,10 @@ O DPDK pode ser executado em máquinas virtuais do Azure, com suporte a várias 
 
 ## <a name="benefit"></a>Benefício
 
-**Maior pacotes por segundo (PPS)** : Ignorar o kernel e ter o controle de pacotes no espaço do usuário reduz a contagem de ciclo, eliminando alternâncias de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
+**Pacotes superiores por segundo (PPS)** : Ignorando o kernel e controlando os pacotes no espaço do usuário reduz a contagem de ciclos eliminando a alternância de contexto. Ele também melhora a taxa de pacotes que são processados por segundo nas máquinas virtuais do Azure Linux.
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 As seguintes distribuições da Galeria do Azure são suportadas:
 
@@ -73,6 +73,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev lib
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
+sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
@@ -113,7 +114,7 @@ zypper \
 4. Compilar com `make`.
 5. Instalar com `make install DESTDIR=<output folder>`.
 
-## <a name="configure-the-runtime-environment"></a>Configurar o ambiente de tempo de execução
+## <a name="configure-the-runtime-environment"></a>Configurar o ambiente de runtime
 
 Depois de reiniciar, execute os comandos a seguir, uma vez:
 
@@ -133,7 +134,7 @@ Depois de reiniciar, execute os comandos a seguir, uma vez:
      > [!NOTE]
      > Existe uma maneira de modificar o arquivo grub para que as páginas grandes sejam reservadas na inicialização seguindo as [instruções](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) para o DPDK. As instruções estão na parte inferior da página. Ao usar uma máquina virtual do Azure Linux, modifique os arquivos em **/etc/config/grub.d** para reservar páginas amplas nas reinicializações.
 
-2. Endereços IP e MAC: Use `ifconfig –a` para exibir o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. Interfaces de FV estão em execução como interfaces subordinadas de interfaces NETVSC.
+2. Endereços MAC e IP: use `ifconfig –a` para visualizar o endereço MAC e IP das interfaces de rede. A interface de rede *VF* e a interface de rede *NETVSC* têm o mesmo endereço MAC, mas apenas a interface de rede *NETVSC* tem um endereço IP. Interfaces de FV estão em execução como interfaces subordinadas de interfaces NETVSC.
 
 3. Endereços PCI
 
@@ -152,7 +153,7 @@ Se você executar um aplicativo DPDK sobre o PMD à prova de falhas, ele garanti
 
 Para executar testpmd no modo de raiz, use `sudo` antes do comando *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Básico: Verificação de integridade de inicialização do adaptador à prova de falhas
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Verificação de integridade, a inicialização do adaptador à prova de falhas
 
 1. Execute os seguintes comandos para iniciar um aplicativo testpmd de porta única:
 
@@ -180,7 +181,7 @@ Para executar testpmd no modo de raiz, use `sudo` antes do comando *testpmd*.
 
 Os comandos anteriores iniciam *testpmd* no modo interativo, o que é recomendado, para testar alguns comandos testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor único remetente/único
+### <a name="basic-single-sendersingle-receiver"></a>Básico: Receptor de único remetente/única
 
 Os seguintes comandos periodicamente imprimem as estatísticas de pacotes por segundo:
 

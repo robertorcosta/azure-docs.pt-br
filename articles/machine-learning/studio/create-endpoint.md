@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 891f680485ec3ee65c0bef102eb7f52cea0611c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 57bc5739d8e6b1fa30482de69285c8895294cfa8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839641"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454754"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Criar pontos de extremidade para serviços Web Azure Machine Learning Studio (clássico) implantados
 
@@ -34,12 +34,12 @@ Você pode adicionar um ponto de extremidade a um serviço Web usando o portal d
 
 1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em serviços Web.
 2. Na parte inferior do painel do serviço Web, clique em **Gerenciar pontos de extremidade**. O portal de Serviços Web do Azure Machine Learning abre a página de pontos de extremidade do serviço Web.
-3. Clique em **Novo**.
+3. Clique em **Nova**.
 4. Digite um nome e uma descrição para o novo ponto de extremidade. Os nomes dos pontos de extremidade devem ter 24 caracteres ou menos e devem ser compostos de letras minúsculas ou números. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [Habilitar o log de serviços Web de Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Dimensionar um serviço Web adicionando mais pontos de extremidade
 
-Por padrão, cada serviço Web publicado é configurado para oferecer suporte a 20 a 200 solicitações simultâneas. A versão clássica do Azure Machine Learning Studio otimiza automaticamente a configuração para fornecer o melhor desempenho para o serviço Web e o valor do portal é ignorado.
+Por padrão, cada serviço Web publicado é configurado para oferecer suporte a 20 a 200 solicitações simultâneas. Azure Machine Learning Studio (clássico) otimiza automaticamente a configuração para fornecer o melhor desempenho para o serviço Web e o valor do portal é ignorado.
 
 Se você planeja chamar a API com uma carga maior que o valor suportado de 200 para o Máximo de Chamadas Simultâneas, é preciso criar vários pontos de extremidade no mesmo serviço Web. Você pode, então, distribuir a carga aleatoriamente entre todos eles.
 
@@ -49,6 +49,6 @@ Tenha em mente que usar uma contagem de simultaneidade alta pode ser prejudicial
 
 As APIs síncronas são normalmente usadas em situações onde uma baixa latência é desejada. A latência aqui indica o tempo necessário para a API concluir uma solicitação e não se responsabiliza por quaisquer atrasos na rede. Digamos que você tenha uma API com uma latência de 50 ms. Para consumir totalmente a capacidade disponível com alto nível de limitação e o Máximo de Chamadas Simultâneas = 20, você precisa chamar esta API 20 * 1000 / 50 = 400 vezes por segundo. Estendendo isso ainda mais, um Máximo de Chamadas Simultâneas de 200 permite que você chame a API 4000 vezes por segundo, supondo que a latência seja de 50 ms.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).

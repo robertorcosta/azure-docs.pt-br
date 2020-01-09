@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 02456d6e690c2ef96b578a00f8e71ae2515ec089
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363108"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recurso da pasta de trabalho
 
@@ -101,7 +101,7 @@ Os valores dos seletores de recursos podem vir do contexto da pasta de trabalho,
 > Essa abordagem pode ser usada para associar recursos a outros controles, como métricas.
 
 ## <a name="resource-parameter-options"></a>Opções de parâmetro de recurso
-| . | Explicação | Exemplo |
+| Parâmetro | Explicação | Exemplo |
 | ------------- |:-------------|:-------------|
 | `{Applications}` | A ID de recurso selecionada | _/subscriptions/< subid >/resourceGroups/< recurso-grupo >/Providers/< tipo de recurso >/acmeauthentication_ |
 | `{Applications:label}` | O rótulo do recurso selecionado | `acmefrontend` |

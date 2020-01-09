@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 966df2a01d0178c19c2ae6e698a6610bf0e321c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425816"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Gateway de VPN clássico para migração do Gerenciador de Recursos
-Gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de Recursos. É possível ler mais sobre os [Recursos e benefícios](../azure-resource-manager/resource-group-overview.md) do Azure Resource Manager. Neste artigo, detalhamos como migrar de implantações clássicas para o modelo com base no Gerenciador de Recursos mais recente. 
+Gateways de VPN agora podem ser migrados do modelo de implantação clássico para o Gerenciador de Recursos. É possível ler mais sobre os [Recursos e benefícios](../azure-resource-manager/management/overview.md) do Azure Resource Manager. Neste artigo, detalhamos como migrar de implantações clássicas para o modelo com base no Gerenciador de Recursos mais recente. 
 
 Gateways de VPN são migrados como parte da migração de VNet do clássico para o Gerenciador de Recursos. Essa migração é feita com uma VNet por vez. Não há nenhum requisito adicional em termos de ferramentas ou pré-requisitos para migração. As etapas de migração são idênticas à migração de VNet existente e são documentadas na [página de migração de recursos IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). Não há nenhum tempo de inatividade do roteiro de dados durante a migração e, portanto, cargas de trabalho existentes continuariam a funcionar sem perda de conectividade local durante a migração. O endereço IP público associado ao gateway de VPN não é alterado durante o processo de migração. Isso significa que você não precisará reconfigurar seu roteador local quando a migração for concluída.  
 
@@ -65,6 +65,6 @@ Como é possível transformar a conectividade VNet a VNet sem a necessidade de s
 * Com a habilitação do BGP em gateways de VPN conectados juntos e ao local. A habilitação do BGP restaura a conectividade sem qualquer outra alteração de configuração, pois as rotas são aprendidas e anunciadas entre os gateways de VNet. Observe que a opção de BGP só está disponível em SKUs standard ou superiores.
 * O estabelecimento de uma conexão explícita da VNet afetada ao gateway de rede local que representa a localização local. Isso também exigiria a alteração da configuração do roteador local para criar e configurar o túnel IPsec.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de aprender sobre o suporte à migração de gateway de VPN, acesse [migração com suporte de plataforma de recursos de IaaS do clássico para o Gerenciador de Recursos](../virtual-machines/windows/migration-classic-resource-manager-ps.md) para começar.
 

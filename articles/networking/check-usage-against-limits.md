@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5c807397af3ee06b490017b7e14f7b64123b5075
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872447"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645218"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar o uso de recursos em relação aos limites
 
-Neste artigo, você aprenderá como ver o número de cada tipo de recurso de rede que você implantou em sua assinatura e quais são seus [limites de assinatura](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). A capacidade de exibir o uso de recursos em relação aos limites é útil para controlar o uso atual e planejar para uso futuro. É possível usar o [portal do Azure](#azure-portal), o [PowerShell](#powershell) ou a [CLI do Azure](#azure-cli) para controlar o uso.
+Neste artigo, você aprenderá como ver o número de cada tipo de recurso de rede que você implantou em sua assinatura e quais são seus [limites de assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). A capacidade de exibir o uso de recursos em relação aos limites é útil para controlar o uso atual e planejar para uso futuro. É possível usar o [portal do Azure](#azure-portal), o [PowerShell](#powershell) ou a [CLI do Azure](#azure-cli) para controlar o uso.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -34,16 +34,16 @@ Neste artigo, você aprenderá como ver o número de cada tipo de recurso de red
 4. Selecione o nome da assinatura para a qual você deseja exibir as informações de uso.
 5. Em **CONFIGURAÇÕES**, selecione **Uso + cota**.
 6. É possível selecionar as seguintes opções:
-   - **Tipos de recurso**: Selecione todos os tipos de recurso ou os tipos específicos de recursos que deseja exibir.
-   - **Provedores**: Selecione todos os provedores de recursos ou selecione **Computação**, **Rede** ou **Armazenamento**.
-   - **Localizações**: Selecione todas as localizações do Azure ou localizações específicas.
+   - **Tipos de recurso**: é possível selecionar todos os tipos de recurso ou os tipos específicos de recursos que você deseja exibir.
+   - **Provedores de**: é possível selecionar todos os provedores de recursos ou selecionar **Computação**, **Rede** ou **Armazenamento**.
+   - **Locais**: é possível selecionar todos os locais do Azure ou locais específicos.
    - É possível selecionar para mostrar todos os recursos ou somente os recursos em que pelo menos um é implantado.
 
      O exemplo na figura a seguir mostra todos os recursos de rede com pelo menos um recurso implantado no Leste dos EUA:
 
        ![Exibir dados de uso](./media/check-usage-against-limits/view-usage.png)
 
-     É possível classificar as colunas selecionando seu título. Os limites mostrados são os limites da sua assinatura. Se precisar aumentar um limite padrão, selecione **Solicitar aumento**. Em seguida, preencha e envie a solicitação de suporte. Todos os recursos têm um limite máximo listado nos [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) do Azure. Se o limite atual já estiver no número máximo, o limite não poderá ser aumentado.
+     É possível classificar as colunas selecionando seu título. Os limites mostrados são os limites da sua assinatura. Se precisar aumentar um limite padrão, selecione **Solicitar aumento**. Em seguida, preencha e envie a solicitação de suporte. Todos os recursos têm um limite máximo listado nos [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) do Azure. Se o limite atual já estiver no número máximo, o limite não poderá ser aumentado.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ Network Interfaces                 1 24000
 Network Watchers                   1     1
 ```
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, também será necessário executar o `az login` para fazer logon no Azure.
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435390"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming em escala no HDInsight
 
@@ -37,7 +37,7 @@ Para obter mais informações, consulte [O que é Apache Storm no Microsoft Azur
 
 ## <a name="spark-streaming"></a>Spark Streaming
 
-Spark Streaming  é uma extensão para Spark, que permite reutilizar o mesmo código usado para o processamento em lotes. É possível combinar consultas em lotes e interativas na mesma aplicação. Ao contrário do Storm, o Spark Streaming fornece uma semântica de processamento exatamente um estado. Quando usado em combinação com [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), o que garante que todos os dados do Kafka sejam recebidos pelo Spark Streaming exatamente uma vez, é possível obter exatamente garantias ponta a ponta. Um dos pontos fortes do Spark Streaming é a capacidade de tolerância a falhas, recuperando os nós com falhas rapidamente quando vários nós estão sendo usados dentro do cluster.
+Spark Streaming  é uma extensão para Spark, que permite reutilizar o mesmo código usado para o processamento em lotes. É possível combinar consultas em lotes e interativas na mesma aplicação. Ao contrário do Storm, o Spark streaming fornece estado exatamente após o processamento da semântica. Quando usado em combinação com a [API direta do Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garante que todos os dados do Kafka sejam recebidos pelo Spark streaming exatamente uma vez, é possível atingir as garantias de ponta a ponta exatamente uma vez. Um dos pontos fortes do Spark Streaming é a capacidade de tolerância a falhas, recuperando os nós com falhas rapidamente quando vários nós estão sendo usados dentro do cluster.
 
 Para obter mais informações, consulte [O que é Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
@@ -45,11 +45,11 @@ Para obter mais informações, consulte [O que é Apache Spark Streaming?](hdins
 
 Embora você possa especificar o número de nós no cluster durante a criação, convém aumentar ou reduzir o cluster de acordo com a carga de trabalho. Todos os Clusters HDInsight permitem que você [altere o número de nós no cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Os clusters do Spark podem ser removidos sem perda de dados, pois todos os dados ficam no Armazenamento do Microsoft Azure ou no Data Lake Storage.
 
-Há vantagens para as tecnologias de dissociação. Por exemplo, o Kafka é uma tecnologia de buffer de evento e por isso é muito intensivo em E/S e não necessita de muita capacidade de processamento. Em comparação, os processadores de fluxo como o Spark Streaming são computação intensiva, exigindo VMs mais avançadas. Ao ter essas tecnologias separadas em clusters diferentes, você poderá dimensionar independentemente enquanto utiliza as VMs da melhor forma.
+Há vantagens para as tecnologias de dissociação. Por exemplo, Kafka é uma tecnologia de buffer de eventos, portanto, ele é muito intensivo de e/s e não precisa de muita capacidade de processamento. Em comparação, os processadores de fluxo como o Spark Streaming são computação intensiva, exigindo VMs mais avançadas. Ao ter essas tecnologias separadas em clusters diferentes, você poderá dimensionar independentemente enquanto utiliza as VMs da melhor forma.
 
 ### <a name="scale-the-stream-buffering-layer"></a>Dimensionar a camada de buffer de fluxo
 
-As tecnologias de buffer de fluxo dos Hubs de Eventos e Kafka usam partições e os consumidores fazem as leituras a partir dessas partições. Dimensionar a taxa de transferência de entrada exige escalar o número de partições e adicionar partições fornece paralelismo crescente. Em Hubs de Eventos, a contagem de partições não poderá ser alterada após a implantação e por isso é importante iniciar com a escala de destino em mente. Com o Kafka, é possível [adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka estiver processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py`. Essa ferramenta de rebalanceamento chama a ferramenta `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha separado e o domínio de atualização, com reconhecimento de rack do Kafka e aumentando a tolerância a falhas.
+As tecnologias de buffer de fluxo dos Hubs de Eventos e Kafka usam partições e os consumidores fazem as leituras a partir dessas partições. Dimensionar a taxa de transferência de entrada exige escalar o número de partições e adicionar partições fornece paralelismo crescente. Nos hubs de eventos, a contagem de partições não pode ser alterada após a implantação, portanto, é importante começar com a escala de destino em mente. Com o Kafka, é possível [Adicionar partições](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), mesmo quando o Kafka está processando dados. O Kafka fornece uma ferramenta para reatribuir partições, `kafka-reassign-partitions.sh`. O HDInsight fornece uma [ferramenta de rebalanceamento de réplica de partição](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py`. Essa ferramenta de rebalanceamento chama a ferramenta `kafka-reassign-partitions.sh` de forma que cada réplica esteja em um domínio de falha separado e o domínio de atualização, com reconhecimento de rack do Kafka e aumentando a tolerância a falhas.
 
 ### <a name="scale-the-stream-processing-layer"></a>Dimensionar a camada de processamento de fluxo
 
@@ -61,7 +61,7 @@ O Apache Spark usa três parâmetros fundamentais para configurar o ambiente, de
 
 Esses três parâmetros podem ser configurados no nível do cluster para todos os aplicativos executados no cluster e também podem ser especificados para cada aplicativo individual. Para obter mais informações, consulte [Gerenciando recursos para clusters Apache Spark](spark/apache-spark-resource-manager.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar e monitorar uma topologia Apache Storm no Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](storm/apache-storm-example-topology.md)

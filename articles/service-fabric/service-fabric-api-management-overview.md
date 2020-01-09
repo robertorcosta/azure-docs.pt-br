@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric com visão geral de Gerenciamento de API | Microsoft Docs
+title: Azure Service Fabric com visão geral do gerenciamento de API
 description: Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378103"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral de Gerenciamento de API do Azure
 
@@ -46,7 +37,7 @@ Nesse cenário, a interface do usuário da Web ainda é atendida através de um 
 
 ![Service Fabric com visão geral da topologia do Gerenciamento de API do Azure][sf-apim-web-app]
 
-## <a name="application-scenarios"></a>Cenários de aplicativos
+## <a name="application-scenarios"></a>Cenários do aplicativo
 
 Os serviços em Service Fabric podem ser sem estado ou com estado e podem ser particionados usando um dos três esquemas: singleton, intervalo int-64 e nomeado. A resolução do ponto de extremidade de serviço requer a identificação de uma partição específica de uma instância de serviço específica. Ao resolver um ponto de extremidade de um serviço, tanto o nome da instância de serviço (por exemplo, `fabric:/myapp/myservice`) quanto a partição específica do serviço devem ser especificados, exceto no caso da partição singleton.
 
@@ -113,7 +104,7 @@ Cada instância de serviço também é particionada utilizando o esquema de part
 
 ![Service Fabric com visão geral da topologia do Gerenciamento de API do Azure][sf-apim-dynamic-stateful]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Siga o [tutorial](service-fabric-tutorial-deploy-api-management.md) para configurar seu primeiro cluster do Service Fabric com o Gerenciamento de API e criar um fluxo de solicitações por meio do Gerenciamento de API para seus serviços.
 

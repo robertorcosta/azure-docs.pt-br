@@ -4,15 +4,15 @@ description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor p
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932624"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363958"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do Coletor de Dados
 
@@ -21,7 +21,7 @@ O [API do coletor de dados do Azure Monitor](data-collector-api.md) permite que 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de exemplo
-No restante deste artigo, examinaremos dados de exibição de página no Application Insights. Em nosso cenário hipotético, queremos correlacionar informações geográficas coletadas por padrão pelo SDK Application Insights para dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar a maior parte dos investimentos em marketing. 
+No restante deste artigo, examinaremos dados de exibição de página no Application Insights. Em nosso cenário hipotético, queremos correlacionar as informações geográficas coletadas por padrão pelo SDK do Application Insights a dados personalizados que contenham a população de cada país/região do mundo, com o objetivo de identificar onde devemos gastar mais os dólares de marketing. 
 
 Usamos uma fonte de dados pública, como as [Perspectivas Demográficas Mundiais do ONU](https://esa.un.org/unpd/wpp/) para essa finalidade. Os dados terão o seguinte esquema simples:
 

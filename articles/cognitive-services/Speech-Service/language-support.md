@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381045"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Suporte a idiomas e regiões para o serviço de fala
 
@@ -28,45 +28,45 @@ O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (local
 
  Localidade | Idioma | Com suporte | Personalizável
 ------|------------|-----------|-------------
-`ar-EG` | Árabe (Egito), padrão moderno | SIM | SIM
-`ar-SA` | Árabe (Arábia Saudita) | SIM | SIM
-`ar-AE` | Árabe (dos EAU) | SIM | SIM
-`ar-KW` | Árabe (Kuwait) | SIM | SIM
-`ar-QA` | Árabe (Catar) | SIM | SIM
-`ca-ES` | Catalão | SIM | Não
-`da-DK` | Dinamarquês (Dinamarca) | SIM | Não
-`de-DE` | Alemão (Alemanha) | SIM | SIM
-`en-AU` | Inglês (Austrália) | SIM | SIM
-`en-CA` | Inglês (Canadá) | SIM | SIM
-`en-GB` | Inglês (Reino Unido) | SIM | SIM
-`en-IN` | English (India) | SIM | SIM
-`en-NZ` | Inglês (Nova Zelândia) | SIM | SIM
-`en-US` | Inglês (Estados Unidos) | SIM | SIM
-`es-ES` | Espanhol (Espanha) | SIM | SIM
-`es-MX` | Espanhol (México) | SIM | SIM
-`fi-FI` | Finlandês (Finlândia) | SIM | Não
-`fr-CA` | Francês (Canadá) | SIM | SIM
-`fr-FR` | Francês (França) | SIM | SIM
-`gu-IN` | Guzerate (indiano) | SIM | SIM
-`hi-IN` | Hindi (Índia) | SIM | SIM
-`it-IT` | Italiano (Itália) | SIM | SIM
-`ja-JP` | Japonês (Japão) | SIM | SIM
-`ko-KR` | Coreano (Coreia) | SIM | SIM
-`mr-IN` | Marati (Índia) | SIM | SIM
-`nb-NO` | Norueguês (Bokmål) (Noruega) | SIM | Não
-`nl-NL` | Holandês (Países Baixos) | SIM | SIM
-`pl-PL` | Polonês (Polônia) | SIM | Não
-`pt-BR` | Português (Brasil) | SIM | SIM
-`pt-PT` | Português (Portugal) | SIM | SIM
-`ru-RU` | Russo (Rússia) | SIM | SIM
-`sv-SE` | Sueco (Suécia) | SIM | Não
-`ta-IN` | Tâmil (Índia) | SIM | SIM
-`te-IN` | Télugo (Índia) | SIM | SIM
-`zh-CN` | Chinês (mandarim, simplificado) | SIM | SIM
-`zh-HK` | Chinês (Cantonês, tradicional) | SIM | SIM
-`zh-TW` | Chinês (Mandarim Taiwanês) | SIM | SIM
-`th-TH` | Tailandês (Tailândia) | SIM | Não
-`tr-TR` | Turquia | SIM | SIM
+`ar-EG` | Árabe (Egito), padrão moderno | Sim | Sim
+`ar-SA` | Árabe (Arábia Saudita) | Sim | Sim
+`ar-AE` | Árabe (dos EAU) | Sim | Sim
+`ar-KW` | Árabe (Kuwait) | Sim | Sim
+`ar-QA` | Árabe (Catar) | Sim | Sim
+`ca-ES` | Catalão | Sim | Não
+`da-DK` | Dinamarquês (Dinamarca) | Sim | Não
+`de-DE` | Alemão (Alemanha) | Sim | Sim
+`en-AU` | Inglês (Austrália) | Sim | Sim
+`en-CA` | Inglês (Canadá) | Sim | Sim
+`en-GB` | Inglês (Reino Unido) | Sim | Sim
+`en-IN` | English (India) | Sim | Sim
+`en-NZ` | Inglês (Nova Zelândia) | Sim | Sim
+`en-US` | Inglês (Estados Unidos) | Sim | Sim
+`es-ES` | Espanhol (Espanha) | Sim | Sim
+`es-MX` | Espanhol (México) | Sim | Sim
+`fi-FI` | Finlandês (Finlândia) | Sim | Não
+`fr-CA` | Francês (Canadá) | Sim | Sim
+`fr-FR` | Francês (França) | Sim | Sim
+`gu-IN` | Guzerate (indiano) | Sim | Sim
+`hi-IN` | Híndi (Índia) | Sim | Sim
+`it-IT` | Italiano (Itália) | Sim | Sim
+`ja-JP` | Japonês (Japão) | Sim | Sim
+`ko-KR` | Coreano (Coreia do Sul) | Sim | Sim
+`mr-IN` | Marati (Índia) | Sim | Sim
+`nb-NO` | Norueguês (Bokmål) (Noruega) | Sim | Não
+`nl-NL` | Holandês (Países Baixos) | Sim | Sim
+`pl-PL` | Polonês (Polônia) | Sim | Não
+`pt-BR` | Português (Brasil) | Sim | Sim
+`pt-PT` | Português (Portugal) | Sim | Sim
+`ru-RU` | Russo (Rússia) | Sim | Sim
+`sv-SE` | Sueco (Suécia) | Sim | Não
+`ta-IN` | Tâmil (Índia) | Sim | Sim
+`te-IN` | Télugo (Índia) | Sim | Sim
+`zh-CN` | Chinês (mandarim, simplificado) | Sim | Sim
+`zh-HK` | Chinês (Cantonês, tradicional) | Sim | Sim
+`zh-TW` | Chinês (Mandarim Taiwanês) | Sim | Sim
+`th-TH` | Tailandês (Tailândia) | Sim | Não
+`tr-TR` | Turquia | Sim | Sim
 
 ## <a name="text-to-speech"></a>Conversão de texto em fala
 
@@ -81,7 +81,7 @@ A conversão de texto em fala neural é um novo tipo de sintetização de fala a
 
 As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos, em Audiobooks e aprimorar os sistemas de navegação no carro. Com a prosódia natural semelhante à humana e a articulação clara das palavras, as vozes neurais reduzem significativamente a fadiga de escuta quando os usuários interagem com sistemas de inteligência artificial.
 
-Para obter uma lista completa de vozes neurais e a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
+Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
 Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curto da voz
 --------|----------|--------|---------|------------
@@ -90,6 +90,8 @@ Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curt
 `en-US` | English (US) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italiano (Itália) | Feminino |"Microsoft Server Speech Conversão de Texto em Fala Voice (IT-IT, ElsaNeural)" | "IT-IT-ElsaNeural"
 `zh-CN` | Chinês (continente) | Feminino | "Voz para Conversão de Texto em Fala de Fala do Microsoft Server (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+Para saber como você pode configurar e ajustar as vozes neurais, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > Você pode usar o mapeamento de nome de serviço completo ou o nome de voz curto em suas solicitações de síntese de fala.
@@ -141,7 +143,7 @@ Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curt
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (fr-FR, HortenseRUS)” | "fr-FR-HortenseRUS"
 | | | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (fr-FR, Paul, Apollo)” | "fr-FR-Paul-Apollo"
 `he-IL` | Hebraico (Israel) | Masculino| “Voz da Conversão de Texto em Fala do Microsoft Server Speech (he-IL, Asaf)” | "he-IL-Asaf"
-`hi-IN` | Hindi (Índia) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (hi-IN, Kalpana, Apollo)” | "hi-IN-Kalpana-Apollo"
+`hi-IN` | Híndi (Índia) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (hi-IN, Kalpana, Apollo)” | "hi-IN-Kalpana-Apollo"
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (hi-IN, Kalpana)” | "hi-IN-Kalpana"
 | | | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (hi-IN, Hemant)” | "hi-IN-Hemant"
 `hr-HR` | Croata | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (hr-HR, Matej)” | "HR-HR-Matej"
@@ -182,7 +184,7 @@ Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curt
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-EG é compatível com MSA (árabe padrão moderno).*
+&dagger; *ar-ex suporta o moderno padrão árabe (MSA).*
 
 > [!NOTE]
 > Você pode usar o mapeamento de nome de serviço completo ou o nome de voz curto em suas solicitações de síntese de fala.
@@ -209,7 +211,7 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 | Búlgaro      | `bg`          |
 | Cantonês (tradicional)      | `yue`          |
 | Catalão      | `ca`          |
-| Chinês (simplificado)      | `zh-Hans`          |
+| Chinês simplificado      | `zh-Hans`          |
 | Chinês (tradicional)      | `zh-Hant`          |
 | Croata      | `hr`          |
 | Tcheco      | `cs`          |

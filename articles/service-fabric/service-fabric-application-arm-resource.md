@@ -1,35 +1,24 @@
 ---
-title: Implantar e atualizar aplicativos e serviços com o Azure Resource Manager | Microsoft Docs
+title: Implantar e atualizar com Azure Resource Manager
 description: Saiba como implantar aplicativos e serviços em um cluster do Service Fabric usando um modelo do Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71153580"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610243"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerenciar aplicativos e serviços como recursos do Azure Resource Manager
 
-É possível implantar aplicativos e serviços em seu cluster do Service Fabric por meio do Azure Resource Manager. Isso significa que, em vez de implantar e gerenciar aplicativos por meio do PowerShell ou da CLI após ter que aguardar o cluster estar pronto, agora é possível expressar aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que seu cluster. Todo o processo de registro, provisionamento e implantação de aplicativos acontece em uma etapa.
+É possível implantar aplicativos e serviços em seu cluster do Service Fabric por meio do Azure Resource Manager. Isso significa que, em vez de implantar e gerenciar aplicativos por meio do PowerShell ou da CLI após ter que aguardar o cluster estar pronto, agora é possível expressar aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que seu cluster. Todo o processo de registro, provisionamento e implantação de aplicativo acontece em uma etapa.
 
 Essa é a maneira recomendada para implantar qualquer configuração, governança ou aplicativos de gerenciamento de cluster exigidos em seu cluster. Isso inclui o [Aplicativo de orquestração de patches](service-fabric-patch-orchestration-application.md), Watchdogs ou aplicativos que precisam estar em execução em seu cluster antes que outros aplicativos ou serviços sejam implantados. 
 
 Quando aplicável, gerencie seus aplicativos, como recursos do Resource Manager para melhorar:
-* Trilha de auditoria: O Resource Manager audita cada operação e mantém um *log de atividades* detalhado que pode ajudá-lo a rastrear todas as alterações feitas nesses aplicativos e no cluster.
-* RBAC (controle de acesso baseado em função): O gerenciamento de acesso a clusters, bem como aplicativos implantados no cluster, pode ser feito por meio do mesmo modelo do Resource Manager.
+* A trilha de auditoria: o Resource Manager audita toda operação e mantém um *Log de atividades* que pode ajudar a rastrear alterações feitas nesses aplicativos e no seu cluster.
+* O RBAC (Controle de Acesso Baseado em Função): gerenciar acesso aos clusters assim como aplicativos implantados no cluster pode ser feito por meio do mesmo modelo do Resource Manager.
 * O Azure Resource Manager (por meio do Portal do Azure) se torna uma loja única para gerenciar o cluster e as implantações de aplicativos críticos.
 
 O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerenciados por meio de um modelo:
@@ -67,7 +56,7 @@ O snippet a seguir mostra os diferentes tipos de recursos que podem ser gerencia
 1. Prepare o modelo do Resource Manager do cluster para implantação. Consulte [Criar um cluster do Service Fabric usando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre isso.
 2. Pense em alguns aplicativos que você planeja implantar no cluster. Há algum que estará sempre executando esses outros aplicativos nos quais ele pode assumir dependências? Você planeja implantar qualquer governança de cluster ou aplicativos de configuração? Esses tipos de aplicativos são mais bem gerenciados por meio de um modelo do Resource Manager, como discutido acima. 
 3. Depois que você descobriu quais aplicativos você deseja que sejam implantados dessa forma, os aplicativos precisam ser empacotados, compactados e colocados em um compartilhamento de arquivos. O compartilhamento precisa ser acessado por meio de um ponto de extremidade REST para que o Azure Resource Manager consuma durante a implantação.
-4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec) (Especificação do Swagger da API REST). Observe que isso não substitui os manifestos do aplicativo nem do serviço, mas descreve algumas coisas que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
+4. Em seu modelo do Resource Manager, embaixo da declaração do seu cluster, descreva as propriedades de cada aplicativo. Essas propriedades incluem a contagem de instâncias e de réplicas e quaisquer cadeias de dependência entre recursos (outros aplicativos ou serviços). Para obter uma lista de propriedades abrangentes, consulte a [especificação Swagger da API REST](https://aka.ms/sfrpswaggerspec). Observe que isso não substitui os manifestos do aplicativo ou do serviço, mas descreve alguns dos que estão neles como parte do modelo do Resource Manager do cluster. Veja um exemplo de modelo que inclui a implantação de um serviço sem estado *Service1* e um serviço com estado *Service2* como parte do *Application1*:
 
    ```json
    {
@@ -275,9 +264,9 @@ A simples remoção de Microsoft. infabric/clusters/aplicativo do modelo do ARM 
 Se seu cluster já estiver operante e alguns aplicativos que você gostaria de gerenciar como recursos do Resource Manager já estiverem implantados nele, em vez de remover os aplicativos e implantá-los novamente, será possível usar uma chamada PUT usando as mesmas APIs para que os aplicativos sejam confirmados como recursos do Resource Manager. Para obter informações adicionais, consulte o [que é o modelo de recurso de aplicativo Service Fabric?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
 
 > [!NOTE]
-> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar "maxPercentUnhealthyApplications: 100 "na seção" upgradeDescription/healthPolicy "; descrições detalhadas de todas as configurações estão na [documentação da política de atualização de cluster da API REST de malhas de serviço](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Para permitir que uma atualização de cluster ignore aplicativos não íntegros, o cliente pode especificar “maxPercentUnhealthyApplications: 100” na seção “upgradeDescription/healthPolicy”; descrições detalhadas para todas as configurações estão na [Documentação da política de atualização de cluster da API REST do Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Use a [CLI do Service Fabric](service-fabric-cli.md) ou o [PowerShell](service-fabric-deploy-remove-applications.md) para implantar outros aplicativos em seu cluster. 
 * [Atualize seu cluster do Service Fabric](service-fabric-cluster-upgrade.md)

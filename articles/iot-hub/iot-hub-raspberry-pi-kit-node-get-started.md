@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457107"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Node.js)
 
@@ -78,7 +78,7 @@ Os itens a seguir são opcionais:
 > [!NOTE]
 > Se você não tiver os itens opcionais, poderá usar dados de sensor simulados.
 
-## <a name="create-an-iot-hub"></a>Crie um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -137,7 +137,7 @@ Use a placa universal e os cabos de jumper para conectar um LED e um BME280 ao P
 
 O sensor BME280 pode coletar dados de temperatura e umidade. O LED pisca quando o dispositivo envia uma mensagem para a nuvem.
 
-Use a seguinte fiação para os pinos do sensor:
+Para os pinos do sensor, use a seguinte fiação:
 
 | Início (Sensor e LED)     | End (quadro)            | Cor de cabo   |
 | -----------------------  | ---------------------- | ------------: |
@@ -148,7 +148,7 @@ Use a seguinte fiação para os pinos do sensor:
 | LED VDD (pino 18F)        | GPIO 24 (pino 18)       | Cabo branco   |
 | LED GND (pino 17F)        | GND (pino 20)           | Cabo preto   |
 
-Clique para exibir os [mapeamentos de pinos do Raspberry Pi 2 e 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) para referência.
+Clique para exibir os [mapeamentos de pinos do Raspberry Pi 2 e 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) para referência.
 
 Depois de conectar com êxito o BME280 ao Raspberry Pi, ele deve ficar semelhante à imagem abaixo.
 
@@ -254,7 +254,7 @@ Uma maneira de monitorar as mensagens recebidas pelo Hub IoT do seu dispositivo 
 
 Para obter mais maneiras de processar dados enviados pelo seu dispositivo, continue na próxima seção.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT.
 

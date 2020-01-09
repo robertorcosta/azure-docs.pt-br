@@ -1,25 +1,17 @@
 ---
-title: Configurar um Gateway para rotear solicitações | Microsoft Docs
+title: Configurar um gateway para rotear solicitações
 description: Saiba como configurar o gateway que manipula o tráfego de entrada para seus aplicativos em execução na Malha do Azure Service Fabric.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461958"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configure um recurso de Gateway para rotear solicitações
 
@@ -227,8 +219,8 @@ Aqui está a aparência de uma configuração de recurso completa do Gateway (is
 ```
 
 Esse gateway está configurado para um aplicativo do Linux, "meshAppLinux", que consiste em pelo menos dois serviços, "helloWorldService" e "counterService", que escuta na porta 80. Dependendo da estrutura da URL da solicitação de entrada, ele encaminhará a solicitação para um desses serviços. 
-* "\<IPAddress >: 80/HelloWorld/\<Request\>" resultaria em uma solicitação sendo direcionada para "helloWorldListener" no helloWorldService. 
+* "\<IPAddress >: 80/helloWorld/\<solicitação\>" resultaria em uma solicitação sendo direcionada para o "helloWorldListener" no helloWorldService. 
 * "\<IPAddress >: 80/contador/\<solicitação\>" resultaria em uma solicitação sendo direcionada para o "ouvinte" no mesmo serviço. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Implantar o [Exemplo de entrada](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) para ver os gateways em ação

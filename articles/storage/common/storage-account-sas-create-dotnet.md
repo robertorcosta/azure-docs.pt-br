@@ -1,5 +1,6 @@
 ---
-title: Criar uma SAS de conta com o .NET-armazenamento do Azure
+title: Criar uma SAS de conta com .NET
+titleSuffix: Azure Storage
 description: Saiba como criar uma assinatura de acesso compartilhado de conta (SAS) usando a biblioteca de cliente .NET.
 services: storage
 author: tamram
@@ -9,12 +10,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aa93ee292ab95c68034ad595d6cda608d1886c0a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673265"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460596"
 ---
 # <a name="create-an-account-sas-with-net"></a>Criar uma SAS de conta com .NET
 
@@ -26,7 +27,7 @@ Este artigo mostra como usar a chave da conta de armazenamento para criar uma SA
 
 Para criar uma SAS de conta para um contêiner, chame o método [CloudStorageAccount. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) .
 
-O exemplo de código a seguir cria uma SAS de conta que é válida para os serviços de arquivo e de blob e dá ao cliente permissões de leitura, gravação e listagem de permissões para acessar as APIs de nível de serviço. A SAS de conta restringe o protocolo para HTTPS, para que a solicitação deva ser feita com HTTPS. Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
+O exemplo de código a seguir cria uma SAS de conta que é válida para os serviços de arquivo e de blob e dá ao cliente permissões de leitura, gravação e listagem de permissões para acessar as APIs de nível de serviço. A SAS de conta restringe o protocolo para HTTPS, para que a solicitação deva ser feita com HTTPS. Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```csharp
 static string GetAccountSASToken()
@@ -52,7 +53,7 @@ static string GetAccountSASToken()
 
 ## <a name="use-an-account-sas-from-a-client"></a>Usar uma SAS de conta de um cliente
 
-Para usar a SAS da conta para acessar APIs de nível de serviço para o serviço BLOB, construa um objeto de cliente do serviço BLOB usando a SAS e o ponto de extremidade do armazenamento de BLOBs para sua conta de armazenamento. Lembre-se de substituir valores de espaço reservado entre colchetes angulares por seus próprios valores:
+Para usar a SAS da conta para acessar APIs de nível de serviço para o serviço BLOB, construa um objeto de cliente do serviço BLOB usando a SAS e o ponto de extremidade do armazenamento de BLOBs para sua conta de armazenamento. Lembre-se de substituir os valores dos espaços reservados entre colchetes angulares pelos seus próprios valores:
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -94,7 +95,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](storage-sas-overview.md)
 - [Criar uma SAS de conta](/rest/api/storageservices/create-account-sas)

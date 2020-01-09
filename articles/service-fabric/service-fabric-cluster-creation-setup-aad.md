@@ -1,25 +1,14 @@
 ---
-title: Configurar o Azure Active Directory para autenticação de cliente do Service Fabric | Microsoft Docs
+title: Configurar o Azure Active Directory para autenticação de cliente
 description: Saiba como configurar o Azure AD (Azure Active Directory) para autenticar clientes para clusters do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/28/2019
-ms.author: atsenthi
-ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901515"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614682"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
@@ -31,6 +20,11 @@ Um cluster do Service Fabric oferece vários pontos de entrada para a funcionali
 
 > [!NOTE]
 > No Linux, você deve concluir as etapas a seguir antes de criar o cluster. No Windows, você também tem a opção de [Configurar a autenticação do Azure ad para um cluster existente](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
+
+> [!NOTE]
+> É um [problema conhecido](https://github.com/microsoft/service-fabric/issues/399) que aplicativos e nós em clusters habilitados para AAD do Linux não podem ser exibidos no portal do Azure.
+
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Neste artigo, partimos do pressuposto que você já tenha criado um locatário. Se não for o caso, comece lendo [Como obter um locatário do Azure Active Directory][active-directory-howto-tenant].

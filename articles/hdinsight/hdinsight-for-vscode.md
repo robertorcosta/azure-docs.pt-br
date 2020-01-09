@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 03d0d26a21e710c07019d3ffcb13a1482a96af50
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311724"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435677"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
 
 Saiba como usar as ferramentas do Spark & Hive para Visual Studio Code para criar e enviar trabalhos de Apache Hive lote, consultas interativas de Hive e scripts PySpark para Apache Spark. Primeiro, descreveremos como instalar as ferramentas do Spark & Hive no Visual Studio Code e, em seguida, veremos como enviar trabalhos para as ferramentas do Spark & Hive.  
 
-As ferramentas do hive do Spark & podem ser instaladas em plataformas com suporte no Visual Studio Code, que incluem Windows, Linux e macOS. Observe os seguintes pré-requisitos para diferentes plataformas.
+As Ferramentas do Spark & Hive podem ser instaladas em plataformas com suporte do Visual Studio Code, que incluem Windows, Linux e macOS. Observe os seguintes pré-requisitos para diferentes plataformas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,13 +30,13 @@ Os itens a seguir são necessários para concluir as etapas neste artigo:
 - [Um ambiente PySpark interativo para Visual Studio Code](set-up-pyspark-interactive-environment.md).
 - Um diretório local. Este artigo usa **C:\HD\HDexample**.
 
-## <a name="install-spark--hive-tools"></a>Instalar as ferramentas do Spark & Hive
+## <a name="install-spark--hive-tools"></a>Instalar Ferramentas do Spark & Hive
 
 Depois de atender aos pré-requisitos, você pode instalar as ferramentas do Spark & Hive para Visual Studio Code seguindo estas etapas:
 
 1. Abra o Visual Studio Code.
 
-2. Na barra de menus, navegue para **Exibir** > **Extensões**.
+2. Na barra de menus, navegue até **Exibir** > **Extensões**.
 
 3. Na caixa de pesquisa, insira **Spark & Hive**.
 
@@ -50,7 +50,7 @@ Depois de atender aos pré-requisitos, você pode instalar as ferramentas do Spa
 
 Para abrir uma pasta de trabalho e criar um arquivo em Visual Studio Code, siga estas etapas:
 
-1. Na barra de menus, navegue até **arquivo** > **abrir pasta...**  > **C:\HD\HDexample**e, em seguida, selecione o botão **Selecionar pasta** . A pasta aparece na exibição do **Explorador** à esquerda.
+1. Na barra de menus, navegue até **arquivo** > **abrir pasta...**  > **C:\HD\HDexample**e, em seguida, selecione o botão **Selecionar pasta** . A pasta aparece no modo de exibição do **Explorer** à esquerda.
 
 2. Na exibição do **Gerenciador** , selecione a pasta **HDexample** e, em seguida, selecione o ícone **novo arquivo** ao lado da pasta de trabalho:
 
@@ -100,7 +100,7 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado pelo
 
 7. Defina o nome de exibição do cluster (opcional).
 
-8. Verifique a exibição **SAÍDA**.
+8. Examine a exibição **SAÍDA** para verificação.
 
    > [!NOTE]  
    > O nome de usuário e a senha vinculados serão usados se o cluster fizer logon na assinatura do Azure e vinculado a um cluster.  
@@ -117,7 +117,7 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado pelo
     &emsp;a. Insira seu nome de usuário do Ambari; o padrão é **admin**.  
     &emsp;b. Insira sua senha do Ambari.
 
-5. Verifique a exibição **SAÍDA**.
+5. Examine a exibição **SAÍDA** para verificação.
 
 ## <a name="list-clusters"></a>Listar clusters
 
@@ -125,9 +125,9 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado pelo
 
 2. Selecione a assinatura desejada.
 
-3. Verifique a exibição **SAÍDA**. Essa exibição mostra o cluster (ou clusters) vinculado e todos os clusters em sua assinatura do Azure:
+3. Examine a exibição **SAÍDA**. Essa exibição mostra o cluster (ou clusters) vinculado e todos os clusters em sua assinatura do Azure:
 
-    ![Definir uma configuração do cluster padrão](./media/hdinsight-for-vscode/list-cluster-result1.png)
+    ![Definir uma configuração de cluster padrão](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>Definir o cluster padrão
 
@@ -139,9 +139,9 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado pelo
 
 4. [Conecte-](#connect-to-an-azure-account) se à sua conta do Azure ou vincule um cluster, caso ainda não tenha feito isso.
 
-5. Selecione um cluster como o padrão para o arquivo de script atual. As ferramentas atualizam automaticamente o **.** Arquivo de configuração do VSCode\settings.JSON:
+5. Selecione um cluster como o cluster padrão para o arquivo de script atual. As ferramentas atualizam automaticamente o **.** Arquivo de configuração do VSCode\settings.JSON:
 
-   ![Definir configuração do cluster padrão](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
+   ![Definir configuração de cluster padrão](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
 ## <a name="submit-interactive-hive-queries-and-hive-batch-scripts"></a>Enviar consultas de Hive interativas e scripts de lote do hive
 
@@ -169,7 +169,7 @@ Com as ferramentas do Spark & Hive para Visual Studio Code, você pode enviar co
 
     - Painel de **mensagens** : quando você seleciona um número de **linha** , ele salta para a primeira linha do script em execução.
 
-## <a name="submit-interactive-pyspark-queries"></a>Enviar consultas interativas do PySpark
+## <a name="submit-interactive-pyspark-queries"></a>Enviar consultas interativas de PySpark
 
 Para enviar consultas PySpark interativas, siga estas etapas:
 
@@ -197,11 +197,11 @@ Para enviar consultas PySpark interativas, siga estas etapas:
 
 5. Selecione todo o código, clique com o botão direito do mouse no editor de scripts e selecione **Spark: PySpark Interactive** para enviar a consulta. Ou use o atalho CTRL + ALT + I.
 
-   ![menu de contexto interativo do pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+   ![menu de contexto do pyspark interativo](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
 6. Selecione o cluster, se você não tiver especificado um cluster padrão. Após alguns instantes, os resultados **interativos do Python** aparecem em uma nova guia. As ferramentas também permitem que você envie um bloco de código em vez do arquivo de script inteiro usando o menu de contexto:
 
-   ![janela interativa do Python pyspark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+   ![janela de python interativo pyspark interativo](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
 7. Insira **%% info**e pressione Shift + Enter para exibir as informações do trabalho (opcional):
 
@@ -217,9 +217,9 @@ Para enviar consultas PySpark interativas, siga estas etapas:
    >
    > Quando a **extensão do Python habilitada** é desmarcada nas configurações (ela é selecionada por padrão), os resultados da interação pyspark enviada usarão a janela antiga:
    >
-   > ![extensão do Python interativa do pyspark desabilitada](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
+   > ![extensão de python interativa do pyspark desabilitada](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
 
-## <a name="submit-pyspark-batch-job"></a>Enviar o trabalho em lotes de PySpark
+## <a name="submit-pyspark-batch-job"></a>Enviar trabalho em lotes PySpark
 
 1. Reabra a pasta **HDexample** que você discutiu [anteriormente](#open-a-work-folder), se fechada.  
 
@@ -256,18 +256,18 @@ Para enviar consultas PySpark interativas, siga estas etapas:
 
    ![Enviar saída de resultado do trabalho do Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Depois de enviar um trabalho Python, os logs de envio aparecem na janela **SAÍDA** no Visual Studio Code. A URL da interface do usuário do Spark e a URL da interface do usuário yarn também são mostradas Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
+Após você enviar um trabalho do Python, os logs de envio aparecem na janela de **SAÍDA** no Visual Studio Code. A URL da interface do usuário do Spark e a URL da interface do usuário yarn também são mostradas Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
 
 ## <a name="apache-livy-configuration"></a>Configuração do Apache Livy
 
-Há suporte para a configuração do [Apache Livy](https://livy.incubator.apache.org/) . Você pode configurá-lo no **. Arquivo VSCode\settings.json** na pasta do espaço de trabalho. Atualmente, a configuração do Livy dá suporte apenas ao script Python. Para obter mais detalhes, consulte [LIVY README](https://github.com/cloudera/livy/blob/master/README.rst ).
+Há suporte para a configuração do [Apache Livy](https://livy.incubator.apache.org/) . Você pode configurá-lo no **. Arquivo VSCode\settings.json** na pasta do espaço de trabalho. Atualmente, a configuração do Livy dá suporte apenas ao script de Python. Para obter mais detalhes, consulte [LIVY README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Como disparar a configuração do Livy**
 
 Método 1  
-1. Na barra de menus, navegue para **Arquivo** > **Preferências** > **Configurações**.
+1. Na barra de menus, navegue até **Arquivo** > **Preferências** > **Configurações**.
 2. Na caixa **configurações de pesquisa** , insira **envio de trabalho do HDInsight: Livy conf**.  
-3. Selecione **Editar no settings.json** para o resultado da pesquisa relevante.
+3. Selecione **Editar em settings.json** para o resultado da pesquisa relevante.
 
 O método 2 envia um arquivo e observa que a pasta. vscode é adicionada automaticamente à pasta de trabalho. Você pode ver a configuração Livy selecionando **. vscode\settings.JSON**.
 
@@ -282,32 +282,32 @@ O método 2 envia um arquivo e observa que a pasta. vscode é adicionada automat
 
     **Postar/batches** Corpo da solicitação
 
-    | name | Description | type |
+    | name | descrição | type |
     | :- | :- | :- |
     | file | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
-    | proxyUser | Usuário a ser representado ao executar o trabalho | String |
-    | className | Classe principal Java/Spark do aplicativo | String |
+    | proxyUser | Usuário a representar ao executar o trabalho | String |
+    | className | Classe principal de Java/Spark do aplicativo | String |
     | args | Argumentos de linha de comando para o aplicativo | Lista de cadeias de caracteres |
     | jars | Jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
     | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | de entrada | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-    | driverMemory | Quantidade de memória a ser usada para o processo de driver | String |
-    | driverCores | Quantidade de núcleos a ser usado para o processo de driver | int |
-    | executorMemory | Quantidade de memória a ser usada por processo de executor | String |
-    | executorCores | Número de núcleos a serem usados para cada executor | int |
-    | numExecutors | Número de executores a serem iniciados para esta sessão | int |
+    | files | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
+    | driverMemory | Quantidade de memória a ser usada para o processo do driver | String |
+    | driverCores | Número de núcleos a serem usados para o processo do driver | Int |
+    | executorMemory | Quantidade de memória a ser usada pelo processo de executor | String |
+    | executorCores | Número de núcleos a serem usados para cada executor | Int |
+    | numExecutors | Número de executores a serem iniciados para esta sessão | Int |
     | archives | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
     | fila | Nome da fila de YARN a ser enviada| String |
     | name | Nome desta sessão | String |
-    | conf | Propriedades de configuração do Spark | Mapa de key=val |
+    | conf | Propriedades de configuração do Spark | Mapa de chave = valor |
 
     Corpo da resposta o objeto do lote criado.
 
-    | name | Description | type |
+    | name | descrição | type |
     | :- | :- | :- |
-    | ID | Id da sessão | int |
+    | id | Id da sessão | Int |
     | appId | ID do aplicativo desta sessão | String |
-    | appInfo | Informações detalhadas do aplicativo | Mapa de key=val |
+    | appInfo | Informações detalhadas do aplicativo | Mapa de chave = valor |
     | log | Linhas de log | Lista de cadeias de caracteres |
     | state |Estado do lote | String |
 
@@ -360,7 +360,7 @@ O Spark & Hive para Visual Studio Code também dá suporte aos seguintes recurso
 - **Marcador de erro do IntelliSense**. O serviço de linguagem sublinha erros de edição no script do hive.     
 - **Destaques da sintaxe**. O serviço de idioma usa cores diferentes para diferenciar variáveis, palavras-chave, tipo de dados, funções e outros elementos de programação:
 
-    ![Ferramentas do Spark & Hive para Visual Studio Code destaques da sintaxe](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
+    ![Destaques de sintaxe das Ferramentas do Spark & Hive para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 ## <a name="reader-only-role"></a>Função somente leitura
 
@@ -389,7 +389,7 @@ Ao enviar o trabalho para um cluster HDInsight, você será solicitado a vincula
   >
   >![Ferramentas do hive do Spark & para Visual Studio Code Reader vinculado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
-## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
+## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Store Gen2
 
 ### <a name="browse-a-data-lake-storage-gen2-account"></a>Procurar uma conta de Data Lake Storage Gen2
 
@@ -403,7 +403,7 @@ Ao enviar um trabalho para um cluster HDInsight usando Data Lake Storage Gen2, v
 
 > [!NOTE]
 >
-> Você pode obter a chave de acesso para a conta de armazenamento do portal do Azure. Para obter mais informações, consulte [Exibir e copiar chaves de acesso](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
+> Você pode obter a chave de acesso para a conta de armazenamento do portal do Azure. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md).
 
 ## <a name="unlink-cluster"></a>Desvincular cluster
 
@@ -417,6 +417,6 @@ Ao enviar um trabalho para um cluster HDInsight usando Data Lake Storage Gen2, v
 
 Na barra de menus, acesse **exibir** > **paleta de comandos**e, em seguida, insira **Azure: sair**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para ver um vídeo que demonstra o uso do Spark & Hive para Visual Studio Code, consulte [spark & Hive para Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

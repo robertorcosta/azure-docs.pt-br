@@ -1,25 +1,17 @@
 ---
-title: Arquitetura do Service Fabric do Azure | Microsoft Docs
+title: Arquitetura do Azure Service Fabric
 description: A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem. Este artigo mostra a arquitetura da malha de serviço.
 services: service-fabric
-documentationcenter: .net
 author: rishirsinha
-manager: chackdan
-editor: rishirsinha
-ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 862332d31808c7ba372b93accb8f2b9a3524ba79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377881"
 ---
 # <a name="service-fabric-architecture"></a>Arquitetura do Service Fabric
 O Service Fabric é criado com subsistemas em camadas. Esses subsistemas permitem escrever aplicativos:
@@ -51,9 +43,9 @@ O subsistema de confiabilidade fornece o mecanismo para manter o estado de um se
 ## <a name="management-subsystem"></a>Subsistema de gerenciamento
 O subsistema de gerenciamento oferece serviços de ponta a ponta e gerenciamento de ciclo de vida do aplicativo. Os cmdlets do PowerShell e as APIs administrativas permitem provisionar, implantar, corrigir, atualizar e desprovisionar aplicativos sem perda de disponibilidade. O subsistema de gerenciamento faz isso por meio dos serviços a seguir.
 
-* **Gerenciador de cluster**: Isso é o principal serviço que interage com o Gerenciador de Failover de confiabilidade para posicionar os aplicativos em nós com base nas restrições de posicionamento de serviço. O Gerenciador de Recursos no subsistema de failover faz com que as restrições nunca sejam desfeitas. O gerenciador de cluster gerencia o ciclo de vida dos aplicativos de provisionamento para desprovisionamento. Ele se integra ao gerenciador de integridade para garantir que a disponibilidade de aplicativos não seja perdida de uma perspectiva de semântica de integridade durante as atualizações.
-* **Gerenciador de integridade**: Esse serviço permite o monitoramento de integridade de aplicativos, serviços e entidades de cluster. As entidades de cluster (como os nós, as partições de serviço e as réplicas) podem relatar informações de integridade, que são então agregadas a um repositório centralizado de integridade. Essas informações de integridade fornecem um instantâneo da integridade geral de um ponto no tempo dos serviços e nós distribuídas em vários nós no cluster, permitindo que você tome as ações corretivas necessárias. As APIs de consulta de integridade permitem consultar os eventos de integridade relatados ao subsistema de integridade. As APIs de consulta de integridade retornam os dados brutos de integridade armazenados no repositório de integridade ou os dados de integridade agregados e interpretados de uma entidade de cluster específica.
-* **Imagem Store**: Esse serviço fornece armazenamento e a distribuição dos binários do aplicativo. O serviço fornece armazenamento de arquivos distribuídos simples, onde os aplicativos são carregados e de onde são baixados.
+* **Gerenciador de Cluster**: esse é o principal serviço que interage com o Gerenciador de Failover de confiabilidade para posicionar os aplicativos nos nós com base nas restrições de posicionamento de serviço. O Gerenciador de Recursos no subsistema de failover faz com que as restrições nunca sejam desfeitas. O gerenciador de cluster gerencia o ciclo de vida dos aplicativos de provisionamento para desprovisionamento. Ele se integra ao gerenciador de integridade para garantir que a disponibilidade de aplicativos não seja perdida de uma perspectiva de semântica de integridade durante as atualizações.
+* **Gerenciador de Integridade**: esse serviço permite o monitoramento de integridade de aplicativos, serviços e entidades de cluster. As entidades de cluster (como os nós, as partições de serviço e as réplicas) podem relatar informações de integridade, que são então agregadas a um repositório centralizado de integridade. Essas informações de integridade fornecem um instantâneo da integridade geral de um ponto no tempo dos serviços e nós distribuídas em vários nós no cluster, permitindo que você tome as ações corretivas necessárias. As APIs de consulta de integridade permitem consultar os eventos de integridade relatados ao subsistema de integridade. As APIs de consulta de integridade retornam os dados brutos de integridade armazenados no repositório de integridade ou os dados de integridade agregados e interpretados de uma entidade de cluster específica.
+* **Repositório de Imagens**: esse serviço permite o armazenamento e a distribuição dos binários do aplicativo. O serviço fornece armazenamento de arquivos distribuídos simples, onde os aplicativos são carregados e de onde são baixados.
 
 ## <a name="hosting-subsystem"></a>Subsistema de hospedagem
 O gerenciador de cluster informa o subsistema de hospedagem (em execução em cada nó), os serviços que precisa para gerenciar um nó específico. O subsistema de hospedagem, em seguida, gerencia o ciclo de vida do aplicativo nesse nó. Ele interage com os componentes de confiabilidade e integridade para garantir que as réplicas estão posicionadas corretamente e estão íntegras.

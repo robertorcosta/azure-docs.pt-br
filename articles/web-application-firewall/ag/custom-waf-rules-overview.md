@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585403"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645082"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para o Firewall do aplicativo Web V2 no Aplicativo Azure gateway
 
@@ -29,7 +29,7 @@ Diferentes condições de correspondência dentro da mesma regra sempre são com
 Se você quiser **ou** duas condições diferentes, as duas condições deverão estar em regras diferentes. Por exemplo, bloqueie o tráfego de um endereço IP específico ou bloqueie o tráfego se eles estiverem usando um navegador específico.
 
 > [!NOTE]
-> O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../../azure-subscription-service-limits.md#application-gateway-limits).
+> O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Também há suporte para expressões regulares em regras personalizadas, assim como nos conjuntos de regras do CRS. Para obter exemplos desses, consulte os exemplos 3 e 5 em [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
 
@@ -126,7 +126,7 @@ Deve ser um dos seguintes operadores:
 
 - IPMatch-usado somente quando a variável de correspondência é *RemoteAddr*
 - Equals – a entrada é igual a Matchvalue
-- Contém:
+- Contém
 - LessThan
 - GreaterThan
 - LessThanOrEqual
@@ -188,13 +188,13 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | BB | Barbados|
 | BD | Bangladesh|
 | BE | Bélgica|
-| BF | Burkina Faso|
+| BF | Burquina Faso|
 | BG | Bulgária|
 | BH | Bahrein|
 | BI | Burundi|
 | BJ | Benin|
 | BL | São Bartolomeu|
-| BN | Brunei Darussalam|
+| BN | Brunei|
 | BO | Bolívia|
 | BR | Brasil|
 | BS | Bahamas|
@@ -208,7 +208,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | CH | Suíça|
 | CI | Costa do Marfim|
 | CL | Chile|
-| CM | Camarões|
+| CM | República dos Camarões|
 | CN | China|
 | CO | Colômbia|
 | CR | Costa Rica|
@@ -216,7 +216,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | CV | Cabo Verde|
 | CY | Chipre|
 | CZ | República Tcheca|
-| DE | Alemanha|
+| Alemanha | Alemanha|
 | DK | Dinamarca|
 | DO | República Dominicana|
 | DZ | Argélia|
@@ -240,7 +240,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | GY | Guiana|
 | HK | RAE de Hong Kong|
 | HN | Honduras|
-| HR | Croácia|
+| RH | Croácia|
 | HT | Haiti|
 | HU | Hungria|
 | ID | Indonésia|
@@ -250,7 +250,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | IQ | Iraque|
 | IR | Irã, República Islâmica do|
 | IS | Islândia|
-| IT | Itália|
+| TI | Itália|
 | JM | Jamaica|
 | JO | Jordânia|
 | JP | Japão|
@@ -258,13 +258,13 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | KG | Quirguistão|
 | KH | Camboja|
 | KI | Kiribati|
-| KN | São Cristóvão e Névis|
+| KN | São Cristóvão e Nevis|
 | KP | Coreia, República Democrática Popular da|
 | KR | Coreia, República da|
 | KW | Kuwait|
 | KY | Ilhas Cayman|
 | KZ | Cazaquistão|
-| LA | República Democrática do Laos|
+| América Latina | República Democrática Popular do Laos|
 | LB | Líbano|
 | LI | Liechtenstein|
 | LK | Sri Lanka|
@@ -294,8 +294,8 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | NE | Níger|
 | NG | Nigéria|
 | NI | Nicarágua|
-| NL | Países Baixos|
-| NÃO | Noruega|
+| NL | Holanda|
+| Não | Noruega|
 | NP | Nepal|
 | NR | Nauru|
 | NZ | Nova Zelândia|
@@ -309,7 +309,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | PT | Portugal|
 | PW | Palau|
 | PY | Paraguai|
-| QA | Catar|
+| Garantia de qualidade | Catar|
 | RE | Reunião|
 | RO | Romênia|
 | RS | Sérvia|
@@ -318,7 +318,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | SA | Arábia Saudita|
 | SD | Sudão|
 | SE | Suécia|
-| SG | Singapura|
+| SG | Cingapura|
 | SI | Eslovênia|
 | SK | Eslováquia|
 | SN | Senegal|
@@ -326,9 +326,9 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | SR | Suriname|
 | SS | Sudão do Sul|
 | SV | El Salvador|
-| SY | República Árabe Síria|
+| SY | República Árabe da Síria|
 | SZ | Suazilândia|
-| TC | Ilhas Turks e Caicos|
+| TC | Ilhas Turcas e Caicos|
 | TG | Togo|
 | TH | Tailândia|
 | TN | Tunísia|
@@ -341,7 +341,7 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | EUA | Estados Unidos|
 | UY | Uruguai|
 | UZ | Uzbequistão|
-| VC | São Vincent e Granadinas|
+| VC | São Vicente e Granadinas|
 | VE | Venezuela|
 | VG | Ilhas Virgens Britânicas|
 | VI | Ilhas Virgens Americanas|
@@ -350,6 +350,6 @@ Se você estiver usando o operador geomatch, os seletores podem ser qualquer um 
 | ZM | Zâmbia|
 | ZW | Zimbábue|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de aprender sobre regras personalizadas, [crie suas próprias regras personalizadas](create-custom-waf-rules.md).

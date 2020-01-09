@@ -1,20 +1,15 @@
 ---
-title: Perguntas comuns sobre Malha do Microsoft Azure Service Fabric | Microsoft Docs
+title: Perguntas comuns sobre a malha de Service Fabric do Azure
 description: Saiba mais sobre perguntas frequentes e respostas relacionadas à Malha do Microsoft Azure Service Fabric.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461986"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
 
@@ -37,8 +32,8 @@ Sim. As cotas de cada assinatura são:
 - Número de aplicativos: 5
 - Núcleos por aplicativo: 12
 - Total de RAM por aplicativo: 48 GB
-- Pontos de extremidade de Entrada e Rede: 5
-- Volumes do Azure possíveis de anexar: 10
+- Pontos de extremidade de rede e entrada: 5
+- Volumes do Azure que você pode anexar: 10
 - Número de réplicas de serviço: 3
 - O maior contêiner que pode ser implantado é limitado a 4 núcleos e 16 GB de RAM.
 - É possível alocar núcleos parciais para os contêineres em incrementos de 0,5 núcleos até um máximo de 6 núcleos.
@@ -86,7 +81,6 @@ Se você estiver desenvolvendo em um computador com Windows Fall Creators Update
 Se estiver desenvolvendo em um computador com a atualização de 10 de abril de 2018 do Windows (versão 1803), você poderá usar imagens do Docker do Windows versão 1709 ou do Windows versão 1803.
 
 As imagens do SO do contêiner a seguir podem ser usadas para implantar serviços:
-
 - Windows - windowsservercore e nanoserver
     - Windows Server 1709
     - Windows Server 1803
@@ -109,7 +103,7 @@ Você pode implantar qualquer coisa que seja executada em contêineres que caiba
 As consultas DNS de saída de um contêiner para o serviço DNS do Service Fabric poderão falhar em determinadas circunstâncias. Isso está sendo investigado. Para atenuar:
 
 - Use o Windows Fall Creators update (versão 1709) ou superior como sua imagem de contêiner base.
-- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName.ApplicationName.
+- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName. ApplicationName.
 - No arquivo do Docker para seu serviço, adicionar `EXPOSE <port>` onde a porta é a porta na qual você está expondo seu serviço. Por exemplo:
 
 ```Dockerfile
@@ -124,7 +118,7 @@ Use `{serviceName}.{applicationName}` no seu cluster de desenvolvimento local. N
 
 A Malha do Azure não dá suporte à resolução de DNS nos aplicativos.
 
-Para outros problemas conhecidos de DNS com a execução de um cluster de desenvolvimento do Service Fabric no Windows 10, consulte: [Depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas de DNS conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Para outros problemas de DNS conhecidos com a execução de um cluster de desenvolvimento Service Fabric no Windows 10, consulte: [depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas de DNS conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### <a name="networking"></a>Rede
 
@@ -170,6 +164,6 @@ No modelo de aplicativo, use a ID do recurso completa de redes e volumes para po
 
 Este é um bug e uma correção está sendo implementada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a Malha do Service Fabric, leia a [visão geral](service-fabric-mesh-overview.md).

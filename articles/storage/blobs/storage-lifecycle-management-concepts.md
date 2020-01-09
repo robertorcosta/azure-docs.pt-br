@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351328"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
 
@@ -47,7 +47,7 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 Você pode adicionar, editar ou remover uma política usando qualquer um dos seguintes métodos:
 
 * [Azure portal](https://portal.azure.com)
-* [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
+* [PowerShell do Azure](https://github.com/Azure/azure-powershell/releases)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
@@ -69,7 +69,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
+2. Na portal do Azure, procure e selecione sua conta de armazenamento. 
 
 3. Em **serviço blob**, selecione **Gerenciamento de ciclo de vida** para exibir ou alterar suas regras.
 
@@ -90,7 +90,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
 #### <a name="azure-portal-code-view"></a>Exibição de código portal do Azure
 1. Entre no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **todos os recursos** e, em seguida, selecione sua conta de armazenamento.
+2. Na portal do Azure, procure e selecione sua conta de armazenamento.
 
 3. Em **serviço blob**, selecione **Gerenciamento de ciclo de vida** para exibir ou alterar sua política.
 
@@ -226,18 +226,18 @@ Uma política de gerenciamento do ciclo de vida é uma coleção de regras em um
 
 Uma política é uma coleção de regras:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas |
+| Nome do parâmetro | Tipo de parâmetro | Observações |
 |----------------|----------------|-------|
 | `rules`        | Uma matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Você pode definir até 100 regras em uma política.|
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Notas | obrigatórios |
+| Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| `name`         | string |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
-| `enabled`      | Booliano | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | False | 
-| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | True |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
+| `name`         | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | Verdadeiro |
+| `enabled`      | Boolean | Um booliano opcional para permitir que uma regra seja temporariamente desabilitada. O valor padrão será true se não estiver definido. | Falso | 
+| `type`         | Um valor de enumeração | O tipo válido atual é `Lifecycle`. | Verdadeiro |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | Verdadeiro |
 
 ## <a name="rules"></a>Regras
 
@@ -286,9 +286,9 @@ Os filtros limitam as ações de regra a um subconjunto de blobs na conta de arm
 
 Filtros incluem:
 
-| Nome do filtro | Tipo do filtro | Notas | Obrigatório |
+| Nome do filtro | Tipo do filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual oferece suporte a `blockBlob`. | SIM |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual oferece suporte a `blockBlob`. | Sim |
 | prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você quiser corresponder a todos os BLOBs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, o prefixMatch será `container1/foo`. | Se você não definir prefixMatch, a regra se aplicará a todos os BLOBs na conta de armazenamento.  | Não |
 
 ### <a name="rule-actions"></a>Ações de regra
@@ -308,7 +308,7 @@ O gerenciamento do ciclo de vida dá suporte a camadas e exclusão de BLOBs e ex
 
 As condições de execução se baseiam na idade. Os blobs base usam a hora da última modificação para acompanhar a idade, enquanto os instantâneos de blob usam a hora de criação do instantâneo para executar a mesma tarefa.
 
-| Condição de execução de ação             | Valor de condição                          | Descrição                             |
+| Condição de execução de ação             | Valor de condição                          | Description                             |
 |----------------------------------|------------------------------------------|-----------------------------------------|
 | daysAfterModificationGreaterThan | Valor inteiro que indica a idade em dias | A condição para ações de blob de base     |
 | daysAfterCreationGreaterThan     | Valor inteiro que indica a idade em dias | A condição para ações de instantâneo de BLOB |
@@ -429,7 +429,7 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
 }
 ```
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 **Eu criei uma nova política, por que as ações não são executadas imediatamente?**  
 A plataforma executa a política de ciclo de vida uma vez por dia. Depois de configurar uma política, pode levar até 24 horas para que algumas ações sejam executadas pela primeira vez.  

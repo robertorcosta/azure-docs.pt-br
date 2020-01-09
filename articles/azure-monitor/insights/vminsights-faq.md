@@ -4,15 +4,15 @@ description: Respostas a perguntas comuns para Azure Monitor para VMs que monito
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/09/2018
-ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fa47606112c562402a42bd5ca503ed2d9a311268
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400389"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor para VMs (versão prévia)
 Essas perguntas frequentes da Microsoft são uma lista de perguntas frequentes sobre o Azure Monitor para VMs. Caso tenha outras dúvidas sobre a solução, acesse o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
@@ -134,5 +134,5 @@ Se você configurou o Azure Monitor com um espaço de trabalho do Log Analytics 
 
 Nessa condição, uma opção **Experimentar Agora** será exibida quando você abrir a VM e selecionar **Insights (versão prévia)** no painel esquerdo, mesmo após já ter sido instalado na VM.  No entanto, não serão exibidas as opções como normalmente ocorreria se essa VM não estivesse incorporada ao Azure Monitor para VMs. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Examine [habilitar Azure monitor para VMs](vminsights-enable-overview.md) para entender os requisitos e os métodos para habilitar o monitoramento de suas máquinas virtuais.

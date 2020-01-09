@@ -1,20 +1,18 @@
 ---
 title: Monitorar e gerenciar programaticamente trabalhos do Azure Stream Analytics
 description: Este artigo descreve como monitorar programaticamente os trabalhos do Stream Analytics criados por meio de APIs REST, SDK do Azure ou PowerShell.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: bf84a5b89e4769e37c45714a30d5d98300a4328d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 23c0cc0d0e4a007fdf46021f857b559266f6a193
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431661"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programaticamente um monitor de trabalhos do Stream Analytics
 
@@ -22,9 +20,9 @@ Este artigo demonstra como habilitar o monitoramento para um trabalho do Stream 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar esse processo, você deve ter os seguintes pré-requisitos:
+Antes de iniciar este processo, você deve ter os seguintes pré-requisitos:
 
-* 2015 ou Visual Studio de 2019
+* Visual Studio 2019 ou 2015
 * [SDK do Azure .NET](https://azure.microsoft.com/downloads/) baixado e instalado
 * Um trabalho de Stream Analytics existente que precisa ter monitoramento habilitado
 
@@ -137,7 +135,7 @@ O código a seguir configurará as variáveis necessárias e os clientes de gere
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitar o monitoramento para um trabalho de Stream Analytics existente
 
-O código a seguir habilita o monitoramento para um trabalho de Stream Analytics **existente**. A primeira parte do código realiza uma solicitação GET em relação ao serviço de Stream Analytics para recuperar informações sobre o trabalho específico do Stream Analytics. Ele usa o *ID* (recuperada da solicitação GET) a propriedade como um parâmetro para o método Put na segunda metade do código, que envia um PUT solicitação ao serviço Insights para habilitar o monitoramento do trabalho do Stream Analytics.
+O código a seguir habilita o monitoramento para um trabalho de Stream Analytics **existente**. A primeira parte do código realiza uma solicitação GET em relação ao serviço de Stream Analytics para recuperar informações sobre o trabalho específico do Stream Analytics. Ele usa a propriedade *ID* (recuperada da solicitação get) como um parâmetro para o método Put na segunda metade do código, que envia uma solicitação Put ao serviço insights para habilitar o monitoramento para o trabalho de Stream Analytics.
 
 > [!WARNING]
 > Se você habilitou o monitoramento de um trabalho diferente do Stream Analytics anteriormente, por meio do Portal do Azure ou programaticamente por meio do código abaixo, **recomendamos que você forneça o mesmo nome de conta de armazenamento que usou quando o habilitou.**
@@ -169,11 +167,11 @@ O código a seguir habilita o monitoramento para um trabalho de Stream Analytics
 >   ```
 
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)

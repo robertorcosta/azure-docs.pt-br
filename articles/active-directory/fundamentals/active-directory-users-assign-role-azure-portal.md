@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422933"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos usuários com Azure Active Directory
 Se um usuário da sua organização precisar de permissão para gerenciar recursos do Azure AD (Azure Active Directory), você deverá atribuir ao usuário uma função apropriada no AD do Azure, com base nas ações que o usuário precisa de permissão para executar.
@@ -31,17 +31,24 @@ Uma maneira comum de atribuir funções do Azure AD a um usuário está na **fun
 Você também pode atribuir funções usando o Privileged Identity Management (PIM). Para obter mais informações sobre como usar o PIM, consulte [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Para atribuir uma função a um usuário
-1. Entre no [portal do Azure](https://portal.azure.com/) usando uma conta de administrador global para o diretório.
+1. Vá para o [portal do Azure](https://portal.azure.com/) e faça logon usando uma conta de administrador global para o diretório. 
 
-2. Selecione **Active Directory do Azure**, selecione **Usuários** e pesquise e selecione o usuário que está recebendo a atribuição de função. Por exemplo, _Alain Charon_.
+2. Pesquise **Azure Active Directory** e selecione-o.
+
+      ![portal do Azure Pesquisar Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+
+
+3. Selecione **Usuários**.
+
+4. Procure e selecione o usuário que está obtendo a atribuição de função. Por exemplo, _Alain Charon_.
 
       ![Página todos os usuários – selecionar o usuário](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-3. Na página **Alain Charon-Profile** , selecione **funções atribuídas**.
+5. Na página **Alain Charon-Profile** , selecione **funções atribuídas**.
 
     O **Alain Charon - função de diretório** página será exibida.
 
-4. Selecione **Adicionar atribuição**, selecione a função a ser atribuída a Alain (por exemplo, _administrador de aplicativos_) e escolha **selecionar**.
+6. Selecione **Adicionar atribuição**, selecione a função a ser atribuída a Alain (por exemplo, _administrador de aplicativos_) e escolha **selecionar**.
 
     ![Página funções atribuídas-mostrando a função selecionada](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
@@ -60,13 +67,13 @@ Se você precisar remover a atribuição de função de um usuário, você tamb�
 
     A função de administrador do aplicativo é removida do Alain Charon e ele não aparecerá mais na **Alain Charon - função de diretório** página.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Adicionar ou excluir usuários](add-users-azure-active-directory.md)
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
 - [Adicionar usuários convidados de outro diretório](../b2b/what-is-b2b.md)
 
-Ou você pode executar outras tarefas de gerenciamento de usuários, como atribuir delegados, usar políticas e compartilhar contas de usuários. Para obter mais informações sobre outras ações disponíveis, consulte [Documentação de gerenciamento de usuários do Active Directory do Azure](../users-groups-roles/index.yml).
+Ou você pode executar outras tarefas de gerenciamento de usuários como atribuir delegados, usar políticas e compartilhar contas de usuários. Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
 
 

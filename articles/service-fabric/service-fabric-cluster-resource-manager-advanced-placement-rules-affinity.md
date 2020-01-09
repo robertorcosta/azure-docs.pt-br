@@ -1,25 +1,18 @@
 ---
-title: Resource Manager de Cluster do Service Fabric – afinidade | Microsoft Docs
-description: Visão geral da configuração de afinidade para os Serviços do Service Fabric
+title: Gerenciador de recursos de Cluster Service Fabric-afinidade
+description: Visão geral da afinidade de serviço para serviços de Service Fabric do Azure e orientação sobre a configuração de afinidade de serviço.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bfd261802fbf891b8f45079255783cb1e8ac7d4
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118408"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551736"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurando e usando a afinidade de serviço no Service Fabric
 A afinidade é um controle fornecido principalmente para ajudar a facilitar a transição de aplicativos monolíticos maiores para a nuvem e o mundo de microsserviços. Ela também é usada como uma otimização para melhorar o desempenho de serviços, embora fazer isso possa ter efeitos colaterais.
@@ -60,7 +53,7 @@ A afinidade é representada por meio de um dos vários esquemas de correlação 
 
 <center>
 
-![Modos de afinidade e seus efeitos][Image1]
+![modos de afinidade e seus efeitos][Image1]
 </center>
 
 ### <a name="best-effort-desired-state"></a>Estado desejado de melhor esforço
@@ -71,7 +64,7 @@ Atualmente, o Gerenciador de Recursos de Cluster não é capaz de modelar cadeia
 
 <center>
 
-![Cadeias vs. estrelas no contexto de relações de afinidade][Image2]
+Cadeias de ![vs. estrelas no contexto de relações de afinidade][Image2]
 </center>
 
 Outro aspecto a ser observado sobre as relações de afinidade atualmente é que elas são direcionais por padrão. Isso significa que a regra de afinidade impõe apenas que o filho seja posicionado onde o pai estiver. Ela não garante que o pai fique localizado com o filho. Portanto, se houver uma violação de afinidade e, para corrigir a violação por algum motivo não for viável mover o filho para o nó pai, então - mesmo se movesse o pai para o nó filho pudesse corrigir a violação - o pai não será movido para o nó filho. Definindo a configuração [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) como verdadeiro removeria a direcionalidade. Também é importante observar que a relação de afinidade não pode ser perfeita ou imposta instantaneamente, pois serviços diferentes têm ciclos de vida diferentes e podem falhar e mover-se independentemente. Por exemplo, digamos que o pai, de repente, faça failover para outro nó após uma falha. O Gerenciador de Recursos de Cluster e o Gerenciador de Failover lidam com o failover primeiro, pois manter os serviços em atividade, consistentes e disponíveis é a prioridade. Quando o failover for concluído, a relação de afinidade estará interrompida, mas o Gerenciador de Recursos de Cluster considerará que tudo está indo bem até perceber que o filho não está localizado com o pai. Esses tipos de verificações são executados periodicamente. Mais informações sobre como o Gerenciador de Recursos de Cluster avalia restrições estão disponíveis [neste artigo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types) e [este](service-fabric-cluster-resource-manager-balancing.md) fala mais sobre como configurar a cadência com que essas restrições são avaliadas.   
@@ -80,7 +73,7 @@ Outro aspecto a ser observado sobre as relações de afinidade atualmente é que
 ### <a name="partitioning-support"></a>Suporte ao particionamento
 A observação final sobre a afinidade é que as relações de afinidade não têm suporte quando o pai é particionado. Serviços pai particionados podem vir a ter suporte, mas atualmente isso não é permitido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para saber mais sobre como configurar os serviços, [Saiba mais sobre como configurar serviços](service-fabric-cluster-resource-manager-configure-services.md)
 - Para limitar os serviços a um pequeno conjunto de computadores ou agregar a carga dos serviços, use [Grupos de aplicativos](service-fabric-cluster-resource-manager-application-groups.md)
 

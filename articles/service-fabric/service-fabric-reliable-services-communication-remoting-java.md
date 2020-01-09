@@ -1,24 +1,16 @@
 ---
-title: Comunicação remota usando o Java no Azure Service Fabric | Microsoft Docs
+title: Comunicação remota do serviço usando Java no Azure Service Fabric
 description: A comunicação remota do Service Fabric permite que os clientes e serviços se comuniquem com serviços Java que usam a chamada de procedimento remoto.
-services: service-fabric
-documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: chackdan
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51c8c689bd3fe3e8967bab77e776ad02f9cb59f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426628"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Comunicação Remota do Serviço em Java com Reliable Services
 > [!div class="op_single_selector"]
@@ -105,5 +97,5 @@ No caso de TransientExceptions, ele repete apenas a chamada.
 Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 Você pode configurar esses valores, passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

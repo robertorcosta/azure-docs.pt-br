@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b0dfeb6a19e2f6f24568de0b4712758d2b7ad4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427408"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitar o registro em log para serviços Web Azure Machine Learning Studio (clássico)
 Este documento fornece informações sobre o recurso de log dos serviços Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais, além de apenas um número de erro e uma mensagem, que podem ajudá-lo a solucionar suas chamadas para as APIs de Machine Learning Studio (clássicas).  
@@ -25,7 +25,7 @@ Este documento fornece informações sobre o recurso de log dos serviços Web Ma
 
 Você habilita o registro em log no portal de [Serviços Web Azure Machine Learning Studio (clássico)](https://services.azureml.net) . 
 
-1. Entre no portal de serviços Web Azure Machine Learning Studio (clássico) em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web clássico, você também pode acessar o portal clicando em **nova experiência de serviços Web** na página de serviços Web Machine Learning Studio (clássico) na versão clássica do Machine Learning Studio.
+1. Entre no portal de serviços Web Azure Machine Learning Studio (clássico) em [https://services.azureml.net](https://services.azureml.net). Para um serviço Web clássico, você também pode acessar o portal clicando em **nova experiência de serviços Web** na página de serviços Web Machine Learning Studio (clássico) no Studio (clássico).
 
    ![Novo link de Experiência dos Serviços Web](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -41,7 +41,7 @@ Você habilita o registro em log no portal de [Serviços Web Azure Machine Learn
 
    ![Selecionar o nível de log](./media/web-services-logging/enable-logging.png)
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 7. Para os serviços Web Clássicos, crie o contêiner **ml-diagnostics**.
 
@@ -57,7 +57,7 @@ Você habilita o registro em log no portal de [Serviços Web Azure Machine Learn
 
 > [!TIP]
 >
-> Para um serviço Web clássico, o painel de serviços Web na versão clássica do Machine Learning Studio também tem uma opção para habilitar o registro em log. No entanto, como os logs são gerenciados por meio do portal de serviços Web, você precisa habilitar os logs por meio do portal, conforme descrito neste artigo. Se você já tiver habilitado o log no Studio (clássico), no portal de serviços Web, desabilite o registro em log e habilite-o novamente.
+> Para um serviço Web clássico, o painel de serviços Web no Machine Learning Studio (clássico) também tem uma opção para habilitar o registro em log. No entanto, como os logs são gerenciados por meio do portal de serviços Web, você precisa habilitar os logs por meio do portal, conforme descrito neste artigo. Se você já tiver habilitado o log no Studio (clássico), no portal de serviços Web, desabilite o registro em log e habilite-o novamente.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Os efeitos de habilitar o registro em log
@@ -80,7 +80,7 @@ O nome de cada blob tem um prefixo da seguinte forma:
 
 Sendo que _Tipo de log_ assume um dos seguintes valores:  
 
-* lote  
+* batch  
 * pontuação/solicitações  
 * pontuação/init  
 

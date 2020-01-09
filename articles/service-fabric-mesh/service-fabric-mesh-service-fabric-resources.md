@@ -1,26 +1,17 @@
 ---
-title: Introdução ao Modelo de Recursos do Azure Service Fabric | Microsoft Docs
+title: Introdução ao modelo de recurso de Service Fabric do Azure
 description: Saiba mais sobre o Modelo de Recursos do Service Fabric, uma abordagem simplificada para definir aplicativos de Malha do Service Fabric.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352452"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introdução ao Modelo de Recurso do Service Fabric
 
@@ -84,10 +75,10 @@ O código do aplicativo permanece portátil até mesmo fora da Malha do Service 
 
 ## <a name="packaging-and-deployment"></a>Empacotamento e implantação
 
-Aplicativos da Malha do Service Fabric baseados no modelo de recurso são empacotados como contêineres do Docker.  Malha do Service Fabric é um ambiente compartilhado multilocatário e contêineres fornecem um alto nível de isolamento.  Esses aplicativos são descritos usando um formato JSON ou um formato YAML (que é então convertido em JSON). Ao implantar um aplicativo de malha a malha do Azure Service Fabric, o JSON usado para descrever o aplicativo é um modelo do Azure Resource Manager. Recursos são mapeados para recursos do Azure.  Ao implantar um aplicativo de malha para um cluster do Service Fabric (autônomo ou hospedado no Azure), o JSON usado para descrever o aplicativo é um formato semelhante a um modelo do Azure Resource Manager.  Uma vez implantado, os aplicativos de malha podem ser gerenciados por meio de interfaces HTTP ou pela CLI do Azure. 
+Aplicativos da Malha do Service Fabric baseados no modelo de recurso são empacotados como contêineres do Docker.  Malha do Service Fabric é um ambiente compartilhado multilocatário e contêineres fornecem um alto nível de isolamento.  Esses aplicativos são descritos usando um formato JSON ou um formato YAML (que é então convertido em JSON). Ao implantar um aplicativo de malha na malha de Service Fabric do Azure, o JSON usado para descrever o aplicativo é um modelo de Azure Resource Manager. Recursos são mapeados para recursos do Azure.  Ao implantar um aplicativo de malha em um Cluster Service Fabric (autônomo ou hospedado pelo Azure), o JSON usado para descrever o aplicativo é um formato semelhante a um modelo de Azure Resource Manager.  Uma vez implantado, os aplicativos de malha podem ser gerenciados por meio de interfaces HTTP ou pela CLI do Azure. 
 
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 Para saber mais sobre Malha do Service Fabric, leia a visão geral:
 - [Visão geral da Malha do Service Fabric](service-fabric-mesh-overview.md)
 

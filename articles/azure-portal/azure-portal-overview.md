@@ -1,22 +1,22 @@
 ---
 title: Visão geral do Portal do Azure | Microsoft Docs
-description: Saiba como navegar na portal do Azure e usá-la para gerenciar serviços
+description: O portal do Azure é uma interface gráfica do usuário que você pode usar para gerenciar seus serviços do Azure. Saiba como navegar e localizar recursos no portal do Azure.
 services: azure-portal
 keywords: portal
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 90bbea1068bb237501daf5e0dfac865ca6b9a12a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 478b090cfe0bfd63bde37dc944cd9fad6e88f179
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579434"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637602"
 ---
-# <a name="azure-portal-overview"></a>Visão geral do portal do Azure
+# <a name="azure-portal-overview"></a>Visão geral do Portal do Azure
 
 Este artigo apresenta o portal do Azure, identifica os elementos da página do portal e ajuda você a se familiarizar com a experiência de gerenciamento de portal do Azure.
 
@@ -64,7 +64,7 @@ A figura abaixo rotula os elementos básicos da portal do Azure, cada um dos qua
 
 ![Captura de tela mostrando o menu expandido do portal](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|Chave|DESCRIÇÃO
+|Chave|Description
 |:---:|---|
 |1|Cabeçalho da página. Aparece na parte superior de cada página do portal e contém elementos globais.|
 |2| Pesquisa global. Use a barra de pesquisa para localizar rapidamente um recurso específico, um serviço ou uma documentação.|
@@ -94,7 +94,7 @@ Assista a este vídeo para ver uma demonstração sobre como usar a pesquisa glo
 
 [Como usar a pesquisa global no portal do Azure](https://www.youtube.com/watch?v=nZ7WwTZcQbo)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre onde executar portal do Azure em [dispositivos e navegadores com suporte](../azure-portal/azure-portal-supported-browsers-devices.md)
 * Mantenha-se conectado em qualquer lugar com [aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)

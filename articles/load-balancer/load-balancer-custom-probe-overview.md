@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077066"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690400"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
-Ao usar regras de balanceamento de carga com Azure Load Balancer, você precisa especificar uma investigação de integridade para permitir que Load Balancer detecte o status do ponto de extremidade de back-end.  A configuração das respostas de investigação e investigação de integridade determinam quais instâncias de pool de back-end receberão novos fluxos. Você pode usar investigações de integridade para detectar a falha de um aplicativo em um ponto de extremidade de back-end. Você também pode gerar uma resposta personalizada para uma investigação de integridade e usar a investigação de integridade para controle de fluxo, a fim de gerenciar o tempo de inatividade planejado ou de carga. Quando uma investigação de integridade falhar, Load Balancer deixará de enviar novos fluxos para a respectiva instância não íntegra.
+Ao usar regras de balanceamento de carga com Azure Load Balancer, você precisa especificar uma investigação de integridade para permitir que Load Balancer detecte o status do ponto de extremidade de back-end.  A configuração das respostas de investigação e investigação de integridade determinam quais instâncias de pool de back-end receberão novos fluxos. Você pode usar investigações de integridade para detectar a falha de um aplicativo em um ponto de extremidade de back-end. Você também pode gerar uma resposta personalizada para uma investigação de integridade e usar a investigação de integridade para controle de fluxo, a fim de gerenciar o tempo de inatividade planejado ou de carga. Quando uma investigação de integridade falhar, Load Balancer deixará de enviar novos fluxos para a respectiva instância não íntegra. A conectividade de saída não é afetada, somente a conectividade de entrada é afetada.
 
 As investigações de integridade dão suporte a vários protocolos. A disponibilidade de um protocolo de investigação de integridade específico varia de acordo com Load Balancer SKU.  Além disso, o comportamento do serviço varia de acordo com Load Balancer SKU, conforme mostrado nesta tabela:
 
@@ -49,8 +49,8 @@ A configuração de investigação de integridade consiste nos seguintes element
 - Porta da investigação
 - Caminho HTTP a ser usado para HTTP GET ao usar investigações HTTP (S)
 
-> [!NOTE]
-> Uma definição de investigação não é obrigatória ou verificada ao usar Azure PowerShell, CLI do Azure, modelos ou API. Testes de validação de investigação só são feitos ao usar o portal do Azure.
+>[!NOTE]
+>Uma definição de investigação não é obrigatória ou verificada ao usar Azure PowerShell, CLI do Azure, modelos ou API. Testes de validação de investigação só são feitos ao usar o portal do Azure.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Compreendendo o sinal do aplicativo, a detecção do sinal e a reação da plataforma
 
@@ -84,7 +84,7 @@ O protocolo usado pela investigação de integridade pode ser configurado para u
 
 Os protocolos disponíveis dependem do Load Balancer SKU usado:
 
-|| TCP | http | HTTPS |
+|| TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | SKU Standard |    &#9989; |   &#9989; |   &#9989; |
 | SKU Básico |   &#9989; |   &#9989; | &#10060; |
@@ -112,7 +112,7 @@ O seguinte ilustra como você pode expressar esse tipo de configuração de inve
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> Investigação HTTP / HTTPS
+### <a name="httpprobe"></a><a name="httpsprobe"></a> Investigação de http/https
 
 >[!NOTE]
 >Investigação HTTPS está disponível somente para [Standard Load Balancer](load-balancer-standard-overview.md).
@@ -120,6 +120,9 @@ O seguinte ilustra como você pode expressar esse tipo de configuração de inve
 As investigações HTTP e HTTPS se baseiam na investigação TCP e emitem um HTTP GET com o caminho especificado. Ambas essas investigações dão suporte a caminhos relativos para o HTTP GET. Investigações HTTPS são iguais às investigações HTTP com a adição de um wrapper de TLS (Transport Layer Security), anteriormente conhecido como SSL. A investigação de integridade é marcada como operante quando a instância responde com um status HTTP 200 dentro do período de tempo limite.  A investigação de integridade tenta verificar a porta de investigação de integridade configurada a cada 15 segundos, por padrão. O intervalo mínimo de investigação é de 5 segundos. A duração total de todos os intervalos não pode exceder 120 segundos.
 
 As investigações HTTP/HTTPS também podem ser úteis para implementar sua própria lógica para remover instâncias da rotação do balanceador de carga se a porta de investigação também for o ouvinte para o próprio serviço. Por exemplo, é recomendável remover uma instância caso ela esteja usando mais de 90% da CPU e retorne um status HTTP diferente de 200. 
+
+> [!NOTE] 
+> A investigação de HTTPS requer o uso de certificados com base que tenham um hash de assinatura mínimo de SHA256 em toda a cadeia.
 
 Se você usar o Serviços de Nuvem e tiver funções web que usem w3wp.exe, também é possível obter o monitoramento automático do site. Falhas no código do site retornam um status não 200 para a investigação do balanceador de carga.
 
@@ -251,7 +254,7 @@ O Load Balancer público básico expõe o status de investigação de integridad
 - Investigações HTTPS não dão suporte à autenticação mútua com um certificado de cliente.
 - Você deve assumehHealth investigações falharão quando os carimbos de data/hora TCP estiverem habilitados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md)
 - [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](load-balancer-get-started-internet-arm-ps.md)

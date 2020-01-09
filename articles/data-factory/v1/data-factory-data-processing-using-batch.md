@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438897"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -43,8 +43,8 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 
 Opcionalmente, para saber mais sobre o lote, consulte [a documentação do lote](https://docs.microsoft.com/azure/batch/).
 
-## <a name="why-azure-data-factory"></a>Por que usar o Azure Data Factory?
-O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
+## <a name="why-azure-data-factory"></a>Por que o Azure Data Factory?
+O Data Factory é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação de dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
 
   Caso não esteja familiarizado com o Data Factory, os seguintes artigos ajudarão você a entender a arquitetura/implementação da solução descrita neste artigo:  
 
@@ -556,11 +556,11 @@ Os serviços vinculados vinculam armazenamentos de dados ou serviços de computa
 
    ![Novo armazenamento de dados](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Substitua **nome da conta** pelo nome de sua conta de armazenamento. Substitua **chave de conta** pela chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
-1. Selecione **Implantar** na barra de comandos para implantar o serviço vinculado.
+1. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
-   ![Implantar](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Implantação](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Criar um serviço vinculado do Lote do Azure
 Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usado para executar a atividade personalizada do data factory.
@@ -578,7 +578,7 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
    d. Digite o URI do lote para a propriedade JSON **batchUri** .
 
       > [!IMPORTANT]
-      > A URL da folha **Conta do Lote** está no seguinte formato: \<accountname\>.\<region\>.batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover a88"accountname."** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
+      > A URL da folha **Conta do Lote** está no seguinte formato: \<accountname\>.\<region\>.batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover A88 "AccountName". * * da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -593,12 +593,12 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
    
    e. Especifique **StorageLinkedService** for the **linkedServiceName** . Você criou esse serviço vinculado na etapa anterior. Esse armazenamento é usado como uma área de preparação para arquivos e logs.
 
-1. Selecione **Implantar** na barra de comandos para implantar o serviço vinculado.
+1. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
 #### <a name="step-3-create-datasets"></a>Etapa 3: Criar conjuntos de dados
 Nesta etapa, você cria conjuntos de dados para representar a entrada e saída de dados.
 
-#### <a name="create-the-input-dataset"></a>Criar o conjunto de dados de entrada
+#### <a name="create-the-input-dataset"></a>Como criar o conjunto de dados de entrada
 1. No Editor do Data Factory, selecione o botão **Novo conjunto de dados** na barra de ferramentas. Selecione **Armazenamento de blobs do Azure** na lista suspensa.
 
 1. Substitua o script JSON no painel direito pelo seguinte snippet de código JSON:
@@ -659,7 +659,7 @@ Nesta etapa, você cria conjuntos de dados para representar a entrada e saída d
     }
     ```
 
-    Você cria um pipeline posteriormente neste passo a passo com a hora de início: 2015-11-16T00:00:00Z e a hora de término 2015-11-16T05:00:00Z. Ele é agendado para gerar dados de hora em hora; portanto, há cinco fatias de entrada/saída (entre **00**:00:00 -\> **05**:00:00).
+    Você cria um pipeline posteriormente neste passo a passo com a hora de início: 2015-11-16T00:00:00Z e a hora de término 2015-11-16T05:00:00Z. Ele está agendado para gerar dados por hora, portanto, há cinco fatias de entrada/saída (entre **00**: 00:00-\> **05**: 00:00).
 
     A **frequency** e o **interval** do conjunto de dados de entrada são definidos como **Hour** e **1**, o que significa que a fatia de entrada está disponível por hora.
 
@@ -803,7 +803,7 @@ Nesta etapa, você cria um pipeline com uma atividade, a atividade personalizada
      - A propriedade **isPaused** está definida como falso por padrão. O pipeline é executado imediatamente neste exemplo porque a fatias começam no passado. Defina essa propriedade como **true** para pausar o pipeline e defina-a novamente como **false** para reiniciá-lo.
      -   As horas de **início** e de **término** são separadas por cinco horas. As fatias são produzidas por hora; portanto, cinco fatias são produzidas pelo pipeline.
 
-1. Selecione **Implantar** na barra de comandos para implantar o pipeline.
+1. Clique em **Implantar** na barra de comandos para implantar o pipeline.
 
 #### <a name="step-5-test-the-pipeline"></a>Etapa 5: testar o pipeline
 Nesta etapa, você testa o pipeline soltando arquivos nas pastas de entrada. Comece testando o pipeline com um arquivo para cada pasta de entrada.
@@ -923,9 +923,9 @@ A depuração consiste em algumas técnicas básicas.
    > Um contêiner chamado `adfjobs` está localizado no armazenamento de blobs. Esse contêiner não é excluído automaticamente, mas você pode excluí-lo com segurança depois de concluir o teste da solução. Da mesma forma, a solução de data factory cria um trabalho em lote chamado `adf-\<pool ID/name\>:job-0000000001`. Você pode excluir esse trabalho depois de testar a solução, se desejar.
    >
    >
-1. A atividade personalizada não usa o arquivo **app.config** do pacote. Portanto, se o código lê cadeias de conexão do arquivo de configuração, ele não funciona em tempo de execução. A melhor prática para quando você usar o Lote é manter os segredos no Azure Key Vault. Em seguida, use uma entidade de serviço baseada em certificado para proteger o cofre de chaves e distribuir o certificado para o pool do Lote. A atividade personalizada do .NET pode acessar segredos no cofre de chaves em tempo de execução. Essa solução genérica pode ser dimensionada para qualquer tipo de segredo, não apenas para uma cadeia de conexão.
+1. A atividade personalizada não usa o arquivo **app.config** do pacote. Portanto, se o código lê cadeias de conexão do arquivo de configuração, ele não funciona em runtime. A melhor prática para quando você usar o Lote é manter os segredos no Azure Key Vault. Em seguida, use uma entidade de serviço baseada em certificado para proteger o cofre de chaves e distribuir o certificado para o pool do Lote. A atividade personalizada do .NET pode acessar segredos no cofre de chaves em runtime. Essa solução genérica pode ser dimensionada para qualquer tipo de segredo, não apenas para uma cadeia de conexão.
 
-    Há uma solução alternativa mais fácil, mas não é uma melhor prática. Crie um serviço vinculado do banco de dados SQL com configurações da cadeia de conexão. Em seguida, crie um conjunto de dados que usa o serviço vinculado e encadeie o conjunto de dados como um conjunto de dados de entrada fictício com a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada. Isso deve funcionar corretamente em tempo de execução.  
+    Há uma solução alternativa mais fácil, mas não é uma melhor prática. Crie um serviço vinculado do banco de dados SQL com configurações da cadeia de conexão. Em seguida, crie um conjunto de dados que usa o serviço vinculado e encadeie o conjunto de dados como um conjunto de dados de entrada fictício com a atividade personalizada do .NET. Você pode então acessar a cadeia de conexão do serviço vinculado no código de atividade personalizada. Isso deve funcionar corretamente em runtime.  
 
 #### <a name="extend-the-sample"></a>Estender o exemplo
 Estenda esta amostra para saber mais sobre os recursos do Data Factory e do Lote. Por exemplo, para processar fatias em um intervalo de tempo diferente, realize as seguintes etapas:

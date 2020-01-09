@@ -1,19 +1,19 @@
 ---
 title: Práticas recomendadas e solução de problemas do node. js
 description: Conheça as práticas recomendadas e as etapas de solução de problemas para aplicativos node. js em execução no serviço Azure App.
-author: ranjithr
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bwren
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430558"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -87,7 +87,7 @@ Uma lista separada por ponto e vírgula de arquivos que são observados para alt
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-O valor padrão é falso. Se habilitado, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_CONTROL\_PIPE) e enviar uma mensagem de "reciclagem". Isso fará com que w3wp seja reciclado normalmente.
+O valor padrão é false. Se habilitado, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_CONTROL\_PIPE) e enviar uma mensagem de "reciclagem". Isso fará com que w3wp seja reciclado normalmente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -99,7 +99,7 @@ O valor padrão é 0, o que significa que esse recurso está desabilitado. Quand
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-O valor padrão é falso. Se configurado como verdadeiro, o iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP que enviar ao valor do cabeçalho `iisnode-debug` como URL. Peças individuais de informações de diagnóstico podem ser obtidas observando o fragmento de URL, no entanto, uma visualização está disponível ao abrir a URL em um navegador.
+O valor padrão é false. Se configurado como verdadeiro, o iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP que enviar ao valor do cabeçalho `iisnode-debug` como URL. Peças individuais de informações de diagnóstico podem ser obtidas observando o fragmento de URL, no entanto, uma visualização está disponível ao abrir a URL em um navegador.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -107,7 +107,7 @@ Essa configuração controla o registro em log de stdout e stderr por iisnode. I
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-O valor padrão é falso. Quando definido como true, iisnode exibirá o código de status HTTP e o código de erro Win32 no navegador. O código win32 será útil na depuração de certos tipos de problemas.
+O valor padrão é false. Quando definido como true, iisnode exibirá o código de status HTTP e o código de erro Win32 no navegador. O código win32 será útil na depuração de certos tipos de problemas.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar em sites de produção ativos)
 
@@ -251,7 +251,7 @@ Algumas soluções para tornar esse processo mais rápido são:
 
 ## <a name="iisnode-http-status-and-substatus"></a>Substatus e status http de IISNODE
 
-O `cnodeconstants` [arquivo de origem](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) lista todas as combinações possíveis de status/substatus que o iisnode pode retornar devido a um erro.
+O [arquivo de origem](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` lista todas as combinações de status/substatus possíveis que o iisnode pode retornar devido a um erro.
 
 Habilite FREB para que o aplicativo veja o código de erro win32 (habilite FREB apenas em sites que não sejam produção, por motivos de desempenho).
 
@@ -277,5 +277,5 @@ Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Apl
 * [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro de Desenvolvedores do Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro de desenvolvedores do Node. js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar o Console de Depuração Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

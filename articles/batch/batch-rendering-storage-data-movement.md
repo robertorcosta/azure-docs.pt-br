@@ -1,18 +1,18 @@
 ---
 title: Movimentação de dados para renderização - Lote do Azure
-description: Opções de armazenamento e movimentação de dados para as cargas de trabalho de renderização
+description: Saiba mais sobre as várias opções de armazenamento e movimentação de dados para processar cargas de trabalho de ativos e arquivos de saída.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1076fc152ddf2c3a2d4f2346262ca90215d68ddf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773988"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390392"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de armazenamento e movimentação de dados para ativo de renderização e arquivos de saída
 
@@ -128,10 +128,10 @@ Os arquivos do Azure têm suporte para todas as principais APIs e ferramentas qu
 
 [Sincronização de Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) está disponível para sincronizar automaticamente os arquivos entre um sistema de arquivos local e um compartilhamento de arquivos do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre as opções de armazenamento, consulte a documentação detalhada:
 
-* [Armazenamento de blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
+* [Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
 * [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

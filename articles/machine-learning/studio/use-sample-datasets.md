@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427436"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Usar os conjuntos de valores de exemplo no Azure Machine Learning Studio (clássico)
 [top]: #machine-learning-sample-datasets
@@ -169,7 +169,7 @@ Uma coleção de perfis de energia simulados, com base em 12 formatos de constru
   <td>
 Dados de desempenho no horário do vôo em tempo hábil obtidos da coleta de dados TranStats do departamento de transporte dos EUA (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">no momento</a>).
 <p></p>
-O conjunto de dados abrange o período de abril a outubro de 2013. Antes de carregar para a versão clássica do Azure Machine Learning Studio, o conjunto de um foi processado da seguinte maneira:
+O conjunto de dados abrange o período de abril a outubro de 2013. Antes de carregar para Azure Machine Learning Studio (clássico), o conjunto de processamento foi processado da seguinte maneira:
 <ul>
   <li>O conjunto de dados foi filtrado para cobrir os 70 aeroportos mais movimentados dos EUA continentais.</li>
   <li>Os voos cancelados foram rotulados como atrasados por mais de 15 minutos</li>
@@ -329,7 +329,7 @@ Além disso, observe que o número de eventos em segundo plano (h, para exposito
   <td>
 Observações climáticas terrestres de hora em hora da NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">dados mesclados de 201304 para 201310</a>).
 <p></p>
-Os dados de clima abrangem observações feitas de estações meteorológica de aeroportos, que abrangem o período de abril a outubro de 2013. Antes de carregar para a versão clássica do Azure Machine Learning Studio, o conjunto de um foi processado da seguinte maneira:
+Os dados de clima abrangem observações feitas de estações meteorológica de aeroportos, que abrangem o período de abril a outubro de 2013. Antes de carregar para Azure Machine Learning Studio (clássico), o conjunto de processamento foi processado da seguinte maneira:
 <ul>
   <li>As IDs da estação meteorológica foram mapeadas para as IDs do aeroporto correspondentes.</li>
   <li>As estações meteorológicas não associadas aos 70 aeroportos mais movimentados foram filtradas e retiradas</li>
@@ -344,7 +344,7 @@ Os dados de clima abrangem observações feitas de estações meteorológica de 
   <td>
 Os dados foram extraídos do Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>), com base em artigos de cada empresa S&P 500, armazenados como dados XML.
 <p></p>
-Antes de carregar para a versão clássica do Azure Machine Learning Studio, o conjunto de um foi processado da seguinte maneira:
+Antes de carregar para Azure Machine Learning Studio (clássico), o conjunto de processamento foi processado da seguinte maneira:
 <ul>
   <li>Extraia o conteúdo do texto para cada empresa específica</li>
   <li>Remova a formatação wiki</li>
@@ -390,7 +390,7 @@ O conjunto de dados foi baixado e armazenado no Armazenamento de Blobs do Azure 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-As atribuições de tópico para artigos de notícias no conjunto de dados de notícias Reuters RCV1 V2. Um artigo de notícias pode ser atribuído a vários tópicos. O formato de cada linha é "&lt;nome do tópico&gt; &lt;id do documento&gt; 1". O conjunto de dados contém 2,6 milhões de atribuições de tópico. O conjunto de dados foi disponibilizado por David. D. Lewis.
+As atribuições de tópico para artigos de notícias no conjunto de dados de notícias Reuters RCV1 V2. Um artigo de notícias pode ser atribuído a vários tópicos. O formato de cada linha é "&lt;nome do tópico&gt; &lt;ID do documento&gt; 1". O conjunto de dados contém 2,6 milhões de atribuições de tópico. O conjunto de dados foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
@@ -405,7 +405,7 @@ O conjunto de dados foi baixado e armazenado no Armazenamento de Blobs do Azure 
 
 </table>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Início rápido seus experimentos com exemplos](sample-experiments.md)

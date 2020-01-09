@@ -1,7 +1,7 @@
 ---
 title: 'SVD Recomendador de Pontuação: referência de módulo'
-titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo de recomendação do SVD de pontuação no serviço de Azure Machine Learning para pontuar previsões de recomendação para um conjunto de informações.
+titleSuffix: Azure Machine Learning
+description: Saiba como usar o módulo de recomendação do SVD de pontuação no Azure Machine Learning para pontuar previsões de recomendação para um conjunto de informações.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456330"
 ---
-# <a name="score-svd-recommender"></a>Pontuar Recomendador SVD
+# <a name="score-svd-recommender"></a>Pontuar o sistema de recomendação SVD
 
 Este artigo descreve como usar o módulo Score SVD Recomendador no designer de Azure Machine Learning (versão prévia). Use este módulo para criar previsões usando um modelo de recomendação treinado com base no algoritmo de decomposição de valor único (SVD).
 
 O recomendador SVD pode gerar dois tipos diferentes de previsões:
 
-- [Prever as classificações de um determinado usuário e item](#prediction-of-ratings)
+- [Previsão das classificações de um determinado usuário e item](#prediction-of-ratings)
 - [Itens recomendados a um usuário](#recommendations-for-users)
 
 Quando você estiver criando o segundo tipo de previsões, poderá operar em um destes modos:
@@ -121,6 +121,6 @@ A avaliação, por definição, requer previsões que podem ser verificadas em r
 Ao colocar o modelo em operação, você normalmente altera o modo de previsão para fazer recomendações com base em todos os itens possíveis, a fim de obter as melhores previsões. Para muitas dessas previsões, não há nenhuma verdade de terra correspondente. Portanto, a precisão da recomendação não pode ser verificada da mesma maneira que durante as operações de pipeline.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

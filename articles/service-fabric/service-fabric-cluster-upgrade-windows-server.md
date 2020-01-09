@@ -1,25 +1,16 @@
 ---
-title: Atualizar a versão de um cluster autônomo do Azure Service Fabric | Microsoft Docs
+title: Atualizar a versão de um cluster autônomo
 description: Atualize o código do Azure Service Fabric que executa um cluster do Service Fabric autônomo.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 29d034be5999d0bc3f0a244cfa7a5658a4ecce32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8c146d1a82fd745e6641ac2aea91aa34539d6f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711350"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610022"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Atualize a versão do Service Fabric que é executada em seu cluster 
 
@@ -168,7 +159,7 @@ Para obter detalhes de uso, consulte o [Start-ServiceFabricClusterConfigurationU
 
     Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas descritas anteriormente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Atualize a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md)
 * Personalize algumas configurações de cluster do [Service Fabric](service-fabric-cluster-fabric-settings.md).
 * [Dimensionar o cluster e escalar horizontalmente](service-fabric-cluster-scale-up-down.md).

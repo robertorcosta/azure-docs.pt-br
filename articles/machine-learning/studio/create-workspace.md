@@ -1,5 +1,5 @@
 ---
-title: Criar um workspace
+title: Crie um workspace
 titleSuffix: ML Studio (classic) - Azure
 description: Para usar Azure Machine Learning Studio (clássico), você precisa ter um espaço de trabalho Machine Learning Studio (clássico). Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427627"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Criar e compartilhar um espaço de trabalho Azure Machine Learning Studio (clássico)
 
@@ -47,7 +47,7 @@ Para usar Azure Machine Learning Studio (clássico), você precisa ter um espaç
 > Machine Learning Studio (clássico) depende de uma conta de armazenamento do Azure que você fornece para salvar dados intermediários ao executar o fluxo de trabalho. Após o workspace ser criado, se a conta de armazenamento for excluída, ou se as chaves de acesso forem alteradas, o workspace deixará de funcionar e todos os testes nele falharão.
 Se você excluir acidentalmente a conta de armazenamento, recrie-a com o mesmo nome e na mesma região da conta excluída e sincronize novamente a chave de acesso. Se tiver alterado as chaves de acesso da conta de armazenamento, sincronize novamente as chaves de acesso na configuração do workspace usando o portal do Azure.
 
-Depois que o espaço de trabalho for implantado, você poderá abri-lo na versão clássica do Machine Learning Studio.
+Depois que o espaço de trabalho for implantado, você poderá abri-lo no Machine Learning Studio (clássico).
 
 1. Navegue até Machine Learning Studio (clássico) em [https://studio.azureml.net/](https://studio.azureml.net/).
 
@@ -76,7 +76,7 @@ Quando um espaço de trabalho Machine Learning Studio (clássico) é criado, voc
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Para compartilhar um espaço de trabalho do Studio (clássico)
 
-1. Entrar na versão clássica do Machine Learning Studio em [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Entre no Machine Learning Studio (clássico) em [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. No painel esquerdo, clique em **CONFIGURAÇÕES**
 

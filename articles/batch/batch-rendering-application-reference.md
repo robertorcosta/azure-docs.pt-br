@@ -1,18 +1,18 @@
 ---
 title: Usar aplicativos de renderização - Lote do Microsoft Azure
-description: Como usar aplicativos de renderização com o Lote do Microsoft Azure
+description: Como usar aplicativos de renderização com o lote do Azure. Este artigo fornece uma breve descrição de como executar cada aplicativo de renderização.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390475"
 ---
 # <a name="rendering-applications"></a>Aplicativos de renderização
 
@@ -39,7 +39,7 @@ Por exemplo:
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
 ```
 
-Observações:
+Notas:
 
 * Tome muito cuidado para garantir que os arquivos de ativo são encontrados.  Verifique se os caminhos estão corretos e relativos usando a janela **Acompanhamento de Ativos**, ou use o `-bitmapPath` parâmetro na linha de comando.
 * Verificar se há problemas com a renderização, como incapacidade de encontrar os ativos, verificando o `stdout.txt` arquivo escrito por 3ds Max quando a tarefa é executada.
@@ -83,6 +83,6 @@ render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_B
 
 Modelos de pool e de trabalho podem ser acessados da **galeria** no Azure Batch Explorer.  Os arquivos de origem de modelo estão disponíveis no [Repositório de dados do Azure Batch Explorer no GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use os modelos de pool e o trabalho a partir de [repositório de dados no GitHub](https://github.com/Azure/BatchExplorer-data/tree/master/ncj) usando o Azure Batch Explorer.  Quando for necessário, crie novos modelos ou modifique um dos modelos fornecidos.

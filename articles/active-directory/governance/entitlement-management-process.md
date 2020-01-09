@@ -1,5 +1,5 @@
 ---
-title: Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD-Azure Active Directory
+title: Processo de solicitação & notificações-gerenciamento de direitos do Azure AD
 description: Saiba mais sobre o processo de solicitação de um pacote do Access e quando as notificações por email são enviadas no gerenciamento de direitos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206859"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422599"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD
 
@@ -33,12 +33,12 @@ Um usuário que precisa acessar um pacote do Access pode enviar uma solicitaçã
 
 ![Diagrama de processo de aprovação](./media/entitlement-management-process/request-process.png)
 
-| Estado | DESCRIÇÃO |
+| Estado | Description |
 | --- | --- |
-| Enviada | O usuário envia uma solicitação. |
+| Enviado | O usuário envia uma solicitação. |
 | Aprovação pendente | Se a política para um pacote de acesso exigir aprovação, uma solicitação será movida para aprovação pendente. |
 | Expirado | Se nenhum Aprovador aprovar uma solicitação dentro do tempo limite da solicitação de aprovação, a solicitação expirará. Para tentar novamente, o usuário precisará reenviar a solicitação. |
-| Nega | O aprovador nega uma solicitação. |
+| Negadas | O aprovador nega uma solicitação. |
 | Aprovado | O aprovador aprova uma solicitação. |
 | Fornecimento | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, talvez o usuário ainda não tenha acessado o diretório de recursos. Eles também podem não ter aceitado o prompt de consentimento. |
 | Entregue | O usuário recebeu acesso a todos os recursos no pacote de acesso. |
@@ -69,7 +69,7 @@ O diagrama a seguir mostra a experiência dos aprovadores estágio-1 e estágio 
 ### <a name="email-notifications-table"></a>Tabela de notificações de email
 A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações por email. Para gerenciar esses emails, você pode usar regras. Por exemplo, no Outlook, você pode criar regras para mover os emails para uma pasta se o assunto contiver palavras desta tabela:
 
-| # | Assunto do email | Quando enviado | Enviado para |
+| # | Assunto do email | Quando enviado | Enviado a |
 | --- | --- | --- | --- |
 | 1 | Ação necessária: aprovar ou negar a solicitação encaminhada por *[data]* | Este email será enviado aos aprovadores alternativos do estágio 1 (depois que a solicitação for escalonada) para executar uma ação. | Etapas de aprovadores alternativos do estágio 1 |
 | 2 | Ação necessária: aprovar ou negar solicitação por *[data]* | Este email será enviado para o primeiro aprovador, se o escalonamento estiver desabilitado, para executar uma ação. | Primeiro aprovador |
@@ -152,7 +152,7 @@ Aqui está um exemplo de notificação por email que é enviada para um solicita
 
 ![Email de solicitação de acesso expirado do solicitante](./media/entitlement-management-process/requestor-email-request-expired.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
 - [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)

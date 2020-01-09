@@ -1,25 +1,26 @@
 ---
 title: Criar e implantar um aplicativo Node.js Express para Serviços de Nuvem do Microsoft Azure
+titleSuffix: Azure Cloud Services
 description: Criar e implantar um aplicativo Express.js para Serviços de Nuvem do Microsoft Azure
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360745"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 
-O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico.
-Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express](https://github.com/expressjs/express) que fornece uma estrutura MVC para criar aplicativos web do Node.js.
+O Node.js inclui um conjunto mínimo de funcionalidades em runtime básico.
+Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express](https://github.com/expressjs/express), que fornece uma estrutura MVC para criar aplicativos Web do Node.js.
 
 Abaixo, uma captura de tela do aplicativo concluído:
 
@@ -93,7 +94,7 @@ Agora modifique a exibição para exibir a mensagem “Bem-vindo ao Express no A
    
    ![O conteúdo do arquivo index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade é o mecanismo de exibição padrão usado por aplicativos do Express. Para obter mais informações sobre o mecanismo de exibição do [http://jade-lang.com][http://jade-lang.com]Jade, consulte.
+   Jade é o mecanismo de exibição padrão usado por aplicativos do Express. Para obter mais informações sobre o mecanismo de exibição do jade, consulte [http://jade-lang.com][http://jade-lang.com].
 2. Modifique a última linha de texto acrescentando **no Azure**.
    
    ![No arquivo index.jade, a última linha diz: p Bem-vindo ao \#{título} no Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
@@ -113,11 +114,14 @@ Quando a operação de implantação estiver concluída, o navegador será abert
 
 ![Um navegador da web exibindo a página do Express. A URL indica que agora a página está hospedada no Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://docs.microsoft.com/azure/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166477"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645762"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Pré-requisitos para o cache HPC do Azure
 
@@ -54,7 +54,7 @@ Um servidor DNS simples também pode ser usado para balancear a carga de conexõ
 
 Saiba mais sobre as configurações de servidor DNS e redes virtuais do Azure na [resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
-## <a name="permissions"></a>permissões
+## <a name="permissions"></a>Permissões
 
 Verifique esses pré-requisitos relacionados à permissão antes de começar a criar seu cache.
 
@@ -80,7 +80,7 @@ O armazenamento de back-end do NFS deve ser uma plataforma de hardware/software 
 
 Se você quiser usar o armazenamento de BLOBs do Azure com o cache, precisará de uma conta de armazenamento compatível e de um contêiner de blob vazio ou de um contêiner que é preenchido com os dados formatados do cache HPC do Azure, conforme descrito em [mover dados para o armazenamento de BLOBs do Azure](hpc-cache-ingest.md).
 
-Crie a conta e o contêiner antes de tentar adicioná-lo como um destino de armazenamento.
+Crie a conta antes de tentar adicionar um destino de armazenamento. Você pode criar um novo contêiner ao adicionar o destino.
 
 Para criar uma conta de armazenamento compatível, use estas configurações:
 
@@ -94,6 +94,6 @@ Para criar uma conta de armazenamento compatível, use estas configurações:
 
 Você também deve conceder ao aplicativo de cache acesso à sua conta de armazenamento do Azure, conforme mencionado em [permissões](#permissions)acima. Siga o procedimento em [Adicionar destinos de armazenamento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para fornecer ao cache as funções de acesso necessárias. Se você não for o proprietário da conta de armazenamento, faça com que o proprietário execute esta etapa.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar uma instância de cache do HPC do Azure](hpc-cache-create.md) do portal do Azure
