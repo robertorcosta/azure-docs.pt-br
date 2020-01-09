@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687136"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375008"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -23,7 +23,7 @@ ms.locfileid: "74687136"
 - **ASE externo**: expõe os aplicativos ASE hospedados em um endereço IP acessado pela Internet. Para obter mais informações, consulte [criar um ase externo][MakeExternalASE].
 - **ILB ASE**: expõe os aplicativos hospedados do ASE em um endereço IP dentro da sua VNet. O ponto de extremidade interno é um ILB (balanceador de carga interno) e, por isso, ele é chamado de ASE do ILB. Para obter mais informações, consulte [criar e usar um ase ILB][MakeILBASE].
 
-Todos os ASEs, external e ILB, têm um VIP público que é usado para tráfego de gerenciamento de entrada e como o endereço de ao fazer chamadas do ASE para a Internet. As chamadas de um ASE que vão para a Internet deixam a rede virtual por meio do VIP atribuído para o ASE. O IP público desse VIP é o IP de origem de todas as chamadas do ASE que vão para a Internet. Se os aplicativos em seu ASE fizerem chamadas a recursos na sua VNet ou por uma VPN, o IP de origem será um dos IPs na sub-rede usada pelo ASE. Como o ASE está localizado na VNet, ele também pode acessar recursos da VNet sem nenhuma configuração adicional. Se a VNet estiver conectada à sua rede local, os aplicativos no ASE também terão acesso aos recursos de lá sem configuração adicional.
+Todos os ASEs, external e ILB, têm um VIP público que é usado para tráfego de gerenciamento de entrada e como o endereço de ao fazer chamadas do ASE para a Internet. As chamadas de um ASE que vão para a Internet deixam a rede virtual por meio do VIP atribuído para o ASE. O IP público desse VIP é o IP de origem de todas as chamadas do ASE que vão para a Internet. Se os aplicativos em seu ASE fizerem chamadas a recursos na sua VNet ou por uma VPN, o IP de origem será um dos IPs na sub-rede usada pelo ASE. Como o ASE é na VNet, também pode acessar recursos na VNet sem nenhuma configuração adicional. Se a VNet estiver conectada à sua rede local, os aplicativos no ASE também terão acesso aos recursos de lá sem configuração adicional.
 
 ![ASE externo][1] 
 
@@ -87,7 +87,7 @@ O ASE se comunica com endereços acessíveis à Internet nas seguintes portas:
 | Usos | Portas |
 |-----|------|
 | DNS | 53 |
-| Atenda | 123 |
+| NTP | 123 |
 | 8CRL, atualizações do Windows, dependências do Linux, serviços do Azure | 80/443 |
 | SQL do Azure | 1433 | 
 | Monitoramento | 12000 |
@@ -244,7 +244,7 @@ Quando os Pontos de Extremidade de Serviço estão habilitados em uma sub-rede c
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

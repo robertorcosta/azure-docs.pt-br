@@ -1,20 +1,19 @@
 ---
 title: Vários clusters HDInsight & uma conta de Azure Data Lake Storage
 description: Saiba como usar mais de um cluster HDInsight com uma única conta do Data Lake Storage
-keywords: armazenamento hdinsight, hdfs, dados estruturados, dados não estruturados, data lake store
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
+ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498182"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495751"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Usar múltiplos clusters HDInsight com uma conta do Azure Data Lake Storage
 
@@ -23,22 +22,21 @@ O Data Lake Storage dá suporte a armazenamento ilimitado, o que o torna ideal n
 
 Este artigo fornece recomendações para o administrador do Data Lake Storage configurar uma única conta compartilhada do Data Lake Storage que pode ser usada em vários clusters HDInsight **ativos**. Essas recomendações se aplicam à hospedagem de vários clusters Apache Hadoop seguros e também não seguros em uma conta compartilhada do Data Lake Storage.
 
-
 ## <a name="data-lake-storage-file-and-folder-level-acls"></a>ACLs no nível de pasta e de arquivo do Data Lake Storage
 
 O restante deste artigo pressupõe que você tenha um bom conhecimento de ACLs no nível de arquivo e de pasta do Azure Data Lake Storage, o que é descrito em detalhes no [Controle de acesso no Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuração do Data Lake Storage para vários clusters HDInsight
+
 Vamos pegar uma hierarquia de pastas de dois níveis para explicar as recomendações para o uso de vários clusters HDInsight com uma conta de Data Lake Storage. Considere que você tem uma conta do Data Lake Storage com a estrutura de pasta **/clusters/finance**. Com essa estrutura, todos os clusters requeridos pela organização Finance podem usar /clusters/finance como o local de armazenamento. No futuro, se outra organização, digamos, Marketing, quiser criar clusters HDInsight que usem a mesma conta do Data Lake Storage, ela poderá criar clusters/marketing. Por enquanto, usaremos apenas **/clusters/finance**.
 
-Para habilitar essa estrutura de pasta para ser efetivamente usada pelos clusters HDInsight, o administrador do Data Lake Storage deve atribuir permissões apropriadas, conforme descrito na tabela. As permissões mostradas na tabela correspondem a ACLs de acesso e ACLs não padrão. 
-
+Para habilitar essa estrutura de pasta para ser efetivamente usada pelos clusters HDInsight, o administrador do Data Lake Storage deve atribuir permissões apropriadas, conforme descrito na tabela. As permissões mostradas na tabela correspondem a ACLs de acesso e ACLs não padrão.
 
 |Pasta  |Permissões  |Usuário proprietário  |Grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |admin |admin  |Entidade de serviço |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x--x |admin |admin |Entidade de serviço |--x  |FINGRP |r-x         |
-|/clusters/finance | rwxr-x--t |admin |FINGRP  |Entidade de serviço |rwx  |-  |-     |
+|/ | rwxr-x--x  |administrador |administrador  |Entidade de serviço |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x--x |administrador |administrador |Entidade de serviço |--x  |FINGRP |r-x         |
+|/clusters/finance | rwxr-x--t |administrador |FINGRP  |Entidade de serviço |rwx  |-  |-     |
 
 Na tabela,
 
@@ -57,13 +55,11 @@ Veja alguns pontos principais a considerar.
 
     |Pasta  |Permissões  |Usuário proprietário  |Grupo proprietário  | Usuário nomeado | Permissões de usuário nomeado | Grupo nomeado | Permissões de grupo nomeado |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/ fincluster01 | rwxr-x---  |Entidade de Serviço |FINGRP  |- |-  |-   |-  | 
-   
-
+    |/clusters/finanace/ fincluster01 | rwxr-x---  |Entidade de Serviço |FINGRP  |- |-  |-   |-  |
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>Recomendações para dados de entrada e saída do trabalho
 
-É recomendável que os dados de entrada para um trabalho e as saídas de um trabalho sejam armazenados em uma pasta fora de **/clusters**. Isso garante que mesmo se a pasta específica do cluster for excluída para liberar algum espaço de armazenamento, entradas e saídas de trabalho ainda estarão disponíveis para uso futuro. Nesse caso, verifique se a hierarquia de pastas para armazenar as entradas e saídas de trabalho permite o nível de acesso apropriado para a entidade de serviço.
+É recomendável que os dados de entrada para um trabalho e as saídas de um trabalho sejam armazenados em uma pasta fora de **/clusters**. Isso garante que, mesmo que a pasta específica do cluster seja excluída para recuperar algum espaço de armazenamento, as entradas e saídas do trabalho ainda estarão disponíveis para uso futuro. Nesse caso, verifique se a hierarquia de pastas para armazenar as entradas e saídas de trabalho permite o nível de acesso apropriado para a entidade de serviço.
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>Limite de clusters compartilhando uma única conta de armazenamento
 
@@ -71,7 +67,7 @@ O limite no número de clusters que podem compartilhar uma única conta do Data 
 
 ## <a name="support-for-default-acls"></a>Suporte para ACLs padrão
 
-Ao criar uma entidade de serviço com acesso de usuário nomeado (conforme mostrado na tabela acima), é recomendável **não** adicionar o usuário nomeado com uma ACL padrão. O provisionamento de acesso de usuário nomeado usando ACLs padrão resulta na atribuição de 770 permissões para o usuário proprietário, o grupo proprietário e outros. Embora esse valor padrão de 770 não retire as permissões do usuário proprietário (7) ou grupo proprietário (7), ele retira todas as permissões para outros (0). Isso resulta em um problema conhecido com um caso de uso específico, que é abordado em detalhes na seção [Problemas conhecidos e soluções alternativas](#known-issues-and-workarounds).
+Ao criar uma entidade de serviço com acesso de usuário nomeado (conforme mostrado na tabela acima), é recomendável **não** adicionar o usuário nomeado com uma ACL padrão. O provisionamento de acesso de usuário nomeado usando ACLs padrão resulta na atribuição de 770 permissões para o usuário proprietário, o grupo proprietário e outros. Embora esse valor padrão de 770 não remova as permissões do usuário proprietário (7) ou do grupo proprietário (7), ele retira todas as permissões para outros (0). Isso resulta em um problema conhecido com um caso de uso específico, que é abordado em detalhes na seção [Problemas conhecidos e soluções alternativas](#known-issues-and-workarounds).
 
 ## <a name="known-issues-and-workarounds"></a>Problemas conhecidos e limitações
 
@@ -85,12 +81,13 @@ Sabe-se que essas configurações afetam um caso de uso específico do HDInsight
 
     Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
 
-Conforme declarado no JIRA YARN vinculado anteriormente, ao localizar recursos públicos, o localizador valida que todos os recursos solicitados estão realmente públicos verificando as permissões deles no sistema de arquivos remoto. Qualquer LocalResource que não satisfaz essa condição é rejeitado para localização. Para verificar se há permissões, o acesso de leitura para o arquivo é incluído para "outros". Esse cenário não funciona de modo integrado ao hospedar clusters HDInsight no Azure Data Lake, uma vez que o Azure Data Lake nega todo o acesso a "outros" no nível da pasta raiz.
+Conforme declarado no JIRA YARN vinculado anteriormente, ao localizar recursos públicos, o localizador valida que todos os recursos solicitados estão realmente públicos verificando as permissões deles no sistema de arquivos remoto. Qualquer LocalResource que não caiba nessa condição será rejeitado para localização. Para verificar se há permissões, o acesso de leitura para o arquivo é incluído para "outros". Esse cenário não funciona pronto para uso ao hospedar clusters HDInsight em Azure Data Lake, já que Azure Data Lake nega todo o acesso a "outros" no nível da pasta raiz.
 
 #### <a name="workaround"></a>Solução alternativa
+
 Defina permissões de leitura-execução **outros** por meio da hierarquia, por exemplo, em **/** , **/clusters** e **/clusters/finance**, conforme mostrado na tabela acima.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
-* [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+- [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md)

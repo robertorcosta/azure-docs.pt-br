@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448959"
 ---
 # <a name="query-expression-syntax"></a>Sintaxe de expressão de consulta
 
@@ -26,39 +26,40 @@ Você também pode criar suas próprias expressões de consulta e usá-las em um
 
 Cada atributo de entidade que pode ser incluído em uma expressão de consulta tem um tipo de dados específicos e um conjunto de operadores de consulta possíveis. O conjunto de atributos de entidade e os operadores com suporte para cada atributo é especificado em [atributos da entidade](EntityAttributes.md). Uma consulta de valor único requer o atributo para dar suporte à operação *Equals*. Uma consulta de prefixo requer o atributo para dar suporte à operação *StartsWith*. Consultas de intervalos numéricos requerem o atributo para dar suporte à operação *IsBetween*.
 
-Alguns dos dados de entidade são armazenados como atributos compostos, conforme indicado por um ponto '.' no nome do atributo. Por exemplo, informações do autor/afiliação são representadas como um atributo de composição. Contém 4 componentes: AuN, AuId, AfN, AfId. Esses componentes são peça separadas de dados que formam um valor de atributo de entidade único.
+Alguns dos dados de entidade são armazenados como atributos compostos, conforme indicado por um ponto '.' no nome do atributo. Por exemplo, informações do autor/afiliação são representadas como um atributo de composição. Ele contém 4 componentes: AuN, AuId, AfN, AfId. Esses componentes são peça separadas de dados que formam um valor de atributo de entidade único.
 
+Observação: todas as expressões de consulta devem estar em minúsculas e sem caracteres especiais.
 
 **Atributo de cadeia de caracteres: Valor único** (inclui correspondências contra sinônimos)  
 IT = 'indexação pela análise semântica latente'  
 Composição (AA.AuN = 'sue dumais')
 
-**Atributo de cadeia de caracteres: Valor único exato** (corresponde apenas aos valores canônicos)  
+**Atributo de cadeia de caracteres: Valor único exato** (corresponde apenas valores canônicos)  
 IT = 'indexação pela análise semântica latente'  
 Composição (AA.AuN = 'susan t dumais')
      
-**Atributo de cadeia de caracteres: Valor do prefixo**   
+**Atributo de cadeia de caracteres: Valor de prefixo**   
 IT = 'indexação pela semântica latente'...  
 Composição(AA.AuN='sue du'...)
 
 **Atributo numérico: Valor único**  
 Y=2010
  
-**Atributo numérico: Valor do intervalo**  
+**Atributo numérico: Valor de intervalo**  
 Y>2005  
 Y>=2005  
 Y<2010  
 Y<=2010  
-Y=\[2010, 2012\) (inclui apenas o valor de limite esquerdo: 2010, 2011)  
-Y=\[2010, 2012\] (inclui os dois valores de limite: 2010, 2011, 2012)
+Y =\[2010, 2012\) (inclui somente o valor do limite esquerdo: 2010, 2011)  
+Y =\[2010, 2012\] (inclui ambos valores de limite: 2010, 2011, 2012)
  
-**Atributo numérico: Valor do prefixo**  
+**Atributo numérico: Valor de prefixo**  
 Y = '19'... (qualquer valor numérico que começa com 19) 
  
 **Atributo de data: Valor único**  
 D='2010-02-04'
 
-**Atributo de data: Valor do intervalo**  
+**Atributo de data: Valor de intervalo**  
 D>'2010-02-03'  
 D=['2010-02-03','2010-02-05']
 
@@ -86,7 +87,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>Nesta versão, como Composite() é aplicada ao autor e afiliação individualmente antes de And(), podemos obter todos os documentos em que um dos autores é "Mike Smith" e uma das afiliações dos autores é "Harvard". Isso parece semelhante ao exemplo de consulta anterior, mas não é a mesma coisa.
 
-Em geral, considere o exemplo a seguir: Nós temos um atributo composto C que possui dois componentes A e B. Uma entidade pode ter vários valores para C. Estas são nossas entidades:
+Em geral, considere o seguinte exemplo: temos um atributo de composição C que tem dois componentes A e B. Uma entidade pode ter vários valores para C. Esses são nossos entidades:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}
