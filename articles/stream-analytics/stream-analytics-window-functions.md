@@ -1,25 +1,24 @@
 ---
 title: Introdução às funções de janela do Stream Analytics do Azure
 description: Este artigo descreve as quatro funções de janela (em cascata, de salto, deslizante, sessão) que são usadas em trabalhos do Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 530ff8d09d6c580a31ae26929fafcec5bb5b471b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a0547243ddf114d5c9f7034f182a5e76d8c3e016
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369415"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janela do Stream Analytics
 
 Em cenários de streaming em tempo real, executar operações nos dados contidos nas janelas temporais é um padrão comum. O Stream Analytics tem suporte nativo para funções de janela, permitindo que os desenvolvedores criem trabalhos de processamento de streaming complexos com o mínimo de esforço.
 
-Você pode escolher entre quatro tipos de janelas temporais: [**em cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**deslizante**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) e [**sessão**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics).  Use as funções de janela na cláusula [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos do Stream Analytics. Você também pode agregar eventos ao longo de várias janelas usando o [ **Windows()** função](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Há quatro tipos de janelas temporais para escolher: janelas [**Em cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**De salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**Deslizante**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) e [**Sessão**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics).  Use as funções de janela na cláusula [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) da sintaxe de consulta em seus trabalhos do Stream Analytics. Você também pode agregar eventos em várias janelas usando a [função **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
 Todas as operações de [janela](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) resultam no **fim** da janela. A saída da janela será um evento único baseado na função agregada usada. O evento de saída terá o carimbo de data/hora do término da janela e todas as funções de janela serão definidas com um comprimento fixo. 
 
@@ -52,7 +51,7 @@ Se eventos continuarem dentro do tempo limite especificado, a janela de sessão 
 Quando uma chave de partição é fornecida, os eventos são agrupados pela chave e a janela de sessão é aplicada a cada grupo de forma independente. Esse particionamento é útil para casos em que você precisa de diferentes janelas de sessão para diferentes usuários ou dispositivos.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)

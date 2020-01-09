@@ -1,20 +1,19 @@
 ---
 title: Integração do Azure Stream Analytics com o Microsoft Azure Machine Learning
 description: Este artigo descreve como configurar rapidamente um trabalho simples do Azure Stream Analytics que integra o Microsoft Azure Machine Learning, usando uma função definida pelo usuário.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c683cfeadcc13e5112a4687e18db9338d3574cd3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459592"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Executar análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico) (visualização)
 Este artigo descreve como configurar rapidamente um trabalho simples de Azure Stream Analytics que integra Azure Machine Learning Studio (clássico). Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
@@ -37,7 +36,7 @@ A figura a seguir demonstra essa configuração. Conforme observado, para um cen
 ![Visão geral de integração do Machine Learning do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, verifique se você possui:
+Antes de começar, verifique se você tem:
 
 * Uma assinatura ativa do Azure.
 * Um arquivo CSV com alguns dados. Você pode baixar o arquivo mostrado anteriormente do [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv) ou pode criar seu próprio arquivo. Neste artigo, supõe-se que você esteja usando o arquivo do GitHub.
@@ -145,7 +144,7 @@ O trabalho obtém sua entrada do arquivo CSV que você carregou anteriormente pa
 
    ![Configurações para a nova entrada de trabalho do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="configure-the-job-output"></a>Configurar a saída do trabalho
 O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obtém a entrada. 
@@ -165,7 +164,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
 
    ![Configurações para a nova saída de trabalho do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. Clique em **Salvar**.   
+4. Clique em **Save** (Salvar).   
 
 
 ### <a name="add-the-machine-learning-function"></a>Adicionar a função de Machine Learning 
@@ -187,7 +186,7 @@ Nesta seção do tutorial, você define uma função do trabalho de Stream Analy
   
    ![Configurações para adicionar uma função de Machine Learning para o trabalho de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ### <a name="create-a-query-to-transform-the-data"></a>Criar uma consulta para transformar os dados
 
@@ -249,7 +248,7 @@ Você também pode exibir as métricas relacionadas à função de Azure Machine
 * **Eventos de função** indica o número de eventos na solicitação. Por padrão, cada solicitação para um serviço Web Machine Learning contém até 1.000 eventos.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

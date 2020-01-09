@@ -1,30 +1,21 @@
 ---
-title: Fazer backup e restaurar os atores do Microsoft Azure Service Fabric | Microsoft Docs
+title: Fazer backup e restaurar atores de Service Fabric do Azure
 description: Aprenda a implementar o backup e a restauração nos atores do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: cb397141c86f40f02d8046838865106e0fb8992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41ba3f9c7d362756b800005d0c140c23dd96caa6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726614"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370452"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar backup e restauração dos Reliable Actors
 
 > [!NOTE]
-> A Microsoft recomenda usar [backup e restauração periódicos](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar o backup de dados de serviços confiáveis com estado e Reliable Actors. 
+> A Microsoft recomenda usar [Backup e restauração periódica](service-fabric-backuprestoreservice-quickstart-azurecluster.md) para configurar o backup de Reliable Actors e Serviços confiáveis com estado. 
 > 
 
 No seguinte exemplo, um serviço de ator personalizado expõe um método para fazer backup dos dados do ator, aproveitando o ouvinte de comunicação remota já presente em `ActorService`:

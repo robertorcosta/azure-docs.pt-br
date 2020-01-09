@@ -1,6 +1,7 @@
 ---
-title: Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure | Microsoft Docs
-description: Saiba como habilitar o TLS 1.2 no cliente de Armazenamento do Microsoft Azure.
+title: Habilitar TLS seguro com .NET
+titleSuffix: Azure Storage
+description: Saiba como habilitar o TLS 1,2 usando a biblioteca de cliente .NET para o armazenamento do Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +10,12 @@ ms.date: 06/25/2018
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 218708ffc9a680150d7b6bf559a00ca87054bbe8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152963"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371795"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
 

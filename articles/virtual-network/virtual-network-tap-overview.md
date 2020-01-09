@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373223"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 
-O TAP (ponto de acesso do terminal) da rede virtual do Azure permite que você transmita seu tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. A ferramenta de análise ou de coleta é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/). Para obter uma lista de soluções de parceiros validadas para trabalhar com o TAP de rede virtual, confira [soluções de parceiros](#virtual-network-tap-partner-solutions).
+O TAP (Ponto de Acesso do Terminal) de rede virtual do Azure permite que você transmita o tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. A ferramenta de análise ou de coleta é fornecida por um parceiro de [solução de virtualização de rede](https://azure.microsoft.com/solutions/network-appliances/). Para obter uma lista de soluções de parceiros validadas para trabalhar com o TAP de rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
 > O toque de rede virtual está atualmente em visualização em todas as regiões do Azure. Para usar o toque de rede virtual, você deve se registrar na versão prévia enviando um email para <azurevnettap@microsoft.com> com sua ID de assinatura. Após a inscrição da sua assinatura, você receberá um email. Você somente poderá usar a funcionalidade quando receber um email de confirmação. Essa visualização é fornecida sem um contrato de nível de serviço e não deve ser usada para cargas de trabalho de produção. Determinados recursos podem não ter suporte, podem ter restrição ou podem não estar disponíveis em todos os locais do Azure. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
@@ -58,13 +58,13 @@ A imagem seguir mostra como o TAP de rede virtual funciona. Você pode adicionar
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o tráfego de toque na mesma região do Azure. Se não houver uma solução de parceiro em sua rede virtual, confira [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de TAP de rede virtual para o tráfego agregado por meio de vários adaptadores de rede nas mesmas assinaturas ou em outras. Se os adaptadores de rede monitorados estiverem em assinaturas diferentes, as assinaturas precisarão estar associadas ao mesmo locatário do Azure Active Directory. Além disso, os adaptadores de rede monitorados e o ponto de extremidade de destino para agregar o tráfego do TAP podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o TAP de rede virtual.
+Antes de criar um toque de rede virtual, você deve ter recebido um email de confirmação que você está inscrito na versão prévia e ter uma ou mais máquinas virtuais criadas usando [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implantação e uma solução de parceiro para agregar o tráfego de toque na mesma região do Azure. Se não houver uma solução de parceiro em sua rede virtual, confira [soluções de parceiros](#virtual-network-tap-partner-solutions) para implantar uma. Você pode usar o mesmo recurso de TAP de rede virtual para o tráfego agregado por meio de vários adaptadores de rede nas mesmas assinaturas ou em outras. Se os adaptadores de rede monitorados estiverem em assinaturas diferentes, as assinaturas precisarão estar associadas ao mesmo locatário do Azure Active Directory. Além disso, os adaptadores de rede monitorados e o ponto de extremidade de destino para agregar o tráfego do TAP podem estar em redes virtuais emparelhadas na mesma região. Se você estiver usando esse modelo de implantação, verifique se o [emparelhamento de rede virtual](virtual-network-peering-overview.md) está habilitado antes de configurar o TAP de rede virtual.
 
 ## <a name="permissions"></a>Permissões
 
 As contas usadas para aplicar a configuração de TAP em adaptadores de rede precisam ser atribuídas à função [colaborador de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) com as ações necessárias da tabela a seguir atribuídas:
 
-| Ação | name |
+| Ação | Nome |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Necessária para criar, atualizar, ler e excluir um recurso de TAP de rede virtual |
 | Microsoft.Network/networkInterfaces/read | Necessária para ler o recurso de adaptador de rede no qual o TAP será configurado |

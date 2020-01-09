@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371404"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas para uma máquina virtual com o Portal do Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -81,9 +81,9 @@ Os comandos descritos neste artigo permitem que você rapidamente obtenha tráfe
 
 Para aplicativos Web altamente disponíveis, considere colocar suas VMs atrás do Azure Load Balancer. O balanceador de carga distribui o tráfego para VMs, com um Grupo de Segurança de rede que fornece filtragem. Para obter mais informações, veja [Balancear carga de máquinas virtuais do Windows no Azure para criar um aplicativo altamente disponível](tutorial-load-balancer.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você criou um grupo de segurança de rede, criou uma regra de entrada que permite o tráfego HTTP na porta 80 e, então, associou essa regra a uma sub-rede. 
 
 Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
-- [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Grupos de segurança](../../virtual-network/security-overview.md)

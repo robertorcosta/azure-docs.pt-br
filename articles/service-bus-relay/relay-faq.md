@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459095"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -71,7 +71,7 @@ A Retransmissão do WCF está disponível apenas nos namespaces da camada Standa
 Em alguns casos, uma única retransmissão pode ter vários ouvintes conectados. Uma retransmissão é considerada aberta quando pelo menos um ouvinte de retransmissão está conectado a ela. Adicionar ouvintes a uma retransmissão aberta resulta em horas de retransmissão adicionais. O número de remetentes de retransmissão (clientes que invocam ou enviam mensagens para retransmissões) conectados a uma retransmissão não afeta o cálculo de horas de retransmissão.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Como esse medidor de mensagens é calculado para Retransmissões de WCF?
-(**Isso se aplica somente a retransmissões WCF. As mensagens não são um custo para Conexões Híbridas.** )
+(**Isso se aplica somente às retransmissões do WCF. As mensagens não são um custo para Conexões Híbridas.** )
 
 Em geral, mensagens cobráveis para retransmissões são calculadas usando o mesmo método usado para entidades agenciadas (filas, tópicos e assinaturas) descrito anteriormente. No entanto, há algumas diferenças importantes.
 
@@ -106,7 +106,7 @@ Para mover um namespace de uma assinatura do Azure para outra assinatura, você 
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Para usar o portal do Azure para migrar namespaces de Retransmissão do Azure de uma assinatura para outra, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Para usar o portal do Azure para migrar namespaces de Retransmissão do Azure de uma assinatura para outra, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -125,7 +125,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quais são algumas das exceções geradas pelas APIs de Retransmissão do Azure e que ações sugeridas você pode executar?
-Para obter uma descrição das exceções comuns e as ações sugeridas que você pode tomar, consulte [exceções][Relay exceptions]de retransmissão.
+Para obter uma descrição das exceções comuns e as ações sugeridas que você pode tomar, consulte [exceções de retransmissão][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
 As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Python, Java, C e C#, consulte Autenticação do [barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
@@ -133,7 +133,7 @@ As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível colocar pontos de extremidade de retransmissão em uma lista de permissões?
 Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que dão suporte à lista de permissões de DNS.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

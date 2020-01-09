@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372323"
 ---
 # <a name="azure-sql-database-serverless"></a>Recurso sem servidor do Banco de Dados SQL do Azure
 
@@ -155,7 +155,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 1. Especificar o nome do objetivo de serviço. O objetivo do serviço prescreve a camada de serviço, a geração de hardware e o vCores máximo. A tabela a seguir mostra as opções de objetivo de serviço:
 
-   |Nome do objetivo de serviço|Camada de serviço|Geração de hardware|Máx. vCores|
+   |Nome do objetivo de serviço|Camada de serviço|Geração de hardware|Máximo de vCores|
    |---|---|---|---|
    |GP_S_Gen5_1|Propósito geral|Gen5|1|
    |GP_S_Gen5_2|Propósito geral|Gen5|2|
@@ -169,7 +169,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 2. Opcionalmente, especifique o mínimo de vCores e o atraso de autopausa para alterar seus valores padrão. A tabela a seguir mostra os valores disponíveis para esses parâmetros.
 
-   |.|Opções de valor|Valor padrão|
+   |Parâmetro|Opções de valor|Valor padrão|
    |---|---|---|---|
    |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|vCores de 0,5|
    |Atraso de pausa automática|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar pausa automática: -1|60 minutos|
@@ -177,30 +177,27 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Criar novo banco de dados na camada de computação sem servidor 
 
+Os exemplos a seguir criam um novo banco de dados na camada de computação sem servidor. Os exemplos especificam explicitamente o mínimo de vCores, o máximo de vCores e o atraso de autopausa.
+
 #### <a name="use-azure-portal"></a>Use o Portal do Azure
 
 Consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 
+
 #### <a name="use-powershell"></a>Use o PowerShell
-
-O exemplo a seguir cria um novo banco de dados na camada de computação sem servidor.  Este exemplo especifica explicitamente o mínimo de vCores, o máximo de vCores e o atraso de pausa automática.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+#### <a name="use-azure-cli"></a>Usar a CLI do Azure
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-```powershell
+```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
   -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Usar Transact-SQL (T-SQL)
 
@@ -215,11 +212,10 @@ Para obter detalhes, consulte [criar banco de dados](/sql/t-sql/statements/creat
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Mover o banco de dados da camada de computação provisionada para a camada de computação sem servidor
 
+Os exemplos a seguir movem um banco de dados da camada de computação provisionada para a camada de computação sem servidor. Os exemplos especificam explicitamente o mínimo de vCores, o máximo de vCores e o atraso de autopausa.
+
 #### <a name="use-powershell"></a>Use o PowerShell
 
-O exemplo a seguir move um banco de dados da camada de computação provisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o mínimo de vCores, o máximo de vCores e o atraso de pausa automática.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
@@ -227,14 +223,13 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Usar a CLI do Azure
 
-```powershell
+```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
   --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
 ```
 
-* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Usar Transact-SQL (T-SQL)
 
@@ -253,15 +248,14 @@ Um banco de dados sem servidor pode ser movido para uma camada de computação p
 
 ## <a name="modifying-serverless-configuration"></a>Modificando a configuração sem servidor
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="use-powershell"></a>Use o PowerShell
 
 Modificar o máximo ou o mínimo de vCores e o atraso de autopausa é realizado usando o comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando os argumentos `MaxVcore`, `MinVcore`e `AutoPauseDelayInMinutes`.
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="use-azure-cli"></a>Usar a CLI do Azure
 
 Modificar o vCores máximo ou mínimo e o atraso de pausa automática, é executado usando o comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) em CLI do Azure usando os argumentos `capacity`, `min-capacity`e `auto-pause-delay`.
 
-* * *
 
 ## <a name="monitoring"></a>Monitoramento
 
@@ -281,7 +275,7 @@ O pool de recursos do usuário é o limite interno de gerenciamento de recursos 
 
 As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool de usuários de um banco de dados sem servidor são listadas na tabela a seguir:
 
-|Entidade|Métrica|Descrição|Unidades|
+|Entidade|Métrica|Description|Unidades|
 |---|---|---|---|
 |Pacote do Aplicativo|app_cpu_percent|Percentual de vCores usados pelo aplicativo em relação ao máximo de vCores permitido para o aplicativo.|Percentual|
 |Pacote do Aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore. <br><br>Os valores dessa métrica são determinados pela agregação ao longo do tempo do máximo de CPU usado e a memória usada por segundo. Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e de memória, a quantidade mínima provisionada será cobrada. Para comparar a CPU com a memória para fins de cobrança, a memória é normalizada em unidades de vCores, redimensionando a quantidade de memória em GB por 3 GB por vCore.|Segundos de vCore|
@@ -296,22 +290,21 @@ As métricas para monitorar o uso de recursos do pacote do aplicativo e do pool 
 
 No portal do Azure, o status do banco de dados é exibido no painel de visão geral do servidor que lista os bancos de dados que ele contém. O status do banco de dados também é exibido no painel de visão geral do banco de dados.
 
-Uso do seguinte comando do PowerShell para consultar o status de pausa ou retomar de um banco de dados:
+Usando os seguintes comandos para consultar o status de pausa e retomada de um banco de dados:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="use-powershell"></a>Use o PowerShell
 
 ```powershell
 Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+#### <a name="use-azure-cli"></a>Usar a CLI do Azure
 
-```powershell
+```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
 ```
 
-* * *
 
 ## <a name="resource-limits"></a>Limites de recursos
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0df34c0632875be3d2d3956ca90f615cb0a990ed
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9c167c5767a4156147e13a1e4ae21162e506474
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445867"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Criar, agendar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de recorrência nos aplicativos lógicos do Azure
 
@@ -36,7 +36,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de janela deslizante ou
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá se [inscrever para uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Conhecimento básico sobre [aplicativos lógicos](../logic-apps/logic-apps-overview.md). Se você for novo em aplicativos lógicos, saiba [como criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -44,7 +44,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de janela deslizante ou
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
-1. Depois que o designer de aplicativo lógico aparecer, na caixa de pesquisa, digite "recorrência" como filtro. Na lista de gatilhos, selecione este gatilho como a primeira etapa no fluxo de trabalho do aplicativo lógico: **recorrência**
+1. Depois que o designer de aplicativo lógico aparecer, na caixa de pesquisa, insira `recurrence` como filtro. Na lista de gatilhos, selecione este gatilho como a primeira etapa no fluxo de trabalho do aplicativo lógico: **recorrência**
 
    ![Selecione o gatilho "recorrência"](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
@@ -52,24 +52,33 @@ Para obter as diferenças entre esse gatilho e o gatilho de janela deslizante ou
 
    ![Definir o intervalo e a frequência](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | Propriedade | obrigatórios | Nome JSON | Type | Descrição |
-   |----------|----------|-----------|------|-------------|
-   | **Intervalo** | SIM | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
-   | **Frequência** | SIM | frequência | string | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
+   | Propriedade | Nome JSON | Obrigatório | Tipo | Description |
+   |----------|-----------|----------|------|-------------|
+   | **Intervalo** | `interval` | Sim | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
+   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
    ||||||
 
-   Para obter mais opções de agendamento, abra a lista **Adicionar novo parâmetro** . 
-   As opções que você selecionar aparecerão no gatilho após a seleção.
+   > [!IMPORTANT]
+   > Quando as recorrências não especificam opções de agendamento avançadas, as recorrências futuras são baseadas na última hora de execução.
+   > As horas de início para essas recorrências podem ser desligadas devido a fatores como latência durante chamadas de armazenamento. Para certificar-se de que seu aplicativo lógico não perca uma recorrência, especialmente quando a frequência estiver em dias ou mais, use uma destas opções:
+   > 
+   > * Forneça uma hora de início para a recorrência.
+   > 
+   > * Especifique as horas e os minutos para quando executar a recorrência usando as propriedades a **seguir horas** e **em minutos** .
+   > 
+   > * Use o [gatilho de janela deslizante](../connectors/connectors-native-sliding-window.md), em vez do gatilho de recorrência.
+
+1. Para definir opções avançadas de agendamento, abra a lista **Adicionar novo parâmetro** . As opções que você selecionar aparecerão no gatilho após a seleção.
 
    ![Opções de agendamento avançadas](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | Propriedade | obrigatórios | Nome JSON | Type | Descrição |
-   |----------|----------|-----------|------|-------------|
-   | **Fuso horário** | Não | timeZone | string | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
-   | **Hora de início** | Não | startTime | string | Forneça uma data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **Nestes dias** | Não | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias nos quais deseja executar o fluxo de trabalho: **segunda-feira**, **terça-feira**, **quarta-feira**, **quinta-feira**, **Sexta-feira**, **sábado** e **domingo** |
-   | **A estas horas** | Não | horas | Inteiro ou matriz de inteiros | Se você selecionar "dia" ou "semana", poderá selecionar um ou mais números inteiros de 0 a 23 como as horas do dia para quando você deseja executar o fluxo de trabalho. <p><p>Por exemplo, se você especificar "10", "12" e "14", obterá 10 AM, 12 PM e 2 PM para as horas do dia, mas os minutos do dia serão calculados com base em quando a recorrência for iniciada. Para definir os minutos do dia, especifique o valor para a propriedade a **seguir minutos** . |
-   | **A estes minutos** | Não | minutos | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 59, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. |
+   | Propriedade | Nome JSON | Obrigatório | Tipo | Description |
+   |----------|-----------|----------|------|-------------|
+   | **Fuso horário** | `timeZone` | Não | String | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. |
+   | **Hora de início** | `startTime` | Não | String | Forneça uma data e hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e selecione um fuso horário como hora padrão do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** Essa hora de início tem um máximo de 49 anos no futuro e deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Nestes dias** | `weekDays` | Não | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias nos quais deseja executar o fluxo de trabalho: **segunda-feira**, **terça-feira**, **quarta-feira**, **quinta-feira**, **Sexta-feira**, **sábado** e **domingo** |
+   | **A estas horas** | `hours` | Não | Inteiro ou matriz de inteiros | Se você selecionar "dia" ou "semana", poderá selecionar um ou mais números inteiros de 0 a 23 como as horas do dia para quando você deseja executar o fluxo de trabalho. <p><p>Por exemplo, se você especificar "10", "12" e "14", obterá 10 AM, 12 PM e 2 PM para as horas do dia, mas os minutos do dia serão calculados com base em quando a recorrência for iniciada. Para definir os minutos do dia, especifique o valor para a propriedade a **seguir minutos** . |
+   | **A estes minutos** | `minutes` | Não | Inteiro ou matriz de inteiros | Se você selecionar "Dia" ou "Semana", poderá selecionar um ou mais números inteiros, de 0 a 59, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minutos e, usando o exemplo anterior como as horas do dia, você obtém 10h30, 12h30 e 14h30. |
    |||||
 
    Por exemplo, suponha que hoje é segunda-feira, 4 de setembro de 2017. O gatilho de recorrência a seguir não é acionado *antes* da data e hora de início, que é segunda-feira, 18 de setembro de 2017 às 8:00 am PST. No entanto, o agendamento da recorrência está definido para 10h30, 12h30 e 14h30, somente às segundas-feiras. Portanto, a primeira vez que o gatilho será acionado e criará uma instância de fluxo de trabalho do aplicativo lógico será às 10h30. Para saber mais sobre como as horas de início funcionam, consulte estes [exemplos de hora de início](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).

@@ -1,19 +1,18 @@
 ---
 title: Análise de Sentimento do Twitter em tempo real com o Azure Stream Analytics
 description: Este artigo descreve como usar o Stream Analytics para análise de sentimento do Twitter em tempo real. Orientações passo a passo de geração de eventos aos dados em um painel em tempo real.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369891"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
 
@@ -114,7 +113,7 @@ Se você ainda não tiver um aplicativo do Twitter que possa ser usado para este
 
 1. Em um navegador da Web, acesse [Twitter para Desenvolvedores](https://developer.twitter.com/en/apps) e selecione **Criar um aplicativo**. Você poderá ver uma mensagem indicando que precisa solicitar uma conta de desenvolvedor do Twitter. Fique à vontade para fazer isso e, depois que seu aplicativo tiver sido aprovado, você deverá ver um email de confirmação. Podem ser necessários vários dias para ser aprovado para uma conta de desenvolvedor.
 
-   ![Confirmação da conta de desenvolvedor do Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Twitter developer account confirmation")
+   ![Confirmação da conta de desenvolvedor do Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Confirmação da conta de desenvolvedor do Twitter")
 
    ![Detalhes do aplicativo do Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalhes do aplicativo do Twitter")
 
@@ -211,12 +210,12 @@ Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitte
 2. Na folha **Entradas**, clique em **+&nbsp;Adicionar** e, em seguida, preencha a folha com estes valores:
 
    * **Alias de entrada**: Use o nome `TwitterStream`. Se você usar um nome diferente, anote-o porque você precisará dele depois.
-   * **Tipo de fonte**: Selecione **Fluxo de dados**.
-   * **Fonte**: Selecione **Hub de eventos**.
-   * **Opção de importação**: Selecione **Usar hub de eventos da assinatura atual**. 
-   * **Namespace do barramento de serviço**: Selecione o namespace do hub de eventos criado anteriormente (`<yourname>-socialtwitter-eh-ns`).
-   * **Hub de eventos**: Selecione o hub de eventos criado anteriormente (`socialtwitter-eh`).
-   * **Nome da política do hub de eventos**: Selecione a política de acesso que você criou anteriormente (`socialtwitter-access`).
+   * **Tipo de Origem**: Selecione **Fluxo de Dados**.
+   * **Origem**: Selecione **hub de eventos**.
+   * **Opção de importação**: Selecione **Usar hub de evento da assinatura atual**. 
+   * **Namespace de barramento de serviço**: Selecione o namespace de hub de eventos que você criou anteriormente (`<yourname>-socialtwitter-eh-ns`).
+   * **Hub de eventos**: Selecione o hub de eventos que você criou anteriormente (`socialtwitter-eh`).
+   * **Nome de política do hub de eventos**: Selecione a política de acesso que você criou anteriormente (`socialtwitter-access`).
 
      ![Criar nova entrada para o trabalho de Streaming Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -249,7 +248,7 @@ Para comparar o número de menções entre tópicos, você pode usar uma [Janela
 
     Os dados de exemplo são armazenados temporariamente e estão disponíveis enquanto a janela de consulta estiver aberta. Se você fechar a janela de consulta, os dados de exemplo serão descartados e você terá que criar um novo conjunto de dados de exemplo. 
 
-5. Altere a consulta no editor de código para:
+5. Altere a consulta no editor de código para a seguinte:
 
     ```
     SELECT System.Timestamp as Time, Topic, COUNT(*)
@@ -265,7 +264,7 @@ Para comparar o número de menções entre tópicos, você pode usar uma [Janela
 
 5. Clique em **Testar**. A consulta é executada em relação aos dados que você amostrou.
     
-6. Clique em **Salvar**. Isso salva a consulta como parte do trabalho de Streaming Analytics. (Ele não salva os dados de exemplo.)
+6. Clique em **Save** (Salvar). Isso salva a consulta como parte do trabalho de Streaming Analytics. (Ele não salva os dados de exemplo.)
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>Experimente usar diferentes campos do fluxo 
@@ -289,13 +288,13 @@ Neste guia de instruções, você escreve os eventos de tweet agregados da consu
 
 ## <a name="specify-the-job-output"></a>Especificar a saída de trabalho
 
-1. Na seção **Trabalho de Topologia**, clique na caixa **Saída**. 
+1. Na seção **Topologia do Trabalho**, clique na caixa **Saída**. 
 
 2. Na folha **Saídas**, clique em **+&nbsp;Adicionar** e, em seguida, preencha a folha com estes valores:
 
    * **Alias de saída**: Use o nome `TwitterStream-Output`. 
-   * **Coletor**: Selecione **Armazenamento de Blobs**.
-   * **Opções de importação**: Selecione **Usar Armazenamento de Blobs da assinatura atual**.
+   * **Coletor**: selecione **Armazenamento de blobs**.
+   * **Opções de importação**: Selecione **Usar armazenamento de blobs da assinatura atual**.
    * **Conta de armazenamento**. Selecione **Criar uma nova conta de armazenamento.**
    * **Conta de armazenamento** (segunda caixa). Digite `YOURNAMEsa`, onde `YOURNAME` é o seu nome ou outra cadeia de caracteres exclusiva. O nome pode ter apenas letras minúsculas e números e deve ser exclusivo no Azure. 
    * **Contêiner**. Digite `socialtwitter`.
@@ -309,7 +308,7 @@ Neste guia de instruções, você escreve os eventos de tweet agregados da consu
 
     Azure cria a conta de armazenamento e gera uma chave automaticamente. 
 
-5. Feche a folha **Saída**. 
+5. Feche a folha **Saídas**. 
 
 
 ## <a name="start-the-job"></a>Iniciar o trabalho
@@ -326,7 +325,7 @@ Uma entrada de trabalho, uma consulta e uma saída são especificadas. Você est
 
     ![Folha "Começar trabalho" para trabalho do Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
 
-    O Azure notifica você quando o trabalho for iniciado e, na folha de trabalho, o status é exibido como **Executando**.
+    O Azure notifica você quando o trabalho for iniciado e, na folha de trabalho, o status é exibido como **Em execução**.
 
     ![Trabalho em execução](./media/stream-analytics-twitter-sentiment-analysis-trends/jobrunning.png)
 
@@ -358,7 +357,7 @@ Para os fins deste "como", você verifica os tópicos que são mencionados mais 
     HAVING COUNT(*) > 20
     ```
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 5. Certifique-se de que o aplicativo TwitterWpfClient está em execução. 
 
@@ -368,7 +367,7 @@ Para os fins deste "como", você verifica os tópicos que são mencionados mais 
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)

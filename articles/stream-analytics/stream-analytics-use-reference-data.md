@@ -1,19 +1,18 @@
 ---
 title: Usar dados de referência para pesquisas no Azure Stream Analytics
 description: Este artigo descreve como usar dados de referência para pesquisar ou correlacionar dados no design de consulta de um trabalho do Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369557"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
@@ -32,14 +31,14 @@ Para configurar os dados de referência, você primeiro precisa criar uma entrad
 |**Nome da Propriedade**  |**Descrição**  |
 |---------|---------|
 |Alias de entrada   | Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.   |
-|Conta de armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma assinatura que o trabalho do Stream Analytics, você pode selecioná-lo na lista suspensa.   |
+|Conta de Armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma assinatura que o trabalho do Stream Analytics, você pode selecioná-lo na lista suspensa.   |
 |Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. É preenchida automaticamente se a conta de armazenamento estiver na mesma assinatura que o trabalho do Stream Analytics.   |
 |Contêiner de armazenamento   | Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço Blob, você deve especificar um contêiner para aquele blob.   |
 |Padrão de caminho   | O caminho usado para localizar seus blobs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{data}, {hora}<BR>Exemplo 1: products/{data}/{hora}/product-list.csv<BR>Exemplo 2: products/{data}/product-list.csv<BR>Exemplo 3: product-list.csv<BR><br> Se o blob não existir no caminho especificado, o trabalho do Stream Analytics aguardará indefinidamente que o blob fique disponível.   |
 |Formato de data [opcional]   | Se você tiver usado {data} no padrão de caminho que você especificou, você pode selecionar o formato de data no qual os blobs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: AAAA/MM/DD, MM/DD/AAAA etc.   |
-|Formato de hora [opcional]   | Se você tiver usado {hora} no padrão de caminho que você especificou, você pode selecionar o formato de hora no qual os blobs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
+|Formato de hora [opcional]   | Se você tiver usado {hora} no padrão de caminho que você especificou, você pode selecionar o formato de hora no qual os blobs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: HH, HH/mm ou HH-mm  |
 |Formato de serialização do evento   | Para verificar se as consultas funcionam da maneira esperada, o Stream Analytics precisa saber qual formato de serialização você está usando para os fluxos de dados de entrada. Para dados de referência, os formatos com suporte são CSV e JSON.  |
-|Codificando   | UTF-8 é o único formato de codificação com suporte no momento.  |
+|Codificação   | UTF-8 é o único formato de codificação com suporte no momento.  |
 
 ### <a name="static-reference-data"></a>Dados de referência estática
 
@@ -54,13 +53,13 @@ O Azure Stream Analytics verifica automaticamente os blobs de dados de referênc
 > [!NOTE]
 > Atualmente os trabalhos do Stream Analytics procuram pela atualização de blob somente quando a hora do computador avança até a hora codificada no nome do blob. Por exemplo o trabalho irá procurar `sample/2015-04-16/17-30/products.csv` assim que possível, mas não antes das 17:30 UTC do dia 16 de abril de 2015. Ele *nunca* procurará um blob com uma hora codificada anterior ao último que foi descoberto.
 > 
-> Por exemplo, quando o trabalho encontrar o blob `sample/2015-04-16/17-30/products.csv`, ele ignorará todos os arquivos com uma data codificada anterior a 5:30 PM 16 de abril de 2015, portanto, se um blob de chega de `sample/2015-04-16/17-25/products.csv` for criado no mesmo contêiner, o trabalho não o usará.
+> Por exemplo, depois que o trabalho encontrar o blob `sample/2015-04-16/17-30/products.csv` ele ignorará todos os arquivos com uma data codificada anterior a 5:30 PM 16 de abril de 2015, portanto, se um blob de chegada de `sample/2015-04-16/17-25/products.csv` for criado no mesmo contêiner, o trabalho não o usará.
 > 
 > Da mesma forma, se `sample/2015-04-16/17-30/products.csv` só é produzido às 22:03 do dia 16 de abril de 2015, mas nenhum blob com uma data anterior está presente no contêiner, o trabalho usa esse arquivo começando às 22:03 do dia 16 de abril de 2015 e usando os dados de referência anteriores.
 > 
 > Uma exceção a isso é iniciada quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é o primeiro a iniciar. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora especificada de início do trabalho. Isso é feito para garantir que haja um conjunto de dados de referência **não vazio** quando o trabalho é iniciado. Se um não for encontrado, o trabalho exibirá o seguinte diagnóstico: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](../data-factory/copy-activity-overview.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação de dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](../data-factory/copy-activity-overview.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Dicas sobre como atualizar os dados de referência de blob
 
@@ -72,11 +71,11 @@ O Azure Stream Analytics verifica automaticamente os blobs de dados de referênc
 3. Blobs de dados de referência são **não** ordenados pela hora "Última modificação" do blob, mas apenas pela hora e pela data especificadas no nome do blob usando as substituições {date} e {time}.
 3. Para evitar a necessidade de listar um grande número de blobs, considere excluir blobs muito antigos para os quais o processamento não será mais feito. Observe que o ASA talvez tenha que reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
-## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
+## <a name="azure-sql-database"></a>Banco de dados SQL do Azure
 
 Os dados de referência do Banco de Dados SQL do Azure são recuperados pelo trabalho do Stream Analytics e armazenados como um instantâneo na memória para processamento. O instantâneo dos dados de referência também é armazenado em um contêiner em uma conta de armazenamento especificada nas definições de configuração. O contêiner é criado automaticamente quando o trabalho é iniciado. Se o trabalho for interrompido ou entrar em um estado de falha, os contêineres criados automaticamente serão excluídos quando o trabalho for reiniciado.  
 
-Se os dados de referência forem um conjunto de dados com alteração lenta, você precisará atualizar periodicamente o instantâneo que é usado no trabalho. O Stream Analytics permite que você defina uma taxa de atualização ao configurar a conexão de entrada do Banco de Dados SQL do Azure. O tempo de execução do Stream Analytics consultará o Banco de Dados SQL do Azure no intervalo especificado pela taxa de atualização. A taxa de atualização mais rápida compatível é uma vez por minuto. Para cada atualização, o Stream Analytics armazena um novo instantâneo na conta de armazenamento fornecida.
+Se os dados de referência forem um conjunto de dados com alteração lenta, você precisará atualizar periodicamente o instantâneo que é usado no trabalho. O Stream Analytics permite que você defina uma taxa de atualização ao configurar a conexão de entrada do Banco de Dados SQL do Azure. O runtime do Stream Analytics consultará o Banco de Dados SQL do Azure no intervalo especificado pela taxa de atualização. A taxa de atualização mais rápida compatível é uma vez por minuto. Para cada atualização, o Stream Analytics armazena um novo instantâneo na conta de armazenamento fornecida.
 
 O Stream Analytics oferece duas opções para consulta do Banco de Dados SQL do Azure. Uma consulta de instantâneo é obrigatória e precisa ser incluída em cada trabalho. O Stream Analytics executa a consulta de instantâneo periodicamente com base no intervalo de atualização e usa o resultado da consulta (o instantâneo) como o conjunto de dados de referência. A consulta de instantâneo deverá se ajustar à maioria dos cenários, mas se você enfrentar problemas de desempenho com conjuntos de dados grandes e taxas de atualização rápidas, use a opção de consulta delta. As consultas que levam mais de 60 segundos para retornar o conjunto de dados de referência resultarão em um tempo limite.
 
@@ -91,8 +90,8 @@ Você pode usar [instância gerenciada do banco de dados SQL do Azure](https://d
 |**Nome da Propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.|
-|Assinatura|Escolha sua assinatura|
-|Banco de Dados|O Banco de Dados SQL do Azure que contém os dados de referência. Por Instância Gerenciada do Banco de Dados SQL do Azure, é necessário especificar a porta 3342. Por exemplo, *sampleserver. Public. Database. Windows. net, 3342*|
+|Subscription|Escolha sua assinatura|
+|Banco de dados|O Banco de Dados SQL do Azure que contém os dados de referência. Por Instância Gerenciada do Banco de Dados SQL do Azure, é necessário especificar a porta 3342. Por exemplo, *sampleserver. Public. Database. Windows. net, 3342*|
 |Nome de Usuário|O nome de usuário associado ao Banco de Dados SQL do Azure.|
 |Senha|A senha associada ao Banco de Dados SQL do Azure.|
 |Atualizar periodicamente|Essa opção permite que você escolha uma taxa de atualização. A escolha da opção "Ativado" permitirá que você especifique a taxa de atualização em DD:HH:MM.|
@@ -113,9 +112,9 @@ O aumento do número de Unidades de Streaming contínuo de um trabalho além de 
 
 O suporte para a compactação não está disponível para os dados de referência. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
-> [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

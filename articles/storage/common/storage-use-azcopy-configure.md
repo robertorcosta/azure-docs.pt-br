@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371387"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -30,7 +30,7 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar BLO
 
 Para definir as configurações de proxy para AzCopy, defina a variável de ambiente `https_proxy`. Se você executar o AzCopy no Windows, o AzCopy detectará automaticamente as configurações de proxy, de modo que você não precisa usar essa configuração no Windows. Se você optar por usar essa configuração no Windows, ela substituirá a detecção automática.
 
-| Sistema operacional | Command  |
+| Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | Em um prompt de comando, use: `set https_proxy=<proxy IP>:<proxy port>`<br> No PowerShell, use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
@@ -56,23 +56,28 @@ Use o comando a seguir para executar um teste de benchmark de desempenho.
 | **Sintaxe** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exemplo** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> Este exemplo inclui argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+
 Esse comando executa um parâmetro de comparação de desempenho carregando dados de teste para um destino especificado. Os dados de teste são gerados na memória, carregados no destino e, em seguida, excluídos do destino após a conclusão do teste. Você pode especificar quantos arquivos serão gerados e qual tamanho você gostaria que eles estivéssemos usando parâmetros de comando opcionais.
+
+Para obter documentos de referência detalhados, consulte [bancada de azcopy](storage-ref-azcopy-bench.md).
 
 Para exibir as diretrizes de ajuda detalhadas para este comando, digite `azcopy bench -h` e pressione a tecla ENTER.
 
 ### <a name="optimize-throughput"></a>Otimizar a taxa de transferência
 
-Você pode usar o sinalizador `cap-mbps` para inserir um teto na taxa de dados da taxa de transferência. Por exemplo, o comando a seguir Caps taxa de transferência para `10` megabits (MB) por segundo.
+Você pode usar o sinalizador `cap-mbps` em seus comandos para inserir um teto na taxa de dados de produtividade. Por exemplo, o comando a seguir retoma um trabalho e a taxa de transferência de Caps para `10` megabits (MB) por segundo. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 A taxa de transferência pode diminuir ao transferir arquivos pequenos. Você pode aumentar a taxa de transferência definindo a variável de ambiente `AZCOPY_CONCURRENCY_VALUE`. Essa variável especifica o número de solicitações simultâneas que podem ocorrer.  
 
 Se o computador tiver menos de 5 CPUs, o valor dessa variável será definido como `32`. Caso contrário, o valor padrão é igual a 16 multiplicado pelo número de CPUs. O valor padrão máximo dessa variável é `3000`, mas você pode definir manualmente esse valor como maior ou menor. 
 
-| Sistema operacional | Command  |
+| Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
@@ -87,7 +92,7 @@ Antes de definir essa variável, recomendamos que você execute um teste de par�
 Defina a variável de ambiente `AZCOPY_BUFFER_GB` para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use ao baixar e carregar arquivos.
 Expresse esse valor em gigabytes (GB).
 
-| Sistema operacional | Command  |
+| Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
@@ -147,6 +152,9 @@ azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
+> [!TIP]
+> Coloque argumentos de caminho, como o token SAS com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+
 Quando você reinicia um trabalho, o AzCopy examina o arquivo de plano de trabalho. O arquivo de plano lista todos os arquivos que foram identificados para processamento quando o trabalho foi criado pela primeira vez. Quando você retomar um trabalho, o AzCopy tentará transferir todos os arquivos listados no arquivo de plano que ainda não foram transferidos.
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Alterar o local do plano e dos arquivos de log
@@ -157,7 +165,7 @@ Por padrão, os arquivos de plano e de log estão localizados no diretório `%US
 
 Use qualquer um desses comandos.
 
-| Sistema operacional | Command  |
+| Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
@@ -169,7 +177,7 @@ Use o `azcopy env` para verificar o valor atual dessa variável. Se o valor esti
 
 Use qualquer um desses comandos.
 
-| Sistema operacional | Command  |
+| Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |

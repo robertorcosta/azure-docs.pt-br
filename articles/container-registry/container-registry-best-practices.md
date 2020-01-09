@@ -3,16 +3,18 @@ title: Práticas recomendadas do registro
 description: Saiba como usar o registro de contêiner do Azure efetivamente seguindo estas melhores práticas.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445798"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas para o Registro de Contêiner do Azure
 
 Ao seguir essas melhores práticas, você pode ajudar a maximizar o desempenho e o uso econômico de seu registro de Docker privado no Azure.
+
+Consulte também [recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md) para estratégias para marcas e imagens de versão no registro. 
 
 ## <a name="network-close-deployment"></a>Implantação de fechamento de rede
 
@@ -31,7 +33,7 @@ Para saber como usar a replicação geográfica, consulte o tutorial em três pa
 
 Ao aproveitar os namespaces de repositório, você pode permitir o compartilhamento de um único registro em vários grupos em sua organização. Os registros podem ser compartilhados entre equipes e implantações. O Registro de Contêiner do Azure oferece suporte a namespaces aninhados, habilitando o isolamento de grupo.
 
-Por exemplo, considere as seguintes marcas de imagem de contêiner. Imagens que são usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, no caso de imagens de contêiner que pertencem a grupos de Produção e de Marketing, cada uma usa seus próprios namespaces.
+Por exemplo, considere as seguintes marcas de imagem de contêiner. As imagens usadas em toda a empresa, como `aspnetcore`, são colocadas no namespace raiz, enquanto as imagens de contêiner de propriedade dos produtos e grupos de marketing usam seus próprios namespaces.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0
@@ -50,7 +52,7 @@ Embora seja possível fazer experiências com um tipo de host específico, como 
 
 Ao se autenticar com um registro de contêiner do Azure, há dois cenários principais: autenticação individual e autenticação de serviço (ou "sem periférico"). A tabela a seguir fornece uma visão geral sobre esses cenários e o método de autenticação recomendado para cada.
 
-| Digite | Cenário de exemplo | Método recomendado |
+| Tipo | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um desenvolvedor que efetua o pull de imagens de ou para seu computador de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Sem periférico/serviço identidade | Pipelines de implantação e compilação em que o usuário não está diretamente envolvido. | [Entidade de serviço](container-registry-authentication.md#service-principal) |
@@ -81,7 +83,7 @@ O Registro de Contêiner do Azure dá suporte a vários métodos para excluir da
 
 Para obter detalhes sobre como excluir dados de imagem do registro, incluindo imagens não marcadas (às vezes chamadas de "pendentes" ou "órfãs"), consulte [Excluir imagens de contêiner no Registro de Contêiner do Azure](container-registry-delete.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O Registro de Contêiner do Azure está disponível em várias camadas, chamadas de SKUs e cada uma delas fornece funcionalidades diferentes. Para obter detalhes sobre as SKUs disponíveis, consulte [SKUs de Registro de Contêiner do Azure](container-registry-skus.md).
 

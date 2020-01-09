@@ -1,20 +1,16 @@
 ---
-title: Escalabilidade dos aplicativos da Malha do Azure Service Fabric | Microsoft Docs
+title: Escalabilidade de aplicativos de malha de Service Fabric do Azure
 description: Uma das vantagens de implantar aplicativos em Service Fabric malha é a capacidade de dimensionar facilmente seus serviços, seja manualmente ou com políticas de dimensionamento automático.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459006"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Escalonar aplicativos de Malha do Service Fabric
 
@@ -37,6 +33,6 @@ Uma política de escala automática é definida por serviço no arquivo de recur
 
 Para saber como definir uma política de dimensionamento automático para seu serviço, leia [serviços de dimensionamento automático](service-fabric-mesh-howto-auto-scale-services.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre o modelo de aplicativo, consulte [recursos de Service Fabric](service-fabric-mesh-service-fabric-resources.md)

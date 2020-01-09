@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459149"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação aprimora a eficiência por meio da multiplexação de recursos entre diferentes clientes por custos baixos. Infelizmente, ela também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura a fim de executar seus aplicativos confidenciais e VMs que possam pertencer a um usuário aleatório e possivelmente malicioso.
@@ -205,7 +205,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 
 -   [Criptografia de nível de transporte](../../storage/common/storage-security-guide.md), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
 
--   [Criptografia na transmissão](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
+-   [Criptografia na transmissão](../../storage/common/storage-security-guide.md), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
 
 -   [Criptografia do cliente](../../storage/common/storage-security-guide.md), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 

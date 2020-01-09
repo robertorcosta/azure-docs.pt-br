@@ -1,6 +1,6 @@
 ---
-title: Trabalhando com conjuntos de dimensionamento grandes de máquinas virtuais do Azure | Microsoft Docs
-description: O que você precisa saber para usar conjuntos de dimensionamento grandes de máquinas virtuais do Azure
+title: Trabalhando com grandes conjuntos de dimensionamento de máquinas virtuais do Azure
+description: O que você precisa saber sobre grandes conjuntos de dimensionamento de máquinas virtuais do Azure para usá-los em seu aplicativo.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rajsqr
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 839d889783a7ef3bcd602c37a4975ddeea4e2a16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459346"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhando com conjuntos de dimensionamento grandes de máquinas virtuais
 Agora você pode criar [conjuntos de dimensionamento de máquina virtual](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1.000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais grande_ é definido como um conjunto de dimensionamento capaz de ser redimensionado para mais de 100 VMs. Esse recurso é definido por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -50,7 +50,7 @@ Quando você cria um conjunto de dimensionamento no portal do Azure, basta espec
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Você pode criar um conjunto de dimensionamento grande de máquina virtual usando o comando da [CLI do Azure](https://github.com/Azure/azure-cli) _az vmss create_. Esse comando define padrões inteligentes, como tamanho da sub-rede com base no argumento _instance-count_:
+Você pode criar um grande conjunto de dimensionamento de máquinas virtuais usando o comando [CLI do Azure](https://github.com/Azure/azure-cli) _AZ vmss Create_ . Esse comando define padrões inteligentes, como tamanho da sub-rede com base no argumento _instance-count_:
 
 ```bash
 az group create -l southcentralus -n biginfra
@@ -78,7 +78,7 @@ Se estiver criando um conjunto de dimensionamento grande por meio da composiçã
       "mode": "Automatic"
     }
 ```
-Para obter um exemplo completo de grande escala definida no modelo, consulte [ https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json ](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Para obter um exemplo completo de grande escala definida no modelo, consulte [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Converter um conjunto de dimensionamento existente para abranger vários grupos de posicionamento
 Para tornar um conjunto de dimensionamento de máquina virtual existente capaz de ser redimensionado para mais de 100 VMs, você precisa alterar a propriedade _singplePlacementGroup_ para _false_ no modelo de conjunto de dimensionamento. Você pode testar a alteração dessa propriedade com o [Gerenciador de Recursos do Azure](https://resources.azure.com/). Localize um conjunto de dimensionamento existente, selecione _Editar_ e altere a propriedade _singlePlacementGroup_. Se não vir essa propriedade, talvez você esteja exibindo o conjunto de dimensionamento com uma versão mais antiga da API Microsoft.Compute.

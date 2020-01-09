@@ -1,20 +1,18 @@
 ---
 title: Testar Azure Stream Analytics consultas localmente no Visual Studio
 description: Este artigo descreve como testar as consultas localmente com as Ferramentas do Azure Stream Analytics para o Microsoft Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c4854d050cce18082def436243a669ba09c474ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925033"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369653"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Testar as consultas do Stream Analytics localmente com o Microsoft Visual Studio
 
@@ -62,7 +60,7 @@ Verifique os resultados na pasta local.
 ### <a name="sample-input"></a>Entrada de exemplo
 Você também pode coletar a amostragem de dados de entrada de fontes de entrada para um arquivo local. Clique com o botão direito do mouse no arquivo de configuração de entrada e selecione **Dados de Exemplo**. 
 
-![Dados de exemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
+![Dados de Amostra](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
 Você pode apenas realizar amostra de streaming de dados dos Hubs de Eventos ou Hubs IoT. Não há suporte para outras fontes de entrada. Na caixa de diálogo pop-up, preencha o caminho local para salvar os dados e selecione **Exemplo**.
 

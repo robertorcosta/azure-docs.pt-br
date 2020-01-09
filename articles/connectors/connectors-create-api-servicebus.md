@@ -1,18 +1,18 @@
 ---
 title: Trocar mensagens com o barramento de serviço do Azure
-description: Enviar e receber mensagens usando o barramento de serviço do Azure nos aplicativos lógicos do Azure
+description: Criar tarefas e fluxos de trabalho automatizados que enviam e recebem mensagens usando o barramento de serviço do Azure nos aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: c83e2bc0411c9bec3c3a5fa35dcc6565ed7f44f9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 26609bc95bf6fd49ded23d8f117911a02577405a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445887"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -31,7 +31,7 @@ Você pode usar gatilhos para obter respostas do Barramento de Serviço e dispon
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Um namespace de Barramento de Serviço e a entidade de mensagens, como uma fila. Esses itens e seu aplicativo lógico precisam usar a mesma assinatura do Azure. Se você não tiver esses itens, aprenda a [criar seu namespace do Barramento de Serviço e uma fila](../service-bus-messaging/service-bus-create-namespace-portal.md).
 

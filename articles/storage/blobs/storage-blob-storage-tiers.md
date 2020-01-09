@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825442"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371948"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo
 
@@ -38,7 +38,7 @@ Cada um desses cenários de acesso a dados se beneficia de uma camada de acesso 
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que dão suporte a camadas
 
-As camadas de dados de armazenamento de objetos entre Hot, fria e arquivo morto só têm suporte em contas de armazenamento de BLOB e Uso Geral v2 (GPv2). As contas do Uso Geral V1 (GPv1) não dão suporte a camadas. Os clientes podem facilmente converter suas contas de armazenamento de GPv1 ou BLOB existentes para contas do GPv2 por meio do portal do Azure. O GPv2 fornece novos preços e recursos para BLOBs, arquivos e filas. Alguns recursos e preços são oferecidos apenas em contas do GPv2. Avalie usando contas do GPv2 após a revisão abrangente de preços. Algumas cargas de trabalho podem ser mais caras em GPv2 do que GPv1. Para obter mais informações, consulte [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+As camadas de dados de armazenamento de objetos entre Hot, fria e arquivo morto só têm suporte em contas de armazenamento de BLOB e Uso Geral v2 (GPv2). As contas do Uso Geral V1 (GPv1) não dão suporte a camadas. Os clientes podem facilmente converter suas contas de armazenamento de GPv1 ou BLOB existentes para contas do GPv2 por meio do portal do Azure. O GPv2 fornece novos preços e recursos para BLOBs, arquivos e filas. Alguns recursos e preços são oferecidos apenas em contas do GPv2. Avalie usando contas do GPv2 após a revisão abrangente de preços. Algumas cargas de trabalho podem ser mais caras em GPv2 do que GPv1. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 As contas de armazenamento de BLOBs e GPv2 expõem o atributo **camada de acesso** no nível da conta. Esse atributo permite que você especifique a camada de acesso padrão para qualquer BLOB que não tenha ele definido explicitamente no nível do objeto. Para objetos com a camada definida no nível do objeto, a camada de conta não será aplicada. A camada de arquivo pode ser aplicada somente no nível do objeto. Você pode alternar entre essas camadas de acesso a qualquer momento.
 
@@ -105,7 +105,7 @@ Quando um blob é movido para uma camada mais quente (arquivo morto-> frio, > qu
 
 ### <a name="cool-and-archive-early-deletion"></a>Exclusão antecipada esporádica e de arquivo
 
-Qualquer BLOB que é movido para a camada fria (somente contas GPv2) está sujeito a um período de exclusão antecipado de 30 dias. Qualquer blob movido para a camada de arquivo está sujeito a um período de exclusão antecipada de 180 dias. A cobrança é proporcional. Por exemplo, se um blob for movido para o arquivo morto e, em seguida, excluído ou movido para a camada quente após 45 dias, você será cobrado como uma taxa de exclusão inicial equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo morto.
+Qualquer BLOB que é movido para a camada fria (somente contas GPv2) está sujeito a um período de exclusão antecipado de 30 dias. Qualquer blob movido para a camada de arquivo está sujeito a um período de exclusão antecipada de 180 dias. Essa cobrança é rateada. Por exemplo, se um blob for movido para o arquivo morto e, em seguida, excluído ou movido para a camada quente após 45 dias, você será cobrado como uma taxa de exclusão inicial equivalente a 135 (180 menos 45) dias de armazenamento desse blob no arquivo morto.
 
 Você pode calcular a exclusão antecipada usando a propriedade BLOB, **Last-Modified**, se não houver nenhuma alteração na camada de acesso. Caso contrário, você pode usar quando a camada de acesso foi modificada pela última vez para fria ou arquivo morto exibindo a propriedade blob: **acesso-camada-alteração-tempo**. Para obter mais informações sobre as propriedades de blob, confira [Obter Propriedades de Blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
@@ -115,8 +115,8 @@ A tabela a seguir mostra uma comparação do armazenamento de blobs de blocos de
 
 |                                           | **Desempenho premium**   | **Camada quente** | **Camada fria**       | **Camada de arquivo morto**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Disponibilidade**                          | 99,9%                     | 99,9%        | 99%                 | Off-line           |
-| **Disponibilidade** <br> **(Leituras de RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Off-line           |
+| **Disponibilidade**                          | 99,9 %                     | 99,9 %        | 99%                 | Offline           |
+| **Disponibilidade** <br> **(Leituras de RA-GRS)**  | N/D                       | 99,99%       | 99,9 %               | Offline           |
 | **Encargos de uso**                         | Custos de armazenamento mais altos, menor acesso e custo da transação | Custos de armazenamento maiores, custos de acesso e de transações menores | Custos de armazenamento menores, custos de acesso e de transações maiores | Custos de armazenamento mais baixos, custos de acesso e de transações mais altos |
 | **Tamanho mínimo do objeto**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Duração mínima de armazenamento**              | N/D                       | N/D          | 30 dias<sup>1</sup> | 180 dias
@@ -138,11 +138,13 @@ Nesta seção, os cenários a seguir são demonstrados usando o Portal do Azure:
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso de conta padrão de uma conta de Armazenamento de Blobs ou de GPv2
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Para navegar até sua conta de armazenamento, selecione Todos os Recursos e sua conta de armazenamento.
+1. Na portal do Azure, procure e selecione **todos os recursos**.
 
-1. Em configurações, clique em **configuração** para exibir e alterar a configuração da conta.
+1. Selecione sua conta de armazenamento.
+
+1. Em **configurações**, selecione **configuração** para exibir e alterar a configuração da conta.
 
 1. Selecione a camada de acesso certa para suas necessidades: defina a **camada de acesso** como **fria** ou **quente**.
 
@@ -150,9 +152,11 @@ Nesta seção, os cenários a seguir são demonstrados usando o Portal do Azure:
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob em uma conta de armazenamento de BLOBs ou de GPv2
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
-1. Para navegar até seu blob em sua conta de armazenamento, selecione Todos os Recursos, selecione sua conta de armazenamento, selecione seu contêiner e depois seu blob.
+1. Na portal do Azure, procure e selecione **todos os recursos**.
+
+1. Selecione seu contêiner e, em seguida, selecione seu BLOB.
 
 1. Nas **Propriedades do blob**, selecione **alterar camada**.
 
@@ -174,13 +178,13 @@ Todas as contas de armazenamento usam um modelo de preços para armazenamento de
 > [!NOTE]
 > Para obter mais informações sobre os preços para BLOBs de blocos, consulte a página de [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) . Para saber mais informações sobre os encargos de transferência de dados de saída, confira a página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>FAQ
 
 **Devo usar contas de Armazenamento de Blobs ou de GPv2 se quiser colocar meus dados em camadas?**
 
 Recomendamos que você use o GPv2 em vez de contas de Armazenamento de Blobs para camadas. O GPv2 dá suporte a todos os recursos aos quais as contas de Armazenamento de Blobs dão suporte e muito mais. O preço entre o Armazenamento de Blobs e o GPv2 são quase idênticos, mas alguns novos recursos e cortes de preços só estarão disponíveis em contas de GPv2. As contas do GPv1 não dão suporte a camadas.
 
-A estrutura de preços entre contas de GPv1 e GPv2 é diferente, e os clientes devem avaliar cuidadosamente antes de decidir usar contas de GPv2. Você pode converter facilmente uma conta existente de Armazenamento de Blobs ou de GPv1 em GPv2 por meio de um processo simples de um clique. Para obter mais informações, consulte [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+A estrutura de preços entre contas de GPv1 e GPv2 é diferente, e os clientes devem avaliar cuidadosamente antes de decidir usar contas de GPv2. Você pode converter facilmente uma conta existente de Armazenamento de Blobs ou de GPv1 em GPv2 por meio de um processo simples de um clique. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 **Posso armazenar objetos em todas as três camadas de acesso (quentes, frias e de arquivamento) na mesma conta?**
 
@@ -228,7 +232,7 @@ As ferramentas do portal do Azure, do PowerShell e da CLI e as bibliotecas de cl
 
 O armazenamento de dados junto com outros limites é definido no nível da conta e não por camada de acesso. Você pode optar por usar todo o limite em uma camada ou em todas as três camadas. Para saber mais, confira [Metas de desempenho e escalabilidade do Armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Avaliar a quente, a frio e o arquivo em contas de armazenamento de BLOBs e GPv2
 

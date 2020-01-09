@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 32865b84de2dc1c1f8a3fd6beca80a2659f1e3d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370758"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -545,7 +545,8 @@ Use o seguinte conteúdo para o arquivo de entrada. Você precisa adaptar o cont
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],

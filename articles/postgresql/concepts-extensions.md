@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 7a55cc9398cc511ced0a43f0d7a0c1aa6e37f155
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/20/2019
+ms.openlocfilehash: 069fc83e773c00be41e21e23fc01c589c13d687d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372696"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL-servidor único
 O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões agrupam vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido do banco de dados com um único comando. Depois de ser carregado no banco de dados, as extensões funcionam como recursos internos.
@@ -252,6 +252,26 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 > Se você vir um erro, confirme que você [reiniciou o servidor depois de](howto-restart-server-portal.md) salvar shared_preload_libraries. 
 
 Agora você pode criar uma hipertabela TimescaleDB [do zero](https://docs.timescale.com/getting-started/creating-hypertables) ou migrar [dados existentes de série temporal no PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+
+### <a name="restoring-a-timescale-database"></a>Restaurando um banco de dados de escala temporal
+Para restaurar um banco de dados de escala temporal usando pg_dump e pg_restore, você precisa executar dois procedimentos auxiliares no banco de dados de destino: `timescaledb_pre_restore()` e `timescaledb_post restore()`.
+
+Primeiro, prepare o banco de dados de destino:
+
+```SQL
+--create the new database where you'll perform the restore
+CREATE DATABASE tutorial;
+\c tutorial --connect to the database 
+CREATE EXTENSION timescaledb;
+
+SELECT timescaledb_pre_restore();
+```
+
+Agora você pode executar pg_dump no banco de dados original e, em seguida, fazer pg_restore. Após a restauração, certifique-se de executar o seguinte comando no banco de dados restaurado:
+
+```SQL
+SELECT timescaledb_post_restore();
+```
 
 
 ## <a name="next-steps"></a>Próximos passos

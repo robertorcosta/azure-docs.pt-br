@@ -1,26 +1,17 @@
 ---
-title: Introdução à rede do Azure Service Fabric | Microsoft Docs
+title: Introdução à rede Service Fabric do Azure
 description: Saiba mais sobre redes, gateways e roteamento de tráfego inteligente na Malha do Service Fabric.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459143"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introdução à rede nos aplicativos da Malha do Service Fabric
 Este artigo descreve os diferentes tipos de balanceadores de carga, como gateways conectam a rede com os aplicativos às outras redes e como o tráfego é roteado entre os serviços nos aplicativos.
@@ -43,7 +34,7 @@ Quando o recurso de rede é criado com `ingressConfig`, um IP público é atribu
 
 Quando um aplicativo de malha é criado, ele deve fazer referência a um recurso de rede existente. Novas portas públicas podem ser adicionadas ou portas existentes podem ser removidas da configuração de entrada. Uma exclusão para um recurso de rede falhará se um recurso de aplicativo estiver fazendo referência a ele. Quando o aplicativo é excluído, o recurso de rede será removido.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 Para saber mais sobre Malha do Service Fabric, leia a visão geral:
 - [Visão geral da Malha do Service Fabric](service-fabric-mesh-overview.md)
 

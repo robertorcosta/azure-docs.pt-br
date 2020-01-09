@@ -1,6 +1,6 @@
 ---
 title: Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
-description: Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados.
+description: Use Azure Cosmos DB suporte do feed de alterações para controlar alterações em documentos, processamento baseado em evento como gatilhos e manter caches e sistemas analíticos atualizados
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445585"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Feed de alterações no Azure Cosmos DB – visão geral
 
@@ -35,10 +35,10 @@ No momento, o recurso é compatível com os seguintes SDKs do cliente e APIs do 
 
 | **Drivers do cliente** | **CLI do Azure** | **API do SQL** | **API do Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | ND | SIM | SIM | SIM | SIM | Não |
-|Java|ND|SIM|SIM|SIM|SIM|Não|
-|Python|ND|SIM|SIM|SIM|SIM|Não|
-|Nó/JS|ND|SIM|SIM|SIM|SIM|Não|
+| .NET | ND | Sim | Sim | Sim | Sim | Não |
+|Java|ND|Sim|Sim|Sim|Sim|Não|
+|Python|ND|Sim|Sim|Sim|Sim|Não|
+|Nó/JS|ND|Sim|Sim|Sim|Sim|Não|
 
 ## <a name="change-feed-and-different-operations"></a>Feed de alterações e operações diferentes
 
@@ -93,7 +93,7 @@ Veja a seguir alguns dos cenários que você pode implementar com o feed de alte
 
 É possível trabalhar com o feed de alterações usando as seguintes opções:
 
-* [Usando o feed de alterações com o Azure Functions](change-feed-functions.md)
+* [Usando feed de alterações com o Azure Functions](change-feed-functions.md)
 * [Usando o feed de alterações com o processador do feed de alterações](change-feed-processor.md) 
 
 O feed de alterações está disponível para cada chave de partição lógica dentro do contêiner e pode ser distribuído entre um ou mais clientes para processamento paralelo, conforme mostrado na imagem abaixo.
@@ -128,8 +128,8 @@ O Apache Cassandra nativo fornece a captura de dados de alteração (CDC), um me
 
 ## <a name="next-steps"></a>Próximos passos
 
-Agora, continue sabendo mais sobre o feed de alterações conferindo os seguintes artigos:
+Agora, você pode prosseguir para saber mais sobre o feed de alterações nos seguintes artigos:
 
 * [Opções de ler o feed de alterações](read-change-feed.md)
-* [Usando o feed de alterações com o Azure Functions](change-feed-functions.md)
+* [Usando feed de alterações com o Azure Functions](change-feed-functions.md)
 * [Usando o processador de feed de alterações](change-feed-processor.md)

@@ -1,5 +1,5 @@
 ---
-title: Compromissos de disponibilidade e desempenho para vários níveis de consistência no Azure Cosmos DB
+title: Azure Cosmos DB compensações de consistência, disponibilidade e desempenho
 description: Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência no Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445558"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compensações de consistência, disponibilidade e desempenho 
 
@@ -53,11 +53,11 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 |**Regiões**|**Modo de replicação**|**Nível de coerência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< 240 minutos|< 1 semana|
-|> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|> 15 minutos|> 15 minutos|
-|> 1|Único mestre|Bounded staleness|*K*  & *t*|> 15 minutos|
-|> 1|Único mestre|Forte|0|> 15 minutos|
-|> 1|Vários mestres|Sessão, Prefixo Consistente, Eventual|> 15 minutos|0|
-|> 1|Vários mestres|Bounded staleness|*K*  & *t*|0|
+|> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
+|> 1|Único mestre|Bounded staleness|*K* & *T*|< 15 minutos|
+|> 1|Único mestre|Forte|0|< 15 minutos|
+|> 1|Vários mestres|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
+|> 1|Vários mestres|Bounded staleness|*K* & *T*|0|
 
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 
@@ -69,7 +69,7 @@ As contas do cosmos configuradas para vários mestres não podem ser configurada
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre a distribuição global e compensações de consistência geral nos sistemas distribuídos. Confira os seguintes artigos:
+Saiba mais sobre a distribuição global e compensações de consistência geral nos sistemas distribuídos. Veja os artigos a seguir:
 
 - [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)
 - [Alta disponibilidade](high-availability.md)

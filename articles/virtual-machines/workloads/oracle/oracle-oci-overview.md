@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aacba12b32e9da75c2a4b9a20c0faa235cf6836a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799556"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459311"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Soluções de aplicativos Oracle que integram Microsoft Azure e a infraestrutura de nuvem da Oracle (versão prévia)
 
@@ -50,7 +50,7 @@ O diagrama a seguir é uma visão geral de alto nível da solução conectada. P
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* A conectividade entre as nuvens na visualização é limitada às regiões do Azure leste dos EUA (lesteus) & Sul do Reino Unido (uksouth) e às regiões do OCI Ashburn (leste dos EUA) & Londres (Sul do Reino Unido). Por Sul do Reino Unido, use o domínio de disponibilidade 1 (AD 1) no OCI ao implantar a inter-Connect para latências mais baixas.
+* A conectividade entre as nuvens na visualização é limitada às regiões do Azure leste dos EUA (lesteus), do Sul do Reino Unido (uksouth) e do Canadá central (canadacentral) e às regiões do OCI Ashburn (leste dos EUA), Londres (Sul do Reino Unido) e Toronto (sudeste do Canadá). Por Sul do Reino Unido, use o domínio de disponibilidade 1 (AD 1) no OCI ao implantar a inter-Connect para latências mais baixas.
 
 ## <a name="networking"></a>Rede
 
@@ -72,7 +72,7 @@ A identidade é um dos pilares principais da parceria entre a Microsoft e a Orac
 
 Atualmente, essa integração permite que você gerencie em um local central, que é Azure Active Directory. O Azure AD sincroniza todas as alterações no diretório com o diretório Oracle correspondente e é usado para logon único em soluções do Oracle de nuvem cruzada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Introdução a uma [rede entre nuvens](configure-azure-oci-networking.md) entre o Azure e o OCI. 
 

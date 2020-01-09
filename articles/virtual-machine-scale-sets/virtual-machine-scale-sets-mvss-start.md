@@ -1,6 +1,6 @@
 ---
-title: Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais | Microsoft Docs
-description: Aprenda a criar um modelo de conjunto de dimensionamento básico para conjuntos de dimensionamento de máquinas virtuais
+title: Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais
+description: Saiba como criar um modelo de conjunto de dimensionamento básico para conjuntos de dimensionamento de máquinas virtuais do Azure por meio de várias etapas simples.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459382"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma excelente maneira de implantar grupos de recursos relacionados. Esta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento básico e como modificar esse modelo para atender a vários cenários. Todos os exemplos foram obtidos neste [repositório GitHub](https://github.com/gatneil/mvss).
@@ -131,7 +131,7 @@ O conjunto de dimensionamento precisa saber qual tamanho de VM será criado (“
 ```
 
 ### <a name="choose-type-of-updates"></a>Escolher o tipo de atualizações
-O conjunto de dimensionamento também precisa saber como manipular atualizações no conjunto de dimensionamento. Atualmente, há três opções, `Manual` `Rolling` e `Automatic`. Para obter mais informações sobre as diferenças entre as duas, consulte a documentação sobre [como atualizar um conjunto de dimensionamento](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+O conjunto de dimensionamento também precisa saber como manipular atualizações no conjunto de dimensionamento. Atualmente, há três opções, `Manual`, `Rolling` e `Automatic`. Para obter mais informações sobre as diferenças entre as duas, consulte a documentação sobre [como atualizar um conjunto de dimensionamento](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {
@@ -204,6 +204,6 @@ No entanto, o identificador da rede virtual não é suficiente. Forneça a sub-r
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

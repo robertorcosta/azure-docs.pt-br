@@ -1,5 +1,6 @@
 ---
-title: Solução do Azure VMware por manutenção e atualizações do CloudSimple-CloudSimple
+title: Manutenção e atualizações do CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Descreve o processo do serviço CloudSimple para manutenção e atualizações agendadas
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372816"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Manutenção e atualizações do CloudSimple
 
@@ -38,7 +39,7 @@ O CloudSimple também monitora o seguinte continuamente em caso de falhas:
 * Portas NIC físicas
 * Servidores
 * Fãs
-* Potência
+* Avançado
 * Opções
 * Portas do comutador
 
@@ -48,11 +49,11 @@ O CloudSimple faz backup, mantém e atualiza esses elementos do VMware nas nuven
 
 * ESXi
 * Serviços da plataforma vCenter
-* Controlador
+* Controller
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Fazer backup e restauração
+## <a name="back-up-and-restore"></a>Backup e restauração
 
 O backup do CloudSimple inclui:
 
@@ -103,6 +104,6 @@ O CloudSimple testa um patch de segurança crítico assim que ele se torna dispo
 
 O CloudSimple fornece atualizações de manutenção trimestral para componentes de software VMware. Quando uma nova versão principal do software VMware estiver disponível, o CloudSimple funcionará com os clientes para coordenar uma janela de manutenção adequada para atualização.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Fazer backup de VMs de carga de trabalho usando Veeam](backup-workloads-veeam.md)
