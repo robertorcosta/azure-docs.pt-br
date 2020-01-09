@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,55 +14,55 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e01dbb0036761215a9a05c464b20ead340a2e3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172105"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423745"
 ---
-### <a name="authenticationresult-properties-in-msalnet"></a>Propriedades de AuthenticationResult no MSAL.NET
+### <a name="authenticationresult-properties-in-msalnet"></a>Propriedades de AuthenticationResult em MSAL.NET
 
-Os métodos para adquirir tokens de retornam um `AuthenticationResult` (ou, para os métodos assíncronos, um `Task<AuthenticationResult>`.
+Os métodos para adquirir tokens retornam um `AuthenticationResult` (ou, para os métodos assíncronos, um `Task<AuthenticationResult>`.
 
-No MSAL.NET, `AuthenticationResult` expõe:
+No MSAL.NET, o `AuthenticationResult` expõe:
 
-- `AccessToken` para a API da Web para acessar os recursos. Esse parâmetro é uma cadeia de caracteres, geralmente codificado de base64 JWT, mas o cliente nunca deve ser dentro do token de acesso. Não há garantias que o formato permanecerá estável e ele pode ser criptografado para o recurso. A gravação de código que depende do conteúdo do token de acesso no cliente é uma das maiores origens de erros e quebras de lógica do cliente. Consulte também [tokens de acesso](../articles/active-directory/develop/access-tokens.md)
-- `IdToken` para o usuário (esse parâmetro é um JWT codificada). Consulte [Tokens de ID](../articles/active-directory/develop/id-tokens.md)
-- `ExpiresOn` informa a data/hora quando o token expira
-- `TenantId` contém o locatário no qual o usuário foi encontrado. Para usuários convidados (cenários de B2B do Azure AD), a ID do locatário é o locatário de convidado, o locatário não exclusivo.
-Quando o token é entregue para um usuário, `AuthenticationResult` também contém informações sobre este usuário. Para fluxos de cliente confidencial em que os tokens sejam solicitados com nenhum usuário (para o aplicativo), essas informações de usuário são nulas.
+- `AccessToken` para a API da Web acessar recursos. Esse parâmetro é uma cadeia de caracteres, geralmente um JWT codificado em base64, mas o cliente nunca deve olhar dentro do token de acesso. Não há garantias que o formato permanecerá estável e ele pode ser criptografado para o recurso. A gravação de código que depende do conteúdo do token de acesso no cliente é uma das maiores origens de erros e quebras de lógica do cliente. Consulte também [tokens de acesso](../articles/active-directory/develop/access-tokens.md)
+- `IdToken` para o usuário (esse parâmetro é um JWT codificado). Consulte [tokens de ID](../articles/active-directory/develop/id-tokens.md)
+- `ExpiresOn` informa a data/hora em que o token expira
+- `TenantId` contém o locatário no qual o usuário foi encontrado. Para usuários convidados (cenários B2B do Azure AD), a ID do locatário é o locatário convidado, não o locatário exclusivo.
+Quando o token é entregue para um usuário, `AuthenticationResult` também contém informações sobre esse usuário. Para fluxos de cliente confidenciais em que os tokens são solicitados sem usuário (para o aplicativo), essas informações de usuário são nulas.
 - O `Scopes` para o qual o token foi emitido.
-- A Id exclusiva para o usuário.
+- A ID exclusiva para o usuário.
 
 ### <a name="iaccount"></a>IAccount
 
-MSAL.NET define a noção de conta (por meio de `IAccount` interface). Essa alteração da falha fornece a semântica correta: o fato de que o mesmo usuário pode ter várias contas, em diferentes diretórios do Azure AD. Também MSAL.NET fornece melhores informações no caso de cenários de convidado, como informações de conta inicial são fornecidas.
-O diagrama a seguir mostra a estrutura do `IAccount` interface:
+MSAL.NET define a noção de Account (por meio da interface `IAccount`). Essa alteração da falha fornece a semântica correta: o fato de que o mesmo usuário pode ter várias contas, em diferentes diretórios do Azure AD. Além disso, o MSAL.NET fornece informações melhores no caso de cenários de convidado, pois as informações da conta residencial são fornecidas.
+O diagrama a seguir mostra a estrutura da interface `IAccount`:
 
 ![image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
 
-O `AccountId` classe identifica uma conta em um locatário específico. Ele tem as seguintes propriedades:
+A classe `AccountId` identifica uma conta em um locatário específico. Ele tem as seguintes propriedades:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 |----------|-------------|
-| `TenantId` | Uma representação de cadeia de caracteres para um GUID, que é a ID do locatário onde reside a conta. |
-| `ObjectId` | Uma representação de cadeia de caracteres para um GUID, que é a ID do usuário que é proprietária da conta no locatário. |
-| `Identifier` | Identificador exclusivo para a conta. `Identifier` é a concatenação de `ObjectId` e `TenantId` separados por uma vírgula e são não codificado na base64. |
+| `TenantId` | Uma representação de cadeia de caracteres para um GUID, que é a ID do locatário onde a conta reside. |
+| `ObjectId` | Uma representação de cadeia de caracteres para um GUID, que é a ID do usuário que possui a conta no locatário. |
+| `Identifier` | Identificador exclusivo da conta. `Identifier` é a concatenação de `ObjectId` e `TenantId` separados por uma vírgula e não são codificados em base64. |
 
-O `IAccount` interface representa informações sobre uma única conta. O mesmo usuário pode estar presente em locatários diferentes, ou seja, um usuário pode ter várias contas. Seus membros são:
+A interface `IAccount` representa informações sobre uma única conta. O mesmo usuário pode estar presente em locatários diferentes, ou seja, um usuário pode ter várias contas. Seus membros são:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Description |
 |----------|-------------|
-| `Username` | Uma cadeia de caracteres que contém o valor que pode ser exibido no formato UPN (UserPrincipalName), por exemplo, john.doe@contoso.com. Essa cadeia de caracteres pode ser nula, enquanto o HomeAccountId e HomeAccountId.Identifier não serão nula. Essa propriedade substitui a `DisplayableId` propriedade de `IUser` nas versões anteriores do MSAL.NET. |
-| `Environment` | Uma cadeia de caracteres que contém o provedor de identidade da conta, por exemplo, `login.microsoftonline.com`. Essa propriedade substitui a `IdentityProvider` propriedade de `IUser`, exceto que `IdentityProvider` também tinha informações sobre o locatário (além do ambiente de nuvem), enquanto que aqui o valor é somente o host. |
-| `HomeAccountId` | AccountId da conta inicial do usuário. Essa propriedade identifica exclusivamente o usuário em locatários do AD do Azure. |
+| `Username` | Uma cadeia de caracteres que contém o valor exibível no formato UserPrincipalName (UPN), por exemplo, john.doe@contoso.com. Essa cadeia de caracteres pode ser nula, enquanto o HomeAccountId e o HomeAccountId. Identifier não serão nulos. Essa propriedade substitui a propriedade `DisplayableId` de `IUser` nas versões anteriores do MSAL.NET. |
+| `Environment` | Uma cadeia de caracteres que contém o provedor de identidade para essa conta, por exemplo, `login.microsoftonline.com`. Essa propriedade substitui a propriedade `IdentityProvider` de `IUser`, exceto que `IdentityProvider` também tinha informações sobre o locatário (além do ambiente de nuvem), enquanto aqui o valor é apenas o host. |
+| `HomeAccountId` | AccountId da conta principal do usuário. Essa propriedade identifica exclusivamente o usuário em locatários do Azure AD. |
 
 ### <a name="using-the-token-to-call-a-protected-api"></a>Usando o token para chamar uma API protegida
 
-Uma vez a `AuthenticationResult` tenha sido devolvido pela MSAL (em `result`), você precisará adicioná-lo para o cabeçalho de autorização HTTP, antes de fazer a chamada para acessar a API Web protegida.
+Depois que o `AuthenticationResult` tiver sido retornado por MSAL (em `result`), você precisará adicioná-lo ao cabeçalho de autorização HTTP, antes de fazer a chamada para acessar a API Web protegida.
 
-```CSharp
+```csharp
 httpClient = new HttpClient();
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 

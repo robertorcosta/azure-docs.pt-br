@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 258410bcd4f916ac381188bb38d90a3b89c87c89
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3daa567a916bd0abeb407028c7d06bd1f2bd464b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454098"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conectar um Raspberry Pi ao aplicativo Azure IoT Central (Python)
 
@@ -27,15 +27,15 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um Raspberry 
 
 Para concluir as etapas deste artigo, você precisa dos seguintes componentes:
 
-* Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+* Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **herdado** . Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 * Um dispositivo Raspberry Pi executando o sistema operacional Raspbian. O Raspberry Pi deve ser capaz de se conectar à Internet. Para obter mais informações, consulte [Configurando o Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 > [!TIP]
 > Para saber mais sobre como configurar e conectar-se a um dispositivo Raspberry Pi, visite introdução [ao Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi)
 
-## <a name="sample-devkits-application"></a>Aplicativo **Devkits de exemplo**
+## <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Raspberry Pi** com as características a seguir:
+No aplicativo IoT Central do Azure, adicione um novo modelo de dispositivo do **Raspberry Pi** com as seguintes características:
 
 - Telemetria, que inclui as seguintes medidas que o dispositivo coletará:
   - Umidade
@@ -46,12 +46,17 @@ Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** 
   - Giroscópio (X, Y, Z)
 - Configurações
   - Voltagem
-  - Atual
+  - Current
   - Velocidade da ventoinha
   - Alternar IR.
-- propriedades
+- Propriedades
   - Propriedade do dispositivo número de dado
   - Propriedade de localização da nuvem
+
+1. Selecione **+ novo** nos modelos de dispositivo ![modelo de dispositivo](media/howto-connect-raspberry-pi-python/adddevicetemplate.png)
+   
+
+2. Selecione **Raspberry Pi** e crie o modelo de dispositivo Raspberry Pi ![adicionar modelo de dispositivo](media/howto-connect-raspberry-pi-python/newdevicetemplate.png)
 
 Para obter os detalhes completos da configuração do modelo de dispositivo, consulte os [detalhes do modelo de dispositivo do Raspberry Pi](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details).
 
@@ -127,21 +132,21 @@ Configurações numéricas
 | Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltagem      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Atual      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
 | Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1\.000    | 0       |
 
 Configurações de alternância
 
 | Nome de exibição | Nome do campo | Texto ativado | Texto desativado | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ATIVADO      | DESATIVADO      | Desligar     |
+| IR           | activateIR | ATIVADO      | OFF      | Desligar     |
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 
-| Type            | Nome de exibição | Nome do campo | Tipo de dados |
+| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Location     | location   | N/D       |
+| Texto            | Local     | local   | N/D       |
 
 ## <a name="next-steps"></a>Próximos passos
 

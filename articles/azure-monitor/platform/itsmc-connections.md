@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: d800f20826723d3a626d9a0f5f83664927c1185c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927589"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664846"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -62,9 +62,9 @@ Use o procedimento a seguir para conectar a instância do System Center Service 
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da Conexão**   | Digite um nome para a instância do System Center Service Manager que você deseja conectar ao ITSMC.  Use esse nome posteriormente quando você configurar os itens de trabalho nesta instância / exibir a análise de logs detalhado. |
+| **Nome da conexão**   | Digite um nome para a instância do System Center Service Manager que você deseja conectar ao ITSMC.  Use esse nome posteriormente quando você configurar os itens de trabalho nesta instância / exibir a análise de logs detalhado. |
 | **Tipo de parceiro**   | Selecione **System Center Service Manager**. |
-| **URL do Servidor**   | Digite a URL do aplicativo Web do Service Manager. Veja mais sobre o aplicativo Web do Service Manager [aqui](#create-and-deploy-service-manager-web-app-service).
+| **Servidor URL**   | Digite a URL do aplicativo Web do Service Manager. Veja mais sobre o aplicativo Web do Service Manager [aqui](#create-and-deploy-service-manager-web-app-service).
 | **ID do Cliente**   | Digite a ID de cliente gerado (usando o script automática) para autenticar o aplicativo Web. Veja mais informações sobre o script automatizado [aqui.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Segredo do Cliente**   | Digite o segredo do cliente gerado para essa ID.   |
 | **Sincronizar Dados**   | Selecione os itens de trabalho do Service Manager que você deseja sincronizar por meio do ITSMC.  Esses itens de trabalho são importados para o Log Analytics. **Opções:** Incidentes, Solicitações de Alteração.|
@@ -98,7 +98,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da assinatura do Azure
 - Nome do grupo de recursos
-- Location
+- Local
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de usuário e senha)
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
@@ -180,7 +180,7 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNo
 ### <a name="prerequisites"></a>Pré-requisitos
 Verifique se os seguintes pré-requisitos foram atendidos:
 - ITSMC instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versões com suporte do ServiceNow: Madri, Londres, Kingston, Jacarta, Istambul, Helsinque, Geneva.
+- Versões com suporte do ServiceNow: Nova York, Madri, Londres, Kingston, Jacarta, Istambul, Helsinque, Geneva.
 
 **Os administradores do ServiceNow devem fazer o seguinte em sua instância do ServiceNow**:
 - Gere a ID do cliente e o segredo do cliente para o produto ServiceNow. Para saber mais sobre como gerar o ID e o segredo do cliente, consulte as informações conforme o necessário:
@@ -217,11 +217,11 @@ Use o procedimento a seguir para criar uma conexão do ServiceNow:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da Conexão**   | Digite um nome para a instância do ServiceNow que você deseja conectar com o ITSMC.  Use esse nome posteriormente no Log Analytics quando você configurar os itens de trabalho nesse ITSM/exibir o Log Analytics detalhado. |
+| **Nome da conexão**   | Digite um nome para a instância do ServiceNow que você deseja conectar com o ITSMC.  Use esse nome posteriormente no Log Analytics quando você configurar os itens de trabalho nesse ITSM/exibir o Log Analytics detalhado. |
 | **Tipo de parceiro**   | Selecione **ServiceNow**. |
-| **Nome de Usuário**   | Digite o nome de usuário de integração que você criou no aplicativo ServiceNow para dar suporte à conexão com o ITSMC. Mais informações: [Criar função de usuário de aplicativo do ServiceNow](#create-integration-user-role-in-servicenow-app).|
+| **Nome de usuário**   | Digite o nome de usuário de integração que você criou no aplicativo ServiceNow para dar suporte à conexão com o ITSMC. Mais informações: [Criar função de usuário de aplicativo do ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Observação**: o nome de usuário e a senha são usados apenas para gerar tokens de autenticação e não são armazenados em nenhum lugar do serviço ITSMC.  |
-| **URL do Servidor**   | Digite a URL da instância do ServiceNow que você deseja conectar ao ITSMC. |
+| **Servidor URL**   | Digite a URL da instância do ServiceNow que você deseja conectar ao ITSMC. |
 | **ID do Cliente**   | Digite a ID do cliente que você deseja usar para autenticação de OAuth2, que você gerou anteriormente.  Para saber mais sobre como gerar o ID do cliente e o segredo: [configuração OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Segredo do Cliente**   | Digite o segredo do cliente gerado para essa ID.   |
 | **Escopo de Sincronização de Dados**   | Selecione os itens de trabalho do ServiceNow que você deseja sincronizar com o Azure Log Analytics por meio do ITSMC.  Os valores selecionados são importados para a análise de logs.   **Opções:** Incidentes e Solicitações de Alteração.|
@@ -312,11 +312,11 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da Conexão**   | Digite um nome para a instância do Provance que você deseja conectar com o ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
+| **Nome da conexão**   | Digite um nome para a instância do Provance que você deseja conectar com o ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
 | **Tipo de parceiro**   | Selecione **Provance**. |
-| **Nome de Usuário**   | Digite o nome de usuário que pode se conectar ao ITSMC.    |
+| **Nome de usuário**   | Digite o nome de usuário que pode se conectar ao ITSMC.    |
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Observação:** o nome de usuário e a senha são usados apenas para gerar tokens de autenticação e não são armazenados em nenhum lugar do serviço ITSMC.|
-| **URL do Servidor**   | Digite a URL da sua instância do Provance que você deseja conectar ao ITSMC. |
+| **Servidor URL**   | Digite a URL da sua instância do Provance que você deseja conectar ao ITSMC. |
 | **ID do Cliente**   | Digite a ID do cliente para autenticar esta conexão, que é gerado em sua instância de Provance.  Para saber mais sobre a ID do cliente, consulte [como configurar a autenticação do active directory](../../app-service/configure-authentication-provider-aad.md). |
 | **Escopo de Sincronização de Dados**   | Selecione os itens de trabalho do Provance que você deseja sincronizar com o Azure Log Analytics por meio do ITSMC.  Esses itens de trabalho são importados para o Log Analytics.   **Opções:** Incidentes, Solicitações de Alteração.|
 | **Sincronizar Dados** | Digite o número de dias anteriores dos quais você deseja dados. **Limite máximo** 120 dias. |
@@ -363,11 +363,11 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da Conexão**   | Digite um nome para a instância do Cherwell que você deseja conectar ao ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
+| **Nome da conexão**   | Digite um nome para a instância do Cherwell que você deseja conectar ao ITSMC.  Você usará esse nome posteriormente ao configurar itens de trabalho neste ITSM/análise de logs detalhado da exibição. |
 | **Tipo de parceiro**   | Selecione **Cherwell.** |
-| **Nome de Usuário**   | Digite o nome de usuário do Cherwell que pode se conectar ao ITSMC. |
+| **Nome de usuário**   | Digite o nome de usuário do Cherwell que pode se conectar ao ITSMC. |
 | **Senha**   | Digite a senha associada a esse nome de usuário. **Observação:** o nome de usuário e a senha são usados apenas para gerar tokens de autenticação e não são armazenados em nenhum lugar do serviço ITSMC.|
-| **URL do Servidor**   | Digite a URL da sua instância do Cherwell que você deseja conectar ao ITSMC. |
+| **Servidor URL**   | Digite a URL da sua instância do Cherwell que você deseja conectar ao ITSMC. |
 | **ID do Cliente**   | Digite a ID do cliente para autenticar esta conexão, que é gerado em sua instância do Cherwell.   |
 | **Escopo de Sincronização de Dados**   | Selecione os itens de trabalho do Cherwell que você deseja sincronizar por meio do ITSMC.  Esses itens de trabalho são importados para o Log Analytics.   **Opções:** Incidentes, Solicitações de Alteração. |
 | **Sincronizar Dados** | Digite o número de dias anteriores dos quais você deseja dados. **Limite máximo** 120 dias. |

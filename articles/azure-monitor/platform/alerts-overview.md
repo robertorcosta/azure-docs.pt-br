@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 26516b99f3ffd9a16a24a4d5d1906ed781a8034a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396516"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -79,7 +79,7 @@ Você pode definir o estado de um alerta para especificar onde ele está no proc
 
 Os seguintes estados de alerta são compatíveis.
 
-| Estado | Descrição |
+| Estado | Description |
 |:---|:---|
 | Novo | O problema acabou de ser detectado e ainda não foi revisado. |
 | Confirmado | Um administrador examinou o alerta e começou a trabalhar nele. |
@@ -106,15 +106,15 @@ Ele não mostra nem rastreia alertas clássicos. Você pode alterar as assinatur
 
 Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
 
-| Column | Descrição |
+| Column | Description |
 |:---|:---|
 | Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
-| Resource group | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
-| Intervalo de tempo | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+| Grupo de recursos | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+| Intervalo de horas | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Selecione os seguintes valores na parte superior da página alertas para abrir outra página:
 
-| Value | Descrição |
+| Valor | Description |
 |:---|:---|
 | Total de alertas | O número total de alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a exibição Todos os Alertas sem filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criados a partir dos alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a lista de grupos inteligentes na exibição Todos os Alertas.
@@ -149,17 +149,17 @@ Para ver a página **todos os alertas** , selecione **total de alertas**. Aqui v
 
 Você pode filtrar a exibição selecionando os seguintes valores nos menus suspensos na parte superior da página:
 
-| Column | Descrição |
+| Column | Description |
 |:---|:---|
 | Subscription | Selecione as assinaturas do Azure para as quais você deseja exibir os alertas. Opcionalmente, você pode optar por selecionar todas as suas assinaturas. Somente os alertas aos quais você tem acesso nas assinaturas selecionadas são incluídos na exibição. |
-| Resource group | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
+| Grupo de recursos | Selecione um único grupo de recursos. Somente alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 | Tipo de recurso | Selecione um ou mais tipos de recurso. Somente alertas com destinos do tipo selecionado são incluídos na exibição. Essa coluna somente estará disponível depois que um grupo de recursos for especificado. |
 | Grupos | Selecione um recurso. Apenas alertas com esse recurso como um destino são incluídos na exibição. Essa coluna somente estará disponível depois que um tipo de recurso for especificado. |
 | Gravidade | Selecione uma gravidade de alerta ou selecione **Todos** para incluir alertas de todas as gravidades. |
 | Monitorar condição | Selecione uma condição de monitor ou selecione **tudo** para incluir alertas de todas as condições. |
 | Estado de alerta | Selecione um estado de alerta ou selecione **todos** para incluir alertas de todos os Estados. |
 | Monitorar serviço | Selecione um serviço ou selecione **Todos** para incluir todos os serviços. Apenas alertas criados por regras que usam o serviço como um destino são incluídos. |
-| Intervalo de tempo | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
+| Intervalo de horas | Somente os alertas acionados no intervalo de tempo selecionado são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Selecione **colunas** na parte superior da página para selecionar quais colunas mostrar. 
 
@@ -170,11 +170,11 @@ Quando você seleciona um alerta, essa página fornece detalhes do alerta e perm
 
 A página detalhes do alerta inclui as seguintes seções:
 
-| Seção | Descrição |
+| Seção | Description |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Lista cada ação realizada pelo alerta e todas as alterações feitas no alerta. Atualmente limitado a alterações de estado. |
-| Diagnósticos | Informações sobre o grupo inteligente no qual o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, independentemente do filtro de tempo na página de lista de alertas. Selecione um alerta para exibir os detalhes. |
+| Diagnóstico | Informações sobre o grupo inteligente no qual o alerta está incluído. A *contagem de alerta* refere-se ao número de alertas incluídos no grupo inteligente. Inclui outros alertas no mesmo grupo inteligente que foram criados nos últimos 30 dias, independentemente do filtro de tempo na página de lista de alertas. Selecione um alerta para exibir os detalhes. |
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>RBAC (controle de acesso baseado em função) para suas instâncias de alerta
 
@@ -184,23 +184,23 @@ O consumo e o gerenciamento de instâncias de alerta exigem que o usuário tenha
 
 Talvez você queira consultar programaticamente os alertas gerados em sua assinatura. Isso pode ser criar exibições personalizadas fora do portal do Azure ou analisar seus alertas para identificar padrões e tendências.
 
-Você pode consultar alertas gerados em suas assinaturas usando a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api) ou usando a [API REST do grafo de recursos do Azure para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
+Você pode consultar alertas gerados em suas assinaturas usando a [API rest gerenciamento de alertas](https://aka.ms/alert-management-api) ou usando o [grafo de recursos do Azure](../../governance/resource-graph/overview.md) e a [API REST para recursos](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-A [API REST do grafo de recursos do Azure para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)) permite consultar instâncias de alerta em escala. Isso é recomendado quando você precisa gerenciar alertas gerados em várias assinaturas. 
+A API REST do grafo de recursos para recursos permite consultar instâncias de alerta em escala. Isso é recomendado quando você precisa gerenciar alertas gerados em várias assinaturas. 
 
-A seguinte solicitação de exemplo para a API retorna a contagem de alertas em uma assinatura:
+A seguinte solicitação de exemplo para a API REST do grafo de recursos retorna a contagem de alertas em uma assinatura:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+Você também pode ver o resultado dessa consulta de grafo de recursos no portal com o Gerenciador de gráficos de recursos do Azure: [Portal.Azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 Você pode consultar os alertas para seus campos [essenciais](alerts-common-schema-definitions.md#essentials) .
 
 Use a [API REST do gerenciamento de alertas](https://aka.ms/alert-management-api) para obter mais informações sobre alertas específicos, incluindo seus campos de [contexto de alerta](alerts-common-schema-definitions.md#alert-context) .

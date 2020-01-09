@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicativos móveis que chamam APIs da Web | Azure
+title: Registrar aplicativos móveis que chamam APIs da Web | Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c5160d88e390f9bfe905dfee0684983a7a49365
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0684b8002dad8e0cb29bb1b7afb6ac5a2bd4d685
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423787"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicativo móvel que chama APIs Web-registro de aplicativo
 
@@ -66,7 +66,7 @@ Observe que há uma experiência de visualização no portal de registro de apli
    ![imagem](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. O URI de redirecionamento é calculado para você.
-   ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ![imagem](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
 
 Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. O formato recomendado é o seguinte:
 

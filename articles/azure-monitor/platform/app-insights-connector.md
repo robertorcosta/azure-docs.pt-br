@@ -4,15 +4,15 @@ description: Use a solução Conector do Application Insights para diagnosticar 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932739"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396531"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
 
@@ -43,7 +43,7 @@ Ao usar a solução, você pode:
 
 Ao contrário da maioria das outras soluções do Log Analytics, os dados não são coletados para o Conector do Application Insights por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Com suporte | Descrição |
+| Fonte Conectada | Com suporte | Description |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de agentes do Linux. |
@@ -163,7 +163,7 @@ A solução recebe os seguintes tipos de telemetria de dados dos aplicativos con
 
 - Disponibilidade
 - Exceções
-- Requests
+- Solicitações
 - Exibições de página – para que o workspace receba exibições de página, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
 - Eventos personalizados – para que o workspace receba eventos personalizados, você deve configurar os aplicativos para coletar essas informações. Para obter mais informações, consulte [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -175,9 +175,9 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora do registro |
 | ApplicationId | Chave de instrumentação do aplicativo do Application Insights |
@@ -186,7 +186,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 | DeviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continente | Continente de origem da solicitação |
-| País/Região | País/região em que a solicitação foi originada |
+| País | País/região em que a solicitação foi originada |
 | Província | Província, Estado ou localidade de origem da solicitação |
 | Cidade | Cidade de origem da solicitação |
 | isSynthetic | Indica se a solicitação foi criada por um usuário ou por um método automatizado. True = método automatizado ou false = gerado pelo usuário |
@@ -201,7 +201,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="availability-specific-fields"></a>Campos específicos à disponibilidade
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
 | TelemetryType | Disponibilidade |
 | AvailabilityTestName | Nome do teste na Web |
@@ -226,7 +226,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="exception-specific-fields"></a>Campos específicos à exceção
 
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exceção |
 | ExceptionType | Tipo de exceção |
@@ -243,10 +243,10 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="request-specific-fields"></a>Campos específicos à solicitação
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
-| Type | ApplicationInsights |
-| TelemetryType | Solicitação |
+| Tipo | ApplicationInsights |
+| TelemetryType | Solicitar |
 | ResponseCode | Resposta HTTP enviada ao cliente |
 | RequestSuccess | Indica êxito ou falha. Verdadeiro ou falso. |
 | RequestID | ID para identificar exclusivamente a solicitação |

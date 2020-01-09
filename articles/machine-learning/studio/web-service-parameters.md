@@ -12,12 +12,12 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 62c6488cfcb30c969c388343c766c482cff7e03b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 984d2e02ff75df459275fd10e313a4950c8d79c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432171"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usar parâmetros de serviço Web Azure Machine Learning Studio (clássico)
 Um serviço Web de Azure Machine Learning é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
@@ -45,7 +45,7 @@ A documentação da API para o serviço Web incluirá informações para o usuá
 ## <a name="example"></a>Exemplo
 Por exemplo, vamos supor que tenhamos um experimento com um módulo [exportar dados][writer] que envia informações para o armazenamento de BLOBs do Azure. Definiremos um Parâmetro de Serviço Web denominado "Caminho do blob", que permite que o usuário do serviço Web altere o caminho para o armazenamento de blobs quando o serviço for acessado.
 
-1. Na versão clássica do Machine Learning Studio, clique no módulo [exportar dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
+1. Em Machine Learning Studio (clássico), clique no módulo [exportar dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
 2. Especifique a conta de armazenamento:
    
    * Em **Especifique o destino de dados**, selecione "Armazenamento de Blobs do Azure".

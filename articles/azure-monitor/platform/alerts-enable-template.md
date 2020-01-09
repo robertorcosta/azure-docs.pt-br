@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: faeb4df915cc5c56e21d1857fe75a956d419c46e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: dd02fe17d5225a63f352069b3c6c5a47b7cbcb73
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397284"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
-Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métricas do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
+Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métricas do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
 
 > [!NOTE]
 > 
@@ -24,7 +24,7 @@ Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](
 >
 
 
-Estas são as etapas básicas:
+As etapas básicas são as seguintes:
 
 1. Crie um modelo como um arquivo JSON que descreve como criar o alerta.
 2. [Implantar o modelo usando qualquer método de implantação](../../azure-resource-manager/resource-group-template-deploy.md).

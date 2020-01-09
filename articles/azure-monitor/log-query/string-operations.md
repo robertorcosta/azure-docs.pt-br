@@ -1,18 +1,17 @@
 ---
 title: Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor | Microsoft Docs
 description: Descreve como editar, comparar, pesquisar e executar uma variedade de outras operações em cadeias de caracteres nas consultas do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397465"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor
 
@@ -47,39 +46,39 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparações de cadeias de caracteres
 
-operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
+Operador       |Description                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Igual a                              |SIM           |`"aBc" == "aBc"`
-`!=`           |Não é igual a                          |SIM           |`"abc" != "ABC"`
+`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
+`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
 `=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
 `!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
-`has_cs`       |O lado direito é um termo completo no lado esquerdo |SIM|`"North America" has_cs "America"`
-`!has_cs`      |O lado direito não é um termo completo no lado esquerdo       |SIM            |`"North America" !has_cs "amer"` 
+`has_cs`       |O lado direito é um termo completo no lado esquerdo |Sim|`"North America" has_cs "America"`
+`!has_cs`      |O lado direito não é um termo completo no lado esquerdo       |Sim            |`"North America" !has_cs "amer"` 
 `hasprefix`    |O lado direito é um prefixo de termo no lado esquerdo         |Não            |`"North America" hasprefix "ame"`
 `!hasprefix`   |O lado direito não é um prefixo de termo no lado esquerdo     |Não            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |O lado direito é um prefixo de termo no lado esquerdo         |SIM            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |O lado direito não é um prefixo de termo no lado esquerdo     |SIM            |`"North America" !hasprefix_cs "CA"` 
+`hasprefix_cs`    |O lado direito é um prefixo de termo no lado esquerdo         |Sim            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |O lado direito não é um prefixo de termo no lado esquerdo     |Sim            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |O lado direito é um sufixo de termo no lado esquerdo         |Não            |`"North America" hassuffix "ica"`
 `!hassuffix`   |O lado direito não é um sufixo de termo no lado esquerdo     |Não            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |O lado direito é um sufixo de termo no lado esquerdo         |SIM            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |O lado direito não é um sufixo de termo no lado esquerdo     |SIM            |`"North America" !hassuffix_cs "icA"`
+`hassuffix_cs`    |O lado direito é um sufixo de termo no lado esquerdo         |Sim            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |O lado direito não é um sufixo de termo no lado esquerdo     |Sim            |`"North America" !hassuffix_cs "icA"`
 `contains`     |O lado direito ocorre como uma subsequência do lado esquerdo  |Não            |`"FabriKam" contains "BRik"`
 `!contains`    |O lado direito não ocorre no lado esquerdo           |Não            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |O lado direito ocorre como uma subsequência do lado esquerdo  |SIM           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |O lado direito não ocorre no lado esquerdo           |SIM           |`"Fabrikam" !contains_cs "Kam"`
+`contains_cs`   |O lado direito ocorre como uma subsequência do lado esquerdo  |Sim           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |O lado direito não ocorre no lado esquerdo           |Sim           |`"Fabrikam" !contains_cs "Kam"`
 `startswith`   |O lado direito é uma subsequência inicial do lado esquerdo|Não            |`"Fabrikam" startswith "fab"`
 `!startswith`  |O lado direito não é uma subsequência inicial do lado esquerdo|Não        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |O lado direito é uma subsequência inicial do lado esquerdo|SIM            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |O lado direito não é uma subsequência inicial do lado esquerdo|SIM        |`"Fabrikam" !startswith_cs "fab"`
+`startswith_cs`   |O lado direito é uma subsequência inicial do lado esquerdo|Sim            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |O lado direito não é uma subsequência inicial do lado esquerdo|Sim        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |O lado direito é uma subsequência de fechamento do lado esquerdo|Não             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|Não         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |O lado direito é uma subsequência de fechamento do lado esquerdo|SIM             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|SIM         |`"Fabrikam" !endswith "brik"`
-`matches regex`|O lado esquerdo contém uma correspondência para o lado Direito        |SIM           |`"Fabrikam" matches regex "b.*k"`
-`in`           |Equivale a um dos elementos       |SIM           |`"abc" in ("123", "345", "abc")`
-`!in`          |Não equivale a qualquer um dos elementos   |SIM           |`"bca" !in ("123", "345", "abc")`
+`endswith_cs`     |O lado direito é uma subsequência de fechamento do lado esquerdo|Sim             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|Sim         |`"Fabrikam" !endswith "brik"`
+`matches regex`|O lado esquerdo contém uma correspondência para o lado Direito        |Sim           |`"Fabrikam" matches regex "b.*k"`
+`in`           |Equivale a um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
+`!in`          |Não equivale a qualquer um dos elementos   |Sim           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof
@@ -228,7 +227,7 @@ O resultado será:
 ```
 
 
-## <a name="replace"></a>substitui
+## <a name="replace"></a>substituir
 
 Substitui todas as correspondências de regex por outra cadeia de caracteres. 
 

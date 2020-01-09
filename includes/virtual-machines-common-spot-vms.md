@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b671fe9a4ecd35cbe9d70f398f8d39664203fc58
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8d28566cb10ddd1637eb81dffd102df6bd7b6e7a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782106"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663187"
 ---
 O uso de VMs pontuais permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
 
@@ -78,7 +78,7 @@ Com o preço variável, você tem a opção de definir um preço máximo, em dó
 
 **P:** Como a cota é gerenciada para VMs pontuais?
 
-**R:** As VMs pontuais terão um pool de cotas separado. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R:** As VMs pontuais terão um pool de cotas separado. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **P:** Posso solicitar uma cota adicional para o ponto?
@@ -94,8 +94,8 @@ Com o preço variável, você tem a opção de definir um preço máximo, em dó
 
 | Canais do Azure               | Disponibilidade de VMs de ponto do Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | SIM                               |
-| Pagamento Conforme o Uso                | SIM                               |
+| Enterprise Agreement         | Sim                               |
+| Pagamento Conforme o Uso                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |

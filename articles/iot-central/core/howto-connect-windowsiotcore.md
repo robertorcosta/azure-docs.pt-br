@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454014"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central
 
@@ -25,19 +25,24 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-- Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+- Um aplicativo de IoT Central do Azure criado com base no modelo de aplicativo **herdado** . Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 
 - Um dispositivo executando o sistema operacional Windows 10 IoT Core. Para obter mais informações, consulte [configurando seu dispositivo Windows 10 IOT Core](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - Um computador de desenvolvimento com o [node. js](https://nodejs.org/) versão 8.0.0 ou posterior instalado. É possível executar `node --version` na linha de comando para verificar a versão. O Node.js está disponível para uma ampla variedade de sistemas operacionais.
 
-## <a name="the-sample-devkits-application"></a>O aplicativo devkits de exemplo
+## <a name="add-a-device-template"></a>Adicionar um modelo de dispositivo
 
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir:
+No aplicativo IoT Central do Azure, adicione um novo modelo de dispositivo **Windows IOT Core** com as seguintes características:
 
 - Medições de telemetria para o dispositivo: **umidade**, **temperatura**e **pressão**.
 - Configuração para controlar a **velocidade do ventilador**.
 - Um número de **matriz** de propriedade de dispositivo e um **local**de propriedade de nuvem.
+
+1. Selecione **+ novo** nos modelos de dispositivo ![modelo de dispositivo](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. Selecione **Windows IOT Core** e crie o modelo de dispositivo Windows iot Core ![adicionar modelo de dispositivo](media/howto-connect-windowsiotcore/newdevicetemplate.png)
 
 Para obter detalhes completos sobre a configuração do modelo de dispositivo, consulte [detalhes do modelo de dispositivo do Windows IOT Core](#device-template-details).
 
@@ -108,7 +113,7 @@ Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** 
 | -------------- | ------ | ------- | ------- | -------------- |
 | umidade       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
+| pressão       | hPa    | 260     | 1260    | 0              |
 
 ### <a name="settings"></a>Configurações
 
@@ -116,15 +121,15 @@ Configurações numéricas
 
 | Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1\.000    | 0       |
 
 ### <a name="properties"></a>Propriedades
 
-| Digite            | Nome de exibição | Nome do campo | Tipo de dados |
+| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Local padrão     | location   | N/D       |
+| Texto            | Local     | local   | N/D       |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como conectar um dispositivo Windows IoT Core ao seu aplicativo IoT Central do Azure, a próxima etapa sugerida é aprender a [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para seu próprio dispositivo IOT.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bebdd8beacb3b5fc91802fb41055df7e24b93218
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078962"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647655"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078962"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -148,7 +148,7 @@ ms.locfileid: "70078962"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -197,7 +197,7 @@ As seguintes Notas do SAP são relacionadas ao tópico do SAP no Azure:
 | [1999351] |Virtualização no Windows: monitoramento avançado |
 | [2243692] |Usar o Armazenamento SSD Premium do Azure para instância do SAP DBMS |
 
-Saiba mais sobre as [limitações das assinaturas do Azure][azure-subscription-service-limits-subscription], incluindo limitações padrão gerais e limites máximos.
+Saiba mais sobre as [limitações das assinaturas do Azure][azure-resource-manager/management/azure-subscription-service-limits-subscription], incluindo limitações padrão gerais e limites máximos.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>SAP de alta disponibilidade com o Azure Resource Manager versus o modelo de implantação clássico do Azure
 Os modelos de implantação clássico do Azure e do Azure Resource Manager são diferentes nos seguintes aspectos:
@@ -207,7 +207,7 @@ Os modelos de implantação clássico do Azure e do Azure Resource Manager são 
 - Suporte para cenário SAP com vários SID
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Grupos de recursos
-No Azure Resource Manager, você pode usar grupos de recursos para gerenciar todos os recursos do aplicativo em sua assinatura do Azure. Uma abordagem integrada, em um grupo de recursos, todos os recursos têm o mesmo ciclo de vida. Por exemplo, todos os recursos são criados ao mesmo tempo e excluídos ao mesmo tempo. Saiba mais sobre [grupos de recursos](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+No Azure Resource Manager, você pode usar grupos de recursos para gerenciar todos os recursos do aplicativo em sua assinatura do Azure. Uma abordagem integrada, em um grupo de recursos, todos os recursos têm o mesmo ciclo de vida. Por exemplo, todos os recursos são criados ao mesmo tempo e excluídos ao mesmo tempo. Saiba mais sobre [grupos de recursos](../../../azure-resource-manager/management/overview.md#resource-groups).
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Dependência do balanceador interno de carga do Azure no grupo de recursos do Azure
 
@@ -696,7 +696,7 @@ Para criar os pontos de extremidade de balanceamento interno de carga, crie esse
 | Nome da regra do balanceamento de carga/serviço | Números de porta padrão | Portas concretas para (instância do ASCS com número de instância 00) (ERS com 10) |
 | --- | --- | --- |
 | Enfileirar Servidor / *lbrule3200* |32 <*InstanceNumber*> |3200 |
-| Servidor de Mensagens ABAP / *lbrule3600* |36 <*InstanceNumber*> |3\.600 |
+| Servidor de Mensagens ABAP / *lbrule3600* |36 <*InstanceNumber*> |3600 |
 | Mensagem interna ABAP / *lbrule3900* |39 <*InstanceNumber*> |3900 |
 | HTTP do Servidor de Mensagens / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | HTTP do SAP para Iniciar Serviço ASCS / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
@@ -740,7 +740,7 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 1. No portal do Azure, selecione **<*SID*>-lb-ascs load balancer** > **Regras de Balanceamento de Carga**.
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
-   * NOME
+   * Nome
    * Port
    * Porta de back-end
 
@@ -766,7 +766,7 @@ O Azure Load Balancer tem um balanceador de carga interno que fecha conexões qu
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância SAP ASCS/SCS, primeiro adicione essas entradas de Registro do Windows a ambos os nós de cluster do Windows para SAP ASCS/SCS:
 
-| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -777,7 +777,7 @@ _**Tabela 3:** alterar o primeiro parâmetro de TCP/IP_
 
 Em seguida, adicione as seguintes entradas de Registro em nós de cluster do Windows para SAP ASCS/SCS:
 
-| path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123548"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647723"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerenciar cluster do ML Services no Microsoft Azure HDInsight
 
@@ -23,7 +23,7 @@ Neste artigo, você aprende a gerenciar um cluster existente dos serviços ML no
 
 * Um cluster dos Serviços de ML no HDInsight. Veja [Criar clusters Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Serviços de ML** como **Tipo de cluster**.
 
-* Um cliente Secure Shell (SSH): Um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente Secure Shell (SSH): um cliente SSH é usado para se conectar remotamente ao cluster HDInsight e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="enable-multiple-concurrent-users"></a>Habilitar múltiplos usuário simultâneos
 
@@ -48,11 +48,11 @@ Como o RStudio está em execução no nó de borda do cluster, há várias etapa
 2. Adicionar mais usuários do Linux ao nó de borda
 3. Use a versão do RStudio Community com o usuário criado
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Etapa 1: Usar o usuário SSH criado para entrar no nó de borda
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Etapa 1: usar o usuário SSH criado para entrar no nó de borda
 
 Siga as instruções em [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) para acessar o nó de borda. É o endereço do nó de borda para o cluster do ML Services no HDInsight `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>Etapa 2: Adicionar mais usuários do Linux ao nó de borda
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Etapa 2: adicionar mais usuários do Linux ao nó de borda
 
 Para adicionar um usuário ao nó de borda, execute os comandos:
 
@@ -68,9 +68,9 @@ A captura de tela a seguir mostra o resultado.
 
 Quando a "Senha atual do Kerberos" for solicitada, basta pressionar **Enter** para ignorar a solicitação. A opção `-m` no comando `useradd` indica que o sistema criará uma pasta base para o usuário, obrigatória para a versão do RStudio Community.
 
-### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Etapa 3: Use a versão do RStudio Community com o usuário criado
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Etapa 3: usar a versão do RStudio Community com o usuário criado
 
-Acessar RStudio a pártir de https://CLUSTERNAME.azurehdinsight.net/rstudio/. Se você estiver fazendo logon pela primeira vez depois de criar o cluster, insira as credenciais de administrador de cluster seguidas as credenciais de usuário SSH que você criou. Se não for o primeiro logon, apenas digite as credenciais de usuário SSH que você criou.
+Acessar RStudio a pártir de `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Se você estiver fazendo logon pela primeira vez depois de criar o cluster, insira as credenciais de administrador de cluster seguidas as credenciais de usuário SSH que você criou. Se não for o primeiro logon, apenas digite as credenciais de usuário SSH que você criou.
 
 Você também pode entrar usando as credenciais originais (por padrão, ela é *sshuser*) simultaneamente em outra janela do navegador.
 
@@ -196,7 +196,7 @@ Para instalar pacotes R em nós de trabalho do cluster, você deverá usar uma a
 
    * Marque a caixa de seleção apenas para **Trabalho**.
 
-   * **Parâmetros**: Os pacotes R a serem instalados. Por exemplo, `bitops stringr arules`
+   * **Parâmetros**: os pacotes R a serem instalados. Por exemplo, `bitops stringr arules`
 
    * Marque a caixa de seleção para **Manter essa ação de script**.  
 
@@ -209,7 +209,7 @@ Para instalar pacotes R em nós de trabalho do cluster, você deverá usar uma a
 
 4. Escolha **Criar** para executar o script. Quando o script é concluído, os pacotes R ficam disponíveis em todos os nós de trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Operacionalizar o cluster do ML Services no HDInsight](r-server-operationalize.md)
 * [Opções de contexto de computação para cluster do ML Services no HDInsight](r-server-compute-contexts.md)

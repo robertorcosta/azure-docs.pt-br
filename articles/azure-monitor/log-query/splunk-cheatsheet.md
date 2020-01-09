@@ -1,18 +1,17 @@
 ---
 title: Splunk para a consulta de log do Azure Monitor | Microsoft Docs
 description: Ajuda para usuários que estão familiarizados com o Splunk para aprender sobre as consultas de log do Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932940"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397757"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk para a consulta de log do Azure Monitor
 
@@ -26,12 +25,12 @@ A tabela a seguir compara os conceitos e estruturas de dados entre logs do Splun
  | --- | --- | --- | ---
  | Unidade de implantação  | cluster |  cluster |  O Azure Monitor permite consultas arbitrárias entre clusters. O Splunk, não. |
  | Caches de dados |  buckets  |  Políticas de retenção e armazenamento em cache |  Controla o período e o nível de armazenamento em cache dos dados. Essa configuração afeta diretamente o desempenho das consultas e o custo da implantação. |
- | Partição lógica dos dados  |  índice  |  database  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
+ | Partição lógica dos dados  |  índice  |  banco de dados  |  Permite a separação lógica dos dados. Ambas as implementações permitem uniões e junções entre essas partições. |
  | Metadados de eventos estruturados | N/D | tabela |  O Splunk não tem o conceito exposto à linguagem de pesquisa de metadados de evento. Os logs do Azure Monitor têm o conceito de uma tabela, que tem colunas. Cada instância de evento é mapeada para uma linha. |
- | Registro de dados | evento | linha |  Mudança de terminologia apenas. |
+ | Registro de dados | event | linha |  Mudança de terminologia apenas. |
  | Atributo de registro de dados | field |  coluna |  No Azure Monitor, isso é predefinido como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Os tipos de dados do Azure Monitor são mais explícitos, visto que são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com os tipos de dados e o conjunto praticamente equivalente de tipos de dados, incluindo suporte a JSON. |
- | Consulta e pesquisa  | pequisa | query |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
+ | Consulta e pesquisa  | pequisa | Consulta |  Os conceitos são essencialmente os mesmos entre o Azure Monitor e o Splunk. |
  | Hora da ingestão de evento | Hora do sistema | ingestion_time() |  No Splunk, cada evento obtém um carimbo de data/hora do sistema do momento em que o evento foi indexado. No Azure Monitor, você pode definir uma política chamada ingestion_time que expõe uma coluna do sistema que pode ser referenciada por meio da função ingestion_time(). |
 
 ## <a name="functions"></a>Funções
@@ -45,7 +44,7 @@ A tabela a seguir especifica as funções no Azure Monitor que são equivalentes
 |if     | iff()   | (1) |
 |tonumber | todouble()<br>tolong()<br>toint() | (1) |
 |upper<br>lower |toupper()<br>tolower()|(1) |
-| substitui | replace() | (1)<br> Observe também que, embora `replace()` use três parâmetros em ambos os produtos, os parâmetros são diferentes. |
+| substituir | replace() | (1)<br> Observe também que, embora `replace()` use três parâmetros em ambos os produtos, os parâmetros são diferentes. |
 | substr | substring() | (1)<br>Observe também que Splunk usa índices com base em um. O Azure Monitor usa índices com base em zero. |
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
@@ -135,7 +134,7 @@ O Splunk não parece ter um operador semelhante a `project-away`. Você pode usa
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **tabela** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
+| Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
 | Azure Monitor | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
@@ -152,7 +151,7 @@ Confira as [Agregações em consultas de log do Azure Monitor](aggregations.md) 
 
 
 
-### <a name="join"></a>Ingressar
+### <a name="join"></a>Join
 Unir-se ao Splunk tem limitações significativas. A subconsulta tem um limite de 10000 resultados (definido no arquivo de configuração de implantação), e há um número limitado de tipos de junção.
 
 | |  | |

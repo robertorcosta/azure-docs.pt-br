@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 68315b1b0d290b107fe2d28a9e3b49be009b78b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782236"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647621"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Visualização: VMs de ponto do Azure para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -52,7 +52,7 @@ Os usuários podem optar por receber notificações na VM por meio [do Azure eve
 Para implantar VMs pontuais em conjuntos de dimensionamento, você pode definir o novo sinalizador de *prioridade* para *identificar*. Todas as VMs em seu conjunto de dimensionamento serão definidas como spot. Para criar um conjunto de dimensionamento com VMs Spot, use um dos seguintes métodos:
 - [Azure portal](#portal)
 - [CLI do Azure](#azure-cli)
-- [Azure PowerShell](#powershell)
+- [PowerShell do Azure](#powershell)
 - [Modelos do Gerenciador de Recursos do Azure](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
@@ -137,7 +137,7 @@ O exemplo a seguir cria um conjunto de escala de spot do Linux chamado *Myscales
   }
 }
 ```
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 **P:** Uma vez criada, é uma instância Spot igual à instância padrão?
 
@@ -151,7 +151,7 @@ O exemplo a seguir cria um conjunto de escala de spot do Linux chamado *Myscales
 
 **P:** Como a cota é gerenciada para o ponto?
 
-**R:** Instâncias especiais e instâncias padrão terão pools de cotas separados. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R:** Instâncias especiais e instâncias padrão terão pools de cotas separados. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **P:** Posso solicitar uma cota adicional para o ponto?
@@ -192,8 +192,8 @@ O exemplo a seguir cria um conjunto de escala de spot do Linux chamado *Myscales
 
 | Canais do Azure               | Disponibilidade de VMs de ponto do Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | SIM                               |
-| Pagamento Conforme o Uso                | SIM                               |
+| Enterprise Agreement         | Sim                               |
+| Pagamento Conforme o Uso                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |

@@ -4,15 +4,15 @@ description: Saiba mais sobre como o Log Analytics protege a sua privacidade e s
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/04/2019
-ms.openlocfilehash: 3ff69928f4d6aa1692cdb1d4fd7e846b3a6b7a5c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4ad762cc3a7388628b7385afb07b45819ef882b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932544"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363839"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](../../security/fundamentals/trust-center.md).  
@@ -67,7 +67,7 @@ A tabela a seguir lista algumas das soluções disponíveis e fornece exemplos d
 
 A tabela a seguir mostra exemplos de tipos de dados:
 
-| **Tipo de dados** | **Campos** |
+| **Data type** | **Fields** |
 | --- | --- |
 | Alerta |Nome do Alerta, Descrição do Alerta, BaseManagedEntityId, ID do Problema, IsMonitorAlert, RuleId, ResolutionState, Prioridade, Gravidade, Categoria, Proprietário, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
@@ -151,7 +151,7 @@ Toda a comunicação entre os sistemas conectados e o serviço do Log Analytics 
 
 Cada tipo de agente coleta dados para o Log Analytics. Os tipos de dados coletados dependem dos tipos de soluções usadas. Você pode ver um resumo da coleta de dados em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../../azure-monitor/insights/solutions.md). Além disso, há informações mais detalhadas de coleção disponíveis para a maioria das soluções. Uma solução é um conjunto de exibições predefinidas, de consultas de pesquisa de log, de regras de coleta de dados e de lógica de processamento. Somente os administradores podem usar o Log Analytics para importar uma solução. Após a importação da solução, ela será movida para os servidores de gerenciamento do Operations Manager (se usado) e então para quaisquer agentes escolhidos por você. Depois disso, os agentes coletam os dados.
 
-## <a name="2-send-data-from-agents"></a>2. enviar dados de agentes
+## <a name="2-send-data-from-agents"></a>2. Enviar dados de agentes
 Registre todos os tipos de agente com uma chave de registro e uma conexão segura será estabelecida entre o agente e o serviço Log Analytics usando a autenticação baseada em certificado e SSL com a porta 443. O Log Analytics usa um repositório secreto para gerar e manter as chaves. As chaves privadas são rotacionadas a cada 90 dias e armazenadas no Azure e são gerenciadas pelas operações do Azure que seguem práticas de conformidade e regulatórias estritas.
 
 Com o Operations Manager, o grupo de gerenciamento registrado com um espaço de trabalho do Log Analytics estabelece uma conexão HTTPS segura com um servidor de gerenciamento do Operations Manager.

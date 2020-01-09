@@ -3,18 +3,18 @@ title: Usar o Azure Toolkit for IntelliJ com a Área Restrita do Hortonworks
 description: Saiba como usar as ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ com a Área Restrita do Hortonworks.
 keywords: ferramentas do hadoop,consulta do hive,intellij,área restrita do hortonworks,kit de ferramentas do azure para intellij
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076270"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647825"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usar ferramentas de HDInsight para IntelliJ com a área restrita do Hortonworks
 
@@ -52,8 +52,8 @@ Nesta seção, você cria um projeto de exemplo do Scala usando o IntelliJ IDEA.
    1. Selecione **HDInsight** > **Spark no HDInsight (Scala)** .
    2. Na lista **Ferramenta de build**, selecione uma das opções a seguir, com base no seu cenário:
 
-      * **Maven**: Para suporte ao assistente de criação de projetos do Scala.
-      * **SBT**: Para gerenciar dependências e compilar para o projeto do Scala.
+      * **Maven**: para obter suporte ao assistente de criação de projetos Scala.
+      * **SBT**: para gerenciar as dependências e a compilação no projeto Scala.
 
    ![IntelliJ criar novo projeto escalar](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
@@ -63,7 +63,7 @@ Nesta seção, você cria um projeto de exemplo do Scala usando o IntelliJ IDEA.
    1. Na caixa **Nome do projeto**, digite um nome para o projeto.
    2. Na caixa **Local do projeto**, digite um local para o projeto.
    3. Ao lado da lista suspensa **SDK do Projeto**, selecione **Novo**, **JDK** e, em seguida, especifique a pasta do JDK Java versão 1.7 ou posterior. Selecione **Java 1.8** para o cluster Spark 2.x. Selecione **Java 1.7** para o cluster Spark 1.x. O local padrão é C:\Program Files\Java\jdk1.8.x_xxx.
-   4. Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão correta do SDK do Spark e do SDK do Scala. Se a versão do cluster do Spark for inferior a 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Esse exemplo usa o Spark 1.6.2 (Scala 2.10.5). Verifique se está usando o repositório marcado como **Scala 2.10.x**. Não use o repositório marcado como Scala 2.11.x.
+   4. Na lista suspensa **Versão do Spark**, o assistente de criação de projeto Scala integra a versão correta do SDK do Spark e do SDK do Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Esse exemplo usa o Spark 1.6.2 (Scala 2.10.5). Verifique se está usando o repositório marcado como **Scala 2.10.x**. Não use o repositório marcado como Scala 2.11.x.
     
       ![Criar IntelliJ Scala propriedades do projeto](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -146,7 +146,7 @@ Para enviar um projeto a um emulador:
 
 3. Selecione **Enviar**. Os logs de envio de trabalho são mostrados na janela da ferramenta de envio Spark.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [usar as Ferramentas do HDInsight no Azure Toolkit for IntelliJ criar aplicativos Apache Spark para um cluster do Linux do HDInsight Spark](../spark/apache-spark-intellij-tool-plugin.md).
 
@@ -158,4 +158,3 @@ Para enviar um projeto a um emulador:
 
 - Saiba como [Usar as Ferramentas do HDInsight no Azure Toolkit for Eclipse para criar aplicativos Apache Spark](../spark/apache-spark-eclipse-tool-plugin.md).
 
-- Para assistir a um vídeo sobre as Ferramentas do HDInsight para Eclipse, veja [Usar a Ferramentas do HDInsight para Eclipse para criar aplicativos Spark](https://mix.office.com/watch/1rau2mopb6fha).

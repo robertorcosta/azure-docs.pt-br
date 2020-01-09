@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98f5269c27643e7ce6c0aaf9b359503a124d9232
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68322645"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663154"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -46,7 +46,7 @@ Os requisitos da VNet adicionais diferem, dependendo do pool do Lote estar na co
 
 **Permissões** - verifique se suas políticas de segurança ou bloqueios no grupo de recursos ou na assinatura da VNet restringem as permissões de um usuário para gerenciar a VNet.
 
-**Recursos de rede adicionais** - o lote aloca automaticamente os recursos de rede adicionais no grupo de recursos que contém a VNet. Para cada um dos nós dedicados 50 (ou cada um dos 20 nós de baixa prioridade), o lote é alocado: 1 grupo de segurança de rede (NSG), 1 endereço IP público e 1 balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-subscription-service-limits.md) da assinatura. Para os pools grandes, você precisará solicitar um aumento de cota para um ou mais recursos.
+**Recursos de rede adicionais** - o lote aloca automaticamente os recursos de rede adicionais no grupo de recursos que contém a VNet. Para cada 50 nós dedicados (ou cada 20 nós de baixa prioridade), o lote aloca: 1 grupo de segurança de rede (NSG), 1 endereço IP público e 1 balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para os pools grandes, você precisará solicitar um aumento de cota para um ou mais recursos.
 
 #### <a name="network-security-groups"></a>Grupos de segurança de rede
 
@@ -64,16 +64,16 @@ Você não precisa especificar os NSGs no nível da sub-rede porque o Lote confi
 
 **Regras de segurança de entrada**
 
-| Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocol | Action |
+| Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement`[Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
-| IPs de origem do usuário para acessar remotamente nós de computação e/ou sub-rede do nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/D | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
+| N/D | `BatchNodeManagement` [marca de serviço](../articles/virtual-network/security-overview.md#service-tags) | * | Qualquer | 29876-29877 | TCP | Permitir |
+| IPs de origem do usuário para acessar remotamente nós de computação e/ou sub-rede do nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Permitir |
 
 **Regras de segurança da saída**
 
-| Origem | Portas de origem | Destino | Marca de serviço de destino | Portas de destino | Protocol | Action |
+| Origem | Portas de origem | Destino | Marca de serviço de destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| Any | * | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(na mesma região que sua conta do lote e VNet) | 443 | TCP | Allow |
+| Qualquer | * | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (na mesma região que sua conta do lote e VNet) | 443 | TCP | Permitir |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pools na configuração dos Serviços de Nuvem
 
@@ -97,13 +97,13 @@ Configure o tráfego de entrada na porta 3389 para Windows se você precisar per
 
 **Regras de segurança de entrada**
 
-| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocol | Action |
+| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- |
-Any <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica uma regra ACL no nível de cada nó que filtra todos os endereços IP que não são do serviço do Lote. | * | Any | 10100, 20100, 30100 | TCP | Allow |
-| Opcional, para permitir o acesso RDP a nós de computação. | * | Any | 3389 | TCP | Allow |
+Qualquer <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica uma regra ACL no nível de cada nó que filtra todos os endereços IP que não são do serviço do Lote. | * | Qualquer | 10100, 20100, 30100 | TCP | Permitir |
+| Opcional, para permitir o acesso RDP a nós de computação. | * | Qualquer | 3389 | TCP | Permitir |
 
 **Regras de segurança da saída**
 
-| Origem | Portas de origem | Destino | Portas de destino | Protocol | Action |
+| Origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- |
-| Any | * | Any | 443  | Any | Allow |
+| Qualquer | * | Qualquer | 443  | Qualquer | Permitir |

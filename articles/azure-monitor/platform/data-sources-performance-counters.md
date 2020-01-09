@@ -4,20 +4,20 @@ description: Os contadores de desempenho são coletados pelo Azure Monitor para 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363822"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
 
-![contadores de desempenho](media/data-sources-performance-counters/overview.png)
+![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
 Configure contadores de Desempenho usando o [menu Dados em Configurações Avançadas](agent-data-sources.md#configuring-data-sources).
@@ -26,7 +26,7 @@ Ao configurar os contadores de desempenho do Windows ou do Linux para um novo wo
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
-| Nome da instância | Descrição |
+| Nome da instância | Description |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -74,7 +74,7 @@ Cada objeto, ou categoria, de métricas de desempenho a ser coletado deve ser de
 
 Os parâmetros usados com este comando são descritos na tabela a seguir.
 
-| parâmetros | Descrição |
+| Parâmetros | Description |
 |:--|:--|
 | object\_name | O nome do objeto da coleção. |
 | instance\_regex |  Uma *expressão regular* que define quais instâncias serão coletadas. O valor: `.*` especifica todas as instâncias. Para coletar métricas de processador somente para a instância \_Total, você poderia especificar `_Total`. Para coletar métricas de processador somente para a instância _Total, você poderia especificar: `(crond\|sshd)`. |
@@ -181,7 +181,7 @@ O Azure Monitor coleta todos os contadores de desempenho especificados em seu in
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |
@@ -189,7 +189,7 @@ Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na ta
 | CounterValue |Valor numérico do contador. |
 | InstanceName |Nome da instância do evento.  Vazio se não houver nenhuma instância. |
 | ObjectName |Nome do objeto de desempenho |
-| SourceSystem |Tipo de agente do qual os dados foram coletados. <br><br>OpsManager - agente do Windows: conexão direta ou SCOM <br> Linux: todos os agentes do Linux  <br> AzureStorage: Diagnóstico do Azure |
+| SourceSystem |Tipo de agente do qual os dados foram coletados. <br><br>OpsManager - agente do Windows, conexão direta ou SCOM <br> Linux: todos os agentes do Linux  <br> AzureStorage: Diagnóstico do Azure |
 | TimeGenerated |Data e hora em que os dados foram amostrados. |
 
 ## <a name="sizing-estimates"></a>Estimativas de dimensionamento
@@ -200,12 +200,12 @@ Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na ta
 ## <a name="log-queries-with-performance-records"></a>Consultas de log com registros de Desempenho
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de Desempenho.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:--- |:--- |
 | Perf |Todos os dados de desempenho |
 | Perf &#124; where Computer == "MyComputer" |Todos os dados de desempenho de um computador específico |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Todos os dados de desempenho de um contador específico |
-| Perf &#124; , em que ObjectName = = "Processor" e CounterName = = "% Processor Time" e InstanceName = = " &#124; _ total" resume AVGCPU = AVG (Comvalue) por computador |Utilização média da CPU em todos os computadores |
+| Perf &#124; , em que ObjectName = = "Processor" e CounterName = = "% Processor Time" e InstanceName = = " &#124; _Total" resume AVGCPU = AVG (Comvalue) por computador |Utilização média da CPU em todos os computadores |
 | Desempenho &#124; em que CounterName = = "% Processor Time &#124; " resume AggregatedValue = Max (Comvalue) por computador |Utilização máxima da CPU em todos os computadores |
 | Perf &#124; , em que ObjectName = = "LogicalDisk" e CounterName = = "comprimento atual da fila do disco" e computador = = " &#124; mycomputername" resume AggregatedValue = AVG (Comvalue) por InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
 | Desempenho &#124; em que CounterName = = "transferências de disco/ &#124; s" resume AggregatedValue = percentil (comvalue, 95) por computador |95º percentil de transferências de disco/s em todos os computadores |

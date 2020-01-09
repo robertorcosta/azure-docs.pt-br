@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826266"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647706"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Perguntas frequentes sobre os aceleradores de solução do IoT
 
@@ -82,7 +82,7 @@ Sim. As soluções atualmente existentes continuarão funcionando na assinatura 
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT posso provisionar em uma assinatura?
 
-Por padrão, você pode provisionar [10 Hubs IoT por assinatura](../azure-subscription-service-limits.md#iot-hub-limits). Você pode criar um [tíquete de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar esse limite. Como resultado, uma vez que cada acelerador de solução provisiona um novo Hub IoT, você só poderá provisionar até 10 aceleradores de solução em uma determinada assinatura.
+Por padrão, você pode provisionar [10 Hubs IoT por assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). Você pode criar um [tíquete de suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar esse limite. Como resultado, uma vez que cada acelerador de solução provisiona um novo Hub IoT, você só poderá provisionar até 10 aceleradores de solução em uma determinada assinatura.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Azure Cosmos DB posso provisionar em uma assinatura?
 
@@ -103,7 +103,7 @@ Atualmente, você não pode criar um acelerador de solução com uma conta do [M
 
 Veja a postagem no blog de Eric Golpe, [Passo a passo da exclusão de um locatário do Azure AD](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Você também pode explorar alguns dos outros recursos dos aceleradores de solução de IoT:
 

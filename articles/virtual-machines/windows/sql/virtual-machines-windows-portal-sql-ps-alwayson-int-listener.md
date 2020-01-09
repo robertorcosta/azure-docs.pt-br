@@ -14,18 +14,18 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 83910c2209b5d3d3d67578ae41afb902bc885171
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037466"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647876"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade AlwaysOn – Resource Manager
 Este tópico mostra como:
 
 * Criar um balanceador de carga interno para grupos de disponibilidade do SQL Server usando cmdlets do PowerShell.
-* Adicionar endereços IP adicionais a um balanceador de carga para mais de um grupo de disponibilidade. 
+* Adicionar mais endereços IP a um balanceador de carga para mais de um grupo de disponibilidade. 
 
 Um ouvinte de grupo de disponibilidade é um nome de rede virtual à qual os clientes se conectam para acessar o banco de dados. Em máquinas virtuais do Azure, um balanceador de carga mantém o endereço IP para o ouvinte. O balanceador de carga encaminha o tráfego para a instância do SQL Server que está escutando na porta de investigação. Normalmente, um grupo de disponibilidade usa um balanceador de carga interno. Um balanceador de carga interno do Azure pode hospedar um ou vários endereços IP. Cada endereço IP usa uma porta de investigação específica. Este documento mostra como usar o PowerShell para criar um balanceador de carga ou adicionar endereços IP a um balanceador de carga existente para grupos de disponibilidade do SQL Server. 
 
@@ -50,7 +50,7 @@ Verifique se seu módulo do PowerShell é o 5.4.1 ou posterior.
 
 Confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-## <a name="configure-the-windows-firewall"></a>Configurar as regras do Firewall do Windows
+## <a name="configure-the-windows-firewall"></a>Configurar o Firewall do Windows
 
 Configure o Firewall do Windows para permitir acesso ao SQL Server. As regras de firewall permitem conexões TCP com as portas por instância do SQL Server, bem como a investigação do ouvinte. Para obter instruções detalhadas, confira [Configurar um Firewall do Windows para acesso ao Mecanismo de Banco de Dados](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta do SQL Server e para a porta de investigação.
 
@@ -137,7 +137,7 @@ A porta de front-end é a que os aplicativos usam para se conectar à instância
 > [!NOTE]
 > Para grupos de disponibilidade do SQL Server, cada endereço IP exige uma porta de investigação específica. Por exemplo, se um endereço IP em um balanceador de carga usa a porta de investigação 59999, nenhum outro endereço IP nesse balanceador de carga pode usar essa porta de investigação.
 
-* Para saber mais sobre os limites do balanceador de carga, confira **IP privado front-end por balanceador de carga** em [Limites de Rede – Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
+* Para saber mais sobre os limites do balanceador de carga, confira **IP privado front-end por balanceador de carga** em [Limites de Rede – Azure Resource Manager](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Para saber mais sobre os limites de grupo de disponibilidade, confira [Restrições (Grupos de Disponibilidade)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. O ILB usa a porta do ouvinte para a porta de front-end do balanceamento de carga. Essa porta pode ser aquela que o SQL Server está escutando. Para instâncias padrão do SQL Server, a porta é a 1433. A regra de balanceamento de carga para um grupo de disponibilidade requer um IP flutuante (retorno de servidor direto), de modo que a porta de back-end é igual à porta de front-end. Atualize as variáveis para o seu ambiente. 
@@ -185,7 +185,7 @@ $ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfigura
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## <a name="set-the-listener-port-in-sql-server-management-studio"></a>Defina a porta do ouvinte no SQL Server Management Studio
+## <a name="set-the-listener-port-in-sql-server-management-studio"></a>Definir a porta do ouvinte no SQL Server Management Studio
 
 1. Inicie o SQL Server Management Studio e conecte-se à réplica principal.
 
