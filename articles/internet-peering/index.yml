@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: Documentação de emparelhamento de Internet
+summary: Saiba mais sobre o emparelhamento de Internet com a Microsoft.
+metadata:
+  title: Documentação de emparelhamento de Internet
+  titleSuffix: Azure
+  description: Saiba mais sobre o emparelhamento com a Microsoft.
+  services: internet-peering
+  ms.service: internet-peering
+  ms.topic: landing-page
+  author: prmitiki
+  ms.author: prmitiki
+  ms.date: 11/27/2019
+  ms.openlocfilehash: 83549a56b3fb81c66827d1e9f87718467fb1098a
+  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75773512"
+landingContent:
+- title: Sobre o emparelhamento de Internet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Sobre o emparelhamento de Internet
+      url: overview.md
+    - text: Emparelhamento de Internet vs. Serviço de Emparelhamento
+      url: overview-peering-service.md
+  - linkListType: concept
+    links:
+    - text: Política de emparelhamento
+      url: policy.md
+    - text: Pré-requisitos de configuração de emparelhamento com a Microsoft
+      url: prerequisites.md
+    - text: Perguntas frequentes sobre o emparelhamento de Internet
+      url: faqs.md
+- title: Introdução
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Associar o ASN do par à assinatura do Azure usando o portal
+      url: howto-subscription-association-portal.md
+- title: Emparelhamento do Exchange
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Passo a passo do emparelhamento do Exchange
+      url: walkthrough-exchange-all.md
+    - text: Criar ou modificar um emparelhamento do Exchange usando o portal
+      url: howto-exchange-portal.md
+    - text: Converter um emparelhamento do Exchange herdado para o recurso do Azure usando o portal
+      url: howto-legacy-exchange-portal.md
+- title: Emparelhamento direto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Passo a passo do Emparelhamento direto
+      url: walkthrough-direct-all.md
+    - text: Criar ou modificar um Emparelhamento direto usando o portal
+      url: howto-direct-portal.md
+    - text: Converter um Emparelhamento direto herdado para o recurso do Azure usando o portal
+      url: howto-legacy-direct-portal.md
+- title: Serviço de Emparelhamento
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Perguntas frequentes sobre o Serviço de Emparelhamento
+      url: service-faqs.md
+  - linkListType: how-to-guide
+    links:
+    - text: Passo a passo do parceiro de Serviço de Emparelhamento
+      url: walkthrough-peering-service-all.md
+    - text: Habilitar o Serviço de Emparelhamento em um Emparelhamento direto usando o portal
+      url: howto-peering-service-portal.md

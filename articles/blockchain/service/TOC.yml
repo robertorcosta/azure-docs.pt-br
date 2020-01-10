@@ -49,6 +49,8 @@
       href: manage-consortium-powershell.md
     - name: Usar Aplicativos Lógicos
       href: ethereum-logic-app.md
+    - name: Monitorar o Azure Blockchain Service
+      href: monitor-azure-blockchain-service.md
 - name: Gerenciador de Dados de Blockchain
   items:
     - name: Visão geral do gerenciador de dados

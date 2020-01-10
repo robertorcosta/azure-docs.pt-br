@@ -108,6 +108,9 @@
     - name: Automação
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Emparelhamento de Internet
+      tocHref: /azure/internet-peering/
+      topicHref: /azure/internet-peering/
     - name: Blockchain
       tocHref: /azure/blockchain/
       topicHref: /azure/blockchain/

@@ -504,6 +504,8 @@
           href: sql-database-security-tutorial.md
         - name: Transmitir dados com o Stream Analytics
           href: sql-database-stream-analytics.md
+        - name: Migrar um banco de dados SQLite para o Banco de Dados SQL do Azure sem servidor
+          href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
     - name: Conceitos
       items:
         - name: Recursos do banco de dados individual

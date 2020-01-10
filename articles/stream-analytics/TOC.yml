@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Padrões de caminho personalizado do blob
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Otimizar o trabalho do Stream Analytics
+      items:
+        - name: Compreender e ajustar as Unidades de Streaming
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Melhorar o desempenho da consulta
+          href: stream-analytics-parallelization.md
+        - name: Reparticionar sua entrada
+          href: repartition.md
+        - name: Aumentar a taxa de transferência do trabalho
+          href: stream-analytics-scale-jobs.md
     - name: Estados de um trabalho
       href: job-states.md
     - name: Funções da janela
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: Monitorar trabalhos - Visual Studio
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Escala
-      items:
-        - name: Expandir com unidades de streaming
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Expandir com paralelização
-          items:
-            - name: Paralelização de consulta
-              href: stream-analytics-parallelization.md
-            - name: Aumentar a taxa de transferência
-              href: stream-analytics-scale-jobs.md
-        - name: Expandir com funções de ML
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: Dimensionar com o reparticionamento
-          href: repartition.md
     - name: Automatizar
       items:
         - name: Usando o SDK .NET
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Depurar usando diagrama de trabalho
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: Expandir com funções de ML
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Linguagem de consulta do Stream Analytics
   items:
     - name: Funções Incorporadas

@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829120"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772955"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um gateway de VPN da WAN Virtual do Azure?
 
@@ -22,6 +22,9 @@ A WAN Virtual fornece conectividade site a site em larga escala e é criada visa
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>Como a WAN Virtual é diferente de um gateway de rede virtual do Azure existente?
 
 A VPN do Gateway de Rede Virtual é limitada a 30 túneis. Para conexões, você deve usar a WAN Virtual para VPN em larga escala. Você pode conectar até 1.000 conexões de ramificação por região (hub virtual) com agregação de 20 Gbps por hub. Uma conexão é um túnel de ativo-ativo do dispositivo VPN local para o hub virtual. Pode haver um hub por região, o que significa que você pode conectar a mais de 1.000 branches entre os hubs.
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>O que é uma Unidade de Escala de Gateway da WAN Virtual
+Uma unidade de escala é uma unidade definida para escolher uma taxa de transferência agregada de um gateway no Hub virtual. 1 unidade de escala de VPN = 500 Mbps. 1 unidade de escala do ExpressRoute = 2 Gbps. Exemplo: 10 unidades de escala de VPN implicariam 500 Mbps * 10 = 5 Gbps
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>Quais provedores de dispositivo (parceiros de WAN Virtual) são compatíveis?
 
@@ -111,9 +114,11 @@ Uma configuração simples de uma WAN Virtual com um hub e um vpnsite pode ser c
 
 Você pode conectar uma VNet em uma região diferente da WAN Virtual.
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>VNets spoke conectadas a um hub virtual podem se comunicar umas com as outras?
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>VNets spoke conectadas a um hub virtual podem se comunicar umas com as outras (Trânsito do V2V)?
 
-Sim. A WAN Virtual padrão é compatível com a conectividade transitiva Vnet para Vnet por meio do hub da WAN Virtual ao qual as Vnets estão conectadas. Na terminologia da WAN Virtual, esses caminhos são denominados "trânsito local de VNet da WAN Virtual" para VNets conectadas a um Hub da WAN Virtual dentro de uma única região e "trânsito global de VNet da WAN Virtual" para VNets conectadas por meio de vários Hubs da WAN Virtual entre duas ou mais regiões. O trânsito de VNet é compatível com até 3 Gbps de taxa de transferência durante a versão prévia pública. A taxa de transferência será expandida quando o trânsito global entrar em disponibilidade para o público geral.   
+Sim. A WAN Virtual padrão é compatível com a conectividade transitiva Vnet para Vnet por meio do hub da WAN Virtual ao qual as Vnets estão conectadas. Na terminologia da WAN Virtual, esses caminhos são denominados "trânsito local de VNet da WAN Virtual" para VNets conectadas a um Hub da WAN Virtual dentro de uma única região e "trânsito global de VNet da WAN Virtual" para VNets conectadas por meio de vários Hubs da WAN Virtual entre duas ou mais regiões. O trânsito de VNet é compatível com até 3 Gbps de taxa de transferência durante a versão prévia pública. A taxa de transferência será expandida quando o trânsito global entrar em disponibilidade para o público geral.
+
+OBSERVAÇÃO:  Atualmente, a versão prévia de trânsito do V2V exige que um VPN GW seja implantado em um Hub virtual para disparar os elementos de roteamento a serem iniciados. Este VPN GW não é usado para o caminho de trânsito do V2V. Essa é uma limitação conhecida e será removida no momento da disponibilização geral do V2V. Você pode excluir o Gateway de VPN nos hubs após o lançamento completo, pois ele não é necessário para a funcionalidade de trânsito da V2V. 
 
 Em alguns cenários, Vnets spoke também podem ser diretamente emparelhadas entre si usando o [Emparelhamento de Rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md), além do trânsito local ou global de VNet da WAN Virtual. Nesse caso, o Emparelhamento VNET tem precedência sobre a conexão transitiva por meio do Hub da WAN Virtual. 
 

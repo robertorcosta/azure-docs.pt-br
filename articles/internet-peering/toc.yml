@@ -1,0 +1,86 @@
+- name: Documentação de emparelhamento de Internet
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre o emparelhamento de Internet
+      href: overview.md
+    - name: Emparelhamento de Internet vs. Serviço de Emparelhamento
+      href: overview-peering-service.md
+- name: Conceitos
+  items:
+    - name: Política de emparelhamento
+      href: policy.md
+- name: Guias de instruções
+  items:
+    - name: Pré-requisitos de configuração de emparelhamento com a Microsoft
+      href: prerequisites.md
+    - name: Passo a passo do Emparelhamento direto
+      href: walkthrough-direct-all.md
+    - name: Passo a passo do emparelhamento do Exchange
+      href: walkthrough-exchange-all.md
+    - name: Passo a passo do parceiro de Serviço de Emparelhamento
+      href: walkthrough-peering-service-all.md
+    - name: Associar o ASN do par à assinatura do Azure
+      items:
+        - name: Portal
+          href: howto-subscription-association-portal.md
+        - name: Azure PowerShell
+          href: howto-subscription-association-powershell.md
+    - name: Habilitar o Serviço de Emparelhamento em um Emparelhamento direto
+      items:
+        - name: Portal
+          href: howto-peering-service-portal.md
+        - name: Azure PowerShell
+          href: howto-peering-service-powershell.md
+    - name: Criar ou modificar um Emparelhamento direto
+      items:
+        - name: Portal
+          href: howto-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-direct-powershell.md
+    - name: Converter um Emparelhamento direto herdado para o recurso do Azure
+      items:
+        - name: Portal
+          href: howto-legacy-direct-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-direct-powershell.md
+    - name: Criar ou modificar um emparelhamento do Exchange
+      items:
+        - name: Portal
+          href: howto-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-exchange-powershell.md
+    - name: Converter um emparelhamento do Exchange herdado para o recurso do Azure
+      items:
+        - name: Portal
+          href: howto-legacy-exchange-portal.md
+        - name: Azure PowerShell
+          href: howto-legacy-exchange-powershell.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: 'https://docs.microsoft.com/cli/azure/network'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.network'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/'
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: Modelo do Resource Manager
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+- name: Recursos
+  items:
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: 'https://docs.microsoft.com/learn/browse/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de rede
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Comentários sobre a rede
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Perguntas frequentes sobre o emparelhamento de Internet
+      href: faqs.md
+    - name: Perguntas frequentes sobre o Serviço de Emparelhamento
+      href: service-faqs.md
