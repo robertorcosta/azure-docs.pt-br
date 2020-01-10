@@ -2,17 +2,17 @@
 title: Coletar & analisar logs de recursos
 description: Registre e analise eventos de log de recursos para o registro de contêiner do Azure, como autenticação, push de imagem e pull de imagem.
 ms.topic: article
-ms.date: 10/30/2019
-ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/03/2020
+ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456414"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748010"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria
 
-Este artigo explica como coletar dados de log para um registro de contêiner do Azure usando os recursos de [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta [logs de recursos](../azure-monitor/platform/resource-logs-overview.md) (anteriormente chamados de *logs de diagnóstico*) para eventos controlados pelo usuário no registro. Colete e consuma esses dados para atender às necessidades, como:
+Este artigo explica como coletar dados de log para um registro de contêiner do Azure usando os recursos de [Azure monitor](../azure-monitor/overview.md). Azure Monitor coleta [logs de recursos](../azure-monitor/platform/platform-logs-overview.md) (anteriormente chamados de *logs de diagnóstico*) para eventos controlados pelo usuário no registro. Colete e consuma esses dados para atender às necessidades, como:
 
 * Auditar eventos de autenticação de registro para garantir a segurança e a conformidade 
 
@@ -26,9 +26,14 @@ Coletar dados de log de recursos usando Azure Monitor pode incorrer em custos ad
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-O registro em log de eventos no nível do repositório não inclui, no momento, eventos Delete ou reparados. Somente os seguintes eventos de repositório são registrados em log:
-* **Eventos de push** para imagens e outros artefatos
-* **Receber eventos** para imagens e outros artefatos
+Os seguintes eventos de nível de repositório para imagens e outros artefatos estão registrados no momento:
+
+* **Eventos de push**
+* **Eventos de pull**
+* **Desmarcar eventos**
+* **Excluir eventos** (incluindo eventos de exclusão do repositório)
+
+Eventos de nível de repositório que não estão registrados no momento: limpar eventos.
 
 ## <a name="registry-resource-logs"></a>Logs de recursos do registro
 
@@ -42,7 +47,7 @@ Para operações, os dados de log incluem:
   * Status de êxito ou falha
   * Carimbos de data/hora de início e término
 
-Além dos logs de recursos, o Azure fornece um [log de atividades](../azure-monitor/platform/activity-logs-overview.md), um único registro de nível de assinatura de eventos de gerenciamento do Azure, como a criação ou a exclusão de um registro de contêiner.
+Além dos logs de recursos, o Azure fornece um [log de atividades](../azure-monitor/platform/platform-logs-overview.md), um único registro de nível de assinatura de eventos de gerenciamento do Azure, como a criação ou a exclusão de um registro de contêiner.
 
 ## <a name="enable-collection-of-resource-logs"></a>Habilitar a coleta de logs de recursos
 
