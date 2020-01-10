@@ -4,12 +4,12 @@ description: Saiba como lidar com interação humana e tempos limite na extensã
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232818"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769567"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
 
@@ -93,7 +93,7 @@ Essa função **E4_SendSmsChallenge** é chamada apenas uma vez, mesmo que o pro
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-Usando as funções disparadas por HTTP incluídas no exemplo, é possível iniciar a orquestração enviando a seguinte solicitação HTTP POST:
+Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração enviando a seguinte solicitação HTTP POST:
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification
@@ -153,11 +153,11 @@ Content-Length: 145
 Esta é a orquestração como um único arquivo em C# em um projeto do Visual Studio:
 
 > [!NOTE]
-> Você precisará instalar o `Microsoft.Azure.WebJobs.Extensions.Twilio` pacote do Nuget para executar o código de exemplo abaixo.
+> Será necessário instalar o `Microsoft.Azure.WebJobs.Extensions.Twilio` pacote NuGet para executar o código de exemplo abaixo.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este exemplo demonstrou alguns dos recursos avançados do Durable Functions, notavelmente `WaitForExternalEvent` e `CreateTimer` APIs. Você viu como elas podem ser combinadas com `Task.WaitAny` para implementar um sistema de tempo limite confiável, que geralmente é útil para interagir com pessoas reais. Você pode aprender mais sobre como usar Funções Duráveis lendo uma série de artigos que oferecem uma cobertura aprofundada de tópicos específicos.
 
