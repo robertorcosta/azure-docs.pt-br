@@ -1,5 +1,5 @@
 ---
-title: Criando Filtros com a API REST dos Serviços de Mídia do Azure | Microsoft Docs
+title: Criando filtros com a API REST dos serviços de mídia do Azure v3
 description: Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para atingir esse streaming seletivo.
 services: media-services
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 76e6e1595cb8bf49dbbc82c3cae5de80ea718aeb
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786446"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780327"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criando filtros com a API REST de Serviços de Mídia do Microsoft Azure
 
-Ao entregar seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo por demanda), seu cliente pode precisar de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
+Ao entregar seu conteúdo aos clientes (streaming de eventos ao vivo ou Video por Demanda), seu cliente pode precisar de mais flexibilidade do que o descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
 
-Para obter uma descrição detalhada desse recurso e os cenários em que ele é usado, consulte [manifestos dinâmicos](filters-dynamic-manifest-overview.md) e [filtros](filters-concept.md).
+Para obter uma descrição detalhada desse recurso e dos cenários em que ele é usado, consulte manifestos e [filtros](filters-concept.md) [dinâmicos](filters-dynamic-manifest-overview.md) .
 
 Este tópico mostra como definir um filtro para um ativo vídeo por demanda e usar APIs REST para criar [Filtros de Conta](https://docs.microsoft.com/rest/api/media/accountfilters) e [Filtros de Ativos](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
@@ -117,24 +117,24 @@ O filtro de ativos foi criado.
 
 Para detalhes sobre como criar ou atualizar filtros de recursos, consulte [Criar ou atualizar](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Além disso, veja [exemplos de JSON para filtros](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
-## <a name="associate-filters-with-streaming-locator"></a>Associar filtros de localizador de Streaming
+## <a name="associate-filters-with-streaming-locator"></a>Associar filtros ao localizador de streaming
 
-Você pode especificar uma lista de filtros de ativo ou conta, que se aplica a localizador de Streaming. O [Dynamic Packager (ponto de extremidade de Streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto com aqueles seu cliente especifica a URL. Essa combinação gera uma [manifesto dinâmico](filters-dynamic-manifest-overview.md), que se baseia nos filtros na URL + filtros que você especificar no localizador de Streaming. É recomendável que você use esse recurso se você deseja aplicar filtros, mas não quiser expor os nomes de filtro na URL.
+Você pode especificar uma lista de ativos ou filtros de conta, que se aplicariam ao seu localizador de streaming. O [Gerenciador dinâmico (ponto de extremidade de streaming)](dynamic-packaging-overview.md) aplica essa lista de filtros junto com aqueles que seu cliente especifica na URL. Essa combinação gera um [manifesto dinâmico](filters-dynamic-manifest-overview.md), que é baseado em filtros na URL + filtros que você especificar no localizador de streaming. Recomendamos que você use esse recurso se desejar aplicar filtros, mas não quiser expor os nomes de filtro na URL.
 
-Para criar e associar filtros com um localizador de Streaming usando o REST, use o [localizadores de Streaming - crie](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API e especificar `properties.filters` no [corpo da solicitação](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Para criar e associar filtros a um localizador de streaming usando REST, use os [localizadores de streaming – criar](https://docs.microsoft.com/rest/api/media/streaminglocators/create) API e especifique `properties.filters` no [corpo da solicitação](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
                                 
-## <a name="stream-using-filters"></a>Stream usando filtros
+## <a name="stream-using-filters"></a>Fluxo usando filtros
 
-Depois que você definir filtros, seus clientes poderão usá-los na URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
+Depois que você definir filtros, seus clientes poderão usá-los na URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptáveis: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
 
 A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
-|Protocol|Exemplo|
+|Protocolo|Exemplo|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Vídeos do Stream](stream-files-tutorial-with-rest.md) 

@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120124"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778338"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -94,8 +94,9 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
    g. **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 
    h. **NOT REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
-
-8. Selecione **Adicionar nova cláusula de escopo**.
+ 
+>[!IMPORTANT] 
+> Os filtros includes e IsMemberOf não têm suporte. Em breve, eles serão removidos da interface do usuário.
 
 9. Opcionalmente, repita as etapas 7 e 8 para adicionar mais cláusulas de escopo.
 
@@ -112,11 +113,11 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
 
 ## <a name="common-scoping-filters"></a>Filtros de escopo comuns
-| Atributo de Destino| Operador | Valor | DESCRIÇÃO|
+| Atributo de Destino| Operador | Valor | Description|
 |----|----|----|----|
 |userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
 |userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
-|department|SEJA|impostos|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
+|department|EQUALS|sales|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
 |workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 
 ## <a name="related-articles"></a>Artigos relacionados

@@ -1,5 +1,5 @@
 ---
-title: Proteger o conteúdo do HLS com o Apple FairPlay offline do Azure | Microsoft Docs
+title: Streaming FairPlay offline para iOS com os serviços de mídia do Azure v3
 description: Este tópico fornece uma visão geral e mostra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o seu conteúdo de HLS (HTTP Live Streaming) com o FairPlay da Apple no modo offline.
 services: media-services
 keywords: HBS, gerenciamento de direitos digitais, Streaming de FairPlay (FPS), Offline, iOS 10
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c0d87de25cae44f17789dfaf7b1ec805138c351c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974114"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779919"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 
@@ -29,7 +29,7 @@ ms.locfileid: "74974114"
 - Microsoft PlayReady
 - Google Widevine
     
-    O Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e à política de privacidade da Google, Inc.
+    O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 - Apple FairPlay
 - Criptografia AES-128
 
@@ -201,7 +201,7 @@ Três exemplos de teste nos Serviços de Mídia abrangem os três cenários a se
 Você pode encontrar esses exemplos [neste site de demonstração](https://aka.ms/poc#22), com o certificado correspondente do aplicativo hospedado em um aplicativo Web do Azure.
 Observamos que com o exemplo da versão 3 ou versão 4 de SDK do Servidor de FPS, se uma lista de reprodução mestre contiver áudio alternativo, durante o modo offline, ela toca somente o áudio. Portanto, você precisa da faixa de áudio alternativo. Em outras palavras, o segundo e terceiro exemplos listados anteriormente trabalham nos modos online e offline. O exemplo listado reproduz primeiro somente o áudio durante o modo offline, enquanto o streaming online funciona sem problemas.
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 As perguntas frequentes a seguir fornecem assistência com a solução de problemas:
 

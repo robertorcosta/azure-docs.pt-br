@@ -1,5 +1,5 @@
 ---
-title: Autenticação segura do RADIUS no gateway de VPN do Azure com o servidor NPS para Autenticação Multifator | Microsoft Docs
+title: Integrar o NPS com a autenticação RADIUS de gateway de VPN para MFA
 description: Descreve a integração da autenticação RADIUS do gateway do Azure com o servidor NPS para Autenticação Multifator.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: ab152cca1d809d92803a3e50ea83da1cbcd8243c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174610"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780361"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrar a autenticação RADIUS do gateway de VPN do Azure com o servidor NPS para Autenticação Multifator 
 
@@ -30,7 +30,7 @@ Este artigo descreve como integrar o NPS (Servidor de Políticas de Rede) com a 
 
 Para habilitar a MFA, os usuários devem estar no Azure AD (Azure Active Directory), que deve estar sincronizado do local ou do ambiente de nuvem. Além disso, o usuário já deve ter concluído o processo de registro automático para MFA.  Para obter mais informações, veja [Configurar minha conta para verificação em duas etapas](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
 
-## <a name="detailed-steps"></a>etapas detalhadas
+## <a name="detailed-steps"></a>Etapas detalhadas
 
 ### <a name="step-1-create-a-virtual-network-gateway"></a>Etapa 1: criar um gateway de rede virtual
 
@@ -79,7 +79,7 @@ Para habilitar a MFA, os usuários devem estar no Azure AD (Azure Active Directo
 
       ![A imagem sobre configurações de ponto a site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)
 - [Integrar sua infraestrutura existente do NPS à Autenticação Multifator do Azure](../active-directory/authentication/howto-mfa-nps-extension.md)

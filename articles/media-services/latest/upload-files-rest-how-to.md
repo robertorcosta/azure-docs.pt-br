@@ -1,5 +1,5 @@
 ---
-title: Carregar arquivos em uma conta dos Serviços de Mídia do Azure usando o REST | Microsoft Docs
+title: Carregar arquivos em uma conta dos serviços de mídia do Azure v3 usando REST | Microsoft Docs
 description: Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389794"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779154"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
 
@@ -61,6 +61,6 @@ Você vê a **resposta** com as informações sobre a URL criada recentemente. C
 
 Use as APIs de armazenamento do Azure ou SDKs (por exemplo, a [API REST de armazenamento](../../storage/common/storage-rest-api-auth.md) ou o [SDK do .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST](stream-files-tutorial-with-rest.md)
+[Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)

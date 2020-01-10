@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799405"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832929"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -376,7 +376,7 @@ A tabela a seguir representa o mapeamento de política de uso de chave x509 para
 
 Um objeto de certificado do Cofre de Chaves contém uma configuração usada para se comunicar com um provedor de emissor do certificado selecionado para solicitar certificados x509.  
 
--   Parceiros de Cofre de Chaves com as seguintes provedores de emissor do certificado para certificados SSL
+-   Parceiros de Key Vault com os seguintes provedores de emissor de certificado para certificados TLS/SSL
 
 |**Nome do Provedor**|**Locais**|
 |----------|--------|
@@ -389,7 +389,7 @@ Antes que um emissor de certificado possa ser criado em um Cofre de Chaves, as s
 
     -   Um administrador da organização deve integrar sua empresa (ex. Contoso) com pelo menos um provedor de autoridade de certificação.  
 
-2. O administrador cria as credenciais do solicitante para que o Cofre de Chaves registre (e renove) certificados SSL  
+2. O administrador cria credenciais do solicitante para Key Vault registrar (e renovar) certificados TLS/SSL  
 
     -   Fornece a configuração a ser usado para criar um objeto de emissor do provedor no cofre de chaves  
 
@@ -473,7 +473,7 @@ As seguintes permissões podem ser usadas ao autorizar um usuário ou entidade d
 
 Para obter mais informações, confira [Operações de conta de armazenamento na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 
 - [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)
 - [Guia do Desenvolvedor do Cofre de Chaves](/azure/key-vault/key-vault-developers-guide)

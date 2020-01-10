@@ -2,25 +2,20 @@
 title: Desanexar um disco de dados de uma VM do Windows-Azure
 description: Desanexe um disco de dados de uma máquina virtual no Azure usando o modelo de implantação do Resource Manager.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-service-management
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 01/08/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 93db2935fdc41787bb1820d1f8ce85ac05ef0863
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 301f3abd26f702f3f29c8833c835ba7d0e41bcaf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033352"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834598"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
 
@@ -40,25 +35,32 @@ Se desejar usar os dados existentes no disco novamente, você pode reanexá-lo �
 Neste exemplo, removemos o disco nomeado **myDisk** da VM **myVM** no grupo de recursos **myResourceGroup**. Primeiro, remova o disco usando o cmdlet [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk). Em seguida, atualize o estado da máquina virtual, usando o cmdlet [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) para concluir o processo de remoção do disco de dados.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -Name "myVM"
+Remove-AzVMDataDisk `
+   -VM $VirtualMachine `
+   -Name "myDisk"
+Update-AzVM `
+   -ResourceGroupName "myResourceGroup" `
+   -VM $VirtualMachine
 ```
 
-O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
+O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
 
+Você pode *remover* um disco de dados, mas certifique-se de que nada esteja usando o disco ativamente antes de desanexá-lo da VM.
+
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
-2. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar e clique em **Parar** para desalocar a VM.
-3. No painel de máquina virtual, selecione **Discos**.
-4. Na parte superior do painel **Discos**, selecione **Editar**.
-5. No painel **Discos**, mais à direita do disco de dados que você deseja desanexar, clique no botão Desanexar ![Imagem do botão Desanexar](./media/detach-disk/detach.png).
-5. Depois que o disco for removido, clique em **Salvar** na parte superior do painel.
-6. No painel da máquina virtual, clique em **Visão Geral** e, em seguida, clique no botão **Iniciar** na parte superior do painel para reiniciar a VM.
+1. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
+1. Em **Configurações**, selecione **Discos**.
+1. Na parte superior do painel **Discos**, selecione **Editar**.
+1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, selecione **desanexar**.
+1. Selecione **salvar** na parte superior da página para salvar as alterações.
 
-O disco permanece no armazenamento, mas não está mais conectado a uma máquina virtual.
+O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você quiser reutilizar o disco de dados, você poderá simplesmente [anexá-lo a outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

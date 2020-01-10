@@ -1,19 +1,18 @@
 ---
-title: 'Gerar e exportar certificados para ponto a site: MakeCert : Azure | Microsoft Docs'
+title: 'Gateway de VPN do Azure: gerar & exportar certificados para P2S: MakeCert'
 description: Criar um certificado raiz autoassinado, exportar a chave pública e gerar certificados do cliente usando o MakeCert.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768099"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833984"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Gerar e exportar certificados para conexões Ponto a Site usando o MakeCert
 
@@ -28,7 +27,7 @@ Enquanto é recomendável usar o [etapas do Windows 10 PowerShell](vpn-gateway-c
 As etapas a seguir mostram como criar um certificado autoassinado usando o MakeCert. Essas etapas não são específicas do modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
 1. Baixe e instale o [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Após a instalação, você geralmente pode encontrar o utilitário makecert.exe sob esse caminho: ' C:\Program arquivos (x86) \Windows Kits\10\bin\<arch >'. Embora, é possível que ele tenha sido instalado em outro local. Abra um prompt de comando como administrador e navegue até o local do utilitário MakeCert. Você pode usar o exemplo a seguir, ajustando para o local apropriado:
+2. Após a instalação, você pode normalmente localizar o utilitário makecert.exe neste caminho: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Embora, é possível que ele tenha sido instalado em outro local. Abra um prompt de comando como administrador e navegue até o local do utilitário MakeCert. Você pode usar o exemplo a seguir, ajustando para o local apropriado:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64
@@ -78,7 +77,7 @@ As etapas abaixo lhe guiarão pela geração de um certificado do cliente por me
 
 Para instalar um certificado de cliente, confira [Instalar um certificado de cliente](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Continue com a configuração de Ponto a Site. 
 

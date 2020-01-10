@@ -5,7 +5,7 @@ metadata:
   title: Documentação da Área de Trabalho Virtual do Windows | Microsoft Docs
   description: A Área de Trabalho Virtual do Windows para Azure é uma experiência multiusuário do Windows 10 Enterprise virtualizada na nuvem.
   author: Heidilohr
-  manager: daveba
+  manager: lizross
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -22,7 +22,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/virtual-desktop/overview">O que é a Área de Trabalho Virtual do Windows?</a>
-  - title: Tutoriais Passo a Passo
+  - title: Tutoriais passo a passo
     items:
       - type: paragraph
         text: Saiba como instalar e configurar a Área de Trabalho Virtual do Windows e como se conectar ao cliente quando estiver pronto.

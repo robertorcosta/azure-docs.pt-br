@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a0697e151c50b9722fef908eeb2c7498503b8c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027384"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834179"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -56,7 +56,7 @@ Após concluir as etapas anteriores, você será o administrador global do locat
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Como adicionar o nome de domínio a um locatário gerenciado no Azure AD
 
-1. Abra o [centro de administração do Microsoft 365](https://admin.microsoft.com).
+1. Abra o [Centro de administração do Microsoft 365](https://admin.microsoft.com).
 2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como *usuário\@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
 3. Verifique se a nova conta de usuário tem privilégios de administrador global para o locatário do Azure AD.
 4. Abra a guia **domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **remover**. 
@@ -100,7 +100,7 @@ Os planos de serviço com suporte incluem:
 
 O tomada de administração externa não tem suporte para nenhum serviço que tenha planos de serviço que incluam o SharePoint, OneDrive ou Skype for Business; por exemplo, por meio de uma assinatura gratuita do Office. 
 
-Opcionalmente, você pode usar a opção [ **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. 
+Opcionalmente, você pode usar a opção [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas
 
@@ -130,49 +130,49 @@ cmdlet | Uso
 
 1. Conecte o Azure AD usando as credenciais utilizadas para responder à oferta de autoatendimento:
    ```powershell
-    Install-Module -Name MSOnline
-    $msolcred = get-credential
+   Install-Module -Name MSOnline
+   $msolcred = get-credential
     
-    connect-msolservice -credential $msolcred
+   connect-msolservice -credential $msolcred
    ```
 2. Obter uma lista de domínios:
   
    ```powershell
-    Get-MsolDomain
+   Get-MsolDomain
    ```
 3. Execute o cmdlet Get-MsolDomainVerificationDns para criar um desafio:
    ```powershell
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-  
-    For example:
-  
-    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+   Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+   ```
+    Por exemplo:
+   ```
+   Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
 4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo:
    ```powershell
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+   MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. No seu namespace DNS público, crie um registro DNS txt que contenha o valor que você copiou na etapa anterior. O nome deste registro é o nome do domínio pai, então se você criar este registro de recurso usando a função DNS do Windows Server, deixe o nome do Registro em branco e cole apenas o valor na caixa de texto.
 6. Execute o cmdlet Confirm-MsolDomain para verificar o desafio:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+   Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
    Por exemplo:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+   Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
    ```
 
 Um desafio bem-sucedido fará com que você retorne ao prompt sem erros.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Adicionar um nome de domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md)
-* [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview)
+* [PowerShell do Azure](/powershell/azure/overview)
 * [Referência de Cmdlets do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 

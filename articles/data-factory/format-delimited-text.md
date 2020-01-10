@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931251"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830183"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado no Azure Data Factory
 
@@ -24,12 +24,12 @@ O formato de texto delimitado tem suporte para os seguintes conectores: [Amazon 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de acordo de texto delimitado.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de acordo de texto delimitado.
 
-| Propriedade         | Descrição                                                  | obrigatórios |
+| Propriedade         | Description                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **DelimitedText**. | SIM      |
-| location         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`.  | SIM      |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **DelimitedText**. | Sim      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location`.  | Sim      |
 | columnDelimiter  | Os caracteres usados para separar colunas em um arquivo. Atualmente, o delimitador de vários caracteres só tem suporte para mapear o fluxo de dados, mas não para a atividade de cópia. <br>O valor padrão é **vírgula `,`** , quando o delimitador de coluna é definido como cadeia de caracteres vazia, o que significa que não há delimitador, a linha inteira é executada como uma única coluna. | Não       |
 | rowDelimiter     | O caractere único ou "\r\n" usado para separar linhas em um arquivo.<br>O valor padrão é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na gravação** mapeando o fluxo de dados e a atividade de cópia, respectivamente. <br>Quando `rowDelimiter` é definido como nenhum delimitador (cadeia de caracteres vazia), o `columnDelimiter` deve ser definido como nenhum delimitador (cadeia de caracteres vazia) também, o que significa tratar todo o conteúdo como um único valor. | Não       |
 | quoteChar        | O caractere único para citar valores de coluna se ele contiver delimitador de coluna. <br>O valor padrão é **aspas duplas** `"`. <br>Para o mapeamento de fluxo de dados, `quoteChar` não pode ser uma cadeia de caracteres vazia. <br>Para a atividade de cópia, quando `quoteChar` é definida como cadeia de caracteres vazia, isso significa que não há nenhum caractere de aspas e o valor da coluna não está entre aspas e `escapeChar` é usado para escapar o delimitador de coluna e ele mesmo. | Não       |
@@ -75,35 +75,35 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
-| Propriedade       | Descrição                                                  | obrigatórios |
+| Propriedade       | Description                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSource**. | SIM      |
+| type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSource**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de leitura de texto delimitada** abaixo. | Não       |
 | storeSettings  | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. | Não       |
 
 **Configurações de leitura de texto delimitado** com suporte em `formatSettings`:
 
-| Propriedade      | Descrição                                                  | obrigatórios |
+| Propriedade      | Description                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | O tipo de formatSettings deve ser definido como **DelimitedTextReadSetting**. | SIM      |
-| skipLineCount | Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. <br>Se skipLineCount e firstRowAsHeader forem especificados, as linhas serão ignoradas pela primeira vez e, em seguida, as informações de cabeçalho serão lidas do arquivo de entrada. | Não       |
+| type          | O tipo de formatSettings deve ser definido como **DelimitedTextReadSettings**. | Sim      |
+| skipLineCount | Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. <br>Se skipLineCount e firstRowAsHeader forem especificados, primeiro as linhas serão ignoradas e, em seguida, as informações de cabeçalho serão lidas no arquivo de entrada. | Não       |
 
 ### <a name="delimited-text-as-sink"></a>Texto delimitado como coletor
 
 As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
-| Propriedade       | Descrição                                                  | obrigatórios |
+| Propriedade       | Description                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSink**. | SIM      |
+| type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de gravação de texto delimitado** abaixo. |          |
 | storeSettings  | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`.  | Não       |
 
 **Configurações de gravação de texto delimitado** com suporte em `formatSettings`:
 
-| Propriedade      | Descrição                                                  | obrigatórios                                              |
+| Propriedade      | Description                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | O tipo de formatSettings deve ser definido como **DelimitedTextWriteSetting**. | SIM                                                   |
-| fileExtension | A extensão de arquivo usada para nomear os arquivos de saída, por exemplo, `.csv`, `.txt`. Ele deve ser especificado quando o `fileName` não é especificado no conjunto de DelimitedText de saída. | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
+| type          | O tipo de formatSettings deve ser definido como **DelimitedTextWriteSettings**. | Sim                                                   |
+| fileExtension | A extensão de arquivo usada para nomear os arquivos de saída, por exemplo, `.csv`, `.txt`. Ele deve ser especificado quando o `fileName` não é especificado no conjunto de DelimitedText de saída. Quando o nome do arquivo for configurado no conjunto de resultados de saída, ele será usado como o nome do arquivo do coletor e a configuração da extensão do arquivo será ignorada.  | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
 

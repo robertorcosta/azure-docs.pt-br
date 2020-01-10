@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421870"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834275"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -59,7 +59,7 @@ Se o workspace selecionado já tiver a solução, a solução não será reimpla
 
 Quando um computador é adicionado às soluções Gerenciamento de Atualizações ou Rastreamento de Mudanças e Inventário, elas são adicionadas a uma das duas pesquisas salvas em seu workspace. Essas pesquisas salvas são consultas que contêm os computadores segmentados para essas soluções.
 
-Navegue para a conta de Automação e selecione **Pesquisas salvas** em **Geral**. As duas pesquisas salvas usadas por essas soluções podem ser vistas na tabela a seguir:
+Navegue até o espaço de trabalho Log Analytics e selecione **pesquisas salvas** em **geral**. As duas pesquisas salvas usadas por essas soluções podem ser vistas na tabela a seguir:
 
 |Nome     |Categoria  |Alias  |
 |---------|---------|---------|

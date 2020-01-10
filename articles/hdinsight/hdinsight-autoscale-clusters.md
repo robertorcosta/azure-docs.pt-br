@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666028"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780055"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -28,10 +28,12 @@ A tabela a seguir descreve os tipos de cluster e as versões que são compatíve
 
 | Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 sem ESP | Sim apenas 2,3| SIM | Não | Não | Não | Não | Não |
-| HDInsight 4,0 sem ESP | SIM | SIM | Não | Não | Não | Não | Não |
-| HDInsight 3,6 com ESP | Sim apenas 2,3 | SIM | Não | Não | Não | Não | Não |
-| HDInsight 4,0 com ESP | SIM | SIM | Não | Não | Não | Não | Não |
+| HDInsight 3,6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 4,0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 3,6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+| HDInsight 4,0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
+
+\* clusters HBase só podem ser configurados para dimensionamento baseado em agendamento, não baseado em carga.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -246,7 +248,7 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 | Status do cluster | Explicação |
 |---|---|
 | Executando | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
-| Atualizada  | A configuração de autoescala do cluster está sendo atualizada.  |
+| Atualizar  | A configuração de autoescala do cluster está sendo atualizada.  |
 | Configuração do HDInsight  | Uma operação de expansão ou redução do cluster está em andamento.  |
 | Erro de atualização  | O HDInsight encontrou problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repetir a atualização ou desabilitar o dimensionamento automático.  |
 | Erro  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |

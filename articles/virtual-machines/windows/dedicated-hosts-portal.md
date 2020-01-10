@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7abfa00b01f2e5e32b2486d69f36ac62f844c5ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033844"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833936"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Versão prévia: implantar VMs em hosts dedicados usando o portal
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 
 1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Na página **Novo**, em **Popular**, selecione **Datacenter do Windows Server 2016**.
@@ -41,7 +41,7 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 1. Quando você vir a mensagem a validação foi aprovada, selecione **criar**.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) . 
 

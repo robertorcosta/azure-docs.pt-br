@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4ab1dcf4f3554c941107ec653f717b3680543da2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d20f81bf7db2e098f2bca674c5540bc067577f30
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490739"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833903"
 ---
 # <a name="configure-personalizer"></a>Configurar o Personalizador
 
@@ -23,9 +23,9 @@ A configuração do serviço inclui como o serviço trata as recompensas, com qu
 
 ## <a name="create-personalizer-resource"></a>Crie um recurso do Personalizador
 
-Crie um recurso do Personalizador para cada loop de comentários. 
+Crie um recurso do Personalizador para cada loop de comentários.
 
-1. Entre no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você à página **Criar** do serviço do Personalizador. 
+1. Entre no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você à página **Criar** do serviço do Personalizador.
 1. Insira o nome do seu serviço, selecione uma assinatura, um local, um tipo de preço e um grupo de recursos.
 1. Selecione a confirmação e, em seguida, **Criar**.
 
@@ -33,8 +33,8 @@ Crie um recurso do Personalizador para cada loop de comentários.
 
 ## <a name="configure-service-in-the-azure-portal"></a>Configurar o serviço no portal do Azure
 
-1. Entre no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Encontre o recurso do Personalizador. 
+1. Entre no [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+1. Encontre o recurso do Personalizador.
 1. Na seção **Gerenciamento de recursos** , selecione **configuração**.
 
     Antes de sair do portal do Azure, copie uma de suas chaves de recurso da página de **Chaves**. Você precisará disso para usar o [SDK do Personalizador](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
@@ -55,9 +55,9 @@ Configure o serviço para o uso de recompensas do seu loop de comentários. As a
 
 Depois de alterar esses valores, certifique-se de selecionar **salvar**.
 
-### <a name="configure-exploration"></a>Configurar a exploração 
+### <a name="configure-exploration"></a>Configurar a exploração
 
-A personalização pode descobrir novos padrões e se adaptar às alterações no comportamento do usuário ao longo do tempo explorando alternativas. O valor de **exploração** determina qual porcentagem de chamadas de classificação são respondidas com a exploração. 
+A personalização pode descobrir novos padrões e se adaptar às alterações no comportamento do usuário ao longo do tempo explorando alternativas. O valor de **exploração** determina qual porcentagem de chamadas de classificação são respondidas com a exploração.
 
 As alterações nesse valor redefinirão o modelo personalizado atual e o treinarão novamente com os últimos 2 dias de dados.
 
@@ -67,7 +67,7 @@ Depois de alterar esse valor, certifique-se de selecionar **salvar**.
 
 ### <a name="model-update-frequency"></a>Frequência de atualização do modelo
 
-O modelo mais recente, treinado com base nas chamadas à API de Recomenda de cada evento ativo, não é usado automaticamente pela chamada de Classificação do Personalizador. A **Frequência de atualização do modelo** define a frequência com que o modelo usado pela Chamada de classificação é atualizado. 
+O modelo mais recente, treinado com base nas chamadas à API de Recomenda de cada evento ativo, não é usado automaticamente pela chamada de Classificação do Personalizador. A **Frequência de atualização do modelo** define a frequência com que o modelo usado pela Chamada de classificação é atualizado.
 
 As altas frequências de atualização do modelo são úteis para situações em que você deseja acompanhar de perto as alterações em comportamentos do usuário. Os exemplos incluem sites executados em notícias em tempo real, conteúdo viral ou licitação de produtos ao vivo. Você pode usar uma frequência de 15 minutos nesses cenários. Na maioria dos casos de uso, uma frequência de atualização mais baixa é eficaz. Frequências de atualização de um minuto são úteis ao depurar o código de um aplicativo usando o Personalizador, executar demonstrações ou testar interativamente aspectos de aprendizado de máquina.
 
@@ -83,14 +83,9 @@ Depois de alterar esse valor, certifique-se de selecionar **salvar**.
 
 ## <a name="export-the-personalizer-model"></a>Exportar o modelo do Personalizador
 
-Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, reveja criação de modelo e data da última atualização e exporte o modelo atual. É possível usar o portal do Azure ou as APIs do Personalizador para exportar um arquivo de modelo para fins de arquivamento. 
+Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, reveja criação de modelo e data da última atualização e exporte o modelo atual. É possível usar o portal do Azure ou as APIs do Personalizador para exportar um arquivo de modelo para fins de arquivamento.
 
 ![Exportar o modelo atual do Personalizador](media/settings/export-current-personalizer-model.png)
-
-## <a name="import-and-export-learning-policy"></a>Importar e exportar a política de aprendizado
-
-Na seção do gerenciamento de recursos para **configurações de modelo e aprendizado**, importe uma nova política de aprendizado ou exporte a política de aprendizado atual.
-Você pode obter arquivos de política de aprendizado de exportações anteriores ou baixar as políticas otimizadas descobertas durante as avaliações offline. Fazer alterações manuais nesses arquivos afetará o desempenho do aprendizado de máquina e a precisão das avaliações offline, e a Microsoft não conseguirá comprovar a precisão do aprendizado e das avaliações de máquina, ou exceções de serviço resultantes de políticas editadas manualmente.
 
 ## <a name="clear-data-for-your-learning-loop"></a>Limpar dados para seu loop de aprendizado
 
@@ -105,9 +100,8 @@ Você pode obter arquivos de política de aprendizado de exportações anteriore
     |Redefina o modelo personalizador.|Esse modelo é alterado em cada novo treinamento. Essa frequência de treinamento é especificada na **frequência do modelo de carregamento** na página de **configuração** . |
     |Defina a política de aprendizado como padrão.|Se você alterou a política de aprendizado como parte de uma avaliação offline, isso redefinirá a política de aprendizado original.|
 
-1. Selecione **limpar dados selecionados** para iniciar o processo de limpeza. O status é relatado nas notificações do Azure, na navegação superior direita. 
+1. Selecione **limpar dados selecionados** para iniciar o processo de limpeza. O status é relatado nas notificações do Azure, na navegação superior direita.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-
-[Saiba mais sobre a disponibilidade de região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[Saiba como gerenciar uma política de aprendizado](how-to-learning-policy.md)

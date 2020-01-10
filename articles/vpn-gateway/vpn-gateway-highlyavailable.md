@@ -1,26 +1,18 @@
 ---
-title: Visão geral das configurações de alta disponibilidade com Gateways de VPN do Azure | Microsoft Docs
+title: 'Gateway de VPN do Azure: visão geral – configurações de gateway altamente disponíveis'
 description: Este artigo fornece uma visão geral das opções de configuração de alta disponibilidade usando os Gateways de VPN do Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760245"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779613"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividade Altamente Disponível entre os Locais e VNet com VNet
 Este artigo fornece uma visão geral das opções de configuração Altamente Disponível para sua conectividade entre os locais e VNet com VNet usando os gateways de VPN.
@@ -83,6 +75,6 @@ A mesma configuração ativa pode também se aplicar às conexões entre as VNet
 
 Isso garante que sempre haverá um par de túneis entre as duas redes virtuais para qualquer evento de manutenção planejada, fornecendo uma disponibilidade ainda melhor. Ainda que a mesma topologia para a conectividade entre os locais requeira duas conexões, a topologia de VNet para VNet mostrada acima precisará apenas de uma conexão para cada gateway. Além disso, o BGP é opcional, a menos que o roteamento de tráfego na conexão VNet com VNet seja necessário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte [Configurando os Gateways de VPN Ativos para Conexões de VNet com VNet e Entre Locais](vpn-gateway-activeactive-rm-powershell.md) para ver as etapas de configuração das conexões ativas entre os locais e conexões VNet com VNet.
 

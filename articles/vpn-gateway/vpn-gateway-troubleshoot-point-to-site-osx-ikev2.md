@@ -1,26 +1,18 @@
 ---
-title: Solucionar problemas de conexões VPN ponto a site do Azure dos clientes Mac OS X | Microsoft Docs
+title: 'Gateway de VPN do Azure: solucionar problemas de conexões ponto a site: clientes Mac OS X'
 description: Etapas para solucionar problemas de conexões de cliente SO P2S Mac OS X VPN
 services: vpn-gateway
-documentationcenter: na
 author: anzaman
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f76fd7bce539ebcf79216aabb5bf868b2d18107a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60456998"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780174"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Solucionar problemas de conexões VPN ponto a site do Azure dos clientes Mac OS X
 
@@ -63,12 +55,12 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
 
 Se você tentar realizar as etapas anteriores e tudo estiver configurado corretamente, faça o download do [Wireshark](https://www.wireshark.org/#download) e execute uma captura de pacote.
 
-1. Filtrar *isakmp* e examine o **IKE_SA** pacotes. Você poderá examinar os detalhes da proposta de SA em **Payload: Associação de segurança**. 
+1. Filtrar *isakmp* e examine o **IKE_SA** pacotes. Você poderá examinar os detalhes da proposta de SA em **Payload: Associação de Segurança**. 
 2. Verifique se o cliente e o servidor têm um conjunto comum.
 
    ![pacote](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
 3. Se não houver resposta do servidor nos rastreamentos de rede, verifique se você ativou o protocolo IKEv2 na página Configuração do Gateway do Azure no site do Portal do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter mais ajuda, entre em contato com o [Suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e696db3ad452152f6478701876b7760d7fed355b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793102"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840676"
 ---
 Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
 
@@ -77,7 +77,7 @@ Ao estabelecer uma conexão TLS segura com o IoT Hub, o dispositivo IoT autentic
 
 ## <a name="securing-the-connection"></a>Protegendo a conexão
 
-A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Se possível, use o TLS 1.2 já que ele fornece segurança máxima.
+A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Se possível, [configure seu hub](../articles/iot-hub/iot-hub-tls.md) para usar o TLS 1,2, pois ele fornece a maior segurança.
 
 ## <a name="securing-the-cloud"></a>Proteger a nuvem
 

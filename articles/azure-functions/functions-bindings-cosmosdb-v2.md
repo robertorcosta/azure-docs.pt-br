@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 0ad569977194441b026c2c987ecad544ce40cfa1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2e08c1c0fbd0962adee44af949be280701915a1e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227354"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834062"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associações do Azure Cosmos DB para o Azure Functions 2.x
 
@@ -51,7 +51,7 @@ Consulte o exemplo específico a um idioma:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-Ignorar exemplos de gatilho
+[Ignorar exemplos de gatilho](#trigger---c-attributes)
 
 ### <a name="trigger---c-example"></a>Gatilho - exemplo C#
 
@@ -87,11 +87,11 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Ignorar exemplos de gatilho
+[Ignorar exemplos de gatilho](#trigger---c-attributes)
 
 ### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
 
-O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação. A função grava mensagens de log quando registros do Cosmos DB são modificados.
+O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação. A função grava mensagens de log quando Cosmos DB registros são adicionados ou modificados.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -125,11 +125,11 @@ Aqui está o código de script do C#:
     }
 ```
 
-Ignorar exemplos de gatilho
+[Ignorar exemplos de gatilho](#trigger---c-attributes)
 
 ### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava mensagens de log quando registros do Cosmos DB são modificados.
+O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava mensagens de log quando Cosmos DB registros são adicionados ou modificados.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -156,9 +156,11 @@ Aqui está o código JavaScript:
     }
 ```
 
-### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+[Ignorar exemplos de gatilho](#trigger---c-attributes)
 
-O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a associação. A função é envolvida quando há inserções ou atualizações na coleção e banco de dados especificados.
+### <a name="trigger---java-example"></a>Gatilho - exemplo Java
+
+O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a associação. A função é invocada quando há inserções ou atualizações no banco de dados e na coleção especificados.
 
 ```json
 {
@@ -193,11 +195,12 @@ Aqui está o código Java:
 Na biblioteca de runtime de funções [Java](/java/api/overview/azure/functions/runtime), use a anotação `@CosmosDBTrigger` nos parâmetros cujo valor seria proveniente do Cosmos DB.  Esta anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando > opcional\<T.
 
 
-Ignorar exemplos de gatilho
+[Ignorar exemplos de gatilho](#trigger---c-attributes)
+
 
 ### <a name="trigger---python-example"></a>Gatilho – Exemplo do Python
 
-O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação. A função grava mensagens de log quando registros do Cosmos DB são modificados.
+O exemplo a seguir mostra uma associação de gatilho do Cosmos DB em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação. A função grava mensagens de log quando Cosmos DB registros são adicionados ou modificados.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -214,7 +217,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
 }
 ```
 
-Confira o código Python:
+Aqui está o código Python:
 
 ```python
     import logging
@@ -248,9 +251,9 @@ Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `CosmosDBTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDBTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** || Deve ser definido como `cosmosDBTrigger`. |
 |**direction** || Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
@@ -258,7 +261,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**databaseName**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Opcional) O nome de uma configuração de aplicativo que contém a cadeia de conexão para o serviço com a coleção de concessão. Quando não definido, o valor `connectionStringSetting` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. A cadeia de conexão da coleção de concessões deve ter permissões de gravação.|
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | Adicional O nome de uma configuração de aplicativo que contém a cadeia de conexão para a conta de Azure Cosmos DB que contém a coleção de concessão. Quando não definido, o valor `connectionStringSetting` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. A cadeia de conexão da coleção de concessões deve ter permissões de gravação.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Opcional) O nome do banco de dados que contém a coleção usada para armazenar as concessões. Quando não definido, o valor da configuração `databaseName` é usado. Esse parâmetro é definido automaticamente quando a associação é criada no portal. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Opcional) O nome da coleção usada para armazenar as concessões. Quando não definido, o valor `leases` é usado. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Opcional) Quando definido como `true`, a coleção de concessões é criada automaticamente quando ela ainda não existe. O valor padrão é `false`. |
@@ -333,7 +336,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>Gatilho da fila, pesquisar ID no JSON (C#)
 
-O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é disparada por uma mensagem da fila que contém um objeto JSON. O gatilho de fila analisa o JSON em um objeto chamado `ToDoItemLookup`, que contém a ID e o valor da chave de partição a ser pesquisada. Esse ID e o valor da chave de partição são usados para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que recupera um único documento. A função é disparada por uma mensagem da fila que contém um objeto JSON. O gatilho de fila analisa o JSON em um objeto do tipo `ToDoItemLookup`, que contém a ID e o valor da chave de partição a ser pesquisada. Esse ID e o valor da chave de partição são usados para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -1115,7 +1118,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Gatilho HTTP, pesquisar ID nos dados da rota (JavaScript)
 
-O exemplo a seguir mostra uma [função de script JavaScript](functions-reference-node.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID e o valor da chave de partição a ser pesquisada. Esse ID e o valor da chave de partição são usados para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
+O exemplo a seguir mostra uma [função de script JavaScript](functions-reference-node.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa dados de rota para especificar a ID e o valor de chave de partição a serem pesquisados. Esse ID e o valor da chave de partição são usados para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 Aqui está o arquivo *function.json*:
 
@@ -1252,7 +1255,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
 
 A seção [configuração](#input---configuration) explica essas propriedades.
 
-Confira o código Python:
+Aqui está o código Python:
 
 ```python
 import azure.functions as func
@@ -1307,7 +1310,7 @@ Aqui está o arquivo *function.json*:
 }
 ```
 
-Confira o código Python:
+Aqui está o código Python:
 
 ```python
 import logging
@@ -1328,7 +1331,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>Gatilho HTTP, pesquisar ID nos dados da rota (Python)
 
-O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID e o valor da chave de partição a ser pesquisada. Esse ID e o valor da chave de partição são usados para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
+O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é disparada por uma solicitação HTTP que usa dados de rota para especificar a ID e o valor de chave de partição a serem pesquisados. Esse ID e o valor da chave de partição são usados para recuperar um documento `ToDoItem` do banco de dados e da coleção especificados.
 
 Aqui está o arquivo *function.json*:
 
@@ -1367,7 +1370,7 @@ Aqui está o arquivo *function.json*:
 }
 ```
 
-Confira o código Python:
+Aqui está o código Python:
 
 ```python
 import logging
@@ -1407,7 +1410,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
 
 A seção [configuração](#input---configuration) explica essas propriedades.
 
-Confira o código Python:
+Aqui está o código Python:
 
 ```python
 import azure.functions as func
@@ -1466,7 +1469,7 @@ Esse exemplo requer um arquivo `project.json` que especifique as dependências `
 }
 ```
 
-Para adicionar um arquivo do `project.json`, veja [gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
+Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
 
 ### <a name="input---java-examples"></a>Entrada - Exemplos Java
 
@@ -1682,7 +1685,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>Gatilho HTTP, obter vários documentos dos dados da rota, usando SqlQuery (Java)
 
-O exemplo a seguir mostra uma função Java para vários documentos. A função é disparada por uma solicitação HTTP que usa um parâmetro de rota ```desc``` para especificar a cadeia de caracteres a ser pesquisada no campo ```description```. O termo de pesquisa é usado para recuperar uma coleção de documentos do banco de dados e coleção especificados, convertendo o conjunto de resultados para um ```ToDoItem[]``` e passando-o como um argumento para a função.
+O exemplo a seguir mostra uma função Java que recupera vários documentos. A função é disparada por uma solicitação HTTP que usa um parâmetro de rota ```desc``` para especificar a cadeia de caracteres a ser pesquisada no campo ```description```. O termo de pesquisa é usado para recuperar uma coleção de documentos do banco de dados e coleção especificados, convertendo o conjunto de resultados para um ```ToDoItem[]``` e passando-o como um argumento para a função.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1730,16 +1733,16 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `CosmosDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDB`.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     || Deve ser definido como `cosmosDB`.        |
 |**direction**     || Deve ser definido como `in`.         |
 |**name**     || Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
-|**ID**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
+|**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações em tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação. Ele é necessário para pesquisas em coleções [particionadas](../cosmos-db/partition-data.md#logical-partitions) .|
@@ -2100,14 +2103,6 @@ O código F# é o seguinte:
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
     open Microsoft.Extensions.Logging
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
     let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
       log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
@@ -2133,7 +2128,7 @@ Esse exemplo requer um arquivo `project.json` que especifique as dependências `
 }
 ```
 
-Para adicionar um arquivo do `project.json`, veja [gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
+Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
 
 ### <a name="output---java-examples"></a>Saída - Exemplo Java
 
@@ -2367,9 +2362,9 @@ Para ver um exemplo completo, confira Saída - exemplo de C#.
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definir no arquivo *function.json* e o `CosmosDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDB`.
 
-|Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo**     || Deve ser definido como `cosmosDB`.        |
 |**direction**     || Deve ser definido como `out`.         |
@@ -2417,13 +2412,13 @@ Esta seção descreve as definições de configuração globais disponíveis par
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Description |
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

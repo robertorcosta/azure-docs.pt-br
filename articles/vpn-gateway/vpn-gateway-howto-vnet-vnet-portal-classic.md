@@ -1,26 +1,19 @@
 ---
-title: 'Criar uma conexão entre redes virtuais: clássico: Portal do Azure | Microsoft Docs'
+title: 'Crie uma conexão entre VNets: clássico: portal do Azure'
 description: Conecte redes virtuais do Azure entre si usando o PowerShell e o Portal do Azure.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 8ebfe1bc2e578fa85f209f4dd67a00535e619c7e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407818"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834623"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma conexão entre redes virtuais (clássico)
 
@@ -29,12 +22,12 @@ ms.locfileid: "60407818"
 Este artigo ajuda a criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. As etapas neste artigo se aplicam ao modelo de implantação clássico e o portal do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Conectar modelos de implantação diferentes – portal do Azure](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Conectar modelos de implantação diferentes – PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Conectar modelos de implantação diferentes - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
@@ -80,7 +73,7 @@ A tabela a seguir mostra um exemplo de como definir as VNets. Use os intervalos 
 
 **Exemplo**
 
-| Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |
+| Rede virtual | Espaço de endereço | Região | Conecta ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Leste dos EUA |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos EUA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -103,9 +96,9 @@ Se estiver usando este artigo como um exercício, você poderá usar os seguinte
 Nome: TestVNet1<br>
 Espaço de endereço: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nome da sub-rede: padrão<br>
-Intervalo de endereços de sub-rede: 10.11.0.1/24<br>
+Intervalo de endereços da sub-rede: 10.11.0.1/24<br>
 Grupo de recursos: ClassicRG<br>
-Localização: Leste dos EUA<br>
+Local: Leste dos EUA<br>
 GatewaySubnet: 10.11.1.0/27
 
 **Valores para TestVNet4**
@@ -113,9 +106,9 @@ GatewaySubnet: 10.11.1.0/27
 Nome: TestVNet4<br>
 Espaço de endereço: 10.41.0.0/16, 10.42.0.0/16 (opcional)<br>
 Nome da sub-rede: padrão<br>
-Intervalo de endereços de sub-rede: 10.41.0.1/24<br>
+Intervalo de endereços da sub-rede: 10.41.0.1/24<br>
 Grupo de recursos: ClassicRG<br>
-Localização: Oeste dos EUA<br>
+Local: Oeste dos EUA<br>
 GatewaySubnet: 10.41.1.0/27
 
 **Ao criar suas redes virtuais, lembre-se das seguintes configurações:**
@@ -142,7 +135,7 @@ Por exemplo, a TestVNet1 conecta-se a um site de rede local que você criou cham
 
 O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo são usados para nossa configuração:
 
-| Rede Virtual | Espaço de endereço | Região | Conecta ao site de rede local |
+| Rede virtual | Espaço de endereço | Região | Conecta ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Leste dos EUA |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste dos EUA |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -212,7 +205,7 @@ Depois que os gateways de rede virtual tiverem sido criados para ambas as VNets,
 
 ## <a name="getvalues"></a>Etapa 7 – Recuperar valores do arquivo de configuração de rede
 
-Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. O nome poderia ser semelhante ao seguinte: **Grupo ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede.
+Quando você cria VNets clássicas no portal do Azure, o nome que você vê não é o nome completo usado para o PowerShell. Por exemplo, uma VNet que parece ter o nome **TestVNet1** no portal, pode ter um nome muito mais longo no arquivo de configuração de rede. O nome pode ser algo parecido com: **Grupo ClassicRG TestVNet1**. Ao criar suas conexões, é importante usar os valores que você vê no arquivo de configuração de rede.
 
 Nas etapas a seguir, você vai se conectar à sua conta do Azure, bem como baixar e exibir o arquivo de configuração de rede para obter os valores que são necessários para as conexões.
 
@@ -290,5 +283,5 @@ Nos exemplos, observe que a chave compartilhada é exatamente a mesma. A chave c
 * Todos os túneis de VPN para VNet, incluindo VPNs P2S, compartilham a largura de banda disponível no gateway de VPN e o mesmo SLA de tempo de ativação de gateway de VPN no Azure.
 * O tráfego da rede virtual com rede virtual viaja pelo backbone do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Verifique as conexões. Confira [Verificar uma conexão de Gateway de VPN](vpn-gateway-verify-connection-resource-manager.md).

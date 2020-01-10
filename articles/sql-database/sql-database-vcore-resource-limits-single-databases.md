@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.reviewer: carlrab
+ms.date: 01/09/2020
+ms.openlocfilehash: 27868f062cd628347e38b5fdb9f243347dea3e23
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647842"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834979"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra vCore
 
@@ -322,9 +322,10 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 |Tamanho máximo de dados de TempDB (GB)|333|
 |Tipo de armazenamento|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|23.040|
+|IOPS de dados máximo *|12.800|
 |Taxa máxima de logs (MBps)|30|
 |Máximo de trabalhos simultâneos (solicitações)|3600|
+|Máximo de logons simultâneos|3600|
 |Máximo de sessões simultâneas|30,000|
 |Número de réplicas|1|
 |Multi-AZ|N/D|
@@ -448,21 +449,22 @@ A [camada de computação sem servidor](sql-database-serverless.md) está dispon
 
 ### <a name="m-series-compute-generation-preview"></a>Geração de computação da série M (versão prévia)
 
-|Tamanho da computação|GP_M_128|
+|Tamanho da computação|BC_M_128|
 |:--- | --: |
 |Geração de computação|Série M|
 |vCores|128|
-|Memória (GB)|3767|
+|Memória (GB)|3767,1|
 |Suporte de columnstore|Sim|
-|Armazenamento OLTP na memória (GB)|481|
+|Armazenamento OLTP na memória (GB)|1768|
 |Tamanho máximo de dados (GB)|4096|
 |Tamanho máximo de log (GB)|2\.048|
 |Tamanho máximo de dados de TempDB (GB)|4096|
 |Tipo de armazenamento|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|204.800|
-|Taxa máxima de logs (MBps)|192|
-|Máximo de trabalhos simultâneos (solicitações)|12800|
+|IOPS de dados máximo *|160.000|
+|Taxa máxima de logs (MBps)|264|
+|Máximo de trabalhos simultâneos (solicitações)|12.800|
+|Máximo de logons simultâneos|12.800|
 |Máximo de sessões simultâneas|30000|
 |Número de réplicas|4|
 |Multi-AZ|Sim|

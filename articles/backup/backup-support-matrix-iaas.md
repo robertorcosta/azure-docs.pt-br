@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de VM do Azure
 description: Fornece um resumo de configurações compatíveis e limitações ao fazer backup de VMs do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996163"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829537"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -24,7 +24,7 @@ Outras matrizes de suporte:
 
 Veja como fazer backup e restaurar as VMs do Azure com o serviço de Backup do Azure.
 
-**Cenário** | **Backup** | **Agente** |**Restore**
+**Cenário** | **Backup** | **Agente** |**Restaurar**
 --- | --- | --- | ---
 Backup direto de VMs do Azure  | Faça backup de toda a VM.  | Nenhum agente é necessário na VM do Azure. O backup do Azure é instalado e usa uma extensão para o [agente de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que está em execução na VM. | Restaure da seguinte maneira:<br/><br/> - **Crie uma VM básica**. Isso será útil se a VM não tiver nenhuma configuração especial, como vários endereços IP.<br/><br/> - **Restaure o disco da VM**. Restaure o disco. Em seguida, anexe-o a uma VM existente ou crie uma nova VM do disco usando o PowerShell.<br/><br/> - **Substitua o disco da VM**. Se existir uma VM que usa discos gerenciados (não criptografados), você pode restaurar um disco e usá-lo para substituir um disco existente na VM.<br/><br/> - **Restaure arquivos/pastas específicas**. Você pode restaurar arquivos/pastas de uma VM em vez de uma VM inteira.
 Backup direto de VMs do Azure (somente Windows)  | Fazer backup de arquivos/pastas/volumes específicos. | Instale o [agente dos serviços de recuperação do Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> Você pode executar o agente do MARS com a extensão de backup para o agente de VM do Azure para fazer backup da VM no nível de arquivo/pasta. | Restaure arquivos/pastas específicos.
@@ -107,7 +107,7 @@ Restaurar arquivos | É possível recuperar arquivos de um ponto de recuperaçã
 
 ## <a name="support-for-file-level-restore"></a>Suporte para restauração no nível de arquivos
 
-**Restore** | **Com suporte**
+**Restaurar** | **Com suporte**
 --- | ---
 Restaurar arquivos entre sistemas operacionais | Você pode restaurar os arquivos de qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela de so compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar arquivos em VMs clássicas | Sem suporte.
@@ -121,7 +121,7 @@ Restaurar arquivos com configurações de rede especiais | Não há suporte para
 
 A tabela a seguir resume o suporte para backup durante as tarefas de gerenciamento de VM, como adicionar ou substituir discos de VM.
 
-**Restore** | **Com suporte**
+**Restaurar** | **Com suporte**
 --- | ---
 Restaure em região/assinatura/zona. | Sem suporte.
 Restaurar uma VM existente | Use a opção para substituir disco.
@@ -154,16 +154,16 @@ VMs Gen2 | Com suporte <br> O backup do Azure dá suporte ao backup e à restaur
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados de VM do Azure | Faça o backup de uma VM com 16 discos de dados ou menos.
+Discos de dados de VM do Azure | Faça backup de uma VM com 16 ou menos discos de dados.<BR> Para se inscrever para a versão prévia privada de VMs com mais de 16 discos (até 32 discos), escreva para nós em AskAzureBackupTeam@microsoft.com
 Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 Tipo de armazenamento | HDD Standard, SSD Standard SSD Premium.
 Managed Disks | Com suporte.
-Discos criptografados | Com suporte (até 4 TB).<br/><br/> As VMs do Azure habilitadas com Azure Disk Encryption podem ser submetidas a backup (com ou sem o aplicativo do Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você deve recuperar toda a VM.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidos pelo Backup do Azure.
+Discos criptografados | Com suporte.<br/><br/> As VMs do Azure habilitadas com Azure Disk Encryption podem ser submetidas a backup (com ou sem o aplicativo do Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você deve recuperar toda a VM.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidos pelo Backup do Azure.
 Discos com o Acelerador de Gravação habilitado | Sem suporte.<br/><br/> O backup do Azure exclui automaticamente os discos com Acelerador de Gravação habilitado durante o backup. Como não é feito backup, você não poderá restaurar esses discos de pontos de recuperação da VM.
-Fazer backup & restaurar VMs/discos com eliminação de duplicação | O backup do Azure não oferece suporte à eliminação de duplicação. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -O backup do Azure não elimina a duplicação entre VMs no cofre dos serviços de recuperação <br/> <br/>  -Se houver VMs no estado de eliminação de duplicação durante a restauração, os arquivos não poderão ser restaurados, pois o cofre não entenderá o formato
+Fazer backup & restaurar VMs/discos com eliminação de duplicação | O backup do Azure não oferece suporte à eliminação de duplicação. Para obter mais informações, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -O backup do Azure não elimina a duplicação entre VMs no cofre dos serviços de recuperação <br/> <br/>  -Se houver VMs no estado de eliminação de duplicação durante a restauração, os arquivos não poderão ser restaurados, pois o cofre não entenderá o formato. No entanto, você poderá executar com êxito a restauração completa da VM.
 Adicionar o disco à VM protegida | Com suporte.
 Redimensionar o disco em uma VM protegida | Com suporte.
-Armazenamento compartilhado| O backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal não é recomendado. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não vir.
+Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não vir.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 
@@ -205,10 +205,10 @@ Segurança dos dados:
 
 **Computador** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Computadores Windows locais sem o DPM/MABS | ![SIM][green] | ![SIM][green]
-VMs do Azure | ![SIM][green] | ![SIM][green]
-Locais/VMs do Azure com o DPM | ![SIM][green] | ![SIM][green]
-Locais/VMs do Azure com o MABS | ![SIM][green] | ![SIM][green]
+Computadores Windows locais sem o DPM/MABS | ![Sim][green] | ![Sim][green]
+VMs do Azure | ![Sim][green] | ![Sim][green]
+Locais/VMs do Azure com o DPM | ![Sim][green] | ![Sim][green]
+Locais/VMs do Azure com o MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compactação de VM
 
@@ -219,10 +219,10 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 
 **Computador** | **Compactar no DPM/MABS (TCP)** | **Compactar para o cofre (HTTPS)**
 --- | --- | ---
-Computadores Windows locais sem o DPM/MABS | ND | ![SIM][green]
+Computadores Windows locais sem o DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Locais/VMs do Azure com o DPM | ![SIM][green] | ![SIM][green]
-Locais/VMs do Azure com o MABS | ![SIM][green] | ![SIM][green]
+Locais/VMs do Azure com o DPM | ![Sim][green] | ![Sim][green]
+Locais/VMs do Azure com o MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -12,39 +12,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033362"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833847"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Versão prévia: implantar VMs em hosts dedicados usando o Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implantar VMs em hosts dedicados usando o Azure PowerShell
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 
-Verifique se você instalou Azure PowerShell versão 2.4.2 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. Para instalar a versão 2.4.2, abra um prompt do PowerShell e digite:
+Verifique se você instalou Azure PowerShell versão 2.8.0 ou posterior e se está conectado a uma conta do Azure no com `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>Limitações
 
-Será necessário pelo menos a versão 1.6.0 do módulo PowerShellGet para habilitar a funcionalidade do módulo de visualização no PowerShell. As versões mais recentes do PowerShell Core têm isso criado automaticamente, mas para versões mais antigas do PowerShell, você pode executar o seguinte comando para atualizar para a versão mais recente:
-
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Atualmente, os hosts dedicados do Azure estão em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitações de visualização conhecidas**
-> - Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
-> - A versão inicial da visualização dá suporte à seguinte série de VMs: DSv3 e ESv3. 
-
-
+- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
+- Há suporte para a série de VMs a seguir: DSv3 e ESv3. 
 
 ## <a name="create-a-host-group"></a>Criar um grupo de hosts
 
@@ -90,7 +74,7 @@ $dHost = New-AzHost `
    -PlatformFaultDomain 1
 ```
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 
 Crie uma máquina virtual no host dedicado. 
 
@@ -215,7 +199,7 @@ Remove-AzResourceGroup -Name $rgName
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Há um modelo de exemplo, encontrado [aqui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), que usa zonas e domínios de falha para obter máxima resiliência em uma região.
 

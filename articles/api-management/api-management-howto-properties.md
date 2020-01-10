@@ -10,26 +10,26 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824168"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834306"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar valores nomeados em políticas de gerenciamento de API do Azure
 
 As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados.
 
-Cada instância de serviço de gerenciamento de API tem uma coleção de propriedades de pares de chave/valor, que é chamada de valores nomeados, que são globais para a instância do serviço. Não há limite imposto sobre o número de itens na coleção. Valores nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes em todas as políticas e configuração de API. Cada valor nomeado pode ter os seguintes atributos:
+Cada instância de serviço de gerenciamento de API tem uma coleção de pares de chave/valor, que é chamada de valores nomeados, que são globais para a instância de serviço. Não há limite imposto sobre o número de itens na coleção. Valores nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes em todas as políticas e configuração de API. Cada valor nomeado pode ter os seguintes atributos:
 
-| Atributo      | Tipo            | DESCRIÇÃO                                                                                                                         |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | Usado para referenciar o valor nomeado em políticas. Uma cadeia de uma a 256 caracteres. Somente letras, números, ponto e traço são permitidos. |
-| `Value`        | string          | Valor real. Não deve estar vazio nem consistir apenas em espaços em branco. Máximo de 4096 caracteres de comprimento.                                     |
-| `Secret`       | booleano         | Determina se o valor é um segredo e se deve ser criptografado ou não.                                                            |
+| Atributo      | Tipo            | Description                                                                                                                            |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | cadeia de caracteres          | Usado para referenciar o valor nomeado em políticas. Uma cadeia de uma a 256 caracteres. Somente letras, números, ponto e traço são permitidos. |
+| `Value`        | cadeia de caracteres          | Valor real. Não deve estar vazio nem consistir apenas em espaços em branco. Máximo de 4096 caracteres de comprimento.                                        |
+| `Secret`       | booleano         | Determina se o valor é um segredo e se deve ser criptografado ou não.                                                               |
 | `Tags`         | matriz de cadeias de caracteres | Usado para filtrar a lista de valores nomeados. Até 32 marcas.                                                                                    |
 
 ![Valores nomeados](./media/api-management-howto-properties/named-values.png)
@@ -39,8 +39,11 @@ Os valores nomeados podem conter cadeias de caracteres literais e [expressões d
 | Nome       | Valor                      | Segredo | Marcas          |
 | ---------- | -------------------------- | ------ | ------------- |
 | Valor      | 42                         | Falso  | números vitais |
-| Credencial | ••••••••••••••••••••••     | True   | segurança      |
+| Credencial | ••••••••••••••••••••••     | Verdadeiro   | segurança      |
 | Expression | @(DateTime.Now.ToString()) | Falso  |               |
+
+> [!NOTE]
+> Em vez de valores nomeados armazenados em um serviço de gerenciamento de API, você pode usar valores armazenados no serviço de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) , conforme demonstrado por este [exemplo](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## <a name="to-add-and-edit-a-named-value"></a>Para adicionar e editar um valor nomeado
 
@@ -50,7 +53,7 @@ Os valores nomeados podem conter cadeias de caracteres literais e [expressões d
 2. Selecione **Valores nomeados**.
 3. Pressione **+Adicionar**.
 
-    Nome e Valor são valores obrigatórios. Se o valor for um segredo, marque a caixa de seleção *este é um segredo* . Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
+    Nome e Valor são valores obrigatórios. Se o valor for um segredo, marque a caixa de seleção _este é um segredo_ . Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
 
 4. Clique em **Criar**.
 
@@ -99,15 +102,15 @@ Quando essa política é avaliada, `{{ExpressionProperty}}` é substituído por 
 
 Você pode testar isso no portal do desenvolvedor chamando uma operação que tenha uma política com valores nomeados no escopo. No exemplo a seguir, uma operação é chamada com os dois exemplos de políticas `set-header` anteriores com valores nomeados. Observe que a resposta contém dois cabeçalhos personalizados configurados usando políticas com valores nomeados.
 
-![portal do desenvolvedor][api-management-send-results]
+![Portal do desenvolvedor][api-management-send-results]
 
-Se você observar o [rastreamento do Inspetor de API](api-management-howto-api-inspector.md) para uma chamada que inclui as duas políticas de exemplo anteriores com valores nomeados, você poderá ver as duas políticas de `set-header` com os valores nomeados inseridos, bem como a avaliação da expressão de política para o valor nomeado que continha a expressão de política.
+Se você examinar o [rastreamento do Inspetor de API](api-management-howto-api-inspector.md) para uma chamada que inclui as duas políticas de exemplo anteriores com valores nomeados, você poderá ver as duas políticas de `set-header` com os valores nomeados inseridos, bem como a avaliação da expressão de política para o valor nomeado que continha a expressão de política.
 
 ![Rastreamento do Inspetor de API][api-management-api-inspector-trace]
 
 Embora os valores nomeados possam conter expressões de política, eles não podem conter outros valores nomeados. Se o texto que contém uma referência de valor nomeado for usado para um valor, como `Text: {{MyProperty}}`, essa referência não será resolvida e substituída.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 -   Saiba mais sobre como trabalhar com políticas
     -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)

@@ -1,20 +1,20 @@
 ---
 title: Autenticação com os Azure Mapas | Microsoft Docs
-description: Autenticação para uso dos serviços dos Azure Mapas.
+description: Azure Active Directory (Azure AD) ou autenticação de chave compartilhada para usar os serviços do Microsoft Azure Maps. Saiba como obter a chave de assinatura do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/24/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a58436063009b732a15e74c8a3fc3f95b8df29cf
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575649"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834192"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
@@ -22,12 +22,14 @@ O mapas do Azure dá suporte a duas maneiras de autenticar solicitações: chave
 
 ## <a name="shared-key-authentication"></a>Autenticação de Chave Compartilhada
 
-A autenticação de Chave compartilhada passa as chaves geradas pela conta dos Azure Mapas com cada solicitação aos Azure Mapas.  Duas chaves são geradas quando sua conta do Azure Maps é criada. Cada solicitação aos serviços dos Azure Mapas exige que a chave de assinatura seja adicionada como um parâmetro à URL.
+A autenticação de chave compartilhada passa as chaves geradas por uma conta do Azure Maps com cada solicitação para mapas do Azure. Para cada solicitação para os serviços do Azure Maps, a *chave de assinatura* precisa ser adicionada como um parâmetro à URL. As chaves primária e secundária são geradas depois que a conta do Azure Maps é criada. Recomendamos que você use a chave primária como a chave de assinatura ao chamar o Azure Maps usando a autenticação de chave compartilhada. A chave secundária pode ser usada em cenários como alterações de chave sem interrupção.  
+
+Para obter informações sobre como exibir suas chaves no portal do Azure, consulte [gerenciar a autenticação](https://aka.ms/amauthdetails).
 
 > [!Tip]
 > Recomendamos a regeneração frequente das chaves. Você recebe duas chaves, de modo que possa manter conexões usando uma chave enquanto regenera a outra. Ao regenerar suas chaves, você precisará atualizar os aplicativos que acessam essa conta para que usem as novas chaves.
 
-Para obter informações sobre como exibir suas chaves, consulte [Exibir detalhes de autenticação](https://aka.ms/amauthdetails).
+
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticação com o Azure Active Directory (versão prévia)
 
@@ -46,7 +48,7 @@ Azure Mapas gera um *identificador exclusivo (ID do cliente)* para cada conta do
 | Azure Environment   | Ponto de extremidade de token do Azure AD |
 | --------------------|-------------------------|
 | Público do Azure        | https://login.microsoftonline.com |
-| Azure Government    | https://login.microsoftonline.us |
+| Azure Governamental    | https://login.microsoftonline.us |
 
 
 Para obter mais informações sobre como configurar o Azure AD e solicitar tokens para os Azure Mapas, confira [Como gerenciar a autenticação nos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
@@ -90,7 +92,7 @@ Para obter informações sobre como exibir as configurações do RBAC, confira [
 
 As [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem serviços do Azure (Serviço de Aplicativo do Azure, Azure Functions, Máquinas Virtuais etc.) com uma identidade gerenciada automaticamente que pode ser autorizada para acesso aos serviços dos Azure Mapas.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre como autenticar um aplicativo com o Azure AD e os Azure Mapas, confira [Como gerenciar a autenticação no Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 

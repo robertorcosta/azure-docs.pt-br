@@ -1,26 +1,19 @@
 ---
-title: 'Conectar uma rede virtual a outra rede virtual usando uma conexão de VNet a VNet: CLI do Azure | Microsoft Docs'
+title: 'Conectar uma VNet a uma VNet usando uma conexão VNet a VNet: CLI do Azure'
 description: Conecte redes virtuais usando a conexão de rede virtual a rede virtual e a CLI do Azure.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60411756"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834569"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -29,7 +22,7 @@ Este artigo ajuda você a conectar redes virtuais usando o tipo de conexão de r
 As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager e usa a CLI do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI do Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -50,7 +43,7 @@ A configuração de uma conexão VNet a VNet é uma boa maneira de conectar rede
 
 Se você estiver trabalhando com uma configuração de rede complicada, talvez prefira se conectar suas redes virtuais usando as etapas de [Site a Site](vpn-gateway-howto-site-to-site-resource-manager-cli.md) etapas, em vez das etapas de VNet para VNet. Quando você usar as etapas de Site a Site, vai criar e configurar os gateways de rede local manualmente. O gateway de rede local para cada VNet trata a outra VNet como um site local. Isso permite que você especifique o espaço de endereço adicional para o gateway de rede local a fim de rotear o tráfego. Se o espaço de endereço para uma rede virtual for alterado, você precisará atualizar manualmente o gateway de rede local correspondente para refletir a alteração. Ele não é atualizado automaticamente.
 
-### <a name="vnet-peering"></a>Emparelhamento VNet
+### <a name="vnet-peering"></a>Emparelhamento de VNet
 
 Talvez você queira considerar a conexão de suas VNets usando o Emparelhamento de VNet. O emparelhamento de VNet não usa um gateway de VPN e tem restrições diferentes. Além disso, os [preços do emparelhamento VNet](https://azure.microsoft.com/pricing/details/virtual-network) são calculados de maneira diferente dos [preços de Gateway de VPN de VNet a VNet](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
 
@@ -74,11 +67,11 @@ Neste artigo, você verá dois conjuntos diferentes de etapas de conexão VNet p
 
 Para este exercício, você pode combinar as configurações, ou simplesmente escolher aquela com a qual você deseja trabalhar. Todas as configurações usam o tipo de conexão VNet a VNet. O tráfego de rede flui entre as VNets diretamente conectadas umas às outras. Neste exercício, o tráfego de TestVNet4 não roteia para TestVNet5.
 
-* [VNets que estão na mesma assinatura:](#samesub) As etapas para essa configuração usam TestVNet1 e TestVNet4.
+* [VNets que residem na mesma assinatura](#samesub): as etapas para essa configuração usam TestVNet1 e TestVNet4.
 
   ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [VNets que estão em assinaturas diferentes:](#difsub) As etapas para essa configuração usam TestVNet1 e TestVNet5.
+* [VNets que residem em assinaturas diferentes](#difsub): as etapas para essa configuração usam TestVNet1 e TestVNet4.
 
   ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -97,31 +90,31 @@ Usamos os seguintes valores nos exemplos:
 
 **Valores para TestVNet1:**
 
-* Nome da VNet: TestVNet1
+* Nome da rede virtual: TestVNet1
 * Grupo de recursos: TestRG1
-* Localização: Leste dos EUA
-* TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
+* Local: Leste dos EUA
+* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
 * IP público: VNet1GWIP
-* VPNType: RouteBased
+* VpnType: RouteBased
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (para VNets em assinaturas diferentes)
 
 **Valores para TestVNet4:**
 
-* Nome da VNet: TestVNet4
-* TestVNet2: 10.41.0.0/16 e 10.42.0.0/16
+* Nome da rede virtual: TestVNet4
+* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Grupo de recursos: TestRG4
-* Localização: Oeste dos EUA
+* Local: Oeste dos EUA
 * GatewayName: VNet4GW
 * IP público: VNet4GWIP
-* VPNType: RouteBased
+* VpnType: RouteBased
 * Conexão: VNet4toVNet1
 
 ### <a name="Connect"></a>Etapa 1: conectar-se à sua assinatura
@@ -130,7 +123,7 @@ Usamos os seguintes valores nos exemplos:
 
 ### <a name="TestVNet1"></a>Etapa 2: Criar e configurar o TestVNet1
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```azurecli
    az group create -n TestRG1  -l eastus
@@ -168,7 +161,7 @@ Usamos os seguintes valores nos exemplos:
 
 ### <a name="TestVNet4"></a>Etapa 3: criar e configurar TestVNet4
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```azurecli
    az group create -n TestRG4  -l westus
@@ -284,22 +277,22 @@ Ao criar conexões adicionais, é importante verificar se o espaço de endereço
 
 **Valores para TestVNet5:**
 
-* Nome da VNet: TestVNet5
+* Nome da rede virtual: TestVNet5
 * Grupo de recursos: TestRG5
-* Localização: Leste do Japão
-* TestVNet5: 10.51.0.0/16 e 10.52.0.0/16
+* Local: Leste do Japão
+* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
 * IP público: VNet5GWIP
-* VPNType: RouteBased
-* Conexão: VNet5toVNet1
+* VpnType: RouteBased
+* Connection: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
 ### <a name="TestVNet5"></a>Etapa 7: criar e configurar TestVNet5
 
-Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura. Para alternar entre assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta, em seguida, use `az account set --subscription <subscriptionID>` para alternar para a assinatura que você deseja usar.
+Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta parte pode ser executada pelo administrador em uma organização diferente que possui a assinatura. Para alternar entre as assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta e, em seguida, use `az account set --subscription <subscriptionID>` para alternar para a assinatura que você deseja usar.
 
 1. Verifique se você está conectado à Assinatura 5 e crie um grupo de recursos.
 
@@ -338,7 +331,7 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 ### <a name="connections5"></a>Etapa 8: criar as conexões
 
-Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta, em seguida, use `az account set --subscription <subscriptionID>` para alternar para a assinatura que você deseja usar.
+Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre as assinaturas, use `az account list --all` para listar as assinaturas disponíveis para sua conta e, em seguida, use `az account set --subscription <subscriptionID>` para alternar para a assinatura que você deseja usar.
 
 1. **[Assinatura 1]** Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
@@ -354,7 +347,7 @@ Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** 
    "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
    ```
 
-2. **[Assinatura 5]**  Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
+2. **[Assinatura 5]** Faça login e conecte-se à Assinatura 5. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 
    ```azurecli
    az network vnet-gateway show -n VNet5GW -g TestRG5
@@ -362,7 +355,7 @@ Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** 
 
    Copie a saída para "id:". Envie a ID e o nome do gateway de rede virtual (VNet5GW) para o administrador da Assinatura 1 por email ou outro método.
 
-3. **[Assinatura 1]** Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. Você pode usar seus próprios valores para a chave compartilhada. No entanto, a chave compartilhada deve corresponder às duas conexões. Criar uma conexão pode levar alguns minutos para ser concluída. Conecte-se à Assinatura 1.
+3. **[Assinatura 1]** Nesta etapa, você criará a conexão de TestVNet1 para TestVNet5. Você pode usar seus próprios valores para a chave compartilhada. No entanto, a chave compartilhada deve corresponder às duas conexões. Criar uma conexão pode levar alguns minutos para ser concluída. Certifique-se de conectar-se à assinatura 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -382,7 +375,7 @@ Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** 
 ## <a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, confira a [Documentação sobre Máquinas Virtuais](https://docs.microsoft.com/azure/).
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).

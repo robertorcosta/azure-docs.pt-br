@@ -1,5 +1,5 @@
 ---
-title: Configurar Postman para chamadas de API de REST dos Serviços de Mídia do Azure
+title: Configurar o postmaster para chamadas da API REST dos serviços de mídia do Azure v3
 description: Este artigo mostra como configurar o postmaster para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS).
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888097"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779630"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar Postman para chamadas de API de REST dos Serviços de Mídia
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
 
 Este artigo mostra como configurar o **Postman** para que ele possa ser usado para chamar APIs REST do Azure Media Services (AMS). O artigo mostra como importar arquivos de ambiente e coleção para **Postman**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs de REST dos Serviços de Mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
 
@@ -92,12 +92,12 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="troubleshooting"></a>Solução de Problemas 
+## <a name="troubleshooting"></a>Solução de problemas 
 
 * Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
 * Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 - [Carregar arquivos em uma conta dos Serviços de Mídia – REST](upload-files-rest-how-to.md)
 - [Criar filtros com os Serviços de Mídia – REST](filters-dynamic-manifest-rest-howto.md)

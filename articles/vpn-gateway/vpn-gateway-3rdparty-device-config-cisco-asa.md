@@ -1,5 +1,5 @@
 ---
-title: Exemplo de configuração para conexão de dispositivos Cisco ASA a gateways de VPN do Azure | Microsoft Docs
+title: Exemplo de configuração para conectar dispositivos Cisco ASA a gateways de VPN do Azure
 description: Este artigo apresenta um exemplo de configuração para conectar dispositivos Cisco ASA a gateways de VPN do Azure.
 services: vpn-gateway
 author: yushwang
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648731"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778075"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração de exemplo: Dispositivo Cisco ASA (IKEv2/sem BGP)
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemplo de configuração: dispositivo Cisco ASA (IKEv2/não BGP)
 Este artigo apresenta exemplos de configuração para conectar dispositivos Cisco ASA (Adaptive Security Appliance) a gateways de VPN do Azure. O exemplo se aplica a dispositivos Cisco ASA que estão executando IKEv2 sem BGP (Border Gateway Protocol). 
 
 ## <a name="device-at-a-glance"></a>Visão rápida do dispositivo
@@ -119,7 +119,7 @@ O script fornece um exemplo que tem base na configuração e nos parâmetros des
   - **Prefixos** de endereço de rede local e de rede virtual
   - **Máscaras de rede** adequadas
 
-#### <a name="sample-script"></a>Script de exemplo
+#### <a name="sample-script"></a>Exemplo de script
 
 ```
 ! Sample ASA configuration for connecting to Azure VPN gateway
@@ -300,5 +300,5 @@ Use estes comandos ASA para fins de depuração:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para configurar conexões de VNet a VNet e ativo-ativo entre locais, consulte [Configurar gateways VPN ativo-ativo](vpn-gateway-activeactive-rm-powershell.md).

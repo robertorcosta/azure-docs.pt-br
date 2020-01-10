@@ -1,5 +1,5 @@
 ---
-title: Visão Geral da Comunidade dos Serviços de Mídia do Azure | Microsoft Docs
+title: Visão geral da Comunidade dos serviços de mídia do Azure v3 | Microsoft Docs
 description: Esta página da Comunidade dos serviços de mídia do Azure discute diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: f241ac3e1369e32a1f2a4b9ac80492094105ff8c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 2bfa50068c5a61e8d6807da895dd5bf932ef05ba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598341"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780344"
 ---
-# <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure  
+# <a name="azure-media-services-v3-community"></a>Comunidade dos serviços de mídia do Azure v3  
 
 Esta página da Comunidade dos serviços de mídia do Azure discute diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
@@ -38,11 +38,11 @@ Você pode usar o [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) identifi
 
 Os fóruns a seguir podem ser usados para fazer perguntas sobre produtos e recursos atuais.
 
-Atualmente, o MSDN é o fórum da comunidade principal da equipe de serviços de mídia.
+Atualmente, o MSDN é o principal fórum da comunidade da equipe dos Serviços de Mídia.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-A equipe também monitora as perguntas marcadas em Stack Overflow com ' Azure-Media-Services '.
+A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack Overflow.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 

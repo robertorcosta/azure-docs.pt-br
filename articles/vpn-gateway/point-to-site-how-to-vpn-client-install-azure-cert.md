@@ -1,19 +1,18 @@
 ---
-title: 'Instale um certificado de cliente Point-to-Site: Azure | Microsoft Docs'
+title: 'Gateway de VPN do Azure: instalar um certificado de cliente ponto a site'
 description: Instalar um certificado de cliente para a autenticação de certificado P2S – Windows, Mac e Linux.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: c278c1c85961fbeb0779cad98f8ac16d4961ba75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6399f52229916c9ab3e55ec55ace092d0b73dba
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679923"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778270"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalar certificados de cliente para conexões de autenticação de certificado P2S
 
@@ -40,6 +39,6 @@ Não importa de qual sistema operacional cliente você deseja se conectar, você
 
 O certificado do cliente do Linux é instalado no cliente como parte da sua configuração. Veja [Configuração de cliente – Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) para obter instruções.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Continue com as etapas de configuração de ponto a site para [Criar e instalar arquivos de configuração de cliente VPN](point-to-site-vpn-client-configuration-azure-cert.md).

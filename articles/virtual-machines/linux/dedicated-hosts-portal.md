@@ -3,29 +3,26 @@ title: Implantar hosts dedicados do Azure usando o portal do Azure
 description: Implante VMs em hosts dedicados usando o portal do Azure.
 services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 296c43c7c1345c67cc5b83749272e56c122ee535
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c8e2ac929b3285b0ba122928485b423e34dc8f4f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036418"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835125"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Versão prévia: implantar VMs em hosts dedicados usando o portal
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Implantar VMs em hosts dedicados usando o portal
 
 Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md) do Azure para hospedar suas máquinas virtuais (VMS). 
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts-portal](../../../includes/virtual-machines-common-dedicated-hosts-portal.md)]
 
-## <a name="create-a-vm"></a>Criar uma máquina virtual
+## <a name="create-a-vm"></a>Criar uma VM
 
 1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
 1. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione **Ubuntu Server 16.04 LTS** por Canonical, escolha **Criar**.
@@ -45,7 +42,7 @@ Este artigo orienta você sobre como criar um [host dedicado](dedicated-hosts.md
 
 Levará alguns minutos para que sua VM seja implantada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações, consulte a visão geral dos [hosts dedicados](dedicated-hosts.md) .
 

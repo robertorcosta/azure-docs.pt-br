@@ -14,30 +14,31 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8b29bbce1511b022def522d46c74b99967a76ea3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: edb2d3fa670475d9b08fe05494035949181a9240
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204517"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834344"
 ---
 # <a name="sql-server-vm-on-an-azure-dedicated-host"></a>VM SQL Server em um host dedicado do Azure 
 
 Este artigo detalha as especificações do uso de uma VM SQL Server com um [host dedicado do Azure](/azure/virtual-machines/windows/dedicated-hosts). Informações adicionais sobre o host dedicado do Azure podem ser encontradas na postagem do blog [apresentando o host dedicado do Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O [host dedicado do Azure](/azure/virtual-machines/windows/dedicated-hosts) é um serviço que fornece servidores físicos capazes de hospedar uma ou mais máquinas virtuais-dedicadas a uma assinatura do Azure. Os hosts dedicados são os mesmos servidores físicos usados nos data centers da Microsoft, fornecidos como um recurso. Você pode provisionar hosts dedicados em uma região, zona de disponibilidade e domínio de falha. Em seguida, você pode posicionar VMs diretamente em seus hosts provisionados, em qualquer configuração que melhor atenda às suas necessidades.
 
+## <a name="limitations"></a>Limitações
 
-[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
-
+- Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais em hosts dedicados.
+- Há suporte para a série de VMs a seguir: DSv3 e ESv3. 
 
 ## <a name="licensing"></a>Licenciamento
 
 Você pode escolher entre duas opções de licenciamento diferentes ao adicionar sua VM de SQL Server a um host do Azure dedicado. 
 
-  - **Licenciamento da VM do SQL**: Essa é a opção de licenciamento existente, em que você paga por cada licença de VM SQL Server individualmente. 
-  - **Licenciamento de host dedicado**: O novo modelo de licenciamento disponível para o host do Azure dedicado, no qual SQL Server licenças são agrupadas e pagas no nível do host. 
+  - **Licenciamento da VM do SQL**: essa é a opção de licenciamento existente, em que você paga por cada licença de VM SQL Server individualmente. 
+  - **Licenciamento de host dedicado**: o novo modelo de licenciamento disponível para o host do Azure dedicado, no qual SQL Server licenças são agrupadas e pagas no nível do host. 
 
 
 Opções de nível de host para usar licenças de SQL Server existentes: 
@@ -64,15 +65,15 @@ Um dos benefícios de um host dedicado é a virtualização ilimitada. Por exemp
 
 Desde que seja seu host, você está qualificado para definir a virtualização com uma proporção de 1:2. 
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
-**P: Como o Benefício Híbrido do Azure funciona para licenças do Windows Server/SQL Server no host dedicado do Azure?**
+**P: como o Benefício Híbrido do Azure funciona para licenças do Windows Server/SQL Server no host dedicado do Azure?**
 
-R: Os clientes podem usar o valor de suas licenças existentes do Windows Server e SQL Server com Software Assurance, ou licenças de assinatura qualificadas, para pagar uma taxa reduzida no host dedicado do Azure usando Benefício Híbrido do Azure. Os clientes do Windows Server Datacenter e do SQL Server Enterprise Edition obtêm virtualização ilimitada (implante quantas máquinas virtuais do Windows Server forem possíveis no host, sujeito à capacidade física do servidor subjacente) quando licenciarem todo o host e use Benefício Híbrido do Azure.  Todas as cargas de trabalho do Windows Server e do SQL Server no host dedicado do Azure também estão qualificadas para atualizações de segurança estendidas para o Windows Server e o SQL Server 2008/R2 sem custo adicional. 
+R: os clientes podem usar o valor de suas licenças existentes do Windows Server e do SQL Server com Software Assurance, ou licenças de assinatura qualificadas, para pagar uma taxa reduzida no host dedicado do Azure usando Benefício Híbrido do Azure. Os clientes do Windows Server Datacenter e do SQL Server Enterprise Edition obtêm virtualização ilimitada (implante quantas máquinas virtuais do Windows Server forem possíveis no host, sujeito à capacidade física do servidor subjacente) quando licenciarem todo o host e use Benefício Híbrido do Azure.  Todas as cargas de trabalho do Windows Server e do SQL Server no host dedicado do Azure também estão qualificadas para atualizações de segurança estendidas para o Windows Server e o SQL Server 2008/R2 sem custo adicional. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para obter mais informações, confira os seguintes artigos: 
+Para obter mais informações, consulte os seguintes artigos: 
 
 * [Visão geral do SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Perguntas frequentes para SQL Server em uma VM do Windows](virtual-machines-windows-sql-server-iaas-faq.md)

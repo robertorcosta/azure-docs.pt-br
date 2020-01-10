@@ -1,26 +1,19 @@
 ---
-title: 'Configurar o túnel forçado para conexões Site a Site: Resource Manager | Microsoft Docs'
+title: Configurar o túnel forçado para conexões site a site
 description: Como redirecionar ou 'forçar' todo o tráfego direcionado à Internet para sua localização local.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: b4d9a469e46d964055d9459901ebdb9c6d04cf24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157474"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779664"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
 
@@ -55,7 +48,7 @@ O túnel forçado no Azure é configurado por meio de rotas de rede virtual defi
 * Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
   
   * **Rotas locais de Rede Virtual:** diretamente para as VMs de destino na mesma rede virtual.
-  * **Rotas locais:** para um Gateway de VPN do Azure.
+  * **Rotas locais:** para o gateway de VPN do Azure.
   * **Rota padrão:** diretamente para a Internet. Os pacotes destinados para os endereços IP privados não cobertos pelas duas rotas anteriores serão removidos.
 * Este procedimento usa rotas definidas pelo usuário (UDR) a fim de criar uma tabela de roteamento para adicionar uma rota padrão e associar a tabela de roteamento às sub-redes de VNet para habilitar o túnel forçado nessas sub-redes.
 * O túnel forçado deve ser associado a uma Rede Virtual que tenha um Gateway de VPN de roteamento. Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual. Além disso, o dispositivo VPN local deve ser configurado usando 0.0.0.0/0 como seletores de tráfego. 
@@ -63,7 +56,7 @@ O túnel forçado no Azure é configurado por meio de rotas de rede virtual defi
 
 ## <a name="configuration-overview"></a>Visão geral de configuração
 
-O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtual. Em seguida, você criará um gateway de VPN e configurará um túnel forçado. Neste procedimento, a rede virtual "MultiTier-VNet" tem três sub-redes: 'Frontend', 'Midtier' e 'Backend', com quatro conexões entre instalações: 'DefaultSiteHQ' e três Branches.
+O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtual. Em seguida, você criará um gateway de VPN e configurará um túnel forçado. Nesse procedimento, a rede virtual "MultiTier-VNet" tem três sub-redes: ‘Frontend’, ‘Midtier’ e ‘Backend’, com quatro conexões entre locais: ‘DefaultSiteHQ’ e três Branches.
 
 As etapas do procedimento definem ‘DefaultSiteHQ’ como a conexão de site padrão para o túnel forçado e configuram as sub-redes Midtier e Back-end para usarem túnel forçado.
 
@@ -80,7 +73,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
-## <a name="configure-forced-tunneling"></a>Configurar o túnel forçado
+## <a name="configure-forced-tunneling"></a>Configurar túnel forçado
 
 > [!NOTE]
 > Você pode ver avisos dizendo que "O tipo de objeto de saída deste cmdlet será modificado em uma versão futura". Esse comportamento é esperado e você pode ignorar esses avisos com segurança.
@@ -88,7 +81,7 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 >
 
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```powershell
    New-AzResourceGroup -Name 'ForcedTunneling' -Location 'North Europe'

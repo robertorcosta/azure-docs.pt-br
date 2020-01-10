@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b6a44bc31e21a63b12a0d06c537cc026ed77e386
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879314"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832846"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introdução aos certificados com Key Vault
 Os cenários a seguir descrevem vários dos principais usos do serviço de gerenciamento de certificado do Key Vault incluindo as etapas adicionais necessárias para criar seu primeiro certificado em seu Key Vault.
@@ -38,10 +38,10 @@ Certificados são compostos de três recursos inter-relacionados vinculados como
 **Etapa 1** - Provedores de Autoridade de Certificação (CA)  
 -   Entrada como o administrador de TI, administradores de PKI ou qualquer pessoa gerenciando contas com autoridades de certificação, para uma determinada empresa (por exemplo, Contoso) é um pré-requisito para usar certificados de Key Vault.  
     As CAs a seguir são os provedores parceiros atuais do Key Vault:  
-    -   DigiCert - O Key Vault oferece certificados SSL OV ou EV com DigiCert.  
-    -   GlobalSign-Key Vault oferece certificados SSL OV com GlobalSign.  
+    -   O DigiCert-Key Vault oferece certificados OV TLS/SSL com DigiCert.  
+    -   O GlobalSign-Key Vault oferece certificados OV TLS/SSL com GlobalSign.  
 
-**Etapa 2** - Um administrador de conta para um provedor de autoridade de certificação cria as credenciais a serem usadas pelo Key Vault para registrar, renovar e usar certificados SSL por meio do Key Vault.
+**Etapa 2** -um administrador de conta para um provedor de autoridade de certificação cria credenciais a serem usadas pelo Key Vault para registrar, renovar e usar certificados TLS/SSL via Key Vault.
 
 **Etapa 3** - Um administrador de Contoso, junto com um funcionário da Contoso (usuário do Key Vault) que possui certificados, dependendo da autoridade de certificação, pode obter um certificado com o administrador ou diretamente a partir da conta com a autoridade de certificação.  
 
@@ -62,9 +62,9 @@ Observação - Esse processo, por meio de etapa 3.1, é uma operação única.
 
 **Etapa 4** - As descrições a seguir correspondem às etapas numeradas em verde no diagrama anterior.  
   (1) - No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.  
-  (2) - O Key Vault envia uma Solicitação de Certificado SSL para a autoridade de certificação.  
+  (2)-Key Vault envia uma solicitação de certificado TLS/SSL para a autoridade de certificação.  
   (3) - Seu aplicativo faz a apuração, em um processo de loop e espera, para seu Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault recebe a resposta da autoridade de certificação com o certificado x509.  
-  (4) - A autoridade de certificação responde à Solicitação de Certificado SSL do Key Vault com um Certificado SSL X509.  
+  (4)-a autoridade de certificação responde à solicitação de certificado TLS/SSL de Key Vault com um certificado de TLS/SSL X509.  
   (5) - A criação do novo certificado é concluído com a fusão do Certificado X509 para a autoridade de certificação.  
 
   Usuário do Key Vault – cria um certificado com a especificação de uma política
@@ -125,6 +125,6 @@ No momento, não há suporte para chaves do EC no formato PEM.
 
   (5) - Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 
 - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)

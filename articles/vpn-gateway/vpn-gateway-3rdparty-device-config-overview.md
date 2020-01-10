@@ -1,26 +1,18 @@
 ---
-title: Configurações de dispositivo VPN de parceiros para conexão com gateways de VPN do Azure | Microsoft Docs
+title: Configurações de dispositivo VPN do parceiro para se conectar a gateways de VPN do Azure
 description: Este artigo apresenta uma visão geral das configurações de dispositivo VPN de parceiros para conexão com gateways de VPN do Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150170"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778015"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Visão geral das configurações de dispositivo VPN de parceiros
 Este artigo apresenta uma visão geral da configuração de dispositivos VPN locais para conexão com gateways de VPN do Azure. Um exemplo de rede virtual do Azure, e a configuração do gateway de VPN, serão usados para mostrar a você como se conectar a diferentes dispositivos VPN locais com os mesmos parâmetros.
@@ -156,6 +148,6 @@ Quando você cria a conexão VPN S2S, opcionalmente, pode usar o [BGP para o gat
     New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter instruções detalhadas de configuração de gateways de VPN ativo-ativo, confira [Configurar gateways de VPN ativo-ativo para conexões locais e de VNet-para-VNet](vpn-gateway-activeactive-rm-powershell.md).
 
