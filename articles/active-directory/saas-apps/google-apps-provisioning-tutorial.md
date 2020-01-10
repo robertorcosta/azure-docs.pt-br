@@ -10,17 +10,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8239b25f5ebf94d7368190f3169d0637d9943df1
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842655"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720269"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
 
@@ -65,18 +64,18 @@ Antes de configurar o G Suite para o provisionamento automático de usuário com
 
     ![Selecione segurança.][10]
 
-2. Na página **Segurança**, selecione **Referência de API**.
+1. Na página **Segurança**, selecione **Referência de API**.
 
     ![Selecione Referência de API.][15]
 
-3. Selecione **Habilitar o acesso à API**.
+1. Selecione **Habilitar o acesso à API**.
 
     ![Selecione Referência de API.][16]
 
    > [!IMPORTANT]
    > Para cada usuário que você pretende provisionar para o G Suite, seu nome de usuário no Azure AD **deve** estar vinculado a um domínio personalizado. Por exemplo, nomes de usuários do tipo bob@contoso.onmicrosoft.com não são aceitos pelo G Suite. Por outro lado, bob@contoso.com é aceito. Você pode alterar o domínio de um usuário existente seguindo as instruções [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
 
-4.  Depois de adicionar e verificar os domínios personalizados desejados com o Azure AD, você deve verificá-los novamente com o G Suite. Para verificar os domínios no G Suite, consulte as seguintes etapas:
+1. Depois de adicionar e verificar os domínios personalizados desejados com o Azure AD, você deve verificá-los novamente com o G Suite. Para verificar os domínios no G Suite, consulte as seguintes etapas:
 
     a. No [console de administração do G Suite](https://admin.google.com/), selecione **domínios**.
 
@@ -94,11 +93,11 @@ Antes de configurar o G Suite para o provisionamento automático de usuário com
 
     e. Repita as etapas anteriores para todos os domínios adicionais que você pretende adicionar ao G Suite.
 
-5. Em seguida, determine qual conta de administrador você deseja usar para gerenciar o provisionamento de usuário no G Suite. Navegue até **funções de administrador**.
+1. Em seguida, determine qual conta de administrador você deseja usar para gerenciar o provisionamento de usuário no G Suite. Navegue até **funções de administrador**.
 
     ![Selecione Google Apps][26]
-    
-6. Para a **função de administrador** dessa conta, edite os **privilégios** para essa função. Verifique se você habilitou todos os **Privilégios de API de Administrador**, de modo que essa conta possa ser usada para o provisionamento.
+
+1. Para a **função de administrador** dessa conta, edite os **privilégios** para essa função. Verifique se você habilitou todos os **Privilégios de API de Administrador**, de modo que essa conta possa ser usada para o provisionamento.
 
     ![Selecione Google Apps][27]
 
@@ -110,15 +109,15 @@ Para configurar o G Suite para o provisionamento automático de usuário com o A
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
+1. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **g Suite**, selecione **g Suite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, insira **g Suite**, selecione **g Suite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![G Suite na lista de resultados](common/search-new-app.png)
 
@@ -138,65 +137,68 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **G Suite**.
+1. Na lista de aplicativos, selecione **G Suite**.
 
     ![O link do G Suite na lista de Aplicativos](common/all-applications.png)
 
-3. Selecione a guia **Provisionamento**.
+1. Selecione a guia **Provisionamento**.
 
     ![Guia provisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+1. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **Credenciais de Administrador**, selecione **Autorizar**. Isso abre uma caixa de diálogo de autorização do Google em uma nova janela do navegador.
+1. Na seção **Credenciais de Administrador**, selecione **Autorizar**. Isso abre uma caixa de diálogo de autorização do Google em uma nova janela do navegador.
 
     ![Autorização do G Suite](media/google-apps-provisioning-tutorial/authorize.png)
 
-6. Confirme que você deseja conceder permissões do Azure AD para fazer alterações no seu locatário do G Suite. Selecione **Aceitar**.
+1. Confirme que você deseja conceder permissões do Azure AD para fazer alterações no seu locatário do G Suite. Selecione **Aceitar**.
 
     ![Confirme permissões.][28]
 
-7. No Portal do Azure, selecione **Testar Conectividade** para verificar se o Azure AD pode se conectar a seu aplicativo. Se a conexão falhar, verifique se sua conta do G Suite tem permissões de Administrador de Equipe. Em seguida, tente a etapa **Autorizar** novamente.
+1. No Portal do Azure, selecione **Testar Conectividade** para verificar se o Azure AD pode se conectar a seu aplicativo. Se a conexão falhar, verifique se sua conta do G Suite tem permissões de Administrador de Equipe. Em seguida, tente a etapa **Autorizar** novamente.
 
-8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
+1. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção - **Enviar uma notificação por email quando ocorrer uma falha**.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Salvar).
+1. Clique em **Save** (Salvar).
 
-9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o G Suite**.
+1. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o G Suite**.
 
     ![Mapeamentos de usuário do G Suite](media/google-apps-provisioning-tutorial/usermappings.png)
 
-10. Examine os atributos de usuário que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no G Suite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+1. Examine os atributos de usuário que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no G Suite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
     ![Atributos de usuário do G Suite](media/google-apps-provisioning-tutorial/userattributes.png)
 
-11. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o G Suite**.
+1. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o G Suite**.
 
     ![Mapeamentos do Grupo G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Examine os atributos de grupo que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no G Suite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações. A interface do usuário exibe o conjunto padrão de mapeamentos de atributo entre o Azure AD e o G Suite. Você pode optar por adicionar atributos adicionais, como a unidade org, clicando em Adicionar novo mapeamento. 
+1. Examine os atributos de grupo que são sincronizados do Azure AD para o G Suite na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no G Suite para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações. A interface do usuário exibe o conjunto padrão de mapeamentos de atributo entre o Azure AD e o G Suite. Você pode optar por adicionar atributos adicionais, como a unidade org, clicando em Adicionar novo mapeamento.
 
     ![Atributos do Grupo G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-13. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Para habilitar o serviço de provisionamento do Azure AD para o G Suite, altere o **status de provisionamento** para **ativado** na seção **configurações** .
+1. Para habilitar o serviço de provisionamento do Azure AD para o G Suite, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-15. Defina os usuários e/ou grupos que você deseja provisionar para o G Suite escolhendo os valores desejados no **escopo** na seção **configurações** .
+1. Defina os usuários e/ou grupos que você deseja provisionar para o G Suite escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-16. Quando estiver pronto para provisionar, clique em **Salvar**.
+1. Quando estiver pronto para provisionar, clique em **Salvar**.
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no G Suite.
+
+> [!NOTE]
+> Se os usuários já tiverem uma conta pessoal/consumidor existente usando o endereço de email do usuário do Azure AD, isso poderá causar algum problema que poderia ser resolvido usando a ferramenta de transferência do Google antes de executar a sincronização de diretórios.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
@@ -211,7 +213,6 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 ## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
-
 
 <!--Image references-->
 

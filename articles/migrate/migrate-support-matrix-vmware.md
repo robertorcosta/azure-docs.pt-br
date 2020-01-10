@@ -1,18 +1,14 @@
 ---
-title: Suporte para avaliação e migração do VMware nas migrações para Azure
-description: Saiba mais sobre o suporte para avaliação/migração de VM do VMware nas migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Suporte do VMware em migrações para Azure
+description: Saiba mais sobre o suporte de avaliação/migração do VMware nas migrações para Azure.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.date: 01/02/2020
+ms.openlocfilehash: b4d498b869bafe579e2539a049aae58ac6f26575
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196269"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719436"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de suporte para avaliação e migração da VMware
 
@@ -39,7 +35,7 @@ A tabela resume os cenários com suporte para VMs VMware.
 
 **Geografia** | **Local de armazenamento de metadados**
 --- | ---
-Azure Government | US Gov Virginia
+Azure Governamental | US Gov - Virgínia
 Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
@@ -57,7 +53,7 @@ Estados Unidos | EUA Central ou oeste dos EUA 2
  > No momento, o suporte para Azure governamental está disponível apenas para a [versão mais antiga](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) das migrações para Azure.
 
 
-## <a name="application-discovery"></a>Descoberta de aplicativos
+## <a name="application-discovery"></a>Descoberta de aplicativo
 
 Migrações para Azure: a avaliação do servidor pode descobrir aplicativos, funções e recursos. Descobrir seu inventário de aplicativos permite que você identifique e planeje um caminho de migração adaptado para suas cargas de trabalho locais. Migrações para Azure: a avaliação do servidor fornece descoberta sem agente, usando credenciais de convidado do computador, acessando remotamente computadores usando chamadas de WMI e SSH.
 
@@ -80,11 +76,10 @@ Esta tabela resume o suporte de avaliação e as limitações para servidores de
 
 As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs para avaliação e migração sem agente.
 
-- Se você planeja descobrir aplicativos ou Visualizar dependências de maneira sem agente, crie uma conta de vCenter Server com acesso somente leitura junto com os privilégios habilitados para **máquinas virtuais** > **operações de convidado**.
-
-  ![privilégios de conta de vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
-
-- Se você não estiver planejando fazer a descoberta de aplicativos e a visualização de dependência sem agente, configure uma conta somente leitura para o vCenter Server.
+**Tarefa** | **Permissões necessárias**
+--- | ---
+Somente avaliação | vCenter Server conta somente leitura.
+Avaliação com a [descoberta de aplicativo ou a](how-to-discover-applications.md) visualização de [dependência sem agente](how-to-create-group-machine-dependencies-agentless.md) | vCenter Server conta com acesso somente leitura e privilégios habilitados para **máquinas virtuais** > **operações de convidado**.
 
 ## <a name="assessment-appliance-requirements"></a>Avaliação – requisitos de dispositivo
 
@@ -109,7 +104,7 @@ O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 **URL** | **Detalhes**  
 --- | --- |
 *. portal.azure.com  | Navegue até as migrações para Azure no portal do Azure.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Faça logon em sua assinatura do Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Faça logon em sua assinatura do Azure.
 *.microsoftonline.com <br/> *.microsoftonline p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 management.azure.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
@@ -123,7 +118,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 **Dispositivo** | **Conexão**
 --- | ---
-Baseado | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexões de saída na porta 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
+Dispositivos | Conexões de entrada na porta TCP 3389 para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368 para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Conexões de saída na porta 443, 5671 e 5672 para enviar metadados de descoberta e desempenho para migrações para Azure.
 Servidor vCenter | Conexões de entrada na porta TCP 443 para permitir que o dispositivo colete metadados de configuração e desempenho para avaliações. <br/><br/> O dispositivo se conecta ao vCenter na porta 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá modificar a porta ao configurar a descoberta.
 
 ## <a name="assessment-dependency-visualization"></a>Avaliação – visualização de dependência
@@ -138,8 +133,8 @@ A visualização de dependência ajuda a Visualizar dependências entre computad
         - Nomes de aplicativos instalados que executam os processos acima
         - Não. de conexões detectadas em cada intervalo de sondagem
 - **Visualização de dependência baseada em agente**: para usar a visualização de dependência baseada em agente, você precisa baixar e instalar os agentes a seguir em cada computador local que você deseja analisar.
-    - O MMA (Microsoft Monitoring Agent) precisa ser instalado em cada computador. [Saiba mais](how-to-create-group-machine-dependencies.md#install-the-mma) sobre como instalar o agente do MMA.
-    - O agente de dependência precisa ser instalado em cada computador. [Saiba mais](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) sobre como instalar o Dependency Agent.
+    - Instale o MMA (Microsoft Monitoring Agent) em cada computador. [Saiba mais](how-to-create-group-machine-dependencies.md#install-the-mma) sobre como instalar o agente do MMA.
+    - Instale o Dependency Agent em cada computador. [Saiba mais](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) sobre como instalar o Dependency Agent.
     - Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o gateway do Log Analytics nelas.
 
 ## <a name="migration---limitations"></a>Migração-limitações
@@ -179,15 +174,15 @@ Máquina virtual. interação. desligar | Permitir que a VM seja desligada duran
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 4 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Não compatível.
-**Discos independentes** | Não compatível.
+**Cluster de disco compartilhado** | Sem suporte.
+**Discos independentes** | Sem suporte.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
-**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Não compatível.
-**VMotion de armazenamento** | Não compatível. A replicação não funcionará se uma VM usar o Storage vMotion.
-**NICs agrupadas** | Não compatível.
-**Protocolo** | Não compatível.
+**E/s de vários caminhos** | Sem suporte.
+**VMotion de armazenamento** | Sem suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
+**NICs agrupadas** | Sem suporte.
+**IPv6** | Sem suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
 **Replicação simultânea** | 100 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 100.
 
@@ -212,7 +207,7 @@ O dispositivo de migrações para Azure precisa de conectividade com a Internet.
 **URL** | **Detalhes**  
 --- | ---
 *. portal.azure.com | Navegue até as migrações para Azure no portal do Azure.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Faça logon em sua assinatura do Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Faça logon em sua assinatura do Azure.
 *.microsoftonline.com <br/> *.microsoftonline p.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 management.azure.com | Crie Active Directory aplicativos para o dispositivo se comunicar com o serviço migrações para Azure.
 dc.services.visualstudio.com | Carregar logs de aplicativo usados para monitoramento interno.
@@ -227,7 +222,7 @@ https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/
 
 **Dispositivo** | **Conexão**
 --- | ---
-Baseado | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
+Dispositivos | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
 Servidor vCenter | Conexões de entrada na porta 443 para permitir que o dispositivo coordene a replicação-criar instantâneos, copiar dados, liberar instantâneos
 host vSphere/ESXI | Entrada na porta TCP 902 para o dispositivo replicar dados de instantâneos.
 
@@ -325,15 +320,15 @@ Baixar e instalar em migrações para Azure | Quando você instalar o dispositiv
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Não compatível.
+**Cluster de disco compartilhado** | Sem suporte.
 **Discos independentes** | Com suporte.
 **Discos de passagem** | Com suporte.
-**-** | Volumes NFS montados como volumes nas VMs não serão replicados.
+**NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Não compatível.
-**VMotion de armazenamento** | Suportado
-**NICs agrupadas** | Não compatível.
-**Protocolo** | Não compatível.
+**E/s de vários caminhos** | Sem suporte.
+**VMotion de armazenamento** | Com suporte
+**NICs agrupadas** | Sem suporte.
+**IPv6** | Sem suporte.
 
 
 
@@ -378,14 +373,14 @@ Contagem do disco do sistema operacional | 1 | A verificação falha se não tiv
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 4.095 GB | A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Não compatível. | A verificação falha se não tiver suporte.
-Disco FC | Não compatível. | A verificação falha se não tiver suporte.
-BitLocker | Não compatível. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
+VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
+Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
+BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador.
 Nome da VM | De 1 a 63 caracteres.<br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/> -Antes de a migração habilitar o RDP na VM local. Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall do Windows** -> **aplicativos e recursos permitidos** para redes de **domínio e privadas** . Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada. Além disso, adicione um endereço IP público para a VM. |  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Prepare-se para](tutorial-prepare-vmware.md) avaliação e migração do VMware.

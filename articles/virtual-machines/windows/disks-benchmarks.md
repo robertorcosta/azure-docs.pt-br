@@ -1,5 +1,5 @@
 ---
-title: Aplicação de parâmetros de comparação a seu aplicativo no Armazenamento em Disco do Azure - discos gerenciados
+title: Benchmarking de seu aplicativo no Armazenamento em Disco do Azure
 description: Saiba mais sobre o processo de aplicação de parâmetros de comparação em seu aplicativo no Azure.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 77e542e9bff399e58b433286385864478bcb5076
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698767"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719538"
 ---
 # <a name="benchmarking-a-disk"></a>Aplicação de parâmetros de comparação em um disco
 
@@ -24,9 +24,8 @@ Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Ar
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../../includes/virtual-machines-managed-disks-benchmarking.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Continue em nosso artigo Projeto para alto desempenho. Nele, você criará uma lista de verificação semelhante para o aplicativo existente do protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Com isso, será possível determinar qual oferta de disco pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.
+Vá para nosso artigo sobre como [projetar para alto desempenho](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> Confira a parte do artigo sobre começar o [Projeto para alto desempenho](premium-storage-performance.md).
+Neste artigo, você cria uma lista de verificação semelhante ao aplicativo existente para o protótipo. Usando ferramentas de Benchmark, você pode simular as cargas de trabalho e avaliar o desempenho no aplicativo do protótipo. Com isso, será possível determinar qual oferta de disco pode corresponder ou superar os requisitos de desempenho do aplicativo. Em seguida, você pode implementar as mesmas diretrizes para o aplicativo de produção.

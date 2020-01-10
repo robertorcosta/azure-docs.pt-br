@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 099ed3c3c0ac2abe034388849385a45b44b32b34
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: bff2ed48a78bfbae984dea5e5474971817023bc6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145957"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75729314"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurar um túnel de usuário Always On VPN
 
@@ -99,9 +99,10 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    ```
 1. Copie o texto a seguir e salve-o como *VPNProfile. xml* na mesma pasta que *usercert. ps1*. Edite o seguinte texto para corresponder ao seu ambiente:
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<PrefixSize>32</PrefixSize>     <= Subnet mask`
 
    ```
     <VPNProfile>  
@@ -157,7 +158,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
 
 Para remover o perfil, faça o seguinte:
 
-1. Execute o seguinte comando:
+1. Execute o comando a seguir:
 
    ```powershell
    C:\> Remove-VpnConnection UserTest  
@@ -167,6 +168,6 @@ Para remover o perfil, faça o seguinte:
 
 ![Limpeza](./media/vpn-gateway-howto-always-on-user-tunnel/p2s4..jpg)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para solucionar problemas de conexão que podem ocorrer, consulte [problemas de conexão de ponto a site do Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

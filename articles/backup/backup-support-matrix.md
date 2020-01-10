@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dc709294b92fd26343e9520e3775b9f079aba94f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172077"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708473"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -54,7 +54,7 @@ Veja os que têm suporte se você quiser fazer backup de computadores locais:
 
 **Limite** | **Detalhes**
 --- | ---
-**Discos de dados de VM do Azure** | Limite de 16
+**Discos de dados de VM do Azure** | Limite de 16 <br> Para se inscrever para a versão prévia privada de VMs com mais de 16 discos (até 32 discos), escreva para nós em AskAzureBackupTeam@microsoft.com
 **Tamanho do disco de dados da VM do Azure** | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup de VM do Azure
@@ -104,7 +104,7 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
     > [!WARNING]
     > Depois de configurar o cofre, só você terá acesso à chave de criptografia. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave for perdida, a Microsoft não poderá recuperar os dados de backup.
 
-### <a name="data-security"></a>Segurança de dados
+### <a name="data-security"></a>Segurança dos dados
 
 - Quando estiver fazendo backup de VMs do Azure, você precisará configurar a criptografia *na* máquina virtual.
 - O Backup do Azure dá suporte a Azure Disk Encryption, que usa o BitLocker em máquinas virtuais Windows e **dm-crypt** em máquinas virtuais Linux.
@@ -112,10 +112,10 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
 
 **Computador** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-**Computadores Windows locais sem o DPM/MABS** | ![sim][green] | ![sim][green]
-**VMs do Azure** | ![sim][green] | ![sim][green]
-**Máquinas Windows locais ou VMs do Azure com o DPM** | ![sim][green] | ![sim][green]
-**Máquinas Windows locais ou VMs do Azure com MABS** | ![sim][green] | ![sim][green]
+**Computadores Windows locais sem o DPM/MABS** | ![Sim][green] | ![Sim][green]
+**VMs do Azure** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows locais ou VMs do Azure com o DPM** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows locais ou VMs do Azure com MABS** | ![Sim][green] | ![Sim][green]
 
 ## <a name="compression-support"></a>Suporte à compactação
 
@@ -126,9 +126,9 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 
 **Computador** | **Compactar no DPM/MABS (TCP)** | **Compactar para o cofre (HTTPS)**
 --- | --- | ---
-**Backup direto em computadores locais do Windows** | ND | ![sim][green]
+**Backup direto em computadores locais do Windows** | ND | ![Sim][green]
 **Backup de VMs do Azure usando a extensão de VM** | ND | ND
-**Backup em computadores locais/do Azure usando o MABS/DPM** | ![sim][green] | ![sim][green]
+**Backup em computadores locais/do Azure usando o MABS/DPM** | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
@@ -142,7 +142,20 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 **Período de retenção máximo** | Depende da frequência de backup
 **Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de arquivos; 448 para servidores de aplicativos <br/><br/>Pontos de recuperação de fita ilimitados para o DPM local
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="cross-region-restore"></a>Restauração entre regiões
+
+O backup do Azure adicionou o recurso de restauração entre regiões para reforçar a disponibilidade de dados e a capacidade de resiliência, dando aos clientes controle total para restaurar dados em uma região secundária. Para configurar esse recurso, visite [o artigo definir a restauração entre regiões.](backup-create-rs-vault.md#set-cross-region-restore) Esse recurso tem suporte para os seguintes tipos de gerenciamento:
+
+| Tipo de gerenciamento de backup | Com suporte                                                    | Regiões com Suporte |
+| ---------------------- | ------------------------------------------------------------ | ----------------- |
+| VM do Azure               | Sim. Versão prévia limitada pública com suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Centro-Oeste dos EUA   |
+| Agente MARS/local | Não                                                           | N/D               |
+| SQL/SCS HANA          | Não                                                           | N/D               |
+| AFS                    | Não                                                           | N/D               |
+
+
+
+## <a name="next-steps"></a>Próximos passos
 
 - [Examinar matriz de suporte](backup-support-matrix-iaas.md) para backup de VM do Azure.
 
