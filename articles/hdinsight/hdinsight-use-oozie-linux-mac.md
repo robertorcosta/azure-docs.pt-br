@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: ece6fdb743035069bc6c666d6e90c76860f63e82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241679"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744917"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux
 
@@ -61,7 +61,7 @@ O fluxo de trabalho usado neste documento contém duas ações. Ações são def
 
 ## <a name="create-the-working-directory"></a>Criar o diretório de trabalho
 
-O Oozie espera armazenar todos os recursos necessários para um trabalho no mesmo diretório. Este exemplo usa `wasbs:///tutorials/useoozie`. Para criar o diretório, conclua as seguintes etapas:
+O Oozie espera armazenar todos os recursos necessários para um trabalho no mesmo diretório. Este exemplo usa o `wasbs:///tutorials/useoozie`. Para criar o diretório, conclua as seguintes etapas:
 
 1. Edite o código abaixo para substituir `sshuser` pelo nome de usuário SSH para o cluster e substitua `CLUSTERNAME` pelo nome do cluster.  Em seguida, insira o código para se conectar ao cluster HDInsight [usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
@@ -300,7 +300,7 @@ A definição de trabalho descreve o local em que o workflow.xml se encontra. El
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valor recebido da etapa 1.|
     |administrador| Seu nome de logon para o cluster HDInsight, se não for admin.|
-    |ServerName| Nome do servidor do banco de dados SQL do Azure.|
+    |serverName| Nome do servidor do banco de dados SQL do Azure.|
     |sqlLogin| Logon do servidor do banco de dados SQL do Azure.|
     |sqlPassword| Senha de logon do servidor do banco de dados SQL do Azure.|
 
@@ -394,10 +394,10 @@ As etapas a seguir usam o comando Oozie para enviar e gerenciar fluxos de trabal
 
     ```xml
     <name>oozie.base.url</name>
-    <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
+    <value>http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    A parte `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` é a URL a ser usada com o comando do Oozie.
+    A parte `http://ACTIVE-HEADNODE-NAME.UNIQUEID.cx.internal.cloudapp.net:11000/oozie` é a URL a ser usada com o comando do Oozie.
 
 2. Edite o código para substituir a URL por aquela que você recebeu anteriormente. Para criar uma variável de ambiente para a URL, use o seguinte para não precisar digitá-la a cada comando:
 
@@ -557,7 +557,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
     ```
 
     > [!NOTE]  
-    > As variáveis `${...}` são substituídas por valores na definição de trabalho no tempo de execução. As variáveis são:
+    > As variáveis `${...}` são substituídas por valores na definição de trabalho no runtime. As variáveis são:
     >
     > * `${coordFrequency}`: o tempo entre as instâncias do trabalho em execução.
     > * `${coordStart}`: a hora de início do trabalho.
@@ -643,7 +643,7 @@ Você pode usar o coordenador para especificar um início, um fim e a frequênci
 
     ![Guia de informações do trabalho do console Web do OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Com a IU do Oozie, você pode exibir logs do Oozie. A IU do Oozie também contém links para os logs de JobTracker das tarefas de MapReduce que foram iniciadas pelo fluxo de trabalho. O padrão para solução de problemas deve ser:
 

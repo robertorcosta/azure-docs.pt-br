@@ -1,23 +1,23 @@
 ---
 title: Cobertura geocodificação no mapas do Azure | Microsoft Docs
-description: Saiba mais sobre a cobertura de geocodificação nos Mapas do Azure
+description: Saiba mais sobre cobertura de geocodificação em mapas de Microsoft Azure e em quais regiões/países você pode usar o geocodificador do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/22/2019
+ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4def947c13588cde57b55aeaa9d958eafa923093
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991362"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768802"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
-Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa os termos de pesquisa e retorna as coordenadas de latitude e longitude, um processo chamado geocodificação. No entanto, Mapas não têm o mesmo nível de informações e precisão para todas as regiões. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região. 
+Quando você procura um local com o Azure Maps, o serviço de pesquisa, por exemplo, [obter o endereço de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), leva seus termos de pesquisa e retorna as coordenadas de latitude e longitude. Esse processo é chamado de geocodificação. No entanto, o mapas do Azure não tem o mesmo nível de informações e precisão para todas as regiões e países. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região. 
 
 A capacidade de geocódigo em um país/região depende da cobertura de dados de estrada e da precisão de geocodificação do serviço de geocodificação. As categorizações a seguir são usadas, especifique o nível de suporte de geocodificação em cada país/região.
 * **Pontos de endereço** - dados de endereços podem ser resolvidos para uma coordenada de latitude/longitude dentro do pacote de endereço (limite de propriedade). Às vezes chamado de “Telhado” preciso. Esse é o nível mais alto de precisão para endereços disponíveis. 
@@ -84,7 +84,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Uruguai                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Virgens Britânicas                              |                 |                |              |      ✓     |          ✓         |
-| Ilhas Virgens dos EUA                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ilhas Virgens dos Estados Unidos                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
@@ -139,7 +139,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Tailândia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelau                                             |                 |                |              |      ✓     |          ✓         |
 | Tonganês                                               |                 |                |              |      ✓     |          ✓         |
-| Ilhas Turcos e Caicos                            |                 |                |              |      ✓     |          ✓         |
+| Ilhas Turcas e Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnã                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -285,7 +285,7 @@ A capacidade de geocódigo em um país/região depende da cobertura de dados de 
 | Sudão                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Suazilândia                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Síria                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé e Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé and Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzânia                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunísia                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |

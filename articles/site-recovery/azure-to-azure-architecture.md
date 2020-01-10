@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 1/08/2020
 ms.author: raynew
-ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621117"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754509"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -63,7 +63,7 @@ Você pode gerenciar recursos de destino da seguinte maneira:
 
 Quando você habilita a replicação de VM do Azure, por padrão, o Site Recovery cria uma política de replicação com as configurações padrão resumidas na tabela.
 
-**Configuração de política** | **Detalhes** | **Padrão**
+**Configuração de política** | **Detalhes** | **Default**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneos consistentes com aplicativo** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas
@@ -97,13 +97,13 @@ A tabela a seguir explica os diferentes tipos de consistência.
 
 ### <a name="crash-consistent"></a>Consistente com falhas
 
-**Descrição** | **Detalhes** | **Recomendações**
+**Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
 Um instantâneo consistente com falha captura os dados que estavam no disco quando o instantâneo foi tirado. Ele não inclui nada na memória.<br/><br/> Ele contém o equivalente dos dados em disco que estariam presentes se a VM falhasse ou se o cabo de alimentação fosse puxado do servidor no instante em que o instantâneo foi tirado.<br/><br/> Um ponto de recuperação consistente com falhas não garante a consistência dos dados para o sistema operacional nem para os aplicativos na VM. | O Site Recovery cria pontos de recuperação consistentes com falhas a cada cinco minutos por padrão. Essa configuração não pode ser modificada.<br/><br/>  | Hoje, a maioria dos aplicativos pode se recuperar bem de pontos consistentes com falhas.<br/><br/> Os pontos de recuperação consistentes com falhas geralmente são suficientes para a replicação de sistemas operacionais e aplicativos, como servidores DHCP e servidores de impressão.
 
 ### <a name="app-consistent"></a>Consistente com aplicativo
 
-**Descrição** | **Detalhes** | **Recomendações**
+**Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
 Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Quando um instantâneo é iniciado, o VSS executa uma operação COW (cópia em gravação) no volume.<br/><br/>   2) Antes de executar o COW, o VSS informa todos os aplicativos do computador de que precisa liberar seus dados residentes na memória para o disco.<br/><br/>   3) Em seguida, o VSS permite que o aplicativo de backup/recuperação de desastre (nesse caso, o Site Recovery) leia os dados de instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. 
 
@@ -145,17 +145,19 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<> de nome de região.
+Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<nome da região >
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD (Azure Active Directory).<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG (Grupo de Segurança de Rede).  | AzureActiveDirectory
-Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondam à localização de destino. 
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub.\<nome da região >
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 
 #### <a name="target-region-rules"></a>Regras da região de destino
 
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de destino. | Repositório.\<> de nome de região.
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório.\<nome da região >
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD.<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG.  | AzureActiveDirectory
-Permitir HTTPS de saída: porta 443 | Permita o acesso a [pontos de extremidade do Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondam à localização de origem. 
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub.\<nome da região >
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 
 
 #### <a name="control-access-with-nsg-rules"></a>Controlar o acesso com regras do NSG
@@ -186,6 +188,6 @@ Quando você inicia um failover, as VMs são criadas no grupo de recursos de des
 
 ![Processo de failover](./media/concepts-azure-to-azure-architecture/failover.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Replicar rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

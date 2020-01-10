@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf79911c24998c3d00937937cce5c68bbb564f1e
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981501"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751573"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede-Azure Resource Manager os seguintes limites se aplicam somente a recursos de rede gerenciados por meio de **Azure Resource Manager** por região por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -22,7 +22,7 @@ ms.locfileid: "74981501"
 
 | Grupos | Limite máximo/padrão | 
 | --- | --- |
-| Redes virtuais |1\.000 |
+| Redes virtuais |1,000 |
 | Sub-redes por rede virtual |3\.000 |
 | Emparelhamentos de rede virtual por rede virtual |500 |
 | [Gateways de rede virtual (gateways de VPN) por rede virtual](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
@@ -35,7 +35,7 @@ ms.locfileid: "74981501"
 | [Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
 | Placas de interface de rede |65.536 |
 | Grupos de Segurança de Rede |5\.000 |
-| Regras de NSG por NSG |1\.000 |
+| Regras de NSG por NSG |1,000 |
 | Endereços e intervalos IP especificados para a origem ou o destino em um grupo de segurança |4\.000 |
 | Grupos de segurança do aplicativo |3\.000 |
 | Grupos de segurança do aplicativo por configuração de IP, por NIC |20 |
@@ -58,21 +58,29 @@ ms.locfileid: "74981501"
 #### <a name="load-balancer"></a>Limites de balanceador de carga
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
-| Grupos | Limite máximo/padrão |
-| --- | --- |
-| Balanceadores de carga | 1\.000 | 
-| Regras por recurso, Básico | 250 |
-| Regras por recurso, Standard | 1\.500 | 
-| Regras por configuração de IP | 299 |
-| Regras por NIC | 300 |
-| Configurações de IP de front-end, básicas | 200 |
-| Configurações de IP de front-end, Standard | 600 |
-| Pool de back-ends, básico | 100, conjunto de disponibilidade único |
-| Pool de back-ends, Standard | 1\.000, rede virtual única |
-| Recursos de back-end por balanceador de carga, Standard<sup>1</sup> | 150 |
-| Portas de alta disponibilidade, Standard | 1 por front-end interno |
+**Standard Load Balancer**
+
+| Grupos                                | Limite máximo/padrão         |
+|-----------------------------------------|-------------------------------|
+| Balanceadores de carga                          | 1,000                         |
+| Regras por recurso                      | 1\.500                         |
+| Regras por NIC (em todos os IPs em uma NIC) | 300                           |
+| Configurações de IP de front-end             | 600                           |
+| Tamanho do pool de back-end                          | 1\.000 instâncias, rede virtual única |
+| Recursos de back-end por balanceador de carga<sup>1<sup>   | 150                 |
+| Portas de alta disponibilidade                 | 1 por front-end interno      |
 
 <sup>1</sup> O limite é de até 150 recursos, em qualquer combinação de recursos de máquina virtual autônoma, recursos de conjunto de disponibilidade e recursos de conjunto de escala de máquina virtual.
+
+**Load Balancer básica**
+
+| Grupos                                | Limite máximo/padrão        |
+|-----------------------------------------|------------------------------|
+| Balanceadores de carga                          | 1,000                        |
+| Regras por recurso                      | 250                          |
+| Regras por NIC (em todos os IPs em uma NIC) | 300                          |
+| Configurações de IP de front-end             | 200                          |
+| Tamanho do pool de back-end                           | 100 instâncias, conjunto de disponibilidade único |
 
 #### <a name="virtual-networking-limits-classic"></a>Os limites a seguir se aplicam somente a recursos de rede gerenciados por meio do modelo de implantação **clássico** por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -84,7 +92,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Endereços IP privados por rede virtual |4\.096 |4\.096 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500.000, até 1 milhão para duas ou mais NICs. |500.000, até 1 milhão para duas ou mais NICs. |
 | Grupos de segurança de rede (NSG) |200 |200 |
-| Regras de NSG por NSG |1\.000 |1\.000 |
+| Regras de NSG por NSG |1,000 |1,000 |
 | Tabelas de rotas definidas pelo usuário |200 |200 |
 | Rotas definidas pelo usuário por tabela de rotas |400 |400 |
 | Endereços IP públicos (dinâmicos) |500 |500 |

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384237"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749873"
 ---
-# <a name="understand-a-system-reboot-for-azure-vm"></a>Entender a reinicialização do sistema para a VM do Azure
+# <a name="understand-a-system-reboot-for-azure-vm"></a>Entender uma reinicialização do sistema para VM do Azure
 
 As VMs (máquinas virtuais) do Azure às vezes podem reinicializar sem motivo aparente, sem prova de que você iniciou a operação de reinicialização. Este artigo lista as ações e os eventos que podem fazer com que as VMs reinicializem e forneçam informações sobre como evitar problemas de reinicialização inesperada ou reduzir o impacto desse tipo de problema.
 
@@ -67,7 +67,7 @@ Atualizações de múltiplas instâncias (para VMs em um conjunto de disponibili
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Ações de reinicialização ou desligamento iniciado pelo usuário
 
-Se você executar uma reinicialização do portal do Azure, Azure PowerShell, interface de linha de comando ou API REST, poderá encontrar o evento no [log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
+Se você executar uma reinicialização do portal do Azure, Azure PowerShell, interface de linha de comando ou API REST, poderá encontrar o evento no [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 Se você executar a ação do sistema operacional da VM, poderá encontrar o evento nos logs do sistema.
 

@@ -1,19 +1,19 @@
 ---
 title: Exibir uma loja de conhecimento (versão prévia) com Gerenciador de Armazenamento
 titleSuffix: Azure Cognitive Search
-description: Exiba e analise um repositório de conhecimento da Pesquisa Cognitiva do Azure com o Gerenciador de Armazenamento do portal do Azure. A loja de conhecimento está atualmente em visualização pública.
+description: Exiba e analise um repositório de conhecimento da Pesquisa Cognitiva do Azure com o Gerenciador de Armazenamento do portal do Azure. a loja de conhecimento está atualmente em visualização pública.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ca2df05cf20ef51b2d5ca866f22bd9450dd6acaf
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 12/30/2019
+ms.openlocfilehash: 167316eca1f85530a040d4543f98ae34a9fb93c6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406563"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754072"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir um repositório de conhecimento com o Gerenciador de Armazenamento
 
@@ -22,9 +22,9 @@ ms.locfileid: "74406563"
 
 Neste artigo, você aprenderá, por exemplo, como se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-+ Siga as etapas em [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md) ou [crie uma loja de conhecimento do Azure pesquisa cognitiva usando o REST](knowledge-store-create-rest.md) para criar o exemplo de armazenamento de conhecimento usado neste passo a passos.
++ Siga as etapas em [Criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md) para criar o repositório de conhecimento de exemplo usado neste passo a passo.
 
 + Também será necessário o nome da conta de armazenamento do Azure que você usou para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá, por exemplo, como se conectar e explorar uma loj
 
 1. Expanda a lista **TABELAS** para mostrar uma lista de projeções de tabela do Azure que foram criadas quando você executou o assistente de **Importação de Dados** em seus dados de exemplo de resenhas de hotéis.
 
-Selecione qualquer tabela para exibir os dados aprimorados, incluindo pontuações de sentimento de frases-chave, dados de localização de latitude e longitude e muito mais.
+Selecione qualquer tabela para exibir os dados aprimorados, incluindo frases-chave e pontuações de opiniões.
 
    ![Exibir tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Exibir tabelas no Gerenciador de Armazenamento")
 
@@ -56,10 +56,10 @@ Você pode localizar e gerenciar recursos no portal usando o link **Todos os rec
 
 Se você estiver usando um serviço gratuito, estará limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Conecte essa loja de conhecimento para Power BI para análise mais profunda ou avance com código, usando a API REST e o postmaster para criar um repositório de conhecimento diferente.
 
 > [!div class="nextstepaction"]
 > [Conectar-se com Power BI](knowledge-store-connect-power-bi.md)
-> [criar uma loja de conhecimento em repouso](knowledge-store-howto.md)
+> [criar uma loja de conhecimento em repouso](knowledge-store-create-rest.md)

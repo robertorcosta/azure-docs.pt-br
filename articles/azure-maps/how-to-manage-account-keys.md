@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5697989696d0d375e52baeb9f7332e7013d16bf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957303"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768836"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerenciar sua conta do Azure Mapas
 
@@ -23,7 +23,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-a-new-account"></a>Criar uma nova conta
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
@@ -41,15 +41,15 @@ Você pode excluir uma conta no Portal do Azure. Navegue até a página de visã
 
 Em seguida, você verá uma página de confirmação. Você pode confirmar a exclusão de sua conta digitando seu nome.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Configurar autenticação com mapas do Azure:
+Configure a autenticação com o Azure Maps e saiba como obter uma chave de assinatura do Azure Maps:
 > [!div class="nextstepaction"]
 > [Gerenciar a autenticação](how-to-manage-authentication.md)
 
 Saiba como gerenciar um tipo de preço da conta dos Azure Mapas:
 > [!div class="nextstepaction"] 
-> [Gerenciar um tipo de preço](how-to-manage-pricing-tier.md)
+> [Gerenciar uma camada de preços](how-to-manage-pricing-tier.md)
 
 Saiba como ver as métricas de uso da API para sua conta do Azure Mapas:
 > [!div class="nextstepaction"] 

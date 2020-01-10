@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075941"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771250"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
@@ -29,7 +29,7 @@ Quando você define um Azure Load Balancer, uma configuração de pool de front-
 
 A tabela a seguir contém alguns exemplos de configurações de front-end:
 
-| Front-end | Endereço IP | protocol | porta |
+| Front-end | Endereço IP | protocolo | porta |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -53,7 +53,7 @@ Vamos explorar esses cenários ainda mais, começando com o comportamento padrã
 
 Nesse cenário, os front-ends são configurados da seguinte maneira:
 
-| Front-end | Endereço IP | protocol | porta |
+| Front-end | Endereço IP | protocolo | porta |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -69,7 +69,7 @@ Definimos duas regras:
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
-| Regra | Endereço IP de front-end | protocol | porta | Destino | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Endereço IP DIP |80 |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Endereço IP DIP |81 |
@@ -98,12 +98,32 @@ Para este cenário, todas as VMs no pool de back-end têm três interfaces de re
 * Front-end 1: uma interface de loopback no SO Convidado que está configurado com o endereço IP do Front-end 1
 * Front-end 2: uma interface de loopback no SO Convidado que está configurado com o endereço IP do Front-end 2
 
+Para cada VM no pool de back-end, execute os comandos a seguir em um prompt de comando do Windows.
+
+Para obter a lista de nomes de interface que você tem em sua VM, digite este comando:
+
+    netsh interface show interface 
+
+Para a NIC da VM (gerenciado pelo Azure), digite este comando:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (substitua InterfaceName pelo nome desta interface)
+
+Para cada interface de loopback que você adicionou, Repita estes comandos:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (substitua InterfaceName pelo nome desta interface de loopback)
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (substitua InterfaceName pelo nome desta interface de loopback)
+
 > [!IMPORTANT]
 > A configuração das interfaces de loopback é executada no SO Convidado. Essa configuração não é executada ou gerenciada pelo Azure. Sem essa configuração, as regras não funcionarão. As definições de investigação de integridade usam o DIP da VM em vez da interface de loopback que representa o front-end de DSR. Portanto, o serviço deve fornecer respostas de investigação em uma porta DIP que refletem o status do serviço oferecido na interface de loopback que representa o front-end de DSR.
 
+
 Vamos supor a mesma configuração de front-end que no cenário anterior:
 
-| Front-end | Endereço IP | protocol | porta |
+| Front-end | Endereço IP | protocolo | porta |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -112,12 +132,12 @@ Definimos duas regras:
 
 | Regra | Front-end | Mapa para pool de back-end |
 | --- | --- | --- |
-| 1 |![Regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (em VM1 e VM2) |
-| 2 |![Regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (em VM1 e VM2) |
+| 1 |![regra](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (em VM1 e VM2) |
+| 2 |![regra](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (em VM1 e VM2) |
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
-| Regra | Endereço IP de front-end | protocol | porta | Destino | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |mesmo que front-end (65.52.0.1) |mesmo que front-end (80) |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |mesmo que front-end (65.52.0.2) |mesmo que front-end (80) |
@@ -133,8 +153,8 @@ O tipo de regra de IP Flutuante é a base de vários padrões de configuração 
 * Há suporte para várias configurações de front-ends apenas com VMs de IaaS.
 * Com a regra de IP flutuante, seu aplicativo deve usar a configuração de IP primário para fluxos SNAT de saída. Se seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO convidado, o SNAT de saída do Azure não estará disponível para regravar o fluxo de saída e o fluxo falhará.  Examine os [cenários de saída](load-balancer-outbound-connections.md).
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-subscription-service-limits.md#networking-limits) .
+* Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [Conexões de saída](load-balancer-outbound-connections.md) para entender o impacto de vários front-ends no comportamento da conexão de saída.

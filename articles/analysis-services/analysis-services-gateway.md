@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146856"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768547"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conectando-se a fontes de dados locais com o gateway de dados local
 
-O gateway de dados local fornece transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. É possível associar vários serviços na mesma assinatura e mesma região com um único gateway. Embora o gateway que você instalar seja o mesmo em todos esses serviços, Azure Analysis Services e aplicativos lógicos têm algumas etapas adicionais.
+O gateway de dados local fornece transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com vários servidores de Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com aplicativos lógicos do Azure, Power BI, Power apps e automação de energia. É possível associar vários serviços na mesma assinatura e mesma região com um único gateway. Embora o gateway que você instalar seja o mesmo em todos esses serviços, Azure Analysis Services e aplicativos lógicos têm algumas etapas adicionais.
 
 Por Azure Analysis Services, obter a configuração com o gateway na primeira vez é um processo de quatro partes:
 
@@ -54,7 +54,7 @@ Talvez seja necessário incluir endereços IP para sua região de dados em seu f
 
 Estes são os nomes de domínio totalmente qualificados usados pelo Gateway.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | Description |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usado para baixar o instalador. |
 | *.powerbi.com |443 |HTTPS |

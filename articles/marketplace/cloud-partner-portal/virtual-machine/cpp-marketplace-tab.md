@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824459"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762885"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Guia de Marketplace de máquina virtual
 
@@ -30,14 +30,14 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obr
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | **Título\***                 | Título da oferta, geralmente o nome longo e formal. Este título será exibido com destaque no mercado.  Comprimento máximo de 50 caracteres. |
-| **\* de resumo**               | Breve propósito ou função da solução.  Comprimento máximo de 100 caracteres. |
+| **Resumo\***               | Breve propósito ou função da solução.  Comprimento máximo de 100 caracteres. |
 | **Resumo longo\***          | Finalidade ou a função da solução.  Comprimento máximo de 256 caracteres. |
-| **Descrição\***           | Descrição da solução  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
+| **Description\***           | Descrição da solução  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
 | **\* de canal do revendedor CSP da Microsoft** | A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](../../cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP. |
 | **Identificador de marketing\***  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Visualizar IDs de assinatura\*** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 | **Links úteis**          | Adicione URLs a documentações, notas de versão, perguntas frequentes e assim por diante. |
-| **Categorias sugeridas (máx. 5)\*** | A seleção múltipla de categorias comerciais e técnicas que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
+| **Categorias sugeridas\*** | Selecione até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada. |
 |  |  |
 
 
@@ -127,6 +127,6 @@ Esta última seção permite que você forneça os documentos legais necessário
 |  |  |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Nas próximas guias [suporte](./cpp-support-tab.md), você fornecerá os recursos de suporte técnico e de usuário para sua oferta.

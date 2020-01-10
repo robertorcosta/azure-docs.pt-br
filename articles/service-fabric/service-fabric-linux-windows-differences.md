@@ -1,25 +1,15 @@
 ---
-title: Diferenças no Azure Service Fabric entre Linux e Windows | Microsoft Docs
+title: Diferenças de Service Fabric do Azure entre Linux e Windows
 description: As diferenças entre o Azure Service Fabric no Linux e o Azure Service Fabric no Windows.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 0010108a7f3f9341d28c0b2f146c2e2f421ce47d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.custom: sfrev
+ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170580"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748537"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>As diferenças entre o Service Fabric no Linux e no Windows
 
@@ -88,9 +78,8 @@ Há alguns recursos que têm suporte no Windows, mas ainda não no Linux. Eventu
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
+## <a name="next-steps"></a>Próximos passos
 
-
-## <a name="next-steps"></a>Próximas etapas
 * [Preparar seu ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
 * [Criar e implantar seu primeiro aplicativo Java de do Service Fabric no Linux usando Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

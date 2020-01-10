@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489212"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772305"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -32,7 +32,7 @@ A visualização de dependências ajuda você a entender as dependências entre 
 
 Há duas opções para implantar a visualização de dependência:
 
-- **Visualização de dependência sem agente**: essa opção está atualmente em visualização. Ele não exige a instalação de agentes em computadores. 
+- **Visualização de dependência sem agente**: essa opção está atualmente em visualização e está disponível somente para VMs VMware. Ele não exige a instalação de agentes em computadores. 
     - Ele funciona capturando os dados de conexão TCP de computadores para os quais está habilitado. [Saiba mais](how-to-create-group-machine-dependencies-agentless.md).
 Depois que a descoberta de dependência é iniciada, o dispositivo reúne dados de computadores em um intervalo de sondagem de cinco minutos.
     - Os seguintes dados são coletados:
@@ -54,7 +54,7 @@ Antes de implantar a visualização de dependência, você deve ter um projeto d
 [Saiba mais](how-to-assess.md) sobre como adicionar a ferramenta e implantar um dispositivo para servidores [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)ou físicos.
 
 
-### <a name="how-does-it-work"></a>Como ele funciona?
+### <a name="how-does-it-work"></a>Como funciona?
 
 As migrações para Azure usam a solução [mapa do serviço](../operations-management-suite/operations-management-suite-service-map.md) em [logs de Azure monitor](../log-analytics/log-analytics-overview.md) para visualização de dependência.
 
@@ -91,8 +91,8 @@ Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.micro
 - Se você excluir o projeto de migrações do Azure associado, o espaço de trabalho não será excluído automaticamente. Você precisa [excluí-lo manualmente](../azure-monitor/platform/manage-access.md).
 - Não exclua o espaço de trabalho criado pela migração do Azure, a menos que você exclua o projeto de migrações para Azure. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Agrupar máquinas usando dependências da máquina](how-to-create-group-machine-dependencies.md)
-- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) sobre as perguntas frequentes na visualização de dependência.
+- [Saiba mais](common-questions-discovery-assessment.md#what-is-dependency-visualization) sobre as perguntas frequentes na visualização de dependência.
 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158895"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770995"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de conexão dos Hubs de Eventos
 
@@ -44,7 +44,7 @@ Este artigo orienta você pelas diversas maneiras de obter a cadeia de conexão.
 6. Na página **Namespace de Hubs de Eventos**, selecione **Políticas de Acesso Compartilhado** no menu à esquerda.
 
     ![Item de menu Políticas de Acesso Compartilhado](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Selecione uma **política de acesso compartilhado** na lista de políticas. A política padrão chama-se: **RootManageSharedAccessPolicy**. Você pode adicionar uma política com permissões apropriadas (leitura, gravação) e usar essa política. 
+7. Selecione uma **política de acesso compartilhado** na lista de políticas. O padrão é chamado: **RootManageSharedAccessPolicy**. Você pode adicionar uma política com permissões apropriadas (leitura, gravação) e usar essa política. 
 
     ![Políticas de acesso compartilhado de hubs de eventos](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. Selecione o botão **Copiar** ao lado do campo **Chave primária da cadeia de conexão**. 
@@ -68,9 +68,15 @@ Use o seguinte para obter a cadeia de conexão para o namespace:
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
+Ou você pode usar o seguinte para obter a cadeia de conexão para uma entidade do EventHub:
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+```
+
 Para obter mais informações sobre os comandos da CLI do Azure para Hubs de Eventos, consulte [CLI do Azure para Hubs de Eventos](/cli/azure/eventhubs).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 

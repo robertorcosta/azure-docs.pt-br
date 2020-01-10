@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665314"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744738"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
 
@@ -22,7 +22,7 @@ Este artigo explica os recursos que estão presentes quando você implanta um cl
 
 Os clusters do Azure HDInsight têm diferentes tipos de máquinas virtuais ou nós. Cada tipo de nó desempenha uma função na operação do sistema. A tabela a seguir resume esses tipos de nó e suas funções no cluster.
 
-| Tipo | DESCRIÇÃO |
+| Tipo | Description |
 | --- | --- |
 | Nó de cabeçalho |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeçalho hospedam os processos que gerenciam a execução do aplicativo distribuído. O nó de cabeçalho também é o nó no qual você pode realizar SSH e executar aplicativos que são coordenados para serem executados nos recursos do cluster. O número de nós de cabeçalho é corrigido em dois para todos os tipos de cluster. |
 | Nó ZooKeeper | O Zookeeper coordena as tarefas entre os nós que estão fazendo o processamento de dados. Ele também faz eleição de líder do nó principal e controla qual nó principal está executando um serviço mestre específico. O número de nós ZooKeeper é corrigido em três. |
@@ -31,6 +31,16 @@ Os clusters do Azure HDInsight têm diferentes tipos de máquinas virtuais ou n�
 | Nó de região | Para o tipo de cluster HBase, o nó de região (também conhecido como nó de dados) executa o servidor de região. Os servidores de região servem e gerenciam uma parte dos dados gerenciados pelo HBase. Nós de região podem ser adicionados ou removidos do cluster para dimensionar a capacidade de computação e gerenciar custos.|
 | Nó Nimbus | Para o tipo de cluster Storm, o nó Nimbus fornece funcionalidade semelhante ao nó principal. O nó Nimbus atribui tarefas a outros nós em um cluster por meio de Zookeeper, que coordena a execução de topologias Storm. |
 | Nó do supervisor | Para o tipo de cluster Storm, o nó supervisor executa as instruções fornecidas pelo nó Nimbus para executar o processamento desejado. |
+
+## <a name="resource-naming-conventions"></a>Convenções de nomenclatura de recursos
+
+Use nomes de domínio totalmente qualificados (FQDNs) ao endereçar nós em seu cluster. Você pode obter os FQDNs para vários tipos de nó no cluster usando a [API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
+
+Esses FQDNs estarão no formato `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+
+O `<node-type-prefix>` será *HN* para cabeçalho, *WN* para nós de trabalho e *Zn* para nós Zookeeper.
+
+Se você precisar apenas do nome do host, use apenas a primeira parte do FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Recursos básicos da rede virtual
 
@@ -53,7 +63,7 @@ Os seguintes recursos de rede presentes são criados automaticamente dentro da r
 
 | Recurso de rede | Número presente | Detalhes |
 | --- | --- | --- |
-|Balanceador de carga | três | |
+|Load Balancer | três | |
 |Interfaces de Rede | alto | Esse valor se baseia em um cluster normal, em que cada nó tem sua própria interface de rede. As nove interfaces são para os dois nós de cabeçalho, três nós Zookeeper, dois nós de trabalho e dois nós de gateway mencionados na tabela anterior. |
 |Endereços IP públicos | dois |    |
 
@@ -72,6 +82,6 @@ Os endereços IP públicos também são fornecidos para os dois pontos de extrem
 1. Um IP público é atribuído ao balanceador de carga para o FQDN (nome de domínio totalmente qualificado) a ser usado ao se conectar ao cluster por meio da Internet `CLUSTERNAME.azurehdinsight.net`.
 1. O segundo endereço IP público é usado para o nome de domínio somente SSH `CLUSTERNAME-ssh.azurehdinsight.net`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Proteger o tráfego de entrada para clusters HDInsight em uma rede virtual com ponto de extremidade privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

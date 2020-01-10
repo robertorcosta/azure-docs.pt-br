@@ -2,13 +2,13 @@
 title: Referência de desenvolvedor do Python para o Azure Functions
 description: Saiba como desenvolver funções usando Python
 ms.topic: article
-ms.date: 04/16/2018
-ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/13/2019
+ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226638"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768992"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -100,8 +100,8 @@ A pasta principal do projeto (\_aplicativo \_\_\_) pode conter os seguintes arqu
 * *local. Settings. JSON*: usado para armazenar configurações de aplicativo e cadeias de conexão ao executar localmente. Esse arquivo não é publicado no Azure. Para saber mais, consulte [local. Settings. File](functions-run-local.md#local-settings-file).
 * *requirements. txt*: contém a lista de pacotes que o sistema instala ao publicar no Azure.
 * *host. JSON*: contém opções de configuração global que afetam todas as funções em um aplicativo de funções. Esse arquivo é publicado do Azure. Nem todas as opções têm suporte ao serem executadas localmente. Para saber mais, consulte [host. JSON](functions-host-json.md).
-* *funcignore*: (opcional) declara os arquivos que não devem ser publicados no Azure.
-* *gitignore*: (opcional) declara os arquivos que são excluídos de um repositório git, como local. Settings. JSON.
+* *. funcignore*: (opcional) declara os arquivos que não devem ser publicados no Azure.
+* *. gitignore*: (opcional) declara os arquivos que são excluídos de um repositório git, como local. Settings. JSON.
 
 Cada função possui seu próprio arquivo de código e arquivo de configuração de associação (function.json). 
 
@@ -171,10 +171,10 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando a função é invocada, a solicitação HTTP é transmitida para a função como `req`. Uma entrada será recuperada do armazenamento de BLOBs do Azure com base na _ID_ na URL de rota e disponibilizada como `obj` no corpo da função.  Aqui, a conta de armazenamento especificada é a cadeia de conexão encontrada em, que é a mesma conta de armazenamento usada pelo aplicativo de funções.
+Quando a função é invocada, a solicitação HTTP é transmitida para a função como `req`. Uma entrada será recuperada do armazenamento de BLOBs do Azure com base na _ID_ na URL de rota e disponibilizada como `obj` no corpo da função.  Aqui, a conta de armazenamento especificada é a cadeia de conexão encontrada na configuração do aplicativo AzureWebJobsStorage, que é a mesma conta de armazenamento usada pelo aplicativo de funções.
 
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>outputs
 
 A saída pode ser expressa em parâmetros de saída e em valores retornados. Se houver apenas uma saída, recomendamos usar o valor retornado. Para múltiplas saídas, você precisará usar parâmetros de saída.
 
@@ -236,7 +236,7 @@ def main(req):
 
 Há outros métodos de registro em log disponíveis que permitem a gravação no console em níveis de rastreamento diferentes:
 
-| Método                 | DESCRIÇÃO                                |
+| Método                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | Grava uma mensagem com nível CRÍTICO no agente raiz.  |
 | **`error(_message_)`**   | Grava uma mensagem com nível ERRO no agente raiz.    |
@@ -280,28 +280,30 @@ Nessa função, o valor do parâmetro de consulta `name` é obtido do parâmetro
 
 Da mesma forma, você pode definir o `status_code` e `headers` para a mensagem de resposta no objeto [HttpResponse] retornado.
 
-## <a name="concurrency"></a>Simultaneidade
+## <a name="scaling-and-concurrency"></a>Dimensionamento e simultaneidade
 
-Por padrão, as funções de tempo de execução do Python só podem processar uma invocação de uma função por vez. Esse nível de simultaneidade pode não ser suficiente em uma ou mais das seguintes condições:
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Python, conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, consulte [como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-+ Você está tentando lidar com várias invocações sendo feitas ao mesmo tempo.
-+ Você está processando um grande número de eventos de e/s.
-+ Seu aplicativo está associado à e/s.
+Esse comportamento de dimensionamento é suficiente para muitos aplicativos. No entanto, os aplicativos com qualquer uma das seguintes características podem não ser dimensionados com eficiência:
 
-Nessas situações, você pode melhorar o desempenho executando de forma assíncrona e usando vários processos de trabalho de linguagem.  
+- O aplicativo precisa lidar com muitas invocações simultâneas.
+- O aplicativo processa um grande número de eventos de e/s.
+- O aplicativo está associado à e/s.
+
+Nesses casos, você pode melhorar ainda mais o desempenho empregando padrões assíncronos e usando vários processos de trabalho de linguagem.
 
 ### <a name="async"></a>Assíncrono
 
-Recomendamos que você use a instrução `async def` para fazer sua função ser executada como uma corrotina assíncrona.
+Como o Python é um tempo de execução de thread único, uma instância de host para Python pode processar apenas uma invocação de função por vez. Para aplicativos que processam um grande número de eventos de e/s e/ou são associados a e/s, você pode melhorar o desempenho executando funções de forma assíncrona.
+
+Para executar uma função de forma assíncrona, use a instrução `async def`, que executa a função com [asyncio](https://docs.python.org/3/library/asyncio.html) diretamente:
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Quando a função `main()` é síncrona (sem o qualificador de `async`), a função é executada automaticamente em um pool de threads `asyncio`.
+Uma função sem a palavra-chave `async` é executada automaticamente em um pool de threads asyncio:
 
 ```python
 # Runs in an asyncio thread-pool
@@ -312,7 +314,9 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Usar vários processos de trabalho de idioma
 
-Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. No entanto, há suporte para ter vários processos de trabalho de idioma por instância de host. As invocações de função podem ser distribuídas uniformemente entre esses processos de trabalho de linguagem. Use a configuração [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) aplicativo para alterar esse valor. 
+Por padrão, cada instância de host do Functions tem um processo de trabalho de idioma único. Você pode aumentar o número de processos de trabalho por host (até 10) usando a configuração de aplicativo [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) . Azure Functions, em seguida, tenta distribuir uniformemente invocações de função simultâneas entre esses trabalhos. 
+
+O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao escalar horizontalmente seu aplicativo para atender à demanda. 
 
 ## <a name="context"></a>Contexto
 
@@ -380,7 +384,7 @@ Para o desenvolvimento local, as configurações do aplicativo são [mantidas no
 
 Atualmente, Azure Functions dá suporte a Python 3.6. x e 3.7. x (distribuições oficiais do CPython). Ao executar localmente, o tempo de execução usa a versão disponível do Python. Para solicitar uma versão específica do Python ao criar seu aplicativo de funções no Azure, use a opção `--runtime-version` do comando [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) .  
 
-## <a name="package-management"></a>Gerenciamento de pacote
+## <a name="package-management"></a>Gerenciamento de pacotes
 
 Ao desenvolver localmente usando o Azure Functions Core Tools ou o Visual Studio Code, adicione os nomes e as versões dos pacotes necessários para os arquivos `requirements.txt` e instale-os usando `pip`. 
 
@@ -448,7 +452,7 @@ func azure functionapp publish <APP_NAME> --no-build
 
 Lembre-se de substituir `<APP_NAME>` pelo nome do aplicativo de funções no Azure.
 
-## <a name="unit-testing"></a>Testes de unidade
+## <a name="unit-testing"></a>Teste de unidade
 
 As funções escritas em Python podem ser testadas como outros códigos Python usando estruturas de teste padrão. Para a maioria das associações, é possível criar um objeto de entrada fictício criando uma instância de uma classe apropriada do pacote de `azure.functions`. Como o pacote de [`azure.functions`](https://pypi.org/project/azure-functions/) não está disponível imediatamente, certifique-se de instalá-lo por meio do arquivo `requirements.txt`, conforme descrito na seção [Gerenciamento de pacotes](#package-management) acima. 
 
@@ -637,9 +641,9 @@ Certifique-se de também atualizar seu function. JSON para dar suporte ao métod
     ...
 ```
 
-Esse método é usado pelo navegador Chrome para negociar a lista de origens permitidas. 
+Esse método HTTP é usado por navegadores da Web para negociar a lista de origens permitidas. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os recursos a seguir:
 

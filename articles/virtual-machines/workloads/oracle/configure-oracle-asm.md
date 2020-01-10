@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 91150251140379c15d4ab3711ded571c9ad2c024
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ace19f17f5d7a5e920808b76258459c0eba62890
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101644"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750536"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurar o Oracle ASM em uma máquina virtual Linux do Azure  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configure o Oracle ASM em uma máquina virtual Linux do Azure  
 
 Máquinas virtuais do Azure fornecem um ambiente de computação totalmente configurável e flexível. Este tutorial aborda a implantação básica de máquina virtual do Azure combinada com a instalação e a configuração do Oracle ASM (Automated Storage Management).  Você aprenderá como:
 
@@ -32,8 +32,6 @@ Máquinas virtuais do Azure fornecem um ambiente de computação totalmente conf
 > * Inicializar uma instalação do Oracle ASM
 > * Criar um Oracle DB gerenciado por ASM
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
@@ -47,7 +45,7 @@ Para criar um grupo de recursos, use o comando [az group create](/cli/azure/grou
 az group create --name myResourceGroup --location eastus
 ```
 
-### <a name="create-a-vm"></a>Criar uma máquina virtual
+### <a name="create-a-vm"></a>Criar uma VM
 
 Para criar uma máquina virtual com base na imagem do Oracle Database e configurá-la para usar o Oracle ASM, use o comando [az vm create](/cli/azure/vm). 
 
@@ -211,7 +209,7 @@ Para este tutorial, o usuário padrão é *grade* e o grupo padrão é *asmadmin
    fdisk /dev/sdc
    ```
    
-   Usando as respostas fornecidas acima, a saída para o comando fdisk deve ficar semelhante ao seguinte:
+   Usando as respostas fornecidas acima, a saída para o comando `fdisk` deve ser semelhante ao seguinte:
 
    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -247,7 +245,7 @@ Para este tutorial, o usuário padrão é *grade* e o grupo padrão é *asmadmin
    Syncing disks.
    ```
 
-4. Repita o comando fdisk anterior para `/dev/sdd`, `/dev/sde` e `/dev/sdf`.
+4. Repita o comando `fdisk` anterior para `/dev/sdd`, `/dev/sde`e `/dev/sdf`.
 
 5. Verifique a configuração de disco:
 
@@ -428,7 +426,7 @@ A configuração do Oracle ASM exige uma interface gráfica para concluir a inst
    > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
    >  
 
-6. No sistema cliente, inicie o PuTTY. No painel **Categoria**, vá para **Conexão** > **SSH** > **Autenticação**. Na caixa **Arquivo de chave privada para autenticação**, navegue até a chave que você gerou anteriormente.
+6. No sistema cliente, inicie o PuTTY. No painel **categoria** , acesse **conexão** > **SSH** > **autenticação**. Na caixa **arquivo de chave privada para autenticação** , navegue até a chave que você gerou anteriormente.
 
    ![Captura de tela das opções de autenticação SSH](./media/oracle-asm/setprivatekey.png)
 
@@ -580,10 +578,10 @@ Você configurou com êxito o Oracle Automated Storage Management na imagem do O
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Tutorial: Configurar o Oracle DataGuard](configure-oracle-dataguard.md)
+[Tutorial: configurar o Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Tutorial: Configurar o Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Tutorial: configurar o Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Examine [Projetar um Oracle DB](oracle-design.md)

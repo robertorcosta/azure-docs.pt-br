@@ -1,6 +1,6 @@
 ---
-title: Entender a integridade do Linux Hybrid Runbook Worker no Azure Gerenciamento de Atualizações
-description: Saiba como solucionar problemas com o Hybrid Runbook Worker no Linux que oferece suporte a Gerenciamento de Atualizações.
+title: Diagnosticar Hybrid Runbook Worker do Linux – Gerenciamento de Atualizações do Azure
+description: Saiba como solucionar e resolver problemas com o Hybrid Runbook Worker de automação do Azure no Linux que dá suporte a Gerenciamento de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849252"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769822"
 ---
-# <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Linux Hybrid Runbook Worker no Gerenciamento de Atualizações
+# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Entender e resolver o Linux Hybrid Runbook Worker Health para Gerenciamento de Atualizações
 
 Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Runbook Worker para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline).
 
@@ -52,7 +52,7 @@ Após a conclusão, os resultados são retornados na janela. As seções de veri
 
 A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um dos seguintes sistemas operacionais:
 
-|Sistema operacional  |Notas  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. O patch baseado em classificação requer que o yum retorne dados de segurança que o CentOS não possui.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
@@ -61,7 +61,7 @@ A verificação do sistema operacional verifica se o Hybrid Runbook Worker está
 
 ## <a name="monitoring-agent-service-health-checks"></a>Monitoramento das verificações de integridade de serviço do agente
 
-### <a name="log-analytics-agent"></a>Agente do log Analytics
+### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
 Essa verificação garante que o agente do Log Analytics para Linux esteja instalado. Para obter instruções sobre como instalar, consulte [Instalar o agente para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).

@@ -1,21 +1,21 @@
 ---
-title: Logs de recursos para grupos de contêineres
+title: Coletar & analisar logs de recursos
 description: Saiba como enviar logs de recursos e dados de eventos de grupos de contêineres em instâncias de contêiner do Azure para Azure Monitor logs
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533728"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770536"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Log de instância e grupo de contêineres com logs de Azure Monitor
 
-Os workspaces do Log Analytics fornecem uma localização centralizada para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também dos recursos locais e recursos em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados de eventos e logs aos logs do Azure Monitor.
+Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas de recursos do Azure, mas também recursos e recursos locais em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados de eventos e logs aos logs do Azure Monitor.
 
-Para enviar dados eventos e logs do grupo de contêineres para logs do Azure Monitor, você precisa especificar uma chave do workspace e uma ID do workspace do Log Analytics ao criar um grupo de contêineres. As seções a seguir descrevem a criação de um grupo de contêineres com registro em log habilitado e consulta de logs.
+Para enviar dados de log e eventos do grupo de contêineres para Azure Monitor logs, especifique uma ID do espaço de trabalho Log Analytics e uma chave do espaço de trabalho existentes ao criar um grupo de contêineres. As seções a seguir descrevem como criar um grupo de contêineres habilitado para registro em log e como consultar logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -46,7 +46,7 @@ Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
 Agora que você tem a ID e do espaço de trabalho do Log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para log.
 
-Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres que consiste em um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contêiner fluentd produz várias linhas de saída em sua configuração padrão. Como essa saída é enviada para o espaço de trabalho do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
 
 ### <a name="deploy-with-azure-cli"></a>Implantar com o Azure CLI
 
@@ -130,7 +130,7 @@ Os logs do Azure Monitor incluem uma [linguagem de consulta][query_lang] extensa
 
 A estrutura básica de uma consulta é a tabela de origem (neste artigo, `ContainerInstanceLog_CL` ou `ContainerEvent_CL`) seguida por uma série de operadores separados pelo caractere de pipe (`|`). É possível encadear vários operadores para refinar os resultados e executar funções avançadas.
 
-Para ver os resultados da consulta de exemplo, cole a consulta a seguir na caixa de texto da consulta e selecione o botão **Executar** para executar a consulta. Esta consulta exibe todas as entradas de log cujo campo de "Mensagem" contém a palavra "warn":
+Para ver os resultados da consulta de exemplo, Cole a consulta a seguir na caixa de texto de consulta e selecione o botão **executar** para executar a consulta. Esta consulta exibe todas as entradas de log cujo campo de "Mensagem" contém a palavra "warn":
 
 ```query
 ContainerInstanceLog_CL

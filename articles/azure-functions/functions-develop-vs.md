@@ -4,12 +4,12 @@ description: Saiba como desenvolver e testar Azure Functions usando as ferrament
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 04074579b3eb34175a6d29897bbd38b95ae3a596
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 571519b996948a9fc4ac98e18e510fcee1dbef9b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230650"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769755"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver o Azure Functions usando o Visual Studio  
 
@@ -27,7 +27,7 @@ Este artigo fornece detalhes sobre como usar o Visual Studio para desenvolver C#
 
 Salvo indicação em contrário, os procedimentos e exemplos mostrados são para o Visual Studio 2019. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Azure Functions ferramentas estão incluídas na carga de trabalho de desenvolvimento do Azure do Visual Studio, começando com o Visual Studio 2017. Certifique-se de incluir a carga de trabalho de **desenvolvimento do Azure** em sua instalação do Visual Studio.
 
@@ -63,7 +63,7 @@ Outros recursos necessários, como uma conta de armazenamento do Azure, são cri
 1. Depois que a atualização for concluída, escolha **Fechar** e reinicie o Visual Studio.
 
 > [!NOTE]  
-No Visual Studio 2019 e posterior, a extensão de ferramentas de Azure Functions é atualizada como parte do Visual Studio.  
+> No Visual Studio 2019 e posterior, a extensão de ferramentas de Azure Functions é atualizada como parte do Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto do Azure Functions
 
@@ -228,7 +228,7 @@ Para habilitar o Application Insights no aplicativo de funções:
 
 Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as Ferramentas Básicas do Azure Functions, consulte [Codificar e testar o Azure Functions localmente](functions-run-local.md).
 

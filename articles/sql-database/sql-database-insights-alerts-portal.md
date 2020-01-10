@@ -11,16 +11,16 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c2b889d4013abb60c9ad7bb4bcdc4e6546cfa37c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810375"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745943"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o Banco de Dados SQL do Azure e para o Data Warehouse usando o portal do Azure
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Este artigo mostra como configurar alertas do Banco de Dados SQL do Azure e do Data Warehouse usando o Portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.    
 
 > [!IMPORTANT]
@@ -39,7 +39,7 @@ Você pode configurar um alerta para fazer o seguinte quando ele dispara:
 
 Você pode configurar e obter informações sobre o uso de regras de alerta
 
-* [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [CLI (Interface de linha de comando)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -80,7 +80,7 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 | Banco de dados SQL | physical_data_read_percent | Porcentagem de E/S de dados | Média | 5 minutos |
 | Banco de dados SQL | log_write_percent | Porcentagem de E/S de log | Média | 5 minutos |
 | Banco de dados SQL | dtu_consumption_percent | Porcentagem de DTU | Média | 5 minutos |
-| Banco de dados SQL | storage | Tamanho total do banco de dados | Máximo | 30 minutos |
+| Banco de dados SQL | temporário | Tamanho total do banco de dados | Máximo | 30 minutos |
 | Banco de dados SQL | connection_successful | Conexões bem sucedidas | Total | 10 minutos |
 | Banco de dados SQL | connection_failed | Conexões com falha | Total | 10 minutos |
 | Banco de dados SQL | blocked_by_firewall | Bloqueado pelo firewall | Total | 10 minutos |
@@ -115,8 +115,8 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 ||||||
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Obter uma visão geral do monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md) , incluindo os tipos de informações que você pode coletar e monitorar.
 * Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Tenha uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) e colete métricas detalhadas de alta frequência em seu serviço.
+* Tenha uma [visão geral dos logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) e colete métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

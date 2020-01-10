@@ -14,21 +14,21 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 9412107759e0aa068d982828d47b97822c09ae35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261668"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748090"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
  
-Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-platform-metrics.md) e [logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../azure-monitor/platform/alerts-overview.md) para receber notificações quando uma métrica alcançar um valor especificado. 
+Este artigo explica como monitorar uma conta do Lote usando os recursos do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor coleta [métricas](../azure-monitor/platform/data-platform-metrics.md) e [logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na conta do Lote. Colete e consuma esses dados de várias maneiras para monitorar a conta do Lote e diagnosticar problemas. Também é possível configurar [alertas de métrica](../azure-monitor/platform/alerts-overview.md) para receber notificações quando uma métrica alcançar um valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas do Lote
 
-Métricas são dados telemétricos do Azure (também chamados de contadores de desempenho) emitidos pelos recursos do Azure que são consumidos pelo serviço Azure Monitor. As métricas de exemplo em uma conta do Lote incluem: Eventos de Criação de Pool, Contagem de Nós de Baixa Prioridade e Eventos de Conclusão de Tarefa. 
+Métricas são dados telemétricos do Azure (também chamados de contadores de desempenho) emitidos pelos recursos do Azure que são consumidos pelo serviço Azure Monitor. Exemplo de métrica em uma conta do Lote inclui: Eventos de Criação de Pool, Contagem de Nó de Baixa Prioridade e Eventos de Conclusão de Tarefa. 
 
 Consulte [lista de métricas do Lote com suporte](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -105,11 +105,11 @@ Outros destinos opcionais para logs de diagnóstico:
 
     Ao selecionar uma conta de armazenamento, opcionalmente, defina uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
     ![Diagnóstico do Lote](media/batch-diagnostics/diagnostics-portal.png)
 
-Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/resource-logs-overview.md).
+Outras opções para habilitar a coleção de logs incluem: use o Azure Monitor no portal para definir configurações de diagnóstico, use um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) ou use o Azure PowerShell ou a CLI do Azure. consulte [Coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acessar logs de diagnóstico no armazenamento
@@ -130,15 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Cada `PT1H.json` arquivo de BLOB contém eventos formatados em JSON que ocorreram dentro da hora especificada na URL do blob ( `h=12`por exemplo,). Durante a hora atual, os eventos são anexados ao `PT1H.json` arquivo conforme eles ocorrem. O valor de minuto`m=00`() é `00`sempre, pois os eventos de log de diagnóstico são divididos em BLOBs individuais por hora. (Todas as horas estão em UTC.)
+Cada arquivo de blob `PT1H.json` contém eventos formatados em JSON que ocorreram dentro da hora especificada na URL do blob (por exemplo, `h=12`). Durante a hora atual, os eventos são anexados ao arquivo de `PT1H.json` conforme eles ocorrem. O valor de minuto (`m=00`) sempre é `00`, já que os eventos de log de diagnóstico são divididos em BLOBs individuais por hora. (Todas as horas estão em UTC.)
 
-Abaixo está um exemplo de uma `PoolResizeCompleteEvent` entrada em um `PT1H.json` arquivo de log. Ele inclui informações sobre o número atual e o destino de nós dedicados e de baixa prioridade, bem como a hora de início e de término da operação:
+Abaixo está um exemplo de uma entrada de `PoolResizeCompleteEvent` em um arquivo de log `PT1H.json`. Ele inclui informações sobre o número atual e o destino de nós dedicados e de baixa prioridade, bem como a hora de início e de término da operação:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para obter mais informações sobre o esquema de logs de diagnóstico na conta de armazenamento, consulte [Arquivar logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account). Para acessar os logs na conta de armazenamento programaticamente, use as APIs de Armazenamento. 
+Para obter mais informações sobre o esquema de logs de diagnóstico na conta de armazenamento, consulte [Arquivar logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). Para acessar os logs na conta de armazenamento programaticamente, use as APIs de Armazenamento. 
 
 ### <a name="service-log-events"></a>Eventos do Log de Serviço
 Logs de Serviço do Lote do Azure, se coletados, contêm eventos emitidos pelo serviço do Lote do Azure durante o tempo de vida de um recurso individual do Lote, como um pool ou uma tarefa. Cada evento emitido pelo Lote é registrado em formato JSON. Por exemplo, este é o corpo de um exemplo de **evento de criação de pool**:
@@ -180,7 +180,7 @@ O serviço do Lote emite atualmente os seguintes eventos do Log de Serviço. Ess
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Saiba mais sobre [Monitorar soluções do Lote](monitoring-overview.md).

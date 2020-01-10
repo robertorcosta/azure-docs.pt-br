@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3d8d7c6d3c4e752480310c122bcb7db237b3022b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209405"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772101"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
-O [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de fácil utilização da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
+[Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
 
 A maneira recomendada para montar um compartilhamento de arquivos do Azure no Linux é usando SMB 3,0. Por padrão, os arquivos do Azure exigem criptografia em trânsito, que tem suporte apenas no SMB 3,0. Os arquivos do Azure também dão suporte ao SMB 2,1, que não dá suporte à criptografia em trânsito, mas você não pode montar compartilhamentos de arquivos do Azure com o SMB 2,1 de outra região do Azure ou local por motivos de segurança. A menos que seu aplicativo exija especificamente o SMB 2,1, há pouco motivo para usá-lo desde que as distribuições do Linux mais populares, lançadas recentemente, dão suporte ao SMB 3,0:  
 
 | | SMB 2.1 <br>(Montagens em VMs na mesma região do Azure) | SMB 3.0 <br>(Montagens de região cruzada e locais) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
-| Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
+| RHEL (Red Hat Enterprise Linux) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
@@ -34,7 +34,7 @@ Se você estiver usando uma distribuição do Linux não listada na tabela acima
 uname -r
 ```
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Verifique se o pacote CIFS-utils está instalado.**  
@@ -80,7 +80,7 @@ uname -r
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
-    fileHost=$(echo $fileHost | tr -d "/")
+    fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
     ```
@@ -202,18 +202,18 @@ A partir do kernel do Linux 4,18, o módulo kernel SMB, chamado `cifs` por motiv
 | Distribuição | Pode desabilitar o SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04 – 16.04 | Não |
-| Ubuntu 18.04 | sim |
-| Ubuntu 19.04 + | sim |
+| Ubuntu 18.04 | Sim |
+| Ubuntu 19.04 + | Sim |
 | Debian 8-9 | Não |
-| Debian 10 + | sim |
-| Fedora 29 + | sim |
+| Debian 10 + | Sim |
+| Fedora 29 + | Sim |
 | CentOS 7 | Não | 
-| CentOS 8 + | sim |
+| CentOS 8 + | Sim |
 | Red Hat Enterprise Linux 6. x-7. x | Não |
-| Red Hat Enterprise Linux 8 + | sim |
+| Red Hat Enterprise Linux 8 + | Sim |
 | openSUSE Leap 15,0 | Não |
-| openSUSE Leap 15.1 + | sim |
-| openSUSE Tumbleweed | sim |
+| openSUSE Leap 15.1 + | Sim |
+| openSUSE Tumbleweed | Sim |
 | SUSE Linux Enterprise 11. x-12. x | Não |
 | SUSE Linux Enterprise 15 | Não |
 | SUSE Linux Enterprise 15,1 | Não |
@@ -278,9 +278,9 @@ Usuários do Linux, queremos ouvir sua opinião!
 
 O grupo do Arquivos do Azure para usuários do Linux oferece um fórum para que você possa compartilhar comentários à medida que você avalia e adota o Armazenamento de Arquivos no Linux. Envie um email para [Usuários do Linux do Arquivos do Azure](mailto:azurefileslinuxusers@microsoft.com) para ingressar no grupo de usuários.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Veja estes links para obter mais informações sobre o Arquivos do Azure:
 
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [Perguntas frequentes](../storage-files-faq.md)
+* [perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

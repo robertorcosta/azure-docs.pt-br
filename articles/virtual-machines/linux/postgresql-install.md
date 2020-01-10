@@ -14,23 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035262"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747806"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e DB2. Ele inclui recursos corporativos como conformidade total com ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Também oferece suporte a padrões como ANSI SQL e SQL/MED (inclusive wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 idiomas de procedimento, índices GIN e GiST, dados espaciais e vários recursos como NoSQL para aplicativos JSON ou de chave-valor.
 
 Neste artigo, você aprenderá a instalar e configurar PostgreSQL em uma máquina virtual Azure que executa o Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>Instalar o PostgreSQL
 > [!NOTE]
-> Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
@@ -64,7 +63,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Se você quiser compilar tudo o que for possível, incluindo a documentação (páginas HTML e man) e módulos adicionais (contrib), execute em vez disso o seguinte comando:
+5. Se você quiser compilar tudo que possa ser compilado, incluindo a documentação (páginas HTML e Man) e módulos adicionais (`contrib`), execute o seguinte comando em vez disso:
    
         # gmake install-world
    
@@ -125,7 +124,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
    
     Você deverá receber o seguinte resultado:
 
-![imagem](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Configurar o PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -142,7 +141,7 @@ Modifique duas variáveis no arquivo /etc/init.d/postgresql. O prefixo é defini
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![imagem](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Altere o arquivo para torná-lo executável:
 
@@ -158,7 +157,7 @@ Verifique se o ponto de extremidade do PostgreSQL está em:
 
 Você deve ver o seguinte resultado:
 
-![imagem](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Conectar-se ao banco de dados Postgres
 Alterne para o usuário do postgres mais uma vez:
@@ -189,11 +188,11 @@ Agora você configurou uma tabela de quatro colunas com os seguintes nomes e res
 
 Você deverá ver o seguinte se a tabela tiver sido criada com êxito:
 
-![imagem](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 Você também pode verificar a estrutura da tabela usando o seguinte comando:
 
-![imagem](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Adicionar dados a uma tabela
 Primeiro, insira as informações em uma linha:
@@ -202,7 +201,7 @@ Primeiro, insira as informações em uma linha:
 
 Você deverá ver este resultado:
 
-![imagem](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
 É possível adicionar algumas pessoas à tabela. Aqui estão algumas opções, ou você pode criar as suas próprias:
 
@@ -219,7 +218,7 @@ Use o seguinte comando para mostrar uma tabela:
 
 A saída é:
 
-![imagem](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Excluir dados de uma tabela
 Use o seguinte comando para excluir dados de uma tabela:
@@ -228,7 +227,7 @@ Use o seguinte comando para excluir dados de uma tabela:
 
 Isso exclui todas as informações na linha "John". A saída é:
 
-![imagem](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Atualizar dados em uma tabela
 Use o seguinte comando para atualizar dados em uma tabela. Para isso, arenoso confirmou que eles estão participando, portanto, alteraremos o RSVP de "N" para "Y":

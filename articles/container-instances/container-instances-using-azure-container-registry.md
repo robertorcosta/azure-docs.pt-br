@@ -3,15 +3,15 @@ title: Implantar a imagem de contêiner do registro de contêiner do Azure
 description: Saiba como implantar contêineres em Instâncias de Contêiner do Azure usando imagens de contêiner em um Registro de Contêiner do Azure.
 services: container-instances
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 823a25f388860fa55962a717b9dfed22f5d9c103
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533282"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770502"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -25,7 +25,9 @@ O [Registro de Contêiner do Azure](../container-registry/container-registry-int
 
 ## <a name="configure-registry-authentication"></a>Configurar a autenticação do registro
 
-Em qualquer cenário de produção, o acesso a um registro de contêiner do Azure deve ser fornecido usando [entidades de serviço](../container-registry/container-registry-auth-service-principal.md). As entidades de serviço permitem que você forneça [controle de acesso baseado em função](../container-registry/container-registry-roles.md) às imagens de contêiner. Por exemplo, é possível configurar uma entidade de serviço com acesso somente pull para um registro.
+Em um cenário de produção em que você fornece acesso a aplicativos e serviços "sem periféricos", é recomendável configurar o acesso ao registro usando uma [entidade de serviço](../container-registry/container-registry-auth-service-principal.md). Uma entidade de serviço permite que você forneça [controle de acesso baseado em função](../container-registry/container-registry-roles.md) para suas imagens de contêiner. Por exemplo, é possível configurar uma entidade de serviço com acesso somente pull para um registro.
+
+O registro de contêiner do Azure fornece [Opções de autenticação](../container-registry/container-registry-authentication.md)adicionais.
 
 Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre. 
 
@@ -33,7 +35,9 @@ Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de se
 
 Se você ainda não tiver um cofre no [Azure Key Vault](../key-vault/key-vault-overview.md), crie um com a CLI do Azure usando os comandos a seguir.
 
-Atualize a variável `RES_GROUP` com o nome do grupo de recursos existente no qual criar o cofre de chaves e `ACR_NAME` com o nome do registro de contêiner. Especifique um nome para o novo cofre de chaves em `AKV_NAME`. O nome do cofre deve ser exclusivo no Azure e deve ter de 3 a 24 caracteres alfanuméricos, começar com uma letra, terminar com uma letra ou um dígito e não pode conter hífens consecutivos.
+Atualize a variável `RES_GROUP` com o nome do grupo de recursos existente no qual criar o cofre de chaves e `ACR_NAME` com o nome do registro de contêiner. Para fins de brevidade, os comandos neste artigo pressupõem que o registro, o cofre de chaves e as instâncias de contêiner sejam todos criados no mesmo grupo de recursos.
+
+ Especifique um nome para o novo cofre de chaves em `AKV_NAME`. O nome do cofre deve ser exclusivo no Azure e deve ter de 3 a 24 caracteres alfanuméricos, começar com uma letra, terminar com uma letra ou um dígito e não pode conter hífens consecutivos.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -45,12 +49,12 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>Criar entidades de serviço e armazenar credenciais
 
-Agora, é necessário criar uma entidade de serviço e armazenar as credenciais no cofre de chaves.
+Agora, crie uma entidade de serviço e armazene suas credenciais no cofre de chaves.
 
 O comando a seguir usa [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] para criar a entidade de serviço e [AZ keyvault segredo Set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre.
 
 ```azurecli
-# Create service principal, store its password in AKV (the registry *password*)
+# Create service principal, store its password in vault (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
@@ -67,14 +71,14 @@ O argumento `--role` no comando anterior configura a entidade de serviço com a 
 Em seguida, armazene o *appId* da entidade de serviço no cofre, que é o **nome de usuário** que você passa para o Registro de Contêiner do Azure para autenticação.
 
 ```azurecli
-# Store service principal ID in AKV (the registry *username*)
+# Store service principal ID in vault (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Você criou um Azure Key Vault e armazenou dois segredos nele:
+Você criou um cofre de chaves do Azure e armazenou dois segredos nele:
 
 * `$ACR_NAME-pull-usr`: a ID da entidade de serviço, para uso como o **nome de usuário** do registro de contêiner.
 * `$ACR_NAME-pull-pwd`: a senha da entidade de serviço, para uso como a **senha** do registro de contêiner.
@@ -116,9 +120,10 @@ Depois que o contêiner for iniciado com êxito, será possível navegar para o 
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Implantar com o modelo do Azure Resource Manager
 
-Você pode especificar as propriedades do Registro de Contêiner do Azure em um modelo do Azure Resource Manager incluindo a propriedade `imageRegistryCredentials` na definição de grupos do contêiner:
+Você pode especificar as propriedades do seu registro de contêiner do Azure em um modelo de Azure Resource Manager, incluindo a propriedade `imageRegistryCredentials` na definição do grupo de contêineres. Por exemplo, você pode especificar as credenciais de registro diretamente:
 
 ```JSON
+[...]
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -126,7 +131,10 @@ Você pode especificar as propriedades do Registro de Contêiner do Azure em um 
     "password": "imageRegistryPassword"
   }
 ]
+[...]
 ```
+
+Para obter configurações completas do grupo de contêineres, consulte a [referência de modelo do Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
 
 Para obter detalhes sobre como referenciar segredos do Azure Key Vault em um modelo do Resource Manager, consulte [Usar o Azure Key Vault para passar o valor de parâmetro seguro durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 

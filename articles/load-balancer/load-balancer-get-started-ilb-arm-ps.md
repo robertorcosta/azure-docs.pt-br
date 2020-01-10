@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b2c94e51e25fd34b7332e6653a9c2f2d5bb53139
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225382"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754243"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno usando o módulo do Azure Powershell
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -48,7 +48,7 @@ Para implantar um balanceador de carga, os seguintes objetos devem ser criados:
 * Configuração de investigação: Investigações do status de integridade das máquinas virtuais.
 * Regras NAT de entrada: As regras de porta para acesso direto às máquinas virtuais.
 
-Para obter mais informações sobre os componentes do balanceador de carga, confira [Suporte do Azure Resource Manager para balanceador de carga](load-balancer-arm.md).
+Para obter mais informações sobre componentes do balanceador de carga, consulte [Azure Load Balancer Components](load-balancer-overview.md#load-balancer-components).
 
 As etapas a seguir explicam como configurar um balanceador de carga entre duas máquinas virtuais.
 
@@ -90,7 +90,7 @@ Crie um novo grupo de recursos para o balanceador de carga. Ignore esta etapa se
 New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o padrão para todos os recursos do grupo de recursos em questão. Use sempre o mesmo grupo de recursos para todos os comandos relacionados à criação do balanceador de carga.
+O Azure Resource Manager requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o padrão para todos os recursos do grupo de recursos em questão. Use sempre o mesmo grupo de recursos para todos os comandos relacionados à criação do balanceador de carga.
 
 No exemplo anterior, criamos um grupo de recursos chamado **NRP-RG** com o local Oeste dos EUA.
 
@@ -328,7 +328,7 @@ Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 > [!NOTE]
 > Use **-Force** opcional para impedir o prompt de confirmação para a exclusão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 * [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

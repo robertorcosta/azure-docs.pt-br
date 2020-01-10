@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888777"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747300"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorando recursos do Azure com o Azure Monitor
 Quando você tem aplicativos críticos e processos de negócios que dependem de recursos do Azure, você deseja monitorar esses recursos para sua disponibilidade, desempenho e operação. Este artigo descreve os dados de monitoramento gerados pelos recursos do Azure e como você pode usar os recursos do Azure Monitor para analisar e alertar sobre esses dados.
@@ -30,7 +30,7 @@ Assim que você criar um recurso do Azure, o Azure Monitor será habilitado e co
 
 
 ## <a name="costs-associated-with-monitoring"></a>Custos associados ao monitoramento
-Não há nenhum custo para analisar dados de monitoramento que são coletados por padrão. Incluem os itens a seguir:
+Não há nenhum custo para analisar dados de monitoramento que são coletados por padrão. Isso inclui o seguinte:
 
 - Coletando métricas de plataforma e analisando-as com o Metrics Explorer.
 - Coletando o log de atividades e analisando-o no portal do Azure.
@@ -57,8 +57,8 @@ Os recursos no Azure geram [logs](../platform/data-platform-logs.md) e [métrica
 
 
 - [Métricas de plataforma](../platform/data-platform-metrics.md) -valores numéricos que são coletados automaticamente em intervalos regulares e descrevem algum aspecto de um recurso em um determinado momento. 
-- [Logs de recursos](../platform/resource-logs-overview.md) -fornecem informações sobre as operações que foram executadas em um recurso do Azure (o plano de dados), por exemplo, obtendo um segredo de um Key Vault ou fazendo uma solicitação para um banco de dado. O conteúdo e a estrutura de logs de recursos variam de acordo com o serviço e o tipo de recurso do Azure.
-- [Log de atividades](../platform/activity-logs-overview.md) – fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (o plano de gerenciamento), por exemplo, criando um novo recurso ou iniciando uma máquina virtual. Estas são informações sobre o que, quem e quando para qualquer operação de gravação (PUT, POST, DELETE) realizada nos recursos em sua assinatura.
+- [Logs de recursos](../platform/platform-logs-overview.md) -fornecem informações sobre as operações que foram executadas em um recurso do Azure (o plano de dados), por exemplo, obtendo um segredo de um Key Vault ou fazendo uma solicitação para um banco de dado. O conteúdo e a estrutura de logs de recursos variam de acordo com o serviço e o tipo de recurso do Azure.
+- [Log de atividades](../platform/platform-logs-overview.md) – fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (o plano de gerenciamento), por exemplo, criando um novo recurso ou iniciando uma máquina virtual. Estas são informações sobre o que, quem e quando para qualquer operação de gravação (PUT, POST, DELETE) realizada nos recursos em sua assinatura.
 
 
 ## <a name="configuration-requirements"></a>Requisitos de configuração
@@ -67,8 +67,8 @@ Os recursos no Azure geram [logs](../platform/data-platform-logs.md) e [métrica
 Alguns dados de monitoramento são coletados automaticamente, mas talvez seja necessário executar algumas configurações dependendo de suas necessidades. Consulte as informações abaixo para obter informações específicas para cada tipo de dados de monitoramento.
 
 - [Métricas de plataforma](../platform/data-platform-metrics.md) – as métricas de plataforma são coletadas automaticamente em [métricas Azure monitor](../platform/data-platform-metrics.md) sem configuração necessária. Crie uma configuração de diagnóstico para enviar entradas para Azure Monitor logs ou para encaminhá-las fora do Azure.
-- [Logs de recursos](../platform/resource-logs-overview.md) – os logs de recursos são gerados automaticamente pelos recursos do Azure, mas não são coletados sem uma configuração de diagnóstico.  Crie uma configuração de diagnóstico para enviar entradas para Azure Monitor logs ou para encaminhá-las fora do Azure.
-- [Log de atividades](../platform/activity-logs-overview.md) – o log de atividades é coletado automaticamente sem nenhuma configuração necessária e pode ser exibido no portal do Azure. Crie uma configuração de diagnóstico para copiá-las para Azure Monitor logs ou para encaminhá-las fora do Azure.
+- [Logs de recursos](../platform/platform-logs-overview.md) – os logs de recursos são gerados automaticamente pelos recursos do Azure, mas não são coletados sem uma configuração de diagnóstico.  Crie uma configuração de diagnóstico para enviar entradas para Azure Monitor logs ou para encaminhá-las fora do Azure.
+- [Log de atividades](../platform/platform-logs-overview.md) – o log de atividades é coletado automaticamente sem nenhuma configuração necessária e pode ser exibido no portal do Azure. Crie uma configuração de diagnóstico para copiá-las para Azure Monitor logs ou para encaminhá-las fora do Azure.
 
 ### <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
 A coleta de dados em logs de Azure Monitor requer um espaço de trabalho Log Analytics. Você pode começar a monitorar seu serviço rapidamente criando um novo espaço de trabalho, mas pode haver um valor no uso de um espaço de trabalho que está coletando dados de outros serviços. Consulte [criar um log Analytics espaço de trabalho no portal do Azure](../learn/quick-create-workspace.md) para obter detalhes sobre como criar um espaço de trabalho e [criar sua implantação de logs de Azure monitor](../platform/design-logs-deployment.md) para ajudar a determinar o melhor design de espaço de trabalho para seus requisitos. Se você usar um espaço de trabalho existente em sua organização, você precisará de permissões apropriadas, conforme descrito em [gerenciar o acesso a dados de log e espaços de trabalho no Azure monitor](../platform/manage-access.md). 
@@ -127,7 +127,7 @@ Os logs de Azure Monitor consolida os logs e as métricas de vários serviços e
 
 - Consulte Introdução [às consultas de log no Azure monitor](../log-query/get-started-queries.md) para obter um tutorial sobre como usar a linguagem de consulta usada para gravar consultas de log.
 - Consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](../platform/resource-logs-collect-workspace.md) para obter informações sobre como os logs de recursos são coletados nos logs de Azure monitor e detalhes sobre como acessá-los em uma consulta.
-- Consulte [modo de coleta](../platform/resource-logs-collect-workspace.md#collection-mode) para obter uma explicação de como os dados de log de recursos são estruturados em Logs de Azure monitor.
+- Consulte [modo de coleta](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) para obter uma explicação de como os dados de log de recursos são estruturados em Logs de Azure monitor.
 - Consulte a documentação de cada serviço do Azure para obter detalhes sobre sua tabela em logs de Azure Monitor.
 
 ![Logs](media/monitor-azure-resource/logs.png)

@@ -3,12 +3,12 @@ title: Visão geral de versões do Azure Functions runtime
 description: O Azure Functions é compatível com várias versões do runtime. Aprenda as diferenças entre elas e como escolher a certa para você.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 1172f1cba3dfc10fe08863626db0aa8e7a4bf173
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941675"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769108"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
@@ -26,7 +26,7 @@ As versões principais do tempo de execução do Azure Functions estão relacion
 
 Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Linguagens
 
 A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade de linguagem e todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. O idioma das funções em um aplicativo de funções é escolhido durante a criação do aplicativo e é mantido na configuração do [\_WORKER\_tempo de execução](functions-app-settings.md#functions_worker_runtime) . 
 
@@ -72,13 +72,13 @@ As seguintes alterações foram feitas na versão 2.x:
 
 * Restrições de simultaneidade HTTP são implementadas por padrão para funções de plano de consumo, com um padrão de 100 solicitações simultâneas por instância. Você pode alterar isso na configuração [`maxConcurrentRequests`](functions-host-json.md#http) no arquivo host.json.
 
-* Por causa das [limitações do .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), o suporte a funções de script F# (.fsx) foi removido. Funções F# compiladas (.fs) ainda são compatíveis.
+* Devido a [limitações do .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), o F# suporte para funções de script (. fsx) foi removido. Funções F# compiladas (.fs) ainda são compatíveis.
 
 * O formato da URL de webhooks de gatilho da Grade de Eventos foi alterado para `https://{app}/runtime/webhooks/{triggerName}`.
 
 ## <a name="migrating-from-2x-to-3x"></a>Migrando de 2. x para 3. x
 
-O Azure Functions versão 3. x é compatível com versões anteriores à versão 2. x.  Muitos aplicativos devem ser capazes de atualizar com segurança para 3. x sem nenhuma alteração de código.  Embora a mudança para 3. x seja incentivada, execute testes extensivos antes de alterar a versão principal em aplicativos de produção.
+Azure Functions versão 3. x é compatível com versões anteriores à versão 2. x.  Muitos aplicativos devem ser capazes de atualizar com segurança para 3. x sem nenhuma alteração de código.  Embora a mudança para 3. x seja incentivada, execute testes extensivos antes de alterar a versão principal em aplicativos de produção.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>Alterações significativas entre 2. x e 3. x
 
@@ -104,7 +104,7 @@ A seguir estão as alterações a serem observadas antes de atualizar um aplicat
 
 A versão do runtime do Functions usada por aplicativos publicados no Azure é determinada pela configuração de aplicativo [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Há suporte para os seguintes valores de versão de tempo de execução principais:
 
-| Value | Destino de tempo de execução |
+| Valor | Destino de tempo de execução |
 | ------ | -------- |
 | `~3` | 3.x |
 | `~2` | 2. x |
@@ -115,11 +115,11 @@ A versão do runtime do Functions usada por aplicativos publicados no Azure é d
 
 ### <a name="locally-developed-application-versions"></a>Versões do aplicativo desenvolvidas localmente
 
-Você pode fazer com que os aplicativos de função de atualizações a seguir alterem as versões de destino localmente.
+Você pode fazer as seguintes atualizações para que os aplicativos funcionem para alterar localmente as versões de destino.
 
 #### <a name="visual-studio-runtime-versions"></a>Versões de runtime do Visual Studio
 
-No Visual Studio, você seleciona a versão de runtime quando cria um projeto. As Ferramentas do Azure Functions para Visual Studio dão suporte a ambas as versões principais do runtime. A versão correta é usada ao depurar e publicar com base nas configurações do projeto. As configurações de versão são definidas no arquivo `.csproj` nas seguintes propriedades:
+No Visual Studio, você seleciona a versão de runtime quando cria um projeto. O Azure Functions Tools para Visual Studio dá suporte às três principais versões de tempo de execução. A versão correta é usada ao depurar e publicar com base nas configurações do projeto. As configurações de versão são definidas no arquivo `.csproj` nas seguintes propriedades:
 
 ##### <a name="version-1x"></a>Versão 1.x
 
@@ -150,7 +150,7 @@ No Visual Studio, você seleciona a versão de runtime quando cria um projeto. A
 Você pode abrir uma função existente com destino 2. x e mover para 3. x editando o arquivo de `.csproj` e atualizando os valores acima.  O Visual Studio gerencia as versões de tempo de execução automaticamente com base nos metadados do projeto.  No entanto, é possível se você nunca tiver criado um aplicativo 3. x antes que o Visual Studio ainda não tenha os modelos e o tempo de execução para 3. x em seu computador.  Isso pode se apresentar com um erro como "nenhum tempo de execução do Functions disponível que corresponde à versão especificada no projeto".  Para buscar os modelos e o tempo de execução mais recentes, percorra a experiência para criar um novo projeto de função.  Quando chegar à tela de seleção de versão e modelo, aguarde até que o Visual Studio conclua a busca dos modelos mais recentes.  Depois que os modelos do .NET Core 3 mais recentes estiverem disponíveis e forem exibidos, você deverá ser capaz de executar e depurar qualquer projeto configurado para a versão 3. x.
 
 > [!IMPORTANT]
-> As funções da versão 3. x só podem ser desenvolvidas no Visual Studio se você estiver usando a versão 16,4 ou mais recente.
+> As funções da versão 3. x só podem ser desenvolvidas no Visual Studio se você estiver usando o Visual Studio versão 16,4 ou mais recente.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code e Azure Functions Core Tools
 

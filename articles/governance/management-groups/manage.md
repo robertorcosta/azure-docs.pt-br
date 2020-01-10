@@ -1,14 +1,14 @@
 ---
 title: Como trabalhar com seus grupos de gerenciamento-governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960233"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751240"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -40,7 +40,7 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
    ![Renomear painel de grupo para renomear grupo de gerenciamento](./media/rename_context.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="change-the-name-in-powershell"></a>Alterar o nome no PowerShell
 
@@ -64,11 +64,9 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
 1. Não existem grupos de gerenciamento filhos ou assinaturas no grupo de gerenciamento.
 
-   - Para mover uma assinatura de um grupo de gerenciamento, confira [Mover assinatura para outro grupo de gerenciamento](#move-subscriptions-in-the-hierarchy).
+   - Para mover uma assinatura ou grupo de gerenciamento para outro grupo de gerenciamento [, consulte movendo grupos de gerenciamento e assinaturas na hierarquia](#moving-management-groups-and-subscriptions).
 
-   - Para mover um grupo de gerenciamento para outro grupo de gerenciamento, consulte [Mover grupos de gerenciamento na hierarquia](#move-management-groups-in-the-hierarchy).
-
-1. Você tem permissões de gravação no grupo de gerenciamento ("proprietário", "colaborador" ou "colaborador do grupo de gerenciamento"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).  
+1. Você precisa de permissões de gravação no grupo de gerenciamento ("proprietário", "colaborador" ou "colaborador do grupo de gerenciamento"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Excluir no portal
 
@@ -91,7 +89,7 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
    ![Janela de confirmação de exclusão de grupo](./media/delete_confirm.png)
 
-1. Selecione **Sim**.
+1. Selecione **Sim** na barra superior.
 
 ### <a name="delete-in-powershell"></a>Excluir no PowerShell
 
@@ -194,25 +192,31 @@ Para retornar um grupo de gerenciamento específico e todos os níveis da hierar
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>Mover assinaturas na hierarquia
+## <a name="moving-management-groups-and-subscriptions"></a>Movendo grupos de gerenciamento e assinaturas   
 
-Um motivo para criar um grupo de gerenciamento é agrupar assinaturas. Somente grupos de gerenciamento e assinaturas podem ser tornados filhos de outro grupo de gerenciamento. Uma assinatura movida para um grupo de gerenciamento herda todos os acessos de usuário e políticas do grupo de gerenciamento pai.
+Um motivo para criar um grupo de gerenciamento é agrupar assinaturas. Somente grupos de gerenciamento e assinaturas podem ser tornados filhos de outro grupo de gerenciamento. Uma assinatura que se move para um grupo de gerenciamento herda todo o acesso do usuário e as políticas do grupo de gerenciamento pai
 
-Para mover a assinatura, todas as seguintes permissões RBAC precisam ser verdadeiras:
+Ao mover um grupo de gerenciamento ou uma assinatura para ser um filho de outro grupo de gerenciamento, três regras precisam ser avaliadas como verdadeiras.
 
-- Função de "Proprietário" na assinatura filho.
-- Função "proprietário", "colaborador" ou "colaborador do grupo de gerenciamento" no grupo de gerenciamento pai de destino.
-- Função "proprietário", "colaborador" ou "colaborador do grupo de gerenciamento" no grupo de gerenciamento pai existente.
+Se você estiver fazendo a ação mover, precisará de: 
 
-Se o destino ou o grupo de gerenciamento pai existente for o grupo de gerenciamento raiz, os requisitos de permissões não se aplicarão. Como o grupo de gerenciamento raiz é o ponto de aterrissagem padrão para todos os novos grupos de gerenciamento e assinaturas, você não precisa de permissões para mover um item.
+-  Permissões de gravação de gravação de grupo de gerenciamento e atribuição de função na assinatura ou grupo de gerenciamento filho.
+    - **Proprietário** de exemplo de função interna
+- Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai de destino.
+    - Exemplo de função interna: **proprietário**, **colaborador**, colaborador do **grupo de gerenciamento**
+- Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai existente.
+    - Exemplo de função interna: **proprietário**, **colaborador**, colaborador do **grupo de gerenciamento**
 
-Se a função de proprietário na assinatura for herdada do grupo de gerenciamento atual, seus destinos de movimentação serão limitados. Você só pode mover a assinatura para outro grupo de gerenciamento no qual você tem a função de proprietário. Você não pode movê-lo para um grupo de gerenciamento em que você é um colaborador, pois você perderia a propriedade da assinatura. Se você estiver diretamente atribuído à função de proprietário da assinatura (não herdada do grupo de gerenciamento), poderá movê-la para qualquer grupo de gerenciamento no qual você seja um colaborador.
+**Exceção**: se o destino ou o grupo de gerenciamento pai existente for o grupo de gerenciamento raiz, os requisitos de permissões não se aplicarão. Como o grupo de gerenciamento raiz é o ponto de aterrissagem padrão para todos os novos grupos de gerenciamento e assinaturas, você não precisa de permissões para mover um item.
+
+Se a função de proprietário na assinatura for herdada do grupo de gerenciamento atual, seus destinos de movimentação serão limitados. Você só pode mover a assinatura para outro grupo de gerenciamento no qual você tem a função de proprietário. Você não pode movê-lo para um grupo de gerenciamento em que você é um colaborador, pois você perderia a propriedade da assinatura. Se você estiver diretamente atribuído à função de proprietário da assinatura (não herdada do grupo de gerenciamento), será possível movê-la para qualquer grupo de gerenciamento no qual você seja um colaborador. 
 
 Para ver quais permissões você tem no portal do Azure, selecione o grupo de gerenciamento e, em seguida, selecione **iam**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).
 
-### <a name="move-subscriptions-in-the-portal"></a>Mover assinaturas no portal
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>Adicionar uma assinatura existente a um grupo de gerenciamento
+## <a name="move-subscriptions"></a>Mover assinaturas 
+
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Adicionar uma assinatura existente a um grupo de gerenciamento no portal
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
@@ -228,7 +232,7 @@ Para ver quais permissões você tem no portal do Azure, selecione o grupo de ge
 
 1. Selecione "Salvar".
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>Remover uma assinatura de um grupo de gerenciamento
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Remover uma assinatura de um grupo de gerenciamento no portal
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 
@@ -246,7 +250,7 @@ Para ver quais permissões você tem no portal do Azure, selecione o grupo de ge
 
    ![Mover painel para alterar grupo pai](./media/move_small_context.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="move-subscriptions-in-powershell"></a>Mover assinaturas no PowerShell
 
@@ -276,9 +280,7 @@ Para remover a assinatura do grupo de gerenciamento, use o comando subscription 
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>Mover grupos de gerenciamento na hierarquia  
-
-Quando você move um grupo de gerenciamento pai, a hierarquia sob esse grupo é movida com ele. Para obter o acesso necessário para mover grupos de gerenciamento, consulte [acesso ao grupo de gerenciamento](overview.md#management-group-access).
+## <a name="move-management-groups"></a>Mover grupos de gerenciamento 
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de gerenciamento no portal
 
@@ -297,7 +299,7 @@ Quando você move um grupo de gerenciamento pai, a hierarquia sob esse grupo é 
 
    ![Mover um grupo de gerenciamento para um grupo novo ou existente](./media/add_context_MG.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="move-management-groups-in-powershell"></a>Mover grupos de gerenciamento no PowerShell
 
@@ -318,7 +320,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar grupos de gerenciamento usando logs de atividades
 
-Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md). Você pode consultar todos os eventos que acontecem com um grupo de gerenciamento no mesmo local central que outros recursos do Azure.  Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
+Os grupos de gerenciamento são compatíveis com o [Log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode consultar todos os eventos que acontecem com um grupo de gerenciamento no mesmo local central que outros recursos do Azure.  Por exemplo, você pode ver todas as alterações de atribuições de função ou de política feitas em um grupo de gerenciamento específico.
 
 ![Logs de atividade com grupos de gerenciamento](media/al-mg.png)
 
@@ -342,12 +344,12 @@ O mesmo caminho de escopo é usado ao recuperar uma definição de política em 
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
-- [Como alterar, excluir ou gerenciar grupos de gerenciamento](manage.md)
+- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
 - [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
 - [Revisar grupos de gerenciamento na API REST](/rest/api/resources/managementgroups)
 - [Revisar grupos de gerenciamento na CLI do Azure](/cli/azure/account/management-group)

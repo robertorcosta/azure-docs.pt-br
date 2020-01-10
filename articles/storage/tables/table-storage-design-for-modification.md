@@ -1,6 +1,6 @@
 ---
-title: Design de tabelas de armazenamento do Azure para modificação de dados | Microsoft Docs
-description: Design de tabelas para modificação de dados no armazenamento de tabelas do Azure.
+title: Projetar o armazenamento de tabelas do Azure para modificação de dados | Microsoft Docs
+description: Projetar tabelas para modificação de dados no armazenamento de tabelas do Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325877"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771539"
 ---
 # <a name="design-for-data-modification"></a>Design para modificação de dados
 Este artigo concentra-se nas considerações de design para otimizar inserções, atualizações e exclusões. Em alguns casos, você precisará avaliar a compensação entre designs que otimizam para consulta em relação a designs que otimizam para modificação de dados, da mesma forma que em designs de bancos de dados relacionais (embora as técnicas para gerenciar vantagens e desvantagens do design sejam diferentes em um banco de dados relacional). A seção Padrões de design de tabela descreve alguns padrões de design detalhados para o serviço Tabela e destaca algumas compensações. Na prática, você descobrirá que muitos designs otimizados para entidades de consulta também funcionam bem para modificar entidades.  

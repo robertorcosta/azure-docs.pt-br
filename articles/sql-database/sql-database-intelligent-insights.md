@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151424"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745112"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando IA para monitorar e solucionar problemas de desempenho de banco de dados
 
@@ -72,10 +72,10 @@ Intelligent Insights opções disponíveis no banco de dados SQL do Azure são:
 
 | Opção Intelligent Insights | Suporte a banco de dados individual e banco de dados em pool | Suporte a banco de dados de instância |
 | :----------------------------- | ----- | ----- |
-| **Configurar Intelligent insights** -configurar a análise de Intelligent insights para seus bancos de dados. | sim | sim | 
-| **Transmita informações para análise de SQL do Azure** --Stream insights para análise de SQL do Azure solução de monitoramento para o banco de dados SQL do Azure. | sim | sim | 
-| **Transmita informações para o Hub de eventos** -Transmita informações para os hubs de eventos para obter mais integrações personalizadas. | sim | sim | 
-| **Transmita informações para o armazenamento do Azure** -Stream insights para o armazenamento do Azure para análise adicional e arquivamento de longo prazo. | sim | sim |
+| **Configurar Intelligent insights** -configurar a análise de Intelligent insights para seus bancos de dados. | Sim | Sim | 
+| **Transmita informações para análise de SQL do Azure** --Stream insights para análise de SQL do Azure solução de monitoramento para o banco de dados SQL do Azure. | Sim | Sim | 
+| **Transmita informações para o Hub de eventos** -Transmita informações para os hubs de eventos para obter mais integrações personalizadas. | Sim | Sim | 
+| **Transmita informações para o armazenamento do Azure** -Stream insights para o armazenamento do Azure para análise adicional e arquivamento de longo prazo. | Sim | Sim |
 
 ## <a name="configure-intelligent-insights"></a>Configurar Intelligent Insights
 
@@ -185,9 +185,9 @@ O log do Intelligent Insights gera a contagem de solicitações com erros. Indic
 
 Se qualquer uma das exceções críticas monitoradas cruzar os limites absolutos gerenciados pelo sistema, um insight inteligente será gerado com detalhes da exceção crítica.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [Solucionar problemas de desempenho do Banco de Dados SQL com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use o [log de diagnóstico de desempenho do Banco de dados SQL com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Saiba como [monitorar o Banco de Dados SQL por meio de Análise de SQL](../azure-monitor/insights/azure-sql.md).
-- Saiba como [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/resource-logs-overview.md).
+- Saiba como [coletar e consumir dados de log dos recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).

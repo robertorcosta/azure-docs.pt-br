@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384189"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749944"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -36,7 +36,7 @@ Este artigo cobre algumas das opções que o Azure oferece na área de seguranç
 * Resolução de nomes
 * Arquitetura de rede de perímetro (DMZ)
 * Proteção contra DDoS do Azure
-* Porta da frente do Azure
+* Azure Front Door
 * Gerenciador de tráfego
 * Monitoramento e detecção de ameaças
 
@@ -134,7 +134,7 @@ Por exemplo, seus requisitos de segurança podem incluir:
 
 Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege seus recursos de Rede Virtual do Azure. É um firewall totalmente com estado como serviço, com alta disponibilidade interna e escalabilidade de nuvem sem restrições. Alguns recursos incluem:
 
-* alta disponibilidade
+* Alta disponibilidade
 * Escalabilidade de nuvem
 * Regras de filtragem de FQDN de aplicativo
 * Regras de filtragem de tráfego de rede
@@ -334,7 +334,7 @@ Saiba mais:
 
 * [visão geral da proteção contra DDoS](../../virtual-network/ddos-protection-overview.md)
 
-## <a name="azure-front-door"></a>Porta da frente do Azure
+## <a name="azure-front-door"></a>Azure Front Door
 
 O serviço de porta frontal do Azure permite definir, gerenciar e monitorar o roteamento global do tráfego da Web. Ele otimiza o roteamento do seu tráfego para melhor desempenho e alta disponibilidade. O Azure Front Door permite que você crie regras WAF (firewall do aplicativo Web) personalizadas para obter controle de acesso a fim de proteger sua carga de trabalho HTTP/HTTPS contra exploração com base em endereços IP do cliente, o código do país e parâmetros http. Além disso, o Front Door também permite que você crie regras limitadoras de taxa para combater o tráfego de bots maliciosos, incluindo o descarregamento de SSL e solicitações por HTTP / HTTPS, processamento da camada de aplicativos.
 
@@ -383,9 +383,9 @@ Saiba mais:
 
 * [Introdução à Central de Segurança do Azure](../../security-center/security-center-intro.md)
 
-### <a name="virtual-network-tap"></a>Rede Virtual TAP
+### <a name="virtual-network-tap"></a>TAP de Rede Virtual
 
-O TAP (ponto de acesso do terminal) da rede virtual do Azure permite que você transmita seu tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. O coletor ou ferramenta de análise é fornecido por um parceiro de dispositivo virtual de rede. Você pode usar o mesmo recurso de TAP de rede virtual para o tráfego agregado por meio de vários adaptadores de rede nas mesmas assinaturas ou em outras.
+O TAP (Ponto de Acesso do Terminal) de rede virtual do Azure permite que você transmita o tráfego de rede por streaming continuamente da máquina virtual para uma ferramenta de coleta de pacotes ou de análise de rede. O coletor ou ferramenta de análise é fornecido por um parceiro de dispositivo virtual de rede. Você pode usar o mesmo recurso de TAP de rede virtual para o tráfego agregado por meio de vários adaptadores de rede nas mesmas assinaturas ou em outras.
 
 Saiba mais:
 
@@ -395,7 +395,7 @@ Saiba mais:
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 
-* [Logs de atividade](../../azure-monitor/platform/activity-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
+* [Logs de atividade](../../azure-monitor/platform/platform-logs-overview.md). Use esses logs para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure. Eles eram anteriormente conhecidos como logs de auditoria ou operacionais.
 * Logs de eventos. Esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
 * Logs de contador. Esses logs permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 

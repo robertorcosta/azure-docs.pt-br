@@ -3,7 +3,7 @@ title: Configurar o LVM em uma máquina virtual que executa o Linux
 description: Saiba como configurar o LVM no Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: na
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: szark
+ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: f2774f0037d2655071b605c0cbcdf8122e66f6e7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 38e460138fde1de6d8fd57dcab5a88238f0981fe
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036679"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751036"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurar o LVM em uma VM Linux no Azure
 Este documento discutirá como configurar o LVM (Gerenciador de Volume Lógico) em sua máquina virtual do Azure. O LVM pode ser usado no disco do sistema operacional ou em discos de dados nas VMs do Azure; no entanto, por padrão, a maioria das imagens da nuvem não terá o LVM configurado no disco do sistema operacional. As etapas abaixo se concentrarão na configuração do LVM para seus discos de dados.
@@ -65,7 +65,7 @@ Geralmente, as pessoas desejam começar com dois ou mais discos de dados vazios 
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
-## <a name="configure-lvm"></a>Configurar o LVM
+## <a name="configure-lvm"></a>Configurar a LVM
 Neste guia, supomos que você tem três discos de dados anexados, que chamaremos de `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Esses caminhos podem não corresponder aos nomes do caminho do disco na sua VM. Você pode executar o '`sudo fdisk -l`' ou um comando semelhante para listar os discos disponíveis.
 
 1. Prepare os volumes físicos:

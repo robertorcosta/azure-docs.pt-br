@@ -12,32 +12,31 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058014"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749885"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas virtuais do Azure porque o serviço de cliente DHCP está desativado
 
 Este artigo descreve um problema em que você não pode área de trabalho remota para Máquinas Virtuais do Windows do Azure (VMs) depois que o serviço de cliente DHCP é desativado na máquina virtual.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Sintomas
 Você não pode tornar uma conexão RDP uma VM no Azure porque o serviço Cliente DHCP está desabilitado na VM. Quando você verifica a captura de tela no [Diagnóstico de inicialização](../troubleshooting/boot-diagnostics.md) no portal do Azure, a VM é inicializada normalmente e aguarda as credenciais na tela de login. Você visualiza remotamente os logs de eventos na VM usando o Visualizador de Eventos. Você vê que o serviço de cliente DHCP não está iniciado ou falha ao iniciar. A seguir um exemplo de log:
 
-**Nome do log**: Sistema </br>
-**Fonte**: Gerenciador de Controle de Serviço </br>
-**Data**: 16/12/2015 11:19:36 </br>
+**Nome de log**: sistema </br>
+**Origem**: Gerenciador de controle de serviço </br>
+**Data**: 12/16/2015 11:19:36 AM </br>
 **ID de evento**: 7022 </br>
-**Categoria da Tarefa**: Nenhum </br>
-**Nível**: Erro </br>
+**Categoria de tarefa**: nenhum </br>
+**Nível**: erro </br>
 **Palavras-chave**: Clássico</br>
-**Usuário**: N/D </br>
+**Usuário**: N/A </br>
 **Computador**: myvm.cosotos.com</br>
-**Descrição**: Parou ao iniciar o serviço do cliente DHCP.</br>
+**Descrição**: parou ao iniciar o serviço do cliente DHCP.</br>
 
 Para VMs do Resource Manager, você pode usar o recurso Serial Access Console para consultar os logs de eventos 7022 usando o seguinte comando:
 
@@ -123,7 +122,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
     1. [Anexar um disco de dados à VM](../windows/attach-managed-disk-portal.md
 ).
-    2. Use o Console Serial, você pode copiar o arquivo para a nova unidade. Por exemplo: `copy C:\temp\ProcMonTrace.PML F:\`. Nesse comando, F é a letra do driver do disco de dados anexado. Substitua a letra conforme apropriado pelo valor correto.
+    2. Use o Console Serial, você pode copiar o arquivo para a nova unidade. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Nesse comando, F é a letra do driver do disco de dados anexado. Substitua a letra conforme apropriado pelo valor correto.
     3. Desanexe a unidade de dados e conecte-a à uma VM funcional que tenha o ubstakke do Process Monitor instalado.
 
 6. Abra **ProcMonTrace.PML** usando o Process Monitor na VM funcional. Em seguida, filtre por  **O resultado é ACCESS DENIED**, conforme mostrado na seguinte imagem:
@@ -183,7 +182,7 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
-3.  Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Este script presume que a letra da unidade atribuída ao disco do SO anexado é **F**. Substitua a letra conforme apropriado pelo valor em sua VM.
+3.  Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Esse script pressupõe que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua a letra conforme apropriado com o valor em sua VM.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
@@ -201,6 +200,6 @@ Para resolver esse problema, use o controle serial para ativar o DHCP ou [redefi
 
 4. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema foi resolvido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.

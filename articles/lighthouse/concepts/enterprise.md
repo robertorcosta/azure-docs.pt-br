@@ -3,16 +3,16 @@ title: Azure Lighthouse em cenários empresariais
 description: As funcionalidades do Azure Lighthouse podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
 ms.date: 09/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 91089a6fb1a965191489e87027ef508c7ebe2aa2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463908"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749216"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
-O cenário mais comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos em seus locatários do Azure Active Directory (Azure AD) de seus clientes. No entanto, as funcionalidades do Azure Lighthouse também podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
+O cenário mais comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos nos locatários do Azure AD (Azure Active Directory) de seus clientes. No entanto, as funcionalidades do Azure Lighthouse também podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Locatários únicos versus múltiplos
 
@@ -38,7 +38,7 @@ De qualquer forma, [siga o princípio do menor privilégio ao definir quais usu�
 
 O Azure Lighthouse e o gerenciamento de recursos delegados do Azure só fornecem links lógicos entre um locatário gerenciador e locatários gerenciados, em vez de mover fisicamente dados ou recursos. Além disso, o acesso sempre vai em apenas uma direção, do locatário gerenciador para os locatários gerenciados.  Os usuários e grupos no locatário gerenciador devem continuar usando a autenticação multifator ao executar operações de gerenciamento em recursos de locatários gerenciados.
 
-As empresas com proteções de governança e conformidade internas e externas podem usar os [Logs de atividade do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) para atender aos seus requisitos de transparência. Quando os locatários empresariais tiverem estabelecido relações de locatário gerenciador e gerenciado, os usuários em cada locatário podem monitorar e obter visibilidade para ações executadas pelos usuários no outro locatário exibindo a atividade registrada em log.
+As empresas com proteções de governança e conformidade internas e externas podem usar os [Logs de atividade do Azure](../../azure-monitor/platform/platform-logs-overview.md) para atender aos seus requisitos de transparência. Quando os locatários empresariais tiverem estabelecido relações de locatário gerenciador e gerenciado, os usuários em cada locatário podem monitorar e obter visibilidade para ações executadas pelos usuários no outro locatário exibindo a atividade registrada em log.
 
 ## <a name="onboarding-process-considerations"></a>Considerações sobre a integração de processos
 
@@ -56,7 +56,7 @@ Por exemplo, no exemplo descrito acima, o Locatário A pode ser pensado como um 
 
 Nesse exemplo, os usuários do Locatário A com as permissões adequadas podem [exibir e gerenciar recursos delegados](../how-to/view-manage-customers.md) na página **Meus clientes** do portal do Azure. Da mesma forma, os usuários dos Locatários B e C com as permissões adequadas podem [exibir e gerenciar os recursos que foram delegados](../how-to/view-manage-service-providers.md) ao Locatário A na página **Provedores de serviço** do portal do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
 - Saiba mais sobre o [Gerenciamento de recursos delegados do Azure](azure-delegated-resource-management.md).

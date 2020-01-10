@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810346"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754045"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guia de instruções do banco de dados SQL do Azure (visualização)
 
@@ -26,7 +26,7 @@ Este artigo fornece detalhes sobre como criar e gerenciar [pools de instância](
 
 A tabela a seguir mostra as operações disponíveis relacionadas a pools de instância e sua disponibilidade no portal do Azure e no PowerShell.
 
-|Command|Portal do Azure|PowerShell|
+|Comando|Portal do Azure|PowerShell|
 |:---|:---|:---|
 |Criar pool de instâncias|Não|Sim|
 |Atualizar o pool de instâncias (número limitado de propriedades)|Não |Sim |
@@ -41,7 +41,7 @@ A tabela a seguir mostra as operações disponíveis relacionadas a pools de ins
 
 Comandos disponíveis do [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)
 
-|Cmdlet |DESCRIÇÃO |
+|Cmdlet |Description |
 |:---|:---|
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Cria um pool de instâncias do banco de dados SQL do Azure. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Retorna informações sobre o pool de instâncias do SQL do Azure. |
@@ -92,11 +92,17 @@ As seguintes restrições se aplicam a pools de instância:
 
 - Somente Uso Geral e Gen5 estão disponíveis em visualização pública.
 - O nome do pool pode conter apenas letras minúsculas, números e hífens e não pode começar com um hífen.
-- Para obter a ID de sub-rede, use `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - Se você quiser usar AHB (Benefício Híbrido do Azure), ele será aplicado no nível do pool de instâncias. Você pode definir o tipo de licença durante a criação do pool ou atualizá-lo a qualquer momento após a criação.
 
 > [!IMPORTANT]
 > A implantação de um pool de instâncias é uma operação de execução demorada que leva aproximadamente 4,5 horas.
+
+Para obter os parâmetros de rede:
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 Para criar um pool de instâncias:
 
@@ -104,7 +110,7 @@ Para criar um pool de instâncias:
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `
@@ -261,7 +267,7 @@ Para mover bancos de dados existentes:
 Se houver vários bancos de dados, repita o processo para cada um.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma lista de recursos e de comparação, consulte [Recursos comuns do SQL](sql-database-features.md).
 - Para saber mais sobre a configuração de rede virtual, confira [Configuração de VNet de instância gerenciada](sql-database-managed-instance-connectivity-architecture.md).

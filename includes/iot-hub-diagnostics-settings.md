@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2498711a5b7e5bce29cd0054ba40257f8f996d43
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266816"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750685"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Habilitar registro em log com as configurações de diagnóstico
 
@@ -25,7 +25,7 @@ ms.locfileid: "71266816"
 
 3. Selecione **Ativar diagnóstico**.
 
-   ![Ligar diagnósticos](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
+   ![Ativar diagnóstico](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
 4. Nomeie as configurações de diagnóstico.
 
@@ -42,7 +42,7 @@ ms.locfileid: "71266816"
    * Mensagens da nuvem para o dispositivo
    * Operações de identidade do dispositivo
    * Carregamentos de arquivos
-   * Roteamento de mensagens
+   * Roteamento de mensagem
    * Operações de dispositivo gêmeo para nuvem
    * Operações de nuvem gêmea para dispositivo
    * Operações de gêmeos
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Configurações de diagnóstico**. Para obter mais informações sobre como configurar o diagnóstico, confira [Coletar e consumir dados de log com os recursos do Azure](../articles/azure-monitor/platform/resource-logs-overview.md).
+As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Configurações de diagnóstico**. Para obter mais informações sobre como configurar o diagnóstico, confira [Coletar e consumir dados de log com os recursos do Azure](../articles/azure-monitor/platform/platform-logs-overview.md).

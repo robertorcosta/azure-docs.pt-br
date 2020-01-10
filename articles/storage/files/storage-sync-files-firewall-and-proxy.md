@@ -7,23 +7,23 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4f37c54699329f43a5bbdd5c4543ae3a7b2166f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048842"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750456"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
 
 Este artigo fornecerá informações sobre requisitos específicos e as opções disponíveis para conectar com êxito e segurança o servidor de Sincronização de Arquivos do Azure.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 A Sincronização de Arquivos do Azure atua como um serviço de coordenação entre o Windows Server, seu compartilhamento de arquivos do Azure e vários outros serviços do Azure para sincronizar os dados conforme descrito em seu grupo de sincronização. Para que a Sincronização de Arquivos do Azure funcione corretamente, você precisará configurar seus servidores para se comunicar com os seguintes serviços do Azure:
 
 - Armazenamento do Azure
-- Sincronização de Arquivos do Azure
+- Sincronização de arquivos do Azure
 - Azure Resource Manager
 - Serviços de Autenticação
 
@@ -89,11 +89,11 @@ Conforme mencionado em uma seção anterior, a porta 443 precisa estar com a sa�
 
 A tabela a seguir descreve os domínios necessários para a comunicação:
 
-| O Barramento de | Ponto de extremidade de nuvem pública | Ponto de extremidade do Azure Governamental | Uso |
+| Serviço | Ponto de extremidade de nuvem pública | Ponto de extremidade do Azure Governamental | Uso |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Qualquer chamada de usuário (como o PowerShell) passa por essa URL, incluindo a chamada de registro inicial do servidor. |
-| **Active Directory do Azure** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Azure Resource Manager devem ser feitas por um usuário autenticado. Para ter êxito, essa URL é usada para autenticação do usuário. |
-| **Active Directory do Azure** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implantação de Sincronização de Arquivos do Azure, será criado um objeto de serviço do Azure Active Directory da assinatura. Essa URL é usada para fazer isso. Essa entidade de segurança é usada para a delegação de um conjunto mínimo de direitos para o Serviço de Sincronização de Arquivos do Azure. O usuário que estiver executando a configuração inicial de Sincronização de Arquivos do Azure deve ser um usuário autenticado com privilégios de proprietário da assinatura. |
+| **Azure Active Directory** | https://login.windows.net<br>https://login.microsoftonline.com | https://login.microsoftonline.us | As chamadas do Azure Resource Manager devem ser feitas por um usuário autenticado. Para ter êxito, essa URL é usada para autenticação do usuário. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Como parte da implantação de Sincronização de Arquivos do Azure, será criado um objeto de serviço do Azure Active Directory da assinatura. Essa URL é usada para fazer isso. Essa entidade de segurança é usada para a delegação de um conjunto mínimo de direitos para o Serviço de Sincronização de Arquivos do Azure. O usuário que estiver executando a configuração inicial de Sincronização de Arquivos do Azure deve ser um usuário autenticado com privilégios de proprietário da assinatura. |
 | **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor baixa um arquivo, o servidor executa essa movimentação de dados com mais eficiência quando se comunicando diretamente com o compartilhamento de arquivos do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de compartilhamento do arquivo de destino. |
 | **Sincronização de Arquivos do Azure** | &ast;. one.microsoft.com<br>&ast;. afs.azure.net | &ast;.afs.azure.us | Após o registro do servidor inicial, o servidor recebe uma URL regional para a instância do serviço de Sincronização de Arquivos do Azure nessa região. O servidor pode usar a URL para se comunicar de forma direta e eficiente com a instância de tratando sua sincronização. |
 | **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Depois de instalar o agente da Sincronização de Arquivos do Azure, a URL do PKI é usada para baixar os certificados intermediários necessários para se comunicar com o serviço de Sincronização de Arquivos do Azure e do compartilhamento de arquivos do Azure. A URL do OCSP é usada para verificar o status de um certificado. |
@@ -107,33 +107,33 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 
 | Nuvem  | Região | URL do ponto de extremidade primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https:\//kailani-aue.one.microsoft.com | Sudeste da Austrália | https:\//tm-kailani-aue.one.microsoft.com |
-| Público |Sudeste da Austrália | https:\//kailani-aus.one.microsoft.com | Leste da Austrália | https:\//tm-kailani-aus.one.microsoft.com |
-| Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | Centro-Sul dos Estados Unidos | https:\//tm-brazilsouth01.afs.azure.net |
+| Público |Austrália Oriental | https:\//kailani-aue.one.microsoft.com | Sudeste da Austrália | https:\//tm-kailani-aue.one.microsoft.com |
+| Público |Sudeste da Austrália | https:\//kailani-aus.one.microsoft.com | Austrália Oriental | https:\//tm-kailani-aus.one.microsoft.com |
+| Público | Sul do Brasil | https:\//brazilsouth01.afs.azure.net | Centro-Sul dos EUA | https:\//tm-brazilsouth01.afs.azure.net |
 | Público | Canadá Central | https:\//kailani-cac.one.microsoft.com | Leste do Canadá | https:\//tm-kailani-cac.one.microsoft.com |
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
 | Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
-| Público | Centro dos EUA | https:\//kailani-cus.one.microsoft.com | Leste dos EUA 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Público | EUA Central | https:\//kailani-cus.one.microsoft.com | Leste dos EUA 2 | https:\//tm-kailani-cus.one.microsoft.com |
 | Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
 | Público | Leste dos EUA | https:\//kailani1.one.microsoft.com | Oeste dos EUA | https:\//tm-kailani1.one.microsoft.com |
-| Público | Leste dos EUA 2 | https:\//kailani-ess.one.microsoft.com | Centro dos EUA | https:\//tm-kailani-ess.one.microsoft.com |
+| Público | Leste dos EUA 2 | https:\//kailani-ess.one.microsoft.com | EUA Central | https:\//tm-kailani-ess.one.microsoft.com |
 | Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
 | Público | Oeste do Japão | https:\//japanwest01.afs.azure.net | Leste do Japão | https:\//tm-japanwest01.afs.azure.net |
 | Público | Coreia Central | https:\//koreacentral01.afs.azure.net/ | Sul da Coreia | https:\//tm-koreacentral01.afs.azure.net/ |
 | Público | Sul da Coreia | https:\//koreasouth01.afs.azure.net/ | Coreia Central | https:\//tm-koreasouth01.afs.azure.net/ |
-| Público | Centro-Norte dos EUA | https:\//northcentralus01.afs.azure.net | Centro-Sul dos Estados Unidos | https:\//tm-northcentralus01.afs.azure.net |
-| Público | Norte da Europa | https:\//kailani7.one.microsoft.com | Europa Ocidental | https:\//tm-kailani7.one.microsoft.com |
-| Público | Centro-Sul dos Estados Unidos | https:\//southcentralus01.afs.azure.net | Centro-Norte dos EUA | https:\//tm-southcentralus01.afs.azure.net |
+| Público | Centro-Norte dos EUA | https:\//northcentralus01.afs.azure.net | Centro-Sul dos EUA | https:\//tm-northcentralus01.afs.azure.net |
+| Público | Europa Setentrional | https:\//kailani7.one.microsoft.com | Oeste da Europa | https:\//tm-kailani7.one.microsoft.com |
+| Público | Centro-Sul dos EUA | https:\//southcentralus01.afs.azure.net | Centro-Norte dos EUA | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
 | Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
 | Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
 | Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | Centro-Oeste dos EUA | https:\//westcentralus01.afs.azure.net | Oeste dos EUA 2 | https:\//tm-westcentralus01.afs.azure.net |
-| Público | Europa Ocidental | https:\//kailani6.one.microsoft.com | Norte da Europa | https:\//tm-kailani6.one.microsoft.com |
+| Público | Oeste da Europa | https:\//kailani6.one.microsoft.com | Europa Setentrional | https:\//tm-kailani6.one.microsoft.com |
 | Público | Oeste dos EUA | https:\//kailani.one.microsoft.com | Leste dos EUA | https:\//tm-kailani.one.microsoft.com |
 | Público | Oeste dos EUA 2 | https:\//westus201.afs.azure.net | Centro-Oeste dos EUA | https:\//tm-westus201.afs.azure.net |
-| Governamental | Governo dos EUA do Arizona | https:\//usgovarizona01.afs.azure.us | Governo dos EUA do Texas | https:\//tm-usgovarizona01.afs.azure.us |
-| Governamental | Governo dos EUA do Texas | https:\//usgovtexas01.afs.azure.us | Governo dos EUA do Arizona | https:\//tm-usgovtexas01.afs.azure.us |
+| Governo | US Gov - Arizona | https:\//usgovarizona01.afs.azure.us | US Gov - Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Governo | US Gov - Texas | https:\//usgovtexas01.afs.azure.us | US Gov - Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Se estiver utilizando contas de LRS (armazenamento com redundância local) ou ZRS (com redundância de zona), será necessário somente habilitar a URL listada em "URL do ponto de extremidade primário".
 
@@ -145,12 +145,21 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 > - https:\//kailani1.one.microsoft.com (região de failover emparelhada: leste dos EUA)
 > - https:\//tm-kailani.one.microsoft.com (URL de descoberta da região primária)
 
+## <a name="test-network-connectivity-to-service-endpoints"></a>Testar a conectividade de rede para pontos de extremidade de serviço
+Depois que um servidor é registrado com o serviço de Sincronização de Arquivos do Azure, o cmdlet Test-StorageSyncNetworkConnectivity e o ServerRegistration. exe podem ser usados para testar as comunicações com todos os pontos de extremidade (URLs) específicos desse servidor. Esse cmdlet pode ajudar a solucionar problemas quando a comunicação incompleta impede que o servidor trabalhe totalmente com Sincronização de Arquivos do Azure e pode ser usado para ajustar as configurações de proxy e firewall.
+
+Para executar o teste de conectividade de rede, instale Sincronização de Arquivos do Azure Agent versão 9,1 ou posterior e execute os seguintes comandos do PowerShell:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Test-StorageSyncNetworkConnectivity
+```
+
 ## <a name="summary-and-risk-limitation"></a>Resumo e limitação de risco
 As listas no início deste documento contém as URLs de Sincronização de Arquivos do Azure com que está se comunicando. Os firewalls devem permitir o tráfego de saída para esses domínios. A Microsoft se esforça para manter essa lista atualizada.
 
 A configuração das regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se essas configurações de firewall são utilizadas, é necessário ter em mente que URLs serão adicionadas e poderão até mesmo ser alteradas ao longo do tempo. Consulte este artigo periodicamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

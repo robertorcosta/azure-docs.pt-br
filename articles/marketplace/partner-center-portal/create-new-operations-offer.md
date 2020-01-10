@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4708f2e0d6d4aadba228b82cf07e0a7f58b8f68a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0318f851f547aed7c7682c9e6841f71d56c98be1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825599"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750922"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Criar uma nova oferta do Dynamics 365 for Operations
 
@@ -58,7 +58,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure Active Directory (Azure AD) para automatizar a criação da conta em seu aplicativo. Não há suporte para contas da Microsoft para autenticação usando esse token.
 
-#### <a name="contact-me"></a>Entrar em contato comigo
+#### <a name="contact-me"></a>Contate-me
 
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
@@ -70,7 +70,7 @@ Para habilitar uma test drive, marque a caixa **habilitar um test drive** . Em s
 
 #### <a name="type-of-test-drive"></a>Tipo de test drive
 
-Selecione uma das seguintes opções:
+Selecione entre as seguintes opções:
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : um modelo de implantação que contém todos os recursos do Azure que compõem sua solução. Os produtos que se ajustam a esse cenário usam apenas os recursos do Azure.
 - **[Dynamics 365 for Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos empresariais do Business central (finanças, operações, Cadeia de fornecedores, CRM, etc.).  
@@ -99,11 +99,11 @@ A página **Propriedades** permite que você defina as categorias e os setores u
 
 ### <a name="category"></a>Categoria
 
-Selecione no mínimo um e no máximo três categorias. Eles serão usados para posicionar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Lembre-se de chamar como sua oferta dá suporte a essas categorias na descrição da oferta. 
+Selecione até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional). Selecione até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta na categoria selecionada.
 
 ### <a name="industry"></a>Setor
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+Opcionalmente, você pode selecionar até duas indústrias e duas verticais em cada setor. Essas categorias são usadas para exibir sua oferta, quando as verticais e da indústria são usadas em filtros de pesquisa e aplicadas na vitrine.  Se sua oferta for direcionada a um setor específico e/ou vertical, descreva como sua oferta dá suporte a setores selecionados ou verticais na descrição da oferta.  Caso contrário, se sua oferta não for específica do setor, não faça uma seleção e deixe essa seção em branco.
 
 ### <a name="app-version"></a>Versão do aplicativo
 
@@ -140,7 +140,7 @@ O nome que você digitar aqui será mostrado aos clientes como o título da sua 
 
 Forneça uma breve descrição da sua oferta (até 100 caracteres). Isso pode ser usado nos resultados da pesquisa do Marketplace.
 
-### <a name="description"></a>DESCRIÇÃO
+### <a name="description"></a>Description
 
 Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa descrição será exibida aos clientes na visão geral de listagem do Marketplace. Inclua a proposta de valor da sua oferta, os principais benefícios, a categoria e/ou as associações do setor, as oportunidades de compra no aplicativo e as divulgações necessárias. 
 
@@ -155,7 +155,7 @@ Algumas dicas para escrever sua descrição:
 - Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível. 
 - Considere o uso de marcas HTML para formatar sua descrição e torná-la mais atraente.
 
-### <a name="search-keywords"></a>Palavras-chave para pesquisa
+### <a name="search-keywords"></a>Pesquisar palavras-chave
 
 Opcionalmente, você pode inserir até três palavras-chave de pesquisa para ajudar os clientes a localizar sua oferta no Marketplace. Para obter melhores resultados, tente usar essas palavras-chave em sua descrição também.
 
@@ -189,7 +189,7 @@ Você deve fornecer pelo menos um (e até três) documentos de marketing relacio
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usados ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato. png.
 
-#### <a name="store-logos"></a>Armazenar logotipos
+#### <a name="store-logos"></a>Logotipos da Loja
 
 Você deve fornecer o logotipo de sua oferta em dois tamanhos: **pequeno (48 x 48)** e **grande (216 x 216)** .
 
@@ -256,7 +256,7 @@ A página **Test Drive** permite que você configure uma demonstração (ou "Tes
 
 Os seguintes tipos de unidades de teste estão disponíveis, cada um com seus próprios requisitos de configuração técnica.
 
-- [Gerenciador de Recursos do Azure](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
 - [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
 - [Aplicativo lógico](#technical-configuration-for-logic-app-test-drive)
 - [Power bi](#technical-configuration-not-required-for-power-bi-test-drives) (configuração técnica não necessária)
@@ -337,7 +337,7 @@ A opção de **listagem do Marketplace** encontrada na guia **Test Drive** exibe
 
 - **Manual do usuário** (obrigatório): uma explicação detalhada de sua experiência de Test Drive. O manual do usuário deve abranger exatamente o que você deseja que o cliente tenha de apresentar o test drive e servir como uma referência para quaisquer perguntas que possam ter. O arquivo deve estar no formato PDF e ter o nome (máximo de 255 caracteres) após o carregamento.
 
-- **Vídeos: adicionar vídeos** (opcional): os vídeos podem ser carregados no YouTube ou no Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir uma orientação sobre as informações para ajudá-los a entender melhor o Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
+- **Vídeos: adicionar vídeos** (opcional): os vídeos podem ser carregados no YouTube ou Vimeo e mencionados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir uma orientação sobre as informações para ajudá-los a entender melhor os Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
   - **Nome** (obrigatório)
   - **URL (somente YouTube ou Vimeo)** (obrigatório)
   - **Miniatura (533 x 324px)** : o arquivo de imagem deve estar no formato png.
@@ -375,6 +375,6 @@ Se esta for a primeira vez que você publica essa oferta, você pode:
 - Na seção **notas de certificação** , forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Você deve retornar ao Partner Center e selecionar **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

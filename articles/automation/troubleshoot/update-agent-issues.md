@@ -1,6 +1,6 @@
 ---
-title: Entender a integridade do Windows Hybrid Runbook Worker no Azure Gerenciamento de Atualizações
-description: Saiba como solucionar problemas com o Hybrid Runbook Worker no Windows que oferece suporte a Gerenciamento de Atualizações.
+title: Diagnosticar o Windows Hybrid Runbook Worker-Gerenciamento de Atualizações do Azure
+description: Saiba como solucionar e resolver problemas com o Hybrid Runbook Worker de automação do Azure no Windows que oferece suporte a Gerenciamento de Atualizações.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850118"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769805"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda a integridade do Windows Hybrid Runbook Worker no Gerenciamento de Atualizações
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Entenda e resolva o Windows Hybrid Runbook Worker Health no Gerenciamento de Atualizações
 
 Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Runbook Worker para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline).
 
@@ -52,7 +52,7 @@ Os resultados são mostrados na página quando estão prontos. As seções de ve
 
 A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um dos seguintes sistemas operacionais:
 
-|Sistema operacional  |Notas  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Suporta apenas avaliações de atualização.         |
 |Windows Server 2008 R2 SP1 e posterior |.NET Framework 4,6 ou posterior é necessário. ([Fazer o download do .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 5,1 é necessário.  ([Faça o download do Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |

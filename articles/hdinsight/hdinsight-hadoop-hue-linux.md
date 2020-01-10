@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
-ms.openlocfilehash: ef5bbc00ae0d3c7751bdcd4808c5368b0f5e1523
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 8a644beede4089133f88b824fd8d34dddec3b15e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688238"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751122"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Hue em clusters de Hadoop do HDInsight
 
@@ -42,10 +42,10 @@ Use as informações na tabela abaixo para a ação de script. Consulte [Persona
 > [!NOTE]  
 > Para instalar o Hue em clusters HDInsight, o tamanho do nó de cabeçalho recomendado é de, pelo menos, A4 (8 núcleos, memória de 14 GB).
 
-|Propriedade |Value |
+|Propriedade |Valor |
 |---|---|
 |Tipo de script:|- Personalizado|
-|name|Instalar o Hue|
+|Nome|Instalar o Hue|
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
 |Tipos de nó:|de Cabeçalho|
 
@@ -72,7 +72,7 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
     Isso retornará um nome semelhante ao seguinte:
 
-        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+        myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Esse é o nome do host do nó de cabeçalho primário onde o site da Hue está localizado.
 

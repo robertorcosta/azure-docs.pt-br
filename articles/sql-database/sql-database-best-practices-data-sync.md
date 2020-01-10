@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821864"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771676"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
 
@@ -50,7 +50,7 @@ O banco de dados SQL do Azure oferece suporte a apenas um único conjunto de cre
 -   Altere as credenciais para diferentes fases (por exemplo, *credenciais1* para instalação e *credenciais2* para em andamento).  
 -   Altere a permissão das credenciais (ou seja, altere a permissão após a sincronização estar configurada).
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 ### <a name="database-considerations-and-constraints"></a> Restrições e considerações de banco de dados
 
@@ -116,7 +116,7 @@ Para minimizar a latência, mantenha o banco de dados hub próximo da maior conc
 
 Aplique as diretrizes anteriores para as configurações complexas de grupo de sincronização, como as que são uma combinação de cenários de empresa para nuvem e nuvem para nuvem.
 
-## <a name="sync"></a>Sincronizar
+## <a name="sync"></a>Sincronização
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitar a sincronização inicial lenta e dispendiosa
 
@@ -128,7 +128,7 @@ Quando você criar um grupo de sincronização, comece com os dados em apenas um
 
 Se os bancos de dados estiverem em datacenters diferentes, cada linha deverá percorrer os diferentes datacenters. Isso aumenta o custo de uma sincronização inicial.
 
-#### <a name="recommendation"></a>Recomendações
+#### <a name="recommendation"></a>Recomendação
 
 Se for possível, comece com os dados em apenas um dos bancos de dados do grupo de sincronização.
 
@@ -157,7 +157,7 @@ As alterações podem apresentar falha na propagação por um dos seguintes moti
 > [!NOTE]
 > Essas alterações nunca se propagarão. A única maneira de recuperar-se neste cenário é recriar o grupo de sincronização.
 
-#### <a name="recommendation"></a>Recomendações
+#### <a name="recommendation"></a>Recomendação
 
 Monitore a integridade do banco de dados e do grupo de sincronização regularmente através da interface de log e do Portal.
 
@@ -218,7 +218,15 @@ Em vez disso, primeiro remova um banco de dados de um grupo de sincronização. 
 
 Se você tentar remover um banco de dados e, em seguida, editar um grupo de sincronização sem primeiro implantar as alterações, uma ou outra operação falhará. A interface do portal pode se tornar inconsistente. Se isto ocorrer, atualize a página para restaurar o estado correto.
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="avoid-schema-refresh-timeout"></a>Evitar tempo limite de atualização do esquema
+
+Se você tiver um esquema complexo para sincronizar, poderá encontrar um "tempo limite de operação" durante uma atualização de esquema se o banco de dados de metadados de sincronização tiver um SKU inferior (exemplo: básico). 
+
+#### <a name="solution"></a>Solução
+
+Para atenuar esse problema, escale verticalmente seu banco de dados de metadados de sincronização para ter uma SKU superior, como S3. 
+
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 
 -   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)

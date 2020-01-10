@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572782"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749756"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar o log de diagnósticos
 
-Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [logs de diagnóstico de recursos do Azure](../azure-monitor/platform/resource-logs-overview.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para os [los do Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Uma parte importante de qualquer solução do Analysis Services é o monitoramento do desempenho de seus servidores. Com os [logs de diagnóstico de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md), é possível monitorar e enviar logs para o [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), e exportá-los para os [los do Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Log de diagnósticos para Armazenamento, Hubs de Eventos ou logs do Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -26,7 +26,7 @@ Uma parte importante de qualquer solução do Analysis Services é o monitoramen
 
 Você pode selecionar as categorias **Mecanismo**, **Serviço** e **Métricas**.
 
-### <a name="engine"></a>Motor
+### <a name="engine"></a>Mecanismo
 
 Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Não é possível selecionar eventos individuais. 
 
@@ -43,17 +43,17 @@ Selecionar **Mecanismo** registra todos [xEvents](https://docs.microsoft.com/ana
 |Comandos     |  Início de comando       |
 |Comandos     |  Término de comando       |
 |Erros e avisos     |   Erro      |
-|Descobrir     |   Término de descoberta      |
+|Descubra     |   Término de descoberta      |
 |Notificação     |    Notificação     |
-|Session     |  Inicialização de sessão       |
-|Bloqueios    |  Deadlock       |
-|Processamento de consulta     |   Início da consulta VertiPaq SE      |
-|Processamento de consulta     |   Final da consulta VertiPaq SE      |
-|Processamento de consulta     |   Correspondência de Cache de consulta VertiPaq SE      |
-|Processamento de consulta     |   Início de consulta direta      |
-|Processamento de consulta     |  Término de consulta direta       |
+|Sessão     |  Inicialização de sessão       |
+|Locks    |  Deadlock       |
+|Query Processing     |   Início da consulta VertiPaq SE      |
+|Query Processing     |   Final da consulta VertiPaq SE      |
+|Query Processing     |   Correspondência de Cache de consulta VertiPaq SE      |
+|Query Processing     |   Início de consulta direta      |
+|Query Processing     |  Término de consulta direta       |
 
-### <a name="service"></a>O Barramento de
+### <a name="service"></a>Serviço
 
 |Nome da operação  |Ocorre quando  |
 |---------|---------|
@@ -88,7 +88,7 @@ A categoria de métricas registra as mesmas [métricas de servidor](analysis-ser
     * **Serviço**. Selecione esta opção para registrar eventos de nível de serviço. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Métricas**. Selecione esta opção para armazenar dados detalhados em [Métricas](analysis-services-monitor.md#server-metrics). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
-3. Clique em **Salvar**.
+3. Clique em **Save** (Salvar).
 
     Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do workspace&gt;. A assinatura \<id da assinatura> não está registrada para usar o microsoft.insights." siga as instruções para [Solucionar Problemas de Diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta, então repita este procedimento.
 
@@ -324,8 +324,8 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
   -RetentionEnabled $true -RetentionInDays 90
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre [o registro em log de diagnóstico de recurso do Azure](../azure-monitor/platform/resource-logs-overview.md).
+Saiba mais sobre [o registro em log de diagnóstico de recurso do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Consulte [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) na ajuda do PowerShell.

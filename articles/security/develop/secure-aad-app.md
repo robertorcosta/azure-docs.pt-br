@@ -1,10 +1,10 @@
 ---
-title: Desenvolver um aplicativo Web do Azure AD seguro | Microsoft Docs
+title: Desenvolver um aplicativo Web seguro do Azure AD | Microsoft Docs
 description: Este aplicativo de exemplo simples implementa práticas recomendadas de segurança que melhoram seu aplicativo e a postura de segurança de sua organização quando você desenvolve no Azure.
 keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159841"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771267"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Desenvolver um aplicativo seguro para um aplicativo do Azure AD
 ## <a name="overview"></a>Visão Geral
@@ -55,7 +55,7 @@ A arquitetura consiste nesses componentes
 - [Sistema de nomes de domínio do Azure](../../dns/dns-overview.md). Forneça o serviço para hospedar o domínio.
 - [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Fornece para dimensionar seus aplicativos e criar alta disponibilidade para seus serviços.
 - [Aplicativo Web do Azure](../../app-service/overview.md).  Fornece um serviço baseado em HTTP para hospedar aplicativos Web.
-- [Central de segurança do Azure](../../security-center/index.yml). fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem.
+- [Central de Segurança do Azure](../../security-center/index.yml). fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas na nuvem.
 - [Azure Policy](../../governance/policy/overview.md). Fornece avaliação de seus recursos para não conformidade com políticas atribuídas.
 
 ## <a name="threat-model"></a>Modelo de ameaça
@@ -334,7 +334,7 @@ Agora que você habilitou a integração de rede virtual, você pode adicionar g
 
 5. Na folha sub-redes do NSG, selecione **associar**, selecione a rede virtual criada na implantação e selecione a sub-rede de gateway denominada **GW-subnet**. O NSG é aplicado à sub-rede.
 
-6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dê um nome a ele. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
+6. Crie outro NSG como na etapa anterior, desta vez para a instância do serviço de aplicativo. Dê um nome a ela. Adicione a regra de entrada para a porta 443, como fez para o NSG do gateway de aplicativo.
 
    Se você tiver uma instância do serviço de aplicativo implantada em uma instância do Ambiente do Serviço de Aplicativo, que não é o caso desse aplicativo, você poderá adicionar regras de entrada para permitir investigações de integridade do serviço do Azure abrindo as portas 454-455 nos grupos de segurança de entrada de seu serviço de aplicativo NSG. Aqui está a configuração:
 
@@ -362,7 +362,7 @@ As tecnologias a seguir fornecem recursos para gerenciar o acesso aos dados do t
 - Azure Active Directory Privileged Identity Management permite que os clientes minimizem o número de usuários que têm acesso a determinadas informações, como dados de titulares de cartão. Os administradores podem usar o Azure Active Directory Privileged Identity Management para descobrir, restringir e monitorar identidades privilegiadas e seu acesso aos recursos. Essa funcionalidade também pode ser usada para impor o acesso administrativo sob demanda Just-In-Time quando necessário.
 - Azure Active Directory Identity Protection detecta possíveis vulnerabilidades que afetam as identidades de uma organização, configura as respostas automatizadas para detectar ações suspeitas relacionadas às identidades de uma organização e investiga suspeitas incidentes para executar a ação apropriada para resolvê-los.
 ### <a name="secrets-management"></a>Gerenciamento de segredos
-A solução usa Azure Key Vault para o gerenciamento de chaves e segredos. O Cofre de Chaves do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados
+A solução usa Azure Key Vault para o gerenciamento de chaves e segredos. O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Os recursos de Azure Key Vault a seguir ajudam os clientes a proteger e acessar esses dados
    - Políticas de acesso avançadas são configuradas com base na necessidade.
    - As políticas de acesso do Key Vault são definidas com o mínimo de permissões necessárias para chaves e segredos.
    - Todas as chaves e segredos no Key Vault têm datas de validade.
@@ -443,16 +443,16 @@ Os serviços do Azure registram em log de forma extensiva as atividades do siste
 1.  Navegue de volta para a portal do Azure. No painel de navegação à esquerda, selecione o serviço Azure Active Directory e, em seguida, selecione Registros de aplicativo.
 2.  Na tela resultante, selecione o aplicativo WebApp-OpenIDConnect-DotNet-Code-v2.
 3.  Na guia Autenticação o na seção URIs de redirecionamento, selecione Web na caixa de combinação e adicione os seguintes URIs de redirecionamento.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o na seção Configurações avançadas definir URL de logout para https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o na seção Configurações avançadas, defina URL de logout para https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Na guia identidade visual o, atualize a URL da Home Page para o endereço do seu serviço de aplicativo, por exemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o salve a configuração.
 5.  Se seu aplicativo chamar uma API da Web, certifique-se de aplicar as alterações necessárias no projeto appSettings. JSON, para que chame a URL da API publicada em vez do localhost.
 Publicando o exemplo
-    1.  Na guia Visão geral do serviço de aplicativo, baixe o perfil de publicação clicando no link obter perfil de publicação e salve-o. Outros mecanismos de implantação, como do controle do código-fonte, também podem ser usados.
+    1.  Na guia Visão geral do serviço de aplicativo, baixe o perfil de publicação clicando no link obter perfil de publicação e salve-o. Outros mecanismos de implantação, tais como por meio de controle do código-fonte, também podem ser usados.
     2.  Alterne para o Visual Studio e vá para o projeto WebApp-OpenIDConnect-DotNet-Code-v2. Clique com o botão direito do mouse no projeto na Gerenciador de Soluções e selecione publicar. Clique em importar perfil na barra inferior e importe o perfil de publicação que você baixou anteriormente.
     3.  Clique em configurar e, na guia conexão, atualize a URL de destino para que ela seja um https na URL de home page, por exemplo https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net. Clique em Avançar.
     4.  Na guia Configurações, certifique-se de que habilitar autenticação organizacional não esteja selecionado. Clique em Salvar. Clique em publicar na tela principal.
-    5.  O Visual Studio publicará o projeto e abrirá automaticamente um navegador para a URL do projeto. Se você vir a página da Web padrão do projeto, a publicação foi bem-sucedida.
+    5.  O Visual Studio publicará o projeto e abrirá automaticamente um navegador para a URL do projeto. Se você vir a página da Web padrão do projeto, a publicação terá sido bem-sucedida.
 #### <a name="implement-multi-factor-authentication-for-azure-active-directory"></a>Implementar a autenticação multifator para Azure Active Directory
    Os administradores precisam garantir que as contas de assinatura no portal sejam protegidas. A assinatura é vulnerável a ataques porque gerencia os recursos que você criou. Para proteger a assinatura, habilite a autenticação multifator na guia **Azure Active Directory** da assinatura.
 
@@ -465,7 +465,7 @@ Para habilitar o MFA para entradas de administrador
    1. Vá para a guia **Azure Active Directory** na portal do Azure
    2. Na categoria segurança, selecione acesso condicional. Você vê esta tela
 
-       ![Acesso condicional-políticas](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![Acesso Condicional – Políticas](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 Se você não puder criar uma nova política
 
@@ -518,7 +518,7 @@ Para criar este espaço de trabalho
 
    3. Use a caixa de pesquisa para pesquisar o **Azure Sentinel**.
 
-   ![Pesquisar pelo Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
+   ![Pesquisar por Azure Sentinel](./media/secure-aad-app/sentinel-add.png)
 
    *Pesquisar pelo Azure Sentinel*
 

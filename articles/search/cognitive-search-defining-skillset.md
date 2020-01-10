@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114542"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754555"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as hab
 Pontos principais a serem lembrados:
 
 + Você pode ter apenas um conjunto de habilidades por indexador.
-+ O conjunto de habilidades precisa ter pelo menos uma habilidade.
++ Um conjunto de qualificações precisa ter pelo menos uma habilidade.
 + É possível criar várias habilidades do mesmo tipo (por exemplo, variantes de uma habilidade de análise de imagem).
 
 ## <a name="begin-with-the-end-in-mind"></a>Comece pensando no fim
@@ -249,7 +249,7 @@ Até agora, essa estrutura tem sido somente interno, somente de memória e usada
 
 O [repositório de conhecimento](knowledge-store-concept-intro.md) é um recurso de visualização do Azure pesquisa cognitiva para salvar seu documento aprimorado. Uma loja de conhecimento que você cria, apoiada por uma conta de armazenamento do Azure, é o repositório no qual seus dados aprimorados ficam. 
 
-Uma definição de repositório de conhecimento é adicionada a um conconhecedor. Para obter uma explicação do processo inteiro, consulte [como começar a usar a loja de conhecimento](knowledge-store-howto.md).
+Uma definição de repositório de conhecimento é adicionada a um conconhecedor. Para obter uma explicação do processo inteiro, consulte [criar uma loja de conhecimento em REST](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {
@@ -275,6 +275,6 @@ Você pode optar por salvar os documentos aprimorados como tabelas com relaçõe
 
 <a name="next-step"></a>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você está familiarizado com o pipeline de enriquecimento e com os conjuntos de habilidades, continue com [Como referenciar anotações em um conjunto de habilidades](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 

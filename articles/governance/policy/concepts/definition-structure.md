@@ -3,14 +3,14 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: HT
+ms.openlocfilehash: c067a5a603c1adcafe6827b3118ecff20ae23238
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894297"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770927"
 ---
-# <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
+# <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
 Definições de política de recurso são usadas pelo Azure Policy para estabelecer convenções para recursos. Cada definição descreve a conformidade do recurso e o efeito que ocorre quando um recurso não está em conformidade.
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou você pode exigir que todos os recursos tenham uma marca específica. As políticas são herdadas por todos os recursos filho. Assim, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
@@ -19,10 +19,10 @@ O esquema de definição de política é encontrado aqui: [https://schema.manage
 
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
-- modo
+- mode
 - parâmetros
 - nome de exibição
-- Descrição
+- descrição
 - regra de política
   - avaliação de lógica
   - efeito
@@ -90,7 +90,7 @@ Atualmente, há suporte para os seguintes modos de provedor de recursos durante 
 > [!NOTE]
 > Os modos de provedor de recursos só dão suporte a definições de políticas internas e não oferecem suporte a iniciativas durante a visualização.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -221,7 +221,7 @@ Você pode aninhar operadores lógicos. A exemplo a seguir mostra uma operação
 },
 ```
 
-### <a name="conditions"></a>Conditions
+### <a name="conditions"></a>Condições
 
 Uma condição avalia se um **campo** ou um acessador de **valor** atende a determinados critérios. As condições com suporte são:
 
@@ -308,7 +308,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valor
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
@@ -318,7 +318,7 @@ O **valor** é emparelhado a uma [condição](#conditions) com suporte.
 
 #### <a name="value-examples"></a>Exemplos de valor
 
-Este exemplo de regra de política usa **valor** para comparar o resultado da função `resourceGroup()` e a propriedade **nome** retornada para uma condição **like** de `*netrg`. A regra nega qualquer recurso que não for do **tipo** `Microsoft.Network/*` em qualquer grupo de recursos cujo nome termine em `*netrg`.
+Este exemplo de regra de política usa **valor** para comparar o resultado da função `resourceGroup()` e a propriedade **nome** retornada para uma condição **like** de `*netrg`. A regra nega qualquer recurso que não seja do **tipo** de `Microsoft.Network/*` em qualquer grupo de recursos cujo nome termine em `*netrg`.
 
 ```json
 {
@@ -339,7 +339,7 @@ Este exemplo de regra de política usa **valor** para comparar o resultado da fu
 }
 ```
 
-Este exemplo de regra de política usa **valor** para verificar se o resultado de várias funções aninhadas é **igual** a `true`. A regra nega qualquer recurso que não tenha pelo menos três marcas.
+Este exemplo de regra de política usa **valor** para verificar se o resultado de várias funções aninhadas **é igual** a `true`. A regra nega qualquer recurso que não tenha pelo menos três marcas.
 
 ```json
 {
@@ -374,9 +374,9 @@ O uso de _funções de modelo_ em **valor** permite muitas funções aninhadas c
 }
 ```
 
-A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a função `substring()` resultará em um erro. Esse erro faz com que a política se torne um efeito de **negação** .
+A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/templates/template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a função `substring()` resultará em um erro. Esse erro faz com que a política se torne um efeito de **negação** .
 
-Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para verificar se os três primeiros caracteres de **nome** são iguais a **ABC** sem permitir que um **nome** com menos de três caracteres cause um erro:
+Em vez disso, use a função [If ()](../../../azure-resource-manager/templates/template-functions-logical.md#if) para verificar se os três primeiros caracteres de **nome** são iguais a **ABC** sem permitir que um **nome** com menos de três caracteres cause um erro:
 
 ```json
 {
@@ -473,7 +473,7 @@ Exemplo 4: verificar se todos os membros da matriz de objetos atendem à express
             "equals": "description"
         }
     },
-    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
 }
 ```
 

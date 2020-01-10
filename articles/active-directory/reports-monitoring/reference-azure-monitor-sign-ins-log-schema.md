@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014326"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748669"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -143,9 +143,9 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 
 ## <a name="field-descriptions"></a>Descrições de campo
 
-| Nome do campo | DESCRIÇÃO |
+| Nome do campo | Description |
 |------------|-------------|
-| Hora | Data e hora em UTC. |
+| Tempo | Data e hora em UTC. |
 | ResourceId | Esse valor não é mapeado e você pode ignorar esse campo com segurança.  |
 | OperationName | Para inscrições, esse valor é sempre *Atividade de login*. |
 | OperationVersion | Versão da API REST solicitada pelo cliente. |
@@ -164,10 +164,10 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | CorrelationId | GUID opcional passado pelo cliente. Esse valor pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
 | Identidade | A identidade do token que foi apresentada ao fazer a solicitação. Pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
-| Local padrão | Fornece o local da atividade de entrada. |
+| Local | Fornece o local da atividade de entrada. |
 | Propriedades | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Esse esquema usa os mesmos nomes de atributos como no recurso de entrada, para legibilidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Interpretar o esquema de logs de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Saiba mais sobre os Logs de Diagnóstico do Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Saiba mais sobre os Logs de Diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md)

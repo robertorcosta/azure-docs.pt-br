@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230680"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769210"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
 
-Azure Functions slots de implantação permitem que seu aplicativo de funções execute diferentes instâncias chamadas "Slots". Os slots são ambientes diferentes expostos por meio de um ponto de extremidade disponível publicamente. Uma instância de aplicativo sempre é mapeada para o slot de produção e você pode trocar instâncias atribuídas a um slot sob demanda. Os aplicativos de funções em execução no plano de serviço de aplicativos podem ter vários slots, enquanto em consumo apenas um slot é permitido.
+Azure Functions slots de implantação permitem que seu aplicativo de funções execute diferentes instâncias chamadas "Slots". Os slots são ambientes diferentes expostos por meio de um ponto de extremidade disponível publicamente. Uma instância de aplicativo sempre é mapeada para o slot de produção e você pode trocar instâncias atribuídas a um slot sob demanda. Os aplicativos de funções em execução no plano de serviço de aplicativos podem ter vários slots, enquanto no plano de consumo apenas um slot é permitido.
 
 O seguinte reflete como as funções são afetadas por slots de permuta:
 
@@ -65,7 +65,7 @@ Você pode marcar configurações como uma configuração de implantação que o
 
 Se você criar uma configuração de implantação em um slot, certifique-se de criar a mesma configuração com um valor exclusivo em qualquer outro slot envolvido em uma troca. Dessa forma, embora o valor de uma configuração não mude, os nomes de configuração permanecem consistentes entre os slots. Essa consistência de nome garante que seu código não tente acessar uma configuração definida em um slot, mas não em outra.
 
-Use as etapas a seguir para criar uma configuração de implantação:
+Use as seguintes etapas para criar uma configuração de implantação:
 
 - Navegue até os *Slots* no aplicativo de funções
 - Clique no nome do slot
@@ -132,10 +132,10 @@ Usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/functionapp/deploym
 - [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [permuta](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [troca automática](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>Alterar plano do serviço de aplicativo
+## <a name="change-app-service-plan"></a>Alterar plano do Serviço de Aplicativo
 
 Com um aplicativo de funções que está sendo executado em um plano do serviço de aplicativo, você tem a opção de alterar o plano do serviço de aplicativo subjacente para um slot.
 
@@ -176,13 +176,13 @@ Há dois níveis de suporte para slots de implantação:
 
 | Sistema operacional/plano de hospedagem           | Nível de suporte     |
 | ------------------------- | -------------------- |
-| Consumo do Windows       | Disponibilidade Geral |
-| Windows Premium           | Disponibilidade Geral  |
-| Windows dedicado         | Disponibilidade Geral |
+| Consumo do Windows       | Disponibilidade geral |
+| Windows Premium           | Disponibilidade geral  |
+| Windows dedicado         | Disponibilidade geral |
 | Consumo do Linux         | Sem suporte          |
-| Linux Premium             | Disponibilidade Geral  |
-| Linux dedicado           | Disponibilidade Geral |
+| Linux Premium             | Disponibilidade geral  |
+| Linux dedicado           | Disponibilidade geral |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Tecnologias de implantação no Azure Functions](./functions-deployment-technologies.md)

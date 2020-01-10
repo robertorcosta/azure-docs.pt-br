@@ -16,14 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edbc6f9ce4c1434fa27989f053c108914a151320
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939871"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745783"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Exibir a latência relativa a regiões do Azure de localidades específicas
+
+> [!WARNING]
+> Este recurso está atualmente em visualização e ainda está sendo testado quanto à estabilidade.
 
 Neste tutorial, saiba como usar o [Observador de Rede](network-watcher-monitoring-overview.md) do Azure para ajudar você a decidir em qual região do Azure implantar seu aplicativo ou serviço, com base nos dados demográficos de seus usuários. Além disso, você pode usar isso para ajudar a avaliar as conexões dos provedores de serviços do Azure.  
         
@@ -60,7 +63,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> A região que você especifica no comando anterior não precisa ser a mesma que a região especificada durante a recuperação do observador de rede. O comando anterior requer apenas que você especifique um observador de rede existente. O observador de rede pode estar em qualquer região. Se você especificar valores para `-Country` e `-State`, eles deverão ser válidos. Os valores diferenciam maiúsculas de minúsculas. Dados estão disponíveis para um número limitado de países/regiões, Estados e cidades. Executar os comandos [exibir países/regiões disponíveis, estados, cidades e provedores](#view-available) para exibir uma lista de países/regiões disponíveis, cidades e estados para usar com o comando anterior. 
+> A região que você especifica no comando anterior não precisa ser a mesma que a região especificada durante a recuperação do observador de rede. O comando anterior requer apenas que você especifique um observador de rede existente. O observador de rede pode estar em qualquer região. Se você especificar valores para `-Country` e `-State`, eles deverão ser válidos. Os valores diferenciam maiúsculas de minúsculas. Os dados estão disponíveis para um número limitado de países/regiões, Estados e cidades. Execute os comandos em [Exibir países/regiões, Estados, cidades e provedores disponíveis](#view-available) para exibir uma lista de países/regiões, cidades e Estados disponíveis para uso com o comando anterior. 
 
 > [!WARNING]
 > É necessário especificar uma data nos últimos 30 dias para `-StartTime` e `-EndTime`. A especificação de uma data anterior resultará na não devolução de dados.
@@ -125,17 +128,17 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Diferentemente de quando você especifica um único local, se você não especificar um local, ou especificar vários locais, como "Oeste dos EUA 2", "Oeste dos EUA", deverá especificar um provedor de serviços de Internet ao executar o comando. 
 
-## <a name="view-available"></a>Exibir países/regiões disponíveis, estados, cidades e provedores
+## <a name="view-available"></a>Exibir países/regiões, Estados, cidades e provedores disponíveis
 
-Dados estão disponíveis para provedores de serviços de Internet específicos, países/regiões, Estados e cidades. Para exibir uma lista de Internet disponíveis todos os provedores de serviços, países/regiões, Estados e cidades, em que você pode exibir dados, digite o seguinte comando:
+Os dados estão disponíveis para provedores de serviços de Internet específicos, países/regiões, Estados e cidades. Para exibir uma lista de todos os provedores de serviços de Internet, países/regiões, Estados e cidades disponíveis, para os quais você pode exibir dados, insira o seguinte comando:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Dados só estão disponíveis para os países/regiões, Estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificou o observador de rede *NetworkWatcher_eastus* em um grupo de recursos denominado *NetworkWatcherRG*, mas você pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um executando as tarefas em [Criar um observador de rede](#create-a-network-watcher). 
+Os dados só estão disponíveis para os países/regiões, Estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificou o observador de rede *NetworkWatcher_eastus* em um grupo de recursos denominado *NetworkWatcherRG*, mas você pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um executando as tarefas em [Criar um observador de rede](#create-a-network-watcher). 
 
-Depois de executar o comando anterior, você pode filtrar a saída retornada especificando os valores válidos para **País/Região**, **Estado** e **Cidade**, se quiser.  Por exemplo, para exibir a lista de provedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
+Depois de executar o comando anterior, você pode filtrar a saída retornada especificando os valores válidos para **País**, **Estado** e **Cidade**, se quiser.  Por exemplo, para exibir a lista de provedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList `
@@ -147,4 +150,4 @@ Get-AzNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> O valor especificado para **País** deve ter letras maiúsculas e minúsculas. Os valores especificados para **Estado** e **Cidade** devem estar em minúsculas. Os valores devem estar na saída retornada após a execução do comando sem valores para **País/Região**, **Estado** e **Cidade**. Se você especificar a capitalização incorreta ou especificar um valor para **País**, **Estado**, ou **Cidade** que não esteja na saída retornada após executar o comando sem valores para essas propriedades, a saída retornada estará vazia.
+> O valor especificado para **País** deve ter letras maiúsculas e minúsculas. Os valores especificados para **Estado** e **Cidade** devem estar em minúsculas. Os valores devem estar na saída retornada após a execução do comando sem valores para **País**, **Estado** e **Cidade**. Se você especificar a capitalização incorreta ou especificar um valor para **País**, **Estado**, ou **Cidade** que não esteja na saída retornada após executar o comando sem valores para essas propriedades, a saída retornada estará vazia.

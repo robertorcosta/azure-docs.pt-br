@@ -1,32 +1,28 @@
 ---
-title: Direcionar atualizações usando coleções do SCCM na Automação do Azure - Gerenciamento de Atualizações
-description: Este artigo destina-se a ajudá-lo a configurar o System Center Configuration Manager com esta solução para gerenciar atualizações de computadores gerenciados pelo SCCM.
+title: Usar o Gerenciamento de Atualizações do Azure com clientes do Configuration Manager
+description: Este artigo destina-se a ajudá-lo a configurar o Microsoft Endpoint Configuration Manager com essa solução para implantar atualizações de software em clientes do ConfigMgr.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 345adeee37f5f9bc4c794eb9bb624e7797197f22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9df401ec9c6d11bfef5d1d60833c855029f8ca01
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850203"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769941"
 ---
-# <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações
+# <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Implantar atualizações para clientes do Microsoft Endpoint Configuration Manager com Gerenciamento de Atualizações
 
-Os clientes que investiram no System Center Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e maturidade dele no gerenciamento de atualizações de software como parte do ciclo de SUM (gerenciamento de atualização de software) deles.
+Os clientes que investiram no Microsoft Endpoint Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem de sua força e maturidade no gerenciamento de atualizações de software como parte do ciclo de SUM (gerenciamento de atualização de software).
 
-Você pode relatar e atualizar servidores Windows gerenciados criando e preparando previamente implantações de atualização de software no Gerenciador de Configurações, bem como obter o status detalhado de implantações de atualização concluídas, usando a [solução de Gerenciamento de Atualizações](automation-update-management.md). Se você usar o Configuration Manager para relatórios de conformidade de atualizações, mas não para gerenciar implantações de atualizações com os servidores Windows, você pode continuar a relatar para o Configuration Manager, enquanto as atualizações de segurança são gerenciadas com a solução de Gerenciamento de Atualizações.
+Você pode relatar e atualizar servidores Windows gerenciados criando e preparando previamente implantações de atualização de software no Gerenciador de Configurações, bem como obter o status detalhado de implantações de atualização concluídas, usando a [solução de Gerenciamento de Atualizações](automation-update-management.md). Se você usar Configuration Manager para relatórios de conformidade de atualização, mas não para gerenciar implantações de atualização com seus servidores Windows, poderá continuar relatando para Configuration Manager enquanto as atualizações de segurança são gerenciadas com a solução de Gerenciamento de Atualizações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * É necessário ter a [solução de Gerenciamento de Atualizações](automation-update-management.md) adicionada à sua conta de Automação.
-* Servidores Windows atualmente gerenciados pelo seu ambiente do System Center Configuration Manager também precisam relatar para o espaço de trabalho do Log Analytics, que também tem a solução de Gerenciamento de Atualizações habilitada.
-* Esse recurso está habilitado no System Center Configuration Manager versão do branch atual 1606 e superior. Para integrar seu site de administração central do Configuration Manager ou um site primário autônomo com Azure Monitor logs e importar coleções, examine [conectar Configuration Manager para Azure monitor logs](../azure-monitor/platform/collect-sccm.md).  
+* Os servidores do Windows atualmente gerenciados pelo ambiente de Configuration Manager também precisam ser relatados para o espaço de trabalho Log Analytics que também tem a solução Gerenciamento de Atualizações habilitada.
+* Esse recurso está habilitado no Configuration Manager Branch atual versão 1606 e superior. Para integrar seu site de administração central do Configuration Manager ou um site primário autônomo com Azure Monitor logs e importar coleções, examine [conectar Configuration Manager para Azure monitor logs](../azure-monitor/platform/collect-sccm.md).  
 * Os agentes do Windows deverão ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update se eles não receberem atualizações de segurança do Configuration Manager.   
 
 Como gerenciar clientes hospedados no IaaS do Azure com seu ambiente existente do Configuration Manager é algo que depende da conexão que você tem entre os datacenters do Azure e sua infraestrutura. Essa conexão afeta as alterações de design que você talvez precise fazer à sua infraestrutura do Configuration Manager, bem como o custo relacionado para dar suporte a essas alterações necessárias. Para entender quais considerações de planejamento você precisa avaliar antes de continuar, examine [Configuration Manager no Azure – Perguntas Frequentes](/sccm/core/understand/configuration-manager-on-azure#networking).

@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas do Azure Functions que você preci
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 3ccfc28dc332d2ff90ec09256a43a9143e37c03b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974216"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768989"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
@@ -42,9 +42,9 @@ A propriedade `bindings` é onde você configura gatilhos e associações. Cada 
 
 | Propriedade | Valores/Tipos | Comentários |
 | --- | --- | --- |
-| `type` |string |Tipo de binding. Por exemplo, `queueTrigger`. |
+| `type` |cadeia de caracteres |Tipo de binding. Por exemplo, `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
-| `name` |string |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
+| `name` |cadeia de caracteres |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
 
 ## <a name="function-app"></a>Aplicativo de funções
 O aplicativo de funções fornece um contexto de execução no Azure no qual suas funções são executadas. Como tal, é a unidade de implantação e gerenciamento para suas funções. Um aplicativo de funções é composto por uma ou mais funções individuais que são gerenciadas, implantadas e dimensionadas em conjunto. Todas as funções em um aplicativo de funções compartilham o mesmo plano de preços, método de implantação e versão de tempo de execução. Pense em um aplicativo de funções como uma forma de organizar e gerenciar coletivamente suas funções. Para saber mais, consulte [como gerenciar um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md). 
@@ -78,7 +78,7 @@ Você pode configurar a versão do runtime de Funções usando a configuração 
 ## <a name="repositories"></a>Repositórios
 O código para o Azure Functions é software livre e é armazenado em repositórios do GitHub:
 
-* [Funções do Azure](https://github.com/Azure/Azure-Functions)
+* [Azure Functions](https://github.com/Azure/Azure-Functions)
 * [Host do Azure Functions](https://github.com/Azure/azure-functions-host/)
 * [Portal do Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Modelos do Azure Functions](https://github.com/azure/azure-functions-templates)
@@ -102,4 +102,4 @@ Para saber mais, consulte os recursos a seguir:
 * [Codificar e testar o Azure Functions localmente](./functions-develop-local.md)
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor de C# do Azure Functions](functions-dotnet-class-library.md)
-* [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
+* [Azure Functions referência do desenvolvedor node. js](functions-reference-node.md)

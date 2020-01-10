@@ -1,19 +1,19 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566194"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751536"
 ---
 Instantâneos incrementais (visualização) são backups pontuais para discos gerenciados que, quando tirados, consistem apenas em todas as alterações desde o último instantâneo. Quando você tenta baixar ou, de outra forma, usa um instantâneo incremental, o VHD completo é usado. Essa nova funcionalidade para instantâneos de disco gerenciado pode potencialmente permitir que eles sejam mais econômicos, já que você não precisa mais armazenar todo o disco com cada instantâneo individual, a menos que você escolha. Assim como instantâneos regulares, instantâneos incrementais podem ser usados para criar um disco gerenciado completo ou para criar um instantâneo normal.
 
@@ -21,11 +21,9 @@ Há algumas diferenças entre um instantâneo incremental e um instantâneo norm
 
 Os instantâneos incrementais também oferecem um recurso diferencial, que está disponível exclusivamente para discos gerenciados. Eles permitem que você obtenha as alterações entre dois instantâneos incrementais dos mesmos discos gerenciados, até o nível de bloco. Você pode usar essa capacidade para reduzir o volume de dados ao copiar instantâneos entre regiões.
 
-Se você ainda não se inscreveu para a versão prévia e gostaria de começar a usar instantâneos incrementais, envie-nos um email para AzureDisks@microsoft.com para obter acesso à visualização pública.
-
 ## <a name="restrictions"></a>Restrições
 
-- Os instantâneos incrementais atualmente só estão disponíveis no leste dos EUA, EUA Central, Canadá central, Oeste EUA Central e Europa Setentrional.
+- Os instantâneos incrementais atualmente só estão disponíveis no leste dos EUA, leste dos EUA 2, EUA Central, Oeste EUA Central, leste do Canadá, centro do Canadá e Europa Setentrional.
 - Não é possível criar instantâneos incrementais no momento depois de alterar o tamanho de um disco.
 - Os instantâneos incrementais atualmente não podem ser movidos entre assinaturas.
 - No momento, você pode gerar apenas URIs SAS de até cinco instantâneos de uma família de instantâneos específica em um determinado momento.
@@ -156,8 +154,4 @@ Você também pode usar modelos de Azure Resource Manager para criar um instant�
 
 ## <a name="next-steps"></a>Próximos passos
 
-1. Se você ainda não se inscreveu para a versão prévia e gostaria de começar a usar instantâneos incrementais, envie-nos um email para AzureDisks@microsoft.com para obter acesso à visualização pública. 
-
-2. Explore os exemplos a seguir para cópia entre regiões de instantâneos incrementais usando o recurso diferencial   
-
-    - [Usando SDKs do .net do Azure](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+Se você quiser ver um exemplo de código que demonstra a capacidade diferencial de instantâneos incrementais, usando o .NET, consulte [copiar backups de Managed disks do Azure para outra região com capacidade diferencial de instantâneos incrementais](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

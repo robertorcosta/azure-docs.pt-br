@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379605"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746055"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -24,7 +24,7 @@ O ingresso no Azure AD permite que você ingresse dispositivos diretamente ao Az
 
 Esse artigo fornece as informações necessárias para começar com as APIs de relatório do Azure Active Directory.
  
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo presume que você esteja familiarizado com o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](../device-management-introduction.md).
 
@@ -75,7 +75,7 @@ Quando você estiver usando o AD FS, será necessário habilitar os seguintes po
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Se seu provedor de identidade não oferece suporte a esses protocolos, o ingresso no Azure Active Directory não trabalha nativamente. Começando com o Windows 10 1809, seus usuários podem entrar um dispositivo ingressado do Azure Active Directory com um provedor de identidade baseado em SAML [web entrar no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, a entrada na Web é um recurso de visualização e não é recomendada para implantações de produção.
+Se seu provedor de identidade não oferece suporte a esses protocolos, o ingresso no Azure Active Directory não trabalha nativamente. 
 
 >[!NOTE]
 > Atualmente, o ingresso no Azure AD não funciona com [AD FS 2019 configurado com provedores de autenticação externa como o método de autenticação principal](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). O ingresso no Azure AD usa como padrão a autenticação de senha como o método principal, o que resulta em falhas de autenticação nesse cenário
@@ -181,7 +181,7 @@ O Azure Active Directory não dão suporte a aplicativos locais na autenticaçã
 
 **Recomendação:** considere desativar esses aplicativos e mover para suas alternativas modernas.
 
-### <a name="remote-desktop-services"></a>Serviços da Área de Trabalho Remota
+### <a name="remote-desktop-services"></a>Serviços de Área de Trabalho Remota
 
 Conexão da área de trabalho remota para um dispositivos adicionados ao Azure Active Directory requer que o computador host para o Azure Active Directory ingressado ou Azure AD Híbrido ingressado. Área de trabalho remota de um dispositivo não relacionado ou não Windows que não é compatível. Para obter mais informações, consulte [Conectar ao Azure Active Directory ingressado remoto pc](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
@@ -197,11 +197,11 @@ Aqui está uma comparação dessas três abordagens
  
 |   | Instalação do autoatendimento | Windows Autopilot | Registro em massa |
 | --- | --- | --- | --- |
-| Requer interação do usuário para configurar | sim | sim | Não |
-| Requer trabalho de TI | Não | sim | sim |
+| Requer interação do usuário para configurar | Sim | Sim | Não |
+| Requer trabalho de TI | Não | Sim | Sim |
 | Fluxos aplicáveis | OOBE e Configurações | OOBE somente | OOBE somente |
 | Direitos de administrador local para o usuário primário | Sim, por padrão | Configurável | Não |
-| Precisar de suporte do OEM | Não | sim | Não |
+| Precisar de suporte do OEM | Não | Sim | Não |
 | Versões com suporte | 1511+ | 1709+ | 1703+ |
  
 Escolha sua abordagem de implantação ou abordagens examinando a tabela acima e revisar as considerações para adotar a qualquer uma das abordagens a seguir:  
@@ -292,7 +292,7 @@ Se você tiver um provedor MDM configurado para os dispositivos Azure Active Dir
 
 Você pode usar essa implementação para [exigir dispositivos gerenciados para acesso de aplicativo de nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ingressar um novo dispositivo Windows 10 com o Azure Active Directory durante uma primeira execução](azuread-joined-devices-frx.md)

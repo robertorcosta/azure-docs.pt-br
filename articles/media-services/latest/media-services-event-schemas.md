@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 2d1e648a9ea33beb1347a4a635388ee04e46215b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449765"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750861"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Grade de Eventos do Azure para eventos dos Serviços de Mídia
 
@@ -26,13 +26,13 @@ Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do even
 
 ## <a name="job-related-event-types"></a>Tipos de eventos relacionados ao trabalho
 
-Os Serviços de Mídia emite os tipos de eventos relacionados ao **Trabalho** descritos abaixo. Há duas categorias para os eventos relacionados ao **Trabalho**: "Monitorando de alterações de estado de trabalho" e "Monitorando de alterações de estado de saída de trabalho". 
+Os Serviços de Mídia emite os tipos de eventos relacionados ao **Trabalho** descritos abaixo. Há duas categorias para os eventos relacionados ao **Trabalho**: “Monitoramento de alterações de estado de trabalho” e “Monitoramento de alterações de estado de saída de trabalho”. 
 
-Você pode registrar-se para todos os eventos assinando o evento JobStateChange. Ou então, você pode assinar somente eventos específicos (por exemplo, estados finais como JobErrored, JobFinished e JobCanceled). 
+Você pode registrar-se para todos os eventos assinando o evento JobStateChange. Ou então, você pode assinar somente eventos específicos (por exemplo, estados finais como JobErrored, JobFinished e JobCanceled).   
 
 ### <a name="monitoring-job-state-changes"></a>Monitoramento de alterações de estado de trabalho
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| Obtenha um evento para todas as alterações de estado do trabalho. |
 | Microsoft.Media.JobScheduled| Obtenha um evento quando o trabalho faz a transição para o estado agendado. |
@@ -44,9 +44,15 @@ Você pode registrar-se para todos os eventos assinando o evento JobStateChange.
 
 Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
-### <a name="monitoring-job-output-state-changes"></a>Monitoramento de alterações de estado de saída de trabalho
+### <a name="monitoring-job-output-state-changes"></a>Alterações de estado de saída do trabalho de monitoramento
 
-| Tipo de evento | DESCRIÇÃO |
+Um trabalho pode conter várias saídas de trabalho (se você tiver configurado a transformação para ter várias saídas de trabalho). Se você quiser acompanhar os detalhes da saída do trabalho individual, ouça um evento de alteração de saída do trabalho.
+
+Cada **trabalho** será em um nível mais alto do que **JobOutput**, assim os eventos de saída de trabalho serão acionados dentro de um trabalho correspondente. 
+
+As mensagens de erro no `JobFinished`, `JobCanceled`, `JobError` gerar os resultados agregados para cada saída de trabalho – quando todos eles forem concluídos. Enquanto que os eventos de saída do trabalho são acionados conforme cada tarefa é concluída. Por exemplo, se você tiver uma saída de codificação, seguida por uma saída de análise de vídeo, você obterá dois eventos acionando como eventos de saída de trabalho antes do evento JobFinished final ser acionado com os dados agregados.
+
+| Tipo de evento | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| Obtenha um evento para todas as alterações de estado da saída do trabalho. |
 | Microsoft.Media.JobOutputScheduled| Obtenha um evento quando a saída do trabalho faz a transição para o estado agendado. |
@@ -58,9 +64,9 @@ Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
 Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 
-### <a name="monitoring-job-output-progress"></a>Monitorando o progresso da saída do trabalho
+### <a name="monitoring-job-output-progress"></a>Progresso da saída do trabalho de monitoramento
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| Esse evento reflete o progresso do processamento do trabalho, de 0% a 100%. O serviço tenta enviar um evento se houver um amento de 5% ou mais no valor do progresso ou se tiverem passado mais de 30 segundos desde o último evento (pulsação). Não é garantido que o valor do progresso comece em 0%, ou alcance 100%, nem que aumente a uma taxa constante com o passar do tempo. Esse evento não deve ser usado para determinar se o processamento foi concluído – em vez disso, você deve usar os eventos de alteração de estado.|
 
@@ -74,7 +80,7 @@ Os Serviços de Mídia também emitem os tipos de eventos **Ao vivo** descritos 
 
 Os eventos em nível de fluxo são acionados por conexão ou fluxo. Cada evento tem um parâmetro `StreamId` que identifica a conexão ou o fluxo. Cada conexão ou fluxo tem uma ou mais faixas de tipos diferentes. Por exemplo, uma conexão de um codificador pode ter uma faixa de áudio e quatro faixas de vídeo. Os tipos de evento de fluxo são:
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Description |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | A tentativa de conexão do codificador foi rejeitada. |
 | Microsoft.Media.LiveEventEncoderConnected | O codificador estabelece conexão com o evento ao vivo. |
@@ -87,17 +93,17 @@ Veja os [exemplos de esquema](#event-schema-examples) a seguir.
 Os eventos em nível de faixa são acionados por faixa. 
 
 > [!NOTE]
-> Todos os eventos de nível de pilha são gerados depois que estiver conectado a um codificador ao vivo.
+> Todos os eventos de nível de trilha são gerados depois que um codificador ao vivo é conectado.
 
-Os tipos de eventos em nível de controle são:
+Os tipos de evento de nível de rastreamento são:
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Description |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | O servidor de mídia descarta parte dos dados porque o tempo limite deles foi atingido ou eles têm um carimbo de data/hora de sobreposição (o carimbo de data/hora da nova parte de dados é anterior à hora de término da parte de dados anterior). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | O servidor de mídia recebe a primeira parte de dados para cada faixa no fluxo ou na conexão. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | O servidor de mídia detecta que os fluxos de áudio e vídeo estão fora de sincronização. Use como um aviso porque a experiência do usuário não pode ser afetada. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | O servidor de mídia detecta que um dos dois fluxos de vídeo provenientes do codificador externo está fora de sincronia. Use como um aviso porque a experiência do usuário não pode ser afetada. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Publicado a cada 20 segundos para cada faixa quando o evento ao vivo está em execução. Fornece resumo de integridade de ingestão.<br/><br/>Depois que o codificador inicialmente estava conectado, o evento de pulsação continua a emitir a cada 20 segundos se o codificador ainda está conectado ou não. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | O servidor de mídia detecta que os fluxos de áudio e vídeo estão fora de sincronia. Use como um aviso porque a experiência do usuário pode não ser afetada. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | O servidor de mídia detecta que qualquer um dos dois fluxos de vídeo provenientes do codificador externo está fora de sincronia. Use como um aviso porque a experiência do usuário pode não ser afetada. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Publicado a cada 20 segundos para cada faixa quando o evento ao vivo está em execução. Fornece resumo de integridade de ingestão.<br/><br/>Depois que o codificador tiver sido inicialmente conectado, o evento de pulsação continuará a emitir a cada 20 segundos, independentemente de o codificador ainda estar conectado ou não. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | O servidor de mídia detecta descontinuidade na faixa de entrada. |
 
 Veja os [exemplos de esquema](#event-schema-examples) a seguir.
@@ -128,12 +134,12 @@ O exemplo a seguir mostra o esquema do evento **JobStateChange**:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| previousState | string | O estado do trabalho antes do evento. |
-| state | string | O novo estado do trabalho que está sendo notificado nesse evento. Por exemplo, "Agendado: O trabalho está pronto para iniciar " ou "Concluído: O trabalho está concluído".|
+| previousState | cadeia de caracteres | O estado do trabalho antes do evento. |
+| state | cadeia de caracteres | O novo estado do trabalho que está sendo notificado nesse evento. Por exemplo, "agendado: o trabalho está pronto para iniciar" ou "concluído: o trabalho foi concluído".|
 
-Onde o estado do trabalho pode ser um dos valores: *Em fila*, *Agendado*, *Processando*, *Concluído*, *Erro*, *Cancelado*, *Cancelando*
+Quando o estado do Trabalho puder ser um deste valores: *Na fila*, *Agendado*, *Processando*, *Concluído*, *Erro*, *Cancelado*, *Cancelando*
 
 > [!NOTE]
 > *Em fila* estará presente somente na propriedade **previousState**, mas não na propriedade **state**.
@@ -198,7 +204,7 @@ Para cada alteração de estado do Trabalho final (como JobFinished, JobCanceled
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | outputs | Array | Obtém as saídas do trabalho.|
 
@@ -314,17 +320,17 @@ O exemplo a seguir mostra o esquema do evento **LiveEventConnectionRejected**:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| streamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
-| IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |  
-| encoderIp | string | IP do codificador. |
-| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| resultCode | string | O motivo pelo qual a conexão foi rejeitada. Os códigos de resultado estão listadas na tabela a seguir. |
+| streamId | cadeia de caracteres | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
+| IngestUrl | cadeia de caracteres | URL de ingestão fornecida pelo evento ao vivo. |  
+| encoderIp | cadeia de caracteres | IP do codificador. |
+| encoderPort | cadeia de caracteres | Porta do codificador de onde vem esse fluxo. |
+| resultCode | cadeia de caracteres | O motivo pelo qual a conexão foi rejeitada. Os códigos de resultado estão listadas na tabela a seguir. |
 
 Os códigos de resultado são:
 
-| Código de resultado | DESCRIÇÃO |
+| Código de resultado | Description |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | URL de ingestão incorreta |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | O IP do codificador não está presente na lista de permissões de IP configurada |
@@ -361,12 +367,12 @@ O exemplo a seguir mostra o esquema do evento **LiveEventEncoderConnected**:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| streamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por fornecer essa ID na URL de ingestão. |
-| IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |
-| encoderIp | string | IP do codificador. |
-| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
+| streamId | cadeia de caracteres | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por fornecer essa ID na URL de ingestão. |
+| IngestUrl | cadeia de caracteres | URL de ingestão fornecida pelo evento ao vivo. |
+| encoderIp | cadeia de caracteres | IP do codificador. |
+| encoderPort | cadeia de caracteres | Porta do codificador de onde vem esse fluxo. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -395,17 +401,17 @@ O exemplo a seguir mostra o esquema do evento **LiveEventEncoderDisconnected**:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| streamId | string | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
-| IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |  
-| encoderIp | string | IP do codificador. |
-| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| resultCode | string | O motivo para a desconexão do codificador. Isso se deve à desconexão normal ou a um erro. Os códigos de resultado estão listadas na tabela a seguir. |
+| streamId | cadeia de caracteres | Identificador do fluxo ou da conexão. O codificador ou o cliente é responsável por adicionar essa ID na URL de ingestão. |  
+| IngestUrl | cadeia de caracteres | URL de ingestão fornecida pelo evento ao vivo. |  
+| encoderIp | cadeia de caracteres | IP do codificador. |
+| encoderPort | cadeia de caracteres | Porta do codificador de onde vem esse fluxo. |
+| resultCode | cadeia de caracteres | O motivo para a desconexão do codificador. Isso se deve à desconexão normal ou a um erro. Os códigos de resultado estão listadas na tabela a seguir. |
 
 Os códigos de resultado de erro são:
 
-| Código de resultado | DESCRIÇÃO |
+| Código de resultado | Description |
 | ----------- | ----------- |
 | MPE_RTMP_SESSION_IDLE_TIMEOUT | A sessão RTMP atingiu o tempo limite depois de ficar ociosa por um limite de tempo permitido. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | O carimbo de data/hora para FLVTag de áudio ou vídeo é inválido a partir do codificador RTMP. |
@@ -414,7 +420,7 @@ Os códigos de resultado de erro são:
 
 Os códigos de resultado de desconexão normal são:
 
-| Código de resultado | DESCRIÇÃO |
+| Código de resultado | Description |
 | ----------- | ----------- |
 | S_OK | Codificador desconectado com êxito. |
 | MPE_CLIENT_TERMINATED_SESSION | Codificador desconectado (RTMP). |
@@ -452,14 +458,14 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIncomingDataChunkDroppe
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de faixa (Áudio/Vídeo). |
-| trackName | string | Nome da faixa. |
-| bitrate | integer | Taxa de bits da faixa. |
-| timestamp | string | O carimbo de data/hora da parte de dados é descartado. |
-| escala de tempo | string | Escala de tempo do carimbo de data/hora. |
-| resultCode | string | Motivo do descarte da parte de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
+| trackType | cadeia de caracteres | Tipo de faixa (Áudio/Vídeo). |
+| trackName | cadeia de caracteres | Nome da faixa. |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
+| timestamp | cadeia de caracteres | O carimbo de data/hora da parte de dados é descartado. |
+| escala de tempo | cadeia de caracteres | Escala de tempo do carimbo de data/hora. |
+| resultCode | cadeia de caracteres | Motivo do descarte da parte de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -492,16 +498,16 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIncomingStreamReceived*
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de faixa (Áudio/Vídeo). |
-| trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| bitrate | integer | Taxa de bits da faixa. |
-| IngestUrl | string | URL de ingestão fornecida pelo evento ao vivo. |
-| encoderIp | string  | IP do codificador. |
-| encoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| timestamp | string | O primeiro carimbo de data/hora da parte de dados recebida. |
-| escala de tempo | string | Escala de tempo em que o carimbo de data/hora é representado. |
+| trackType | cadeia de caracteres | Tipo de faixa (Áudio/Vídeo). |
+| trackName | cadeia de caracteres | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
+| IngestUrl | cadeia de caracteres | URL de ingestão fornecida pelo evento ao vivo. |
+| encoderIp | cadeia de caracteres  | IP do codificador. |
+| encoderPort | cadeia de caracteres | Porta do codificador de onde vem esse fluxo. |
+| timestamp | cadeia de caracteres | O primeiro carimbo de data/hora da parte de dados recebida. |
+| escala de tempo | cadeia de caracteres | Escala de tempo em que o carimbo de data/hora é representado. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -531,14 +537,14 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIncomingStreamsOutOfSyn
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| minLastTimestamp | string | Mínimo dos últimos carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
-| typeOfTrackWithMinLastTimestamp | string | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora mínimo. |
-| maxLastTimestamp | string | Máximo de todos os carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
-| typeOfTrackWithMaxLastTimestamp | string | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora máximo. |
-| timescaleOfMinLastTimestamp| string | Obtém a escala de tempo em que o “MinLastTimestamp” é representado.|
-| timescaleOfMinLastTimestamp| string | Obtém a escala de tempo em que o “MaxLastTimestamp” é representado.|
+| minLastTimestamp | cadeia de caracteres | Mínimo dos últimos carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
+| typeOfTrackWithMinLastTimestamp | cadeia de caracteres | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora mínimo. |
+| maxLastTimestamp | cadeia de caracteres | Máximo de todos os carimbos de data/hora entre todas as faixas (áudio ou vídeo). |
+| typeOfTrackWithMaxLastTimestamp | cadeia de caracteres | Tipo de faixa (áudio ou vídeo) com o último carimbo de data/hora máximo. |
+| timescaleOfMinLastTimestamp| cadeia de caracteres | Obtém a escala de tempo em que o “MinLastTimestamp” é representado.|
+| timescaleOfMinLastTimestamp| cadeia de caracteres | Obtém a escala de tempo em que o “MaxLastTimestamp” é representado.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -567,13 +573,13 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIncomingVideoStreamsOut
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| firstTimestamp | string | O carimbo de data/hora recebido para uma das faixas/níveis de qualidade do vídeo de tipo. |
-| firstDuration | string | Duração da parte de dados com primeiro carimbo de data/hora. |
-| secondTimestamp | string  | O carimbo de data/hora recebido para algum outro nível de qualidade/faixa do vídeo de tipo. |
-| secondDuration | string | Duração da parte de dados com segundo carimbo de data/hora. |
-| escala de tempo | string | Escala de tempo de carimbos de data/hora e duração.|
+| firstTimestamp | cadeia de caracteres | O carimbo de data/hora recebido para uma das faixas/níveis de qualidade do vídeo de tipo. |
+| firstDuration | cadeia de caracteres | Duração da parte de dados com primeiro carimbo de data/hora. |
+| secondTimestamp | cadeia de caracteres  | O carimbo de data/hora recebido para algum outro nível de qualidade/faixa do vídeo de tipo. |
+| secondDuration | cadeia de caracteres | Duração da parte de dados com segundo carimbo de data/hora. |
+| escala de tempo | cadeia de caracteres | Escala de tempo de carimbos de data/hora e duração.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -609,20 +615,20 @@ O exemplo a seguir mostra o esquema do evento **LiveEventIngestHeartbeat**:
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de faixa (Áudio/Vídeo). |
-| trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| bitrate | integer | Taxa de bits da faixa. |
-| incomingBitrate | integer | Taxa de bits calculada com base nas partes de dados provenientes do codificador. |
-| lastTimestamp | string | Carimbo de data/hora mais recente recebido para uma faixa nos últimos 20 segundos. |
-| escala de tempo | string | Escala de tempo na qual os carimbos de data/hora são expressos. |
-| overlapCount | integer | O número de partes de dados que sobrepôs os carimbos de data/hora nos últimos 20 segundos. |
-| discontinuityCount | integer | Número do descontinuidades observadas nos últimos 20 segundos. |
-| nonIncreasingCount | integer | Número de partes de dados com os carimbos de data/hora no passado recebidas nos últimos 20 segundos. |
+| trackType | cadeia de caracteres | Tipo de faixa (Áudio/Vídeo). |
+| trackName | cadeia de caracteres | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
+| incomingBitrate | inteiro | Taxa de bits calculada com base nas partes de dados provenientes do codificador. |
+| lastTimestamp | cadeia de caracteres | Carimbo de data/hora mais recente recebido para uma faixa nos últimos 20 segundos. |
+| escala de tempo | cadeia de caracteres | Escala de tempo na qual os carimbos de data/hora são expressos. |
+| overlapCount | inteiro | O número de partes de dados que sobrepôs os carimbos de data/hora nos últimos 20 segundos. |
+| discontinuityCount | inteiro | Número do descontinuidades observadas nos últimos 20 segundos. |
+| nonIncreasingCount | inteiro | Número de partes de dados com os carimbos de data/hora no passado recebidas nos últimos 20 segundos. |
 | unexpectedBitrate | bool | Se as taxas de bits esperadas e reais apresentarem diferença superior ao limite permitido nos últimos 20 segundos. É true se e somente se, IncomingBitrate >= 2* taxa de bits OU IncomingBitrate <= taxa de bits/2 OU IncomingBitrate = 0. |
-| estado | string | Estado do evento ao vivo. |
-| healthy | bool | Indica se a ingestão está íntegra com base nas contagens e nos sinalizadores. Healthy será true se OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
+| state | cadeia de caracteres | Estado do evento ao vivo. |
+| Healthy | bool | Indica se a ingestão está íntegra com base nas contagens e nos sinalizadores. Healthy será true se OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -653,32 +659,32 @@ O exemplo a seguir mostra o esquema do evento **LiveEventTrackDiscontinuityDetec
 
 O objeto de dados tem as seguintes propriedades:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Tipo de faixa (Áudio/Vídeo). |
-| trackName | string | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
-| bitrate | integer | Taxa de bits da faixa. |
-| PreviousTimestamp | string | Carimbo de data/hora do fragmento anterior. |
-| NewTimestamp | string | Carimbo de data/hora do fragmento atual. |
-| discontinuityGap | string | Lacuna entre os dois carimbos de data/hora acima. |
-| escala de tempo | string | Escala de tempo na qual o carimbo de data/hora e a lacuna de descontinuidade são representados. |
+| trackType | cadeia de caracteres | Tipo de faixa (Áudio/Vídeo). |
+| trackName | cadeia de caracteres | Nome da faixa (fornecido pelo codificador ou, no caso de RTMP, o servidor gera no formato *TrackType_Bitrate*). |
+| taxa de bits | inteiro | Taxa de bits da faixa. |
+| PreviousTimestamp | cadeia de caracteres | Carimbo de data/hora do fragmento anterior. |
+| NewTimestamp | cadeia de caracteres | Carimbo de data/hora do fragmento atual. |
+| discontinuityGap | cadeia de caracteres | Lacuna entre os dois carimbos de data/hora acima. |
+| escala de tempo | cadeia de caracteres | Escala de tempo na qual o carimbo de data/hora e a lacuna de descontinuidade são representados. |
 
 ### <a name="common-event-properties"></a>Propriedades comuns de evento
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| topic | string | O tópico EventGrid. Essa propriedade tem a ID de recurso para a conta de Serviços de Mídia. |
-| subject | string | O caminho do recurso para o canal dos Serviços de Mídia sob a conta de Serviços de Mídia. A concatenação de tópico e assunto dê a você o recurso de ID para o trabalho. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. Por exemplo, "Microsoft.Media.JobStateChange". |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
-| data | object | Dados de eventos dos Serviços de Mídia. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | cadeia de caracteres | O tópico EventGrid. Essa propriedade tem a ID de recurso para a conta de Serviços de Mídia. |
+| subject | cadeia de caracteres | O caminho do recurso para o canal dos Serviços de Mídia sob a conta de Serviços de Mídia. A concatenação de tópico e assunto dê a você o recurso de ID para o trabalho. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. Por exemplo, "Microsoft.Media.JobStateChange". |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| data | objeto | Dados de eventos dos Serviços de Mídia. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Registre-se para eventos de alteração de estado do trabalho](job-state-events-cli-how-to.md)
 
