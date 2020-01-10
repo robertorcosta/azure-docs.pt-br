@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382168"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75706998"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Como configurar e habilitar políticas de risco
 
@@ -31,7 +31,7 @@ Ambas as políticas funcionam para automatizar a resposta a detecções de risco
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos 
 
 Se sua organização quiser permitir que os usuários se recorrir automaticamente quando forem detectados riscos, os usuários deverão ser registrados para a redefinição de senha de autoatendimento e a autenticação multifator do Azure. É recomendável [habilitar a experiência combinada de registro de informações de segurança](../authentication/howto-registration-mfa-sspr-combined.md) para obter a melhor experiência. Permitir que os usuários se corrijam novamente para um estado produtivo mais rapidamente, sem a necessidade de intervenção do administrador. Os administradores ainda podem ver esses eventos e investigue-os após o fato. 
 
@@ -46,6 +46,8 @@ Escolher um limite **Alto** reduz o número de vezes que uma política é dispar
 ## <a name="exclusions"></a>Exclusões
 
 Todas as políticas permitem a exclusão de usuários, como [contas de administrador de acesso de emergência ou](../users-groups-roles/directory-emergency-access.md)de usuário de vidro. As organizações podem determinar que precisam excluir outras contas de políticas específicas com base na maneira como as contas são usadas. Todas as exclusões devem ser revisadas regularmente para ver se elas ainda são aplicáveis.
+
+Os [locais de rede](../conditional-access/location-condition.md) confiáveis configurados são usados pela proteção de identidade em algumas detecções de risco para reduzir os falsos positivos.
 
 ## <a name="enable-policies"></a>Habilitar políticas
 
@@ -72,7 +74,7 @@ Para habilitar o risco do usuário e as políticas de risco de entrada, conclua 
    1. **Impor** - **de política em**
    1. **Salvar**
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Habilitar a política de registro da autenticação multifator do Azure](howto-identity-protection-configure-mfa-policy.md)
 
