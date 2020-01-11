@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505928"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894835"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerenciar controladores de dispositivo StorSimple
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este tutorial descreve as diferentes operações que podem ser executadas em seus controladores de dispositivo StorSimple. Os controladores em seu dispositivo StorSimple são controladores redundantes (par) em uma configuração ativo-passivo. Em um determinado momento, somente um controlador está ativo e está processando todas as operações de disco e rede. O outro controlador está em um modo passivo. Se o controlador ativo falhar, o controlador passivo ficará ativo automaticamente.
 
@@ -47,7 +47,7 @@ Reiniciar um dispositivo que não é interrompido para os iniciadores conectados
 
 > [!IMPORTANT]
 > * **Um controlador em execução nunca deve ser fisicamente removido, pois isso resultaria em uma perda de redundância e maior risco de tempo de inatividade.**
-> * O procedimento a seguir aplica-se somente ao dispositivo físico StorSimple. Para saber mais sobre como iniciar, parar e reiniciar o Dispositivo de Nuvem StorSimple, consulte [Trabalhar com o dispositivo de nuvem](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * O procedimento a seguir aplica-se somente ao dispositivo físico StorSimple. Para saber mais sobre como iniciar, parar e reiniciar o Dispositivo de Nuvem StorSimple, consulte [Trabalhar com o dispositivo de nuvem](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance).
 
 Você pode reiniciar ou desligar um único controlador de dispositivo usando o Portal do Azure do serviço do Gerenciador de Dispositivos do StorSimple ou o Windows PowerShell para StorSimple.
 
@@ -158,7 +158,7 @@ Nesta seção, resumimos algumas das perguntas frequentes sobre o gerenciamento 
 
 **A.** Para retornar um controlador ao serviço, insira-o no chassi conforme descrito em [Substituir um módulo do controlador em seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Se você tiver algum problema com os controladores de dispositivo StorSimple que não possam ser resolvidos usando os procedimentos listados neste tutorial, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Para saber mais sobre como usar o serviço do Gerenciador de Dispositivos do StorSimple, acesse [Usar o serviço do Gerenciador de Dispositivos do StorSimple para administrar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

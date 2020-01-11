@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 2a2debf9b1cbc669d2402b1797097b97e94139fc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4acad5e2de55211b6c4492513f331c36286ed852
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929470"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892790"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados do Dynamics AX usando o Azure Data Factory
 
@@ -59,14 +59,14 @@ Para usar a autenticação de entidade de serviço, siga estas etapas:
 
 As propriedades a seguir têm suporte no serviço vinculado do Dynamics AX:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **tipo** deve ser definida como: **DynamicsAX**. |SIM |
-| URL | Ponto de extremidade OData da instância do Dynamics AX (ou Dynamics 365 Finance and Operations). |SIM |
-| servicePrincipalId | Especifique a ID do cliente do aplicativo. | SIM |
-| servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como  **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | SIM |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização. Por exemplo, se a URL do Dynamics é `https://sampledynamics.sandbox.operations.dynamics.com/data/`, o recurso do AAD correspondente é geralmente `https://sampledynamics.sandbox.operations.dynamics.com`. | SIM |
+| type | A propriedade **tipo** deve ser definida como: **DynamicsAX**. |Sim |
+| url | Ponto de extremidade OData da instância do Dynamics AX (ou Dynamics 365 Finance and Operations). |Sim |
+| servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
+| servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Sim |
+| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização. Por exemplo, se a URL do Dynamics é `https://sampledynamics.sandbox.operations.dynamics.com/data/`, o recurso do AAD correspondente é geralmente `https://sampledynamics.sandbox.operations.dynamics.com`. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode escolher o Azure Integration Runtime ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 **Exemplo**
@@ -103,10 +103,10 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Dynamics AX, defina a propriedade **tipo** do conjunto de dados como **DynamicsAXResource**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **tipo** do conjunto de dados deve ser definida como **DynamicsAXResource**. | SIM |
-| caminho | Caminho para a entidade OData do Dynamics AX. | SIM |
+| type | A propriedade **tipo** do conjunto de dados deve ser definida como **DynamicsAXResource**. | Sim |
+| caminho | Caminho para a entidade OData do Dynamics AX. | Sim |
 
 **Exemplo**
 
@@ -137,10 +137,10 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 Para copiar dados do Dynamics AX, defina o **tipo** de fonte em Copiar atividade para **DynamicsAXSource**. As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade **tipo** da fonte Copiar atividade deve ser definida como **DynamicsAXSource**. | SIM |
-| query | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| type | A propriedade **tipo** da fonte Copiar atividade deve ser definida como **DynamicsAXSource**. | Sim |
+| Consulta | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 
@@ -181,4 +181,4 @@ Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](c
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores no Azure Data Factory, consulte [Armazenamentos e formatos de dados compatíveis](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores no Azure Data Factory, consulte [Armazenamentos e formatos de dados compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).

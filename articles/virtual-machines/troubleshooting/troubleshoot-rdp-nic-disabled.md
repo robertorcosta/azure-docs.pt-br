@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bc637976632551eb1afce1894714fc96baabfe03
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057913"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894226"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível conectar área de trabalho remota em uma VM porque o adaptador de rede está desabilitado
 
 Este artigo explica como resolver um problema em que não é possível fazer uma conexão de Área de Trabalho Remota a Máquinas Virtuais do Windows (VMs), se a interface de rede for desabilitada.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -34,7 +34,7 @@ Não é possível fazer uma conexão RDP ou qualquer outro tipo de conexão com 
 
 Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para habilitar o adaptador de rede da VM, use o Controle serial ou [redefina o adaptador de rede](##reset-network-interface) da VM.
+Para habilitar o adaptador de rede da VM, use o Controle serial ou [redefina o adaptador de rede](#reset-network-interface) da VM.
 
 ### <a name="use-serial-control"></a>Usar o Controle serial
 

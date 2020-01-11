@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 92d738542076b755a26e8cff2e7fb1aa0384cb22
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 85b724a62f778620264ae308aa316e046a0e9f59
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227740"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896088"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Casos de uso da Versão Prévia do Azure Time Series Insights
 
@@ -82,7 +82,7 @@ A arquitetura da solução pode ser obtida da seguinte maneira:
 
 O Time Series Insights oferece exploração de dados quase em tempo real e insights baseados em ativo para dados históricos. Dependendo das suas necessidades empresariais, os trabalhos de MapReduce e Hive podem ser executados em dados armazenados nos Time Series Insights conectando o Time Series Insights ao Azure HDInsight. Dados armazenados no Time Series Insights estão disponíveis para o Power BI e outros aplicativos de cliente por meio da APIs de consulta superfície pública do Time Series Insights. Esses dados podem ser usados para amplos cenários de inteligência operacional e empresarial.
 
-## <a name="advanced-analytics"></a>Análise avançada
+## <a name="advanced-analytics"></a>Advanced Analytics
 
 Integre com serviços de análise avançados como o Machine Learning e o Azure Databricks. O Time Series Insights recebe dados brutos de milhões de dispositivos. Ele adiciona dados contextuais que podem ser consumidos diretamente por um pacote de serviços de análise do Azure.
 
@@ -98,7 +98,7 @@ O Time Series Insights fecha a lacuna entre os dados de IoT e análise avançada
 
 * Em segundo lugar, a saída dos modelos de aprendizado de máquina e de previsão pode ser inserida em Time Series Insights para visualizar e armazenar seus resultados. Esse procedimento ajuda as organizações a otimizar e ajustar seus modelos. O Time Series Insights torna simples a visualizar o fluxo de dados de telemetria no mesmo plano que modelo treinado produz. Dessa forma, ele ajuda as equipes de ciência de dados a detectar anomalias e identificar padrões.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre o [Gerenciador da Versão Prévia do Time Series Insights](./time-series-insights-update-explorer.md).
 * Leia [Time Series insights planejar a visualização](./time-series-insights-update-plan.md) para planejar seu ambiente.

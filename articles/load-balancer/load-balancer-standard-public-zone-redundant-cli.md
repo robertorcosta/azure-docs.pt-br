@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: allensu
-ms.openlocfilehash: af327f751a0af67b6d17330dbaeb717df8660bfd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c33c1efd735a9c606ebe4625eb704005fff64a9e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225261"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896057"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balancear carga de VMs em todas as zonas de disponibilidade usando a CLI do Azure
 
@@ -31,10 +31,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.17 ou superior.  Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.17 ou superior.  Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
-> O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+> O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -61,7 +61,7 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-standard-load-balancer"></a>Criar o Azure Standard Load Balancer
-Esta seção fornece detalhes sobre como criar e configurar os componentes a seguir do balanceador de carga:
+Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
 - um pool de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um pool de IP de back-end no qual o pool de front-end envia o tráfego de rede com a carga balanceada.
 - uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
@@ -112,7 +112,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Configurar rede virtual
 Antes de implantar algumas VMs e poder testar o balanceador de carga, crie os recursos de suporte de rede virtual.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Crie uma rede virtual
 
 Crie uma rede virtual nomeada *myVnet* com uma sub-rede nomeada *mySubnet* no myResourceGroup usando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -249,7 +249,7 @@ Você pode inserir o endereço IP público em um navegador da Web. Lembre-se - l
 
 Para ver o balanceador de carga distribuir o tráfego nas VMs em todas as três zonas de disponibilidade executando o aplicativo, você pode interromper uma VM em uma determinada zona e atualizar o navegador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o [Load Balancer Standard](./load-balancer-standard-overview.md)
 
 

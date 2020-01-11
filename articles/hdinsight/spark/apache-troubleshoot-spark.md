@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8931f9b09836d30f95e25cee245932475c3cf64c
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018312"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894300"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Spark usando o Azure HDInsight
 
@@ -21,11 +21,11 @@ Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com ca
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Como fazer para configurar um aplicativo Apache Spark usando o Ambari nos clusters?
 
-Os valores de configuração do Spark podem ser ajustados ajudam `OutofMemoryError` a evitar uma exceção Apache Spark aplicativo. As etapas a seguir mostram os valores de configuração padrão do Spark no Azure HDInsight:
+Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma exceção de `OutofMemoryError` de Apache Spark aplicativo. As etapas a seguir mostram os valores de configuração padrão do Spark no Azure HDInsight:
 
-1. Faça logon no Ambari `https://CLUSTERNAME.azurehdidnsight.net` com suas credenciais de cluster. A tela inicial exibe um painel de visão geral. Há pequenas diferenças superficiais entre o HDInsight 3,6 e o 4,0.
+1. Faça logon no Ambari em `https://CLUSTERNAME.azurehdidnsight.net` com suas credenciais de cluster. A tela inicial exibe um painel de visão geral. Há pequenas diferenças superficiais entre o HDInsight 3,6 e o 4,0.
 
-1. Navegue até**configurações**do **Spark2** > .
+1. Navegue até **Spark2** **configurações**de > .
 
     ![Selecione a guia Configurações](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
@@ -101,7 +101,7 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 [Envio de trabalho do Apache Spark em clusters do HDInsight](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
@@ -111,6 +111,6 @@ Se você não encontrou seu problema ou não conseguiu resolver seu problema, vi
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

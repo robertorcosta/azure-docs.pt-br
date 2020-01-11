@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f728baedf9e325f224ce52e64325064f553d2671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef4ee14cb4a7d64d80dc5776d8ecea0f831881a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893691"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887625"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Acesse a API do Cassete do Azure Cosmos DB a partir do Spark no YARN com o HDInsight
 
@@ -29,7 +29,7 @@ Este artigo aborda como acessar a API do Azure Cosmos DB Cassandra do Spark no Y
 
 * [Examine os exemplos de código para trabalhar com a API do Cassandra](cassandra-spark-generic.md#next-steps)
 
-* [Usar cqlsh para validação se você assim preferir](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* [Usar cqlsh para validação se você assim preferir](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
 * **Configuração da API do Cassandra no Spark2** – O conector do Spark para o Cassandra exige que os detalhes da conexão do Cassandra sejam inicializados como parte do contexto do Spark. Quando você inicia um notebook Jupyter, a sessão de ignição e o contexto já estão inicializados e não é aconselhável parar e reinicializar o contexto do Spark, a menos que esteja completo com cada configuração definida como parte da inicialização do notebook Jupyter padrão do HDInsight. Uma solução alternativa é incluir os detalhes da instância do Cassandra na configuração do serviço Ambari, Spark2 diretamente. Esta é uma atividade única por cluster que requer uma reinicialização do serviço Spark2.
  
@@ -130,7 +130,7 @@ Execute em sequência por meio de cada célula do bloco de anotações e os bloc
 
 Para processos automatizados em produção, os programas Spark são enviados ao cluster por meio de [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Como criar um programa do Spark Scala em um IDE e enviá-lo ao cluster do HDInsight Spark por meio do Livy para execução](../hdinsight/spark/apache-spark-create-standalone-application.md)
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: fd5843ecfd6585fb9c95168c6e55049fe0e27abb
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 736cf03b58ec09b291c91857177a32c7dad89c6a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830302"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892054"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -379,4 +379,4 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Próximos passos
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: b9c3a88df6801566bc927cfc18fda0adfa05a5ae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7bd420d08645e22db3ec0e9b1a68188a483378bf
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076041"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896049"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-public-ip-address-frontend-using-azure-cli"></a>Criar um Standard Load Balancer com frontend de endereço IP público de zona usando CLI do Azure
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Se você optar por instalar e usar a CLI localmente, certifique-se de que você instalou a versão mais recente da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e entrou em uma conta do Azure com [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest).
 
 > [!NOTE]
->  O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+>  O suporte para Zonas de Disponibilidade está disponível para selecionar recursos e regiões do Azure e famílias de tamanho de VM. Para obter mais informações sobre como começar e com quais recursos, regiões e famílias de tamanhos de VM do Azure você pode experimentar as zonas de disponibilidade, confira [Visão geral das Zonas de Disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview). Para obter suporte, entre em contato em [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) ou [abra um tíquete de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -62,7 +62,7 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-standard-load-balancer"></a>Criar o Azure Standard Load Balancer
-Esta seção fornece detalhes sobre como criar e configurar os componentes a seguir do balanceador de carga:
+Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
 - um pool de IP de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
 - um pool de IP de back-end no qual o pool de front-end envia o tráfego de rede com a carga balanceada.
 - uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
@@ -113,7 +113,7 @@ az network lb rule create \
 ## <a name="configure-virtual-network"></a>Configurar rede virtual
 Antes de implantar algumas VMs e poder testar o balanceador de carga, crie os recursos de suporte de rede virtual.
 
-### <a name="create-a-virtual-network"></a>Criar uma rede virtual
+### <a name="create-a-virtual-network"></a>Crie uma rede virtual
 
 Crie uma rede virtual nomeada *myVnet* com uma sub-rede nomeada *mySubnet* no myResourceGroup usando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
@@ -249,7 +249,7 @@ Você pode inserir o endereço IP público em um navegador da Web. Lembre-se - l
 
 Para ver o balanceador de carga distribuir tráfego para as VMs na zona 1 que executam seu aplicativo, você poderá forçar a atualização de seu navegador da Web.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre o [Load Balancer Standard](./load-balancer-standard-overview.md).
 
 

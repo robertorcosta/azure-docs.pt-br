@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: be7491bb141330b04c2384038e8ef34a727d1317
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830285"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893317"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento de BLOBs do Azure usando Azure Data Factory
 
@@ -713,4 +713,4 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989627"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896347"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs Linux 
 
-Azure Disk Encryption ajuda a proteger e proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Ele usa o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado com o [Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerenciar as chaves e os segredos de criptografia de disco. 
+O Azure Disk Encryption ajuda a proteger seus dados e a atender aos compromissos de conformidade e segurança de sua organização. Ele usa o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados das VMs (máquinas virtuais) do Azure e é integrado com o [Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerenciar as chaves e os segredos de criptografia de disco. 
 
 Se você usar a [central de segurança do Azure](../../security-center/index.yml), você será alertado se tiver VMs que não estão criptografadas. Esses alertas são mostrados como Alta Gravidade e a recomendação é criptografar essas VMs.
 
@@ -25,6 +25,7 @@ Se você usar a [central de segurança do Azure](../../security-center/index.yml
 > [!WARNING]
 > - Se você usou anteriormente Azure Disk Encryption com o Azure AD para criptografar uma VM, você deve continuar a usar essa opção para criptografar sua VM. Consulte [Azure Disk Encryption com o Azure AD (versão anterior)](disk-encryption-overview-aad.md) para obter detalhes. 
 > - Determinadas recomendações podem aumentar o uso de recursos de dados, rede ou computação, resultando em custos adicionais de licença ou inscrição. Você deve ter uma assinatura ativa válida do Azure para criar recursos no Azure nas regiões com suporte.
+> - Atualmente, as VMs de geração 2 não dão suporte a Azure Disk Encryption. Consulte [suporte para VMs de geração 2 no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) para obter detalhes.
 
 Você pode aprender os conceitos básicos do Azure Disk Encryption para Linux em apenas alguns minutos com a [criação e a criptografia de uma VM do Linux com CLI do Azure início rápido](disk-encryption-cli-quickstart.md) ou a [criação e a criptografia de uma VM do Linux com o início rápido do Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -44,7 +45,7 @@ Depois que o processo de criptografia de disco do sistema operacional for conclu
 
 Azure Disk Encryption também está disponível para VMs com armazenamento Premium. 
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 Azure Disk Encryption tem suporte em um subconjunto de [distribuições Linux endossadas pelo Azure](endorsed-distros.md), que é, em si, um subconjunto de todas as distribuições possíveis do servidor Linux.
 
@@ -52,12 +53,12 @@ Azure Disk Encryption tem suporte em um subconjunto de [distribuições Linux en
 
 As distribuições do servidor Linux que não são endossadas pelo Azure não dão suporte a Azure Disk Encryption; daqueles que são endossados, somente as seguintes distribuições e versões são compatíveis Azure Disk Encryption:
 
-| Distribuição Linux | Versão | Tipo de volume suportado para criptografia|
+| Distribuição do Linux | Versão | Tipo de volume suportado para criptografia|
 | --- | --- |--- |
 | Ubuntu | 18.04| SO e disco de dados |
 | Ubuntu | 16.04| SO e disco de dados |
 | Ubuntu | 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](disk-encryption-troubleshooting.md) | SO e disco de dados |
-| RHEL | 7,7 | Sistema operacional e disco de dados (veja a observação abaixo) |
+| RHEL | 7.7 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.6 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.5 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.4 | Sistema operacional e disco de dados (veja a observação abaixo) |
@@ -65,7 +66,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | RHEL | 7.2 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 6,8 | Disco de dados (veja a observação abaixo) |
 | RHEL | 6.7 | Disco de dados (veja a observação abaixo) |
-| CentOS | 7,7 | SO e disco de dados |
+| CentOS | 7.7 | SO e disco de dados |
 | CentOS | 7.6 | SO e disco de dados |
 | CentOS | 7.5 | SO e disco de dados |
 | CentOS | 7.4 | SO e disco de dados |
@@ -91,7 +92,7 @@ Verifique se as configurações de /etc/fstab estão definidas corretamente para
 - Antes de iniciar a criptografia, certifique-se de interromper todos os serviços e processos que podem estar gravando em discos de dados montados e desabilitá-los, para que eles não sejam reiniciados automaticamente após uma reinicialização. Eles poderiam manter os arquivos abertos nessas partições, impedindo o procedimento de criptografia para remontá-los, causando a falha da criptografia. 
 - Após a reinicialização, ela levará tempo para o processo de criptografia de disco do Azure montar os discos criptografados recentemente. Eles não estarão disponíveis imediatamente após uma reinicialização. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar as unidades criptografadas antes de estar disponível para ser acessado por outros processos. Esse processo pode levar mais de um minuto após a reinicialização, dependendo das características do sistema.
 
-Um exemplo de comandos que podem ser usados para montar os discos de dados e criar as entradas de/etc/fstab necessárias pode ser encontrado no [script da CLI de Azure Disk Encryption pré-requisitos](https://github.com/ejarvi/ade-cli-getting-started) (linhas 244-248) e o [PowerShell de pré-requisitos de Azure Disk Encryption script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+Um exemplo de comandos que podem ser usados para montar os discos de dados e criar as entradas de/etc/fstab necessárias pode ser encontrado no [script da CLI de Azure Disk Encryption pré-requisitos](https://github.com/ejarvi/ade-cli-getting-started) (linhas 244-248) e o [script do PowerShell de Azure Disk Encryption pré-requisitos](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 
