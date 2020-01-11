@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9b17548bf840ff0e2f94ed6933e5abdcc04110c8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: f031f55bbff534181459bb1bf7469f315aee27cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286509"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887777"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas frequentes sobre o Serviço de Contêiner
 
@@ -46,7 +46,7 @@ O [Mecanismo ACS](https://github.com/Azure/acs-engine) é um projeto de software
 
 Para obter mais detalhes, consulte nossa [política de suporte para contêineres](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
-## <a name="cluster-management"></a>Gerenciamento de clusters
+## <a name="cluster-management"></a>Gerenciamento de cluster
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Como criar chaves SSH para o cluster?
 
@@ -64,7 +64,7 @@ Se você usar [comandos da CLI do Azure](../../container-service/dcos-swarm/cont
 Você pode criar um cluster com 1, 3 ou 5 nós mestres. Você pode escolher até 100 nós de agente.
 
 > [!IMPORTANT]
-> Para clusters maiores e dependendo do tamanho VM que você escolher para seus nós, talvez seja necessário aumentar a cota de núcleos em sua assinatura. Para solicitar um aumento de cota, abra uma [solicitação de atendimento ao cliente online](../../azure-supportability/how-to-create-azure-support-request.md) gratuitamente. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
+> Para clusters maiores e dependendo do tamanho VM que você escolher para seus nós, talvez seja necessário aumentar a cota de núcleos em sua assinatura. Para solicitar um aumento de cota, abra uma [solicitação de atendimento ao cliente online](../../azure-portal/supportability/how-to-create-azure-support-request.md) gratuitamente. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Como aumentar o número de mestres depois de criar um cluster? 
@@ -122,7 +122,7 @@ Há alguns problemas de DNS conhecidos no Windows cujas correções ainda estão
 | Acesso ao serviço VIP interrompido | Configure um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) para sempre manter um pod normal (sem privilégios) em execução |
 |Quando o nó no qual o contêiner está sendo executado ficar indisponível, as consultas DNS poderão falhar, resultando em uma "entrada de cache negativo" | Execute o seguinte dentro dos contêineres afetados: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Se isso ainda não resolver o problema, tente desabilitar completamente o cache de DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais](../../container-service/kubernetes/container-service-intro-kubernetes.md) sobre o Serviço de Contêiner do Azure.
 * Implantar um cluster de serviço de contêiner usando o [portal](../../container-service/dcos-swarm/container-service-deployment.md) ou a [CLI do Azure](../../container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

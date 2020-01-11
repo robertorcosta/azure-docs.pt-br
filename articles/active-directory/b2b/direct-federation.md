@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272748"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888882"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (visualização)
 |     |
@@ -78,12 +78,12 @@ Primeiro, sua organização parceira precisa configurar seu provedor de identida
 > [!NOTE]
 > Para ilustrar como configurar um provedor de identidade para Federação direta, usaremos Serviços de Federação do Active Directory (AD FS) (AD FS) como um exemplo. Consulte o artigo [Configurar a Federação direta com o AD FS](direct-federation-adfs.md), que fornece exemplos de como configurar AD FS como um provedor de identidade SAML 2,0 ou WS-enparativo em preparação para Federação direta.
 
-### <a name="saml-20-configuration"></a>Configuração do SAML 2,0
+### <a name="saml-20-configuration"></a>Configuração do SAML 2.0
 
 O Azure AD B2B pode ser configurado para federar com provedores de identidade que usam o protocolo SAML com requisitos específicos listados abaixo. Para obter mais informações sobre como configurar uma relação de confiança entre seu provedor de identidade SAML e o Azure AD, consulte [usar um IDP (SAML 2,0 Identity Provider) para logon único](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
 
 > [!NOTE]
-> Observe que o domínio de destino para a Federação direta não deve ser verificado pelo DNS no Azure AD. O domínio da URL de autenticação deve corresponder ao domínio de destino ou deve ser o domínio de um provedor de identidade permitido. Consulte a seção [limitações](#limitations) para obter detalhes. 
+> O domínio de destino para a Federação direta não deve ser verificado pelo DNS no Azure AD. O domínio da URL de autenticação deve corresponder ao domínio de destino ou deve ser o domínio de um provedor de identidade permitido. Consulte a seção [limitações](#limitations) para obter detalhes. 
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Atributos e declarações SAML 2,0 necessários
 As tabelas a seguir mostram os requisitos para atributos específicos e declarações que devem ser configuradas no provedor de identidade de terceiros. Para configurar a Federação direta, os atributos a seguir devem ser recebidos na resposta SAML 2,0 do provedor de identidade. Esses atributos podem ser configurados vinculando-se ao arquivo XML do serviço de token de segurança online ou inserindo-os manualmente.
@@ -93,8 +93,8 @@ Atributos necessários para a resposta SAML 2,0 do IdP:
 |Atributo  |Valor  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
-|Issuer     |O URI do emissor do IdP do parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Público     |`urn:federation:MicrosoftOnline`         |
+|Emissor     |O URI do emissor do IdP do parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 Declarações necessárias para o token 2,0 do SAML emitido pelo IdP:
@@ -119,8 +119,8 @@ Atributos necessários na mensagem WS-enfileirada do IdP:
 |Atributo  |Valor  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`urn:federation:MicrosoftOnline`         |
-|Issuer     |O URI do emissor do IdP do parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Público     |`urn:federation:MicrosoftOnline`         |
+|Emissor     |O URI do emissor do IdP do parceiro, por exemplo `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Declarações necessárias para o token de WS-reportado emitido pelo IdP:
 
@@ -156,12 +156,12 @@ Em seguida, você configurará a Federação com o provedor de identidade config
    > [!NOTE]
    > A URL de metadados é opcional, no entanto, é altamente recomendável. Se você fornecer a URL de metadados, o Azure AD poderá renovar automaticamente o certificado de autenticação quando ele expirar. Se o certificado for girado por qualquer motivo antes da hora de expiração ou se você não fornecer uma URL de metadados, o Azure AD não poderá renová-la. Nesse caso, você precisará atualizar o certificado de autenticação manualmente.
 
-7. Selecione **Salvar**. 
+7. Clique em **Salvar**. 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Para configurar a Federação direta no Azure AD usando o PowerShell
 
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD. (Se você precisar de etapas detalhadas, o início rápido para adicionar um usuário convidado incluirá a seção [instalar o módulo AzureADPreview mais recente](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
-2. Execute o seguinte comando: 
+2. Execute o comando a seguir: 
    ```powershell
    Connect-AzureAD
    ```
@@ -190,7 +190,7 @@ Agora, teste a configuração da Federação direta convidando um novo usuário 
 3. Selecionar **provedores de identidade**
 4. Em **provedores de identidade SAML/WS-Enalimentados**, selecione o provedor.
 5. No painel de detalhes do provedor de identidade, atualize os valores.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>Como fazer remover a Federação direta?
@@ -204,12 +204,12 @@ Você pode remover a configuração de Federação direta. Se você fizer isso, 
 
 Para remover a Federação direta com um provedor de identidade usando o PowerShell:
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD.
-2. Execute o seguinte comando: 
+2. Execute o comando a seguir: 
    ```powershell
    Connect-AzureAD
    ```
 3. No prompt de entrada, entre com a conta de Administrador Global gerenciada. 
-4. Digite o seguinte comando:
+4. Insira o seguinte comando:
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```

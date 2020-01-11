@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: asgangal
+ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084916"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895004"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -34,7 +34,7 @@ Se não houver um tamanho que dê suporte à configuração da VM de origem, a s
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 
-Contate o [suporte de cobrança do Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para habilitar sua assinatura para criar VMs dos tamanhos necessários no local de destino. Em seguida, repita a operação com falha.
+Contate o [suporte de cobrança do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para habilitar sua assinatura para criar VMs dos tamanhos necessários no local de destino. Em seguida, repita a operação com falha.
 
 Se o local de destino tiver uma restrição de capacidade, desabilite a replicação para ela. Em seguida, habilite a replicação para um local diferente em que sua assinatura tem uma cota suficiente para criar VMs dos tamanhos necessários.
 
@@ -80,7 +80,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 1. Se o certificado de autoridade de certificação raiz da Symantec não for encontrado, execute o comando a seguir para baixar o arquivo. Verifique se há erros e siga as ações recomendadas para falhas de rede.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Verifique se o certificado de autoridade de certificação raiz do Baltimore está presente:
 
@@ -88,7 +88,7 @@ Como o SuSE Linux usa links simbólicos (ou *symlinks*) para manter uma lista de
 
 1. Se o certificado de autoridade de certificação raiz do Baltimore não for encontrado, execute este comando para baixar o certificado:
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
 
 1. Verifique se o certificado de DigiCert_Global_Root_CA está presente:
 
@@ -524,6 +524,6 @@ Esse problema pode ocorrer se a máquina virtual já tiver sido protegida anteri
 
 Exclua o disco de réplica identificado na mensagem de erro e repita o trabalho de proteção com falha.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Replicar as máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

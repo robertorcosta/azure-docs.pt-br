@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974335"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890271"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
 
@@ -62,7 +62,7 @@ Uma combinação de **agrupamento** com sintaxe **opcional** tem um limite de 3 
 
 |Permitido|Exemplo|
 |--|--|
-|SIM|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
+|Sim|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
 |Não|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites de aninhamento para grupos com sintaxe or-ing
@@ -71,7 +71,7 @@ Uma combinação de **agrupamento** com a sintaxe **ou-ing** tem um limite de du
 
 |Permitido|Exemplo|
 |--|--|
-|SIM|(Test1 &#x7c; test2 &#x7c; (test3 &#x7c; TEST4))|
+|Sim|(Test1 &#x7c; test2 &#x7c; (test3 &#x7c; TEST4))|
 |Não|(Test1 &#x7c; test2 &#x7c; test3 &#x7c; (TEST4 &#x7c; TEST5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade em um modelo de padrão
@@ -118,7 +118,7 @@ Considere o padrão '[localizar] email sobre {assunto} [de {pessoa}]'.
 
 Nas expressões a seguir, as entidades **assunto** e **pessoa** são extraídas correta e incorretamente:
 
-|Declaração|Entidade|Extração correta|
+|Enunciado|Entidade|Extração correta|
 |--|--|:--:|
 |email sobre cachorros de Chris|assunto=cachorros<br>pessoa=Chris|✔|
 |email sobre o homem de La Mancha|assunto=o homem<br>pessoa=La Mancha|X|
@@ -142,7 +142,7 @@ As marcas de Pontuação (`?`, `!`, `.`) devem ser ignoradas e você precisa ign
 Saiba mais sobre padrões:
 
 * [Como adicionar padrões](luis-how-to-model-intent-pattern.md)
-* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Conceitos de padrões](luis-concept-patterns.md)
 
 Entenda como [a](luis-reference-prebuilt-sentiment.md) opinião é retornada na resposta. JSON.

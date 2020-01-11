@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424489"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888769"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -37,9 +37,9 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando o portal do Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Na barra superior, selecione sua conta e, em seguida, **Mudar diretório**.
-1. Quando o painel **Diretório + assinatura** abrir, escolha o locatário do Active Directory em que deseja registrar o aplicativo, na lista **Favoritos** ou **Todos os Diretórios**.
-1. Selecione **Todos os serviços** no navegador esquerdo e escolha **Azure Active Directory**.
+1. Selecione o ícone **diretório + assinatura** na barra de ferramentas do Portal.
+1. Na lista **favoritos** ou **todos os diretórios** , escolha o Active Directory locatário no qual você deseja registrar seu aplicativo.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
 1. No painel **Azure Active Directory**, selecione **Registros de aplicativo** para exibir uma lista com todos os seus aplicativos.
 1. Selecione o aplicativo no qual deseja definir funções. Em seguida, selecione **manifesto**.
 1. Edite o manifesto do aplicativo localizando a configuração `appRoles` e adicionando todas as suas Funções de aplicativo.

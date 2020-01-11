@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 3f42d50af803713fd498e83880d9ee5d29e8caf3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b886f51bcb2bb7308c49c76563dcb70148bbc583
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091645"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887284"
 ---
-# <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Cenário: Problemas de conectividade de Apache Phoenix no Azure HDInsight
+# <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Cenário: problemas de conectividade de Apache Phoenix no Azure HDInsight
 
 Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
 
@@ -28,19 +28,19 @@ IP incorreto do nó active Zookeeper.
 
 ### <a name="resolution"></a>Resolução
 
-O IP do nó active Zookeeper pode ser identificado na interface do usuário do amAmbari seguindo os links para o **HBase** > **Quick links** > **ZK (Active)**  > **Zookeeper info**. Corrija o IP conforme necessário.
+O IP do nó active Zookeeper pode ser identificado na interface do usuário do amAmbari seguindo os links para o **HBase** > **links rápidos** > **ZK (ativo)**  > **informações de Zookeeper**. Corrija o IP conforme necessário.
 
 ---
 
-## <a name="cause-systemcatalog-table-offline"></a>Causa: Sistema. Tabela de catálogo offline
+## <a name="cause-systemcatalog-table-offline"></a>Causa: sistema. Tabela de catálogo offline
 
-Ao executar comandos como `!tables`, você recebe uma mensagem de erro semelhante a:
+Ao executar comandos como `!tables`, você receberá uma mensagem de erro semelhante a:
 
 ```output
 Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings.
 ```
 
-Ao executar comandos como `count 'SYSTEM.CATALOG'`, você recebe uma mensagem de erro semelhante a:
+Ao executar comandos como `count 'SYSTEM.CATALOG'`, você receberá uma mensagem de erro semelhante a:
 
 ```output
 ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189)
@@ -56,14 +56,14 @@ Na interface do usuário do Apache Ambari, conclua as seguintes etapas para rein
 
 1. Repita essas etapas para todos os serviços **Standby HBase Master** restantes.
 
-Pode levar até cinco minutos para o serviço de HBase Master estabilizar e concluir a recuperação. Após a `SYSTEM.CATALOG` tabela voltar ao normal, o problema de conectividade para Apache Phoenix deve ser resolvido automaticamente.
+Pode levar até cinco minutos para o serviço de HBase Master estabilizar e concluir a recuperação. Depois que a tabela de `SYSTEM.CATALOG` voltar ao normal, o problema de conectividade para Apache Phoenix deve ser resolvido automaticamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b7dd11c3a71c46bbc06b205c6b4300337683305a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893392"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889004"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Início rápido: criar um espaço de trabalho Azure Databricks em sua própria rede virtual
 
@@ -29,7 +29,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
 
 ## <a name="create-a-virtual-network"></a>Crie uma rede virtual
 
@@ -39,13 +39,13 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Em **criar rede virtual**, aplique as seguintes configurações: 
 
-    |Configuração|Valor sugerido|Descrição|
+    |Configuração|Valor sugerido|Description|
     |-------|---------------|-----------|
-    |name|databricks-início rápido|Selecione um nome para sua rede virtual.|
+    |Nome|databricks-início rápido|Selecione um nome para sua rede virtual.|
     |Espaço de endereço|10.1.0.0/16|O intervalo de endereços da rede virtual na notação CIDR. O intervalo CIDR deve estar entre/16 e/24|
     |Subscription|\<Sua assinatura\>|Selecione a assinatura do Azure que você deseja usar.|
-    |Resource group|databricks-início rápido|Selecione **criar novo** e insira um novo nome de grupo de recursos para sua conta.|
-    |Location|\<Selecione a região mais próxima de seus usuários\>|Selecione uma localização geográfica na qual você pode hospedar sua rede virtual. Use a localização mais próxima dos usuários.|
+    |Grupo de recursos|databricks-início rápido|Selecione **criar novo** e insira um novo nome de grupo de recursos para sua conta.|
+    |Local|\<Selecione a região mais próxima de seus usuários\>|Selecione uma localização geográfica na qual você pode hospedar sua rede virtual. Use a localização mais próxima dos usuários.|
     |Nome da sub-rede|padrão|Selecione um nome para a sub-rede padrão em sua rede virtual.|
     |Intervalo de endereços da sub-rede|10.1.0.0/24|O intervalo de endereços da sub-rede na notação CIDR. Ele deve estar contido no espaço de endereço da rede virtual. O intervalo de endereços de uma sub-rede que está em uso não pode ser editado.|
 
@@ -63,14 +63,14 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Em **serviço Azure Databricks**, aplique as seguintes configurações:
 
-    |Configuração|Valor sugerido|Descrição|
+    |Configuração|Valor sugerido|Description|
     |-------|---------------|-----------|
     |Nome do workspace|databricks-início rápido|Selecione um nome para seu espaço de trabalho Azure Databricks.|
     |Subscription|\<Sua assinatura\>|Selecione a assinatura do Azure que você deseja usar.|
-    |Resource group|databricks-início rápido|Selecione o mesmo grupo de recursos que você usou para a rede virtual.|
-    |Location|\<Selecione a região mais próxima de seus usuários\>|Escolha o mesmo local da sua rede virtual.|
+    |Grupo de recursos|databricks-início rápido|Selecione o mesmo grupo de recursos que você usou para a rede virtual.|
+    |Local|\<Selecione a região mais próxima de seus usuários\>|Escolha o mesmo local da sua rede virtual.|
     |Camada de preços|Escolha entre Standard ou Premium.|Para obter mais informações sobre tipos de preço, consulte a [página de preços do databricks](https://azure.microsoft.com/pricing/details/databricks/).|
-    |Implantar Azure Databricks espaço de trabalho em sua rede virtual (VNet)|SIM|Essa configuração permite que você implante um espaço de trabalho Azure Databricks em sua rede virtual.|
+    |Implantar Azure Databricks espaço de trabalho em sua rede virtual (VNet)|Sim|Essa configuração permite que você implante um espaço de trabalho Azure Databricks em sua rede virtual.|
     |Rede virtual|databricks-início rápido|Selecione a rede virtual que você criou na seção anterior.|
     |Nome da sub-rede pública|sub-rede pública|Use o nome da sub-rede pública padrão.|
     |Intervalo de CIDR da sub-rede pública|10.179.64.0/18|Use um intervalo CIDR até e incluindo/26.|
@@ -106,7 +106,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
     ![Azure Databricks executores da interface do usuário do Spark](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-sparkui-executors.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar o artigo, você poderá encerrar o cluster. Para isso, no workspace do Azure Databricks, no painel esquerdo, selecione **Clusters**. No cluster que deseja encerrar, mova o cursor sobre o botão de reticências na coluna **Ações** e selecione o ícone **Terminar**. Isso interrompe o cluster.
 

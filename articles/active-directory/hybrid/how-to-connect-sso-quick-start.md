@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: Logon Único Contínuo – Início Rápido| Microsoft Docs'
 description: Este artigo descreve como começar a usar o Logon Único Contínuo do Azure Active Directory
 services: active-directory
-keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, Logon Único
+keywords: o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603401"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888661"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -40,7 +40,7 @@ Verifique se os seguintes pré-requisitos estão em vigor:
    - Se o seu firewall ou proxy permite a lista de permissões de DNS, adicione as conexões às URLs **\*.msappproxy.net** pela porta 443 à lista de permissões. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
 
     >[!NOTE]
-    >O Azure AD Connect versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de Passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
+    >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de Passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
 
 * **Usar uma topologia do Azure AD Connect com suporte**: verifique se você está usando uma das topologias com suporte do Azure AD Connect descritas [aqui](plan-connect-topologies.md).
 
@@ -124,13 +124,13 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** >  **Página de segurança**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
+3. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** > **página segurança**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
     ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: a URL do Azure Active Directory para as quais os tíquetes Kerberos são encaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.
 
-     O resultado é semelhante a:
+     O resultado será semelhante a este:
 
      Nome do valor: `https://autologon.microsoftazuread-sso.com`
   
@@ -144,7 +144,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** >  **Página de segurança** > **zona da intranet**. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+6. Navegue até **configuração do usuário** > **política** > **Modelos Administrativos** > **componentes do Windows** > **Internet Explorer** > **painel de controle da Internet** > **página segurança** > **zona da intranet**. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
     ![Logon único](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -213,7 +213,7 @@ Para testar o recurso para um usuário específico, verifique se todas as seguin
   - O usuário entra em um dispositivo corporativo.
   - O dispositivo está associado ao domínio do Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure AD](../active-directory-azureadjoin-overview.md).
   - O dispositivo tem uma conexão direta com seu DC (controlador de domínio), seja na rede corporativa com ou sem fio ou por meio de uma conexão de acesso remoto, como uma conexão VPN.
-  - Você [distribuiu o recurso](##step-3-roll-out-the-feature) a esse usuário por meio da Política de Grupo.
+  - Você [distribuiu o recurso](#step-3-roll-out-the-feature) a esse usuário por meio da Política de Grupo.
 
 Para testar o cenário em que o usuário insere somente o nome de usuário, mas não a senha:
    - Entre no `https://myapps.microsoft.com/` em uma nova sessão privada do navegador.
@@ -234,7 +234,7 @@ Para obter instruções sobre como implantar as chaves, veja [Logon Único Cont�
 >[!IMPORTANT]
 >Você não precisa executar essa etapa _imediatamente_ depois de habilitar o recurso. Sobrepor as chaves de descriptografia Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Análise técnica aprofundada](how-to-connect-sso-how-it-works.md): entender como funciona o recurso de logon único contínuo.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): respostas às perguntas frequentes sobre o Logon Único Contínuo.

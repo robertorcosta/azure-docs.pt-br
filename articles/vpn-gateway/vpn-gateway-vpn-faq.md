@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: fa4e403733c418a4ceff417dd0cf7b54f9409a49
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151671"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895973"
 ---
-# <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
+# <a name="vpn-gateway-faq"></a>Perguntas frequentes sobre Gateway de VPN
 
 ## <a name="connecting"></a>Conectar-se a redes virtuais
 
@@ -72,8 +72,8 @@ Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em
 Não. Um tipo de gateway de vnet do Azure não pode ser alterado de baseado em política para baseado em rota ou de outra maneira. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 1. Exclua o gateway:
-1. [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
 1. [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
@@ -81,7 +81,7 @@ Não. Um tipo de gateway de vnet do Azure não pode ser alterado de baseado em 
 
 Sim. A sub-rede de gateway contém os endereços IP que usam os serviços de gateway de rede virtual. Você precisa criar uma sub-rede de gateway para a VNet para configurar um gateway de rede virtual. Todas as sub-redes de gateway devem ser nomeadas como ‘GatewaySubnet’ para funcionar adequadamente. Não dê outro nome à sua sub-rede de gateway. E não implante VMs ou qualquer outra coisa na sub-rede de gateway.
 
-Quando você cria a sub-rede de gateway, pode especificar o número de endereços IP que contém a sub-rede. Os endereços IP na sub-rede do gateway são alocados para o serviço de gateway. Algumas configurações exigem mais endereços IP a ser alocada para os serviços de gateway que outras pessoas. Você deseja certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar o crescimento futuro e possíveis novas configurações de conexão adicionais. Dessa forma, embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, é recomendável criar uma sub-rede de gateway de /27 ou maior (/27, /26, /25 etc.). Examine os requisitos para a configuração que deseja criar e verifique se a sub-rede de gateway que você tem atende a esses requisitos.
+Quando você cria a sub-rede de gateway, pode especificar o número de endereços IP que contém a sub-rede. Os endereços IP na sub-rede do gateway são alocados para o serviço de gateway. Algumas configurações exigem mais endereços IP a ser alocada para os serviços de gateway que outras pessoas. Convém certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar o crescimento futuro e possíveis novas configurações de conexão adicionais. Dessa forma, embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, é recomendável criar uma sub-rede de gateway de /27 ou maior (/27, /26, /25 etc.). Examine os requisitos para a configuração que deseja criar e verifique se a sub-rede de gateway que você tem atende a esses requisitos.
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
 
@@ -238,7 +238,7 @@ Não. Somente o tráfego com um destino IP contido em intervalos de endereços I
 
 As informações adicionais de rede virtual são exibidas em [Perguntas Frequentes sobre Rede Virtual](../virtual-network/virtual-networks-faq.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre o Gateway de VPN, veja [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
 * Para saber mais sobre definições de configuração de Gateway de VPN, veja [Sobre definições de configuração do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).

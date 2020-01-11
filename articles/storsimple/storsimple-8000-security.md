@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963524"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891508"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 A segurança é uma preocupação importante para qualquer pessoa que esteja adotando uma nova tecnologia, especialmente quando a tecnologia é usada com dados confidenciais ou proprietários. Ao avaliar as diferentes tecnologias, você deve considerar o aumento dos riscos e dos custos para a proteção dos dados. O Microsoft Azure StorSimple fornece uma solução tanto de segurança quanto de privacidade para proteção de dados, ajudando a garantir:
 
@@ -185,7 +185,7 @@ Para ajudar a garantir a segurança e a integridade dos dados movidos para a nuv
 
 ## <a name="protect-data-via-storage-accounts"></a>Proteger dados por meio de contas de armazenamento
 
-Cada assinatura do Microsoft Azure pode criar uma ou mais contas de armazenamento. (Uma conta de armazenamento fornece um namespace exclusivo para trabalhar com dados armazenados na nuvem do Azure.) O acesso a uma conta de armazenamento é controlado pela assinatura e pelas chaves de acesso associadas àquela conta de armazenamento.
+Cada assinatura do Microsoft Azure pode criar uma ou mais contas de armazenamento. (Uma conta de armazenamento fornece um namespace exclusivo para trabalhar com dados armazenados na nuvem do Azure.) O acesso a uma conta de armazenamento é controlado pela assinatura e pelas chaves de acesso associadas a essa conta de armazenamento.
 
 Quando você cria uma conta de armazenamento, o Microsoft Azure gera duas chaves de acesso de armazenamento de 512 bits, uma das quais é usada para autenticação quando o dispositivo StorSimple acessa a conta de armazenamento. Observe que apenas uma dessas chaves está em uso. A outra chave é mantida em reserva, permitindo alternar as chaves periodicamente. Para alternar as chaves, ative a chave secundária e, em seguida, exclua a chave primária. Você pode criar uma nova chave para uso durante o próximo rodízio. (Por motivos de segurança, muitos data centers exigem a rotação de chaves.)
 
@@ -200,7 +200,7 @@ O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados 
 
 | Algoritmo | Comprimento da chave | Aplicativos/protocolos/comentários |
 | --- | --- | --- |
-| RSA |2048 |A RSA PKCS 1 v1.5 é usada pelo portal do Azure para criptografar dados de configuração enviados ao dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
+| RSA |2\.048 |A RSA PKCS 1 v1.5 é usada pelo portal do Azure para criptografar dados de configuração enviados ao dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
 | AES |256 |O AES com CBC é usado para criptografar a parte pública da chave de criptografia de dados de serviço antes de ela ser enviada para o portal do Azure por meio do dispositivo StorSimple. Também é usado pelo dispositivo StorSimple para criptografar os dados antes sejam enviados para a conta de armazenamento em nuvem. |
 
 ## <a name="storsimple-cloud-appliance-security"></a>Segurança do Dispositivo de Nuvem StorSimple
@@ -232,27 +232,27 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** Eu tenho um dispositivo StorSimple novo que está solicitando a chave de registro. Como recuperá-la?
 
-**R:** Essa chave foi criada quando você criou o serviço Gerenciador de Dispositivos do StorSimple. Quando você usa o serviço Gerenciador de Dispositivos StorSimple para conectar-se ao dispositivo, pode usar a página de início rápido do serviço para exibir ou regenerar a nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
+**R:** Essa chave foi criada quando você criou o serviço Gerenciador de Dispositivos StorSimple. Quando você usa o serviço Gerenciador de Dispositivos StorSimple para conectar-se ao dispositivo, pode usar a página de início rápido do serviço para exibir ou regenerar a nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
 
-* [Exibir ou gerar novamente a chave de registro](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [Exibir ou gerar novamente a chave de registro](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
 **P:** Perdi minha chave de criptografia de dados de serviço. O que devo fazer?
 
-**R:** Contate o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
+**R:** Entre em contato com o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
 
 * [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**P:**  Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
+**P:** Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
 
-**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados de serviço e reiniciar o processo.
+**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados do serviço e reiniciar o processo.
 
-**P:**  Alterei a chave de criptografia de dados de serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
+**P:** Alterei a chave de criptografia de dados do serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
 
 **R:** O período de quatro horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização será válida até que todos os dispositivos sejam atualizados.
 
 **P:** Nosso administrador StorSimple saiu da empresa. O que devo fazer?
 
-**R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados de serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
+**R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados do serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
 
 * [Usar o serviço do Gerenciador de Dispositivos do StorSimple para alterar suas senhas do StorSimple](storsimple-8000-change-passwords.md)
 * [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
@@ -267,11 +267,11 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **P:** O certificado para o acesso remoto ao Windows PowerShell para StorSimple foi alterado no dispositivo. Como atualizar meus clientes de acesso remoto?
 
-**R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos do StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
+**R:** Você pode baixar o novo certificado do serviço Gerenciador de Dispositivos StorSimple e depois fornecê-lo para instalação no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
 
 * [Certificado de importação de cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos do StorSimple estiver comprometido?
+**P:** Os meus dados ficarão protegidos se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido?
 
 **R:** Os dados de configuração de serviço são sempre criptografados com a chave pública quando exibidos em um navegador da Web. Como o serviço não tem acesso à chave privada, o serviço não poderá ver os dados. Se o serviço Gerenciador de Dispositivos StorSimple estiver comprometido, não haverá impacto, pois não há chaves armazenadas no serviço Gerenciador de Dispositivos StorSimple.
 
@@ -279,13 +279,13 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo. pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
 
-**P:** O que acontecerá se uma entidade governamental solicitar meus dados à Microsoft?
+**P:** O que acontece se uma entidade governamental solicitar meus dados à Microsoft?
 
 **R:** Como todos os dados são criptografados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental deverá solicitar os dados ao cliente.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Implantar o dispositivo StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

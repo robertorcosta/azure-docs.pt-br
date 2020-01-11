@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 971d7432c841c4ef984c7bbd7899fce733512303
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787175"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888134"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Enviar chamadas de saída para pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
 
@@ -28,7 +28,7 @@ Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * A URL para o ponto de extremidade de destino que você deseja chamar
 
@@ -48,7 +48,7 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
    Este exemplo renomeia o gatilho para "gatilho HTTP" para que a etapa tenha um nome mais descritivo. Além disso, o exemplo posteriormente adiciona uma ação HTTP e ambos os nomes devem ser exclusivos.
 
-1. Forneça os valores para os [parâmetros de gatilho http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que você deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho Verifique o ponto de extremidade de destino.
+1. Forneça os valores para os [parâmetros de gatilho http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) que você deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho Verifique o ponto de extremidade de destino.
 
    Se você selecionar um tipo de autenticação diferente de **nenhum**, as configurações de autenticação diferem com base na sua seleção. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -78,7 +78,7 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
    Este exemplo renomeia a ação como "ação HTTP" para que a etapa tenha um nome mais descritivo.
 
-1. Forneça os valores para os [parâmetros de ação http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que você deseja incluir na chamada para o ponto de extremidade de destino.
+1. Forneça os valores para os [parâmetros de ação http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) que você deseja incluir na chamada para o ponto de extremidade de destino.
 
    Se você selecionar um tipo de autenticação diferente de **nenhum**, as configurações de autenticação diferem com base na sua seleção. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -138,21 +138,21 @@ Aqui está o mesmo exemplo que mostra a definição de JSON da ação HTTP na de
 
 Para obter mais informações sobre parâmetros de ação e gatilho, consulte estas seções:
 
-* [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
+* [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
 ### <a name="output-details"></a>Detalhes de saída
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Nome da propriedade | Type | Descrição |
+| Nome da propriedade | Tipo | Description |
 |---------------|------|-------------|
-| Cabeçalhos | objeto | Os cabeçalhos da solicitação |
-| Corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| headers | objeto | Os cabeçalhos da solicitação |
+| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
 | código de status | int | O código de status da solicitação |
 |||
 
-| Código de status | Descrição |
+| Código de status | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceita |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082215"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895789"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
 
@@ -85,7 +85,7 @@ Queremos garantir que as cotas disponíveis na assinatura de destino sejam sufic
 
 **Tarefa** | **Detalhes** | **Ação**
 --- | --- | ---
-**Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura**do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sobre como aumentar as cotas.
+**Verificar núcleos** | Se os núcleos na cota disponível não forem iguais ou excederem a contagem de destino total no momento do failover, ocorrerá falha nos failovers. | Para VMs VMware, verifique se você tem núcleos suficientes na assinatura de destino para atender à recomendação de Planejador de Implantações Core.<br/><br/> Para servidores físicos, verifique se os núcleos do Azure atendem às suas estimativas manuais.<br/><br/> Para verificar as cotas, na **assinatura**do portal do Azure >, clique em **uso + cotas**.<br/><br/> [Saiba mais](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sobre como aumentar as cotas.
 **Verificar limites de failover** | O número de failovers não deve excede Site Recovery limites de failover. |  Se os failovers excederem os limites, você poderá adicionar assinaturas e fazer failover para várias assinaturas ou aumentar a cota de uma assinatura. 
 
 
@@ -100,8 +100,8 @@ O que significa conformidade? Para iniciar uma VM do Azure, o Azure requer algun
 
 **O computador está em conformidade com o Azure?** | **Limites de VM do Azure (failover de disco gerenciado)**
 --- | --- 
-sim | 2000
-Não | 1000
+Sim | 2000
+Não | 1\.000
 
 - Os limites pressupõem que outros trabalhos mínimos estão em andamento na região de destino da assinatura.
 - Algumas regiões do Azure são menores e podem ter limites ligeiramente menores.
@@ -211,14 +211,14 @@ Para executar um failover em larga escala, recomendamos o seguinte:
 
 1. Criar planos de recuperação para failover de carga de trabalho.
     - Cada plano de recuperação pode disparar o failover de até 50 computadores.
-    - [Leia mais](recovery-plan-overview.md) sobre planos de recuperação.
+    - [Saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
 2. Adicione scripts de runbook de automação do Azure aos planos de recuperação para automatizar qualquer tarefa manual no Azure. As tarefas típicas incluem a configuração de balanceadores de carga, a atualização de DNS, etc. [Saiba mais](site-recovery-runbook-automation.md)
 2. Antes do failover, prepare as máquinas do Windows para que elas estejam em conformidade com o ambiente do Azure. [Os limites de failover](#plan-azure-subscriptions-and-quotas) são mais altos para computadores que estão em conformidade. [Saiba mais](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) sobre runbooks.
 4.  Disparar failover com o cmdlet [Start-AzRecoveryServicesAsrPlannedFailoverJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob?view=azps-2.0.0&viewFallbackFrom=azps-1.1.0) do PowerShell, junto com um plano de recuperação.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Site Recovery de monitor](site-recovery-monitor-and-troubleshoot.md)

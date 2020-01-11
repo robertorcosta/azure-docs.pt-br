@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: aebd7b58a2107ac109a03d3ce12f27d65ba0ab90
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f34c5d5069a158579864320d0fbf965de8936d9c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769805"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896120"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Acesso de vários protocolos no Azure Data Lake Storage
 
@@ -52,12 +52,12 @@ Os itens que aparecem nesta tabela serão alterados ao longo do tempo, pois o su
 |SDKs de BLOB |Disponível para o público geral|
 |[PowerShell (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Disponível para o público geral|
 |[CLI (BLOB)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Disponível para o público geral|
+|[Notificações por meio da grade de eventos do Azure](data-lake-storage-events.md)|Disponível para o público geral|
 |SDKs de blob com semântica do sistema de arquivos ([.net](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet) &vert; [Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python) &vert; [Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|Versão prévia|
 |[PowerShell com semântica de sistema de arquivos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|Versão prévia|
 |[CLI com semântica do sistema de arquivos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|Versão prévia|
 |[Logs de diagnóstico](../common/storage-analytics-logging.md)| Versão prévia|
 |[Políticas de gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)| Versão prévia|
-|[Notificações por meio da grade de eventos do Azure](data-lake-storage-events.md)|Versão prévia|
 |[Camada de acesso aos arquivos](storage-blob-storage-tiers.md)| Versão prévia|
 |[blobfuse](storage-how-to-mount-container-linux.md)|Ainda não tem suporte|
 |[Armazenamento imutável](storage-blob-immutable-storage.md)|Ainda não tem suporte|
@@ -80,7 +80,7 @@ Assim como a lista de recursos de armazenamento de BLOBs com suporte, os itens q
 |---|---|
 |[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Disponível para o público geral|
 |[Captura de hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Disponível para o público geral|
-|[Stream Analytics do Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponível para o público geral|
+|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Disponível para o público geral|
 |[Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Disponível para o público geral|
 |[Aplicativos lógicos](https://azure.microsoft.com/services/logic-apps/)|Disponível para o público geral|
 |[Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Versão prévia|

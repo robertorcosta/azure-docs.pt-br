@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 14daa37a414e814ed6de036bbb625933ce2532e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787039"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888117"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Criar e executar fluxos de trabalho baseados em eventos automatizados usando WebHooks HTTP em aplicativos lógicos do Azure
 
@@ -46,7 +46,7 @@ Para saber mais, consulte esses tópicos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * A URL de um ponto de extremidade ou API já implantado que dá suporte ao padrão de assinatura e cancelamento de assinante para [gatilhos de webhook em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) ou [ações de webhook em aplicativos lógicos](../logic-apps/logic-apps-create-api-app.md#webhook-actions) , conforme apropriado
 
@@ -100,7 +100,7 @@ Essa ação interna registra uma URL de retorno de chamada com o serviço especi
 
    Este exemplo renomeia a ação como "ação de webhook HTTP" para que a etapa tenha um nome mais descritivo.
 
-1. Forneça os valores para os parâmetros de ação de webhook HTTP, que são semelhantes aos [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) que você deseja usar para as chamadas inscrever e cancelar assinatura, por exemplo:
+1. Forneça os valores para os parâmetros de ação de webhook HTTP, que são semelhantes aos [parâmetros de gatilho de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que você deseja usar para as chamadas inscrever e cancelar assinatura, por exemplo:
 
    ![Inserir parâmetros de ação de webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -114,20 +114,20 @@ Essa ação interna registra uma URL de retorno de chamada com o serviço especi
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter mais informações sobre parâmetros de ação e gatilho, que são semelhantes entre si, consulte [parâmetros de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+Para obter mais informações sobre parâmetros de ação e gatilho, que são semelhantes entre si, consulte [parâmetros de webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Detalhes de saída
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação de webhook HTTP, que retorna essas informações:
 
-| Nome da propriedade | Type | Descrição |
+| Nome da propriedade | Tipo | Description |
 |---------------|------|-------------|
-| Cabeçalhos | objeto | Os cabeçalhos da solicitação |
-| Corpo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| headers | objeto | Os cabeçalhos da solicitação |
+| body | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
 | código de status | int | O código de status da solicitação |
 |||
 
-| Código de status | Descrição |
+| Código de status | Description |
 |-------------|-------------|
 | 200 | OK |
 | 202 | Aceita |

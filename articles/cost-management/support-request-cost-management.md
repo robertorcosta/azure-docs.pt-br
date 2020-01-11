@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 82c9a13c50f9d9786f405032d6339c8323d9cf68
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2ea1d33f6302a04a7844e4504d30bac897599e69
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229890"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887539"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar uma solicitação de suporte para o Cloudyn
 
@@ -41,11 +41,11 @@ Quando o tíquete de suporte é criado, ele é adicionado à fila de suporte. O 
 
 Se você quiser criar um tíquete de suporte de cobrança para o Gerenciamento de Custos, em **Tipo de problema**, selecione **Gerenciamento de custos do Azure**.
 
-Para verificar o status de um incidente que você tiver preenchido, consulte [Todas as solicitações de suporte](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
+Para verificar o status de um incidente que você tiver preenchido, consulte [Todas as solicitações de suporte](../azure-portal/supportability/how-to-create-azure-support-request.md#all-support-requests).
 
 Se for um usuário do Cloudyn herdado sem uma conta do Azure, você poderá abrir uma solicitação de suporte em https://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber mais sobre Cloudyn, continue para [Examinar o uso e custos](tutorial-review-usage.md) tutorial para o Cloudyn.
+- Para saber mais sobre o Cloudyn, continue no tutorial [Revisar o uso e os custos](tutorial-review-usage.md) do Cloudyn.
