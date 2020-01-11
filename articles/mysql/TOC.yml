@@ -93,6 +93,8 @@
           href: concepts-data-access-and-security-threat-protection.md
         - name: Link Privado
           href: concepts-data-access-security-private-link.md
+        - name: Criptografia de dados
+          href: concepts-data-encryption-mysql.md
     - name: Continuidade de negócios
       items:
         - name: Introdução à continuidade dos negócios
@@ -232,6 +234,10 @@
           href: howto-configure-privatelink-portal.md
         - name: CLI do Azure
           href: howto-configure-privatelink-cli.md
+    - name: Criptografia de dados
+      items:
+        - name: Portal do Azure
+          href: howto-data-encryption-portal.md
     - name: Reiniciar servidor
       items:
         - name: Portal do Azure
