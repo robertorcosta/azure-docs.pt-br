@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900239"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863403"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no ambiente do Time Series Insights
 
@@ -34,7 +34,7 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [gerenc
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa: os dados de origem do evento não estão no formato JSON
 
-O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./how-to-shape-query-json.md).
+O Azure Time Series Insights dá suporte somente a dados JSON. Para exemplos de JSON, leia [formas de JSON com suporte](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento não tem uma permissão necessária
 
@@ -69,7 +69,7 @@ Se houver eventos antigos na origem do evento, você poderá lidar com a limita�
 - Alterar os limites de retenção da origem do evento para ajudar a eliminar eventos antigos que você não quer exibir no Time Series Insights.
 - Provisionar um tamanho de ambiente maior (número de unidades) para aumentar a taxa de transferência de eventos antigos. Usando o exemplo anterior, se você aumentou o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deverá atualizar durante o dia. Se a produção de evento de estado contínuo for de um milhão ou menos de eventos por dia, será possível reduzir a capacidade do evento para uma unidade após ele ser atualizado.
 
-A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento do hub de eventos ou do hub IoT enviar dados por push além dos limites impostos, você verá a limitação e um retardo.
+A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento para o Hub IoT ou o Hub de eventos enviar dados para além dos limites impostos, você terá limitação e um retardo.
 
 A figura a seguir mostra um ambiente do Time Series Insights com um SKU S1 e uma capacidade 3. Ele pode ingressar 3 milhões de eventos por dia.
 
@@ -82,11 +82,11 @@ Como exemplo, suponha que um ambiente ingere mensagens de um hub de eventos. A t
 
 Um ambiente de SKU S1 que tem uma capacidade de 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto). 
 
-Para obter um entendimento de alto nível sobre como funciona a lógica de nivelamento, consulte a seção [Formas de JSON com suporte](./how-to-shape-query-json.md).
+Para obter uma compreensão de alto nível de como funciona a lógica de mesclagem, leia [formas de JSON com suporte](./how-to-shape-query-json.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Resolução recomendadas para limitação excessiva
 
-Para corrigir o retardo, aumente a capacidade do SKU do ambiente. Para obter mais informações, confira [Dimensionar o ambiente do Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+Para corrigir o retardo, aumente a capacidade do SKU do ambiente. Para obter mais informações, leia [dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Causa B: a ingestão inicial de dados históricos torna a entrada mais lenta
 
@@ -109,9 +109,9 @@ Verifique se o nome e o valor da propriedade de nome do carimbo de data/hora est
 
 A maneira mais fácil de assegurar que o nome da propriedade Carimbo de data/hora seja capturado e funcione corretamente é usar o gerenciador do Time Series Insights. No gerenciador do Time Series Insights, usando o gráfico, selecione um período de tempo após fornecer o nome da propriedade de carimbo de data/hora. Clique com o botão direito do mouse na seleção e escolha a opção **Explorar eventos**.
 
-O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado da palavra **Timestamp**, você deverá ver **($ts)** .
+O cabeçalho da primeira coluna deve ser o nome da propriedade de carimbo de data/hora. Ao lado do **carimbo de data/hora**do Word, **($TS)** será exibido.
 
-Você não deverá ver os seguintes valores:
+Os seguintes valores não serão exibidos:
 
 - *(ABC)* : indica que Time Series insights está lendo os valores de dados como cadeias de caracteres.
 - *Ícone de calendário*: indica que Time Series insights está lendo o valor de dados como *DateTime*.

@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383308"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863505"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
@@ -193,11 +193,11 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Para obter um exemplo de código de função mais complexo definido pelo usuário, consulte o [Início rápido de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Para obter um exemplo de código de função definido pelo usuário mais complexo, leia o guia de [início rápido de ocupação](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
-Crie uma atribuição de função para que a função definida pelo usuário seja executada. Se não houver nenhuma atribuição de função para a função definida pelo usuário, ela não terá as permissões corretas para interagir com a API de Gerenciamento ou para ter acesso para executar ações nos objetos de grafo. As ações que a função definida pelo usuário pode executar são especificadas por meio do controle de acesso baseado em função nas APIs do Gerenciamento de Gêmeos Digitais do Azure. Por exemplo, funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou certos caminhos de controle de acesso. Para obter mais informações, consulte a documentação de [controle de acesso baseado em função](./security-role-based-access-control.md).
+Crie uma atribuição de função para que a função definida pelo usuário seja executada. Se não houver nenhuma atribuição de função para a função definida pelo usuário, ela não terá as permissões corretas para interagir com a API de Gerenciamento ou para ter acesso para executar ações nos objetos de grafo. As ações que a função definida pelo usuário pode executar são especificadas por meio do controle de acesso baseado em função nas APIs do Gerenciamento de Gêmeos Digitais do Azure. Por exemplo, funções definidas pelo usuário podem ser limitadas no escopo, especificando determinadas funções ou certos caminhos de controle de acesso. Para obter mais informações, leia a documentação do [controle de acesso baseado em função](./security-role-based-access-control.md) .
 
 1. [Consulte a API do sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) de todas as funções para obter a ID da função que você deseja atribuir à sua função definida pelo usuário. Faça isso, executando uma solicitação HTTP GET autenticada para:
 
@@ -252,7 +252,7 @@ O sensor definido no gráfico de inteligência espacial envia telemetria. Por su
 1. Dependendo de quais correspondentes foram avaliados com êxito, recupere as funções definidas pelo usuário associadas.
 1. Execute cada função definida pelo usuário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba com [criar pontos de extremidade de Gêmeos Digitais do Azure ](./how-to-egress-endpoints.md) para envio de eventos.
 

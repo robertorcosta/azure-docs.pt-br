@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660334"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862468"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Conectividade do dispositivo e entrada de telemetria
 
@@ -21,7 +21,7 @@ Os dados de telemetria enviados por dispositivos e sensores formam o backbone de
 
 Para começar, crie um recurso do Azure Hub IoT na raiz do gráfico espacial. O recurso Hub IoT permite que todos os dispositivos abaixo do espaço raiz enviem mensagens. Depois que o Hub IoT for criado, registre os dispositivos com sensores dentro da instância de Gêmeos Digitais do Azure. Os dispositivos podem enviar dados para um serviço Digital Twins por meio do [SDK do dispositivo IoT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-Para obter um guia passo a passo sobre como colocar os dispositivos integrados, consulte o [Tutorial para implantar e configurar Gêmeos Digitais do Azure](tutorial-facilities-setup.md). Em uma visão geral, as etapas são:
+Para obter um guia passo a passo sobre como colocar dispositivos integrados, leia o [tutorial para implantar e configurar o digital gêmeos](tutorial-facilities-setup.md). Em uma visão geral, as etapas são:
 
 - Implante uma instância Digital Twins do [portal do Microsoft Azure](https://portal.azure.com).
 - Crie espaços no seu gráfico.

@@ -2,26 +2,26 @@
 title: Tarefas para o líder de equipe do Processo de Ciência de Dados da Equipe
 description: Uma explicação detalhada das tarefas para um líder de equipe em uma equipe de processo de ciência de dados de equipe
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327244"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864274"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para o líder de equipe em uma equipe de processo de ciência de dados de equipe
 
 Este artigo descreve as tarefas que um *líder de equipe* conclui para a equipe de ciência de dados. O objetivo do líder de equipe é estabelecer um ambiente de equipe de colaboração que padronize o TDSP ( [processo de ciência de dados de equipe](overview.md) ). O TDSP foi projetado para ajudar a melhorar a colaboração e o aprendizado de equipe. 
 
-O TDSP é uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de análise preditiva e aplicativos inteligentes com eficiência. O processo é uma detalhamento das práticas recomendadas e estruturas da Microsoft e da indústria, necessárias para a implementação bem-sucedida de iniciativas de ciência de dados para ajudar as empresas a perceberem totalmente os benefícios de seus programas de análise. Para obter uma descrição das funções de pessoal e tarefas associadas para uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md).
+O TDSP é uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de análise preditiva e aplicativos inteligentes com eficiência. O processo ainda difere nas práticas recomendadas e estruturas da Microsoft e do setor.  O objetivo é a implementação bem-sucedida de iniciativas de ciência de dados e a concretização completa dos benefícios de seus programas de análise. Para obter uma descrição das funções de pessoal e tarefas associadas para uma equipe de ciência de dados padronizando no TDSP, consulte [funções e tarefas do processo de ciência de dados de equipe](roles-tasks.md).
 
 Um líder de equipe gerencia uma equipe que consiste em vários cientistas de dados na unidade de ciência de dados de uma empresa. Dependendo do tamanho e da estrutura da unidade de ciência de dados, o [gerente do grupo](group-manager-tasks.md) e o líder da equipe podem ser a mesma pessoa, ou podem delegar suas tarefas a substitutos. Mas as tarefas em si não são alteradas. 
 
@@ -324,7 +324,7 @@ Para obter informações sobre como compartilhar outros recursos com sua equipe,
    
 1. Confirme se a nova unidade e o armazenamento foram montados com êxito em seu computador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

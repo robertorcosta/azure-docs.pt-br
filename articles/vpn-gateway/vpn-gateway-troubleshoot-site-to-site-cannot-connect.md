@@ -1,33 +1,26 @@
 ---
-title: Solução de problemas de conexão VPN site a site do Azure | Microsoft Docs
+title: 'Solucionar problemas de uma conexão VPN site a site do Azure que não pode conectar titleSuffix: gateway de VPN do Azure'
 description: Saiba como solucionar problemas de conexão VPN site a site que repentinamente para de funcionar e não pode ser reconectada.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058867"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862570"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solucionar problemas: A conexão VPN Site a Site do Azure não pode se conectar e para de funcionar
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
 
 Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Etapas de solução de problemas
+## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
 Para resolver o problema, primeiro tente [redefinir o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md) e redefinir o túnel do dispositivo VPN local. Se o problema persistir, siga essas etapas para identificar a causa do problema.
 
@@ -53,7 +46,7 @@ Compare a chave compartilhada do dispositivo VPN local e VPN de Rede Virtual do 
 
 Para exibir a chave compartilhada para a conexão VPN do Azure, utilize um dos seguintes métodos:
 
-**Portal do Azure**
+**Azure portal**
 
 1. Vá para a conexão site a site do gateway de VPN que você criou.
 
@@ -111,7 +104,7 @@ Verifique e remova o UDR (roteamento definido pelo usuário) ou NSG (grupos de s
 
 O recurso PFS pode causar os problemas de desconexão. Se o dispositivo VPN estiver com PFS habilitado, desabilite o recurso. Em seguida, atualize a política IPsec do gateway de VPN.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 -   [Configurar uma conexão site a site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurar uma política IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

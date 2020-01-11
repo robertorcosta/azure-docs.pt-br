@@ -2,18 +2,17 @@
 title: 'Gateway de VPN do Azure: conectar gateways a vários dispositivos VPN baseados em políticas locais'
 description: Configure um gateway VPN do Azure com base em rotas para vários dispositivos VPN com base em políticas usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f307e37debe47d2d352b1a375259fe7a0d6dd3cd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 029b7ce31e7e3f1c71d9fbe806b2d76d8a98d24b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146708"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863733"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conectar gateways VPN do Azure a vários dispositivos VPN com base em políticas locais usando o PowerShell
 
@@ -41,7 +40,7 @@ Atualmente, o Azure oferece suporte a ambos os modos de gateways VPN: gateways V
 
 |                          | **Gateway de VPN PolicyBased** | **Gateway de VPN RouteBased**       |**Gateway de VPN RouteBased**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **SKU de gateway do Azure**    | Básica                       | Básica                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **SKU de gateway do Azure**    | Básico                       | Básico                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
 | **Versão IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                                    |
 | **Maximizar. Conexões S2S** | **1**                       | 10                               |Padrão: 10<br> Outros SKUs: 30                     |
 |                          |                             |                                  |                                                    |
@@ -63,7 +62,7 @@ Conforme mostrado no diagrama, o gateway de VPN do Azure terá seletores de trá
 
 As instruções neste artigo seguem o mesmo exemplo, conforme descrito em [Configurar política de IPsec/IKE para conexões S2S ou VNet para VNet](vpn-gateway-ipsecikepolicy-rm-powershell.md), para estabelecer uma conexão VPN S2S. Isso é mostrado no diagrama a seguir:
 
-![s2s-policy](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
+![política de S2S](./media/vpn-gateway-connect-multiple-policybased-rm-ps/s2spolicypb.png)
 
 O fluxo de trabalho para habilitar esta conectividade:
 1. Criar a rede virtual, o gateway de VPN e o gateway de rede local para suas conexões locais cruzadas
@@ -149,7 +148,7 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 > Você precisa criar uma política de IPsec/IKE para habilitar a opção "UsePolicyBasedTrafficSelectors" na conexão.
 
 O exemplo a seguir cria uma política de IPsec/IKE com esses algoritmos e parâmetros:
-* IKEv2: AES256, SHA384 DHGroup24
+* IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS Nenhum, Tempo de Vida da SA de 14400 segundos e 102400000 KB
 
 ```azurepowershell-interactive
@@ -214,7 +213,7 @@ $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -Resou
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Veja [Criar uma máquina virtual](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter as etapas.
 
 Também analise [Configurar política de IPsec/IKE para conexões de VPN S2S ou Rede Virtual para Rede Virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter mais detalhes sobre políticas de IPsec/IKE personalizadas.

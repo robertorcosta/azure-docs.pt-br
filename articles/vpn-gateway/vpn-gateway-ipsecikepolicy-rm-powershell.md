@@ -3,25 +3,17 @@ title: Política de IPsec/IKE para VPN S2S & conexões VNet para VNet
 titleSuffix: Azure VPN Gateway
 description: Configure política IPsec/IKE para conexões S2S ou VNet-para-VNet com gateways de VPN do Azure usando o Azure Resource Manager e o PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed7b12b24e6129d6cf609f4345203abc783e9f62
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151787"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864053"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar a política de IPsec/IKE para conexões VPN S2S ou VNet para VNet
 
@@ -119,7 +111,7 @@ Consulte a [RFC3526](https://tools.ietf.org/html/rfc3526) e a [RFC5114](https://
 
 Esta seção orienta você pelas etapas de criação de uma conexão VPN S2S com uma política de IPsec/IKE. As etapas a seguir criarão a conexão, conforme mostrado no diagrama:
 
-![s2s-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
+![política de S2S](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
 Consulte [Criar uma conexão VPN S2S](vpn-gateway-create-site-to-site-rm-powershell.md) para obter instruções passo a passo mais detalhadas para criar uma conexão VPN S2S.
 
@@ -198,7 +190,7 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 O script de exemplo a seguir cria uma política de IPsec/IKE com os parâmetros e os algoritmos seguintes:
 
-* IKEv2: AES256, SHA384 DHGroup24
+* IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS Nenhum, Tempo de Vida da SA de 14400 segundos e 102400000 KB
 
 ```powershell
@@ -408,7 +400,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 Você pode usar o mesmo script para verificar se a política foi removida da conexão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [Conectar dispositivos VPN baseados em várias políticas locais](vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre os seletores de tráfego baseado em políticas.
 

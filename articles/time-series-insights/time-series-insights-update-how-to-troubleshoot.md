@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452591"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861567"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnosticar e solucionar problemas de um ambiente de visualização
 
@@ -29,7 +29,7 @@ Esse problema pode ocorrer se você não tem permissões para acessar o ambiente
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: nenhum dado é visto no Gerenciador de visualização
 
-Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenciador da Versão prévia do Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
+Há vários motivos comuns pelos quais os dados podem não aparecer no [Gerenciador de visualização Azure Time Series insights](https://insights.timeseries.azure.com/preview).
 
 - Pode ser que a origem do evento não esteja recebendo dados.
 
@@ -39,7 +39,7 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenc
 
 - Os dados de origem do evento não estão no formato JSON.
 
-    O Time Series Insights é compatível somente com os dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](./how-to-shape-query-json.md).
+    O Time Series Insights é compatível somente com os dados JSON. Para exemplos de JSON, leia [formas de JSON com suporte](./how-to-shape-query-json.md).
 
 - A chave da origem do evento não tem uma permissão necessária.
 
@@ -61,13 +61,13 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenc
 
 - A propriedade de ID do Time Series especificada no momento do provisionamento está incorreta, ausente ou nula.
 
-    Esse problema poderá ocorrer se a propriedade de ID do Time Series for configurada incorretamente no momento do provisionamento do ambiente. Para obter mais informações, confira [Melhores práticas para a escolha de uma ID do Time Series](./time-series-insights-update-how-to-id.md). Neste momento, você não pode atualizar um ambiente existente do Time Series Insights para usar uma ID do Time Series diferente.
+    Esse problema poderá ocorrer se a propriedade de ID do Time Series for configurada incorretamente no momento do provisionamento do ambiente. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal](./time-series-insights-update-how-to-id.md). Neste momento, você não pode atualizar um ambiente existente do Time Series Insights para usar uma ID do Time Series diferente.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: alguns dados são mostrados, mas alguns estão ausentes
 
 Pode ser que você esteja enviando dados sem a ID do Time Series.
 
-- Esse problema pode ocorrer quando você envia eventos sem o campo de ID do Time Series no conteúdo. Para obter mais informações, confira [Formas JSON compatíveis](./how-to-shape-query-json.md).
+- Esse problema pode ocorrer quando você envia eventos sem o campo de ID do Time Series no conteúdo. Para obter mais informações, leia [formas de JSON com suporte](./how-to-shape-query-json.md).
 - Esse problema pode ocorrer porque o seu ambiente está sendo limitado.
 
     > [!NOTE]
@@ -97,7 +97,7 @@ Se a propriedade Carimbo de data/hora não for especificada explicitamente, o te
 
 - Talvez você esteja acessando um ambiente S1 ou S2 do Time Series Insights.
 
-   Os modelos de série temporal têm suporte apenas em ambientes pagos conforme o uso. Para obter mais informações sobre como acessar seu ambiente S1 ou S2 no Time Series Insights Preview Explorer, consulte [Visualizar dados no Gerenciador](./time-series-insights-update-explorer.md).
+   Os modelos de série temporal têm suporte apenas em ambientes pagos conforme o uso. Para obter mais informações sobre como acessar seu ambiente S1 ou S2 no Time Series Insights Preview Explorer, leia [Visualizar dados no Gerenciador](./time-series-insights-update-explorer.md).
 
    [Não ![nenhum evento no ambiente.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -107,7 +107,7 @@ Se a propriedade Carimbo de data/hora não for especificada explicitamente, o te
 
 ## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: todas as minhas instâncias no Gerenciador de visualização não têm um pai
 
-Esse problema pode ocorrer o ambiente não tem uma hierarquia de modelo do Time Series definida. Para obter mais informações, confira [Trabalhar com modelos do Time Series](./time-series-insights-update-how-to-tsm.md).
+Esse problema pode ocorrer o ambiente não tem uma hierarquia de modelo do Time Series definida. Para obter mais informações, leia [trabalhar com modelos de série temporal](./time-series-insights-update-how-to-tsm.md).
 
   [![instâncias não pai exibirão um aviso.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

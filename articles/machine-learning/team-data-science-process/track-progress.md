@@ -2,24 +2,24 @@
 title: Acompanhar o progresso de projetos de processo de ciência de dados de equipe
 description: Como os gerentes de grupo de ciência de dados, líderes de equipe e leads de projeto podem acompanhar o progresso de um projeto de ciência de dados.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244075"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864189"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Acompanhe o progresso de projetos de ciência de dados
 
-Os gerentes de grupo de ciência de dados, líderes de equipe e leads de projeto podem acompanhar o progresso de seus projetos, como o trabalho feito, quem fez o trabalho e o trabalho restante. 
+Gerentes de grupo de ciência de dados, líderes de equipe e leads de projeto podem acompanhar o progresso de seus projetos.  Os gerentes querem saber qual trabalho foi feito, quem fez o trabalho e o trabalho restante.   O gerenciamento de expectativas é um elemento importante do sucesso.
 
 ## <a name="azure-devops-dashboards"></a>Dashboards do Azure DevOps
 
@@ -46,8 +46,8 @@ Aqui está um painel de exemplo simples que controla as atividades do sprint de 
 
 - O **gráfico burnup** mostra o trabalho concluído em comparação com a quantidade total de trabalho no Sprint.
 
-![painel](./media/track-progress/dashboard.png)
+![Painel](./media/track-progress/dashboard.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-[Os passo a passos que executam o processo de ciência de dados de equipe](walkthroughs.md) listam orientações que demonstram todas as etapas no processo para cenários específicos, com descrições de miniaturas e links. Os cenários vinculados ilustram como combinar ferramentas e serviços de nuvem e locais em fluxos de trabalho ou pipelines para criar aplicativos inteligentes. 
+Os passo a passos que [executam o processo de ciência de dados de equipe](walkthroughs.md) listam orientações que demonstram todas as etapas do processo. Os cenários vinculados ilustram como gerenciar os recursos de nuvem e locais em aplicativos inteligentes. 

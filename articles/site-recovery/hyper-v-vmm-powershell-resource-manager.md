@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084897"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867028"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação de desastre de VMs Hyper-V para um site secundário usando PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Examine os [componentes e a arquitetura do cenário](hyper-v-vmm-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
@@ -29,7 +29,7 @@ Este artigo mostra como automatizar as etapas para a replicação de VMs do Hype
 - Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md).
 
 
-## <a name="prepare-for-network-mapping"></a>Preparar para mapeamento de rede
+## <a name="prepare-for-network-mapping"></a>Preparar para realizar mapeamento de rede
 
 O [mapeamento de rede](hyper-v-vmm-network-mapping.md) mapeia entre as redes de VM do Virtual Machine Manager locais de origem e as nuvens de destino. Mapeamento faz o seguinte:
 
@@ -195,6 +195,14 @@ Depois que os servidores, nuvens e redes estiverem configurados corretamente, ha
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
+> [!NOTE]
+> Se você quiser replicar em discos gerenciados habilitados para o CMK no Azure, execute as seguintes etapas usando AZ PowerShell 3.3.0 em diante:
+>
+> 1. Habilitar o failover para discos gerenciados atualizando as propriedades da VM
+> 2. Use o cmdlet Get-AsrReplicationProtectedItem para buscar a ID do disco de cada disco do item protegido
+> 3. Crie um objeto Dictionary usando o cmdlet "System. Collections. Generic. Dictionary ' ' 2 [System. String, System. String]" do New-Object para conter o mapeamento da ID do disco para o conjunto de criptografia de disco. Esses conjuntos de criptografia de disco devem ser criados previamente por você na região de destino.
+> 4. Atualize as propriedades da VM usando o cmdlet Set-AsrReplicationProtectedItem passando o objeto Dictionary no parâmetro-DiskIdToDiskEncryptionSetMap.
+
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 
 Para testar sua implantação, execute um failover de teste para uma única máquina virtual. Você também pode criar um plano de recuperação que contém várias VMs e executar um failover de teste para o plano. O failover de teste simula o mecanismo de failover e recuperação em uma rede isolada.
@@ -276,6 +284,6 @@ Use os comandos a seguir para monitorar a atividade de failover. Aguarde o proce
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Saiba mais](/powershell/module/az.recoveryservices) sobre o Site Recovery com cmdlets do PowerShell do Resource Manager.

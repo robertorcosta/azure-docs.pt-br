@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 88bc90a50fb9579e29b8b31b4be23052275b2b28
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/10/2020
+ms.openlocfilehash: e9a24daeeab906419416a3a10fda901c91d9fb33
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746840"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863216"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para uma instância gerenciada do banco de dados SQL do Azure online usando DMS
 
@@ -44,7 +44,7 @@ Neste tutorial, você aprenderá como:
 > Para uma experiência ideal de migração, a Microsoft recomenda a criação de uma instância do Serviço de Migração de Banco de Dados do Azure na mesma região do Azure do banco de dados de destino. Mover dados entre regiões ou áreas geográficas pode desacelerar o processo de migração e introduzir erros.
 
 > [!IMPORTANT]
-> É importante reduzir a duração do processo de migração online o máximo possível para minimizar o risco de interrupção causada pela reconfiguração da instância ou pela manutenção planejada. No caso desse evento, o processo de migração será iniciado desde o início. No caso de manutenção planejada, há um período de carência de 36 horas antes da reinicialização do processo de migração.
+> Reduza a duração do processo de migração online o máximo possível para minimizar o risco de interrupção causada pela reconfiguração da instância ou pela manutenção planejada. No caso desse evento, o processo de migração será iniciado desde o início. No caso de manutenção planejada, há um período de carência de 36 horas antes da reinicialização do processo de migração.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -70,7 +70,7 @@ Para concluir este tutorial, você precisará:
     > [!IMPORTANT]
     > Em relação à conta de armazenamento usada como parte da migração, é necessário:
     > * Optar por permitir que toda a rede acesse a conta de armazenamento.
-    > * Configure as ACLs para a rede virtual. Para obter mais informações, confira o artigo [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+    > * Ative a [delegação de sub-rede](https://docs.microsoft.com/azure/virtual-network/manage-subnet-delegation) na sub-rede mi e atualize as regras de firewall da conta de armazenamento para permitir essa sub-rede.
 
 * Verifique se as regras do grupo de segurança de rede de rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o serviço de migração de banco de dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG de rede virtual, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure o [Firewall do Windows para acesso ao mecanismo de banco de dados de fonte](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -208,7 +208,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     | | |
     |--------|---------|
-    |**Compartilhamento do local de rede SMB** | O compartilhamento de rede SMB local ou o compartilhamento de arquivo do Azure que contém os arquivos de backup do banco de dados completos e os arquivos de backup do log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”.|
+    |**Compartilhamento do local de rede SMB** | O compartilhamento de rede SMB local ou o compartilhamento de arquivo do Azure que contém os arquivos de backup do banco de dados completos e os arquivos de backup do log de transações que o Serviço de Migração de Banco de Dados do Azure pode usar para migração. A conta de serviço que executa a instância do SQL Server de origem precisa ter privilégios de leitura\gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”. Para melhorar o desempenho, é recomendável usar pasta separada para cada banco de dados a ser migrado. Você pode fornecer o caminho de compartilhamento de arquivo de nível de banco de dados usando a opção **Configurações avançadas** . |
     |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O serviço de migração de banco de dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para operação de restauração. Se estiver usando o compartilhamento de arquivo do Azure, use o nome da conta de armazenamento com o prefixo AZURE \ como nome de usuário. |
     |**Senha** | Senha do usuário. Se estiver usando o compartilhamento de arquivo do Azure, use uma chave de conta de armazenamento como senha. |
     |**Assinatura da Conta de Armazenamento do Azure** | Selecione a assinatura que contém a Conta de Armazenamento do Azure. |
@@ -216,10 +216,11 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
+    > [!NOTE]
+    > Se o serviço de migração de banco de dados do Azure mostrar o erro ' erro do sistema 53 ' ou ' erro do sistema 57 ', a causa poderá resultar de uma incapacidade do serviço de migração de banco de dados do Azure de acessar o compartilhamento de arquivos do Azure Se encontrar um desses erros, permita acesso à conta de armazenamento por meio da rede virtual usando as instruções disponíveis [aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-> [!NOTE]
-  > Se o Serviço de Migração de Banco de Dados do Azure mostrar o “Erro do Sistema 53” ou o “Erro do Sistema 57”, a causa poderá ser a incapacidade do Serviço de Migração de Banco de Dados do Azure de acessar o compartilhamento de arquivo do Azure. Se encontrar um desses erros, permita acesso à conta de armazenamento por meio da rede virtual usando as instruções disponíveis [aqui](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
-
+    > [!IMPORTANT]
+    > Se a funcionalidade de verificação de auto-retorno estiver habilitada e o SQL Server de origem e o compartilhamento de arquivos estiverem no mesmo computador, a origem não poderá acessar os arquivos hamento usando o FQDN. Para corrigir esse problema, desabilite a funcionalidade de verificação de auto-retorno usando as instruções [aqui](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
 2. Clique em **Salvar**.
 

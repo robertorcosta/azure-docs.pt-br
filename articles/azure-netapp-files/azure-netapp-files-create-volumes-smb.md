@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300536"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867428"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -40,7 +40,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * As portas adequadas devem estar abertas no servidor Windows Active Directory (AD) aplicável.  
     As portas necessárias são as seguintes: 
 
-    |     O Barramento de           |     Port     |     Protocolo     |
+    |     Serviço           |     Port     |     Protocolo     |
     |-----------------------|--------------|------------------|
     |    Serviços Web do AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -56,9 +56,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
     |    Nome NetBIOS       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    LDAP seguro        |    636       |    TCP           |
-    |    LDAP seguro        |    3269      |    TCP           |
-    |    W32Time            |    123       |    UDP           |
+    |    w32time            |    123       |    UDP           |
 
 * A topologia do site para o Active Directory Domain Services de destino deve aderir às práticas recomendadas, em particular a VNet do Azure onde Azure NetApp Files é implantado.  
 
@@ -168,7 +166,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)

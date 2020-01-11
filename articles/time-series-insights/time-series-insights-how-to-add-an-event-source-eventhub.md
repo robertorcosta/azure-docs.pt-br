@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd57231901c157ffc0d5a3d4219d827629b401f3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c8f123871f1e87a18dadfa82ad6bb27d1c145dc4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764129"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863335"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do hub de eventos ao ambiente do Time Series Insights
 
@@ -28,9 +28,9 @@ Este artigo descreve como usar o portal do Azure para adicionar uma origem do ev
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Crie um ambiente de Time Series Insights conforme descrito em [criar um ambiente de Azure Time Series insights](./time-series-insights-update-create-environment.md).
-- Crie um hub de eventos. Consulte [criar um namespace de hubs de eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md).
+- Crie um hub de eventos. Leia [criar um namespace de hubs de eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md).
 - O hub de eventos deve ter eventos de mensagem ativos enviados a ele. Saiba como [enviar eventos para os hubs de eventos do Azure usando o .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
-- Crie um grupo de consumidores dedicado no hub de eventos do qual o ambiente do Time Series Insights possa consumir. Cada origem do evento do Time Series Insights deve ter seu próprio grupo de consumidores dedicado que não esteja compartilhado com nenhum outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, provavelmente, todos os leitores verão falhas. Há um limite de 20 grupos de consumidores por Hub de Eventos. Para obter detalhes, confira o [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md).
+- Crie um grupo de consumidores dedicado no hub de eventos do qual o ambiente do Time Series Insights possa consumir. Cada origem do evento do Time Series Insights deve ter seu próprio grupo de consumidores dedicado que não esteja compartilhado com nenhum outro consumidor. Se vários leitores consomem eventos do mesmo grupo de consumidores, é provável que todos os leitores apresentem falhas. Há um limite de 20 grupos de consumidores por Hub de Eventos. Para obter detalhes, leia o [Guia de programação dos hubs de eventos](../event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Adicionar um grupo de consumidores ao hub de eventos
 
@@ -50,7 +50,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
 1. Na página **Grupos de consumidores**, insira um novo valor exclusivo para **Nome**.  Use esse mesmo nome ao criar uma nova fonte de evento no ambiente do Time Series Insights.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ## <a name="add-a-new-event-source"></a>Adicionar uma nova origem do evento
 
@@ -76,7 +76,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
        [detalhes da assinatura ![e do hub de eventos](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | Propriedade | Descrição |
+       | Propriedade | Description |
        | --- | --- |
        | Subscription | A assinatura à qual a instância do hub de eventos desejada e o namespace pertencem. |
        | Namespace do Hub de Eventos | O namespace do hub de eventos ao qual a instância do hub de eventos desejada pertence. |
@@ -88,10 +88,10 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
        A tabela a seguir descreve as propriedades necessárias para a opção **Fornecer configurações do Hub de Eventos manualmente**:
  
-       | Propriedade | Descrição |
+       | Propriedade | Description |
        | --- | --- |
        | ID da Assinatura | A assinatura à qual a instância do hub de eventos desejada e o namespace pertencem. |
-       | Resource group | O grupo de recursos ao qual a instância do hub de eventos desejada e o namespace pertencem. |
+       | Grupo de recursos | O grupo de recursos ao qual a instância do hub de eventos desejada e o namespace pertencem. |
        | Namespace do Hub de Eventos | O namespace do hub de eventos ao qual a instância do hub de eventos desejada pertence. |
        | Nome do Hub de Eventos | O nome da instância do hub de eventos desejada. |
        | Valor da política do hub de eventos | Selecione a política de acesso compartilhado desejada. Você pode criar a política de acesso compartilhado na guia **Configurar** o Hub de eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **leitura**. |
@@ -99,7 +99,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
     * Ambas as opções compartilham as seguintes opções de configuração:
 
-       | Propriedade | Descrição |
+       | Propriedade | Description |
        | --- | --- |
        | Grupo de consumidores do Hub de Eventos | O grupo de consumidor que lê os eventos do hub de eventos. Recomendamos que você use um grupo de consumidores dedicado para a origem do evento. |
        | Formato de serialização do evento | No momento, JSON é único o formato de serialização disponível. As mensagens de evento devem estar nesse formato ou os dados não podem ser lidos. |
@@ -107,7 +107,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
 
 1. Adicione o nome de grupo de consumidores do Time Series Insights dedicado que você adicionou ao seu hub de eventos.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
    Depois que a origem do evento é criada, Time Series Insights automaticamente começa a transmitir dados para o seu ambiente.
 

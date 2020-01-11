@@ -3,20 +3,20 @@ title: Analytics usando U-SQL no Azure Data Lake - Processo de Ciência de Dados
 description: Exemplos que orientam o uso do U-SQL no Azure Data Lake para fazer análises de previsão.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0599317d09a1757b3c86372cb7ed8ea78d4cdd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804704"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864172"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Passo a passos de ciência de dados do Azure Data Lake usando U-SQL
 
@@ -27,11 +27,11 @@ Outras instruções passo a passo de ciência de dados que executam o Processo d
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Prever gorjetas de táxi usando U-SQL com Azure Data Lake
 
-O passo a passo [Utilizar o Azure Data Lake para ciência de dados](data-lake-walkthrough.md) mostra como usar o Azure Data Lake para tarefas de exploração de dados e classificação binária em um exemplo do conjunto de dados de táxis de NYC para prever se uma corrida será paga ou não por um cliente. 
+A instrução [Use Azure data Lake para a ciência de dados](data-lake-walkthrough.md) mostra como usar Azure data Lake para a exploração de dados e tarefas de classificação binária.  Os dados são um exemplo de NYC táxi.  A tarefa está prevendo se uma gorjeta é paga ou não por um cliente. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para uma discussão sobre os principais componentes do Processo de Ciência de Dados de Equipe, veja [Visão geral do Processo de Ciência de Dados de Equipe](overview.md).
+Para obter uma visão geral do processo de ciência de dados de equipe, consulte [visão geral do processo de ciência de dados de equipe](overview.md).
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipe que você pode usar para estruturar seus projetos de ciência de dados, veja [Ciclo de vida do Processo de Ciência de Dados de Equipe](lifecycle.md). O ciclo de vida descreve as etapas, do início ao fim, que os projetos normalmente seguem quando são executados. 
+Para obter uma discussão sobre o ciclo de vida do processo de ciência de dados de equipe, consulte [ciclo de vida do processo de ciência de dados](lifecycle.md) Este ciclo de vida descreve as etapas que os projetos geralmente seguem quando são executados. 

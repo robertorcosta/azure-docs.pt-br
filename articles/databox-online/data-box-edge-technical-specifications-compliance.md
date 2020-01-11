@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326889"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863590"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Especificações técnicas de Azure Data Box Edge
 
@@ -35,7 +35,7 @@ Uma FPGA (matriz de Gate programável) de campo é incluída em cada dispositivo
 
 | Especificação           | Valor                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Os modelos de DNN (rede neural profunda) disponíveis são os mesmos [suportados pelas instâncias do Cloud FPGA](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+| FPGA   | Intel Arria 10 <br> Os modelos de DNN (rede neural profunda) disponíveis são os mesmos [suportados pelas instâncias do Cloud FPGA](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
 
 ## <a name="power-supply-unit-specifications"></a>Especificações da unidade de fonte de alimentação
@@ -64,7 +64,7 @@ Os dispositivos Data Box Edge têm 9 X 2,5 "SSDs de NVMe, cada um com uma capaci
 |    Capacidade total                          |    12,8 TB            |
 |    Capacidade total utilizável*                  |    ~ 12,5 TB            |
 
-**Algum espaço é reservado para uso interno.*
+**algum espaço é reservado para uso interno.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões do compartimento e especificações de peso
 
@@ -106,7 +106,7 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 |     Compartimento         |     Intervalo de temperatura ambiente     |     Umidade relativa ao ambiente     |     Ponto de condensação máximo     |
 |-----------------------|--------------------------------------|--------------------------------------|---------------------------|
 |    Operacional        |    10 ° C-35 ° C (50 ° F-86 ° F)         |    10%-80% sem condensação.         |    29° C (84° F)            |
-|    Não operacional    |    -40 ° c a 65 ° c (-40 ° f-149 ° f)     |    5%-95% sem condensação.          |    33°C (91°F)            |
+|    Não operacional    |    -40 ° c a 65 ° c (-40 ° f-149 ° f)     |    5%-95% sem condensação.          |    33 °C (91 °F)            |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Fluxo de ar, altitude, choque, vibração, orientação, segurança e EMC
 
@@ -135,6 +135,6 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 |    40 ° c a 45 ° c (104 ° f a 113 ° f)           |    A temperatura máxima é reduzida em 1 ° c/125 m (1 ° f/228 ft) acima de 950 m (3.117 pés).    |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Implante seu Azure Data Box Edge](data-box-edge-deploy-prep.md)

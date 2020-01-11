@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894846"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861771"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights usando um hub de eventos
 
@@ -24,7 +24,7 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 
-1. Para saber como criar um hub de eventos, confira a [documentação dos Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/).
+1. Para saber como criar um hub de eventos, leia a [documentação dos hubs de eventos](https://docs.microsoft.com/azure/event-hubs/).
 1. Na caixa de pesquisa, pesquise **Hubs de Eventos**. Na lista retornada, selecione **Hubs de Eventos**.
 1. Selecione seu hub de eventos.
 1. Ao criar um hub de eventos, você está criando um namespace de Hub de eventos. Se você ainda não criou um hub de eventos dentro do namespace, no menu, em **entidades**, crie um hub de eventos.  
@@ -55,13 +55,13 @@ Este artigo explica como criar e configurar um hub de eventos nos hubs de evento
 
 ## <a name="add-a-time-series-insights-instance"></a>Adicionar uma instância do Time Series Insights
 
-A atualização do Time Series Insights usa instâncias para adicionar dados contextuais aos dados de telemetria recebidos. Os dados são unidos no momento da consulta usando uma **ID da série temporal**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo é `id`. Para saber mais sobre as instâncias do time Series insights e a **ID da série temporal**, confira [modelos de série temporal](./time-series-insights-update-tsm.md).
+A atualização do Time Series Insights usa instâncias para adicionar dados contextuais aos dados de telemetria recebidos. Os dados são unidos no momento da consulta usando uma **ID da série temporal**. A **ID da série temporal** para o projeto Windmills de exemplo que usamos mais adiante neste artigo é `id`. Para saber mais sobre as instâncias do time Series insights e a **ID da série temporal**, leia [modelos de série temporal](./time-series-insights-update-tsm.md).
 
 ### <a name="create-a-time-series-insights-event-source"></a>Criar uma origem de evento do Time Series Insights
 
 1. Se você ainda não criou uma origem de evento, conclua as etapas para [criar uma origem de evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-1. Defina um valor para `timeSeriesId`. Para saber mais sobre **ID da série temporal**, consulte [Modelos do Time Series](./time-series-insights-update-tsm.md).
+1. Defina um valor para `timeSeriesId`. Para saber mais sobre a **ID da série temporal**, leia [modelos de série temporal](./time-series-insights-update-tsm.md).
 
 ### <a name="push-events-to-windmills-sample"></a>Enviar eventos por push para o exemplo de Windmills
 
@@ -73,14 +73,14 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
     [![copiar o valor da cadeia de conexão de chave primária](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Vá para https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL executa dispositivos de moinho simulados.
+1. Ir para https://tsiclientsample.azurewebsites.net/windFarmGen.html. A URL executa dispositivos de moinho simulados.
 1. Na caixa **cadeia de conexão do hub de eventos** na página da Web, Cole a cadeia de conexão que você copiou no [campo de entrada Windmill](#push-events-to-windmills-sample).
   
     [![colar a cadeia de conexão de chave primária na caixa Cadeia de conexão do hub de eventos](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Selecione **Clique para iniciar**. O simulador gera uma instância JSON que você pode usar diretamente.
 
-1. Volte ao seu hub de eventos no portal do Azure. Na página **visão geral** , você verá os novos eventos que são recebidos pelo hub de eventos.
+1. Volte ao seu hub de eventos no portal do Azure. Na página **visão geral** , os novos eventos recebidos pelo hub de eventos são exibidos.
 
     [![uma página de visão geral do hub de eventos que mostra as métricas para o Hub de eventos](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
@@ -99,7 +99,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 * **Saída**: um evento.
 
-    |ID|timestamp|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -122,7 +122,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 * **Saída**: dois eventos.
 
-    |ID|timestamp|
+    |id|timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -149,7 +149,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 * **Saída**: dois eventos. A propriedade **location** é copiada para cada evento.
 
-    |location|events.id|events.timestamp|
+    |local|events.id|events.timestamp|
     |--------|---------------|----------------------|
     |Oeste dos EUA|device1|2016-01-08T01:08:00Z|
     |Oeste dos EUA|device2|2016-01-08T01:17:00Z|
@@ -190,7 +190,7 @@ A atualização do Time Series Insights usa instâncias para adicionar dados con
 
 * **Saída**: dois eventos.
 
-    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |local|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device1|2016-01-08T01:08:00Z|pressão|psi|108.09|
     |Oeste dos EUA|manufacturer1|Leste dos EUA|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|

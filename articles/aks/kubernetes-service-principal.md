@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913500"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867159"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -131,6 +131,8 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
 - Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId`.
 - Nas VMs do nó do agente no cluster kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`
 - Quando você usa o comando [AZ AKs Create][az-aks-create] para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço são gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
+- Se você não passar uma entidade de serviço especificamente em comandos adicionais da CLI do AKS, a entidade de serviço padrão localizada em `~/.azure/aksServicePrincipal.json` será usada.  
+- Opcionalmente, você também pode remover o arquivo aksServicePrincipal. JSON e o AKS criará uma nova entidade de serviço.
 - Quando você exclui um cluster AKS que foi criado por [AZ AKs Create][az-aks-create], a entidade de serviço que foi criada automaticamente não é excluída.
     - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile. clientId* e, em seguida, exclua com [AZ ad app Delete][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
 

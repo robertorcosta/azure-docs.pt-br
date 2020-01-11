@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa3bcb0ba16c976706c70bbc76daeb8b418a74ea
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9aace01e2f3d514ee5f4b406f4067e104151e5d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764007"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863318"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem do evento do hub IoT ao seu ambiente do Time Series Insights
 
@@ -30,7 +30,7 @@ Este artigo descreve como usar o portal do Azure para adicionar uma origem do ev
 * Criar um [ambiente do Azure Time Series Insights](time-series-insights-update-create-environment.md).
 * Criar um [Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md).
 * O hub IoT precisa ter eventos de mensagem ativos enviados.
-* Crie um grupo de consumidores dedicado no hub IoT para o ambiente do Time Series Insights de onde você consumirá. Cada origem do evento do Time Series Insights deve ter seu próprio grupo de consumidores dedicado que não esteja compartilhado com nenhum outro consumidor. Se vários leitores consumirem eventos do mesmo grupo de consumidores, provavelmente, todos os leitores verão falhas. Para obter detalhes, confira o [Guia do desenvolvedor do Hub IoT do Azure](../iot-hub/iot-hub-devguide.md).
+* Crie um grupo de consumidores dedicado no hub IoT para o ambiente do Time Series Insights de onde você consumirá. Cada origem do evento do Time Series Insights deve ter seu próprio grupo de consumidores dedicado que não esteja compartilhado com nenhum outro consumidor. Se vários leitores consomem eventos do mesmo grupo de consumidores, é provável que todos os leitores apresentem falhas. Para obter detalhes, leia o [Guia do desenvolvedor do Hub IOT do Azure](../iot-hub/iot-hub-devguide.md).
 
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
 
@@ -72,7 +72,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
        [![novo painel de origem do evento-Propriedades a serem definidas na opção usar o Hub IoT de assinaturas disponíveis](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | Propriedade | Descrição |
+       | Propriedade | Description |
        | --- | --- |
        | Subscription | A assinatura à qual o Hub IOT desejado pertence. |
        | Nome do Hub IoT | O nome do Hub IOT selecionado. |
@@ -83,17 +83,17 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
       A tabela a seguir descreve as propriedades necessárias para **Fornecer configurações do Hub IoT manualmente**:
 
-       | Propriedade | Descrição |
+       | Propriedade | Description |
        | --- | --- |
        | ID da Assinatura | A assinatura à qual o Hub IOT desejado pertence. |
-       | Resource group | O nome do grupo de recursos no qual o hub IoT foi criado. |
+       | Grupo de recursos | O nome do grupo de recursos no qual o hub IoT foi criado. |
        | Nome do Hub IoT | O nome de seu hub IoT. Quando criou o hub IoT, você inseriu um nome para ele. |
        | Nome da política do Hub IoT | A política de acesso compartilhado. Você pode criar a política de acesso compartilhado na guia Configurações do Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **conexão de serviço**. |
        | Chave de política do Hub IoT | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço do Azure. Insira aqui a chave primária ou secundária. |
 
     * Ambas as opções compartilham as seguintes opções de configuração:
 
-       | Propriedade | Descrição |
+       | Propriedade | Description |
        | --- | --- |
        | Grupo de consumidores do Hub IoT | O grupo de consumidores que lê eventos do hub IoT. Recomendamos que você use um grupo de consumidores dedicado para a origem do evento. |
        | Formato de serialização do evento | No momento, JSON é único o formato de serialização disponível. As mensagens de evento deverão estar no formato a seguir ou nenhum dado poderá ser lido. |
@@ -102,7 +102,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. Adicione o nome do grupo de consumidores do Time Series Insights dedicado que você adicionou ao seu hub IoT.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 1. Depois que a origem do evento é criada, o Time Series Insights inicia automaticamente os dados de streaming para o seu ambiente.
 

@@ -2,13 +2,14 @@
 title: Matriz de suporte para recuperação de desastre de VM do Azure com Azure Site Recovery
 description: Resume o suporte para a recuperação de desastre de VMs do Azure em uma região secundária com Azure Site Recovery.
 ms.topic: article
-ms.date: 12/23/2019
-ms.openlocfilehash: b8809682f4d2bed72eec1d64b2ac40b664237632
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551583"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863920"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -202,7 +203,7 @@ Redundância | Há suporte para LRS e GRS.<br/><br/> Não há suporte para ZRS.
 Armazenamento frio e quente | Sem suporte | Discos de VM não são suportados em armazenamento fresco e quente
 Espaços de Armazenamento | Com suporte |
 Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em contas de armazenamento.   
-Criptografia em repouso (CMK) | Sem suporte |   
+Criptografia em repouso (CMK) | Com suporte | As chaves de software e HSM têm suporte para discos gerenciados    
 Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Com suporte para VMs com discos gerenciados. Não há suporte para VMs que usam discos não gerenciados |
 ADE (Azure Disk Encryption) para sistema operacional Linux | Com suporte |
 Adição a quente | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados.

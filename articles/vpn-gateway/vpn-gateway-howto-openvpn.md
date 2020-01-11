@@ -1,5 +1,5 @@
 ---
-title: 'Como configurar o OpenVPN para Gateway de VPN do Azure: PowerShell | Microsoft Docs'
+title: 'Como configurar o OpenVPN no gateway de VPN do Azure: PowerShell'
 description: Etapas para configurar o OpenVPN para Gateway de VPN do Azure
 services: vpn-gateway
 author: cherylmc
@@ -7,27 +7,27 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: 609c2ef91fafe0ae955252a594292d861e772f87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02514285570b764c6f7392b789f2ff7b427bb3a6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002954"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863750"
 ---
-# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurar OpenVPN para o Gateway de VPN ponto a site do Azure
+# <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurar o OpenVPN para gateway de VPN ponto a site do Azure
 
-Este artigo ajuda você a configurar **OpenVPN® protocolo** no Gateway de VPN do Azure. O artigo supõe que você já tem um ambiente de trabalho de ponto a site. Se você não tiver, use as instruções na etapa 1 para criar uma VPN ponto a site.
+Este artigo ajuda você a configurar o **protocolo OpenVPN®** no gateway de VPN do Azure. O artigo supõe que você já tem um ambiente de trabalho de ponto a site. Se você não tiver, use as instruções na etapa 1 para criar uma VPN ponto a site.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="vnet"></a>1. Criar uma VPN ponto a site
+## <a name="vnet"></a>1. criar uma VPN ponto a site
 
 Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Veja [Criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site com a autenticação de certificado nativa do Azure. 
 
 > [!IMPORTANT]
 > Não há suporte para o SKU Básico no OpenVPN.
 
-## <a name="enable"></a>2. Habilitar OpenVPN no gateway
+## <a name="enable"></a>2. habilitar OpenVPN no gateway
 
 Habilite o OpenVPN no gateway. Verifique se o gateway já está configurado para ponto a site (IKEv2 ou SSTP) antes de executar os comandos a seguir:
 
@@ -36,8 +36,8 @@ $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para configurar clientes para OpenVPN, veja [Configurar clientes do OpenVPN](vpn-gateway-howto-openvpn-clients.md).
 
-**"OpenVPN" é uma marca registrada da Inc OpenVPN.**
+**"OpenVPN" é uma marca comercial da OpenVPN Inc.**

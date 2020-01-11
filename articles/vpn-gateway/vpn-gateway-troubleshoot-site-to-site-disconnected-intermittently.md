@@ -1,33 +1,27 @@
 ---
-title: Solucionar problemas de desconexão intermitente da VPN Site a Site do Azure | Microsoft Docs
+title: Solucionar problemas de desconexão de VPN site a site do Azure intermitentemente
 description: Saiba como solucionar o problema em que a conexão VPN Site a Site é desconectada regularmente.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 394062257f09bb0b8cfa6875795b88d35404f87c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058829"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862553"
 ---
-# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solucionar problemas: Desconexão intermitente da VPN Site a Site do Azure
+# <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solução de problemas: desconexão intermitente da VPN Site a Site do Azure
 
 Você poderá observar o problema em que uma conexão VPN Site a Site nova ou existente do Microsoft Azure não é estável ou se desconecta regularmente. Este artigo fornece etapas de solução de problemas para ajudá-lo a identificar e resolver a causa do problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Etapas de solução de problemas
+## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
 ### <a name="prerequisite-step"></a>Etapa de pré-requisito
 
@@ -70,7 +64,7 @@ O Gateway de rede virtual baseado em política tem um limite de 200 pares de sub
 
 O recurso **PFS** pode causar problemas de desconexão. Se o dispositivo VPN tiver o **PFS** habilitado, desabilite o recurso. Em seguida, [atualize a política IPsec do gateway de rede virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md#managepolicy).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar uma conexão Site a Site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configure a política IPsec/IKE para conexões VPN Site a Site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

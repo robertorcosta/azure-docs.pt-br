@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229049"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860938"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure gêmeos Digital práticas recomendadas de segurança
 
@@ -29,7 +29,7 @@ Este artigo resume as principais práticas recomendadas a serem seguidas.
 > [!TIP]
 > Use a [central de segurança do Azure para IOT](https://docs.microsoft.com/azure/asc-for-iot/) para ajudar a detectar ameaças e vulnerabilidades de segurança de IOT.
 
-## <a name="iot-security-best-practices"></a>Práticas recomendadas de segurança de IoT
+## <a name="iot-security-best-practices"></a>Práticas recomendadas de segurança da IoT
 
 Algumas práticas recomendadas de chave para proteger com segurança seus dispositivos IoT incluem:
 
@@ -46,7 +46,7 @@ Algumas práticas importantes para proteger com segurança um espaço IoT inclue
 > [!div class="checklist"]
 > * Criptografe dados persistentes, salvos ou armazenados.
 > * Requerer que senhas ou chaves sejam periodicamente alteradas ou atualizadas.
-> * Limite cuidadosamente o acesso e as permissões por função. Confira a seção [Melhores práticas de controle de acesso baseado em função](#role-based-access-control-best-practices) abaixo.
+> * Limite cuidadosamente o acesso e as permissões por função. Leia a seção [práticas recomendadas de controle de acesso baseado em função](#role-based-access-control-best-practices) abaixo.
 > * Considere uma topologia de rede dividida para que os dispositivos em cada rede sejam isolados dos outros.
 > * Use criptografia avançada. Exigir senhas longas, usar protocolos seguros e [autenticação multifator](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -56,7 +56,7 @@ Algumas práticas importantes para proteger com segurança um espaço IoT inclue
 > Leia [as práticas recomendadas de segurança de IOT](../iot-fundamentals/iot-security-best-practices.md) do Azure para iniciar uma estratégia de segurança de IOT abrangente.
 
 > [!NOTE]
-> Para obter mais informações sobre processamento e monitoramento de eventos, consulte [Rotear eventos e mensagens com os Gêmeos Digitais do Azure](./concepts-events-routing.md).
+> Para obter mais informações sobre o processamento e o monitoramento de eventos, leia [eventos de rota e mensagens com o gêmeos digital do Azure](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Práticas recomendadas do Azure Active Directory
 
@@ -74,7 +74,7 @@ O Azure digital gêmeos usa [Azure Active Directory](https://docs.microsoft.com/
 
 [!INCLUDE [digital-twins-rbac-best-practices](../../includes/digital-twins-rbac-best-practices.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre as práticas recomendadas de IoT do Azure, leia [práticas recomendadas de segurança de IoT](../iot-fundamentals/iot-security-best-practices.md).
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452633"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861720"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
@@ -86,7 +86,7 @@ Para criar um ambiente de visualização de Azure Time Series Insights:
 
 ## <a name="manage-the-environment"></a>Gerenciar o ambiente
 
-É possível gerenciar o ambiente de Versão Prévia do Azure Time Series Insights usando o portal do Azure. Ao gerenciar por meio do portal do Azure, você vê algumas diferenças importantes entre um ambiente de visualização do PAYG Azure Time Series Insights e os ambientes S1 ou S2 geralmente disponíveis:
+É possível gerenciar o ambiente de Versão Prévia do Azure Time Series Insights usando o portal do Azure. Há algumas diferenças importantes entre um ambiente de visualização do PAYG Azure Time Series Insights e os ambientes S1 ou S2 geralmente disponíveis para se lembrar ao gerenciar seu ambiente por meio do portal do Azure:
 
 * A folha **visão geral** da visualização de portal do Azure tem as seguintes alterações:
 

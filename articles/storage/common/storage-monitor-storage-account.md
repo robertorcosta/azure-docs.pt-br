@@ -4,16 +4,16 @@ description: Saiba como monitorar uma conta de armazenamento no Azure usando o p
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211860"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862825"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -53,7 +53,7 @@ Um conjunto de métricas padrão é exibido em gráficos na folha da conta de ar
 Você pode desabilitar a coleta de métricas e o registro em log definindo **Status** como **Desativado**.
 
 > [!NOTE]
-> O Armazenamento do Azure usa o [armazenamento de tabelas](storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, confira: [Como as métricas são armazenadas](storage-analytics-metrics.md#how-metrics-are-stored).
+> O Armazenamento do Azure usa o [armazenamento de tabelas](storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, consulte: [Como as métricas são armazenadas](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalizar gráficos de métricas
@@ -129,19 +129,19 @@ Você pode instruir o Armazenamento do Azure a salvar logs de diagnóstico para 
 >
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento** e o nome da conta de armazenamento para abrir a folha de conta de armazenamento.
-1. Selecione **Diagnóstico** na seção **MONITORAMENTO** da folha de menu.
+1. Selecione **configurações de diagnóstico (clássico)** na seção **monitoramento (clássico)** da folha do menu.
 
     ![Item do menu de diagnóstico em MONITORAMENTO no portal do Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
 1. Verifique se **Status** está definido como **Ativado**e selecione os **Serviços** para os quais deseja habilitar os logs.
 
     ![Configure os logs no portal do Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* em sua conta de armazenamento. Você pode exibir os dados de log usando um gerenciador de armazenamento como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com) ou de forma programática, usando a biblioteca de cliente de armazenamento ou o PowerShell.
 
 Para obter informações sobre como acessar o contêiner de $logs, consulte [log de análise de armazenamento](storage-analytics-logging.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Encontre mais detalhes sobre [métricas, logs e cobrança](storage-analytics.md) para Análise de Armazenamento.

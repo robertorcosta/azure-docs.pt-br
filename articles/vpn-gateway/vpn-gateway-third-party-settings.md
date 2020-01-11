@@ -1,26 +1,19 @@
 ---
-title: Configurações de dispositivo de firewall ou de VPN de terceiros sugeridas pela comunidade para o gateway de VPN do Azure | Microsoft Docs
+title: Configurações de dispositivo de firewall ou VPN de terceiros sugeridas pela Comunidade para o gateway de VPN do Azure
 description: Saiba mais sobre as configurações de dispositivo de firewall ou de VPN de terceiros sugeridas pela comunidade para o gateway de VPN do Azure.
 services: vpn-gateway
-documentationcenter: ''
 author: chadmath
 manager: dcscontentpm
-editor: ''
-tags: azure-vpn-gateway
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aa4650897abcd38fec4d45f57969d4bf30b9d773
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058852"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862706"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configurações de dispositivo de firewall ou de VPN de terceiros sugeridas pela comunidade para o gateway de VPN do Azure
 
@@ -39,7 +32,7 @@ A seguinte tabela lista vários dispositivos comuns e a ajuda relacionada:
 |Cisco ISR  |[Soluções sugeridas pela comunidade para o Cisco ISR na VPN do Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Soluções sugeridas pela comunidade para o Cisco ASR na VPN do Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
 |Sonicwall |Pesquise **VPN do Azure** no [site do Sonicwall](https://www.sonicwall.com/en-us/support) |
-| Ponto de verificação    |Pesquise **VPN do Azure** no [site do Checkpoint](https://supportcenter.checkpoint.com/supportcenter/portal) |
+| Checkpoint    |Pesquise **VPN do Azure** no [site do Checkpoint](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Pesquise **VPN do Azure** no [site do Juniper]( https://www.juniper.net/search/public/)|
 |Barracuda  |[Soluções sugeridas pela comunidade para o Barracuda na VPN do Azure](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[Soluções sugeridas pela comunidade para o F5 na VPN do Azure](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
