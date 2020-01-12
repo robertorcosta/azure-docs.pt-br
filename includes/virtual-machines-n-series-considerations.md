@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/19/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 14f5998ee1c562b649257f7dce9ffc2f52a66226
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 202bffb03a73acde67f0d4a03b31aa9a6fbf9824
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174927"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901625"
 ---
 ## <a name="deployment-considerations"></a>Considerações de implantação
 
@@ -25,7 +25,7 @@ ms.locfileid: "71174927"
 
 * Se você quiser implantar mais do que algumas VMs da Série N, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 
-* Talvez seja necessário aumentar a cota de núcleos (por região) na sua assinatura do Azure, e aumentar a cota separada para núcleos NC, NCv2, NCv3, ND, NDv2, NV, ou NVv2. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitamente. Os limites padrão podem variar dependendo de sua categoria de assinatura.
+* Talvez seja necessário aumentar a cota de núcleos (por região) na sua assinatura do Azure, e aumentar a cota separada para núcleos NC, NCv2, NCv3, ND, NDv2, NV, ou NVv2. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) gratuitamente. Os limites padrão podem variar dependendo de sua categoria de assinatura.
 
 
 

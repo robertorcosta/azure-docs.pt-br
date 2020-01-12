@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 277a745d26961ed509258d5423fc3c0da9b79a24
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: ae357d25a37e188ed043aaa0ca750bb0e52d58da
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219400"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903541"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Controles de segurança para hubs de eventos do Azure
 
@@ -42,14 +42,14 @@ Este artigo documenta os controles de segurança criados nos hubs de eventos do 
 | Controle de segurança | Sim/Não | Observações| Documentação |
 |---|---|--|--|
 | Autenticação| Sim | | [Autorizar o acesso aos hubs de eventos do Azure](authorize-access-event-hubs.md), [autorizar o acesso aos recursos dos hubs de eventos usando Azure Active Directory](authorize-access-azure-active-directory.md), [autorizando o acesso aos recursos dos hubs de eventos usando assinaturas de acesso compartilhado](authorize-access-shared-access-signature.md) |
-| Autorização|  Sim | | [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos](authenticate-managed-identity.md), [autenticar um aplicativo com Azure Active Directory para acessar recursos de hubs de eventos](authenticate-application.md), [autenticar o acesso a recursos de hubs de eventos usando o assinaturas de acesso compartilhado (SAS)](authenticate-shared-access-signature.md) |
+| Autorização|  Sim | | [Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos](authenticate-managed-identity.md), [autenticar um aplicativo com Azure Active Directory para acessar recursos de hubs de eventos](authenticate-application.md), [autenticar o acesso a recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)](authenticate-shared-access-signature.md) |
 
 ## <a name="data-protection"></a>Proteção de dados
 
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |---|---|--|--|
-| Criptografia no lado do servidor em repouso: Chaves gerenciadas pela Microsoft |  Sim | |  |
-| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Não |  |  |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft |  Sim | |  |
+| Criptografia no lado do servidor em repouso: chaves gerenciadas pelo cliente (BYOK) | Sim. Disponível para clusters dedicados. | Uma chave gerenciada pelo cliente no Azure keyvault pode ser usada para criptografar os dados em um hub de eventos em repouso. | [Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure](configure-customer-managed-key.md) |
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |  |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | |  |
 | Chamadas criptografadas à API| Sim |  |  |
@@ -60,6 +60,6 @@ Este artigo documenta os controles de segurança criados nos hubs de eventos do 
 |---|---|--|--|
 | Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | |  |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre os [controles de segurança internos nos serviços do Azure](../security/fundamentals/security-controls.md).

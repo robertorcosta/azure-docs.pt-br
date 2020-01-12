@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771471"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903343"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e Zonas de Disponibilidade
 
@@ -209,10 +209,6 @@ Com redundância de zona, é possível fornecer uma simplicidade com uma opção
 As zonas podem fornecer uma garantia explícita para uma zona, compartilhando explicitamente destino com a integridade da zona. A criação de uma regra de Load Balancer com um endereço IP de zona frontend ou um front-end Load Balancer interno de frontend pode ser desejável especialmente se o recurso anexado for uma máquina virtual zonal na mesma zona.  Ou talvez seu aplicativo exija conhecimento explícito sobre a zona em que um recurso está localizado antecipadamente e você deseja ponderar a disponibilidade em zonas separadas explicitamente.  É possível escolher expor vários front-ends zonais para um serviço de ponta a ponta distribuído entre zonas (ou seja, front-ends zonais por zona para vários conjuntos de dimensionamento de máquinas virtuais zonais).  E se os front-ends zonais forem endereços IP públicos, será possível utilizar esses vários front-ends zonais para expor o serviço com o [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md).  Ou poderá utilizar vários front-ends zonais para obter análises de desempenho e integridade por zona por meio de soluções de monitoramento de terceiros e expor o serviço geral com um front-end com redundância de zona. Você deve atender apenas recursos zonais com front-ends zonais alinhados à mesma zona e evitar cenários entre zonas potencialmente prejudiciais para recursos zonais.  Os recursos zonais existem somente em regiões em que existem zonas de disponibilidade.
 
 Não há nenhuma diretriz geral informando que uma escolha é melhor do que a outra, sem conhecer a arquitetura do serviço.  Examine os [padrões de design de nuvem do Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência do seu aplicativo para cenários de falha.
-
-## <a name="limitations"></a>Limitações
-
-- Enquanto o plano de dados tiver completamente com redundância de zonas (a menos que a garantia zonal tenha sido especificada), as operações do plano de controle não terão total redundância entre zonas.
 
 ## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md)

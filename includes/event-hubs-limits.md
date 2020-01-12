@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: event-hubs
 author: sethmanheim
 ms.service: event-hubs
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 2aca4f2c236112b80e9fc985cf80ccad6d82bde3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996895"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901670"
 ---
 As tabelas a seguir fornecem cotas e limites específicos para os [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -21,18 +21,18 @@ Os limites a seguir são comuns em camadas básica, Standard e dedicada.
 
 | Limite | Escopo | Observações | Valor |
 | --- | --- | --- | --- |
-| Número de namespaces de Hubs de Eventos do Azure por assinatura |Assinatura |- |100 |
+| Número de namespaces de Hubs de Eventos do Azure por assinatura |Subscription |- |100 |
 | Número de hubs de eventos por namespace |Namespace |As solicitações subsequentes para a criação de um novo hub de eventos são rejeitadas. |10 |
 | O número de partições por hub de eventos |Entidade |- |32 |
 | Tamanho máximo do nome de um hub de eventos |Entidade |- |50 caracteres |
 | Número de destinatários sem época por grupo de consumidores |Entidade |- |5 |
-| Unidades de produtividade máxima |Namespace |Exceder o limite de unidade de produtividade faz com que os dados sejam restringidos e gera uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de produtividade para uma camada Standard, arquivo uma [solicitação de suporte](/azure/azure-supportability/how-to-create-azure-support-request). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 |
+| Unidades de produtividade máxima |Namespace |Exceder o limite de unidade de produtividade faz com que os dados sejam restringidos e gera uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de produtividade para uma camada Standard, arquivo uma [solicitação de suporte](/azure/azure-portal/supportability/how-to-create-azure-support-request). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 |
 | Número de regras de autorização por namespace |Namespace|As solicitações subsequentes para a criação da regra de autorização são rejeitadas.|12 |
 | Número de chamadas para o método GetRuntimeInformation | Entidade | - | 50 por segundo | 
 | Número de regras de rede virtual (VNet) e de configuração de IP | Entidade | - | 128 | 
 
 ### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Hubs de eventos básico e padrão-cotas e limites
-| Limite | Escopo | Observações | Basic | Standard |
+| Limite | Escopo | Observações | Básico | Padrão |
 | --- | --- | --- | -- | --- |
 | Tamanho máximo de eventos de Hubs de Eventos|Entidade | &nbsp; | 256 KB | 1 MB |
 | Número de grupos de consumidores por hub de eventos |Entidade | &nbsp; |1 |20 |
@@ -50,10 +50,10 @@ A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um
 | Largura de banda |  20 CUs |
 | Namespaces | 50 por CU |
 | Hubs de Eventos |  1000 por namespace |
-| Eventos de entrada | Incluídas |
-| Tamanho da mensagem | 1 MB |
+| Eventos de entrada | Incluso |
+| Tamanho da Mensagem | 1 MB |
 | Partições | 2000 por CU |
-| Grupos de consumidores | Nenhum limite por CU, 1000 por Hub de eventos |
-| Conexões orientadas | 100.000 incluídos |
-| Retenção de mensagem | 90 dias, 10 TB incluídos por CU |
-| Captura | Incluídas |
+| Grupos de consumo | Nenhum limite por CU, 1000 por Hub de eventos |
+| Conexões agenciadas | 100.000 incluídos |
+| Retenção de Mensagens | 90 dias, 10 TB incluídos por CU |
+| Captura | Incluso |

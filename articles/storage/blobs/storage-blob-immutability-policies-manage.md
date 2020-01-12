@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555672"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903495"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs
 
@@ -57,7 +57,7 @@ Este artigo mostra como definir e gerenciar políticas de imutabilidade e isenç
 
     ![Caixa "Nome da tag" no tipo de política](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Para limpar uma retenção legal, basta remover a marca de identificador de retenção legal aplicada.
+9. Para limpar uma retenção legal, remova a marca de identificador de retenção legal aplicada.
 
 ### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -73,7 +73,7 @@ O módulo AZ. Storage dá suporte ao armazenamento imutável.  Para habilitar o 
 2. Remova qualquer instalação anterior do PowerShell do Azure.
 3. Instale o Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-O exemplo de script do PowerShell a seguir é para referência. Este script cria uma nova conta e contêiner de armazenamento. Em seguida, ele mostra como definir e limpar detenções legais, criar e bloquear uma política de retenção baseada em tempo (também conhecida como política de imutabilidade) e estender o intervalo de retenção.
+O exemplo de script do PowerShell a seguir é para referência. Este script cria uma nova conta e contêiner de armazenamento. Em seguida, ele mostra como definir e limpar as isenções legais, criar e bloquear uma política de retenção baseada em tempo (também conhecida como uma política de imutabilidade) e estender o intervalo de retenção.
 
 Primeiro, crie uma conta de armazenamento do Azure:
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Habilitando o permitir gravações de blobs de acréscimo protegidos
+
+Neste momento, você só pode acessar a configuração de `allowProtectedAppendWrites` para políticas de retenção baseadas em tempo por meio deste [link do portal](https://aka.ms/immutableappendblobs)específico. 
+
+> [!IMPORTANT] 
+>  A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível no momento e visível somente nas seguintes regiões:
+> - Leste dos EUA
+> - Centro-Sul dos EUA
+> - Oeste dos EUA 2
+>
+> Para obter mais informações, consulte [permitir gravações de blobs de acréscimo protegidos](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+![Permitir gravações adicionais de acréscimo](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>Próximos passos
 
