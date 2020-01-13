@@ -1,16 +1,16 @@
 ---
-title: Solucionando problemas
+title: Solução de problemas
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Saiba como solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 64b9cda61e5af3e8b9ea52477b5bf4fa879f48e6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438103"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas Azure Dev Spaces
 
@@ -265,7 +265,7 @@ Para corrigir esse problema, você precisa interromper todos os serviços ou pro
 Por exemplo, para parar e desabilitar o serviço *Windows BranchCache* :
 * Execute `services.msc` no prompt de comando.
 * Clique com o botão direito do mouse em *BranchCache* e selecione *Propriedades*.
-* Clique em *parar*.
+* Clique em *Parar*.
 * Opcionalmente, você pode desabilitá-lo definindo o *tipo de inicialização* como *desabilitado*.
 * Clique em *OK*.
 
@@ -391,7 +391,7 @@ Para atualizar a função RBAC do usuário para o controlador:
     * Para *função*, selecione *colaborador* ou *proprietário*.
     * Para *Atribuir acesso a*, selecione *Usuário, grupo ou entidade de serviço do Azure AD*.
     * Para *selecionar*, pesquise o usuário que você deseja conceder permissões.
-1. Clique em *Salvar*.
+1. Clique em *Save* (Salvar).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
 

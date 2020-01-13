@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838072"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644878"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test Drive do Azure Resource Manager
 
@@ -83,11 +83,11 @@ Também é importante observar que **todos os parâmetros são opcionais**. Port
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceitos
 
-| Tipo de metadados   | Tipo de Parâmetro  | DESCRIÇÃO     | Valor de exemplo    |
+| Tipo de metadados   | Tipo de parâmetro  | Description     | Valor de exemplo    |
 |---|---|---|---|
 | **baseuri**     | cadeia de caracteres          | URI base do seu pacote de implantação| https:\//\<\..\>. blob.core.windows.net/\<\..\> |
-| **nome de usuário**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
-| **senha**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
+| **username**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
+| **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
 | **ID da sessão**   | cadeia de caracteres          | ID da sessão exclusiva do Test Drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>Nome de Usuário
@@ -258,7 +258,7 @@ E, em seguida, usar esse local para todos os recursos para uma instância de lab
 
 Você precisa certificar-se de que sua assinatura tem permissão para implantar todos os recursos que deseja implantar em cada uma das regiões que está selecionando. Além disso, precisa certificar-se de que suas imagens de máquina virtual estão disponíveis em todas as regiões que pretende habilitar; caso contrário, seu modelo de implantação não funcionará para algumas regiões.
 
-### <a name="outputs"></a>Saídas
+### <a name="outputs"></a>outputs
 
 Normalmente, com modelos do Resource Manager, é possível implantar sem produzir nenhuma saída. Isso acontece porque você conhece todos os valores que usa para preencher parâmetros do modelo e pode sempre inspecionar manualmente as propriedades de qualquer recurso.
 
@@ -289,7 +289,7 @@ Exemplo:
 
 Outra coisa que você deve levar em consideração são os limites de assinatura e serviço. Por exemplo, se quiser implantar até dez máquinas virtuais com 4 núcleos, precisará ter certeza de que a assinatura usada para seu laboratório permite o uso de 40 núcleos.
 
-É possível encontrar mais informações sobre os limites de assinatura e serviço do Azure [neste artigo](https://docs.microsoft.com/azure/azure-subscription-service-limits). Como vários Test Drives podem ser feitos ao mesmo tempo, certifique-se de que sua assinatura possa lidar com o \# de núcleos multiplicados pelo número total de Test Drives simultâneos que podem ser realizados.
+É possível encontrar mais informações sobre os limites de assinatura e serviço do Azure [neste artigo](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Como vários Test Drives podem ser feitos ao mesmo tempo, certifique-se de que sua assinatura possa lidar com o \# de núcleos multiplicados pelo número total de Test Drives simultâneos que podem ser realizados.
 
 ### <a name="what-to-upload"></a>O que deve ser transferido por upload
 
@@ -310,11 +310,11 @@ Chamamos um URI desse contêiner de blob de URI base. Cada revisão do seu labor
 
 ## <a name="transforming-template-examples-for-test-drive"></a>Transformando exemplos de modelo para Test Drive
 
-O processo de transformar uma arquitetura de recursos em um modelo do Resource Manager para Test Drive pode ser desanimador. Para ajudar a facilitar esse processo, criamos exemplos da melhor maneira de \'transformar os modelos de implantação atuais aqui[.
+O processo de transformar uma arquitetura de recursos em um modelo do Resource Manager para Test Drive pode ser desanimador. Para ajudar a facilitar esse processo, criamos exemplos da melhor maneira de [transformar os modelos de implantação atuais aqui](./transforming-examples-for-test-drive.md).
 
 ## <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 
-Agora que você compilou seu Test Drive, esta seção mostra cada um dos campos necessários para conseguir publicá-lo.
+Agora que o seu Test Drive foi criado, esta seção explicará cada um dos campos necessários para publicá-lo com êxito.
 
 ![Habilitando o Test Drive na interface do usuário](./media/azure-resource-manager-test-drive/howtopub1.png)
 
@@ -328,30 +328,30 @@ A próxima seção para preencher são os detalhes sobre sua oferta de Test Driv
 
 ![Informações detalhadas do Test Drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrição –** *Obrigatório* É o local em que você escreve a descrição principal daquilo que consta no seu Test Drive. O cliente virá aqui para ler sobre os cenários que seu Test Drive cobrirá em relação ao produto. 
+**Descrição –** é *necessário* que você escreva a descrição principal sobre o que está em seu Test Drive. O cliente usará este recurso para ler sobre os cenários relacionados ao produto, incluídos no seu Test Drive. 
 
-**Manual do Usuário -** *Obrigatório* Trata-se do passo a passo detalhado da sua experiência de Test Drive. O cliente vai abri-lo e poderá ver exatamente o que você deseja que ele faça durante seu Test Drive. É importante que o conteúdo seja fácil de entender e seguir! Deve ser um arquivo .pdf.
+**Manual do usuário –** *necessário* este é o passo a passos detalhados de sua experiência de teste de unidade. O cliente vai abri-lo e poderá ver exatamente o que você deseja que ele faça durante seu Test Drive. É importante que o conteúdo seja fácil de entender e seguir! Deve ser um arquivo .pdf.
 
-**Vídeo de Demonstração do Test Drive –** *Recomendado* De modo semelhante ao Manual do Usuário, é melhor incluir um tutorial em vídeo da sua experiência com o Test Drive. O cliente vai assisti-lo antes ou durante o Test Drive e poderá ver exatamente o que você deseja que ele faça durante seu Test Drive. É importante que o conteúdo seja fácil de entender e seguir!
+**Vídeo de demonstração do Test Drive –** *recomendado* de forma semelhante ao manual do usuário, é melhor incluir um tutorial em vídeo de sua experiência de teste de unidade. O cliente vai assisti-lo antes ou durante o Test Drive e poderá ver exatamente o que você deseja que ele faça durante seu Test Drive. É importante que o conteúdo seja fácil de entender e seguir!
 
 - **Nome** – Título do vídeo
-- **Link** – Precisa ser uma URL inserida do tubo ou vídeo. Segue um exemplo de como obter a URL inserida:
+- **Link** – Precisa ser uma URL inserida do tubo ou vídeo. A seguir há um exemplo de como obter a URL inserida:
 - **Miniatura** ‒ Deve ser uma imagem de alta qualidade em pixels (533 x 324). É recomendável fazer uma captura de tela de alguma parte da sua experiência com o Test Drive aqui.
 
 Veja abaixo como esses campos aparecem para o cliente durante a experiência com o Test Drive.
 
 ![Localização dos campos do Test Drive na oferta do Marketplace](./media/azure-resource-manager-test-drive/howtopub4.png)
 
-### <a name="technical-configuration"></a>Configuração técnica
+### <a name="technical-configuration"></a>Configuração Técnica
 
 Na próxima seção para preenchimento, você faz upload do modelo do Resource Manager para Test Drive e define com qual especificidade suas instâncias do Test Drive funcionam.
 
 ![](./media/azure-resource-manager-test-drive/howtopub5.png)
 
-**Instâncias -** *Obrigatório* É aqui que você configura quantas instâncias deseja, em quais regiões e em que velocidade seus clientes podem obter o Test Drive.
+**Instâncias –** *obrigatório* é onde você configura quantas instâncias deseja, em quais regiões e a rapidez com que os clientes podem obter o Test Drive.
 
 - **Instâncias** – Em Regiões selecionadas, você escolhe onde seu modelo do Resource Manager para Test Drive será implantado. É recomendável escolher apenas uma região em que espera que a maioria dos seus clientes esteja localizada.
-- **Quente** – Número de instâncias do Test Drive que já foram implantadas e estão aguardando acesso por região selecionada. Os clientes podem acessar esse Test Drives instantaneamente em vez de ter que esperar por uma implantação. A desvantagem é que tais instâncias estão sempre em execução na sua assinatura do Azure; portanto, incorrerão em um maior custo de tempo de atividade. É altamente recomendável ter **pelo menos uma instância quente**, pois a maioria dos seus clientes não quer esperar pelo término de implantações completas e ocorre uma diminuição no uso pelos clientes.
+- **Quente** – Número de instâncias do Test Drive que já foram implantadas e estão aguardando acesso por região selecionada. Os clientes podem acessar esses Test Drives instantaneamente em vez de ter que esperar por uma implantação. A desvantagem é que tais instâncias estão sempre em execução na sua assinatura do Azure; portanto, incorrerão em um maior custo de tempo de atividade. É altamente recomendável ter **pelo menos uma instância quente**, pois a maioria dos seus clientes não quer esperar pelo término de implantações completas e ocorre uma diminuição no uso pelos clientes.
 - **Morno** – Número de instâncias do Test Drive por região que foram implantadas e, em seguida, a VM foi interrompida e armazenada no armazenamento do Azure. O tempo de espera para instâncias mornas é mais lento do que para instâncias quentes; porém, o custo de tempo de atividade do armazenamento é mais barato.
 - **Frio** – Número de instâncias do Test Drive por região que podem ser possivelmente implantadas. As instâncias frias exigem que o modelo do Resource Manager para Test Drive inteiro passe por uma implantação no momento em que um cliente solicita o Test Drive; portanto, são mais lentas do que as instâncias quentes ou mornas. Entretanto, a desvantagem é que você precisa pagar apenas enquanto durar o Test Drive.
 
@@ -359,23 +359,23 @@ Neste momento, calcula-se o número total de possíveis Test Drives simultâneos
 
 **(Número de regiões selecionadas x instâncias quentes) + (Número de regiões selecionadas x instâncias mornas) + (Número de regiões selecionadas x instâncias frias)**
 
-**Duração do Test Drive (horas) -** *Obrigatório* Período durante o qual o Test Drive permanecerá ativa, em \# de horas. O Test Drive é encerrado automaticamente após o término desse período de tempo.
+**Duração da unidade de teste (horas) –** duração *exigida* por quanto tempo a unidade de teste permanecerá ativa, em \# de horas. O Test Drive é encerrado automaticamente após o término desse período de tempo.
 
-**Modelo do Resource Manager para Test Drive -** *Obrigatório* Faça upload do seu modelo do Resource Manager aqui. É o arquivo que você compilou na seção anterior acima. Nomeie o arquivo de modelo principal como "main-Template. JSON" e certifique-se de que seu modelo do Resource Manager contém parâmetros de saída para as principais variáveis que são necessárias. (Deve ser um arquivo. zip)
+**Testar o modelo do Resource Manager-** é *necessário* carregar seu modelo do Resource Manager aqui. É o arquivo que você compilou na seção anterior acima. Nomeie o arquivo de modelo principal como "main-Template. JSON" e certifique-se de que seu modelo do Resource Manager contém parâmetros de saída para as principais variáveis que são necessárias. (Deve ser um arquivo. zip)
 
-**Informações de acesso -** *Obrigatório* Depois que um cliente obtém seu Test Drive, as informações de acesso são apresentadas a ele. Essas instruções servem para compartilhar os parâmetros de saída úteis do seu modelo do Resource Manager para Test Drive. Para incluir parâmetros de saída, utilize chaves duplas (por exemplo, **{{outputname}}** ); eles serão inseridos corretamente no local. A formatação da cadeia de caracteres HTML é recomendada aqui para renderizar no front-end.
+**Informações de acesso –** *necessárias* depois que um cliente obtém seu Test Drive, as informações de acesso são apresentadas a eles. Essas instruções servem para compartilhar os parâmetros de saída úteis do seu modelo do Resource Manager para Test Drive. Para incluir parâmetros de saída, utilize chaves duplas (por exemplo, **{{outputname}}** ); eles serão inseridos corretamente no local. A formatação da cadeia de caracteres HTML é recomendada aqui para renderizar no front-end.
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalhes da assinatura para implantação do Test Drive
 
-A seção final para preenchimento deve ser capaz de implantar os Test Drives automaticamente conectando sua Assinatura do Azure e o AD (Azure Active Directory).
+A seção final a ser preenchida deve habilitar a implementação  automática dos Test Drives, conectando sua Assinatura do Azure e do Azure AD (Azure Active Directory).
 
 ![Detalhes da assinatura para implantação do Test Drive](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**ID da Assinatura do Azure -** *Obrigatório* Concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Caso ainda não tenha uma Assinatura do Azure **separada** apenas para Test Drives, crie uma. Para encontrar as IDs de Assinatura do Azure, entre no portal do Azure e navegue até Assinaturas no menu do lado esquerdo. (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")
+**ID de assinatura do Azure-** *necessária* isso concede acesso aos serviços do Azure e ao portal do Azure. A assinatura é onde o uso de recursos é relatado e os serviços são cobrados. Caso ainda não tenha uma Assinatura do Azure **separada** apenas para Test Drives, crie uma. Para encontrar as IDs de Assinatura do Azure, entre no portal do Azure e navegue até Assinaturas no menu do lado esquerdo. (Exemplo: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
 ![Assinaturas do Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**ID do Locatário do Azure AD –** *Obrigatório* Se tiver uma ID do Locatário já disponível, poderá encontrá-la abaixo em Propriedades –\> ID do Diretório.
+**ID de locatário do Azure ad –** *obrigatório* se você já tiver uma ID de locatário disponível, poderá encontrá-la abaixo na ID de diretório de\> de propriedades.
 
 ![Propriedades do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails3.png)
 
@@ -387,7 +387,7 @@ Caso contrário, crie um novo Locatário no Azure Active Directory.
 
 ![Confirmar a seleção](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**ID do Aplicativo Azure AD -** *Obrigatório* A próxima etapa é criar e registrar um novo aplicativo. Usaremos esse aplicativo para realizar operações em sua instância do Test Drive.
+**ID de aplicativo Azure ad –** a próxima etapa *necessária* é criar e registrar um novo aplicativo. Usaremos esse aplicativo para realizar operações em sua instância do Test Drive.
 
 1. Navegue até o diretório criado recentemente ou o diretório preexistente e selecione o Azure Active Directory no painel de filtro.
 2. Pesquise "Registros de aplicativo" e clique em "Adicionar"
@@ -404,19 +404,19 @@ Clique em Salvar. O último passo é pegar o ID do aplicativo para esse aplicati
 Como estamos usando o aplicativo para implantar a assinatura, precisamos adicionar o aplicativo como colaborador na assinatura. Estas são as instruções:
 
 1. Navegue até a folha Assinaturas e selecione a assinatura adequada que você usa apenas para o Test Drive.
-1. Clique em **controle de acesso (IAM)** .
+1. Clique em **Controle de acesso (IAM)** .
 1. Clique na guia **atribuições de função** .  ![adicionar um novo](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg) principal de controle de acesso
 1. Clique em **Adicionar atribuição de função**.
 1. Defina a função como **Colaborador**.
 1. Digite o nome do aplicativo do Azure AD e selecione o aplicativo para atribuir a função.
     ![Adicione as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
-**Chave do Aplicativo Azure AD -** *Obrigatório* O campo final é para a geração de uma chave de autenticação. Em chaves, adicione uma Descrição da chave, defina a duração para nunca expirar e, em seguida, selecione Salvar. É **importante** evitar ter uma chave expirada, que interromperá seu Test Drive na produção. Copie esse valor e cole-o no campo Test Drive obrigatório.
+**Chave de aplicativo Azure ad-** *obrigatório* o campo final é gerar uma chave de autenticação. Em chaves, adicione uma Descrição da chave, defina a duração para nunca expirar e, em seguida, selecione Salvar. É **importante** evitar ter uma chave expirada, que interromperá seu Test Drive na produção. Copie esse valor e cole-o no campo Test Drive obrigatório.
 
 ![Mostra as chaves para o aplicativo Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que preencheu todos os campos do Test Drive, prossiga e **Republique** sua oferta. Quando o Test Drive passar na certificação, você deve testar extensivamente a experiência do cliente na **versão prévia** da sua oferta. Inicie um Test Drive na interface do usuário; depois, abra sua Assinatura do Azure dentro do portal do Azure e verifique se seus Test Drives estão sendo totalmente implantados de forma correta.
 
@@ -424,6 +424,6 @@ Agora que preencheu todos os campos do Test Drive, prossiga e **Republique** sua
 
 É importante cuidar para não excluir nenhuma instância do Test Drive conforme elas são provisionadas para seus clientes. Assim, o serviço do Test Drive removerá automaticamente esses Grupos de Recursos depois que um cliente tiver encerrado.
 
-Quando estiver satisfeito com a oferta de versão prévia, será a hora de **ativá-la**. Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
+Quando estiver se sentindo confortável com sua oferta de versão prévia, é hora de **ativar**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
 
 Se você tiver mais dúvidas, estiver procurando ajuda para a solução de problemas ou quiser um test drive de maior sucesso, acesse [FAQ, Troubleshooting, & Best Practices](./marketing-and-best-practices.md) (Perguntas frequentes, solução de problemas e práticas recomendadas).

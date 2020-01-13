@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: 52e91b6b5cacef8ed7d0d9b578a8dd4f21e1a271
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 80f984643d6d8be88b381881c6fc1cb1cb5f1815
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091693"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887335"
 ---
 # <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>Cenário: Bindexception-o endereço já está em uso no Azure HDInsight
 
@@ -20,7 +20,7 @@ Este artigo descreve as etapas de solução de problemas e as possíveis resolu�
 
 ## <a name="issue"></a>Problema
 
-A operação de reinicialização em um servidor de região do Apache HBase não é concluída. No diretório `/var/log/hbase` in nos nós de trabalho em que o servidor de região é iniciado, você pode ver uma mensagem de erro semelhante à seguinte: `region-server.log`
+A operação de reinicialização em um servidor de região do Apache HBase não é concluída. Na `region-server.log` no diretório `/var/log/hbase` nos nós de trabalho em que o servidor de região é iniciado, você poderá ver uma mensagem de erro semelhante à seguinte:
 
 ```
 Caused by: java.net.BindException: Problem binding to /10.2.0.4:16020 : Address already in use
@@ -42,11 +42,11 @@ Reiniciando servidores de região do Apache HBase durante atividade de carga de 
 
 1. Após 30 segundos, o agente do Ambari envia um comando (`kill -9`) de encerramento forçado ao servidor de região.
 
-1. Devido a esse desligamento abrupta, embora o processo do servidor de região seja eliminado, a porta associada ao processo pode não ser liberada `AddressBindException`, o que eventualmente acarreta.
+1. Devido a esse desligamento abrupta, embora o processo do servidor de região seja encerrado, a porta associada ao processo pode não ser liberada, o que, eventualmente, leva a `AddressBindException`.
 
 ## <a name="resolution"></a>Resolução
 
-Reduza a carga nos servidores de região do HBase antes de iniciar uma reinicialização. Além disso, convém primeiro liberar todas as tabelas. Para obter uma referência de como liberar tabelas, confira [HDInsight HBase: Como melhorar o tempo de reinicialização do cluster HBase Apache liberando tabelas](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Reduza a carga nos servidores de região do HBase antes de iniciar uma reinicialização. Além disso, convém primeiro liberar todas as tabelas. Para obter uma referência sobre como liberar tabelas, confira [HDInsight HBase: como melhorar o tempo de reinicialização do cluster Apache HBase liberando tabelas](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Como alternativa, tente reiniciar manualmente os servidores de região nos nós de trabalho usando os seguintes comandos:
 
@@ -55,12 +55,12 @@ sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
 * Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) -a conta de Microsoft Azure oficial para melhorar a experiência do cliente. Conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
