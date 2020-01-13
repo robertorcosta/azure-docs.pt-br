@@ -1,18 +1,18 @@
 ---
 title: Verifique se há erros de pool e dos nós - Lote do Microsoft Azure
-description: Erros a serem verificados e como evitá-los ao criar pools e nós
+description: Este artigo aborda as operações em segundo plano que podem ocorrer, juntamente com erros a serem verificados e como evitá-los ao criar pools e nós.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350055"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449780"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -140,6 +140,6 @@ Para arquivos gravados por cada tarefa, um tempo de retenção pode ser especifi
 Se o espaço em disco temporário for preenchido, no momento, o nó interromperá a execução das tarefas. No futuro, um [erro de nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) será relatado.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Verifique se definiu seu aplicativo para implementar a verificação de erro abrangente, especialmente para operações assíncronas. Isso pode ser fundamental para detectar e diagnosticar problemas imediatamente.

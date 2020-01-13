@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 019c44cedba166dc1ac06a0244fa2b2e7930e673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230365"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561860"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions o processamento confiável de eventos
 
@@ -59,7 +59,7 @@ Como regra geral, cada função deve incluir um [bloco try/catch](./functions-bi
 
 ### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de repetição
 
-Algumas exceções são transitórias por natureza e não são reexibidas quando uma operação é tentada novamente mais tarde. É por isso que a primeira etapa é sempre repetir a operação. Você pode escrever novas regras de processamento, mas elas são tão comuns que várias ferramentas disponíveis. O uso dessas bibliotecas permite que você defina políticas de repetição robustas, que também podem ajudar a preservar a ordem de processamento.
+Algumas exceções são transitórias por natureza e não são reexibidas quando uma operação é tentada novamente mais tarde. É por isso que a primeira etapa é sempre repetir a operação. Você pode escrever novas regras de processamento, mas elas são tão comuns que várias ferramentas estão disponíveis. O uso dessas bibliotecas permite que você defina políticas de repetição robustas, que também podem ajudar a preservar a ordem de processamento.
 
 A introdução de bibliotecas de tratamento de falhas às suas funções permite que você defina políticas básicas e avançadas de repetição. Por exemplo, você pode implementar uma política que segue um fluxo de trabalho ilustrado pelas seguintes regras:
 
@@ -82,7 +82,7 @@ A garantia de que cada mensagem seja processada pelo menos uma vez implica que a
 
 ## <a name="stop-and-restart-execution"></a>Parar e reiniciar a execução
 
-Embora alguns erros possam ser aceitáveis, e se seu aplicativo apresentar falhas significativas? Talvez você queira parar de disparar eventos até que o sistema alcance um estado íntegro. Ter o processamento de pausa de oportunidade geralmente é obtido com um padrão de disjuntor. O padrão de disjuntor permite que seu aplicativo "quebre o circuito" do processo de evento e retome em um momento posterior.
+Embora alguns erros possam ser aceitáveis, e se seu aplicativo apresentar falhas significativas? Talvez você queira parar de disparar eventos até que o sistema alcance um estado íntegro. A oportunidade de pausar o processamento geralmente é obtida com um padrão de disjuntor. O padrão de disjuntor permite que seu aplicativo "quebre o circuito" do processo de evento e retome em um momento posterior.
 
 Há duas partes necessárias para implementar um disjuntor em um processo de evento:
 
@@ -120,12 +120,12 @@ O destinatário do email pode investigar a integridade do circuito e, quando apr
 
 Usando essa abordagem, nenhuma mensagem é perdida, todas as mensagens são processadas em ordem e você pode dividir o circuito, desde que seja necessário.
 
-## <a name="resources"></a>Recursos
+## <a name="resources"></a>Implante
 
 - [Exemplos de processamento de eventos confiáveis](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
 - [Disjuntor de Durable Functions do Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais, consulte os recursos a seguir:
 

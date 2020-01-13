@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561482"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644827"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Expanda sua infraestrutura do Azure DevTest Labs
 Antes de implementar o DevTest Labs em escala empresarial, há vários pontos de decisão essenciais. Conhecer a fundo esses pontos de decisão ajuda uma organização a tomar decisões de design no futuro. No entanto, esses pontos não devem impedir uma organização de iniciar uma prova de conceito. As três principais áreas para o planejamento inicial de expansão são:
@@ -46,14 +46,14 @@ Em seguida, podemos destacar os pontos positivos de cada abordagem.
 Geralmente, a abordagem de uma assinatura não é gerenciável em uma grande empresa. No entanto, limitar o número de assinaturas fornece os seguintes benefícios:
 
 - **Previsão** dos custos para a empresa.  Planejar o orçamento torna-se muito mais fácil em uma assinatura única, porque todos os recursos estão em um único pool. Essa abordagem permite tomada de decisões mais simples quanto a quando exercer medidas de controle de custos em qualquer determinado momento em um ciclo de cobrança.
-- **Capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões e políticas, etc. é mais fácil, pois todas as atualizações são necessárias apenas em uma assinatura em vez de fazer atualizações em várias assinaturas.
+- A **capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões, políticas etc. é mais fácil, já que todas as atualizações só são necessárias em uma assinatura em vez de fazer atualizações em várias assinaturas.
 - O esforço referente à **rede** é bastante simplificado em uma assinatura única para empresas em que a conectividade local é um requisito. Conectar redes virtuais entre assinaturas (modelo hub-spoke) é necessário com assinaturas adicionais, o que requer configuração, espaços de endereço IP e gerenciamento adicionais, etc.
 - A **colaboração em equipe** é mais fácil quando todos estão trabalhando na mesma assinatura – por exemplo, é mais fácil reatribuir uma VM para um colega de trabalho, compartilhar recursos de equipe, etc.
 
 ### <a name="subscription-per-user"></a>Assinatura por usuário
 Uma assinatura separada por usuário fornece oportunidades iguais no espectro de alternativas. Os benefícios de ter várias assinaturas incluem:
 
-- As **cotas de dimensionamento do Azure** não impedirão a adoção. Por exemplo, no momento da redação deste artigo, o Azure permite 200 contas de armazenamento por assinatura. Existem cotas operacionais para a maioria dos serviços do Azure (muitas podem ser personalizadas, outras não). Nesse modelo de uma assinatura por usuário, é muito improvável que a maioria das cotas sejam atingidas. Para obter mais informações sobre as cotas de dimensionamento atuais do Azure, confira [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md).
+- As **cotas de dimensionamento do Azure** não impedirão a adoção. Por exemplo, no momento da redação deste artigo, o Azure permite 200 contas de armazenamento por assinatura. Existem cotas operacionais para a maioria dos serviços do Azure (muitas podem ser personalizadas, outras não). Nesse modelo de uma assinatura por usuário, é muito improvável que a maioria das cotas sejam atingidas. Para obter mais informações sobre as cotas de dimensionamento atuais do Azure, confira [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - **Estornos** a desenvolvedores individuais ou a grupos de desenvolvedores tornam-se muito mais fáceis, permitindo que as organizações contabilizem os custos usando seu modelo atual.
 - Os conceitos de **propriedade e permissões** dos ambientes do DevTest Labs são simples. Você permite aos desenvolvedores acesso em nível de assinatura e eles são 100% responsáveis por tudo, incluindo a configuração de rede, políticas de laboratório e gerenciamento de VMs.
 
@@ -62,9 +62,9 @@ Na empresa, pode já haver restrições suficientes nos extremos do espectro. Po
 ## <a name="roles-and-responsibilities"></a>Funções e responsabilidades
 Uma prova de conceito do DevTest Labs tem três funções principais com responsabilidades definidas – proprietário da assinatura, proprietário do DevTest Labs, usuário do DevTest Labs e, opcionalmente, um colaborador.
 
-- **Proprietário da assinatura** – o proprietário da assinatura tem direitos para administrar uma assinatura do Azure, incluindo atribuir usuários, gerenciar políticas, criar e gerenciar a topologia de rede, solicitar aumentos de cota, etc. Para obter mais informações, consulte [este artigo](../role-based-access-control/rbac-and-directory-admin-roles.md).
+- **Proprietário da assinatura** – o proprietário da assinatura tem direitos para administrar uma assinatura do Azure, incluindo a atribuição de usuários, o gerenciamento de políticas, a criação de & o gerenciamento de topologia de rede, a solicitação de aumento de cota, etc. Para obter mais informações, consulte [Este artigo](../role-based-access-control/rbac-and-directory-admin-roles.md).
 - **Proprietário do DevTest Labs** – o proprietário do DevTest Labs tem acesso administrativo total ao laboratório. Essa pessoa é responsável por adicionar/remover usuários, gerenciar configurações de custo, configurações gerais de laboratório e outras tarefas baseadas em VM/artefato. Um proprietário de laboratório também tem todos os direitos de um usuário do DevTest Labs.
 - **Usuário do DevTest Labs** – pode criar e consumir as máquinas virtuais no laboratório. Esses indivíduos têm algumas capacidades administrativas mínimas nas VMs que eles criam (iniciar/parar/excluir/configurar as respectivas VMs). Os usuários não podem gerenciar VMs de outros usuários.
 
-## <a name="next-steps"></a>Próximas etapas
-Consulte o próximo artigo desta série: [Orquestrar a implementação do Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+## <a name="next-steps"></a>Próximos passos
+Veja o próximo artigo desta série: [Orquestrar a implementação do Azure DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)

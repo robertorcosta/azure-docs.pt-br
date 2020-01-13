@@ -1,20 +1,21 @@
 ---
-title: Configurar uma cadeia de conexão para o armazenamento do Azure
+title: Configurar uma cadeia de conexão
+titleSuffix: Azure Storage
 description: Configure uma cadeia de conexão para uma conta de Armazenamento do Azure. Uma cadeia de conexão contém as informações necessárias para autorizar o acesso a uma conta de armazenamento de seu aplicativo em tempo de execução usando a autorização de chave compartilhada.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640500"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460565"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar cadeias de conexão do Armazenamento do Azure
 
@@ -24,8 +25,6 @@ Uma cadeia de conexão inclui as informações de autorização necessárias par
 * Acesse uma conta de armazenamento no Azure.
 * Acessar recursos especificados no Azure por uma SAS (Assinatura de Acesso Compartilhado).
 
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
-
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## <a name="view-and-copy-a-connection-string"></a>Exibir e copiar uma cadeia de conexão
@@ -34,7 +33,7 @@ Uma cadeia de conexão inclui as informações de autorização necessárias par
 
 ## <a name="store-a-connection-string"></a>Armazenar uma cadeia de conexão
 
-Seu aplicativo precisara acessar a cadeia de conexão no tempo de execução para autorizar as solicitações feitas para o Armazenamento do Microsoft Azure. Você tem várias opções diferentes para armazenar a cadeia de conexão:
+Seu aplicativo precisara acessar a cadeia de conexão no runtime para autorizar as solicitações feitas para o Armazenamento do Microsoft Azure. Você tem várias opções diferentes para armazenar a cadeia de conexão:
 
 * Você pode armazenar a cadeia de conexão em uma variável de ambiente.
 * Um aplicativo em execução na área de trabalho ou em um dispositivo pode armazenar a cadeia de conexão em um arquivo **app.config** ou **web.config**. Adicione a cadeia de conexão à seção **AppSettings** nesses arquivos.
@@ -42,7 +41,7 @@ Seu aplicativo precisara acessar a cadeia de conexão no tempo de execução par
 
 Armazenar a cadeia de conexão em um arquivo de configuração facilita a atualização da cadeia de conexão para alternar entre o emulador de armazenamento e uma conta de Armazenamento do Azure na nuvem. Você precisa apenas editar a cadeia de conexão para apontar para seu ambiente de destino.
 
-Você pode usar o [Gerenciador de Configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acessar a cadeia de conexão no tempo de execução, independentemente do local em que seu aplicativo esteja sendo executado.
+Você pode usar o [Gerenciador de Configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acessar a cadeia de conexão no runtime, independentemente do local em que seu aplicativo esteja sendo executado.
 
 ## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configurar uma cadeia de conexão para o emulador de armazenamento
 
@@ -141,8 +140,8 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Usar o emulador de Armazenamento do Azure para desenvolvimento e teste](storage-use-emulator.md)
 * [Gerenciadores do Armazenamento do Azure](storage-explorers.md)
-* [Usando assinaturas de acesso compartilhado (SAS)](storage-sas-overview.md)
+* [Usando SAS (Assinatura de Acesso Compartilhado)](storage-sas-overview.md)

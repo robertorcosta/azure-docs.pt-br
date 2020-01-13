@@ -1,5 +1,5 @@
 ---
-title: Push Seguro dos Hubs de Notificação do Azure
+title: Push seguro de hubs de notificação do Azure para Windows
 description: Saiba como enviar notificações por push seguro no Azure. Amostras de código escrito em C# usando a API .NET.
 documentationcenter: windows
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5d1cf2a74d4fe85bb85eb244da3e3757f36fba0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db42cf7f886855af77073963e6f04ac088ca5612
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212038"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530724"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Enviar notificações por push com segurança do Hubs de Notificação do Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "71212038"
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O suporte à notificação por push no Microsoft Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis.
 
@@ -92,7 +92,7 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 A próxima etapa é criar o componente de segundo plano de push.
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no nó do nível superior da solução (**Solução SecurePush** nesse caso) e clique em **Adicionar** e em **Novo Projeto**.
-2. Expanda **Aplicativos da Loja** e clique em **Aplicativos do Windows Phone** e em **Componente do Tempo de Execução do Windows (Windows Phone)** . Nomeie o projeto **PushBackgroundComponent** e clique em **OK** para criar o projeto.
+2. Expanda **Aplicativos da Loja** e clique em **Aplicativos do Windows Phone** e em **componente do Windows Runtime (Windows Phone)** . Nomeie o projeto **PushBackgroundComponent** e clique em **OK** para criar o projeto.
 
     ![][12]
 3. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **PushBackgroundComponent (Windows Phone 8.1)** e clique em **Adicionar** e em **Classe**. Nomeie a nova classe `PushBackgroundTask.cs`. Clique em **Adicionar** para gerar a classe.
@@ -159,7 +159,7 @@ A próxima etapa é criar o componente de segundo plano de push.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
-11. No Gerenciador de Soluções, no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)** , clique com o botão direito do mouse em **Referências** e em **Adicionar Referência...** . Na caixa de diálogo Gerenciador de Referências, marque a caixa próxima a **PushBackgroundComponent** e clique em **OK**.
+11. Em Gerenciador de Soluções, no projeto **NotifyUserWindowsPhone (Windows Phone 8,1)** , clique com o botão direito do mouse em **referências**e clique em **Adicionar referência..** .. No diálogo Gerenciador de referências, marque a caixa ao lado de **PushBackgroundComponent**e clique em **OK**.
 12. No Gerenciador de Soluções, clique duas vezes em **Package.appxmanifest** no projeto **NotifyUserWindowsPhone (Windows Phone 8.1)** . Em **Notificações**, defina **Compatível com Toast** como **Sim**.
 
     ![][3]

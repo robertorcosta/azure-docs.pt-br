@@ -1,23 +1,14 @@
 ---
 title: Azure Monitor para configuração de monitores de integridade de contêineres | Microsoft Docs
 description: Este artigo fornece conteúdo que descreve a configuração detalhada dos monitores de integridade em Azure Monitor para contêineres.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664940"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405034"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guia de configuração do monitor de integridade de Azure Monitor para contêineres
 
@@ -29,13 +20,13 @@ Monitores são o elemento principal para medir a integridade e detectar erros em
 
 ## <a name="monitors"></a>Monitores
 
-Um monitor mede a integridade de algum aspecto de um objeto gerenciado. Monitores cada um tem dois ou três Estados de integridade. Um monitor estará em um e apenas um de seus Estados potenciais em um determinado momento. Quando um monitor é carregado pelo agente em contêiner, ele é inicializado para um estado íntegro. O estado será alterado somente se as condições especificadas para outro Estado forem detectadas.
+Um monitor mede a integridade de alguns aspectos de um objeto gerenciado. Cada monitor tem dois ou três estados de integridade. Um monitor estará em um, e somente um, de seus possíveis estados em um determinado momento. Quando um monitor é carregado pelo agente em contêiner, ele é inicializado para um estado íntegro. O estado será alterado somente se as condições especificadas para outro Estado forem detectadas.
 
-A integridade geral de um determinado objeto é determinada da integridade de cada um de seus monitores. Essa hierarquia é ilustrada no painel hierarquia de integridade em Azure Monitor para contêineres. A política de como a integridade é acumulada faz parte da configuração dos monitores agregados.
+A integridade geral de um determinado objeto será determinada com base na integridade de cada um de seus monitores. Essa hierarquia é ilustrada no painel hierarquia de integridade em Azure Monitor para contêineres. A política de como a integridade é acumulada faz parte da configuração dos monitores agregados.
 
 ## <a name="types-of-monitors"></a>Tipos de monitores
 
-|Monitorar | Descrição | 
+|Monitorar | Description | 
 |--------|-------------|
 | Monitor de unidade |Um monitor de unidade mede algum aspecto de um recurso ou aplicativo. Isso pode estar verificando um contador de desempenho para determinar o desempenho do recurso ou sua disponibilidade. |
 |Monitor agregado | Os monitores agregados agrupam vários monitores para fornecer um único estado de integridade agregado de integridade. Os monitores de unidade normalmente são configurados em um monitor de agregação específico. Por exemplo, um monitor agregado de nó acumula o status da utilização de CPU do nó, da utilização de memória e do status do nó.
@@ -63,10 +54,10 @@ Azure Monitor para contêineres inclui vários cenários de monitoramento princi
 
 ### <a name="unit-monitors"></a>Monitores de unidade
 
-|**Nome do monitor** | Tipo de monitor | **Descrição** | **Parâmetro** | **Valor** |
+|**Nome do monitor** | Tipo de monitoração | **Descrição** | **Parâmetro** | **Valor** |
 |-----------------|--------------|-----------------|---------------|-----------|
 |Utilização de memória do nó |Monitor de unidade |Esse monitor avalia a utilização de memória de um nó a cada minuto, usando os dados relatados do cadvisor. |ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
-|Utilização de CPU do nó |Monitor de unidade |Esse monitor verifica a utilização da CPU do nó a cada minuto, usando os dados relatados do cadvisor. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
+|Utilização de CPU do nó |Monitor de Unidade |Esse monitor verifica a utilização da CPU do nó a cada minuto, usando os dados relatados do cadvisor. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  ||
 |Status do nó |Monitor de unidade |Esse monitor verifica as condições do nó relatadas pelo kubernetes.<br> Atualmente, as seguintes condições de nó estão marcadas: pressão de disco, pressão de memória, pressão de PID, sem disco, rede indisponível, status pronto para o nó.<br> Fora das condições acima, se o *disco* ou a *rede não estiver disponível* **, o**monitor mudará para o estado **crítico** .<br> Se qualquer outra condição for igual a **true**, além de um status **pronto** , o monitor mudará para um estado de **aviso** . | NodeConditionTypeForFailedState | outofdisk,networkunavailable ||
 |Utilização de memória do contêiner |Monitor de unidade |Este monitor relata o status de integridade combinado da utilização de memória (RSS) das instâncias do contêiner.<br> Ele executa uma comparação simples que compara cada amostra com um único limite e especificado pelo parâmetro de configuração **ConsecutiveSamplesForStateTransition**.<br> Seu estado é calculado como o pior estado de 90% das instâncias de contêiner (StateThresholdPercentage), classificados em ordem decrescente de severidade do estado de integridade do contêiner (isto é, crítico, aviso, íntegro).<br> Se nenhum registro for recebido de uma instância de contêiner, o estado de integridade da instância de contêiner será relatado como **desconhecido**e terá maior precedência na ordem de classificação sobre o estado **crítico** .<br> Cada Estado de instância de contêiner individual é calculado usando os limites especificados na configuração. Se o uso estiver acima do limite crítico (90%), a instância estará em um estado **crítico** , se for menor que o limite crítico (90%) Mas maior que o limite de aviso (80%), a instância está em um estado de **aviso** . Caso contrário, ele estará em estado **íntegro** . |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterThanPercentage| 3<br> 90<br> 90<br> 80 ||
 |Utilização de CPU do contêiner |Monitor de unidade |Este monitor relata o status de integridade combinado da utilização da CPU das instâncias do contêiner.<br> Ele executa uma comparação simples que compara cada amostra com um único limite e especificado pelo parâmetro de configuração **ConsecutiveSamplesForStateTransition**.<br> Seu estado é calculado como o pior estado de 90% das instâncias de contêiner (StateThresholdPercentage), classificados em ordem decrescente de severidade do estado de integridade do contêiner (isto é, crítico, aviso, íntegro).<br> Se nenhum registro for recebido de uma instância de contêiner, o estado de integridade da instância de contêiner será relatado como **desconhecido**e terá maior precedência na ordem de classificação sobre o estado **crítico** .<br> Cada Estado de instância de contêiner individual é calculado usando os limites especificados na configuração. Se o uso estiver acima do limite crítico (90%), a instância estará em um estado **crítico** , se for menor que o limite crítico (90%) Mas maior que o limite de aviso (80%), a instância está em um estado de **aviso** . Caso contrário, ele estará em estado **íntegro** . |ConsecutiveSamplesForStateTransition<br> FailIfLessThanPercentage<br> StateThresholdPercentage<br> WarnIfGreaterThanPercentage| 3<br> 90<br> 90<br> 80 ||

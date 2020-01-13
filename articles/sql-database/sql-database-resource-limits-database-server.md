@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279314"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638248"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de recursos do banco de dados SQL e governança de recursos
 
@@ -27,7 +27,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 
 ## <a name="maximum-resource-limits"></a>Limites máximos de recursos
 
-| Recurso | Limite |
+| Grupos | Limite |
 | :--- | :--- |
 | Bancos de dados por servidor | 5\.000 |
 | Número padrão de servidores por assinatura por região | 20 |
@@ -46,7 +46,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 > - Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui modos de exibição de estatísticas de utilização de recursos, como sys.resource_stats.
 > - Aumento de latência nas operações de gerenciamento e pontos de vista do portais de renderização que envolvem a enumeração de bancos de dados no servidor.
 
-### <a name="storage-size"></a>Tamanho do armazenamento
+### <a name="storage-size"></a>Tamanho de armazenamento
 
 Para tamanhos de armazenamento de recursos de bancos de dados únicos, consulte [limites de recursos baseados em DTU](sql-database-dtu-resource-limits-single-databases.md) ou limites de [recursos baseados em vCore](sql-database-vcore-resource-limits-single-databases.md) para os limites de tamanho de armazenamento por tipo de preço.
 
@@ -99,7 +99,9 @@ Os valores mínimo/máximo de IOPS e taxa de transferência retornados pela exib
 
 Para bancos de dados Basic, Standard e Uso Geral, que usam arquivos de dado no armazenamento do Azure, o valor de `primary_group_max_io` pode não ser atingível se um banco de dados não tiver arquivos suficientes para fornecer esse número de IOPS, ou se os dados não forem distribuídos uniformemente entre arquivos ou se o nível de desempenho dos BLOBs subjacentes limitar IOPS/taxa de transferência abaixo do limite de governança de recursos Da mesma forma, com o IOs de log pequeno gerado pela confirmação de transação frequente, o valor `primary_max_log_rate` pode não ser atingível por uma carga de trabalho devido ao limite de IOPS no blob de armazenamento do Azure subjacente.
 
-Valores de utilização de recursos, como `avg_data_io_percent` e `avg_log_write_percent`, relatados nas exibições [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , são calculados como porcentagens de limites máximos de governança de recursos. Portanto, quando fatores diferentes da governança de recursos limitam o IOPS/taxa de transferência, é possível ver o aumento de taxa de transferência e as latências aumentadas à medida que a carga de trabalho aumenta, embora a utilização de recursos relatada permaneça abaixo de 100%. Para ver a leitura e gravação de IOPS, taxa de transferência e latência por arquivo de banco de dados, use a função [Sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Essa função faz a superfície de todas as e/s no banco de dados, incluindo a e/s de plano de fundo que não é contabilizada em `avg_data_io_percent`, mas usa IOPS e taxa de transferência do armazenamento subjacente e pode afetar a latência de armazenamento observada.
+Valores de utilização de recursos, como `avg_data_io_percent` e `avg_log_write_percent`, relatados nas exibições [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , são calculados como porcentagens de limites máximos de governança de recursos. Portanto, quando fatores diferentes da governança de recursos limitam o IOPS/taxa de transferência, é possível ver o aumento de taxa de transferência e as latências aumentadas à medida que a carga de trabalho aumenta, embora a utilização de recursos relatada permaneça abaixo de 100%. 
+
+Para ver a leitura e gravação de IOPS, taxa de transferência e latência por arquivo de banco de dados, use a função [Sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Essa função faz a superfície de todas as e/s no banco de dados, incluindo a e/s de plano de fundo que não é contabilizada em `avg_data_io_percent`, mas usa IOPS e taxa de transferência do armazenamento subjacente e pode afetar a latência de armazenamento observada. A função também apresenta uma latência adicional que pode ser introduzida pela governança de recursos de e/s para leituras e gravações, nas colunas `io_stall_queued_read_ms` e `io_stall_queued_write_ms`, respectivamente.
 
 ### <a name="transaction-log-rate-governance"></a>Governança de taxa de log de transações
 
@@ -116,7 +118,7 @@ As taxas de geração de log reais impostas em tempo de execução também podem
 
 A modelagem de tráfego do administrador da taxa de log é apresentada por meio dos seguintes tipos de espera (expostos na DMV [Sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) ):
 
-| Tipo de espera | Observações |
+| Tipo de Espera | Observações |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Limitação de banco de dados |
 | POOL_LOG_RATE_GOVERNOR | Limitação de pool |
@@ -130,8 +132,8 @@ Ao encontrar um limite de taxa de log que está atrasando a escalabilidade desej
 - Se os dados que estão sendo carregados forem transitórios, como dados de preparo em um processo de ETL, eles poderão ser carregados em tempdb (que é minimamente registrado). 
 - Para cenários analíticos, carregue em uma tabela coberta por columnstore clusterizado. Isso reduz a taxa de log necessária devido à compactação. Essa técnica aumenta a utilização da CPU e só é aplicável a conjuntos de dados que se beneficiam de índices columnstore clusterizados. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
+- Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para saber mais sobre DTUs e eDTUs, confira [DTUs e eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Para obter informações sobre limites de tamanho de tempdb, consulte [TempDB no Banco de Dados SQL do Azure](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

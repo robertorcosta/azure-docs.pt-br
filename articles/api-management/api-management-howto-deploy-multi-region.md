@@ -1,5 +1,6 @@
 ---
-title: Implantar serviços do Gerenciamento de API do Azure em várias regiões do Azure | Microsoft Docs
+title: Implantar os serviços de gerenciamento de API do Azure em várias regiões do Azure
+titleSuffix: Azure API Management
 description: Saiba como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cd0533dcbc9b367fa9a1e138b1aa1257989a3d7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072437"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442661"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
 
@@ -30,7 +31,7 @@ Um novo serviço de gerenciamento de API do Azure inicialmente contém apenas um
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"> </a>Implantar uma instância do serviço de Gerenciamento de API em uma nova região
+## <a name="add-region"> </a>Implantar uma instância do serviço de gerenciamento de API em uma nova região
 
 > [!NOTE]
 > Se você ainda não criou uma instância de serviço de gerenciamento de API, consulte [criar uma instância de serviço de gerenciamento de API][create an api management service instance].
@@ -51,7 +52,7 @@ Clique em **Adicionar** para colocar sua seleção na tabela Locais.
 
 Repita esse processo até que todos os locais estejam configurados e clique em **Salvar** na barra de ferramentas para iniciar o processo de implantação.
 
-## <a name="remove-region"> </a>Excluir uma instância do serviço de Gerenciamento de API de um local
+## <a name="remove-region"> </a>Excluir uma instância do serviço de gerenciamento de API de um local
 
 No portal do Azure, navegue até a página **Escala e preço** da instância do serviço de Gerenciamento de API.
 
@@ -61,7 +62,7 @@ Para o local em que você deseja remover, abra o menu de contexto usando o botã
 
 Confirme a exclusão e clique em **Salvar** para aplicar as alterações.
 
-## <a name="route-backend"> </a>Rotear chamadas à API para serviços regionais de back-end
+## <a name="route-backend"> </a>Rotear chamadas à API para serviços de back-end regionais
 
 O Gerenciamento de API do Azure apresenta apenas uma URL de serviço de back-end. Mesmo que haja instâncias do Gerenciamento de API do Azure em várias regiões, o gateway de API ainda encaminhará solicitações para o mesmo serviço de back-end, que é implantado em apenas uma região. Nesse caso, o ganho de desempenho será proveniente apenas das respostas armazenadas em cache dentro do Gerenciamento de API do Azure em uma região específica para a solicitação, mas entrar em contato com o back-end em todo o mundo ainda pode causar alta latência.
 
@@ -114,8 +115,8 @@ O gerenciamento de API roteia as solicitações para um _Gateway_ regional com b
 
 1. Crie seu próprio [Gerenciador de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/).
 1. Se você estiver usando um domínio personalizado, [use-o com o Gerenciador de tráfego](../traffic-manager/traffic-manager-point-internet-domain.md) em vez do serviço de gerenciamento de API.
-1. [Configure os pontos de extremidade regionais de gerenciamento de API no Gerenciador de tráfego](../traffic-manager/traffic-manager-manage-endpoints.md). Os pontos de extremidade regionais seguem o padrão de URL `https://<service-name>-<region>-01.regional.azure-api.net`de, por `https://contoso-westus2-01.regional.azure-api.net`exemplo.
-1. [Configure os pontos de extremidade de status regional do gerenciamento de API no Gerenciador de tráfego](../traffic-manager/traffic-manager-monitoring.md). Os pontos de extremidade de status regionais seguem o padrão de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`URL de, `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`por exemplo.
+1. [Configure os pontos de extremidade regionais de gerenciamento de API no Gerenciador de tráfego](../traffic-manager/traffic-manager-manage-endpoints.md). Os pontos de extremidade regionais seguem o padrão de URL de `https://<service-name>-<region>-01.regional.azure-api.net`, por exemplo `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Configure os pontos de extremidade de status regional do gerenciamento de API no Gerenciador de tráfego](../traffic-manager/traffic-manager-monitoring.md). Os pontos de extremidade de status regionais seguem o padrão de URL de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, por exemplo `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Especifique [o método de roteamento](../traffic-manager/traffic-manager-routing-methods.md) do Gerenciador de tráfego.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png

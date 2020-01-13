@@ -1,5 +1,5 @@
 ---
-title: Adicionar identidade visual à página de entrada de sua organização – Azure Active Directory | Microsoft Docs
+title: Adicionar identidade visual à página de entrada da sua organização-Azure AD
 description: Instruções sobre como adicionar a identidade visual da organização à página de entrada do Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7caf6eff9f5bd497ab6c3a500f3940549b198576
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ea0bc131f7eb3fc66f3b024b4c9902f8c73f9a7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422831"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.
@@ -29,7 +29,7 @@ Use o logotipo da organização e os esquemas de cores personalizados para forne
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de entrada do Azure AD
 É possível personalizar as páginas de entrada do Azure AD que aparecem quando os usuários entram nos aplicativos específicos de locatário da organização, como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou ao passar uma variável de domínio como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como,\.www Office.com. Em vez disso, o usuário precisa entrar antes que a identidade visual personalizada seja exibida. Depois que o usuário tiver entrado, a identidade visual poderá levar 15 minutos ou mais para aparecer. 
+Sua identidade visual personalizada não aparecerá imediatamente quando os usuários acessarem sites como, www\.office.com. Em vez disso, o usuário precisa entrar antes que a identidade visual personalizada seja exibida. Depois que o usuário tiver entrado, a identidade visual poderá levar 15 minutos ou mais para aparecer. 
 
 > [!NOTE]
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se você especificar um logotipo do banner sem imagem de plano de fundo, a página de entrada mostrará o logotipo com uma imagem de plano de fundo padrão do site de destino (por exemplo, Office 365).<br><br>Além disso, a marca da página de entrada não é transferida para contas pessoais da Microsoft. Se os usuários ou convidados de negócios entrarem usando uma conta pessoal da Microsoft, a página de entrada não refletirá a identidade visual da organização.
@@ -76,7 +76,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
     
         - **Imagem do logotipo quadrado, tema escuro.** O mesmo que a imagem do logotipo quadrado acima. Essa imagem do logotipo substitui a imagem do logotipo quadrado quando usada com um plano de fundo escuro como, por exemplo, com telas ingressadas do Azure AD do Windows 10 durante a configuração inicial pelo usuário (OOBE).  Se o logotipo ficar com uma boa imagem em planos de fundo branco, azul escuro e preto, não será necessário adicionar essa imagem. 
         
-        - **Mostrar opção para permanecer conectado.** Você pode optar por permitir que os usuários permaneçam conectados ao Azure AD até que sejam desconectados explicitamente. Se você escolher **Não**, essa opção ficará oculta e os usuários deverão entrar sempre que o navegador for fechado e reaberto.
+        - **Mostrar opção para permanecer conectado.** Você pode optar por permitir que seus usuários permaneçam conectados ao Azure AD até que explicitamente se desconectem. Se você escolher **não**, essa opção será ocultada e os usuários deverão entrar toda vez que o navegador for fechado e reaberto.
         
             >[!Note]
             >Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários de poderem permanecer conectados. Se você definir essa opção como **Não**, os usuários poderão receber prompts adicionais e inesperados de entrada.

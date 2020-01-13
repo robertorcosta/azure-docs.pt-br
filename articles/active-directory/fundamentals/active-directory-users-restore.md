@@ -1,5 +1,5 @@
 ---
-title: Restaurar ou remover permanentemente um usuário excluído recentemente - Azure Active Directory | Microsoft Docs
+title: Restaurar ou remover permanentemente o usuário excluído recentemente-Azure AD
 description: Como exibir usuários restauráveis, restaurar um usuário excluído ou excluir permanentemente um usuário com o Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9864634020ad115a48bdb70a6736733919d0f0d3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 573269da1ca6b9ee09b493f4e758e78121d6c2f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561674"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422856"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover permanentemente um usuário excluído recentemente usando o Azure Active Directory
 Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o usuário é excluído automaticamente e permanentemente.
@@ -33,9 +33,9 @@ Você deve ter uma das seguintes funções para restaurar e excluir permanenteme
 
 - Administrador global
 
-- Suporte de Camada1 a Parceiros
+- Suporte de camada 1 do parceiro
 
-- Suporte de Camada2 a Parceiros
+- Suporte de camada 2 do parceiro
 
 - Administrador de usuários
 
@@ -79,7 +79,7 @@ Você pode excluir permanentemente um usuário da sua organização sem aguardar
 
     ![Usuários - página de usuários excluídos, com a opção de restauração de usuário realçada](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de restaurar ou excluir seus usuários, você pode executar os seguintes processos básicos:
 
 - [Adicionar ou excluir usuários](add-users-azure-active-directory.md)

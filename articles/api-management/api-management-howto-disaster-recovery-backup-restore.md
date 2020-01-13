@@ -1,5 +1,6 @@
 ---
-title: Implementar a recuperação de desastre usando backup e restauração no Gerenciamento de API do Azure | Microsoft Docs
+title: Implementar a recuperação de desastre usando backup e restauração no gerenciamento de API
+titleSuffix: Azure API Management
 description: Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430707"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -54,7 +55,7 @@ Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam se
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo do Azure Active Directory
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Usando a assinatura que contém sua instância de serviço de gerenciamento de API, navegue até a guia **registros de Aplicativo** em **Azure Active Directory** (Azure Active Directory > registros de Aplicativo/Gerenciar).
 
     > [!NOTE]
@@ -75,7 +76,7 @@ Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam se
 2. Clique em **Permissões necessárias**.
 3. Clique em **+Adicionar**.
 4. Pressione **Selecionar uma API**.
-5. Escolha **Windows** **API de Gerenciamento de Serviços do Azure**.
+5. Escolha **API de gerenciamento de serviços do Windows Azure**.
 6. Pressione **Selecionar**.
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -139,7 +140,7 @@ Antes de chamar as operações de “backup e restauração” descritas nas se�
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"> </a>Fazer backup de um serviço de Gerenciamento de API
+### <a name="step1"> </a>Fazer backup de um serviço de gerenciamento de API
 
 Para fazer backup de um serviço de Gerenciamento de API, execute a seguinte solicitação HTTP:
 
@@ -180,7 +181,7 @@ Observe as restrições a seguir ao fazer uma solicitação de backup:
 -   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas**.
 -   **Permitir** o acesso do plano de controle à conta de armazenamento do Azure. O cliente deve abrir o seguinte conjunto de IPs de entrada em sua conta de armazenamento para backup. 
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
-### <a name="step2"> </a>Restaurar um serviço de Gerenciamento de API
+### <a name="step2"> </a>Restaurar um serviço de gerenciamento de API
 
 Para restaurar um serviço de Gerenciamento de API de um backup criado anteriormente, faça a seguinte solicitação HTTP:
 
@@ -220,7 +221,7 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 > [!NOTE]
 > As operações de backup e restauração também podem ser executadas com os comandos [_backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) e [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) do PowerShell, respectivamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira os seguintes recursos para diferentes orientações do processo de backup/restauração.
 

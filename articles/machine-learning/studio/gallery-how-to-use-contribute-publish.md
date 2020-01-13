@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 9fe52fc16b763a03738442bb49a4969244a1d3c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427549"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
@@ -24,7 +24,7 @@ A Galeria tem vários recursos que você pode usar para desenvolver suas própri
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
 
-A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídos:
+A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos pela Microsoft e por membros da comunidade de ciência de dados. Estão incluídas:
 
 * **Experimentos** – a galeria contém uma ampla variedade de experimentos que foram desenvolvidos em Azure Machine Learning Studio (clássico). Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 * **Tutoriais** – uma série de tutoriais está disponível para orientá-lo por conceitos e tecnologias de aprendizado de máquina ou para descrever métodos avançados a fim de solucionar vários problemas de aprendizado de máquina.
@@ -59,15 +59,15 @@ Para baixar um recurso na Galeria de IA:
 
 ![Abrir um item na Galeria de IA](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Para baixar um recurso de dentro da versão clássica do Studio:
+Para baixar um recurso de dentro do Studio (clássico):
 
-1. Na versão clássica do Studio, selecione **novo**.
+1. No Studio (clássico), selecione **novo**.
 1. Selecione **Módulo**, **Experimento** ou **Notebook**.
 1. Procure ou pesquise para encontrar um recurso da Galeria.
 1. Aponte o mouse para o recurso e, em seguida, selecione **Abrir no Studio**.
     ![abrir o experimento da Galeria de dentro Machine Learning Studio (clássico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Depois que o recurso estiver em seu espaço de trabalho, você poderá personalizá-lo e usá-lo como faria com qualquer coisa que criar na versão clássica do Studio.
+Quando o recurso estiver em seu espaço de trabalho, você poderá personalizá-lo e usá-lo como faria com qualquer coisa criada no Studio (clássico).
 
 Para usar um módulo personalizado importado:
 
@@ -77,12 +77,12 @@ Para usar um módulo personalizado importado:
 
 ## <a name="contribute-experiments"></a>Contribuir com testes
 
-Para demonstrar técnicas de análise ou para dar a outras pessoas um começo sobre suas soluções, você pode contribuir com os **experimentos** desenvolvidos na versão clássica do estúdio.
+Para demonstrar técnicas de análise ou para dar aos outros um começo sobre suas soluções, você pode contribuir com os **experimentos** desenvolvidos no Studio (clássico).
 À medida que outras pessoas encontram sua contribuição na Galeria, você pode seguir o número de exibições e downloads de sua contribuição.
 Os usuários também podem adicionar comentários e compartilhar suas contribuições com outros membros da comunidade de ciência de dados.
 Além disso, você pode fazer logon com uma ferramenta de discussão, como o Disqus, para receber notificações de comentários em suas contribuições.
 
-1. Abra seu experimento na versão clássica do Studio.
+1. Abra seu experimento no estúdio (clássico).
 
 1. Na lista de ações abaixo da tela do experimento, selecione **Publicar na Galeria**.
 
@@ -195,7 +195,7 @@ No momento, não é possível publicar na Galeria um experimento que usa credenc
 
 Depois de inserir uma marcação, pressione a tecla Tab para inserir outra marca.
 
-## <a name="we-want-to-hear-from-you"></a>Queremos ouvir você!
+## <a name="we-want-to-hear-from-you"></a>Queremos ouvir você.
 
 Queremos que a Galeria seja orientada por nossos usuários e para nossos usuários. Use o smiley à direita para nos dizer o que você adora ou odeia na Galeria.  
 

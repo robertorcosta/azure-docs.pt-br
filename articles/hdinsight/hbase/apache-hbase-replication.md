@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435659"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -51,7 +51,7 @@ Há três opções de configuração:
 
 Este artigo aborda o cenário de replicação geográfica.
 
-Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) foram criados. Se você preferir configurar os ambientes usando outros métodos, consulte:
+Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource Manager](../../azure-resource-manager/management/overview.md) foram criados. Se você preferir configurar os ambientes usando outros métodos, consulte:
 
 - [Criar clusters do Apache Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Criar clusters do Apache HBase na rede Virtual do Azure](apache-hbase-provision-vnet.md)
@@ -66,9 +66,9 @@ Alguns dos valores embutidos em código no modelo:
 
 **VNet 1**
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
-| Location | Oeste dos EUA |
+| Local | Oeste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -78,14 +78,14 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do Gateway | vnet1gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN de gateway | RouteBased |
-| SKU de gateway | Basic |
+| SKU de gateway | Básico |
 | IP do gateway | vnet1gwip |
 
 **VNet 2**
 
-| Propriedade | Value |
+| Propriedade | Valor |
 |----------|-------|
-| Location | Leste dos EUA |
+| Local | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -95,7 +95,7 @@ Alguns dos valores embutidos em código no modelo:
 | Nome do Gateway | vnet2gw |
 | Tipo de gateway | Vpn |
 | Tipo de VPN de gateway | RouteBased |
-| SKU de gateway | Basic |
+| SKU de gateway | Básico |
 | IP do gateway | vnet1gwip |
 
 ## <a name="setup-dns"></a>Instalação do DNS
@@ -303,11 +303,11 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
       >
       > Este tutorial pressupõe o hn1 como ativo cabeçalho. Verifique o cluster para identificar o nó principal ativo.
 
-6. Clique em **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
+6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 
 Argumentos necessários:
 
-|name|Descrição|
+|Nome|Description|
 |----|-----------|
 |-s, --src-cluster | Especifica o nome DNS do cluster HBase de origem. Por exemplo: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Especifica o nome DNS do cluster HBase de destino (réplica). Por exemplo: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -316,7 +316,7 @@ Argumentos necessários:
 
 Argumentos opcionais:
 
-|name|Descrição|
+|Nome|Description|
 |----|-----------|
 |-su, --src-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de origem. O valor padrão é **admin**. |
 |-du, --dst-ambari-user | Especifica o nome de usuário administrador para Ambari no cluster HBase de destino. O valor padrão é **admin**. |
