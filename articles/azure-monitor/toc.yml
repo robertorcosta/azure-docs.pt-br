@@ -91,6 +91,8 @@
       items:
         - name: Dados de log
           href: platform/data-security.md
+        - name: Chaves gerenciadas pelo cliente
+          href: platform/customer-managed-keys.md
         - name: Administração de dados pessoais de log
           href: platform/personal-data-mgmt.md
         - name: 'Coleta de dados, retenção e armazenamento de aplicativo'

@@ -4,7 +4,7 @@
   items:
     - name: O que são Aplicativos Lógicos do Azure?
       href: logic-apps-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar aplicativos lógicos - Portal do Azure
@@ -85,7 +85,7 @@
           href: logic-apps-exception-handling.md
         - name: Processar mensagens grandes
           href: logic-apps-handle-large-messages.md
-        - name: Segurança
+        - name: Seguro
           items:
             - name: Assegurar seus aplicativos lógicos
               href: logic-apps-securing-a-logic-app.md
@@ -111,6 +111,8 @@
           href: connect-virtual-network-vnet-set-up-single-ip-address.md
         - name: Adicionar artefatos a ambientes de serviço de integração
           href: add-artifacts-integration-service-environment-ise.md
+        - name: Configurar chaves de criptografia gerenciadas pelo cliente para ambientes de serviço de integração
+          href: customer-managed-keys-integration-service-environment.md
     - name: Acesso a dados locais
       items:
         - name: Instalar gateway de dados

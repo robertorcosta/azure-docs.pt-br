@@ -4,7 +4,7 @@
   items:
     - name: Sobre as Instâncias de Contêiner do Azure
       href: container-instances-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Implantar uma instância de contêiner – CLI
@@ -55,10 +55,14 @@
   items:
     - name: Implantar
       items:
-        - name: Implantar em uma rede virtual (versão prévia)
+        - name: Implantar em uma rede virtual
           href: container-instances-vnet.md
         - name: Implantar a partir do Registro de Contêiner do Azure
           href: container-instances-using-azure-container-registry.md
+        - name: Criptografar dados de implantação
+          href: container-instances-encrypt-data.md
+        - name: Implantar em hosts dedicados
+          href: container-instances-dedicated-hosts.md
     - name: Cenários de contêiner
       items:
         - name: Definir a política de reinicialização para tarefas de execução única

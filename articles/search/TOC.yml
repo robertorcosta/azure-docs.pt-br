@@ -113,6 +113,8 @@
       items:
         - name: Visão geral da segurança
           href: search-security-overview.md
+        - name: Criar um ponto de extremidade privado
+          href: service-create-private-endpoint.md
         - name: Serviço de gerenciamento de chaves
           href: search-security-api-keys.md
         - name: Acesso de administrador baseado em função
@@ -333,7 +335,7 @@
       items:
         - name: Versão da API 2019-05-06-Preview
           href: search-api-preview.md
-        - name: API ResetSkills
+        - name: Redefinir a API de habilidades
           href: preview-api-resetskills.md
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.search/searchservices
