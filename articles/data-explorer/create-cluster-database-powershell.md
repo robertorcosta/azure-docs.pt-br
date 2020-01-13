@@ -1,18 +1,18 @@
 ---
 title: Criar um cluster e banco de dados do Azure Data Explorer usando PowerShell
 description: Saiba como criar um cluster e banco de dados do Azure Data Explorer usando PowerShell
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1975125dd3bcd327ae7520e4cc413718e48d6ba9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326748"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911972"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster e banco de dados do Azure Data Explorer usando PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "71326748"
 > * [Python](create-cluster-database-python.md)
 > * [Modelo de ARM](create-cluster-database-resource-manager.md)  
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para análise em tempo real de grandes volumes de streaming de dados de aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando o PowerShell. É possível executar cmdlets e scripts do PowerShell no Windows, no Linux ou no [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar o banco de dados e clusters do Azure Data Explorer.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado para realizar a análise em tempo real de grandes volumes de dados transmitidos por aplicativos, sites, dispositivos IoT e muito mais. Para usar o Azure Data Explorer, primeiro crie um cluster e um ou mais bancos de dados nesse cluster. Em seguida, ingira (carregue) dados em um banco de dados para poder executar consultas nele. Neste artigo, você cria um cluster e um banco de dados usando o PowerShell. É possível executar cmdlets e scripts do PowerShell no Windows, no Linux ou no [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar o banco de dados e clusters do Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -68,7 +68,7 @@ As etapas a seguir não serão necessárias se você estiver executando comandos
    |**Configuração** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
    | Nome | *mykustocluster* | O nome desejado do cluster.|
-   | Sku | *D13_v2* | O SKU que será usado para o cluster. |
+   | SKU | *D13_v2* | O SKU que será usado para o cluster. |
    | ResourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
     Há outros parâmetros opcionais que podem ser usados, como a capacidade do cluster.
@@ -105,7 +105,7 @@ Se o resultado contém `provisioningState` com o valor `Succeeded`, o cluster fo
 
 Agora você tem um cluster e um banco de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 * Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou.
 * Para limpar recursos, exclua o cluster. Quando você exclui um cluster, também exclui todos os bancos de dados nele. Use o seguinte comando para excluir o cluster:
@@ -114,7 +114,7 @@ Agora você tem um cluster e um banco de dados.
     Remove-AzKustoCluster -ResourceGroupName testrg -Name mykustocluster
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Comandos adicionais do Az.Kusto](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
 * [Ingerir dados usando o SDK do .NET Standard no Azure Data Explorer (Versão prévia)](net-standard-ingest-data.md)

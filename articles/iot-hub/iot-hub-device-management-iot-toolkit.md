@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03997bb6999af9ebaad36cc95f7834e3b9ed4569
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953203"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911931"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Use as Ferramentas IoT do Azure para Visual Studio Code para gerenciar dispositivos Hub IoT do Azure
 
@@ -22,7 +22,7 @@ As [Ferramentas IoT do Azure](https://marketplace.visualstudio.com/items?itemNam
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opção de gerenciamento          | tarefa                    |
+| Opção de gerenciamento          | Tarefa                    |
 |----------------------------|--------------------------------|
 | Métodos diretos             | Faça com que um dispositivo comece ou pare de enviar mensagens ou seja reinicializado.                                        |
 | Leitura de dispositivo gêmeo           | Obtenha o estado relatado de um dispositivo. Por exemplo, o dispositivo relata que o LED está piscando no momento.                                    |
@@ -46,7 +46,7 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 ## <a name="what-you-need"></a>O que você precisa
 
 * Uma assinatura ativa do Azure.
-* Um Hub IoT do Azure em sua assinatura.
+* Um hub IoT do Azure em sua assinatura.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Ferramentas do Azure IOT para vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abrir este link no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
@@ -71,7 +71,7 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 
 2. Insira o nome do método e a carga na caixa de entrada.
 
-3. Os resultados serão mostrados na exibição **SAÍDA** > **Kit de Ferramentas do Hub IoT do Azure**.
+3. Os resultados serão mostrados na **saída** > exibição **do Hub IOT do Azure** .
 
 ## <a name="read-device-twin"></a>Leitura de dispositivo gêmeo
 
@@ -87,7 +87,7 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 
 3. Selecione **Atualizar Dispositivo Gêmeo** para atualizar o dispositivo gêmeo.
 
-## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
+## <a name="send-cloud-to-device-messages"></a>Enviar mensagens da nuvem para o dispositivo
 
 Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
  
@@ -95,9 +95,9 @@ Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
 
 2. Insira a mensagem na caixa de entrada.
 
-3. Os resultados serão mostrados na exibição **SAÍDA** > **Kit de Ferramentas do Hub IoT do Azure**.
+3. Os resultados serão mostrados na **saída** > exibição **do Hub IOT do Azure** .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você aprendeu como usar a extensão Ferramentas IoT do Azure para Visual Studio Code com várias opções de gerenciamento.
 

@@ -1,6 +1,6 @@
 ---
-title: Mostrar resultados de pesquisa com os Mapas do Azure | Microsoft Docs
-description: Como executar uma solicitação de pesquisa com o Azure Maps, em seguida, exibir os resultados no SDK da Web do Azure Maps.
+title: Mostrar resultados da pesquisa em um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a executar uma solicitação de pesquisa usando o SDK Microsoft Azure Web Maps e exibirá os resultados no mapa.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7123bfda0baa3054dbed336dc4bed8958680cb62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975974"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910918"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -29,7 +29,7 @@ Há duas maneiras de procurar um local de interesse. Uma maneira é usar um mód
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar o token de acesso. Você pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um `TokenCredential` para autenticar solicitações HTTP para mapas do Azure com o token de acesso. Em seguida, ele `TokenCredential` passa `atlas.service.MapsURL.newPipeline()` o para e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para as operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Mapas.
+O segundo bloco de código cria uma `TokenCredential` para autenticar solicitações HTTP para mapas do Azure com o token de acesso. Em seguida, ele passa o `TokenCredential` para `atlas.service.MapsURL.newPipeline()` e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para as operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Mapas.
 
 O terceiro bloco de código cria um objeto de fonte de dados usando a classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) e adiciona resultados de pesquisa a ele. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto ou ícones para renderizar dados com base em ponto encapsulados na [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  Uma camada de símbolo é então criada e a fonte de dados é adicionada à camada de símbolo, que é então adicionada ao mapa.
 
@@ -37,7 +37,7 @@ O quarto bloco de código usa o método [SearchFuzzy](/javascript/api/azure-maps
 
 O último bloco de código ajusta os limites da câmera para o mapa usando a propriedade [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Map.
 
-A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limites da câmera são criados e definidos no ouvinte de [evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pronto do mapa para garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
+A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limites da câmera são criados e definidos no [ouvinte de evento](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pronto do mapa para garantir que os resultados sejam exibidos depois que o mapa for totalmente carregado.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Fazer uma solicitação de pesquisa por meio da API de busca
@@ -57,7 +57,7 @@ O último bloco de código cria um objeto [BoundingBox](https://docs.microsoft.c
 
 A solicitação de pesquisa, a fonte de dados e a camada de símbolo e os limites da câmera são definidos no [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) do mapa para garantir que os resultados sejam exibidos após o carregamento total do mapa.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a **Pesquisa Difusa**:
 

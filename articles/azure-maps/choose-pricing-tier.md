@@ -1,6 +1,6 @@
 ---
-title: Escolha o tipo de preço para Azure Mapas | Microsoft Docs
-description: Saiba mais sobre tipo de preço oferecido pelo Azure Mapas
+title: Escolher o tipo de preço certo | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os tipos de preço oferecidos pelo Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/02/2019
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ff774f9848db948058075a98504e6c13db5467a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60796297"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911760"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
 
-Os Mapas do Azure oferecem dois tipos de preço. A finalidade deste artigo é ajudá-lo a escolher o melhor preço para suas necessidades. Para ajudar a escolher a melhor camada de preços, pergunte o seguinte a si mesmo.
+O Azure Mapas oferece dois tipos de preço. A finalidade deste artigo é ajudá-lo a escolher o melhor preço para suas necessidades. Para ajudar a escolher a melhor camada de preços, pergunte o seguinte a si mesmo.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quais recursos geoespaciais planejo usar?
 A camada de preços S0 é ideal para você se as APIs geoespaciais principais atendem aos seus requisitos de serviço. Se quiser recursos mais avançados para seu aplicativo, considere a camada de preços S1. Exemplos de recursos incluem imagens por área e híbridas, obtenção de intervalo de rota e geocodificação em lote. A tabela de **recursos por camada de preços** a seguir dá uma ideia melhor das necessidades do seu aplicativo. Ela também ajuda a escolher um camada de preços mais adequada para seu aplicativo.
@@ -27,9 +27,9 @@ As camadas de preços S0 e S1 lidam com diferentes quantidades de taxa de transf
 
 ### <a name="pricing-tier-capabilities"></a>Recursos do tipo de preço
 
-| Recurso                              |        S0           |  S1      |
+| Capacidade                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Pesquisa (fwd/rev geocodificação, pontos de interesse)  |        ✓           |     ✓    |
+| Pesquisa (multicodificação de FWD/REV, pontos de interesse)  |        ✓           |     ✓    |
 | Geocodificação de lote (versão prévia)              |                   |     ✓    |
 | Polígonos de pesquisa          |                   |     ✓    |
 | Roteamento                                 |        ✓           |     ✓    |
@@ -55,12 +55,12 @@ Consulte a tabela com **Clientes da camada de preços** para obter uma noção m
 
 ### <a name="pricing-tier-targeted-customers"></a>Tipo de preço de clientes de destino
 
-| Tipo de preço  |     Clientes de destino                                                                |
+| tipo de preço  |     Clientes de destino                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>O tipo de preço S0 é para clientes que são as empresas de pequeno ou médio porte. É a camada de preços certa se você não espera altos volumes de usuários simultâneos. Também é a opção correta se as principais APIs geoespaciais mostradas na tabela anterior atendem aos seus requisitos de serviço. Esta camada está disponível para o público em geral. Ela funciona com aplicativos em todos os estágios de produção, desde o desenvolvimento da prova de conceito e o teste inicial até a produção e a implantação do aplicativo.<p>|
 | S1            |    <p>A camada de preços S1 serve clientes que precisam oferecer suporte a uma empresa de grande porte, aplicativos essenciais ou altos volumes de usuários simultâneos. Vale também para os clientes que necessitam de serviços geoespaciais avançados.</p>|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como exibir e alterar a camada de preços:
 

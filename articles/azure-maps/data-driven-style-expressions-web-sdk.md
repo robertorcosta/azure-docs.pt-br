@@ -1,6 +1,6 @@
 ---
-title: Expressões de estilo controladas por dados no SDK da Web do Azure Maps | Microsoft Docs
-description: Como usar expressões de estilo controladas por dados no SDK da Web do Azure Maps.
+title: Expressões de estilo controladas por dados no SDK da Web do Azure Maps | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a usar expressões de estilo controladas por dados no SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480650"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911773"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
 
@@ -41,10 +41,10 @@ As expressões são representadas como matrizes JSON. O primeiro elemento de uma
 
 O SDK da Web do Azure Maps dá suporte a muitos tipos de que podem ser usados por conta própria ou em combinação com outras expressões.
 
-| Tipo de expressões | DESCRIÇÃO |
+| Tipo de expressões | Description |
 |---------------------|-------------|
 | [Expressão de agregação](#aggregate-expression) | Uma expressão que define um cálculo que é processado em um conjunto de dados e pode ser usado com a opção `clusterProperties` de um `DataSource`. |
-| [Expressões booleanas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
+| [Expressões boolianas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
 | [Expressões de cores](#color-expressions) | As expressões de cor facilitam a criação e a manipulação de valores de cores. |
 | [Expressões condicionais](#conditional-expressions) | As expressões condicionais fornecem operações lógicas que são como instruções IF-. |
 | [Expressões de dados](#data-expressions) | Fornece acesso aos dados de propriedade em um recurso. |
@@ -81,15 +81,15 @@ Todos os exemplos neste documento usarão o recurso a seguir para demonstrar dif
 
 As expressões de dados fornecem acesso aos dados de propriedade em um recurso. 
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | objeto | Recupera um item de uma matriz. |
 | `['geometry-type']` | cadeia de caracteres | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
-| `['get', string]` | Valor | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `['get', string, object]` | Valor | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `['has', string]` | boolean | Determina se as propriedades de um recurso têm a propriedade especificada. |
-| `['has', string, object]` | boolean | Determina se as propriedades do objeto têm a propriedade especificada. |
-| `['id']` | Valor | Obtém a ID do recurso se ele tiver um. |
+| `['get', string]` | value | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
+| `['get', string, object]` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
+| `['has', string]` | booleano | Determina se as propriedades de um recurso têm a propriedade especificada. |
+| `['has', string, object]` | booleano | Determina se as propriedades do objeto têm a propriedade especificada. |
+| `['id']` | value | Obtém a ID do recurso se ele tiver um. |
 | `['length', string | array]` | número | Obtém o comprimento de uma cadeia de caracteres ou matriz. |
 
 **Exemplos**
@@ -139,7 +139,7 @@ Da mesma forma, a estrutura de polígonos será renderizada em camadas de linha.
 
 As expressões matemáticas fornecem operadores matemáticos para executar cálculos controlados por dados dentro do Expression Framework.
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['+', number, number, …]` | número | Calcula a soma dos números especificados. |
 | `['-', number]` | número | Subtrai 0 pelo número especificado. |
@@ -194,17 +194,17 @@ As expressões booleanas fornecem um conjunto de expressões de operadores booli
 
 Ao comparar valores, a comparação é estritamente digitada. Os valores de tipos diferentes são sempre considerados desiguais. Os casos em que os tipos são conhecidos como diferentes no momento da análise são considerados inválidos e produzirão um erro de análise. 
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Negação lógica. Retornará `true` se a entrada for `false`e `false` se a entrada for `true`. |
-| `['!= ', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
-| `['<', value, value]` | boolean | Retorna `true` se a primeira entrada for estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['<=', value, value]` | boolean | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['==', value, value]` | boolean | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['>', value, value]` | boolean | Retorna `true` se a primeira entrada for estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['>=' value, value]` | boolean | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `['all', boolean, boolean, …]` | boolean | Retorna `true` se todas as entradas forem `true`, `false` caso contrário. |
-| `['any', boolean, boolean, …]` | boolean | Retorna `true` se alguma das entradas for `true``false` caso contrário. |
+| `['! ', boolean]` | booleano | Negação lógica. Retornará `true` se a entrada for `false`e `false` se a entrada for `true`. |
+| `['!= ', value, value]` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
+| `['<', value, value]` | booleano | Retorna `true` se a primeira entrada for estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['<=', value, value]` | booleano | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['==', value, value]` | booleano | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['>', value, value]` | booleano | Retorna `true` se a primeira entrada for estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['>=' value, value]` | booleano | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `['all', boolean, boolean, …]` | booleano | Retorna `true` se todas as entradas forem `true`, `false` caso contrário. |
+| `['any', boolean, boolean, …]` | booleano | Retorna `true` se alguma das entradas for `true``false` caso contrário. |
 
 ## <a name="conditional-expressions"></a>Expressões condicionais
 
@@ -397,11 +397,11 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 As expressões de tipo fornecem ferramentas para testar e converter diferentes tipos de dados, como cadeias de caracteres, números e valores Boolianos.
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | objeto de \| de matriz | Retorna um valor de objeto ou matriz literal. Use esta expressão para impedir que uma matriz ou objeto seja avaliado como uma expressão. Isso é necessário quando uma matriz ou objeto precisa ser retornado por uma expressão. |
 | `['image', string]` | cadeia de caracteres | Verifica se uma ID de imagem especificada é carregada na imagem de mapas Sprite. Se for, a ID será retornada; caso contrário, NULL será retornado. |
-| `['to-boolean', value]` | boolean | Converte o valor de entrada em um booliano. O resultado é `false` quando a entrada é uma cadeia de caracteres vazia, `0`, `false`, `null`ou `NaN`; caso contrário, seu `true`. |
+| `['to-boolean', value]` | booleano | Converte o valor de entrada em um booliano. O resultado é `false` quando a entrada é uma cadeia de caracteres vazia, `0`, `false`, `null`ou `NaN`; caso contrário, seu `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | cor | Converte o valor de entrada em uma cor. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Converte o valor de entrada em um número, se possível. Se a entrada for `null` ou `false`, o resultado será 0. Se a entrada for `true`, o resultado será 1. Se a entrada for uma cadeia de caracteres, ela será convertida em um número usando a função de cadeia de caracteres [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) da especificação da linguagem ECMAScript. Se vários valores forem fornecidos, cada um será avaliado na ordem até que a primeira conversão bem-sucedida seja obtida. Se nenhuma das entradas puder ser convertida, a expressão será um erro. |
 | `['to-string', value]` | cadeia de caracteres | Converte o valor de entrada em uma cadeia de caracteres. Se a entrada for `null`, o resultado será `""`. Se a entrada for um booliano, o resultado será `"true"` ou `"false"`. Se a entrada for um número, ela será convertida em uma cadeia de caracteres usando a função de número [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) da especificação da linguagem ECMAScript. Se a entrada for uma cor, ela será convertida para a cadeia de caracteres de cor do CSS RGBA `"rgba(r,g,b,a)"`. Caso contrário, a entrada é convertida em uma cadeia de caracteres usando a função [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) da especificação da linguagem ECMAScript. |
@@ -433,11 +433,11 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 
 As expressões de cor facilitam a criação e a manipulação de valores de cores.
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | cor | Cria um valor de cor dos componentes *vermelho*, *verde*e *azul* que devem variar entre `0` e `255`e um componente alfa de `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
 | `['rgba', number, number, number, number]` | cor | Cria um valor de cor de componentes *vermelhos*, *verdes*e *azuis* que devem variar entre `0` e `255`e um componente alfa dentro de um intervalo de `0` e `1`. Se algum componente estiver fora do intervalo, a expressão será um erro. |
-| `['to-rgba']` | número \[, número, número, número\] | Retorna uma matriz de quatro elementos que contém os componentes *vermelho*, *verde*, *azul*e *alfa* da cor de entrada, nessa ordem. |
+| `['to-rgba']` | \[number, number, number, number\] | Retorna uma matriz de quatro elementos que contém os componentes *vermelho*, *verde*, *azul*e *alfa* da cor de entrada, nessa ordem. |
 
 **Exemplo**
 
@@ -461,7 +461,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Expressões do operador String executam operações de conversão em cadeias de caracteres como concatenar e converter o caso. 
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | cadeia de caracteres | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a expressão de tipo `to-string` para converter outros tipos de valor em cadeia de caracteres, se necessário. |
 | `['downcase', string]` | cadeia de caracteres | Converte a cadeia de caracteres especificada em minúsculas. |
@@ -506,7 +506,7 @@ Há três tipos de métodos de interpolação que podem ser usados em uma `inter
 
 Veja um exemplo de como esses diferentes tipos de interpolações se parecem. 
 
-| Linear  | Exponencial | Bezier cubica |
+| Linear  | Exponencial | Bézier cúbica |
 |---------|-------------|--------------|
 | ![Grafo de interpolação linear](media/how-to-expressions/linear-interpolation.png) | ![Grafo de interpolação exponencial](media/how-to-expressions/exponential-interpolation.png) | ![Grafo de interpolação Bézier cúbica](media/how-to-expressions/bezier-curve-interpolation.png) |
 
@@ -821,10 +821,10 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 As expressões de associação de variáveis armazenam os resultados de um cálculo em uma variável para que possam ser referenciadas em outro lugar em uma expressão várias vezes sem precisar recalculá-la. Essa é uma otimização útil para expressões que envolvem muitos cálculos
 
-| Expressão | Tipo de retorno | DESCRIÇÃO |
+| Expression | Tipo de retorno | Description |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childy<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão filho que retorna o resultado. |
-| `['var', name: string]` | qualquer | Faz referência a uma variável que foi criada usando a expressão `let`. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;' Let ',<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome1: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome2: String,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Armazena um ou mais valores como variáveis para uso pela expressão `var` na expressão filho que retorna o resultado. |
+| `['var', name: string]` | any | Faz referência a uma variável que foi criada usando a expressão `let`. |
 
 **Exemplo**
 
@@ -854,12 +854,12 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte os artigos a seguir para obter mais exemplos de código que implementam expressões:
 
 > [!div class="nextstepaction"] 
-> [Adicionar uma camada de símbolos](map-add-pin.md)
+> [Adicionar uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
 > [Adicionar uma camada de bolhas](map-add-bubble-layer.md)

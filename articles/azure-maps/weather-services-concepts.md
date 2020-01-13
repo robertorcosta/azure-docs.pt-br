@@ -1,6 +1,6 @@
 ---
-title: Conceitos de serviços meteorológicos no Azure Maps | Microsoft Docs
-description: Saiba mais sobre os serviços meteorológicos no Azure Maps
+title: Conceitos de serviços meteorológicos | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os conceitos que se aplicam ao Microsoft Azure mapeia os serviços meteorológicos.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9d464ab172fcb375d62b9928818362574a485231
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382463"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911019"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos no Azure Maps
 
@@ -23,7 +23,7 @@ Este artigo apresenta conceitos que se aplicam aos [serviços meteorológicos do
 
 Algumas das APIs de serviço meteorológico permitem que o usuário especifique se os dados são retornados na métrica ou em unidades Imperials. A resposta retornada para essas APIs também incluirá UnitType, um valor numérico que pode ser usado para conversões de unidade. Consulte a tabela abaixo para interpretar esses valores.
 
-|unitType|DESCRIÇÃO         |
+|UnitType|Description         |
 |--------|--------------------|
 |0       |pé                |
 |1       |5,08              |
@@ -45,8 +45,8 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 |17      |celsius             |
 |18      |fahrenheit          |
 |19      |kelvin              |
-|20      |%             |
-|21      |float               |
+|20      |{1&gt;percent&lt;1}             |
+|21      |FLOAT               |
 |22      |inteiro             |
 
 
@@ -56,46 +56,46 @@ Algumas das APIs de serviço meteorológicos retornam códigos de ícone (iconCo
 
 | Número do ícone |ícone| Dia | Jogo | Texto |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | sim |  Não    | Ensolarado|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | sim |  Não    | Quase que ensolarado|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | sim |  Não    | Parcialmente ensolarado|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | sim |  Não    | Nuvens intermitentes|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | sim |  Não    | Hazy sol |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | sim |  Não    | Principalmente em nuvem|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | sim |  sim   | Nublado |
-| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | sim |  sim   | Dreary (Overcast)|
-| 11           |![](./media/weather-services-concepts/fog-i.png)                       | sim |  sim   | Neblina|
-| 12           |![](./media/weather-services-concepts/showers-i.png)                   | sim |  sim   | Hadrônicos|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | sim |  Não    | Principalmente em nuvem com Hadrônicos|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | sim |  Não    | Parcialmente ensolarado com Hadrônicos|
-| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | sim |  sim   | Thunderstorms|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | sim |  Não    | Principalmente em nuvem com thunderstorms|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | sim |  Não    | Parcialmente ensolarado com thunderstorms|
-| 18           |![](./media/weather-services-concepts/rain-i.png)                      | sim |  sim   | chuva|
-| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | sim |  sim   | Flurries|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | sim |  Não    | Principalmente em nuvem com flurries|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | sim |  Não    | Parcialmente ensolarado com flurries|
-| 22           |![](./media/weather-services-concepts/snow-i.png)                      | sim |  sim   | Neve|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | sim |  Não    | Principalmente em nuvem com neve|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | sim |  sim   | Congela |
-| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | sim |  sim   | Sleet|
-| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | sim |  sim   | Chuva de congelamento|
-| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | sim |  sim   | Chuva e neve|
-| 30           |![](./media/weather-services-concepts/hot-i.png)                       | sim |  sim   | Dinâmica|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | sim |  sim   | Frio|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | sim |  sim   | Vento|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | Não  |  sim   | Limpar|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Não  |  sim   | Quase sempre claro|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Não  |  sim   | Parcialmente em nuvem|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Não  |  sim   | Nuvens intermitentes|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Não  |  sim   | Hazy Moonlight|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Não  |  sim   | Principalmente em nuvem|
-| 11,8           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Não  |  sim   | Parcialmente em nuvem com o Hadrônicos|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Não  |  sim   | Principalmente em nuvem com Hadrônicos|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Não  |  sim   | Parcialmente em nuvem com o thunderstorms|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Não  |  sim   | Principalmente em nuvem com thunderstorms|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Não  |  sim   | Principalmente em nuvem com flurries|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Não  |  sim   | Principalmente em nuvem com neve|
+| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Sim |  Não    | Ensolarado|
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Sim |  Não    | Quase que ensolarado|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Sim |  Não    | Parcialmente ensolarado|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Sim |  Não    | Nuvens intermitentes|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Sim |  Não    | Hazy sol |
+| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Sim |  Não    | Principalmente em nuvem|
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Sim |  Sim   | nublado |
+| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Sim |  Sim   | Dreary (Overcast)|
+| 11           |![](./media/weather-services-concepts/fog-i.png)                       | Sim |  Sim   | Neblina|
+| 12           |![](./media/weather-services-concepts/showers-i.png)                   | Sim |  Sim   | Hadrônicos|
+| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Sim |  Não    | Principalmente em nuvem com Hadrônicos|
+| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Sim |  Não    | Parcialmente ensolarado com Hadrônicos|
+| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Sim |  Sim   | Thunderstorms|
+| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Sim |  Não    | Principalmente em nuvem com thunderstorms|
+| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Sim |  Não    | Parcialmente ensolarado com thunderstorms|
+| 18           |![](./media/weather-services-concepts/rain-i.png)                      | Sim |  Sim   | chuva|
+| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Sim |  Sim   | Flurries|
+| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Sim |  Não    | Principalmente em nuvem com flurries|
+| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Sim |  Não    | Parcialmente ensolarado com flurries|
+| 22           |![](./media/weather-services-concepts/snow-i.png)                      | Sim |  Sim   | Neve|
+| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Sim |  Não    | Principalmente em nuvem com neve|
+| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Sim |  Sim   | Gelo |
+| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Sim |  Sim   | Sleet|
+| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Sim |  Sim   | Chuva de congelamento|
+| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Sim |  Sim   | Chuva e neve|
+| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Sim |  Sim   | Quente|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Sim |  Sim   | Frio|
+| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Sim |  Sim   | Vento|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | Não  |  Sim   | Desmarcar|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Não  |  Sim   | Quase sempre claro|
+| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Não  |  Sim   | Parcialmente em nuvem|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Não  |  Sim   | Nuvens intermitentes|
+| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Não  |  Sim   | Hazy Moonlight|
+| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Não  |  Sim   | Principalmente em nuvem|
+| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Não  |  Sim   | Parcialmente em nuvem com o Hadrônicos|
+| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Não  |  Sim   | Principalmente em nuvem com Hadrônicos|
+| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Não  |  Sim   | Parcialmente em nuvem com o thunderstorms|
+| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Não  |  Sim   | Principalmente em nuvem com thunderstorms|
+| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Não  |  Sim   | Principalmente em nuvem com flurries|
+| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Não  |  Sim   | Principalmente em nuvem com neve|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e satélite
@@ -106,7 +106,7 @@ Por meio da [API do mapa Get do Map v2](https://aka.ms/AzureMapsWeatherTiles) , 
 
 A tabela a seguir fornece orientação para interpretar as imagens de radar e criar uma legenda de mapa para dados de bloco de radar.
 
-| Código de cor hex | Exemplo de cor | Condição do clima |
+| Código de cor hex | Amostra de cor | Condição do clima |
 |----------------|--------------|-------------------|
 | #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Chuva-claro |
 | #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Chuva-moderado |
@@ -127,7 +127,7 @@ A tabela a seguir fornece orientação para interpretar as imagens de radar e cr
 
 A paleta de cores detalhada para blocos de radar com códigos de cor hexadecimais e valores de dBZ é mostrada abaixo. dBZ representa intensidade de precipitação no radar meteorológico. 
 
-| **REDUNDANT**             | **CONGELA**              | **NEVE**              | **Norte**             |
+| **REDUNDANT**             | **CONGELA**              | **NEVE**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
 | **dBZ** **(cor)**  | **dBZ** **(cor)**  | **dBZ** **(cor)**   | **dBZ** **(cor)**   |
 | 1,25 (#93C701) | 1,25 (#E6A5C8) | 1,25 (#9EC8F2)  | 1,25 (#C196E6) |
@@ -197,7 +197,7 @@ A paleta de cores detalhada para blocos de radar com códigos de cor hexadecimai
 
 A tabela a seguir fornece orientação para interpretar as imagens satélite de infravermelho mostrando nuvens por sua temperatura e como criar uma legenda de mapa para esses blocos. 
 
-| Código de cor hex | Exemplo de cor | Temperatura da nuvem |
+| Código de cor hex | Amostra de cor | Temperatura da nuvem |
 |----------------|--------------|-------------------|
 | #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperatura baixa | 
 | #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) |  |
@@ -220,7 +220,7 @@ A paleta de cores detalhada para blocos satélite de infravermelho é mostrada a
 |198     |#fe050505     |
 |198,43  |#fe120505     |
 |198,87  |#fc1f0505     |
-|199,3   |#fc2c0606     |
+|199.3   |#fc2c0606     |
 |199,74  |#fa390606     |
 |200,17  |#fa460606     |
 |200,61  |#f8530606     |

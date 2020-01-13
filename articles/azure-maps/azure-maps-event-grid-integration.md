@@ -1,6 +1,6 @@
 ---
-title: Reagir a eventos do Azure Mapas usando a Grade de Eventos | Microsoft Docs
-description: Saiba como reagir a eventos do Azure Mapas usando a Grade de Eventos.
+title: Reagir a eventos de mapeamento usando a grade de eventos | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a reagir a Microsoft Azure eventos de mapas usando a grade de eventos.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799167"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911804"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Mapas usando a Grade de Eventos 
 
@@ -30,7 +30,7 @@ A Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente g
 
 A Grade de eventos usa [assinaturas de evento](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) para rotear mensagens de evento para os assinantes. Uma conta do Azure Mapas emite os seguintes tipos de eventos: 
 
-| Tipo de evento | DESCRIÇÃO |
+| Tipo de evento | Description |
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Gerado quando as coordenadas recebidas são movidas de fora de uma determinada cerca geográfica para dentro |
 | Microsoft.Maps.GeofenceExited | Gerado quando as coordenadas recebidas são movidas de dentro de uma determinada cerca geográfica para fora |
@@ -84,7 +84,7 @@ Aplicativos que manipulam eventos de limite geográfico do Azure Mapas devem seg
 * As mensagens podem chegar fora de ordem ou após um atraso. Use o campo `X-Correlation-id` no cabeçalho de resposta para entender se as informações sobre objetos estão atualizadas.
 * Quando a API do limite geográfico de Get e POST é chamada com o parâmetro de modo definido como `EnterAndExit`, um evento de entrada ou saída é gerado para cada geometria no limite geográfico para a qual o status foi alterado desde a última chamada à API do limite geográfico.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como usar o isolamento geográfico para operações de controle em um local de construção, confira:
 

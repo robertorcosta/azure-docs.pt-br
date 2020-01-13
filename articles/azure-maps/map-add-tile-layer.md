@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de bloco para o Azure Mapas | Microsoft Docs
-description: Como adicionar uma camada de peça ao SDK da Web do Azure Maps.
+title: Adicionar uma camada de bloco a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a sobrepor uma camada de bloco em um mapa usando o SDK da Web do Microsoft Azure Maps. As camadas de bloco permitem renderizar imagens em um mapa.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976446"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911102"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Adicionar uma camada de bloco a um mapa
 
@@ -40,7 +40,7 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 
 ## <a name="add-a-tile-layer"></a>Adicionar uma camada de bloco
 
- Este exemplo mostra como criar uma camada lado a lado que aponta para um conjunto de blocos que usam o sistema lado a lado do zoom, x,y. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Ao exibir dados de radar idealmente, os usuários poderiam ver claramente os rótulos das cidades à medida que navegam no mapa, o que pode ser feito inserindo-se `labels` a camada de peça abaixo da camada.
+ Este exemplo mostra como criar uma camada lado a lado que aponta para um conjunto de blocos que usam o sistema lado a lado do zoom, x,y. A origem dessa camada lado a lado é uma sobreposição de radar clima da [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Ao exibir dados de radar, o ideal é que os usuários possam ver claramente os rótulos das cidades à medida que navegam no mapa, o que pode ser feito inserindo-se a camada de peça abaixo da camada de `labels`.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -68,7 +68,7 @@ A classe da camada do bloco tem muitas opções de estilo. Aqui está uma ferram
 <iframe height='700' scrolling='no' title='Opções de camada de bloco' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Opções de Camada de Bloco</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

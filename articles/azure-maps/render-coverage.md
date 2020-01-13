@@ -1,6 +1,6 @@
 ---
-title: Cobertura de renderização nos Mapas do Azure | Microsoft Docs
-description: Saiba mais sobre a cobertura de renderização nos Mapas do Azure
+title: Cobertura de renderização | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre regiões com Microsoft Azure mapas de renderização com cobertura junto com seus níveis de detalhes renderizados.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934285"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910666"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de renderização do Mapas do Azure
 
@@ -75,7 +75,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Reunião                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Santa Helena, Ascensão e Tristão da Cunha | ✓ | Ø |
-| São Tomé e Príncipe            | ✓ | Ø |
+| São Tomé and Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Serra Leoa                     | ✓ | ✓ |
 | Somália                          | ✓ | ✓ |
@@ -145,7 +145,7 @@ No entanto, o Mapas não têm o mesmo nível de informações e precisão para t
 | Ilhas Geórgia do Sul e Sandwich do Sul | ✓ | ✓ |
 | Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
-| Ilhas Turcos e Caicos  | ✓ | ✓ |
+| Ilhas Turcas e Caicos  | ✓ | ✓ |
 | Estados Unidos             | ✓ | ✓ |
 | Uruguai                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |

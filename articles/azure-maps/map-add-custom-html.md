@@ -1,6 +1,6 @@
 ---
-title: Adicionar um marcador HTML ao Azure Mapas | Microsoft Docs
-description: Como adicionar um marcador HTML ao SDK da Web do Azure Maps.
+title: Adicionar um marcador HTML ao mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a adicionar um marcador HTML a um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ff18b8646a3845d029e9826c0895b9d3eb16bdde
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5a15b3b9e51772d8c7e5312968fecb180069e2a7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976211"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911243"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicionar marcadores HTML ao mapa
 
@@ -28,9 +28,9 @@ Este artigo mostra como adicionar um HTML personalizado, como um arquivo de imag
 
 ## <a name="add-an-html-marker"></a>Adicionar um marcador HTML
 
-A classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) tem um estilo padrão. É possível personalizar o marcador, definindo as opções de cor e texto do marcador. O estilo padrão da classe de marcador HTML é um modelo SVG que tem um `{color}` espaço `{text}` reservado e. Defina as propriedades de cor e texto nas opções de marcador HTML para uma personalização rápida. 
+A classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) tem um estilo padrão. É possível personalizar o marcador, definindo as opções de cor e texto do marcador. O estilo padrão da classe de marcador HTML é um modelo SVG que tem um espaço reservado `{color}` e `{text}`. Defina as propriedades de cor e texto nas opções de marcador HTML para uma personalização rápida. 
 
-O código a seguir cria um marcador HTML e define a Propriedade Color como "DodgerBlue" e a propriedade Text como "10". Um popup é anexado ao marcador e `click` o evento é usado para alternar a visibilidade do pop-up.
+O código a seguir cria um marcador HTML e define a Propriedade Color como "DodgerBlue" e a propriedade Text como "10". Um popup é anexado ao marcador e `click` evento é usado para alternar a visibilidade do Popup.
 
 ```javascript
 //Create a HTML marker and add it to the map.
@@ -82,7 +82,7 @@ Um dos benefícios dos marcadores HTML é que há muitas ótimas personalizaçõ
 
 ## <a name="draggable-html-markers"></a>Marcadores HTML arrastáveis
 
-Esse exemplo mostra como tornar um marcador HTML arrastável. Os marcadores de HTML `drag`dão `dragstart`suporte a `dragend` eventos, e.
+Esse exemplo mostra como tornar um marcador HTML arrastável. Os marcadores de HTML dão suporte a eventos `drag`, `dragstart`e `dragend`.
 
 <br/>
 
@@ -98,7 +98,7 @@ Estes exemplos mostram como adicionar eventos do mouse e de arrastar a um marcad
 <iframe height='500' scrolling='no' title='Adicionando eventos do mouse a marcadores HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Adicionando eventos do mouse a marcadores HTML</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

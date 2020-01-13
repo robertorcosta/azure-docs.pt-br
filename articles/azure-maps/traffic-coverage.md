@@ -1,6 +1,6 @@
 ---
-title: Cobertura de tráfego nos Mapas do Azure | Microsoft Docs
-description: Saiba mais sobre a cobertura de tráfego nos Mapas do Azure
+title: Cobertura de tráfego | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre a cobertura de tráfego em mapas de Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 544cae7f33bfb1077bfdf7f215fb313974334216
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958011"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910394"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego dos Mapas do Azure
 
@@ -50,7 +50,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Malásia     |✓         |✓         |
 |Nova Zelândia     |✓         |✓         |
 |Filipinas  |✓         |✓         |
-|Singapura     |✓         |✓         |
+|Cingapura     |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Tailândia     |✓         |✓        |
 |Vietnã   |✓         |✓         |
@@ -88,7 +88,7 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |Luxemburgo     |✓         |✓         |
 |Malta     |✓         |✓         |
 |Mônaco   |✓         |✓         |
-|Países Baixos     |✓         |✓         |
+|Holanda     |✓         |✓         |
 |Noruega     |✓         |✓         |
 |Polônia     |✓         |✓         |
 |Portugal     |✓         |✓         |
@@ -132,6 +132,6 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |África do Sul     |✓         |✓         |
 |Emirados Árabes Unidos  |✓         |✓         |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre os dados de tráfego de Mapas do Azure, consulte as páginas de referência [Tráfego](https://docs.microsoft.com/rest/api/maps/traffic).

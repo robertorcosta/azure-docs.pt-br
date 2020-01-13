@@ -1,6 +1,6 @@
 ---
-title: Estilos de mapa compatíveis com o Azure Mapas | Microsoft Docs
-description: Estilos de mapa compatíveis com o Azure Mapas
+title: Estilos de mapa com suporte | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os diferentes estilos de renderização de mapa com suporte pelos mapas do Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325407"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910635"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
 O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como descrito abaixo.
@@ -21,7 +21,7 @@ O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como de
 ## <a name="road"></a>rodoviário
 Um **mapa** de estradas é um mapa padrão que exibe estradas, naturais e artificiais recursos juntamente com os rótulos para esses recursos.
 
-![rodoviário](./media/supported-map-styles/road.png)
+![estilo de mapa de estrada](./media/supported-map-styles/road.png)
 
 **APIs aplicáveis:**
 * [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -42,7 +42,7 @@ Os estilos de mapa **em branco** e de **blank_accessible** fornecem uma tela em 
 ## <a name="satellite"></a>satélite 
 O estilo **satélite** é uma combinação de imagens de satélite e aéreas.
 
-![satélite](./media/supported-map-styles/satellite.png)
+![estilo de mapa de bloco satélite](./media/supported-map-styles/satellite.png)
 
 **APIs aplicáveis:**
 * [Peça de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,7 +52,7 @@ O estilo **satélite** é uma combinação de imagens de satélite e aéreas.
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imagens aéreas e de satélite.
 
-![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![satellite_road_labels estilo de mapa](./media/supported-map-styles/satellite_road_labels.png)
 
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
@@ -61,7 +61,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imag
 ## <a name="grayscale_dark"></a>grayscale_dark
 **Escala de cinza escuro** é uma versão escura do estilo de mapa rodoviário.
 
-![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![gray_scale estilo de mapa](./media/supported-map-styles/grayscale_dark.png)
 
 **APIs aplicáveis:**
 * [Imagem do mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imag
 ## <a name="grayscale_light"></a>grayscale_light
 a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 
-![luz de tons de cinza](./media/supported-map-styles/grayscale_light.png)
+![estilo de mapa da luz em tons de cinza](./media/supported-map-styles/grayscale_light.png)
 
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
@@ -83,7 +83,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 ## <a name="night"></a>noite
 **noite** é uma versão escura do estilo de mapa rodoviário com estradas e símbolos coloridos.
 
-![noite](./media/supported-map-styles/night.png)
+![estilo de mapa noturno](./media/supported-map-styles/night.png)
 
 **APIs aplicáveis:**
 * Controle de mapa do SDK da Web
@@ -92,7 +92,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 **road shaded relief** é o estilo principal do Azure Mapas concluído com as delimitações da Terra.
 
-![shaded relief](./media/supported-map-styles/shaded-relief.png)
+![estilo de mapa de alívio sombreado](./media/supported-map-styles/shaded-relief.png)
 
 **APIs aplicáveis:**
 * [Peça de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
@@ -100,7 +100,7 @@ a **luz de escala de cinza** é uma versão leve do estilo de mapa rodoviário.
 * Controle de mapa do Android
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como definir um estilo de mapa no Azure Maps:
 

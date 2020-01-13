@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o tipo de preço da conta do Azure Mapas | Microsoft Docs
-description: Você pode usar o portal do Azure para gerenciar sua conta dos Mapas do Azure e seu tipo de preço.
+title: Gerenciar o tipo de preço da sua conta do Azure Maps | Mapas do Microsoft Azure
+description: Você pode usar o portal do Azure para gerenciar sua conta do Microsoft Azure Maps e seu tipo de preço.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cba1e56b96f24764af00f04f399d0cdbe54be24
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794205"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911478"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerencie o tipo de preço da sua conta do Azure Mapas
 
@@ -36,7 +36,7 @@ Depois de criar uma conta do Azure Mapas, você pode fazer um upgrade ou downgra
 > [!NOTE]
 > Não será necessário gerar novas chaves de assinatura nem ID do cliente (para a autenticação do Azure AD) se você fizer upgrade ou downgrade do tipo de preço da sua conta do Azure Mapas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como ver as métricas de uso da API para sua conta do Azure Mapas:
 

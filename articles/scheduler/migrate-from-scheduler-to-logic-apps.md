@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890170"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911988"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar trabalhos do Agendador do Azure para Aplicativos Lógicos do Azure
 
@@ -33,9 +33,9 @@ Este artigo mostra como é possível agendar trabalhos únicos e recorrentes cri
 
 Para saber mais, confira [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md) ou tente criar seu primeiro aplicativo lógico neste guia de início rápido: [crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso você não tenha uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 * Para disparar seu aplicativo lógico enviando solicitações HTTP, use uma ferramenta como o [aplicativo da área de trabalho Postman](https://www.getpostman.com/apps).
 
@@ -106,7 +106,7 @@ Para executar manualmente ou disparar um trabalho único, envie uma chamada para
 
 Por exemplo, usando o aplicativo de postmaster, você pode criar uma solicitação POST com as configurações semelhantes a este exemplo e, em seguida, selecione **Enviar** para fazer a solicitação.
 
-| Método de solicitação | URL | corpo | headers |
+| Método de solicitação | URL | Corpo | headers |
 |----------------|-----|------|---------|
 | **POST** | <*endpoint-URL*> | **raw** <p>**JSON(aplicativo/json)** <p>Na caixa **bruto** , insira a carga que você deseja enviar na solicitação. <p>**Observação**: essa configuração define automaticamente os valores **Cabeçalhos**. | **Chave**: Content-Type <br>**Valor**: aplicativo/json |
 |||||
@@ -121,7 +121,7 @@ Após enviar a chamada, a resposta do seu aplicativo lógico será exibida na ca
 >
 > Se você quiser cancelar o trabalho mais tarde, selecione a guia **cabeçalhos** . Localize e copie o valor do cabeçalho **x-MS-Workflow-Run-ID** na resposta. 
 >
-> ![resposta](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![Resposta](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>Cancelar um trabalho único
 
@@ -191,7 +191,7 @@ No Agendador do Azure, se a ação padrão não for executada, será possível e
 
 1. Quando tiver terminado, selecione **Concluído**.
 
-Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e exceções – Propriedade RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e exceções – Propriedade RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
 ## <a name="faq"></a>FAQ
 
@@ -212,7 +212,7 @@ Para saber mais sobre a manipulação da exceção, confira [Lidar com erros e e
 **P**: onde posso obter suporte para a migração dos meus trabalhos do Agendador? <br>
 **R**: veja algumas maneiras de obter suporte: 
 
-**Portal do Azure**
+**Azure portal**
 
 Se a assinatura do Azure tiver um plano de suporte pago, será possível criar uma solicitação de suporte técnico no portal do Azure. Caso contrário, será possível selecionar uma opção de suporte diferente.
 
@@ -234,7 +234,7 @@ Se a assinatura do Azure tiver um plano de suporte pago, será possível criar u
 * [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Crie tarefas e fluxos de trabalho de execução regular com os Aplicativos Lógicos do Azure](../connectors/connectors-native-recurrence.md)
 * [Tutorial: verificar o tráfego com um aplicativo lógico baseado em agendamento](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

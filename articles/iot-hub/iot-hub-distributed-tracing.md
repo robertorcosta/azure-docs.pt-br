@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457058"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911892"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -208,15 +208,15 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 1. (Opcional) Altere a taxa de amostragem para um valor diferente e observe a alteração na frequência com que as mensagens incluem `tracestate` nas propriedades do aplicativo.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Atualizar usando o Kit de ferramentas do Azure Hub IoT para VS Code
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>Atualizar usando o Hub IoT do Azure para VS Code
 
-1. Instale o VS Code e, em seguida, instale a versão mais recente do Kit de ferramentas do Azure Hub IoT para VS Code [aqui](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Instale o VS Code e instale a versão mais recente do Hub IoT do Azure para VS Code [aqui](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 1. Abra o VS Code e [configure a cadeia de conexão do Hub IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Expanda o dispositivo e procure **Configuração do rastreamento distribuído (versão prévia)** . Nesse ponto, clique em **Atualizar a configuração do rastreamento distribuído (versão prévia)** do subnó.
 
-    ![Habilitar o rastreamento distribuído no Kit de ferramentas do Azure Hub IoT](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Habilitar o rastreamento distribuído na extensão do Hub IoT do Azure](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. Na janela pop-up, escolha **Habilitar** e, em seguida, pressione Enter para confirmar 100 como a taxa de amostragem.
 

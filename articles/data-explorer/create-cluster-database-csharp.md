@@ -1,18 +1,18 @@
 ---
 title: Criar um cluster e banco de dados do Azure Data Explorer usando C#
 description: Saiba como criar um cluster e banco de dados do Azure Data Explorer usando C#
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1260b7754f80a3d008084f632d299c684162628e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 7dc032d52a8cb3c5c54cf57c7ae7bf697796b5cc
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667868"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910595"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster e banco de dados do Azure Data Explorer usando C#
 
@@ -28,7 +28,7 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se você não tem o Visual 2019 Studio instalado, baixe e use o **Visual Studio 2019 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
+* Se você não tiver o Visual Studio 2019 instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="install-c-nuget"></a>Instalar C# o NuGet
@@ -36,7 +36,7 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
 * Instalar o [pacote NuGet do Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Instalar o [pacote NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster do Azure Data Explorer
@@ -75,7 +75,7 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
    | clusterName | *mykustocluster* | O nome desejado do cluster.|
    | skuName | *Standard_D13_v2* | O SKU que será usado para o cluster. |
    | Camada | *Standard* | A camada de SKU. |
-   | recurso | *number* | O número de instâncias do cluster. |
+   | ALOCADA | *number* | O número de instâncias do cluster. |
    | resourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
     > [!NOTE]
@@ -118,7 +118,7 @@ Se o resultado contém `ProvisioningState` com o valor `Succeeded`, o cluster fo
 
 Agora você tem um cluster e um banco de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 * Se você planeja seguir nossos outros artigos, mantenha os recursos que você criou.
 * Para limpar recursos, exclua o cluster. Quando você exclui um cluster, também exclui todos os bancos de dados nele. Use o seguinte comando para excluir o cluster:

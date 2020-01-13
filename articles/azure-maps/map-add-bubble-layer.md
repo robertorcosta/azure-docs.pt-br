@@ -1,6 +1,6 @@
 ---
-title: Adicionar uma camada de bolha para o Azure Mapas | Microsoft Docs
-description: Como adicionar uma camada de bolha ao SDK da Web do Azure Maps.
+title: Adicionar uma camada de bolha a um mapa | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá como adicionar uma camada de bolha a um mapa usando o SDK da Web do Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976569"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911278"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicionar uma camada de bolha a um mapa
 
 Este artigo mostra como você pode renderizar dados de ponto de uma fonte de dados como uma camada de bolha em um mapa. As camadas de bolhas renderizam pontos como círculos no mapa com raio de pixel fixo. 
 
 > [!TIP]
-> As camadas de bolha por padrão processarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de `filter` ponto, defina a propriedade `['==', ['geometry-type'], 'Point']` da `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` camada como ou se você quiser incluir recursos do MultiPoint também.
+> As camadas de bolha por padrão processarão as coordenadas de todas as geometrias em uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de geometria de ponto, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se você quiser incluir recursos do MultiPoint também.
 
 ## <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
@@ -62,7 +62,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrar rótulos de uma camada de bolha
 
-O código a seguir mostra como usar uma camada de bolha para renderizar um ponto no mapa e uma camada de símbolo para renderizar um rótulo. Para ocultar o ícone da camada de símbolo, defina a `image` propriedade das opções de ícone como `'none'`.
+O código a seguir mostra como usar uma camada de bolha para renderizar um ponto no mapa e uma camada de símbolo para renderizar um rótulo. Para ocultar o ícone da camada de símbolo, defina a propriedade `image` das opções de ícone como `'none'`.
 
 <br/>
 
@@ -78,7 +78,7 @@ A camada de bolha tem apenas algumas opções de estilo. Aqui está uma ferramen
 <iframe height='700' scrolling='no' title='Opções de camada de bolha' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>Opções de Camada de Bolhas</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 

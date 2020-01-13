@@ -1,6 +1,6 @@
 ---
-title: Modelo de consumo nos Mapas do Azure | Microsoft Docs
-description: Saiba mais sobre o modelo de consumo nos Mapas do Azure
+title: Modelos de consumo de veículo para roteamento | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá sobre os modelos de consumo de veículo para roteamento em mapas de Microsoft Azure.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797907"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911706"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 
 O roteamento online fornece um conjunto de parâmetros para uma descrição detalhada do modelo de consumo específico do veículo.
-Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo principais: _Combustão_ e _Elétrico_. Especificar parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
-O modelo de consumo não pode ser usado com os valores de **travelMode** _bicycle_ e _pedestrian_.
+Dependendo do valor de **vehicleEngineType**, há suporte para dois modelos de consumo principais: _Combustion_ e _Electric_. Especificar parâmetros que pertencem a modelos diferentes na mesma solicitação é um erro.
+O modelo de consumo não pode ser usado com os valores de **travelMode**_bicycle_ e _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Restrições de parâmetro de modelo de consumo
 

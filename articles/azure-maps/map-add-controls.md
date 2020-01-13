@@ -1,6 +1,6 @@
 ---
-title: Adicionar controles ao Azure Maps | Microsoft Docs
-description: Como adicionar controle de zoom, controle de arremesso, girar o controle e um selecionador de estilo a um mapa nos Mapas do Azure.
+title: Adicionar controles a um mapa | Mapas do Microsoft Azure
+description: Como adicionar controle de zoom, controle de densidade, controle de rotação e um seletor de estilo a um mapa em mapas de Microsoft Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7267f77ed3d296ac586dcfd0f525b94d5e6eb7a0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976217"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911264"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controles a um mapa
 
@@ -91,12 +91,12 @@ Aqui está uma ferramenta para testar as várias opções para personalizar os c
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de controle de navegação" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opções de controle de navegação</a> por caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Opções de controle de navegação</a> por caneta pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Se você quiser criar controles de navegação personalizados, crie uma classe que se estenda da `atlas.Control` classe ou crie um elemento HTML e posicione-o acima do div do mapa. Fazer com que este controle de interface `setCamera` do usuário chame a função Maps para mover o mapa. 
+Se você quiser criar controles de navegação personalizados, crie uma classe que se estenda da classe `atlas.Control` ou crie um elemento HTML e posicione-o acima do div do mapa. Fazer com que este controle de interface do usuário chame a função Maps `setCamera` para mover o mapa. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
