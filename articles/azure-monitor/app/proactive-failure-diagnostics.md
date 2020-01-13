@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 1eebb41c83071f34cf367826a21c4bfbf0189394
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748898"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912849"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 [Application insights](../../azure-monitor/app/app-insights-overview.md) o alertará automaticamente quase em tempo real se seu aplicativo Web sofrer um aumento anormal na taxa de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Para solicitações, as solicitações com falha geralmente têm códigos de resposta de 400 ou superior. Para ajudá-lo a fazer a triagem e diagnosticar o problema, uma análise das características das falhas e dos dados do aplicativo relacionado é fornecida nos detalhes do alerta. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -48,13 +48,11 @@ Quando um alerta é gerado, o serviço realiza uma análise de cluster na solici
 
 No exemplo acima, a análise descobriu que a maioria das falhas são sobre um código de resultado específico, nome de solicitação, host da URL do servidor e instância de função. 
 
-Por outro lado, a análise descobriu que a propriedade do sistema operacional do cliente é distribuída por vários valores, e portanto não é listada.
-
 Quando seu serviço é instrumentado com essas chamadas, o analisador procura uma exceção e uma falha de dependência associadas a solicitações no cluster que ele identificou, junto com um exemplo de todos os logs de rastreamento associados a essas solicitações.
 
 A análise resultante é enviada como um alerta, a menos que você tenha configurado para isso não acontecer.
 
-Assim como os [alertas definidos manualmente](../../azure-monitor/app/alerts.md), você pode inspecionar o estado do alerta e configurá-lo na página alertas do recurso de Application insights. Mas, ao contrário de outros alertas, você não precisa configurar a Detecção Inteligente. Se quiser, você pode desabilitá-lo ou alterar o endereço de email de destino.
+Como os [alertas definidos manualmente](../../azure-monitor/app/alerts.md), você pode inspecionar o estado do alerta acionado, que pode ser resolvido se o problema for corrigido. Configure as regras de alerta na página alertas do recurso de Application Insights. Mas, ao contrário de outros alertas, você não precisa configurar a Detecção Inteligente. Se quiser, você pode desabilitá-lo ou alterar o endereço de email de destino.
 
 ### <a name="alert-logic-details"></a>Detalhes da lógica de alerta
 
@@ -63,6 +61,7 @@ Os alertas são acionados por nosso algoritmo patenteado de machine learning, po
 * Análise da porcentagem da falha de solicitações/dependências em uma janela de tempo com acumulação de 20 minutos.
 * Uma comparação da porcentagem de falha dos últimos 20 minutos em relação à taxa nos últimos 40 minutos e nos últimos sete dias e desvios significativos que excedam X vezes esse desvio padrão.
 * O uso de um limite adaptável para a porcentagem de falha mínima, que varia com base no volume de solicitações/dependências do aplicativo.
+* Há uma lógica que pode resolver automaticamente a condição do monitor de alerta acionada, se o problema não for mais detectado por 8-24 horas.
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
@@ -83,7 +82,7 @@ Clique no alerta para configurá-lo.
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-Observe que você pode desabilitar a Detecção Inteligente, mas não excluí-la (nem criar outra).
+Observe que você pode desabilitar ou excluir uma regra de alerta de anomalias de falha, mas não pode criar outra no mesmo recurso de Application Insights.
 
 ## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>Exemplo de conteúdo de webhook de alerta de anomalias de falha
 
