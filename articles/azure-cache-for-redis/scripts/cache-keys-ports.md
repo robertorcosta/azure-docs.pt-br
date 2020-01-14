@@ -1,19 +1,19 @@
 ---
-title: Exemplo de script da CLI do Azure – Obter o nome de host, as portas e as chaves do Cache do Azure para Redis
-description: Exemplo de script da CLI do Azure – Obter o nome de host, portas e chaves de uma instância do Cache do Azure para Redis
+title: Obter o nome do host, as portas, as chaves – Cache do Azure para Redis – CLI do Azure
+description: Este exemplo de código da CLI do Azure mostra como obter o nome de host, as portas e as chaves de uma instância do Cache do Azure para Redis.
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: 604ec6de3b95a4bc289176d54d9c7b0a6c42eae6
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 199c5707e9ecd887af64e271184e151ce0966745
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411298"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obtenha o nome de host, portas e chaves do Cache do Azure para Redis
 
@@ -21,7 +21,7 @@ Neste cenário, você aprende a recuperar o nome de host, as portas e as chaves 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Cache for Redis")]
 
@@ -32,7 +32,7 @@ Este script usa os seguintes comandos para recuperar o nome de host, as chaves e
 
 | Comando | Observações |
 |---|---|
-| [apresentação de redis az](https://docs.microsoft.com/cli/azure/redis) | Recuperar os detalhes de uma instância do Cache do Azure para Redis. |
+| [apresentação de redis az](https://docs.microsoft.com/cli/azure/redis) | Recuperar os detalhes de uma instância do Cache Redis do Azure. |
 | [az redis list-keys](https://docs.microsoft.com/cli/azure/redis) | Recuperar as chaves de acesso de uma instância do Cache do Azure para Redis. |
 
 

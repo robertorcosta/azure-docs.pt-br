@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7c62ded627ab6f6ead5c03ef8cf298b4ee622265
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376453"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo para Android com as Âncoras Espaciais do Azure
 
@@ -28,13 +28,13 @@ Você aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, certifique-se de que:
 
 - Um computador Windows ou macOS com <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
-  - Se estiver executando no Windows, você também precisará do <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
-  - Se estiver executando no macOS, instale o Git por meio do HomeBrew. Digite o comando a seguir em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
+  - Se estiver executando no Windows, você também precisará do <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> e do <a href="https://git-lfs.github.com/">Git LFS</a>.
+  - Se estiver executando no macOS, instale o Git por meio do HomeBrew. Insira o seguinte comando em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git` e `brew install git-lfs`.
   - Para compilar o exemplo NDK, você também precisará instalar o NDK e o CMake 3.6 ou superior das SDK Tools no Android Studio.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
   - Drivers de dispositivo adicionais podem ser necessários para que seu computador se comunique com seu dispositivo Android. Confira [aqui](https://developer.android.com/studio/run/device.html) para obter informações e instruções adicionais.
@@ -52,7 +52,7 @@ Para concluir este início rápido, certifique-se de que:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Baixe o `arcore_c_api.h` [daqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) e coloque-o em `Android\NDK\libraries\include`.
+Baixe o `arcore_c_api.h`[daqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) e coloque-o em `Android\NDK\libraries\include`.
 
 No repositório recém clonado, inicialize os submódulos executando o seguinte comando:
 
@@ -80,7 +80,7 @@ A próxima etapa é configurar o aplicativo para usar o identificador e a chave 
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
-Abra `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
+Abra o `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
 
 Localize o campo `SpatialAnchorsAccountKey` e substitua `Set me` pela chave de conta.
 
@@ -88,7 +88,7 @@ Localize o campo `SpatialAnchorsAccountId` e substitua `Set me` pelo identificad
 
 # <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
 
-Abra `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
+Abra o `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 
 Localize o campo `SpatialAnchorsAccountKey` e substitua `Set me` pela chave de conta.
 

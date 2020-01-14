@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434864"
 ---
 # <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definir um novo tipo de dispositivo Azure IoT Edge no aplicativo do Azure IoT Central (versão prévia dos recursos)
 
@@ -57,7 +57,7 @@ Neste tutorial, você aprenderá como:
 > * Adicionar relações aos modelos de dispositivo downstream.
 > * Publicar seu modelo de dispositivo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa [criar um aplicativo do Azure IoT Central](quick-deploy-iot-central.md).
 
@@ -294,7 +294,7 @@ Um modelo de dispositivo pode incluir propriedades de nuvem. As propriedades de 
     | Nome de exibição      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
     | Data do Último Serviço | Nenhum          | Data   |
-    | Nome do cliente     | Nenhum          | Cadeia de caracteres |
+    | Nome do cliente     | Nenhum          | String |
 
 2. Clique em **Salvar**.
 
@@ -387,7 +387,7 @@ Depois que um modelo de dispositivo é publicado, ele fica visível na página *
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 * Criar uma borda como um modelo de dispositivo de folha.
 * Gerar módulos de um manifesto de implantação carregado.
@@ -400,4 +400,4 @@ Neste tutorial, você aprendeu como:
 Agora que você criou um modelo de dispositivo no aplicativo Azure IoT Central, é possível fazer isto a seguir:
 
 > [!div class="nextstepaction"]
-> [Conectar dispositivo](./tutorial-connect-pnp-device.md)
+> [Conectar dispositivo de borda](./tutorial-add-edge-as-leaf-device.md)

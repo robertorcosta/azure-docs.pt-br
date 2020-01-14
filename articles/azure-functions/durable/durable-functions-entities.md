@@ -3,14 +3,14 @@ title: Entidades duráveis – Azure Functions
 description: Saiba o que são entidades duráveis e como usá-las na extensão Durable Functions do Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433312"
 ---
 # <a name="entity-functions"></a>Funções de entidade
 
@@ -41,6 +41,7 @@ Para invocar uma operação em uma entidade, especifique o(a):
 * **ID da entidade** de destino.
 * **Nome da operação**, que é uma cadeia de caracteres que especifica a operação a ser executada. Por exemplo, a entidade `Counter` poderia dar suporte às operações `add`, `get` ou `reset`.
 * **Entrada da operação**, que é um parâmetro de entrada opcional para a operação. Por exemplo, a operação de adição pode usar um valor inteiro como a entrada.
+* **Hora agendada*, que é um parâmetro opcional para especificar o tempo de entrega da operação. Por exemplo, uma operação pode ser agendada de maneira confiável para ser executada vários dias no futuro.
 
 As operações podem retornar um valor de resultado ou um resultado de erro, como um erro de JavaScript ou uma exceção .NET. Esse resultado ou erro pode ser observado por orquestrações que chamaram a operação.
 
@@ -165,7 +166,7 @@ Os exemplos a seguir ilustram essas várias maneiras de acessar entidades.
 
 ### <a name="example-client-signals-an-entity"></a>Exemplo: o cliente sinaliza a uma entidade
 
-Para acessar entidades de uma função comum do Azure, também conhecida como função de cliente, use a [associação de saída do cliente da entidade](durable-functions-bindings.md#entity-client). O exemplo a seguir mostra uma função disparada por fila sinalizando uma entidade que usa essa associação.
+Para acessar entidades de uma função comum do Azure, também conhecida como função de cliente, use a [associação do cliente da entidade](durable-functions-bindings.md#entity-client). O exemplo a seguir mostra uma função disparada por fila sinalizando uma entidade que usa essa associação.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,7 +187,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,7 +215,8 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
@@ -249,12 +251,11 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> Atualmente, o JavaScript não é compatível com a sinalização de uma entidade de um orquestrador. Use `callEntity` em vez disso.
 
 Somente orquestrações são capazes de chamar entidades e obter uma resposta, que poderia ser um valor retornado ou uma exceção. As funções de cliente que usam a [associação de cliente](durable-functions-bindings.md#entity-client) só podem sinalizar entidades.
 

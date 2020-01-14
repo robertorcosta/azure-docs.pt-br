@@ -4,11 +4,25 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/08/2018
-ms.openlocfilehash: e783605a830bfdd19d17a58c993f91b284fb2319
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d8615d118421a4b8918738f8901307c4d0a917c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66242015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383074"
 ---
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitamente. Antes de continuar, você precisará da chave de acesso fornecida após a ativação da avaliação gratuita ou de uma chave de assinatura paga do painel do Azure.
+## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
+
+Comece a usar a API de Pesquisa de Notícias do Bing criando um dos recursos do Azure abaixo.
+
+* [Criar um recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * Não é necessário ter uma assinatura do Azure.
+    * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Criar um recurso de Pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * Disponível por meio do portal do Azure até que você exclua o recurso.
+    * Use o tipo de preço gratuito para experimentar o serviço e atualize mais tarde para uma camada paga para produção.
+
+* [Criar um recurso de vários serviços](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Disponível por meio do portal do Azure até que você exclua o recurso.  
+    * Use a mesma chave e ponto de extremidade para seus aplicativos em vários Serviços Cognitivos.

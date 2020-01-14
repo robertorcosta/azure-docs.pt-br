@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997013"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423386"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
 
 Neste tutorial, você aprenderá a usar a plataforma de identidade da Microsoft para acessar os dados de clientes empresariais da Microsoft em um processo de execução longa e não interativa. O daemon de exemplo usa a [concessão de credenciais de cliente OAuth2](v2-oauth2-client-creds-grant-flow.md) para adquirir um token de acesso. Em seguida, o daemon usa o token para chamar o [Microsoft Graph](https://graph.microsoft.io) e acessar dados organizacionais.
+
+> [!div class="checklist"]
+> * Integrar um aplicativo daemon à plataforma de identidade da Microsoft
+> * Conceder permissões de aplicativo diretamente ao aplicativo por um administrador
+> * Obter um token de acesso para chamar a API do Microsoft Graph
+> * Chame a API do Microsoft Graph.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 O aplicativo é criado como um aplicativo MVC ASP.NET. Ele usa o middleware OWIN OpenID Connect para conectar usuários.  
 
@@ -42,7 +50,7 @@ Já que o aplicativo é um aplicativo multilocatário para clientes empresariais
 
 Para obter mais informações sobre os conceitos usados neste exemplo, leia a [documentação do protocolo de credenciais do cliente do ponto de extremidade da plataforma de identidade](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar o exemplo presente neste início rápido, você precisará de:
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 Ou [baixe o exemplo em um arquivo zip](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Registrar o aplicativo de exemplo com seu locatário do Azure AD
+## <a name="register-your-application"></a>Registre seu aplicativo
 
-Este exemplo tem um projeto. Para registrá-lo, você pode escolher:
+Este exemplo tem um projeto. Para registrar o aplicativo com seu locatário do Azure AD, você pode:
 
-- Seguir as etapas em [Registrar o exemplo com seu locatário do Azure Active Directory](#register-the-sample-application-with-your-azure-ad-tenant) e [Configurar o exemplo para usar o locatário do Azure AD](#choose-the-azure-ad-tenant).
+- Seguir as etapas em [Registrar o exemplo com seu locatário do Azure Active Directory](#register-your-application) e [Configurar o exemplo para usar o locatário do Azure AD](#choose-the-azure-ad-tenant).
 - Usar scripts do PowerShell que:
   - Crie *automaticamente* os aplicativos do Azure AD e objetos relacionados (senhas, permissões, dependências) para você.
   - Modifiquem os arquivos de configuração dos projetos do Visual Studio.
@@ -171,7 +179,7 @@ O código relevante para este exemplo está nos seguintes arquivos:
 
 ## <a name="re-create-the-sample-app"></a>Recriar o aplicativo de exemplo
 
-1. No Visual Studio, crie um projeto em **Visual C#** : um **aplicativo Web ASP .NET (.NET Framework)** . 
+1. No Visual Studio, crie um projeto em **Visual C#** **aplicativo Web ASP .NET (.NET Framework)** . 
 1. Na próxima tela, escolha o modelo de projeto **MVC**. Além disso, adicione referências de pasta e núcleo para a **API Web**, pois você adicionará um controlador de API Web mais tarde. Deixe o modo de autenticação escolhido do projeto como o padrão: **Sem autenticação**.
 1. Selecione o projeto na janela do **Gerenciador de Soluções** e selecione a tecla **F4**. 
 1. Nas propriedades do projeto, defina **Habilitado para SSL** como **True**. Observe as informações em **URL de SSL**. Você precisará dessas informações ao configurar o registro do aplicativo no portal do Azure.
@@ -208,7 +216,7 @@ Este projeto tem projetos de API Web e aplicativo Web. Para implantá-los em sit
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Criar e publicar o dotnet-web-daemon-v2 em um site do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. No canto superior esquerdo, selecione **Criar um recurso**.
 1. Selecione **Web** > **Aplicativo Web** e dê um nome ao seu site. Por exemplo, nomeie-o **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Selecione as informações para **Assinatura**, **Grupo de recursos** e **Plano do serviço de aplicativo e local**. O **SO** é **Windows** e a **Publicação** é **Código**.
@@ -237,7 +245,10 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador na U
 1. Salve a configuração.
 1. Adicione a mesma URL na lista de valores do menu **Autenticação** > **URIs de Redirecionamento**. Se você tiver várias URLs de redirecionamento, verifique se há uma nova entrada que usa o URI do serviço de aplicativo para cada URL de redirecionamento.
 
-## <a name="community-help-and-support"></a>Ajuda e suporte da comunidade
+## <a name="clean-up-resources"></a>Limpar os recursos
+Quando não for mais necessário, exclua o objeto de aplicativo criado na etapa [Registrar seu aplicativo](#register-your-application).  Para remover o aplicativo, siga as instruções em [Remover um aplicativo criado por você ou sua organização](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## <a name="get-help"></a>Obter ajuda
 
 Use o [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obter suporte da comunidade.
 Faça suas perguntas primeiro no Stack Overflow e navegue pelos problemas existentes para ver se alguém já fez sua pergunta antes.

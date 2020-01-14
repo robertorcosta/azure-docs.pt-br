@@ -1,5 +1,5 @@
 ---
-title: Fazer o download de grandes quantidades de dados aleatórios a partir do armazenamento do Microsoft Azure | Microsoft Docs
+title: Baixar grandes quantidades de dados aleatórios do Armazenamento do Azure | Microsoft Docs
 description: Saiba como usar o SDK do Azure para fazer o download de grandes quantidades de dados aleatórios a partir de uma conta de Armazenamento do Microsoft Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372084"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Fazer o download de grandes quantidades de dados aleatórios a partir do armazenamento do Microsoft Azure
 
@@ -25,7 +25,7 @@ Na terceira parte da série, você aprenderá a:
 > * Executar o aplicativo
 > * Validar o número de conexões
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você deve ter concluído o tutorial anterior de Armazenamento: [Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure][previous-tutorial].
 
@@ -100,8 +100,8 @@ A tabela a seguir mostra o [BlobRequestOptions](/dotnet/api/microsoft.azure.stor
 
 |Propriedade|Valor|DESCRIÇÃO|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| verdadeiro| Essa propriedade desabilita a verificação de hash MD5 do conteúdo carregado. Desabilitar a validação de MD5 produz uma transferência mais rápida. Mas não confirma a validade ou a integridade dos arquivos que estão sendo transferidos. |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| falso| Essa propriedade determina se um hash MD5 é calculado e armazenado.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Essa propriedade desabilita a verificação de hash MD5 do conteúdo carregado. Desabilitar a validação de MD5 produz uma transferência mais rápida. Mas não confirma a validade ou a integridade dos arquivos que estão sendo transferidos. |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Essa propriedade determina se um hash MD5 é calculado e armazenado.   |
 
 A tarefa `DownloadFilesAsync` é mostrada no exemplo a seguir:
 
