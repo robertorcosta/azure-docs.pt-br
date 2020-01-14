@@ -1,19 +1,19 @@
 ---
 title: Criar uma nova oferta de aplicativos do Azure no Marketplace comercial
 description: Como criar uma nova oferta de aplicativos do Azure para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281266"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930703"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -57,7 +57,7 @@ Examine a seguinte documentação do aplicativo do Azure, que fornece guias de i
 * [Compreender os modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 * Inícios Rápidos:
 
-    * [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/)
     * [Modelos de Início Rápido do Azure GitHub](https://github.com/azure/azure-quickstart-templates)
     * [Publicar definição do aplicativo](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
     * [Implantar aplicativo do catálogo de serviços](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -70,7 +70,7 @@ Examine a seguinte documentação do aplicativo do Azure, que fornece guias de i
 * Exemplos:
 
     * [CLI do Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
-    * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
+    * [PowerShell do Azure](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Soluções de aplicativo gerenciado](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Conceitos básicos no conhecimento técnico
@@ -89,7 +89,7 @@ A equipe de engenharia deverá ter conhecimento das seguintes tecnologias Micros
 
 Escolha um ou ambos dos seguintes ambientes de script para ajudar a gerenciar seu aplicativo Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure)
 
 Além disso, é recomendável adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
@@ -179,7 +179,7 @@ Você precisará definir detalhes do Marketplace (nome da oferta, descrição, i
 > [!NOTE]
 > A oferta de conteúdo de listagem (como descrição, documentos, capturas de tela, termos de uso etc.) não precisa estar em inglês, desde que a descrição da oferta comece com a frase ", este aplicativo está disponível apenas em [idioma diferente do inglês]". Também é aceitável fornecer uma URL de *Link útil* para oferecer conteúdo em um idioma diferente daquele usado no conteúdo de listagem da oferta.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Nome
 
 O nome que você digitar aqui será mostrado aos clientes como o título da sua listagem de ofertas. Esse campo é preenchido previamente com o texto inserido para o **alias de oferta** quando você criou a oferta, mas pode alterar esse valor. Esse nome pode ser marcado (e você pode incluir os símbolos de marca registrada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -191,7 +191,7 @@ Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser
 
 Forneça uma descrição mais longa da sua oferta (até 256 caracteres). A descrição pode ser usada nos resultados da pesquisa do Marketplace.
 
-### <a name="description"></a>DESCRIÇÃO
+### <a name="description"></a>Description
 
 Forneça uma descrição mais longa da sua oferta (até 3.000 caracteres). Essa descrição será exibida aos clientes na visão geral de listagem do Marketplace. Inclua a proposta de valor da sua oferta, os principais benefícios, a categoria e/ou as associações do setor, as oportunidades de compra no aplicativo e as divulgações necessárias. 
 
@@ -206,7 +206,7 @@ Algumas dicas para escrever sua descrição:
 - Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível. 
 - Considere o uso de marcas HTML para formatar sua descrição e torná-la mais atraente.
 
-### <a name="search-keywords"></a>Palavras-chave para pesquisa
+### <a name="search-keywords"></a>Pesquisar palavras-chave
 
 Opcionalmente, você pode inserir até três palavras-chave de pesquisa para ajudar os clientes a localizar sua oferta no Marketplace. Para obter melhores resultados, tente usar essas palavras-chave em sua descrição também.
 
@@ -232,7 +232,7 @@ Na seção **contato de suporte** , você também deve fornecer a **URL de supor
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usados ao mostrar sua oferta ao cliente. Todas as imagens devem estar no formato. png.
 
-#### <a name="store-logos"></a>Armazenar logotipos
+#### <a name="store-logos"></a>Logotipos da Loja
 
 Forneça o logotipo de sua oferta em três tamanhos: **pequeno (48 x 48)** , **médio (90 x 90)** e **grande (216 x 216)** .
 
@@ -252,7 +252,7 @@ Opcionalmente, você pode adicionar até cinco vídeos que demonstram sua oferta
 
 - [Práticas recomendadas para listagens de ofertas do Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-## <a name="preview"></a>Visualização
+## <a name="preview"></a>Versão prévia
 
 A guia **Visualização** permite que você defina um **público-alvo** limitado para validar sua oferta antes de publicar sua oferta em tempo real para o público mais amplo do Marketplace.
 
@@ -319,7 +319,7 @@ Os serviços do Azure governamental lidam com os dados que estão sujeitos a det
 
 A guia **lista de planos** exibe as informações de listagem específicas do plano que podem ser diferentes entre planos diferentes para a mesma oferta.
 
-### <a name="name"></a>NOME
+### <a name="name"></a>Nome
 
 Preenchido previamente com base em seu nome, você atribuiu seu plano quando o criou.  Esse nome será exibido como o título desse "plano de software" exibido no Marketplace.  Pode conter até 100 caracteres.
 
@@ -327,7 +327,7 @@ Preenchido previamente com base em seu nome, você atribuiu seu plano quando o c
 
 Forneça um breve resumo do seu plano de software.  Pode conter até 100 caracteres.
 
-### <a name="description"></a>DESCRIÇÃO
+### <a name="description"></a>Description
 
 Essa descrição é uma oportunidade para explicar o que torna este plano de software exclusivo e quaisquer diferenças de outros planos de software dentro de sua oferta. Pode conter até 2.000 caracteres.
 
@@ -461,7 +461,7 @@ Para cada entidade de segurança, selecione uma das funções internas do Azure 
 
 Aplique [políticas do Azure](https://docs.microsoft.com/azure/governance/policy/overview) ao seu aplicativo gerenciado para especificar os requisitos de conformidade para a solução implantada.  Para definições de política e o formato dos valores de parâmetro, veja [Exemplos de Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/index).  Você pode configurar um máximo de cinco políticas e apenas uma instância de cada opção de políticas.  Algumas políticas exigem parâmetros adicionais.  A SKU Standard é necessária para as políticas de auditoria.  O nome da política está limitado a 50 caracteres.
 
-## <a name="co-sell"></a>Venda conjunta
+## <a name="co-sell"></a>Venda Conjunta
 
 Fornecer informações sobre a guia de televenda é totalmente opcional para publicar sua oferta. É necessário atingir o status pronto para venda de covenda pronta e de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua solução ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes.
 
@@ -501,14 +501,14 @@ A opção de **lista de unidades de teste** encontrada na guia **Test Drive** ex
 
 - **Manual do usuário** (obrigatório): uma explicação detalhada de sua experiência de Test Drive. O manual do usuário deve abranger exatamente o que você deseja que o cliente tenha de apresentar o test drive e servir como uma referência para quaisquer perguntas que possam ter. O arquivo deve estar no formato PDF e ter o nome (máximo de 255 caracteres) após o carregamento.
 
-- **Vídeos: adicionar vídeos** (opcional): vídeos podem ser carregados no YouTube ou Vimeo e referenciados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir um passo a passo de informações para ajudá-los a entender melhor o Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
+- **Vídeos: adicionar vídeos** (opcional): os vídeos podem ser carregados no YouTube ou Vimeo e mencionados aqui com uma imagem de link e miniatura (533 x 324 pixels) para que um cliente possa exibir um passo a passo de informações para ajudá-los a entender melhor os Test Drive, incluindo como usar com êxito os recursos de sua oferta e entender os cenários que destacam seus benefícios.
   - **Nome** (obrigatório)
   - **URL (somente YouTube ou Vimeo)** (obrigatório)
   - **Miniatura (533 x 324 px)** : o arquivo de imagem deve estar no formato png.
 
 Selecione **salvar** depois de concluir esses campos.
 
-## <a name="publish"></a>PUBLICAR
+## <a name="publish"></a>Publicar
 
 ### <a name="submit-offer-to-preview"></a>Enviar oferta para visualização
 
@@ -529,6 +529,6 @@ A etapa de **validação manual** no processo de publicação representa uma an�
 
 Se encontrar erros em uma ou mais das etapas de publicação, você precisará corrigi-los e republicar sua oferta.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

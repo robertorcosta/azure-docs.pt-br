@@ -3,7 +3,7 @@ title: Catálogo de backup do StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como usar o snap-in StorSimple Snapshot Manager MMC para exibir e gerenciar o catálogo de backup.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127168"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931719"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 A principal função do StorSimple Snapshot Manager é permitir a criação de cópias de backup consistentes com o aplicativo de volumes do StorSimple na forma de instantâneos. Os instantâneos são listados em um arquivo XML chamado de *catálogo de backups*. O catálogo de backups organiza os instantâneos por grupo de volumes e, depois, por instantâneo local ou instantâneo de nuvem.
 
 Este tutorial descreve como você pode usar o nó **Catálogo de Backups** para realizar as seguintes tarefas:
@@ -161,7 +161,7 @@ Você deve fazer backup regularmente do banco de dados do StorSimple Snapshot Ma
 6. Exclua o arquivo XML do catálogo e substitua pela versão de backup que você criou. 
 7. Clique no ícone do StorSimple Snapshot Manager na área de trabalho para iniciar o StorSimple Snapshot Manager. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * [Saiba mais sobre fluxos de trabalho e tarefas do StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 

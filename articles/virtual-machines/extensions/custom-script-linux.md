@@ -3,7 +3,7 @@ title: Executar scripts personalizados em VMs do Linux no Azure
 description: Automatizar tarefas de configuração de VM do Linux usando a Extensão de Script Personalizado v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: akjosh
-ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: mimckitt
+ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073223"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931027"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 2 da Extensão de Script Personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o runtime da extensão. 
@@ -31,7 +31,7 @@ Este artigo fornece detalhes sobre como usar a extensão de Script personalizado
 
 Há duas Extensões do Script Personalizado do Linux:
 * Versão 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
-* Versão 2 – Microsoft.Azure.Extensions.CustomScript
+* Versão 2 - Microsoft.Azure.Extensions.CustomScript
 
 Alterne entre implantações novas e existentes para usar a nova versão 2. A nova versão tem o objetivo de ser uma substituição perfeita. Assim, a migração é tão fácil quanto alterar o nome e versão. Você não precisa alterar a configuração de extensão.
 
@@ -49,7 +49,7 @@ Se você precisar fazer o download um script externamente, como do GitHub ou do 
 
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall ou do Grupo de Segurança de Rede.
 
-### <a name="tips-and-tricks"></a>Dicas e truques
+### <a name="tips-and-tricks"></a>dicas e truques
 * A taxa de falha mais alta para esta extensão acontece devido a erros de sintaxe no script. Teste as execuções de script sem erros e também insira um registro em log adicional no script para facilitar a localização da falha.
 * Escreva scripts idempotentes, para que se forem executados mais de uma vez por acidente, eles não causem alterações no sistema.
 * Verifique se os scripts não exigem entrada do usuário quando são executados.
@@ -61,7 +61,7 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, você precisará criar sua própria solução.
 * Extensão de Script Personalizado não oferece nativamente suporte a servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que oferece suporte a servidores proxy no seu script, como *Curl*. 
 * Lembre-se de locais de diretório não padrão nos quais seus scripts ou comandos podem confiar e ter lógica para lidar com isso.
-
+*  Ao implantar o script personalizado em instâncias de VMSS de produção, é recomendável implantar por meio do modelo JSON e armazenar sua conta de armazenamento de script onde você tem controle sobre o token SAS. 
 
 
 ## <a name="extension-schema"></a>Esquema de extensão
@@ -106,21 +106,22 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/Exemplo | Tipo de Dados | 
+| Nome | Valor/Exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | data |
+| apiVersion | 2019-03-01 | date |
 | publicador | Microsoft.Compute.Extensions | cadeia de caracteres |
 | type | CustomScript | cadeia de caracteres |
-| typeHandlerVersion | 2,0 | int |
-| fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| typeHandlerVersion | 2.0 | int |
+| fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
 | commandToExecute (por exemplo) | Python MyPythonScript.py \<My-param1 > | cadeia de caracteres |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | cadeia de caracteres |
-| skipDos2Unix (exemplo) | false | Booleano |
+| skipDos2Unix (exemplo) | false | booleano |
 | carimbo de data/hora (exemplo) | 123456789 | Inteiro de 32 bits |
 | storageAccountName (por exemplo) | examplestorageacct | cadeia de caracteres |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
 
-### <a name="property-value-details"></a>Detalhes do valor da propriedade
+### <a name="property-value-details"></a>Detalhes de valor de propriedade
+* `apiVersion`: a apiVersion mais atualizada pode ser encontrada usando o [Gerenciador de recursos](https://resources.azure.com/) ou de CLI do Azure usando o seguinte comando `az provider list -o json`
 * `skipDos2Unix`: (opcional, booliano) ignore a conversão de dos2unix das URLs de arquivos baseado no script ou do script.
 * `timestamp`(opcional, inteiro de 32 bits) use este campo somente para disparar uma nova execução do script ao alterar o valor desse campo.  Qualquer valor inteiro é aceitável. Só deve ser diferente do valor anterior.
   * `commandToExecute`(**obrigatório** se o script não for definido, cadeia de caracteres) o script de ponto de entrada a ser executado. Use este campo se o comando tiver segredos, como senhas.
@@ -235,7 +236,7 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
 >[!NOTE]
 >Esses nomes de propriedade diferenciam maiúsculas de minúsculas. Para evitar problemas de implantação, use os nomes conforme mostrado aqui.
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli"></a>Azure CLI
 Quando você estiver usando a CLI do Azure para executar a extensão de Script personalizado, crie um arquivo ou arquivos de configuração. No mínimo, você deve ter 'commandToExecute'.
 
 ```azurecli
@@ -328,7 +329,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 Quando a extensão de script personalizado é executada, o script é criado ou baixado em um diretório semelhante ao exemplo a seguir. A saída do comando também é salva nesse diretório nos arquivos `stdout` e `stderr`.
 
 ```bash
@@ -412,6 +413,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para ver o código, os problemas atuais e as versões, consulte [custom-script-extension-linux repo](https://github.com/Azure/custom-script-extension-linux).
 

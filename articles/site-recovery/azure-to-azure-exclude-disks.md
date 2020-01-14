@@ -1,18 +1,18 @@
 ---
 title: Exclua os discos de VM do Azure da replicação com Azure Site Recovery e Azure PowerShell
 description: Saiba como excluir discos de máquinas virtuais do Azure durante Azure Site Recovery usando Azure PowerShell.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: asgang
-ms.openlocfilehash: beb4ee6fcf6413634d7d728e3f070294e8ce3787
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: carmonm
+ms.openlocfilehash: ead46368db68cf11facfe437b3ea0ef77171d548
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084965"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929800"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Excluir discos da replicação do PowerShell de VMs do Azure
 
@@ -21,9 +21,9 @@ Este artigo descreve como excluir discos ao replicar VMs do Azure. Você pode ex
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar:
+Antes de iniciar:
 
 - Certifique-se de compreender a [arquitetura e os componentes de recuperação de desastre](azure-to-azure-architecture.md).
 - Examine os [requisitos de suporte](azure-to-azure-support-matrix.md) de todos os componentes.
@@ -136,6 +136,6 @@ O processo de replicação começa propagando uma cópia dos discos de replicaç
 
 Após a conclusão da replicação inicial, a replicação passa para a fase de sincronização diferencial. Neste ponto, a máquina virtual está protegida. Selecione a máquina virtual protegida para ver se algum disco foi excluído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [executar um failover de teste](site-recovery-test-failover-to-azure.md).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814846"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934122"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -77,9 +77,9 @@ Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa im
 
 **Resposta**: A API REST limita as solicitações para 25 por 5 segundos. Detalhes podem ser encontrados em nossas páginas de [Conversão de fala em texto](speech-to-text.md).
 
-**P: como sou cobrado por áudio de canal duplo?**
+**P: como serei cobrado pelo áudio de dois canais?**
 
-**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado por duração do arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo.
+**R**: se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado pela duração de cada arquivo. Se você enviar um único arquivo com cada canal multiplexado, você será cobrado pela duração do único arquivo. Para obter detalhes sobre preços, consulte a [página de preços dos serviços cognitivas do Azure](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
@@ -119,7 +119,7 @@ ou
   - exibir o `Properties` para este serviço,
   - Copie o `Resource ID`completo.
 
-## <a name="importing-data"></a>Importação de dados
+## <a name="importing-data"></a>Importando dados
 
 **P: Qual é o limite de tamanho de um conjunto de dados e por que é o limite?**
 

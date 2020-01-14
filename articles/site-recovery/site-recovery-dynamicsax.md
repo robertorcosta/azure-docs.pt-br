@@ -1,18 +1,18 @@
 ---
 title: Recuperação de desastre para uma implantação de várias camadas do Dynamics AX com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como configurar a recuperação de desastres para o Dynamics AX com o Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620749"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930181"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas   
 
@@ -105,7 +105,7 @@ Crie um plano de recuperação no Site Recovery para automatizar o processo de f
 
 3. Selecione a **Origem** e o **Destino**. O destino pode ser o Azure ou um site secundário. Caso você escolha o Azure, deverá especificar o modelo de implantação.
 
-    ![Criar plano de recuperação](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
+    ![Criar Plano de Recuperação](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
 4. Selecione o Servidor de Objetos de Aplicativo e as VMs do cliente para o plano de recuperação e selecione o ✓.
 
@@ -183,5 +183,5 @@ Para obter mais informações sobre como fazer um failback, consulte [Failback d
 ## <a name="summary"></a>Resumo
 Usando o Site Recovery, você pode criar um plano totalmente automatizado de recuperação de desastre para seu aplicativo Dynamics AX. Caso haja uma interrupção, você poderá iniciar o failover em alguns segundos em qualquer lugar e fazer com que o aplicativo funcione em questão de minutos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre como proteger cargas de trabalho corporativas com o Site Recovery, consulte [Quais cargas de trabalho posso proteger?](site-recovery-workload.md).

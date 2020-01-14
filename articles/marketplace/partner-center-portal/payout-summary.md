@@ -1,18 +1,18 @@
 ---
 title: Resumo de pagamento do Marketplace comercial | Azure Marketplace
 description: O resumo de pagamento mostra detalhes sobre o dinheiro que você ganhou com sua oferta. Ele também permite saber quando você receberá os pagamentos e quanto você será pago.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427139"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931812"
 ---
 # <a name="payout-reporting"></a>Relatório de pagamento
 
@@ -162,7 +162,7 @@ Essa opção fornece um download de cada item de linha de produção que você v
 | taxZipCode       | Vendido para o zip do cliente                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | Código do programa       | Cadeia de caracteres para mapear com o nome do programa                                                                                                                   |
-| EarningAmountInLastPaymentCurrency       | Conquistando valor na última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
+| earningAmountInLastPaymentCurrency       | Conquistando valor na última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
 | lastPaymentCurrency       | Última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
 | AssetId       | O identificador exclusivo para os pedidos do cliente para o serviço do Marketplace.  Ele representa os itens de linha de compra transacionados. Pode haver vários ativos.                                                                                                                   |
 | OrderId       | relacionado à fatura de um cliente                                                                                                                   |

@@ -1,19 +1,19 @@
 ---
 title: APIs do serviço de medição do Marketplace-perguntas frequentes | Azure Marketplace
 description: Emitir o uso de uma oferta de SaaS no Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 044d92e79d8a885f553a7d081ce40c8b6de880a1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825488"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931211"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>APIs de serviço de medição do Marketplace – perguntas frequentes
 
@@ -50,6 +50,6 @@ Qualquer evento de uso emitido para a plataforma do Marketplace não será aceit
 
 Sim, quando você chama a API de `GET /saas/subscriptions`, ela inclui uma lista de todas as assinaturas de SaaS. O campo status na resposta para cada assinatura de SaaS captura se a assinatura está ativa ou não assinada. A chamada para listar assinaturas retorna um máximo de 100 assinaturas no momento.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para obter mais informações.

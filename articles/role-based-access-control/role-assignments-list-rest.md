@@ -12,19 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e20edcb5e2406c216711a2e0f696ef06e19fe21e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a9841e2a8a8ec0aede94f849b7818c86f9862df
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710393"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934091"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Listar atribuições de função usando o RBAC do Azure e a API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] este artigo descreve como listar atribuições de função usando a API REST.
+
+> [!NOTE]
+> Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
 
 ## <a name="list-role-assignments"></a>Listar atribuições de função
 
@@ -38,18 +41,18 @@ No RBAC, para listar o acesso, você lista as atribuições de função. Para li
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções de atribuição.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Grupos |
 
     No exemplo anterior, Microsoft. Web é um provedor de recursos que se refere a uma instância do serviço de aplicativo. Da mesma forma, você pode usar qualquer outro provedor de recursos e especificar o escopo. Para obter mais informações, consulte [provedores de recursos do Azure e tipos](../azure-resource-manager/resource-manager-supported-services.md) e [operações de provedor de recursos Azure Resource Manager](resource-provider-operations.md)com suporte.  
      
 1. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de atribuições de função.
 
-    | Filtrar | Descrição |
+    | Filtrar | Description |
     | --- | --- |
     | `$filter=atScope()` | Lista as atribuições de função somente para o escopo especificado, não incluindo as atribuições de função em Subescopos. |
     | `$filter=principalId%20eq%20'{objectId}'` | Lista as atribuições de função para um usuário, grupo ou entidade de serviço especificado. |
@@ -58,4 +61,4 @@ No RBAC, para listar o acesso, você lista as atribuições de função. Para li
 ## <a name="next-steps"></a>Próximos passos
 
 - [Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST](role-assignments-rest.md)
-- [Referência de API REST](/rest/api/azure/)
+- [Referência de API REST do Azure](/rest/api/azure/)

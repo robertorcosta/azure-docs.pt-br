@@ -3,18 +3,18 @@ Description: O tempo estimado para transferir pagamentos, os limites de pagament
 title: Limites de pagamento, métodos e intervalos de tempo no Marketplace comercial | Azure Marketplace
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 8854d5e336dd5aa539bb810f55a45281362500bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980290"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931872"
 ---
-# <a name="payment-thresholds-methods-and-time-frames"></a>Limites de pagamento, métodos e intervalos de tempo
+# <a name="payment-thresholds-methods-and-time-frames"></a>Limites, métodos e períodos de pagamento
 
 O tempo estimado para transferir pagamentos e Microsoft Marketplaces dos quais você pode receber pagamentos pode variar dependendo do seu país/região e tipo de conta de pagamento. Este tópico descreve os métodos de pagamento com suporte em cada país/região.
 
@@ -40,157 +40,157 @@ Para ver os países/regiões em que essas formas de pagamento são usadas em cad
 > [!NOTE]
 > Os limites de pagamento em todas as regiões são US $ $50.
 
-| País/Região                          | Azure Marketplace | Armazenar, anunciar, mixar e Minecraft | Escritório | Pagamentos do PayPal |
+| País                          | Azure Marketplace | Armazenar, anunciar, mixar e Minecraft | Escritório | Pagamentos do PayPal |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
-| Afeganistão                      | SIM               | SIM                                      | Não     | Não              |
-| Albânia                          | SIM               | SIM                                      | SIM    | SIM             |
-| Argélia                          | SIM               | SIM                                      | SIM    | SIM             |
-| Andorra                          | Não                | Não                                       | SIM    | SIM             |
-| Angola                           | SIM               | SIM                                      | SIM    | Não              |
-| Antígua e Barbuda              | SIM               | SIM                                      | Não     | SIM             |
-| Argentina                        | SIM               | SIM                                      | SIM    | SIM             |
-| Armênia                          | SIM               | SIM                                      | Não     | Não              |
-| Austrália                        | SIM               | SIM                                      | SIM    | SIM             |
-| Áustria                          | SIM               | SIM                                      | SIM    | SIM             |
-| Azerbaijão                       | SIM               | SIM                                      | SIM    | Não              |
-| Bahrein                          | SIM               | SIM                                      | SIM    | SIM             |
-| Bangladesh                       | SIM               | SIM                                      | SIM    | Não              |
-| Belarus                          | SIM               | SIM                                      | SIM    | Não              |
-| Bélgica                          | SIM               | SIM                                      | SIM    | SIM             |
-| Benin                            | SIM               | SIM                                      | SIM    | Não              |
-| Bolívia                          | SIM               | SIM                                      | SIM    | Não              |
-| Bósnia e Herzegovina           | SIM               | SIM                                      | SIM    | SIM             |
-| Botsuana                         | SIM               | SIM                                      | Não     | SIM             |
-| Brasil                           | SIM               | SIM                                      | SIM    | SIM             |
-| Bulgária                         | SIM               | SIM                                      | SIM    | SIM             |
-| Burquina Faso                     | SIM               | SIM                                      | SIM    | Não              |
-| Burundi                          | SIM               | SIM                                      | SIM    | Não              |
-| Camboja                         | SIM               | SIM                                      | SIM    | Não              |
-| República dos Camarões                         | SIM               | SIM                                      | SIM    | Não              |
-| Canadá                           | SIM               | SIM                                      | SIM    | SIM             |
-| República Centro-Africana         | SIM               | SIM                                      | SIM    | Não              |
-| Chad                             | SIM               | SIM                                      | SIM    | Não              |
-| Chile                            | SIM               | SIM                                      | SIM    | SIM             |
-| China                            | Não                | SIM                                      | SIM    | SIM             |
-| Colômbia                         | SIM               | SIM                                      | SIM    | SIM             |
-| Ilhas Comores                          | SIM               | SIM                                      | Não     | Não              |
-| Congo (República Democrática)                      | SIM               | SIM                                      | SIM    | Não              |
-| Congo, República da               | SIM               | SIM                                      | SIM    | Não              |
-| Costa Rica                       | SIM               | SIM                                      | SIM    | SIM             |
-| Côte d' Ivoire                    | SIM               | SIM                                      | SIM    | Não              |
-| Croácia                          | SIM               | SIM                                      | SIM    | Não              |
-| Chipre                           | SIM               | SIM                                      | SIM    | SIM             |
-| República Tcheca                   | SIM               | SIM                                      | SIM    | SIM             |
-| Dinamarca                          | SIM               | SIM                                      | SIM    | SIM             |
-| Dominica                         | SIM               | SIM                                      | Não     | SIM             |
-| República Dominicana               | SIM               | SIM                                      | SIM    | SIM             |
-| Equador                          | SIM               | SIM                                      | SIM    | SIM             |
-| Egito                            | SIM               | SIM                                      | SIM    | SIM             |
-| El Salvador                      | SIM               | SIM                                      | SIM    | SIM             |
-| Eritreia                          | SIM               | SIM                                      | SIM    | Não              |
-| Estônia                          | SIM               | SIM                                      | SIM    | SIM             |
-| Etiópia                         | SIM               | SIM                                      | SIM    | Não              |
-| Fiji                     | SIM               | SIM                                      | Não     | Não              |
-| Finlândia                          | SIM               | SIM                                      | SIM    | SIM             |
-| França                           | SIM               | SIM                                      | SIM    | SIM             |
-| Geórgia                          | SIM               | SIM                                      | SIM    | SIM             |
-| Alemanha                          | SIM               | SIM                                      | SIM    | SIM             |
-| Gana                            | SIM               | SIM                                      | SIM    | Não              |
-| Grécia                           | SIM               | SIM                                      | SIM    | SIM             |
-| Guatemala                        | SIM               | SIM                                      | SIM    | SIM             |
-| Guiné                           | SIM               | SIM                                      | SIM    | Não              |
-| Haiti                            | SIM               | SIM                                      | SIM    | Não              |
-| Honduras                         | SIM               | SIM                                      | SIM    | SIM             |
-| Hong Kong                        | SIM               | SIM                                      | SIM    | SIM             |
-| Hungria                          | SIM               | SIM                                      | SIM    | SIM             |
-| Islândia                          | SIM               | SIM                                      | SIM    | Não              |
-| Índia                            | SIM               | SIM                                      | SIM    | SIM             |
-| Indonésia                        | SIM               | SIM                                      | SIM    | SIM             |
-| Iraque                             | SIM               | SIM                                      | Não     | Não              |
-| Irlanda                          | SIM               | SIM                                      | SIM    | SIM             |
-| Israel                           | SIM               | SIM                                      | SIM    | SIM             |
-| Itália                            | SIM               | SIM                                      | SIM    | SIM             |
-| Jamaica                          | SIM               | SIM                                      | SIM    | SIM             |
-| Japão                            | SIM               | SIM                                      | SIM    | SIM             |
-| Jordânia                           | SIM               | SIM                                      | SIM    | SIM             |
-| Cazaquistão                       | SIM               | SIM                                      | SIM    | SIM             |
-| Quênia                            | SIM               | SIM                                      | SIM    | SIM             |
-| Coreia (Sul)                    | SIM               | SIM                                      | SIM    | Não              |
-| Kuwait                           | SIM               | SIM                                      | SIM    | SIM             |
-| Quirguistão                       | Não                | Não                                       | SIM    | Não              |
-| Laos                             | SIM               | SIM                                      | SIM    | Não              |
-| Letônia                           | SIM               | SIM                                      | SIM    | Não              |
-| Líbano                          | SIM               | SIM                                      | Não     | Não              |
-| Libéria                          | SIM               | SIM                                      | SIM    | Não              |
-| Liechtenstein                    | SIM               | SIM                                      | SIM    | SIM             |
-| Lituânia                        | SIM               | SIM                                      | SIM    | Não              |
-| Luxemburgo                       | SIM               | SIM                                      | SIM    | SIM             |
-| Macedônia                        | Não                | SIM                                      | SIM    | Não              |
-| Madagascar                       | SIM               | SIM                                      | SIM    | Não              |
-| Malaui                           | SIM               | SIM                                      | SIM    | SIM             |
-| Malásia                         | SIM               | SIM                                      | SIM    | SIM             |
-| Mali                             | SIM               | SIM                                      | SIM    | Não              |
-| Malta                            | SIM               | SIM                                      | SIM    | SIM             |
-| Maurício                        | SIM               | SIM                                      | Não     | SIM             |
-| México                           | SIM               | SIM                                      | SIM    | SIM             |
-| Mônaco                           | SIM               | SIM                                      | Não     | Não              |
-| Mongólia                         | SIM               | SIM                                      | SIM    | Não              |
-| Montenegro                       | SIM               | SIM                                      | SIM    | Não              |
-| Marrocos                          | SIM               | SIM                                      | SIM    | Não              |
-| Moçambique                       | SIM               | SIM                                      | SIM    | SIM             |
-| Nepal                            | SIM               | SIM                                      | SIM    | Não              |
-| Países Baixos                 | SIM               | SIM                                      | SIM    | SIM             |
-| Nova Zelândia                      | SIM               | SIM                                      | SIM    | SIM             |
-| Nicarágua                        | SIM               | SIM                                      | SIM    | SIM             |
-| Níger                            | SIM               | SIM                                      | SIM    | Não              |
-| Nigéria                          | SIM               | SIM                                      | SIM    | Não              |
-| Noruega                           | SIM               | SIM                                      | SIM    | SIM             |
-| Omã                             | SIM               | SIM                                      | SIM    | SIM             |
-| Paquistão                         | SIM               | SIM                                      | SIM    | Não              |
-| Panamá                           | SIM               | SIM                                      | SIM    | SIM             |
-| Paraguai                         | SIM               | SIM                                      | SIM    | Não              |
-| Peru                             | SIM               | SIM                                      | SIM    | SIM             |
-| Filipinas                      | SIM               | SIM                                      | SIM    | SIM             |
-| Polônia                           | SIM               | SIM                                      | SIM    | SIM             |
-| Portugal                         | SIM               | SIM                                      | SIM    | SIM             |
-| Porto Rico                      | Não                | Não                                       | SIM    | Não              |
-| Catar                            | SIM               | SIM                                      | SIM    | SIM             |
-| Romênia                          | SIM               | SIM                                      | SIM    | Não              |
-| Rússia                           | SIM               | SIM                                      | Não     | SIM             |
-| Ruanda                           | SIM               | SIM                                      | SIM    | Não              |
-| São Vicente e Granadinas | Não                | SIM                                      | Não     | Não              |
-| Arábia Saudita                     | SIM               | SIM                                      | SIM    | SIM             |
-| Senegal                          | SIM               | SIM                                      | SIM    | Não              |
-| Sérvia                           | SIM               | SIM                                      | SIM    | Não              |
-| Serra Leoa                     | SIM               | SIM                                      | SIM    | Não              |
-| Cingapura                        | SIM               | SIM                                      | SIM    | SIM             |
-| Eslováquia                         | SIM               | SIM                                      | SIM    | SIM             |
-| Eslovênia                         | SIM               | SIM                                      | SIM    | SIM             |
-| Somália                          | SIM               | SIM                                      | SIM    | Não              |
-| África do Sul                     | SIM               | SIM                                      | SIM    | SIM             |
-| Espanha                            | SIM               | SIM                                      | SIM    | SIM             |
-| Sri Lanka                        | SIM               | SIM                                      | SIM    | Não              |
-| Suécia                           | SIM               | SIM                                      | SIM    | SIM             |
-| Suíça                      | SIM               | SIM                                      | SIM    | Não              |
-| Taiwan                           | Não                | SIM                                      | SIM    | SIM             |
-| Tadjiquistão                       | SIM               | SIM                                      | Não     | Não              |
-| Tanzânia                         | SIM               | SIM                                      | SIM    | Não              |
-| Tailândia                         | SIM               | SIM                                      | SIM    | SIM             |
-| Timor-Leste                      | SIM               | SIM                                      | SIM    | Não              |
-| Togo                             | SIM               | SIM                                      | SIM    | Não              |
-| Tonganês                            | SIM               | SIM                                      | Não     | Não              |
-| Trinidad e Tobago              | SIM               | SIM                                      | SIM    | SIM             |
-| Tunísia                          | SIM               | SIM                                      | SIM    | Não              |
-| Turquia                           | SIM               | SIM                                      | SIM    | Não              |
-| Turcomenistão                     | SIM               | SIM                                      | Não     | Não              |
-| Uganda                           | SIM               | SIM                                      | SIM    | Não              |
-| Ucrânia                          | SIM               | SIM                                      | Não     | Não              |
-| Emirados Árabes Unidos             | SIM               | SIM                                      | SIM    | SIM             |
-| Reino Unido                   | SIM               | SIM                                      | SIM    | SIM             |
-| Estados Unidos                    | SIM               | SIM                                      | SIM    | SIM             |
-| Uruguai                          | SIM               | SIM                                      | SIM    | SIM             |
-| Uzbequistão                       | SIM               | SIM                                      | Não     | Não              |
-| Venezuela                        | SIM               | SIM                                      | SIM    | SIM             |
-| Vietnã                          | SIM               | SIM                                      | SIM    | SIM             |
-| Zâmbia                           | SIM               | SIM                                      | SIM    | Não              |
-| Zimbábue                         | SIM               | SIM                                      | SIM    | Não              |
+| Afeganistão                      | Sim               | Sim                                      | Não     | Não              |
+| Albânia                          | Sim               | Sim                                      | Sim    | Sim             |
+| Argélia                          | Sim               | Sim                                      | Sim    | Sim             |
+| Andorra                          | Não                | Não                                       | Sim    | Sim             |
+| Angola                           | Sim               | Sim                                      | Sim    | Não              |
+| Antígua e Barbuda              | Sim               | Sim                                      | Não     | Sim             |
+| Argentina                        | Sim               | Sim                                      | Sim    | Sim             |
+| Armênia                          | Sim               | Sim                                      | Não     | Não              |
+| Austrália                        | Sim               | Sim                                      | Sim    | Sim             |
+| Áustria                          | Sim               | Sim                                      | Sim    | Sim             |
+| Azerbaijão                       | Sim               | Sim                                      | Sim    | Não              |
+| Bahrein                          | Sim               | Sim                                      | Sim    | Sim             |
+| Bangladesh                       | Sim               | Sim                                      | Sim    | Não              |
+| Belarus                          | Sim               | Sim                                      | Sim    | Não              |
+| Bélgica                          | Sim               | Sim                                      | Sim    | Sim             |
+| Benin                            | Sim               | Sim                                      | Sim    | Não              |
+| Bolívia                          | Sim               | Sim                                      | Sim    | Não              |
+| Bósnia e Herzegovina           | Sim               | Sim                                      | Sim    | Sim             |
+| Botsuana                         | Sim               | Sim                                      | Não     | Sim             |
+| Brasil                           | Sim               | Sim                                      | Sim    | Sim             |
+| Bulgária                         | Sim               | Sim                                      | Sim    | Sim             |
+| Burquina Faso                     | Sim               | Sim                                      | Sim    | Não              |
+| Burundi                          | Sim               | Sim                                      | Sim    | Não              |
+| Camboja                         | Sim               | Sim                                      | Sim    | Não              |
+| República dos Camarões                         | Sim               | Sim                                      | Sim    | Não              |
+| Canadá                           | Sim               | Sim                                      | Sim    | Sim             |
+| República Centro-Africana         | Sim               | Sim                                      | Sim    | Não              |
+| Chad                             | Sim               | Sim                                      | Sim    | Não              |
+| Chile                            | Sim               | Sim                                      | Sim    | Sim             |
+| China                            | Não                | Sim                                      | Sim    | Sim             |
+| Colômbia                         | Sim               | Sim                                      | Sim    | Sim             |
+| Ilhas Comores                          | Sim               | Sim                                      | Não     | Não              |
+| Congo (República Democrática)                      | Sim               | Sim                                      | Sim    | Não              |
+| Congo, República da               | Sim               | Sim                                      | Sim    | Não              |
+| Costa Rica                       | Sim               | Sim                                      | Sim    | Sim             |
+| Côte d' Ivoire                    | Sim               | Sim                                      | Sim    | Não              |
+| Croácia                          | Sim               | Sim                                      | Sim    | Não              |
+| Chipre                           | Sim               | Sim                                      | Sim    | Sim             |
+| República Tcheca                   | Sim               | Sim                                      | Sim    | Sim             |
+| Dinamarca                          | Sim               | Sim                                      | Sim    | Sim             |
+| Dominica                         | Sim               | Sim                                      | Não     | Sim             |
+| República Dominicana               | Sim               | Sim                                      | Sim    | Sim             |
+| Equador                          | Sim               | Sim                                      | Sim    | Sim             |
+| Egito                            | Sim               | Sim                                      | Sim    | Sim             |
+| El Salvador                      | Sim               | Sim                                      | Sim    | Sim             |
+| Eritreia                          | Sim               | Sim                                      | Sim    | Não              |
+| Estônia                          | Sim               | Sim                                      | Sim    | Sim             |
+| Etiópia                         | Sim               | Sim                                      | Sim    | Não              |
+| Fiji                     | Sim               | Sim                                      | Não     | Não              |
+| Finlândia                          | Sim               | Sim                                      | Sim    | Sim             |
+| França                           | Sim               | Sim                                      | Sim    | Sim             |
+| Geórgia                          | Sim               | Sim                                      | Sim    | Sim             |
+| Alemanha                          | Sim               | Sim                                      | Sim    | Sim             |
+| Gana                            | Sim               | Sim                                      | Sim    | Não              |
+| Grécia                           | Sim               | Sim                                      | Sim    | Sim             |
+| Guatemala                        | Sim               | Sim                                      | Sim    | Sim             |
+| Guiné                           | Sim               | Sim                                      | Sim    | Não              |
+| Haiti                            | Sim               | Sim                                      | Sim    | Não              |
+| Honduras                         | Sim               | Sim                                      | Sim    | Sim             |
+| Hong Kong                        | Sim               | Sim                                      | Sim    | Sim             |
+| Hungria                          | Sim               | Sim                                      | Sim    | Sim             |
+| Islândia                          | Sim               | Sim                                      | Sim    | Não              |
+| Índia                            | Sim               | Sim                                      | Sim    | Sim             |
+| Indonésia                        | Sim               | Sim                                      | Sim    | Sim             |
+| Iraque                             | Sim               | Sim                                      | Não     | Não              |
+| Irlanda                          | Sim               | Sim                                      | Sim    | Sim             |
+| Israel                           | Sim               | Sim                                      | Sim    | Sim             |
+| Itália                            | Sim               | Sim                                      | Sim    | Sim             |
+| Jamaica                          | Sim               | Sim                                      | Sim    | Sim             |
+| Japão                            | Sim               | Sim                                      | Sim    | Sim             |
+| Jordânia                           | Sim               | Sim                                      | Sim    | Sim             |
+| Cazaquistão                       | Sim               | Sim                                      | Sim    | Sim             |
+| Quênia                            | Sim               | Sim                                      | Sim    | Sim             |
+| Coreia (Sul)                    | Sim               | Sim                                      | Sim    | Não              |
+| Kuwait                           | Sim               | Sim                                      | Sim    | Sim             |
+| Quirguistão                       | Não                | Não                                       | Sim    | Não              |
+| Laos                             | Sim               | Sim                                      | Sim    | Não              |
+| Letônia                           | Sim               | Sim                                      | Sim    | Não              |
+| Líbano                          | Sim               | Sim                                      | Não     | Não              |
+| Libéria                          | Sim               | Sim                                      | Sim    | Não              |
+| Liechtenstein                    | Sim               | Sim                                      | Sim    | Sim             |
+| Lituânia                        | Sim               | Sim                                      | Sim    | Não              |
+| Luxemburgo                       | Sim               | Sim                                      | Sim    | Sim             |
+| Macedônia do Norte                        | Não                | Sim                                      | Sim    | Não              |
+| Madagascar                       | Sim               | Sim                                      | Sim    | Não              |
+| Malaui                           | Sim               | Sim                                      | Sim    | Sim             |
+| Malásia                         | Sim               | Sim                                      | Sim    | Sim             |
+| Mali                             | Sim               | Sim                                      | Sim    | Não              |
+| Malta                            | Sim               | Sim                                      | Sim    | Sim             |
+| Maurício                        | Sim               | Sim                                      | Não     | Sim             |
+| México                           | Sim               | Sim                                      | Sim    | Sim             |
+| Mônaco                           | Sim               | Sim                                      | Não     | Não              |
+| Mongólia                         | Sim               | Sim                                      | Sim    | Não              |
+| Montenegro                       | Sim               | Sim                                      | Sim    | Não              |
+| Marrocos                          | Sim               | Sim                                      | Sim    | Não              |
+| Moçambique                       | Sim               | Sim                                      | Sim    | Sim             |
+| Nepal                            | Sim               | Sim                                      | Sim    | Não              |
+| Países Baixos                 | Sim               | Sim                                      | Sim    | Sim             |
+| Nova Zelândia                      | Sim               | Sim                                      | Sim    | Sim             |
+| Nicarágua                        | Sim               | Sim                                      | Sim    | Sim             |
+| Níger                            | Sim               | Sim                                      | Sim    | Não              |
+| Nigéria                          | Sim               | Sim                                      | Sim    | Não              |
+| Noruega                           | Sim               | Sim                                      | Sim    | Sim             |
+| Omã                             | Sim               | Sim                                      | Sim    | Sim             |
+| Paquistão                         | Sim               | Sim                                      | Sim    | Não              |
+| Panamá                           | Sim               | Sim                                      | Sim    | Sim             |
+| Paraguai                         | Sim               | Sim                                      | Sim    | Não              |
+| Peru                             | Sim               | Sim                                      | Sim    | Sim             |
+| Filipinas                      | Sim               | Sim                                      | Sim    | Sim             |
+| Polônia                           | Sim               | Sim                                      | Sim    | Sim             |
+| Portugal                         | Sim               | Sim                                      | Sim    | Sim             |
+| Porto Rico                      | Não                | Não                                       | Sim    | Não              |
+| Catar                            | Sim               | Sim                                      | Sim    | Sim             |
+| Romênia                          | Sim               | Sim                                      | Sim    | Não              |
+| Rússia                           | Sim               | Sim                                      | Não     | Sim             |
+| Ruanda                           | Sim               | Sim                                      | Sim    | Não              |
+| São Vicente e Granadinas | Não                | Sim                                      | Não     | Não              |
+| Arábia Saudita                     | Sim               | Sim                                      | Sim    | Sim             |
+| Senegal                          | Sim               | Sim                                      | Sim    | Não              |
+| Sérvia                           | Sim               | Sim                                      | Sim    | Não              |
+| Serra Leoa                     | Sim               | Sim                                      | Sim    | Não              |
+| Cingapura                        | Sim               | Sim                                      | Sim    | Sim             |
+| Eslováquia                         | Sim               | Sim                                      | Sim    | Sim             |
+| Eslovênia                         | Sim               | Sim                                      | Sim    | Sim             |
+| Somália                          | Sim               | Sim                                      | Sim    | Não              |
+| África do Sul                     | Sim               | Sim                                      | Sim    | Sim             |
+| Espanha                            | Sim               | Sim                                      | Sim    | Sim             |
+| Sri Lanka                        | Sim               | Sim                                      | Sim    | Não              |
+| Suécia                           | Sim               | Sim                                      | Sim    | Sim             |
+| Suíça                      | Sim               | Sim                                      | Sim    | Não              |
+| Taiwan                           | Não                | Sim                                      | Sim    | Sim             |
+| Tadjiquistão                       | Sim               | Sim                                      | Não     | Não              |
+| Tanzânia                         | Sim               | Sim                                      | Sim    | Não              |
+| Tailândia                         | Sim               | Sim                                      | Sim    | Sim             |
+| Timor-Leste                      | Sim               | Sim                                      | Sim    | Não              |
+| Togo                             | Sim               | Sim                                      | Sim    | Não              |
+| Tonganês                            | Sim               | Sim                                      | Não     | Não              |
+| Trinidad e Tobago              | Sim               | Sim                                      | Sim    | Sim             |
+| Tunísia                          | Sim               | Sim                                      | Sim    | Não              |
+| Turquia                           | Sim               | Sim                                      | Sim    | Não              |
+| Turcomenistão                     | Sim               | Sim                                      | Não     | Não              |
+| Uganda                           | Sim               | Sim                                      | Sim    | Não              |
+| Ucrânia                          | Sim               | Sim                                      | Não     | Não              |
+| Emirados Árabes Unidos             | Sim               | Sim                                      | Sim    | Sim             |
+| Reino Unido                   | Sim               | Sim                                      | Sim    | Sim             |
+| Estados Unidos                    | Sim               | Sim                                      | Sim    | Sim             |
+| Uruguai                          | Sim               | Sim                                      | Sim    | Sim             |
+| Uzbequistão                       | Sim               | Sim                                      | Não     | Não              |
+| Venezuela                        | Sim               | Sim                                      | Sim    | Sim             |
+| Vietnã                          | Sim               | Sim                                      | Sim    | Sim             |
+| Zâmbia                           | Sim               | Sim                                      | Sim    | Não              |
+| Zimbábue                         | Sim               | Sim                                      | Sim    | Não              |

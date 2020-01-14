@@ -3,7 +3,7 @@ title: Trabalhos de backup do StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como usar o snap-in StorSimple Snapshot Manager MMC para exibir e gerenciar trabalhos de backup agendados, em execução e concluídos.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: c34ff487f03d90b16b6660fbad77c3a16699e165
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 094b996cd3227903995c7a74ef14ed8c0561f59d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719883"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933343"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O nó **Trabalhos** no painel **Escopo** mostra as tarefas de backup **Agendado**, **Últimas 24 horas** e **Em execução** iniciadas interativamente ou por uma política configurada. 
 
-Este tutorial explica como você pode usar o nó **Trabalhos** para exibir informações sobre os trabalhos de backup agendados, recentes e em execução no momento. (A lista de trabalhos e as informações correspondentes aparece no painel **Resultados**.) Além disso, você pode clicar com o botão direito em um trabalho listado e ver um menu de contexto que lista as ações disponíveis.
+Este tutorial explica como você pode usar o nó **Trabalhos** para exibir informações sobre os trabalhos de backup agendados, recentes e em execução no momento. (A lista de trabalhos e as informações correspondentes são exibidas no painel de **resultados** .) Além disso, você pode clicar com o botão direito do mouse em um trabalho listado e ver um menu de contexto que lista as ações disponíveis.
 
 ## <a name="view-scheduled-jobs"></a>Ver trabalhos agendados
 Use o procedimento a seguir para exibir os trabalhos de backup agendados.
@@ -84,7 +84,7 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
      ![Trabalhos em execução no momento](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 3. Para executar ações adicionais em um trabalho específico, clique com o botão direito no nome do trabalho no painel **Resultados** e selecione uma das opções de menu.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md).
 

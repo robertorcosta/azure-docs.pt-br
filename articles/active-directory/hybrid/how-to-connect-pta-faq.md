@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290771"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932384"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: Perguntas frequentes
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
 Este artigo aborda perguntas frequentes sobre a Autenticação de Passagem do Azure AD (Azure Active Directory). Continue verificando conteúdo atualizado.
 
@@ -37,18 +37,18 @@ A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhu
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
-Nº A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
+Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
 Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A Autenticação de Passagem dá suporte à "ID alternativa" como nome de usuário, em vez de "userPrincipalName"?
-Para uma extensão limitada, a autenticação de passagem dá suporte à ID alternativa como o nome de usuário quando configurado no Azure AD Connect. Como pré-requisito, o Azure AD Connect precisa sincronizar o atributo do Active Directory local `UserPrincipalName` ao Azure AD. Isso faz com `UserPrincipalName` que o no AD local e no Azure ad se torne idêntico. Se desejar usar outro atributo para sincronizar do AD local como o UPN para o Azure AD, você precisará usar a sincronização de hash de senha ou AD FS. Para saber mais, confira [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os aplicativos do Office 365 dão suporte ao `Alternate ID`. Veja a documentação específica do aplicativo para obter o demonstrativo de suporte.
+Para uma extensão limitada, a autenticação de passagem dá suporte à ID alternativa como o nome de usuário quando configurado no Azure AD Connect. Como pré-requisito, o Azure AD Connect precisa sincronizar o atributo do Active Directory local `UserPrincipalName` ao Azure AD. Isso faz com que as `UserPrincipalName` no AD local e no Azure AD se tornem idênticas. Se desejar usar outro atributo para sincronizar do AD local como o UPN para o Azure AD, você precisará usar a sincronização de hash de senha ou AD FS. Para saber mais, confira [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os aplicativos do Office 365 dão suporte ao `Alternate ID`. Veja a documentação específica do aplicativo para obter o demonstrativo de suporte.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha funciona como um fallback da Autenticação de Passagem?
 
-Nº A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+Não. A Autenticação de Passagem _não_ realiza o failover automaticamente para a sincronização de hash de senha. Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando eu faço para alternar da sincronização de hash de senha para autenticação de passagem?
 
@@ -66,7 +66,7 @@ Para que esse recurso funcione, você precisa da versão 1.1.750.0 ou posterior 
 
 Caso você tenha configurado [write-back de senha](../authentication/concept-sspr-writeback.md) para um usuário específico e o usuário entrar usando a Autenticação de Passagem, ele poderá alterar ou redefinir sua senha. As senhas serão gravadas de volta no Active Directory local conforme o esperado.
 
-Se você não tiver configurado o write-back de senha para um usuário específico ou se o usuário não tiver uma licença válida do Azure AD atribuída a ele, o usuário não poderá atualizar sua senha na nuvem. Ele não poderá atualizar a senha mesmo que ela tenha expirado. Em vez disso, o usuário verá esta mensagem: “Sua organização não permite que você atualize sua senha neste site. Atualize-a de acordo com o método recomendado pela sua organização ou peça ajuda ao seu administrador se necessário". O usuário ou o administrador precisa redefinir a senha no Active Directory local.
+Se você não tiver configurado o write-back de senha para um usuário específico ou se o usuário não tiver uma licença válida do Azure AD atribuída a ele, o usuário não poderá atualizar sua senha na nuvem. Ele não poderá atualizar a senha mesmo que ela tenha expirado. Em vez disso, o usuário verá essa mensagem: “Sua organização não permite que você atualize sua senha neste site. Atualize-a de acordo com o método recomendado pela sua organização ou peça ajuda ao seu administrador se necessário". O usuário ou o administrador precisa redefinir a senha no Active Directory local.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Como a Autenticação de Passagem protege você contra ataques de senha de força bruta?
 
@@ -160,7 +160,7 @@ Se você desinstalar um Agente de Autenticação de Passagem de um servidor, ele
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Eu tenho um locatário mais antigo que originalmente foi configurada usando o AD FS.  Recentemente migrado para PTA, mas agora não está vendo nossas alterações UPN sincronizando com o Azure Active Directory.  Por que as nossas mudanças UPN não estão sendo sincronizadas?
 
-R: Nas seguintes circunstâncias, as alterações do UPN local não podem sincronizar se:
+R: nas seguintes circunstâncias, as alterações do UPN local não podem sincronizar se:
 
 - Seu locatário do Azure Active Directory foi criado antes de 15 de junho de 2015
 - Você inicialmente foi federado com seu locatário do Azure Active Directory usando o AD FS para autenticação
@@ -168,20 +168,20 @@ R: Nas seguintes circunstâncias, as alterações do UPN local não podem sincro
 
 Isso ocorre porque o comportamento padrão de locatários criados antes de 15 de junho de 2015 era para bloquear alterações UPN.  Se você precisar de alterações UPN de desbloqueio, você precisará executar o seguinte cmdlet do PowerShell:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Locatários criados depois de 15 de junho de 2015 têm o comportamento padrão da sincronização de alterações UPN.   
 
 
 
-## <a name="next-steps"></a>Próximas etapas
-- [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários têm suporte e quais não têm.
-- [Início rápido](how-to-connect-pta-quick-start.md): Instale e execute a Autenticação de Passagem do Azure AD.
+## <a name="next-steps"></a>Próximos passos
+- [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.
+- [Início rápido](how-to-connect-pta-quick-start.md): instale e execute a Autenticação de Passagem do Azure AD.
 - [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
-- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar o recurso Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
-- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso Autenticação de passagem.
-- [Solucionar problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso Autenticação de passagem.
-- [Análise aprofundada sobre segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas aprofundadas sobre o recurso Autenticação de passagem.
-- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre este recurso complementar.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para gerar novas solicitações de recursos.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.
+- [Solução de problemas](tshoot-connect-pass-through-authentication.md): saiba como resolver problemas comuns com o recurso de Autenticação de Passagem.
+- [Aprofundamento em segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.
+- [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
 

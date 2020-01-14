@@ -1,19 +1,19 @@
 ---
 title: Lista de verificação de criação de oferta de SaaS-Marketplace comercial para Azure
 description: Os detalhes que você pode fornecer no processo de criação da oferta de SaaS. -Marketplace comercial para o Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824635"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930295"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista de verificação para criação da oferta de SaaS
 
@@ -44,7 +44,7 @@ As primeiras informações que você será solicitado a fornecer são uma ID e u
 | **Nome do campo**    | **Observações**   |  
 | :---------------- | :-----------| 
 | ID da oferta  | Obrigatório, não pode ser alterado após a criação. Máximo de 50 caracteres e deve consistir apenas em letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. |
-| Alias de oferta  | Obrigatório. |
+| Alias de oferta  | Obrigatórios. |
 
 ## <a name="offer-setup-page"></a>Página de instalação da oferta
 
@@ -52,7 +52,7 @@ A página de instalação da oferta é onde você pode aceitar diferentes canais
 
 | **Nome do campo**    | **Observações**   | 
 | :---------------- | :-----------|  
-| Você gostaria de vender pela Microsoft?  | Obrigatório. Padrão: Sim |
+| Você gostaria de vender pela Microsoft?  | Obrigatórios. Padrão: Sim |
 | Como você deseja que clientes potenciais interajam com a listagem de ofertas? (Plano de ação)  | Necessário se não estiver vendendo pela Microsoft. Padrão: avaliação gratuita, opções: "obter agora", "avaliação gratuita", "entre em contato comigo". |
 | URL da Avaliação  | Necessário se a opção "avaliação gratuita" estiver selecionada, como o modo como os clientes devem interagir com a listagem de ofertas. |
 | URL da oferta  | Necessário se "obter agora" estiver selecionado, como o modo como os clientes devem interagir com a listagem de ofertas |
@@ -81,11 +81,11 @@ A página de listagem é onde você fornece o texto e as imagens que os clientes
 | :---------------- | :-----------| 
 | Nome  | São necessários, no máximo 50 caracteres. |
 | Resumo  | São necessários, no máximo 100 caracteres. | 
-| DESCRIÇÃO  | São necessários, no máximo 3000 caracteres. |
+| Description  | São necessários, no máximo 3000 caracteres. |
 | Instruções de introdução  | São necessários, no máximo 3000 caracteres. |
 | Instruções de introdução  | São necessários, no máximo 3000 caracteres. |
-| Palavras-chave para pesquisa  | Palavras-chave opcional, recomendado, máximo 3. |
-| URL da política de privacidade  | Obrigatório. |
+| Pesquisar palavras-chave  | Palavras-chave opcional, recomendado, máximo 3. |
+| URL da política de privacidade  | Obrigatórios. |
 | URL de materiais de marketing do programa CSP  | Opcional. |
 | Título de links úteis + URL  | Opcional. |
 | Título de documentos de suporte + arquivo  | Obrigatório, mín. 1 e máx. 3. Deve ser formato de arquivo PDF. |
@@ -93,9 +93,9 @@ A página de listagem é onde você fornece o texto e as imagens que os clientes
 | Logotipos da loja (pequeno, médio, grande, largo, herói)  | Pequeno (48 X 48) e grande (216 X 216) necessário; outros tamanhos opcionais, mas recomendados: médio (90 x 90), largo (255 x 115), Hero (815 x 290). Deve estar no formato PNG. |
 | Nome dos vídeos + URL + miniatura  | Opcional, recomendado, máximo de 4 vídeos. A miniatura deve ser 1280 x 720 no formato PNG. O vídeo deve ser hospedado no YouTube ou no Vimeo. |
 | Contatos (programa CSP, engenharia, suporte)  | Contato de engenharia e suporte necessário (nome, email e número de telefone); Contato do programa CSP opcional, mas recomendado. |
-| URL do suporte  | Obrigatório. |
+| URL do suporte  | Obrigatórios. |
 
-## <a name="preview-page"></a>Página de visualização
+## <a name="preview-page"></a>Página Visualização
 
 A página de visualização é onde você especifica o público-alvo para ter acesso à versão prévia da oferta, para verificar se a oferta atende a todos os seus requisitos antes de entrar em tempo real. 
 
@@ -121,7 +121,7 @@ As primeiras informações que você precisa fornecer são um nome e uma ID para
 | **Nome do campo**    | **Observações**   |  
 | :---------------- | :-----------| 
 | ID do plano  | Necessário se estiver vendendo pela Microsoft. Ele não pode ser alterado após a criação. Máximo de 50 caracteres e deve consistir apenas em letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. |
-| Nome do plano  | Necessário se estiver vendendo pela Microsoft. Deve ser exclusivo em todos os planos na oferta. Máximo de 50 caracteres. |
+| Nome do Plano  | Necessário se estiver vendendo pela Microsoft. Deve ser exclusivo em todos os planos na oferta. Máximo de 50 caracteres. |
 
 ## <a name="plan-listing-page"></a>Página de listagem do plano
 
@@ -138,9 +138,9 @@ A página planejar preços e disponibilidade é onde você define as caracterís
 | **Nome do campo**    | **Observações**   | 
 | :---------------- | :-----------| 
 | Disponibilidade do mercado  | Obrigatório, mín. 1 e máx. 141. |
-| Modelo de preços  | Obrigatório. Padrão: taxa fixa. Opções: taxa fixa, por usuário. |
+| Modelo de Preços  | Obrigatórios. Padrão: taxa fixa. Opções: taxa fixa, por usuário. |
 | Estações mínimas e máximas  | Opcional, disponível somente se o modelo de preços baseado em assentos estiver selecionado. |
-| Termo de cobrança  | Obrigatório. Padrão: mensalmente. Opções: mensal, anual. |
+| Termo de cobrança  | Obrigatórios. Padrão: mensalmente. Opções: mensal, anual. |
 | Preço  | Obrigatório USD por mês, se o termo de cobrança mensal for selecionado; ou USD por ano se o termo de cobrança anual selecionado. |
 | Planejar público  | Opcional. Padrão: plano público. Opções: público, privado por ID de locatário |
 | Público do plano restrito (ID do locatário + descrição)  | Necessário se o plano privado for selecionado. As IDs de locatário min 1 e Max 10 se forem inseridas manualmente. Máximo 20000 se a importação de arquivo CSV. |
@@ -151,7 +151,7 @@ Disponível somente se você optar por oferecer um test drive para sua oferta. D
 
 | **Nome do campo**    | **Observações**   | 
 | :---------------- | :-----------| 
-| DESCRIÇÃO  | Obrigatório. |
+| Description  | Obrigatórios. |
 | Nome manual do usuário + arquivo  | Necessário, máximo de 1 doc. deve ser um formato PDF. |
 | Nome do vídeo, URL + miniatura  | Opcional, recomendado. A miniatura deve ser 533 x 324 no formato JPGP ou PNG. O vídeo deve ser hospedado no YouTube ou no Vimeo. |
 
@@ -159,8 +159,8 @@ Disponível somente se você optar por oferecer um test drive para sua oferta. D
 
 | **Nome do campo**    | **Observações**   | 
 | :---------------- | :-----------| 
-| Notas de certificação  | Opcional. |
+| Notas para certificação  | Opcional. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Criar uma nova oferta de SaaS](./create-new-saas-offer.md)
+- [Criar uma oferta de SaaS](./create-new-saas-offer.md)

@@ -3,7 +3,7 @@ title: Ações do menu MMC do StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como usar as ações de menu padrão do Console de Gerenciamento Microsoft (MMC) no StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
@@ -13,28 +13,28 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: ced075395c4f2a51308d5d3b0cbe4c0153a17816
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715287"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931477"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Usar as ações de menu do MMC no StorSimple Snapshot Manager
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 No StorSimple Snapshot Manager, você verá as seguintes ações listadas em todos os menus de ação e todas as variações do painel de **Ações** .
 
-* Visualizar
+* Exibir
 * Nova Janela a Partir Daqui 
 * Atualizar 
 * Exportar Lista 
-* Help 
+* Ajuda 
 
 Essas ações fazem parte do MMC (Console de Gerenciamento Microsoft) e não são específicas ao StorSimple Snapshot Manager. Este tutorial descreve essas ações e explica como usar cada uma delas no StorSimple Snapshot Manager.
 
-## <a name="view"></a>Visualizar
+## <a name="view"></a>Exibir
 Você pode usar a opção **Exibir** para alterar a exibição do painel **Resultados** e alterar a exibição da janela do console. 
 
 #### <a name="to-change-the-results-pane-view"></a>Para alterar o modo de exibição de painel de Resultados
@@ -87,18 +87,18 @@ Você pode usar a ação **Exportar Lista** para salvar uma lista em um arquivo 
    1. Na caixa **Nome de arquivo** , digite um nome para o arquivo CSV ou clique na seta para selecionar na lista suspensa.
    2. Na caixa **Salvar como tipo** , clique na seta e selecione um tipo de arquivo na lista suspensa.
    3. Para salvar apenas os itens selecionados, selecione as linhas e marque a caixa de seleção **Salvar apenas linhas selecionadas** . Para salvar todas as listas exportadas, desmarque a caixa de seleção **Salvar apenas linhas selecionadas** .
-   4. Clique em **Salvar**.
+   4. Clique em **Save** (Salvar).
       
       ![Exportar lista como um arquivo de valores separados por vírgula](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
-## <a name="help"></a>Help
+## <a name="help"></a>Ajuda
 Você pode usar o menu **Ajuda** para exibir a ajuda online disponível para o MMC e o StorSimple Snapshot Manager.
 
 #### <a name="to-view-available-online-help"></a>Para exibir a ajuda online disponível
 1. Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Escopo**, clique com o botão direito em qualquer nó ou expanda o nó e clique com o botão direito em um item no painel **Resultados**, em seguida, clique em **Ajuda**. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre [a interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 
