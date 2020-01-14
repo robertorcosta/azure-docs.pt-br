@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230492"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920674"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions em kubernetes com KEDA
 
@@ -83,7 +83,7 @@ func kubernetes remove --namespace keda
 
 O KEDA tem suporte para os seguintes gatilhos de função do Azure:
 
-* [Filas do armazenamento do Azure](functions-bindings-storage-queue.md)
+* [Filas de Armazenamento do Azure](functions-bindings-storage-queue.md)
 * [Filas do barramento de serviço do Azure](functions-bindings-service-bus.md)
 * [Hub IoT/evento do Azure](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
@@ -93,7 +93,7 @@ O KEDA tem suporte para os seguintes gatilhos de função do Azure:
 
 Você pode usar Azure Functions que expõem gatilhos HTTP, mas KEDA não os gerencia diretamente.  O Azure Functions Core Tools instalará um projeto relacionado, Osiris, que permite o dimensionamento de pontos de extremidade HTTP de 0 para 1.  O dimensionamento de 1 para *n* dependerá das políticas tradicionais de dimensionamento de kubernetes.
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
 * [Criar uma função usando uma imagem personalizada](functions-create-function-linux-custom-image.md)

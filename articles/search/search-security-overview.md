@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1949aca26f68f12dfb133da8ef45662294140c25
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794342"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922555"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Segurança e privacidade de dados no Azure Pesquisa Cognitiva
 
@@ -39,11 +39,11 @@ A conformidade com padrões se aplica a recursos geralmente disponíveis. As ver
 
 A criptografia se estende durante todo o pipeline de indexação: de conexões, por transmissão e até dados indexados armazenados no Azure Pesquisa Cognitiva.
 
-| Camada de segurança | Descrição |
+| Camada de segurança | Description |
 |----------------|-------------|
 | Criptografia em trânsito <br>(HTTPS/SSL/TLS) | O Azure Pesquisa Cognitiva escuta na porta HTTPS 443. Na plataforma, as conexões com os serviços do Azure são criptografadas. <br/><br/>Todas as interações do Azure Pesquisa Cognitiva de cliente para serviço são compatíveis com SSL/TLS 1,2.  Certifique-se de usar o TLSv1.2 para conexões SSL ao seu serviço.|
 | Criptografia em repouso <br>Chaves gerenciadas pela Microsoft | A criptografia é totalmente internalizada no processo de indexação, sem nenhum impacto mensurável no tempo para conclusão da indexação ou no tamanho do índice. Isso ocorre automaticamente em toda a indexação, incluindo em atualizações incrementais em um índice que não está totalmente criptografado (criado antes de janeiro de 2018).<br><br>Internamente, a criptografia é baseada na [Criptografia do Serviço de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) do 256 bits.<br><br> A criptografia é interna à Pesquisa Cognitiva do Azure, com certificados e chaves de criptografia gerenciadas internamente pela Microsoft e aplicada universalmente. Não é possível ativar ou desativar a criptografia, gerenciar ou substituir suas próprias chaves ou exibir configurações de criptografia no portal ou de forma programática.<br><br>A criptografia em repouso foi anunciada em 24 de janeiro de 2018 e se aplica a todas as camadas de serviço, incluindo a camada gratuita, em todas as regiões. Para a criptografia completa, os índices criados antes dessa data precisam ser removidos e recompilados para que a criptografia ocorra. Caso contrário, somente os novos dados adicionados após 24 de janeiro são criptografados.|
-| Criptografia em repouso <br>Chaves gerenciadas do cliente | A criptografia com chaves gerenciadas pelo cliente é um recurso de **Visualização** que não está disponível para serviços gratuitos. Para serviços pagos, ele só estará disponível para os serviços de pesquisa criados em ou após janeiro de 2019, usando a versão mais recente da API de visualização (API-Version = 2019-05-06-Preview).<br><br>Os índices de Pesquisa Cognitiva do Azure e os mapas de sinônimos agora podem ser criptografados em repouso com chaves gerenciadas por chaves do cliente no Azure Key Vault. Para saber mais, confira [gerenciar chaves de criptografia no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).<br>Esse recurso não substitui a criptografia padrão em repouso, mas sim aplicado além dela.<br>Habilitar esse recurso aumentará o tamanho do índice e diminuirá o desempenho da consulta. Com base nas observações até a data, você pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a esse impacto no desempenho, recomendamos que você habilite apenas esse recurso em índices que realmente o exigem.
+| Criptografia em repouso <br>Chaves gerenciadas do cliente | A criptografia com chaves gerenciadas pelo cliente já está disponível para o público geral.<br><br>Os índices de Pesquisa Cognitiva do Azure e os mapas de sinônimos agora podem ser criptografados em repouso com chaves gerenciadas por chaves do cliente no Azure Key Vault. Para saber mais, confira [gerenciar chaves de criptografia no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).<br>Esse recurso não substitui a criptografia padrão em repouso, mas sim aplicado além dela.<br>Habilitar esse recurso aumentará o tamanho do índice e diminuirá o desempenho da consulta. Com base nas observações até a data, você pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a esse impacto no desempenho, recomendamos que você habilite apenas esse recurso em índices que realmente o exigem.
 
 ## <a name="azure-wide-user-access-controls"></a>Controles de acesso do usuário em todo o Azure
 
@@ -91,7 +91,7 @@ Por padrão, o acesso de usuário a um índice é determinado pela chave de aces
 
 Se você preferir o acesso granular, o controle do conteúdo por usuário, pode construir filtros de segurança em suas consultas, retornando os documentos associados a uma identidade de segurança fornecida. Em vez de funções predefinidas e atribuições de função, o controle de acesso baseado em identidade é implementado como um *filtro* que corta os resultados da pesquisa de documentos e conteúdo com base nas identidades. A tabela a seguir descreve duas abordagens para cortar resultados da pesquisa com conteúdo não autorizado.
 
-| Abordagem | Descrição |
+| Abordagem | Description |
 |----------|-------------|
 |[Filtragem de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
 |[Filtragem de segurança com base em Identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo aprofunda o artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
@@ -108,8 +108,8 @@ A tabela a seguir resume as operações permitidas no Azure Pesquisa Cognitiva e
 | Criar, modificar e excluir objetos no serviço: <br>Índices e partes do componente (incluindo definições do analisador, perfis de pontuação, opções de CORS), indexadores, fontes de dados, sinônimos, sugestores. | Chave de administrador, Proprietário ou Colaborador RBAC no recurso  |
 | Consultar um índice | Chave de consulta ou de administrador (RBAC não aplicável) |
 | Informações do sistema de consulta como: retornar estatísticas, contagens e listas de objetos. | Chave de administração, RBAC no recurso (Proprietário, Colaborador, Leitor) |
-| Gerenciar chaves de administrador | Chave de administração, Proprietário ou Colaborador RBAC no recurso. |
-| Gerenciar chaves de consulta |  Chave de administração, Proprietário ou Colaborador RBAC no recurso.  |
+| Gerenciar chaves de administrador | Chave de Administrador, Proprietário ou Colaborador de RBAC no recurso. |
+| Gerenciar chaves de consulta |  Chave de Administrador, Proprietário ou Colaborador de RBAC no recurso.  |
 
 ## <a name="physical-security"></a>Segurança física
 
@@ -118,7 +118,7 @@ Os data centers da Microsoft fornecem segurança física líder no setor e são 
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 + [Introdução ao .NET (demonstra o uso de uma chave de administrador para criar um índice)](search-create-index-dotnet.md)
 + [Introdução ao REST (demonstra o uso de uma chave de administrador para criar um índice)](search-create-index-rest-api.md)

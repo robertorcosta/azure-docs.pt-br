@@ -10,7 +10,7 @@
       href: event-hubs-capture-overview.md
     - name: Hubs de Eventos Dedicados
       href: event-hubs-dedicated-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar um Hub de Evento
@@ -91,7 +91,7 @@
               href: authorize-access-azure-active-directory.md
             - name: Autorizar o acesso com uma assinatura de acesso compartilhado
               href: authorize-access-shared-access-signature.md
-        - name: Authentication
+        - name: Autenticação
           items:
             - name: Autenticar com o Azure Active Directory
               items:
@@ -156,7 +156,7 @@
           href: event-hubs-auto-inflate.md
         - name: Bibliotecas de gerenciamento dos Hubs de Eventos
           href: event-hubs-management-libraries.md
-    - name: Segurança
+    - name: Seguro
       items:
         - name: Usar firewalls
           href: event-hubs-ip-filtering.md
@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Habilitar Integração de Redes Virtuais e Firewalls no Namespace dos Hubs de Eventos
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurar chaves gerenciadas pelo cliente para criptografia de dados em repouso (versão prévia)
+        - name: Configurar chaves gerenciadas pelo cliente para criptografia de dados em repouso
           href: configure-customer-managed-key.md
     - name: Solucionar problemas
       items:
