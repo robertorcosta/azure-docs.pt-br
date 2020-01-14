@@ -1,5 +1,6 @@
 ---
-title: Personalizar o estilo de página no portal do desenvolvedor herdado do Gerenciamento de API do Azure | Microsoft Docs
+title: Personalizar o estilo de página no Portal do Desenvolvedor herdado do Gerenciamento de API
+titleSuffix: Azure API Management
 description: Siga as etapas neste guia de início rápido para personalizar o estilo dos elementos no portal do desenvolvedor do Gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 779d1228393cdc88f88820d8a335cb2e32424c14
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430728"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas do portal do desenvolvedor
 
@@ -36,7 +37,7 @@ Neste artigo, você aprenderá a personalizar o estilo de elementos em páginas 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).

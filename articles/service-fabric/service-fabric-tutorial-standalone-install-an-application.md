@@ -1,26 +1,17 @@
 ---
-title: Tutorial para instalar um aplicativo no cluster do Service Fabric autônomo - Azure Service Fabric | Microsoft Docs
+title: Instalar um aplicativo em um cluster autônomo
 description: Neste tutorial, você aprenderá a implantar um aplicativo no cluster autônomo do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5e5260a2001d9cb0a38f4182e923a5416f76712b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384986"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613951"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Implantar um aplicativo no seu cluster do Service Fabric autônomo
 
@@ -31,10 +22,10 @@ Este tutorial é a parte três de uma série.  Os clusters autônomos do Service
 Na terceira parte da série, você aprenderá a:
 
 > [!div class="checklist"]
-> * Baixe o aplicativo de exemplo
+> * Baixar o aplicativo de exemplo
 > * Implante-o no cluster
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -72,7 +63,7 @@ Após o aplicativo ser baixado, você poderá implantá-lo no cluster diretament
 Na parte três da série, você aprendeu como implantar um aplicativo no seu cluster:
 
 > [!div class="checklist"]
-> * Baixe o aplicativo de exemplo
+> * Baixar o aplicativo de exemplo
 > * Implante-o no cluster
 
 Avance para a parte quatro da série para limpar o cluster.

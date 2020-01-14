@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427729"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Início Rápido: Crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio (clássico)
 
@@ -45,7 +45,7 @@ Este início rápido segue o fluxo de trabalho padrão para um experimento:
 ## <a name="get-the-data"></a>Obter os dados
 
 A primeira coisa que você precisa para executar o aprendizado de máquina são dados.
-Há uma série de conjuntos de dados de exemplo incluídos na versão clássica do Studio que você pode usar ou você pode importar dados de várias fontes. Neste exemplo, usaremos o conjunto de dados de exemplo **Dados de preço de automóvel (Brutos)** , que está incluído no seu workspace.
+Há uma série de conjuntos de dados de exemplo incluídos no Studio (clássico) que você pode usar ou você pode importar dados de várias fontes. Neste exemplo, usaremos o conjunto de dados de exemplo **Dados de preço de automóvel (Brutos)** , que está incluído no seu workspace.
 Esse conjunto de dados inclui entradas para vários automóveis individuais, incluindo informações como marca, modelo, especificações técnicas e preço.
 
 > [!TIP]
@@ -231,7 +231,7 @@ As estatísticas a seguir são mostradas para nosso modelo:
 
 Para cada estatística de erro, menos é melhor. Um valor menor indica que as previsões se aproximam mais dos valores reais. Para **Coeficiente de Determinação**, quanto mais próximo o valor estiver de um (1,0), melhores as previsões.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

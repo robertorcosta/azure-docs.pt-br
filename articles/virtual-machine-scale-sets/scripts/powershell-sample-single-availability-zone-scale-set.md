@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell – Conjunto de dimensionamento de zona única | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos do Azure PowerShell – Conjunto de dimensionamento de zona única
+description: Esse script cria conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 em uma Zona de disponibilidade única.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a26aabd86e989cdd23a8f1b1d47c88812d76786e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9ef39306b18a03e194b94ae24860151462a870f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978282"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350801"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
 Esse script cria conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 em uma Zona de disponibilidade única. Após a execução do script, é possível acessar a máquina virtual por RDP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1 "Create single-zone scale set")]
 

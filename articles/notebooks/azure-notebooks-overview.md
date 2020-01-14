@@ -1,22 +1,24 @@
 ---
-title: Visão geral do Azure Notebooks
-description: Execute Jupyter Notebooks na nuvem usando o serviço gratuito Azure Notebooks, em que não é necessária nenhuma instalação ou configuração.
+title: Visão geral da versão prévia do Azure Notebooks
+description: Execute Jupyter notebooks na nuvem usando o serviço gratuito de versão prévia do Azure Notebooks, em que não é necessária nenhuma instalação ou configuração.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: b3dfa6cec962809fad1a03f5100c55315ff6a9ad
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277675"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646323"
 ---
-# <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
+# <a name="overview-of-azure-notebooks-preview"></a>Visão geral da versão prévia do Azure Notebooks
 
 O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você combine facilmente um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de *notebook* (imagem cortesia de jupyter.org):
 
 [![Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a essa poderosa combinação de código, gráficos e texto explicativo, o Jupyter popularizou muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformações, simulações numéricas, modelagens estatísticas e o desenvolvimento de modelos de aprendizado de máquina.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="hassle-free-experience"></a>Experiência sem complicações
 

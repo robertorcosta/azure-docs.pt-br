@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5b1e4cc8dfc89d6dcc5d29a368e089402b284352
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448840"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
@@ -49,6 +49,9 @@ Para se familiarizar rapidamente com sua primeira solicitação, confira [Fazend
 
 Familiarize-se com a referência [API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). A referência contém a lista de pontos de extremidade, cabeçalhos e parâmetros de consulta que você usaria para solicitar os termos de consulta sugeridos, além das definições dos objetos de resposta.
 
-Saiba como pesquisar na Web usando a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md).
+Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+
+
+Saiba como pesquisar na Web usando a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md) e explore as outras [APIs de Pesquisa do Bing](../bing-web-search/index.yml).
 
 Leia os [Requisitos de exibição e uso do Bing](./useanddisplayrequirements.md) para não violar nenhuma das regras sobre como usar os resultados da pesquisa.

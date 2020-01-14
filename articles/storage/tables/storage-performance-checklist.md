@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457625"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para Armazenamento de tabela
 
@@ -29,6 +29,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | --- | --- | --- |
 | &nbsp; |Metas de escalabilidade |[Você pode criar seu aplicativo para usar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Você está evitando se aproximar dos limites de capacidade e de transação?](#capacity-and-transaction-targets) |
+| &nbsp; |Metas de escalabilidade |[Você leva as metas de escalabilidade em consideração para entidades por segundo?](#targets-for-data-operations) |
 | &nbsp; |Rede |[Os dispositivos cliente têm largura de banda suficiente e baixa latência para alcançar o desempenho necessário?](#throughput) |
 | &nbsp; |Rede |[Os dispositivos cliente têm um link de rede de alta qualidade?](#link-quality) |
 | &nbsp; |Rede |[O aplicativo cliente está na mesma região que a conta de armazenamento?](#location) |
@@ -41,7 +42,6 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Ferramentas |[Você está usando as últimas versões das bibliotecas de cliente e ferramentas fornecidas pela Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Novas tentativas |[Você está usando uma política de repetição com uma retirada exponencial para limitar erros e tempos limite?](#timeout-and-server-busy-errors) |
 | &nbsp; |Novas tentativas |[Seu aplicativo evita novas tentativas para erros que não admitem novas tentativas?](#non-retryable-errors) |
-| &nbsp; |Metas de escalabilidade |[Você leva as metas de escalabilidade em consideração para entidades por segundo?](#table-specific-scalability-targets) |
 | &nbsp; |Configuração |[Você usa JSON para suas solicitações de tabela?](#use-json) |
 | &nbsp; |Configuração |[Você desativou o algoritmo Nagle para melhorar o desempenho de pequenas solicitações?](#disable-nagle) |
 | &nbsp; |Tabelas e partições |[Você particionou seus dados corretamente?](#schema) |
@@ -61,7 +61,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 
 Se o seu aplicativo se aproximar ou ultrapassar alguma das metas de escalabilidade, pode haver aumento da latência e restrição das transações. Quando o Armazenamento do Azure limita seu aplicativo, o serviço começa a retornar os códigos de erro 503 (Servidor ocupado) ou 500 (Tempo limite da operação). Evitar esses erros mantendo-se dentro dos limites dos destinos de escalabilidade é uma parte importante do aprimoramento do desempenho do seu aplicativo.
 
-Para obter mais informações sobre metas de escalabilidade para o serviço Tabela, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure para contas de armazenamento](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+Para obter mais informações sobre as metas de escalabilidade do serviço Tabela, confira [Metas de escalabilidade e desempenho do Armazenamento de Tabelas](scalability-targets.md).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
@@ -77,9 +77,17 @@ Se seu aplicativo estiver lidando com metas de escalabilidade de uma única cont
     Embora a compactação de dados possa economizar largura de banda e melhorar o desempenho de rede, ela também pode ter efeitos negativos sobre o desempenho. Avalie o impacto de desempenho dos requisitos de processamento adicionais para compactação e descompactação de dados no lado do cliente. Tenha em mente que armazenar dados compactados pode dificultar a solução de problemas, porque pode ser mais desafiador exibir os dados usando ferramentas padrão.
 - Se o aplicativo estiver se aproximando das metas de escalabilidade, verifique se você está usando uma retirada exponencial para novas tentativas. É melhor tentar evitar alcançar as metas de escalabilidade implementando as recomendações descritas neste artigo. No entanto, usar uma retirada exponencial para novas tentativas impedirá que seu aplicativo tente novamente com rapidez, o que poderia piorar a limitação. Para obter mais informações, confira a seção intitulada [Erros de Tempo Limite e Servidor Ocupado](#timeout-and-server-busy-errors).
 
-## <a name="table-specific-scalability-targets"></a>Metas de escalabilidade específicas da tabela
+### <a name="targets-for-data-operations"></a>Destinos para operações de dados
 
-Além das limitações da largura de banda de toda uma conta de armazenamento, as tabelas têm o limite de escalabilidade descrito a seguir. O sistema balanceará a carga conforme o tráfego aumenta, mas se houver um pico de tráfego repentino, talvez você não obtenha esse volume de taxa de transferência imediatamente. Se você normalmente presencia esses picos, haverá restrições e/ou eventos de tempo limite durante esses picos, pois o serviço de armazenamento balanceia a carga da tabela automaticamente. Os aumentos graduais geralmente apresentam resultados melhores, pois permitem que o sistema tenha tempo para balancear a carga corretamente.
+O Armazenamento do Azure executa o balanceamento de carga conforme o tráfego para a sua conta de armazenamento aumenta, mas se o tráfego exibir picos repentinos, talvez você não conseguirá obter esse volume de taxa de transferência imediatamente. Espere ver uma limitação e/ou tempos limite durante a intermitência enquanto o Armazenamento do Azure balanceia a carga da tabela automaticamente. Os aumentos graduais geralmente apresentam melhores resultados, pois o sistema ganha tempo para balancear a carga corretamente.
+
+#### <a name="entities-per-second-storage-account"></a>Entidades por segundo (conta de armazenamento)
+
+O limite de escalabilidade para acessar tabelas é de até 20 mil entidades (1 KB para cada) por segundo em cada conta. Em geral, cada entidade inserida, atualizada, excluída ou verificada é computada nessa meta. Assim, uma inserção em lote com 100 entidades é computada como 100 entidades. Uma consulta que verifica 1000 entidades e retorna apenas 5 é computada como 1000 entidades.
+
+#### <a name="entities-per-second-partition"></a>Entidades por segundo (partição)
+
+Em uma única partição, a meta de escalabilidade para acessar tabelas é de 2000 entidades (1 KB para cada) por segundo, usando a mesma contagem descrita na seção anterior.
 
 ## <a name="networking"></a>Rede
 

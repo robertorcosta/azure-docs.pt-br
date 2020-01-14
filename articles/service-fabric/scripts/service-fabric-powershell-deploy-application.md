@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script do Azure PowerShell – implantar aplicativo em um cluster | Microsoft Docs
+title: Implantar um aplicativo a um cluster no PowerShell
 description: Exemplo de script do Azure PowerShell – implantar um aplicativo em um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: d03eec5101f932caff43bf876a41219e3f1fa75d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 207f2a4e8173aa1e5009435665532973045d9198
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035549"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610294"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implantar um aplicativo em um cluster do Service Fabric
 
@@ -27,7 +27,7 @@ Esse script de exemplo copia um pacote de aplicativos para um repositório de im
 
 Se necessário, instale o módulo Service Fabric do PowerShell com o [SDK do Service Fabric](../service-fabric-get-started.md). 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/deploy-application/deploy-application.ps1 "Deploy an application to a cluster")]
 
@@ -37,7 +37,7 @@ Depois que o exemplo de script foi executado, o script em [Remover um aplicativo
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

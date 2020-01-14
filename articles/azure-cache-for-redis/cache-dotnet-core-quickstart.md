@@ -1,25 +1,25 @@
 ---
-title: Início rápido para aprender a usar o Cache do Azure para Redis com aplicativos .NET Core
+title: 'Início Rápido: Usar o Cache do Azure para Redis com aplicativos .NET Core'
 description: Neste início rápido, saiba como acessar o Cache do Azure para Redis em seus aplicativos .NET Core
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/18/2018
-ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: ce50ecac9a7b676386ce893a19391a63ffeed108
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122441"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413049"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET Core
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo .NET Core para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você especificamente usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C# em um aplicativo de console do .NET Core.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download)
@@ -107,7 +107,7 @@ Adicione os seguintes membros à classe `Program` em *Program.cs*. Esse código 
 
 ## <a name="configure-the-cache-client"></a>Configurar o cliente de cache
 
-Nesta seção, você irá configurar o aplicativo de console para usar o ciente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) para .NET.
+Nesta seção, você configurará o aplicativo de console para usar o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) para .NET.
 
 Na janela de comando, execute o seguinte comando no diretório do projeto *Redistest*:
 
@@ -285,7 +285,7 @@ dotnet run
 ![Aplicativo de console concluído](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você pretende continuar para o próximo tutorial, mantenha os recursos criados neste início rápido e reutilize-os.
 

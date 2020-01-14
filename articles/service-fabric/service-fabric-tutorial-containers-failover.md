@@ -1,27 +1,17 @@
 ---
-title: Fazer failover e dimensionar um aplicativo de contêineres no Service Fabric no Azure | Microsoft Docs
+title: Fazer failover de um aplicativo de contêineres e dimensioná-lo
 description: Neste tutorial, você aprende como o failover é manipulado em um aplicativo de contêineres do Azure Service Fabric.  Além disso, saiba como dimensionar os contêineres e os serviços em execução em um cluster.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Contêineres, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385114"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614087"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutorial: Demonstrar o failover e o dimensionamento de serviços de contêiner com o Service Fabric
 
@@ -31,7 +21,7 @@ Este tutorial é a parte três de uma série. Neste tutorial, você aprenderá c
 > * Saiba mais sobre o failover do contêiner em um cluster do Service Fabric
 > * Dimensionar os contêineres de front-end da Web em um aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 O aplicativo da [Parte 2](service-fabric-tutorial-package-containers.md) está em execução em um cluster ativo do Service Fabric.
 
@@ -56,7 +46,7 @@ Os contêineres do Service Fabric podem ser dimensionados em um cluster para aco
 
 Para dimensionar o front-end da Web, siga estas etapas:
 
-1. Abra o Service Fabric Explorer em seu cluster – por exemplo, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
+1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Clique nas reticências (três pontos) ao lado do nó **fabric:/TestContainer/azurevotefront** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
 
 ![sfxscale][sfxscale]

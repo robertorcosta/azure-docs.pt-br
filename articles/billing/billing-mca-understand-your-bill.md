@@ -1,5 +1,5 @@
 ---
-title: Entender os encargos em sua fatura do Contrato de Cliente da Microsoft – Azure
+title: Encargos da fatura do Contrato de Cliente da Microsoft – Azure
 description: Saiba como ler e entender os encargos em sua fatura.
 author: jureid
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5dfffecbd2908e987b76f29b14937f0e50ce64f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388985"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Entender os encargos em sua fatura do Contrato de Cliente da Microsoft
 
@@ -26,7 +26,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 ## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>Exibir transações de uma fatura no portal do Azure
 
-1. Entre no [Portal do Azure](https://www.azure.com).
+1. Entre no [portal do Azure](https://www.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -71,7 +71,7 @@ Na conta de cobrança de um Contrato de Cliente da Microsoft, os encargos são e
 
 ### <a name="view-summary-of-pending-charges"></a>Exibir um resumo dos encargos pendentes
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -91,7 +91,7 @@ Os encargos do mês atual são os encargos pendentes do mês atual e são fatura
 
 Ao identificar encargos pendentes, você pode entender os encargos analisando as transações individuais que contribuíram para eles. Neste ponto, os encargos de uso pendentes não são exibidos na página Todas as transações. Exiba os encargos de uso pendentes na página de assinaturas do Azure. Para obter mais informações, confira [Exibir encargos de uso pendentes](#view-pending-usage-charges)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -107,7 +107,7 @@ Ao identificar encargos pendentes, você pode entender os encargos analisando as
 
 ### <a name="view-pending-usage-charges"></a>Exibir encargos de uso pendentes
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise *Gerenciamento de Custos + Cobrança*.
 

@@ -1,26 +1,15 @@
 ---
-title: Excluir um cluster do Service Fabric no Azure | Microsoft Docs
+title: Excluir um cluster do Service Fabric no Azure
 description: Neste tutorial, você aprende a excluir um cluster do Service Fabric hospedado pelo Azure, bem como todos os seus recursos. Você pode excluir o grupo de recursos que contém o cluster ou excluir os recursos de maneira seletiva.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: c6fd4234257cbb19580a5b406750cc72d03609c0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 802fdfc46344929930b1ffb015b364b4e2360cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465374"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: Remover um cluster do Service Fabric em execução no Azure
 
@@ -37,13 +26,13 @@ Nesta série de tutoriais, você aprenderá a:
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
 > * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Reduzir ou escalar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
-> * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Excluir um cluster
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -111,7 +100,7 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Excluir um grupo de recursos e todos os seus recursos

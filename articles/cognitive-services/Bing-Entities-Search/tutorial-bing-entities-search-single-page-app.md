@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Aplicativo Web de página única da Pesquisa de Entidade do Bing'
 titleSuffix: Azure Cognitive Services
-description: Mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
+description: Este tutorial mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448599"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
@@ -86,7 +86,7 @@ O HTML também contém as divisões (marcas HTML `<div>`) nas quais os resultado
 
 Para evitar a necessidade de incluir as chaves de assinatura da Pesquisa do Bing e da API do Bing Mapas no código, usamos o armazenamento persistente do navegador para armazená-las. Se uma das chaves não foi armazenada, solicitamos e armazenamos para uso posterior. Se a chave for posteriormente rejeitada pela API, invalidamos a chave armazenada para que o usuário seja solicitado na próxima pesquisa.
 
-Definimos as funções `storeValue` e `retrieveValue` que usam o objeto `localStorage` (se o navegador der suporte) ou um cookie. A função `getSubscriptionKey()` usa essas funções para armazenar e recuperar a chave do usuário.
+Definimos as funções `storeValue` e `retrieveValue` que usam o objeto `localStorage` (se o navegador der suporte) ou um cookie. A função `getSubscriptionKey()` usa essas funções para armazenar e recuperar a chave do usuário. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
 ```javascript
 // cookie names for data we store
@@ -541,7 +541,7 @@ Por fim, inicie o proxy CORS com o seguinte comando:
 
     cors-proxy-server
 
-Deixe a janela Comando aberta enquanto usa o aplicativo de tutorial, porque se você fechá-la, isso interromperá o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto você usa o aplicativo de tutorial, já que se fechar a janela irá parar o proxy. Na seção Cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, é possível ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e verificar se é o mesmo para cada solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

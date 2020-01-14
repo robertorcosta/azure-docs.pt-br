@@ -4,16 +4,16 @@ description: Este artigo explica como gerenciar e usar sua fatura do Azure Enter
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849880"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644555"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -22,8 +22,6 @@ Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise. A fatu
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Alterar o número da OC de uma fatura de excedente
 
 O Portal do EA do Azure gera automaticamente uma PO (ordem de compra) padrão, a menos que o administrador do EA configure uma antes da data de faturamento. Um administrador do EA pode atualizar o número da OC até sete dias após receber um email de notificação automático com a fatura.
-
-Um número de ordem de compra também pode ser inserido para uma conta ou assinatura específica. Os relatórios serão padronizados para o número da ordem de compra de nível mais baixo definido na hierarquia, o que significa que, se nenhum número de ordem de compra de assinatura for inserido, o número de ordem de compra da conta será usado. Se nenhuma ordem de compra de conta for inserida, a ordem de compra do departamento será usada.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Para atualizar o número da ordem de compra dos serviços do Azure:
 
@@ -372,7 +370,7 @@ Para referência, ao usar o Excel para modelar as regras de arredondamento e con
 | Arredondamento de preços (2 decimais) | =MARRED({_origem_}, 0,02) |
 | Arredondamento de preços (0 decimais) | =MARRED({_origem_}, 2) |
 
-**Tabela** **2** **: conversão de horas do serviço de nuvem e da máquina virtual**
+**Tabela** **2**  **: conversão de horas do serviço de nuvem e da máquina virtual**
 
 ### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>Conversão entre o arquivo Baixar uso e a exibição Resumo do uso do portal
 
@@ -419,7 +417,7 @@ Para os serviços em que a zona e a região afetam os preços, a tabela a seguir
 | Zona 2 | Leste do Pacífico Asiático <br> Sudeste do Pacífico Asiático <br> Leste do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Sudeste da Austrália | Pacífico Asiático <br> Japão <br> América Latina <br> Oriente Médio e África <br> Leste da Austrália <br> Sudeste da Austrália |
 | Zona 3 | Sul do Brasil |   |
 
-**Tabela** **4** **: regiões de transferência de dados**
+**Tabela**  **4**  **: regiões de transferência de dados**
 
 Não há cobranças para saída de dados entre serviços (por exemplo, O365 e Azure) hospedados no mesmo data center.
 
@@ -560,7 +558,7 @@ Confira essas fontes de informação adicionais para saber mais. Esses arquivos 
 | [**Nomes de serviços amigáveis**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Fornece uma lista de todos os serviços ativos com a categoria de serviço, nome de serviço amigável, nome do compromisso e número de bloco, nome de consumo e número de bloco, unidades de medida e fatores de conversão entre o uso relatado e o uso exibido no Enterprise Portal. | Nomes\_Serviços\_Amigáveis.xlsx |
 | [**Campos de download do serviço**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Esta planilha fornece uma lista de todas as combinações possíveis dos campos relacionados ao serviço no relatório Baixar uso. | Campos\_Download\_Serviço.xlsx |
 
-**Tabela** **5** **: fontes de informação adicionais**
+**Tabela**  **5**  **: fontes de informação adicionais**
 
 ## <a name="power-bi-reporting"></a>Relatórios do Power BI
 

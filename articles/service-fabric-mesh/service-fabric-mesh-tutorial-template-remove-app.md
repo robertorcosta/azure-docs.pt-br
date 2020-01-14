@@ -1,26 +1,17 @@
 ---
-title: Tutorial – Remover um aplicativo em execução na Malha do Azure Service Fabric | Microsoft Docs
+title: Tutorial – Remover um aplicativo em execução na Malha do Azure Service Fabric
 description: Neste tutorial, saiba como remover um aplicativo em execução na Malha do Service Fabric e excluir recursos.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: adc5b96f29f610c63bcfa24a3b5f761c04d41d5b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4780f81d23f0183837d2aafb9a8e5e2c41faa1cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339662"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351807"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>Tutorial: Remover um aplicativo e recursos
 
@@ -41,7 +32,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 

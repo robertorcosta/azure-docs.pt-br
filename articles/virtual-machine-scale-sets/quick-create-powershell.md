@@ -1,6 +1,6 @@
 ---
-title: Início Rápido – criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell | Microsoft Docs
-description: Saiba como criar um rapidamente uma escala de máquina virtual com o Azure PowerShell
+title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
+description: Comece com suas implantações aprendendo a criar rapidamente um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f2fc70457a6d36bbbb7d8c37c87a8aa4167ab4a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 52111559ac784e112c4cb3ddbf5ba9e6967385e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351117"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
 
@@ -152,7 +152,7 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web. O
 ![Execução do site do IIS](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, será possível usar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados conforme descrito a seguir. O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

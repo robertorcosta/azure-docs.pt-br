@@ -6,14 +6,17 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 327b2aaadd77c00d847504ff16415813d2fcf89c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 555a60579c11a7ecb9b39753c5e4b35e801edeb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422173"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
+
+> [!NOTE]
+> Vários contêineres estão em versão prévia.
 
 O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Neste tutorial, você aprenderá como criar um aplicativo multicontêiner usando WordPress e MySQL. Você conclui este tutorial no Cloud Shell, mas também pode executar esses comandos localmente com a ferramenta de linha de comando da [CLI do Azure](/cli/azure/install-azure-cli) (2.0.32 ou posterior).
 
@@ -29,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa ter experiência com o [Docker Compose](https://docs.docker.com/compose/).
 
@@ -508,7 +511,7 @@ Você verá um log para cada contêiner e um log adicional para o processo pai. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 > * Converter uma configuração do Docker Compose para trabalhar com Aplicativo Web para Contêineres
 > * Implantar um aplicativo multicontêiner no Azure

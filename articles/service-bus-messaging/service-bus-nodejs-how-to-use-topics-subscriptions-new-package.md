@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js'
+title: Usar tópicos e assinaturas do azure/service-bus com o Node.js
 description: 'Início Rápido: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 160f9831a23ed16fc33ddbbb9b4e07a5627a3f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462121"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure/service-bus
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote do Node.js"]
@@ -28,7 +28,7 @@ ms.locfileid: "73721672"
 
 Neste tutorial, você aprenderá a escrever um programa Node.js para enviar mensagens para um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço usando o novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Esse pacote usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). As amostras são escritas em JavaScript.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Se você não tiver um tópico e uma assinatura para trabalhar, siga as etapas no artigo [Usar o portal do Azure para criar tópicos e assinaturas do Barramento de Serviço](service-bus-quickstart-topics-subscriptions-portal.md) para criá-los. Anote a cadeia de conexão para sua instância do Barramento de Serviço e os nomes do tópico e da assinatura que você criou. Usaremos esses valores nas amostras.
 
@@ -91,7 +91,7 @@ Parabéns! Você acabou de enviar mensagens para uma fila do Barramento de Servi
 
 As mensagens têm algumas propriedades padrão, como `label` e `messageId`, que você pode definir ao enviar. Se você quiser definir alguma propriedade personalizada, use o `userProperties`, que é um objeto json que pode conter pares de chave-valor de seus dados personalizados.
 
-Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). Não há limite no número de mensagens mantidas em um tópico, mas há um limite no tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Para saber mais sobre cotas, confira [Cotas do Barramento de Serviço](service-bus-quotas.md).
+Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). Não há limite no número de mensagens mantidas em um tópico, mas há um limite no tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 A interação com uma assinatura do Barramento de Serviço começa com a instanciação da classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e sua utilização para instanciar a classe [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient). Depois que você tiver o cliente de assinatura, você pode criar um receptor e usar o método [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) para receber mensagens.

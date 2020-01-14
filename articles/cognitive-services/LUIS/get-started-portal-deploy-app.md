@@ -8,24 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448064"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Depois que o aplicativo estiver pronto para retornar previsões de enunciado para um aplicativo cliente, como um chat bot, você precisará implantar o aplicativo no ponto de extremidade de previsão.
 
 Neste início rápido, você aprenderá a implantar um aplicativo. Crie um recurso de ponto de extremidade de previsão, atribua o recurso ao aplicativo, treine e publique o aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Obtenha uma [assinatura do Azure](https://azure.microsoft.com/free).
 * Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -41,7 +39,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
    |Configuração|Valor|Finalidade|
    |--|--|--|
-   |NOME|`my-luis-resource`|O nome do recurso do Azure. Você precisa desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
+   |Nome|`my-luis-resource`|O nome do recurso do Azure. Você precisa desse nome ao atribuir o recurso ao aplicativo no portal do LUIS.|
    |Subscription|Sua assinatura|Selecione uma das assinaturas associadas à sua conta.|
    |Resource group|`my-resource-group`|Crie um novo grupo de recursos para todos os recursos de serviço cognitivo. Quando você terminar os recursos, poderá excluir o grupo de recursos para limpar sua assinatura. |
    |Localização de criação|**Oeste dos EUA**|A região do Azure para criação.|
@@ -61,7 +59,7 @@ Você cria o recurso de ponto de extremidade de previsão no portal do Azure. Es
 
 Sempre que você criar um novo recurso para LUIS, será necessário atribuir o recurso para o aplicativo LUIS. Após a atribuição, você não precisará realizar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
 
-1. Entre no [portal do LUIS](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
+1. Entre na [versão prévia do portal do LUIS](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
 
 1. Selecione **Gerenciar** no menu superior direito e, em seguida, selecione **Recursos do Azure**.
 
@@ -139,7 +137,7 @@ Para ver este mesmo nível de informações no painel de teste, publique o aplic
 
 [![Compare editando no momento versus a versão publicada do aplicativo](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você concluir este guia de início rápido, selecione **Meus aplicativos** no menu de navegação superior. Marque a caixa de seleção do aplicativo na lista e selecione **Excluir** na barra de ferramentas de contexto acima da lista.
 

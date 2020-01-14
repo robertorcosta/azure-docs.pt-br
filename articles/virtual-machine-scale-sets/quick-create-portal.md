@@ -1,7 +1,7 @@
 ---
-title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure | Microsoft Docs
-description: Saiba como criar um rapidamente um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
-services: virtual-machine-scale-sets
+title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais no portal do Azure
+description: Comece com suas implantações aprendendo a criar rapidamente um conjunto de dimensionamento de máquinas virtuais no portal do Azure.
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351133"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -42,13 +42,13 @@ Primeiro, crie um Load Balancer Básico usando o portal. O nome e o endereço IP
     | ---| ---|
     | Subscription  | Selecione sua assinatura.    |    
     | Resource group | Selecione **Criar novo** e digite *myVMSSResourceGroup* na caixa de texto.|
-    | NOME           | *myLoadBalancer*         |
+    | Nome           | *myLoadBalancer*         |
     | Região         | Selecione **Leste dos EUA**.       |
     | Type          | Selecione **Público**.       |
     | SKU           | Selecione **Padrão**.       |
     | Endereço IP público | Selecione **Criar novo**. |
     | Nome do endereço IP público  | *MyPip*   |
-    | Atribuição| estático |
+    | Atribuição| Estático |
 
 1. Quando terminar, selecione **Revisar + criar** 
 1. Depois de passar na validação, selecione **Criar**. 
@@ -80,7 +80,7 @@ Você pode implantar um conjunto de dimensionamento com uma imagem do Windows Se
 1. Depois de passar na validação, selecione **Criar** para implantar o conjunto de dimensionamento.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos do conjunto de dimensionamento e selecione **Excluir**.
 
 

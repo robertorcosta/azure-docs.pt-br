@@ -1,22 +1,23 @@
 ---
-title: O que são o Microsoft Flow, os Aplicativos Lógicos, o Functions e o WebJobs? - Azure
+title: Opções de plataforma de integração e automação no Azure
 description: 'Compare os serviços em nuvem da Microsoft otimizados para tarefas de integração: Microsoft Flow, Aplicativos Lógicos, Functions e WebJobs.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409830"
 ---
-# <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são o Microsoft Flow, os Aplicativos Lógicos, o Functions e o WebJobs?
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Escolha os serviços de integração e automação corretos no Azure
 
-Este artigo compara os seguintes serviços em nuvem da Microsoft: 
+Este artigo compara os seguintes serviços em nuvem da Microsoft:
+
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/)
-* [Funções do Azure](https://azure.microsoft.com/services/functions/)
+* [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [WebJobs no Serviço de Aplicativo do Azure](../app-service/webjobs-create.md)
 
 Todos esses serviços podem resolver problemas de integração e automatizar processos empresariais. Todos eles definem entrada e saída, condições e ações. Você pode executar cada um em um cronograma ou gatilho. Cada serviço traz vantagens exclusivas e este artigo explica as diferenças. 
@@ -39,7 +40,7 @@ A seguinte tabela ajuda você a determinar a melhor opção para uma integraçã
 | Cenários |Autoatendimento |Integrações avançadas |
 | Ferramenta de design |Aplicativo do navegador e móvel, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
 | ALM (Gerenciamento do Ciclo de Vida do Aplicativo) |Design e teste em ambientes de não produção; promoção para produção quando pronto |Azure DevOps: controle do código-fonte, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Experiência de admin |Gerenciar ambientes do Microsoft Flow e políticas DLP (prevenção contra perda de dados), acompanhamento do licenciamento: [Centro de Administração do Microsoft Flow](https://admin.flow.microsoft.com) |Gerenciar grupos de recursos, conexões, gerenciamento de acesso e log: [Portal do Azure](https://portal.azure.com) |
+| Experiência de admin |Gerenciar ambientes do Microsoft Flow e políticas DLP (prevenção contra perda de dados), acompanhamento do licenciamento: [Centro de Administração do Microsoft Flow](https://admin.flow.microsoft.com) |Gerenciar grupos de recursos, conexões, gerenciamento de acesso e log: [Azure portal](https://portal.azure.com) |
 | Segurança |Logs de auditoria de Segurança e Conformidade do Office 365, DLP e [criptografia em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados confidenciais |Garantia de segurança do Azure: [Segurança do Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) e [logs de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparar o Azure Functions e os Aplicativos Lógicos do Azure
@@ -82,7 +83,7 @@ O Azure Functions se baseia no SDK do WebJobs e, portanto, compartilha muitos do
 |[Preço de pagamento por uso](functions-scale.md#consumption-plan)|✔||
 |[Integração com os Aplicativos Lógicos](functions-twitter-email.md)|✔||
 | Eventos de gatilho |[Timer](functions-bindings-timer.md)<br>[Blobs e filas do Armazenamento do Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Barramento de Serviço do Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de eventos do Azure](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Grade de Eventos do Azure](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Blobs e filas do Armazenamento do Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Barramento de Serviço do Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Hubs de eventos do Azure](functions-bindings-event-hubs.md)<br>[Sistema de Arquivos](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
-| Idiomas com suporte  |C#<br>F#<br>JavaScript<br>Java<br>Python |C#<sup>1</sup>|
+| Idiomas com suporte  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Gerenciador de pacotes|NPM e NuGet|NuGet<sup>2</sup>|
 
 <sup>1</sup> O WebJobs (sem o SDK do WebJobs) é compatível com C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python, entre outros. Essa não é uma lista completa. Um WebJob pode executar qualquer programa ou script que possa ser executado na área restrita do Serviço de Aplicativo.

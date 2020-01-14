@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script da CLI do Azure – Adicionar um aplicativo no Lote | Microsoft Docs
-description: Exemplo de Script da CLI do Azure – Adicionar um aplicativo no Lote
+title: Exemplo de Script da CLI do Azure – Adicionar um aplicativo no Lote
+description: Este script de exemplo demonstra como adicionar um aplicativo para uso com um pool ou uma tarefa do Lote do Azure.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: ba7f64910e033751df7d158a6fddf36371f2933f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9c580fa7ed4834ca516d373b3c7bb47f4cfd1b38
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390461"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemplo de CLI: Adicionar um aplicativo a uma conta de Lote do Azure
 

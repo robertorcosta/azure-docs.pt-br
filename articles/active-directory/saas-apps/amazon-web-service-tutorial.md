@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 758b14a53927e00a5546147f8d67e556b45acc3c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074026"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689767"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -54,7 +54,7 @@ Com esses valores, o Azure AD remove o valor de **#** e envia o valor correto `h
 > [!Note]
 > Use apenas o aplicativo da galeria.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -74,10 +74,10 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, você precisa adicionar o AWS (Amazon Web Services), por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa, de estudante ou uma conta pessoal da Microsoft.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do Azure Active Directory, escolha **Aplicativos empresariais** > **Todos os aplicativos**.
+1. Para adicionar um aplicativo, selecione **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Amazon Web Services (AWS)** na caixa de pesquisa.
 1. Selecione **AWS (Amazon Web Services)** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
@@ -123,7 +123,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do Azure Active Directory, escolha **Usuários** > **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
    1. No campo **Nome**, insira `B.Simon`.  
@@ -135,7 +136,8 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo acesso à AWS (Amazon Web Services).
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na portal do Azure, procure e selecione **Azure Active Directory**.
+1. No menu de visão geral do Azure Active Directory, escolha **Aplicativos empresariais** > **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **AWS (Amazon Web Services)** .
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 

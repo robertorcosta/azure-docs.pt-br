@@ -3,7 +3,7 @@ title: 'Início Rápido: Coletar dados de um Computador Linux híbrido com o Azu
 description: Neste início rápido, você aprenderá a implantar o agente do Log Analytics para computadores Linux em execução fora do Azure e habilitará a coleta de dados com Logs do Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/22/2019
-ms.author: magoedte
+ms.date: 12/24/2019
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f494702166fc3c018aba9b1356a6806384ae4673
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677957"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530010"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início Rápido: Coletar dados de um computador Linux em um ambiente híbrido com o Azure Monitor
 
@@ -55,7 +55,7 @@ Enquanto as informações são verificadas e o workspace é criado, você pode a
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter a ID do workspace e a chave
 
-Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics.  Essas informações são exigidas pelo script de wrapper de agente para configurar o agente corretamente e garantir que ele pode se comunicar com o Azure Monitor com êxito.
+Antes de instalar o agente do Log Analytics para Linux, você precisa da ID do espaço de trabalho e da chave para o espaço de trabalho do Log Analytics. Essas informações são exigidas pelo script de wrapper de agente para configurar o agente corretamente e garantir que ele pode se comunicar com o Azure Monitor com êxito.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -88,7 +88,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    O comando a seguir inclui o parâmetros de proxy `-p` e o exemplo de sintaxe.
+    O seguinte comando inclui o parâmetro de proxy `-p` e a sintaxe de exemplo quando a autenticação é exigida pelo servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -100,12 +100,13 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    O comando a seguir inclui o parâmetros de proxy `-p` e o exemplo de sintaxe.
+    O seguinte comando inclui o parâmetro de proxy `-p` e a sintaxe de exemplo quando a autenticação é exigida pelo servidor proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
-2. Reinicie o agente executando o seguinte comando: 
+
+3. Reinicie o agente executando o seguinte comando: 
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
@@ -149,7 +150,7 @@ Agora que você habilitou a coleta de dados, vamos executar um exemplo simples d
 
     ![Resultado da pesquisa de logs do Log Analytics](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá remover o agente do computador Linux e excluir o espaço de trabalho do Log Analytics.  
 

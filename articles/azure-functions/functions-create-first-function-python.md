@@ -4,12 +4,12 @@ description: Aprenda a criar sua primeira função Python no Azure usando o Azur
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433205"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Início Rápido: Criar uma função Python disparada por HTTP no Azure
 
@@ -19,7 +19,7 @@ Este artigo é o primeiro de dois inícios rápidos do Python para o Azure Funct
 
 Há também uma [versão baseada no Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01) deste artigo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, é necessário:
 
@@ -144,10 +144,10 @@ Agora você está pronto para publicar seu projeto de funções local no aplicat
 Depois que o aplicativo de funções for criado no Azure, você poderá usar o comando do Core Tools [func azure functionapp publish](functions-run-local.md#project-file-deployment) para implantar o código do projeto no Azure. Nesse exemplo, substitua `<APP_NAME>` pelo nome de seu aplicativo.
 
 ```console
-func azure functionapp publish <APP_NAME> --build remote
+func azure functionapp publish <APP_NAME>
 ```
 
-A opção `--build remote` cria seu projeto do Python remotamente no Azure, usando os arquivos no pacote de implantação, o que é recomendado. 
+Seu projeto do Python é criado remotamente no Azure usando os arquivos no pacote de implantação. 
 
 Você verá uma saída semelhante ao exemplo a seguir. Ele está truncado aqui para que você possa ler melhor:
 

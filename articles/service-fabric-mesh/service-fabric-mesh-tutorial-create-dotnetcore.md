@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: Criar, depurar, implantar e monitorar um aplicativo de vários serviços na Malha do Service Fabric | Microsoft Docs'
+title: Criar, implantar um aplicativo de vários serviços na Malha do Service Fabric
 description: Neste tutorial, você cria um aplicativo de malha de vários serviços do Azure Service Fabric consistindo em um site do ASP.NET Core que se comunica com um serviço Web de back-end, depura-o localmente e o publica no Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805419"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495194"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implantar e atualizar um aplicativo de vários serviços para Malha do Service Fabric
 
@@ -50,13 +41,13 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
 * Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Verifique se [configurou o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), o que inclui a instalação do tempo de execução do Service Fabric, SDK, Docker e Visual Studio 2017.
+* [Configure o ambiente de desenvolvimento](service-fabric-mesh-howto-setup-developer-environment-sdk.md), o que inclui a instalação do runtime do Service Fabric, do SDK, do Docker e do Visual Studio 2017.
 
 ## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Crie um projeto de Malha do Service Fabric no Visual Studio
 
@@ -362,7 +353,8 @@ Navegue no **Gerenciador de Soluções** até o projeto **ToDoService** e abra *
 
 ![Figura 1: o arquivo service.yaml de ToDoService](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* O nome do serviço, `ToDoService`, é encontrado em `services:` Confira (1) na figura acima.
+ O nome do serviço, `ToDoService`, é encontrado em `services:` Confira (1) na figura acima.
+
 * A porta, `80`, é encontrada em `endpoints:` Confira (2) na figura acima. É provável que o número da porta do projeto seja diferente.
 
 Em seguida, será preciso definir variáveis de ambiente que representam o nome do serviço e o número da porta no projeto WebFrontEnd para que ele possa chamar o serviço de back-end.

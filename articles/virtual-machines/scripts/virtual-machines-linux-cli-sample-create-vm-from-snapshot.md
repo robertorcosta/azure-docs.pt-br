@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script da CLI do Azure – Criar uma VM de um instantâneo
+title: 'Criar uma VM com base em um instantâneo: amostra da CLI'
 description: Exemplo de script da CLI do Azure – Criar uma VM de um instantâneo
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 92f56ef06583bbd59509337352e1509b35b449a6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ffc1a735f743796b73c2b58353638dba7ed60985
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458460"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Criar uma máquina virtual de um instantâneo com a CLI
 
@@ -31,7 +31,7 @@ Esse script cria uma máquina virtual de um instantâneo de um disco do sistema 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh "Create VM from snapshot")]
 

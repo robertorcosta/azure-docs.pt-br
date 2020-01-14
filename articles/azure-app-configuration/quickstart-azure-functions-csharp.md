@@ -2,30 +2,23 @@
 title: Início Rápido da Configuração de Aplicativo do Azure com o Azure Functions | Microsoft Docs
 description: Um Início Rápido para o uso da Configuração de Aplicativo do Azure com o Azure Functions.
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 12/17/2019
 ms.author: yegu
-ms.openlocfilehash: 6329cf0e74bbcf57164afeab5b04e2af4ee43943
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3c8dc27b9d7781a8420fa76e5aeac9637b87c569
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413759"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo do Azure Functions com a Configuração de Aplicativos do Azure
 
 Neste guia de início rápido, você incorpora o serviço de Configuração de Aplicativos do Azure em uma aplicativo do Azure Functions para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure**.
@@ -61,7 +54,7 @@ Neste guia de início rápido, você incorpora o serviço de Configuração de A
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Adicione uma propriedade `static` `Configuration` para criar uma instância singleton de `IConfiguration`. Em seguida, adicione um construtor `static` para se conectar à Configuração de Aplicativos chamando `AddAzureAppConfiguration()`. Isso carregará a configuração uma vez na inicialização do aplicativo. A mesma instância de configuração será usada para todas as chamadas do Functions posteriormente.
+3. Adicione uma propriedade chamada `static``Configuration` para criar uma instância singleton de `IConfiguration`. Em seguida, adicione um construtor `static` para se conectar à Configuração de Aplicativos chamando `AddAzureAppConfiguration()`. Isso carregará a configuração uma vez na inicialização do aplicativo. A mesma instância de configuração será usada para todas as chamadas do Functions posteriormente.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -94,17 +87,19 @@ Neste guia de início rápido, você incorpora o serviço de Configuração de A
 
 1. Defina uma variável de ambiente chamada **ConnectionString** e defina-a como a chave de acesso ao repositório de Configuração de Aplicativos. Se você usar o prompt de comando do Windows, execute o comando a seguir e reinicie o prompt de comando para permitir que a alteração entre em vigor:
 
+    ```CLI
         setx ConnectionString "connection-string-of-your-app-configuration-store"
-
+    ```
     Se você usa o Windows PowerShell, execute o comando a seguir:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-
+    ```
     Se você usa macOS ou Linux, execute o comando a seguir:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Para testar sua função, pressione F5. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas **principais (CLI) do Azure Functions**. Além disso, talvez seja necessário habilitar uma exceção de firewall para que as ferramentas possam manipular solicitações HTTP.
+2. Pressione F5 para testar sua função. Se solicitado, aceite a solicitação do Visual Studio para baixar e instalar as ferramentas **principais (CLI) do Azure Functions**. Além disso, talvez seja necessário habilitar uma exceção de firewall para que as ferramentas possam manipular solicitações HTTP.
 
 3. Copie a URL da sua função da saída do Azure Functions runtime.
 
@@ -114,7 +109,7 @@ Neste guia de início rápido, você incorpora o serviço de Configuração de A
 
     ![Inicialização local da Função do Início Rápido](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

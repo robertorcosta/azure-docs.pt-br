@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes de Detecção Facial para Python | Microsoft Docs'
-description: Este artigo ajudará você a começar a usar a biblioteca de clientes da Detecção Facial para Python a fim de detectar rostos, localizar rostos semelhantes, identificá-los, verificá-los e muito mais.
+title: 'Início Rápido: Biblioteca de clientes de Detecção Facial para Python'
+description: Este início rápido ajudará você a começar a usar a biblioteca de clientes da Detecção Facial para Python a fim de detectar rostos, localizar rostos semelhantes, identificá-los, verificá-los e muito mais.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: cd797567b381fb89c568b06dc8b056648e5c734a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e41817e3409f79aab3fbb3d57195b6b7ff13e7af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448201"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para Python
 
@@ -31,7 +31,7 @@ Use a biblioteca de clientes de Detecção Facial para Python para:
 
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Exemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -40,7 +40,7 @@ Use a biblioteca de clientes de Detecção Facial para Python para:
 
 ### <a name="create-a-face-azure-resource"></a>Criar um recurso de Detecção Facial do Azure
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para Detecção Facial usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para Detecção Facial usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir o recurso no [portal do Azure](https://portal.azure.com/)
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 As classes e interfaces a seguir lidam com alguns dos principais recursos do SDK da Detecção Facial do Python.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Essa classe representa sua autorização para usar o serviço de Detecção Facial e é necessária para todas as funcionalidades desse serviço. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Essa classe manipula as tarefas básicas de detecção e reconhecimento que você pode realizar com rostos humanos. |
@@ -268,7 +268,7 @@ Execute o aplicativo com o comando `python` no seu arquivo de início rápido.
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

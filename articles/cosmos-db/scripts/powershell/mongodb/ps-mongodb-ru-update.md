@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Atualizar as RU/s do Azure Cosmos DB para a API do MongoDB
+title: Script do PowerShell para atualizar RU/s para a API do Azure Cosmos DB para MongoDB
 description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência para um banco de dados ou contêiner na API do Azure Cosmos DB para o MongoDB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 626904c4e281c7ce3ce632412daa24ecdb56938e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7064d9e6387b264b9b7134eb7dff5f988347a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441402"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Atualizar as RU/s de um banco de dados ou uma coleção do Azure Cosmos DB – API do MongoDB
 
@@ -20,7 +20,7 @@ ms.locfileid: "74871900"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/mongodb/ps-mongodb-ru-update.ps1 "Update throughput on a database or collection for MongoDB API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

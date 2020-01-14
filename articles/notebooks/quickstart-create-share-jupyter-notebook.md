@@ -1,18 +1,24 @@
 ---
-title: Criar e compartilhar um Jupyter Notebook no Azure
-description: Crie e execute rapidamente um Jupyter Notebook no Azure Notebooks e, em seguida, compartilhe esse notebook com outras pessoas.
+title: Criar e compartilhar um Jupyter notebook na versão prévia do Azure Notebooks
+description: Crie e execute rapidamente um Jupyter notebook na versão prévia do Azure Notebooks e, em seguida, compartilhe esse notebook com outras pessoas.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277511"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647077"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Início Rápido: Criar e compartilhar um notebook
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Início Rápido: Criar e compartilhar um notebook na versão prévia do Azure Notebooks
 
-1. Acesse [Azure Notebooks](https://notebooks.azure.com) e entre. (Para obter mais detalhes, consulte [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+Neste início rápido, você aprenderá a criar e executar rapidamente um Jupyter notebook no Azure Notebooks e, em seguida, compartilhar esse notebook com outras pessoas.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+## <a name="create-a-new-project-and-notebook"></a>Criar um projeto e um notebook
+
+1. Acesse o site do [Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) e conecte-se. (Para obter mais detalhes, consulte [Início Rápido – Entrar no Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. Em sua página de perfil público, selecione **Meus Projetos** na parte superior da página:
 
@@ -24,14 +30,14 @@ ms.locfileid: "74277511"
 
 1. No pop-up **Criar Novo Projeto** exibido, insira ou defina os seguintes detalhes e selecione **Criar**:
 
-   - **Nome do projeto**: Olá, Mundo em Python
+   - **Nome do projeto:** : Olá, Mundo em Python
    - **ID do Projeto**: hello-world-python
    - **Projeto público**: (desmarcado)
    - **Criar um README.md**: (desmarcado)
 
      ![Pop-up Novo Projeto com detalhes preenchidos](media/quickstarts/new-project-popup.png)
 
-1. Após alguns instantes, o Azure Notebooks o direcionará para o novo projeto. Adicione um notebook ao projeto, selecionando o menu suspenso **+ Novo** (que pode aparecer somente como **+** ) e, em seguida, selecionando **Notebook**:
+1. Após alguns segundos, o Azure Notebooks o direcionará para o novo projeto. Adicione um notebook ao projeto, selecionando o menu suspenso **+ Novo** (que pode aparecer somente como **+** ) e, em seguida, selecionando **Notebook**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 

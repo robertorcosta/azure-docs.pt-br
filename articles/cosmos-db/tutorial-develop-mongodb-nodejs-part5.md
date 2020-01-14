@@ -1,6 +1,5 @@
 ---
-title: Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – usar o Mongoose para conectar-se ao Cosmos DB
-titleSuffix: Azure Cosmos DB
+title: Conectar o aplicativo Angular à API do Azure Cosmos DB para MongoDB usando o Mongoose
 description: Este tutorial descreve como criar um aplicativo Node.js usando o Angular e o Express para gerenciar os dados armazenados no Cosmos DB. Nesta parte, você usa o Mongoose para se conectar ao Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -12,12 +11,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ba893eeb8c2560397f3524d1042566dbafee7d1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69616413"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444703"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – usar o Mongoose para conectar-se ao Cosmos DB
 
@@ -34,7 +33,7 @@ Nesta parte do tutorial, você:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Antes de iniciar este tutorial, conclua as etapas na [Parte 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -228,11 +227,11 @@ Em seguida, você precisa configurar rotas para lidar com as URLs para solicita�
 
 Levaremos um momento para analisar e vasculhar o código anterior. Primeiro, chegamos ao arquivo index.js, que configura o servidor de nó. Observe que ele configura e define suas rotas. Em seguida, seu arquivo routes.js se comunica com o serviço Hero e o manda obter funções como **getHeroes**, além de transmitir a solicitação e a resposta. O arquivo hero.service.js obtém o modelo e conecta-se ao Mongo. Em seguida, ele executa o **getHeroes** quando o chamamos e retorna uma resposta de 200. 
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 Em seguida, execute o aplicativo usando as etapas a seguir:
 
-1. No Visual Studio Code, salve todas as suas alterações. Na esquerda, selecione o botão **Depurar** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) e, em seguida, selecione o botão **Iniciar depuração** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. No Visual Studio Code, salve todas as suas alterações. Na esquerda, selecione o botão **Depurar**![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) e, em seguida, selecione o botão **Iniciar depuração**![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
 1. Agora, alterne para o navegador. Abra as **Ferramentas para desenvolvedores** e a **guia Rede**. Vá para `http://localhost:3000` e lá você verá nosso aplicativo.
 
@@ -240,7 +239,7 @@ Em seguida, execute o aplicativo usando as etapas a seguir:
 
 Ainda não há nenhum Hero armazenado no aplicativo. Na próxima parte deste tutorial, adicionaremos funcionalidades de inserção, de push e de exclusão. Poderemos então adicionar, atualizar e excluir heroes da interface do usuário usando conexões Mongoose para nosso banco de dados do Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando esses recursos já não forem necessários, você poderá excluir o grupo de recursos, a conta do Azure Cosmos DB e todos os recursos relacionados. Use as etapas a seguir para excluir o grupo de recursos:
 

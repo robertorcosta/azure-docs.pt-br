@@ -1,26 +1,17 @@
 ---
-title: Depurar um aplicativo Java em um cluster local do Azure Service Fabric | Microsoft Docs
+title: Depurar um aplicativo Java em um cluster local do Service Fabric
 description: Neste tutorial, saiba como depurar e obter logs de um aplicativo Java do Service Fabric em execução em um cluster local.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: mfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c664b586260957138249028e4d521c29b411d56d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465392"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depurar um aplicativo Java implantado em um cluster local do Service Fabric
 
@@ -41,7 +32,7 @@ Na segunda parte da série, você aprenderá como:
 > * Redirecionar logs para um local configurável
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 

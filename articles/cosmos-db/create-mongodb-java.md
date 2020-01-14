@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Criar um aplicativo Web usando a API do Azure para Mongo DB e o SDK do Java – Azure Cosmos DB'
-description: Apresenta um exemplo de código Java que você pode usar para se conectar à API para MongoDB do Azure Cosmos DB e consultá-la.
+title: 'Início Rápido: Criar um aplicativo Web usando a API do Azure Cosmos DB para Mongo DB e o SDK do Java'
+description: Aprenda a criar um exemplo de código Java que você pode usar para se conectar e consultar usando a API para MongoDB do Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bfded407790d01d65feec0b6e069c23739064e97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445499"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo de console com Java e a API do MongoDB no Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Neste início rápido, você usará a API do Azure Cosmos DB para Mongo DB e o S
 
 Este início rápido demonstra como criar uma conta do Cosmos com a [API do Azure Cosmos DB para MongoDB](mongodb-introduction.md). Você compilará e implantará um aplicativo de console compilado usando o [driver MongoDB Java](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
 * [Instalar o JDK do Azure e o JDK do Azure Stack versão 8](https://aka.ms/azure-jdks)
@@ -40,7 +40,7 @@ Antes que possa executar esta amostra, você deverá ter os seguintes pré-requi
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [mongodb-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -130,7 +130,7 @@ Agora você pode usar [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mo
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

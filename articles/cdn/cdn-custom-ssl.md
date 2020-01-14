@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361647"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -44,13 +44,13 @@ Neste tutorial, você aprenderá como:
 > - Validar o domínio
 > - Desabilite o protocolo HTTPS em seu domínio personalizado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 Antes de concluir as etapas deste tutorial, crie primeiro um perfil CDN e pelo menos um ponto de extremidade da CDN. Para saber mais, confira [Início Rápido: Criar um ponto de extremidade e um perfil de CDN do Azure](cdn-create-new-endpoint.md).
 
-Além disso, você deve associar um domínio personalizado da CDN do Azure no ponto de extremidade da CDN. Para obter mais informações, confira [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md) 
+Além disso, você deve associar um domínio personalizado da CDN do Azure no ponto de extremidade da CDN. Para saber mais, confira [Tutorial: Adicionar um domínio personalizado ao ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md).
 
 > [!IMPORTANT]
 > Os certificados gerenciados pela CDN não estão disponíveis para os domínios raiz ou apex. Se seu domínio personalizado da CDN do Azure for um domínio raiz ou apex, você deverá usar o recurso Traga seu próprio certificado. 
@@ -68,27 +68,29 @@ Quando você usa um certificado gerenciado de CDN, o recurso HTTPS pode ser ativ
 
 Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o perfil **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Akamai**, **CDN Standard do Azure da Verizon** ou **CDN Premium do Azure da Verizon**.
+1. Vá para o [portal do Azure](https://portal.azure.com) para localizar um certificado gerenciado pela CDN do Azure. Pesquise e selecione **perfis de CDN**. 
 
-2. Na lista de pontos de extremidade da CDN, selecione o ponto de extremidade que contém seu domínio personalizado.
+2. Escolha o perfil **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard da Akamai**, **CDN do Azure Standard da Verizon** ou **CDN do Azure Premium da Verizon**.
+
+3. Na lista de pontos de extremidade da CDN, selecione o ponto de extremidade que contém seu domínio personalizado.
 
     ![Lista de pontos de extremidade](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
     A página **Ponto de extremidade** é exibida.
 
-3. Na lista de domínios personalizados, selecione o domínio personalizado para o qual você deseja habilitar o HTTPS.
+4. Na lista de domínios personalizados, selecione o domínio personalizado para o qual você deseja habilitar o HTTPS.
 
     ![Lista de domínios personalizados](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     A página de **Domínio personalizado** é exibida.
 
-4. Em Tipo de gerenciamento de certificado, selecione **CDN gerenciado**.
+5. Em Tipo de gerenciamento de certificado, selecione **CDN gerenciado**.
 
-5. Selecione **Ativado** para habilitar HTTPS.
+6. Selecione **Ativado** para habilitar HTTPS.
 
     ![Status de HTTPS de domínio personalizado](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
-6. Prossiga para [Validar o domínio](#validate-the-domain).
+7. Prossiga para [Validar o domínio](#validate-the-domain).
 
 
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Opção 2: habilitar HTTPS com seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
@@ -176,7 +178,7 @@ Se você estiver usando seu próprio certificado, a validação de domínio não
 
 O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de domínio personalizado e *Valor* é o nome de host do ponto de extremidade da CDN:
 
-| Nome            | Tipo  | Valor                 |
+| Nome            | Type  | Valor                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
@@ -260,15 +262,17 @@ Nas etapas anteriores, você habilitou o protocolo HTTPS em seu domínio persona
 
 ### <a name="disable-the-https-feature"></a>Desabilitar o recurso HTTPS 
 
-1. No [Portal do Azure](https://portal.azure.com), navegue até o seu perfil **CDN Standard do Azure da Microsoft**, **CDN Standard do Azure da Verizon** ou **CDN Premium do Azure da Verizon**.
+1. No [portal do Azure](https://portal.azure.com), pesquise e selecione **Perfis de CDN**. 
 
-2. Na lista de pontos de extremidade, clique no ponto de extremidade que contém seu domínio personalizado.
+2. Escolha o seu perfil **CDN do Azure Standard da Microsoft**, **CDN do Azure Standard do Verizon** ou **CDN do Azure Premium da Verizon**.
 
-3. Clique no domínio personalizado no qual você deseja desabilitar o HTTPS.
+3. Na lista de pontos de extremidade, escolha o ponto de extremidade que contém seu domínio personalizado.
+
+4. Escolha o domínio personalizado no qual você deseja desabilitar o HTTPS.
 
     ![Lista de domínios personalizados](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. Clique em **Desativado** para desabilitar o HTTPS e, em seguida, clique em **Aplicar**.
+5. Escolha **Desativado** para desabilitar o HTTPS e, em seguida, selecione **Aplicar**.
 
     ![Caixa de diálogo personalizada HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
@@ -320,7 +324,7 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > - Habilite o protocolo HTTPS em seu domínio personalizado.

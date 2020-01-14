@@ -14,20 +14,20 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: faec3a519333eab1774989804002e339e509ebba
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: fd5d20ed3f2cc41f4d7d51f06d4bc90a6afd22eb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035308"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526525"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Remover um aplicativo de um cluster do Service Fabric
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Remova um aplicativo de um cluster do Service Fabric usando a CLI do Service Fabric
 
 Esse script de exemplo exclui uma instância de aplicativo do Service Fabric em execução e, em seguida, cancela o registro do tipo e da versão de um aplicativo do cluster.  A exclusão da instância do aplicativo também exclui todas as instâncias de serviço em execução associadas a esse aplicativo. Em seguida, os arquivos de aplicativo são excluídos do repositório de imagens. 
 
 Se necessário, instale a [CLI do Service Fabric](../service-fabric-cli.md).
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-sh[main](../../../cli_scripts/service-fabric/remove-application/remove-application.sh "Remove an application from a cluster")]
 

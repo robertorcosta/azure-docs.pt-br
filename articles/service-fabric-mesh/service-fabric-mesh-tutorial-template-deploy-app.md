@@ -1,26 +1,17 @@
 ---
-title: Tutorial- Implantar um aplicativo na Malha do Azure Service Fabric | Microsoft Docs
+title: Tutorial – Implantar um aplicativo na Malha do Azure Service Fabric
 description: Neste tutorial, você aprende como implantar um aplicativo na Malha do Service Fabric usando um modelo.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306943"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494930"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -43,7 +34,7 @@ Nesta série de tutoriais, você aprenderá a:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -78,13 +69,13 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Criar o registro de contêiner
 
-Crie uma instância do ACR usando o comando `az acr create`. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No exemplo a seguir, o nome *myContainerRegistry* é usado. Se você receber um erro que o nome do registro está em uso, escolha um nome diferente.
+Crie uma instância do ACR usando o comando `az acr create`. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No exemplo a seguir, o nome *myContainerRegistry* é usado. Se você receber um erro indicando que o nome do registro está em uso, escolha um nome diferente.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
 ```
 
-Quando o registro é criado, você verá uma saída semelhante à seguinte:
+Quando o registro é criado, você vê uma saída semelhante à seguinte:
 
 ```json
 {
@@ -264,7 +255,7 @@ Os serviços são especificados no modelo como propriedades do recurso de aplica
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -347,7 +338,7 @@ No arquivo de parâmetros, atualize os valores de parâmetros a seguir:
 
 |Parâmetro|Valor|
 |---|---|
-|location|A região para implantar o aplicativo.  Por exemplo, "eastus".|
+|local|A região para implantar o aplicativo.  Por exemplo, "eastus".|
 |registryPassword|A senha que você obteve anteriormente em [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry). Esse parâmetro no modelo é uma cadeia de caracteres segura e não será exibido no status de implantação ou comandos `az mesh service show`.|
 |registryUserName|O nome de usuário que você obteve em [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry).|
 |registryServer|O nome do servidor de registro que você obteve em [Recuperar credenciais para o registro](#retrieve-credentials-for-the-registry).|

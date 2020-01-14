@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure – habilitar o dimensionamento automático baseado em host | Microsoft Docs
-description: Exemplos de CLI do Azure
+title: Exemplos da CLI do Azure – Habilitar o dimensionamento automático baseado em host
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Ubuntu e usa métricas baseadas em host para dimensionar automaticamente conforme a carga da CPU muda.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c843bed96ebd69f0fe96f8dab292d50ef025e750
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 42dd70a355d63d0fa3062a8e3439be857124a6c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351029"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Ubuntu e usa métricas baseadas em host para dimensionar automaticamente conforme a carga da CPU muda.
@@ -30,7 +30,7 @@ Esse script cria um conjunto de dimensionamento de máquinas virtuais executando
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/auto-scale-host-metrics/auto-scale-host-metrics.sh "Automatically scale a virtual machine scale set")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação

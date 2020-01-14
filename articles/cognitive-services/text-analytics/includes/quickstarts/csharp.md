@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: aahi
-ms.openlocfilehash: fd3d53dce398c445d309a19f1f58a8d298080c45
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ea526648b1b37919eb41953937d3afa72f7f39e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750161"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446252"
 ---
 <a name="HOLTop"></a>
 
@@ -18,10 +18,10 @@ ms.locfileid: "73750161"
 > [!NOTE]
 > O código deste artigo usa os métodos síncronos do SDK do .NET da Análise de Texto para manter a simplicidade. Para cenários de produção, recomendamos usar os métodos assíncronos em lote para desempenho e escalabilidade. Por exemplo, chamar [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) em vez [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [SDK do .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* O [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="setting-up"></a>Configurando
 
@@ -31,49 +31,26 @@ ms.locfileid: "73750161"
 
 ### <a name="create-a-new-net-core-application"></a>Criar um aplicativo .NET Core
 
-Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `dotnet new` para criar um novo aplicativo do console com o nome `text-analytics quickstart`. Esse comando cria um projeto simples "Olá, Mundo" com um único arquivo de origem C#: *program.cs*. 
+Usando o IDE do Visual Studio, crie um aplicativo de console do .NET Core. Isso criará um projeto simples "Olá, Mundo" com um arquivo de origem C#: *program.cs*.
 
-```console
-dotnet new console -n text-analytics-quickstart
-```
+Instale a biblioteca de cliente clicando com o botão direito do mouse na solução no **Gerenciador de Soluções** e selecionando **Gerenciar Pacotes do NuGet**. No gerenciador de pacotes que é aberto, selecione **Procurar** e pesquise `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Clique nele e então em **Instalar**. Você também pode usar o [Console do Gerenciador de Pacotes](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
-Altere o diretório para a pasta do aplicativo recém-criado. É possível criar o aplicativo com:
-
-```console
-dotnet build
-```
-
-A saída de compilação não deve conter nenhum aviso ou erro. 
-
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-No diretório do projeto, abra o arquivo *program.cs* e adicione as seguintes diretivas `using`:
+Abra o arquivo *program.cs* e adicione as seguintes diretivas `using`:
 
 [!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
-Na classe `Program` do aplicativo, crie variáveis para a chave e o ponto de extremidade do recurso com base nas variáveis de ambiente criadas anteriormente. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis.
+Na classe `Program` do aplicativo, crie variáveis para a chave e o ponto de extremidade do recurso. 
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=vars)]
+```csharp
+private static readonly string key = "<replace-with-your-text-analytics-key-here>";
+private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+```
 
 Substitua o método `Main` do aplicativo. Você definirá os métodos chamados aqui mais adiante.
 
 [!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
-
-### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
-
-Dentro do diretório do aplicativo, instale a biblioteca de clientes da Análise de Texto para .NET com o seguinte comando:
-
-```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
-```
 
 ## <a name="object-model"></a>Modelo de objeto
 

@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: executar um trabalho do Lote do Azure – API do Python'
-description: Execute rapidamente um trabalho e tarefas do Lote usando a biblioteca de cliente do Python do Lote.
+description: Execute rapidamente um trabalho e tarefas de exemplo do Lote do Azure usando a biblioteca de cliente Python do Lote. Conheça os principais conceitos do serviço de Lote.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ab628ebe81592e7d5b2e6c79de5a62b368ee772d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390232"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido: Executar seu primeiro trabalho em Lotes com a API do Python
 
@@ -29,7 +29,7 @@ O aplicativo carrega vários arquivos de dados de entrada no armazenamento do Az
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.7 ou 3.3 ou versão posterior](https://www.python.org/downloads/)
 
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 Para ver o fluxo de trabalho do Lote em ação, execute o script:
 
@@ -230,7 +230,7 @@ for task in tasks:
     print(file_text)
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O aplicativo exclui automaticamente o contêiner de armazenamento que cria e oferece a opção para excluir o pool e o trabalho do Lote. Você é cobrado pelo pool enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisa mais do pool, exclua-o. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. 
 

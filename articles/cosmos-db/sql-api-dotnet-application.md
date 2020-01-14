@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do ASP.NET Core MVC para o Azure Cosmos DB: Desenvolvimento de aplicativo Web'
+title: Tutorial de aplicativo Web MVC do ASP.NET Core usando Azure Cosmos DB
 description: Tutorial do ASP.NET Core MVC para criar um aplicativo Web MVC usando o Azure Cosmos DB. Você armazenará o JSON e acessará dados de um aplicativo de tarefas pendentes hospedado no Serviço de Aplicativo do Azure ‒ tutorial passo a passo do ASP.NET Core MVC.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 1cfb7718c55920d817e1f87407fa1af590e9f006
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444922"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET Core MVC com o Azure Cosmos DB usando o SDK do .NET
 
@@ -187,7 +187,7 @@ Após concluir essas etapas, feche todos os documentos *cshtml* no Visual Studio
 
 O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação intersite forjada. Suas exibições também devem funcionar com esse token antifalsificação. Para obter mais informações e exemplos, confira [Evitando ataques de CSRF (solicitação intersite forjada) em aplicativos MVC do ASP.NET][Preventing Cross-Site Request Forgery]. O código-fonte fornecido no [GitHub][GitHub] tem a implementação completa estabelecida.
 
-Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques overposting. Para obter mais informações, confira [Tutorial: Implementar a funcionalidade CRUD com o Entity Framework no MVC do ASP.NET][Basic CRUD Operations in ASP.NET MVC].
+Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques overposting. Para saber mais, confira [Tutorial: Implementar a funcionalidade CRUD com o Entity Framework no MVC do ASP.NET][Basic CRUD Operations in ASP.NET MVC].
 
 ## <a name="connect-to-cosmosdb"></a>Etapa 5: Conectar-se ao Azure Cosmos DB
 

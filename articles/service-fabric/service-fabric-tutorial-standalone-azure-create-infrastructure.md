@@ -1,26 +1,15 @@
 ---
-title: 'Tutorial: Criando a infraestrutura para um cluster do Service Fabric em VMs do Azure – Azure Service Fabric | Microsoft Docs'
+title: Criar a infraestrutura de um cluster em VMs do Azure
 description: Neste tutorial, você aprenderá a configurar a infraestrutura da VM do Azure para executar um cluster do Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166267"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614002"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura de VM do Azure para hospedar um cluster do Service Fabric
 
@@ -36,7 +25,7 @@ Na primeira parte da série, você aprenderá a:
 > * Fazer logon em uma das instâncias
 > * Preparar a instância do Service Fabric
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure.  Caso ainda não tenha uma conta, vá até o [portal do Azure](https://portal.azure.com) para criá-la.
 

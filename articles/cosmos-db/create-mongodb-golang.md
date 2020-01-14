@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de console usando a API para MongoDB do Azure Cosmos DB e o SDK do Golang
+title: Aplicativo de console usando a API para MongoDB do Azure Cosmos DB e o SDK do Golang
 description: Apresenta um exemplo de código do Golang que você pode usar para se conectar à API para MongoDB do Azure Cosmos DB e consultá-la.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: e16b9b7e591fcc089d74794c98ddfc951cbdced9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c717a8d5baa57ce780fbbc0d25e67c2509ca86fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441958"
 ---
 # <a name="quickstart-build-a-console-app-using-azure-cosmos-dbs-api-for-mongodb-and-golang-sdk"></a>Início Rápido: Criar um aplicativo de console usando a API para MongoDB do Azure Cosmos DB e o SDK do Golang
 
@@ -25,13 +25,13 @@ ms.locfileid: "72755123"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente bancos de dados de documentos, de chave/valor e de grafo, que se beneficiem das funcionalidades de escala horizontal e de distribuição global no núcleo do Cosmos DB.
+O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente bancos de dados de documentos, de chave/valor e de grafo, que se beneficiem das funcionalidades de escala horizontal e distribuição global no núcleo do Cosmos DB.
 
 Este início rápido demonstra como usar um aplicativo MongoDB existente escrito em [Golang](https://golang.org/) e conectá-lo ao banco de dados do Cosmos usando a API para MongoDB do Azure Cosmos DB.
 
 Em outras palavras, o aplicativo Golang só sabe que está se conectando usando um cliente do MongoDB. Está claro para o aplicativo que os dados estão armazenados em um banco de dados do Cosmos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar. 
 
@@ -212,7 +212,7 @@ if err != nil {
 }
 ```
     
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 1. No Golang, verifique se seu GOPATH (disponível em **Arquivo**, **Configurações**, **Go**, **GOPATH**) inclui a localização em que o gopkg foi instalado, que é PERFILDOUSUÁRIO/go por padrão. 
 2. Comente as linhas que excluem o documento, linhas 103 a 107, para que você possa ver o documento depois de executar o aplicativo.
@@ -242,7 +242,7 @@ Volte para o portal do Azure a fim de ver o documento no Data Explorer.
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

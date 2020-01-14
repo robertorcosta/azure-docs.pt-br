@@ -1,17 +1,17 @@
 ---
-title: Criação do cluster do Microsoft Azure FXT Edge Filer
+title: 'Tutorial: Criar o cluster de cache do Azure FXT Edge Filer'
 description: Como criar um cluster de cache de armazenamento híbrido com o Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256078"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551260"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: Criar o cluster do Azure FXT Edge Filer
 
@@ -30,7 +30,7 @@ Neste tutorial, você irá aprender:
 
 Esse procedimento leva entre 15 e 45 minutos, dependendo de quanta pesquisa você precisará fazer para identificar endereços IP e recursos de rede.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar este tutorial, conclua estes pré-requisitos:
 

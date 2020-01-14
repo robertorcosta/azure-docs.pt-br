@@ -1,27 +1,27 @@
 ---
 title: 'Início Rápido: Verificar a ortografia com a API REST e o Ruby – Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática com este início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383834"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448426"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Ruby
 
 Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing usando o Ruby. Este aplicativo simples envia uma solicitação à API e retorna uma lista de palavras não reconhecidas por ele, seguido das correções sugeridas. Embora esse aplicativo seja escrito no Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior.
 
@@ -32,13 +32,13 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
 
 1. Crie um arquivo Ruby em seu editor ou IDE favorito e adicione os requisitos a seguir. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Crie variáveis para a chave de assinatura, o URI do ponto de extremidade e o caminho. Crie os parâmetros de solicitação acrescentando o parâmetro `mkt=` ao mercado e `&mode` ao modo de prova `proof`.
+2. Crie variáveis para a chave de assinatura, o URI do ponto de extremidade e o caminho. Crie os parâmetros de solicitação acrescentando o parâmetro `mkt=` ao mercado e `&mode` ao modo de prova `proof`. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -81,6 +81,16 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>Executar o aplicativo
+
+Compile e execute seu projeto.
+
+Se estiver usando a linha de comando, use os comandos a seguir para executar o aplicativo.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 

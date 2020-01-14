@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos
+title: Script do PowerShell para criar um contêiner do Azure Cosmos com uma chave de partição grande
 description: Amostra de script do Azure PowerShell – Criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8c4d117a77afe140ba2bc803f0ac146d4c6a8182
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ecc5e7c13d898f89bbd6b542faf69834de26e0e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444974"
 ---
 # <a name="create-a-container-with-a-large-partition-key-in-an-azure-cosmos-account-using-powershell"></a>Criar um contêiner com uma chave de partição grande em uma conta do Azure Cosmos usando o PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178853"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-large-partition-key.ps1 "Create a container with a large partition key in an Azure Cosmos account")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

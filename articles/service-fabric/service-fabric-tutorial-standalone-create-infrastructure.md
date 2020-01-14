@@ -1,26 +1,17 @@
 ---
-title: Tutorial criando a infraestrutura para um cluster do Service Fabric em AWS – Azure Service Fabric | Microsoft Docs
+title: Criar a infraestrutura de um cluster na AWS
 description: Neste tutorial, você aprenderá como configurar a infraestrutura AWS para executar um cluster do Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "73177834"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613968"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura AWS para hospedar um cluster do Service Fabric
 
@@ -36,7 +27,7 @@ Na primeira parte da série, você aprenderá a:
 > * Entrar em uma das instâncias
 > * Preparar a instância do Service Fabric
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa de uma conta do AWS.  Caso ainda não tenha uma conta, vá até o [Console do AWS](https://aws.amazon.com/) para criar uma.
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de reserva do Azure para uma assinatura individual com taxas pagas conforme o uso
+title: Uso de reserva do Azure para uma assinatura individual
 description: Saiba como ler seu uso para entender como a reserva do Azure para sua assinatura individual com taxas pagas conforme o uso é aplicada.
 author: bandersmsft
 manager: yashr
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0b578436a118539517d2d515717f2bdd97612d6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 991afd5a91ef5f5586acd624c03babc38b5c1960
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449140"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Entender o uso de reserva do Azure para sua assinatura individual com taxas pagas conforme o uso
 
@@ -55,7 +55,7 @@ Filtrar **informações adicionais** e digite sua **ID de reserva**. A captura d
 
 1. **ReservationId** no campo **Additional Info** é a reserva aplicada à VM.
 2. **ConsumptionMeter** é a ID do medidor para a VM.
-3. O **VM Reservation-Base** **subcategoria de medidor** linha representa o custo de US $0 na seção de instrução. O custo de execução desta VM já é pago pela reserva.
+3. A linha **Subcategoria de Medidor** das **Instâncias Reservadas de VM de base** representa o custo de US$ 0 na seção do demonstrativo. O custo de execução desta VM já é pago pela reserva.
 4. **ID do medidor** é a ID do medidor para a reserva. O custo deste medidor é $0. Esse ID do medidor aparece para qualquer VM que se qualifique para o desconto de reserva.
 5. Standard_DS1_v2 é uma VM vCPU, e a VM é implantada sem o Benefício Híbrido do Azure. Portanto, esse medidor cobre a carga extra do software Windows. Para encontrar o medidor correspondente à VM core da série D 1, consulte [Instâncias de VM de Reserva do Azure Custos do software do Windows](billing-reserved-instance-windows-software-costs.md). Se você tiver o benefício híbrido do Azure, esse custo extra não será aplicado.
 

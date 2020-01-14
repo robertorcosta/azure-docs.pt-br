@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 2ac2d552aed5b11eaf5a8e4708b2cabc33ba1bb3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d12e3b91dad2b7e7d28c6bd50fd62623e07e580b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449422"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obter propriedade de cobrança das assinaturas do Azure de outras contas
 
@@ -33,46 +33,71 @@ Para solicitar a propriedade de cobrança, você deve ser o **proprietário da s
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
-   ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Selecione **Seções da fatura** do lado esquerdo. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança. Na conta ou perfil de cobrança, selecione **Seções da fatura**.
+3. Na página de escopos do orçamento, selecione a conta de cobrança, que seria usada para pagar pelo uso das assinaturas. A conta de cobrança deve ser do tipo **Contrato de Cliente da Microsoft**.
+
+    ![Captura de tela que mostra a pesquisa de Gerenciamento de Custos + Cobrança no portal](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
+
+    > [!NOTE]
+    >
+    > O portal do Azure lembra o último escopo do orçamento que você acessou e exibirá o escopo na próxima vez que você visitar a página Gerenciamento de Custos + Cobrança. Você não verá a página de escopos do orçamento se tiver visitado a página de Gerenciamento de Custos + Cobrança anteriormente. Nesse caso, verifique se você está no [escopo certo](#check-for-access). Se não estiver, [alterne o escopo](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para selecionar a conta de cobrança para um Contrato de Cliente da Microsoft.
+
+4. Selecione **Perfis de cobrança** do lado esquerdo.
    
-   ![Captura de tela que mostra a seleção das seções da fatura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
+    ![Captura de tela que mostra a seleção de perfis de cobrança](./media/billing-mca-request-billing-ownership/mca-select-profiles.png)     
 
-4. Selecione uma seção da fatura na lista. Depois de assumir a propriedade das assinaturas, elas serão cobradas para essa seção da fatura.
+    > [!Note]
+    >
+    > Se você não vê nenhum perfil de cobrança, significa que você não está no escopo do orçamento correto. Você precisa selecionar uma conta de cobrança para um Contrato de Cliente da Microsoft e, em seguida, selecionar Perfis de cobrança. Para saber como alterar os escopos, confira [Alternar os escopos do orçamento no portal do Azure](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
-5. Selecione **Solicitações de transferência** do lado inferior esquerdo e selecione **Adicionar**.
+5. Selecione um **Perfil de cobrança** na lista. Depois de assumir a propriedade das assinaturas, elas o uso delas será cobrado nesse perfil de cobrança.
+
+6. Selecione **Seções da fatura** do lado esquerdo. 
+
+    ![Captura de tela que mostra a seleção das seções da fatura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)   
+
+7. Selecione uma seção da fatura na lista. Depois de assumir a propriedade das assinaturas, elas o uso delas será atribuído para essa seção na fatura do perfil de cobrança.
+
+8. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.
  
-   ![Captura de tela que mostra a seleção de solicitações de transferência](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests.png)
+    ![Captura de tela que mostra a seleção de solicitações de transferência](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests.png)
 
-6. Insira o endereço de email do usuário do qual você está solicitando propriedade de cobrança. O usuário precisa ser um Administrador da Conta em uma conta de cobrança do Programa de Serviço Online da Microsoft ou um proprietário da conta em um Contrato Enterprise. Para obter mais informações, confira [exibir suas contas de cobrança no portal do Azure](billing-view-all-accounts.md). Selecione **Enviar solicitação de transferência**.
+9. Insira o endereço de email do usuário do qual você está solicitando propriedade de cobrança. O usuário precisa ser um Administrador da Conta em uma conta de cobrança do Programa de Serviço Online da Microsoft ou um proprietário da conta em um Contrato Enterprise. Para obter mais informações, confira [exibir suas contas de cobrança no portal do Azure](billing-view-all-accounts.md). Selecione **Enviar solicitação de transferência**.
 
-   ![Captura de tela que mostra o envio de uma solicitação de transferência](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
+    ![Captura de tela que mostra o envio de uma solicitação de transferência](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
 
-7. O usuário recebe um email com instruções para revisar sua solicitação de transferência.
+10. O usuário recebe um email com instruções para revisar sua solicitação de transferência.
 
-   ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
+    ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
-8. Para aprovar a solicitação de transferência, o usuário seleciona o link no email e segue as instruções.
+11. Para aprovar a solicitação de transferência, o usuário seleciona o link no email e segue as instruções.
 
     ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
 
 ## <a name="check-the-transfer-request-status"></a>Verifique o status da solicitação de transferência
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
-   ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
+3. Na página de escopos do orçamento, selecione a conta de cobrança para a qual a solicitação de transferência foi enviada.
 
-3. Selecione **Seções da fatura** do lado esquerdo. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança. Na conta ou perfil de cobrança, selecione **Seções da fatura**.
+4. Selecione **Perfis de cobrança** do lado esquerdo.
    
-   ![Captura de tela que mostra a seleção das seções da fatura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
+    ![Captura de tela que mostra a seleção de perfis de cobrança](./media/billing-mca-request-billing-ownership/mca-select-profiles.png)     
 
-4. Selecione a seção da fatura na lista para a qual você enviou a solicitação de transferência.
+5. Selecione o **perfil de cobrança** para o qual a solicitação de transferência foi enviada.
 
-5. Selecione **Solicitações de transferência** no lado inferior esquerdo. A página Solicitações de transferência exibe as seguintes informações:
+6. Selecione **Seções da fatura** do lado esquerdo. 
+
+    ![Captura de tela que mostra a seleção das seções da fatura](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)   
+
+7. Selecione a seção da fatura na lista para a qual a solicitação de transferência foi enviada.
+
+8. Selecione **Solicitações de transferência** no lado inferior esquerdo. A página Solicitações de transferência exibe as seguintes informações:
 
     ![Captura de tela que mostra uma lista de solicitações de transferência](./media/billing-mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)
 
@@ -92,12 +117,12 @@ Para solicitar a propriedade de cobrança, você deve ser o **proprietário da s
    |Concluído| A cobrança das assinaturas que o usuário selecionou foi transferida para a seção da fatura|
    |Concluído com erros|A solicitação foi concluída, mas a cobrança de algumas assinaturas que o usuário selecionou não pôde ser transferida|
    |Expirado|O usuário não aceitou a solicitação a tempo e ela expirou|
-   |Cancelado|Alguém com acesso à solicitação de transferência cancelou a solicitação|
+   |Canceled|Alguém com acesso à solicitação de transferência cancelou a solicitação|
    |Recusado|O usuário recusou a solicitação de transferência|
 
-7. Selecione uma solicitação de transferência para exibir detalhes. A página de detalhes da transferência exibe as seguintes informações:
+9. Selecione uma solicitação de transferência para exibir detalhes. A página de detalhes da transferência exibe as seguintes informações:
    
-   ![Captura de tela que mostra a lista de assinaturas transferidas](./media/billing-mca-request-billing-ownership/mca-transfer-completed.png)
+    ![Captura de tela que mostra a lista de assinaturas transferidas](./media/billing-mca-request-billing-ownership/mca-transfer-completed.png)
     
    |Coluna  |Definição|
    |---------|---------|

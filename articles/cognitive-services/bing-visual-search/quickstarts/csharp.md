@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446680"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Início Rápido: Obtenha insights de imagem usando a API REST da Pesquisa Visual do Bing e o C#
 
 Este início rápido demonstra como fazer upload de uma imagem para a API da Pesquisa Visual do Bing e para exibir os insights retornados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Qualquer edição do [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * A [estrutura Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
@@ -41,7 +41,7 @@ Este início rápido demonstra como fazer upload de uma imagem para a API da Pes
     using System.Collections.Generic;
     ```
 
-2. Adicione variáveis para sua chave de assinatura, ponto de extremidade e o caminho para a imagem que você deseja fazer upload:
+2. Adicione variáveis para sua chave de assinatura, ponto de extremidade e o caminho para a imagem que você deseja carregar. `uriBase` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533950"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563438"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Início Rápido: Criar um repositório de conhecimento da Pesquisa Cognitiva do Azure no portal do Azure
 
@@ -22,9 +22,9 @@ ms.locfileid: "74533950"
 
 O repositório de conhecimento é um recurso da Pesquisa Cognitiva do Azure que persiste a saída de um pipeline de habilidades cognitivas para análise posterior ou outro processamento downstream. 
 
-Um pipeline aceita imagens e texto não estruturado como conteúdo bruto, aplica IA por meio dos Serviços Cognitivos (como processamento de imagem e linguagem natural) e cria conteúdo enriquecido (novas estruturas e informações) como saída. Um dos artefatos físicos criados por um pipeline é um [repositório de conhecimento](knowledge-store-concept-intro.md), que pode ser acessado por meio de ferramentas para analisar e explorar o conteúdo.
+Um pipeline aceita texto não estruturado e imagens como conteúdo bruto, aplica IA por meio dos Serviços Cognitivos (como OCR, análise de imagem e processamento de linguagem natural), extrai informações e gera novas estruturas e informações. Um dos artefatos físicos criados por um pipeline é um [repositório de conhecimento](knowledge-store-concept-intro.md), que pode ser acessado por meio de ferramentas para analisar e explorar o conteúdo.
 
-Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar um repositório de conhecimento. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal para reunir tudo. O resultado final é um conteúdo original gerado por IA que você pode exibir no portal ([Gerenciador de armazenamento](knowledge-store-view-storage-explorer.md)).
+Neste início rápido, você combinará serviços e dados na nuvem do Azure para criar um repositório de conhecimento. Quando tudo estiver configurado, você executará o assistente **Importar dados** no portal para reunir tudo. O resultado final é um conteúdo de texto original mais conteúdo gerado por IA que você pode exibir no portal ([Gerenciador de armazenamento](knowledge-store-view-storage-explorer.md)).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -38,13 +38,9 @@ Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionado
 
 1. [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [localize uma conta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) na assinatura atual. Você usará o armazenamento do Azure para o conteúdo bruto a ser importado e para o repositório de conhecimento que é o resultado final.
 
-   Há dois requisitos para esta conta:
+   Escolha o tipo de conta **StorageV2 (V2 de uso geral)** .
 
-   + Escolha a mesma região que a Pesquisa Cognitiva do Azure. 
-   
-   + Escolha o tipo de conta StorageV2 (uso geral V2). 
-
-1. Abra as páginas dos serviços Blob e crie um contêiner.  
+1. Abra as páginas dos serviços de Blob e crie um contêiner chamado *hotel-reviews*.
 
 1. Clique em **Carregar**.
 
@@ -54,9 +50,9 @@ Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionado
 
     ![Criar o contêiner de Blob do Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Criar o contêiner de Blob do Azure")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. Você quase terminou de trabalhar com esse recurso, mas antes de sair dessas páginas, use um link no painel de navegação esquerdo para abrir a página **Chaves de Acesso**. Obtenha uma cadeia de conexão para recuperar dados do armazenamento de Blobs. A cadeia de conexão é semelhante ao seguinte exemplo: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [Crie um serviço do Azure Cognitive Search](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). É possível usar um serviço gratuito para este início rápido.
+1. Ainda no portal, alterne para o Azure Cognitive Search. [Criar um novo serviço](search-create-service-portal.md) ou [encontrar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). É possível usar um serviço gratuito para este início rápido.
 
 Agora, você está pronto prosseguir para assistente de Importação de dados.
 
@@ -71,17 +67,18 @@ Na página de Visão geral do serviço de pesquisa, clique em **Importar dados**
 1. Em **Conectar-se aos seus dados**, escolha **Armazenamento de Blobs do Azure** e selecione a conta e o contêiner criados. 
 1. Para o **Nome**, insira `hotel-reviews-ds`.
 1. Para **Modo de análise**, selecione **Texto delimitado** e, em seguido, marque a caixa de seleção **A Primeira Linha Contém Cabeçalho**. Verifique se o **Caractere delimitador** é uma vírgula (,).
-1. Insira a **Cadeia de Conexão** do serviço de armazenamento salva em uma etapa anterior.
-1. Para **Nome do contêiner**, insira `hotel-reviews`.
-1. Clique em **Avançar: Adicionar enriquecimento de IA (opcional)** .
+1. Em **Cadeia de Conexão**, cole a cadeia de conexão que você copiou da página **Chaves de Acesso** no Armazenamento do Azure.
+1. Em **Contêineres**, insira o nome do contêiner de blob que contém os dados.
 
-      ![Criar um objeto de fonte de dados](media/knowledge-store-create-portal/hotel-reviews-ds.png "Criar um objeto de fonte de dados")
+    Esta página deve ser semelhante à seguinte captura de tela.
+
+    ![Criar um objeto de fonte de dados](media/knowledge-store-create-portal/hotel-reviews-ds.png "Criar um objeto de fonte de dados")
 
 1. Continue para a próxima página.
 
 ### <a name="step-2-add-cognitive-skills"></a>Etapa 2: Adicionar habilidades cognitivas
 
-Nesta etapa do assistente, você criará um conjunto de habilidades com aprimoramentos de habilidades cognitivas. As habilidades usadas neste modelo extrairão frases-chave e detectarão o idioma e o sentimento. Em uma etapa posterior, esses aprimoramentos serão “projetados” em um repositório de conhecimento como tabelas do Azure.
+Nesta etapa do assistente, você criará um conjunto de habilidades com aprimoramentos de habilidades cognitivas. Os dados de origem consistem em análises de clientes em vários idiomas. As habilidades relevantes para esse conjunto de dados incluem extração de frases-chave, detecção de opiniões e tradução de texto. Em uma etapa posterior, esses aprimoramentos serão “projetados” em um repositório de conhecimento como tabelas do Azure.
 
 1. Expanda **Anexar Serviços Cognitivos**. **Gratuito (Aprimoramentos limitados)** é selecionado por padrão. É possível usar esse recurso porque o número de registros em HotelReviews-Free.csv é 19 e esse recurso gratuito permite até 20 transações por dia.
 1. Expanda **Adicionar habilidades cognitivas**.
@@ -90,7 +87,7 @@ Nesta etapa do assistente, você criará um conjunto de habilidades com aprimora
 1. Para **Nível de granularidade do aprimoramento**, selecione **Páginas (5 mil partes de caracteres)**
 1. Selecione estas habilidades cognitivas:
     + **Extraia frases-chave**
-    + **Detectar o idioma**
+    + **Traduzir o texto**
     + **Detectar sentimento**
 
       ![Criar um conjunto de habilidades](media/knowledge-store-create-portal/hotel-reviews-ss.png "Criar um conjunto de habilidades")
@@ -104,6 +101,8 @@ Nesta etapa do assistente, você criará um conjunto de habilidades com aprimora
 
     ![Configurar um repositório de conhecimento](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurar um repositório de conhecimento")
 
+1. Opcionalmente, baixe um modelo do Power BI. Quando você acessa o modelo por meio do assistente, o arquivo local .pbit é adaptado para refletir a forma de seus dados.
+
 1. Continue para a próxima página.
 
 ### <a name="step-3-configure-the-index"></a>Etapa 3: Configurar o índice
@@ -111,10 +110,7 @@ Nesta etapa do assistente, você criará um conjunto de habilidades com aprimora
 Nesta etapa do assistente, você configurá um índice para consultas de pesquisa de texto completo opcionais. O assistente criará um exemplo de sua fonte de dados para inferir campos e tipos de dados. Só é necessário selecionar os atributos do seu comportamento desejado. Por exemplo, o atributo **Recuperável** permitirá que o serviço de pesquisa retorne um valor de campo enquanto o **Pesquisável** habilitará a pesquisa de texto completo no campo.
 
 1. Em **Nome do índice**, insira `hotel-reviews-idx`.
-1. Para atributos, faça estas seleções:
-    + Selecione **Recuperável** para todos os campos.
-    + Selecione **Filtrável** e **Com faceta** para estes campos: *Sentimento*, *Idioma*, *Palavras-chave*
-    + Selecione **Pesquisável** para estes campos: *cidade*, *nome*, *reviews_text*, *idioma*, *Palavras-chave*
+1. Para atributos, aceite as seleções padrão: **Recuperável** e **Pesquisável** para os novos campos que o pipeline está criando.
 
     O índice deve ser semelhante à imagem a seguir. Como a lista é longa, nem todos os campos estão visíveis na imagem.
 

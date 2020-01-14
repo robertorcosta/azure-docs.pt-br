@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Detectar anomalias nos dados de série temporal usando o Java e a API REST do Detector de Anomalias'
 titleSuffix: Azure Cognitive Services
-description: Use a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming.
+description: Neste início rápido, aprenda a usar a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 6b79470194c5e8dc9b8d51f8b528cb4e51f7daf2
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3bc406b22b7e8a684713385dfd15daed99bcf977
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448933"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início Rápido: Detectar anomalias nos dados de série temporal usando o Java e a API REST do Detector de Anomalias
 
@@ -28,7 +28,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 
  Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. Você pode encontrar o código-fonte deste Início Rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - O JDK ([Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 - Um ponto de extremidade e uma chave do Detector de Anomalias
@@ -48,7 +48,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
     
     [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
-2. Crie variáveis para a chave de assinatura e o ponto de extremidade. Abaixo estão os URIs que você pode usar para a detecção de anomalias. Eles serão anexados a seu ponto de extremidade de serviço posteriormente para criar as URLs de solicitação da API.
+2. Crie variáveis para seu ponto de extremidade e sua chave de assinatura. Abaixo estão os URIs que você pode usar para a detecção de anomalias. Eles serão anexados a seu ponto de extremidade de serviço posteriormente para criar as URLs de solicitação da API.
 
     |Método de detecção  |URI  |
     |---------|---------|
@@ -85,7 +85,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do último ponto de dados
 
-Crie um método chamado `detectAnomaliesLatest()` para detectar o status da anomalia do último ponto de dados no conjunto de dados. Chame o método `sendRequest()` criado acima com o ponto de extremidade, a URL, a chave de assinatura e os dados JSON. Obtenha o resultado e imprima-o no console.
+Crie um método chamado `detectAnomaliesLatest()` para detectar o status da anomalia do último ponto de dados no conjunto de dados. Chame o método `sendRequest()` criado acima com seu ponto de extremidade, sua URL, sua chave de assinatura e seus dados JSON. Obtenha o resultado e imprima-o no console.
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 

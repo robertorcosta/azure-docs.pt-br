@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Criar um banco de dados e um contêiner do Azure Cosmos DB para a API do SQL (Core)
+title: Script do PowerShell para criar um banco de dados e um contêiner da API do SQL (Core) do Azure Cosmos DB
 description: Script do Azure PowerShell – Criar um banco de dados e um contêiner do Azure Cosmos DB para a API do SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5a57b8cb3e4e7076d3be73a9010d9a29a8b004a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441352"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Criar um banco de dados e um contêiner do Azure Cosmos DB – API do SQL (Core)
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178801"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 Este script cria uma conta do Cosmos para a API do SQL (Core) em duas regiões com a consistência no nível da sessão, um banco de dados com taxa de transferência compartilhada e um contêiner com chave de partição, política de indexação personalizada, política de chave exclusiva, TTL, taxa de transferência dedicada e política de resolução de conflitos "último gravador ganha" com um caminho de resolução de conflitos personalizado que será usado quando `multipleWriteLocations=true`.
 
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 11/26/2019
+ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406598"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563285"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar um repositório de conhecimento com o Power BI
 
@@ -22,19 +22,20 @@ ms.locfileid: "74406598"
 
 Neste artigo, você aprenderá a conectar e a explorar um repositório de conhecimento usando o Power Query no aplicativo Power BI Desktop. Você pode começar mais rápido com modelos ou criar um painel personalizado do zero.
 
-+ Siga as etapas em [Criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md) ou [Criar um repositório de conhecimento do Azure Cognitive Search usando REST](knowledge-store-create-rest.md) para criar o repositório de conhecimento de exemplo usado neste passo a passo. Também será necessário o nome da conta de armazenamento do Azure que você usou para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
++ Siga as etapas em [Criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md) ou [Criar um repositório de conhecimento do Azure Cognitive Search usando REST](knowledge-store-create-rest.md) para criar o repositório de conhecimento de exemplo usado neste passo a passo. Também será necessário o nome da conta de Armazenamento do Azure que você usou para criar o repositório de conhecimento, junto com sua chave de acesso do portal do Azure.
 
 + [Instalar o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo do Power BI de exemplo – somente para o portal do Azure
 
-Se você [criou seu repositório de conhecimento usando o portal do Azure](knowledge-store-create-portal.md), será possível usar o [exemplo de modelo do Power BI do Azure Cognitive Search](https://github.com/Azure-Samples/cognitive-search-templates) para exibir e realizar experimentos com as visualizações do Power BI. Esse modelo também está disponível para download ao executar as etapas do assistente **Importar dados**.
+Ao criar um [repositório de conhecimento usando o portal do Azure](knowledge-store-create-portal.md), você tem a opção de baixar um [modelo do Power BI](https://github.com/Azure-Samples/cognitive-search-templates) na segunda página do assistente **Importar dados**. Esse modelo fornece várias visualizações, como WordCloud e Navegador de Rede, para conteúdo baseado em texto. 
 
-O modelo de exemplo executará automaticamente as etapas de configuração descritas no restante deste artigo. No entanto, se você usou a API REST para criar seu repositório de conhecimento, ignore o modelo e use as seções restantes deste artigo para conectar o repositório de conhecimento ao Power BI. Comece com [Conectar com o Power BI](#connect-with-power-bi).
-
-O modelo de exemplo inclui várias visualizações, como o WordCloud e o Navegador de Rede. Algumas visualizações do modelo, como o mapa de localizações e o Visualizador Entidade-Grafo, não mostrarão dados para o exemplo de repositório de conhecimento criado em [Criar um repositório de conhecimento no portal do Azure](knowledge-store-create-portal.md). Isso ocorre porque apenas um subconjunto dos enriquecimentos de IA disponíveis no assistente **Importar dados** foi usado.
+Clique **Obter Modelo do Power BI** na página **Adicionar habilidades cognitivas** para recuperar e baixar o modelo de sua localização do GitHub público. O assistente modifica o modelo para adequar-se à forma de seus dados, conforme capturados nas projeções do repositório de conhecimento especificadas no assistente. Por esse motivo, o modelo baixado variará sempre que você executar o assistente, presumindo entradas de dados e seleções de habilidades diferentes.
 
 ![Exemplo de Modelo do Power BI do Azure Cognitive Search](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Exemplo de modelo do Power BI")
+
+> [!NOTE]
+> Embora o modelo seja baixado enquanto o assistente está sendo disponibilizado em versão piloto, você precisará esperar o repositório de conhecimento ter sido de fato criado no armazenamento de Tabela do Azure para poder usá-lo.
 
 ## <a name="connect-with-power-bi"></a>Conectar com Power BI
 
@@ -48,7 +49,11 @@ O modelo de exemplo inclui várias visualizações, como o WordCloud e o Navegad
 
 1. Se solicitado, insira a chave de conta de armazenamento.
 
-1. Selecione as tabelas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* e *hotelReviewsSsPages*. Essas tabelas são projeções de tabela do Azure dos dados de exemplo de resenhas de hotéis e incluem os aprimoramentos de IA que foram selecionados quando o repositório de conhecimento foi criado.
+1. Selecione as tabelas que contêm os dados de avaliações de hotel criados pelas instruções anteriores. 
+
+   + Para obter instruções do portal, os nomes de tabela são *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases* e *hotelReviewsSsPages*. 
+   
+   + Para obter instruções do REST, os nomes de tabela são *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* e *hotelReviewsSentiment*.
 
 1. Clique em **Carregar**.
 
@@ -57,7 +62,6 @@ O modelo de exemplo inclui várias visualizações, como o WordCloud e o Navegad
    ![Abra o Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Abrir o Power Query")
 
 1. Selecione *hotelReviewsSsDocument* e remova as colunas *PartitionKey*, *RowKey* e *Timestamp*. 
-
    ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Editar tabelas")
 
 1. Clique no ícone com setas opostas no lado superior direito da tabela para expandir o *Conteúdo*. Quando a lista de colunas for exibida, selecione todas elas e desmarque as colunas que começam com ‘metadata’. Clique em **OK** para mostrar as colunas selecionadas.
@@ -82,6 +86,8 @@ O modelo de exemplo inclui várias visualizações, como o WordCloud e o Navegad
    ![Validar relações](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validar relações")
 
 1. Clique duas vezes em cada relação e verifique se a **Direção do filtro cruzado** foi definida como **Ambas**.  Isso permite que seus elementos visuais sejam atualizados quando um filtro é aplicado.
+
+1. Clique no bloco Relatório no painel de navegação à esquerda para explorar dados por meio de visualizações. Para campos de texto, tabelas e cartões são visualizações úteis. Você pode escolher os campos de cada uma das três tabelas para preencher a tabela ou o cartão. 
 
 <!-- ## Try with larger data sets
 
@@ -114,8 +120,3 @@ Para saber como explorar esse repositório de conhecimento usando o Gerenciador 
 
 > [!div class="nextstepaction"]
 > [Exibir com o Gerenciador de Armazenamento](knowledge-store-view-storage-explorer.md)
-
-Para saber como criar um repositório de conhecimento usando as APIs REST e o Postman, confira o artigo a seguir.  
-
-> [!div class="nextstepaction"]
-> [Criar um repositório de conhecimento no REST](knowledge-store-howto.md)

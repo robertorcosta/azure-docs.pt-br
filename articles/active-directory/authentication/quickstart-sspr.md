@@ -1,77 +1,87 @@
 ---
-title: Início Rápido da redefinição de senha de autoatendimento do Azure AD
-description: Neste início rápido, rapidamente você irá configurar a redefinição de senha de autoatendimento do Azure AD para permitir que os usuários redefinam suas próprias senhas
+title: Início Rápido – Redefinição de senha por autoatendimento do Azure AD
+description: Neste guia de início rápido, você aprende a configurar a redefinição de senha por autoatendimento do Azure AD para permitir que os usuários redefinam as próprias senhas, reduzindo a sobrecarga para o departamento de TI.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: quickstart
-ms.date: 07/17/2018
+ms.date: 12/10/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582a6a32aa4c34b2e6fef37f3de5b5414de16cf3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a168f9bf58c4942fc0b76b9ffefc2b32b5bfbe5a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846650"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549356"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Início Rápido: Redefinição de senha de autoatendimento
+# <a name="quickstart-configure-azure-active-directory-self-service-password-reset"></a>Início Rápido: Configurar redefinição de senha por autoatendimento do Azure Active Directory
 
-Neste início rápido, você passa pela configuração da redefinição de senha de autoatendimento (SSPR) como um meio simples para os administradores de TI habilitarem os usuários para redefinir suas senhas ou desbloquear suas contas.
+Neste guia de início rápido, você configura a SSPR (redefinição de senha por autoatendimento) do Azure Active Directory (AD) para permitir que os usuários redefinam as próprias senhas ou desbloqueiem as próprias contas. Com a SSPR, os usuários podem redefinir as próprias credenciais sem assistência técnica ou administrador. Essa capacidade permite que os usuários recuperem o acesso à própria conta sem esperar suporte adicional.
 
-## <a name="prerequisites"></a>Pré-requisitos
+> [!IMPORTANT]
+> Este guia de início rápido mostra a um administrador como habilitar a redefinição de senha por autoatendimento. Se você for um usuário final já registrado para redefinição de senha por autoatendimento e precisar voltar à sua conta, vá para https://aka.ms/sspr.
+>
+> Se sua equipe de TI não tiver habilitado a capacidade de redefinir sua própria senha, entre em contato com sua assistência técnica para obter mais assistência.
+
+## <a name="prerequisites"></a>Prerequisites
 
 * Um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação habilitada.
+    * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de Administrador Global.
-* Um usuário de teste não administrador com uma senha que você sabe. Se você precisar criar um usuário, confira o artigo [Início Rápido: Adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
-* Um grupo piloto para testar que o usuário de teste não-administrador é membro, ou se você precisar criar um grupo, confira o artigo [Criar um grupo e adicionar membros ao Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+* Um usuário de teste que não seja administrador com uma senha que você conheça, como *testuser*.
+    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
+* Um grupo piloto para testar do qual o usuário de teste não administrador seja membro, como *SSPR-Test-Group*.
+    * Se você precisar criar um grupo, confira como [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 
 [Exibir este processo como um vídeo no YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. Do seu locatário existente do Azure AD, do menu do portal do Azure ou da **Página Inicial**, selecione o **Azure Active Directory**. Em seguida, selecione **Redefinição de senha**.
+1. No menu do portal do Azure ou na página **Inicial**, selecione **Azure Active Directory** e, em seguida, escolha **Redefinição de senha**.
 
-2. Na página **Propriedades**, na opção **Redefinição da Senha de Autoatendimento Habilitada**, escolha **Selecionado**.
-    * Em **Selecionar grupo**, escolha o grupo piloto criado como parte da seção de pré-requisitos deste artigo.
-    * Clique em **Save** (Salvar).
+1. Na página **Propriedades**, na opção **Redefinição da Senha por Autoatendimento Habilitada**, escolha **Selecionado**.
+1. Escolha **Selecionar grupo** e, em seguida, selecione o grupo piloto criado como parte da seção pré-requisitos deste artigo, como *SSPR-Test-Group*. Quando estiver pronto, selecione **Salvar**.
+1. Na página **Métodos de autenticação**, escolha o seguinte e depois escolha **Salvar**:
+    * Número de métodos necessários para redefinir: **1**
+    * Métodos disponíveis para os usuários:
+        * **Código do aplicativo móvel**
+        * **Email**
 
-3. Na página **Métodos de autenticação**, escolha o seguinte:
-   * Número de métodos necessários para redefinir: **1**
-   * Métodos disponíveis para os usuários:
-      * **Email**
-      * **Código de aplicativo móvel (versão prévia)**
-   * Clique em **Save** (Salvar).
+    > [!div class="mx-imgBorder"]
+    > ![Escolhendo métodos de autenticação para SSPR][Authentication]
 
-     ![Escolhendo métodos de autenticação para SSPR][Authentication]
-
-4. Na página **Registro**, escolha o seguinte:
+4. Na página **Registro**, escolha o seguinte e então escolha **Salvar**:
    * Exigir que os usuários se cadastram ao entrarem: **Sim**
    * Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação: **365**
 
 ## <a name="test-self-service-password-reset"></a>Testar redefinição de senha de autoatendimento
 
-Agora, vamos testar sua configuração de SSPR com um usuário de teste. Uma vez que a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure, testar usando uma conta de administrador pode alterar o resultado. Para obter mais informações sobre a política de senha do administrador, confira o nosso artigo de [política de senha](concept-sspr-policy.md).
+Agora, vamos testar a configuração do SSPR com um usuário de teste que faz parte do grupo selecionado na seção anterior, como *testuser*. Uma vez que a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure, testar usando uma conta de administrador pode alterar o resultado. Para obter mais informações sobre a política de senha do administrador, confira o nosso artigo de [política de senha](concept-sspr-policy.md).
 
 1. Abra uma nova janela do navegador no modo InPrivate ou anônimo e navegue até [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
-2. Entre com um usuário de teste não-administrador e registre seu telefone de autenticação.
-3. Uma vez concluído, clique no botão marcado **parece bom** e feche a janela do navegador.
+2. Entre com um usuário de teste não-administrador, como *testuser*, e registre seu telefone de autenticação.
+3. Uma vez concluído, selecione o botão marcado **Parece bom** e feche a janela do navegador.
 4. Abra uma nova janela do navegador no modo InPrivate ou anônimo e navegue até [https://aka.ms/sspr](https://aka.ms/sspr).
-5. Insira a ID de usuário dos seus usuários de teste não-administrador, os caracteres de CAPTCHA e, em seguida, clique em **Avançar**.
-6. Siga as etapas de verificação para redefinir sua senha
+5. Insira a ID de usuário dos seus usuários de teste não administradores, como **testuser**, os caracteres do CAPTCHA e, em seguida, selecione *Avançar*.
+6. Siga as etapas de verificação para redefinir sua senha.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-É fácil desabilitar a redefinição de senha por autoatendimento. Abra o seu locatário do Azure AD e vá para **Propriedades** > **Redefinição de Senha** e, em seguida, selecione **Nenhum** em **Redefinição de Senha do Serviço de Autoatendimento Habilitada**.
+Para desabilitar a redefinição de senha por autoatendimento, pesquise e selecione **Azure Active Directory** no portal do Azure. Selecione **Propriedades** > **Redefinição de Senha** e, em seguida, escolha **Nenhum** em **Redefinição de Senha por Autoatendimento Habilitada**. Quando estiver pronto, selecione **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu a configurar rapidamente a redefinição de senha de autoatendimento para seus usuários somente nuvem. Para saber como concluir uma distribuição mais detalhada, continue para nosso guia de distribuição.
+Neste início rápido, você aprendeu a configurar a redefinição de senha por autoatendimento para seus usuários somente nuvem. Para saber como concluir uma distribuição mais detalhada, continue para nosso guia de distribuição.
 
 > [!div class="nextstepaction"]
 > [Distribuir a redefinição de senha de autoatendimento](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Métodos de autenticação do Azure AD e quantidade necessária"
+
+<!-- INTERNAL LINKS -->
+[register-sspr]: ../user-help/active-directory-passwords-reset-register.md
+[reset-password]: ../user-help/active-directory-passwords-update-your-own-password.md

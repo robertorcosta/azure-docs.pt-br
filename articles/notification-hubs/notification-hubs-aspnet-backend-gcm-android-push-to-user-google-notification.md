@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações para aplicativos Android específicos usando os Hubs de Notificação do Azure | Microsoft Docs
+title: Enviar notificações para aplicativos Android específicos usando os Hubs de Notificação do Azure
 description: Saiba como enviar notificações por push para usuários específicos usando os Hubs de Notificação do Azure.
 documentationcenter: android
 services: notification-hubs
@@ -17,17 +17,17 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: c5c9ec26c9387cd9ae129002697210c2b342ab9b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b68d77bfdcf3fee0285b3c03ae0c598a3f6875c0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385899"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531132"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificação por push para usuários específicos de aplicativo Android usando os Hubs de Notificação do Azure e o Google Cloud Messaging (preterido)
 
 > [!WARNING]
-> Em 10 de abril de 2018, o Google preteriu o GCM (Google Cloud Messaging). As APIs de cliente e servidor do GCM foram preteridas e serão removidas até 29 de maio de 2019. Para obter mais informações, confira [Perguntas frequentes sobre o GCM e o FCM](https://developers.google.com/cloud-messaging/faq).
+> Em 10 de abril de 2018, o Google preteriu o GCM (Google Cloud Messaging). As APIs de cliente e servidor do GCM foram preteridas e serão removidas até 29 de maio de 2019. Para saber mais, confira [Perguntas frequentes sobre o GCM e o FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -40,7 +40,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Atualize o aplicativo Android.
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclua o [Tutorial: Enviar notificações por push para dispositivos Android usando Hubs de Notificação do Azure e Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) antes de realizar este tutorial.
 

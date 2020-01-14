@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496384"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610600"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -43,7 +43,8 @@ Para a integração do Azure Sentinel, você precisa primeiro se conectar às su
 
 O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 
-- **Serviços Microsoft**:<br> os serviços da Microsoft são conectados nativamente, utilizando a base do Azure para integração pronta para o uso. É possível conectar as soluções a seguir em poucos cliques:
+- **Integração de serviço a serviço**:<br> alguns serviços são conectados nativamente, como serviços da AWS e da Microsoft. Esse serviços utilizam a base do Azure para integração pronta para o uso. É possível conectar as soluções a seguir em poucos cliques:
+    - [Amazon Web Services – CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Entradas e logs de auditoria do Microsoft Azure Active Directory](connect-azure-active-directory.md)
     - [Atividades do Azure](connect-azure-activity.md)
@@ -93,7 +94,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 ## <a name="map-data-types-with-azure-sentinel-connection-options"></a>Mapear tipos de dados com opções de conexão do Azure Sentinel
 
 
-| **Tipo de dados** | **Como se conectar** | **Conector de dados?** | **Comentários** |
+| **Data type** | **Como se conectar** | **Conector de dados?** | **Comentários** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Conectar AWS](connect-aws.md) | V | |
 | AzureActivity | [Conectar Atividades do Azure](connect-azure-activity.md) e [Visão geral dos logs de atividade](../azure-monitor/platform/activity-logs-overview.md)| V | |
@@ -130,4 +131,4 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar o Azure Sentinel, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
-- Saiba como [integrar seus dados ao Azure Sentinel](quickstart-onboard.md) e [obtenha visibilidade de seus dados, além de possíveis ameaças](quickstart-get-visibility.md).
+- Saiba como [integrar seus dados ao Azure Sentinel](quickstart-onboard.md) e [obtenha visibilidade de seus dados e de possíveis ameaças](quickstart-get-visibility.md).

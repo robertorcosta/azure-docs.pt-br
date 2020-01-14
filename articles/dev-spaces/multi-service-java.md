@@ -3,14 +3,14 @@ title: 'Executar vários serviços dependentes: Java e Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar um aplicativo Java de vários serviços no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 3fe19997ab54f02b6a5f029abbdb69d5ea6532f7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: beab91964cab9938a5d63584089326bb408f6efc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438324"
 ---
 # <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>Executar vários serviços dependentes: Java e Visual Studio Code com o Azure Dev Spaces
 
@@ -25,7 +25,7 @@ Nesta seção, você cria um segundo serviço, `mywebapi` e faz com que ele seja
 ### <a name="download-sample-code-for-mywebapi"></a>Baixar código de exemplo para *mywebapi*
 Por economizar tempo, vamos baixar o código de exemplo de um repositório do GitHub. Vá para https://github.com/Azure/dev-spaces e selecione **Clonar ou baixar** para baixar o repositório do GitHub. O código para essa seção está em `samples/java/getting-started/mywebapi`.
 
-### <a name="run-mywebapi"></a>Execute *mywebapi*
+### <a name="run-mywebapi"></a>Executar *mywebapi*
 1. Abra a pasta `mywebapi` em uma *janela separada do VS Code*.
 1. Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e use o preenchimento automático para digitar e selecionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que ele está pronto quando uma mensagem semelhante à mostrada abaixo for exibida no console de depuração:

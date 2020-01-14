@@ -6,40 +6,34 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677856"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612080"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
-Inicie o funcionamento usando a Máquina Virtual de Ciência de Dados do Ubuntu.
+Coloque tudo em funcionamento com a Máquina Virtual de Ciência de Dados do Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Para criar uma Máquina Virtual de Ciência de Dados do Windows, é necessário ter uma assinatura do Azure. [Experimentar o Azure gratuitamente](https://azure.com/free).
+Para criar uma Máquina Virtual de Ciência de Dados do Ubuntu 18.04, é necessário ter uma assinatura do Azure. [Experimentar o Azure gratuitamente](https://azure.com/free).
 Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina virtual habilitada para GPU.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar sua Máquina Virtual de Ciência de Dados para Linux
 
-Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados para Linux:
+Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados do Ubuntu 18.04:
 
 1. Acesse o [portal do Azure](https://portal.azure.com). Você pode ser solicitado a entrar na sua conta do Azure, caso ainda não esteja conectado.
-1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados para Linux (Ubuntu)".
-    
-    ![Listagem de VM do Ubuntu](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados: Ubuntu 18.04 versão prévia".
 
 1. Na janela subsequente, selecione **Criar**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Botão para criar um computador Ubuntu")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. Você deve ser redirecionado para a folha "Criar uma máquina virtual".
    
-   ![Guia Noções básicas correspondente à Máquina Virtual Ubuntu](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Insira as seguintes informações para configurar cada etapa do assistente:
 
     1. **Noções básicas**:
@@ -49,7 +43,7 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
        * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
        * **Região**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Imagem**: Mantenha o valor padrão.
-       * **Tamanho**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
+       * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre os [tamanhos de VM do Linux no Azure](../../virtual-machines/linux/sizes.md).
        * **Tipo de autenticação**: Para configuração mais rápida, selecione "Senha". 
          
          > [!NOTE]

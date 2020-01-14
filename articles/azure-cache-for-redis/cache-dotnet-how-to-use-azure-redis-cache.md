@@ -1,25 +1,25 @@
 ---
-title: Início rápido para aprender a usar o Cache do Azure para Redis com aplicativos .NET
+title: 'Início Rápido: Usar o Cache do Azure para Redis com aplicativos .NET'
 description: Neste início rápido, aprenda como acessar o Cache do Azure para Redis de seus aplicativos .NET
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2738805043b701d9e116d962f88225a6c6ae3e9b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 05/18/2018
+ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122797"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433522"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET Framework
 
 Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo .NET Framework para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você especificamente usará o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com o código C# em um aplicativo de console do .NET.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
@@ -230,7 +230,7 @@ Pressione **Ctrl + F5** para compilar e executar o aplicativo de console para te
 ![Aplicativo de console concluído](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você pretende continuar para o próximo tutorial, mantenha os recursos criados neste início rápido e reutilize-os.
 

@@ -1,5 +1,5 @@
 ---
-title: Como usar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
+title: Usar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
 description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b8fa0a3cebd87f4da1a47c605ba21b0cb10a2517
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5df344b3f9f3d2fc2ff6fa65667039c545b70841
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441193"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com C++
 

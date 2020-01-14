@@ -1,5 +1,5 @@
 ---
-title: Amostra de script da CLI do Azure – Copiar (mover) um instantâneo de um disco gerenciado para a mesma ou outra assinatura com CLI
+title: Copiar instantâneo de um disco gerenciado para uma assinatura – Amostra da CLI
 description: Amostra de script da CLI do Azure – Copiar (mover) um instantâneo de um disco gerenciado para a mesma ou outra assinatura com CLI
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5c83ce8d65be01156d50061d7f0a8287ddbfa1eb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ddcf585af86a265410f9c2d424c85acf5abbc8fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039995"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375909"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiar um instantâneo de um disco gerenciado para a mesma assinatura ou outra assinatura com a CLI
 
@@ -35,7 +35,7 @@ Esse script copia um instantâneo de um disco gerenciado para a mesma assinatura
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copy snapshot")]
 

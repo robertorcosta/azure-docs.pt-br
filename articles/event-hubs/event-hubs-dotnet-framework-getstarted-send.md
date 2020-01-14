@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Enviar e receber eventos usando o .NET Framework – Hubs de Eventos do Azure'
+title: Hubs de Eventos do Azure – enviar e receber eventos usando o .NET Framework
 description: 'Início Rápido: Este artigo apresenta instruções passo a passo para a criação de um aplicativo .NET Framework que envia eventos para os Hubs de Eventos do Azure.'
 services: event-hubs
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: shvija
-ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 385430d993afe8b7a0ad57991d3c93eebd46ddcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437277"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Início Rápido: Enviar ou receber eventos de Hubs de Eventos do Azure usando o .NET Framework
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
 Este tutorial mostra como criar aplicativos de console do .NET Framework em C# para enviar ou receber eventos de um eventhub. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com).

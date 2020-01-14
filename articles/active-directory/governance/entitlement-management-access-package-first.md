@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD – Azure Active Directory
+title: Tutorial – Criar pacote de acesso – gerenciamento de direitos do Azure AD
 description: Tutorial passo a passo sobre como criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422664"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Criar seu primeiro pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -42,7 +42,7 @@ Para obter uma demonstração passo a passo do processo de implantação do gere
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar o gerenciamento de direitos do Azure AD, é necessário ter uma das seguintes licenças:
 
@@ -65,7 +65,7 @@ Um diretório de recursos tem um ou mais recursos para serem compartilhados. Nes
 
 1. Crie ou configure os dois usuários a seguir. É possível usar estes nomes ou nomes diferentes. **Admin1** pode ser o usuário como o que você está se conectando no momento.
 
-    | NOME | Função do diretório |
+    | Nome | Função do diretório |
     | --- | --- |
     | **Admin1** | Administrador global<br/>-ou-<br/>Administrador de usuários |
     | **Requestor1** | Usuário |
@@ -228,7 +228,7 @@ Nesta etapa, você confirma que o **solicitante interno** foi atribuído ao paco
 
     ![Membros de recursos de marketing](./media/entitlement-management-access-package-first/group-members.png)
 
-## <a name="step-5-clean-up-resources"></a>Etapa 5: Limpar recursos
+## <a name="step-5-clean-up-resources"></a>Etapa 5: Limpar os recursos
 
 Nesta etapa, você removerá as alterações feitas e excluirá o pacote de acesso **Campanha de Marketing**.
 

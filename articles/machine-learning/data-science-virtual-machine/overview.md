@@ -8,21 +8,24 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
-ms.date: 02/22/2019
-ms.openlocfilehash: 8359a8407e93a2b31466342b82539cef04b0fe01
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 12/31/2019
+ms.openlocfilehash: a63087620d50336c67472348da3b7f37fb380635
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802187"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611961"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual de Ciência de Dados do Azure para Linux e Windows?
 
 A DSVM (Máquina Virtual de Ciência de Dados) é uma imagem de VM personalizada plataforma de nuvem do Azure especificamente criada para ciência de dados. Ela tem muitas ferramentas populares de ciência de dados pré-instaladas e pré-configuradas para iniciar rapidamente a criação de aplicativos inteligentes para análise avançada. 
 
 O DSVM está disponível em:
++ **Windows Server 2019 (versão prévia)**
++ **Ubuntu 18.04 LTS (versão prévia)**
 + Windows Server 2016
 + Ubuntu 16.04 LTS e CentOS 7.4
+
 
 > [!NOTE]
 > Todas as ferramentas de VM para aprendizado profundo foram incluídas na Máquina Virtual de Ciência de Dados. 
@@ -63,7 +66,7 @@ A edição do Windows Server 2016 da DSVM vem pré-instalada com drivers de GPU,
 
 Você também pode implantar a edição para Ubuntu, CentOS ou Windows 2016 da DSVM em uma máquina virtual do Azure não baseada em GPUs. Nesse caso, todas as estruturas de aprendizado profundo farão o fallback para o modo de CPU.
  
-[Saiba mais sobre o aprendizado profundo e as estruturas de IA disponíveis](dsvm-deep-learning-ai-frameworks.md).
+[Saiba mais sobre o aprendizado profundo e as estruturas de IA disponíveis](dsvm-tools-deep-learning-frameworks.md).
 
 <a name="included"></a>
 

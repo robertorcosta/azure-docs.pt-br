@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Conectar o serviço de Análise de Texto com os Serviços Conectados no Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso de Serviço Conectado do Visual Studio para Serviço de Análise de Texto.
+description: Saiba como usar o recurso de Serviço Conectado do Visual Studio para o Serviço de Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446152"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conectar o serviço de Análise de Texto com os Serviços Conectados no Visual Studio
 
@@ -23,7 +23,7 @@ Usando o Serviço de Análise de Texto, é possível extrair informações avan�
 
 Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso de Serviço Conectado do Visual Studio para Serviço de Análise de Texto. O recurso está disponível no Visual Studio 2019 ou posterior, com a extensão dos Serviços Cognitivos instalada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2019 com a carga de trabalho de Desenvolvimento para a Web instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -257,7 +257,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
  
 1. Compile e execute o exemplo localmente. Digite um texto e verifique qual idioma a Análise de Texto detecta.
    
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o serviço cognitivo e os recursos relacionados. Para excluir o grupo de recursos pelo portal:
 

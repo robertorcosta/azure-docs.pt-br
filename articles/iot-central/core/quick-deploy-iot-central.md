@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: ba131002df64f972aa921a0f002a6d26c58f21ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cb9968d3bcc30fe8e0f0023bcf7101cde5e4a196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453908"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 
@@ -36,13 +36,11 @@ Para criar um novo aplicativo Azure IoT Central:
 
 1. O Azure IoT Central sugere automaticamente um nome de aplicativo com base no modelo de aplicativo selecionado. Aceite esse nome ou insira seu próprio nome de aplicativo amigável, como **Contoso IoT**. O Azure IoT Central também gera uma URL exclusiva para você, com base no nome do aplicativo. Você terá a liberdade para alterar esse prefixo de URL para algo mais fácil de memorizar se desejar.
 
-1. Selecione um modelo de aplicativo que não use uma versão prévia dos recursos. Um modelo de aplicativo pode conter itens predefinidos, como modelos de dispositivo e dashboards, para ajudá-lo a começar.
+1. Selecione o modelo de **aplicativo herdado** que não use recursos da versão prévia.
 
     | Modelo de aplicativo | DESCRIÇÃO |
     | -------------------- | ----------- |
-    | Exemplo Contoso       | Cria um aplicativo que inclui um modelo de dispositivo já criado para uma Máquina de Vendas Refrigerada. Use esse modelo para começar a explorar o Azure IoT Central. |
-    | Exemplo Devkits       | Cria um aplicativo com modelos de dispositivos prontos para você conectar um dispositivo MXChip ou Raspberry Pi. Use esse modelo se você for um desenvolvedor de dispositivos que está experimentando com algum desses dispositivos. |
-    | Aplicativo personalizado   | Cria um aplicativo vazio para você preencher com seus próprios dispositivos e modelos de dispositivos. |
+    | Aplicativo herdado   | Cria um aplicativo vazio para você preencher com seus próprios dispositivos e modelos de dispositivos. |
 
 1. Escolha um plano de pagamento:
    - Os aplicativos de **avaliação gratuita de 7 dias** são gratuitos por sete dias antes de expirarem. Eles podem ser convertidos em **Pagamento Conforme o Uso** em qualquer momento antes de expirarem. Se você criar um aplicativo de **Avaliação**, precisará inserir suas informações de contato e escolher se deseja receber informações e dicas da Microsoft.

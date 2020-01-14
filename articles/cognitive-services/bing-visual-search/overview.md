@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 08/30/2019
+ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 22a8bb2609439a82a825bf7f542709d46771ad92
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446667"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API da Pesquisa Visual do Bing?
 
@@ -59,8 +59,10 @@ A demonstração mostra como você pode, de modo rápido, personalizar uma consu
 
 Para uma introdução rápida à primeira solicitação, consulte os guias de início rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * A documentação de referência de [Imagens – Pesquisa Visual](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) descreve definições e informações sobre os pontos de extremidade, os cabeçalhos de solicitação, as respostas e os parâmetros de consulta que podem ser usados para solicitar os resultados da pesquisa com base em imagem.
 
 * Os [Requisitos de exibição e uso da API de Pesquisa do Bing](../bing-web-search/use-display-requirements.md) especificam os usos aceitáveis do conteúdo e as informações obtidas por meio das APIs de pesquisa do Bing.
+
+* Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.

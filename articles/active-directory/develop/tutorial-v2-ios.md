@@ -1,6 +1,6 @@
 ---
-title: Introdução ao iOS e ao macOS – Plataforma de identidade da Microsoft | Azure
-description: Como aplicativos iOS e macOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
+title: Tutorial do MSAL para iOS e macOS – plataforma de identidade da Microsoft | Azure
+description: Saiba como aplicativos iOS e macOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423413"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -45,7 +45,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para impleme
 
 Este tutorial é aplicável a aplicativos iOS e macOS. Observe que algumas etapas são diferentes entre essas duas plataformas. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - O Xcode versão 10.x ou superior é necessário para criar o aplicativo neste guia. Você pode fazer baixar o XCode no [site do iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de download do XCode").
 - Biblioteca de Autenticação da Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Você pode usar um gerenciador de dependência ou adicionar a biblioteca manualmente. As instruções abaixo mostram como fazer isso.

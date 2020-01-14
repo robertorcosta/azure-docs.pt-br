@@ -1,6 +1,6 @@
 ---
-title: Exemplo de script do Azure PowerShell - Fazer upgrade de um aplicativo do Service Fabric | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Fazer upgrade de um aplicativo do Service Fabric.
+title: Atualizar um aplicativo do Service Fabric no PowerShell
+description: 'Amostra de script do Azure PowerShell: Atualizar e monitorar um aplicativo do Azure Service Fabric usando o PowerShell.'
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 45186f497371b533451ff374e68b38f9a7eebe51
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3a4ef9fad8567eb145d51c6fef61773cc3a00b11
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035482"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614733"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Fazer upgrade de um aplicativo do Service Fabric
 
@@ -27,13 +27,13 @@ Esse exemplo de script faz upgrade de uma instância de aplicativo do Service Fa
 
 Se necessário, instale o módulo Service Fabric do PowerShell com o [SDK do Service Fabric](../service-fabric-get-started.md). 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/upgrade-application/upgrade-application.ps1 "Upgrade an application")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

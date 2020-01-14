@@ -1,26 +1,15 @@
 ---
-title: Criar um cluster do Service Fabric executando Windows no Azure | Microsoft Docs
+title: Criar um cluster do Service Fabric executando Windows no Azure
 description: Neste tutorial, você aprenderá a implantar um cluster do Service Fabric do Windows em uma rede virtual do Azure e em um grupo de segurança de rede usando o PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177976"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551702"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Service Fabric executando o Windows em uma rede virtual do Azure
 
@@ -47,13 +36,13 @@ Nesta série de tutoriais, você aprenderá a:
 > * Criar um cluster seguro no Azure
 > * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Reduzir ou escalar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
-> * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -112,6 +101,7 @@ As regras de tráfego de entrada a seguir estão habilitadas no recurso **Micros
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
+* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Intervalo de porta efêmera: 49152 a 65534 (necessário um mínimo de 256 portas).
 * Portas para o uso do aplicativo: 80 e 443
@@ -158,7 +148,7 @@ O arquivo de parâmetros [azuredeploy.parameters.json][parameters] declara muito
 |adminUserName|vmadmin| Um nome de usuário de administrador para as VMs do cluster. [Requisitos de nome de usuário para máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| Uma senha de administrador para as VMs do cluster. [Requisitos de senha para máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| Nome do cluster. Pode conter apenas letras e números. O comprimento deve ter entre 3 e 23 caracteres.|
-|location|southcentralus| Localização do cluster. |
+|local|southcentralus| Localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que já foi carregado em um cofre de chaves, preencha o valor da impressão digital SHA1 do certificado. Por exemplo, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
 |certificateUrlValue|| <p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado. </p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha a URL do certificado. Por exemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio se for criado um certificado auto-assinado ou for fornecido um arquivo de certificado.</p><p>Para usar um certificado existente que foi previamente carregado para um cofre de chaves, preencha o valor do cofre de origem. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
@@ -177,7 +167,7 @@ Um cluster do Service Fabric oferece vários pontos de entrada para a funcionali
 
 Neste artigo, partimos do pressuposto que você já tenha criado um locatário. Se não for o caso, comece lendo [Como obter um locatário do Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
 
-Para simplificar as etapas envolvidas na configuração do Microsoft Azure Active Directory com um cluster do Service Fabric, criamos um conjunto de scripts do Windows PowerShell. [Faça download dos scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) em seu computador.
+Para simplificar as etapas envolvidas na configuração do Microsoft Azure Active Directory com um cluster do Service Fabric, criamos um conjunto de scripts do Windows PowerShell. [Faça download dos scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) em seu computador.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Criar aplicativos do Azure AD e atribuir usuários a funções
 Crie dois aplicativos do Azure AD para controlar o acesso ao cluster: um aplicativo Web e um aplicativo nativo. Depois de criar os aplicativos para representar seu cluster, atribua os usuários às [funções compatíveis com o Service Fabric](service-fabric-cluster-security-roles.md): somente leitura e administrador.
@@ -711,7 +701,7 @@ Verifique se você está conectado e se o cluster está íntegro usando o cmdlet
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os outros artigos nesta série de tutoriais usam o cluster que você criou. Se você não for imediatamente para o próximo artigo, [exclua o cluster](service-fabric-cluster-delete.md) para evitar a cobrança de encargos.
 

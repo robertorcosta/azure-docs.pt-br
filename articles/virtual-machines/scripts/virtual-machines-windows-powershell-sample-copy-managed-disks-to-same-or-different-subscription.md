@@ -1,6 +1,6 @@
 ---
-title: Amostra de script do Azure PowerShell – Copiar (mover) discos gerenciados para a mesma assinatura ou outra assinatura
-description: Amostra de script do Azure PowerShell – Copiar (mover) discos gerenciados para a mesma assinatura ou outra assinatura
+title: Copiar discos gerenciados para uma assinatura – Amostra do PowerShell
+description: Amostra de script do Azure PowerShell – Copiar ou mover discos gerenciados para a mesma assinatura ou outra diferente
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: e494770d182a74320237c447e9afc7f7d2665499
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8d0f14c0223667773af4e723acaf503460290194
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368905"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Copiar discos gerenciados para a mesma assinatura ou outra assinatura com o PowerShell
 
@@ -31,7 +31,7 @@ Esse script cria uma cópia de um disco gerenciado existente na mesma assinatura
 
  
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.ps1 "Copy managed disk")]
 

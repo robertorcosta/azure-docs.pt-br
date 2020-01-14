@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Atualizar as RU/s do Azure Cosmos DB para a API do Gremlin
+title: Script do PowerShell para atualizar RU/s para a API do Gremlin do Azure Cosmos DB
 description: Script do Azure PowerShell – Atualizar as RU/s do Azure Cosmos DB para a API do Gremlin
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 85344d4a8f37bfa34ab14d2dfb9152860973dd1a
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: c298ec58b0d69d20429413f0f36b3e28ff8e5e61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441438"
 ---
 # <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Atualizar as RU/s de um banco de dados ou um grafo do Azure Cosmos DB – API do Gremlin
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178926"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-update.ps1 "Update throughput on a database or graph for Gremlin API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

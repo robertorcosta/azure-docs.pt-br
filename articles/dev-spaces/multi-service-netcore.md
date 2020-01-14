@@ -3,14 +3,14 @@ title: Executar vários serviços dependentes usando .NET Core e Visual Studio C
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar um aplicativo .NET Core de vários serviços no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438310"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Executando vários serviços dependentes: .NET Core e Visual Studio Code com o Azure Dev Spaces
 
@@ -25,7 +25,7 @@ Nesta seção, você criará um segundo serviço, `mywebapi`, e fará com que el
 ### <a name="download-sample-code-for-mywebapi"></a>Baixar código de exemplo para *mywebapi*
 Por economizar tempo, vamos baixar o código de exemplo de um repositório do GitHub. Vá para https://github.com/Azure/dev-spaces e selecione **Clonar ou baixar** para baixar o repositório do GitHub. O código para essa seção está em `samples/dotnetcore/getting-started/mywebapi`.
 
-### <a name="run-mywebapi"></a>Execute *mywebapi*
+### <a name="run-mywebapi"></a>Executar *mywebapi*
 1. Abra a pasta `mywebapi` em uma *janela separada do VS Code*.
 1. Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e use o preenchimento automático para digitar e selecionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Esse comando não é deve ser confundido com o `azds prep`, que configura o projeto para a implantação.
 1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que ele está pronto quando o aplicativo  *for iniciado. Pressione Ctrl + C para desligar.* A mensagem aparece no console de depuração.

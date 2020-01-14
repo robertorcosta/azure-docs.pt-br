@@ -1,19 +1,19 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468947"
 ---
 ### <a name="regions"></a>Quais regiões estão disponíveis?
 
@@ -22,6 +22,10 @@ ms.locfileid: "74875426"
 ### <a name="publicip"></a>É necessário ter um IP público em minha máquina virtual?
 
 Você NÃO precisa de um IP público na máquina virtual do Azure a que está se conectando com o serviço do Azure Bastion. O serviço do Bastion abrirá o RDP/SSH/sessão/conexão para sua máquina virtual usando o IP privado da máquina virtual, dentro de sua rede virtual.
+
+### <a name="is-ipv6-supported"></a>Há suporte para o IPv6?
+
+No momento, não há suporte para o IPv6. O Azure Bastion só dá suporte ao IPv4.
 
 ### <a name="rdpssh"></a>Eu preciso de um cliente de RDP ou SSH?
 

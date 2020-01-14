@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 12/17/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: ef61139056ad194d89e2a67cb4ac1b1414a3380b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 495d2a8e38b58eb3ef1494e6a3a33ee1dc32d049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467525"
 ---
-Neste início rápido, você usará a [API REST de Transcrição em Lote](../../../batch-transcription.md) para reconhecer a fala armazenada em um [blobs SAS](https://aka.ms/ignite2019/speech/placeholder). Após atender a alguns pré-requisitos, para reconhecer a fala usando uma API REST, só serão necessárias algumas etapas:
-> [!div class="checklist"]
-> * Envie a solicitação JSON para o serviço de Fala para começar a transcrever falas.
-> * Verifique o status da transcrição.
-> * Baixe os resultados da transcrição quando terminar.
+Neste início rápido, você usará uma API REST para reconhecer uma fala de arquivos em um processo em lote. Um processo em lote executa a transcrição de fala sem nenhuma interação do usuário. Ele fornece um modelo de programação simples, sem a necessidade de gerenciar simultaneidade, modelos de Fala Personalizada ou outros detalhes. Ele envolve opções de controle avançadas e faz uso eficiente dos recursos do Serviço de Fala do Azure.
+
+A [visão geral da transcrição em lote](../../../batch-transcription.md) descreve os detalhes para usar esse recurso. A API detalhada está disponível como um [documento do Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), com o título `Custom Speech transcriptins`. 
+
+O início rápido a seguir descreverá um exemplo de uso.

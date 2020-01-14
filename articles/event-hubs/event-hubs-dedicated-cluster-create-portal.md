@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure – Criar um cluster dedicado de Hubs de Eventos usando o portal do Azure
+title: Criar um cluster de Hubs de Eventos Dedicados usando o portal do Azure
 description: Neste início rápido, você aprenderá a criar um cluster dos Hubs de Eventos do Azure usando o portal do Azure.
 services: event-hubs
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: ''
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: xurui
-ms.openlocfilehash: bde6844962561232e4af51f2b4e803d49bf5398e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dbe34b95652d972a9e75f4ab8f2c208061359ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437221"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Início Rápido: Criar um cluster dos Hubs de Eventos dedicados usando o portal do Azure 
 Os clusters de Hubs de Eventos oferecem implantações de locatário único para clientes com exigências de streaming mais rígidas. Essa oferta tem um SLA de 99,99% garantido e está disponível apenas em nossa camada de preços Dedicada. Um [cluster de Hubs de Eventos](event-hubs-dedicated-overview.md) pode inserir milhões de eventos por segundo com latência de subsegundos e capacidade garantida. Os namespaces e hubs de eventos criados dentro de um cluster incluem todos os recursos da oferta padrão e muito mais, mas sem limites de entrada. A oferta Dedicada também inclui o famoso recurso [Captura de Hubs de Eventos](event-hubs-capture-overview.md) sem custo adicional permitindo que você automaticamente agrupe e registre os fluxos de dados no [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) ou [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -26,7 +26,7 @@ Clusters dedicados são provisionados e cobrados por **Unidades de Capacidade (C
 > Atualmente, essa experiência de autoatendimento está disponível em versão prévia no [Portal do Azure](https://aka.ms/eventhubsclusterquickstart). Se você tiver alguma dúvida sobre a oferta Dedicada, entre em contato com o [equipe de Hubs de Eventos](mailto:askeventhubs@microsoft.com).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este início rápido, verifique se você tem:
 
 - Uma conta do Azure. Se você não tiver, [compre uma conta](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) antes de começar. Esse recurso não tem suporte com uma conta gratuita do Azure. 

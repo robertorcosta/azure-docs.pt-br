@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Obter a taxa de transferência (RU/s) do Azure Cosmos DB para a API do Gremlin
+title: Script do PowerShell para obter taxa de transferência (RU/s) para a API do Gremlin do Azure Cosmos DB
 description: Script do Azure PowerShell – Obter a taxa de transferência (RU/s) do Azure Cosmos DB para a API do Gremlin
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1da7559d67be94013ea829a533a09db6c8abcad4
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: de02a524e163c1843e5117e8a4471e686a2f5764
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441451"
 ---
 # <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Obter a taxa de transferência (RU/s) de um banco de dados ou um grafo do Azure Cosmos DB – API do Gremlin
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178931"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for Gremlin API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

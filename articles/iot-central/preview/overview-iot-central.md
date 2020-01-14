@@ -3,18 +3,18 @@ title: O que é Azure IoT Central | Microsoft Docs
 description: Azure IoT Central é uma plataforma de aplicativo IoT que simplifica a criação de soluções IoT, bem como ajuda a reduzir a carga e o custo das operações de gerenciamento e desenvolvimento da IoT. Este artigo fornece uma visão geral dos recursos do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434844"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>O que é o Azure IoT Central (versão prévia dos recursos)?
 
@@ -41,15 +41,11 @@ Este artigo descreve os seguintes tópicos do Azure IoT Central:
 > [!Note]
 > Esses problemas conhecidos só se aplicam ao aplicativo do IoT Central em versão prévia.
 
-- As regras não dão suporte a todas as ações (somente email).
-- Para tipos complexos – regras, análise e grupos de dispositivos não são compatíveis.
 - A exportação de dados contínua não é compatível com o formato Avro.
-- Os dispositivos simulados não são compatíveis com todos os tipos complexos.
 - Atualmente, não há compatibilidade com GeoJSON.
 - Atualmente, não há compatibilidade com peças de mapa.
 - Os trabalhos não são compatíveis com tipos complexos.
 - Não há compatibilidade com tipos de esquema de matriz.
-- Não há compatibilidade com exportação de modelo de aplicativo nem com cópia de aplicativo.
 - Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
 - Está disponível apenas em locais dos Estados Unidos e da Europa.
 - Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
@@ -149,7 +145,7 @@ Cada assinatura do Azure tem cota padrão que podem afetar o escopo de sua solu�
 
 Agora que você tem uma visão geral do IoT Central, estas são as próximas etapas sugeridas:
 
-- Entender as diferenças entre o [IoT Central e aceleradores de solução do Azure IoT](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Entenda as [tecnologias e os serviços disponíveis do Azure para criar soluções de IoT](../../iot-fundamentals/iot-services-and-technologies.md) disponíveis.
 - Familiarizar-se com a [interface do usuário do Azure IoT Central](overview-iot-central-tour.md).
 - Comece com a [criação de um aplicativo do Azure IoT Central](quick-deploy-iot-central.md).
 - Saiba mais sobre o [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)

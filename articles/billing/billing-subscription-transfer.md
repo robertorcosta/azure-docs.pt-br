@@ -1,5 +1,5 @@
 ---
-title: Transferir a propriedade de cobrança da assinatura do Azure para outra conta | Microsoft Docs
+title: Transferir a propriedade de cobrança de uma assinatura do Azure
 description: Descreve como transferir a propriedade de cobrança de uma assinatura do Azure para outra conta, bem como algumas perguntas frequentes sobre o processo
 keywords: transferir a assinatura do Azure, assinatura de transferência do Azure, mover a assinatura do Azure para outra conta, alterar o proprietário da assinatura do Azure, transferir a assinatura do Azure para outra conta, cobrança de transferência do Azure
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388934"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -66,7 +66,7 @@ Se você for um cliente do EA (Contrato Enterprise), seus administradores corpor
 
    ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
 
-1. Sucesso! Agora a assinatura será transferida.
+1. Êxito! Agora a assinatura será transferida.
 
 ## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>Como transferir uma assinatura para uma conta em outro locatário do Azure AD
 
@@ -117,7 +117,7 @@ A transferência de assinatura no portal do Azure está disponível para os tipo
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
 - [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [Via Portal do EA](#EA).
+\* [Por meio do Portal do EA](#EA).
 
 \*\* Só há suporte para contas criadas durante a inscrição no site do Azure.
 
@@ -190,7 +190,7 @@ Mesmo que as atribuições [RBAC (controle de acesso baseado em função)](../ro
 
 Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
 
-  1. Entre no [Portal do Azure](https://portal.azure.com).
+  1. Entre no [portal do Azure](https://portal.azure.com).
   2. No menu Hub, selecione **Todos os recursos**.
   3. Selecione o recurso.
   4. Na página de recursos, clique em **Configurações**. Aqui você pode exibir e atualizar os segredos existentes.

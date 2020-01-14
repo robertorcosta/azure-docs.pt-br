@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e407b271fd77397723ee49f530339847096749
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106623"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613594"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Rotear para um ponto de interesse usando os Mapas do Azure
 
@@ -25,9 +25,9 @@ Este tutorial mostra como usar sua conta dos Mapas do Azure e o SDK do Serviço 
 > * Definir coordenadas de endereço
 > * Serviço de Roteiros de Consulta para obter o trajeto até o ponto de interesse
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de prosseguir, siga as instruções em [Gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [Obter chave primária](./tutorial-search-location.md#getkey) para obter a chave primária da assinatura da conta.
+Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta dos Azure Mapas com o tipo de preço S1 e siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -211,7 +211,7 @@ Esta seção mostra como usar a API do serviço de roteiros do Azure Mapas para 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma nova página da Web usando a API de controle de mapeamento

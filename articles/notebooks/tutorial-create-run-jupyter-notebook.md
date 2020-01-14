@@ -1,20 +1,31 @@
 ---
-title: Tutorial – Criar e executar um Jupyter Notebook no Azure
-description: Como criar e executar um Jupyter Notebook no Azure Notebooks que demonstra o processo de regressão linear na ciência de dados.
+title: Tutorial – criar e executar um Jupyter notebook – Versão prévia do Azure Notebooks
+description: Saiba como criar e executar um Jupyter Notebook na Versão prévia do Azure Notebooks que demonstra o processo de regressão linear na ciência de dados.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 2c151cb0de2855856e92d9de07ad7dabfda2f55b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277422"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660810"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 
 Este tutorial orienta você no processo de usar o Azure Notebooks para criar um Jupyter Notebook completo que demonstra uma regressão linear simples. No decorrer deste tutorial, você se familiarizará com a interface do usuário do Jupyter Notebook, que inclui a criação de células diferentes, a execução das células e a apresentação do notebook como uma apresentação de slides.
 
 O notebook completo pode ser encontrado em [GitHub – Exemplos do Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Este tutorial, no entanto, começa com um novo projeto e um notebook vazio, para que você possa experimentar criá-lo passo a passo.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Criar um notebook do projeto com alguns dados de exemplo
+> * Usar a interface do notebook para criar uma variedade de tipos de células
+> * Executar o notebook
+> * Salvar o notebook
+> * Depurar o notebook no Visual Studio Code
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -30,10 +41,10 @@ O notebook completo pode ser encontrado em [GitHub – Exemplos do Azure Noteboo
 
 1. No pop-up **Criar Novo Projeto** exibido, insira ou defina os seguintes detalhes e selecione **Criar**:
 
-    - **Nome do projeto**: Exemplo de regressão linear – Cricket Chirps
-    - **ID do projeto**: linear-regression-example
-    - **Projeto público**: (desmarcado)
-    - **Criar um README.md**: (desmarcado)
+   - **Nome do projeto:** : Exemplo de regressão linear – Cricket Chirps
+   - **ID do projeto**: linear-regression-example
+   - **Projeto público**: (desmarcado)
+   - **Criar um README.md**: (desmarcado)
 
 1. Após alguns segundos, o Azure Notebooks o direcionará para o novo projeto.
 
@@ -145,10 +156,10 @@ Os grupos de comandos de menu são os seguintes:
 | Arquivo | Comandos para gerenciar o arquivo do notebook, inclusive comandos para criar e copiar notebooks, mostram uma visualização de impressão e baixam o notebook em diferentes formatos. |
 | Editar | Comandos comuns para recortar, copiar e colar células, localizar e substituir valores, gerenciar anexos de célula e inserir imagens.  |
 | Visualizar | Comandos para controlar a visibilidade de partes diferentes da interface do usuário do Jupyter. |
-| Inserir | Comandos para inserir uma nova célula acima ou abaixo da célula atual. Você usa esses comandos com frequência durante a criação de um notebook. |
+| Insert | Comandos para inserir uma nova célula acima ou abaixo da célula atual. Você usa esses comandos com frequência durante a criação de um notebook. |
 | Célula | Os vários comandos **Executar** executam uma ou mais células em combinações diferentes. Os comandos **Tipo de Célula** alteram o tipo de uma célula entre **Código**, **Markdown** e **NBConvert Bruto** (texto sem formatação). Os comandos **Saídas Atuais** e **Todas as Saídas** controlam como a saída da execução do código é mostrada e inclui um comando para limpar todas as saídas. |
 | Kernel | Comandos para gerenciar como o código está sendo executado no kernel, juntamente com **Alterar kernel** a fim de alterar a linguagem ou a versão do Python usada para executar o notebook. |
-| Dados | Comandos para carregar e baixar arquivos do projeto ou da sessão. Consulte [Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md) |
+| data | Comandos para carregar e baixar arquivos do projeto ou da sessão. Consulte [Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md) |
 | Widgets | Comandos para gerenciar [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), que fornecem recursos adicionais de visualização, mapeamento e plotagem.|
 | Ajuda | Comandos que fornecem ajuda e documentação para a interface do Jupyter. |
 
@@ -162,7 +173,7 @@ Você usará vários desses comandos para preencher o notebook nas seções a se
 
     ![Lista suspensa da barra de ferramentas do tipo de célula](media/tutorial/tutorial-cell-type-drop-down.png)
 
-1. Altere o tipo de célula para **Markdown** usando a lista suspensa da barra de ferramentas; como alternativa, use o menu de comando **Célula** > **Tipo de Célula**  >   **Markdown**:
+1. Altere o tipo de célula para **Markdown** usando a lista suspensa da barra de ferramentas; como alternativa, use o menu de comando **Célula** > **Tipo de Célula** >  **Markdown**:
 
     ![Comando de menu Tipo de célula](media/tutorial/tutorial-cell-type-menu.png)
 
@@ -251,7 +262,7 @@ Cada célula de código depende do código que foi executado em células anterio
 
 Se você vir resultados inesperados (e provavelmente vai!), verifique se cada célula está definida como “Código” ou “Markdown”, conforme necessário. Por exemplo, um erro de “Sintaxe inválida” normalmente ocorre quando você insere Markdown em uma Célula de código.
 
-1. Célula de markdown:
+1. Célula de Markdown:
 
     ```markdown
     ## Import packages and prepare the dataset

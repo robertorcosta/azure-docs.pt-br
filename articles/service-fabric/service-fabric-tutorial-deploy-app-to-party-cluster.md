@@ -1,26 +1,17 @@
 ---
-title: Implantar um do Service Fabric em um cluster no Azure | Microsoft Docs
-description: Saiba como implantar um aplicativo em um cluster no Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Implantar um aplicativo do Service Fabric em um cluster no Azure
+description: Saiba como implantar um aplicativo existente em um cluster recém-criado do Azure Service Fabric por meio do Visual Studio.
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213193"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646000"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implantar um aplicativo do Service Fabric em um cluster no Azure
 
@@ -39,7 +30,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configure CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -93,7 +84,7 @@ Na guia **Certificado**, insira a senha e o caminho de saída para o certificado
 
 ![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-Na guia **Detalhes da VM**, insira o **Nome de usuário** e a **Senha** para a conta do administrador do cluster.  Selecione a **Imagem de máquina virtual** para os nós de cluster e o **Tamanho de máquina virtual** para cada nó de cluster.  Selecione a guia **Avançado** .
+Na guia **Detalhes da VM**, insira o **Nome de usuário** e a **Senha** para a conta do administrador do cluster.  Selecione a **Imagem de máquina virtual** para os nós de cluster e o **Tamanho de máquina virtual** para cada nó de cluster.  Clique na guia **Avançado**.
 
 ![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 

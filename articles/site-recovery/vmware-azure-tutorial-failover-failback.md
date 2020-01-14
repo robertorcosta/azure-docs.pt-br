@@ -1,24 +1,20 @@
 ---
-title: Executar failover e failback de VMs VMware e de servidores físicos durante a recuperação de desastre para o Azure com o Site Recovery | Microsoft Docs
-description: Saiba como fazer failover de VMs VMware e de servidores físicos para o Azure e failback para o site local, durante a recuperação de desastre para o Azure usando o Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+title: Fazer failover de VMs do VMware no Azure com o Site Recovery
+description: Saiba como fazer failover de VMs do VMware no Azure usando o Azure Site Recovery
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
-ms.author: raynew
+ms.date: 12/16/2019
 ms.custom: MVC
-ms.openlocfilehash: 852193e137eab10d1e46c5ba6ae6636d530095be
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 8501bb1a998eb08984a118bfa5d52d1e3f3e4f84
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972201"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498087"
 ---
-# <a name="fail-over-and-fail-back-vmware-vms"></a>Fazer failover e failback de VMs VMware
+# <a name="fail-over--vmware-vms"></a>Fazer failover de VMs do VMware
 
-Este artigo descreve como fazer failover de uma VM (máquina virtual) VMware local para o [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve como fazer failover de uma VM (máquina virtual) do VMware local para o Azure com o [Azure Site Recovery](site-recovery-overview.md).
 
 Este é o quinto tutorial em uma série que mostra como configurar a recuperação de desastres para o Azure para computadores locais.
 
@@ -26,28 +22,21 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Verifique se as propriedades da VM VMware estão em conformidade com os requisitos do Azure.
-> * Execute um failover para o Azure.
+> * Faça failover de VMs específicas no Azure.
 
 > [!NOTE]
 > Os tutoriais mostram o caminho de implantação mais simples para um cenário. Eles usam opções padrão quando possível e não mostram todas as configurações e caminhos possíveis. Se você quiser saber mais sobre failover em detalhes, confira [Fazer failover de VMs e servidores físicos](site-recovery-failover.md).
+
+[Saiba mais sobre](failover-failback-overview.md#types-of-failover) diferentes tipos de failover. Se você quiser fazer failover de várias VMs em um plano de recuperação, examine [este artigo](site-recovery-failover.md).
 
 ## <a name="before-you-start"></a>Antes de começar
 
 Conclua os tutoriais anteriores:
 
 1. Verifique se você [configurou o Azure](tutorial-prepare-azure.md) para recuperação de desastre local de VMs VMware, VMs do Hyper-V e computadores físicos para o Azure.
-2. Prepare seu ambiente [VMware](vmware-azure-tutorial-prepare-on-premises.md) ou [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) local para recuperação de desastre. Se você estiver configurando a recuperação de desastre para servidores físicos, examine a [matriz de suporte](vmware-physical-secondary-support-matrix.md).
-3. Configure a recuperação de desastre para [VMs VMware](vmware-azure-tutorial.md), [VMs Hyper-V](hyper-v-azure-tutorial.md) ou [computadores físicos](physical-azure-disaster-recovery.md).
+2. Prepare seu ambiente [VMware](vmware-azure-tutorial-prepare-on-premises.md) local para a recuperação de desastre. 
+3. Configure a recuperação de desastre para [VMs do VMware](vmware-azure-tutorial.md).
 4. Execute uma [simulação de recuperação de desastres](tutorial-dr-drill-azure.md) para verificar se tudo está funcionando conforme o esperado.
-
-## <a name="failover-and-failback"></a>Failover e failback
-
-O failover e o failback têm quatro fases:
-
-1. **Fazer failover para o Azure:** Quando seu site primário local fica inativo, faça failover de computadores para o Azure. Após o failover, as VMs do Azure são criadas com base nos dados replicados.
-2. **Proteger novamente as VMs do Azure:** No Azure, proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais. A VM local é desativada durante o processo de nova proteção para ajudar a garantir a consistência dos dados.
-3. **Fazer failover para o local**: Quando o seu site local está ativo e em execução, execute um failover para realizar failback do Azure.
-4. **Proteger novamente as VMs locais**: Após realizar o failback dos dados, você protege novamente as VMs locais para as quais realizou o failback, para que comecem a ser replicadas no Azure.
 
 ## <a name="verify-vm-properties"></a>Verificar as propriedades da VM
 
@@ -98,7 +87,7 @@ Em alguns cenários, o failover requer um processamento adicional que leva cerca
 
 ## <a name="connect-to-failed-over-vm"></a>Conectar-se à VM cujo failover foi realizado
 
-1. Se você quiser se conectar a VMs do Azure após fazer failover usando o protocolo RDP e o SSH (Secure Shell), [verifique se os requisitos foram atendidos](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+1. Se você quiser se conectar a VMs do Azure após fazer failover usando o protocolo RDP e o SSH (Secure Shell), [verifique se os requisitos foram atendidos]((ailover-failback-overview.md#connect-to-azure-after-failover).
 2. Após o failover, vá para a VM e valide [conectando](../virtual-machines/windows/connect-logon.md)-se a ela.
 3. Use **Alterar ponto de recuperação** se você quiser usar um ponto de recuperação diferente após o failover. Após você confirmar o failover na próxima etapa, essa opção não estará mais disponível.
 4. Após a validação, selecione **Confirmar** para finalizar o ponto de recuperação da VM após o failover.

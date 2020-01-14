@@ -1,5 +1,5 @@
 ---
-title: Configurar sua conta de cobrança para um Contrato de Cliente da Microsoft – Azure
+title: Configurar cobrança para o Contrato de Cliente da Microsoft – Azure
 description: Saiba como configurar sua conta de cobrança para um Contrato de Cliente da Microsoft.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225570"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388339"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um Contrato de Cliente da Microsoft
 
@@ -187,7 +187,7 @@ Para concluir a configuração, você precisa ter acesso à nova conta de cobran
     - Uma hierarquia de cobrança correspondente à hierarquia do Contrato Enterprise é criada na nova conta de cobrança. Para obter mais informações, confira [Entender as alterações em sua hierarquia de cobrança](#understand-changes-to-your-billing-hierarchy).
     - Os administradores de seu registro do Contrato Enterprise obtêm acesso à nova conta de cobrança, de modo que continuem a gerenciar a cobrança de sua organização.
     - A cobrança de suas assinaturas do Azure é transferida para a nova conta. **Não haverá nenhum impacto nos serviços do Azure durante essa transição. Eles continuarão sendo executados sem nenhuma interrupção**.
-    - Caso você tenha reservas do Azure, elas serão migradas para sua nova conta de cobrança com os mesmos benefícios e o mesmo prazo. 
+    - Caso você tenha reservas do Azure, elas serão migradas para sua nova conta de cobrança com os mesmos benefícios e o mesmo prazo.
 
 4. Monitore o status da transição na página **Status da transição**.
 
@@ -199,7 +199,7 @@ Para concluir a configuração, você precisa ter acesso à nova conta de cobran
 
 ### <a name="azure-subscriptions"></a>Assinaturas do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -219,7 +219,7 @@ As reservas do Azure no registro do Contrato Enterprise serão migradas para sua
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-account"></a>Acesso de administradores corporativos na conta de cobrança
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -235,7 +235,7 @@ Os administradores corporativos são listados como proprietários da conta de co
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Acesso de administradores corporativos no perfil de cobrança
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -251,7 +251,7 @@ Os administradores corporativos são listados como proprietários do perfil de c
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Acesso de administradores corporativos, administradores do departamento e proprietários da conta nas seções da fatura
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 

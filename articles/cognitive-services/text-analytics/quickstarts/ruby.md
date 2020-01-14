@@ -1,21 +1,21 @@
 ---
 title: 'Início Rápido: Usando Ruby para chamar a API de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos do Azure.
+description: Este guia de início rápido mostra como obter informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 924f3a9019d3ddac0b8f1f942028e78f9a5a432e
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0e43d6c3565ea8ae019ab624cbc85965678ea3b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378459"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Ruby para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#Sen
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -34,9 +34,9 @@ Este artigo mostra como [detectar o idioma](#Detect), [analisar sentimento](#Sen
 
 A API de Detecção de Idioma detecta o idioma de um documento de texto, usando o [método Detectar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um projeto Ruby em seu IDE favorito.
 1. Adicione o código fornecido abaixo.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código. 
 1. Execute o programa.
 
 ```ruby
@@ -46,19 +46,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/languages'
 
@@ -136,9 +125,9 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto usando o [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir pontua dois documentos, um em inglês e outro em espanhol.
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você criar essa variável de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis.
 1. Crie um projeto Ruby em seu IDE favorito.
 1. Adicione o código fornecido abaixo.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código. 
 1. Execute o programa.
 
 ```ruby
@@ -148,19 +137,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/sentiment'
 
@@ -211,9 +189,9 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você criar essa variável de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis.
 1. Crie um projeto Ruby em seu IDE favorito.
 1. Adicione o código fornecido abaixo.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código.
 1. Execute o programa.
 
 
@@ -224,19 +202,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/keyPhrases'
 
@@ -307,9 +274,9 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Entidades extrai entidades em um documento de texto, usando o [método de Entidades](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). O exemplo a seguir identifica as entidades de documentos em inglês.
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você criar essa variável de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis.
 1. Crie um projeto Ruby em seu IDE favorito.
 1. Adicione o código fornecido abaixo.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código.
 1. Execute o programa.
 
 ```ruby
@@ -319,19 +286,8 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
-if (!ENV[key_var])
-    raise "Please set/export the following environment variable: " + key_var
-else
-    subscription_key = ENV[key_var]
-end
-
-endpoint_var = "TEXT_ANALYTICS_ENDPOINT"
-if (!ENV[endpoint_var])
-    raise "Please set/export the following environment variable: " + endpoint_var
-else
-    endpoint = ENV[endpoint_var]
-end
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 path = '/text/analytics/v2.1/entities'
 
@@ -409,7 +365,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Confira também 
 
  [Visão geral da Análise de Texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

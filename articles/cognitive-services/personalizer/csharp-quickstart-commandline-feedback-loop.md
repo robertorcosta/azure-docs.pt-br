@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes do Personalizador para .NET | Microsoft Docs'
+title: 'Início Rápido: Biblioteca de clientes do Personalizador para .NET'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes Personalizador para .NET usando um loop de aprendizado.
+description: Este guia de início rápido mostra como começar a trabalhar com a biblioteca de clientes do Personalizador para .NET usando um loop de aprendizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446383"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Personalizador para .NET
 
@@ -28,7 +28,7 @@ Introdução à biblioteca de clientes do Personalizador para .NET. Siga essas e
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -45,7 +45,7 @@ Há várias etapas para usar este início rápido:
 
 ## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso do Azure do Personalizador
 
-Crie um recurso para o Personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Você também pode:
+Crie um recurso para o Personalizador usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
@@ -59,7 +59,7 @@ No portal do Azure, os valores da chave e do ponto de extremidade estão dispon�
 
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No portal do Azure, no recurso do Personalizador na página **Configuração**, altere a **Frequência de atualização do modelo** para 10 segundos. Essa duração curta treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
+No portal do Azure, no recurso do Personalizador na página **Configuração**, altere a **Frequência de atualização de modelo** para 10 segundos. Essa duração curta treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -198,7 +198,7 @@ dotnet run
 
 O [código-fonte deste início rápido](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/csharp/PersonalizerExample/Program.cs) está disponível no repositório GitHub de exemplos do Personalizador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 
@@ -213,4 +213,3 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 * [O que é Personalizador?](what-is-personalizer.md)
 * [Onde você pode usar o Personalizador?](where-can-you-use-personalizer.md)
 * [Solução de problemas](troubleshooting.md)
-

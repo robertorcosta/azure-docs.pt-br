@@ -1,5 +1,6 @@
 ---
-title: Tutorial para o uso da configuração dinâmica da Configuração de Aplicativo do Azure em um aplicativo ASP.NET Core | Microsoft Docs
+title: 'Tutorial: Usar configuração dinâmica da Configuração de Aplicativos no ASP.NET Core'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a atualizar dinamicamente os dados de configuração de aplicativos ASP.NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433703"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -39,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar seu aplicativo para atualizar a configuração em resposta a alterações em um repositório de Configuração de Aplicativos.
 > * Injetar a configuração mais recente nos controladores do aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
 
@@ -195,7 +196,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 
     ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Entre no [Portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
+4. Entre no [portal do Azure](https://portal.azure.com). Escolha **Todos os recursos** e escolha a instância do repositório de Configuração de Aplicativos que você criou no início rápido.
 
 5. Selecione **Gerenciador de Configurações** e atualize os valores das seguintes chaves:
 
@@ -212,7 +213,7 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
     > [!NOTE]
     > Uma vez que as definições de configuração são armazenadas em cache com um tempo de expiração padrão de 30 segundos, todas as alterações feitas às configurações no repositório de Configuração de Aplicativos só serão refletidas no aplicativo Web quando o cache tiver expirado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

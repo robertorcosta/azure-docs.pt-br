@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445303"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos – Notas sobre a versão e informações de download
 
@@ -25,6 +25,10 @@ Este artigo mostra as notas de versão do emulador do Azure Cosmos com uma lista
 |**Introdução**|[Desenvolver localmente com o emulador do Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="272"></a>2.7.2
+
+- Esta versão adiciona suporte ao servidor do MongoDB versão 3.6 para o Emulador Cosmos. Para iniciar um ponto de extremidade do MongoDB que tenha como alvo a versão 3.6 do serviço, inicie o emulador de uma linha de comando do administrador com a opção "/EnableMongoDBEndpoint=3.6".
 
 ### <a name="270"></a>2.7.0
 

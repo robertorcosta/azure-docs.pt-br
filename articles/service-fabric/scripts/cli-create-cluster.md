@@ -1,6 +1,6 @@
 ---
 title: Exemplo de implantação de script da CLI do Azure
-description: Criar um cluster Linux seguro do Service Fabric no Azure usando a CLI do Azure.
+description: Como criar um cluster seguro do Linux do Service Fabric no Azure usando a CLI (interface de linha de comando) do Azure.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1386be8093cac4f5271886ff736b24acd483d64e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 2b9b98b3ade46abd670283d0e68dc62fda9d8d0a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032824"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526610"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Criar um cluster Linux seguro do Service Fabric no Azure
 
@@ -26,7 +26,7 @@ Esse comando cria um certificado autoassinado, adiciona-o a um cofre de chaves e
 
 Se necessário, instale a [CLI do Azure](/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-sh[main](../../../cli_scripts/service-fabric/create-cluster/create-cluster.sh "Deploy an application to a cluster")]
 
@@ -41,7 +41,7 @@ az group delete --name $ResourceGroupName
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

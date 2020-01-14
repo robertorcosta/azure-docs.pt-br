@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Criar um conjunto de dimensionamento de máquinas virtuais para o Windows no Azure
-description: Neste tutorial, você aprenderá a usar o Azure PowerShell para criar e implantar um aplicativo altamente disponível em VMs Windows usando um conjunto de dimensionamento de máquinas virtuais
+title: 'Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais do Windows'
+description: Saiba como usar o Azure PowerShell para criar e implantar um aplicativo altamente disponível em VMs do Windows usando um conjunto de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6fcf0c14d58e70659ee5e21b03245b705294b445
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bf53b2777c5d1e4d774a9f5ee9df119a0deac9d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464981"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implantar um aplicativo altamente disponível no Windows com o Azure PowerShell
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. Você pode dimensionar manualmente o número de VMs no conjunto de dimensionamento. Você também pode definir regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Neste tutorial, você implantará um conjunto de dimensionamento de máquinas virtuais no Azure e saberá como:
@@ -279,7 +279,7 @@ Para obter mais informações de design sobre o uso do dimensionamento automáti
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você criou um conjunto de dimensionamento de máquinas virtuais. Você aprendeu como:
+Neste tutorial, você criou um conjunto de dimensionamento de máquinas virtuais. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar a Extensão de Script Personalizado para definir um site do IIS para dimensionar

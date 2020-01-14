@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
-ms.openlocfilehash: 108d251ec6aadb4881f500edfa3483f137a09a68
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: e8625b1d81db5b3ec90a177f426d05bd84bd10dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426976"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -41,12 +41,14 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
  
 ## Habilitar o Azure Sentinel <a name="enable"></a>
 
-1. Acesse o portal do Azure.
-2. Verifique se a assinatura na qual o Azure Sentinel foi criado está selecionada. 
-3. Pesquise por Azure Sentinel. 
-   ![search](./media/quickstart-onboard/search-product.png)
+1. Entre no portal do Azure. Verifique se a assinatura na qual o Azure Sentinel foi criado está selecionada.
 
-1. Clique em **+Adicionar**.
+1. Pesquise e selecione o **Azure Sentinel**.
+
+   ![pequisa](./media/quickstart-onboard/search-product.png)
+
+1. Selecione **Adicionar**.
+
 1. Selecione o workspace que você quer usar ou crie um novo. Você pode executar o Azure Sentinel em mais de um workspace, mas os dados são isolados em um único workspace.
 
    ![pequisa](./media/quickstart-onboard/choose-workspace.png)
@@ -55,7 +57,7 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
    > - Os workspaces padrão criados pela Central de Segurança do Azure não serão exibidos na lista. Você não pode instalar o Azure Sentinel neles.
    > - O Azure Sentinel pode ser executado em workspace em qualquer [região de DG do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China, Alemanha e Azure Governamental. Os dados gerados pelo Azure Sentinel (como incidentes, indicadores e regras de alerta, que podem conter alguns dados de clientes provenientes desses workspaces) são salvos em Oeste da Europa (para workspaces localizados na Europa) ou Leste dos EUA (para todos os workspaces baseados nos EUA, bem como qualquer outra região, exceto Europa).
 
-6. Clique em **Adicionar o Azure Sentinel**.
+1. Selecione **Adicionar o Azure Sentinel**.
   
 
 ## <a name="connect-data-sources"></a>Conectar fontes de dados

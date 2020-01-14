@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Habilitar a integração de redes virtuais e firewalls em Hubs de Eventos | Microsoft Docs
+title: Hubs de Eventos do Azure – habilitar a integração de redes virtuais e firewalls
 description: Neste tutorial, você aprenderá como integrar os Hubs de Eventos com redes virtuais e firewalls para permitir o acesso seguro.
 services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
-ms.date: 11/28/2018
+ms.date: 12/20/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f911a1513c6f89180ea51cc0de96dc8a475c7fc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437115"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutorial: Habilitar a integração de redes virtuais e firewalls no namespace dos Hubs de Eventos
 
@@ -47,7 +47,7 @@ Neste tutorial, você aprenderá:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Aproveitaremos um namespace de Hubs de Eventos existente, portanto, verifique se você tem um namespace de Hubs de Eventos disponível. Se não tem, veja [este tutorial](./event-hubs-create.md)
 
@@ -61,7 +61,7 @@ Para fins deste tutorial, criamos um namespace de Hubs de Eventos e navegaremos 
 
 ## <a name="navigate-to-firewalls-and-virtual-networks-experience"></a>Navegue até a experiência de firewalls e redes virtuais
 
-Use o menu de navegação no painel à esquerda no portal para escolher a opção **'Firewalls e Redes Virtuais'**.
+Use o menu de navegação no painel à esquerda no portal para escolher a opção **'Firewalls e Redes Virtuais'** .
 
   ![Navegar até o menu](./media/event-hubs-tutorial-vnet-and-firewalls/vnet-firewall-landing-page.png)
 

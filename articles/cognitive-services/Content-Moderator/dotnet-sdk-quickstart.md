@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes do Content Moderator para .NET | Microsoft Docs'
+title: 'Início Rápido: Biblioteca de clientes do Content Moderator para .NET'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes do Content Moderator para .NET.
+description: Introdução à biblioteca de clientes do Content Moderator para .NET com este início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382048"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Content Moderator para .NET
 
@@ -29,7 +29,7 @@ Use a biblioteca de clientes do Content Moderator para .NET para:
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Exemplos](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -38,7 +38,7 @@ Use a biblioteca de clientes do Content Moderator para .NET para:
 
 ### <a name="create-a-content-moderator-azure-resource"></a>Criar um recurso do Azure no Content Moderator
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Content Moderator usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Content Moderator usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir o recurso no [portal do Azure](https://portal.azure.com/)
@@ -96,7 +96,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de clientes estará
 
 As seguintes classes tratam de alguns dos principais recursos do SDK do .NET do Content Moderator.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Essa classe é necessária para toda a funcionalidade do Content Moderator. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Essa classe fornece a funcionalidade para analisar imagens de conteúdo para adulto, informações pessoais ou rostos humanos.|
@@ -266,7 +266,7 @@ Execute o aplicativo do seu diretório de aplicativo com o comando `dotnet run`.
 dotnet run 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell – Anexar e usar discos de dados | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos do Azure PowerShell – Anexar e usar discos de dados
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure e anexa e prepara os discos de dados usando o PowerShell.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0d0a3e949f4803470a6fc2318ab222e20d8eccae
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f7098808837b9fd0206323fca03da4c98096d3c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350949"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Anexar e usar discos de dados com um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara os discos de dados.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.ps1 "Create a virtual machine scale set with data disks")]
 

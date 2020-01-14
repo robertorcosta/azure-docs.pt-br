@@ -1,5 +1,5 @@
 ---
-title: Crie uma assinatura adicional do Azure|Microsoft Docs
+title: Criar uma assinatura adicional do Azure
 description: Saiba como adicionar uma nova assinatura do Azure no portal do Azure.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 0f4df548313e02a9e8eb857bf2c1d798d5ccdcc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449623"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma assinatura adicional do Azure
 
@@ -40,7 +40,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma assinatura no portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Pesquise **Assinaturas**.
 
    ![Captura de tela que mostra a pesquisa no portal para assinatura](./media/billing-create-subscription/billing-search-subscription-portal.png)
@@ -57,7 +57,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 
 |Campo  |Definição  |
 |---------|---------|
-|NOME     | O nome de exibição que ajuda você a identificar com facilidade a assinatura no portal do Azure.  |
+|Nome     | O nome de exibição que ajuda você a identificar com facilidade a assinatura no portal do Azure.  |
 |Oferta     | Selecione Desenvolvimento/Teste do EA se pretender usar essa assinatura para cargas de trabalho de desenvolvimento ou teste, caso contrário, use Microsoft Azure Enterprise. A oferta de DevTest precisa estar habilitada para sua conta de registro para criar assinaturas de Desenvolvimento/Teste do EA.|
 
 **Contrato de Cliente da Microsoft**
@@ -67,7 +67,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 |Perfil de faturamento     | Os encargos de sua assinatura serão cobrados no perfil de cobrança selecionado. Caso você tenha acesso a apenas um perfil de cobrança, a seleção ficará esmaecida.     |
 |Seção da fatura     | Os encargos de sua assinatura serão exibidos nessa seção da fatura do perfil de cobrança. Caso você tenha acesso a apenas uma seção da fatura, a seleção ficará esmaecida.  |
 |Plano     | Selecione Plano do Microsoft Azure para DevTest se pretender usar essa assinatura para cargas de trabalho de desenvolvimento ou teste, caso contrário, use Plano do Microsoft Azure. Se apenas um plano estiver habilitado para o perfil de cobrança, a seleção ficará esmaecida.  |
-|NOME     | O nome de exibição que ajuda você a identificar com facilidade a assinatura no portal do Azure.  |
+|Nome     | O nome de exibição que ajuda você a identificar com facilidade a assinatura no portal do Azure.  |
 
 **Contrato de Parceiro da Microsoft**
 
@@ -75,7 +75,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 |---------|---------|
 |Cliente    | A assinatura é criada para o cliente selecionado. Caso tenha apenas um cliente, a seleção ficará esmaecida.  |
 |Revendedor    | O revendedor que fornecerá serviços ao cliente. Esse é um campo opcional, que só é aplicável aos provedores indiretos no modelo de duas camadas do CSP. |
-|NOME     | O nome de exibição que ajuda você a identificar com facilidade a assinatura no portal do Azure.  |
+|Nome     | O nome de exibição que ajuda você a identificar com facilidade a assinatura no portal do Azure.  |
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Criar uma assinatura adicional do Azure de forma programática
 

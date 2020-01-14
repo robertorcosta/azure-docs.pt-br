@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Obter resultados da verificação ortográfica usando a API de Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, criaremos uma página da Web que permite aos usuários consultar a API de Verificação Ortográfica do Bing e exibe resultados.
+description: Use este tutorial para criar uma página da Web que envia consultas para a API de Verificação Ortográfica do Bing e exibe os resultados.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382789"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Criar um cliente de Verificação Ortográfica em uma página da Web
 
@@ -27,7 +27,7 @@ Este tutorial mostra como:
 > - Fazer uma consulta simples na API de Verificação Ortográfica do Bing
 > - Exibir os resultados da consulta
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Verificação Ortográfica do Bing. Caso não tenha uma, [inscreva-se em uma avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

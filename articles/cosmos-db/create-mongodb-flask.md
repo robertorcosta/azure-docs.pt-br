@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web do Flask usando a API do Azure Cosmos DB para MongoDB e o SDK do Python
+title: Criar um aplicativo Web do Python Flask usando a API para MongoDB do Azure Cosmos DB
 description: Apresenta um exemplo de código Python do Flask que você pode usar para se conectar à API para MongoDB do Azure Cosmos DB e consultá-la.
 author: markjbrown
 ms.author: mjbrown
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 2bd8fa81d0825e604c42c54c0f789b7939206804
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8e58d0bdaaa5e4fb4564a68b46de7887ec28336d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445486"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Criar um aplicativo do Python usando a API para MongoDB do Azure Cosmos DB
 
@@ -30,7 +30,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Este guia de início rápido, usa o seguinte [exemplo do Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) e demonstra como criar um aplicativo Flask simples de tarefas pendentes usando o [Emulador do Azure Cosmos DB](local-emulator.md) e a API para MongoDB do Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Baixe o [Emulador do Azure Cosmos DB](local-emulator.md). No momento, o emulador é compatível apenas no Windows. O exemplo mostra como usar o exemplo com uma chave de produção do Azure, o que pode ser feito em qualquer plataforma.
 
@@ -90,7 +90,7 @@ Os snippets de código a seguir são obtidos do arquivo app.py e usam a cadeia d
     todos = db.todo #Select the collection
     ```
 
-* Crie o aplicativo
+* Criar o aplicativo
 
     ```Python
     app = Flask(__name__)
@@ -157,7 +157,7 @@ Se você não quiser criar um fork deste repositório, clique no botão Implanta
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

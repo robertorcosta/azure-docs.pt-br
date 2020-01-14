@@ -1,26 +1,15 @@
 ---
-title: Criar um aplicativo .NET no Service Fabric no Azure | Microsoft Docs
+title: Criar um aplicativo .NET no Service Fabric no Azure
 description: Neste tutorial, você aprende a criar um aplicativo com um front-end do ASP.NET Core e um serviço confiável de back-end com estado e implantar o aplicativo em um cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465462"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implantar um aplicativo com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com estado
 
@@ -43,7 +32,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -180,7 +169,7 @@ Abra **Views/Home/Index.cshtml**, a exibição específica ao controlador Home. 
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Atualizar o arquivo _Layout.cshtml
+### <a name="update-the-_layoutcshtml-file"></a>Atualizar o arquivo _Layout.cshtml
 
 Abra **Views/Shared/_Layout.cshtml**, o layout padrão para o aplicativo ASP.NET.  Substitua o conteúdo pelo seguinte, depois salve as alterações.
 
@@ -356,7 +345,7 @@ Neste tutorial, você cria um serviço que armazena um valor de contador em uma 
 
     O Visual Studio cria um projeto de serviço DadosVotação e o exibe no Gerenciador de Soluções.
 
-    ![Gerenciador de soluções](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
+    ![Gerenciador de Soluções](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-webapi-service.png)
 
 ### <a name="add-the-votedatacontrollercs-file"></a>Adicionar o arquivo VoteDataController.cs
 

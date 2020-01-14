@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 78e8a42c4f1e101f8d083c8d58bb452aadfa3a87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196253"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454575"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para a avaliação e a migração de VMs do Hyper-V para o Azure
 
@@ -62,7 +62,7 @@ Verifique se você tem permissões para criar um projeto de Migrações para Azu
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Atribuir permissões para registrar o dispositivo
 
-Você pode atribuir permissões para as Migrações para Azure para criar os aplicativos do Azure AD desenvolvidos durante o registro do dispositivo usando um dos seguintes métodos:
+Você pode atribuir permissões para as Migrações para Azure para criar os aplicativos do Azure AD criados durante o registro do dispositivo usando um dos seguintes métodos:
 
 - Um locatário/administrador global pode conceder permissões a usuários no locatário para criar e registrar aplicativos do Azure AD.
 - Um locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos (que tem as permissões) à conta.
@@ -225,7 +225,7 @@ Habilite os [Integration Services do Hyper-V](https://docs.microsoft.com/windows
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 > [!div class="checklist"]
 > * Configurou permissões de conta do Azure.

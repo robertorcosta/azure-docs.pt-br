@@ -1,6 +1,6 @@
 ---
-title: Amostra de script da CLI do Azure – Criar duas VMs com um NSG interno e um externo
-description: Exemplo de script da CLI do Azure - Criar duas VMs com um NSG interno e um externo
+title: 'Amostra da CLI: Criar duas VMs com um NSG interno e externo'
+description: Crie duas VMs com um NSG interno e externo para proteger o tráfego de rede usando a CLI do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 857a2862a7ddf515567f96b2e688e54a957cd3d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e3d1fe3bf464892934198d06b602a5b8bcafb67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458383"
 ---
-# <a name="secure-network-traffic-between-virtual-machines"></a>Proteger o tráfego de rede entre máquinas virtuais
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Proteger o tráfego de rede entre máquinas virtuais usando um NSG
 
 Este script cria duas máquinas virtuais e protege o tráfego de entrada para ambas. Uma máquina virtual está acessível na internet e um grupo de segurança de rede (NSG) configurado para permitir tráfego na porta 22 e na porta 80. A segunda máquina virtual não está acessível na Internet e tem um NSG configurado para permitir apenas o tráfego da primeira máquina virtual.
 
@@ -31,7 +31,7 @@ Este script cria duas máquinas virtuais e protege o tráfego de entrada para am
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-nsg/create-vm-nsg.sh "Create VM with NSG")]
 

@@ -2,14 +2,14 @@
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: 485a76cb91e5146f59e6be592ffd9cbba68e585a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67172039"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564799"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
@@ -26,16 +26,16 @@ Caso ainda não tenha um registro de contêiner, siga estas etapas para criar um
    | Campo | Valor |
    | ----- | ----- |
    | Nome do registro | Forneça um nome exclusivo. |
-   | Assinatura | Selecione uma assinatura na lista suspensa. |
-   | Grupo de recursos | É recomendável que você use o mesmo grupo de recursos para todos os recursos de teste que foram criados durante os tutoriais e guias de início rápido do IoT Edge. Por exemplo, **IoTEdgeResources**. |
-   | Local padrão | Escolha um local perto de você. |
+   | Subscription | Selecione uma assinatura na lista suspensa. |
+   | Resource group | É recomendável que você use o mesmo grupo de recursos para todos os recursos de teste que foram criados durante os tutoriais e guias de início rápido do IoT Edge. Por exemplo, **IoTEdgeResources**. |
+   | Location | Escolha um local perto de você. |
    | Usuário administrador | Definido como **Habilitar**. |
    | SKU | Selecione **Basic**. |
 
-5. Selecione **Criar**.
+3. Selecione **Criar**.
 
-6. Depois que o registro de contêiner for criado, navegue até ele e escolha **Chaves de acesso**.
+4. Depois que o registro de contêiner for criado, navegue até ele e, no painel esquerdo, selecione **Chaves de acesso** no menu localizado em **Configurações**.
 
-7. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha** e salve-os em um local conveniente. É possível usar esses valores neste tutorial para fornecer acesso ao registro de contêiner.
+5. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha** e salve-os em um local conveniente. É possível usar esses valores neste tutorial para fornecer acesso ao registro de contêiner.
 
    ![Copie o servidor de logon, o nome de usuário e a senha para o registro de contêiner](./media/iot-edge-create-container-registry/registry-access-key.png)

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398628"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -26,11 +26,11 @@ O Azure Application Insights coleta a telemetria do seu aplicativo para ajudar a
 > * Analisar os detalhes de exibições de página usando a linguagem de consulta
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
-- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../../azure-monitor/app/asp-net.md).
@@ -72,7 +72,7 @@ O Application Insights coleta detalhes de desempenho para as diferentes operaç�
 
     ![Dica de desempenho](media/tutorial-performance/6-perf-tip.png)
 
-8.  Para análise adicional, você pode clicar em **Baixar rastreamento** para baixar o rastreamento para o Visual Studio.
+8.   Para análise adicional, você pode clicar em **Baixar rastreamento** para baixar o rastreamento. Você pode exibir esses dados usando [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## <a name="use-logs-data-for-server"></a>Usar dados de logs para o servidor
  Os logs oferecem uma linguagem de consulta avançada que permite analisar todos os dados coletados pelo Application Insights. Você pode usar isso para executar a análise detalhada nos dados de solicitação e desempenho.

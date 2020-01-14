@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903174"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408405"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Início Rápido: Criar um mapa de pesquisa interativo usando o Azure Mapas
 
@@ -26,24 +26,38 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-account-and-get-your-key"></a>Criar uma conta e obter sua chave
+<a id="createaccount"></a>
 
-1. No canto superior esquerdo do [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
-2. Na caixa **Pesquisar no Marketplace**, digite **Mapas**.
-3. Nos **Resultados**, selecione **Mapas**. Selecione o botão **Criar** que aparece abaixo do mapa.
-4. Na página **Criar Conta do Azure Mapas**, insira os seguintes valores:
-   - O **Nome** da sua nova conta.
-   - A **Assinatura** que você deseja usar para a conta.
-   - O **Grupo de recursos** dessa conta. Você pode optar por **Criar novo** ou **Usar existente** em relação ao grupo de recursos.
-   - Selecione o **Tipo de Preço** de sua escolha.
-   - Leia a **Licença** e a **Política de Privacidade**. Marque a caixa de seleção para aceitar os termos.
-   - Por fim, selecione o botão **Criar**.
+## <a name="create-an-account-with-azure-maps"></a>Criar uma conta dos Mapas do Azure
 
-     ![Crie uma conta do Azure Mapas no portal](./media/quick-demo-map-app/create-account.png)
+Crie uma nova conta dos Mapas seguindo as etapas abaixo:
 
-5. Depois de criar a conta, abra-a e encontre a seção de configurações no menu da conta. Selecione **Autenticação** para exibir as chaves primária e secundária de sua conta dos Azure Mapas. Copie o valor de **Chave Primária** para a área de transferência local a ser usada na seção a seguir.
+1. No canto superior esquerdo do [portal do Azure](https://portal.azure.com), clique em **Criar um recurso**.
+2. No campo *Pesquisar no Marketplace*, digite **Mapas**.
+3. Nos *Resultados*, selecione **Mapas**. Clique no botão **Criar** que aparece abaixo do mapa.
+4. Na página **Criar Conta dos Mapas**, insira os seguintes valores:
+    * A *Assinatura* que você deseja usar para a conta.
+    * O nome do *Grupo de recursos* para a conta. Você pode optar por *Criar novo* ou *Usar existente* em relação ao grupo de recursos.
+    * O *Nome* da sua nova conta.
+    * A *Camada de preços* para essa conta.
+    * Leia a *Política de Privacidade* e de *Licença* e marque a caixa de seleção para aceitar os termos.
+    * Selecione o botão **Criar**.
+
+![Criar a conta dos Mapas no portal](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária de sua conta
+
+Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite consultar as APIs dos Mapas. É recomendável usar a chave primária da sua conta como a chave de assinatura ao chamar os serviços do Azure Mapas.
+
+1. Abra a sua conta dos Mapas no portal.
+2. Na seção de configurações, selecione **Autenticação**.
+3. Copie a **Chave Primária** para sua área de transferência. Salve-a localmente para usar depois neste tutorial.
+
+![Obter a Chave Primária no portal](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Fazer o download do aplicativo
 
@@ -61,7 +75,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
     ![Aplicativo Web de pesquisa interativa](./media/quick-demo-map-app/interactive-search.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os tutoriais entram em detalhes sobre como usar e configurar o Azure Mapas com sua conta. Se você planeja continuar com os tutoriais, não limpe os recursos criados neste início rápido. Se você não planeja continuar, siga estas etapas para limpar os recursos:
 

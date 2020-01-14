@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Listar e obter operações do Azure Cosmos DB para a API de Tabela
+title: Script do PowerShell para listar e obter operações da API de Tabela do Azure Cosmos DB
 description: Script do Azure PowerShell – Listar e obter operações do Azure Cosmos DB para a API de Tabela
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4d299f9cec7170256e66ec161eff3976c5211ca
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9e904bdb635111b3fb0c3120be08f26e2e097236
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444937"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Listar e obter tabelas do Azure Cosmos DB – API de Tabela
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178708"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-list-get.ps1 "List or get tables for Table API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

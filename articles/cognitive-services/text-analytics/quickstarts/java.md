@@ -1,22 +1,22 @@
 ---
 title: 'Início Rápido: usar Java para chamar a API REST de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos do Azure.
+description: Este guia de início rápido mostra como obter informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Análise de Texto nos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
-ms.openlocfilehash: f4bae69f1ce65b98a4b83d50e906a1636833a1fd
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446318"
 ---
 # <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Início Rápido: Usar o Java para chamar o Serviço Cognitivo de Análise de Texto do Azure
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ Este artigo mostra como [detectar o idioma](#Detect), [analisar o sentimento](#S
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -37,9 +37,9 @@ Também é necessário ter o [ponto de extremidade e a chave de acesso](../../co
 
 A API de Detecção de Idioma detecta o idioma de um documento de texto usando o  [método Detectar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um projeto Java em seu IDE favorito (ou ova pasta em sua área de trabalho). Crie uma classe denominada `DetectLanguage.java`.
 1. Adicione o código fornecido abaixo para a sua classe.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código. 
 1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
 1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários do código).
 
@@ -96,17 +96,8 @@ public class DetectLanguage {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/languages";
@@ -215,9 +206,9 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto usando o [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O exemplo a seguir pontua dois documentos, um em inglês e outro em espanhol.
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um projeto Java em seu IDE favorito (ou ova pasta em sua área de trabalho). Crie uma classe nele denominada `GetSentiment.java`.
 1. Adicione o código fornecido abaixo para a sua classe.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código.
 1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
 1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários do código).
 
@@ -275,17 +266,8 @@ public class GetSentiment {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/sentiment";
@@ -370,9 +352,9 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O exemplo a seguir extrai as frases-chave de documentos em inglês e em espanhol.
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um projeto Java em seu IDE favorito (ou ova pasta em sua área de trabalho). Crie uma classe nele denominada `GetKeyPhrases.java`.
 1. Adicione o código fornecido abaixo para a sua classe.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código. 
 1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
 1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários do código).
 
@@ -430,17 +412,8 @@ public class GetKeyPhrases {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/keyPhrases";
@@ -544,9 +517,9 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 A API de Entidades identifica as entidades conhecidas em um documento de texto, usando o [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [Entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de um texto, como "Estados Unidos" e, em seguida, fornecem o tipo e/ou link da Wikipédia para essas palavras. O tipo para "Estados Unidos" é `location`, enquanto o link para a Wikipédia é `https://en.wikipedia.org/wiki/United_States`.  O exemplo a seguir identifica as entidades de documentos em inglês.
 
-1. Criar variáveis de ambiente `TEXT_ANALYTICS_SUBSCRIPTION_KEY` e `TEXT_ANALYTICS_ENDPOINT` para a chave de assinatura e o Ponto de Extremidade do Azure do seu recurso. Se você tiver criado essas variáveis de ambiente depois que começou a editar o aplicativo, precisará fechar e reabrir o editor, o IDE ou o shell que você está usando para acessar as variáveis de ambiente.
 1. Crie um projeto Java em seu IDE favorito (ou ova pasta em sua área de trabalho). Crie uma classe nele denominada `GetEntities.java`.
 1. Adicione o código fornecido abaixo para a sua classe.
+1. Copie sua chave de Análise de Texto e o ponto de extremidade para o código. 
 1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
 1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários do código).
 
@@ -604,17 +577,8 @@ public class GetEntities {
     static String endpoint;
 
     public static void Initialize () throws Exception {
-        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
-        subscription_key = System.getenv(subscription_key_var);
-        if (null == subscription_key) {
-            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
-        }
-
-        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
-        endpoint = System.getenv(endpoint_var);
-        if (null == endpoint) {
-            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
-        }
+        subscription_key = "<paste-your-text-analytics-key-here>";
+        endpoint = "<paste-your-text-analytics-endpoint-here>";
     }
 
     static String path = "/text/analytics/v2.1/entities";
@@ -725,7 +689,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
  [Visão geral da Análise de Texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)

@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Detectar anomalias de dados usando a biblioteca de clientes do Detector de Anomalias para Python'
 titleSuffix: Azure Cognitive Services
-description: Use a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming.
+description: Use a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming com este início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 084ef1b81f7db5bd4a2d371e0c322211c0f0e142
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483492"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448881"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes do Detector de Anomalias para Node.js
 
@@ -28,7 +28,7 @@ Use a biblioteca de cliente do Detector de Anomalias para Node.js para:
 
 [Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Localize o código no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org/)

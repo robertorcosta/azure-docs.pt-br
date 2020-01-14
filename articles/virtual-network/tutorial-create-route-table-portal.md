@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350287"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -44,7 +44,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
@@ -54,11 +54,11 @@ Entre no [Portal do Azure](https://portal.azure.com).
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myRouteTablePublic*. |
+    | Nome | Insira *myRouteTablePublic*. |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **Criar novo** e insira *myResourceGroup*, então selecione *OK*. |
     | Location | Deixe o padrão **Leste dos EUA**.
-    | Propagação de rotas BGP | Deixe o padrão **Habilitado**. |
+    | Propagação de rota do gateway de rede virtual | Deixe o padrão **Habilitado**. |
 
 1. Selecione **Criar**.
 
@@ -95,7 +95,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, será necessário cr
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myVirtualNetwork*. |
+    | Nome | Insira *myVirtualNetwork*. |
     | Espaço de endereço | Insira *10.0.0.0/16*. |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione ***Selecionar existente*** > **myResourceGroup**. |
@@ -119,7 +119,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, será necessário cr
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *Privada*. |
+    | Nome | Insira *Privada*. |
     | Espaço de endereço | Insira *10.0.1.0/24*. |
 
 1. Deixe o restante dos padrões e selecione **OK**.
@@ -128,7 +128,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, será necessário cr
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *DMZ*. |
+    | Nome | Insira *DMZ*. |
     | Espaço de endereço | Insira *10.0.2.0/24*. |
 
 1. Como a última vez, deixe o restante dos padrões e selecione **OK**.
@@ -193,7 +193,7 @@ NVAs são VMs que ajudam com as funções de rede como a otimização de roteame
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *mynvastorageaccount*. |
+    | Nome | Insira *mynvastorageaccount*. |
     | Tipo de conta | Deixe o padrão **Armazenamento (uso geral v1)** . |
     | Desempenho | Deixe o padrão **Standard**. |
     | Replicação | Deixe o padrão **LRS (Armazenamento com redundância local)** .
@@ -375,7 +375,7 @@ Primeiro, vamos testar o roteamento de tráfego de rede da VM *myVmPublic* para 
 
 1. Feche a sessão da área de trabalho remota para a VM *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos e todos os recursos que ele tem:
 

@@ -1,17 +1,17 @@
 ---
-title: Usar o Python e o TensorFlow no Azure Functions para fazer inferências de aprendizado de máquina
+title: Usar Python e TensorFlow para Machine Learning no Azure
 description: Esse tutorial demonstra como aplicar modelos de machine learning do TensorFlow no Azure Functions
 author: anthonychu
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409764"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de machine learning no Azure Functions com o Python e o TensorFlow
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para criar Azure Functions em Python, você precisa instalar algumas ferramentas.
 
@@ -271,7 +271,7 @@ Em um navegador, navegue até a URL do servidor HTTP que é exibida no terminal.
 
 Quando você clica em enviar, o aplicativo de funções é chamado e um resultado é exibido na página.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Todo este tutorial é executado localmente em seu computador, portanto, não há recursos ou serviços do Azure a serem limpos.
 
 ## <a name="next-steps"></a>Próximas etapas

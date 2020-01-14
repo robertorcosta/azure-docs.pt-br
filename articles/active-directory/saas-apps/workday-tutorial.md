@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/20/2019
+ms.date: 11/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69891972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443323"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workday
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o Workday ao Azure AD (Azure Active 
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -167,7 +167,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
    > [!NOTE]
    > O valor do atributo Ambiente é vinculado ao valor da URL do locatário:  
-   > –Se o nome de domínio da URL do locatário do Workday começar com impl, por exemplo, *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*, o atributo **Ambiente** deverá ser definido como Implementação.  
+   > – Se o nome de domínio do URL do locatário do Workday começar com impl, por exemplo: *https://www.myworkday.com/"tenant"/login-saml2.htmld*), o atributo **Ambiente** deverá ser definido como Implementação.  
    > –Se o nome de domínio começar de outra forma, será necessário contatar a [equipe de suporte ao cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter o valor de **Ambiente** correspondente.
 
 4. Na seção **Configuração do SAML** , execute as seguintes etapas:
@@ -233,7 +233,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     c. Para **Solicitação de Método de Autenticação de Assinatura** , selecione **SHA256**.
 
-    ![Método de Assinatura de Solicitação de Autenticação](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de Assinatura de Solicitação de Autenticação") 
+    ![Método de Assinatura de Solicitação de Autenticação](./media/workday-tutorial/WorkdaySSOConfiguration.png "Método de Assinatura de Solicitação de Autenticação")
 
     d. Clique em **OK**.
 

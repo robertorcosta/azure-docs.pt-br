@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1b7d08ba25a02334152e661501acf826d6c9bdf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449630"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evite cobranças com a conta gratuita do Azure
 
@@ -41,7 +41,7 @@ Depois que você atualiza sua conta, são cobradas taxas pagas conforme o uso pe
 
 Seus serviços e quantidades gratuitos expirarem no final de 12 meses. Você pode descobrir quando expiram os serviços gratuitos no portal do Azure.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Na área de navegação esquerda, selecione **Todos os serviços**.
 

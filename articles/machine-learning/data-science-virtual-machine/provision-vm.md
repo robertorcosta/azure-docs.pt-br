@@ -6,17 +6,17 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/31/2019
+ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483238"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611910"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Windows
 
-Inicie o funcionamento usando a Máquina Virtual de Ciência de Dados do Windows.
+Coloque tudo em funcionamento com uma Máquina Virtual de Ciência de Dados do Windows Server 2019.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -28,16 +28,11 @@ Observe que as contas gratuitas do Azure não dão suporte a SKUs de máquina vi
 Para criar uma instância de DSVM:
 
 1. Acesse o [portal do Azure](https://portal.azure.com). Você pode ser solicitado a entrar na sua conta do Azure, caso ainda não esteja conectado.
-1. Localize a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados – Windows 2016".
-
-    ![Listagem de VM do Windows](./media/provision-vm/search-windows.png)
+1. Encontre a listagem de máquinas virtuais digitando "máquina virtual de ciência de dados" e selecionando "Máquina Virtual de Ciência de Dados: Win 2019 (versão prévia)".
 
 1. Selecione o botão **Criar** na parte inferior.
 
-    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
-
 1. Você deve ser redirecionado para a folha "Criar uma máquina virtual".
-   ![Guia Noções básicas correspondente à máquina virtual do Windows](./media/provision-vm/review-create-windows.png)
 
 1. Preencha a guia **Noções básicas**:
       * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
@@ -45,7 +40,7 @@ Para criar uma instância de DSVM:
       * **Nome da máquina virtual**: Insira o nome da máquina virtual. É assim que ela aparecerá no seu portal do Azure.
       * **Localização**: selecione o datacenter mais apropriado. Para um acesso mais rápido à rede, é o data center que contém a maioria dos seus dados ou que está mais próximo de sua localização física. Leia mais sobre as [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).
       * **Imagem**: Mantenha o valor padrão.
-      * **Tamanho**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre [Tamanhos de VM do Windows no Azure](../../virtual-machines/windows/sizes.md).
+      * **Size**: Isso deve ser preenchido automaticamente com um tamanho apropriado para cargas de trabalho gerais. Leia mais sobre [Tamanhos de VM do Windows no Azure](../../virtual-machines/windows/sizes.md).
       * **Nome de usuário**: Insira o nome de usuário do administrador. Esse é o nome de usuário que você usará para fazer logon em sua máquina virtual e não precisa ser o mesmo que o seu nome de usuário do Azure.
       * **Senha**: Insira a senha que você usará para fazer logon em sua máquina virtual.    
 1. Selecione **Examinar + criar**.
@@ -72,9 +67,7 @@ Também é possível anexar uma DSVM ao Azure Notebooks para executar os Jupyter
 ## <a name="next-steps"></a>Próximas etapas
 
 * Explore as ferramentas na DSVM abrindo o menu **Iniciar**.
-* Para saber mais sobre o Azure Machine Learning, leia [O que é o Azure Machine Learning?](../service/overview-what-is-azure-ml.md) e teste os [tutoriais](../index.yml).
-* No Explorador de Arquivos, navegue até C:\Arquivos de Programas\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts para obter exemplos de como usar a biblioteca RevoScaleR no R, que é compatível com análise de dados em escala empresarial. 
+* Para saber mais sobre o Azure Machine Learning, leia [O que é o Azure Machine Learning?](../overview-what-is-azure-ml.md) e teste os [tutoriais](../index.yml).
 * Leia o artigo [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](https://aka.ms/dsvmtenthings).
-* Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](../team-data-science-process/index.yml).
 * Visite a [Galeria de IA do Azure](https://gallery.cortanaintelligence.com) para obter exemplos de Machine Learning e de análise de dados que usam o Azure Machine Learning e os serviços de dados relacionados no Azure. Também fornecemos um ícone para essa galeria no menu **Iniciar** e na área de trabalho da máquina virtual.
 

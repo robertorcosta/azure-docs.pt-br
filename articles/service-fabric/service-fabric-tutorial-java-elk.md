@@ -1,26 +1,17 @@
 ---
-title: Monitorar seus aplicativos no Azure Fabric usando ELK no Azure | Microsoft Docs
+title: Monitorar seus aplicativos no Service Fabric usando ELK no Azure
 description: Neste tutorial, saiba como configurar o ELK e monitorar os aplicativos do Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376643"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorar seus aplicativos do Service Fabric usando ELK
 
@@ -40,7 +31,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * Configurar o monitoramento e o diagnóstico do aplicativo
 > * [Configurar CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -155,7 +146,7 @@ Você pode usar um ambiente ELK pré-configurado para este tutorial e, se você 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Executar um servidor ELK no Azure

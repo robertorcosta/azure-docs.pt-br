@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 996bc35820d35e031056207adeb707a7ea98a763
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c29aadfde6c0ab01b2e6ed2c9e4bcc59572bef57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424019"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -51,13 +51,12 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 >      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
 >      - Selecione **Registrar** para criar o aplicativo.
 > 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-> 1. Expanda a seção **Desktop + dispositivos**.  (Se **Desktop + dispositivos** não está visível, primeiro clique na faixa superior para exibir a experiência de Autenticação em versão prévia)
-> 1. Na seção **URI de redirecionamento**, selecione **Adicionar URI**.  Digite **urn:ietf:wg:oauth:2.0:oob**.
+> 1. Na seção **URIs de Redirecionamento** | **URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho)** , marque **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Clique em **Salvar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Etapa 1: Configurar seu aplicativo
-> Para que o exemplo de código deste Início Rápido funcione, você precisa adicionar um URI de redirecionamento como **urn:ietf:wg:oauth:2.0:oob**.
+> Para que o exemplo de código deste início rápido funcione, você precisa adicionar um URI de redirecionamento como **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >
@@ -79,7 +78,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
     ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Este guia de início rápido oferece suporte a Enter_the_Supported_Account_Info_Here.    
+> > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.    
 
 > [!div renderon="docs"]
 > Em que:

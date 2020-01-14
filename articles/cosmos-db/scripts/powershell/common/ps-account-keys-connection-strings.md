@@ -1,17 +1,17 @@
 ---
-title: Script do Azure PowerShell – Operações da chave de conta e da cadeia de conexão para uma conta do Azure Cosmos
+title: Script do PowerShell para obter operações da chave e da cadeia de conexão para uma conta do Azure Cosmos
 description: Script de exemplo do Azure PowerShell – Operações da chave de conta e da cadeia de conexão para uma conta do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1eb9cc4c35584b94d3d16654b1bec253e21a91ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 96be5f09cddf5eefec6b471d30cf87d0f687485d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154756"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441527"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Operações da cadeia de conexão e da chave de conta para uma conta do Azure Cosmos usando o PowerShell
 
@@ -19,7 +19,7 @@ ms.locfileid: "71154756"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 > [!NOTE]
 > Esta amostra descreve como usar uma conta da API do SQL (Core). Para usar essa amostra em outras APIs, copie as propriedades relacionadas e aplique-as ao script específico da API
@@ -36,7 +36,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

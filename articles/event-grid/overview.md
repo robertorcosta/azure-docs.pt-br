@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 9c79a6ba1a6b7b5582c6430c6de7a4a309bf4920
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437299"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -50,7 +50,7 @@ Para obter detalhes completos sobre os recursos de cada origem, bem como artigos
 Para obter detalhes completos sobre os recursos de cada manipulador, bem como artigos relacionados, confira [manipuladores de evento](event-handlers.md). Atualmente, os serviços do Azure a seguir dão suporte para manipulação de eventos da Grade de Eventos: 
 
 * [Automação do Azure](event-handlers.md#azure-automation)
-* [Funções do Azure](event-handlers.md#azure-functions)
+* [Azure Functions](event-handlers.md#azure-functions)
 * [Hubs de Evento](event-handlers.md#event-hubs)
 * [Conexões híbridas](event-handlers.md#hybrid-connections)
 * [Aplicativos Lógicos](event-handlers.md#logic-apps)
@@ -82,7 +82,7 @@ Aqui estão alguns dos principais recursos da Grade de Eventos do Azure:
 * **Pagamento por evento**: pague apenas pela quantidade usada da Grade de Eventos.
 * **Alta taxa de transferência**: crie cargas de trabalho de alto volume na Grade de Eventos com suporte para milhões de eventos por segundo.
 * **Eventos internos**: comece a executar rapidamente com eventos internos definidos pelo recurso.
-* **Eventos personalizados** - use eventos personalizados de rota, filtro e entrega confiável da Grade de Eventos em seu aplicativo.
+* **Eventos Personalizados** – use a Grade de Eventos para rotear, filtrar e entregar de modo confiável eventos personalizados em seu aplicativo.
 
 Para obter uma comparação de Grade de Eventos, Hubs de Eventos e Barramento de Serviço, consulte [Escolher entre os serviços do Azure que entregam mensagens](compare-messaging-services.md).
 

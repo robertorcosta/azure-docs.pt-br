@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 8c96bea6fc55d45a7e2d790f355f6fe19323029d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 1039b72d5834ff837bcddd34d1d2c518364f96ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803449"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447629"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: Criar uma base de dados de conhecimento no QnA Maker usando Go
 
-Este início rápido ensina a criar uma base de dados de conhecimento do QnA Maker de maneira programática. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo da solicitação da API. 
+Este início rápido ensina a criar uma base de dados de conhecimento do QnA Maker de maneira programática. O QnA Maker extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como perguntas frequentes, de [fontes de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo da solicitação da API.
 
 Este início rápido chama as APIs de QnA Maker:
-* [Criar uma base de dados de conhecimento](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Criar uma base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Obter detalhes da operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Exemplo de Go](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Go 1.10.1](https://golang.org/dl/)
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **Início Rápido** para o recurso no portal do Azure.
-
-O [código de exemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go) está disponível no repositório GitHub para o QnA Maker com Go.
 
 ## <a name="create-a-knowledge-base-go-file"></a>Criar um arquivo Go de base de dados de conhecimento
 
@@ -45,7 +45,12 @@ Na parte superior de `create-new-knowledge-base.go`, adicione as seguintes linha
 [!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
-Após as dependências necessárias mencionadas acima, adicione as constantes necessárias para acessar o QnA Maker. Substitua o valor da variável `subscriptionKey` pela sua chave do QnA Maker.
+Após as dependências necessárias mencionadas acima, adicione as constantes necessárias para acessar o QnA Maker.
+
+Defina os seguintes valores:
+
+* `<your-qna-maker-subscription-key>` – A **chave** é uma cadeia de 32 caracteres e está disponível no portal do Azure, no recurso QnA Maker, na página Início Rápido. Isso não é o mesmo que a chave de ponto de extremidade de previsão.
+* `{your-resource-name}` – O **nome do recurso** é usado para construir a URL de ponto de extremidade de criação para fins de criação, no formato de `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Essa não é a mesma URL usada para consultar o ponto de extremidade de previsão.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
 
@@ -66,17 +71,17 @@ Depois, adicione as seguintes funções de suporte.
 
     [!code-go[Add the POST method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=51-66 "Add the POST method")]
 
-3. Adicione o seguinte método para tratar uma solicitação GET às APIs de QnA Maker. Para este início rápido, a solicitação GET é usada para verificar o status da operação de criação. 
+3. Adicione o seguinte método para tratar uma solicitação GET às APIs de QnA Maker. Para este início rápido, a solicitação GET é usada para verificar o status da operação de criação.
 
     [!code-go[Add the GET method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=68-83 "Add the GET method")]
 
 ## <a name="add-function-to-create-kb"></a>Adicionar funções para criar a base de dados de conhecimento
 
-Adicione as seguintes funções para fazer uma solicitação HTTP POST para criar a base de dados de conhecimento. A _ID da Operação_**de criação** é retornada no **Local** do campo de cabeçalho da resposta POST e, em seguida, usada como parte da rota na solicitação GET. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação. 
+Adicione as seguintes funções para fazer uma solicitação HTTP POST para criar a base de dados de conhecimento. A **ID da Operação** de _criação_ é retornada na **Localização** do campo de cabeçalho da resposta POST e, em seguida, usada como parte da rota na solicitação GET. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação.
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-Essa chamada à API retorna uma resposta JSON que inclui a ID da operação. Use a ID da operação para determinar se a base de dados de conhecimento foi criada com êxito. 
+Essa chamada à API retorna uma resposta JSON que inclui a ID da operação. Use a ID da operação para determinar se a base de dados de conhecimento foi criada com êxito.
 
 ```JSON
 {
@@ -90,11 +95,11 @@ Essa chamada à API retorna uma resposta JSON que inclui a ID da operação. Use
 
 ## <a name="add-function-to-get-status"></a>Adicionar função para obter o status
 
-Adicione a seguinte função para fazer uma solicitação HTTP GET para verificar o status da operação. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação. 
+Adicione a seguinte função para fazer uma solicitação HTTP GET para verificar o status da operação. O `Ocp-Apim-Subscription-Key` é a chave de serviço do QnA Maker, usada para autenticação.
 
 [!code-go[Add the check_status method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=99-108 "Add the check_status method")]
 
-Repita a chamada até ter um resultado com êxito ou falha: 
+Repita a chamada até ter um resultado com êxito ou falha:
 
 ```JSON
 {
@@ -128,9 +133,9 @@ Insira o comando a seguir em uma linha de comando para executar o programa. Ele 
 go run create-new-knowledge-base
 ```
 
-Depois que sua base de dados de conhecimento tiver sido criada, você poderá exibi-la em seu Portal do QnA Maker, página [Minhas bases de dados de conhecimento](https://www.qnamaker.ai/Home/MyServices). 
+Depois que sua base de dados de conhecimento tiver sido criada, você poderá exibi-la em seu Portal do QnA Maker, página [Minhas bases de dados de conhecimento](https://www.qnamaker.ai/Home/MyServices).
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure | Microsoft Docs
+title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Azure
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais do Linux com um modelo do Azure Resource Manager que implante um aplicativo de exemplo e configure regras de dimensionamento automático
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375960"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351102"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com um modelo do Azure Resource Manager.
@@ -42,9 +42,9 @@ Para criar uma escala com um modelo, defina os recursos apropriados. As partes p
 
 | Propriedade                     | Descrição da propriedade                                  | Exemplo de valor do modelo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| Tipo                         | Tipo de recurso do Azure a ser criado                            | Microsoft.Compute/virtualMachineScaleSets |
-| Nome                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
-| location                     | O local para criar o conjunto de dimensionamento                     | Leste dos EUA                                   |
+| type                         | Tipo de recurso do Azure a ser criado                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
+| local                     | O local para criar o conjunto de dimensionamento                     | Leste dos EUA                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a serem criadas inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de atualização de instância de VM quando ocorrem alterações              | Automático                                 |
@@ -166,7 +166,7 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web no
 ![Página da Web padrão em NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados, como demonstrado a seguir. O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive

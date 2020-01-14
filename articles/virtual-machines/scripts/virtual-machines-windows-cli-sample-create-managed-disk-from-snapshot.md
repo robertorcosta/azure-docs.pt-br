@@ -1,5 +1,5 @@
 ---
-title: Amostra de script da CLI do Azure – Criar um disco gerenciado com base em um instantâneo
+title: Criar um disco gerenciado com base em um instantâneo – Amostra da CLI
 description: Amostra de script da CLI do Azure – Criar um disco gerenciado com base em um instantâneo
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5060dc81196acec65001910751498fbd8513936e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2d415a12ceaf2cda0172d806d5a621b1297a74be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375841"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Criar um disco gerenciado com base em um instantâneo com a CLI
 
@@ -31,7 +31,7 @@ Esse script cria um disco gerenciado com base em um instantâneo. Use-o para res
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.sh "Create managed disk from snapshot")]
 

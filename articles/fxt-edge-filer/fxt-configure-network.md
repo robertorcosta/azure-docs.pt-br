@@ -1,19 +1,19 @@
 ---
-title: Ajustar as configurações de rede do cluster do Microsoft Azure FXT Edge Filer
+title: 'Tutorial: Configurar a rede em um cluster do Azure FXT Edge Filer'
 description: Como personalizar as configurações de rede depois de criar o cluster do Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: d250e566d884760244ee25e4c43d30fbe5323a7c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: a40ff50dcb0934cbf1ea5222675bd75948ac1d03
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254900"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551056"
 ---
-# <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Definir as configurações de rede do cluster 
+# <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Definir as configurações de rede do cluster
 
 Antes de usar um cluster do Azure FXT Edge Filer recém-criado, verifique e personalize as várias configurações de rede de seu fluxo de trabalho. 
 

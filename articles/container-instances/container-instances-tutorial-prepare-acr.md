@@ -2,23 +2,23 @@
 title: Tutorial – Preparar o registro de contêiner para implantar a imagem
 description: Tutorial das Instâncias de Contêiner do Azure, parte 2 de 3 – Preparar um Registro de Contêiner do Azure e enviar uma imagem por push
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d8a14acb196b257d96792444fe41e7e9f6b73592
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 131ea39b382735423a1edff72774313c4096ea2b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533315"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552404"
 ---
-# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Implantar um Registro de Contêiner do Azure e enviar uma imagem de contêiner por push
+# <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Criar um Registro de Contêiner do Azure e enviar uma imagem de contêiner por push
 
 Esta é a parte dois de um tutorial de três partes. A [Parte um](container-instances-tutorial-prepare-app.md) do tutorial criou uma imagem de contêiner do Docker para um aplicativo Web Node.js. Neste tutorial, você pode enviar a imagem para um Registro de Contêiner do Azure. Se você ainda não criou a imagem de contêiner, retorne ao [Tutorial 1 – Criar imagem de contêiner](container-instances-tutorial-prepare-app.md).
 
-O Registro de Contêiner do Azure é o registro de Docker privado no Azure. Neste tutorial, você pode criar uma instância do Registro de Contêiner do Azure em sua assinatura e enviar a imagem de contêiner criada anteriormente para ele. Neste artigo, a segunda parte da série, você:
+O Registro de Contêiner do Azure é o registro de Docker privado no Azure. Neste tutorial, parte dois da série, você vai:
 
 > [!div class="checklist"]
-> * Cria uma instância do Registro de Contêiner do Azure
+> * Criar uma instância de Registro de Contêiner do Azure usando a CLI do Azure
 > * Marca uma imagem de contêiner para o Registro de Contêiner do Azure
 > * Carrega a imagem em seu registro
 
@@ -41,16 +41,15 @@ az group create --name myResourceGroup --location eastus
 Após criar o grupo de recursos, crie um registro de contêiner do Azure com o comando [az acr create][az-acr-create]. O nome do Registro de contêiner deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Substitua `<acrName>` por um nome exclusivo para o registro:
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 Aqui está o exemplo de saída para um novo registro de contêiner do Azure denominado *mycontainerregistry082* (mostrado aqui truncado):
 
 ```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
+$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
 ...
 {
-  "adminUserEnabled": true,
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
   "location": "eastus",
@@ -119,7 +118,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Marque a imagem *aci-tutorial-app* com o loginServer do Registro de contêiner. Além disso, adicione a marca `:v1` no final do nome da imagem para indicar o número de versão da imagem. Substitua `<acrLoginServer>` pelo resultado do comando [az acr show][az-acr-show] que você executou anteriormente.
+Marcar a imagem *aci-tutorial-app* com o servidor de logon do registro de contêiner. Além disso, adicione a marca `:v1` no final do nome da imagem para indicar o número de versão da imagem. Substitua `<acrLoginServer>` pelo resultado do comando [az acr show][az-acr-show] que você executou anteriormente.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -179,7 +178,7 @@ Para ver as *marcas* de uma imagem específica, use o comando [az acr repository
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-Você deverá ver uma saída semelhante ao seguinte:
+Será exibida uma saída semelhante à seguinte:
 
 ```console
 $ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
@@ -193,7 +192,7 @@ v1
 Neste tutorial, você preparou um registro de contêiner do Azure para ser usado com Instâncias de Contêiner do Azure e enviou por push uma imagem de contêiner ao registro. As etapas a seguir foram concluídas:
 
 > [!div class="checklist"]
-> * Implantando uma instância de Registro de Contêiner do Azure
+> * Uma instância de Registro de Contêiner do Azure foi criada usando a CLI do Azure
 > * Uma imagem de contêiner foi marcada para o Registro de Contêiner do Azure
 > * Uma imagem foi carregada no Registro de Contêiner do Azure
 

@@ -1,26 +1,17 @@
 ---
-title: Tutorial de limpeza do cluster do Service Fabric autônomo - Azure Service Fabric | Microsoft Docs
-description: Neste tutorial, você aprende como limpar seu cluster autônomo
-services: service-fabric
-documentationcenter: .net
+title: Limpar um cluster autônomo
+description: Neste tutorial, você aprenderá a limpar os recursos do AWS ou do Azure no cluster autônomo do Service Fabric.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385169"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639013"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: Limpar seu cluster autônomo
 
@@ -67,7 +58,7 @@ Na primeira parte da série, você aprende a:
 
 ## <a name="clean-up-azure-resources"></a>Limpar recursos do Azure
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Vá para a seção **Máquinas Virtuais**.
 3. Marque as caixas de seleção dos três nós que você criou na primeira parte do tutorial.
 4. Clique em **Excluir**.

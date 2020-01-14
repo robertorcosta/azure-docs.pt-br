@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Obter a taxa de transferência (RU/s) do Azure Cosmos DB para a API do MongoDB
+title: Script do PowerShell para obter taxa de transferência (RU/s) para a API para MongoDB do Azure Cosmos DB
 description: Script do Azure PowerShell – Obter a taxa de transferência (RU/s) do Azure Cosmos DB para a API do MongoDB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0df75831bb54ebb9f648a8ca9207c2572fd4d2e9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d7cd068722a1dcc99b909020fa5bae34ae4a4768
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178872"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441397"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Obter a taxa de transferência (RU/s) de um banco de dados ou uma coleção do Azure Cosmos DB – API do MongoDB
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178872"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/mongodb/ps-mongodb-ru-get.ps1 "Get throughput on a database or collection for MongoDB API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

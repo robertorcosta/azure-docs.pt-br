@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Criar um keyspace e uma tabela do Azure Cosmos DB para a API do Cassandra
+title: Script do PowerShell para criar um keyspace e uma tabela do Azure Cosmos DB para a API do Cassandra
 description: Script do Azure PowerShell – Criar um keyspace e uma tabela do Azure Cosmos DB para a API do Cassandra
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 52b65b6d9be4220b5d7078fc28e78ae4d764a988
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 8fe877760b32b33da0c1e0dd318e0bca52c2bee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445140"
 ---
 # <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Criar um keyspace e uma tabela do Azure Cosmos DB – API do Cassandra
 
@@ -20,7 +20,7 @@ ms.locfileid: "71179047"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-create.ps1 "Create a keyspace and table for Cassandra API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

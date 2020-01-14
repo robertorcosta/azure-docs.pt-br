@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423350"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chamar a API do Microsoft Graph em um aplicativo da Área de Trabalho do Windows
 
@@ -106,9 +106,9 @@ Para registrar seu aplicativo e adicionar suas informações de registro de apli
    - Selecione **Registrar** para criar o aplicativo.
 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
    1. Na seção **URIs de Redirecionamento** na lista de URIs de Redirecionamento:
-   1. Na coluna **TIPO**, selecione **Cliente público (dispositivo móvel e desktop)** .
-   1. Insira `urn:ietf:wg:oauth:2.0:oob` na coluna **URI DE REDIRECIONAMENTO**
-1. Clique em **Salvar**.
+   1. Na coluna **TIPO**, selecione **Cliente público/nativo (dispositivo móvel e desktop)** .
+   1. Insira `https://login.microsoftonline.com/common/oauth2/nativeclient` na coluna **URI DE REDIRECIONAMENTO**
+1. Selecione **Registrar**.
 1. Vá para o Visual Studio, abra o arquivo *App.xaml.cs* e, depois, substitua `Enter_the_Application_Id_here` no snippet de código abaixo pela ID do aplicativo que você acabou de registrar e copiar.
 
     ```csharp
@@ -311,7 +311,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre como fazer uma chamada REST em uma API protegida
 
-Neste exemplo de aplicativo, use o método `GetHttpContentWithToken` para fazer uma solicitação HTTP `GET` em um recurso protegido que exige um token e, em seguida, retornar o conteúdo para o chamador. Esse método adiciona o token adquirido no cabeçalho de Autorização HTTP. Para esta amostra, o recurso é o ponto de extremidade *me* da API do Microsoft Graph – que exibe as informações de perfil do usuário.
+Neste exemplo de aplicativo, use o método `GetHttpContentWithToken` para fazer uma solicitação HTTP `GET` em um recurso protegido que exige um token e, em seguida, retornar o conteúdo para o chamador. Esse método adiciona o token adquirido no cabeçalho de Autorização HTTP. Para este exemplo, o recurso é o ponto de extremidade *me* da API do Microsoft Graph – que exibe as informações de perfil do usuário.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>Adicionar um método para desconectar um usuário
@@ -348,7 +348,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 O método `SignOutButton_Click` acima remove os usuários do cache de usuário da MSAL, o que diz para a MSAL esquecer o usuário atual, de modo que uma solicitação futura de aquisição de um token seja bem sucedida apenas se for feita para ser interativa.
 
-Embora o aplicativo neste exemplo dê suporte a um único usuário, a MSAL dá suporte a cenários em que várias contas podem estar conectadas ao mesmo tempo. Um exemplo é um aplicativo de email onde um usuário tem várias contas.
+Embora o aplicativo neste exemplo ofereça suporte a um único usuário, a MSAL oferece suporte a cenários em que várias contas podem estar conectadas ao mesmo tempo. Um exemplo é um aplicativo de email onde um usuário tem várias contas.
 <!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Exibir informações básicas de token

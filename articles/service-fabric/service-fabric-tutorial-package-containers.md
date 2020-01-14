@@ -1,27 +1,17 @@
 ---
-title: Empacotar e implantar contêineres como um aplicativo do Service Fabric no Azure | Microsoft Docs
+title: Empacotar e implantar contêineres
 description: Neste tutorial, você aprende a gerar uma definição de aplicativo do Azure Service Fabric usando o Yeoman e a empacotar o aplicativo.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Contêineres, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385046"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614019"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo do Service Fabric usando Yeoman
 
@@ -35,7 +25,7 @@ Este tutorial é a parte dois de uma série. Neste tutorial, uma ferramenta gera
 > * Implantar e executar o aplicativo
 > * Limpar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * As imagens de contêiner enviadas por push ao Registro de Contêiner do Azure criadas na [Parte 1](service-fabric-tutorial-create-container-images.md) desta série de tutoriais são usadas.
 * O ambiente de desenvolvimento do Linux está [configurado](service-fabric-tutorial-create-container-images.md).
@@ -93,7 +83,7 @@ O conteúdo a seguir mostra a entrada e a saída da execução do comando yo:
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando o Yeoman, execute as seguintes etapas:
 
 1. Altere o nível de um diretório para o diretório **TestContainer**, por exemplo, *. / TestContainer*
-2. Execute o `yo azuresfcontainer:AddService`
+2. Execute `yo azuresfcontainer:AddService`
 3. Chame o serviço de 'azurevoteback'
 4. Forneça o caminho da imagem de contêiner para Redis - 'alpine:redis'
 5. Pressione Enter para deixar a seção Comandos vazia

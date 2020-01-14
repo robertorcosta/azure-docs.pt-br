@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Criar uma página da Web de pesquisa personalizada – Pesquisa Personalizada do Bing'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a configurar uma instância de pesquisa do Bing personalizada e a integrá-la a uma página da Web.
+description: Com este tutorial, aprenda a configurar uma instância da Pesquisa do Bing personalizada e a integrá-la a uma página da Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977192"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448780"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Compilar uma página da Web de pesquisa personalizada
 
@@ -32,10 +32,10 @@ As tarefas abordadas são:
 > - Adicionar entradas fixadas
 > - Integrar pesquisa personalizada em uma página da Web
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, confira [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se você ainda não tem o Visual Studio 2017 ou posterior instalado, poderá baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**.
+- Se você ainda não tem o Visual Studio 2017 ou posterior instalado, pode baixar e usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) **gratuito**.
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
 
@@ -103,7 +103,7 @@ A Pesquisa personalizada fornece uma interface do usuário hospedada para render
   
    ![Captura de tela da UI hospedada selecione o tema de cores](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-   Se você precisar ajustar o tema de cores para integrar-se melhor ao seu aplicativo da web, clique em **Personalizar tema**. Nem todas as configurações de cores se aplicam a todos os temas de layout. Para alterar uma cor, insira o valor RGB HEX da cor (por exemplo, # 366eb8) na caixa de texto correspondente. Ou clique no botão de cor e clique na sombra que funciona para você. Sempre pense em acessibilidade ao selecionar cores.
+   Se você precisar ajustar o tema de cores para integrar-se melhor ao seu aplicativo Web, clique em **Personalizar tema**. Nem todas as configurações de cores se aplicam a todos os temas de layout. Para alterar uma cor, insira o valor RGB HEX da cor (por exemplo, # 366eb8) na caixa de texto correspondente. Ou clique no botão de cor e clique na sombra que funciona para você. Sempre pense em acessibilidade ao selecionar cores.
   
    ![Captura de tela da IU hospedada para personalizar o tema de cores](./media/custom-search-hosted-ui-customize-color-theme.png)  
 

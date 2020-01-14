@@ -4,16 +4,16 @@ description: Este artigo explica como os clientes de EA do Azure usam o Portal d
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841359"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660657"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Introdução ao Portal do EA do Azure
 
@@ -48,12 +48,13 @@ O diagrama a seguir ilustra as hierarquias simples do EA do Azure.
 
 ## <a name="enterprise-user-roles"></a>Funções de usuário corporativo
 
-Para administrar os Serviços do Azure em seu registro, há quatro funções administrativas de usuário corporativo distintas:
+Para administrar os Serviços do Azure em seu registro, há cinco funções administrativas de usuário corporativo distintas:
 
 - Administrador corporativo
 - Administrador de departamento
 - Proprietário da conta
 - Administrador de serviço
+- Contato de notificação
 
 As funções são usadas para concluir tarefas em dois portais do Microsoft Azure diferentes. O Portal do EA do Azure (https://ea.azure.com) é usado para ajudá-lo a gerenciar a cobrança e os custos. O portal do Azure (https://portal.azure.com) é usado para gerenciar os Serviços do Azure.
 
@@ -101,9 +102,15 @@ Cada conta requer uma conta Microsoft, corporativa ou de estudante exclusiva. Pa
 
 O administrador de serviços tem permissões para gerenciar serviços no portal do Azure e atribuir usuários à função de coadministrador.
 
+### <a name="notification-contact"></a>Contato de notificação
+
+O contato de notificação pode receber notificações de uso relacionadas ao registro.
+
 ## <a name="activate-your-enrollment"></a>Ative seu registro
 
 Para ativar o serviço, o administrador corporativo inicial abre o Portal do EA do Azure em [https://ea.azure.com](https://ea.azure.com) e entra usando o endereço de email do email de convite.
+
+Se tiver certeza de que foi configurado como o administrador do EA, você não precisará aguardar o recebimento do email de ativação para entrar no Portal do EA do Azure. Você pode continuar para [https://ea.azure.com](https://ea.azure.com) e fazer logon com seu endereço de email (trabalho, escola ou Live ID) e senha.
 
 Se você tiver mais de um registro, escolha um para ativar. Por padrão, somente os registros ativos são mostrados. Para exibir o histórico de registros, desmarque a opção **Ativo** no canto superior direito do Portal do EA do Azure.
 
@@ -428,7 +435,7 @@ Para relatórios sobre contas ou intervalos de datas específicos, é possível 
 ### <a name="enrollment-statuses"></a>Status do registro:
 
 - **Pendente**: o administrador do registro precisa entrar no Portal do EA do Azure. Depois de conectado, o registro mudará para o status Ativo.
-- **Ativo**: o registro está Ativo e as contas e assinaturas podem ser criadas no Portal do EA do Azure. O registro permanecerá ativo até a data de término do contrato Enterprise.
+- **Ativa**: o registro está Ativo e as contas e assinaturas podem ser criadas no Portal do EA do Azure. O registro permanecerá ativo até a data de término do contrato Enterprise.
 - **Termo estendido indefinido**: o status de termo estendido indefinido ocorre após a data de término do contrato Enterprise. Ele permite que os clientes do EA que optaram pelo período estendido continuem a usar o Azure indefinidamente no final do contrato Enterprise. Antes que o registro do EA atinja a data de término do contrato corporativo, o administrador do registro deve decidir se renovará o registro adicionando mais compromisso monetário, o transferirá para um novo registro, migrará para o Microsoft Online Subscription Program (MOSP) ou confirmará a desativação de todos serviços associados ao registro.
 - **Expirado**: o cliente do EA é recusado do prazo estendido e o registro do EA atingiu a data de término do contrato corporativo, a inscrição expirará e todos os serviços associados serão desativados.
 - **Transferidos**: registros em que todos os serviços e contas associados foram transferidos para um novo registro serão exibidos com o status Transferidos. Observe que os registros não são transferidos automaticamente se um novo número de registro é gerado durante a renovação. O número de registro anterior deve ser incluído na documentação de renovação do cliente para facilitar uma transferência automática.

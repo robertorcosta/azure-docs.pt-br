@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registro de Docker privado no Regist
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455229"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611229"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início Rápido: criar um registro de contêiner privado usando o portal do Azure
 
@@ -43,7 +43,7 @@ Anote o valor do **Servidor de logon**. Você pode usar esse valor nas etapas a 
 
 ## <a name="log-in-to-registry"></a>Fazer logon no registro
 
-Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Abra um shell de comando em seu sistema operacional e use o comando [az acr login][az-acr-login] na CLI do Azure.
+Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Abra um shell de comando em seu sistema operacional e use o comando [az acr login][az-acr-login] na CLI do Azure. (Especifique apenas Nome do Contêiner. Não inclua 'azurecr.io')
 
 ```azurecli
 az acr login --name <acrName>
@@ -63,7 +63,7 @@ Neste exemplo, selecionamos o repositório **hello-world** e nós podemos ver a 
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar seus recursos, navegue até o grupo de recursos **myResourceGroup** no portal. Depois que o grupo de recursos for carregado, clique em **Excluir grupo de recursos** para remover o grupo de recursos, o registro de contêiner e todas as imagens armazenadas lá.
 

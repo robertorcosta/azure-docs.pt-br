@@ -1,5 +1,5 @@
 ---
-title: Amostra de script do Azure PowerShell – Exportar/copiar o VHD de um disco gerenciado para uma conta de armazenamento em outra região
+title: Exportar/copiar o VHD de um disco gerenciado para uma conta de armazenamento em outra região – Amostra do PowerShell
 description: Script de exemplo do Azure PowerShell – Exportar/copiar o VHD de um disco gerenciado para uma conta de armazenamento na mesma ou em outra região
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 51da00a1e64c93275db893a252bc3d9a24951a9d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1e144b408de1271607b749d8e54289d0563d4b6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463785"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Exportar/copiar o VHD de um disco gerenciado para uma conta de armazenamento em outra região com o PowerShell
 
@@ -31,7 +31,7 @@ Esse script exporta o VHD de um disco gerenciado para uma conta de armazenamento
 
  
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-managed-disks-vhd-to-storage-account/copy-managed-disks-vhd-to-storage-account.ps1 "Copy the VHD of a managed disk")]
 

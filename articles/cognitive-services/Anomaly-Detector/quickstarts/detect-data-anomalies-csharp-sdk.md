@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Detectar anomalias em dados de série temporal usando a biblioteca de clientes do Detector de Anomalias para .NET'
 titleSuffix: Azure Cognitive Services
-description: Use a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming.
+description: Este início rápido mostra como usar a API do Detector de Anomalias para detectar anormalidades em sua série de dados como um lote ou em dados de streaming.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 62cf9a03960e895f403ec8fa09407ff61252ecb2
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: abc2e2371368f01c96eb0b4d2f0a777952ebacf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448926"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Início Rápido: biblioteca de clientes do Detector de Anomalias para .NET
 
@@ -28,9 +28,9 @@ Use a biblioteca de cliente do Detector de Anomalias para .NET para:
 
 [Documentação de referência da biblioteca](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Localize o código no GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-* Assinatura do Azure - [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * Versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 * Um ponto de extremidade e uma chave do Detector de Anomalias
 
@@ -103,14 +103,14 @@ Em um novo método, instancie um cliente com o ponto de extremidade e a chave. C
 
 [!code-csharp[Client authentication function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=createClient)]
     
-## <a name="load-time-series-data-from-a-file"></a>Carregar um conjunto de dados de série temporal de um arquivo
+## <a name="load-time-series-data-from-a-file"></a>Carregar dados de série temporal de um arquivo
 
 Baixe os dados de exemplo deste guia de início rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
 1. Em seu navegador, clique com o botão direito do mouse em **Raw**.
 2. Clique em **Salvar link como**.
 3. Salve o arquivo no diretório do aplicativo como um arquivo .csv.
 
-Esses dados de série temporal são formatados como um arquivo .csv e são enviados para a API do Detector de Anomalias.
+Esses dados de série temporal são formatados como um arquivo .csv e enviados à API do Detector de Anomalias.
 
 Crie um novo método para ler os dados da série temporal e adicione-o a um objeto [Solicitação](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request?view=azure-dotnet-preview). Chame `File.ReadAllLines()` com o caminho do arquivo, crie uma lista de objetos [Ponto](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point?view=azure-dotnet-preview) e retire os caracteres de nova linha. Extraia os valores, separe o carimbo de data do seu valor numérico e adicione-os a um novo objeto `Point`. 
 

@@ -1,26 +1,17 @@
 ---
-title: Tutorial – Limpeza de recursos da Malha do Azure Service Fabric | Microsoft Docs
+title: Tutorial – Limpeza de recursos da Malha do Azure Service Fabric
 description: Saiba como remover recursos da Malha do Azure Service Fabric para não ser cobrado por recursos que não estiver mais usando.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351865"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Tutorial: Remover recursos do Azure
 
@@ -33,20 +24,20 @@ Neste tutorial, você aprenderá a:
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
 > * [Criar um aplicativo da Malha do Service Fabric no Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Depure um aplicativo Service Fabric Mesh em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Depurar um aplicativo da Malha do Service Fabric em execução no cluster de desenvolvimento local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Implantar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * [Atualizar um aplicativo da Malha do Service Fabric](service-fabric-mesh-tutorial-upgrade.md)
 > * Limpar os recursos da Malha do Service Fabric
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
 * Se você não tiver implantado o aplicativo de tarefas, siga as instruções em [Publicar um aplicativo Web da Malha do Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este é o fim do tutorial. Quando você terminar de usar os recursos que criou, exclua-os para não ser cobrado pelos recursos que não estiver mais usando. Isso é especialmente importante porque a Malha é um serviço sem servidor que cobra por segundo. Para saber mais sobre os preços da Malha, confira https://aka.ms/sfmeshpricing.
 
@@ -62,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Como alternativa, é possível excluir o grupo de recursos **sfmeshTutorial1RG** [no portal](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
+Como alternativa, é possível excluir o grupo de recursos **sfmeshTutorial1RG**[no portal](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

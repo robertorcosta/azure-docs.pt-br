@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure – conjunto de dimensionamento de zona única | Microsoft Docs
-description: Exemplos de CLI do Azure
+title: Exemplos da CLI do Azure – conjunto de dimensionamento de zona única
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure executando o Ubuntu em uma zona de disponibilidade única.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 12e8ebea994b39b7c4324b52068b574749002117
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 45cef0e0e7d56baf8a5af3514f167d3a4565d15f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982226"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350980"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Ubuntu em uma Zona de disponibilidade única. Após a execução do script, é possível acessar a máquina virtual por RDP.
@@ -30,7 +30,7 @@ Esse script cria um conjunto de dimensionamento de máquinas virtuais executando
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh "Create single-zone scale set")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação

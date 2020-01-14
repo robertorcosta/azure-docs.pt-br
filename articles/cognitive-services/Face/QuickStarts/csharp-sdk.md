@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes de Detecção Facial para .NET | Microsoft Docs'
-description: Introdução à biblioteca de clientes de Detecção Facial para .NET.
+title: 'Início Rápido: Biblioteca de clientes de Detecção Facial para .NET'
+description: Introdução à biblioteca de clientes de Detecção Facial para .NET com este início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 5602e26e2e1b327d65d411f8e92f264f1bf9fb91
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 269f2c9a2cf8578438971e8ad75fec1379a21c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448197"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para .NET
 
@@ -31,7 +31,7 @@ Use a biblioteca de clientes de Detecção Facial para .NET para:
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Exemplos](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -40,7 +40,7 @@ Use a biblioteca de clientes de Detecção Facial para .NET para:
 
 ### <a name="create-a-face-azure-resource"></a>Criar um recurso de Detecção Facial do Azure
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para Detecção Facial usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para Detecção Facial usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) no computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
@@ -95,7 +95,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de clientes estará
 
 As classes e interfaces a seguir lidam com alguns dos principais recursos do SDK do .NET de Detecção Facial:
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Essa classe representa sua autorização para usar o serviço de Detecção Facial e é necessária para todas as funcionalidades desse serviço. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Essa classe manipula as tarefas básicas de detecção e reconhecimento que você pode realizar com rostos humanos. |
@@ -291,7 +291,7 @@ Execute o aplicativo do seu diretório de aplicativo com o comando `dotnet run`.
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

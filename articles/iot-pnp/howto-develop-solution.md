@@ -3,24 +3,24 @@ title: Interagir com um dispositivo IoT Plug and Play Preview de uma solução d
 description: Como um desenvolvedor de soluções, saiba como usar o SDK do serviço para interagir com dispositivos de IoT Plug and Play.
 author: Philmea
 ms.author: philmea
-ms.date: 07/24/2019
+ms.date: 12/26/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 543f332087aef4147c9274ca980cb56543a68112
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977583"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531336"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Conectar-se a um dispositivo de IoT Plug and Play Preview e interagir com ele
 
 Este guia de instruções mostra como usar os exemplos no SDK do serviço Node que mostram como a solução de IoT pode interagir com dispositivos de IoT Plug and Play Preview.
 
-Se você ainda não tiver concluído o início rápido [conectar um dispositivo IoT Plug and Play à solução](quickstart-connect-pnp-device-solution.md), faça isso agora. O início rápido mostra como baixar e instalar o SDK e executar alguns dos exemplos.
+Se você ainda não tiver concluído o início rápido [conectar um dispositivo IoT Plug and Play à solução](quickstart-connect-pnp-device-solution-node.md), faça isso agora. O início rápido mostra como baixar e instalar o SDK e executar alguns dos exemplos.
 
 Antes de executar os exemplos de serviço, abra um novo terminal, vá para a pasta raiz do repositório clonado, navegue até a pasta **digitaltwins/quickstarts/service** e, em seguida, execute o seguinte comando para instalar as dependências:
 
@@ -82,7 +82,7 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 
 ### <a name="creating-digital-twin-routes"></a>Criar rotas de entrelaçamento digital
 
-A solução pode receber notificações de eventos de alteração de gêmeo digital. Para assinar essas notificações, use o [recurso de roteamento do Hub IoT](../iot-hub/iot-hub-devguide-endpoints.md) para enviar as notificações para um ponto de extremidade, tal como armazenamento de Blobs, Hubs de Eventos ou uma fila do Barramento de Serviço.
+A solução pode receber notificações de eventos de alteração de gêmeo digital. Para assinar essas notificações, use o [recurso de roteiros do Hub IoT](../iot-hub/iot-hub-devguide-endpoints.md) para enviar as notificações para um ponto de extremidade, tal como armazenamento de Blobs, Hubs de Eventos ou uma fila do Barramento de Serviço.
 
 Para criar uma rota de gêmeos digitais:
 

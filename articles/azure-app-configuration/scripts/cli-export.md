@@ -1,5 +1,6 @@
 ---
-title: Amostra de script da CLI do Azure – Exportação de um repositório de configurações de aplicativo do Azure | Microsoft Docs
+title: Amostra de script da CLI do Azure – Exportação de um repositório de Configuração de Aplicativos do Azure
+titleSuffix: Azure App Configuration
 description: Fornece informações e scripts de exemplo de exportação de um repositório de configurações de aplicativo do Azure
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 28066fcea50180189cff7f9af790908c52a4a261
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433609"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportação de um repositório de configurações de aplicativo do Azure
 
@@ -35,7 +36,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que se
 
         az extension add -n appconfig
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 ```azurecli-interactive
 #!/bin/bash

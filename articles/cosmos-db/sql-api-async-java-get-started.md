@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo Java com o SDK Java Assíncrono para gerenciar uma conta de API do SQL no Azure Cosmos DB'
+title: 'Tutorial: Compilar um aplicativo Java com o SDK do Java Assíncrono do Azure Cosmos DB para gerenciar dados na conta da API do SQL'
 description: Este tutorial mostra como usar armazenar e acessar dados dentro da conta da API do SQL no Azure Cosmos DB usando um aplicativo Java Assíncrono.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 972328ec5052f5089994efbb940ff00c889ae78f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444898"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Tutorial: Criar um aplicativo Java com o SDK Java Assíncrono para gerenciar dados armazenados em uma conta de API do SQL
 
@@ -36,7 +36,7 @@ Este tutorial cobre as seguintes tarefas:
 > * Criando documentos JSON
 > * Consultar a coleção
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Verifique se você tem os seguintes recursos:
 
@@ -270,7 +270,7 @@ mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSM
 
 Você agora concluiu este tutorial do NoSQL e tem um aplicativo de console em Java funcional.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, você pode excluir o grupo de recursos, a conta do Azure Cosmos e todos os recursos relacionados. Para fazer isso, escolha o grupo de recursos da máquina virtual, escolha **Excluir** e, em seguida, confirme o nome do grupo de recursos que será excluído.
 

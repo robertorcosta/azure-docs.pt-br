@@ -1,6 +1,6 @@
 ---
-title: Exemplo de Script da CLI do Azure – Pool do Windows em Lote | Microsoft Docs
-description: Exemplo de Script da CLI do Azure – Criar e gerenciar um Pool do Windows em Lote
+title: Exemplo de Script da CLI do Azure – Pool do Windows em Lote
+description: Esse script demonstra alguns dos comandos disponíveis na CLI do Azure para criar e gerenciar um pool dos nós de computação do Windows no Lote do Azure.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 12/12/2019
 ms.author: lahugh
-ms.openlocfilehash: 429f0545bd909faf86cba39c16f07392115a34b7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 662dda0c72cd50a84751ef92236e4e94b45de450
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321920"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390073"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Exemplo de CLI: Criar e gerenciar um pool do Windows no Lote do Azure
 

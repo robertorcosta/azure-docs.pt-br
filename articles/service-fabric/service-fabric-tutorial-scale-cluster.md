@@ -1,26 +1,15 @@
 ---
-title: Dimensionar um cluster do Service Fabric no Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá como dimensionar um cluster do Service Fabric no Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Dimensionar um cluster do Service Fabric no Azure
+description: Neste tutorial, você aprenderá a reduzir horizontalmente e expandir um cluster do Service Fabric no Azure e a limpar os recursos restantes.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177738"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639030"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -38,13 +27,13 @@ Nesta série de tutoriais, você aprenderá a:
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
 > * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Reduzir ou escalar um cluster horizontalmente
-> * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -387,6 +376,20 @@ No arquivo *template.json*, adicione novos grupos de segurança de rede e recurs
     },
     "properties": {
         "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {
@@ -859,7 +862,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Adicionar e remover nós (expandir e reduzir horizontalmente)
@@ -868,7 +871,7 @@ Neste tutorial, você aprendeu como:
 
 Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]
-> [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
@@ -880,7 +883,7 @@ Em seguida, avance para o próximo tutorial para saber como atualizar o runtime 
 
 Em seguida, avance para o próximo tutorial para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]
-> [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster

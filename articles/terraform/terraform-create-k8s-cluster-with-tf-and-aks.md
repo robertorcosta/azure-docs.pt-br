@@ -3,12 +3,12 @@ title: Tutorial – Criar um cluster do Kubernetes com o AKS (Serviço de Kubern
 description: Tutorial ilustrando como criar um cluster do Kubernetes com o serviço do Azure Kubernetes e o Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cea9d93ed418a4f2e90fa3f2dfd3441f4b296316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374957"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: Criar um cluster do Kubernetes com o Serviço de Kubernetes do Azure usando o Terraform
 
@@ -21,7 +21,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Use Terraform e AKS para criar um cluster Kubernetes
 > * Use a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -138,7 +138,7 @@ Crie o arquivo de configuração do Terraform que declara os recursos para o clu
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
             count           = var.agent_count
             vm_size         = "Standard_DS1_v2"
@@ -168,7 +168,7 @@ Crie o arquivo de configuração do Terraform que declara os recursos para o clu
 
     O registro `linux_profile` permite que você defina as configurações que habilitam a conexão aos nós de trabalho usando SSH.
 
-    Com o AKS, você paga apenas pelos nós do trabalhador. O registro `agent_pool_profile` configura os detalhes para esses nós de trabalho. O `agent_pool_profile record` inclui o número de nós de trabalho a serem criados e o tipo desses nós. Se você precisar aumentar ou reduzir verticalmente o cluster no futuro, modifique o valor de `count` neste registro.
+    Com o AKS, você paga apenas pelos nós do trabalhador. O registro `default_node_pool` configura os detalhes para esses nós de trabalho. O `default_node_pool record` inclui o número de nós de trabalho a serem criados e o tipo desses nós. Se você precisar aumentar ou reduzir verticalmente o cluster no futuro, modifique o valor de `count` neste registro.
 
 1. Salve o arquivo ( **&lt;Ctrl>S**) e saia do editor ( **&lt;Ctrl>Q**).
 
@@ -289,7 +289,7 @@ Nesta seção, você verá como executar as seguintes tarefas:
 
     ![Menu da conta de armazenamento](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
-1. Anote o valor da **key1** **key**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
+1. Anote o valor da **chave1** **chave**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account-access-key.png)
 

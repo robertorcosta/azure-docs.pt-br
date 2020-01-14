@@ -1,5 +1,5 @@
 ---
-title: Início Rápido para gerenciar compartilhamentos de arquivos usando o Gerenciador de Armazenamento do Azure
+title: Como gerenciar compartilhamentos de arquivos do Azure usando o Gerenciador de Armazenamento do Azure
 description: Use este início rápido para aprender como usar o Gerenciador de Armazenamento do Azure para gerenciar arquivos do Azure.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431814"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início Rápido: Criar e gerenciar compartilhamentos de arquivos com o Gerenciador de Armazenamento do Azure
 Este guia percorre os fundamentos de trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) com o Gerenciador de Armazenamento do Azure. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -21,7 +21,7 @@ O Gerenciador de Armazenamento do Azure é uma ferramenta popular de cliente dis
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Este guia de início rápido requer que o Gerenciador de Armazenamento esteja instalado. Para baixá-lo e instalá-lo, vá até [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -80,7 +80,7 @@ Para baixar uma cópia de um arquivo do seu compartilhamento de arquios, clique 
 
 O andamento do download é exibido no painel **Atividades** na parte inferior da janela.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Você não pode usar o Gerenciador de Armazenamento para remover recursos. Para limpar com este guia de início rápido, você pode usar o [portal do Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]

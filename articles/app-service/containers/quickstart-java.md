@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 64d70390b3563e17bbe0c70ed426dcda81b50198
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 76521464127780d266ba58eab7306b8fe2930c2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872733"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422222"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure no Linux
 
@@ -21,7 +21,7 @@ O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um servi
 
 > [!NOTE]
 >
-> A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e Eclipse. Confira nossos documentos semelhantes em [Início Rápido: Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Início Rápido: Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ, Eclipse e VS Code. Confira nossos documentos semelhantes em [Início Rápido: Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Início Rápido: Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) ou [Início Rápido do VS Code](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Aplicativo de exemplo em execução no Serviço de Aplicativo do Azure](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -121,7 +121,7 @@ Após a conclusão da implantação, navegue até o aplicativo implantado usando
 > [!div class="nextstepaction"]
 > [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. Se você acha que não precisará desses recursos no futuro, exclua o grupo de recursos por meio do portal ou executando o seguinte comando no Cloud Shell:
 

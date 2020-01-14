@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Saiba como usar a Análise de Texto para extrair frases-chave de textos armazenados no Power BI.
+description: Saiba como usar a API de Análise de Texto para extrair frases-chave de textos armazenados no Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378527"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Use a API de Frases-chave de Análise de Texto para extrair as frases mais importantes dos comentários do cliente
 > * Criar uma nuvem de palavras com base nos comentários do cliente
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Faça download sem qualquer custo](https://powerbi.microsoft.com/get-started/).
@@ -168,7 +168,7 @@ Clique em **Editar credenciais**, certifique-se de que `Anonymous` está selecio
 > [!div class="mx-imgBorder"]
 > ![[definindo a autenticação como anônima]](../media/tutorials/power-bi/access-web-content.png)
 
-Se você vê a faixa Editar Credenciais mesmo depois de escolher o acesso anônimo, é possível que tenha se esquecido de colar sua chave de acesso da Análise de Texto no código na `KeyPhrases` [função personalizada](#CreateCustomFunction).
+Se você vê a faixa Editar Credenciais mesmo depois de escolher o acesso anônimo, é possível que tenha se esquecido de colar sua chave de acesso da Análise de Texto no código na [função personalizada](#CreateCustomFunction) `KeyPhrases`.
 
 Em seguida, uma faixa pode aparecer solicitando que você forneça informações sobre a privacidade de suas fontes de dados. 
 

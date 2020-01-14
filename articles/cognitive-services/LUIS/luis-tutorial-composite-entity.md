@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Tutorial de entidade composta – LUIS'
 titleSuffix: Azure Cognitive Services
-description: Adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
+description: Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447959"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para agrupar dados extraídos de vários tipos em uma única entidade contida. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
@@ -27,9 +27,7 @@ A entidade composta é uma boa opção para esse tipo de dados, porque os dados:
 
 * Estão relacionados uns aos outros.
 * Usam uma variedade de tipos de entidade.
-* Precisam ser agrupadas e processados pelo aplicativo cliente como uma unidade de informações.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
+* Precisam ser agrupados e processados pelo aplicativo cliente como uma unidade de informações.
 
 **Neste tutorial, você aprenderá a:**
 
@@ -46,9 +44,10 @@ A entidade composta é uma boa opção para esse tipo de dados, porque os dados:
 
 ## <a name="import-example-app"></a>Importar o aplicativo de exemplo
 
-1.  Faça o download e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) da lista de entidades do tutorial.
+1.  Faça o download e salve o [arquivo JSON do aplicativo](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) da lista de entidades do tutorial.
 
-2. Importe o JSON em um novo aplicativo.
+2. Importe o JSON para um novo aplicativo usando o [portal do LUIS](https://www.luis.ai).
 
 3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `composite`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
@@ -187,7 +186,7 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
    Esse enunciado retorna uma matriz de entidades compostas. Cada entidade recebe um tipo e valor. Para conseguir maior precisão para cada entidade filho, use a combinação de tipo e valor do item da matriz composta para localizar o item correspondente na matriz de entidades.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

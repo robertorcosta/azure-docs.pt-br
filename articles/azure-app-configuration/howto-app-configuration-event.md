@@ -1,5 +1,6 @@
 ---
-title: Tutorial sobre como definir a Configuração de Aplicativos do Azure para enviar eventos a um ponto de extremidade da Web | Microsoft Docs
+title: 'Tutorial: Usar a Configuração de Aplicativos do Azure para enviar eventos a um ponto de extremidade da Web'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá a configurar assinaturas de eventos da Configuração de Aplicativos do Azure para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,18 +14,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4943a64f72191981fc1b655c431cab00f180e503
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433698"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início Rápido: Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
 
 Neste início rápido, você aprenderá a configurar assinaturas de eventos da Configuração de Aplicativos do Azure para enviar eventos de modificação de chave-valor a um ponto de extremidade da Web. Os usuários da Configuração de Aplicativos do Azure podem assinar eventos que são emitidos sempre que os pares chave-valor são modificados. Esses eventos podem disparar webhooks, Azure Functions, Filas de Armazenamento do Azure ou qualquer outro manipulador de eventos que seja compatível com a Grade de Eventos do Azure. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure – [Crie uma gratuitamente](https://azure.microsoft.com/free/). Você também pode usar o Azure Cloud Shell.
 
@@ -125,7 +126,7 @@ Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de 
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se planejar continuar trabalhando com essa Configuração de Aplicativos e essa assinatura de evento, não limpe os recursos criados neste artigo. Caso contrário, use os comandos a seguir para excluir os recursos criados por você neste artigo.
 
 Substitua `<resource_group_name>` pelo recurso de grupo criado acima.

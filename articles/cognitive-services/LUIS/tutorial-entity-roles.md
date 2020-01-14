@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447851"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados ao contexto de um enunciado
 
 Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e destino para uma transferência de uma cidade para outra. As duas partes de dados podem ser necessárias e estão relacionadas entre si.
 
 Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada em padrões e enunciados de exemplo.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **Neste tutorial, você aprenderá a:**
 
@@ -51,7 +49,11 @@ Uma função deve ser usada quando os dados de entidade a serem extraídos:
 
 ## <a name="create-a-new-app"></a>Criar um novo aplicativo
 
-[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+1. Entre na versão prévia do portal do LUIS com a URL [https://preview.luis.ai](https://preview.luis.ai).
+
+1. Selecione **Criar aplicativo**, insira o nome `HumanResources` e mantenha a cultura padrão, **Inglês**. Deixe a descrição em branco.
+
+1. Selecione **Concluído**.
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Criar uma intenção para mover os funcionários entre as cidades
 
@@ -61,7 +63,8 @@ Uma função deve ser usada quando os dados de entidade a serem extraídos:
 
 1. Insira `MoveEmployeeToCity` na caixa de diálogo pop-up, depois selecione **Concluído**.
 
-    ![Captura de tela do diálogo Criar nova intenção com](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela da caixa de diálogo Criar intenção com](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
 1. Adicione enunciados de exemplo para a intenção.
 
@@ -77,7 +80,8 @@ Uma função deve ser usada quando os dados de entidade a serem extraídos:
     |Transferir Valério Pereira de São Diego para Bellevue |
     |remover Fabio Pena de Kansas City e movê-lo para Chicago|
 
-    [![Captura de tela do LUIS com novos enunciados na intenção MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela do LUIS com novos enunciados na intenção MoveEmployee](./media/tutorial-entity-roles/hr-enter-utterances.png)
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Adicionar a entidade predefinida geographyV2
 
@@ -87,22 +91,36 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 
 1. Selecione **Adicionar entidade predefinida** e, em seguida, selecione `geo` na barra de pesquisa para filtrar as entidades predefinidas.
 
-    ![Adicionar a entidade predefinida geographyV2 ao aplicativo](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Adicionar a entidade predefinida geographyV2 ao aplicativo](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+
 1. Marque a caixa de seleção e selecione **Concluído**.
 1. Na lista **Entidades**, selecione **geographyV2** para abrir a nova entidade.
 1. Adicione duas funções, `Origin`, e `Destination`.
 
-    ![Adicionar funções à entidade predefinida](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **MoveEmployeeToCity**. Observe que os nomes das cidades são rotulados com a entidade predefinida **geographyV2**.
-1. No primeiro enunciado da lista, selecione a localização de origem. Um menu suspenso será exibido. Selecione **geographyV2** na lista e, em seguida, siga o menu para selecionar **Origem**.
-1. Use o método da etapa anterior para marcar todas as funções de localizações em todos os enunciados.
+    > [!div class="mx-imgBorder"]
+    > ![Adicionar funções à entidade predefinida](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **MoveEmployeeToCity**. Observe que os nomes das cidades são rotulados com a entidade predefinida **geographyV2**.
+1. Na barra de ferramentas de contexto, selecione a **Paleta de entidades**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Selecione a Paleta de entidades na barra de ferramentas de conteúdo](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
+
+1. Selecione a entidade predefinida, **geographyV2** e, em seguida, selecione o **Inspetor de entidade**.
+1. No **Inspetor de entidade**, selecione uma função, **Destino**. Isso altera o cursor do mouse. Use o cursor para rotular o texto em todos os enunciados, que é a localização de destino.
+
+    > [!div class="mx-imgBorder"]
+    > ![Selecionar Função na Paleta de Entidades](media/tutorial-entity-roles/entity-palette-select-entity-role.png)
+
+
+1. Retorne ao **Inspetor de entidade**, altere a função para **Origem**. Use o cursor para rotular o texto em todos os enunciados, que é a localização de origem.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Treinar o aplicativo para que as alterações à intenção possam ser testadas
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Faça o treinamento do aplicativo para que as alterações na intenção possam ser testadas
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -110,7 +128,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter a previsão de entidade e de intenção do ponto de extremidade
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obter a previsão de intenção e de entidade do ponto de extremidade
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -155,7 +173,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 
     A intenção correta é prevista, e a matriz de entidades tem as funções de origem e de destino na propriedade **entities** correspondente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

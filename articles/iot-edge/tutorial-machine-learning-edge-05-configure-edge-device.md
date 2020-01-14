@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706966"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612863"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -28,7 +28,7 @@ As etapas deste artigo normalmente são realizadas por um desenvolvedor de nuvem
 
 Para um dispositivo funcionar como gateway, ele precisa ser capaz de se conectar com segurança aos dispositivos downstream. Azure IoT Edge permite que você use a infraestrutura de chave pública (PKI) para configurar conexões seguras entre dispositivos. Neste caso, nós estamos permitindo um dispositivo downstream conectar-se a um dispositivo IoT Edge atuando como um gateway transparente. Para manter uma segurança razoável, o dispositivo downstream deve confirmar a identidade do dispositivo IoT Edge. Para saber mais sobre como os dispositivos IoT Edge usam certificados, confira [Detalhes de uso do certificado do Azure IoT Edge](iot-edge-certs.md).
 
-Nesta seção, criamos os certificados autoassinados usando uma imagem do Docker que criamos e executamos. Optamos por usar uma imagem do Docker para concluir esta etapa, pois ela reduziu significativamente o número de etapas necessárias para criar os certificados no computador de desenvolvimento do Windows. Confira [Gerar certificados com o Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) para obter detalhes sobre como produzir os certificados sem usar um contêiner. [Gerar certificados com o Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) tem o conjunto de instruções que automatizamos com a imagem do Docker.
+Nesta seção, criamos os certificados autoassinados usando uma imagem do Docker que criamos e executamos. Optamos por usar uma imagem do Docker para concluir esta etapa, pois ela reduziu significativamente o número de etapas necessárias para criar os certificados no computador de desenvolvimento do Windows. Confira [Criar certificados de demonstração para testar os recursos do dispositivo IoT Edge](how-to-create-test-certificates.md) para entender o que automatizamos com a imagem do Docker.
 
 1. Entre na máquina virtual de desenvolvimento.
 
@@ -119,7 +119,7 @@ Usamos a imagem do [Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft
 
 Para usar a imagem do marketplace em uma implantação com script, precisamos habilitar a implantação programática da imagem.
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 1. Selecione **Todos os serviços**.
 
@@ -204,7 +204,7 @@ Anteriormente neste artigo, carregamos certificados para o Key Vault para dispon
 
 1. Quando você se autenticar com êxito, a VM Linux será conectada e listará as assinaturas do Azure.
 
-1. Defina a assinatura do Azure que você deseja usar para comandos da CLI do Azure.
+1. Defina a assinatura do Azure que deseja usar para os comandos da CLI do Azure.
 
     ```bash
     az account set --subscription <subscriptionId>

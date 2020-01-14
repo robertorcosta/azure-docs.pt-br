@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Go | Microsoft Docs'
+title: 'Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Go'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes da Pesquisa Visual Computacional para Go.
+description: Introdução à biblioteca de clientes da Pesquisa Visual Computacional para Go com este início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72943090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382302"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Go
 
@@ -28,7 +28,7 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para Go para:
 
 [Documentação de referência](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Pacote](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão mais recente do [Go](https://golang.org/dl/)
@@ -37,7 +37,7 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para Go para:
 
 ### <a name="create-a-computer-vision-azure-resource"></a>Criar um recurso do Azure da Pesquisa Visual Computacional
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
@@ -99,7 +99,7 @@ Em seguida, você começará a adicionar o código para realizar diferentes oper
 
 As classes e as interfaces a seguir lidam com alguns dos principais recursos do SDK do Go da Pesquisa Visual Computacional.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional, como análise de imagem e leitura de texto. Você cria uma instância delas com suas informações de assinatura e usa-a para fazer a maioria das operações de imagem.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Esse tipo contém os resultados de uma chamada de função **AnalyzeImage**. Há tipos semelhantes para cada uma das funções específicas da categoria.|
@@ -251,7 +251,7 @@ Execute o aplicativo do seu diretório de aplicativo com o comando `go run`.
 go run sample-app.go
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

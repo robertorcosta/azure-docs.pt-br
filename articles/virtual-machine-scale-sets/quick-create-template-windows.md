@@ -1,5 +1,5 @@
 ---
-title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais do Windows com um modelo do Azure | Microsoft Docs
+title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais do Windows com um modelo do Azure
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais do Windows com um modelo do Azure Resource Manager que implante um aplicativo de exemplo e configure regras de dimensionamento automático
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: bfbe3d6aac6e97f3568c3c0ce3643bb215726a0b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f3dd2fd092e49a0e526856f1e55211ec1837cfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351088"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais do Windows com um modelo do Azure
 
@@ -41,9 +41,9 @@ Um modelo define a configuração de cada tipo de recurso. Um tipo de recurso de
 
 | Propriedade                     | Descrição da propriedade                                  | Exemplo de valor do modelo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| Tipo                         | Tipo de recurso do Azure a ser criado                            | Microsoft.Compute/virtualMachineScaleSets |
-| Nome                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
-| location                     | O local para criar o conjunto de dimensionamento                     | Leste dos EUA                                   |
+| type                         | Tipo de recurso do Azure a ser criado                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
+| local                     | O local para criar o conjunto de dimensionamento                     | Leste dos EUA                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a serem criadas inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de atualização de instância de VM quando ocorrem alterações              | Automático                                 |
@@ -173,7 +173,7 @@ Insira o endereço IP público do balanceador de carga em um navegador da Web no
 ![Execução do site do IIS](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, conjunto de dimensionamento. O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

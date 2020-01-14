@@ -1,26 +1,17 @@
 ---
-title: Configurar o Jenkins para um aplicativo Java no Service Fabric no Azure | Microsoft Docs
+title: Configurar o Jenkins para um aplicativo Java no Service Fabric no Azure
 description: Neste tutorial, saiba como configurar a integração contínua usando o Jenkins para implantar um aplicativo Service Fabric Java.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376640"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar a CI/CD para um aplicativo Java no Service Fabric
 
@@ -40,7 +31,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-java-elk.md)
 > * Configurar CI/CD
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instalar o Git no computador local da [página de downloads do Git](https://git-scm.com/downloads). Para obter mais informações sobre o Git, leia a [documentação do Git](https://git-scm.com/docs).
 * Ter um conhecimento prático do [Jenkins](https://jenkins.io/).
@@ -94,7 +85,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
 
    a. Na seção geral, marque a caixa de seleção **Proejto GitHub** e especifique a URL do project GitHub. Essa URL hospeda o aplicativo Java do Service Fabric que você deseja integrar à integração contínua do Jenkins, no fluxo de implantação contínua (CI/CD) (por exemplo, ``https://github.com/testaccount/dev_test``).
 
-   b. Na seção **Gerenciamento de Código-Fonte**, selecione **Git**. Especifique a URL do repositório que está hospedando o aplicativo Java do Service Fabric que você deseja integrar ao fluxo CI/CD do Jenkins (por exemplo, *https://github.com/testaccount/dev_test.git*). Você também pode especificar aqui quais ramificações devem ser criadas (por exemplo, **/mestre**).
+   b. Na seção **Gerenciamento de Código-Fonte**, selecione **Git**. Especifique a URL do repositório que está hospedando o aplicativo Java do Service Fabric que você deseja integrar ao fluxo CI/CD do Jenkins (por exemplo, *https://github.com/testaccount/dev_test.git* ). Você também pode especificar aqui quais ramificações devem ser criadas (por exemplo, **/mestre**).
 
 1. Configure seu *GitHub* (que está hospedando o repositório) para que ele seja capaz de se comunicar com o Jenkins. Use as seguintes etapas:
 
@@ -124,7 +115,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
     > Aqui, o cluster pode ser o mesmo que hospeda o aplicativo de contêiner Jenkins caso você esteja usando o Service Fabric para implantar a imagem de contêiner Jenkins.
     >
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ## <a name="update-your-existing-application"></a>Atualizar seu aplicativo existente
 
@@ -193,7 +184,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Implantar o contêiner Jenkins do Service Fabric no seu computador

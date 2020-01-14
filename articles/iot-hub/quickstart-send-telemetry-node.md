@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: e37ce216bf1928785ef9052115599bbd4ab2a603
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167026"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690859"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Node.js)
 
@@ -29,9 +29,9 @@ O início rápido usa dois aplicativos Node.js previamente escritos, um para env
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Os dois aplicativos de exemplo executados neste início rápido são escritos em Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento.
+Os dois aplicativos de exemplo executados neste início rápido são escritos em Node.js. Você precisa do Node.js v10.x.x ou posterior em seu computador de desenvolvimento. Se você estiver usando o Azure Cloud Shell, não atualize a versão instalada do Node.js. O Azure Cloud Shell já tem a versão mais recente do Node.js.
 
 Você pode fazer o download do Node.js para várias plataformas a partir do [nodejs.org](https://nodejs.org).
 
@@ -137,7 +137,7 @@ O aplicativo de back-end se conecta ao ponto de extremidade **Eventos** do lado 
 
     ![Executar o aplicativo de back-end](media/quickstart-send-telemetry-node/ReadDeviceToCloud.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
-ms.date: 02/01/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8f43401296a154ee40e7c214ad63da878129244a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 2f374e29f4dc5406956cd56d1bb0bd1466e65773
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384512"
 ---
 # <a name="what-is-bing-entity-search-api"></a>O que é a API de Pesquisa de Entidade do Bing?
 
@@ -41,3 +41,4 @@ A API de Pesquisa de Entidade do Bing é um serviço Web RESTful, facilitando a 
 * Para uma introdução rápida à primeira solicitação, experimente um [Início Rápido](quickstarts/csharp.md).
 * A seção de referência da [API de Pesquisa de Entidade do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
 * Os [Requisitos de exibição e uso do Bing](./use-display-requirements.md) especificam os usos aceitáveis do conteúdo e das informações obtidas por meio das APIs de pesquisa do Bing.
+* Visite a [página do hub da API de Pesquisa do Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.

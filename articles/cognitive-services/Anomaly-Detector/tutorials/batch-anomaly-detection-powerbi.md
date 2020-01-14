@@ -1,21 +1,21 @@
 ---
-title: Visualizar anomalias usando a detecção em lotes e o Power BI
+title: 'Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI'
 titleSuffix: Azure Cognitive Services
-description: Use a API do Detector de Anomalias e o Power BI para visualizar anomalias em seus dados de série temporal.
+description: Saiba como usar a API do Detector de Anomalias e o Power BI para visualizar anomalias em seus dados de série temporal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448844"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Integrar o Power BI Desktop à API do Detector de Anomalias para a detecção de anomalias em lotes
 > * Visualize as anomalias encontradas em seus dados, incluindo os valores esperados e vistos e os limites da detecção de anomalias.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponível gratuitamente.
 * Um arquivo do Excel (.xlsx) contendo pontos de dados de série temporal. Os dados de exemplo deste início rápido podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)

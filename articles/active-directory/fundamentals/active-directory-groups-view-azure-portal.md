@@ -1,5 +1,5 @@
 ---
-title: Guia de Início Rápido para exibir os grupos e membros - Azure Active Directory | Microsoft Docs
+title: Início rápido – exibir grupos e membros – Azure AD
 description: Instruções sobre como pesquisar e exibir os grupos da sua organização e seus membros atribuídos.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423007"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ Neste início rápido, você vai exibir todos os grupos existentes de sua organi
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de começar, você precisará:
 
 - Criar um locatário do Azure Active Directory. Para obter mais informações, veja [Acessar o portal do Azure Active Directory e criar um novo locatário](active-directory-access-create-new-tenant.md).
@@ -61,7 +61,7 @@ Criar um novo usuário denominado _Alain Charon_. Um usuário deve existir antes
 
     - **Nome:** Digite _Alain Charon_.
 
-    - **Nome de usuário:** Digite *alain\@contoso.com*.
+    - **Nome de Usuário:** Digite *alain\@contoso.com*.
 
 3. Copie a senha gerada automaticamente fornecida na caixa **Senha** e, em seguida, selecione **Criar**.
 
@@ -72,7 +72,7 @@ Agora que você tem um grupo e um usuário, pode adicionar _Alain Charon_ como u
 
 2. Na página **Grupos – Todos os grupos**, pesquise e selecione o grupo **Política do MDM – Oeste**.
 
-3. Na página **Política do MDM – Visão geral do Oeste**, selecione **membros** na área **Gerenciar**.
+3. Na página **Política de MDM - Visão geral do Oeste**, selecione **Membros** na área **Gerenciar**.
 
 4. Selecione **Adicionar membros** e pesquise e selecione **Alain Charon**.
 
@@ -109,7 +109,7 @@ Agora que você encontrou o grupo, pode exibir todos os membros atribuídos.
 
     ![Lista de membros atribuídos ao grupo de política do MDM – Oeste](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Esse grupo é usado em vários dos processos de instruções disponíveis na seção **Guias de instruções** desta documentação. No entanto, se você preferir não usar esse grupo, poderá excluir ele e seus membros atribuídos usando as seguintes etapas:
 
 1. Na página **Grupos – todos os grupos**, pesquise o grupo **Política do MDM – Oeste**.

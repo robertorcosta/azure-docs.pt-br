@@ -1,5 +1,6 @@
 ---
-title: Amostra de script da CLI do Azure – Trabalhar com pares chave-valor em um repositório de configurações de aplicativo do Azure | Microsoft Docs
+title: Amostra de script da CLI do Azure – Trabalhar com pares chave-valor em Repositório de Configurações de Aplicativos
+titleSuffix: Azure App Configuration
 description: Fornece informações sobre como trabalhar com pares chave-valor em um repositório de configurações de aplicativo do Azure
 services: azure-app-configuration
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 51697aa426a638ad536390c4114df5faa18a41ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184861"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433568"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhar com pares chave-valor em um repositório de configurações de aplicativo do Azure
 
@@ -35,7 +36,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que se
 
         az extension add -n appconfig
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 ```azurecli-interactive
 #!/bin/bash

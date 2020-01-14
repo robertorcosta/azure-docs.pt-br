@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Otimizar reserva instância os custos com a Cloudyn no Azure | Microsoft Docs
+title: Tutorial – Otimizar o custo da instância de reserva com o Cloudyn – Azure
 description: Neste tutorial, você aprenderá a otimizar os custos de instância reservada para os serviços Azure e AWS (Amazon Web Services).
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444563"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -38,7 +38,7 @@ Este tutorial explica como o Cloudyn dá suporte ao Azure e a RIs (Instâncias R
 
 Se você não tem uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Você deve ter uma conta do Azure.
 - Você precisa ter um registro de avaliação ou uma assinatura paga do Cloudyn.

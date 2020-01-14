@@ -1,25 +1,25 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para .NET'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes do LUIS para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
+description: Introdução à biblioteca de clientes do LUIS para .NET com este início rápido. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 12/11/2019
 ms.author: diberry
-ms.openlocfilehash: 49a28fb779b7a48b598059e9494cb28e9ec57a6e
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9a94c977aa546ec858748b6c60463bab7d990bb8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405891"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447742"
 ---
-# <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para .NET
+# <a name="quickstart-language-understanding-luis-authoring-2x-client-library-for-net"></a>Início Rápido: Biblioteca de clientes 2.x de criação do LUIS (Reconhecimento vocal) para .NET
 
-Introdução à biblioteca de clientes de criação do Reconhecimento Vocal (LUIS) para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O Reconhecimento Vocal (LUIS) permite aplicar inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes. 
+Introdução à biblioteca de clientes 2.x de criação do Reconhecimento vocal (LUIS) para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O Reconhecimento Vocal (LUIS) permite aplicar inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário para prever o significado geral e extrair informações detalhadas relevantes.
 
 Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para .NET com o objetivo de:
 
@@ -30,7 +30,7 @@ Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para .N
 
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Pacote de Criação (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [Exemplos de C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Conta do portal do LUIS (Reconhecimento Vocal) – [Crie uma gratuitamente](https://www.luis.ai)
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -44,10 +44,10 @@ Obtenha sua [chave inicial](luis-how-to-azure-subscription.md#starter-key) crian
 
 ### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
 
-Usando sua chave e a região da chave, crie duas variáveis de ambiente para autenticação:
+Usando a chave e a região da chave, crie duas variáveis de ambiente para autenticação:
 
 * `COGNITIVESERVICE_AUTHORING_KEY` – a chave de recurso para autenticar as solicitações.
-* `COGNITIVESERVICE_REGION` – a região associada à sua chave. Por exemplo, `westus`.
+* `COGNITIVESERVICE_REGION` – a região associada à chave. Por exemplo, `westus`.
 
 Use as instruções para seu sistema operacional.
 
@@ -74,7 +74,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir
 Edite seu `.bash_profile` e adicione a variável de ambiente:
 
 ```bash
-export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
 export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
 ```
 
@@ -83,15 +83,15 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 ### <a name="create-a-new-c-application"></a>Criar um aplicativo em C#
 
-Crie um novo aplicativo .NET Core em seu IDE ou editor preferido. 
+Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
 
-1. Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `new` para criar um novo aplicativo do console com o nome `language-understanding-quickstart`. Esse comando cria um projeto simples em C# do tipo "Olá, Mundo" com um arquivo de origem único: `Program.cs`. 
+1. Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `new` para criar um novo aplicativo do console com o nome `language-understanding-quickstart`. Esse comando cria um projeto simples em C# do tipo "Olá, Mundo" com um arquivo de origem único: `Program.cs`.
 
     ```dotnetcli
     dotnet new console -n language-understanding-quickstart
     ```
 
-1. Altere o diretório para a pasta do aplicativo recém-criado. 
+1. Altere o diretório para a pasta do aplicativo recém-criado.
 
 1. É possível criar o aplicativo com:
 
@@ -99,8 +99,8 @@ Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
     dotnet build
     ```
 
-    A saída de compilação não deve conter nenhum aviso ou erro. 
-    
+    A saída de compilação não deve conter nenhum aviso ou erro.
+
     ```console
     ...
     Build succeeded.
@@ -128,8 +128,8 @@ O cliente de criação do LUIS (Reconhecimento Vocal) é um objeto [LUISAuthorin
 Depois que o cliente for criado, use-o para acessar a funcionalidade, incluindo:
 
 * Aplicativos – [Criar](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet), [excluir](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet), [publicar](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet)
-* Exemplo de enunciados – [Adicionar por lote](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet), [excluir por ID](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.deleteasync?view=azure-dotnet) 
-* Recursos – Gerenciar [listas de frases](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.featuresextensions.addphraselistasync?view=azure-dotnet) 
+* Exemplo de enunciados – [Adicionar por lote](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet), [excluir por ID](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.deleteasync?view=azure-dotnet)
+* Recursos – Gerenciar [listas de frases](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.featuresextensions.addphraselistasync?view=azure-dotnet)
 * Modelo – Gerenciar [intenções](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) e entidades
 * Padrão – Gerenciar [padrões](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.patternextensions?view=azure-dotnet)
 * Treinar – [Treinar](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.trainversionasync?view=azure-dotnet) o aplicativo e sondar o [status de treinamento](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.getstatusasync?view=azure-dotnet)
@@ -162,7 +162,7 @@ No diretório do projeto, abra o arquivo *Program.cs* no IDE ou no editor de sua
     * Austrália – `australiaeast`
     * Europa – `westeurope`
     * EUA e outras regiões – `westus` (Padrão)
-    
+
     [!code-csharp[Authorization to resource key](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Variables)]
 
 1. Crie um objeto [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.apikeyserviceclientcredentials?view=azure-dotnet) com a sua chave e use-o com o ponto de extremidade para criar um objeto [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet).
@@ -171,16 +171,16 @@ No diretório do projeto, abra o arquivo *Program.cs* no IDE ou no editor de sua
 
 ## <a name="create-a-luis-app"></a>Criar um aplicativo LUIS
 
-1. Crie um aplicativo LUIS para conter o modelo de NLP (processamento de idioma natural) que contém tentativas, entidades e exemplo de enunciados. 
+1. Crie um aplicativo LUIS para conter o modelo de NLP (processamento de idioma natural) que contém tentativas, entidades e exemplo de enunciados.
 
-1. Crie um [ApplicationCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.applicationcreateobject?view=azure-dotnet). O nome e a cultura do idioma são propriedades obrigatórias. 
+1. Crie um [ApplicationCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.applicationcreateobject?view=azure-dotnet). O nome e a cultura do idioma são propriedades obrigatórias.
 
-1. Chame o método [Apps.AddAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet). A resposta é a ID do aplicativo. 
-    
+1. Chame o método [Apps.AddAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet). A resposta é a ID do aplicativo.
+
     [!code-csharp[Create a LUIS app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateApplication)]
 
 ## <a name="create-intent-for-the-app"></a>Criar intenção para o aplicativo
-O objeto principal no modelo de um aplicativo do LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_ de enunciado do usuário. Um usuário pode fazer uma pergunta ou uma declaração procurando uma resposta _desejada_ específica de um bot (ou outro aplicativo cliente). Exemplos de intenções são: reservar um voo, perguntar sobre o tempo em uma cidade de destino e solicitar informações de contato para o atendimento ao cliente.   
+O objeto principal no modelo de um aplicativo do LUIS é a intenção. A intenção se alinha com um agrupamento de _intenções_ de enunciado do usuário. Um usuário pode fazer uma pergunta ou uma declaração procurando uma resposta _desejada_ específica de um bot (ou outro aplicativo cliente). Exemplos de intenções são: reservar um voo, perguntar sobre o tempo em uma cidade de destino e solicitar informações de contato para o atendimento ao cliente.
 
 Crie um [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modelcreateobject?view=azure-dotnet) com o nome da intenção exclusiva e, em seguida, passe a ID do aplicativo, a ID da versão e o método ModelCreateObject para o método [Model.AddIntentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addintentasync?view=azure-dotnet). A resposta é a ID da intenção.
 
@@ -188,33 +188,33 @@ Crie um [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azur
 
 ## <a name="create-entities-for-the-app"></a>Criar entidades para o aplicativo
 
-Embora as entidades não sejam necessárias, são encontradas na maioria dos aplicativos. A entidade extrai informações do enunciado do usuário, necessárias para atender à intenção do usuário. Há vários tipos de entidades [predefinidas](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) e personalizadas, cada uma com seus próprios modelos de DTO (objeto de transformação de dados).  Entidades predefinidas comuns para adicionar ao seu aplicativo [number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md). 
+Embora as entidades não sejam necessárias, são encontradas na maioria dos aplicativos. A entidade extrai informações do enunciado do usuário, necessárias para atender à intenção do usuário. Há vários tipos de entidades [predefinidas](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) e personalizadas, cada uma com seus próprios modelos de DTO (objeto de transformação de dados).  Entidades predefinidas comuns para adicionar ao seu aplicativo [number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), [geographyV2](luis-reference-prebuilt-geographyv2.md), [ordinal](luis-reference-prebuilt-ordinal.md).
 
 Esse método **AddEntities** criou uma entidade simples `Location` com duas funções, uma entidade simples `Class`, uma entidade composta `Flight` e adiciona várias entidades predefinidas.
 
 É importante saber que as entidades não estão marcadas com uma intenção. Em geral, elas podem se aplicar a muitas intenções. Somente os exemplos de enunciados de usuário são marcados para uma única intenção específica.
 
-Os métodos de criação para as entidades fazem parte da classe do [Modelo](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet). Cada tipo de entidade tem seu próprio modelo de DTO (objeto de transformação de dados), geralmente contendo palavra `model` no namespace [Modelos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet). 
+Os métodos de criação para as entidades fazem parte da classe do [Modelo](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet). Cada tipo de entidade tem seu próprio modelo de DTO (objeto de transformação de dados), geralmente contendo palavra `model` no namespace [Modelos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet).
 
 [!code-csharp[Create entities](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringAddEntities)]
 
 ## <a name="add-example-utterance-to-intent"></a>Adicionar exemplo de enunciado para intenção
 
-A fim de determinar a intenção de um enunciado e extrair entidades, o aplicativo precisa de exemplos de enunciados. Os exemplos precisam ter como destino uma única intenção específica e devem marcar todas as entidades personalizadas. As entidades predefinidas não precisam ser marcadas. 
+A fim de determinar a intenção de um enunciado e extrair entidades, o aplicativo precisa de exemplos de enunciados. Os exemplos precisam ter como destino uma única intenção específica e devem marcar todas as entidades personalizadas. As entidades predefinidas não precisam ser marcadas.
 
-Adicione exemplos de enunciado ao criar uma lista de objetos [ExampleLabelObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-dotnet), um objeto para cada exemplo de enunciado. Cada exemplo deve marcar todas as entidades com um dicionário de pares de nome/valor do nome da entidade e do valor da entidade. O valor da entidade deve exatamente o mesmo que aparece no texto do exemplo de enunciado. 
+Adicione exemplos de enunciado ao criar uma lista de objetos [ExampleLabelObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-dotnet), um objeto para cada exemplo de enunciado. Cada exemplo deve marcar todas as entidades com um dicionário de pares de nome/valor do nome da entidade e do valor da entidade. O valor da entidade deve exatamente o mesmo que aparece no texto do exemplo de enunciado.
 
-Chame [Examples.BatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ExamplesExtensions_BatchAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_IExamples_System_Guid_System_String_System_Collections_Generic_IList_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_Models_ExampleLabelObject__System_Threading_CancellationToken_) com a ID do aplicativo, a ID da versão e a lista de exemplos. A chamada responde com uma lista de resultados. Você precisa verificar o resultado de cada exemplo para verificar se ele foi adicionado ao modelo com êxito. 
+Chame [Examples.BatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ExamplesExtensions_BatchAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_IExamples_System_Guid_System_String_System_Collections_Generic_IList_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_Models_ExampleLabelObject__System_Threading_CancellationToken_) com a ID do aplicativo, a ID da versão e a lista de exemplos. A chamada responde com uma lista de resultados. Você precisa verificar o resultado de cada exemplo para verificar se ele foi adicionado ao modelo com êxito.
 
 [!code-csharp[Add example utterances to a specific intent](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringBatchAddUtterancesForIntent)]
-    
+
 Os métodos **CreateUtterance** e **CreateLabel** são métodos utilitários para ajudá-lo a criar objetos.
 
 ## <a name="train-the-app"></a>Treinar o aplicativo
 
-Depois que o modelo for criado, o aplicativo LUIS precisará ser treinado para esta versão do modelo. Um modelo treinado pode ser usado em um [contêiner](luis-container-howto.md) ou [publicado](luis-how-to-publish-app.md) nos slots de preparo ou de produto. 
+Depois que o modelo for criado, o aplicativo LUIS precisará ser treinado para esta versão do modelo. Um modelo treinado pode ser usado em um [contêiner](luis-container-howto.md) ou [publicado](luis-how-to-publish-app.md) nos slots de preparo ou de produto.
 
-O método [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions?view=azure-dotnet) precisa da ID do aplicativo e da ID da versão. 
+O método [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions?view=azure-dotnet) precisa da ID do aplicativo e da ID da versão.
 
 Um modelo muito pequeno, como este guia de início rápido mostra, será treinado muito rapidamente. Para aplicativos de nível de produção, o treinamento do aplicativo deve incluir uma chamada de sondagem para o método [GetStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.getstatusasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_TrainExtensions_GetStatusAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ITrain_System_Guid_System_String_System_Threading_CancellationToken_) para determinar quando ou se o treinamento foi bem-sucedido. A resposta é uma lista de objetos [ModelTrainingInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modeltraininginfo?view=azure-dotnet) com um status separado para cada objeto. Todos os objetos devem ter êxito para que o treinamento seja considerado concluído.
 
@@ -234,9 +234,9 @@ Execute o aplicativo com o comando `dotnet run` do seu próprio diretório de ap
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você quiser limpar, exclua o aplicativo do LUIS. A exclusão do aplicativo é feita com o método [Apps.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet). Você também pode excluir o aplicativo do [Portal do LUIS](https://www.luis.ai). 
+Se você quiser limpar, exclua o aplicativo do LUIS. A exclusão do aplicativo é feita com o método [Apps.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet). Você também pode excluir o aplicativo do [Portal do LUIS](https://www.luis.ai).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -244,6 +244,6 @@ Se você quiser limpar, exclua o aplicativo do LUIS. A exclusão do aplicativo �
 >[Usar o SDK do .Net para consultar o ponto de extremidade de previsão](sdk-csharp-quickstart-query-prediction-endpoint.md)
 
 * [O que é a API do LUIS (Reconhecimento Vocal)?](what-is-luis.md)
-* [O que há de novo?](whats-new.md)
+* [Novidades](whats-new.md)
 * [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md), [exemplos de enunciados](luis-concept-utterance.md) e [entidades predefinidas](luis-reference-prebuilt-entities.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).

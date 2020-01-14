@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428786"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -34,7 +34,7 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 ![Aplicativo lógico concluído em alto nível](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
@@ -57,7 +57,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
    | Configuração | Valor | DESCRIÇÃO |
    |---------|-------|-------------|
    | **Assinatura** | <*Azure-subscription-name*> | O nome e a ID da assinatura do Azure |  
-   | **Grupo de recursos** | <*Azure-resource-group*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar e gerenciar os recursos relacionados. Este exemplo usa "LA-tutorial-RG". <p>**Observação:** um grupo de recursos reside dentro de uma região específica. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente usar a mesma região sempre que possível. |
+   | **Grupo de recursos** | <*Azure-resource-group*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar e gerenciar os recursos relacionados. Este exemplo usa "LA-tutorial-RG". <p>**Observação:** um grupo de recursos reside dentro de uma região específica. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente usar a mesma região sempre que possível. |
    | **Nome da conta de armazenamento** | <*Azure-storage-account-name*> | O nome da conta de armazenamento, que deve ter de 3 a 24 caracteres e pode conter apenas letras minúsculas e números. Este exemplo usa "attachmentstorageacct". |
    | **Localidade** | <*Azure-region*> | A região na qual armazenar informações sobre sua conta de armazenamento. Este exemplo usa "Leste dos EUA". |
    | **Desempenho** | Standard | Essa configuração especifica os tipos de dados com suporte e a mídia para armazenar dados. Confira os [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -147,7 +147,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
    | **Plano de hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). |
    | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente |
    | **Pilha de Runtime** | Linguagem preferencial | Selecione um runtime que dê suporte à sua linguagem de programação de funções favorita. Selecione **.NET** para as funções C# e F#. |
-   | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** esta conta de armazenamento contém seus aplicativos de funções e é diferente da conta de armazenamento criada anteriormente para anexos de email. |
+   | **Storage** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** esta conta de armazenamento contém seus aplicativos de funções e é diferente da conta de armazenamento criada anteriormente para anexos de email. |
    | **Application Insights** | Desabilitar | Ativa o monitoramento do aplicativo com [Application Insights](../azure-monitor/app/app-insights-overview.md), mas, para este tutorial, selecione **Desabilitar** > **Aplicar**. |
    ||||
 
@@ -177,7 +177,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
 
 1. Depois de abrir o editor, substitua o código do modelo por esse código de exemplo, que remove o HTML e retorna resultados para o chamador:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -241,7 +241,7 @@ Depois de verificar que sua função funciona, crie o aplicativo lógico. Embora
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente |
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que você usou anteriormente |
    | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente |
-   | **Log Analytics** | Desativar | Para este tutorial, selecione a configuração **Desativado**. |
+   | **Log Analytics** | Desativado | Para este tutorial, selecione a configuração **Desativado**. |
    ||||
 
 1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione o ícone de notificações e **Ir para o recurso**.
@@ -437,7 +437,7 @@ Em seguida, adicione uma ação que cria um blob em seu contêiner de armazename
 
    | Configuração | Valor | DESCRIÇÃO |
    | ------- | ----- | ----------- |
-   | **Nome da Conexão** | AttachmentStorageConnection | Um nome descritivo para a conexão |
+   | **Nome da conexão** | AttachmentStorageConnection | Um nome descritivo para a conexão |
    | **Conta de armazenamento** | attachmentstorageacct | O nome da conta de armazenamento que você criou anteriormente para salvar os anexos |
    ||||
 
@@ -660,7 +660,7 @@ Agora teste seu aplicativo lógico, que se parecerá com este exemplo:
 
 Parabéns, você agora criou e executou um aplicativo lógico que automatiza tarefas em diferentes serviços do Azure e chama um código personalizado.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando você não precisar mais deste exemplo, exclua o grupo de recursos que contém o aplicativo lógico e os recursos relacionados.
 

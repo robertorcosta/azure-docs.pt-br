@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell - Criar um conjunto de dimensionamento de máquinas virtuais completo| Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos do Azure PowerShell – Criar um conjunto de dimensionamento de máquinas virtuais completo
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016, em que os recursos individuais são configurados e criados.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebbc47739b2be72d0dd98c0659bfcaba512e79e9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b116a6cb4266b5ec05abd2b3210ebc772bac9868
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448899"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350934"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais completo com o PowerShell
 
@@ -30,9 +30,9 @@ Esse script cria um conjunto de dimensionamento de máquinas virtuais que execut
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/complete-scale-set/complete-scale-set.ps1 "Create a complete virtual machine scale set")]
 

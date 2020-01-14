@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET | Microsoft Docs'
-description: Introdução à biblioteca de clientes do Reconhecimento de Formulários para .NET para treinar, extrair, analisar e obter saída de dados estruturados.
+title: 'Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET'
+description: Introdução à biblioteca de clientes do Reconhecimento de Formulários para .NET para treinar, extrair, analisar e obter saída de dados estruturados com este início rápido.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978604"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446488"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Reconhecimento de Formulários para .NET
 
@@ -28,9 +28,9 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para .NET para:
 * [Obter uma lista de modelos personalizados](#get-a-list-of-custom-models)
 * [Excluir um modelo personalizado](#delete-a-custom-model)
 
-[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * Acesso à versão prévia de acesso limitado do Reconhecimento de Formulários. Para obter acesso à versão prévia, preencha e envie o formulário de [Solicitação de acesso ao Reconhecimento de Formulários](https://aka.ms/FormRecognizerRequestAccess).
@@ -91,7 +91,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de clientes estará
 
 As classes a seguir tratam da funcionalidade principal do SDK do Reconhecimento de Formulários.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Essa classe é necessária para toda a funcionalidade do Reconhecimento de Formulários. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Você usa essa classe para treinar um modelo de Reconhecimento de Formulários personalizado usando seus próprios dados de entrada de treinamento. |
@@ -180,7 +180,7 @@ Execute o aplicativo em seu próprio diretório chamando o comando `dotnet run` 
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

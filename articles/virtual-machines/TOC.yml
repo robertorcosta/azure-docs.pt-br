@@ -7,7 +7,17 @@
 - name: Documentação de extensões da VM
   href: ./extensions/overview.md
 - name: Cargas de trabalho
-  href: ./workloads/workloads.md
+  items:
+    - name: Red Hat
+      href: /redhat/redhat-overview.md
+    - name: Computação de alto desempenho
+      href: /hpc/overview.md
+    - name: SAP
+      href: /sap/get-started.md
+    - name: Oracle
+      href: /oracle/oracle-considerations.md
+    - name: Rehosting de mainframe
+      href: /mainframe-rehosting/overview.md
 - name: Implantações clássicas
   items:
     - name: VMs do Linux usando implantação clássica

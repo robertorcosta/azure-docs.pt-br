@@ -1,5 +1,5 @@
 ---
-title: Amostra de script do Azure PowerShell – Criar um disco gerenciado com base em um instantâneo
+title: Criar um disco gerenciado com base em um instantâneo – Amostra do PowerShell
 description: Amostra de script do Azure PowerShell – Criar um disco gerenciado com base em um instantâneo
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 93f2e24a2a32af1fb4bfa6560b27ce6c113ad7a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a03c981aa3e7d7b3afc3e4a493c0285ebc79d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463697"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Criar um disco gerenciado com base em um instantâneo com o PowerShell
 
@@ -29,7 +29,7 @@ Esse script cria um disco gerenciado com base em um instantâneo. Use-o para res
 
  
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-managed-disk-from-snapshot/create-managed-disk-from-snapshot.ps1 "Create managed disk from snapshot")]
 

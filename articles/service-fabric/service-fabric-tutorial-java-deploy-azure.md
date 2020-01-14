@@ -1,26 +1,17 @@
 ---
-title: Implantar aplicativo Java em um cluster do Service Fabric no Azure | Microsoft Docs
+title: Implantar um aplicativo Java em um cluster do Service Fabric no Azure
 description: Neste tutorial, saiba como implantar um aplicativo Java do Service Fabric em um cluster do Azure Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465282"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implantar um aplicativo Java em um cluster do Service Fabric no Azure
 
@@ -41,7 +32,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-java-elk.md)
 > * [Configurar CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -242,7 +233,7 @@ As etapas a seguir criam os recursos necessários para implantar seu aplicativo 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um cluster seguro do Linux no Azure

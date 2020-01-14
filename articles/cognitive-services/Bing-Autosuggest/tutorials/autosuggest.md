@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b6a8b0664cb205a7c3cbdb72f41433b145b02d00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448762"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtenha sugestões de pesquisa em uma página da Web
 
@@ -27,7 +27,7 @@ Este tutorial mostra como:
 > - Fazer uma consulta simples na API de Sugestão Automática do Bing
 > - Exibir os resultados da consulta
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para acompanhar o tutorial, você precisa de uma chave de assinatura para a API de Sugestão Automática do Bing. Caso não tenha uma, [inscreva-se em uma avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
@@ -184,7 +184,7 @@ Ela usa dois parâmetros: o conteúdo do campo de formulário HTML e a chave de 
 function bingAutosuggest(query, key) {
 ```
 
-Especifique o ponto de extremidade da API de Sugestão Automática do Bing e declare um objeto XMLHttpRequest, que usaremos para enviar solicitações para o ponto de extremidade.
+Especifique o ponto de extremidade da API de Sugestão Automática do Bing e declare um objeto XMLHttpRequest, que usaremos para enviar solicitações. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
 ```html
     var endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/Suggestions";

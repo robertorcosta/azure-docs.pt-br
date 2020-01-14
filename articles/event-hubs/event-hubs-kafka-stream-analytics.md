@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Processar eventos do Apache Kafka usando Stream Analytics – Hubs de Eventos do Azure'
+title: Hubs de Eventos do Azure – processar eventos do Apache Kafka
 description: 'Tutorial: Este artigo mostra como processar eventos do Kafka que são ingeridos por meio de hubs de eventos, usando Azure Stream Analytics'
 services: event-hubs
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437245"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados para Kafka e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
@@ -30,7 +30,7 @@ Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados par
 Não é necessário alterar os clientes de protocolo ou executar seus próprios clusters ao usar o ponto de extremidade do Kafka exposto por um hub de eventos. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html) e posterior. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
 
@@ -170,7 +170,7 @@ Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de 
 3. Substitua `[YourInputAlias]` pelo alias de entrada criado anteriormente. 
 4. Selecione **Salvar** na barra de ferramentas. 
 
-    ![Consultar](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Consulta](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics

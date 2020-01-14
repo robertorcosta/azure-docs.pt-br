@@ -3,12 +3,26 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/15/2018
-ms.openlocfilehash: 890118bf40a621cf92b3999d3ef858955a79d196
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 12/09/2018
+ms.openlocfilehash: c5f736f00c7c048de73b7f4696e29a699107c9cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67134906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382490"
 ---
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuitamente. Antes de continuar, você precisará da chave de acesso fornecida após a ativação da avaliação gratuita ou de uma chave de assinatura paga do painel do Azure.
+## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
+
+Comece a usar a API de Pesquisa de Vídeo do Bing criando um dos recursos do Azure abaixo.
+
+* [Criar um recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * Não é necessário ter uma assinatura do Azure.
+    * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Criar um recurso de Pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * Disponível por meio do portal do Azure até que você exclua o recurso.
+    * Use o tipo de preço gratuito para experimentar o serviço e atualize mais tarde para uma camada paga para produção.
+
+* [Criar um recurso de vários serviços](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Disponível por meio do portal do Azure até que você exclua o recurso.  
+    * Use a mesma chave e ponto de extremidade para seus aplicativos em vários Serviços Cognitivos.

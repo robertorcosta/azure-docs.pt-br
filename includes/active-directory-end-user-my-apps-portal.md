@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 author: eross-msft
 ms.service: active-directory
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: e7e993cddbf675cab67cb9fc7ea5fc9446bc449b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c7f3fec478067a9b321d8c7bc5e371f5a6a330cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "67172503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467568"
 ---
 | |
 |--|
-|Se o que você está vendo na tela não corresponder ao que está sendo abordado neste artigo, isso significa que o administrador ativou a nova experiência **Meu Perfil** (versão prévia). Para usar a nova experiência, você deve seguir as instruções e as informações na seção [Visão geral do portal Meu Perfil (versão prévia)](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview).|
-| |
+|Se o administrador ativar a nova experiência de versão prévia dos **Meus Aplicativos** para sua organização, agora você verá uma faixa na parte superior da página **Meus Aplicativos** com a mensagem **Uma experiência atualizada dos Meus Aplicativos está disponível**. Se você selecionar **Experimentar**, acessará imediatamente a nova URL (myapplications.microsoft.com) e a experiência atualizada. Depois disso, toda vez que retornar à página **Meus Aplicativos**, você acessará automaticamente a nova experiência.<br><br>Para deixar de usar a nova experiência, selecione **Sim** na faixa **Sair da nova experiência** na parte superior da nova página **Meus Aplicativos**. Você retornará imediatamente à URL (myapps.microsoft.com) e à experiência antigas. Depois disso, toda vez que retornar à página **Meus Aplicativos**, você acessará automaticamente a experiência antiga.|
+|

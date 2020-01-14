@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950456"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647400"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o Hub IoT do Azure?
 
@@ -111,7 +111,7 @@ Se sua solução não puder usar um dos protocolos com suporte, você poderá es
 
 Cada assinatura do Azure tem limites de cota em vigor para impedir o abuso do serviço e esses limites podem afetar o escopo de sua solução de IoT. O limite atual por assinatura é de 50 hubs IoT por assinatura. Você pode solicitar um aumento de cota contatando o suporte. Para saber mais, confira [Cotas e Limitação do Hub IoT](iot-hub-devguide-quotas-throttling.md). Para obter mais detalhes sobre limites de cota, confira um dos artigos a seguir:
 
-* [Limites de serviço da assinatura do Azure](../azure-subscription-service-limits.md)
+* [Limites de serviço da assinatura do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [Limitação do Hub IoT e você](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -120,3 +120,7 @@ Cada assinatura do Azure tem limites de cota em vigor para impedir o abuso do se
 Para testar uma solução de IoT de ponta a ponta, confira o início rápido do Hub IoT:
 
 * [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-node.md)
+
+Para saber mais sobre como você pode criar e implantar soluções de IoT com o Azure IoT, visite:
+
+* [Conceitos básicos: Tecnologias e soluções do Azure IoT](../iot-fundamentals/iot-services-and-technologies.md).

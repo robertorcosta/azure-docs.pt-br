@@ -1,5 +1,5 @@
 ---
-title: Termos no arquivo de uso e encargos do Azure de um Contrato de Cliente da Microsoft
+title: Termos de arquivo de encargos e uso do Azure do Contrato de Cliente da Microsoft
 description: Saiba como ler e entender as seções do CSV de uso e encargos do Azure de seu perfil de cobrança.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388883"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no arquivo de uso e encargos do Azure de um Contrato de Cliente da Microsoft
 
@@ -35,7 +35,7 @@ Se você for um cliente do EA, observará que os termos no arquivo CSV de uso do
 | CSV de uso do Azure EA | CSV de uso e encargos do Azure do Contrato de Cliente da Microsoft |
 | --- | --- |
 | Data | date |
-| Mês| date |
+| Month| date |
 | Dia | date |
 | Ano | date |
 | Produto | product |
@@ -104,7 +104,7 @@ resourceGroupName | Nome do grupo de recursos associado ao recurso
 resourceId | Identificador exclusivo da instância do recurso
 resourceType | Tipo de instância de recurso
 resourceLocation | Identifica a localização do data center em que o recurso está sendo executado.
-location | Localização normalizada do recurso se localizações de recursos diferentes estão configuradas para as mesmas regiões
+local | Localização normalizada do recurso se localizações de recursos diferentes estão configuradas para as mesmas regiões
 quantidade | O número de unidades adquiridas ou consumidas
 unitOfMeasure | A unidade de medida para cobrança do serviço. Por exemplo, os serviços de computação são cobrados por hora.
 chargeType | O tipo de encargo. Valores: <ul><li>AsCharged-Usage: Encargos acumulados com base no uso de um serviço do Azure. Isso inclui o uso nas VMs que não são cobradas devido às instâncias reservadas.</li><li>AsCharged-PurchaseMarketplace: Encargos avulsos ou recorrentes fixos de compras do Marketplace</li><li>AsCharged-UsageMarketplace: Encargos de serviços do Marketplace cobrados com base em unidades de consumo</li></ul>

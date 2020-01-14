@@ -1,5 +1,5 @@
 ---
-title: Entender os termos na planilha de preços de um Contrato de Cliente da Microsoft – Azure
+title: Termos na planilha de preços do Contrato de Cliente da Microsoft – Azure
 description: Saiba como ler e entender o uso e a fatura de um Contrato de Cliente da Microsoft.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 1e7e698bede44ddb3fe701c50f69164b03fe13d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f4285b8185b2df2694f399f6bcb6751c1e9c6650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449346"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termos na planilha de preços do Contrato de Cliente da Microsoft
 

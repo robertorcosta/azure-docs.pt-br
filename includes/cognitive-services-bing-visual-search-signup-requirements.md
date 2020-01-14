@@ -3,20 +3,26 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/18/2019
-ms.openlocfilehash: 16ee9ae9a4eec6b38c57b984b3acb75479b437e6
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 12/17/2019
+ms.openlocfilehash: 7aa478c764ea1d9720d91068fa04d353e6a4db02
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379481"
 ---
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Antes de continuar, você precisará da chave de acesso fornecida depois de iniciar uma assinatura no tipo de preço S9, conforme mostrado nos [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+## <a name="create-an-azure-resource"></a>Criar um recurso do Azure
 
-Para iniciar uma assinatura no portal do Azure:
-1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
-2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
-3. Insira `Name` para o novo recurso.
-4. Selecionar assinatura `Pay-As-You-Go`.
-5. Selecione o tipo de preço `S9`.
-6. Clique em `Enable` para iniciar a assinatura.
+Comece a usar a API da Pesquisa Visual do Bing criando um dos recursos do Azure abaixo.
+
+* [Criar um recurso de avaliação](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
+    * Não é necessário ter uma assinatura do Azure.
+    * Válido por sete dias, gratuitamente. Após a inscrição, um ponto de extremidade e uma chave de avaliação estarão disponíveis no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Criar um recurso de Pesquisa do Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
+    * Disponível por meio do portal do Azure até que você exclua o recurso.
+    * Selecione o tipo de preço `S9`.
+
+* [Criar um recurso de vários serviços](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
+    * Disponível por meio do portal do Azure até que você exclua o recurso.  
+    * Use a mesma chave e ponto de extremidade para seus aplicativos em vários Serviços Cognitivos.

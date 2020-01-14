@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script do Azure PowerShell - Adicionar uma regra de grupo de segurança de rede | Microsoft Docs
+title: Adicionar uma regra de grupo de segurança de rede no PowerShell
 description: Exemplo de Script do Microsoft Azure PowerShell - Adiciona um grupo de segurança de rede para permitir o tráfego de entrada em uma porta específica.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 44bb0e615453450c401949f0ce76f15cb82fab67
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 33ee8028031bf94d69d11b08c347f84db94494a3
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680537"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610413"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Adicionar uma regra de grupo de segurança de rede de entrada
 
@@ -29,13 +29,13 @@ Esse exemplo de script cria uma regra de grupo de segurança de rede para permit
 
 Se necessário, instale o Azure PowerShell usando as instruções no [Guia do Azure PowerShell](/powershell/azure/overview). 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/add-inbound-nsg-rule/add-inbound-nsg-rule.ps1 "Update the RDP port range values")]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

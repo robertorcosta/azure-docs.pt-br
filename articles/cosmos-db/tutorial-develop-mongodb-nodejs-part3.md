@@ -1,6 +1,5 @@
 ---
-title: Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar a interface do usuário com o Angular
-titleSuffix: Azure Cosmos DB
+title: Criar a interface do usuário do aplicativo Angular com a API do Azure Cosmos DB para MongoDB (Parte 3)
 description: Parte 3 da série de tutoriais sobre como criar um aplicativo do MongoDB com Angular e Node no Azure Cosmos DB usando exatamente as mesmas APIs usadas para MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c9467aef1dd7d28b41c2e05b5f157a158d7377ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444734"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar a interface do usuário com o Angular
 
@@ -33,7 +32,7 @@ A Parte 3 do tutorial se baseia na [Parte 2](tutorial-develop-mongodb-nodejs-par
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar esta parte do tutorial, verifique se você concluiu as etapas na [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) do tutorial.
 
@@ -487,7 +486,7 @@ Agora que temos o componente, como fazemos para exibi-lo na tela? Vamos modifica
 
     Agora vamos executar o aplicativo.
 
-2. No Visual Studio Code, clique no botão **Depurar** ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) no lado esquerdo e clique no botão **Iniciar depuração** botão ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. No Visual Studio Code, clique no botão **Depurar**![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) no lado esquerdo e clique no botão **Iniciar depuração** botão ![Ícone de depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
 
 3. Abra um navegador da Internet e navegue até **localhost:3000** para ver o aplicativo em execução localmente.
 

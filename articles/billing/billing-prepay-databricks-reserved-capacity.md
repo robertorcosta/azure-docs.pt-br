@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0165da8adbb28b97d524f1a07c725716b69277d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8f3b38b3455b171701ff78345a3ee667c2c45071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449322"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Otimizar custos do Azure Databricks com uma pré-compra
 
@@ -29,7 +29,7 @@ A compra prévia do Databricks aplica-se a todas as cargas de trabalho e camadas
 
 | **Carga de trabalho** | **Razão do aplicativo DBU – Camada Standard** | **Razão do aplicativo DBU – Camada Premium** |
 | --- | --- | --- |
-| Análise de dados | 0,4 | 0,55 |
+| Análise de Dados | 0,4 | 0,55 |
 | Engenharia de Dados | 0.15 | 0,30 |
 | Engenharia de Dados Leve | 0,07 | 0,22 |
 
@@ -41,8 +41,8 @@ Antes de comprar, calcule a quantidade total de DBU consumida para diferentes ca
 
 É possível comprar planos do Databricks no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Para comprar capacidade reservada, é necessário ter a função proprietário para pelo menos uma assinatura empresarial.
 
-- No momento, a compra prévia está disponível apenas para clientes do Contrato Enterprise.
-- É necessário ter uma função Proprietário para pelo menos uma assinatura Enterprise.
+- É necessário ter uma função Proprietário para pelo menos um Contrato Enterprise (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Contrato de Cliente da Microsoft ou ainda uma assinatura individual com tarifas pagas conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
+- Para assinaturas de EA, a opção Adicionar Instâncias Reservadas deve estar habilitada no Portal do EA. Ou, se essa configuração estiver desabilitada, você precisará ser um Administrador de EA da assinatura.
 - Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deverá ser Administrador de EA da assinatura.
 
 **Para comprar:**

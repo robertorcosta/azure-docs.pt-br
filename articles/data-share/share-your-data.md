@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8749f7dee2ceeb09e37cc97d4e5bfe76c52e2da6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499319"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438730"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Compartilhar dados usando o Azure Data Share  
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 > * Habilitar uma agenda de sincronização para seu Data Share. 
 > * Adicionar destinatários a seu Data Share. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * O endereço de email de logon do Azure de seus destinatários (usar o alias de email não funcionará).
@@ -49,11 +49,13 @@ Neste tutorial, você aprenderá como:
 ```                   
 Observe que *<share_acc_name>* é o nome da sua Conta do Data Share. Se você ainda não criou uma conta do Data Share, poderá voltar para esse pré-requisito mais tarde.  
 
+* Um [usuário do Banco de Dados SQL do Azure com `db_owner` acesso](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users) para navegar e selecionar as tabelas e/ou exibições que você deseja compartilhar. 
+
 * Acesso ao Firewall do SQL Server de IP do cliente: Isso pode ser feito executando as seguintes etapas: 1. Navegue para *Firewalls e Redes Virtuais* 1. Clique na alternância **ligar** para permitir o acesso aos Serviços do Azure. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-share-account"></a>Criar uma conta do Data Share
 
@@ -69,7 +71,7 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | NOME | *datashareacount* | Especifique um nome para sua conta de compartilhamento de dados. |
+    | Nome | *datashareacount* | Especifique um nome para sua conta de compartilhamento de dados. |
     | Subscription | Sua assinatura | Selecione a assinatura do Azure que deseja usar para sua conta de compartilhamento de dados.|
     | Resource group | *test-resource-group* | Use um grupo de recursos existente ou crie um novo. |
     | Location | *Leste dos EUA 2* | Selecione uma região para sua conta de compartilhamento de dados.
@@ -99,7 +101,7 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
     ![Conjunto de dados](./media/datasets.png "Conjunto de dados")
 
-1. Selecione o tipo de conjunto de dados que você deseja adicionar. 
+1. Selecione o tipo de conjunto de dados que você deseja adicionar. Se estiver compartilhando de um Banco de Dados SQL do Azure ou de um DataWarehouse do Azure SQL, você será solicitado a fornecer algumas credenciais do SQL. Autentique usando o usuário criado como parte dos pré-requisitos.
 
     ![AddDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 

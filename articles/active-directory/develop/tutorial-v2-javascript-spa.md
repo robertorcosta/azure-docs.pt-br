@@ -1,5 +1,5 @@
 ---
-title: Guia de aplicativo de página única do JavaScript da plataforma de identidade da Microsoft | Azure
+title: Tutorial de aplicativo de página única JavaScript – plataforma de identidade da Microsoft | Azure
 description: Como aplicativos SPA JavaScript podem chamar uma API que exige tokens de acesso pelo Ponto de Extremidade do Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423368"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -58,7 +58,7 @@ Este guia usa a seguinte biblioteca:
 
 ## <a name="set-up-your-web-server-or-project"></a>Configurar o servidor Web ou o projeto
 
-> Prefere baixar este projeto de exemplo? Faça uma das opções a seguir:
+> Prefere baixar este projeto de exemplo? Execute um destes procedimentos:
 > 
 > - [Baixe os arquivos de projeto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) para executar o projeto com um servidor Web local, como Node.js.
 >
@@ -66,7 +66,7 @@ Este guia usa a seguinte biblioteca:
 >
 > Pule para a [etapa de configuração](#register-your-application) a fim de configurar o exemplo de código antes de executá-lo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para executar este tutorial, é necessário um servidor Web local como [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) ou a integração do IIS Express com o [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -326,7 +326,7 @@ Adicione o seguinte código no arquivo `index.html` dentro da marca `<script></s
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Se a conta fornecer acesso a mais de um locatário, selecione a conta no canto superior direito e defina sua sessão do portal para o locatário Azure AD que deseja usar.
 1. Vá até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.

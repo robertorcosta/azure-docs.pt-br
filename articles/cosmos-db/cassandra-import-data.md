@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Migrar seus dados para uma conta da API do Cassandra no Azure Cosmos DB'
-description: Neste tutorial, você aprenderá a usar o comando CQL Copy e o Spark para copiar dados do Apache Cassandra para a conta da API do Cassandra no Azure Cosmos DB.
+title: Migrar seus dados para a conta da API do Cassandra no Azure Cosmos DB – Tutorial
+description: Neste tutorial, você aprenderá a usar o comando CQL Copy e o Spark para copiar dados do Apache Cassandra para a conta da API do Cassandra no Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: cc312a707f5ab74967b9d3bc050fec7bfcad9dbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445681"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar seus dados para a conta da API do Cassandra no Azure Cosmos DB
 
@@ -104,7 +104,7 @@ Use as etapas a seguir para migrar dados para a conta da API do Cassandra com o 
 
 A migração de dados usando trabalhos do Spark é uma opção recomendada se você tiver dados residindo em um cluster existente nas máquinas virtuais do Azure ou em qualquer outra nuvem. Esta opção requer que o Spark seja configurado como intermediária por um período ou ingestão regular. Você pode acelerar essa migração usando a conectividade do Microsoft Azure ExpressRoute entre o local e o Azure. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não forem necessários, você pode excluir o grupo de recursos, a conta do Azure Cosmos e todos os recursos relacionados. Para fazer isso, escolha o grupo de recursos da máquina virtual, escolha **Excluir** e, em seguida, confirme o nome do grupo de recursos que será excluído.
 

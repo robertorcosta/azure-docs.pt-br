@@ -1,35 +1,24 @@
 ---
-title: Fazer upgrade do tempo de execução do Service Fabric no Azure | Microsoft Docs
-description: Neste tutorial, você aprende a usar o PowerShell para atualizar o tempo de execução de um cluster do Service Fabric hospedado pelo Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Atualizar o runtime do Service Fabric no Azure
+description: Neste tutorial, você aprende a usar o PowerShell para atualizar o runtime de um cluster do Service Fabric hospedado pelo Azure.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 5bb3760879682f9fc828d2a43690d34afb110403
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 280e25834d015d89ab7cbba2a2b2b0f36dcf19fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457836"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o tempo de execução de um cluster do Service Fabric no Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
-Este tutorial é a parte quatro de uma série e mostra como fazer upgrade do tempo de execução do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi escrita para clusters do Service Fabric em execução no Azure e não se aplica a clusters autônomos do Service Fabric.
+Este tutorial é a parte quatro de uma série e mostra como fazer upgrade do runtime do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi escrita para clusters do Service Fabric em execução no Azure e não se aplica a clusters autônomos do Service Fabric.
 
 > [!WARNING]
-> Esta parte do tutorial requer o PowerShell. As ferramentas da CLI do Azure ainda não dão suporte ao upgrade do tempo de execução do cluster. Como alternativa, pode ser feito o upgrade de um cluster no portal. Para saber mais, veja [Upgrade de um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
+> Esta parte do tutorial requer o PowerShell. As ferramentas da CLI do Azure ainda não dão suporte ao upgrade do runtime do cluster. Como alternativa, pode ser feito o upgrade de um cluster no portal. Para saber mais, veja [Upgrade de um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Se o cluster já estiver executando o tempo de execução mais recente do Service Fabric, você não precisará executar esta etapa. No entanto, este artigo pode ser usado para instalar qualquer tempo de execução com suporte em um cluster do Azure Service Fabric.
+Se o cluster já estiver executando o runtime mais recente do Service Fabric, você não precisará executar esta etapa. No entanto, este artigo pode ser usado para instalar qualquer runtime com suporte em um cluster do Azure Service Fabric.
 
 Neste tutorial, você aprenderá como:
 
@@ -42,13 +31,13 @@ Nesta série de tutoriais, você aprenderá a:
 > * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro no Azure usando um modelo
 > * [Monitorar um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Reduzir ou escalar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
-> * Atualizar o tempo de execução de um cluster
+> * Atualizar o runtime de um cluster
 > * [Excluir um cluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -67,9 +56,9 @@ Get-AzSubscription
 Set-AzContext -SubscriptionId <guid>
 ```
 
-## <a name="get-the-runtime-version"></a>Obter a versão de tempo de execução
+## <a name="get-the-runtime-version"></a>Obter a versão de runtime
 
-Depois de se conectar ao Azure e selecionar a assinatura que contém o cluster do Service Fabric, você poderá obter a versão de tempo de execução do cluster.
+Depois de se conectar ao Azure e selecionar a assinatura que contém o cluster do Service Fabric, você poderá obter a versão de runtime do cluster.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
@@ -84,15 +73,15 @@ Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 
 Anote o valor de **ClusterCodeVersion**. Esse valor será usado na próxima seção.
 
-## <a name="upgrade-the-runtime"></a>Fazer upgrade do tempo de execução
+## <a name="upgrade-the-runtime"></a>Fazer upgrade do runtime
 
-Use o valor de **ClusterCodeVersion** da seção anterior com o cmdlet `Get-ServiceFabricRuntimeUpgradeVersion` para descobrir para quais versões há upgrades disponíveis. Esse cmdlet só pode ser executado em um computador conectado à internet. Por exemplo, se quiser ver para quais versões de tempo de execução você pode fazer upgrade da versão `5.7.198.9494`, use o seguinte comando:
+Use o valor de **ClusterCodeVersion** da seção anterior com o cmdlet `Get-ServiceFabricRuntimeUpgradeVersion` para descobrir para quais versões há upgrades disponíveis. Esse cmdlet só pode ser executado em um computador conectado à internet. Por exemplo, se quiser ver para quais versões de runtime você pode fazer upgrade da versão `5.7.198.9494`, use o seguinte comando:
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 ```
 
-Com uma lista de versões, você poderá fazer upgrade do cluster do Azure Service Fabric para um tempo de execução mais recente. Por exemplo, se versão `6.0.219.9494` estiver disponível, use o seguinte comando para fazer upgrade do seu cluster.
+Com uma lista de versões, você poderá fazer upgrade do cluster do Azure Service Fabric para um runtime mais recente. Por exemplo, se versão `6.0.219.9494` estiver disponível, use o seguinte comando para fazer upgrade do seu cluster.
 
 ```powershell
 Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
@@ -102,7 +91,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 ```
 
 > [!IMPORTANT]
-> O upgrade do tempo de execução do cluster pode demorar muito para ser concluído. O PowerShell fica bloqueado durante a execução do upgrade. Você pode usar outra sessão do PowerShell para verificar o status do upgrade.
+> O upgrade do runtime do cluster pode demorar muito para ser concluído. O PowerShell fica bloqueado durante a execução do upgrade. Você pode usar outra sessão do PowerShell para verificar o status do upgrade.
 
 O status do upgrade pode ser monitorado com o PowerShell ou a CLI do Azure Service Fabric (sfctl).
 
@@ -200,11 +189,11 @@ sfctl cluster upgrade-status
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Obter a versão do tempo de execução do cluster
-> * Fazer upgrade do tempo de execução do cluster
+> * Obter a versão do runtime do cluster
+> * Fazer upgrade do runtime do cluster
 > * Monitorar o upgrade
 
 Prosseguir para o próximo tutorial:

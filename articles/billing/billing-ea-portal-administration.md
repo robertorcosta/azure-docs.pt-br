@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: c53a051df0a0100d9209530490d910612be2f30d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4db710dc93b0a1fc3c85d24e9d79fb2e2d552cd1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849914"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644538"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -117,6 +117,8 @@ No momento, a oferta de Desenvolvimento/Teste não se aplica aos clientes do Azu
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferir uma conta empresarial para um novo registro
 
+Uma transferência de conta move um proprietário da conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Isso é feito quando você tem vários registros ativos e só deseja mover os proprietários da conta selecionados.
+
 Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um novo registro:
 
 - Somente as contas especificadas na solicitação são transferidas. Se todas as contas forem escolhidas, elas serão todas transferidas.
@@ -124,44 +126,37 @@ Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um no
 
 ### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
 
-A data de início de vigência da transferência pode ser uma data ou posterior à data de início do registro para o qual você deseja transferir. O registro para o qual você está transferindo é o _registro de destino_. Após a transferência da conta, todas as informações de uso na conta antes da data de início de vigência da transferência permanecem no registro do qual você está transferindo. O registro do qual você está transferindo é o _registro de origem_.  O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
+Você pode definir a data de uma transferência de conta como uma data retroativa até a data de início do registro de destino ou a data de início da conta, o que tiver uma data de início posterior. Após a transferência da conta, todas as informações de uso na conta antes da data de início de vigência da transferência permanecem no registro do qual você está transferindo. As informações de uso após a data de transferência serão movidas para o registro de destino.
 
-Defina uma data retroativa para uma transferência de registro até a data de início do registro de destino. Ou pode fazê-lo até a data de início efetiva do registro de origem.
-
-### <a name="monetary-commitment"></a>Compromisso monetário
-
-O compromisso monetário não é transferível entre registros. Os saldos de compromisso monetário são associados contratualmente ao registro em que ele foi pedido. O compromisso monetário não é transferido como parte do processo de transferência do registro ou da conta.
-
-### <a name="services-affected"></a>Serviços afetados
-
-Não há tempo de inatividade durante a transferência da conta. Ela poderá ser concluída no mesmo dia da solicitação se todas as informações necessárias forem fornecidas.
-
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao solicitar uma transferência de conta, forneça as seguintes informações:
 
-
-- Nome da conta e ID do proprietário da conta a ser transferida
+- O número do registro de destino, o nome da conta e o email do proprietário da conta a ser transferido
 - Para o registro de origem, o número de registro e a conta a serem transferidos
-- Para o registro de destino, o número de registro para o qual transferir
-- A data de início de vigência da transferência da conta pode ser uma data igual ou posterior à data de início do registro de destino
+- Quanto à data de início de vigência da transferência de conta, ela pode ser retroativa até a data de início do registro de destino ou a data de início da conta, o que tiver uma data de início posterior
 
 Outros pontos para ter em mente antes de uma transferência de conta:
 
 - A aprovação de um administrador de EA é necessária para o registro de origem e o de destino
 - Se uma transferência de conta não atender aos seus requisitos, considere uma transferência de registro.
 - A transferência de conta transfere todos os serviços e assinaturas relacionados às contas específicas.
-- Depois que a transferência for concluída, a conta transferida será exibida como inativa no registro de origem.
-- Uma transferência de conta pode ser pré-datada para qualquer data desde a data de início do registro de destino.
+- Depois que a transferência for concluída, a conta transferida aparecerá inativa no registro de origem e aparecerá ativa no registro de destino.
 - A conta mostra a data de término correspondente à data de transferência efetiva no registro de origem e como uma data de início no registro de destino.
 - Qualquer uso ocorrido para a conta antes da data de transferência efetiva permanece sob o registro de origem.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferir Registro Enterprise para um novo registro
 
+Uma transferência de registro é considerada quando:
+
+- O termo de compromisso de um registro atual chegou ao fim.
+- Um registro está no status expirado/estendido e um novo contrato é negociado.
+- Se você tiver vários registros e desejar consolidar todas as contas e a cobrança em um só registro.
+
 Quando você solicita a transferência de um Registro Enterprise inteiro para um registro, as seguintes ações ocorrem:
 
-- Todos os serviços, assinaturas, contas, departamentos e toda a estrutura de registro do Azure, incluindo todos os administradores de departamento do EA, são transferidos.
+- Todos os serviços, as assinaturas, as contas, os departamentos e toda a estrutura de registro do Azure, incluindo todos os administradores de departamento do EA, são transferidos para um novo registro de destino.
 - O status do registro é definido como _Transferido_. O registro transferido está disponível apenas para fins de relatório de uso histórico.
 - Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional em relação ao registro.
 - Qualquer saldo de compromisso monetário restante no contrato é perdido, incluindo termos futuros.
@@ -171,36 +166,33 @@ Quando você solicita a transferência de um Registro Enterprise inteiro para um
 
 ### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
 
-A data de início de vigência da transferência pode ser uma data ou posterior à data de início do registro para o qual você deseja transferir ao registro de destino.
+A data de efetivação da transferência pode ser a data de início do registro de destino ou uma data posterior a ela.
 
 O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
 
-### <a name="effective-transfer-date-in-the-past"></a>Data de início de vigência d transferência no passado
+Há suporte para uma transferência com data retroativa até a data de início do registro de destino. O fornecimento da data de transferência escolhida não afeta o uso de uma fatura de excedente que já foi emitida.
 
-Você pode definir a data de uma transferência de conta retroativamente até a data de início do registro de destino. Ou pode fazê-lo até a data de início efetiva do registro de origem.
-
-### <a name="monetary-commitment"></a>Compromisso monetário
-
-O compromisso monetário não é transferível entre registros. Os saldos de compromisso monetário são associados contratualmente ao registro em que ele foi pedido. O compromisso monetário não é transferido como parte do processo de transferência do registro ou da conta.
-
-### <a name="services-affected"></a>Serviços afetados
-
-Não há tempo de inatividade durante a transferência da conta. Ela poderá ser concluída no mesmo dia da solicitação se todas as informações necessárias forem fornecidas.
-
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Ao solicitar uma transferência de registro, forneça as seguintes informações:
 
-- Para o registro de origem, o número de registro e a conta a serem transferidos.
+- Para o registro de origem, o número de registro.
 - Para o registro de destino, o número de registro no qual transferir.
 - A data de início de vigência da transferência do registro pode ser uma data igual ou posterior à data de início do registro de destino. A data escolhida não pode afetar o uso de nenhuma fatura excedente já emitida.
 
 Outros pontos para ter em mente antes de uma transferência de registro:
 
-- A aprovação de um Administrador de EA é necessária para o registro de origem e o de destino.
+- É necessária a aprovação dos administradores do EA do registro de origem e de destino.
 - Se uma transferência de registro não atender aos seus requisitos, considere uma transferência de conta.
-- Somente as contas que você especificar serão transferidas. Você pode solicitar para transferir todas as suas contas.
-- O registro de origem retém o próprio status como ativo/estendido. Você poderá continuar usando o registro até que ele expire.
+- O status do registro de origem será atualizado para transferido e só estará disponível para fins de relatório de uso histórico.
+
+### <a name="monetary-commitment"></a>Compromisso monetário
+
+O compromisso monetário não é transferível entre registros. Os saldos de compromisso monetário são associados contratualmente ao registro em que ele foi pedido. O compromisso monetário não é transferido como parte do processo de transferência do registro ou da conta.
+
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço afetado para transferências de conta e registro
+
+Não há tempo de inatividade durante uma transferência de conta ou de registro. Ela poderá ser concluída no mesmo dia da solicitação se todas as informações necessárias forem fornecidas.
 
 ## <a name="change-account-owner"></a>Alterar proprietário da conta
 
@@ -224,7 +216,7 @@ Se a assinatura for transferida para uma conta em um locatário diferente do Azu
 
 Se o destinatário precisar restringir o acesso a seus recursos do Azure, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, selecione **Todos os recursos**.
 3. Selecione o recurso.
 4. Na página de recursos, clique em **Configurações** para exibir e atualizar os segredos existentes.

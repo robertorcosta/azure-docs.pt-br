@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 012b13c440b8d0873e387c7d185803dc07852bf7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 340017a121d12c95c7c04bbfe67b336638209e9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439005"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ O pipeline neste tutorial tem uma atividade: atividade de Hive do Azure HDInsigh
 > 
 > Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Leia [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e siga as etapas na seção "Pré-requisitos".
 
 Este artigo não fornece uma visão geral conceitual do serviço do Data Factory. Para obter mais informações sobre o serviço, leia [Introdução ao Azure Data Factory](data-factory-introduction.md).  
@@ -52,7 +52,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline em um data fact
 
 Para criar um data factory, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Novo** > **Dados + Análise** > **Data Factory**.
 
@@ -63,7 +63,7 @@ Para criar um data factory, siga estas etapas:
    ![Folha Nova data factory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > O nome do data factory deve ser globalmente exclusivo. Se a mensagem de erro "O nome do data factory GetStartedDF não está disponível” for exibida, altere o nome do data factory. Por exemplo, use yournameGetStartedDF e crie o data factory novamente. Para obter mais informações sobre regras de nomenclatura, confira [Data Factory: Regras de nomenclatura](data-factory-naming-rules.md).
+   > O nome do data factory deve ser globalmente exclusivo. Se a mensagem de erro "O nome do data factory GetStartedDF não está disponível” for exibida, altere o nome do data factory. Por exemplo, use yournameGetStartedDF e crie o data factory novamente. Para saber mais sobre as regras de nomenclatura, consulte [Data Factory: Regras de nomenclatura](data-factory-naming-rules.md).
    >
    > O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
    >
@@ -110,7 +110,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Neste tut
 
    ![Serviço vinculado de armazenamento](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como conseguir sua chave de acesso de armazenamento, confira as informações sobre como exibir, copiar e regenerar chaves de acesso de armazenamento em [Gerenciar sua conta de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+1. Substitua o **nome da conta** pelo nome da sua conta de armazenamento. Substitua a **chave de conta** com a chave de acesso da conta de armazenamento. Para saber como obter sua chave de acesso de armazenamento, confira [Gerenciar as chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
 1. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado.
 
@@ -434,7 +434,7 @@ Neste tutorial, você criou um data factory para processar dados executando um s
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script de Hive em um cluster do HDInsight sob demanda. Para ver como usar uma Atividade de cópia para copiar dados do armazenamento de blobs para um banco de dados SQL, confira [Tutorial: Copiar dados do armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 | Tópico | DESCRIÇÃO |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Data Factory e como usá-los para criar fluxos de trabalho controlado por dados de ponta a ponta para seu cenário ou negócio. |

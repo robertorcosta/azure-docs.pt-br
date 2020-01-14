@@ -11,48 +11,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: bbd456f82e333ab8e096e5695a55be43c2084c6d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 48f7e0b3d1289d8e9c620f931f9bc85570b90042
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449603"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Acompanhar o saldo de crédito Azure no Contrato de Cliente da Microsoft
 
-Verifique o saldo de crédito Azure de sua conta de cobrança para um Contrato de Cliente da Microsoft no portal do Azure. 
+Verifique o saldo de crédito Azure de sua conta de cobrança para um Contrato de Cliente da Microsoft no portal do Azure ou por meio de APIs REST.
 
-Use créditos para pagar os encargos que são qualificados para créditos. Você é cobrado quando usa produtos que não estão qualificados para créditos ou quando seu uso excede seu saldo de crédito. Para obter mais informações, confira [Produtos que não são cobertos pelos créditos Azure](#products-that-arent-covered-by-azure-credits).
-
-Na conta de cobrança de um Contrato de Cliente da Microsoft, os créditos são atribuídos a um perfil de cobrança. Cada perfil de cobrança tem seus próprios créditos. Você precisa ter uma função de proprietário, colaborador, leitor ou gerenciador de faturas no perfil de cobrança ou uma função de proprietário, colaborador ou leitor na conta de cobrança para exibir o saldo de crédito Azure de um perfil de cobrança. Para saber mais sobre as funções, confira [Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure](billing-understand-mca-roles.md).
+Na conta de cobrança de um Contrato de Cliente da Microsoft, os créditos são atribuídos a um perfil de cobrança. Cada perfil de cobrança tem créditos próprios, que são aplicados automaticamente aos encargos na respectiva fatura. Você precisa ter uma função de proprietário, colaborador, leitor ou gerenciador de faturas no perfil de cobrança ou uma função de proprietário, colaborador ou leitor na conta de cobrança para exibir o saldo de crédito Azure de um perfil de cobrança. Para saber mais sobre as funções, confira [Entender as funções administrativas do Contrato de Cliente da Microsoft no Azure](billing-understand-mca-roles.md).
 
 Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Microsoft. [Verifique se você tem acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-your-credit-balance-in-the-azure-portal"></a>Verificar seu saldo de crédito no portal do Azure
+## <a name="check-your-credit-balance"></a>Verificar seu saldo de crédito
 
-1. Entre no [Portal do Azure]( https://portal.azure.com).
+### <a name="azure-portaltabportal"></a>[Azure portal](#tab/portal)
+
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
     ![Captura de tela que mostra a pesquisa de Gerenciamento de Custos + Cobrança no portal](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  Selecione **Créditos Azure** no lado esquerdo. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança ou um perfil de cobrança e, em seguida, selecionar **créditos Azure**.
+3. Na página de escopos do orçamento, selecione a conta de cobrança para a qual você deseja acompanhar o saldo de crédito. A conta de cobrança deve ser do tipo **Contrato de Cliente da Microsoft**.
 
-4. A página de créditos Azure exibe as seguintes informações:
+    ![Captura de tela que mostra a pesquisa de Gerenciamento de Custos + Cobrança no portal](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
 
-   ![Captura de tela do saldo de crédito e das transações de um perfil de cobrança](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+    > [!NOTE]
+    >
+    > O portal do Azure lembra o último escopo do orçamento que você acessou e exibirá o escopo na próxima vez que você visitar a página Gerenciamento de Custos + Cobrança. Você não verá a página de escopos do orçamento se tiver visitado a página de Gerenciamento de Custos + Cobrança anteriormente. Nesse caso, verifique se você está no [escopo certo](#check-access-to-a-microsoft-customer-agreement). Se não estiver, [alterne o escopo](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) para selecionar a conta de cobrança para um Contrato de Cliente da Microsoft.
+
+3. Selecione **Formas de pagamento** do lado esquerdo e, em seguida, selecione **Créditos Azure**.
+
+   ![Captura de tela do saldo de crédito de um perfil de cobrança](./media/billing-mca-check-azure-credits-balance/mca-payment-methods.png)
+
+4. A página de Créditos Azure tem as seguintes seções:
+    
+   #### <a name="balance"></a>Saldo
+   
+   A seção de saldo exibe o resumo do seu saldo de créditos Azure.
+
+   ![Captura de tela do saldo de crédito de um perfil de cobrança](./media/billing-mca-check-azure-credits-balance/mca-credit-balance.png)
 
    | Termo               | Definição                           |
    |--------------------|--------------------------------------------------------|
    | Saldo estimado  | O valor estimado de créditos que você terá depois de considerar todas as transações faturadas e pendentes |
    | Saldo atual    | Valor de créditos da última fatura. Ele não inclui nenhuma transação pendente |
-   | Transações       | Transações de cobrança que afetaram o seu saldo de crédito Azure |
 
    Quando o saldo estimado cair para 0, você será cobrado por todo o seu uso, incluindo os produtos qualificados para créditos.
 
-6. Selecione **Lista de créditos** para exibir a lista de créditos do perfil de cobrança. A lista de créditos fornece as seguintes informações:
+   #### <a name="credits-list"></a>Lista de créditos
+   
+   A seção de lista de créditos exibe a lista de créditos Azure.
 
-   ![Captura de tela da listas de créditos de um perfil de cobrança](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![Captura de tela da listas de créditos de um perfil de cobrança](./media/billing-mca-check-azure-credits-balance/mca-credits-list.png)
 
    | Termo | Definição |
    |---|---|
@@ -63,7 +78,28 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
    | Valor original | O valor original do crédito |
    | Status | O status atual do crédito. O status pode ser ativo, usado, expirado ou a expirar |
 
-## <a name="check-your-credit-balance-programmatically"></a>Verificar seu saldo de crédito de forma programática
+   #### <a name="transactions"></a>Transactions
+
+   A seção transações exibe todas as transações que afetaram o seu saldo de crédito.
+
+   ![Captura de tela das transações de crédito de um perfil de cobrança](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
+    
+   | Termo | Definição |
+   |---|---|
+   | Data da transação | A data em que a transação ocorreu |
+   | DESCRIÇÃO | A descrição da transação |
+   | Amount| A quantidade de transações |
+   | Saldo | O saldo após a transação |
+
+    > [!NOTE]
+    >
+    > Se você não vê créditos Azure na página de formas de pagamento, significa que você não tem créditos ou não selecionou o escopo certo. Selecione a conta de cobrança que tem créditos ou um dos respectivos perfis de cobrança. Para saber como alterar os escopos, confira [Alternar os escopos do orçamento no portal do Azure](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+
+5. Se você estiver exibindo créditos Azure no escopo da conta de cobrança e a conta de cobrança tiver mais de um perfil de cobrança, a página de créditos Azure mostrará uma tabela com um resumo dos créditos Azure para cada perfil de cobrança. Selecione um perfil de cobrança na lista, selecione as formas de pagamento e os créditos Azure para exibir detalhes de um perfil de cobrança.
+
+    ![Captura de tela da lista de crédito de uma conta de cobrança](./media/billing-mca-check-azure-credits-balance/mca-account-credit-list.png)
+
+### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
 
 Use as APIs de [Cobrança do Azure](https://docs.microsoft.com/rest/api/billing/) e [Consumo](https://docs.microsoft.com/rest/api/consumption/) para obter o saldo de crédito de sua conta de cobrança de forma programática.
 
@@ -324,6 +360,8 @@ A resposta da API retorna todas as transações que afetaram o saldo de crédito
 | `closedBalance`  | O saldo após a transação.   |
 | `eventType`  | O tipo de transação.   |
 | `invoiceNumber`  | O número da fatura na qual a transação é cobrada. Ele estará vazio para a transação pendente.   |
+
+---
 
 ## <a name="how-credits-are-used"></a>Como os créditos são usados
 

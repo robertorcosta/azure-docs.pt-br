@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499358"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660793"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -47,7 +47,7 @@ Os provedores de dados podem oferecer a seus consumidores de dados atualizaçõe
 
 Quando um consumidor de dados aceita um compartilhamento de dados, ele é capaz de receber os dados em um armazenamento de dados de sua escolha. Por exemplo, se o provedor de dados compartilhar dados usando o Armazenamento de Blobs do Azure, o consumidor de dados poderá receber esses dados no Azure Data Lake Storage. Da mesma forma, se o provedor de dados compartilhar dados de um SQL Data Warehouse do Azure, o consumidor de dados poderá escolher se deseja receber os dados em um Azure Data Lake Storage, em um Banco de Dados SQL do Azure ou em um SQL Data Warehouse do Azure. No caso do compartilhamento de fontes baseadas em SQL, o consumidor de dados também pode escolher se deseja receber dados em parquet ou csv. 
 
-O compartilhamento in-loco está atualmente em versão prévia limitada para o Azure Data Explorer. Os provedores de dados são capazes de compartilhar dados no local em que eles residem, sem movimentação de dados, por meio de um link simbólico. Inscreva-se para a versão prévia limitada do compartilhamento in-loco para o Azure Data Explorer [aqui](https://aka.ms/azuredatasharepreviewsignup). 
+O compartilhamento in-loco está atualmente em versão prévia limitada para o Azure Data Explorer. Os provedores de dados são capazes de compartilhar dados no local em que eles residem, sem movimentação de dados, por meio de um link simbólico. Inscreva-se [aqui](https://aka.ms/azuredatasharepreviewsignup) para a versão prévia limitada do compartilhamento in-loco para o Azure Data Explorer. 
 
 ## <a name="key-capabilities"></a>Principais recursos
 

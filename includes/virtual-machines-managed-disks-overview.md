@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355901"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -37,7 +37,7 @@ Os discos gerenciados são compatíveis com as [Zonas de Disponibilidade](../art
 
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
-Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis à vontade. O Backup do Azure é compatível com o backup e a restauração de discos gerenciados. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup da VM do Azure.
+Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis à vontade. No momento, o Backup do Azure dá suporte a tamanhos de disco de até quatro TiB (tebibytes).  O Backup do Azure é compatível com o backup e a restauração de discos gerenciados. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup da VM do Azure.
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
@@ -126,5 +126,7 @@ O Azure usa um canal de rede priorizado para tráfego de disco, que prevalece so
 Confira nosso artigo de [design para alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações de VM + Disco para que você possa atingir o desempenho desejado
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Se você quiser ver um vídeo que entre em mais detalhes sobre os discos gerenciados, confira: [Melhor resiliência de VM do Azure com Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
 Saiba mais sobre os tipos de disco individual oferecidos pelo Azure, qual tipo é uma boa opção para suas necessidades e sobre os destinos de desempenho em nosso artigo sobre tipos de disco.

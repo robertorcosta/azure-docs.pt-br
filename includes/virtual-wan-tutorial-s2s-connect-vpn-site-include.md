@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bcc4af837cc28a18345e49cd39ddf88d24e44dd8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450854"
 ---
 1. Selecione **Conectar sites VPN** para abrir a página **Conectar sites**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "73488885"
    Preencha os seguintes campos:
 
    * Insira uma chave pré-compartilhada. Se você não inserir uma chave, o Azure gerará uma automaticamente para você.
-   * Selecione as configurações de Protocolo e IPsec. Consulte os detalhes de IPSec padrão/personalizado (adicione o link para a página)
+   * Selecione as configurações de Protocolo e IPsec. Veja [detalhes de IPSec padrão/personalizado] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
    * Selecione a opção apropriada para **Propagar Rota Padrão**. A opção **Habilitar** permite que o hub virtual propague uma rota padrão aprendida para essa conexão. Esse sinalizador habilita a propagação da rota padrão para uma conexão somente se já foi aprendida pelo hub de WAN Virtual como resultado da implantação de um firewall no hub ou se a opção de túnel forçado está habilitada em outro site conectado. A rota padrão não se origina no hub da WAN virtual.
 
 2. Selecione **Conectar**.

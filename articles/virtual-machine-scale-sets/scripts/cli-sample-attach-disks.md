@@ -1,6 +1,6 @@
 ---
-title: Exemplos da CLI do Azure – Anexar e usar discos de dados | Microsoft Docs
-description: Exemplos de CLI do Azure
+title: Exemplos da CLI do Azure – Anexar e usar discos de dados
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure e anexa e prepara os discos de dados usando a CLI do Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 04d0c557dcca3ca0acd736d3013cf9119490af52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661371"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351048"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Anexar e usar discos de dados com um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara os discos de dados.
@@ -30,7 +30,7 @@ Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.sh "Create a virtual machine scale set with data disks")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação

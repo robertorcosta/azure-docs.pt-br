@@ -7,7 +7,7 @@
     - name: Comparar serviços de mensagem
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Filas do Barramento de Serviço
       items:
@@ -203,9 +203,9 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Criar um namespace com tópico, assinatura e regra'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
-    - name: Segurança
+    - name: Seguro
       items:
-        - name: Configurar chaves gerenciadas pelo cliente para criptografia em repouso (Versão Prévia)
+        - name: Configurar chaves gerenciadas pelo cliente para criptografia em repouso
           href: configure-customer-managed-key.md
     - name: Solucionar problemas
       items:

@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466562"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, é preciso:
 
@@ -34,7 +34,7 @@ Para executar a amostra, é necessário gerar a biblioteca Python para a API RES
 
 Siga estas etapas para a instalação:
 
-1. Vá para https://editor.swagger.io.
+1. Ir para https://editor.swagger.io.
 1. Clique em **Arquivo** e, em seguida, em **Importar URL**.
 1. Insira a URL do Swagger, incluindo a região da assinatura do serviço de Fala: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Clique em **Gerar Cliente** e selecione **Python**.

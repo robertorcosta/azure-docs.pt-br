@@ -1,5 +1,5 @@
 ---
-title: Criar seções em sua fatura para organizar os custos – Azure
+title: Criar seções de fatura para organizar custos – Azure
 description: Saiba como organizar os custos com seções da fatura.
 author: amberbhargava
 manager: amberb
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: d70460f5a492c9699a6110d5ba164283934c584b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ff8b2da353d623cd9f05c8d0b0317587d7093ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389257"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar seções em sua fatura para organizar os custos
 
@@ -27,7 +27,7 @@ Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Mi
 
 Para criar uma seção da fatura, você precisa ser um **proprietário do perfil de cobrança** ou um **colaborador do perfil de cobrança**. Para obter mais informações, confira [Gerenciar seções da fatura do perfil de cobrança](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 2. Pesquise **Gerenciamento de Custos + Cobrança**.
 
@@ -39,7 +39,7 @@ Para criar uma seção da fatura, você precisa ser um **proprietário do perfil
 
 4. Na parte superior da página, selecione **Adicionar**.
 
-5. Insira um nome para a seção da fatura e selecione um perfil de cobrança. Você verá a seção nesta fatura do perfil de cobrança refletindo o uso de cada assinatura e as compras atribuídas à seção. 
+5. Insira um nome para a seção da fatura e selecione um perfil de cobrança. Você verá a seção nesta fatura do perfil de cobrança refletindo o uso de cada assinatura e as compras atribuídas à seção.
 
    ![Captura de tela que mostra a página de criação da seção da fatura](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 

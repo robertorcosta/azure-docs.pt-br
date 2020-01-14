@@ -1,21 +1,21 @@
 ---
 title: 'Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Java'
 titleSuffix: Azure Cognitive Services
-description: Use a API de Reconhecimento de Tinta Digital para começar a reconhecer traços de tinta digital.
+description: Use a API de Reconhecimento de Tinta Digital para começar a reconhecer traços de tinta digital neste início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: e8cd6a4acbd1492bba1c9e88b523a7c44a44f009
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448116"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Java
 
@@ -29,7 +29,7 @@ Normalmente, você chamará a API em um aplicativo de escrita à tinta digital. 
 
 O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - O JDK ([Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 
@@ -71,7 +71,7 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
 
 ## <a name="send-an-ink-recognition-request"></a>Enviar uma solicitação de reconhecimento de tinta
 
-Crie um método chamado `recognizeInk()` para reconhecer os dados de traço de tinta. Chame o método `sendRequest()` criado acima com o ponto de extremidade, a URL, a chave de assinatura e os dados JSON. Obtenha o resultado e imprima-o no console.
+Crie um método chamado `recognizeInk()` para reconhecer os dados de traço de tinta. Chame o método `sendRequest()` criado acima com seu ponto de extremidade, sua URL, sua chave de assinatura e seus dados JSON. Obtenha o resultado e imprima-o no console.
 
 [!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 

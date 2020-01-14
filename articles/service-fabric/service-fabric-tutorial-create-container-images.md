@@ -1,27 +1,17 @@
 ---
-title: Create imagens de contêiner no Service Fabric no Azure | Microsoft Docs
+title: Criar imagens de contêiner no Service Fabric no Azure
 description: Neste tutorial, você aprende a criar imagens de contêiner para um aplicativo do Service Fabric com vários contêineres.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Contêineres, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465442"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster do Service Fabric do Linux
 
@@ -41,7 +31,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Criar e executar um aplicativo do Service Fabric com contêineres](service-fabric-tutorial-package-containers.md)
 > * [Como o failover e o dimensionamento são manipulados no Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Ambiente de desenvolvimento do Linux configurado para o Service Fabric. Siga as instruções [aqui](service-fabric-get-started-linux.md) para configurar seu ambiente do Linux.
 * Este tutorial exige que você esteja executando a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).

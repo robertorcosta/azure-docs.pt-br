@@ -1,17 +1,17 @@
 ---
-title: Inicializar o hardware – Microsoft Azure FXT Edge Filer
+title: 'Tutorial: Inicializar o hardware – Azure FXT Edge Filer'
 description: Como definir uma senha inicial nos nós do Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256024"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550884"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Tutorial: Definir senhas de hardware
 
@@ -34,7 +34,7 @@ Repita estas etapas para cada nó que você usará em seu cluster.
 
 Este tutorial leva cerca de 15 minutos para ser concluído. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar este tutorial, conclua estas etapas: 
 

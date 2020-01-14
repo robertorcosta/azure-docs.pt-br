@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1c308243e3dfebb3622ebbe346771fe781b97cc5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443317"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Tutorial: Integrar o productboard ao Azure Active Directory
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o productboard ao Azure AD (Azure Ac
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -68,7 +68,7 @@ Para configurar e testar o SSO do Azure AD com o productboard, conclua os seguin
     * **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     * **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
 1. **[Configurar o SSO do productboard](#configure-productboard-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    * **[Criar usuário de teste do productboard](#create-productboard-test-user)** – para ter um equivalente do usuário B.Fernandes no EZOfficeInventory que esteja vinculado à representação do usuário no Azure AD.
+    * **[Criar um usuário de teste do productboard](#create-productboard-test-user)** – para ter um equivalente de B.Fernandes no productboard que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD

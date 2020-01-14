@@ -1,27 +1,27 @@
 ---
 title: 'Início Rápido: Verificar a ortografia com a API REST e o Python – Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática com este início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 9a75148ab1ca1dae0acb5af8128fe1220fbbe8b3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448464"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Python
 
 Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Python simples envia uma solicitação à API e retorna uma lista de correções sugeridas. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Python [3.x](https://www.python.org)
 
@@ -36,7 +36,7 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
    import json
    ```
 
-2. Crie variáveis para o texto do qual deseja fazer a verificação ortográfica, a chave de assinatura e o ponto de extremidade da Verificação Ortográfica do Bing.
+2. Crie variáveis para o texto do qual deseja fazer a verificação ortográfica, a chave de assinatura e o ponto de extremidade da Verificação Ortográfica do Bing. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -84,6 +84,15 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
+
+
+## <a name="run-the-application"></a>Executar o aplicativo
+
+Se estiver usando a linha de comando, use os comandos a seguir para executar o aplicativo.
+
+```bash
+python <FILE_NAME>.py
+```
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 

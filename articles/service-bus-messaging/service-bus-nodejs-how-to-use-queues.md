@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Usar filas do Barramento de Serviço do Azure no Node.js'
+title: Usar filas do Barramento de Serviço do Azure no Node.js usando o pacote azure-sb
 description: 'Início Rápido: Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462176"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Usar filas do Barramento de Serviço no Azure com o Node.js e o pacote azure-sb
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a criar aplicativos Node.js para enviar e receb
 
 O pacote [azure-sb](https://www.npmjs.com/package/azure-sb) usa [APIs REST de runtime do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). Obtenha uma experiência mais rápida com o novo [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) que usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido. Para saber mais sobre o novo pacote, confira [Como usar filas do Barramento de Serviço com o Node.js e o pacote @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package); caso contrário, continue lendo para ver como usar o pacote [azure](https://www.npmjs.com/package/azure).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 - Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
     1. Leia a **visão geral** rápida das **filas** do Barramento de Serviço. 
@@ -113,7 +113,7 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ```
 
 ### <a name="filters"></a>Filtros
-É possível aplicar operações de filtragem opcionais às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Filtros são objetos que implementam um método com a assinatura:
+É possível aplicar operações de filtragem opcionais às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com a assinatura:
 
 ```javascript
 function handle (requestOptions, next)

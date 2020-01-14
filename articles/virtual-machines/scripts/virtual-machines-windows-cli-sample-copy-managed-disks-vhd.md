@@ -1,5 +1,5 @@
 ---
-title: Exemplo da CLI do Azure – Copiar discos gerenciados para uma conta de armazenamento
+title: 'Copiar um disco gerenciado para uma conta de armazenamento: amostra da CLI'
 description: Exemplo da CLI do Azure – Exportar ou copiar discos gerenciados para uma conta de armazenamento.
 services: virtual-machines-windows
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: d6009a723297d03dc854d06529315b22b2f4de16
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 92c752c56c37b854bc793d897c664337cf8bfccd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249428"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463628"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar/copiar um disco gerenciado para uma conta de armazenamento usando a CLI do Azure
 
@@ -31,7 +31,7 @@ Esse script exporta o VHD subjacente de um disco gerenciado para uma conta de ar
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-managed-disks-vhd-to-storage-account/copy-managed-disks-vhd-to-storage-account.sh "Copy the VHD of a managed disk")]
 

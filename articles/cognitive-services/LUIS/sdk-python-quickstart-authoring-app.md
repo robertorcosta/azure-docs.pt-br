@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para Python'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes do LUIS para Python. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
+description: Introdução à biblioteca de clientes do LUIS para .Python com este início rápido. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381487"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento Vocal) para Python
 
@@ -30,7 +30,7 @@ Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para Py
 
 [Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Pacote de Criação (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Conta do portal do LUIS (Reconhecimento Vocal): [Crie um gratuitamente](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
@@ -43,10 +43,10 @@ Obtenha sua [chave inicial](luis-how-to-azure-subscription.md#starter-key) crian
 
 ### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
 
-Usando sua chave e a região da chave, crie duas variáveis de ambiente para autenticação:
+Usando a chave e a região da chave, crie duas variáveis de ambiente para autenticação:
 
 * `LUIS_AUTHORING_KEY` – a chave de recurso para autenticar as solicitações.
-* `LUIS_REGION` – a região associada à sua chave. Por exemplo, `westus`.
+* `LUIS_REGION` – a região associada à chave. Por exemplo, `westus`.
 
 Use as instruções para seu sistema operacional.
 
@@ -192,7 +192,7 @@ Execute o aplicativo com o comando `python` no seu arquivo de início rápido.
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 
@@ -205,6 +205,6 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 >[Criar um aplicativo LUIS para determinar as intenções do usuário](luis-quickstart-intents-only.md)
 
 * [O que é a API do LUIS (Reconhecimento Vocal)?](what-is-luis.md)
-* [O que há de novo?](whats-new.md)
+* [Novidades](whats-new.md)
 * [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md), [exemplos de enunciados](luis-concept-utterance.md) e [entidades predefinidas](luis-reference-prebuilt-entities.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py).

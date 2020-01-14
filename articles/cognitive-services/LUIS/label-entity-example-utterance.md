@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74383696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448082"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular uma entidade de aprendizado de máquina em um enunciado de exemplo
 
-A rotulagem de uma entidade em um enunciado de exemplo dá ao LUIS um exemplo do que é a entidade e de em que parte do enunciado a entidade poderá ser exibida. 
+A rotulagem de uma entidade em um enunciado de exemplo dá ao LUIS um exemplo do que é a entidade e de em que parte do enunciado a entidade poderá ser exibida.
 
 ## <a name="labeling-machine-learned-entity"></a>Rotular a entidade de aprendizado de máquina
 
-Considere a seguinte frase: `hi, please I want a cheese pizza in 20 minutes`. 
+Considere a seguinte frase: `hi, please I want a cheese pizza in 20 minutes`.
 
 1. Selecione o texto mais à esquerda, depois selecione o texto mais à direita da entidade e, em seguida, escolha a entidade com a qual você deseja rotular, neste caso, Pedido Completo. O _pedido concluído_ está rotulado na imagem a seguir.
 
     > [!div class="mx-imgBorder"]
     > ![Rotular uma entidade de aprendizado de máquina concluída](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-1. Escolha a entidade na janela pop-up. A entidade de pedido de pizza concluído rotulada inclui todas as palavras (da esquerda para a direita em inglês) rotuladas. 
+1. Escolha a entidade na janela pop-up. A entidade de pedido de pizza concluído rotulada inclui todas as palavras (da esquerda para a direita em inglês) rotuladas.
 
 ## <a name="review-labeled-text"></a>Examinar texto rotulado
 
-Após a rotulagem, examine o enunciado de exemplo e verifique se o intervalo de texto selecionado foi sublinhado com a entidade escolhida. A linha sólida indica que o texto foi rotulado. 
+Após a rotulagem, examine o enunciado de exemplo e verifique se o intervalo de texto selecionado foi sublinhado com a entidade escolhida. A linha sólida indica que o texto foi rotulado.
 
 > [!div class="mx-imgBorder"]
 > ![Entidade de aprendizado de máquina concluída e rotulada](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
@@ -55,12 +55,12 @@ Como alternativa, você pode selecionar o nome da entidade acima do texto e, em 
 
 A paleta de entidades oferece uma alternativa à experiência de rotulagem anterior. Ele permite que você focalize o texto para rotulá-lo instantaneamente com uma entidade.
 
-1. Abra a paleta de entidades selecionando o ícone de realce na parte superior direita da tabela de enunciado. 
+1. Abra a paleta de entidades selecionando o ícone de realce na parte superior direita da tabela de enunciado.
 
     > [!div class="mx-imgBorder"]
     > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-2. Selecione o componente da entidade. Essa ação é visualmente indicada com um novo cursor. O cursor segue o mouse à medida que você se move no portal. 
+2. Selecione o componente da entidade. Essa ação é visualmente indicada com um novo cursor. O cursor segue o mouse à medida que você se move no portal.
 
     > [!div class="mx-imgBorder"]
     > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
@@ -77,11 +77,20 @@ Subcomponentes em entidades são rotulados exatamente do mesmo modo que as entid
 > [!div class="mx-imgBorder"]
 > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
-Os subcomponentes podem ser rotulados somente se o pai também é rotulado. 
+Os subcomponentes podem ser rotulados somente se o pai também é rotulado.
+
+## <a name="labeling-entity-roles"></a>Rotular funções de entidade
+
+As funções de entidade são rotuladas usando a paleta da entidades.
+
+1. Na página Detalhes da intenção, selecione a **paleta de entidades** na barra de ferramentas de contexto.
+1. Depois que a Paleta de entidades for aberta, selecione a entidade na lista de entidades.
+1. Mova para o **Inspetor de entidade** e, em seguida, selecione uma função existente ou crie uma função.
+1. No texto do enunciado de exemplo, rotule o texto com a função de entidade. 
 
 ## <a name="unlabel-entities"></a>Remover o rótulo de entidades
 
-Para remover o rótulo de uma entidade, selecione o nome da entidade abaixo do texto e selecione **Remover rótulo**. Se a entidade cujo rótulo você está tentando remover tiver subcomponentes rotulados, os rótulos dos subcomponentes deverão ser removidos primeiro. 
+Para remover o rótulo de uma entidade, selecione o nome da entidade abaixo do texto e selecione **Remover rótulo**. Se a entidade cujo rótulo você está tentando remover tiver subcomponentes rotulados, os rótulos dos subcomponentes deverão ser removidos primeiro.
 
 ## <a name="editing-labels-using-the-entity-palette"></a>Como editar rótulos usando a paleta da entidade
 
@@ -98,7 +107,6 @@ Por exemplo:
 
     > [!div class="mx-imgBorder"]
     > ![Paleta de entidades de uma entidade de aprendizado de máquina](media/label-utterances/edit-label-with-palette-2.png)
-
 
 ## <a name="labels-for-matching-text-entities"></a>Rótulos para entidades de texto correspondentes
 

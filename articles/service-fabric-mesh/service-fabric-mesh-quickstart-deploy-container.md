@@ -1,20 +1,16 @@
 ---
-title: Início Rápido - Implantar Olá, Mundo na malha do Service Fabric | Microsoft Docs
+title: 'Início Rápido: Implantar um aplicativo Olá, Mundo na Malha do Azure Service Fabric'
 description: Este início rápido mostra como implantar um aplicativo da Malha do Service Fabric na Malha do Azure Service Fabric.
-services: service-fabric-mesh
-keywords: Não adicione ou edite palavras-chave sem consultar seu especialista em SEO.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458964"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implantar Olá, Mundo na malha do Service Fabric
 
@@ -95,9 +91,9 @@ Examine os logs para o aplicativo implantado usando o comando `az mesh code-pack
 az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando você estiver pronto para excluir o aplicativo, execute o comando [az group delete][az-group-delete] para remover o grupo de recursos e os recursos de rede e aplicativos que ele contém.
+Quando estiver pronto para excluir o aplicativo, execute o comando [az group delete][az-group-delete] para remover o grupo de recursos e os recursos de rede e aplicativo que ele contém.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

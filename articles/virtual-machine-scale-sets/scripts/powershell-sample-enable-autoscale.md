@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell – Habilitar o dimensionamento automático baseado em host | Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos do Azure PowerShell – Habilitar o dimensionamento automático baseado em host
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 e usa métricas baseadas em host para dimensionar automaticamente conforme a carga da CPU muda.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf424cabdfee4e325078594b8b0cc09fe26e9625
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 92411785419a1544b2d172d3a18661d501d4e5cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350830"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 e usa métricas baseadas em host para dimensionar automaticamente conforme a carga da CPU muda.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/auto-scale-host-metrics/auto-scale-host-metrics.ps1 "Automatically scale a virtual machine scale set")]

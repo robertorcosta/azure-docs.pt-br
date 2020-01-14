@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes do Personalizador para Python | Microsoft Docs'
+title: 'Início Rápido: Biblioteca de clientes do Personalizador para Python'
 titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes do Personalizador para Python usando um loop de aprendizado.
+description: Este guia de início rápido mostra como começar a trabalhar com a biblioteca de clientes do Personalizador para Python usando um loop de aprendizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378935"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do Personalizador para Python
 
@@ -28,7 +28,7 @@ Introdução à biblioteca de clientes do Personalizador para Python. Siga essas
 
 [Pacote (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -47,7 +47,7 @@ Há várias etapas para usar este início rápido:
 
 ## <a name="create-a-personalizer-azure-resource"></a>Criar um recurso do Azure do Personalizador
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Personalizador usando o [portal do Azure](https://portal.azure.com/) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Veja [Como criar um recurso dos Serviços Cognitivos usando o portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter mais detalhes. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o Personalizador usando o [portal do Azure](https://portal.azure.com/) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Veja [Como criar um recurso dos Serviços Cognitivos usando o portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para obter mais detalhes. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services) válida por 7 dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
@@ -70,7 +70,7 @@ pip install azure-cognitiveservices-personalizer
 
 ## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
 
-No portal do Azure, no recurso do Personalizador na página **Configuração**, altere a **Frequência de atualização do modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
+No portal do Azure, no recurso do Personalizador na página **Configuração**, altere a **Frequência de atualização de modelo** para 10 segundos. Isso treinará o serviço rapidamente, permitindo que você veja como a ação superior é alterada a cada iteração.
 
 ![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -170,7 +170,7 @@ python sample.py
 
 ![O programa de Início Rápido faz algumas perguntas para coletar as preferências do usuário, conhecidas como recursos e, em seguida, fornece a ação principal.](./media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

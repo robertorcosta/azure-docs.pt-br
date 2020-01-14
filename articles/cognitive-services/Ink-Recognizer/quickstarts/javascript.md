@@ -1,35 +1,35 @@
 ---
 title: 'Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Node.js'
 titleSuffix: Azure Cognitive Services
-description: Use a API de Reconhecimento de Tinta Digital para começar a reconhecer traços de tinta digital.
+description: Use a API de Reconhecimento de Tinta Digital para começar a reconhecer traços de tinta digital neste início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a37f2b7044fcba04ca18093aa73563961e9e35de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996904"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448137"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e JavaScript
 
-Use este guia de início rápido para começar a usar a API de Reconhecimento de Tinta Digital em traços de tinta digital. Este aplicativo JavaScript envia uma solicitação de API que contém dados do traço de tinta formatados em JSON e exibe a resposta.
+Use este início rápido para começar a usar a API de Reconhecimento de Tinta Digital em traços de tinta digital. Este aplicativo JavaScript envia uma solicitação de API que contém dados do traço de tinta formatados em JSON e exibe a resposta.
 
 Embora o aplicativo seja escrito em Javascript e executado no navegador da Web, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Normalmente você chamaria a API em um aplicativo de tinta digital. Este início rápido envia dados de traço de tinta para a amostra manuscrita a seguir de um arquivo JSON.
+Normalmente, você chamará a API em um aplicativo de escrita à tinta digital. Este início rápido envia dados de traço de tinta para a amostra manuscrita a seguir de um arquivo JSON.
 
 ![uma imagem de um texto manuscrito](../media/handwriting-sample.jpg)
 
 O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um navegador da Web
 - Os dados de traço de tinta de exemplo deste início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).

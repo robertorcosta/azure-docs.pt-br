@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706132"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561619"
 ---
 # <a name="what-are-durable-functions"></a>O que são as Durable Functions?
 
@@ -36,7 +36,7 @@ O principal caso de uso das Durable Functions é simplificar requisitos complexo
 * [Encadeamento de funções](#chaining)
 * [Fan-out/fan-in](#fan-in-out)
 * [APIs HTTP assíncronas](#async-http)
-* [Monitoramento](#monitoring)
+* [Monitoring](#monitoring)
 * [Interação humana](#human)
 * [Agregador (entidades com estado)](#aggregator)
 
@@ -48,7 +48,7 @@ No padrão de encadeamento de funções, uma sequência de funções é executad
 
 Use as Durable Functions para implementar o padrão de encadeamento de funções de forma concisa, conforme mostrado no exemplo a seguir.
 
-Nesse exemplo, os valores `F1`, `F2`, `F3` e `F4` são os nomes de outras funções no aplicativo de funções. Implemente o fluxo de controle usando construtos de codificação imperativa normal. O código é executado de cima para baixo. Ele pode envolver a semântica do fluxo de controle da linguagem existente, como condicionais e loops. Você pode incluir a lógica de tratamento de erro em blocos `try`/`catch`/`finally`.
+Nesse exemplo, os valores `F1`, `F2`, `F3` e `F4` são os nomes de outras funções no mesmo aplicativo de funções. Implemente o fluxo de controle usando construtos de codificação imperativa normal. O código é executado de cima para baixo. Ele pode envolver a semântica do fluxo de controle da linguagem existente, como condicionais e loops. Você pode incluir a lógica de tratamento de erro em blocos `try`/`catch`/`finally`.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -353,7 +353,7 @@ Um cliente externo pode entregar a notificação de eventos para uma função de
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-Um evento também pode ser gerado usando o cliente de orquestração durável de outra função:
+Um evento também pode ser gerado usando o cliente de orquestração durável de outra função no mesmo aplicativo de funções:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

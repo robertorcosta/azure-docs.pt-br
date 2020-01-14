@@ -1,26 +1,17 @@
 ---
-title: Monitoramento e diagnóstico dos serviços ASP.NET Core no Service Fabric no Azure | Microsoft Docs
+title: Monitorar e diagnosticar serviços do ASP.NET Core
 description: Neste tutorial, você aprenderá como configurar monitoramento e diagnóstico para um aplicativo ASP.NET Core do Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228087"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614036"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric usando o Application Insights
 
@@ -41,7 +32,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar o monitoramento e o diagnóstico do aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -266,7 +257,7 @@ Quando terminar de fazer essas alterações, **Inicie** o aplicativo para ele co
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 > * Configurar o Application Insights para seu aplicativo
 > * Coletar telemetria de resposta para rastrear comunicação baseada em HTTP entre serviços

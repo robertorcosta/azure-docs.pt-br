@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10b9dba2f54a2d20b0cb405285772f8c3d74b3a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450855"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN Virtual do Azure
 
@@ -49,7 +49,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Criar uma WAN virtual
+## <a name="openvwan"></a>Criar uma WAN Virtual
 
 Em um navegador, acesse o portal do Azure e entre com sua conta do Azure.
 
@@ -61,11 +61,11 @@ Em um navegador, acesse o portal do Azure e entre com sua conta do Azure.
 
    * **Assinatura**: selecione a assinatura que você quer usar.
    * **Grupo de recursos**: crie um novo ou use um existente.
-   * **Local do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
+   * **Localização do grupo de recursos**: escolha uma localização de recursos na lista suspensa. Uma WAN é um recurso global e não pode residir em uma região específica. No entanto, você deve selecionar uma região a fim de gerenciar e localizar o recurso de WAN criado mais facilmente.
    * **Nome**: digite o nome que você quer dar à sua WAN.
    * **Tipo:** Básico ou Padrão. Se você criar uma WAN básica, poderá criar apenas um hub básico. Os hubs básicos são capazes somente de conectividade VPN site a site.
-4. Quando terminar de preencher os campos, selecione **Revisar + Criar**.
-5. Depois que a validação for aprovada, selecione **Criar** para criar a WAN virtual.
+4. Quando terminar de preencher os campos, selecione **Examinar + Criar**.
+5. Depois que a validação for aprovada, selecione **Criar** para criar a WAN Virtual.
 
 ## <a name="hub"></a>Criar um hub
 
@@ -75,7 +75,7 @@ Um hub é uma rede virtual que pode conter gateways para funcionalidade site a s
 
 ## <a name="site"></a>Criar um site
 
-Agora você está pronto para criar os sites correspondentes aos seus locais físicos. Crie quantos sites forem necessários para corresponder a seus locais físicos. Por exemplo, se você tiver uma filial em Nova York, uma filial em Londres e uma filial em Los Angeles, crie três sites separados. Esses sites contêm seus pontos de extremidade do dispositivo VPN local. Você pode criar até 1000 sites por hub virtual em uma WAN virtual. No caso de vários hubs, você pode criar 1000 para cada um desses hubs. Se tiver um dispositivo CPE de parceiro de WAN Virtual (inserção de link), verifique com ele para saber mais sobre a automação no Azure. Normalmente, a automação implica em uma experiência simples de clique para exportar informações de branch em grande escala para o Azure e configurar a conectividade do CPE para o gateway de VPN da WAN Virtual do Azure (aqui está um link para as orientações sobre automação do Azure para os parceiros CPE).
+Agora você está pronto para criar os sites correspondentes aos seus locais físicos. Crie quantos sites forem necessários para corresponder a seus locais físicos. Por exemplo, se você tiver uma filial em Nova York, uma filial em Londres e uma filial em Los Angeles, crie três sites separados. Esses sites contêm seus pontos de extremidade do dispositivo VPN local. Você pode criar até 1000 sites por hub virtual em uma WAN virtual. No caso de vários hubs, você pode criar 1000 para cada um desses hubs. Se tiver um dispositivo CPE de parceiro de WAN Virtual (inserção de link), verifique com ele para saber mais sobre a automação no Azure. Normalmente, a automação implica em uma experiência simples de clique para exportar informações de branch em grande escala para o Azure e configurar a conectividade do CPE para o gateway de VPN da WAN Virtual do Azure. Para obter mais informações, confira [Diretrizes de automação do Azure para os parceiros do CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 

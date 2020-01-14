@@ -4,15 +4,15 @@ description: Defina as configurações que se aplicam a todo o Ambiente do Servi
 author: stefsch
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 12/19/2019
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 36208b4662242b37c135eaffc745a819c11fa015
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 42a06724274288955b11c3daf9cbf33d72ddf75d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430497"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -56,6 +56,19 @@ Como alternativa, você pode atualizar o Ambiente de Serviço de Aplicativo usan
 
 No entanto, você envia a alteração, isso demora aproximadamente 30 minutos, multiplicados pelo número de front-ends no Ambiente de Serviço de Aplicativo, para que a alteração tenha efeito.
 Por exemplo, se um Ambiente de Serviço de Aplicativo tiver quatro front-ends, levará aproximadamente duas horas para que a atualização de configuração seja concluída. Embora a alteração de configuração esteja sendo revertida, nenhuma outra operação de colocação em escala ou operação de alteração pode ocorrer no Ambiente de Serviço de Aplicativo.
+
+## <a name="enable-internal-encryption"></a>Habilitar criptografia interna
+
+O Ambiente do Serviço de Aplicativo funciona como um sistema de caixa preta em que você não pode ver os componentes internos nem a comunicação dentro do sistema. Para habilitar uma taxa de transferência mais alta, a criptografia não é habilitada por padrão entre os componentes internos. O sistema é seguro, pois o tráfego está totalmente inacessível para ser monitorado ou acessado. Se você tiver um requisito de conformidade, embora exija a criptografia completa do caminho de dados de ponta a ponta, há uma maneira de habilitar isso com um clusterSetting.  
+
+        "clusterSettings": [
+            {
+                "name": "InternalEncryption",
+                "value": "1"
+            }
+        ],
+ 
+Depois que o InternalEncryption clusterSetting estiver habilitado, o desempenho do sistema poderá ser afetado. Ao fazer a alteração para habilitar InternalEncryption, seu ASE estará em um estado instável até que a alteração seja totalmente propagada. A propagação completa da alteração pode levar algumas horas para ser concluída, dependendo de quantas instâncias você tem em seu ASE. É altamente recomendável não habilitar isso em um ASE enquanto ele estiver em uso. Se você precisa habilitá-lo em um ASE usado ativamente, recomendamos desviar o tráfego para um ambiente de backup até o fim da operação. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Desabilitar o TLS 1.0 e TLS 1.1
 

@@ -5,15 +5,15 @@ author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para fazer o desenvolvimento em equipe em um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 400aec21d028011523fc5b441ed8ba77a1a46074
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d81b0227a627593b16bd07f4cfcf4c1b6d61f84b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438162"
 ---
 # <a name="team-development-using-java-and-visual-studio-code-with-azure-dev-spaces"></a>Desenvolvimento de equipe usando Java e Visual Studio Code com Azure Dev Spaces
 
@@ -66,7 +66,7 @@ Primeiro, precisaremos implantar uma linha de base de nossos serviços. Essa imp
 >
 > Confira nosso [guia para configurar CI/CD com o Azure DevOps](how-to/setup-cicd.md) para criar um fluxo de trabalho semelhante ao diagrama a seguir.
 >
-> ![Exemplo de diagrama de CI/CD](media/common/ci-cd-complex.png)
+> ![Exemplo de diagrama CI/CD](media/common/ci-cd-complex.png)
 
 Neste ponto, sua linha de base deve estar em execução. Execute o comando `azds list-up --all` e você verá uma saída semelhante à seguinte:
 
@@ -149,7 +149,7 @@ Agora, remova a parte "scott.s." da URL e atualize o navegador. Você deverá ve
 Quando tiver um espaço _dev_, que sempre contém suas alterações mais recentes, e supondo que seu aplicativo tenha sido projetado para aproveitar o roteamento baseado em espaço do Dev Space, conforme descrito nesta seção do tutorial, deverá ser fácil ver como o Azure Dev Spaces podem ajudar bastante com o teste de novos recursos dentro do contexto do aplicativo maior. Em vez de precisar implantar _todos_ os serviços em seu espaço privado, você poderá criar um espaço privado derivado de _dev_ e apenas "aumentar" os serviços em que de fato está trabalhando. A infraestrutura de roteamento do Azure Dev Spaces cuidará do restante utilizando tantos serviços de seu espaço privado quantos puder encontrar, e usando como padrão a versão mais recente em execução no espaço _dev_. E ainda melhor, _vários_ desenvolvedores podem desenvolver ativamente serviços diferentes ao mesmo tempo em seu próprio espaço sem interromper uns aos outros.
 
 ### <a name="well-done"></a>Muito bem!
-Você concluiu o guia de introdução! Você aprendeu como:
+Você concluiu o guia de introdução! Você aprendeu a:
 
 > [!div class="checklist"]
 > * Configure o Azure Dev Spaces com um cluster Kubernetes gerenciado no Azure.

@@ -1,17 +1,17 @@
 ---
-title: Adicionar armazenamento de back-end ao cluster do Microsoft Azure FXT Edge Filer
+title: 'Tutorial: Adicionar armazenamento a um cluster do Azure FXT Edge Filer'
 description: Como configurar o armazenamento de back-end e o pseudonamespace voltado ao cliente para o Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256070"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551957"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o namespace virtual 
 

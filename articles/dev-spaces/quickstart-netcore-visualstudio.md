@@ -3,17 +3,17 @@ title: 'Depurar e iterar no Kubernetes: Visual Studio e .NET Core'
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: bfa798027a3905eff29bf1ce11251ce900bd7267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325618"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438240"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio e .NET Core – Azure Dev Spaces
 
@@ -28,7 +28,7 @@ O Azure Dev Spaces também permite que você depure e itere usando:
 - [Node.js e Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core e Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
 - Visual Studio 2019 no Windows com a carga de trabalho de Desenvolvimento do Azure instalada. Também é possível usar o Visual Studio 2017 no Windows com a carga de trabalho de Desenvolvimento da Web e as [Ferramentas do Visual Studio para Kubernetes](https://aka.ms/get-vsk8stools) instaladas. Se você não tiver o Visual Studio instalado, baixe-o [aqui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432803"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutorial: Implementar análise espacial de IoT usando o Azure Mapas
 
@@ -77,7 +77,7 @@ A figura a seguir representa a área deda cerca geográfica destacada em azul e 
   ![Rota de delimitação geográfica](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -104,7 +104,8 @@ Para concluir as etapas deste tutorial, primeiro você precisa criar um grupo de
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure 
 
-Para implementar a lógica de negócios com base na análise espacial do Azure Mapas, precisamos criar uma conta do Azure Mapas no grupo de recursos que criamos. Siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave primária da assinatura da conta.
+Para implementar a lógica de negócios com base na análise espacial do Azure Mapas, precisamos criar uma conta do Azure Mapas no grupo de recursos que criamos. Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Mapas, confira [Gerenciar a autenticação no Azure Mapas](how-to-manage-authentication.md).
+
 
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -157,7 +158,7 @@ Abra o aplicativo Postman e siga as etapas abaixo para carregar a cerca geográf
 
 1. No aplicativo Postman, clique em novo | Criar novo e selecione Solicitação. Insira um nome de solicitação para o upload de dados de limite geográfico, selecione uma coleção ou uma pasta em que salvá-los e clique em Salvar.
 
-    ![Carregar limites geográficos usando o Postman](./media/tutorial-iot-hub-maps/postman-new.png)
+    ![Carregar cercas geográficas usando Postman](./media/tutorial-iot-hub-maps/postman-new.png)
 
 2. Selecione o método HTTP POST na guia compilador e insira a URL a seguir para fazer uma solicitação POST.
 
@@ -167,7 +168,7 @@ Abra o aplicativo Postman e siga as etapas abaixo para carregar a cerca geográf
     
     O parâmetro "geojson" no parâmetro `dataFormat` no caminho da URL representa o formato dos dados sendo carregados.
 
-3. Clique em **Parâmetros** e insira os seguintes pares de chave/valor a serem usados para a URL da solicitação POST. Substitua o valor subscription-key pela chave de assinatura primária do Azure Mapas.
+3. Clique em **Parâmetros** e insira os seguintes pares de chave/valor a serem usados para a URL da solicitação POST. Substitua o valor subscription-key pela chave do Azure Mapas.
    
     ![Postman de parâmetros de chave-valor](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

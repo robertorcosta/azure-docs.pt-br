@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091950"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498052"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Mover máquinas virtuais do Azure para outra região do Azure
 
@@ -81,7 +81,7 @@ Com base nas [arquiteturas](#typical-architectures-for-a-multi-tier-deployment) 
 
      ![Implantação de VM de instância única em camadas](media/move-vm-overview/single-zone.png)
 
-* **VMs em cada camada implantadas em conjuntos de disponibilidade**: Quando habilitar a replicação para sua VM usando o Azure Site Recovery, você pode configurar suas VMs em um conjunto de disponibilidade em Zonas de Disponibilidade separadas. O SLA de disponibilidade será de 99,9% depois que a operação de movimentação for concluída.
+* **VMs em cada camada implantadas em conjuntos de disponibilidade**: Quando habilitar a replicação para sua VM usando o Azure Site Recovery, você pode configurar suas VMs em um conjunto de disponibilidade em Zonas de Disponibilidade separadas. O SLA de disponibilidade será de 99,99% depois que a operação de movimentação for concluída.
 
      ![Implantação de VMs em conjuntos de disponibilidade e Zonas de Disponibilidade](media/move-vm-overview/aset-azone.png)
 

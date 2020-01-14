@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 5ae6c30c595c2e3c4c7ce90d6ab208e50722bfc2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348817"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -64,7 +64,7 @@ Há alguns itens necessários para configurar a Área de Trabalho Virtual do Win
 
 Planejamos adicionar suporte aos sistemas operacionais a seguir, então verifique se você tem as [licenças apropriadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os usuários com base na área de trabalho e nos aplicativos que você pretende implantar:
 
-|SO|Licença necessária|
+|Sistema operacional|Licença necessária|
 |---|---|
 |Windows 10 Enterprise de várias sessões ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
@@ -110,8 +110,11 @@ Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 
 Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área de Trabalho Virtual do Windows:
 
-* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
-* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android (versão prévia)](connect-android.md)
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens compatíveis do sistema operacional da máquina virtual
 
@@ -130,14 +133,14 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 |Sistema operacional|Galeria de Imagens do Azure|Implantação manual de VM|Integração de modelos do Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|Atualizações do Agente da Área de Trabalho Virtual do Windows|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Várias sessões do Windows 10, versão 1903|Sim|sim|sim|Sim|Automático|
-|Várias sessões do Windows 10, versão 1809|Sim|sim|Não|Não|Automático|
-|Windows 10 Enterprise, versão 1903|Sim|sim|sim|Sim|Automático|
-|Windows 10 Enterprise, versão 1809|Sim|sim|Não|Não|Automático|
-|Windows 7 Enterprise|Sim|sim|Não|Não|Manual|
-|Windows Server 2019|Sim|sim|Não|Não|Automático|
-|Windows Server 2016|Sim|sim|sim|Sim|Automático|
-|Windows Server 2012 R2|Sim|sim|Não|Não|Automático|
+|Várias sessões do Windows 10, versão 1903|Sim|Sim|Sim|Sim|Automático|
+|Várias sessões do Windows 10, versão 1809|Sim|Sim|Não|Não|Automático|
+|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|Automático|
+|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|Automático|
+|Windows 7 Enterprise|Sim|Sim|Não|Não|Manual|
+|Windows Server 2019|Sim|Sim|Não|Não|Automático|
+|Windows Server 2016|Sim|Sim|Sim|Sim|Automático|
+|Windows Server 2012 R2|Sim|Sim|Não|Não|Automático|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109608"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613679"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)
 
@@ -35,13 +35,15 @@ Neste tutorial, você irá:
 > * Localizar e visualizar uma rota para o posto de recarga de veículos elétricos mais próximo de acordo com o tempo de condução.
 
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para concluir este tutorial, primeiro, é necessário criar uma conta dos Azure Mapas e obter a chave primária (chave de assinatura). 
 
-Para criar uma assinatura da conta dos Azure Mapas no tipo de preço S1, siga as instruções em [Gerenciar sua conta dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+Para criar uma assinatura da conta dos Azure Mapas no tipo de preço S1, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura da conta dos Azure Mapas com o tipo de preço S1. 
 
-Para obter a chave de assinatura primária para a sua conta, siga as instruções em [Criar uma conta e obter sua chave](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
+Para obter a chave de assinatura primária da sua conta, siga as instruções em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Criar um Azure Notebook
 
@@ -111,7 +113,7 @@ Como a empresa prefere usar rotas que exigem um equilíbrio entre economia e vel
 Para determinar os limites do intervalo acessível do veículo elétrico, execute o script na seguinte célula:
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
@@ -398,6 +400,6 @@ Para explorar as APIs dos Azure Mapas que são usadas neste tutorial, confira:
 * [Matrix de rota POST](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obter Trajeto de Rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-Para obter uma lista completa das APIs REST dos Azure Mapas, confira [APIs REST dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/#reference).
+Para obter uma lista completa das APIs REST dos Azure Mapas, confira [APIs REST dos Azure Mapas](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Para saber mais sobre o Azure Notebooks, confira [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

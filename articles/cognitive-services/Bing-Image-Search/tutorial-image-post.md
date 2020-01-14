@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Extrair detalhes da imagem com a API REST e o C# – Pesquisa de Imagem do Bing'
 titleSuffix: Azure Cognitive Services
-description: Use este artigo para criar um aplicativo em C# para extrair detalhes da imagem usando a API de Pesquisa de Imagem do Bing.
+description: Use este tutorial para criar um aplicativo em C# para extrair detalhes da imagem usando a API de Pesquisa de Imagem do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383867"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: extrair detalhes da imagem usando a API de Pesquisa de Imagem do Bing e C#
 
@@ -34,7 +34,7 @@ Este tutorial explica como:
 
 O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Qualquer edição do [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
 
@@ -111,6 +111,6 @@ Se houver pessoas ou locais identificáveis na imagem, essa solicitação retorn
 > [!div class="nextstepaction"]
 > [Exibir imagens e opções de pesquisa em um aplicativo Web de página única ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Referência da API de Pesquisa de Imagem do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

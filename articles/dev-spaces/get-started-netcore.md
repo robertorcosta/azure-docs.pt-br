@@ -3,14 +3,14 @@ title: 'Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e 
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: fa7b4b4dcd1883c7619faa6fcfe014f4fc8c036f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 634206523972c7bc78ba818688bc342fe66885d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438549"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e .NET Core com Azure Dev Spaces
 
@@ -204,7 +204,7 @@ Isso adiciona a configuração de depuração para o Azure Dev Spaces na pasta `
 
 
 ### <a name="select-the-azds-debug-configuration"></a>Selecionar a configuração de depuração AZDS
-1. Para abrir o modo de exibição Depuração, clique no ícone Depuração na **Barra de Atividades** do lado do VS Code.
+1. Para abrir o modo de exibição Depuração, clique no ícone Depuração na **Barra de Atividades** no lado do VS Code.
 1. Selecione **Inicialização do .NET Core (AZDS)** como a configuração de depuração ativa.
 
 ![](media/get-started-netcore/debug-configuration.png)

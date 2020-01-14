@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script de CLI do Service Fabric – Atualizar um aplicativo em um cluster
+title: Atualizar um aplicativo em um cluster no sfctl
 description: Exemplo de script de CLI do Service Fabric – Atualize um aplicativo com uma nova versão. Este exemplo também atualiza um aplicativo implantado com os novos bits.
 services: service-fabric
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: ''
-ms.openlocfilehash: e925f4f7b4a3da2d298413feccc94ea742e47f6b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 34f2ae6f3a2ff3adc35794d6e7dfd682640c646b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034700"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614716"
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Adicionar um certificado de aplicativo a um cluster do Service Fabric
+# <a name="update-an-application-using-the-service-fabric-cli"></a>Atualizar um aplicativo usando a CLI do Service Fabric
 
 Esse script de exemplo faz o upload de uma nova versão de um aplicativo existente e, em seguida, atualiza um aplicativo implantado com os novos bits.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-sh[main](../../../cli_scripts/service-fabric/upgrade-application/upgrade-application.sh "Upload and update an application on a Service Fabric cluster")]
 

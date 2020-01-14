@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Criar um banco de dados e um grafo do Azure Cosmos DB para a API do Gremlin
+title: Script do PowerShell para criar um banco de dados e um grafo da API do Gremlin do Azure Cosmos DB
 description: Script do Azure PowerShell – Criar um banco de dados e um grafo do Azure Cosmos DB para a API do Gremlin
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1820195b59a370b9378283a35d1d058abde6eccd
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: c247ece1b03681c5fa6ca2ef6407c2df866cdd38
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441486"
 ---
 # <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Criar um banco de dados e um grafo do Azure Cosmos DB – API do Gremlin
 
@@ -20,7 +20,7 @@ ms.locfileid: "71178976"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-create.ps1 "Create a database and graph for Gremlin API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

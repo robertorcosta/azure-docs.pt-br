@@ -1,6 +1,6 @@
 ---
 title: 'Visão geral: O que é o Azure Time Series Insights Preview? - Azure Time Series Insights | Microsoft Docs'
-description: Saiba mais os principais aprimoramentos na Versão Prévia do Azure Time Series Insights.
+description: Saiba mais as alterações, aprimoramentos e recursos na Versão Prévia do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/29/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: cde846152ff183db857b8a0549fafd24700ffff9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f6f6039be1d8837b4b1fe4eb225289f4cd1642cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014736"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452468"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é o Azure Time Series Insights Preview?
 

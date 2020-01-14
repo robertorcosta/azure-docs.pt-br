@@ -1,21 +1,20 @@
 ---
 title: 'Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Java'
-titleSuffix: Azure Cognitive Services
-description: Introdução à biblioteca de clientes da Pesquisa Visual Computacional para Java.
+description: Neste início rápido, comece a usar a biblioteca de clientes da Pesquisa Visual Computacional para Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 9c73d28952a165f07711d1aace665bbe742f0124
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: e909e5c6a429d85befd49e6b67e59a46ef8ef30b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382218"
 ---
 # <a name="quickstart-computer-vision-client-library-for-java"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Java
 
@@ -28,7 +27,7 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para Java para:
 
 [Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Artefato (Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -38,7 +37,7 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para Java para:
 
 ### <a name="create-a-computer-vision-azure-resource"></a>Criar um recurso do Azure da Pesquisa Visual Computacional
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
@@ -53,7 +52,7 @@ Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `gradle init` em seu diretório de trabalho. Esse comando criará arquivos de build essenciais para o Gradle, incluindo o *build.gradle.kts*, que é usado no tempo de execução para criar e configurar seu aplicativo.
+Execute o comando `gradle init` em seu diretório de trabalho. Esse comando criará arquivos de build essenciais para o Gradle, incluindo o *build.gradle.kts*, que é usado no runtime para criar e configurar seu aplicativo.
 
 ```console
 gradle init --type basic
@@ -104,7 +103,7 @@ dependencies {
 
 As seguintes classes e interfaces lidam com alguns dos principais recursos do Java SDK da Pesquisa Visual Computacional.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Essa classe é necessária para toda a funcionalidade da Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[ComputerVision](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Essa classe é proveniente do objeto de cliente e manipula diretamente todas as operações de imagem, como análise de imagem, detecção de texto e geração de miniaturas.|
@@ -153,7 +152,7 @@ Em seguida, especifique quais recursos visuais você gostaria de extrair em sua 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
-### <a name="analyze"></a>Analise
+### <a name="analyze"></a>Analisar
 Esse método imprime resultados detalhados no console para cada escopo de análise de imagem. Recomendamos que você envolva essa chamada de método em um bloco Try/Catch. O método **analyzeImageInStream** retorna um objeto **ImageAnalysis** que contém todas as informações extraídas.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_analyze)]
@@ -162,43 +161,43 @@ As seções a seguir mostram como analisar essas informações detalhadamente.
 
 ### <a name="get-image-description"></a>Obter a descrição da imagem
 
-O código a seguir obtém a lista de legendas geradas para a imagem. Confira [Descrever imagens](../concept-describing-images.md) para obter mais detalhes.
+O código a seguir obtém a lista de legendas geradas para a imagem. Para obter mais informações, confira [Descrever imagens](../concept-describing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_captions)]
 
 ### <a name="get-image-category"></a>Obter categoria da imagem
 
-O código a seguir obtém a categoria detectada da imagem. Confira [Categorizar imagens](../concept-categorizing-images.md) para obter detalhes.
+O código a seguir obtém a categoria detectada da imagem. Para obter mais informações, consulte [Categorizar imagens](../concept-categorizing-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_category)]
 
 ### <a name="get-image-tags"></a>Obter marcas da imagem
 
-O código a seguir obtém o conjunto de marcas detectadas na imagem. Confira [Marcas de conteúdo](../concept-tagging-images.md) para obter mais detalhes.
+O código a seguir obtém o conjunto de marcas detectadas na imagem. Para obter mais informações, consulte [Marcas de conteúdo](../concept-tagging-images.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_tags)]
 
 ### <a name="detect-faces"></a>Detectar faces
 
-O código a seguir retorna os rostos detectados na imagem com suas coordenadas de retângulo e atributos de rosto selecionados. Confira [Detecção facial](../concept-detecting-faces.md) para obter mais detalhes.
+O código a seguir retorna os rostos detectados na imagem com suas coordenadas de retângulo e atributos de rosto selecionados. Para obter mais informações, consulte [Detecção facial](../concept-detecting-faces.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_faces)]
 
 ### <a name="detect-adult-racy-or-gory-content"></a>Detectar conteúdo para adulto, erótico ou violento
 
-O código a seguir imprime a presença detectada de conteúdo para adulto na imagem. Confira [Conteúdo para adulto, erótico e violento](../concept-detecting-adult-content.md) para obter mais detalhes.
+O código a seguir imprime a presença detectada de conteúdo para adulto na imagem. Para obter mais informações, confira [Conteúdo para adulto, erótico e violento](../concept-detecting-adult-content.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_adult)]
 
 ### <a name="get-image-color-scheme"></a>Obter esquema de cores da imagem
 
-O código a seguir imprime os atributos de cor detectados na imagem, como as cores dominantes e a cor de destaque. Confira [Esquemas de cores](../concept-detecting-color-schemes.md) para obter mais detalhes.
+O código a seguir imprime os atributos de cor detectados na imagem, como as cores dominantes e a cor de destaque. Para obter mais informações, consulte [Esquemas de cores](../concept-detecting-color-schemes.md).
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_colors)]
 
 ### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
 
-A Pesquisa Visual Computacional pode usar o modelo especializado para realizar análise adicional em imagens. Confira [Conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
+A Pesquisa Visual Computacional pode usar o modelo especializado para realizar análise adicional em imagens. Para obter mais informações, confira [Conteúdo específico do domínio](../concept-detecting-domain-content.md). 
 
 O código a seguir analisa dados sobre celebridades detectados na imagem.
 
@@ -251,7 +250,7 @@ Execute o aplicativo com o comando `gradle run`:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

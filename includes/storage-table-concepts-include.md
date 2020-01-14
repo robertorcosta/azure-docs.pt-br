@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 042aedf1a043cd89d74ff099554642d38a3c7dd3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 83f66fb7e4d9b07cdcd72e47da1b397a85886e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467379"
 ---
 ## <a name="what-is-table-storage"></a>O que é o Armazenamento de Tabelas
 O Armazenamento de Tabelas do Microsoft Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais. Os usos comuns do armazenamento de tabelas incluem:
@@ -30,8 +30,8 @@ O armazenamento de tabelas contém os seguintes componentes:
 
   As contas da API de tabela do Azure Cosmos DB usam este formato:`http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
-  Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para saber mais, veja [OData.org][OData.org].
-* **Contas:** Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/common/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento. 
+  Você pode endereçar as tabelas do Azure diretamente usando esse endereço com o protocolo OData. Para obter mais informações, confira [OData.org][OData.org].
+* **Contas:** Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Para obter mais informações sobre contas de armazenamento, confira [Visão geral da conta de armazenamento][../articles/storage/common/storage-account-overview.md].
 
     Todo o acesso ao Azure Cosmos DB é feito por meio de uma conta da API de tabela. Consulte [Criar uma conta de API de tabela](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para saber detalhes sobre a criação de uma conta da API de tabela.
 * **Tabela**: Uma tabela é uma coleção de entidades. As tabelas não impõem um esquema nas entidades, o que significa que uma única tabela pode conter entidades com diferentes conjuntos de propriedades.  

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454547"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs do VMware para avaliação e migração para o Azure
 
@@ -124,7 +124,7 @@ Verifique os requisitos do dispositivo antes de implantá-lo.
 
 1. [Verifique](migrate-support-matrix-vmware.md#assessment-appliance-requirements) os requisitos e as limitações do dispositivo.
 2. Se você estiver usando um proxy de firewall baseado em URL, [examine](migrate-support-matrix-vmware.md#assessment-url-access-requirements) as URLs do Azure que o dispositivo precisará acessar. Certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
-3. Examine os [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware)] e os [metadados](migrate-appliance.md#collected-metadata-vmware) que o dispositivo coleta durante a descoberta e avaliação.
+3. Examine os [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware) e os [metadados](migrate-appliance.md#collected-metadata-vmware) que o dispositivo coleta durante a descoberta e a avaliação.
 4. [Observe](migrate-support-matrix-vmware.md#assessment-port-requirements) as portas acessadas pelo dispositivo.
 5. No vCenter Server, verifique se sua conta tem permissões para criar uma VM usando um arquivo OVA. Você implanta o dispositivo das Migrações para Azure como uma VM do VMware usando um arquivo OVA.
 
@@ -137,7 +137,7 @@ Se estiver usando um firewall.proxy baseado em URL, permita o acesso às [URLs d
 
 Examine os requisitos para migração sem agente de VMs do VMware.
 
-1. [Examinar](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) os requisitos do servidor VMware
+1. [Examinar](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) os requisitos do servidor VMware.
 2. Configure uma conta com as [permissões necessárias](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions), de modo que as Migrações para Azure possam acessar o vCenter Server para migração sem agente usando as Migrações para Azure do servidor de migração.
 3. [Examine](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) os requisitos para as VMs do VMware que você deseja migrar para o Azure usando a migração sem agente.
 4. [Examine](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) os requisitos para usar o dispositivo de Migrações para Azure para a migração sem agente.
@@ -156,7 +156,7 @@ Examine os requisitos para [migração de VMs do VMware baseada em agente](serve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 > [!div class="checklist"]
 > * Configurou permissões do Azure.

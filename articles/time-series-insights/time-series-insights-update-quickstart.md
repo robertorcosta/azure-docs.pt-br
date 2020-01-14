@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Explore o ambiente de demonstração da versão prévia – Azure Time Series Insights | Microsoft Docs'
-description: Saiba mais sobre os ambientes de demonstração da Versão Prévia do Azure Time Series Insights por meio de uma amostra de início rápido.
+description: Explorar recursos chave do ambiente de demonstração do Azure Time Series Insights Preview.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014767"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497312"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início Rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -43,33 +43,33 @@ O Gerenciador da Versão Prévia do Time Series Insights demonstra a análise da
    1. Altere o intervalo de exibição para **1/1/17 20h a 10/3/17 20h (UTC)** .
    1. Para selecionar um sensor, selecione **Usina 1 da Contoso** > **W7** > **Sistema de Gerador** > **GeneratorSpeed**. Depois, examine os valores mostrados.
 
-      [![W7 na Usina 1 da Contoso](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 na Usina 1 da Contoso](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. Recentemente, a Contoso descobriu um incêndio em turbina eólica **W7**. As opiniões sobre o que causou o incêndio variam. No Time Series Insights, podemos ver que o sensor de alerta de incêndio foi ativado durante o incêndio.
 
    1. Altere o intervalo de exibição para **9/3/17 20h a 10/3/17 20h (UTC)** .
    1. Selecione **Sistema de Segurança** > **FireAlert**.
 
-      [![A Contoso detectou um incêndio na turbina eólica W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![A Contoso detectou um incêndio na turbina eólica W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Examine outros eventos próximos à hora do incêndio para entender o que ocorreu. A pressão do óleo e os avisos ativos aumentaram repentinamente logo antes do incêndio.
 
    1. Selecione **Sistema de Regulagem do Passo** > **HydraulicOilPressure**.
    1. Selecione **Sistema de Regulagem do Passo** > **ActiveWarning**.
 
-      [![Examinar outros eventos ocorridos próximos a uma hora específica](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Examinar outros eventos ocorridos próximos a uma hora específica](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. Os sensores de pressão do óleo e de avisos ativos aumentaram repentinamente logo antes do incêndio. Expanda a série temporal exibida para ver outros sinais evidentes que levaram ao incêndio. Os dois sensores flutuaram de forma consistente ao longo do tempo. As flutuações indicam um padrão persistente e preocupante.
 
     * Altere o intervalo de exibição para **24/2/17 20h a 10/3/17 20h (UTC)** .
 
-      [![Os sensores de pressão do óleo e de avisos ativos também aumentaram repentinamente](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Os sensores de pressão do óleo e de avisos ativos também aumentaram repentinamente](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. Uma análise de dois anos de dados históricos revela outro evento de incêndio com as mesmas flutuações de sensor.
 
     * Altere o intervalo de exibição para **1/1/16 a 31/12/17** (todos os dados).
 
-      [![Procurar padrões históricos](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Procurar padrões históricos](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendência de longo prazo ocultada nos dados históricos. Com esses novos insights, podemos:
 
@@ -84,7 +84,7 @@ Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendên
     1. Altere o intervalo de exibição para **1/6/17 20h a 1/7/17 20h (UTC)** .
     1. Selecione o **Usina 1 da Contoso** > **W6** > **Sistema de Segurança** > **VoltageActuatorSwitchWarning**.
 
-       [![Alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. O aviso indica um problema com a tensão do gerador. A saída de energia geral do gerador está dentro dos parâmetros normais no intervalo atual. Aumentando nosso intervalo, vemos outro padrão surgir. Uma queda é evidente.
 
@@ -92,20 +92,20 @@ Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendên
     1. Selecione **Sistema de Gerador** > **ActivePower**.
     1. Altere o intervalo para **3d**.
 
-       [![Altere o intervalo para 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Altere o intervalo para 3d](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. Expandindo o intervalo de tempo, podemos determinar se o problema foi resolvido ou se ele continua.
 
     * Estenda o período de tempo para 60 dias.
 
-      [![Estender o período de tempo para 60 dias](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Estender o período de tempo para 60 dias](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. Outros pontos de dados de sensor podem ser adicionados para fornecer um contexto superior. Quanto mais sensores vemos, maior é nossa compreensão do problema. Vamos criar um marcador para ver os valores reais. 
 
     1. Selecione **Sistema Gerador** e selecione três sensores: **GridVoltagePhase1**, **GridVoltagePhase2** e **GridVoltagePhase3**.
     1. Crie um marcador no último ponto de dados na área visível.
 
-       [![Remover um marcador](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Remover um marcador](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Dois dos sensores de tensão estão funcionando comparativamente e dentro dos parâmetros normais. Parece que o sensor **GridVoltagePhase3** é o culpado.
 
@@ -113,9 +113,9 @@ Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendên
 
     * Altere a exibição para sobrepor todos os sensores do **Sistema Gerador** na mesma escala de gráfico.
 
-      [![Alterar a exibição para incluir tudo](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Alterar a exibição para incluir tudo](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que concluiu o início rápido, limpe os recursos que você criou:
 

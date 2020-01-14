@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786479"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431466"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá a integrar o F5 ao Azure AD (Azure Active Direc
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -370,7 +370,7 @@ Configure um servidor AAA do Active Directory no APM (Access Policy Manager) par
     >[!Note]
     > Será necessário criar e especificar a Conta de Delegação do Kerberos. Veja a Seção do KCD (Consulta o Apêndice para obter Referências de Variável)
 
-    * **Origem do Nome de Usuário**: session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Origem do nome de usuário**: session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **Origem do Realm do Usuário**: session.logon.last.domain
 

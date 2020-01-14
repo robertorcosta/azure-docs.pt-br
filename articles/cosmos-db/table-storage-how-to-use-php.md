@@ -1,5 +1,5 @@
 ---
-title: Como usar o serviço de Tabela de Armazenamento do Azure ou a API da tabela do Azure Cosmos DB do PHP
+title: Usar o serviço Tabela de Armazenamento do Azure ou API de Tabela do Azure Cosmos DB do PHP
 description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: aac6755ed90c795b8fff09d9ffde33878ad21a32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1dbf5b02c99c8baca7c0b4f918cb392ddaf37c96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444775"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Como usar o serviço de Tabela de Armazenamento do Azure ou a API da tabela do Azure Cosmos DB do PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -62,7 +62,7 @@ Neste guia, você usa o serviço Tabela de Armazenamento ou os recursos do Azure
 ## <a name="add-required-references"></a>Adicionar as referências necessárias
 Para usar o serviço de Tabela de Armazenamento ou APIs do Azure Cosmos DB, você deve:
 
-* Fazer referência ao arquivo de carregador automático usando a instrução [require_once][require_once] e
+* Fazer referência ao arquivo de carregador automático usando a instrução [require_once][require_once], e
 * Fazer referência a qualquer classe que você usa.
 
 O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **TableRestProxy**.
@@ -113,7 +113,7 @@ $tableClient = TableRestProxy::createTableService($connectionString);
 ```
 
 ## <a name="create-a-table"></a>Criar uma tabela
-O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, consulte [Setting Timeouts for Table Service Operations][table-service-timeouts] [Definindo tempos limite para operações do serviço Tabela.])
+O objeto **TableRestProxy** permite que você crie uma tabela com o método **createTable**. Ao criar uma tabela, você pode definir o tempo limite do serviço Tabela. (Para obter mais informações sobre o tempo limite do serviço Tabela, confira [Como configurar tempos limite para operações do serviço Tabela][table-service-timeouts].)
 
 ```php
 require_once 'vendor\autoload.php';
@@ -137,7 +137,7 @@ catch(ServiceException $e){
 }
 ```
 
-Para obter informações sobre restrições em nomes de tabela, consulte [Understanding the Table Service Data Model][table-data-model] (Noções básicas sobre o modelo de dados do serviço Tabela).
+Para obter informações sobre restrições em nomes de tabela, confira [Noções básicas sobre o modelo de dados do serviço Tabela][table-data-model].
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
 Para adicionar uma entidade a uma tabela, crie um novo objeto **Entidade** e passá-lo para **TableRestProxy->insertEntity**. Observe que ao criar uma entidade, você deve especificar um `PartitionKey` e `RowKey`. Estes são os identificadores exclusivos para uma entidade e são os valores que podem ser consultados muito mais rápido que as outras propriedades da entidade. O sistema usa `PartitionKey` para distribuir automaticamente as entidades das tabelas por vários nós de Armazenamento. As entidades com a mesma `PartitionKey` são armazenadas no mesmo nó. (As operações em várias entidades armazenadas no mesmo nó são executadas melhor do que em entidades armazenadas em nós diferentes.) `RowKey` é a ID exclusiva de uma entidade dentro de uma partição.
@@ -174,7 +174,7 @@ catch(ServiceException $e){
 }
 ```
 
-Para obter informações sobre tipos e propriedades de Tabela, consulte [Understanding the Table Service Data Model][table-data-model] (Noções básicas sobre o modelo de dados do serviço Tabela).
+Para obter informações sobre tipos e propriedades de Tabela, confira [Noções básicas sobre o modelo de dados do serviço Tabela][table-data-model].
 
 A classe **TableRestProxy** oferece dois métodos alternativos para inserir entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para usar esses métodos, crie uma nova **Entidade** e passe-a como um parâmetro para qualquer método. Cada método vai inserir a entidade se ela não existir. Se a entidade já existir, **insertOrMergeEntity** atualiza os valores de propriedade se as propriedades já existirem e adiciona novas propriedades se elas não existirem, enquanto **insertOrReplaceEntity** substitui completamente uma entidade existente. O exemplo a seguir mostra como usar o **insertOrMergeEntity**. Se a entidade com `PartitionKey` "tasksSeattle" e `RowKey` "1" ainda não existir, ela será inserida. No entanto, se ela tiver sido inserida anteriormente (conforme mostrado no exemplo acima), a propriedade `DueDate` será atualizada e a propriedade `Status` será adicionada. As propriedades `Description` e `Location` também são atualizadas, mas com valores que efetivamente as deixam inalteradas. Se essas duas últimas propriedades não foram adicionadas conforme mostrado no exemplo, mas existiam na entidade de destino, seus valores existentes permaneceriam inalterados.
 
@@ -248,7 +248,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 ```
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperar todas as entidades em uma partição
-As consultas de entidade são construídas com filtros (para obter mais informações, consulte [Querying Tables and Entities][filters] [Consultando tabelas e entidades]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities** .
+As consultas de entidade são construídas com filtros (para obter mais informações, confira [Consultando tabelas e entidades][filters]). Para recuperar todas as entidades na partição, use o filtro "PartitionKey eq *nome_da_partição*". O exemplo a seguir mostra como recuperar todas as entidades na partição `tasksSeattle` passando um filtro para o método **queryEntities** .
 
 ```php
 require_once 'vendor/autoload.php';
@@ -281,7 +281,7 @@ foreach($entities as $entity){
 ```
 
 ## <a name="retrieve-a-subset-of-entities-in-a-partition"></a>Recuperar um subconjunto de entidades em uma partição
-O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades recuperado é determinado pelo filtro usado (para obter mais informações, consulte [Querying Tables and Entities][filters] [Consultando tabelas e entidades]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um `Location` específico e um `DueDate` menor que uma data especificada.
+O mesmo padrão usado no exemplo anterior pode ser usado para recuperar qualquer subconjunto de entidades em uma partição. O subconjunto de entidades recuperado é determinado pelo filtro usado (para obter mais informações, confira [Consultando tabelas e entidades][filters]). O exemplo a seguir mostra como usar um filtro para recuperar todas as entidades com um `Location` específico e um `DueDate` menor que uma data especificada.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -472,7 +472,7 @@ catch(ServiceException $e){
 }
 ```
 
-Para obter mais informações sobre operações de Tabela de envio em lote, consulte [Performing Entity Group Transactions][entity-group-transactions] (Executando transações do grupo de entidade).
+Para obter mais informações sobre operações de Tabela de envio em lote, confira [Executando transações do grupo de entidade][entity-group-transactions].
 
 ## <a name="delete-a-table"></a>Excluir uma tabela
 Finalmente, para excluir uma tabela, passe o nome da tabela para o método **TableRestProxy->deleteTable**.

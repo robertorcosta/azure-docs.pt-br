@@ -1,5 +1,5 @@
 ---
-title: Amostra de script da CLI do Azure – Criar um disco gerenciado com base em um instantâneo
+title: Criar um disco gerenciado com base em um instantâneo – Amostra da CLI
 description: Amostra de script da CLI do Azure – Criar um disco gerenciado com base em um instantâneo
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 8a219b24c4d4b82363094ccba74db22e3b4018c4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cd50d14ef004007b2c13d295dcb9911b318dd448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458472"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Criar um disco gerenciado com base em um instantâneo com a CLI
 
@@ -32,7 +32,7 @@ Esse script cria um disco gerenciado com base em um instantâneo. Use-o para res
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-disks-from-snapshot/create-managed-disks-from-snapshot.sh "Create managed disk from snapshot")]
 
@@ -48,7 +48,7 @@ Esse script usa os comandos a seguir para criar um disco gerenciado com base em 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar uma máquina virtual anexando um disco gerenciado como disco do sistema operacional](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
+[Criar uma máquina virtual anexando um disco gerenciado como disco do SO](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

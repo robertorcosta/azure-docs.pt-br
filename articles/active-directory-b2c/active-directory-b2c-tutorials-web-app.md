@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367596"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo.
 * Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**.
@@ -46,7 +46,7 @@ Você pode usar a experiência **Aplicativos** atual ou nossa nova experiência 
 
 #### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 1. Selecione **Aplicativos** e, em seguida, selecione o aplicativo *webapp1*.
@@ -54,9 +54,9 @@ Você pode usar a experiência **Aplicativos** atual ou nossa nova experiência 
 1. Clique em **Salvar**.
 1. Na página de propriedades, registre a ID do aplicativo para usar em uma etapa posterior ao configurar o aplicativo Web.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
 1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Selecione **Registros de aplicativo (versão prévia)** , selecione a guia **Aplicativos Próprios** e, em seguida, selecione o aplicativo *webapp1*.
@@ -94,7 +94,7 @@ Atualize as configurações do arquivo Web.config de acordo com seu fluxo de usu
 1. No projeto **TaskWebApp**, abra o arquivo **Web.config**.
     1. Atualize o valor de `ida:Tenant` e `ida:AadInstance` pelo nome do locatário do Azure AD B2C que você criou. Por exemplo, substitua `fabrikamb2c` por `contoso`.
     1. Substitua o valor de `ida:ClientId` pela ID do aplicativo que você registrou.
-    1. Substitua o valor de `ida:ClientSecret` pela chave que você registrou. É necessário codificar o segredo do cliente em XML antes de adicioná-lo a Web.config.
+    1. Substitua o valor de `ida:ClientSecret` pela chave que você registrou. Se o segredo do cliente contiver qualquer entidade XML predefinida, por exemplo, menor que (`<`), maior que (`>`), e comercial (`&`) ou aspas duplas (`"`), você deverá escapar esses caracteres por codificação XML do segredo do cliente antes de adicioná-lo ao Web.config.
     1. Substitua o valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`.
     1. Substitua o valor de `ida:EditProfilePolicyId` por `b2c_1_profileediting1`.
     1. Substitua o valor de `ida:ResetPasswordPolicyId` por `b2c_1_passwordreset1`.
@@ -120,7 +120,7 @@ No entanto, o recurso **Lista de Tarefas Pendentes** não funcionará até que v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Atualizar o aplicativo no Azure AD B2C

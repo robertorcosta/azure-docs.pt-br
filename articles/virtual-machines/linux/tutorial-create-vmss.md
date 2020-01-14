@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Criar um conjunto de dimensionamento de máquinas virtuais para o Linux no Azure
-description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e implantar um aplicativo altamente disponível em VMs Linux usando um conjunto de dimensionamento de máquinas virtuais
+title: 'Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais do Windows'
+description: Saiba como usar a CLI do Azure para criar e implantar um aplicativo altamente disponível em VMs do Linux usando um conjunto de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b9368da24af3b0fe08045ed869c752eefe3912fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 94e7bac3cbf3842375278a23bc39245425cda4b6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458662"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutorial: Criar um conjunto de dimensionamento de máquinas virtuais e implantar um aplicativo altamente disponível no Linux com a CLI do Azure
 
@@ -251,7 +251,7 @@ az vmss disk detach \
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você criou um conjunto de dimensionamento de máquinas virtuais. Você aprendeu como:
+Neste tutorial, você criou um conjunto de dimensionamento de máquinas virtuais. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Usar cloud-init para criar um aplicativo para escala

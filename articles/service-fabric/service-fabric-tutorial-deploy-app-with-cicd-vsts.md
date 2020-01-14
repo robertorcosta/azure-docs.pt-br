@@ -1,26 +1,15 @@
 ---
-title: Implantar um aplicativo do Service Fabric com integração contínua e Azure Pipelines no Azure | Microsoft Docs
+title: Implantar um aplicativo com a CI e o Azure Pipelines
 description: Neste tutorial, você aprende a configurar a integração e a implantação contínua de um aplicativo do Service Fabric usando o Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838963"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614130"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
 
@@ -42,7 +31,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * Configurar CI/CD usando o Azure Pipelines
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -182,7 +171,7 @@ A atualização do aplicativo pode levar vários minutos. Quando a atualização
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Adicionar controle do código-fonte ao seu projeto

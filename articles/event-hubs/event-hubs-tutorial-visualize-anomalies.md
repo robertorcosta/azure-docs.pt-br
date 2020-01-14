@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Visualizar anomalias de dados nos eventos em tempo real – Hubs de Eventos do Azure'
+title: Hubs de Eventos do Azure – visualizar anomalias de dados nos eventos em tempo real
 description: 'Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Microsoft Azure'
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437158"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Para este tutorial, você precisa de um namespace dos Hubs de Eventos e um hub d
 
 As seções a seguir descrevem como executar essas etapas necessárias. Execute a CLI *ou* as instruções do PowerShell para executar as seguintes etapas:
 
-1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Crie um [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Crie um namespace dos Hubs de Eventos. 
 
@@ -217,7 +217,7 @@ As entradas para o trabalho do Stream Analytics são as transações de cartão 
 
    ![Captura de tela mostrando como adicionar um fluxo de entrada ao trabalho do Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
@@ -239,7 +239,7 @@ As entradas para o trabalho do Stream Analytics são as transações de cartão 
 
 4. Aceite os padrões para o restante dos campos.
 
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta do trabalho do Stream Analytics
 
@@ -268,7 +268,7 @@ Essa consulta é usada para recuperar os dados que, por fim, são enviados para 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Testar a consulta do trabalho do Stream Analytics 
 
@@ -347,7 +347,7 @@ No trabalho do Stream Analytics, clique em **Iniciar**, **Agora**, **Iniciar**. 
 
     ![Captura de tela mostrando os resultados do Power BI](./media/event-hubs-tutorial-visualize-anomalies/power-bi-results.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você quiser remover todos os recursos criados, remova os dados de visualização do Power BI e exclua o grupo de recursos. A exclusão do grupo de recursos exclui todos os recursos contidos nele. Nesse caso, ele remove o hub de eventos, o namespace dos Hubs de Eventos, o trabalho do Stream Analytics e o próprio grupo de recursos. 
 
@@ -373,7 +373,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 > * Criar um namespace de Hubs de Eventos
 > * Criar um Hub de Evento

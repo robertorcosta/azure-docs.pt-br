@@ -1,5 +1,5 @@
 ---
-title: Como os descontos de reserva se aplicam aos Selos Isolados do Serviço de Aplicativo do Azure
+title: Descontos de reserva para o Serviço de Aplicativo do Azure
 description: Saiba como os descontos de reserva se aplicam aos Selos Isolados do Serviço de Aplicativo do Azure.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 2e9f2fd4541621e98bc1d46f23559993eeabe311
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e31c7b0932684b75b9934dbb4a2bcbc56370d98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388560"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Como os descontos de reserva se aplicam aos Selos Isolados do Serviço de Aplicativo do Azure
 

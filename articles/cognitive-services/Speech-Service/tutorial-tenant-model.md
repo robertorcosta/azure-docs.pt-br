@@ -1,7 +1,7 @@
 ---
-title: Crie um Modelo de Locatário (Versão Prévia) – Serviço de Fala
+title: Criar um modelo de locatário (versão prévia) – Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Gere automaticamente um Modelo de Locatário (Fala Personalizada com dados do Office 365) que aproveite seus dado do Office 365 a fim de entregar um reconhecimento de fala ideal para termos específicos da organização que proporcione segurança e conformidade.
+description: Gere automaticamente um modelo de locatário seguro e em conformidade (Fala Personalizada usando dados do Office 365) que use seus dados do Office 365 a fim de entregar um reconhecimento de fala ideal para termos específicos.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,95 +10,101 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816387"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446795"
 ---
-# <a name="create-a-tenant-model-preview"></a>Crie um Modelo de Locatário (Versão Prévia)
+# <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de locatário (versão prévia)
 
-O Modelo de Locatário (Fala Personalizada com dados do Office 365) é um serviço de aceitação para clientes do Office 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizada dos dados do Office 365 da sua organização. O modelo criado é otimizado para termos técnicos, jargões e nomes de pessoas, tudo de maneira segura e em conformidade.
+O Modelo de Locatário (Fala Personalizada usando dados do Office 365) é um serviço de aceitação para clientes do Office 365 Enterprise que gera automaticamente um modelo de reconhecimento de fala personalizada dos dados do Office 365 da sua organização. O modelo é otimizado para termos técnicos, jargões e nomes de pessoas, tudo de maneira segura e em conformidade.
 
 > [!IMPORTANT]
-> Caso a organização se inscreva com o Modelo de Locatário, o serviço de Fala poderá acessar o modelo de linguagem da organização, que será gerado pelos emails e documentos de grupo públicos do Office 365, que poderão ser vistos por qualquer um da organização. O administrador do Office 365 da sua organização poderá ativar/desativar o uso do modelo de linguagem no âmbito de toda a organização por meio do Portal do Administrador do Office 365.
+> Se a organização for registrada usando o serviço de Modelo de Locatário, o Serviço de Fala poderá acessar o modelo de linguagem da sua organização. O modelo é gerado com base em documentos e emails do grupo público do Office 365, que podem ser vistos por qualquer pessoa em sua organização. O administrador do Office 365 da sua organização pode ligar ou desligar o uso do modelo de linguagem no âmbito de toda a organização por meio do Portal de Administração do Office 365.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Registre-se para usar um Modelo de Locatário no Centro de Administração do Microsoft 365
+> * Registre-se no Modelo de Locatário usando o Centro de Administração do Microsoft 365
 > * Obtenha uma chave de assinatura de Fala
-> * Crie um Modelo de Locatário
-> * Implante um Modelo de Locatário
-> * Use um Modelo de Locatário com o SDK de Fala
+> * Criar um modelo de locatário
+> * Implantar um modelo de locatário
+> * Use seu modelo de locatário com o SDK de Fala
 
-## <a name="enroll-using-the-microsoft-365-admin-center"></a>Registre-se usando o Centro de Administração do Microsoft 365
+## <a name="enroll-in-the-tenant-model-service"></a>Registrar-se no serviço de Modelo de Locatário
 
-Antes de implantar seu Modelo de Locatário, primeiro é necessário registrá-lo usando o Centro de Administração do Microsoft 365. Essa tarefa poderá ser concluída somente pelo Administrador do Microsoft 365.
+Antes de implantar seu modelo de locatário, você precisa estar registrado no serviço de Modelo de Locatário. O registro é concluído no Centro de Administração do Microsoft 365 e pode ser feito somente pelo administrador do Microsoft 365.
 
-1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com ).
-2. No painel esquerdo, selecione **Configurações** e, em seguida, **Aplicativos**.
+1. Entre no [Centro de Administração do Microsoft 365](https://admin.microsoft.com).
 
-   ![Registro do Modelo de Locatário](media/tenant-language-model/tenant-language-model-enrollment.png)
+1. No painel esquerdo, selecione **Configurações**, **Aplicativos** e, em seguida, selecione **Serviços de Fala do Azure**.
 
-3. Localize e selecione os **Serviços de Fala do Azure**.
+   ![O painel "Serviços e suplementos"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-   ![Registro do Modelo de Locatário 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+1. Marque a caixa de seleção **Permitir o modelo de linguagem em toda a organização** e, em seguida, selecione **Salvar alterações**. 
 
-4. Clique na caixa de seleção e salve.
+   ![O painel Serviços de Fala do Azure](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
-Caso precise desativar o Modelo de Locatário, navegue de volta para esta tela, desmarque a caixa de seleção e salve.
+Para desligar a instância do modelo de locatário:
+1. Repita as etapas 1 e 2 anteriores.
+1. Desmarque a caixa de seleção **Permitir o modelo de linguagem em toda a organização** e, em seguida, selecione **Salvar alterações**.
 
 ## <a name="get-a-speech-subscription-key"></a>Obtenha uma chave de assinatura de Fala
 
-Para usar um Modelo de Locatário com o SDK de Fala, será necessário um recurso de Fala e uma chave de assinatura associada a ele.
+Para usar seu modelo de locatário com o SDK de Fala, será necessário um recurso de Fala e a chave de assinatura associada a ele.
 
-1. Faça logon no [Portal do Azure](https://aka.ms/azureportal).
-2. Selecione **Criar um recurso**.
-3. Na barra de pesquisa, digite: **Fala**.
-4. Selecione **Fala** e clique em **Criar**.
-5. Siga as instruções na tela para criar o recurso. Não se esqueça de:
+1. Entre no [portal do Azure](https://aka.ms/azureportal).
+1. Selecione **Criar um recurso**.
+1. Na caixa **Pesquisa**, digite **Fala**.
+1. Na lista de resultados, selecione **Fala** e, em seguida, selecione **Criar**.
+1. Siga as instruções na tela para criar o recurso. Certifique-se de que:
    * **O local** é definido como **eastus** ou **westus**.
    * **O tipo de preço** é definido como **S0**.
-6. Clique em **Criar**.
-7. O recurso será criado após alguns minutos. A chave de assinatura está disponível na seção **Visão Geral** para seu recurso.
+1. Selecione **Criar**.
 
-## <a name="create-a-model"></a>Criar um modelo
+   O recurso será criado após alguns minutos. A chave de assinatura está disponível na seção **Visão Geral** para seu recurso.
+
+## <a name="create-a-language-model"></a>Criar um modelo de linguagem
 
 Depois que o administrador tiver habilitado o Modelo de Locatário para sua organização, será possível criar um modelo de linguagem com base em seus dados do Office 365.
 
 1. Entre no [Estúdio de Fala](https://speech.microsoft.com/).
-2. No canto superior direito, localize e clique no ícone de engrenagem (configurações) e, em seguida, selecione **configurações do Modelo de Locatário**.
+1. No canto superior direito, selecione **Configurações** (o ícone de engrenagem) e, em seguida, selecione **Configurações do Modelo de Locatário**.
 
-   ![Menu Configurações](media/tenant-language-model/tenant-language-settings.png)
+   ![O link "Configurações do Modelo de Locatário"](media/tenant-language-model/tenant-language-settings.png)
 
-3. Neste momento, você verá uma mensagem informando se está qualificado para criar um Modelo de Locatário.
+   O Estúdio de Fala exibe uma mensagem que informa se você está qualificado para criar um modelo de locatário.
+
    > [!NOTE]
-   > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um Modelo de Locatário (inglês). Se você for um cliente do CLB (Sistema de Proteção de Dados do Cliente), da CK (Chave de Cliente) ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave de Cliente, siga estas instruções:
+   > Os clientes do Office 365 Enterprise na América do Norte estão qualificados para criar um modelo de locatário (inglês). Se você for um cliente do Sistema de Proteção de Dados do Cliente, da Chave de Cliente ou do Office 365 Government, esse recurso não estará disponível. Para determinar se você é um cliente do Sistema de Proteção de Dados do Cliente ou da Chave do Cliente, confira:
    > * [Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Chave de Cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
-4. Em seguida, selecione **Aceitar**. Você receberá um email com instruções quando seu Modelo de Locatário estiver pronto.
+1. Selecione **Aceitar**. 
 
-## <a name="deploy-your-model"></a>Implantar o seu modelo
+   Quando seu modelo de locatário estiver pronto, você receberá uma mensagem de email de confirmação com mais instruções.
 
-Quando o Modelo de Locatário estiver pronto, siga estas etapas para implantar seu modelo:
+## <a name="deploy-your-tenant-model"></a>Implantar seu modelo de locatário
 
-1. Clique no botão **Exibir modelo** no email de confirmação que recebeu ou entre no [Estúdio de Fala](https://speech.microsoft.com/).
-2. No canto superior direito, localize e clique no ícone de engrenagem (configurações) e, em seguida, selecione **configurações do Modelo de Locatário**.
+Quando a instância do modelo de locatário estiver pronta, implante-a fazendo o seguinte:
 
-   ![Menu Configurações](media/tenant-language-model/tenant-language-settings.png)
+1. Na mensagem de email de confirmação, selecione o botão **Exibir modelo**. Ou entre no [Estúdio de Fala](https://speech.microsoft.com/).
+1. No canto superior direito, selecione **Configurações** (o ícone de engrenagem) e, em seguida, selecione **Configurações do Modelo de Locatário**.
 
-3. Clique em **Implantar**.
-4. Quando o modelo for implantado, o status será alterado para **Implantado**.
+   ![O link "Configurações do Modelo de Locatário"](media/tenant-language-model/tenant-language-settings.png)
 
-## <a name="use-your-model-with-the-speech-sdk"></a>Use seu modelo com o SDK de Fala
+1. Selecione **Implantar**.
 
-Agora que você implantou o modelo, poderá usá-lo com o SDK de Fala. Nesta seção, você usará o código de exemplo fornecido para chamar o serviço de Fala usando a autenticação do Azure AD.
+   Quando o modelo for implantado, o status será alterado para *Implantado*.
 
-Vamos analisar o código que você usará para chamar o SDK de Fala no C#. Neste exemplo, você executará o reconhecimento de fala usando um Modelo de Locatário. Este guia presume que sua plataforma já está configurada. Caso precise de ajuda para configurar, consulte o [Início Rápido: Reconheça a fala, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+## <a name="use-your-tenant-model-with-the-speech-sdk"></a>Use seu modelo de locatário com o SDK de Fala
+
+Agora que você implantou o modelo, poderá usá-lo com o SDK de Fala. Nesta seção, você usará o código de exemplo para chamar o Serviço de Fala usando a autenticação do Azure AD (Azure Active Directory).
+
+Vamos analisar o código que você usará para chamar o SDK de Fala no C#. Neste exemplo, você executará o reconhecimento de fala usando seu modelo de locatário. Este guia presume que sua plataforma já está configurada. Se precisar de ajuda para a instalação, confira o [Início rápido: Reconheça a fala, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copie este código em seu projeto:
 
@@ -117,7 +123,7 @@ namespace PrincetonSROnly.FrontEnd.Samples
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Newtonsoft.Json.Linq;
 
-    // Note: ServiceApplicationId is a fixed value.  No need to change.
+    // ServiceApplicationId is a fixed value. No need to change it.
 
     public class TenantLMSample
     {
@@ -281,18 +287,21 @@ namespace PrincetonSROnly.FrontEnd.Samples
 }
 ```
 
-Em seguida, será necessário recompilar e executar o projeto na linha de comando. Alguns parâmetros deverão ser atualizados antes de executar o comando.
+Em seguida, será necessário recompilar e executar o projeto por meio da linha de comando. Antes de executar o comando, atualize alguns parâmetros fazendo o seguinte:
 
 1. Substitua `<Username>` e `<Password>` pelos valores de um usuário de locatário válido.
-2. Substitua `<Subscription-Key>` pela chave de assinatura de seu recurso de Fala. Esse valor está disponível na seção **Visão Geral** para seu recurso de Fala no [portal do Azure](https://aka.ms/azureportal).
-3. Substitua `<Endpoint-Uri>` pelo ponto de extremidade abaixo. Substitua `{your-region}` pela região onde o recurso de Fala foi criado. Essas regiões têm suporte: `westus`, `westus2` e `eastus`. As informações de sua região estão disponíveis na seção **Visão Geral** do recurso de Fala no [portal do Azure](https://aka.ms/azureportal).
+1. Substitua `<Subscription-Key>` pela chave de assinatura de seu recurso de Fala. Esse valor está disponível na seção **Visão Geral** para seu recurso de Fala no [portal do Azure](https://aka.ms/azureportal).
+1. Substitua o `<Endpoint-Uri>` pelo ponto de extremidade a seguir. Substitua `{your region}` pela região onde o recurso de Fala foi criado. Essas regiões têm suporte: `westus`, `westus2` e `eastus`. As informações de sua região estão disponíveis na seção **Visão Geral** do recurso de Fala no [portal do Azure](https://aka.ms/azureportal).
    ```
    "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
-4. Execute o comando:
+1. Execute o comando a seguir:
+
    ```bash
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
+
+Neste tutorial, você aprendeu a usar os dados do Office 365 para criar um modelo personalizado de reconhecimento de fala, implantá-lo e usá-lo com o SDK de Fala.
 
 ## <a name="next-steps"></a>Próximas etapas
 

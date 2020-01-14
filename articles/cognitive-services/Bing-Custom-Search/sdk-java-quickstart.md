@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Biblioteca de clientes da Pesquisa Personalizada do Bing para Java | Microsoft Docs'
-description: Introdução à biblioteca de clientes da Pesquisa Personalizada do Bing para Java solicitando os resultados da pesquisa de sua instância da Pesquisa Personalizada do Bing.
+title: 'Início Rápido: Biblioteca de clientes da Pesquisa Personalizada do Bing para Java'
+description: Introdução à biblioteca de clientes da Pesquisa Personalizada do Bing para Java solicitando os resultados da pesquisa de sua instância da Pesquisa Personalizada do Bing neste início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: f0a3008dace4e9382bbb6b6d9465ce1c9b4ddc6c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1060cceb9241d9c1c490f7e7f12490c734b0a78d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384546"
 ---
 # <a name="quickstart-bing-custom-search-client-library-for-java"></a>Início Rápido: Biblioteca de clientes da Pesquisa Personalizada do Bing para Java
 
@@ -26,7 +26,7 @@ Use a biblioteca de clientes da Pesquisa Personalizada do Bing para Java:
 
 [Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artefato (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * A versão atual do [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -37,7 +37,7 @@ Use a biblioteca de clientes da Pesquisa Personalizada do Bing para Java:
 
 ### <a name="create-a-bing-custom-search-azure-resource"></a>Criar um recurso do Azure da Pesquisa Personalizada do Bing
 
-Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Personalizada do Bing usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Você também pode:
+Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Personalizada do Bing usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Também é possível:
 
 * Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por 7 dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
@@ -147,7 +147,7 @@ Execute o aplicativo com a meta `run`:
 gradle run
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poderá excluir o recurso ou grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 

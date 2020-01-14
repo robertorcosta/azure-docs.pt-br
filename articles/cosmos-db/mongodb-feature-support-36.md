@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12311fa476d069d2c866fac82ed2bac25ce88ef4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a48fb82402cd4719cb210ec2dab55b3a0f7883ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441629"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
 
@@ -35,7 +35,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 ### <a name="query-and-write-operation-commands"></a>Comandos de operação de consulta e gravação
 
 - excluir
-- find
+- localizar
 - findAndModify
 - getLastError
 - getMore
@@ -355,6 +355,7 @@ O Azure Cosmos DB ainda não dá suporte a comandos de sessões do lado do servi
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Para obter mais informações, confira [Recursos de versão Mongo 3.6](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
 - Saiba como [usar o Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para MongoDB.
 - Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707080"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665190"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -51,7 +51,7 @@ A tabela a seguir lista os cenários de desenvolvimento compatíveis com os **co
 | **Idiomas** | C# (depuração não compatível) | C <br> C# |
 | **Mais informações** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas do Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas do Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Um computador de desenvolvimento:
 
@@ -133,7 +133,7 @@ A extensão Ferramentas do Azure IoT Edge oferece modelos de projeto para todas 
    | Campo | Valor |
    | ----- | ----- |
    | Modelo do Visual Studio | Selecione **Módulo em C#** . | 
-   | Nome do Módulo | Aceite o **IotEdgeModule1** padrão. | 
+   | Nome do módulo | Aceite o **IotEdgeModule1** padrão. | 
    | URL do repositório | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. É possível recuperar o valor **Servidor de logon** da página **Visão geral** do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do registro\>.azurecr.io/iotedgemodule1. |
 
       ![Configure seu projeto para o dispositivo de destino, tipo de módulo e registro de contêiner](./media/tutorial-develop-for-windows/add-module-to-solution.png)
@@ -158,7 +158,7 @@ O runtime do IoT Edge precisa das credenciais de registro para efetuar pull de s
 
 1. Abra o arquivo **deployment.template.json** em sua solução do módulo.
 
-1. Localize a propriedade **registryCredentials** nas propriedades desejadas do $edgeAgent e verifique se ela contém as informações corretas.
+1. Localize a propriedade **registryCredentials** nas propriedades desejadas do $edgeAgent. Ele deve ter seu endereço de registro preenchido automaticamente com base nas informações fornecidas durante a criação do projeto e os campos de nome de usuário e senha devem conter nomes de variáveis. Por exemplo: 
 
    ```json
    "registryCredentials": {
@@ -227,7 +227,7 @@ Forneça suas credenciais do registro de contêiner para o Docker no computador 
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Talvez você receba um aviso de segurança que recomende o uso de `--password-stdin`. Embora essa prática seja recomendada para cenários de produção, ela não serve para este tutorial. Para saber mais, confira a referência do [logon do docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   Talvez você receba um aviso de segurança recomendando usar `--password-stdin`. Embora essa prática seja recomendada para cenários de produção, ela não serve para este tutorial. Para saber mais, confira a referência de [logon do docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
 ### <a name="build-and-push"></a>Compilar e efetuar push
 
@@ -237,7 +237,7 @@ Agora, o computador de desenvolvimento tem acesso ao registro de contêiner e se
 
    ![Criar e efetuar push de módulos do IoT Edge](./media/tutorial-develop-for-windows/build-and-push-modules.png)
 
-   O comando de criação e de envio por push inicia três operações. Primeiro, é criada uma pasta na solução denominada **config** que contém o manifesto de implantação completo, criado com base nas informações do modelo de implantação e em outros arquivos da solução. Depois, ele executa `docker build` para montar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Em seguida, ele executa `docker push` para enviar o repositório de imagens por push para seu registro de contêiner. 
+   O comando de criação e de envio por push inicia três operações. Primeiro, é criada uma pasta na solução denominada **config** que contém o manifesto de implantação completo, criado com base nas informações do modelo de implantação e em outros arquivos da solução. Depois, ele executa `docker build` para montar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Por fim, ele executa `docker push` para enviar por push o repositório de imagens para seu registro de contêiner. 
 
    Esse processo pode levar vários minutos na primeira vez, mas será mais rápido na próxima vez em que você executar os comandos. 
 

@@ -1,18 +1,18 @@
 ---
-title: Tutorial para criação de um Aplicativo Web com o Cache do Azure para Redis que usa o padrão Cache-Aside
-description: Saiba como criar um Aplicativo Web com o Cache do Azure para Redis que usa o padrão Cache-Aside
+title: 'Tutorial: Criar um aplicativo Web (cache-aside) – Cache do Azure para Redis'
+description: Saiba como criar um Aplicativo Web com o Cache do Azure para Redis que usa o padrão cache-aside.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411951"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar um placar de líderes cache-aside no ASP.NET
 
@@ -28,12 +28,12 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir o tutorial, você deve ter os pré-requisitos a seguir:
 
 * Este tutorial continua na etapa em que você parou no [Início rápido do ASP.NET para o Cache do Azure para Redis](cache-web-app-howto.md). Se você ainda não fez isso, siga primeiro o início rápido.
-* Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+* Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
     * Desenvolvimento Web e ASP.NET
     * Desenvolvimento do Azure
     * Desenvolvimento de área de trabalho do .NET com o SQL Server Express LocalDB ou [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -678,7 +678,7 @@ Nesta seção, você provisionará um novo banco de dados SQL do Azure para que 
 
 1. Adicione uma nova cadeia de conexão chamada *TeamContext* para corresponder à classe de contexto de banco de dados do Entity Framework. Cole a cadeia de conexão do novo banco de dados como o valor. Lembre-se de substituir os seguintes espaços reservados na cadeia de conexão e clique em **Salvar**:
 
-    | Placeholder | Valor sugerido |
+    | Espaço reservado | Valor sugerido |
     | --- | --- |
     | *{seu_nomedeusuário}* | Use o **logon de administrador do servidor** para o servidor de banco de dados recém-criado. |
     | *{sua_senha}* | Use a senha para o servidor de banco de dados recém-criado. |
@@ -715,7 +715,7 @@ Nesta etapa do tutorial, você publicará as atualizações do aplicativo no Azu
 
 Clique em algumas das ações e experimente recuperar os dados de diferentes fontes. Observe as diferenças no tempo necessário para concluir as várias maneiras de recuperar os dados do banco de dados e do cache.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao terminar de usar o aplicativo do tutorial de exemplo, você poderá excluir os recursos do Azure usados para economizar custos e recursos. Todos os recursos devem estar contidos no mesmo grupo de recursos; você pode excluí-los juntos em uma única operação excluindo o grupo de recursos. Para as instruções deste tópico, foi usado um grupo de recursos chamado *TestResources*.
 

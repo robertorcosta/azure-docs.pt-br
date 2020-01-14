@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1986f51b834f177a7c8d70392cc532cbfadb7170
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64bc3921a606ab3211173b46b268ded53952c8bb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974726"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434656"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando C#
 
@@ -28,7 +28,7 @@ Embora as etapas deste artigo funcionem em computadores Windows e Linux, este ar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instalar o [Visual Studio 2019](https://www.visualstudio.com/vs/).
 * Instalar o [SDK do .NET Core](https://www.microsoft.com/net/download/windows).
@@ -49,17 +49,21 @@ O [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) contém f
 
 Para usar essas ferramentas de teste para gerar certificados, execute as seguintes etapas:
 
-1. Abra uma janela do prompt de comando ou um shell do Git Bash e altere para uma pasta de trabalho no computador. Execute o seguinte comando para clonar o repositório do GitHub do [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
+1. Localize o nome da tag para a [versão mais recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) do SDK de C do Azure IoT.
 
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+2. Abra um prompt de comando ou shell do Git Bash e altere para uma pasta de trabalho em seu computador. Execute os comandos a seguir para clonar a versão mais recente do repositório do GitHub do [SDK do Azure IoT C](https://github.com/Azure/azure-iot-sdk-c). Use a tag que você encontrou na etapa anterior como o valor para o parâmetro `-b`:
 
-   Essa operação deve demorar alguns minutos.
+    ```cmd/sh
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    Essa operação deve demorar alguns minutos.
 
    As ferramentas de teste estão localizadas em *azure-iot-sdk-c/tools/CACertificates* do repositório clonado.
 
-1. Siga as etapas em [Gerenciar certificados de Autoridade de Certificação de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+3. Siga as etapas em [Gerenciar certificados de Autoridade de Certificação de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 Além das ferramentas no SDK de C, a [Amostra de verificação de certificado do grupo](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) no *SDK do IoT do Microsoft Azure para .NET* mostra como fazer a prova de posse no C# com um Certificado de Autoridade de Certificação X.509 intermediária ou raiz.
 
@@ -163,7 +167,7 @@ Esta seção mostra como criar um aplicativo de console .NET Core que adiciona u
    Console.ReadLine();
    ```
 
-1. Compilar a solução.
+1. Compile a solução.
 
 ## <a name="run-the-enrollment-group-sample"></a>Executar exemplo de grupo de registros
   
@@ -175,7 +179,7 @@ Verifique se o grupo de registro foi criado. Acesse o resumo do Serviço de Prov
 
 Selecione a entrada para verificar a impressão digital do certificado e outras propriedades da entrada.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender explorar a amostra do serviço C#, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Moderar imagens de produto de comércio eletrônico – Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Configure um aplicativo para analisar e classificar imagens de produtos com rótulos especificados (usando a Pesquisa Visual Computacional e a Visão Personalizada do Azure). Marque imagens indesejáveis para serem examinadas mais detalhadamente (usando o Azure Content Moderator).
+description: Este tutorial mostra como configurar um aplicativo para analisar e classificar imagens de produtos com rótulos especificados (usando a Pesquisa Visual Computacional e a Visão Personalizada do Azure). Marque imagens indesejáveis para serem examinadas mais detalhadamente (usando o Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5ee96cd0cf8ca33cae785bc15eb824332dcb3c9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382150"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Moderar imagens de produto de comércio eletrônico com o Azure Content Moderator
 
@@ -34,7 +34,7 @@ O código de exemplo completo está disponível no repositório [Amostras de Mod
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma chave de assinatura do Content Moderator. Siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço Content Moderator e obter sua chave.
 - Uma chave de assinatura da Pesquisa Visual Computacional (mesmas instruções acima).

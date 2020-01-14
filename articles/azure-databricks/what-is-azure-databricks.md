@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410456"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 
@@ -37,7 +37,7 @@ O Azure Databricks abrange as tecnologias e os recursos completos de código abe
 
 * **Streaming**: processamento de dados em tempo real e análise para aplicativos analíticos e interativos. Integra-se com HDFS, Flume e Kafka.
 
-* **MLib**: biblioteca Machine Learning que consiste em algoritmos e utilitários de aprendizado comuns, incluindo classificação, regressão, clustering, filtragem colaborativa, redução de dimensionalidade, bem como primitivos de otimização subjacente.
+* **MLlib**: biblioteca Machine Learning que consiste em algoritmos e utilitários de aprendizado comuns, incluindo classificação, regressão, clustering, filtragem colaborativa, redução de dimensionalidade, bem como primitivos de otimização subjacente.
 
 * **GraphX**: gráficos e computação de gráfico para um amplo escopo de casos de uso desde análise cognitiva até exploração de dados.
 

@@ -1,6 +1,6 @@
 ---
 title: Início rápido do Azure - Executar trabalho do Lote - .NET
-description: Execute rapidamente um trabalho do Lote e tarefas com a biblioteca de clientes .NET do Lote.
+description: Execute rapidamente um trabalho de exemplo do Lote do Azure e tarefas de um aplicativo C# com a biblioteca de cliente .NET do Lote.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 613f771af71c4f03f7ccf9283b98c09836c312cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390311"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
 
@@ -25,7 +25,7 @@ Este guia de início rápido executa um trabalho do Lote do Azure de um aplicati
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs) ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows. 
 
@@ -242,7 +242,7 @@ foreach (CloudTask task in completedtasks)
 }
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O aplicativo exclui automaticamente o contêiner de armazenamento que cria e oferece a opção para excluir o pool e o trabalho do Lote. Você é cobrado pelo pool enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisa mais do pool, exclua-o. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas.
 

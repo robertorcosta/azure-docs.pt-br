@@ -1,5 +1,6 @@
 ---
-title: Tutorial para a integração com um pipeline de integração contínua e entrega por meio da Configuração de Aplicativos do Azure | Microsoft Docs
+title: 'Tutorial: Integrar-se com um pipeline de integração e entrega contínua'
+titleSuffix: Azure App Configuration
 description: Neste tutorial, você aprenderá como gerar um arquivo de configuração usando os dados na Configuração de Aplicativos do Azure durante a integração e entrega contínuas
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f8adfee1e707181e78f4e845f61477b08af935e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433647"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar com um pipeline de CI/CD
 
@@ -37,7 +38,7 @@ O exemplo a seguir mostra como incluir dados de Configuração de Aplicativos co
 
 Você pode usar qualquer editor de código para executar as etapas deste tutorial. O [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Se você compilar localmente, baixe e instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não tiver feito isso.
 

@@ -1,16 +1,16 @@
 ---
-title: Crie uma definição de OpenAPI para uma API sem servidor usando o Gerenciamento de API do Azure
+title: Expor suas funções com a OpenAPI usando o Gerenciamento de API do Azure
 description: Crie uma definição de OpenAPI que permite que outros aplicativos e serviços chamem sua função no Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226813"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562006"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Crie uma definição de OpenAPI para uma API sem servidor usando o Gerenciamento de API do Azure
 
@@ -39,7 +39,7 @@ Este tutorial usa uma função disparada por HTTP que usa dois parâmetros:
 * O tempo estimado para reparar uma turbina, em horas.
 * A capacidade da turbina, em quilowatts. 
 
-A função, em seguida, calcula o custo do reparo e o valor da receita que a turbina proporcionaria em um período de 24 horas. PARA criar uma função disparada pelo HTTP no [portal do Azure](https://portal.azure.com).
+A função, em seguida, calcula o custo do reparo e o valor da receita que a turbina proporcionaria em um período de 24 horas. Para criar uma função disparada por HTTP no [portal do Azure](https://portal.azure.com):
 
 1. Expanda seu aplicativo de funções e selecione o botão **+** ao lado de **Functions**. Selecione **No portal** > **Continuar**.
 
@@ -135,11 +135,11 @@ Agora você está pronto para gerar a definição de OpenAPI.
 
     ![Criar um novo serviço de Gerenciamento de API](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-    | Configuração      | Valor sugerido  | Descrição                                        |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome globalmente exclusivo | Um nome é gerado com base no nome do seu aplicativo de funções. |
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo recurso será criado. |  
-    | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve estar definido para você. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve estar definido para você. |
     | **Localidade** | Oeste dos EUA | Escolha o local Oeste dos EUA. |
     | **Nome da organização** | Contoso | O nome da organização usado no portal do desenvolvedor e para notificações por email. |
     | **Email do administrador** | seu email | Email que recebeu notificações do sistema de Gerenciamento de API. |

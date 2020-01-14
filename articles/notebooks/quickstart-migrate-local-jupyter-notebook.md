@@ -1,20 +1,22 @@
 ---
-title: Migrar um notebook local do Jupyter para o Azure Notebooks
-description: Saiba como transferir rapidamente um notebook do Jupyter para o Azure Notebooks do seu computador local ou de uma URL da web e, em seguida, compartilhá-lo para colaboração.
+title: Migrar um Jupyter notebook local para a versão prévia do Azure Notebooks
+description: Transfira rapidamente um Jupyter notebook para a versão prévia do Azure Notebooks do computador local ou de uma URL da Web e, em seguida, compartilhe-o para colaboração.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b7d5aab05923fb4356e0d45aaf21a77076a870a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277477"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647043"
 ---
-# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Início Rápido: Migrar um notebook local do Jupyter
+# <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Início Rápido: Migrar um Jupyter notebook local na versão prévia do Azure Notebooks
 
 Os notebooks Jupyter que você criou localmente no seu próprio computador são acessíveis apenas para você. Você pode compartilhar seus arquivos por meio de uma variedade de meios, mas, em seguida, os destinatários têm sua própria cópia local do bloco de anotações e é difícil incorporar as alterações que podem fazer. Você também pode armazenar os blocos de anotações em um repositório compartilhado online, como o GitHub, mas isso ainda exige que cada colaborador tenha sua própria instalação do Jupyter local com a mesma configuração que o seu.
 
 Ao migrar seus blocos de anotações locais ou baseada em repositório para o Azure Notebooks, armazena-as na nuvem da qual você pode instantaneamente compartilhar com seus colaboradores. Esses colaboradores precisam apenas de um navegador para exibir e executar o bloco de anotações e se eles [entrarem](quickstart-sign-in-azure-notebooks.md) para o Azure Notebooks eles também podem fazer alterações.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Este Início Rápido demonstra o processo de migração de um bloco de anotações do seu computador local ou outra URL de arquivo acessível. Para migrar os notebooks de um repositório GitHub, consulte o [Guia de Início Rápido: Clonar um notebook](quickstart-clone-jupyter-notebook.md).
 
@@ -46,7 +48,7 @@ Este Início Rápido demonstra o processo de migração de um bloco de anotaçõ
 
    - Se usar **Da URL**, insira o endereço de origem no campo **URL do Arquivo** e o nome do arquivo para atribuir ao bloco de anotações do projeto no campo **Nome do Arquivo**. Depois selecionar **Carregar**. Se você tiver vários arquivos com URLs separadas, use o comando **+ Adicionar arquivo** para verificar a primeira URL que você inseriu, após o qual o pop-up fornece novos campos para outro arquivo.
 
-     ![Carregar popup da URL](media/quickstarts/upload-from-url-popup.png)
+     ![Carregar de URL popup](media/quickstarts/upload-from-url-popup.png)
 
 1. Abra e execute o notebook recentemente carregado para verificar seu conteúdo e a operação. Quando terminar, selecione **Arquivo** > **Halt e fechar** para fechar o notebook.
 

@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo Xamarin.Forms com o .NET e a API para MongoDB do Azure Cosmos DB
+title: Compilar um aplicativo Xamarin com o .NET e a API para MongoDB do Azure Cosmos DB
 description: Apresenta um exemplo de código Xamarin que pode ser usado para se conectar à API para MongoDB do Azure Cosmos DB e consultá-la
 author: codemillmatt
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445455"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Início Rápido: Compilar um aplicativo do Xamarin.Forms com o SDK do .NET e a API para MongoDB do Azure Cosmos DB
 
@@ -152,7 +152,7 @@ Os snippets a seguir foram todos obtidos da classe `MongoService`, encontrada no
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
 1. No [Portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar a Cadeia de Conexão Primária nas próximas etapas.
 
@@ -162,7 +162,7 @@ Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conex
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB.
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
@@ -183,7 +183,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

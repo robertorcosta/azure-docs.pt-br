@@ -1,25 +1,22 @@
 ---
-title: Implantar uma ferramenta de gerenciamento – Azure
-description: Como instalar uma ferramenta da interface do usuário para gerenciar recursos da Área de Trabalho Virtual do Windows.
+title: Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager – Azure
+description: Como instalar uma ferramenta da interface do usuário com um modelo do Azure Resource Manager para gerenciar recursos da Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: tutorial
-ms.date: 11/09/2019
+ms.topic: conceptual
+ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
-ms.translationtype: HT
+ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384275"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887352"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implantar uma ferramenta de gerenciamento
+# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Implantar uma ferramenta de gerenciamento com um modelo do Azure Resource Manager
 
-A ferramenta de gerenciamento fornece uma IU (interface do usuário) para gerenciar recursos da Área de Trabalho Virtual da Microsoft. Neste tutorial, você aprenderá a implantar a ferramenta de gerenciamento e a conectar-se a ela.
-
->[!NOTE]
->Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
+As instruções deste artigo lhe dirão como implantar a interface do usuário usando um modelo do Azure Resource Manager.
 
 ## <a name="important-considerations"></a>Considerações importantes
 
@@ -33,18 +30,17 @@ Os seguintes navegadores são compatíveis com a ferramenta de gerenciamento:
 - Mozilla Firefox 52.0 ou posterior
 - Safari 10 ou posterior (somente macOS)
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>O que é necessário para executar o modelo do Azure Resource Manager
+## <a name="what-you-need-to-deploy-the-management-tool"></a>O que você precisa para implantar a ferramenta de gerenciamento
 
-Antes de implantar o modelo do Azure Resource Manager, você precisará de um usuário do Azure Active Directory para implantar a interface do usuário de gerenciamento. Esse usuário precisa:
+Antes de implantar a ferramenta de gerenciamento, você precisará que um usuário do Azure AD (Azure Active Directory) crie um registro de aplicativo e implante a interface do usuário de gerenciamento. Esse usuário precisa:
 
 - Ter a (MFA) Autenticação Multifator do Azure desabilitada
 - Ter permissão para criar recursos em sua assinatura do Azure
-- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as [permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-Após implantar o modelo do Azure Resource Manager, você vai querer iniciar a interface do usuário de gerenciamento para validação. Esse usuário precisa:
-- Ter uma atribuição de função para exibir ou editar seu locatário da Área de Trabalho Virtual do Windows
+Depois de implantar e configurar a ferramenta de gerenciamento, é recomendável solicitar que um usuário inicie a interface do usuário de gerenciamento para verificar se tudo está funcionando. O usuário que inicia a interface do usuário de gerenciamento deve ter uma atribuição de função que permita exibir ou editar o locatário da Área de Trabalho Virtual do Windows.
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Executar o modelo do Azure Resource Manager para provisionar a interface do usuário de gerenciamento
+## <a name="deploy-the-management-tool"></a>Implantação da ferramenta de gerenciamento
 
 Antes de começar, verifique se os aplicativos cliente e servidor têm consentimento visitando a [Página de Consentimento da Área de Trabalho Virtual do Windows](https://rdweb.wvd.microsoft.com) referente ao AAD (Azure Active Directory) representado.
 
@@ -52,26 +48,24 @@ Siga estas instruções para implantar o modelo do Azure Resource Manager:
 
 1. Vá até a [página de Modelos de RDS do Azure no GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Implantar o modelo no Azure.
-    - Se estiver implantando em uma assinatura Enterprise, role para baixo e selecione **Implantar no Azure**. Confira [Orientações sobre parâmetros de modelo](#guidance-for-template-parameters).
+    - Se estiver implantando em uma assinatura Enterprise, role para baixo e selecione **Implantar no Azure**. 
     - Se estiver implantando em uma assinatura de um Provedor de Soluções de Nuvem, siga estas instruções para implantar no Azure:
         1. Role para baixo e clique com o botão direito do mouse em **Implantar no Azure** e, em seguida, selecione **Copiar o link**.
         2. Abra um editor de texto, como o Bloco de Notas, e cole o link nele.
         3. Logo após <https://portal.azure.com/> e antes da hashtag (#), digite um sinal de arroba (@) seguido do nome de domínio de locatário. Veja um exemplo do formato: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Entre no portal do Azure como um usuário com permissões de Administrador/Colaborador para a assinatura do Provedor de Soluções de Nuvem.
         5. Cole o link copiado para o editor de texto na barra de endereços.
-
-### <a name="guidance-for-template-parameters"></a>Orientações sobre parâmetros de modelo
-Veja como inserir parâmetros para configurar a ferramenta:
-
-- Para o parâmetro **isServicePrincipal**, selecione **false**.
-- Para as credenciais, insira suas credenciais de Azure Active Directory com a autenticação multifator desabilitada. Essas credenciais serão as que você usará para entrar no Azure e criar o aplicativo do Azure AD e os recursos de aplicativo Web do Azure. Para saber mais, confira [O que é necessário para executar o modelo do Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Para o **applicationName**, use um nome exclusivo para o aplicativo que será registrado no Azure Active Directory. Esse nome também será usado para a URL do aplicativo Web. Por exemplo, você pode usar um nome como "Apr3UX".
+3. Ao inserir os parâmetros, faça o seguinte:
+    - Para o parâmetro **isServicePrincipal**, selecione **false**.
+    - Para as credenciais, insira suas credenciais do Azure AD com a autenticação multifator desabilitada. Essas credenciais serão usadas para criar o aplicativo do Azure AD e os recursos do Azure. Para saber mais, confira o artigo [O que você precisa para implantar a ferramenta de gerenciamento](#what-you-need-to-deploy-the-management-tool).
+    - Para o **applicationName**, use um nome exclusivo para o aplicativo que será registrado no Azure Active Directory. Esse nome também será usado para a URL do aplicativo Web. Por exemplo, você pode usar um nome como "Apr3UX".
+4. Depois de fornecer os parâmetros, aceite os termos e condições e selecione **Comprar**.
 
 ## <a name="provide-consent-for-the-management-tool"></a>Fornecer consentimento para a ferramenta de gerenciamento
 
 Após o modelo do Azure Resource Manager do GitHub ser concluído, você encontrará um grupo de recursos contendo dois serviços de aplicativos, bem como um plano do serviço de aplicativo, no portal do Azure.
 
-Antes de entrar e usar a ferramenta de gerenciamento, você precisará fornecer consentimento para o novo aplicativo do Azure Active Directory associado à ferramenta de gerenciamento. Ao fornecer consentimento, você está permitindo que a ferramenta de gerenciamento faça chamadas de gerenciamento da Área de Trabalho Virtual do Windows em nome do usuário conectado à ferramenta.
+Antes de entrar e usar a ferramenta de gerenciamento, você precisará fornecer consentimento ao novo aplicativo do Azure AD associado à ferramenta de gerenciamento. Ao fornecer consentimento, você permite que a ferramenta de gerenciamento faça chamadas de gerenciamento da Área de Trabalho Virtual do Windows em nome do usuário conectado atualmente à ferramenta.
 
 ![Uma captura de tela mostrando as permissões sendo fornecidas quando você fornece consentimento para a ferramenta de gerenciamento da interface do usuário.](media/management-ui-delegated-permissions.png)
 
@@ -83,7 +77,7 @@ Para determinar qual usuário você pode usar para entrar na ferramenta, vá at�
 - Se o valor estiver definido como **Não**, você precisará entrar como Administrador Global no Azure Active Directory e fornecer consentimento do administrador para todos os usuários no diretório. Nenhum outro usuário receberá uma solicitação de consentimento.
 
 
-Após você decidir qual usuário usará para fornecer o consentimento, siga estas instruções para fornecer consentimento para a ferramenta:
+Após você decidir qual usuário vai usar para fornecer o consentimento, siga estas instruções para fornecer consentimento para a ferramenta:
 
 1. Vá até seus recursos do Azure, selecione o recurso dos Serviços de Aplicativos do Azure com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Entre usando a conta de usuário do Azure Active Directory apropriada.
@@ -102,18 +96,15 @@ Siga estas instruções para iniciar a ferramenta:
 1. Selecione o recurso dos Serviços de Aplicativos do Azure com o nome fornecido no modelo (por exemplo, Apr3UX) e navegue até a URL associada a ele; por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Entre usando suas credenciais da Área de Trabalho Virtual do Windows.
 3. Quando solicitado a escolher um Grupo de Locatários, selecione **Grupo de Locatários Padrão** na lista suspensa.
-4. Quando você seleciona Grupo de Locatários Padrão, um menu deve ser exibido no lado direito da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.
-
-> [!NOTE]
-> Se tiver um Grupo de Locatários personalizado, digite o nome manualmente em vez de escolher na lista suspensa.
+4. Quando você seleciona **Grupo de Locatários Padrão**, um menu deve ser exibido no lado esquerdo da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.
+  
+  > [!NOTE]
+  > Se tiver um grupo de locatários personalizado, digite o nome manualmente em vez de escolher na lista suspensa.
 
 ## <a name="report-issues"></a>Relatar problemas
 
-Caso tenha problemas com a ferramenta de gerenciamento ou outras ferramentas da Área de Trabalho Virtual do Windows, siga as instruções em [Modelos ARM para Serviços de Área de Trabalho Remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-los no GitHub.
+Caso tenha problemas com a ferramenta de gerenciamento ou outras ferramentas da Área de Trabalho Virtual do Windows, siga as instruções em [Modelos do Azure Resource Manager para Serviços de Área de Trabalho Remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-los no GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que aprendeu como implantar a ferramenta de gerenciamento e conectar-se a ela, você pode aprender a usar a Integridade do Serviço do Azure para monitorar problemas de serviço e avisos de integridade.
-
-> [!div class="nextstepaction"]
-> [Tutorial de configuração de alertas de serviço](./set-up-service-alerts.md)
+Agora que aprendeu como implantar a ferramenta de gerenciamento e conectar-se a ela, você pode aprender a usar a ajuda do Serviço do Azure para monitorar problemas de serviço e avisos de integridade. Para saber mais, confira o tutorial [Configurar alertas de serviço](./set-up-service-alerts.md).

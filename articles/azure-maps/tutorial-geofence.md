@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107105"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407826"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
-Este tutorial orienta você pelas etapas básicas para configurar um limite geográfico usando o Azure Mapas. O cenário abordado neste tutorial é o de ajudar gerentes de locais de construção a monitorar a movimentação de equipamentos potencialmente perigosos para além das áreas de construção designadas. Um local de construção envolve normas e equipamentos caros. Normalmente, ele exige que o equipamento permaneça dentro do local de construção e não saia sem permissão.
+Este tutorial orienta você pelas etapas básicas para configurar uma cerca geográfica usando o Azure Mapas. O cenário abordado neste tutorial é o de ajudar gerentes de locais de construção a monitorar a movimentação de equipamentos potencialmente perigosos para além das áreas de construção designadas. Um local de construção envolve normas e equipamentos caros. Normalmente, ele exige que o equipamento permaneça dentro do local de construção e não saia sem permissão.
 
 Nós usaremos a API de Upload de Dados do Azure Mapas para armazenar um limite geográfico e usar a API de Limite Geográfico do Azure Mapas para verificar a localização do equipamento em relação ao limite geográfico. Nós usaremos a Grade de Eventos do Azure para transmitir os resultados do limite geográfico e configurar uma notificação de acordo com os resultados desse limite.
 Para saber mais sobre a Grade de Eventos, confira [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview).
@@ -32,11 +32,11 @@ Neste tutorial, você aprenderá a:
 > *   Use APIs do serviço do limite geográfico do Azure Mapas para controlar se um ativo de construção está ou não dentro do local de construção.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure 
 
-Para concluir as etapas deste tutorial, siga as instruções em [gerenciar conta](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](./tutorial-search-location.md#getkey) para obter a chave primária de assinatura da conta.
+Para concluir as etapas deste tutorial, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da conta. Para obter mais detalhes sobre a autenticação no Azure Mapas, confira [Gerenciar a autenticação no Azure Mapas](./how-to-manage-authentication.md).
 
 ## <a name="upload-geofences"></a>Carregar limites geográficos
 
@@ -44,9 +44,9 @@ Para carregar o limite geográfico para o local de construção usando a API de 
 
 Abra o aplicativo Postman e siga as etapas a seguir para carregar o limite geográfico do local de construção usando a API de upload de dados do Azure Mapas.
 
-1. Abra o aplicativo Postman, clique em novo | Criar novo e selecione Solicitação. Insira um nome de solicitação para o upload de dados de limite geográfico, selecione uma coleção ou uma pasta em que salvá-los e clique em Salvar.
+1. Abra o aplicativo Postman e clique em novo | Criar novo e selecione Solicitar. Insira um nome de solicitação para o upload de dados de limite geográfico, selecione uma coleção ou uma pasta em que salvá-los e clique em Salvar.
 
-    ![Carregar limites geográficos usando o Postman](./media/tutorial-geofence/postman-new.png)
+    ![Carregar cercas geográficas usando Postman](./media/tutorial-geofence/postman-new.png)
 
 2. Selecione o método HTTP POST na guia compilador e insira a URL a seguir para fazer uma solicitação POST.
 
@@ -56,7 +56,7 @@ Abra o aplicativo Postman e siga as etapas a seguir para carregar o limite geogr
     
     O parâmetro GEOJSON no caminho da URL representa o formato dos dados sendo carregados.
 
-3. Clique em **Parâmetros** e insira os seguintes pares de chave/valor a serem usados para a URL da solicitação POST. Substitua o valor subscription-key pela chave de assinatura primária do Azure Mapas.
+3. Clique em **Parâmetros** e insira os seguintes pares de chave/valor a serem usados para a URL da solicitação POST. Substitua o valor subscription-key pela chave do Azure Mapas.
    
     ![Postman de parâmetros de chave-valor](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -216,7 +216,7 @@ Você pode usar a API de limite geográfico para verificar se um **dispositivo**
 
 ![Mapa do limite geográfico](./media/tutorial-geofence/geofence.png)
 
-No aplicativo Postman, abra uma nova guia na mesma coleção que você criou acima. Selecione o método HTTP GET na guia do compilador:
+No aplicativo Postman, abra uma nova guia na mesma coleção criada acima. Selecione o método HTTP GET na guia do compilador:
 
 A seguir estão as cinco solicitações de API de limitação geográfica GET HTTP, com diferentes coordenadas de localização correspondentes do equipamento, conforme observadas em ordem cronológica. Cada solicitação é seguida pelo corpo da resposta.
  

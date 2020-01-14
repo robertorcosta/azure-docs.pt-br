@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 2: Treinar modelos de risco de crédito'
 titleSuffix: ML Studio (classic) - Azure
-description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito na versão clássica do Azure Machine Learning Studio. Este tutorial é a segunda parte de uma série de tutoriais de três partes. Ele mostra como treinar e avaliar modelos.
+description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é a segunda parte de uma série de tutoriais de três partes. Ele mostra como treinar e avaliar modelos.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
 ms.author: sgilley
@@ -10,20 +10,20 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: b3f0ebe2cad68759e7feeb7a7cc3dadbbd03ee7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838648"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427479"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: treinar modelos de risco de crédito – Azure Machine Learning Studio (clássico)
 
-Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvimento de uma solução de análise preditiva. Você desenvolverá um modelo simples na versão clássica do Machine Learning Studio.  Em seguida, você implantará o modelo como um serviço Web do Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **segunda parte de uma série de tutoriais de três partes**.
+Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvimento de uma solução de análise preditiva. Você desenvolverá um modelo simples no Machine Learning Studio (clássico).  Em seguida, você implantará o modelo como um serviço Web do Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **segunda parte de uma série de tutoriais de três partes**.
 
 Suponha que você precisa prever o risco de crédito de uma pessoa com base nas informações dadas em um aplicativo de crédito.  
 
-A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como exemplo da forma de criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning Studio (clássico). Você usará a versão clássica do Azure Machine Learning Studio e um serviço Web do Machine Learning para esta solução.  
+A avaliação de risco de crédito é um problema complexo, mas este tutorial simplificará um pouco esse tópico. Você usará isso como exemplo da forma de criar uma solução de análise preditiva usando o Microsoft Azure Machine Learning Studio (clássico). Você usará o Azure Machine Learning Studio (clássico) e um serviço Web do Machine Learning para esta solução.  
 
 Neste tutorial de três partes, você começará com os dados de risco de crédito disponíveis publicamente.  Em seguida, você desenvolverá e treinará um modelo preditivo.  Por fim, você implantará o modelo como um serviço Web.
 
@@ -38,13 +38,13 @@ Nesta parte do tutorial, você vai:
 
 Na [terceira parte do tutorial](tutorial-part3-credit-risk-deploy.md), você implantará o modelo como um serviço Web.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Conclusão da [primeira parte do tutorial](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Treinar vários modelos
 
-Um dos benefícios de usar a versão clássica do Azure Machine Learning Studio para criar modelos de machine learning é a capacidade de testar mais de um tipo de modelo de cada vez em um único experimento e comparar os resultados. Esse tipo de experimentação ajuda a encontrar a melhor solução para seu problema.
+Uma das vantagens de usar o Azure Machine Learning Studio (clássico) para criar modelos de machine learning é a capacidade de experimentar mais de um tipo de modelo de cada vez em um teste e comparar os resultados. Esse tipo de experimentação ajuda a encontrar a melhor solução para seu problema.
 
 No experimento que estamos desenvolvendo neste tutorial, você criará dois tipos diferentes de modelos e, em seguida, comparará os resultados de suas pontuações para decidir qual algoritmo desejará usar em nosso experimento final.  
 
@@ -202,7 +202,7 @@ A ciência e a arte de interpretar esses resultados e ajustar o desempenho do mo
 > 
 > 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b8ab4362945b84b4337859a1dad03906cc289c99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378238"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift no Azure
 
@@ -30,7 +30,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Dimensionar um cluster do Red Hat OpenShift no Azure](tutorial-scale-cluster.md)
 > * [Excluir um cluster do Red Hat OpenShift no Azure](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!IMPORTANT]
 > Este tutorial exige a CLI do Azure versão 2.0.65 ou posterior.
@@ -71,7 +71,7 @@ Escolha uma localização para criar o cluster. Para obter uma lista de regiões
 LOCATION=<location>
 ```
 
-Defina `APPID` para o valor que você salvou na etapa 5 em [Criar um novo registro de aplicativo do Azure AD](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
+Defina `APPID` para o valor que você salvou na etapa 5 em [Criar um novo registro de aplicativo do Azure AD](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).
 
 ```bash
 APPID=<app ID value>
@@ -83,13 +83,13 @@ Defina 'GROUPID' para o valor que você salvou na etapa 10 em [Criar um novo gru
 GROUPID=<group ID value>
 ```
 
-Defina `SECRET` para o valor que você salvou na etapa 8 em [Criar um segredo do cliente](howto-aad-app-configuration.md#create-a-client-secret).  
+Defina `SECRET` para o valor que você salvou na etapa 8 em [Criar um segredo do cliente](howto-aad-app-configuration.md#create-a-client-secret).
 
 ```bash
 SECRET=<secret value>
 ```
 
-Defina `TENANT` para o valor da ID de locatário que você salvou na etapa 7 em [Criar um movo locatário](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
+Defina `TENANT` para o valor da ID de locatário que você salvou na etapa 7 em [Criar um movo locatário](howto-create-tenant.md#create-a-new-azure-ad-tenant)
 
 ```bash
 TENANT=<tenant ID>
@@ -105,7 +105,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 Se você não precisar conectar a VNET (rede virtual) do cluster criado a uma VNET existente por meio do emparelhamento, ignore esta etapa.
 
-Se emparelhar a uma rede fora da assinatura padrão, na assinatura, você também precisará registrar o provedor Microsoft.ContainerService. Para fazer isso, execute o comando abaixo nessa assinatura. Caso contrário, se estiver realizando o emparelhamento da VNET na mesma assinatura, você pode ignorar a etapa de registro. 
+Se emparelhar a uma rede fora da assinatura padrão, na assinatura, você também precisará registrar o provedor Microsoft.ContainerService. Para fazer isso, execute o comando abaixo nessa assinatura. Caso contrário, se estiver realizando o emparelhamento da VNET na mesma assinatura, você pode ignorar a etapa de registro.
 
 `az provider register -n Microsoft.ContainerService --wait`
 
@@ -121,6 +121,22 @@ VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query i
 
 Por exemplo: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGroup --query id -o tsv`
 
+### <a name="optional-connect-the-cluster-to-azure-monitoring"></a>Opcional: Conectar o cluster ao monitoramento do Azure
+
+Primeiro, obtenha o identificador do workspace do log-analytics **existente**. O identificador estará no formato:
+
+`/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.OperationalInsights/workspaces/{workspace-id}`.
+
+Se você não souber o nome do workspace do log-analytics ou do grupo de recursos ao qual o workspace do log-analytics existente pertence, vá para o [Workspace do log-analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces) e clique em seus workspaces do log-analytics. A página do workspace do log-analytics será exibida e listará o nome do workspace e do grupo de recursos ao qual ele pertence.
+
+_Para criar um workspace do log-analytics, confira [Criar workspace do log-analytics](../azure-monitor/learn/quick-create-workspace-cli.md)_
+
+Defina uma variável WORKSPACE_ID usando o comando da CLI a seguir em um shell BASH:
+
+```bash
+WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
+```
+
 ### <a name="create-the-cluster"></a>Criar o cluster
 
 Agora você está pronto para criar um cluster. Os comandos a seguir criarão o cluster no locatário do Azure AD especificado, especificarão o objeto de aplicativo do Azure AD e o segredo a usar como uma entidade de segurança, bem como o grupo de segurança que contém os membros que têm acesso administrativo ao cluster.
@@ -128,20 +144,29 @@ Agora você está pronto para criar um cluster. Os comandos a seguir criarão o 
 > [!IMPORTANT]
 > Verifique se você adicionou corretamente as permissões apropriadas para o aplicativo do Azure AD como [detalhado aqui](howto-aad-app-configuration.md#add-api-permissions) antes de criar o cluster
 
-Se você **não** estiver emparelhando o cluster a uma rede virtual, use o seguinte comando:
+Se você **não** estiver emparelhando o cluster com uma rede virtual ou **não** quiser o Monitoramento do Azure, use o seguinte comando:
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
 Se você **estiver** emparelhando o cluster a uma rede virtual, use o seguinte comando, que adiciona o sinalizador `--vnet-peer`:
- 
+
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
+Se você **quiser** o Monitoramento do Azure com o seu cluster, use o seguinte comando que adiciona o sinalizador `--workspace-id`:
+
+```bash
+az openshift create --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
+```
+
 > [!NOTE]
 > Caso você receba um erro que o nome do host não está disponível, talvez seja porque o nome do cluster não é exclusivo. Tente excluir o registro do aplicativo original e refazer as etapas com um nome de cluster diferente em [Criar um novo registro do aplicativo](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omitindo a etapa final de criação de um novo usuário e grupo de segurança.
+
+
+
 
 Depois de alguns minutos, `az openshift create` será concluído.
 

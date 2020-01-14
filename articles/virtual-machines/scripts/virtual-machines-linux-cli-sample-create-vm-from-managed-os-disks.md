@@ -1,5 +1,5 @@
 ---
-title: Exemplo de script da CLI do Azure – Criar uma VM, anexando um disco gerenciado como disco do sistema operacional
+title: 'Criar uma VM anexando um disco gerenciado como disco do sistema operacional: amostra da CLI'
 description: Exemplo de script da CLI do Azure – Criar uma VM, anexando um disco gerenciado como disco do sistema operacional
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 05263df1327eff49d0c9ec84316447ba563695ca
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1616466619c7c7627106c09de703d02a7c40d248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458408"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Criar uma máquina virtual usando um disco de sistema operacional gerenciado existente com a CLI
 
@@ -34,7 +34,7 @@ Esse script cria uma máquina virtual anexando um disco gerenciado existente com
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-attach-existing-managed-os-disk/create-vm-attach-existing-managed-os-disk.sh "Create VM from a managed disk")]
 

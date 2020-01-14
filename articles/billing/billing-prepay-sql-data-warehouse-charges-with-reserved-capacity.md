@@ -1,5 +1,5 @@
 ---
-title: Economizar custos com o preço do SQL Data Warehouse com a capacidade reservada do Azure
+title: Economizar em encargos do SQL Data Warehouse com a capacidade reservada do Azure
 description: Saiba como economizar custos com o preço do SQL Data Warehouse com a capacidade reservada para economizar dinheiro.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 75e008a6a19baacec40a809530e3a1f624a33f2b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f6a6b37a8250fd794e7810f7da5a567e14c8bc20
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388713"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Economizar custos com o preço do SQL Data Warehouse com a capacidade reservada
 
@@ -43,7 +43,7 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse seja de DW3000c. 
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Comprar capacidade reservada do SQL Data Warehouse
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Todos os serviços** > **Reservas**.
 3. Selecione uma assinatura. Use a lista Assinatura para escolher a assinatura usada para pagar a capacidade reservada. A forma de pagamento da assinatura é cobrada nos custos da capacidade reservada. O tipo de assinatura deve ser um contrato empresarial (números da oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
    - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.

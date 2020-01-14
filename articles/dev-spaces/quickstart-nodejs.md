@@ -3,15 +3,15 @@ title: 'Depurar e iterar no Kubernetes: Visual Studio Code e Node.js'
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Desenvolvimento rápido de Kubernetes com contêineres, microsserviços e Node.js no Azure
+description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8f3ffb6a539937b6d4a03b8fdc808c033c371697
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1b2101c5e7a59105b2c1da876e9a66294ce3a021
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438195"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes com o Visual Studio Code e o Node.js no Kubernetes – Azure Dev Spaces
 
@@ -26,7 +26,7 @@ O Azure Dev Spaces também permite que você depure e itere usando:
 - [.NET Core e Visual Studio Code](quickstart-netcore.md)
 - [.NET Core e Visual Studio](quickstart-netcore-visualstudio.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, é possível criar uma [conta gratuita](https://azure.microsoft.com/free).
 - [O Visual Studio Code instalado](https://code.visualstudio.com/download).

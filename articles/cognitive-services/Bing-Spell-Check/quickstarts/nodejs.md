@@ -1,27 +1,27 @@
 ---
 title: 'Início Rápido: Verificar a ortografia com a API REST e o Node.js – Verificação Ortográfica do Bing'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
+description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática com este início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.author: aahill
-ms.openlocfilehash: ab8f1d52b5a0b9f5f2539de0acc4728277f9f7b2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/16/2019
+ms.author: aahi
+ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382840"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Node.js
 
 Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Node simples envia uma solicitação à API e retorna uma lista de palavras não reconhecidas por ele, seguido das correções sugeridas. Embora esse aplicativo seja escrito em Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Node.js 6](https://nodejs.org/en/download/) ou posterior.
 
@@ -30,7 +30,7 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina o rigor e exija `https`. Em seguida, crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura.
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina o rigor e exija `https`. Em seguida, crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     'use strict';
@@ -96,6 +96,18 @@ let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
+
+
+## <a name="run-the-application"></a>Executar o aplicativo
+
+Compile e execute seu projeto.
+
+Se estiver usando a linha de comando, use os comandos a seguir para compilar e executar o aplicativo.
+
+```bash
+node <FILE_NAME>.js
+```
+
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 

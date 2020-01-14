@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b4c4415819ba614bb584f1bc5cb0acfe136c174c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: bd1487d7922d8ea81c4b09773eed978e64cd9e8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457244"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implantar o Azure Stream Analytics como um módulo do IoT Edge
 
@@ -22,11 +22,11 @@ O Azure IoT Edge e o Azure Stream Analytics são integrados para que você possa
 
 O Azure Stream Analytics fornece uma sintaxe de consulta estruturada de modo sofisticado para a análise de dados na nuvem e em dispositivos do IoT Edge. Para obter mais informações, confira a [documentação do Azure Stream Analytics](../stream-analytics/stream-analytics-edge.md).
 
-O módulo do Stream Analytics neste tutorial calcula a temperatura média em uma janela ininterrupta de 30 segundos. Quando essa média atinge 70, o módulo envia um alerta para o dispositivo tomar medidas. Nesse caso, a medida é redefinir o sensor de temperatura simulado. Em um ambiente de produção, você pode usar essa funcionalidade para desligar uma máquina ou tomar medidas preventivas quando a temperatura alcançar níveis perigosos. 
+O módulo do Stream Analytics neste tutorial calcula a temperatura média em uma janela ininterrupta de 30 segundos. Quando essa média atinge 70, o módulo envia um alerta para o dispositivo tomar medidas. Nesse caso, a medida é redefinir o sensor de temperatura simulado. Em um ambiente de produção, você pode usar essa funcionalidade para desligar uma máquina ou tomar medidas preventivas quando a temperatura alcançar níveis perigosos.
 
 Neste tutorial, você aprenderá como:
-
 > [!div class="checklist"]
+>
 > * Criar um trabalho do Azure Stream Analytics para processar dados no edge.
 > * Conectar o novo trabalho do Azure Stream Analytics a outros módulos do IoT Edge.
 > * Implante o trabalho do Azure Stream Analytics em um dispositivo IoT Edge no portal do Azure.
@@ -36,10 +36,9 @@ Neste tutorial, você aprenderá como:
 ![Diagrama - Tutorial sobre como arquitetar, preparar e implantar trabalho ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Um dispositivo do Azure IoT Edge:
 
@@ -49,10 +48,10 @@ Recursos de nuvem:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure. 
 
-
 ## <a name="create-an-azure-stream-analytics-job"></a>Criar um trabalho do Azure Stream Analytics
 
 Nesta seção, você cria um trabalho do Azure Stream Analytics que executará as seguintes etapas:
+
 * Receber dados de seu dispositivo IoT Edge.
 * Consultar os dados de telemetria para obter valores fora de um intervalo definido.
 * Agir com relação ao dispositivo IoT Edge com base nos resultados da consulta. 
@@ -69,9 +68,8 @@ Quando você cria um trabalho do Azure Stream Analytics para execução em um di
    | ----- | ----- |
    | Subscription | Escolha a mesma assinatura que o Hub IoT. |
    | Resource group | É recomendável que você use o mesmo grupo de recursos para todos os recursos de teste que foram criados durante os tutoriais e guias de início rápido do IoT Edge. Por exemplo, **IoTEdgeResources**. |
-   | NOME | Forneça um nome exclusivo para sua conta de armazenamento. | 
+   | Nome | Forneça um nome exclusivo para sua conta de armazenamento. |
    | Location | Escolha um local perto de você. |
-
 
 1. Use os valores padrão para os outros campos e selecione **Examinar + Criar**.
 
@@ -85,21 +83,21 @@ Quando você cria um trabalho do Azure Stream Analytics para execução em um di
 
    | Campo | Valor |
    | ----- | ----- |
-   | Nome do trabalho | Forneça um nome para o seu trabalho. Por exemplo, **IoTEdgeJob** | 
+   | Nome do trabalho | Forneça um nome para o seu trabalho. Por exemplo, **IoTEdgeJob** |
    | Subscription | Escolha a mesma assinatura que o Hub IoT. |
    | Resource group | É recomendável que você use o mesmo grupo de recursos para todos os recursos de teste que foram criados durante os tutoriais e guias de início rápido do IoT Edge. Por exemplo, **IoTEdgeResources**. |
-   | Location | Escolha um local perto de você. | 
+   | Location | Escolha um local perto de você. |
    | Ambiente de hospedagem | Selecione **Edge**. |
  
 1. Selecione **Criar**.
 
 ### <a name="configure-your-job"></a>Configurar seu trabalho
 
-Depois que o trabalho do Stream Analytics for criado no portal do Azure, você pode configurá-lo com uma entrada, uma saída e uma consulta para execução nos dados que passam por ele. 
+Depois que o trabalho do Stream Analytics for criado no portal do Azure, você pode configurá-lo com uma entrada, uma saída e uma consulta para execução nos dados que passam por ele.
 
 Usando os três elementos de entrada, saída e de consulta, esta seção cria um trabalho que recebe dados de temperatura do dispositivo do IoT Edge. Ele analisa esses dados em uma janela móvel de 30 segundos. Se a temperatura média nessa janela ficar acima de 70 graus, um alerta será enviado ao dispositivo do IoT Edge. Você especificará exatamente de onde os dados são provenientes e avançará para a próxima seção quando implantar o trabalho.  
 
-1. Navegue até o seu trabalho do Stream Analytics no portal do Azure. 
+1. Navegue até o seu trabalho do Stream Analytics no portal do Azure.
 
 1. Em **Topologia do trabalho**, selecione **Entradas** e, em seguida, **Adicionar entrada do fluxo**.
 
@@ -117,22 +115,22 @@ Usando os três elementos de entrada, saída e de consulta, esta seção cria um
 
 1. Escolha **Hub do Edge** na lista suspensa.
 
-1. No painel **Nova saída**, insira **alerta** como o alias de saída. 
+1. No painel **Nova saída**, insira **alerta** como o alias de saída.
 
 1. Use os valores padrão para os outros campos e selecione **Salvar**.
 
 1. Em **Topologia do trabalho**, selecione **Consulta**.
 
-1. Substitua o texto padrão pela consulta a seguir. O código SQL envia um comando de reinicialização para a saída do alerta se a temperatura média da máquina em uma janela de 30 segundos atingir 70 graus. O comando de reinicialização foi pré-programado no sensor como uma ação que pode ser executada. 
+1. Substitua o texto padrão pela consulta a seguir. O código SQL envia um comando de reinicialização para a saída do alerta se a temperatura média da máquina em uma janela de 30 segundos atingir 70 graus. O comando de reinicialização foi pré-programado no sensor como uma ação que pode ser executada.
 
     ```sql
     SELECT  
-        'reset' AS command 
-    INTO 
-       alert 
-    FROM 
-       temperature TIMESTAMP BY timeCreated 
-    GROUP BY TumblingWindow(second,30) 
+        'reset' AS command
+    INTO
+       alert
+    FROM
+       temperature TIMESTAMP BY timeCreated
+    GROUP BY TumblingWindow(second,30)
     HAVING Avg(machine.temperature) > 70
     ```
 
@@ -140,25 +138,25 @@ Usando os três elementos de entrada, saída e de consulta, esta seção cria um
 
 ### <a name="configure-iot-edge-settings"></a>Definição das configurações do IoT Edge
 
-Para preparar seu trabalho do Stream Analytics a ser implantado em um dispositivo do IoT Edge, você precisa associar o trabalho a um contêiner em uma conta de armazenamento. Ao implantar seu trabalho, a definição deste é exportada para o contêiner de armazenamento. 
+Para preparar seu trabalho do Stream Analytics a ser implantado em um dispositivo do IoT Edge, você precisa associar o trabalho a um contêiner em uma conta de armazenamento. Ao implantar seu trabalho, a definição deste é exportada para o contêiner de armazenamento.
 
-1. Em **Configurar**, selecione **Configurações da conta de armazenamento** e então **Adicionar conta de armazenamento**. 
+1. Em **Configurar**, selecione **Configurações da conta de armazenamento** e então **Adicionar conta de armazenamento**.
 
    ![Azure Stream Analytics – adicionar conta de armazenamento](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
 1. Selecione a **Conta de armazenamento** que você criou no início deste tutorial no menu suspenso.
 
-1. No campo **Contêiner**, selecione **Criar novo** e forneça um nome para o contêiner de armazenamento. 
+1. No campo **Contêiner**, selecione **Criar novo** e forneça um nome para o contêiner de armazenamento.
 
-1. Clique em **Salvar**. 
+1. Clique em **Salvar**.
 
 ## <a name="deploy-the-job"></a>Implantar o trabalho
 
 Agora você está pronto para implantar o trabalho do Azure Stream Analytics em seu dispositivo do IoT Edge. 
 
-Nesta seção, você usa o assistente **Definir módulos** no portal do Azure para criar um *manifesto de implantação*. Um manifesto de implantação é um arquivo JSON que descreve todos os módulos que serão implantados em um dispositivo, os registros de contêiner que armazenam as imagens do módulo, como os módulos devem ser gerenciados e como os módulos podem se comunicar entre si. Seu dispositivo IoT Edge recupera o manifesto de implantação do Hub IoT e, em seguida, usa as informações contidas nele para implantar e configurar todos os seus módulos atribuídos. 
+Nesta seção, você usa o assistente **Definir módulos** no portal do Azure para criar um *manifesto de implantação*. Um manifesto de implantação é um arquivo JSON que descreve todos os módulos que serão implantados em um dispositivo, os registros de contêiner que armazenam as imagens do módulo, como os módulos devem ser gerenciados e como os módulos podem se comunicar entre si. Seu dispositivo IoT Edge recupera o manifesto de implantação do Hub IoT e, em seguida, usa as informações contidas nele para implantar e configurar todos os seus módulos atribuídos.
 
-Para este tutorial, você deve implantar dois módulos. O primeiro é **SimulatedTemperatureSensor**, um módulo que simula um sensor de temperatura e umidade. O segundo é o seu trabalho do Stream Analytics. O módulo do sensor fornece o fluxo de dados que a consulta do trabalho analisará. 
+Para este tutorial, você deve implantar dois módulos. O primeiro é **SimulatedTemperatureSensor**, um módulo que simula um sensor de temperatura e umidade. O segundo é o seu trabalho do Stream Analytics. O módulo do sensor fornece o fluxo de dados que a consulta do trabalho analisará.
 
 1. No portal do Azure, navegue para o hub IoT.
 
@@ -170,49 +168,45 @@ Para este tutorial, você deve implantar dois módulos. O primeiro é **Simulate
 
    1. Clique em **Adicionar** e selecione **Módulo do IoT Edge**.
    1. Para o nome, digite **SimulatedTemperatureSensor**.
-   1. Como URI da imagem, insira **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
+   1. Como URI da imagem, insira **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**.
    1. Deixe as outras configurações inalteradas e selecione **Salvar**.
 
 1. Adicione o trabalho de Edge do Azure Stream Analytics com as seguintes etapas:
 
    1. Clique em **Adicionar** e selecione **Módulo do Azure Stream Analytics**.
-   1. Selecione sua assinatura e o trabalho de Edge do Azure Stream Analytics que você criou. 
+   1. Selecione sua assinatura e o trabalho de Edge do Azure Stream Analytics que você criou.
    1. Clique em **Salvar**.
 
-   Depois de salvar as alterações, os detalhes de seu trabalho do Stream Analytics serão publicados no contêiner de armazenamento que você criou. 
+   Depois de salvar as alterações, os detalhes de seu trabalho do Stream Analytics serão publicados no contêiner de armazenamento que você criou.
 
-1. Quando o módulo Stream Analytics for adicionado à lista de módulos, selecione **Configurar** para ver como ele é estruturado. 
+1. Quando o módulo do Stream Analytics for adicionado à lista de módulos, selecione o nome dele para ver como ele está estruturado e atualize as configurações na página **Atualizar Módulo do IoT Edge**.
 
-   O URI da imagem aponta para uma imagem padrão do Azure Stream Analytics. Essa imagem é usada para cada módulo do Stream Analytics implantado em um dispositivo IoT Edge. 
+   A guia **Configurações do Módulo** tem o **URI da imagem** que aponta para uma imagem padrão do Azure Stream Analytics. Essa imagem é usada para cada módulo do Stream Analytics implantado em um dispositivo IoT Edge.
 
-   O módulo gêmeo é configurado com uma propriedade desejada chamada **ASAJobInfo**. O valor dessa propriedade aponta para a definição de trabalho em seu contêiner de armazenamento. Esta propriedade é como a imagem do Stream Analytics é configurada com os detalhes de seu trabalho específico. 
+   A guia **Configurações do Módulo Gêmeo** mostra o JSON que define a propriedade do ASA (Azure Stream Analytics) chamada **ASAJobInfo**. O valor dessa propriedade aponta para a definição de trabalho em seu contêiner de armazenamento. Esta propriedade é como a imagem do Stream Analytics é configurada com os detalhes de seu trabalho específico.
 
-   Por padrão, o módulo Stream Analytics usa o mesmo nome que o trabalho no qual ele se baseia. Você pode alterar o nome do módulo nesta página, se desejar, mas isso não é necessário. 
+   Por padrão, o módulo Stream Analytics usa o mesmo nome que o trabalho no qual ele se baseia. Você pode alterar o nome do módulo nesta página, se desejar, mas isso não é necessário.
 
-1. Feche a página de configuração do módulo.
+1. Selecione **Cancelar** ou **Salvar**.
 
-1. Anote o nome do seu módulo do Stream Analytics porque você vai precisar dele na próxima etapa e selecione **Avançar** para continuar.
+1. Anote o nome do módulo do Stream Analytics, pois precisará dele na próxima etapa e, em seguida, selecione **Próximo: Rotas** para continuar.
 
-1. Substitua o valor padrão em **Rotas** pelo código a seguir. Atualize todas as três instâncias de _{moduleName}_ com o nome do módulo do Azure Stream Analytics. 
+1. Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor. Substitua o nome padrão de `route` e `upstream` e os valores pelos pares mostrados na tabela a seguir, os pares nome/valor a seguir, substituindo as instâncias de _{moduleName}_ pelo nome do módulo do Azure Stream Analytics.
 
-    ```json
-    {
-        "routes": {
-            "telemetryToCloud": "FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream",
-            "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream",
-            "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/SimulatedTemperatureSensor/inputs/control\")",
-            "telemetryToAsa": "FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")"
-        }
-    }
-    ```
+    | Nome | Valor |
+    | --- | --- |
+    | `telemetryToCloud` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
+    | `alertsToCloud` | `FROM /messages/modules/{moduleName}/* INTO $upstream` |
+    | `alertsToReset` | `FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/SimulatedTemperatureSensor/inputs/control\")` |
+    | `telemetryToAsa` | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")`|
 
-   As rotas que você declara aqui definem o fluxo de dados no dispositivo do IoT Edge. Os dados de telemetria do SimulatedTemperatureSensor são enviados para o Hub IoT e para a entrada de **temperatura** que foi configurada no trabalho do Stream Analytics. As mensagens de saída do **alerta** são enviadas para o Hub IoT e para o módulo SimulatedTemperatureSensor para disparar o comando de reinicialização. 
+    As rotas que você declara aqui definem o fluxo de dados no dispositivo do IoT Edge. Os dados de telemetria do SimulatedTemperatureSensor são enviados para o Hub IoT e para a entrada de **temperatura** que foi configurada no trabalho do Stream Analytics. As mensagens de saída do **alerta** são enviadas para o Hub IoT e para o módulo SimulatedTemperatureSensor para disparar o comando de reinicialização.
 
-1. Selecione **Avançar**.
+1. Selecione **Avançar: Examinar + Criar**.
 
-1. Na etapa **Examinar Implantação**, você pode ver como as informações fornecidas no assistente são convertidas em um manifesto de implantação JSON. Quando você terminar de revisar o manifesto, selecione **Enviar**.
+1. Na guia **Examinar + Criar**, você poderá ver como as informações fornecidas no assistente são convertidas em um manifesto de implantação JSON. Quando terminar de examinar o manifesto, selecione **Criar**.
 
-1. Volte para a página de detalhes do dispositivo e selecione **Atualizar**.  
+1. Você retornará à página de detalhes do dispositivo. Selecione **Atualizar**.  
 
     Você deverá ver o novo módulo do Stream Analytics em execução, juntamente com os módulos agente do IoT Edge e hub do IoT Edge. Podem ser necessários alguns minutos para que as informações cheguem ao dispositivo IoT Edge e então para que os novos módulos serem iniciados. Se você não vir os módulos que estão em execução imediatamente, continue a atualizar a página.
 
@@ -227,9 +221,7 @@ Agora você pode acessar o dispositivo do IoT Edge para verificar a interação 
    ```cmd/sh
    iotedge list  
    ```
-   <!--
-   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
-   -->
+
 1. Exibir todos os logs do sistema e dados de métricas. Use o nome do módulo do Stream Analytics:
 
    ```cmd/sh
@@ -242,22 +234,21 @@ Agora você pode acessar o dispositivo do IoT Edge para verificar a interação 
    iotedge logs SimulatedTemperatureSensor
    ```
 
-   Você pode observar a temperatura do computador aumentar gradualmente até atingir 70 graus por 30 segundos. Em seguida, o módulo do Stream Analytics dispara uma redefinição e a temperatura da máquina cai para 21. 
+   Você pode observar a temperatura do computador aumentar gradualmente até atingir 70 graus por 30 segundos. Em seguida, o módulo do Stream Analytics dispara uma redefinição e a temperatura da máquina cai para 21.
 
    ![Redefinir a saída do comando nos logs de módulo](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los. Você também pode continuar usando o mesmo dispositivo IoT Edge como um dispositivo de teste. 
+Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los. Você também pode continuar usando o mesmo dispositivo IoT Edge como um dispositivo de teste.
 
-Caso contrário, é possível excluir as configurações locais e os recursos do Azure usados neste artigo para evitar encargos. 
- 
+Caso contrário, é possível excluir as configurações locais e os recursos do Azure usados neste artigo para evitar encargos.
+
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você configurou um trabalho do Azure Stream Analytics para analisar dados de seu dispositivo IoT Edge. Em seguida, carregou o módulo do Azure Stream Analytics em seu dispositivo IoT Edge para processar e reagir ao aumento de temperatura localmente, além de enviar o fluxo de dados agregados para a nuvem. Continue com os outros tutoriais para saber como o Azure IoT Edge pode criar outras soluções para seus negócios.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Implantar um modelo do Azure Machine Learning como um módulo](tutorial-deploy-machine-learning.md)

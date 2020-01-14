@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Azure PowerShell – Criar um conjunto de dimensionamento de máquinas virtuais básico| Microsoft Docs
-description: Exemplos do Azure PowerShell
+title: Exemplos do Azure PowerShell – Criar um conjunto de dimensionamento de máquinas virtuais básico
+description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure executando o Windows Server 2016, que pode ser acessado por meio do RDP.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 98c7760a84d2ae4824ab3a34dc089a2b9bca74d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1247dab9a9d2b39eea41b617957461ffa544e66b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350851"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais básico com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais que executa o Windows Server 2016. Depois de executar o script, é possível acessar a VM via RDP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]

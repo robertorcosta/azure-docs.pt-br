@@ -1,5 +1,5 @@
 ---
-title: Introdução à API de Tabela do Azure Cosmos DB usando SDK do .NET Standard
+title: API de Tabela do Azure Cosmos DB usando SDK do .NET Standard
 description: Saiba como armazenar e consultar os dados estruturados na conta da API de Tabela do Azure Cosmos DB
 author: wmengmsft
 ms.author: wmeng
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: 0a1ba00d2d24664590f76438a90f651e0826d419
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7341d86e68986a2e502f714a4dcf1f882200d384
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441074"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução à API de Tabela do Azure Cosmos DB e armazenamento de Tabelas do Azure usando SDK do .NET
 
@@ -25,7 +25,7 @@ ms.locfileid: "74870540"
 
 Este tutorial descreve um exemplo que mostra como usar a [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) com cenários de API de Tabela do Azure Cosmos DB e Armazenamento de Tabelas do Azure. Você deverá usar a conexão específica para o serviço do Azure. Esses cenários são explorados usando exemplos em C# que ilustram como criar tabelas, inserir/atualizar dados, consultar dados e excluir tabelas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisará do seguinte para concluir este exemplo com sucesso:
 
@@ -418,7 +418,7 @@ Agora, compile a solução e pressione F5 para executar o projeto. Quando o proj
 
 ![Saída do prompt de comando](./media/tutorial-develop-table-standard/output-from-sample.png)
 
-Se você receber um erro informando que o arquivo Settings.json não pode ser encontrado ao executar o projeto, será possível resolver isso adicionando a seguinte entrada XML às configurações do projeto. Clique com o botão direito em CosmosTableSamples, selecione Editar CosmosTableSamples.csproj e adicione o seguinte itemGroup: 
+Se você receber um erro informando que o arquivo Settings.json não pode ser encontrado ao executar o projeto, será possível resolvê-lo adicionando a seguinte entrada XML às configurações do projeto. Clique com o botão direito do mouse em CosmosTableSamples, selecione Editar CosmosTableSamples.csproj e adicione o seguinte itemGroup: 
 
 ```csharp
   <ItemGroup>

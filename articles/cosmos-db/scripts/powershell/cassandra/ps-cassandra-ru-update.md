@@ -1,5 +1,5 @@
 ---
-title: Script do Azure PowerShell – Atualizar as RU/s do Azure Cosmos DB para a API do Cassandra
+title: Script do PowerShell para atualizar RU/s nos recursos da API do Cassandra do Azure Cosmos DB
 description: Saiba como usar um script do PowerShell para atualizar a taxa de transferência para um keyspace ou uma tabela na API do Cassandra do Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 417ee8d839e65a7625b8ba8daa84cc0dcc41abf5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 4f81f278c87b096b2dae844252229fb1dee45599
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445054"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Atualizar as RU/s para um keyspace ou uma tabela do Azure Cosmos DB – API do Cassandra
 
@@ -20,7 +20,7 @@ ms.locfileid: "74871951"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-ru-update.ps1 "Update throughput on a keyspace or table for Cassandra API")]
 
@@ -34,7 +34,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

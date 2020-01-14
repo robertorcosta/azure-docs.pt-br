@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Examinando enunciados de ponto de extremidade – LUIS'
 titleSuffix: Azure Cognitive Services
-description: Melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade.
+description: Neste tutorial, aprimore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS dos quais o LUIS não tem certeza. Alguns enunciados podem ser verificados quanto à intenção e outros quanto à entidade.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447811"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Você deve examinar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
@@ -28,8 +28,6 @@ Esse processo de revisão permite que o LUIS aprenda seu domínio de aplicativo.
 * Deve ser revisada regularmente.
 
 Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a intenção prevista do enunciado.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **Neste tutorial, você aprenderá a:**
 
@@ -46,7 +44,7 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
 Use as etapas a seguir para importar um aplicativo.
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. No [portal LUIS em versão prévia](https://preview.luis-ai), importe o arquivo .json para um novo aplicativo.
 
@@ -228,7 +226,7 @@ Você deve estar imaginando por que não adicionar mais exemplos de enunciado. Q
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Por que a intenção mais bem pontuada está na lista de enunciados?
 Alguns enunciados de ponto de extremidade terão uma pontuação de previsão alta na lista de análise. Ainda assim é necessário examinar esses enunciados. Eles estão na lista porque a intenção com a segunda pontuação mais alta tinha uma pontuação muito próxima da intenção com a maior pontuação. Você deseja cerca de 15% de diferença entre as duas primeiras intenções.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

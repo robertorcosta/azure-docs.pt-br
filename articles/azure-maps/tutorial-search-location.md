@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432723"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -55,13 +55,15 @@ Crie uma nova conta dos Mapas seguindo as etapas abaixo:
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obter a chave primária de sua conta
 
-Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite consultar as APIs dos Mapas.
+Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite consultar as APIs dos Mapas. É recomendável usar a chave primária da sua conta como a chave de assinatura ao chamar os serviços do Azure Mapas.
 
 1. Abra a sua conta dos Mapas no portal.
 2. Na seção de configurações, selecione **Autenticação**.
 3. Copie a **Chave Primária** para sua área de transferência. Salve-a localmente para usar depois neste tutorial.
 
 ![Obter a Chave Primária no portal](./media/tutorial-search-location/get-key.png)
+
+Para obter mais detalhes sobre a autenticação no Azure Mapas, confira [Gerenciar a autenticação no Azure Mapas](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -275,7 +277,7 @@ O mapa que fizemos até agora apenas analisa os dados de longitude/latitude para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar uma conta dos Mapas do Azure

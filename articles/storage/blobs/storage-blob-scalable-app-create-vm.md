@@ -1,5 +1,5 @@
 ---
-title: Criar uma maquina virtual e uma conta de armazenamento para um aplicativo escalonável no Azure | Microsoft Docs
+title: Criar uma VM e uma conta de armazenamento para um aplicativo escalonável no Azure
 description: Saiba como implantar uma máquina virtual para executar um aplicativo escalonável usando o armazenamento de blobs do Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 49689585b3f52bbee300ff68d2c2653f5e7ff8d0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 60bb227af7cc886bb35cbd045cc8a27cf82ae903
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372220"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável
 

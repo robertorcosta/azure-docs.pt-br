@@ -1,5 +1,5 @@
 ---
-title: Criar aplicativo de página única do AngularJS no Azure AD para entrada e saída | Microsoft Docs
+title: Criar um aplicativo de página única do AngularJS no Azure AD para entrada e saída | Microsoft Docs
 description: Saiba como criar um aplicativo de página única do AngularJS que se integre ao Azure AD para entrada e saída e que chame as APIs protegidas do Azure AD usando OAuth.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963521"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424105"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início Rápido: Criar o aplicativo de página única AngularJS para conexão e saída com o Azure Active Directory
 
@@ -48,7 +48,7 @@ Para criar o aplicativo em funcionamento completo, você precisará:
 2. Instalar a ADAL e configurar o aplicativo de página única.
 3. Use o ADAL para páginas seguras no aplicativo de página única.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, conclua estes pré-requisitos:
 
@@ -59,10 +59,10 @@ Para começar, conclua estes pré-requisitos:
 
 Para permitir que seu aplicativo autentique usuários e obtenha tokens, primeiro você precisará registrá-lo em seu locatário do Azure AD:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Se você entrar em vários diretórios, precisará garantir que está exibindo o diretório correto. Para fazer isso, na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o locatário do AD do Azure onde você deseja registrar seu aplicativo.
 1. Clique em **Todos os serviços** no painel esquerdo e, em seguida, selecione **Azure Active Directory**.
-1. Clique em **Registros de aplicativo** e **Novo registro**.
+1. Clique em **Registros de aplicativo** e selecione **Novo registro**.
 1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Selecione a plataforma **Web** na seção **URI de Redirecionamento** e defina o valor como `https://localhost:44326/` (o local para o qual o Microsoft Azure AD retornará os tokens).

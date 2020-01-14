@@ -1,5 +1,5 @@
 ---
-title: Adicionar entrada ao aplicativo Web do ASP.NET no Azure AD
+title: Adicionar a conexão à plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
 titleSuffix: Microsoft identity platform
 description: Como implementar a opção Entrar com a conta da Microsoft em uma solução ASP.NET usando um aplicativo tradicional baseado em navegador da Web e o padrão OpenID Connect
 services: active-directory
@@ -17,18 +17,18 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf1abc42fd3639bf76f752e5fe6a8f62c7d9e66d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423481"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
 Este guia demonstra como implementar a opção Entrar com a conta da Microsoft por meio de uma solução ASP.NET MVC usando um aplicativo tradicional baseado em navegador da Web e o OpenID Connect.
 
-Quando você concluir este guia, seu aplicativo poderá aceitar entradas de contas pessoais de sites como outlook.com e live.com. Além disso, as contas corporativas e de estudante de qualquer empresa ou organização integradas ao Azure AD (Azure Active Directory) poderão entrar no aplicativo.
+Quando você concluir este guia, seu aplicativo poderá aceitar entradas de contas pessoais de sites como outlook.com e live.com. Além disso, as contas corporativas e de estudante de qualquer empresa ou organização integradas à plataforma de identidade da Microsoft poderão entrar no aplicativo.
 
 > Este guia exige o Microsoft Visual Studio 2019.  Ainda não tem?  [Baixe gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/).
 
@@ -106,7 +106,7 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
     ```csharp
     public class Startup
     {
-        // The Client ID is used by the application to uniquely identify itself to Azure AD.
+        // The Client ID is used by the application to uniquely identify itself to Microsoft identity platform.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         // RedirectUri is the URL where the user will be redirected to after they sign in.
@@ -115,7 +115,7 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -175,7 +175,7 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mais informações
-> Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com o Azure AD. Como o middleware do OpenID Connect usa cookies em segundo plano, você também precisará configurar a autenticação de cookie, como mostra o código anterior. O valor *ValidateIssuer* instrui OpenIdConnect a não restringir o acesso a uma organização específica.
+> Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com a plataforma de identidade da Microsoft. Como o middleware do OpenID Connect usa cookies em segundo plano, você também precisará configurar a autenticação de cookie, como mostra o código anterior. O valor *ValidateIssuer* instrui OpenIdConnect a não restringir o acesso a uma organização específica.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Adicionar um controlador para manipular solicitações de entrada e saída
@@ -270,7 +270,7 @@ No Visual Studio, crie uma exibição para adicionar o botão Entrar e para exib
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mais informações
-> Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Bdiretrizes de identidade visual").
+> Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Diretrizes de identidade Visual").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para exibir as declarações do usuário
@@ -407,7 +407,7 @@ Quando estiver pronto para executar o teste, use uma conta do Azure AD (conta co
 
 <!--start-collapse-->
 > ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
->  Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar no Azure AD para acessar esse aplicativo, ele deverá fornecer seu consentimento às permissões solicitadas pelo aplicativo ("Exibir seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
+>  Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer seu consentimento às permissões solicitadas pelo aplicativo ("Exibir seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
 >  > - O desenvolvedor de aplicativos adiciona permissões extras que exigem o **consentimento do administrador**.
 >  > - Ou o locatário está configurado (em **Aplicativos Empresariais – > Configurações de Usuário**), em que os usuários não podem fornecer consentimento aos aplicativos que acessam os dados da empresa em seu nome.
 >
@@ -429,11 +429,11 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 |Propriedade |Valor |DESCRIÇÃO |
 |---|---|---|
 |**Nome** |Nome completo do usuário | Nome e sobrenome do usuário
-|**Nome de Usuário** |usuário<span>@domain.com</span> | O nome de usuário que é usado para identificar o usuário|
+|**Nome de usuário** |usuário<span>@domain.com</span> | O nome de usuário que é usado para identificar o usuário|
 |**Assunto** |Assunto |Uma cadeia de caracteres que identifica de maneira exclusiva o usuário na Web|
 |**ID do locatário** |Guid | Um **GUID** que representa de maneira exclusiva a organização do Azure AD do usuário|
 
-Além disso, você deverá ver uma tabela de todas as declarações que estão na solicitação de autenticação. Para obter mais informações, confira a [lista de declarações incluídas em um token de ID do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Além disso, você deverá ver uma tabela de todas as declarações que estão na solicitação de autenticação. Para obter mais informações, confira a [lista de declarações incluídas em um token de ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testar o acesso a um método que tenha um atributo Autorizar (opcional)
 
@@ -459,7 +459,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quem pode se conectar ao seu aplicativo
 
-Por padrão, quando você compila o aplicativo criado por este guia, o aplicativo aceitará entradas de contas pessoais (incluindo outlook.com, live.com e outros), bem como contas corporativas ou de estudante de qualquer empresa ou organização que foi integrada ao Azure AD. Essa é uma opção recomendada para aplicativos SaaS.
+Por padrão, quando você compila o aplicativo compilado por este guia, o aplicativo aceitará entradas de contas pessoais (incluindo outlook.com, live.com e outros), bem como contas corporativas ou de estudante de qualquer empresa ou organização que foi integrada à plataforma de identidade da Microsoft. Essa é uma opção recomendada para aplicativos SaaS.
 
 Para restringir o acesso de entrada do usuário para o aplicativo, há várias opções disponíveis.
 

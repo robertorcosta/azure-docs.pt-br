@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar os dados da API do SQL do Azure Cosmos DB'
+title: 'Tutorial: Criar um aplicativo Web do Node.js com o SDK JavaScript do Azure Cosmos DB para gerenciar dados da API do SQL'
 description: Este tutorial do Node.js explora como usar o Microsoft Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web do Node.js Express hospedado no recurso Aplicativos Web do Serviço de Aplicativo do Microsoft Azure.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441272"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar uma conta de API do SQL no Azure Cosmos DB 
 
@@ -474,7 +474,7 @@ Depois que seu aplicativo for bem-sucedido localmente, você poderá implantá-l
 
 4. Em poucos segundos, seu aplicativo Web será publicado e iniciado em um navegador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando esses recursos já não forem necessários, você poderá excluir o grupo de recursos, a conta do Azure Cosmos DB e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos que você usou para a conta do Azure Cosmos DB, selecione **Excluir** e, em seguida, confirme o nome do grupo de recursos a ser excluído.
 

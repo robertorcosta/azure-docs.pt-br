@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703708"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549441"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -63,7 +63,7 @@ O certificado solicitado ou criado precisa atender aos requisitos a seguir. O do
 
 * **Emissor confiável** – o certificado deve ser emitido por uma autoridade confiável para os computadores que se conectarem ao domínio gerenciado usando LDAP seguro. Essa autoridade pode ser uma AC pública ou uma AC corporativa confiável nesses computadores.
 * **Tempo de vida** : o certificado deve ser válido por, pelo menos, os próximos três a seis meses. O acesso LDAP seguro para seu domínio gerenciado é interrompido quando o certificado expira.
-* **Nome da entidade**: o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se o domínio for chamado *aadds.contoso.com*, o nome da entidade do certificado precisará ser **aadds.contoso.com*.
+* **Nome da entidade**: o nome da entidade no certificado deve ser seu domínio gerenciado. Por exemplo, se o domínio for chamado *aadds.contoso.com*, o nome da entidade do certificado precisará ser * *.aadds.contoso.com*.
     * O nome DNS ou o nome alternativo da entidade do certificado precisa ser um certificado curinga para garantir que o LDAP Seguro funcione corretamente com o Azure AD Domain Services. Os controladores de domínio usam nomes aleatórios e podem ser removidos ou adicionados para garantir que o serviço permaneça disponível.
 * **Uso de chave** – o certificado precisa ser configurado para *assinaturas digitais* e *codificação de chave*.
 * **Finalidade do certificado** : o certificado deve ser válido para autenticação de servidor SSL.
@@ -219,9 +219,9 @@ Vamos criar uma regra para permitir o acesso LDAP Seguro de entrada pela porta T
     | Destino                       | Qualquer          |
     | Intervalos de portas de destino           | 636          |
     | Protocolo                          | TCP          |
-    | Ação                            | PERMITIR        |
+    | Ação                            | Allow        |
     | Prioridade                          | 401          |
-    | NOME                              | AllowLDAPS   |
+    | Nome                              | AllowLDAPS   |
 
 1. Quando estiver pronto, selecione **Adicionar** para salvar e aplicar a regra.
 
@@ -267,7 +267,7 @@ Para ver os objetos armazenados no domínio gerenciado do Azure AD DS:
 
 Para consultar diretamente um contêiner específico, no menu **Exibir > Árvore**, especifique um **BaseDN**, como *OU=Usuários do AADDC,DC=CONTOSO,DC=COM* ou *OU=Computadores do AADDC,DC=CONTOSO,DC=COM*. Para obter mais informações sobre como formatar e criar consultas, confira [Conceitos básicos sobre consultas LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para testar a conectividade para este tutorial, remova essa entrada e adicione um registro formal na zona DNS. Para remover a entrada do arquivo de hosts local, conclua as seguintes etapas:
 
@@ -277,7 +277,7 @@ Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um certificado digital para uso com o Azure AD DS

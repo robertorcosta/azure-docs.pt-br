@@ -1,17 +1,17 @@
 ---
-title: Script do Azure PowerShell – Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos
+title: Script do PowerShell para alterar a prioridade de failover para uma conta do Azure Cosmos
 description: Amostra de script do Azure PowerShell – Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6a742486918e5134a73256ef6c7490a823f14335
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155398"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441516"
 ---
 # <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Alterar a prioridade de failover ou disparar um failover para uma conta do Azure Cosmos usando o PowerShell
 
@@ -19,7 +19,7 @@ ms.locfileid: "71155398"
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 > [!NOTE]
 > Qualquer alteração em uma região com `failoverPriority=0` dispara um failover manual e só pode ser feita em uma conta configurada para failover manual. As alterações em todas as outras regiões apenas alteram a prioridade de failover para uma conta do Cosmos.
@@ -38,7 +38,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma conta de API do Cassandra usando um aplicativo Java – Azure Cosmos DB'
+title: 'Tutorial: Compilar o aplicativo Java para criar a conta da API do Cassandra do Azure Cosmos DB'
 description: Este tutorial mostra como criar uma conta de API do Cassandra, adicionar um banco de dados (também chamado de keyspace) e adicionar uma tabela para essa conta usando um aplicativo Java.
 author: kanshiG
 ms.author: govindk
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034608"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441894"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Criar uma conta de API do Cassandra no Azure Cosmos DB por meio de um aplicativo Java para armazenar dados de chave/valor
 
@@ -28,9 +28,9 @@ Este tutorial cobre as seguintes tarefas:
 > * Obter uma cadeia de conexão da conta
 > * Criar dependências e projeto Maven
 > * Adicionar um banco de dados e uma tabela
-> * Execute o aplicativo
+> * Executar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
@@ -41,7 +41,7 @@ Este tutorial cobre as seguintes tarefas:
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/). 
+1. Entre no [portal do Azure](https://portal.azure.com/). 
 
 2. Selecione **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**. 
 
@@ -204,7 +204,7 @@ Esta seção descreve como adicionar um banco de dados (keyspace) e uma tabela p
    } 
    ```
  
-## <a name="run-the-app"></a>Execute o aplicativo 
+## <a name="run-the-app"></a>Executar o aplicativo 
 
 1. Abra um prompt de comando ou uma janela de terminal. Cole o seguinte bloco de código. 
 

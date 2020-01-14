@@ -1,26 +1,16 @@
 ---
-title: Criar um aplicativo de contêiner Linux no Service Fabric no Azure | Microsoft Docs
+title: Criar um aplicativo de contêiner Linux no Service Fabric no Azure
 description: Nesse início rápido, você construirá uma imagem do Docker com o seu aplicativo, enviará por push a imagem para um registro de contêiner e implantará um contêiner a um cluster do Service Fabric.
-services: service-fabric
-documentationcenter: linux
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb0a83d0110002cc32998af4083d06cf6e86e16a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599410"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372679"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
 
@@ -30,7 +20,7 @@ Este guia de início rápido mostra como implantar contêineres do Linux em um c
 
 ![Página da Web do aplicativo de votação][quickstartpic]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia de início rápido:
 
@@ -169,7 +159,7 @@ Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
 
 Com essa tarefa de gerenciamento simples, você dobrou o número de recursos disponíveis para o serviço de front-end processar a carga do usuário. É importante entender que você não precisa de várias instâncias de um serviço para que ele seja executado de forma confiável. Se um serviço falhar, o Service Fabric fará com que uma nova instância de serviço seja executada no cluster.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Use o script de desinstalação (uninstall.sh) fornecido com o modelo para excluir a instância do aplicativo no cluster e cancelar o registro do tipo de aplicativo. Esse script leva algum tempo para limpar a instância e, portanto, você não deve executar o script de instalação imediatamente após esse script. Você pode usar o Service Fabric Explorer para determinar quando a instância foi removida e o tipo de aplicativo teve o registro cancelado.
 

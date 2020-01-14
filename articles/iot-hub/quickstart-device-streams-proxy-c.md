@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c8554fc3f691af05a2c6a660d07ffb9a6ff29f31
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 03b0269b1a4500fd8ae26cd5e56f48427c5506aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429192"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início Rápido: Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy do C (versão prévia)
 
@@ -50,7 +50,7 @@ A figura a seguir ilustra como os programas proxy locais do dispositivo e do ser
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com hubs IoT criados nas seguintes regiões:
 
@@ -76,18 +76,19 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho *Desenvolvimento para desktop com C++* ) estejam instalados no computador, *antes* de iniciar a instalação do CMake. Após a implementação dos pré-requisitos e a verificação do download, instale o sistema de build CMake.
 
-1. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório do GitHub [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
+1. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório do GitHub do [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
 
-    ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
-
-    Você deve esperar que essa operação leve alguns minutos.
-
-1. Crie um subdiretório *cmake* no diretório raiz do repositório Git, conforme mostrado no comando a seguir e acesse essa pasta.
-
-    ```
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    Essa operação pode levar alguns minutos.
+
+1. Crie um subdiretório *cmake* no diretório raiz do repositório git e navegue até essa pasta. Execute os seguintes comandos no diretório *azure-iot-sdk-c*:
+
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```
@@ -109,6 +110,9 @@ Neste início rápido, você usará o [SDK do dispositivo IoT do Azure para C](i
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
+
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
 
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release
@@ -213,7 +217,7 @@ A imagem a seguir mostra a saída do console do programa cliente SSH. O cliente 
 
 ![Saída do cliente SSH](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

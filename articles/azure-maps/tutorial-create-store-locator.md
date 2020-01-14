@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408036"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de lojas usando o Azure Mapas
 
@@ -33,22 +33,20 @@ Este tutorial orienta você pelo processo de criação de um localizador de loja
 
 Vá diretamente para o [exemplo de localizador de lojas ativo](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou para o [código-fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Para concluir as etapas neste tutorial, primeiro [crie sua conta do Azure Mapas](./tutorial-search-location.md#createaccount) e siga as etapas em [Obter a chave primária](./tutorial-search-location.md#getkey) para obter a chave primária da assinatura da conta.
+Para concluir as etapas neste tutorial, é necessário primeiro criar uma conta do Azure Mapas e obter a chave primária (chave da assinatura). Siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) para criar uma assinatura de conta do Azure Mapas com tipo de preço S1 e siga as etapas em [obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária para sua conta. Para obter mais detalhes sobre a autenticação no Azure Mapas, confira [Gerenciar a autenticação no Azure Mapas](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Design
 
 Antes de mergulhar no código, é uma boa ideia começar com um design. O localizador de lojas pode ser simples ou complexo; você é quem escolhe. Neste tutorial, criaremos um localizador de lojas simples. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se você optar por isso. Podemos criar um localizador de lojas para uma empresa fictícia chamada Contoso Coffee. A figura abaixo mostra um layout geral delineado do localizador de lojas que criamos neste tutorial:
 
-<br/>
 <center>
 
 ![Localizador de lojas delineado para lojas da Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Para maximizar a utilidade do localizador de lojas, incluímos um layout dinâmico que se ajusta à largura da tela do usuário quando ela tem menos de 700 pixels de largura. Um layout dinâmico facilita o uso do localizador de lojas em uma tela pequena, como em um dispositivo móvel. Aqui está um layout delineado para tela pequena:  
 
-<br/>
 <center>
 
 ![Localizador de lojas delineado para a Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
@@ -73,7 +71,6 @@ O localizador delineado mostra um aplicativo bastante simples. O aplicativo tem 
 
 Antes de podermos desenvolver um aplicativo localizador de lojas, precisaremos criar um conjunto de dados das lojas que queremos exibir no mapa. Neste tutorial, usamos um conjunto de dados de uma cafeteria fictícia chamada Contoso Coffee. O conjunto de dados para esse localizador de lojas simples é gerenciado em uma pasta de trabalho do Excel. O conjunto de dados contém 10.213 lojas da Contoso Coffee espalhadas em nove países: Alemanha, Canadá, Dinamarca, Espanha, Estados Unidos, França, Itália, Países Baixos e Reino Unido. Aqui está uma captura de tela mostrando como devem ser os dados:
 
-<br/>
 <center>
 
 ![Captura de tela dos dados do localizador de lojas em uma pasta de trabalho do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
@@ -95,14 +92,12 @@ Outra abordagem é converter esse conjunto de dados em um arquivo de texto simpl
 
 Para converter a pasta de trabalho em um arquivo de texto simples, salve a pasta de trabalho como um arquivo delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, o que facilita a análise das colunas em nosso código. Você pode usar o formato CSV (valores delimitados por vírgula), mas essa opção requer mais lógica de análise. Qualquer campo abrangido por vírgula seria encapsulado com aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **Salvar como**. Na lista suspensa **Salvar como tipo**, selecione **Texto (delimitado por tabulação)(*.txt)** . Nomeie o arquivo *ContosoCoffee.txt*. 
 
-<br/>
 <center>
 
 ![Captura de tela da caixa de diálogo Salvar como tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Se você abrir o arquivo de texto no Bloco de Notas, ele será mais ou menos assim:
 
-<br/>
 <center>
 
 ![Captura de tela de um arquivo do Bloco de Notas que mostra um conjunto de dados delimitados por tabulação](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
@@ -112,7 +107,6 @@ Se você abrir o arquivo de texto no Bloco de Notas, ele será mais ou menos ass
 
 Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código de sua preferência. Na pasta do projeto, crie três arquivos: *index.html*, *CSS* e *index.js*. Esses arquivos definem o layout, o estilo e a lógica do aplicativo. Crie uma pasta chamada *data* e adicione *ContosoCoffee.txt* à pasta. Crie outra pasta chamada *images*. Usamos dez imagens neste aplicativo para os marcadores, botões e ícones do mapa. Você pode [baixar estas imagens](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). A pasta do projeto agora deve ficar mais ou menos assim:
 
-<br/>
 <center>
 
 ![Captura de tela da pasta do projeto do Localizador de Lojas Simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
@@ -930,21 +924,18 @@ Agora você tem um localizador de lojas totalmente funcional. Em um navegador da
 
 Na primeira vez em que um usuário seleciona o botão Minha Localização, o navegador exibe um aviso de segurança que solicita permissão para acessar a localização do usuário. Se o usuário concordar em compartilhar sua localização, o mapa ampliará a localização do usuário e as cafeterias próximas serão exibidas. 
 
-<br/>
 <center>
 
 ![Captura de tela da solicitação do navegador para acessar o local do usuário](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Quando você ampliar o suficiente em uma área com cafeterias, os clusters se dividem em lugares individuais. Selecione um dos ícones no mapa ou selecione um item no painel lateral para ver uma janela pop-up que mostra informações sobre esse lugar.
 
-<br/>
 <center>
 
 ![Captura de tela do localizador de lojas concluído](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Se você redimensionar a janela do navegador para menos de 700 pixels de largura ou abrir o aplicativo em um dispositivo móvel, o layout muda para se adequar melhor a telas menores. 
 
-<br/>
 <center>
 
 ![Captura de tela da versão do localizador de lojas para telas pequenas](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>

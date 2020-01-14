@@ -5,15 +5,15 @@ author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
+description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fcfbdfb371f50601bf1f58bceab51d4299f2847a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708385"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438596"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e Java com o Azure Dev Spaces
 
@@ -142,10 +142,10 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 
 Identifique a URL pública do serviço na saída do comando `up`. Termina em `.azds.io`. No exemplo acima, a URL pública é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Para ver seu aplicativo Web, abra a URL pública em um navegador. Além disso, observe que a saída de `stdout` e `stderr` é transmitida para a janela do terminal *azds trace* enquanto você interage com o aplicativo Web. Também é possível conferir informações de acompanhamento das solicitações HTTP à medida que elas passam pelo sistema. Isso facilita o acompanhamento de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pelo Dev Spaces fornece essa solicitação de acompanhamento.
+Para ver seu aplicativo Web, abra a URL pública em um navegador. Além disso, observe que a saída de `stdout` e `stderr` é transmitida para a janela do terminal *azds trace* enquanto você interage com o aplicativo Web. Também é possível conferir informações de acompanhamento das solicitações HTTP à medida que elas passam pelo sistema. Isso facilita o acompanhamento de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pelo Dev Spaces fornece esse acompanhamento de solicitação.
 
 > [!Note]
-> Além da URL pública, você pode usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. O Azure Dev Spaces usa a funcionalidade de *encaminhamento de porta* do Kubernetes para mapear a porta do host local para o contêiner em execução no AKS. Isso facilita a interação com o serviço em seu computador local.
+> Além da URL pública, você pode usar a URL alternativa `http://localhost:<portnumber>` exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. O Azure Dev Spaces usa a funcionalidade de *encaminhamento de porta* do Kubernetes para mapear a porta do host local para o contêiner em execução no AKS. Isso facilita a interação com o serviço em seu computador local.
 
 ### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
 O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
@@ -197,7 +197,7 @@ Pressione **F5** para depurar seu código no Kubernetes.
 Assim como acontece com o comando `up`, o código está sincronizado com o espaço de desenvolvimento e um contêiner é criado e implantado no Kubernetes. Desta vez, é claro, o depurador está anexado ao contêiner remoto.
 
 > [!Tip]
-> A barra de status do VS Code ficará laranja, indicando que o depurador está anexado. Ela também exibirá uma URL clicável, que pode ser usada para abrir o aplicativo.
+> A barra de status do VS Code ficará laranja, indicando que o depurador foi anexado. Ela também exibirá uma URL clicável, que pode ser usada para abrir o aplicativo.
 
 ![](media/common/vscode-status-bar-url.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure – criar e usar um compartilhamento do serviço Arquivos do Azure em VMs do Windows | Microsoft Docs
+title: Criar e usar um compartilhamento dos Arquivos do Azure em VMs do Windows
 description: Neste início rápido, você configura um compartilhamento do serviço Arquivos do Azure no portal do Azure e o conecta a uma máquina virtual do Windows. Você se conecta ao compartilhamento do serviço Arquivos e carrega um arquivo nele. Em seguida, tira um instantâneo do compartilhamento do Arquivos, modifica o arquivo no compartilhamento do Arquivos e restaura um instantâneo anterior do compartilhamento do Arquivos.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463899"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início Rápido: Criar e gerenciar compartilhamento do Armazenamento de Arquivos do Azure com máquinas de virtuais do Windows
 
@@ -22,7 +22,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
@@ -85,7 +85,7 @@ Nesta altura, você já criou uma nova máquina virtual e anexou um disco de dad
 
    ![Conecte-se a uma VM do Azure no portal](./media/storage-files-quick-create-use-windows/connect-vm.png)
 
-1. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para se conectar por **endereço IP** pela **porta número** *3389* e clique em **Baixar arquivo RDP**.
+1. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para se conectar por **endereço IP** no **número da porta** *3389* e selecione **Baixar arquivo RDP**.
 1. Abra o arquivo RDP baixado e selecione **Conectar** quando solicitado.
 1. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite o nome de usuário como *localhost\nome de usuário*,em que &lt;nome de usuário&gt; é o nome do usuário administrador da VM que você criou para a máquina virtual. Insira a senha que você criou para a máquina virtual e selecione **OK**.
 
@@ -175,7 +175,7 @@ Assim como acontece com instantâneos locais do VSS, você pode exibir os instan
 
    ![Botão restaurar em mensagem de aviso](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Observação: se o arquivo não tiver sido alterado, você não verá uma versão anterior desse arquivo porque esse arquivo é da mesma versão que o instantâneo. Isso é consistente com a maneira como isso funciona em um servidor de arquivos do Windows.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
