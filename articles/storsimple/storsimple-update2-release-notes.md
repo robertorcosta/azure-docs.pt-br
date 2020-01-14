@@ -3,7 +3,7 @@ title: Notas de versão da Atualização 2 para o StorSimple 8000 Series | Micro
 description: Descreve os novos recursos, problemas e soluções alternativas para a Atualização 2 da série 8000 do StorSimple.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: e2c8bffd-7fc5-4b77-b632-a4f59edacc3a
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
-ms.author: v-sharos
-ms.openlocfilehash: f23a507ab631be553613e22cafa037291548a8aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717144"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934054"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de versão da Atualização 2 da série 8000 do StorSimple
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos em aberto da Atualização 2 da série 8000 do StorSimple. Elas também contêm uma lista das atualizações de software, driver e firmware de disco do StorSimple incluídas nesta versão. 
 
 A Atualização 2 pode ser aplicada a qualquer dispositivo do StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 1.2. A versão do dispositivo associada à Atualização 2 é 6.3.9600.17673.
@@ -53,12 +53,12 @@ A Atualização 2 apresenta os novos recursos descritos a seguir.
   * Aprimoramentos de roteamento, com métricas fixas para blocos habilitados para a nuvem.
   * Nova tentativa online de recursos com falha antes de um failover.
   * Novos alertas para falhas de serviço.
-* **Aprimoramentos de atualização** – na atualização 1.2 e anterior, a série 8000 do StorSimple foi atualizada por meio de dois canais: Windows Update para clustering, iSCSI e assim por diante e Microsoft Update para binários e firmware.
+* **Aprimoramentos de atualização** – Na Atualização 1.2 e anterior, a série 8000 do StorSimple era atualizada por meio de dois canais: Windows Update para clustering, iSCSI e assim por diante, e Microsoft Update para binários e firmware.
     A Atualização 2 usa o Microsoft Update para todos os pacotes de atualização. Isso deve levar a menos tempo em execução de failovers ou aplicação de patches. 
 * **Atualizações de firmware** – As seguintes atualizações de firmware estão incluídas:
   
   * LSI: lsi_sas2.sys Versão do Produto 2.00.72.10
-  * Somente SSD (atualizações de HDD): XMGG, XGEG, KZ50, F6C2 e VR08
+  * Somente SSD (não há atualizações de HDD): XMGG, XGEG, KZ50, F6C2 e VR08
 * **Suporte proativo** : a Atualização 2 permite que a Microsoft efetue pull de informações adicionais de diagnóstico do dispositivo. Quando nossa equipe de operações identifica dispositivos com problemas, estamos mais bem equipados para coletar informações do dispositivo e diagnosticar problemas. **Ao aceitar a Atualização 2, você nos permite oferecer esse suporte proativo**.    
 
 ## <a name="issues-fixed-in-update-2"></a>Problemas corrigidos na Atualização 2
@@ -66,7 +66,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 
 | Não. | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Interfaces de rede |Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. |Sim |Não |
+| 1 |Adaptadores de rede |Após uma atualização para a Atualização 1, o serviço do StorSimple Manager relatou que as portas Data2 e Data3 falharam em um controlador. Esse problema foi corrigido. |Sim |Não |
 | 2 |Atualizações |Após atualizar para a Atualização 1, ocorreram alertas de alarme audível no portal clássico do Azure em vários dispositivos. Esse problema foi corrigido. |Sim |Não |
 | 3 |Autenticação Openstack |Ao usar o Openstack como seu provedor de serviços de nuvem, você poderá receber um erro informando que sua cadeia de caracteres de autenticação de nuvem é muito longa. Esse problema foi corrigido. |Sim |Não |
 
@@ -76,7 +76,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | Não. | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum de disco |Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. |Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. |Sim |Não |
-| 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não |
+| 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Não é necessária nenhuma ação do usuário. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não |
 | 3 |Contas de armazenamento |Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | |Sim |Sim |
 | 4 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | |Sim |Não |
 | 5 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |

@@ -3,7 +3,7 @@ title: Políticas de backup do StorSimple Snapshot Manager | Microsoft Docs
 description: Descreve como usar o snap-in StorSimple Snapshot Manager MMC para criar e gerenciar as políticas de backup que controlam os backups agendados.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687272"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933354"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup
-## <a name="overview"></a>Visão geral
-Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem. Quando cria uma política de backup, você também pode especificar uma política de retenção. (Você pode manter no máximo 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [Tipos de Backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) na [StorSimple série 8000: uma solução de nuvem híbrida](storsimple-overview.md).
+## <a name="overview"></a>Visão Geral
+Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem. Quando cria uma política de backup, você também pode especificar uma política de retenção. (Você pode reter um máximo de 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [tipos de backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) no [StorSimple 8000 Series: uma solução de nuvem híbrida](storsimple-overview.md).
 
 Este tutorial explica como:
 
@@ -67,7 +67,7 @@ Após você criar uma política de backup, as seguintes informações aparecem n
 * **Grupo de Volumes** – o grupo de volumes associado à política.
 * **Retenção** – o número de instantâneos retidos; o máximo é 64.
 * **Criado** – a data em que esta política foi criada.
-* **Habilitado** – indica se a política está atualmente em vigor: **True** indica que ele está em vigor. **Falsos** indica que ele não está em vigor.
+* **Habilitado** – se a política está em vigor: **Verdadeiro** indica que está em vigor; **Falso** indica que não está.
 
 ## <a name="edit-a-backup-policy"></a>Editar uma política de backup
 Use o procedimento a seguir para editar uma política de backup existente.
@@ -91,6 +91,6 @@ Use o procedimento a seguir para excluir uma política de backup.
 
     ![Excluir confirmação da política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).

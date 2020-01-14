@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/05/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422763"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932654"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -97,27 +97,34 @@ Se você estiver pronto para implantar as revisões de acesso em sua organizaç�
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-### <a name="which-users-must-have-licenses"></a>Quais usuários precisam ter licenças?
+### <a name="how-many-licenses-must-you-have"></a>Quantas licenças você precisa ter?
 
-Cada usuário que interage com as revisões de acesso deve ter uma licença paga de Azure AD Premium P2. Por exemplo:
+Certifique-se de que seu diretório tenha pelo menos tantas licenças Azure AD Premium P2, pois você tem funcionários que executarão as seguintes tarefas:
 
-- Administradores que criam uma revisão de acesso
+- Membros e usuários convidados que são atribuídos como revisores
+- Membros e usuários convidados que executam uma autorevisão
 - Proprietários de grupo que executam uma revisão de acesso
-- Usuários atribuídos como revisores
-- Usuários que executam uma autoanálise
+- Proprietários de aplicativos que realizam uma revisão de acesso
 
-Você também pode solicitar que usuários convidados revisem o próprio acesso. Para cada licença paga do Azure AD Premium P2 que você atribui a um dos usuários da sua organização, você pode usar o B2B (Business-to-Business) do Azure AD para convidar até cinco usuários convidados sob a concessão do usuário externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, consulte [diretrizes de licenciamento da colaboração B2B do Azure ad](../b2b/licensing-guidance.md).
+As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes tarefas:
 
-Aqui estão alguns cenários de exemplo para ajudá-lo a determinar o número de licenças que você deve ter.
+- Nenhuma licença é necessária para os usuários com funções de administrador global ou de administrador de usuários que configuram revisões de acesso, definem configurações ou aplicam as decisões das revisões.
 
-| Cenário | Cálculo | Número necessário de licenças |
+Para cada licença paga do Azure AD Premium P2 que você atribui a um dos usuários da sua organização, você pode usar o B2B (Business-to-Business) do Azure AD para convidar até cinco usuários convidados sob a concessão do usuário externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, consulte [diretrizes de licenciamento da colaboração B2B do Azure ad](../b2b/licensing-guidance.md).
+
+Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Cenários de licença de exemplo
+
+Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar o número de licenças que você deve ter.
+
+| Cenário | Cálculo | Número de licenças |
 | --- | --- | --- |
-| Um administrador cria uma revisão de acesso do grupo A com 500 usuários. Atribui 3 proprietários de grupo como revisores. | 1 licença para o administrador + 3 licenças para cada proprietário do grupo como revisores. | 4 |
-| Um administrador cria uma revisão de acesso do grupo A com 500 usuários. O torna uma análise automática. | 1 licença para as licenças de administrador + 500 para cada usuário como revisores automáticos. | 501 |
-| Um administrador cria uma revisão de acesso do grupo B com 5 usuários e 25 usuários convidados. O torna uma análise automática. | 1 licença para o administrador + 5 licenças para cada usuário como revisores automáticos.<br/>(os usuários convidados são abordados na proporção 1:5 necessária) | 6 |
-| Um administrador cria uma revisão de acesso do grupo C com 5 usuários e 108 usuários convidados. O torna uma análise automática. | 1 licença para o administrador + 5 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados 108 na proporção 1:5 necessária.<br/>1 + 5 = 6 licenças, que abrangem 5\*6 = 30 usuários convidados. Para o restante (108-5\*6) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
-
-Para obter informações sobre como atribuir licenças a seus usos, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
+| Um administrador cria uma revisão de acesso do grupo A com 75 usuários e um proprietário do grupo e atribui o proprietário do grupo como o revisor. | 1 licença para o proprietário do grupo como revisor | 1 |
+| Um administrador cria uma revisão de acesso do grupo B com 500 usuários e três proprietários de grupo e atribui os 3 proprietários do grupo como revisores. | 3 licenças para cada proprietário do grupo como revisores | 3 |
+| Um administrador cria uma revisão de acesso do grupo B com 500 usuários. O torna uma análise automática. | 500 licenças para cada usuário como autoviewers | 500 |
+| Um administrador cria uma revisão de acesso do grupo C com 50 usuários Membros e 25 usuários convidados. O torna uma análise automática. | 50 licenças para cada usuário como revisores automáticos.<br/>(os usuários convidados são abordados na proporção 1:5 necessária) | 50 |
+| Um administrador cria uma revisão de acesso do Grupo D com 6 usuários Membros e usuários convidados de 108. O torna uma análise automática. | 6 licenças para cada usuário como autoviewers + 16 licenças adicionais para cobrir todos os usuários convidados de 108 na proporção 1:5 necessária. 6 licenças, que abrangem 6\*5 = 30 usuários convidados. Para os restantes (108-6\*5) = 78 usuários convidados, 78/5 = 16 licenças adicionais são necessárias. Portanto, no total, são necessárias 6 + 16 = 22 licenças. | 22 |
 
 ## <a name="next-steps"></a>Próximos passos
 

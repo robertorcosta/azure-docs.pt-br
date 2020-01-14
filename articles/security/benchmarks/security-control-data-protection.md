@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 914d1af9793107031af9797cb965420443e80c4a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 5482495f87e87e5d05d8adca6b053810a62dcb4e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564329"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934513"
 ---
 # <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
 
@@ -85,7 +85,7 @@ Criptografe todas as informações confidenciais em trânsito. Verifique se todo
 
 Siga as recomendações da central de segurança do Azure para criptografia em repouso e criptografia em trânsito, quando aplicável.
 
-Noções básicas sobre criptografia em trânsito com o Azure:
+Entenda a criptografia em trânsito com o Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
@@ -117,7 +117,7 @@ https://docs.microsoft.com/azure/information-protection/deployment-roadmap
 
 Use o RBAC do Azure AD para controlar o acesso a dados e recursos, caso contrário, use métodos de controle de acesso específicos de serviço.
 
-Noções básicas sobre o RBAC do Azure:
+Entender o RBAC do Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -164,4 +164,3 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ## <a name="next-steps"></a>Próximos passos
 
 Consulte o próximo controle de segurança: [Gerenciamento de vulnerabilidades](security-control-vulnerability-management.md)
-

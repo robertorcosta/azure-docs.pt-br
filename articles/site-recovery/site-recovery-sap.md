@@ -1,18 +1,18 @@
 ---
 title: Configurar a recuperação de desastre do SAP NetWeaver com o Azure Site Recovery
 description: Este artigo descreve como configurar a recuperação de desastre para implantações de aplicativos SAP NetWeaver usando o Azure Site Recovery.
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.author: carmonm
+ms.openlocfilehash: 3ae9a92a27da1b736bf9db6dff88660f7d40143b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533844"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934454"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -95,7 +95,7 @@ Abaixo estão as etapas para configurar a recuperação de desastre
 
 Abaixo está a recomendação para recuperação de desastre de cada camada usada neste exemplo. 
 
- **Camadas do SAP** | **Recomendações**
+ **Camadas do SAP** | **Recomendação**
  --- | ---
 **Pool do SAP Web Dispatcher** |  Replicar usando o Site Recovery 
 **Pool de servidores de aplicativo do SAP** |  Replicar usando o Site Recovery 

@@ -2,18 +2,18 @@
 title: Solucionar problemas de conectividade do Azure para a recuperação de desastre do Azure com o Azure Site Recovery
 description: Solucionar problemas e erros ao replicar máquinas virtuais do Azure para recuperação de desastre
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 08/05/2019
-ms.author: asgang
-ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 41b5203c328243c9ef7cc74e6b9771c677a54c7c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622443"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933419"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -75,7 +75,7 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
    **Localidade** | **Endereço IP do Site Recovery** |  **Endereço IP de monitoramento do Site Recovery**
     --- | --- | ---
-   Centro dos EUA | 40.69.144.231 | 52.165.34.144
+   EUA Central | 40.69.144.231 | 52.165.34.144
 
 ### <a name="nsg-rules---central-us"></a>Regras de NSG – EUA Central
 
@@ -89,7 +89,7 @@ Essas regras são necessárias para que a replicação possa ser ativada da regi
 
    **Localidade** | **Endereço IP do Site Recovery** |  **Endereço IP de monitoramento do Site Recovery**
     --- | --- | ---
-   Centro dos EUA | 13.82.88.226 | 104.45.147.24
+   EUA Central | 13.82.88.226 | 104.45.147.24
 ## <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 - **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.
@@ -118,5 +118,5 @@ Essas regras são necessárias para que a replicação possa ser ativada da regi
 Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Replicar as máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

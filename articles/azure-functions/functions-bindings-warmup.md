@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925175"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933329"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
@@ -30,7 +30,7 @@ O pacote NuGet [Microsoft. Azure. webjobs. Extensions](https://www.nuget.org/pac
 
 ## <a name="trigger"></a>Gatilho
 
-O gatilho aquecimento permite que você defina uma função que será executada em uma instância do quando ela for adicionada ao seu aplicativo em execução. Você pode usar uma função aquecimento para abrir conexões, carregar dependências ou executar qualquer outra lógica personalizada antes que seu aplicativo comece a receber tráfego. 
+O gatilho aquecimento permite que você defina uma função que será executada em uma nova instância quando ela for adicionada ao seu aplicativo em execução. Você pode usar uma função aquecimento para abrir conexões, carregar dependências ou executar qualquer outra lógica personalizada antes que seu aplicativo comece a receber tráfego. 
 
 O gatilho aquecimento destina-se a criar dependências compartilhadas que serão usadas por outras funções em seu aplicativo. [Veja exemplos de dependências compartilhadas aqui](./manage-connections.md#client-code-examples).
 
@@ -158,7 +158,7 @@ Aqui está o arquivo *function.json*:
 
 A seção [configuração](#trigger---configuration) explica essas propriedades.
 
-Confira o código Python:
+Aqui está o código Python:
 
 ```python
 import logging
@@ -241,9 +241,9 @@ O gatilho aquecimento não tem suporte em Java como um atributo.
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `WarmupTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `WarmupTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 | **tipo** | N/D| Obrigatório – deve ser definido como `warmupTrigger`. |
 | **direction** | N/D| Obrigatório – deve ser definido como `in`. |

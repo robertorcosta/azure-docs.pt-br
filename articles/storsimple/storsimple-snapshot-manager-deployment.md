@@ -3,7 +3,7 @@ title: Implantar o StorSimple Snapshot Manager | Microsoft Docs
 description: Saiba como baixar e instalar o StorSimple Snapshot Manager, um snap-in do MMC para gerenciar recursos de backup e de proteção de dados do StorSimple.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61077382"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933376"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implantar o snap-in do MMC StorSimple Snapshot Manager
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O StorSimple Snapshot Manager é um snap-in do Console de Gerenciamento Microsoft (MMC) que simplifica a proteção de dados e o gerenciamento de backups em um ambiente do Microsoft Azure StorSimple. Com o StorSimple Snapshot Manager, é possível gerenciar o armazenamento em nuvem e local do Microsoft Azure StorSimple como se fosse um sistema de armazenamento totalmente integrado, simplificando assim os processos de backup e restauração e reduzindo os custos. 
 
 Este tutorial descreve os requisitos de configuração, bem como os procedimentos para instalar, remover e atualizar o StorSimple Snapshot Manager.
@@ -66,7 +66,7 @@ As etapas a seguir oferecem uma visão geral de alto nível das tarefas de confi
    * Volumes dinâmicos espelhados (RAID 1)
    * Volumes compartilhados de cluster
      
-     Para obter informações sobre como criar volumes no dispositivo StorSimple ou no dispositivo virtual StorSimple, vá para a [Etapa 6: Criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+     Para obter informações sobre como criar volumes no dispositivo StorSimple ou no dispositivo virtual StorSimple, acesse a [Etapa 6: criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>Instalar um novo StorSimple Snapshot Manager
 Antes de instalar o StorSimple Snapshot Manager, certifique-se de que os volumes criados no dispositivo StorSimple ou dispositivo virtual StorSimple estejam montados, inicializados e formatados como descrito em [Configurar pré-requisitos](#configure-prerequisites).
@@ -211,7 +211,7 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
    2. Na página **Serviços**, selecione **Serviço de Gerenciamento Microsoft StorSimple**.
    3. No painel direito, em **Serviço de Gerenciamento Microsoft StorSimple**, clique em **Reiniciar o serviço**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Para saber mais sobre o StorSimple Snapshot Manager, acesse [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 * Para saber mais sobre a interface do usuário do StorSimple Snapshot Manager, acesse a [Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Para saber mais sobre como usar o StorSimple Snapshot Manager, acesse [Usar o StorSimple Snapshot Manager para administrar sua solução de StorSimple](storsimple-snapshot-manager-admin.md).

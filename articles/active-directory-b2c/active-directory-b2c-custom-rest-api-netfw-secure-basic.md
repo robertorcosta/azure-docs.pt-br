@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 24aa0d3d3f12934c54ac9aaa5ab8ae5c0d710825
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949433"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930500"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
 
@@ -249,7 +249,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 7. Para **Uso de chave**, selecione **Assinatura**.
 
-8. Clique em **Criar**.
+8. Selecione **Criar**.
 
 9. Confirme que você criou a chave `B2C_1A_B2cRestClientId`.
 
@@ -270,7 +270,7 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 7. Para **Uso de chave**, selecione **Assinatura**.
 
-8. Clique em **Criar**.
+8. Selecione **Criar**.
 
 9. Confirme que você criou a chave `B2C_1A_B2cRestClientSecret`.
 
@@ -303,17 +303,19 @@ Depois que o serviço RESTful estiver protegido pela ID (nome de usuário) e seg
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Etapa 5: Carregar a política para o seu locatário
 
-1. No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra **Azure AD B2C**.
+1. Na [portal do Azure](https://portal.azure.com), selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o locatário Azure ad B2C.
 
-2. Selecione **Estrutura de Experiência de Identidade**.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 
-3. Abra **Todas as Políticas**.
+1. Selecione **Estrutura de Experiência de Identidade**.
 
-4. Selecione **Carregar Política**.
+1. Abra **Todas as Políticas**.
 
-5. Marque a caixa de seleção **Substituir a política caso ela exista**.
+1. Selecione **Carregar Política**.
 
-6. Carregue o arquivo *TrustFrameworkExtensions.xml* e verifique se a validação dele é aprovada.
+1. Marque a caixa de seleção **Substituir a política caso ela exista**.
+
+1. Carregue o arquivo *TrustFrameworkExtensions.xml* e verifique se a validação dele é aprovada.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Etapa 6: Testar a política personalizada usando Executar Agora
 

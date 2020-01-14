@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687735"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931692"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -28,7 +28,7 @@ As ações de script podem ser aplicadas por meio dos seguintes métodos:
 | --- |:---:|:---:|
 | Portal do Azure |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| CLI Clássica do Azure |&nbsp; |✓ |
+| CLI clássica do Azure |&nbsp; |✓ |
 | SDK do .NET do HDInsight |✓ |✓ |
 | Modelo do Azure Resource Manager |✓ |&nbsp; |
 
@@ -173,7 +173,7 @@ Por padrão, `echo` envia a cadeia de caracteres para STDOUT. Para direcioná-lo
 >&2 echo "An error occurred installing Foo"
 ```
 
-Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de E/S, consulte [ https://www.tldp.org/LDP/abs/html/io-redirection.html ](https://www.tldp.org/LDP/abs/html/io-redirection.html).
+Isso redireciona as informações gravadas em STDOUT para STDERR (2) em vez disso. Para obter mais informações sobre redirecionamento de E/S, consulte [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Para saber mais sobre exibição de informações registradas em log por ações de script, confira [Personalizar clusters HDInsight usando ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 Os auxiliares a seguir, disponíveis para uso em seu script:
 
-| Uso do auxiliar | Descrição |
+| Uso do auxiliar | Description |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Baixa um arquivo da URI de origem para o caminho de arquivo especificado. Por padrão, ele não substitui um arquivo existente. |
 | `untar_file TARFILE DESTDIR` |Extrai um arquivo tar (usando `-xf`) para o diretório de destino. |
@@ -322,12 +322,9 @@ Para obter mais informações sobre como usar cada método, consulte [Como usar 
 
 ## <a name="sampleScripts"></a>Exemplos de script personalizado
 
-A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte os links a seguir para obter mais ações de script de exemplo.
+A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte [instalar e usar o matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md) como uma ação de script de exemplo.
 
-* [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Instalar e usar o Apache Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Estes são os erros que podem surgir ao usar os scripts que você desenvolveu:
 
@@ -342,7 +339,7 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 > [!NOTE]  
 > Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
 
-| Command | Notas |
+| Comando | Observações |
 | --- | --- |
 | `unix2dos -b INFILE` |O backup do arquivo original é feito com uma extensão .BAK |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE contém uma versão apenas com terminações LF |

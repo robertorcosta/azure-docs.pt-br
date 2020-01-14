@@ -1,18 +1,18 @@
 ---
 title: Perguntas comuns sobre a recuperação de desastres de VM do Azure com o Azure Site Recovery
 description: Este artigo responde a perguntas comuns sobre a recuperação de desastre de VMs do Azure para outra região do Azure usando Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621061"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929913"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
@@ -23,10 +23,10 @@ Este artigo fornece respostas a perguntas comuns sobre a recuperação de desast
 
 ### <a name="how-is-site-recovery-priced"></a>Como é o Site Recovery é precificado?
 Analise os detalhes em [Preços do Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
-### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como funciona a camada gratuita do Azure Site Recovery?
-Cada instância protegida pelo Azure Site Recovery é gratuita durante os primeiros 31 dias de proteção. A partir do 32º dia, a proteção da instância é cobrada de acordo com as taxas acima.
+### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como a camada gratuita do Azure Site Recovery funciona?
+Todas as instâncias protegidas pelo Azure Site Recovery são gratuitas durante os primeiros 31 dias de proteção. A partir do 32º dia, a proteção da instância é cobrada de acordo com as tarifas acima.
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, serei cobrado por outras tarifas do Azure?
-Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá ser cobrado pelo Armazenamento do Azure, por transações de armazenamento e por transferência de dados. Uma máquina virtual recuperada também poderá gerar encargos de computação do Azure. Obtenha detalhes completos sobre preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
+Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, você poderá ser cobrado pelo Armazenamento do Azure, por transações de armazenamento e por transferência de dados. Uma máquina virtual recuperada também poderá gerar tarifas de computação do Azure. Obtenha detalhes completos sobre preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Onde posso encontrar as práticas recomendadas para a recuperação de desastres de VM do Azure? 
 1. [Entender a arquitetura de Azure para Azure](azure-to-azure-architecture.md)
@@ -256,7 +256,7 @@ O Site Recovery é certificado pela ISO 27001:2013, 27018, HIPAA, DPA e está em
 ### <a name="does-site-recovery-encrypt-replication"></a>O Site Recovery criptografa a replicação?
 Sim, há suporte para criptografia em trânsito e [criptografia em repouso no Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Analisar](azure-to-azure-support-matrix.md) os requisitos de suporte.
 * [Configurar](azure-to-azure-tutorial-enable-replication.md) replicação de Azure para Azure.
 - Se você tiver dúvidas após a leitura deste artigo, publique-as no [fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931485"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930722"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
@@ -99,7 +99,7 @@ Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobr
 1. Selecione um **locatário Azure ad B2C** na lista suspensa. Somente os locatários para os quais você é um administrador global e que ainda não estão vinculados a uma assinatura são mostrados. O campo **nome do recurso de Azure ad B2C** é populado com o nome de domínio do locatário de Azure ad B2C que você selecionar.
 1. Selecione uma **assinatura** ativa do Azure da qual você é um administrador.
 1. Em **grupo de recursos**, selecione **criar novo**e especifique o **local do grupo de recursos**. As configurações do grupo de recursos aqui não têm impacto sobre o local Azure AD B2C locatário, o desempenho ou o status de cobrança.
-1. Clique em **Criar**.
+1. Selecione **Criar**.
     ![a página de criação de recursos Azure AD B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/portal-01-create-b2c-resource-page.png)
 
 Depois de concluir essas etapas para um locatário Azure AD B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement, se aplicável.
@@ -134,7 +134,7 @@ O gerenciamento do Azure AD B2C usando o controle de acesso baseado em função 
 
 Azure AD B2C locatários podem ser movidos para outra assinatura se as assinaturas de origem e de destino existirem dentro do mesmo locatário Azure Active Directory.
 
-Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C para outra assinatura, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C para outra assinatura, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Antes de iniciar a movimentação, lembre-se de ler todo o artigo para entender totalmente as limitações e os requisitos para tal movimentação. Além de instruções para mover recursos, ele inclui informações críticas, como uma lista de verificação de pré-movimentação e como validar a operação de movimentação.
 

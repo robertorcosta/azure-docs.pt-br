@@ -1,19 +1,19 @@
 ---
 title: Como comprar software no AppSource | Azure Marketplace
 description: Etapas para uma aquisição de software em AppSource | Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827742"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933488"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Como comprar software em Microsoft AppSource
 
@@ -41,7 +41,7 @@ Para adquirir ofertas de SaaS, você precisa de:
     > [!Note]
     > O AppSource fornece uma seleção de aplicativos para escolher, incluindo assinaturas gratuitas, avaliações e pagas. Este artigo descreve como as assinaturas pagas podem ser adquiridas por meio do AppSource.
 
-1. Selecione **obter agora**.
+1. Selecione **Obter agora**.
 1. Escolha o plano:
 
     1. Definir o número de estações
@@ -63,12 +63,12 @@ Depois que o pedido é recebido, pode levar vários segundos para ser confirmado
     > [!Note]
     > Esta etapa é obrigatória e pode ser concluída a qualquer momento.
 
-## <a name="contact-support"></a>Contate o suporte
+## <a name="contact-support"></a>Entrar em contato com o suporte
 
 Um pode [enviar um tíquete de suporte](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) por meio do centro de administração Microsoft 365.
 
 Para produtos de negócios, [contate a ajuda aqui](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [documentação do Marketplace comercial](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter mais informações.

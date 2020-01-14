@@ -1,19 +1,19 @@
 ---
 title: APIs do serviço de medição do Marketplace | Azure Marketplace
 description: Evento de uso para ofertas de SaaS no Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825487"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933584"
 ---
 # <a name="marketplace-metering-service-apis"></a>APIs de serviço de medição do Marketplace
 
@@ -195,7 +195,7 @@ OK
 
 Descrição do código de status referenciado em `BatchUsageEvent` resposta da API:
 
-| Código de status  | DESCRIÇÃO |
+| Código de status  | Description |
 | ---------- | -------------------- |
 | `Accepted` | Código aceito. |
 | `Expired` | Uso expirado. |
@@ -234,6 +234,6 @@ O usuário não está autorizado a fazer esta chamada
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [cobrança limitada de SaaS](./saas-metered-billing.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950231"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931197"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
 
@@ -40,7 +40,7 @@ Em uma política personalizada, uma definição de conteúdo define o URI da pá
 
 A seção `ContentDefinitions` contém uma série de elementos XML `ContentDefinition`. O atributo de ID do elemento `ContentDefinition` especifica o tipo de página relacionada à definição de conteúdo. Ou seja, o elemento define o contexto que um modelo personalizado HTML5/CSS aplicará. A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhecido pelo mecanismo de IEF e os tipos de página relacionados a ele.
 
-| ID de definição de conteúdo | Modelo HTML5 padrão| Descrição |
+| ID de definição de conteúdo | Modelo HTML5 padrão| Description |
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção de provedor de identidade**. Esta página lista provedores de identidade que os usuários podem escolher durante a entrada. Normalmente, as opções são provedores de identidade corporativa, provedores de identidade social, como Facebook e Google+ ou contas locais. |
@@ -180,7 +180,7 @@ Localize o `<img>` elemento que contém o `ID` valor *background_background_imag
 3. Na janela **CORS**, na caixa **Origens permitidas**, siga um destes procedimentos:
 
     * Insira a URL ou URLs das quais você deseja que as chamadas JavaScript venham. Você precisa usar todas as letras minúsculas nas URLs que você inseriu.
-    * Insira um asterisco (*) para especificar que todos os domínios de origem são aceitos.
+    * Insira um asterisco ( * ) para especificar que todos os domínios de origem são aceitos.
 
 4. Clique em **Salvar**.
 
@@ -217,17 +217,19 @@ Para configurar `ContentDefinition`, faça o seguinte:
     ![Exemplo de trecho XML com elemento LoadUri realçado](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Etapa 6: Carregar a política para o seu locatário
-1. No [Portal do Azure](https://portal.azure.com), mude para o [contexto do locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e, em seguida, selecione **Azure AD B2C**.
+1. Na [portal do Azure](https://portal.azure.com), selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém o locatário Azure ad B2C.
 
-2. Selecione **Estrutura de Experiência de Identidade**.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
 
-3. Selecione **Todas as Políticas**.
+1. Selecione **Estrutura de Experiência de Identidade**.
 
-4. Selecione **Carregar Política**.
+1. Selecione **Todas as Políticas**.
 
-5. Marque a caixa de seleção **Substituir a política caso ela exista**.
+1. Selecione **Carregar Política**.
 
-6. Carregue o arquivo *TrustFrameworkExtensions.xml* e certifique-se de que a validação dele seja aprovada.
+1. Marque a caixa de seleção **Substituir a política caso ela exista**.
+
+1. Carregue o arquivo *TrustFrameworkExtensions.xml* e certifique-se de que a validação dele seja aprovada.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Etapa 7: Testar a política personalizada usando Executar Agora
 1. Selecione **Configurações do Azure AD B2C** e selecione **Estrutura de Experiência de Identidade**.
@@ -345,7 +347,3 @@ Se você selecionar o link **Inscrever-se agora** na página de entrada, o naveg
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Opcional) Baixar os arquivos e o código da política completos
 * Depois de concluir o passo a passo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md), recomendamos que você crie o cenário usando seus próprios arquivos de política personalizados. Fornecemos os [Arquivos de política de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization) como referência.
 * É possível baixar o código completo em [Solução de exemplo do Visual Studio para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-

@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f763ad9afd2238ebe63bf878882011eb3745df5c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517105"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932609"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Configurações de política para o Firewall do aplicativo Web na porta frontal do Azure
 
@@ -26,11 +26,11 @@ Uma política de WAF para a porta frontal pode estar em um dos dois Estados a se
 
 ## <a name="waf-mode"></a>Modo de WAF
 
-A política WAF pode ser configurada para ser executada nos dois modos a seguir:
+A política de WAF pode ser configurada para ser executada nos dois modos a seguir:
 
 - **Modo de detecção** Quando executado no modo de detecção, o WAF não assume nenhuma ação além do monitor e registra a solicitação e sua regra WAF correspondente aos logs do WAF. Ativar o diagnóstico de log para a porta frontal (ao usar o portal, isso pode ser feito acessando a seção de **diagnóstico** no portal do Azure).
 
-- **Modo de prevenção** Quando configurado para ser executado no modo de prevenção, WAF executará a ação especificada se uma solicitação corresponder a uma regra. Todas as solicitações correspondentes também são registradas nos logs do WAF.
+- **Modo de prevenção** Quando configurado para ser executado no modo de prevenção, WAF executará a ação especificada se uma solicitação corresponder a uma regra. Qualquer solicitação correspondente também é registrada nos logs do WAF.
 
 ## <a name="waf-response-for-blocked-requests"></a>Resposta WAF para solicitações bloqueadas
 
@@ -51,5 +51,5 @@ O código de status de resposta personalizado e a mensagem de resposta são uma 
 Você deve definir um URI para redirecionar solicitações para se a ação de **redirecionamento** for selecionada para qualquer uma das regras contidas em uma política de WAF. Esse URI de redirecionamento precisa ser um site HTTP (S) válido e, uma vez configurada, todas as solicitações que correspondem às regras com uma ação de "redirecionamento" serão redirecionadas para o site especificado.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como definir as [respostas personalizadas](waf-front-door-configure-custom-response-code.md) do WAF

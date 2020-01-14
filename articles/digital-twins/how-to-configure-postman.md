@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 8c358b727a436f1951337005883b5d577119fac1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/10/2020
+ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895615"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933451"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman para os Gêmeos Digitais do Azure
 
@@ -131,6 +131,12 @@ Depois de concluir as etapas anteriores, configure o Postman para fazer uma soli
    > * É necessário selecionar `multipart/mixed` ou outro **Content-Type** adequado para a solicitação inteira.
 
 1. Por fim, selecione **Enviar** para enviar sua solicitação HTTP post de várias partes. Um código de status de `200` ou `201` indica uma solicitação bem-sucedida. A mensagem de resposta apropriada aparecerá na interface do cliente.
+
+1. Valide seus dados de solicitação HTTP POST chamando o ponto de extremidade da API: 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## <a name="next-steps"></a>Próximos passos
 

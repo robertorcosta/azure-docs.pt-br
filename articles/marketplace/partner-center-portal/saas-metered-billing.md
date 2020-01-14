@@ -1,19 +1,19 @@
 ---
 title: Cobrança limitada usando o serviço de medição do Marketplace | Azure Marketplace
 description: Esta documentação é um guia para ISVs que publicam ofertas de SaaS com modelos de cobrança flexível.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f1b60831e08383ee455cd3afbfbc21ed27445ffc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827922"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934177"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Cobrança limitada usando o serviço de medição do Marketplace
 
@@ -118,7 +118,7 @@ Depois que um plano é publicado, os detalhes de nível de plano não podem mais
 
 O número máximo de dimensões que podem ser configuradas para uma única oferta é 18 dimensões exclusivas.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Se você tiver um dos seguintes, poderá abrir um tíquete de suporte.
 
@@ -136,6 +136,6 @@ Siga as etapas abaixo para enviar seu tíquete de suporte:
 
 Consulte [suporte para o programa do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) para obter mais opções de suporte do Publicador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para obter mais informações.
