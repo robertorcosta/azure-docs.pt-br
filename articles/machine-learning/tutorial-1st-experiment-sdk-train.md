@@ -45,7 +45,7 @@ Nesta parte do tutorial, você executa o código no Jupyter Notebook de exemplo 
 
 
 > [!Warning]
-> **Não***crie* um notebook na interface do Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inclui **todo o código e dados necessários** para este tutorial.
+> **Não** *crie* um notebook na interface do Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inclui **todo o código e dados necessários** para este tutorial.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Conectar o workspace e criar um experimento
 

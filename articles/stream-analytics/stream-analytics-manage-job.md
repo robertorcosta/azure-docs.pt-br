@@ -61,7 +61,7 @@ Use as seguintes etapas para criar um Hub de Eventos e enviar dados de chamada p
    ![Criar um namespace do hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Quando o namespace concluir a implantação, vá para **Todos os recursos** e localize *myEventHubsNS* na lista de recursos do Azure. Escolha *myEventHubsNS* para abri-lo.
-6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome***MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
+6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome** *MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
 
    ![Configuração do Hub de Eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
