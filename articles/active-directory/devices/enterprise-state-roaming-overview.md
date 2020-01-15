@@ -28,7 +28,7 @@ Com o Windows 10, os usuários do [Active Directory do Azure (AD do Azure)](../f
 
 O Enterprise State Roaming está disponível em várias regiões do Azure. Você pode encontrar a lista atualizada de regiões disponíveis na página [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services) no Azure Active Directory.
 
-| Artigo | DESCRIÇÃO |
+| Artigo | Descrição |
 | --- | --- |
 | [Habilitar o Enterprise State Roaming no Active Directory do Azure](enterprise-state-roaming-enable.md) |O Enterprise State Roaming está disponível para todas as organizações com uma assinatura Premium do Azure AD (Active Directory). Para obter mais detalhes sobre como obter uma assinatura do Azure AD, confira a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory) . |
 | [Perguntas frequentes sobre configurações e roaming de dados](enterprise-state-roaming-faqs.md) |Este tópico responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo. |

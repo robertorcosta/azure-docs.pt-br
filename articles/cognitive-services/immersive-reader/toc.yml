@@ -4,31 +4,37 @@
   items:
     - name: O que é a Leitura Avançada?
       href: Overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: 'Usando C#'
       href: Quickstart.md
-    - name: Usando o Swift (iOS)
+    - name: Usando Node.js
+      href: quickstart-nodejs.md
+    - name: Usando Swift (iOS)
       href: ios-quickstart.md
 - name: Tutoriais
   items:
-    - name: Iniciar a Leitura Avançada (Node.js)
-      href: tutorial-nodejs.md
     - name: Iniciar a Leitura Avançada (Python)
       href: tutorial-python.md
-    - name: Imagem para a Leitura Avançada (Swift)
-      href: tutorial-ios-picture-immersive-reader.md
 - name: Instruções
   items:
-    - name: Autenticação do Azure Active Directory
-      href: azure-active-directory-authentication.md
+    - name: Criar recurso de Leitura Avançada
+      href: how-to-create-immersive-reader.md
+    - name: Definir a política de cookies
+      href: how-to/set-cookie-policy.md
+    - name: Exibir matemática
+      href: how-to/display-math.md
+    - name: Iniciar a Leitura Avançada com conteúdo de HTML
+      href: how-to-launch-with-html.md
+    - name: Botão Personalizar Leitura Avançada
+      href: how-to-customize-launch-button.md
+    - name: Armazenar o token de autenticação em cache
+      href: how-to-cache-token.md
 - name: Referência
   items:
     - name: Referência do SDK
       href: reference.md
-    - name: Referência de SDK do iOS
-      href: ios-reference.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

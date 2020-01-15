@@ -22,7 +22,7 @@
       href: release-notes-10-0-10106-0.md
     - name: Agenda da atualização da região Gen2
       href: gen2-migration-schedule.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar e conectar
@@ -65,7 +65,7 @@
           items:
             - name: Visão geral
               href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-            - name: Descoberta de dados e classificação
+            - name: Descoberta e classificação de dados
               href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Avaliação de vulnerabilidade
               href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
@@ -81,7 +81,7 @@
               href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Pontos de extremidade de serviço de rede virtual
               href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: Authentication
+        - name: Autenticação
           items:
             - name: Visão geral
               href: sql-data-warehouse-authentication.md
@@ -191,13 +191,13 @@
               href: sql-data-warehouse-tables-statistics.md
             - name: Temporário
               href: sql-data-warehouse-tables-temporary.md
-        - name: Elementos da linguagem T-SQL
+        - name: Elementos de linguagem T-SQL
           items:
             - name: Loops
               href: sql-data-warehouse-develop-loops.md
             - name: Procedimentos armazenados
               href: sql-data-warehouse-develop-stored-procedures.md
-            - name: Transações
+            - name: Transactions
               href: sql-data-warehouse-develop-transactions.md
             - name: Melhores práticas de transações
               href: sql-data-warehouse-develop-best-practices-transactions.md
@@ -205,7 +205,7 @@
               href: sql-data-warehouse-develop-user-defined-schemas.md
             - name: Atribuição de variável
               href: sql-data-warehouse-develop-variable-assignment.md
-            - name: Modos de exibição
+            - name: Exibições
               href: sql-data-warehouse-develop-views.md
     - name: Consultas
       items:
@@ -225,6 +225,8 @@
           href: sql-data-warehouse-workload-importance.md
         - name: Isolamento de carga de trabalho
           href: sql-data-warehouse-workload-isolation.md
+        - name: Monitoramento do gerenciamento de carga de trabalho
+          href: sql-data-warehouse-workload-management-portal-monitor.md
         - name: Memória e limites de simultaneidade
           href: memory-concurrency-limits.md
         - name: Classes de recursos
@@ -251,7 +253,7 @@
           href: sql-data-warehouse-overview-integrate.md
 - name: Guias de instruções
   items:
-    - name: Segurança
+    - name: Seguro
       items:
         - name: Configurar a autenticação do Azure AD
           href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
@@ -295,7 +297,7 @@
               href: sql-data-warehouse-source-control-integration.md
             - name: Integração e implantação contínuas
               href: sql-data-warehouse-continuous-integration-and-deployment.md
-        - name: Conexão e consulta
+        - name: Conectar e consultar
           items:
             - name: SSDT do Visual Studio
               href: sql-data-warehouse-query-visual-studio.md
