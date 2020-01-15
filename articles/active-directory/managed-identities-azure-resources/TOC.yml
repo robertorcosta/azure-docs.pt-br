@@ -26,8 +26,6 @@
           href: tutorial-windows-vm-access-nonaad.md
         - name: Acessar o Azure Cosmos DB
           href: tutorial-windows-vm-access-cosmos-db.md
-        - name: Acessar API do Azure AD Graph
-          href: tutorial-windows-vm-access-azure-ad-graph.md
         - name: Acessar o Azure Resource Manager com uma identidade gerenciada e atribuída pelo usuário
           href: tutorial-windows-vm-ua-arm.md
     - name: VM Linux/VMSS
@@ -46,8 +44,6 @@
           href: tutorial-linux-vm-access-cosmos-db.md
         - name: Acessar o Registro de Contêiner do Azure
           href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-        - name: Acessar API do Azure AD Graph
-          href: tutorial-linux-vm-access-azure-ad-graph.md
         - name: Acessar o Azure Resource Manager com uma identidade gerenciada e atribuída pelo usuário
           href: msi-tutorial-linux-vm-access-arm.md
     - name: Barramento de Serviço do Azure
