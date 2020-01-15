@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: ee67c811835d99bf2f4c00dc59b43e29f63c81d6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533807"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941820"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o Pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -88,7 +88,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Observe que, ao anexar um pool a uma imagem do PAYG RHEL do Azure Marketplace, você será efetivamente cobrado por seu uso do RHEL: uma vez para a imagem PAYG e uma vez para o direito de RHEL no pool que você anexar. Para atenuar isso, o Azure agora fornece imagens BYOS RHEL. Mais informações estão disponíveis [aqui](https://aka.ms/rhel-byos).
+   Observe que, ao anexar um pool a uma imagem do PAYG RHEL do Azure Marketplace, você será efetivamente cobrado por seu uso do RHEL: uma vez para a imagem PAYG e uma vez para o direito de RHEL no pool que você anexar. Para atenuar isso, o Azure agora fornece imagens BYOS RHEL. Mais informações estão disponíveis [aqui](../redhat/byos.md).
 
 1. **[A]**  RHEL habilitar para os repositórios do SAP
 

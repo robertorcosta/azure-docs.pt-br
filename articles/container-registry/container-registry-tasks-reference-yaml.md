@@ -3,12 +3,12 @@ title: Referência de YAML – tarefas de ACR
 description: Referência para definir tarefas na YAML para tarefas do ACR, incluindo propriedades da tarefa, tipos de etapas, propriedades das etapas e variáveis internas.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445685"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945734"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
 
@@ -79,7 +79,7 @@ Normalmente, as propriedades da tarefa aparecem na parte superior de um arquivo 
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | cadeia de caracteres | Sim | A versão do arquivo `acr-task.yaml` conforme analisado pelo serviço de Tarefas do ACR. Enquanto as Tarefas do ACR se esforçam para manter a compatibilidade com versões anteriores, esse valor permite que as Tarefas do ACR mantenham a compatibilidade dentro de uma versão definida. Se não for especificado, o padrão será a versão mais recente. | Não | Nenhum |
 | `stepTimeout` | int (segundos) | Sim | O número máximo de segundos em que uma etapa pode ser executada. Se a propriedade for especificada em uma tarefa, ela definirá a propriedade de `timeout` padrão de todas as etapas. Se a propriedade `timeout` for especificada em uma etapa, ela substituirá a propriedade fornecida pela tarefa. | Sim | 600 (10 minutos) |
-| `workingDirectory` | cadeia de caracteres | Sim | O diretório de trabalho do contêiner durante o tempo de execução. Se a propriedade for especificada em uma tarefa, ela definirá a propriedade de `workingDirectory` padrão de todas as etapas. Se especificado em uma etapa, ele substituirá a propriedade fornecida pela tarefa. | Sim | `$HOME` |
+| `workingDirectory` | cadeia de caracteres | Sim | O diretório de trabalho do contêiner durante o tempo de execução. Se a propriedade for especificada em uma tarefa, ela definirá a propriedade de `workingDirectory` padrão de todas as etapas. Se especificado em uma etapa, ele substituirá a propriedade fornecida pela tarefa. | Sim | `/workspace` |
 | `env` | [string, string, ...] | Sim |  Matriz de cadeias de caracteres no formato `key=value` que define as variáveis de ambiente para a tarefa. Se a propriedade for especificada em uma tarefa, ela definirá a propriedade de `env` padrão de todas as etapas. Se especificado em uma etapa, ele substituirá as variáveis de ambiente herdadas da tarefa. | Nenhum |
 | `secrets` | [segredo, segredo,...] | Sim | Matriz de objetos [secretos](#secret). | Nenhum |
 | `networks` | [rede, rede,...] | Sim | Matriz de objetos de [rede](#network) . | Nenhum |
@@ -379,7 +379,7 @@ Cada tipo de etapa dá suporte a várias propriedades apropriadas para seu tipo.
 | `timeout` | int (segundos) | Sim | Número máximo de segundos em que uma etapa poderá ser executada antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sim | Configura a dependência de uma etapa em relação a uma ou mais etapas diferentes dentro da tarefa. | Nenhum |
 | `user` | cadeia de caracteres | Sim | O nome de usuário ou UID de um contêiner | Nenhum |
-| `workingDirectory` | cadeia de caracteres | Sim | Define o diretório de trabalho para uma etapa. Por padrão, as Tarefas do ACR criam um diretório raiz como o diretório de trabalho. No entanto, se o build tiver várias etapas, as etapas anteriores poderão compartilhar artefatos com as etapas posteriores se o mesmo diretório de trabalho for especificado. | `$HOME` |
+| `workingDirectory` | cadeia de caracteres | Sim | Define o diretório de trabalho para uma etapa. Por padrão, as Tarefas do ACR criam um diretório raiz como o diretório de trabalho. No entanto, se o build tiver várias etapas, as etapas anteriores poderão compartilhar artefatos com as etapas posteriores se o mesmo diretório de trabalho for especificado. | `/workspace` |
 
 ### <a name="examples-task-step-properties"></a>Exemplos: propriedades das etapas das tarefas
 

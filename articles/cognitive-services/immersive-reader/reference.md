@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903102"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945271"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do SDK do leitor de imersão
 
@@ -41,10 +41,10 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="parameters"></a>Parâmetros
 
-| NOME | Digite | DESCRIÇÃO |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
-| `token` | cadeia de caracteres | O token de autenticação do Azure AD. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
-| `subdomain` | cadeia de caracteres | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
+| `token` | cadeia de caracteres | O token de autenticação do Azure AD. |
+| `subdomain` | cadeia de caracteres | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. |
 | `content` | [Conteúdo](#content) | Um objeto que contém o conteúdo a ser mostrado no leitor de imersão. |
 | `options` | [Opções](#options) | Opções para configurar determinados comportamentos do leitor de imersão. Opcional. |
 
@@ -80,7 +80,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="parameters"></a>Parâmetros
 
-| NOME | Digite | DESCRIÇÃO |
+| Nome | Tipo | Description |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opções para configurar determinados comportamentos da função renderButtons. Opcional. |
 
@@ -97,7 +97,7 @@ Contém o conteúdo a ser mostrado no leitor de imersão.
 }
 ```
 
-### <a name="chunk"></a>Codificação
+### <a name="chunk"></a>Parte
 
 Um único bloco de dados, que será passado para o conteúdo do leitor de imersão.
 
@@ -109,20 +109,28 @@ Um único bloco de dados, que será passado para o conteúdo do leitor de imers�
 }
 ```
 
+### <a name="cookiepolicy-enum"></a>CookiePolicy enum
+
+Uma enumeração usada para definir a política para o uso do cookie do leitor de imersão. Consulte [Opções](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### <a name="supported-mime-types"></a>Tipos MIME com suporte
 
-| Tipo MIME | DESCRIÇÃO |
+| Tipo MIME | Description |
 | --------- | ----------- |
 | texto/sem formatação | Texto sem formatação. |
 | texto/html | Conteúdo HTML. [Saiba mais](#html-support)|
-| aplicativo/MathML + XML | MathML (matematica Markup Language). [Saiba mais](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| aplicativo/MathML + XML | MathML (matematica Markup Language). [Saiba mais](./how-to/display-math.md).
 | application/vnd. openxmlformats-officeDocument. WordprocessingML. Document | Documento de formato Microsoft Word. docx.
 
 ### <a name="html-support"></a>Suporte a HTML
 | HTML | Conteúdo com suporte |
 | --------- | ----------- |
 | Estilos de fonte | Negrito, itálico, sublinhado, código, tachado, sobrescrito, subscrito |
-| Listas não ordenadas | Disco, círculo, quadrado |
+| Listas Não Ordenadas | Disco, círculo, quadrado |
 | Listas ordenadas | Decimal, superior-alfa, inferior-alfa, maiúsculo-Romano, minúsculo |
 | Hiperlinks | Em breve |
 
@@ -142,6 +150,7 @@ Contém propriedades que configuram determinados comportamentos do leitor de ime
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -166,14 +175,14 @@ Contém informações sobre o erro.
 }
 ```
 
-#### <a name="error-codes"></a>Códigos do Erro
+#### <a name="error-codes"></a>Códigos de erro
 
-| Código | DESCRIÇÃO |
+| Codificar | Description |
 | ---- | ----------- |
 | BadArgument | O argumento fornecido é inválido, consulte `message` para obter detalhes. |
 | Tempo limite | Falha ao carregar o leitor de imersão no tempo limite especificado. |
 | TokenExpired | O token fornecido expirou. |
-| Limitado | O limite de taxa de chamada foi excedido. |
+| Acelerado | O limite de taxa de chamada foi excedido. |
 
 ## <a name="launching-the-immersive-reader"></a>Iniciando o leitor de imersão
 
@@ -187,7 +196,7 @@ O SDK fornece o estilo padrão para o botão iniciar o leitor de imersão. Use o
 
 Use os atributos a seguir para configurar a aparência do botão.
 
-| Atributo | DESCRIÇÃO |
+| Atributo | Description |
 | --------- | ----------- |
 | `data-button-style` | Define o estilo do botão. Pode ser `icon`, `text` ou `iconAndText`. Usa `icon` como padrão. |
 | `data-locale` | Define a localidade. Por exemplo, `en-US` ou `fr-FR`. O padrão é `en`em inglês. |
@@ -203,7 +212,7 @@ Use as versões mais recentes dos seguintes navegadores para obter a melhor expe
 * Mozilla Firefox
 * Apple Safari
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Explorar o [SDK da Leitura Avançada no GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * [Início rápido: criar um aplicativo Web que inicia o leitor deC#imersão ()](./quickstart.md)

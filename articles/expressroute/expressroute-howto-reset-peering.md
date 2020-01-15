@@ -5,14 +5,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 01/13/2018
 ms.author: charwen
-ms.openlocfilehash: b14b8a9a2bc43c33095bf07e7fb7ebcc2d6c1ffa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9f32eb439872de9e4687d046745c03bafd86b2fa
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769516"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941748"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Redefinir emparelhamentos de circuitos do ExpressRoute
 
@@ -20,7 +20,7 @@ Este artigo descreve como desabilitar e habilitar peerings de um circuito da Rot
 
 Há alguns cenários em que você pode achar útil redefinir seus peerings da ExpressRoute.
 * Teste seu design de recuperação de desastres e implementação. Por exemplo, você tem dois circuitos ExpressRoute. Você pode desabilitar os peerings de um circuito e forçar o tráfego de sua rede a falhar no outro circuito.
-* Habilite bidirecional encaminhamento de detecção (BFD) no emparelhamento privado do Azure do seu circuito do ExpressRoute. BFD é habilitado por padrão, se o circuito de ExpressRoute for criado após 1 de agosto de 2018. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. Deve-se observar BFD tem suporte apenas no emparelhamento privado do Azure.
+* Habilite a detecção de encaminhamento bidirecional (BFD) no emparelhamento privado do Azure ou no emparelhamento da Microsoft do circuito do ExpressRoute. O BFD será habilitado por padrão no emparelhamento privado do Azure se o circuito do ExpressRoute for criado após 1 2018 de agosto e no emparelhamento da Microsoft se o circuito do ExpressRoute for criado após 10 2020 de Janeiro. Se o circuito foi criado antes dessa, BFD não foi habilitado. Você pode habilitar BFD desabilitando o emparelhamento e reabilitando a ele. 
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 

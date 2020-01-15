@@ -1,18 +1,16 @@
 ---
 title: Configurar a recuperação de desastre do SAP NetWeaver com o Azure Site Recovery
-description: Este artigo descreve como configurar a recuperação de desastre para implantações de aplicativos SAP NetWeaver usando o Azure Site Recovery.
-author: carmonmills
+description: Saiba como configurar a recuperação de desastres para SAP NetWeaver com Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 3ae9a92a27da1b736bf9db6dff88660f7d40143b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934454"
+ms.locfileid: "75940677"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
 
@@ -62,28 +60,28 @@ Essa arquitetura de referência mostra um SAP NetWeaver em execução em um ambi
 Para DR (recuperação de desastres), você deve ser capaz de fazer failover para uma região secundária. Cada camada usa uma estratégia diferente para fornecer proteção de recuperação de desastres.
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Pool do SAP Web Dispatcher em execução nas VMs 
-O componente Web Dispatcher é usado como um balanceador de carga para tráfego da SAP entre os servidores de aplicativos SAP. Para obter alta disponibilidade para o componente Web Dispatcher, o Azure Load Balancer será usado para implementar a configuração paralela do Web Dispatcher em uma configuração de round robin para distribuição de tráfego de HTTP(S) entre os Web Dispatchers disponíveis no pool dos balanceadores. Isso será replicado usando o ASR (Azure Site Recovery) e scripts de automação serão usados para configurar o balanceador de carga na região de recuperação de desastre. 
+O componente Web Dispatcher é usado como um balanceador de carga para tráfego da SAP entre os servidores de aplicativos SAP. Para obter alta disponibilidade para o componente Web Dispatcher, o Azure Load Balancer será usado para implementar a configuração paralela do Web Dispatcher em uma configuração de round robin para distribuição de tráfego de HTTP(S) entre os Web Dispatchers disponíveis no pool dos balanceadores. Isso será replicado usando Site Recovery e scripts de automação serão usados para configurar o balanceador de carga na região de recuperação de desastre. 
 
 #### <a name="vms-running-application-servers-pool"></a>VMs que executam o pool de servidores de aplicativos
-Para gerenciar grupos de logon para servidores de aplicativos ABAP, é usada a transação SMLG. Ela usa a função de balanceamento de carga no servidor de mensagens do Central Services para distribuir a carga de trabalho entre o pool de servidores de aplicativos SAP para o tráfego de SAPGUIs e RFC. Isso será replicado usando o Azure Site Recovery 
+Para gerenciar grupos de logon para servidores de aplicativos ABAP, é usada a transação SMLG. Ela usa a função de balanceamento de carga no servidor de mensagens do Central Services para distribuir a carga de trabalho entre o pool de servidores de aplicativos SAP para o tráfego de SAPGUIs e RFC. Isso será replicado usando Site Recovery.
 
 #### <a name="vms-running-sap-central-services-cluster"></a>VMs que executam o cluster do SAP Central Services
 Essa arquitetura de referência executa o Central Services em VMs na camada de aplicativo. O Central Services é um SPOF (ponto único de falha) potencial quando implantado em uma única VM — uma implantação típica quando a alta disponibilidade não é um requisito.<br>
 
 Para implementar uma solução de alta disponibilidade, pode-se usar um cluster de disco compartilhado ou um cluster de compartilhamento de arquivos. Para configurar VMs para um cluster de disco compartilhado, use o Cluster de Failover do Windows Server. A Testemunha de Nuvem é recomendada como uma testemunha de quorum. 
  > [!NOTE]
- > O Azure Site Recovery não replica a testemunha de nuvem, portanto, é recomendável implantá-la na região de recuperação de desastre.
+ > O Site Recovery não Replica a testemunha de nuvem, portanto, é recomendável implantar a testemunha de nuvem na região de recuperação de desastre.
 
 Para dar suporte ao ambiente de cluster de failover, a [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) executa a função de volume de cluster compartilhado replicando discos independentes pertencentes a nós de cluster. O Azure não oferece suporte a discos compartilhados e, portanto, requer soluções fornecidas pelo SIOS. 
 
 Outra maneira de lidar com o clustering é implementando um cluster de compartilhamento de arquivos. Recentemente, a [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) modificou o padrão de implantação do Central Services para acessar os diretórios globais /sapmnt por meio de um caminho UNC. No entanto, ainda é recomendável garantir que o compartilhamento UNC /sapmnt seja altamente disponível. Isso pode ser feito na instância do Central Services usando um Cluster de Failover do Windows Server com SOFS (Servidor de Arquivos de Escalabilidade Horizontal) e o recurso S2D (Espaços de Armazenamento Diretos) no Windows Server 2016. 
  > [!NOTE]
- > Atualmente Azure Site Recovery suporte apenas à replicação de ponto consistente de falha de máquinas virtuais usando espaços de armazenamento diretos e o nó passivo do SIOS datakeeper
+ > Atualmente Site Recovery suporte apenas à replicação de ponto consistente de falha de máquinas virtuais usando espaços de armazenamento diretos e o nó passivo do SIOS datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considerações de recuperação de desastres
 
-Você pode usar o Azure Site Recovery para orquestrar o failover da implantação completa do SAP em regiões do Azure.
+Você pode usar Site Recovery para orquestrar o failover da implantação completa do SAP nas regiões do Azure.
 Abaixo estão as etapas para configurar a recuperação de desastre 
 
 1. Replicar máquinas virtuais 
@@ -97,9 +95,9 @@ Abaixo está a recomendação para recuperação de desastre de cada camada usad
 
  **Camadas do SAP** | **Recomendação**
  --- | ---
-**Pool do SAP Web Dispatcher** |  Replicar usando o Site Recovery 
-**Pool de servidores de aplicativo do SAP** |  Replicar usando o Site Recovery 
-**Cluster do SAP Central Services** |  Replicar usando o Site Recovery 
+**Pool do SAP Web Dispatcher** |  Replicar usando Site Recovery 
+**Pool de servidores de aplicativo do SAP** |  Replicar usando Site Recovery 
+**Cluster do SAP Central Services** |  Replicar usando Site Recovery 
 **Máquinas virtuais do Active Directory** |  Replicação do Active Directory 
 **Servidores do Banco de Dados SQL** |  SQL sempre em replicação
 
@@ -133,7 +131,7 @@ Um plano de recuperação dá suporte à sequência de várias camadas em um apl
 Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover ou durante o teste de failover para que seus aplicativos funcionem corretamente. É possível automatizar algumas operações pós-failover. Por exemplo, você pode atualizar a entrada DNS e alterar associações e conexões adicionando scripts correspondentes ao plano de recuperação.
 
 
-Você pode implantar os scripts do Azure Site Recovery mais comumente usados em sua conta de automação clicando no botão 'Implantar no Azure' abaixo. Quando você estiver usando qualquer script publicado, verifique se seguiu as diretrizes no script.
+Você pode implantar os scripts de Site Recovery usados com mais frequência em sua conta de automação clicando no botão ' implantar no Azure ' abaixo. Quando você estiver usando qualquer script publicado, verifique se seguiu as diretrizes no script.
 
 [![Implantar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -164,5 +162,5 @@ Para obter mais informações, consulte [Failover de teste para Azure no Site Re
 Para obter mais informações, consulte [Failover no Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Próximos passos
-* Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando o Site Recovery, confira o white paper para download [SAP NetWeaver: criando uma solução de recuperação de desastre com o Azure Site Recovery](https://aka.ms/asr_sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
+* Para saber mais sobre como criar uma solução de recuperação de desastre para implantações do SAP NetWeaver usando Site Recovery, consulte o white paper para download da [SAP NetWeaver: criando uma solução de recuperação de desastre com o site Recovery](https://aka.ms/asr_sap). O white paper aborda as recomendações para várias arquiteturas do SAP, lista de aplicativos com suporte e tipos de VM para SAP no Azure e descreve opções de planos de teste para a solução de recuperação de desastre.
 * Saiba mais sobre [como replicar outras cargas de trabalho](site-recovery-workload.md) usando o Site Recovery.

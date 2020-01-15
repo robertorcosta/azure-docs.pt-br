@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: dcc9e63eba605e87a14ba4f09c61a00e9629bd23
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931027"
+ms.locfileid: "75941222"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 2 da Extensão de Script Personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o runtime da extensão. 
@@ -56,7 +56,7 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * É permitido que o script seja executado em até 90 minutos. Um período mais longo resultará em falha na provisão da extensão.
 * Não coloque reinicializações no script, pois isso causará problemas com outras extensões que estão sendo instaladas e, após a reinicialização, a extensão será interrompida. 
 * Se você tiver um script que causará uma reinicialização, instale aplicativos e execute scripts, etc. Você deve agendar a reinicialização usando um trabalho cron ou usando ferramentas como DSC, ou chefe, Puppet Extensions.
-* A extensão executará um script somente uma vez. Se quiser executar um script em cada inicialização, então você poderá usar [imagem de inicialização de nuvem](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e um módulo [Scripts Por Inicialização](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, é possível usar o script para criar uma unidade de serviço Systemd.
+* A extensão executará um script somente uma vez. Se quiser executar um script em cada inicialização, então você poderá usar [imagem de inicialização de nuvem](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e um módulo [Scripts Por Inicialização](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, você pode usar o script para criar uma unidade de serviço do sistema.
 * Se quiser agendar quando um script será executado, você deverá usar a extensão para criar um trabalho Cron. 
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, você precisará criar sua própria solução.
 * Extensão de Script Personalizado não oferece nativamente suporte a servidores proxy. No entanto, é possível usar uma ferramenta de transferência de arquivos que oferece suporte a servidores proxy no seu script, como *Curl*. 
@@ -87,7 +87,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
@@ -98,11 +98,15 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
        "script": "<base64-script-to-execute>",
        "storageAccountName": "<storage-account-name>",
        "storageAccountKey": "<storage-account-key>",
-       "fileUris": ["https://.."]  
+       "fileUris": ["https://.."],
+        "managedIdentity" : "<managed-identity-identifier>"
     }
   }
 }
 ```
+
+>[!NOTE]
+> a propriedade managedIdentity **não deve** ser usada em conjunto com as propriedades StorageAccountName ou storageAccountKey
 
 ### <a name="property-values"></a>Valores de propriedade
 
@@ -111,7 +115,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | apiVersion | 2019-03-01 | date |
 | publicador | Microsoft.Compute.Extensions | cadeia de caracteres |
 | type | CustomScript | cadeia de caracteres |
-| typeHandlerVersion | 2.0 | int |
+| typeHandlerVersion | 2.1 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
 | commandToExecute (por exemplo) | Python MyPythonScript.py \<My-param1 > | cadeia de caracteres |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | cadeia de caracteres |
@@ -119,6 +123,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | carimbo de data/hora (exemplo) | 123456789 | Inteiro de 32 bits |
 | storageAccountName (por exemplo) | examplestorageacct | cadeia de caracteres |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
+| managedIdentity (por exemplo,) | {} ou {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} ou {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | objeto JSON |
 
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
 * `apiVersion`: a apiVersion mais atualizada pode ser encontrada usando o [Gerenciador de recursos](https://resources.azure.com/) ou de CLI do Azure usando o seguinte comando `az provider list -o json`
@@ -129,6 +134,9 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 * `fileUris`: (opcional, matriz de cadeia de caracteres) as URLs dos arquivos a serem baixados.
 * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os `fileUris` deverão ser URLs para Blobs do Azure.
 * `storageAccountKey`: (opcional, cadeia de caracteres) a chave de acesso da conta de armazenamento
+* `managedIdentity`: (opcional, objeto JSON) a [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para baixar arquivo (s)
+  * `clientId`: (opcional, Cadeia de caracteres) a ID do cliente da identidade gerenciada
+  * `objectId`: (opcional, Cadeia de caracteres) a ID de objeto da identidade gerenciada
 
 
 Os valores a seguir podem ser definidos nas configurações públicas ou protegidas. A extensão rejeitará qualquer configuração em que os valores abaixo estejam definidos tanto nas configurações protegidas quanto nas públicas.
@@ -200,6 +208,45 @@ CustomScript usa o algoritmo a seguir para executar um script.
  1. gravar o valor decodificado (e opcionalmente descompactado) para o disco (/var/lib/waagent/custom-script/#/script.sh)
  1. execute o script usando _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
+####  <a name="property-managedidentity"></a>Propriedade: managedIdentity
+
+O CustomScript (versão 2.1.2 em diante) dá suporte ao RBAC baseado em [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para baixar arquivo (s) de URLs fornecidas na configuração "fileuris". Ele permite que o CustomScript acesse BLOBs/contêineres privados do armazenamento do Azure sem que o usuário precise passar segredos como tokens SAS ou chaves de conta de armazenamento.
+
+Para usar esse recurso, o usuário deve adicionar uma identidade atribuída pelo [usuário](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) ou com o [sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) à VM ou VMSS em que se espera que CustomScript seja executado e [conceder acesso de identidade gerenciada ao contêiner ou BLOB de armazenamento do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+Para usar a identidade atribuída pelo sistema na VM/VMSS de destino, defina o campo "managedidentity" como um objeto JSON vazio. 
+
+> Exemplo:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : {}
+> }
+> ```
+
+Para usar a identidade atribuída pelo usuário na VM/VMSS de destino, configure o campo "managedidentity" com a ID do cliente ou a ID de objeto da identidade gerenciada.
+
+> Exemplos:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
+>   "commandToExecute": "sh script1.sh",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> a propriedade managedIdentity **não deve** ser usada em conjunto com as propriedades StorageAccountName ou storageAccountKey
 
 ## <a name="template-deployment"></a>Implantação de modelo
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a Extensão de Script Personalizado durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a Extensão de Script Personalizado pode ser encontrado aqui, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -220,7 +267,7 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
   "properties": {
     "publisher": "Microsoft.Azure.Extensions",
     "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "typeHandlerVersion": "2.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
       },

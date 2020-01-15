@@ -7,12 +7,12 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: be3dc27823c09823133d5b9a3a3f34afe52ec57d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0a9015e33f5456efeac7f7c887995ac4a69f0259
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227898"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941802"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como usar o armazenamento de Blobs do C++
 
@@ -33,7 +33,7 @@ Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
 * **Linux:** Siga as instruções fornecidas na página [biblioteca de cliente do armazenamento C++ do Azure para leiame: introdução no Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
-* **Windows:** No Windows, use [vcpkg](https://github.com/microsoft/vcpkg) como o Gerenciador de dependência. Siga o [início rápido](https://github.com/microsoft/vcpkg#quick-start) para inicializar o vcpkg. Em seguida, use o seguinte comando para instalar a biblioteca:
+* **Windows:** No Windows, use [vcpkg](https://github.com/microsoft/vcpkg) como o Gerenciador de dependência. Siga o [início rápido](https://github.com/microsoft/vcpkg#quick-start) para inicializar o vcpkg. Em seguir, use este comando para instalar a biblioteca:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
@@ -88,7 +88,7 @@ azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blo
 ## <a name="how-to-create-a-container"></a>Como criar um contêiner
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-Este exemplo mostra como criar um contêiner se ele ainda não existir:  
+Este exemplo mostra como criar um contêiner caso ele ainda não exista:  
 
 ```cpp
 try
@@ -123,7 +123,7 @@ container.upload_permissions(permissions);
 Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você só pode modificar ou excluí-los se tiver a chave de acesso apropriada.  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Como: carregar um blob em um contêiner
-O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado.  
+O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Na maioria dos casos, o blob de blocos é o tipo recomendado a ser usado.  
 
 Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e use-a para obter uma referência de blob de blocos. Depois de ter uma referência do blob, você pode carregar qualquer fluxo de dados para ele chamando o método **upload_from_stream**. Essa operação criará o blob, caso ele não exista, ou o substituirá, caso ele já exista. O exemplo a seguir mostra como carregar um blob em um contêiner e pressupõe que o contêiner já tenha sido criado.  
 
@@ -255,7 +255,7 @@ azure::storage::cloud_block_blob blockBlob = container.get_block_blob_reference(
 blockBlob.delete_blob();
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber mais sobre o armazenamento do Azure.  
 
 * [Como usar o Armazenamento de Filas do C++](../storage-c-plus-plus-how-to-use-queues.md)

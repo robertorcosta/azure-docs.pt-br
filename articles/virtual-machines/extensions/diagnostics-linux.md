@@ -2,19 +2,19 @@
 title: Computação do Azure-extensão de diagnóstico do Linux
 description: Como configurar a Extensão de Diagnóstico Linux (LAD) no Azure para coletar métricas e eventos de log de VMs Linux em execução no Azure.
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: MicahMcKittrick-MSFT
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: gwallace
-ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 96ec4f2a76616cf4bb1d824faa4e4ca0fff1ff62
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359355"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941870"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -197,7 +197,7 @@ Se você tiver criado uma SAS válida até meia-noite UTC em 1 de janeiro de 201
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Para saber mais sobre como gerar tokens de SAS para Hubs de Eventos, veja [esta página da Web](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+Para obter mais informações sobre como gerar e recuperar informações sobre tokens SAS para hubs de eventos, consulte [esta página da Web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>O coletor JsonBlob
 

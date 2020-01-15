@@ -13,24 +13,22 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185520"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942179"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solucionar um problema de VM do Azure usando a virtualização aninhada no Azure
 
 Este artigo mostra como criar um ambiente de virtualização aninhado no Microsoft Azure, portanto você pode montar o disco da VM com problema no host Hyper-V (VM de Resgate) para fins de solução de problemas.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para montar VM com problema, a VM de resgate deve atender aos seguintes pré-requisitos:
 
 -   A VM de resgate deve estar no mesmo local que a VM com problema.
-
--   A VM de resgate deve estar no mesmo grupo de recursos que a VM com problema.
 
 -   A VM de resgate deve usar o mesmo tipo de conta de armazenamento (Standard ou Premium) que a VM com problema.
 
@@ -122,6 +120,6 @@ Para montar VM com problema, a VM de resgate deve atender aos seguintes pré-req
 3.  [Substitua o disco do sistema operacional usado pela VM pelo disco do sistema operacional reparado](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se estiver tendo problemas para se conectar à VM, consulte [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md) (Solucionar conexões RDP a uma VM do Azure). Para problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md).

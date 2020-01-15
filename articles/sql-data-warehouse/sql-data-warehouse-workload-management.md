@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2563ea4ab498c11c846cfe79f0e668f7d491c2e7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692348"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940590"
 ---
 # <a name="what-is-workload-management"></a>O que é o gerenciamento de carga de trabalho?
 
@@ -49,8 +49,9 @@ A importância da carga de trabalho influencia a ordem em que uma solicitação 
 O isolamento da carga de trabalho reserva recursos para um grupo de cargas de trabalho.  Os recursos reservados em um grupo de carga de trabalho são mantidos exclusivamente para esse grupo de carga de trabalho para garantir a execução.  Os grupos de cargas de trabalho também permitem que você defina a quantidade de recursos atribuídos por solicitação, assim como as classes de recursos.  Os grupos de cargas de trabalho oferecem a capacidade de reservar ou limitar a quantidade de recursos que um conjunto de solicitações pode consumir.  Por fim, os grupos de cargas de trabalho são um mecanismo para aplicar regras, como tempo limite de consulta, a solicitações.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre a classificação de carga de trabalho, consulte [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md).  
 - Para obter mais informações sobre isolamento de carga de trabalho, consulte [isolamento de carga de trabalho](sql-data-warehouse-workload-isolation.md).  
 - Para obter mais informações sobre importância da carga de trabalho, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md).  
+- Para obter mais informações sobre monitoramento de gerenciamento de carga de trabalho, consulte [monitoramento de carga de trabalho portal de gerenciamento](sql-data-warehouse-workload-management-portal-monitor.md).  

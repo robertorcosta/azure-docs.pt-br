@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 8c694cbd8d9386401b8ad26cf5ce6ce31e6b9bd9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614925"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940801"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -251,6 +251,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Cópia de banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |
 |Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
+|Insights de Desempenho de Consulta | No momento, não há suporte para informações de desempenho de consulta para bancos de dados de hiperescala. |
 | Reduzir Banco de Dados | No momento, não há suporte para DBCC SHRINKDATABASE ou DBCC SHRINKFILE para bancos de dados de hiperescala. |
 | Verificação de integridade do banco de dados | No momento, não há suporte para DBCC CHECKDB em bancos de dados de hiperescala. Confira [integridade de dados no banco](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) de dados SQL do Azure para obter detalhes sobre o gerenciamento de integridade de dados no Azure SQL Database. |
 

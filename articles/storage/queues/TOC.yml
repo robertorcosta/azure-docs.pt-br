@@ -142,20 +142,20 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Usar a API REST do Armazenamento do Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Gerenciar criptografia de Armazenamento do Azure
+        - name: Gerenciar criptografia de Armazenamento do Azure
+          items:
+            - name: Criar uma conta que dê suporte a chaves gerenciadas pelo cliente
+              href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Configurar chaves gerenciadas pelo cliente
               items:
-                - name: Criar uma conta que dê suporte a chaves gerenciadas pelo cliente
-                  href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Configurar chaves gerenciadas pelo cliente
-                  items:
-                    - name: Portal
-                      href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                    - name: PowerShell
-                      href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                    - name: CLI do Azure
-                      href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Verificar o modelo de chave de criptografia para a conta
-                  href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Portal
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: CLI do Azure
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Verificar o modelo de chave de criptografia para a conta
+              href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configurar criptografia do lado do cliente
           items:
             - name: .NET

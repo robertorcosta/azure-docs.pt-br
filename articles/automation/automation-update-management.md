@@ -3,14 +3,14 @@ title: Solução Gerenciamento de Atualizações no Azure
 description: Este artigo descreve como usar a solução de Gerenciamento de Atualizações do Azure para gerenciar atualizações para seus computadores Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420346"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945120"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -237,7 +237,9 @@ Para o Linux, Gerenciamento de Atualizações pode distinguir entre atualizaçõ
 sudo yum -q --security check-update
 ```
 
-Atualmente, não há um método com suporte para habilitar a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas o suporte de melhor esforço é fornecido aos clientes que podem ter habilitado isso por conta própria.
+Atualmente, não há um método com suporte para habilitar a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas o suporte de melhor esforço é fornecido aos clientes que podem ter habilitado isso por conta própria. 
+
+Para classificar atualizações no Red Hat Enterprise versão 6, você precisa instalar o plug-in yum-Security. No Red Hat Enterprise Linux 7, o plug-in já faz parte do próprio yum, não há necessidade de instalar nada. Para obter mais informações, consulte o seguinte [artigo de conhecimento](https://access.redhat.com/solutions/10021)do Red Hat.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integração com o System Center Configuration Manager
 
@@ -251,7 +253,7 @@ Gerenciamento de Atualizações se baseia no repositório de atualização confi
 
 ## <a name="patch-linux-machines"></a>Aplicar patch em computadores Linux
 
-As seções a seguir explicam possíveis problemas com aplicação de patch do Linux.
+As seções a seguir explicam possíveis problemas com a aplicação de patches em Linux distribuições.
 
 ### <a name="unexpected-os-level-upgrades"></a>Atualizações de nível de sistema operacional inesperadas
 

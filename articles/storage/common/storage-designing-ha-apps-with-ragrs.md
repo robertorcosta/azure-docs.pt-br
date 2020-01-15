@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895333"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945445"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura
 
@@ -99,7 +99,7 @@ Há várias maneiras de lidar com solicitações de atualização durante a exec
 
 ## <a name="handling-retries"></a>Lidar com repetições
 
-A biblioteca de cliente de armazenamento do Azure ajuda a determinar quais erros podem ser repetidos. Por exemplo, um erro 404 (recurso não encontrado) pode ser repetido porque repetir não é provável que ele resulte em sucesso. Por outro lado, um erro 500 não pode ser repetido porque é um erro de servidor e pode ser simplesmente um problema transitório. Para obter mais detalhes, confira [abrir o código-fonte para a classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) na biblioteca de cliente de armazenamento do .NET. (Procure o método ShouldRetry.)
+A biblioteca de cliente de armazenamento do Azure ajuda a determinar quais erros podem ser repetidos. Por exemplo, um erro 404 (recurso não encontrado) não seria repetido porque tentar novamente provavelmente não resultará em sucesso. Por outro lado, um erro 500 pode ser repetido porque é um erro de servidor e o problema pode ser simplesmente um problema transitório. Para obter mais detalhes, confira [abrir o código-fonte para a classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) na biblioteca de cliente de armazenamento do .NET. (Procure o método ShouldRetry.)
 
 ### <a name="read-requests"></a>Solicitações de leitura
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422690"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945309"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -41,7 +41,7 @@ Você usa a [API GenerateAnswer](https://docs.microsoft.com/rest/api/cognitivese
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter ponto de extremidade GenerateAnswer 
+## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter ponto de extremidade GenerateAnswer
 
 Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Maker](https://www.qnamaker.ai)ou usando a [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), você pode obter os detalhes do seu ponto de extremidade GenerateAnswer.
 
@@ -59,15 +59,15 @@ Também é possível obter os detalhes de ponto de extremidade na guia **Configu
 
 ## <a name="generateanswer-request-configuration"></a>Configuração de solicitação do GenerateAnswer
 
-Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de exemplo que mostra como chamar o GenerateAnswer, consulte os [inícios rápidos](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
+Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de exemplo que mostra como chamar o GenerateAnswer, consulte os [inícios rápidos](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
 
 A solicitação POST usa:
 
 * [Parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
 * [Propriedade de cabeçalho](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)necessária, `Authorization`, para segurança
-* [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias. 
+* [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias.
 
-A URL GenerateAnswer tem o seguinte formato: 
+A URL GenerateAnswer tem o seguinte formato:
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
@@ -95,7 +95,7 @@ Um exemplo de corpo JSON é semelhante a:
 
 Saiba mais sobre o [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
-O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite.
 
 <a name="generateanswer-response"></a>
 
@@ -125,7 +125,7 @@ A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrunti
 }
 ```
 
-O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%. 
+O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usar QnA Maker com um bot emC#
 
@@ -144,7 +144,7 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite.
 
 O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) com esse código.
 
@@ -164,7 +164,7 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite.
 
 O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) com esse código.
 
@@ -200,7 +200,7 @@ Como os resultados são necessários apenas para o restaurante "Paradise", você
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Usar resultados de perguntas e respostas para manter o contexto da conversa
 
-A resposta para o GenerateAnswer contém as informações de metadados correspondentes do conjunto de perguntas e respostas correspondentes. Você pode usar essas informações em seu aplicativo cliente para armazenar o contexto da conversa anterior para uso em conversas posteriores. 
+A resposta para o GenerateAnswer contém as informações de metadados correspondentes do conjunto de perguntas e respostas correspondentes. Você pode usar essas informações em seu aplicativo cliente para armazenar o contexto da conversa anterior para uso em conversas posteriores.
 
 ```json
 {
@@ -245,7 +245,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 
 ## <a name="common-http-errors"></a>Erros comuns de HTTP
 
-|Código|Explicação|
+|Codificar|Explicação|
 |:--|--|
 |2xx|Sucesso|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
@@ -255,7 +255,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 |404|O KB não existe|
 |410|Essa API foi preterida e não está mais disponível|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A página **publicar** também fornece informações para [gerar uma resposta com o](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) postmaster ou a ondulação.
 

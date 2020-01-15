@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195774"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945648"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -29,7 +29,7 @@ Para este artigo, você cria três redes virtuais:
 
 ![Firewall em uma rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Declarar as variáveis
@@ -47,13 +47,13 @@ Se você quiser usar portal do Azure em vez de concluir este tutorial, consulte 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo requer que você execute o PowerShell localmente. Você deve ter os módulos do Azure PowerShell instalados. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma conexão com o Azure.
 
 Há três requisitos principais para que este cenário funcione corretamente:
 
-- Uma UDR (Rota Definida pelo Usuário) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway padrão. A propagação de rotas BGP deve estar **Desabilitada** nessa tabela de rotas.
+- Uma UDR (Rota Definida pelo Usuário) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway padrão. A propagação de rota do gateway de rede virtual deve ser **desabilitada** nesta tabela de rotas.
 - Uma UDR na sub-rede do gateway do hub precisa apontar para o endereço IP do firewall como o próximo salto para as redes spoke.
 
    Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
@@ -355,7 +355,7 @@ Set-AzVirtualNetwork
 
 #Now create the default route
 
-#Create a table, with BGP route propagation disabled
+#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
 $routeTableSpokeDG = New-AzRouteTable `
   -Name 'UDR-DG' `
   -ResourceGroupName $RG1 `
@@ -489,11 +489,11 @@ Set-AzFirewall -AzureFirewall $azfw
 
 Agora execute os testes novamente. Todos devem falhar nesse momento. Feche as áreas de trabalho remotas existentes antes de testar a alteração das regras.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou se não forem mais necessários, exclua o grupo de recursos **FW-Hybrid-Test** para excluir todos os recursos relacionados ao firewall.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida,você pode monitorar os logs do Firewall do Azure.
 
