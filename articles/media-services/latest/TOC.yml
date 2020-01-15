@@ -77,7 +77,7 @@
         - name: Escada de taxa de bits adaptável Autogen
           href: autogen-bitrate-ladder.md
         - name: Codificação com reconhecimento de conteúdo
-          href: cae-experimental.md
+          href: content-aware-encoding.md
     - name: Análise de conteúdo (Video Indexer)
       items:
         - name: Visão geral
@@ -106,7 +106,7 @@
           href: streaming-policy-concept.md
         - name: Códigos de erro do ponto de extremidade de streaming
           href: streaming-endpoint-error-codes.md
-    - name: Proteção do conteúdo
+    - name: Proteção de conteúdo
       items:
         - name: Criptografia dinâmica e entrega de chaves
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'

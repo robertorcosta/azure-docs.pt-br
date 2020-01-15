@@ -6,7 +6,7 @@
       href: app-service-mobile-value-prop.md
     - name: Planos do Serviço de Aplicativo
       href: ../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Android
       href: app-service-mobile-android-get-started.md
@@ -22,7 +22,7 @@
       href: app-service-mobile-xamarin-forms-get-started.md
     - name: Xamarin.iOS
       href: app-service-mobile-xamarin-ios-get-started.md
-- name: Como
+- name: Instruções
   items:
     - name: Planejar e projetar
       items:
@@ -172,7 +172,7 @@
         - name: Rede Virtual do Azure
           href: ../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Grupos de recursos
-          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations'
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations'
           items:
             - name: Executar tarefas em segundo plano com Trabalhos Web
               href: ../app-service/webjobs-create.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
@@ -186,7 +186,7 @@
               href: ../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
             - name: Detalhes de configuração de rede com a ExpressRoute
               href: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-    - name: Segurança
+    - name: Seguro
       items:
         - name: Autenticar com provedores de identidade
           items:
