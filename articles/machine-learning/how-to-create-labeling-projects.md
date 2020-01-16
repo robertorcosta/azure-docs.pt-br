@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 019c75e67534198494d7591602bd5f9023704a1d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533099"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75765062"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -49,7 +49,7 @@ Neste artigo, você aprenderá a:
 
 Os projetos de rotulagem são administrados no Azure Machine Learning. Use a página **Projetos de rotulagem** para gerenciar os projetos e as pessoas. Um projeto tem uma ou mais equipes atribuídas a ele e uma equipe tem uma ou mais pessoas atribuídas a ela.
 
-Caso os seus dados já estejam no Armazenamento de Blobs do Azure, você deverá disponibilizá-los como um armazenamento de dados antes de criar o projeto de rotulagem. Para obter detalhes, confira [Criar e registrar armazenamentos de dados](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
+Caso os seus dados já estejam no Armazenamento de Blobs do Azure, você deverá disponibilizá-los como um armazenamento de dados antes de criar o projeto de rotulagem. Para obter detalhes, confira [Criar e registrar armazenamentos de dados](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
 
 Para criar um projeto, selecione **Adicionar projeto**. Dê ao projeto um nome apropriado e selecione **Tipo de tarefa de rotulagem**.
 

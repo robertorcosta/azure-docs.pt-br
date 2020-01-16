@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: c9d8ec2ce78746352b1fc5d2f337ad8686213839
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 0318b73dfb8fed05432dd25b5784e1c890815c53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662476"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778508"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -148,20 +148,20 @@ Selecione o modelo **inicial** e copie o snippet de código YAML abaixo que cria
 
 ```YAML
 - job: Build
-    displayName: Build Maven Project
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
+  displayName: Build Maven Project
+  steps:
+  - task: Maven@3
+    displayName: 'Maven Package'
+    inputs:
+      mavenPomFile: 'pom.xml'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '**/target/*.?(war|jar)'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+  - upload: $(Build.ArtifactStagingDirectory)
+    artifact: drop
 ```
 
 Para obter mais diretrizes, siga as etapas mencionadas em [Crie seu aplicativo Java com o Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
@@ -213,13 +213,13 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 
    ```YAML
    jobs:  
-     - deployment: VMDeploy
-       displayName: web
-       environment:
-         name:  <environment name>
-         resourceType: VirtualMachine
-         tags: web1
-       strategy:
+   - deployment: VMDeploy
+     displayName: web
+     environment:
+       name:  <environment name>
+       resourceType: VirtualMachine
+       tags: web1
+     strategy:
    ```
 2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
 Confira [aqui](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
@@ -256,7 +256,7 @@ Confira [aqui](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?vie
        resourceType: VirtualMachine
      strategy:
          rolling:
-           maxParallel: 2  #for percentages, mention as x%
+           maxParallel: 5  #for percentages, mention as x%
            preDeploy:
              steps:
              - download: current
@@ -298,3 +298,7 @@ A exibição de implantações do ambiente fornece uma capacidade completa de ra
 ## <a name="next-steps"></a>Próximas etapas
 - Você pode prosseguir para [personalizar o pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) que você acabou de criar.
 - Para saber o que mais você pode fazer em pipelines do YAML, confira [referência de esquema do YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- Para saber mais sobre como implantar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Implantar a pilha LAMP](tutorial-lamp-stack.md)

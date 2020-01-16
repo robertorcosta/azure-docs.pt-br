@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12391df7e3b8540b775d8c56b5d5c4e648722faf
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c5f36e82c2ff95800a058f56f9cc6b80ddf02dbf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889596"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967700"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -362,7 +362,7 @@ Para melhorar o seu plano, a Microsoft recomenda que você valide regularmente s
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Etapas adicionais para as organizações a gerenciar o acesso do Azure 
 
-Determine se você precisa [transferir a propriedade de uma assinatura do Azure para outra conta](../../billing/billing-subscription-transfer.md).
+Determine se você precisa [transferir a propriedade de uma assinatura do Azure para outra conta](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Vigilância": o que fazer em caso de emergência

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176747"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980458"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerenciar chaves de conta de armazenamento com Key Vault e o CLI do Azure
 
@@ -43,9 +43,9 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 
 | Locatários | Nuvem | ID do aplicativo |
 | --- | --- | --- |
-| AD do Azure | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| AD do Azure | Azure Governamental | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | AD do Azure | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +53,7 @@ Para concluir este guia, primeiro você deve fazer o seguinte:
 
 - [Instale a CLI do Azure](/cli/azure/install-azure-cli).
 - [Criar um cofre de chave](quick-create-cli.md)
-- [Criar uma conta de Armazenamento do Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
+- [Criar uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerenciar chaves de conta de armazenamento
 
@@ -150,7 +150,7 @@ az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
 A saída desse comando mostrará a cadeia de caracteres de definição de SAS como`value`.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/).
 - Examine os artigos no [blog da equipe do Azure Key Vault](https://blogs.technet.microsoft.com/kv/).

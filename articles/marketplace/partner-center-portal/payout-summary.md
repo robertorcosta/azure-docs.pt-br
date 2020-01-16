@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931812"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979691"
 ---
 # <a name="payout-reporting"></a>Relatório de pagamento
 
@@ -52,7 +52,7 @@ Se você vender ofertas no Azure Marketplace, também verá informações sobre 
 | A transação não está pronta para pagamento | Cobrança em andamento | Próximo pagamento estimado: o status do pagamento está no estado não processado.  |
 | Status do pagamento |  | Não processados <br> A conquista está qualificada para pagamento. Ele permanece nesse estado por um período de resfriamento, conforme definido no guia do programa do programa de incentivo. <br> <br> Cerimônia <br> Ordem de pagamento-revisões internas pendentes geradas antes de o pagamento ser processado. <br> <br> Enviado: <br> O pagamento foi enviado ao seu banco. |
 
-## <a name="customer-types"></a>Tipos de clientes 
+## <a name="customer-types"></a>Tipos de clientes
 
 ### <a name="enterprise-agreement"></a>Contrato Enterprise
 
@@ -66,7 +66,7 @@ Os clientes também podem pagar usando um cartão de crédito e uma fatura mensa
 
 Por exemplo, se o cliente comprar usando um cartão de crédito.
 
-## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso 
+## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso
 
 |Description    |    Data  | Pedidos/uso  | Pagamento |
 |----------|----------|-----------|-------------|
@@ -97,33 +97,33 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ## <a name="transaction-history-download-export"></a>Exportação de download de histórico de transações
 
-Essa opção fornece um download de cada item de linha de produção que você vê na página Histórico de transações, tipo de conquista, data, valor da transação associada, cliente, produto e outros detalhes transacionais aplicáveis ao programa incentivos. 
+Essa opção fornece um download de cada item de linha de produção que você vê na página Histórico de transações, tipo de conquista, data, valor da transação associada, cliente, produto e outros detalhes transacionais aplicáveis ao programa incentivos.
 
-| Nome da coluna     | Description    | 
+| Nome da coluna     | Description    |
 |-------------|-------------------------------|
 | ganhandoid                      | Identificador exclusivo para cada conquista                                                                                                       |
-| participante da                  | A principal identidade do parceiro ganhando sob o programa                                                                            | 
-| participantIdType              | Principalmente a ID do programa para programas de incentivo e vendedor se for para os programas da loja e o Azure Marketplace                                          | 
-| participantename                | Nome do parceiro de conquista                                                                                                              | 
+| participante da                  | A principal identidade do parceiro ganhando sob o programa                                                                            |
+| participantIdType              | Principalmente a ID do programa para programas de incentivo e vendedor se for para os programas da loja e o Azure Marketplace                                          |
+| participantename                | Nome do parceiro de conquista                                                                                                              |
 | partnerCountryCode             | Localização/país do parceiro de conquista                                                                                                  |
-| programName                    | Nome do programa de incentivo/loja                                                                                                             | 
-| transactionId                  | Identificador exclusivo para a transação                                                                                                    | 
-| transactionCurrency            | Moeda na qual a transação original do cliente ocorreu (não é a moeda do local do parceiro)                                     | 
-| transactionDate                | Data da transação. Útil para programas em que muitas transações contribuem para uma conquista                                           | 
-| transactionExchangeRate        | Taxa de câmbio usada para mostrar a transação correspondente valor USD                                                                 | 
-| transactionAmount              | Valor da transação na moeda da transação original com base na qual a conquista é gerada                                              | 
-| transactionAmountUSD           | Valor da transação em USD                                                                                                                | 
-| alavanca                          | Indica a regra de negócio para a conquista                                                                                                  | 
-| earningRate                    | Taxa de incentivo aplicada ao valor da transação para gerar uma conquista                                                                      | 
-| quantidade                       | Varia de acordo com o programa. Indica a quantidade cobrada para programas transacionais                                                            | 
+| programName                    | Nome do programa de incentivo/loja                                                                                                             |
+| transactionId                  | Identificador exclusivo para a transação                                                                                                    |
+| transactionCurrency            | Moeda na qual a transação original do cliente ocorreu (não é a moeda do local do parceiro)                                     |
+| transactionDate                | Data da transação. Útil para programas em que muitas transações contribuem para uma conquista                                           |
+| transactionExchangeRate        | Taxa de câmbio usada para mostrar a transação correspondente valor USD                                                                 |
+| transactionAmount              | Valor da transação na moeda da transação original com base na qual a conquista é gerada                                              |
+| transactionAmountUSD           | Valor da transação em USD                                                                                                                |
+| alavanca                          | Indica a regra de negócio para a conquista                                                                                                  |
+| earningRate                    | Taxa de incentivo aplicada ao valor da transação para gerar uma conquista                                                                      |
+| quantidade                       | Varia de acordo com o programa. Indica a quantidade cobrada para programas transacionais                                                            |
 | quanttype                   | Indica o tipo de quantidade, por exemplo: quantidade cobrada, MAU                                                                                     |
-| ganhandotype                    | Indica se é Tarifa, desconto, Coop, venda etc.                                                                                          | 
+| ganhandotype                    | Indica se é Tarifa, desconto, Coop, venda etc.                                                                                          |
 | earningAmount                  | Conquistando valor na moeda da transação original                                                                                      |
 | earningAmountUSD               | Conquistando valor em USD                                                                                                                    |
 | earningDate                    | Data da conquista                                                                                                                      |
 | calculationDate                | Data em que a conquista foi calculada no sistema                                                                                            |
 | earningExchangeRate            | Taxa de câmbio usada para mostrar o valor USD correspondente                                                                                  |
-| exchangeRateDate               | Data da taxa de câmbio usada para calcular EarningAmount USD                                                                                   | 
+| exchangeRateDate               | Data da taxa de câmbio usada para calcular EarningAmount USD                                                                                   |
 | paymentAmountWOTax             | Valor de conquista (sem imposto) em pagar para moeda somente para pagamentos "enviados"                                                                 |
 | paymentCurrency                | Pague para moeda escolhida pelo parceiro no perfil de pagamento. Mostrado somente para pagamentos enviados                                                   |
 | paymentExchangeRate            | Taxa de câmbio usada para calcular paymentAmountWOTax na moeda de pagamento usando ExchangeRateDate                                            |
@@ -162,7 +162,7 @@ Essa opção fornece um download de cada item de linha de produção que você v
 | taxZipCode       | Vendido para o zip do cliente                                                                                                                  |
 | LicensingProgramName       |                                                                                                                   |
 | Código do programa       | Cadeia de caracteres para mapear com o nome do programa                                                                                                                   |
-| earningAmountInLastPaymentCurrency       | Conquistando valor na última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
+| EarningAmountInLastPaymentCurrency       | Conquistando valor na última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
 | lastPaymentCurrency       | Última moeda de pagamento (o campo estará vazio, se nenhum pagamento anterior tiver sido pago)                                                                                                                   |
 | AssetId       | O identificador exclusivo para os pedidos do cliente para o serviço do Marketplace.  Ele representa os itens de linha de compra transacionados. Pode haver vários ativos.                                                                                                                   |
 | OrderId       | relacionado à fatura de um cliente                                                                                                                   |

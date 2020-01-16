@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 03e1689ca495d3fd3c8efce6b039386711a49472
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.openlocfilehash: 86ddda8537a4b61c5432072077c183ded2556624
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904900"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973146"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Como atualizar o Agente Linux do Azure em uma VM
 
@@ -276,6 +276,75 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 
 ```bash
 sudo systemctl restart waagent.service
+```
+
+## <a name="debian"></a>Debian
+
+### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 "Jesse"/Debian 7 "Stretch"
+
+#### <a name="check-your-current-package-version"></a>Verificar a versão atual do pacote
+
+```bash
+dpkg -l | grep waagent
+```
+
+#### <a name="update-package-cache"></a>Cache do pacote de atualização
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Instalar a versão mais recente do pacote
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="enable-agent-auto-update"></a>Habilitar atualização automática do agente
+Esta versão do Debian não tem uma versão maior ou igual à 2.0.16, portanto, a Atualização automática não está disponível para ele. A saída do comando acima mostrará se o pacote está atualizado.
+
+
+
+### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 "Jessie"/Debian 9 "Stretch"
+
+#### <a name="check-your-current-package-version"></a>Verificar a versão atual do pacote
+
+```bash
+apt list --installed | grep waagent
+```
+
+#### <a name="update-package-cache"></a>Cache do pacote de atualização
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Instalar a versão mais recente do pacote
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>Verificar se a atualização automática está habilitada
+Primeiro, verifique se está habilitada:
+
+```bash
+cat /etc/waagent.conf
+```
+
+Localize 'AutoUpdate.Enabled'. Se você vir esta saída, ela estará habilitada:
+
+```bash
+AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Para habilitar a execução:
+
+```bash
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+Restart the waagent service
+sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 e Oracle Linux 7

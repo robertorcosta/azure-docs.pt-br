@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 226151d81319dc4e6f132e76ce2d310f88a484e8
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e8e4bed052ec5b70c441a3ae76f3409c307299e5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087032"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981426"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização de VM do Azure presa no Windows Update
 
 Este artigo ajuda a resolver o problema de quando sua VM (Máquina Virtual) fica presa no estágio do Windows Update durante a inicialização. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos. É recomendável usar esse modelo para novas implantações, em vez de usar o modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos. É recomendável usar esse modelo para novas implantações, em vez de usar o modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma
 

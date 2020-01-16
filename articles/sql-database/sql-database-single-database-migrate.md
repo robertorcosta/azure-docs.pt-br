@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820970"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980765"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
@@ -47,7 +47,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 5. [Migre](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo Banco de Dados SQL do Azure usando o Assistente de Migração de Dados.
 
 > [!NOTE]
-> Em vez de usar o DMA, também use um arquivo BACPAC. Consulte [Importar um arquivo BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
+> Em vez de usar o DMA, também use um arquivo BACPAC. Consulte [Importar um arquivos BACPAC para um novo Banco de Dados SQL do Azure](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração
 
@@ -84,14 +84,14 @@ Com a replicação transacional, todas as alterações de dados ou esquema apare
 
 1. Configurar a distribuição
    - [Usando o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
-   - [Usando o Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
 
 2. Criar a publicação
    - [Usando o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [Usando o Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
-3. Criar a assinatura
+   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Criar Assinatura
    - [Usando o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [Usando o Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [Usando Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
 Algumas dicas e diferenças da migração para o Banco de Dados SQL
 
@@ -107,9 +107,9 @@ Algumas dicas e diferenças da migração para o Banco de Dados SQL
 Há uma grande variedade de problemas de compatibilidade que você pode encontrar, dependendo da versão do SQL Server no banco de dados de origem e da complexidade do banco de dados que você está migrando. Versões anteriores do SQL Server têm mais problemas de compatibilidade. Use os recursos a seguir, além de uma pesquisa direcionada na Internet, usando o mecanismo de pesquisa de sua preferência:
 
 - [Recursos de banco de dados do SQL Server sem suporte no Banco de Dados SQL do Azure](sql-database-transact-sql-information.md)
-- [Discontinued Database Engine Functionality in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [Discontinued Database Engine Functionality in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [Discontinued Database Engine Functionality in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+- [Funcionalidade do Mecanismo de Banco de Dados descontinuada no SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+- [Funcionalidade do Mecanismo de Banco de Dados descontinuada no SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+- [Funcionalidade do Mecanismo de Banco de Dados descontinuada no SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
 - [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
@@ -118,10 +118,10 @@ Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunid
 > [!IMPORTANT]
 > A Instância Gerenciada do Banco de Dados SQL permite que você migre uma instância existente do SQL Server e seus bancos de dados com o mínimo ou sem problemas de compatibilidade. Consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Use o script no blog dos Engenheiros EMEA do Azure SQL para [Monitorar o uso de tempdb durante migração](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
-- Use o script no blog dos Engenheiros EMEA do Azure SQL para [Monitorar o espaço de log de transações do banco de dados enquanto a migração está ocorrendo](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+- Use o script no blog dos Engenheiros EMEA do Azure SQL para [Monitorar o espaço de log de transações do banco de dados enquanto a migração está ocorrendo](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
 - Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 - Para obter informações sobre como trabalhar com a hora UTC após a migração, confira [Modificando o fuso horário padrão para o fuso horário local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 - Para obter informações sobre como alterar o idioma padrão de um banco de dados após a migração, confira [Como alterar o idioma padrão do Banco de Dados SQL do Azure](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).

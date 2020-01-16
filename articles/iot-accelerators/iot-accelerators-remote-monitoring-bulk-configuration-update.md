@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799024"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980541"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerenciar dispositivos conectados em massa
 
@@ -21,7 +21,7 @@ Neste tutorial, você usa o acelerador de solução de Monitoramento Remoto para
 
 Como um operador da Contoso, você precisa configurar um grupo de dispositivos com uma nova versão de firmware. Você não quer ter que atualizar o firmware em cada dispositivo individualmente. Para atualizar o firmware em um grupo de dispositivos, é possível usar grupos de dispositivos e gerenciamento de dispositivos automático no acelerador de solução de Monitoramento Remoto. Qualquer dispositivo que você adicionar ao grupo de dispositivos obterá o firmware mais recente assim que ficar online.
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 >[!div class="checklist"]
 > * Criar um grupo de dispositivos
@@ -39,13 +39,13 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este tutorial, você precisará de uma instância implantada do acelerador de solução de Monitoramento Remoto em sua assinatura do Azure.
 
 Se você ainda não implantou o acelerador de solução de Monitoramento Remoto, conclua o início rápido [Implantar uma solução de monitoramento remoto baseado em nuvem](quickstart-remote-monitoring-deploy.md).
 
-Você precisa de uma conta de armazenamento do Azure para hospedar os arquivos de firmware. Você pode usar uma conta de armazenamento existente ou [criar uma nova conta de armazenamento](../storage/common/storage-quickstart-create-account.md) em sua assinatura.
+Você precisa de uma conta de armazenamento do Azure para hospedar os arquivos de firmware. Você pode usar uma conta de armazenamento existente ou [criar uma nova conta de armazenamento](../storage/common/storage-account-create.md) em sua assinatura.
 
 O tutorial usa um dispositivo [IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) como dispositivo de exemplo.
 
@@ -54,7 +54,7 @@ Você precisa ter os seguintes softwares instalado em seu computador local:
 * [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 * A extensão [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) do VS Code.
 
-Antes de começar:
+Antes de iniciar:
 
 * Verifique se o [carregador de inicialização em seu dispositivo IoT DevKit está na versão 1.4.0 ou posterior](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Verifique se o SDK do IoT DevKit possui a mesma versão do carregador de inicialização. Você pode atualizar o SDK do IoT DevKit usando o Azure IoT Workbench no VS Code. Abra a paleta de comandos e insira **Arduino: Board Manager**. Para obter mais informações, consulte [Preparar o ambiente de desenvolvimento](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
@@ -228,7 +228,7 @@ Nesta seção, você cria e executa uma implantação que aplica a configuraçã
 
     |Opção|Valor|
     |---|---|
-    |NOME|Implantar atualização de firmware|
+    |Nome|Implantar atualização de firmware|
     |Tipo de pacote|Configuração do dispositivo|
     |Tipo de configuração|Firmware|
     |Pacote|firmware-update.json|

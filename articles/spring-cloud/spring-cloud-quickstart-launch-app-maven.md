@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 61436b4317e85b67387a75e87c31a1c6cd13d84f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8aaf5f5fbcabf3476284f0d5e9f4f50ef3e92bd6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895408"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891627"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início Rápido: Iniciar um aplicativo Azure Spring Cloud usando o plug-in do Maven
 
@@ -27,7 +27,7 @@ Seguindo este início rápido, você aprenderá a:
 > * Atribuir um ponto de extremidade público para seu aplicativo
 
 >[!Note]
-> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
+> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 
 >[!TIP]
@@ -57,6 +57,9 @@ Para concluir este guia de início rápido:
 
 São necessários cerca de 5 minutos para o serviço ser implantado. Depois que o serviço for implantado, selecione **Ir para o recurso** e a página **Visão Geral** da instância de serviço será exibida.
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## <a name="set-up-your-configuration-server"></a>Definir seu servidor de configuração
 
 1. Na página **Visão Geral** do serviço, selecione **Servidor de Configuração**.
@@ -64,6 +67,9 @@ São necessários cerca de 5 minutos para o serviço ser implantado. Depois que 
 
     > [!div class="mx-imgBorder"]
     > ![Definir e aplicar definições de configuração](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## <a name="clone-and-build-the-sample-application-repository"></a>Clonar e criar o repositório do aplicativo de exemplo
 
@@ -105,6 +111,9 @@ São necessários cerca de 5 minutos para o serviço ser implantado. Depois que 
    ```
 
 1. Após a conclusão da implantação, é possível acessar o PiggyMetrics usando a URL fornecida na saída do comando anterior.
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## <a name="next-steps"></a>Próximas etapas
 

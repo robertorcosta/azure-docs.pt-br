@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: eab86b3643dde2a6e854d73c38b5267c65fb7e3e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 21fc494f52b168f92da6972ee44be33b4e227a66
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214757"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046065"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -123,7 +123,7 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: acesso ao front end interno do Load Balancer a partir da VM participante do pool de back-end do Load Balancer
 
-Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtual e uma das VMs de backend do participante estiver tentando acessar o frontend interno do Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário. Analise as [limitações](load-balancer-overview.md#limitations) para uma discussão detalhada.
+Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtual e uma das VMs de backend do participante estiver tentando acessar o frontend interno do Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário. Analise as [limitações](concepts-limitations.md#limitations) para uma discussão detalhada.
 
 **Resolução** há várias maneiras para desbloquear este cenário, incluindo o uso de um proxy. Avalie o Gateway de aplicativo ou outros proxies 3ª de terceiros (por exemplo, nginx ou haproxy). Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 
@@ -132,7 +132,7 @@ Se você optar por abrir um caso de suporte, colete as informações a seguir pa
 - Use Psping em uma das VMs de back-end na VNet para testar a resposta da porta de investigação (exemplo: psping 10.0.0.4:3389) e registrar resultados. 
 - Se nenhuma resposta for recebida nesses testes de ping, execute um rastreamento Netsh simultâneo na VM de back-end e na VM de teste da VNet enquanto executa PsPing. Em seguida, interrompa o rastreamento Netsh. 
   
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se as etapas anteriores não resolverem o problema, abra um [tíquete de suporte](https://azure.microsoft.com/support/options/).
 

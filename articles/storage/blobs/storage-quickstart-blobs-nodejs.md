@@ -7,19 +7,19 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8473bff3b6e7d2079bb202befc23e1ada3791eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465105"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970268"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript
 
 Comece a usar a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
 
 > [!NOTE]
-> Para começar a usar a versão anterior do SDK, confira [Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure para JavaScript](storage-quickstart-blobs-nodejs-v10.md).
+> Para começar a usar a versão anterior do SDK, confira [Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azure para JavaScript](storage-quickstart-blobs-nodejs-legacy.md).
 
 Use a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript para:
 

@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0462039efa02998b41560d6c308653809875ab1c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453677"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982127"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando o modelo do Resource Manager
 
 [O Azure Key Vault](./key-vault-overview.md) é um serviço de nuvem que fornece um armazenamento seguro de segredos, como chaves, senhas e certificados, entre outros. Este Início Rápido concentra-se no processo de implantação de um modelo do Resource Manager para criar um cofre de chaves e um segredo.
 
-O [modelo do Resource Manager](../azure-resource-manager/template-deployment-overview.md) é um arquivo JSON (JavaScript Object Notation) que define a infraestrutura e a configuração do projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. Caso deseje saber mais sobre como desenvolver modelos do Resource Manager, confira a [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelos](/azure/templates/microsoft.keyvault/allversions).
+O [modelo do Resource Manager](../azure-resource-manager/templates/overview.md) é um arquivo JSON (JavaScript Object Notation) que define a infraestrutura e a configuração do projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. Caso deseje saber mais sobre como desenvolver modelos do Resource Manager, confira a [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelos](/azure/templates/microsoft.keyvault/allversions).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -88,7 +88,7 @@ Mais exemplos de modelos do Azure Key Vault podem ser encontrados [aqui](https:/
 
     ![Modelo do Resource Manager, integração do Key Vault, notificação do portal de implantação](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
-O portal do Azure é usado para implantar o modelo. Além do portal do Azure, você também pode usar o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/resource-group-template-deploy.md).
+O portal do Azure é usado para implantar o modelo. Além do portal do Azure, você também pode usar o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 

@@ -3,12 +3,12 @@ title: Visão geral do Gerenciamento do Azure - Governança do Azure
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
 ms.date: 12/06/2018
 ms.topic: overview
-ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132834"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980911"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Visão geral dos serviços de gerenciamento do Azure
 
@@ -36,9 +36,9 @@ A automação dessas tarefas permite eliminar a redundância, minimizando o temp
 ## <a name="govern"></a>Administrar
 
 Governança fornece mecanismos e processos para manter controle sobre seus aplicativos e recursos no Azure. Ela envolve planejar suas iniciativas e estabelecer prioridades estratégicas.
-Governança no Azure é implementada principalmente com dois serviços. O [Azure Policy](./policy/overview.md) permite criar, atribuir e gerenciar definições de política para impor regras aos recursos. Esse recurso mantém os recursos em conformidade com os padrões corporativos. O [Gerenciamento de custos do Azure](../cost-management/overview-cost-mgt.md) permite acompanhar o uso da nuvem e as despesas dos recursos do Azure e de outros provedores de nuvem.
+Governança no Azure é implementada principalmente com dois serviços. O [Azure Policy](./policy/overview.md) permite criar, atribuir e gerenciar definições de política para impor regras aos recursos. Esse recurso mantém os recursos em conformidade com os padrões corporativos. O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md) permite acompanhar o uso da nuvem e as despesas dos recursos do Azure e de outros provedores de nuvem.
 
-## <a name="secure"></a>Segurança
+## <a name="secure"></a>Seguro
 
 Gerencie a segurança dos seus recursos e dados. Um programa de segurança envolve a avaliação de ameaças, coletando e analisando dados, e de conformidade dos aplicativos e recursos. A [Central de Segurança do Azure](../security-center/security-center-intro.md) fornece monitoramento de segurança e análise de ameaças, o que inclui o gerenciamento unificado de segurança e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida. Consulte [Introdução à segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes e orientações sobre como proteger os recursos do Azure.
 

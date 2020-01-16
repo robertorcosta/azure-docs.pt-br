@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936180"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980305"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
 
-Este tutorial mostra como configurar a recuperação de desastre de servidores Windows e Linux físicos locais para o Azure. Neste tutorial, você aprenderá a:
+Este tutorial mostra como configurar a recuperação de desastre de servidores Windows e Linux físicos locais para o Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configurar os pré-requisitos locais e do Azure
@@ -27,7 +27,7 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 > * Criar uma política de replicação
 > * Habilitar a replicação para um servidor
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -63,7 +63,7 @@ Verifique se sua conta do Azure tem permissões para a replicação de VMs para 
 
 
 
-### <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
+### <a name="set-up-an-azure-network"></a>Configure uma rede do Azure
 
 Configurar uma [rede do Azure](../virtual-network/quick-create-portal.md).
 
@@ -71,9 +71,9 @@ Configurar uma [rede do Azure](../virtual-network/quick-create-portal.md).
 - A rede deve estar na mesma região que o cofre dos Serviços de Recuperação
 
 
-## <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
+## <a name="set-up-an-azure-storage-account"></a>Definir uma conta de armazenamento do Azure
 
-Configure uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md).
+Configure uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md).
 
 - O Site Recovery replica máquinas locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após o failover.
 - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
@@ -146,7 +146,7 @@ Selecione e verifique os recursos de destino.
 2. Especifique o modelo de implantação de destino.
 3. A Recuperação de Site verifica se você tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-   ![Destino](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Escolha o destino](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -185,6 +185,6 @@ Habilite a replicação para cada servidor.
 
 Para monitorar os servidores adicionados, você pode verificar o horário da última descoberta em **Servidores de Configuração** > **Último Contato Em**. Para adicionar computadores sem esperar por um período de descoberta agendada, realce o servidor de configuração (não clique nele) e clique em **Atualizar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Execute uma simulação de recuperação de desastre](tutorial-dr-drill-azure.md).

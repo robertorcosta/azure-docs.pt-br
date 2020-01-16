@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954747"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977292"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de porta--usando Azure Functions e SendGrid, enviar email quando uma porta é aberta           
 
@@ -65,7 +65,7 @@ Agora você verá o formulário de inscrição do SendGrid.
 
 Preencha o formulário de inscrição:
 
-   * **Grupo de recursos**: criar um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Grupo de recursos**: criar um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nome**: O nome do serviço SendGrid. Escolha um nome exclusivo, diferente de outros serviços que você possa ter.
 
@@ -105,7 +105,7 @@ O formulário de inscrição aparece.
 
 Preencha os campos no formulário de inscrição.
 
-   * **Grupo de recursos**: criar um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Grupo de recursos**: criar um grupo de recursos para hospedar serviço SendGrid ou usar um existente. Veja [Uso dos grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nome do Hub IoT**: O nome para o hub IoT. Escolha um nome exclusivo, diferente de outros serviços que você possa ter.
 
@@ -195,7 +195,7 @@ Se você encontrar problemas, consulte [as perguntas frequentes do Kit de Desenv
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você aprendeu como conectar um dispositivo de Kit de Desenvolvimento ao acelerador de solução de Monitoramento Remoto do Azure IoT e usar o serviço SendGrid para enviar um email. Aqui estão sugestões para as próximas etapas:
 

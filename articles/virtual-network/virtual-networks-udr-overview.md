@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644607"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973029"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -69,7 +69,7 @@ O Azure adiciona outras rotas de sistema padrão para diferentes recursos do Azu
 * **VirtualNetworkServiceEndpoint**: os endereços IP públicos para determinados serviços são adicionados à tabela de rotas pelo Azure quando você habilita um ponto de extremidade de serviço para o serviço. Pontos de extremidade de serviço são habilitados para sub-redes individuais em uma rede virtual, de modo que a rota só seja adicionada à tabela de rotas de uma sub-rede para a qual está habilitado um ponto de extremidade de serviço. Os endereços IP públicos de serviços do Azure mudam periodicamente. O Azure gerencia os endereços na tabela de rotas automaticamente quando os endereços mudam. Saiba mais sobre [pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md) e os serviços para os quais é possível criar pontos de extremidade de serviço.<br>
 
     > [!NOTE]
-    > Os tipos do próximo salto **emparelhamento VNet** e **VirtualNetworkServiceEndpoint** só são adicionados a tabelas de rota de sub-redes em redes virtuais criadas por meio do modelo de implantação do Azure Resource Manager. Os tipos do próximo salto não são adicionados a tabelas de rotas que estão associadas a sub-redes de rede virtual criadas por meio do modelo de implantação clássico. Saiba mais sobre os [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure.
+    > Os tipos do próximo salto **emparelhamento VNet** e **VirtualNetworkServiceEndpoint** só são adicionados a tabelas de rota de sub-redes em redes virtuais criadas por meio do modelo de implantação do Azure Resource Manager. Os tipos do próximo salto não são adicionados a tabelas de rotas que estão associadas a sub-redes de rede virtual criadas por meio do modelo de implantação clássico. Saiba mais sobre os [modelos de implantação](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure.
 
 ## <a name="custom-routes"></a>Rotas personalizadas
 
@@ -101,7 +101,7 @@ Não é possível especificar **Emparelhamento VNet** ou **VirtualNetworkService
 
 ## <a name="next-hop-types-across-azure-tools"></a>Tipos do próximo salto nas ferramentas do Azure
 
-O nome exibido e referenciado para tipos do próximo salto é diferente entre o portal do Azure e as ferramentas de linha de comando, e entre o Azure Resource Manager e modelos clássicos de implantação. A tabela a seguir lista os nomes usados para se referir a cada tipo do próximo salto com as diferentes ferramentas e [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+O nome exibido e referenciado para tipos do próximo salto é diferente entre o portal do Azure e as ferramentas de linha de comando, e entre o Azure Resource Manager e modelos clássicos de implantação. A tabela a seguir lista os nomes usados para se referir a cada tipo do próximo salto com as diferentes ferramentas e [modelos de implantação](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
 |Tipo do próximo salto                   |CLI do Azure e o PowerShell (Resource Manager) |CLI clássica do Azure e o PowerShell (clássico)|
 |-------------                   |---------                                       |-----|

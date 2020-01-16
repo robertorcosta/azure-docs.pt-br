@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 00d4487abed97084976d81ee1ec78316fc688193
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851376"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979317"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -34,7 +34,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 
 
 > [!div class="mx-tableFixed"]
-> | Função interna | Descrição | ID |
+> | Função interna | Description | ID |
 > | --- | --- | --- |
 > | [Proprietário](#owner) | Permite que você gerencie tudo, incluindo acesso aos recursos. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Colaborador](#contributor) | Permite que você gerencie tudo, exceto conceder acesso aos recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -554,7 +554,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Retornar o resultado da exclusão de um contêiner |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retorna a lista de contêineres |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de blob de colocação |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retorna o resultado do contêiner de put blob |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -797,7 +797,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | **Ações** |  |
 > | Microsoft. AzureStack/registrations/Products/*/Action |  |
-> | Microsoft.AzureStack/registrations/products/read | Obtém as propriedades de um produto do Marketplace do Azure Stack |
+> | Microsoft.AzureStack/registrations/products/read | Obter as propriedades de um produto do Marketplace do Azure Stack |
 > | Microsoft.AzureStack/registrations/read | Obter as propriedades de um registro do Microsoft Azure Stack |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -1525,7 +1525,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | Conceder permissões para cancelar trabalhos enviados por outros usuários. |
 > | Microsoft.DataLakeAnalytics/accounts/Write | Criar ou atualizar uma conta DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Write | Criar ou atualizar uma conta DataLakeStore vinculada de uma conta DataLakeAnalytics. |
-> | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Delete | Desvincular uma conta DataLakeStore de uma conta DataLakeAnalytics. |
+> | Microsoft.DataLakeAnalytics/accounts/dataLakeStoreAccounts/Delete | Desvincular uma conta do Data Lake Store de uma conta do Data Lake Analytics. |
 > | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Write | Criar ou atualizar uma conta de armazenamento vinculada de uma conta DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Delete | Desvincular uma conta de armazenamento de uma conta DataLakeAnalytics. |
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Write | Criar ou atualizar uma regra de firewall. |
@@ -2415,7 +2415,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza do Failover de teste |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Failover |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Atualizar serviço de mobilidade |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisqur mapeamentos de contêiner de proteção |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Atualizar provedor |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler quaisquer classificações de armazenamento |
@@ -2473,7 +2473,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler quaisquer itens que podem ser protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler quaisquer itens protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisqur mapeamentos de contêiner de proteção |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler quaisquer mapeamentos de contêiner de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Ler qualquer provedores de Serviços de Recuperação do Microsoft Azure |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Ler quaisquer classificações de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Ler quaisquer mapeamentos de classificação de armazenamento |
@@ -3050,7 +3050,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Une um pool de endereços de back-end do balanceador de carga. Não é possível alertá-lo. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Une um pool de NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Une uma regra NAT de entrada do balanceador de carga. Não é possível alertá-lo. |
-> | Microsoft.Network/loadBalancers/probes/join/action | Permite usar investigações de um balanceador de carga. Por exemplo, com essa permissão, a propriedade healthProbe do conjunto de dimensionamento de VM pode referenciar a investigação. Não é possível alertá-lo. |
+> | Microsoft.Network/loadBalancers/probes/join/action | Permitir o uso de investigações de um balanceador de carga. Por exemplo, com essa permissão, a propriedade healthProbe do conjunto de dimensionamento de VM pode referenciar a investigação. Não é possível alertá-lo. |
 > | Microsoft.Network/loadBalancers/read | Obter uma definição de balanceador de carga |
 > | Microsoft.Network/locations/* | Criar e gerenciar locais de rede |
 > | Microsoft.Network/networkInterfaces/* | Criar e gerenciar as interfaces de rede |
@@ -3153,6 +3153,6 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Corresponder provedor de recursos ao serviço](../azure-resource-manager/azure-services-resource-providers.md)
+- [Corresponder provedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Permissões na Central de Segurança do Azure](../security-center/security-center-permissions.md)

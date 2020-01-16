@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572821"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749695"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -146,7 +146,7 @@ O modo DirectQuery* aproveita o banco de dados relacional back-end para armazena
 
 Modelos tabulares no Azure Analysis Services dão suporte a uma ampla variedade de fontes de dados, desde arquivos de texto simples até Big Data no Azure Data Lake Store. Para saber mais, confira [Fontes de dados com suporte no Azure Analysis Services](analysis-services-datasource.md).
 
-## <a name="compatibility-level"></a>Nível de compatibilidade
+## <a name="compatibility-level"></a>Nível de Compatibilidade
 
 O nível de compatibilidade refere-se a comportamentos específicos à versão no mecanismo do Analysis Services. O Azure Analysis Services dá suporte a modelos de tabela nos níveis de compatibilidade 1200 e superior. Para saber mais, confira [Nível de compatibilidade para modelos de tabela](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
@@ -161,7 +161,7 @@ No nível do servidor, o Analysis Services fornece firewall, autenticação do A
 
 O Firewall do Azure Analysis Services bloqueia todas as conexões de clientes que não sejam os endereços IP especificados nas regras. Por padrão, a proteção de firewall não está habilitada para novos servidores. É recomendável que a proteção de firewall fique habilitada e que as regras sejam configuradas, como parte de um script de provisionamento do servidor ou no portal, imediatamente após o servidor ser criado. Configure as regras especificando os endereços IP permitidos por IPs de clientes individuais ou por intervalo. As conexões do Power BI (serviço) também podem ser permitidas ou bloqueadas. Configure o firewall e as regras no portal ou usando o PowerShell. Para saber mais, consulte [Configurar um firewall de servidor](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 A autenticação do usuário é tratada pelo [ AAD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md). Ao fazer logon, os usuários usam uma identidade de conta da organização com acesso baseado em função ao banco de dados. As identidades de usuário devem ser membros do Azure Active Directory padrão para a assinatura em que reside o servidor. Para obter mais informações, confira [Autenticação e permissões de usuário](analysis-services-manage-users.md).
 
@@ -224,7 +224,7 @@ Há suporte para ferramentas modernas de exploração e visualização de dados 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 
-O Azure Analysis Services é integrado às métricas do Azure, fornecendo um grande número de métricas específicas de recursos para ajudá-lo a monitorar o desempenho e a integridade dos servidores. Para obter mais informações, consulte [Monitorar métricas do servidor](analysis-services-monitor.md). Registre métricas com [logs de diagnóstico de recursos do Azure](../azure-monitor/platform/resource-logs-overview.md). Monitore e envie logs para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmita-os para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e exporte-os para os [logs do Azure Monitor](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, consulte [Configurar log de diagnósticos](analysis-services-logging.md).
+O Azure Analysis Services é integrado às métricas do Azure, fornecendo um grande número de métricas específicas de recursos para ajudá-lo a monitorar o desempenho e a integridade dos servidores. Para obter mais informações, consulte [Monitorar métricas do servidor](analysis-services-monitor.md). Registre métricas com [logs de diagnóstico de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md). Monitore e envie logs para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmita-os para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) e exporte-os para os [logs do Azure Monitor](https://azure.microsoft.com/services/log-analytics/), um serviço do [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, consulte [Configurar log de diagnósticos](analysis-services-logging.md).
 
 O Azure Analysis Services também dá suporte para uso de [DMVs (Modos de Exibição de Gerenciamento Dinâmico)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Com base na sintaxe SQL, conjuntos de linhas do esquema da interface DMVs que retornam metadados e informações de monitoramento sobre a instância do servidor.
 

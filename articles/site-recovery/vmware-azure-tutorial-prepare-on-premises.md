@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953742"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893625"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve como preparar os servidores VMware locais para recuperaçã
 Este é o segundo tutorial em uma série que mostra como configurar a recuperação de desastre para o Azure para VMs VMware locais. No primeiro tutorial, [configuramos os componentes do Azure](tutorial-prepare-azure.md) necessários para a recuperação de desastres do VMware.
 
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Prepare uma conta no servidor vCenter ou no host vSphere ESXi para automatizar a descoberta de VMs.
@@ -108,7 +108,7 @@ Para conectar-se a VMs do Linux usando SSH após o failover, faça o seguinte:
 
 
 ## <a name="failback-requirements"></a>Requisitos de failback
-Se você planeja realizar o failback para seu site local, há alguns [pré-requisitos para failback](vmware-azure-reprotect.md##before-you-begin). Você pode prepará-los agora, mas você não precisa fazer isso. Você pode preparar após o failover para o Azure.
+Se você planeja realizar o failback para seu site local, há alguns [pré-requisitos para failback](vmware-azure-reprotect.md#before-you-begin). Você pode prepará-los agora, mas você não precisa fazer isso. Você pode preparar após o failover para o Azure.
 
 
 

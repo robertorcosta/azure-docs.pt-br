@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a96429a84fab10c033cc18a2c35edb4b2a056924
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c5e01f3ddeef929a1a01726cafa6e9dca3a8a3d8
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895381"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891519"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Início Rápido: Iniciar um aplicativo do Azure Spring Cloud usando o portal do Azure
 
@@ -28,10 +28,10 @@ Seguindo este início rápido, você aprenderá a:
 > * Implantar cada microsserviço
 > * Atribuir um ponto de extremidade público para seu aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 >[!Note]
-> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
+> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 >[!TIP]
 > O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo.  Ele tem ferramentas comuns do Azure pré-instaladas, incluindo as versões mais recentes do Git, do JDK, do Maven e da CLI do Azure. Se você fez logon na assinatura do Azure, inicie o [Azure Cloud Shell](https://shell.azure.com) em shell.azure.com.  Você pode saber mais sobre o Azure Cloud Shell [lendo nossa documentação](../cloud-shell/overview.md)
@@ -68,6 +68,10 @@ az extension add --name spring-cloud
 
 Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a página **Visão Geral** da instância de serviço será exibida.
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
+
+
 ## <a name="set-up-your-configuration-server"></a>Definir seu servidor de configuração
 
 1. Acesse a página **Visão Geral** do serviço e selecione o **Servidor de Configuração**.
@@ -79,6 +83,9 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a
 1. Selecione **Aplicar** para salvar as alterações.
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Compilar e implantar aplicativos de microsserviço
 
@@ -121,6 +128,9 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a
 
 1. São necessários alguns minutos para concluir a implantação dos aplicativos. Para confirmar que eles foram implantados, acesse a folha **Aplicativos** no portal do Azure. Você deverá ver uma linha de cada um dos três aplicativos.
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto de extremidade público ao gateway
 
 1. Abra a guia **Aplicativos** no menu à esquerda.
@@ -135,6 +145,8 @@ Leva cerca de 5 minutos para o serviço ser implantado.  Depois de implantada, a
 
     ![Captura de tela do portal do ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849251"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889065"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: acessar o Armazenamento de Blobs do Azure no Azure Databricks usando o Azure Key Vault
 
@@ -26,17 +26,17 @@ Neste tutorial, você aprenderá como:
 > * Criar um workspace do Azure Databricks e adicionar um escopo de segredo
 > * Acessar seu contêiner de blobs do Azure Databricks
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 > [!Note]
 > Este tutorial não pode ser realizado usando a **Assinatura de avaliação gratuita do Azure**.
-> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
+> Se você tiver uma conta gratuita, acesse seu perfil e altere para uma assinatura **pré-paga**. Para saber mais, confira [Conta gratuita do Azure](https://azure.microsoft.com/free/). Em seguida, [remova o limite de gastos](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit) e [solicite um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) para as vCPUs da sua região. Quando você cria seu espaço de trabalho do Azure Databricks, pode selecionar o tipo de preço **Versão de avaliação (Premium - DBUs gratuitas por 14 dias)** para conceder ao espaço de trabalho acesso gratuito aos DBUs do Premium Azure Databricks por 14 dias.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Criar uma conta de armazenamento e um contêiner de blobs
 
@@ -76,7 +76,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
    |Propriedade|Descrição|
    |--------|-----------|
-   |NOME|Um nome exclusivo para seu cofre de chaves.|
+   |Nome|Um nome exclusivo para seu cofre de chaves.|
    |Subscription|Escolha uma assinatura.|
    |Resource group|Escolha um grupo de recursos ou crie um.|
    |Location|Escolha um local.|
@@ -94,7 +94,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
    |Propriedade|Valor|
    |--------|-----------|
    |Opções de upload|Manual|
-   |NOME|Nome amigável para sua chave de conta de armazenamento.|
+   |Nome|Nome amigável para sua chave de conta de armazenamento.|
    |Valor|key1 da sua conta de armazenamento.|
 
    ![Propriedades do novo segredo do cofre de chaves](./media/store-secrets-azure-key-vault/create-storage-secret.png)
@@ -111,7 +111,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Em **Serviço do Azure Databricks**, forneça os valores a seguir para criar um workspace do Databricks.
 
-   |Propriedade  |DESCRIÇÃO  |
+   |Propriedade  |Descrição  |
    |---------|---------|
    |Nome do workspace     | Forneça um nome para seu workspace do Databricks        |
    |Subscription     | Na lista suspensa, selecione sua assinatura do Azure.        |
@@ -200,7 +200,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
    ![Erro ao desmontar conta de armazenamento](./media/store-secrets-azure-key-vault/command5.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não quiser continuar usando este aplicativo, exclua o grupo de recursos inteiro por meio das seguintes etapas:
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 5c2aca1996d1ec764dcdca30c7657ee360b9c355
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: ed756a972b3887ac638a061075d2e6fbeea98104
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671482"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747959"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar um aplicativo Web HTML estático no Azure
 
@@ -49,7 +49,7 @@ No exemplo a seguir, substitua <app_name> por um nome de aplicativo exclusivo.
 ```bash
 cd html-docs-hello-world
 
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 O comando `az webapp up` realiza as seguintes ações:
@@ -101,7 +101,7 @@ Salve suas alterações e saia do nano. Use o comando `^O` para salvar e `^X` pa
 Agora você vai reimplantar o aplicativo com o mesmo comando `az webapp up`.
 
 ```bash
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 Depois que a implantação for concluída, troque para a janela do navegador aberta na etapa **Navegar até o aplicativo** e atualize a página.
@@ -124,7 +124,7 @@ A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executa
 
 O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. Se você acha que não precisará desses recursos no futuro, exclua o grupo de recursos executando o seguinte comando no Cloud Shell. Lembre-se de que o nome do grupo de recursos foi gerado automaticamente para você na etapa [criar um aplicativo Web](#create-a-web-app).
 

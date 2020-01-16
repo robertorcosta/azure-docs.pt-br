@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f40b479b66f2fa9a60e084fc0e29f40cef052e99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965664"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar o Armazenamento Premium do Azure com SQL Server em máquinas virtuais
 
@@ -29,7 +29,7 @@ ms.locfileid: "73162533"
 [SSDs premium do Azure](../disks-types.md) é o armazenamento de última geração que oferece baixa latência e E/S de taxa de transferência alta. Ele funciona melhor para cargas de trabalho de uso intensivo de E/S de chave, como [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)do SQL Server no IaaS.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 Este artigo fornece informações de planejamento e diretrizes para migração de uma Máquina Virtual executando o SQL Server para usar o Armazenamento Premium. Isso inclui a infraestrutura do Azure (rede, armazenamento) e as etapas de VM do Windows de convidado. O exemplo no [Apêndice](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) mostra uma migração de ponta a ponta abrangente e completa para mover VMs maiores e aproveitar o armazenamento SSD local aprimorado com o PowerShell.
 
@@ -1249,7 +1249,7 @@ Para adicionar o endereço IP, confira o Apêndice, etapa 14.
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Armazenamento Premium do Azure](../disks-types.md)
-* [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/)
+* [Máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->

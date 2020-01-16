@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 06/24/2019
-author: roaror
-ms.author: roaror
-ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+author: LuisBosquez
+ms.author: lbosq
+ms.openlocfilehash: 5c01bd02b1fef7c7b27a3119465cad53155b9bbf
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67665923"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940957"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Use o MongoDB Compass para conectar-se à API do Azure Cosmos DB para MongoDB 
 
@@ -52,5 +52,5 @@ Para conectar sua conta do Cosmos DB ao Compass, você pode seguir as etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com uma conta de API do Azure Cosmos DB para o MongoDB.
+- Saiba como [usar o Studio 3T](mongodb-mongochef.md) com a API do Azure Cosmos DB para MongoDB.
 - Explore [exemplos](mongodb-samples.md) do MongoDB com a API do Azure Cosmos DB para MongoDB.

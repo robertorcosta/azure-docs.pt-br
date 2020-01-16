@@ -1,14 +1,14 @@
 ---
 title: Implantar amostra de blueprint ISO 27001
 description: Etapas de implantação do modelo de blueprint autônomo da ISO 27001, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9ea579537ff98d662066ecb8900a62f080b88d3d
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f5920541d49c454bd6648318c04ed607eada1dfb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546648"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922515"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implantar a amostra de blueprint ISO 27001
 
@@ -97,7 +97,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 
 A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
-|Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Workspace do Log Analytics para VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política.|
 |\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|Uma matriz vazia pode ser usada para indicar a inexistência de parâmetros opcionais: \[\]|

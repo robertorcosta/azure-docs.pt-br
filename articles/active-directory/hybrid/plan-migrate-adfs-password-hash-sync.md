@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818902"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028397"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de hash de senha do Azure Active Directory
 
 Este artigo descreve como mover seus domínios de organização de AD FS (Serviços de Federação do Active Directory) para sincronização de hash de senha.
 
-Você pode [baixar este artigo](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Alterar seu método de autenticação requer planejamento, teste e potencialmente tempo de inatividade. A [distribuição em etapas](how-to-connect-staged-rollout.md) fornece uma maneira alternativa de testar e migrar gradualmente da Federação para a autenticação na nuvem usando a sincronização de hash de senha.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Pré-requisitos para a migração para a sincronização de hash de senha
 
@@ -455,7 +456,7 @@ Historicamente, atualizações ao atributo **UserPrincipalName**, que usa o serv
 
 Para saber como verificar ou habilitar esse recurso, veja [Sincronizar atualizações de userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>Solucionar problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 A equipe de suporte deve entender como solucionar os problemas de autenticação que ocorrem durante ou após a alteração do modelo de federação para o gerenciado. Use a seguinte documentação de solução de problemas para ajudar sua equipe de suporte a se familiarizar com as etapas comuns de solução de problemas e as ações apropriadas que podem ajudar a isolar e resolver o problema.
 
@@ -471,7 +472,7 @@ Inicie a sobreposição da chave de descriptografia Kerberos de SSO contínuo no
 
 Para obter mais informações, veja [Como sobrepor a chave de descriptografia Kerberos da conta de computador AZUREADSSOACC?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda os [Conceitos de design do Azure AD Connect](plan-connect-design-concepts.md).
 * Escolha a [autenticação correta](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).

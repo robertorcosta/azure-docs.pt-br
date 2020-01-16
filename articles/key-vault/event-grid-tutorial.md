@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133327"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981603"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)
 
@@ -22,7 +22,7 @@ A integração do Azure Key Vault com a Grade de Eventos do Azure (atualmente em
 
 Esse guia descreve como receber notificações de Key Vault por meio da Grade de Eventos do Azure e como responder a alterações de status pela Automação do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um cofre de chaves na assinatura do Azure. Você pode criar rapidamente um novo cofre de chaves seguindo as etapas em [Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure](quick-create-cli.md).
@@ -180,11 +180,11 @@ Verifique se a sua assinatura da Grade de Eventos está definida adequadamente. 
 
 1. Selecione o trabalho recente e examine a solicitação POST enviada da Grade de Eventos para o webhook. Examine o JSON e verifique se os parâmetros para o cofre de chaves e o tipo de evento estão corretos. Se o parâmetro "tipo de evento" no objeto JSON corresponder ao evento que ocorreu no Key Vault (neste exemplo, Microsoft.KeyVault.SecretNearExpiry), o teste foi bem-sucedido.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="you-cant-create-an-event-subscription"></a>Não é possível iniciar uma assinatura de evento.
 
-Registre novamente a Grade de Eventos e o provedor do Key Vault em seus provedores de recursos de assinatura do Azure. Consulte [Provedores e tipos de recursos do Azure](../azure-resource-manager/resource-manager-supported-services.md).
+Registre novamente a Grade de Eventos e o provedor do Key Vault em seus provedores de recursos de assinatura do Azure. Consulte [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -196,7 +196,7 @@ Saiba mais:
 
 
 - Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md)
-- Como: [Receber emails quando o status do cofre de chaves secreto é alterado](event-grid-logicapps.md)
+- Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](event-grid-logicapps.md)
 - [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
 - [Visão geral do Azure Key Vault](key-vault-overview.md)
 - [Visão geral da Grade de Eventos do Azure](../event-grid/overview.md)

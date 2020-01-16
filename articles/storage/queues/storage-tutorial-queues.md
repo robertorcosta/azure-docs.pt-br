@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721136"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968208"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
 
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 >
 > - Criar uma conta de armazenamento do Azure
-> - Crie o aplicativo
+> - Criar o aplicativo
 > - Adicionar suporte para código assíncrono
 > - Criar uma fila
 > - Inserir mensagens em uma fila
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 > - Verificar argumentos de linha de comando
 > - Compilar e executar o aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Obtenha a cópia gratuita do editor [Visual Studio Code](https://code.visualstudio.com/download) multiplataforma.
 - Baixe e instale o [SDK do .NET Core](https://dotnet.microsoft.com/download).
@@ -41,9 +41,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Primeiro, crie uma conta de armazenamento do Azure. Para obter um guia passo a passo sobre como criar uma conta de armazenamento, consulte o início rápido [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
+Primeiro, crie uma conta de armazenamento do Azure. Para obter um guia passo a passo sobre como criar uma conta de armazenamento, consulte o início rápido [Criar uma conta de armazenamento](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
 
-## <a name="create-the-app"></a>Crie o aplicativo
+## <a name="create-the-app"></a>Criar o aplicativo
 
 Crie um aplicativo .NET Core nomeado **QueueApp**. Para simplificar, esse aplicativo enviará e receberá mensagens através da fila.
 
@@ -229,7 +229,7 @@ Criar um novo método para enviar uma mensagem na fila. Adicione o seguinte mét
 
 Uma mensagem deve estar em um formato que possa ser incluído em uma solicitação XML com codificação UTF-8 e pode ter tamanho de até 64 KB. Se uma mensagem contém dados binários, recomendamos codificá-la como Base64.
 
-Por padrão, a vida útil máxima de uma mensagem é definida como 7 dias. Você pode especificar qualquer número positivo para a vida útil da mensagem. Para adicionar uma mensagem que não expira, use `Timespan.FromSeconds(-1)` em sua chamada para **AddMessageAsync**.
+Por padrão, a vida útil máxima de uma mensagem é definida como 7 dias. Você pode especificar qualquer número positivo para a vida útil da mensagem. Para adicionar uma mensagem que não expira, use `Timespan.FromSeconds(-1)` na chamada para **AddMessageAsync**.
 
 ```csharp
 await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -505,7 +505,7 @@ Você deverá ver este resultado:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 1. Criar uma fila
 2. Adicionar e remover mensagens de uma fila

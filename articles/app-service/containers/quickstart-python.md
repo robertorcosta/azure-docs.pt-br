@@ -4,14 +4,14 @@ description: Comece a usar os aplicativos do Linux no Serviço de Aplicativo do 
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.custom: seo-python-october2019
-experimental: false
-experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 67fbffbe96bc32b6ec38fa75c1e754c7f11d38d6
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+experimental: true
+experiment_id: 01a9132f-eaab-4c
+ms.openlocfilehash: aaf1f5cb6a11e0a5358d6c8a59581b46e57a3274
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687479"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045926"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -19,7 +19,7 @@ Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço d
 
 Se preferir implantar aplicativos por meio de um IDE, confira [Implantar aplicativos Python no Serviço de Aplicativo por meio do Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (o Python 3.6 também é compatível)
@@ -52,7 +52,7 @@ Em uma janela do terminal, use os comandos abaixo (conforme apropriado para seu 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py
+export FLASK_APP=application.py
 flask run
 ```
 
@@ -80,7 +80,7 @@ flask run
 
 Abra um navegador da Web e vá até o aplicativo de exemplo em `http://localhost:5000/`. O aplicativo exibe a mensagem **Olá, Mundo!** .
 
-![Executar um aplicativo Python de exemplo localmente](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Executar um aplicativo Python de exemplo localmente](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 Na janela do terminal, pressione **Ctrl**+**C** para sair do servidor Web.
 
@@ -98,7 +98,7 @@ az login
 
 O comando [`az webapp up`](/cli/azure/webapp#az-webapp-up) cria o aplicativo Web no Serviço de Aplicativo e implanta seu código.
 
-Na pasta *python-docs-hello-world* que contém o código de exemplo, execute o comando `az webapp up` a seguir. Substitua `<app-name>` por um nome de aplicativo global exclusivo (*os caracteres válidos são `a-z`, `0-9` e `-`* ). Também substitua `<location-name>` por uma região do Azure, assim como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** e assim por diante. (Você pode recuperar uma lista de regiões permitidas para sua conta do Azure executando o comando [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).)
+Na pasta *python-docs-hello-world* que contém o código de exemplo, execute o comando `az webapp up` a seguir. Substitua `<app-name>` por um nome de aplicativo global exclusivo (*os caracteres válidos são `a-z`, `0-9` e `-`* ). Também substitua `<location-name>` por uma região do Azure, assim como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** e assim por diante. (Você pode recuperar uma lista de regiões permitidas para sua conta do Azure executando o comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).)
 
 
 ```terminal
@@ -211,7 +211,7 @@ Você verá a página Visão geral do aplicativo. Aqui você pode executar taref
 
 O menu de Serviço de Aplicativo fornece páginas diferentes para configurar seu aplicativo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS", dependendo da sua localização. Se você usar um SKU do Serviço de Aplicativo diferente da camada F1 gratuita, esses recursos incorrerão em custos contínuos.
 

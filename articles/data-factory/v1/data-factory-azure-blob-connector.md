@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cb78be4456864e28c5559febf9733d7dc9a5029f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930180"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981665"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copie os dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -25,10 +25,10 @@ ms.locfileid: "74930180"
 > * [Versão 2 (versão atual)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do Armazenamento de Blobs do Azure na V2](../connector-azure-blob-storage.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Conector do Armazenamento de Blobs do Azure na V2](../connector-azure-blob-storage.md).
 
 
-Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para o Armazenamento de Blobs do Azure. Ele se baseia no artigo [Atividades de Movimentação de Dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
+Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para o Armazenamento de Blobs do Azure. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 ## <a name="overview"></a>Visão Geral
 Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer armazenamento de dados do coletor com suporte. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como fontes ou coletores na atividade de cópia. Por exemplo, você pode mover dados **de** um banco de dados SQL Server ou um de banco de dados SQL do Azure **para** um armazenamento de blobs do Azure. Além disso, é possível copiar dados **de** um armazenamento de Blobs do Azure **para** um SQL Data Warehouse do Azure ou uma coleção do Azure Cosmos DB.
@@ -61,7 +61,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines.
 2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você está copiando dados de um Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure, crie dois serviços vinculados para vincular sua Conta de Armazenamento do Azure e o Banco de Dados SQL do Azure ao data factory. Para propriedades do serviço vinculado que são específicas do Armazenamento de Blobs do Azure, consulte a seção de [propriedades do serviço vinculado](#linked-service-properties).
 2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para especificar a tabela SQL no Banco de Dados SQL do Azure que contém os dados copiados do Armazenamento de Blobs. Para propriedades do conjunto de dados que são específicas do Armazenamento de Blobs do Azure, consulte a seção de [propriedades do conjunto de dados](#dataset-properties).
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e SqlSink como coletor para a atividade de cópia. De modo similar, se estiver copiando do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure, você usará SqlSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Armazenamento de Blobs do Azure, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o seu armazenamento de dados.
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e SqlSink como coletor para a atividade de cópia. De modo similar, se estiver copiando do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure, você usará SqlSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Armazenamento de Blobs do Azure, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o armazenamento de dados.
 
 Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um Armazenamento de Blobs do Azure, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-to-and-from-blob-storage  ) neste artigo.
 
@@ -81,13 +81,13 @@ O Data Factory dá suporte aos valores de tipo baseados em .NET em conformidade 
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização, o formato etc. dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **AzureBlob** tem as seguintes propriedades:
 
-| Propriedade | Descrição | obrigatórios |
+| Propriedade | Description | Obrigatório |
 | --- | --- | --- |
-| folderPath |Caminho para o contêiner e a pasta no armazenamento de blob. Exemplo: myblobcontainer\myblobfolder\ |SIM |
+| folderPath |Caminho para o contêiner e a pasta no armazenamento de blob. Exemplo: myblobcontainer\myblobfolder\ |Sim |
 | fileName |O nome do blob. fileName é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no Blob específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os Blobs do folderPath para o conjunto de dados de entrada.<br/><br/>Quando **filename** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificado no coletor de atividade, o nome do arquivo gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data. 0a405f8a-93ff-4c6f-b3be-f69616f1df7a. txt) |Não |
 | partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. Confira a seção [Usando a propriedade partitionedBy](#using-partitionedby-property) para obter detalhes e exemplos. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para obter mais informações, consulte [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis com suporte são **Ideal** e **O mais rápido**. Para saber mais, confira [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support) (Formatos de arquivo e de compactação no Azure Data Factory). |Não |
 
 ### <a name="using-partitionedby-property"></a>Usando a propriedade partitionedBy
 Conforme mencionado na seção anterior, você pode especificar um nome de arquivo e um folderPath dinâmico para dados de série temporal com a propriedade **partitionedBy**, [funções do Data Factory e as variáveis do sistema](data-factory-functions-variables.md).
@@ -127,13 +127,13 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 O **BlobSource** dá suporte às seguintes propriedades na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | obrigatórios |
+| Propriedade | Description | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| recursive |Indica se os dados são lidos recursivamente por meio de subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
+| recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
 
 O **BlobSink** dá suporte às seguintes propriedades na seção **typeProperties**:
 
-| Propriedade | Descrição | Valores permitidos | obrigatórios |
+| Propriedade | Description | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. |<b>PreserveHierarchy:</b> preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy:</b> todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><br/><b>MergeFiles:</b> mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. |Não |
 
@@ -161,20 +161,20 @@ Confira a seção [Especificar TextFormat](data-factory-supported-file-and-compr
 ### <a name="recursive-and-copybehavior-examples"></a>exemplos de recursive e copyBehavior
 Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursive e copyBehavior.
 
-| recursive | copyBehavior | Comportamento resultante |
+| recursiva | copyBehavior | Comportamento resultante |
 | --- | --- | --- |
 | true |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura da origem<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5. |
 | true |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a Pasta1 de destino é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo5 |
 | true |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a Pasta1 de destino é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente |
-| falso |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
-| falso |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
-| falso |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
 
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Passo a passo: Usar o Assistente de Cópia para copiar dados do e para o Armazenamento de Blobs
 Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs do Azure. Neste passo a passo, os armazenamentos de dados de origem e de destino do tipo: Armazenamento de Blobs do Azure. O pipeline neste passo a passo copia os dados de uma pasta para outra no mesmo contêiner de blobs. Este passo a passo é intencionalmente simples para mostrar configurações ou propriedades ao usar o Armazenamento de Blobs como uma fonte ou um coletor.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Crie uma **Conta de Armazenamento do Azure** de uso geral caso não tenha uma. Neste passo a passo, o armazenamento de blobs é usado como um armazenamento de dados de **origem** e de **destino**. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar um.
+1. Crie uma **Conta de Armazenamento do Azure** de uso geral caso não tenha uma. Neste passo a passo, o armazenamento de blobs é usado como um armazenamento de dados de **origem** e de **destino**. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md) para conhecer as etapas para criar um.
 2. Crie um contêiner de blobs chamado **adfblobconnector** na conta de armazenamento.
 4. Crie uma pasta chamada **input** no contêiner **adfblobconnector**.
 5. Crie um arquivo chamado **emp.txt** com o seguinte conteúdo e carregue-o para a pasta **input** usando ferramentas como o [Gerenciador de Armazenamento do Azure](https://azurestorageexplorer.codeplex.com/)
@@ -187,7 +187,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso** no canto superior esquerdo, clique em **Inteligência + análise** e clique em **Data Factory**.
 3. No painel **Novo data factory**:  
-    1. Insira **ADFBlobConnectorDF** para o **nome**. O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro `*Data factory name “ADFBlobConnectorDF” is not available`, altere o nome do data factory (por exemplo, yournameADFBlobConnectorDF) e tente criá-lo novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
+    1. Insira **ADFBlobConnectorDF** para o **nome**. O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro `*Data factory name “ADFBlobConnectorDF” is not available`, altere o nome do data factory (por exemplo, yournameADFBlobConnectorDF) e tente criá-lo novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
     2. Selecione sua **assinatura**do Azure.
     3. Para Grupo de Recursos, selecione **Usar existente** para selecionar um grupo de recursos existente (ou) selecione **Criar novo** para inserir um nome para um grupo de recursos.
     4. Selecione um **local** para o data factory.
@@ -197,7 +197,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
 
 ### <a name="copy-wizard"></a>Assistente de Cópia
 1. Na home page do Data Factory, clique no bloco **Copiar dados** para iniciar o **Assistente de Cópia de Dados** em uma guia separada.  
-    
+
     > [!NOTE]
     > Se você vir que o navegador da Web está bloqueado em "Autorizando...", desabilite/desmarque a configuração **Bloquear cookies de terceiros e dados de site** (ou) mantenha-a habilitada, crie uma exceção para **login.microsoftonline.com** e tente iniciar o assistente novamente.
 2. Na página **Propriedades** :
@@ -207,7 +207,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     4. Mantenha as configurações de **Padrão recorrente**. Essa tarefa é executada diariamente entre as horas de início e término especificadas na próxima etapa.
     5. Altere a **Data/hora de início** para **21/04/2017**.
     6. Altere a **Data/hora de término** para **25/04/2017**. Talvez você queira digitar a data em vez de procurá-la no calendário.
-    8. Clique em \\**Próximo**.
+    8. Clique em **Próximo**.
         ![Ferramenta de Cópia – Página Propriedades](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
 3. Na página **Repositório de dados de origem**, clique no bloco **Armazenamento de Blobs do Azure**. Use essa página para especificar o repositório de dados de origem para a tarefa de cópia. Você pode usar um serviço de repositório de dados vinculado existente ou especificar um novo repositório de dados. Para usar um serviço vinculado existente, selecione **DE SERVIÇOS VINCULADOS EXISTENTES** e selecione o serviço vinculado correto.
     ![Ferramenta de Cópia – Página do armazenamento de dados de origem](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -216,7 +216,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de conta**.
     3. Selecione sua assinatura do Azure ou mantenha **Selecionar tudo** para **Assinatura do Azure**.
     4. Selecione uma **Conta de armazenamento do Azure** na lista de contas de armazenamento do Azure disponíveis na assinatura selecionada. Você também pode optar por inserir as configurações da conta de armazenamento manualmente selecionando a opção **Inserir manualmente** para o **Método de seleção de conta**.
-    5. Clique em \\**Próximo**.  
+    5. Clique em **Próximo**.  
         ![Ferramenta de Cópia – Especificar a conta do armazenamento de Blobs do Azure](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Na página **Escolher o arquivo de entrada ou a pasta** :
     1. Clique duas vezes em **adfblobcontainer**.
@@ -227,7 +227,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     2. Não defina a opção **Copiar arquivo recursivamente**. Selecione essa opção para percorrer as pastas recursivamente para que os arquivos sejam copiados para o destino.
     3. Não defina a opção **Cópia binária**. Selecione essa opção para executar uma cópia binária do arquivo de origem para o destino. Não selecione essa opção neste passo a passo, de forma que você possa ver mais opções na próxima página.
     4. Confirme se o **Tipo de compactação** está definido como **Nenhum**. Selecione um valor para essa opção se os arquivos de origem estiverem compactados em um dos formatos com suporte.
-    5. Clique em \\**Próximo**.
+    5. Clique em **Próximo**.
     ![Ferramenta de Cópia – Escolher a pasta ou o arquivo de entrada](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Na página **Configurações de formato de arquivo**, você vê os delimitadores e o esquema é detectado automaticamente pelo assistente na análise do arquivo.
     1. Confirme as opções a seguir:  
@@ -249,7 +249,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de conta**.
     3. Selecione sua **assinatura**do Azure.
     4. Selecione sua conta de armazenamento do Azure.
-    5. Clique em \\**Próximo**.
+    5. Clique em **Próximo**.
 10. Na página **Escolher o arquivo ou a pasta de saída**:  
     1. especifique **Caminho da pasta** como **adfblobconnector/output/{year}/{month}/{day}** . Insira **GUIA**.
     1. No **ano**, selecione **yyyy**.
@@ -257,7 +257,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     1. No **dia**, confirme se ele está definido como **dd**.
     1. Confirme se o **tipo de compactação** está definido como **Nenhum**.
     1. Confirme se o **comportamento de cópia** está definido como **Mesclar arquivos**. Se o arquivo de saída com o mesmo nome já existir, o novo conteúdo será adicionado ao mesmo arquivo no final.
-    1. Clique em \\**Próximo**.
+    1. Clique em **Próximo**.
        ![Ferramenta de Cópia – Escolher o arquivo ou a pasta de saída](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Na página **Configurações de formato de arquivo**, examine as configurações e clique em **Avançar**. Uma das opções adicionais aqui é adicionar um cabeçalho ao arquivo de saída. Se você selecionar essa opção, uma linha de cabeçalho será adicionada com nomes das colunas do esquema da fonte. Você pode renomear os nomes de coluna padrão ao exibir o esquema da fonte. Por exemplo, você poderá alterar a primeira coluna para Nome e a segunda coluna para Sobrenome. Em seguida, o arquivo de saída será gerado com um cabeçalho com esses nomes como nomes de coluna.
     ![Ferramenta de Cópia – Configurações de formato de arquivo para o destino](media/data-factory-azure-blob-connector/file-format-destination.png)
@@ -465,7 +465,7 @@ Para obter mais informações sobre as propriedades com suporte na BlobSource e 
 ```
 
 ## <a name="json-examples-for-copying-data-to-and-from-blob-storage"></a>Exemplos JSON para cópia de dados de e para o Armazenamento de Blobs
-Os exemplos a seguir fornecem exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tais exemplos mostram como copiar dados de/para o Armazenamento de Blobs do Azure e o Banco de Dados SQL do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes a qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Os exemplos a seguir fornecem exemplos de definições de JSON que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tais exemplos mostram como copiar dados de/para o Armazenamento de Blobs do Azure e o Banco de Dados SQL do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 ### <a name="json-example-copy-data-from-blob-storage-to-sql-database"></a>Exemplo de JSON: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL
 O exemplo a seguir mostra:
@@ -508,7 +508,7 @@ O Azure Data Factory dá suporte a dois tipos de serviços vinculados do Armazen
 
 **Conjunto de dados de entrada de Blob do Azure:**
 
-Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa parte da hora de início do dia, mês e ano e o nome de arquivo usa a parte da hora de início. A configuração "external": "true" informa o Data Factory que a tabela é externa ao Data Factory e não é produzida por uma atividade no Data Factory.
+Os dados são coletados de um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa a parte do ano, mês e dia da hora de início e o nome de arquivo usa a parte da hora de início. A configuração "external": "true" informa o Data Factory que a tabela é externa ao Data Factory e não é produzida por uma atividade no Data Factory.
 
 ```json
 {
@@ -721,7 +721,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 
 **Uma atividade de cópia em um pipeline com origem SQL e coletor de Blob:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **SqlSource** e o tipo de **coletor** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados da última hora a serem copiados.
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **SqlSource** e o tipo de **coletor** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
 
 ```json
 {
@@ -771,7 +771,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 ```
 
 > [!NOTE]
-> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).
+> Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.

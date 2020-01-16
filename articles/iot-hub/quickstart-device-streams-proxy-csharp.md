@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084344"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045966"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início Rápido: Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy do C# (versão prévia)
 
@@ -47,7 +47,7 @@ A figura a seguir ilustra como os aplicativos proxy locais do dispositivo e do s
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Atualmente, a versão prévia dos fluxos de dispositivos só é compatível com hubs IoT criados nas seguintes regiões:
 
@@ -152,7 +152,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>Executar o aplicativo de proxy no local do serviço
 
-Em outra janela de terminal local, navegue até `device-streams-proxy/service` na pasta descompactada do projeto. Mantenha as seguintes informações acessíveis:
+Em outra janela de terminal local, navegue até `iot-hub/quickstarts/device-streams-proxy/service` na pasta descompactada do projeto. Mantenha as seguintes informações acessíveis:
 
 | Nome do parâmetro | Valor de parâmetro |
 |----------------|-----------------|
@@ -257,7 +257,7 @@ Agora, use o aplicativo cliente RDP e se conecte ao aplicativo proxy local do se
 
 ![O RDP se conecta ao aplicativo proxy local do serviço](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

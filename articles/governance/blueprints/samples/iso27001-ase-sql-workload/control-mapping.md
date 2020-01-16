@@ -1,14 +1,14 @@
 ---
 title: Controles de amostra de blueprint da carga de trabalho do ASE/SQL da ISO 27001
 description: Mapeamento de controle da amostra de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001 para o Azure Policy e o RBAC.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5c5b83669a477255f0cdce45993a5871b5a9c6f8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546771"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920712"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint de carga de trabalho do ASE/SQL ISO 27001
 

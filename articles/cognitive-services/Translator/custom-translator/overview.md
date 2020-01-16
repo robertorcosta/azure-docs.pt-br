@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975798"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982681"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
@@ -28,9 +28,9 @@ O Tradutor Personalizado dá suporte a mais de três dúzias de idiomas e mapeia
 
 O Tradutor Personalizado fornece recursos diferentes para criar e acessar um sistema de tradução personalizada.
 
-|Recurso  |DESCRIÇÃO  |
+|Recurso  |Descrição  |
 |---------|---------|
-|[Aproveitar a tecnologia de tradução automática neural](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Aprimore sua tradução aproveitando a NMT (Tradução Automática Neural) fornecida pelo Tradutor personalizado.       |
+|[Aproveitar a tecnologia de tradução automática neural](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Aprimore sua tradução aproveitando a NMT (Tradução Automática Neural) fornecida pelo Tradutor personalizado.       |
 |[Criar sistemas que conhecem sua terminologia comercial](what-are-parallel-documents.md)     |  Personalize e crie sistemas de tradução usando documentos paralelos, que entendem as terminologias usadas em seus negócios e no setor.       |
 |[Usar um dicionário para criar seus modelos](what-is-dictionary.md)     |   Se você não tiver um conjunto de dados de treinamento, poderá treinar um modelo com dados de dicionário.       |
 |[Colaborar com outras pessoas](how-to-manage-settings.md#share-your-workspace)     |   Colabore com sua equipe compartilhando seu trabalho com pessoas diferentes.     |
@@ -38,7 +38,7 @@ O Tradutor Personalizado fornece recursos diferentes para criar e acessar um sis
 
 ## <a name="get-better-translations"></a>Obter melhores traduções
 
-O Microsoft Translator lançou a [NMT (Tradução Automática Neural)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) em 2016. A NMT viabilizou grandes avanços na qualidade das traduções em relação à tecnologia [SMT (Tradução Automática estatística)](https://en.wikipedia.org/wiki/Statistical_machine_translation) padrão do setor. Como a NMT compreende melhor o contexto de frases completas antes de traduzi-las, ela fornece as traduções mais humanas e mais fluentes, com melhor qualidade. O [Tradutor Personalizado](https://portal.customtranslator.azure.ai) fornece NMT para seus modelos personalizados, resultando em uma tradução com melhor qualidade.
+O Microsoft Translator lançou a [NMT (Tradução Automática Neural)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) em 2016. A NMT viabilizou grandes avanços na qualidade das traduções em relação à tecnologia [SMT (Tradução Automática estatística)](https://en.wikipedia.org/wiki/Statistical_machine_translation) padrão do setor. Como a NMT compreende melhor o contexto de frases completas antes de traduzi-las, ela fornece as traduções mais humanas e mais fluentes, com melhor qualidade. O [Tradutor Personalizado](https://portal.customtranslator.azure.ai) fornece NMT para seus modelos personalizados, resultando em uma tradução com melhor qualidade.
 
 Você pode usar documentos traduzidos anteriormente para criar um sistema de tradução. Esses documentos incluem terminologia e estilo específicos do domínio, melhor do que um sistema padrão de tradução. Os usuários podem carregar documentos ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX e XLSX.
 

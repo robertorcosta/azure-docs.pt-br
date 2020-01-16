@@ -2,21 +2,21 @@
 title: Executar uma carga de trabalho paralela - .NET do Lote do Azure
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 103d09da3fedf9c31d4e5255456e63cab34bc0ee
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6f12f54e510cb07fcf522d2fd5e2e83fce4dfa96
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258592"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029270"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -35,7 +35,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs) ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows.
 
@@ -312,7 +312,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois que ele executa as tarefas, o aplicativo exclui automaticamente o contêiner de armazenamento de entrada criado e oferece a opção de excluir o pool do Lote e o trabalho. As classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) do BatchClient têm métodos de exclusão correspondentes, chamados se você confirmar a exclusão. Embora você não seja cobrado pelos trabalhos e pelas tarefas, será cobrado pelos nós de computação. Portanto, recomendamos que você aloque os pools conforme a necessidade. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de saída permanecerão na conta de armazenamento.
 

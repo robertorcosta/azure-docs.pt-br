@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428786"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969114"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -52,9 +52,9 @@ Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da con
 
 Você pode salvar emails recebidos e anexos como blobs em um [contêiner de armazenamento do Azure](../storage/common/storage-introduction.md).
 
-1. Antes de criar um contêiner de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) com estas configurações na guia **Informações Básicas** do portal do Azure:
+1. Antes de criar um contêiner de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-account-create.md) com estas configurações na guia **Informações Básicas** do portal do Azure:
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    |---------|-------|-------------|
    | **Assinatura** | <*Azure-subscription-name*> | O nome e a ID da assinatura do Azure |  
    | **Grupo de recursos** | <*Azure-resource-group*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usado para organizar e gerenciar os recursos relacionados. Este exemplo usa "LA-tutorial-RG". <p>**Observação:** um grupo de recursos reside dentro de uma região específica. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente usar a mesma região sempre que possível. |
@@ -68,7 +68,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
    Na guia **Avançado**, selecione esta configuração:
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    |---------|-------|-------------|
    | **Transferência segura é necessária** | Desabilitado | Essa configuração especifica a segurança necessária para solicitações de conexões. Confira [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). |
    ||||
@@ -138,7 +138,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
 
 1. Antes de criar uma função, [crie um aplicativo de funções](../azure-functions/functions-create-function-app-portal.md) com estas configurações:
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    | ------- | ----- | ----------- |
    | **Nome do aplicativo** | <*function-app-name*> | O nome do seu aplicativo de funções, que deve ser globalmente exclusivo no Azure. Este exemplo já usa "CleanTextFunctionApp"; portanto, forneça um nome diferente, como "MyCleanTextFunctionApp-<*seu-nome*>" |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente |
@@ -159,7 +159,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
 
    ![Aplicativo de funções criado](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Para criar um aplicativo de funções, você também pode usar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou os [modelos do PowerShell e do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+   Para criar um aplicativo de funções, você também pode usar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou os [modelos do PowerShell e do Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Na lista **Aplicativos de funções**, expanda seu aplicativo de funções, se ele ainda não estiver expandido. No seu aplicativo de funções, selecione **Funções**. Na barra de ferramentas de funções, selecione **Nova função**.
 
@@ -235,7 +235,7 @@ Depois de verificar que sua função funciona, crie o aplicativo lógico. Embora
 
    ![Fornecer informações de aplicativo lógico](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    | ------- | ----- | ----------- |
    | **Nome** | LA-ProcessAttachment | O nome do seu aplicativo lógico |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente |
@@ -274,7 +274,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
       ![Especificar a pasta, intervalo e frequência de verificação de emails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Configuração | Valor | DESCRIÇÃO |
+      | Configuração | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Pasta** | Caixa de Entrada | A pasta de email a ser verificada |
       | **Tem Anexo** | Sim | Obter somente emails com anexos. <p>**Observação:** o gatilho não remove emails da sua conta; ele verifica apenas novas mensagens e processa somente os emails que correspondem ao filtro de assunto. |
@@ -282,12 +282,12 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
       | **Intervalo** | 1 | O número de intervalos de espera entre as verificações |
       | **Frequência** | Minuto | A unidade de tempo para cada intervalo entre verificações |
       ||||
-  
+
    1. Na lista **Adicionar novo parâmetro**, selecione **Filtro de Assunto**.
 
    1. Depois que a caixa **Filtro de Assunto** for exibida na ação, especifique o assunto, conforme listado aqui:
 
-      | Configuração | Valor | DESCRIÇÃO |
+      | Configuração | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Filtro de Assunto** | `Business Analyst 2 #423501` | O texto a ser localizado no assunto do email |
       ||||
@@ -377,7 +377,8 @@ Agora, teste se a condição funciona corretamente:
 Em seguida, defina as ações a serem executadas na ramificação **If true**. Para salvar o email junto com os anexos, remova o HTML do corpo do email e crie blobs no contêiner de armazenamento para email e anexos.
 
 > [!NOTE]
-> Sua lógica de aplicativo não precisa fazer nada na ramificação **If false** quando um email não tem anexos. Como um exercício extra depois de concluir este tutorial, você pode adicionar uma ação apropriada que deseja executar para a ramificação **If false**.
+> Sua lógica de aplicativo não precisa fazer nada na ramificação **If false** quando um email não tem anexos.
+> Como um exercício extra depois de concluir este tutorial, você pode adicionar uma ação apropriada que deseja executar para a ramificação **If false**.
 
 ## <a name="call-removehtmlfunction"></a>Chamar RemoveHTMLFunction
 
@@ -435,7 +436,7 @@ Em seguida, adicione uma ação que cria um blob em seu contêiner de armazename
 
    ![Criar conexão com a conta de armazenamento](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    | ------- | ----- | ----------- |
    | **Nome da conexão** | AttachmentStorageConnection | Um nome descritivo para a conexão |
    | **Conta de armazenamento** | attachmentstorageacct | O nome da conta de armazenamento que você criou anteriormente para salvar os anexos |
@@ -447,7 +448,7 @@ Em seguida, adicione uma ação que cria um blob em seu contêiner de armazename
 
    ![Fornecer informações de blob para o corpo do email](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    | ------- | ----- | ----------- |
    | **Caminho da pasta** | /attachments | O nome do contêiner que você criou anteriormente e o caminho até ele. Neste exemplo, clique no ícone de pasta e selecione o contêiner "/attachments". |
    | **Nome de blob** | Campo **De** | Neste exemplo, use o nome do remetente como nome do blob. Clique nessa caixa para que apareça na lista de conteúdo dinâmico e selecione o campo **De** na ação **Quando um novo email é recebido**. |
@@ -532,7 +533,7 @@ Em seguida, adicione a ação que salva cada anexo como um blob no contêiner de
 
    ![Fornecer informações de blob](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Configuração | Valor | DESCRIÇÃO |
+   | Configuração | Valor | Descrição |
    | ------- | ----- | ----------- |
    | **Caminho da pasta** | /attachments | O nome do contêiner que você criou anteriormente e o caminho até ele. Neste exemplo, clique no ícone de pasta e selecione o contêiner "/attachments". |
    | **Nome de blob** | Campo **Nome** | Neste exemplo, use o nome do anexo como nome do blob. Clique nessa caixa para que apareça na lista de conteúdo dinâmico e selecione o campo **Nome** na ação **Quando um novo email é recebido**. |
@@ -605,7 +606,9 @@ Em seguida, adicione uma ação para que seu aplicativo lógico envie email para
    ||||
 
    > [!NOTE]
-   > Caso você selecione um campo que tenha uma matriz, como o campo **Content**, que é uma matriz que contém anexos, o designer adicionará automaticamente um loop “For each” em torno da ação que faz referência a esse campo. Dessa forma, seu aplicativo lógico pode executar essa ação em cada item da matriz. Para remover o loop, remova o campo da matriz, mova a ação de referência para fora do loop, selecione as reticências ( **...** ) na barra de título do loop e selecione **Excluir**.
+   > Caso você selecione um campo que tenha uma matriz, como o campo **Content**, que é uma matriz que contém anexos, o designer adicionará automaticamente um loop “For each” em torno da ação que faz referência a esse campo.
+   > Dessa forma, seu aplicativo lógico pode executar essa ação em cada item da matriz.
+   > Para remover o loop, remova o campo da matriz, mova a ação de referência para fora do loop, selecione as reticências ( **...** ) na barra de título do loop e selecione **Excluir**.
 
 1. Salve seu aplicativo lógico.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707824"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981046"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST
 
@@ -57,22 +57,22 @@ No RBAC, para conceder acesso, você adiciona uma atribuição de função. Para
 
 1. Dentro do URI, substitua *{scope}* pelo escopo da atribuição de função.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleAssignmentName}* pelo identificador GUID da atribuição de função.
 
 1. No corpo da solicitação, substitua *{Scope}* pelo escopo da atribuição de função.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleDefinitionId}* pelo identificador de definição da função.
@@ -93,11 +93,11 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 1. Dentro do URI, substitua *{scope}* pelo escopo para remoção da atribuição de função.
 
-    | Escopo | Type |
+    | Escopo | Tipo |
     | --- | --- |
     | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Grupos |
 
 1. Substitua *{roleAssignmentName}* pelo identificador GUID da atribuição de função.
@@ -105,6 +105,6 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 ## <a name="next-steps"></a>Próximos passos
 
 - [Listar atribuições de função usando o RBAC do Azure e a API REST](role-assignments-list-rest.md)
-- [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
-- [Referência de API REST](/rest/api/azure/)
+- [Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
+- [Referência de API REST do Azure](/rest/api/azure/)
 - [Criar funções personalizadas para recursos do Azure usando a API REST](custom-roles-rest.md)

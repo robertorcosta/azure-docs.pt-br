@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 46a1198b4052cb8663c60e53e8c2b965f78af948
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: bfda5fe7592d4c3f3f9550f406cf7635c43168ed
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644283"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896205"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -49,7 +49,7 @@ Todos os recursos criados no Azure são distribuídos entre várias [regiões ge
 
 Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíveis.
 
-| Método | DESCRIÇÃO |
+| Método | Descrição |
 | --- | --- |
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
@@ -65,7 +65,7 @@ O [tamanho](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) da VM q
 O Azure cobra um [preço por hora](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) com base no tamanho da VM e do sistema operacional. Para horas parciais, o Azure cobrará somente os minutos usados. O armazenamento terá o preço e será cobrado separadamente.
 
 ## <a name="vm-limits"></a>Limites de VM
-Sua assinatura do Azure tem [limites de cota](../../azure-resource-manager/management/azure-subscription-service-limits.md) padrão que podem afetar a implantação de muitas VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Os limites podem ser aumentados [pelo preenchimento de um tíquete de suporte para solicitar um aumento](../../azure-supportability/resource-manager-core-quotas-request.md)
+Sua assinatura do Azure tem [limites de cota](../../azure-resource-manager/management/azure-subscription-service-limits.md) padrão que podem afetar a implantação de muitas VMs para seu projeto. O limite atual por assinatura é de 20 VMs por região. Os limites podem ser aumentados [pelo preenchimento de um tíquete de suporte para solicitar um aumento](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ## <a name="managed-disks"></a>Managed Disks
 

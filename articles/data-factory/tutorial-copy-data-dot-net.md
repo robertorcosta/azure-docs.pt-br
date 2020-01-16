@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f3fdf1b723158db873bc2635de34d878c464201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439430"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977325"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para o Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -38,7 +38,7 @@ Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* *Conta de Armazenamento do Azure*. Você usa o Armazenamento de Blobs como um armazenamento de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, confira [Criar uma conta de armazenamento para uso geral](../storage/common/storage-quickstart-create-account.md).
+* *Conta de Armazenamento do Azure*. Você usa o Armazenamento de Blobs como um armazenamento de dados de *origem*. Se você não tiver uma conta de armazenamento do Azure, confira [Criar uma conta de armazenamento para uso geral](../storage/common/storage-account-create.md).
 * *Banco de dados SQL do Azure*. Você usa o banco de dados como um armazenamento de dados de *coletor*. Se você não tiver um Banco de Dados SQL do Azure, confira [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-single-database-get-started.md).
 * *Do Visual Studio*. As instruções passo a passo neste artigo usam o Visual Studio 2019.
 * *[SDK do Azure para .NET](/dotnet/azure/dotnet-tools)* .
@@ -84,7 +84,7 @@ Em seguida, crie uma tabela do SQL de coletor:
     1. Acesse o [portal do Azure](https://portal.azure.com) para gerenciar o SQL Server. Pesquise e selecione **servidores SQL**.
 
     2. Selecione seu servidor.
-    
+
     3. No título **Segurança** do menu do SQL Server, selecione **Firewalls e redes virtuais**.
 
     4. Na página **Firewall e redes virtuais**, em **Permitir que os serviços e recursos do Azure acessem esse servidor**, selecione **LIGAR**.
@@ -154,7 +154,7 @@ Siga estas etapas para criar um cliente de data factory.
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -265,7 +265,7 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Nesta seção, você criará dois conjuntos de dados: um para a origem, outro para o coletor. 
+Nesta seção, você criará dois conjuntos de dados: um para a origem, outro para o coletor.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Criar um conjunto de dados para o Blob do Azure de origem
 
@@ -283,8 +283,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 Adicione o código a seguir ao método `Main` que cria um *conjunto de dados do Banco de Dados SQL do Azure*. Para obter informações sobre propriedades compatíveis, confira [Propriedades do conjunto de dados de Banco de Dados SQL do Azure](connector-azure-sql-database.md#dataset-properties).
 
-Você define um conjunto de dados que representa os dados de coletor no Banco de Dados SQL do Azure. Esse conjunto de dados refere-se ao serviço vinculado do Banco de Dados SQL do Azure que você criou na etapa anterior. Ela também especifica a tabela SQL que contém os dados copiados. 
+Você define um conjunto de dados que representa os dados de coletor no Banco de Dados SQL do Azure. Esse conjunto de dados refere-se ao serviço vinculado do Banco de Dados SQL do Azure que você criou na etapa anterior. Ela também especifica a tabela SQL que contém os dados copiados.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -416,14 +416,14 @@ Agora, insira o código para verificar os estados de execução do pipeline e ob
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -564,7 +564,7 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O pipeline nessa amostra copia dados de uma localização para outra em um Armazenamento de Blobs do Azure. Você aprendeu a: 
+O pipeline nessa amostra copia dados de uma localização para outra em um Armazenamento de Blobs do Azure. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um data factory.
@@ -574,7 +574,7 @@ O pipeline nessa amostra copia dados de uma localização para outra em um Armaz
 > * Iniciar uma execução de pipeline.
 > * Monitore as execuções de pipeline e de atividade.
 
-Avance para o tutorial a seguir para saber mais sobre a cópia de dados local para a nuvem: 
+Avance para o tutorial a seguir para saber mais sobre a cópia de dados local para a nuvem:
 
 > [!div class="nextstepaction"]
 >[Copiar dados do local para a nuvem](tutorial-hybrid-copy-powershell.md)

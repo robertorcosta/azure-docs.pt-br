@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901694"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969334"
 ---
 # <a name="authoring-and-runtime-keys"></a>Chaves de criação e de runtime
 
@@ -95,10 +95,10 @@ Um aplicativo é definido por seus recursos do Azure, que é determinado pela as
 Você pode mover seu aplicativo LUIS. Use os seguintes recursos de documentação no portal do Azure ou CLI do Azure:
 
 * [Mover o aplicativo entre os recursos de criação do LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Mover recurso para novo grupo de recursos ou assinatura](../../azure-resource-manager/resource-group-move-resources.md)
-* [Mover recurso na mesma assinatura ou em assinaturas](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Mover recurso para novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Mover recurso na mesma assinatura ou em assinaturas](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Para transferir a [Propriedade](../../billing/billing-subscription-transfer.md) da sua assinatura: 
+Para transferir a [Propriedade](../../cost-management-billing/manage/billing-subscription-transfer.md) da sua assinatura: 
 
 **Para usuários que migraram aplicativos [migrados de recursos de criação](luis-migration-authoring.md)** : como o proprietário do recurso, você pode adicionar um `contributor`.
 
@@ -119,11 +119,11 @@ O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
 |--|--|
 |Adicionar ou remover chaves de ponto de extremidade||
 |Versão de exportação||
-|Exportar logs do ponto de extremidade||
+|Exportar logs de ponto de extremidade||
 |Versão de importação||
 |Tornar um aplicativo público|Quando um aplicativo for público, qualquer pessoa com uma chave de criação ou de ponto de extremidade poderá consultá-lo.|
 |Modificar modelo|
-|PUBLICAR|
+|Publicar|
 |Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)|
 |Treinar|
 
@@ -165,7 +165,7 @@ LUIS não tem o conceito de transferir a propriedade de um recurso.
 
 Você pode controlar quem pode ver sua chave de ponto de extremidade do LUIS de tempo de execução de previsão chamando-a em um ambiente de servidor para servidor. Se você estiver usando o LUIS de um bot, a conexão entre o bot e o LUIS já estará segura. Se você estiver chamando o ponto de extremidade LUIS diretamente, deverá criar a API do servidor (como uma [função](https://azure.microsoft.com/services/functions/) do Azure) com acesso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Quando a API do servidor for chamada e a autenticação e a autorização forem verificadas, passe a chamada para o LUIS. Embora essa estratégia não impeça ataques "man-in-the-middle", ela oculta seu ponto de extremidade dos usuários, permite que você controle o acesso e que você adicione um log de resposta de ponto de extremidade (como o [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Entender os conceitos de [controle de versão](luis-concept-version.md). 
 * Saiba [como criar chaves](luis-how-to-azure-subscription.md).

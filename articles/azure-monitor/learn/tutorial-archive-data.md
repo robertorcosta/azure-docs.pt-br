@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893341"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979809"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de log e métrica do Azure usando o Armazenamento do Azure
 
-As várias camadas do ambiente do Azure produzem dados de log e de métricas que podem ser arquivados em uma conta de Armazenamento do Azure. Isso pode ser feito para preservar um histórico dos dados de monitoramento ao longo do tempo em um repositório de baixo custo e não pesquisável depois que os dados passarem pelo período de retenção. 
+As várias camadas do ambiente do Azure produzem dados de log e de métricas que podem ser arquivados em uma conta de Armazenamento do Azure. Isso pode ser feito para preservar um histórico dos dados de monitoramento ao longo do tempo em um repositório de baixo custo e não pesquisável depois que os dados passarem pelo período de retenção.
 
-- As métricas da plataforma do Azure Monitor são mantidas por 93 dias. 
-- Os logs de diagnóstico de recurso aparecem apenas quando encaminhados para o Log Analytics, no qual eles têm um período de retenção configurável, de mínimo 30 dias. 
+- As métricas da plataforma do Azure Monitor são mantidas por 93 dias.
+- Os logs de diagnóstico de recurso aparecem apenas quando encaminhados para o Log Analytics, no qual eles têm um período de retenção configurável, de mínimo 30 dias.
 - As entradas de log de atividades são mantidas por 90 dias.  
 
 Este tutorial executa em etapas o processo de configuração do ambiente do Azure para arquivar dados em uma conta de armazenamento.
@@ -38,15 +38,15 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Primeiro, você precisa configurar uma conta de armazenamento na qual os dados de monitoramento serão arquivados. Para fazer isso, [siga as etapas apresentadas aqui](../../storage/common/storage-quickstart-create-account.md).
+Primeiro, você precisa configurar uma conta de armazenamento na qual os dados de monitoramento serão arquivados. Para fazer isso, [siga as etapas apresentadas aqui](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Encaminhar os logs de assinatura para a conta de armazenamento
 
-Agora você está pronto para começar a configurar o ambiente do Azure para encaminhar os dados de monitoramento para uma conta de armazenamento. Primeiro, configuramos os dados no nível da assinatura (contidos no Log de Atividades do Azure) para que sejam encaminhados para a conta de armazenamento. O [**Log de Atividades do Azure**](../../azure-monitor/platform/activity-logs-overview.md) fornece um histórico de eventos no nível da assinatura no Azure. Procure-o no portal do Azure para determinar *quem* criou, atualizou ou excluiu *quais* recursos e *quando* fizeram isso.
+Agora você está pronto para começar a configurar o ambiente do Azure para encaminhar os dados de monitoramento para uma conta de armazenamento. Primeiro, configuramos os dados no nível da assinatura (contidos no Log de Atividades do Azure) para que sejam encaminhados para a conta de armazenamento. O [**Log de Atividades do Azure**](../../azure-monitor/platform/platform-logs-overview.md) fornece um histórico de eventos no nível da assinatura no Azure. Procure-o no portal do Azure para determinar *quem* criou, atualizou ou excluiu *quais* recursos e *quando* fizeram isso.
 
 1. Clique no botão **Monitorar** encontrado na lista de navegação à esquerda e, em seguida, no **Log de Atividades**.
 
@@ -144,9 +144,9 @@ Os dados de monitoramento de suas máquinas virtuais agora estão fluindo para a
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Exibir os dados de monitoramento na conta de armazenamento
 
 > [!WARNING]
-> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> O formato dos dados de log na conta de armazenamento será alterado para Linhas JSON em 1º de novembro de 2018. [Confira este artigo para obter uma descrição do impacto e saber como atualizar suas ferramentas para manipular o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Se você seguiu as etapas anteriores, os dados começaram a fluir para sua conta de armazenamento.
 
@@ -170,7 +170,7 @@ Se você seguiu as etapas anteriores, os dados começaram a fluir para sua conta
 
 Agora você configurou com êxito os dados de monitoramento a serem arquivados em uma conta de armazenamento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Navegue de volta para a seção **Exportar Log de Atividades** da etapa anterior **Encaminhar os logs de assinatura para a conta de armazenamento** e, em seguida, clique em **Redefinir**.
 
@@ -199,4 +199,3 @@ Para obter mais de seus dados e derivar informações adicionais, também envie 
 
 > [!div class="nextstepaction"]
 > [Introdução ao Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

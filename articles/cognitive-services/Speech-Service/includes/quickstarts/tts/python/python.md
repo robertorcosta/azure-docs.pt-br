@@ -3,43 +3,42 @@ title: 'Início Rápido: Sintetizar fala, Python – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como sintetizar fala em Python usando o SDK de Fala
 services: cognitive-services
-author: yulin-li
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/14/2019
-ms.author: yulili
-ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 19/14/2020
+ms.author: dapine
+ms.openlocfilehash: 7be9037ddfd19d82263b37fe0b824e3c2b3f5078
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818207"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037585"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, é preciso:
 
 > [!div class="checklist"]
 > * [Criar um Recurso de Fala do Azure](../../../../get-started.md)
 > * [Configurar seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md)
-> * [Crie um projeto de amostra vazio](../../../../quickstarts/create-project.md)
-```
+> * [Criar um projeto de amostra vazio](../../../../quickstarts/create-project.md)
 
-## Support and updates
+## <a name="support-and-updates"></a>Suporte e atualizações
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/Speech-Service/releasenotes.md).
-If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+As atualizações do pacote Python do SDK de Fala são distribuídas por meio do PyPI e anunciadas no [Notas sobre a versão](~/articles/cognitive-services/Speech-Service/releasenotes.md).
+Se uma nova versão estiver disponível, você poderá atualizar para ela com o comando `pip install --upgrade azure-cognitiveservices-speech`.
+Verifique qual versão está instalada no momento inspecionando a variável `azure.cognitiveservices.speech.__version__`.
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/Speech-Service/support.md).
+Se você tiver um problema ou se estiver faltando um recurso, confira [Support and help options](~/articles/cognitive-services/Speech-Service/support.md) (Opções de Ajuda e Suporte).
 
-## Create a Python application that uses the Speech SDK
+## <a name="create-a-python-application-that-uses-the-speech-sdk"></a>Criar um aplicativo Python que usa o SDK de Fala
 
-### Run the sample
+### <a name="run-the-sample"></a>Execute o exemplo
 
-You can copy the [sample code](#sample-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console:
+É possível copiar o [código de exemplo](#sample-code) neste início rápido para um arquivo de origem `quickstart.py` e executá-lo no IDE ou no console:
 
 ```sh
 python quickstart.py
@@ -47,7 +46,7 @@ python quickstart.py
 
 ou é possível baixar este tutorial de início rápido como um [Jupyter](https://jupyter.org) Notebook do [repositório de exemplos do SDK de Fala](https://aka.ms/csspeech/samples) e executá-lo como um notebook.
 
-### <a name="sample-code"></a>Exemplo de código
+### <a name="sample-code"></a>Código de exemplo
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/text-to-speech/quickstart.py#code)]
 
@@ -86,7 +85,7 @@ Se houver problemas em seguir estas instruções, consulte o [tutorial do Python
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Criar uma Voz Personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Registrar amostras de voz personalizada](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

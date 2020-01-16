@@ -2,19 +2,19 @@
 title: Renderizar uma cena na nuvem com o Lote do Azure
 description: 'Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold usando o Serviço de Renderização do Lote e a CLI do Azure'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272327"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029200"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
@@ -29,7 +29,7 @@ O Lote do Azure fornece recursos de renderização em escala de nuvem com pagame
 
 Neste tutorial, você renderiza uma cena 3ds Max com o Lote usando o renderizador de rastreamento de raio [Arnold](https://www.autodesk.com/products/arnold/overview). O pool do Lote usa uma imagem do Azure Marketplace com gráficos pré-instalados e aplicativos de renderização que fornecem o licenciamento com pagamento por uso.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Você precisa de uma assinatura pré-paga ou de outra opção de compra do Azure para usar aplicativos de renderização no Lote e pagar por uso. **O licenciamento de pagamento por uso não terá suporte se você usar uma oferta gratuita do Azure que forneça crédito monetário.**
 
@@ -254,7 +254,7 @@ az batch task create \
 O Lote agenda a tarefa e ela é executada assim que um nó no pool fica disponível.
 
 
-### <a name="view-task-output"></a>Exibir saída de tarefa
+### <a name="view-task-output"></a>Exibir saída da tarefa
 
 A tarefa leva alguns minutos para ser executada. Use o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para exibir os detalhes sobre a tarefa.
 
@@ -299,7 +299,7 @@ Crie um arquivo no shell atual denominado *myrendertask_multi.json*e copie e col
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 ```
 
-### <a name="view-task-output"></a>Exibir saída de tarefa
+### <a name="view-task-output"></a>Exibir saída da tarefa
 
 A tarefa leva alguns minutos para ser executada. Use o comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para exibir o estado das tarefas. Por exemplo:
 
@@ -330,9 +330,9 @@ Abra um dos arquivos em seu computador. O quadro renderizado 6 é semelhante ao 
 ![Quadro de dragão renderizado 6](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, o pool e os recursos relacionados. Exclua os recursos da seguinte maneira:
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Lote, pools e os recursos relacionados. Exclua os recursos da seguinte maneira:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

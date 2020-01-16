@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786988"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030149"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
 
@@ -23,7 +23,16 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
 > [!NOTE]
-> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída continuam a dar suporte a TLS 1,0, 1,1 e 1,2. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2.
+> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída continuam a dar suporte a TLS 1,0, 1,1 e 1,2. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2. Para chamadas de entrada, aqui estão os conjuntos de codificação com suporte:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,9 +56,9 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    ![Gatilho de solicitação](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome da propriedade | Nome da propriedade JSON | obrigatórios | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Description |
    |---------------|--------------------|----------|-------------|
-   | **URL HTTP POST** | {none} | SIM | A URL do ponto de extremidade que é gerada depois que você salva o aplicativo lógico e é usada para chamar seu aplicativo lógico |
+   | **URL HTTP POST** | {none} | Sim | A URL do ponto de extremidade que é gerada depois que você salva o aplicativo lógico e é usada para chamar seu aplicativo lógico |
    | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação de entrada |
    |||||
 
@@ -146,7 +155,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 1. Para especificar propriedades adicionais, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
 
-   | Nome da propriedade | Nome da propriedade JSON | obrigatórios | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Description |
    |---------------|--------------------|----------|-------------|
    | **Método** | `method` | Não | O método que a solicitação de entrada deve usar para chamar o aplicativo lógico |
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que a URL do ponto de extremidade do aplicativo lógico pode aceitar |
@@ -178,7 +187,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 Veja mais informações sobre as saídas do gatilho de solicitação:
 
-| Nome da propriedade JSON | Tipo de dados | Descrição |
+| Nome da propriedade JSON | Tipo de dados | Description |
 |--------------------|-----------|-------------|
 | `headers` | Objeto | Um objeto JSON que descreve os cabeçalhos da solicitação |
 | `body` | Objeto | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
@@ -220,9 +229,9 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    Aqui estão mais informações sobre as propriedades que podem ser definidas na ação de resposta. 
 
-   | Nome da propriedade | Nome da propriedade JSON | obrigatórios | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Description |
    |---------------|--------------------|----------|-------------|
-   | **Código de status** | `statusCode` | SIM | O código de status a ser retornado na resposta |
+   | **Código de status** | `statusCode` | Sim | O código de status a ser retornado na resposta |
    | **Cabeçalhos** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |
    | **Corpo** | `body` | Não | O corpo da resposta |
    |||||
