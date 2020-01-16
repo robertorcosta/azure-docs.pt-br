@@ -7,34 +7,34 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5f05c6d82a00e78a4237019128db541eb63f20ba
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e01a1cad98ded9d7ce8683b6adf38b5d53959774
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012245"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966809"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
 Para criar um Application Gateway:
 
 1. Criar um recurso de gateway de aplicativo.
 2. Crie um arquivo XML de configuração ou um objeto de configuração.
-3. Confirme a configuração do recurso de Application Gateway recém-criado.
+3. Confirme a configuração do recurso de gateway de aplicativo recém-criado.
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>Criar um recurso de gateway de aplicativo com uma investigação personalizada
 
@@ -140,13 +140,13 @@ Um novo item de configuração \<Probe\> é adicionado para configurar investiga
 
 Os parâmetros de configuração são:
 
-|.|DESCRIÇÃO|
+|Parâmetro|Description|
 |---|---|
 |**Nome** |Nome de referência da investigação personalizada. |
 | **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
 | **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/, a investigação personalizada poderá ser configurada para "http:\//contoso.com/path/custompath.htm" para verificações de investigação ter uma resposta HTTP bem-sucedida.|
 | **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
-| **Tempo limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
+| **Tempo Limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.|
 
 O nome da investigação é referenciado na configuração \<BackendHttpSettings\> para atribuir qual pool de back-end usa as configurações da investigação personalizada.
@@ -198,7 +198,7 @@ Alterar a configuração atual de um Application Gateway exige três etapas: obt
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você quiser configurar o descarregamento de protocolo SSL, consulte [Configurar um Application Gateway para o descarregamento SSL](application-gateway-ssl.md).
 

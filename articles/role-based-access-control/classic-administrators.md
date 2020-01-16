@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/26/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 340717242d642475217bbe87fd96be66ec9b2e2d
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554235"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979332"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
-A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, precisará usar uma função de administrador de assinatura clássica: administrador de serviços e coadministrador. Para obter mais informações, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, precisará usar uma função de administrador de assinatura clássica: administrador de serviços e coadministrador. Para obter mais informações, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/management/deployment-models.md).
 
 Este artigo descreve como adicionar ou alterar as funções Administrador de Serviços e Coadministrador e como exibir o Administrador da Conta.
 
@@ -62,7 +62,7 @@ Para obter mais informações, sobre como adicionar um usuário convidado ao seu
 
 ### <a name="differences-for-guest-users"></a>Diferenças para usuários convidados
 
-Os usuários convidados que receberam a função de coadministrador podem ver algumas diferenças em comparação com os usuários Membros com a função de coadministrador. Considere este cenário:
+Os usuários convidados que receberam a função de coadministrador podem ver algumas diferenças em comparação com os usuários Membros com a função de coadministrador. Considere o cenário a seguir.
 
 - O usuário A com uma conta do Azure AD (conta corporativa ou de estudante) é um administrador de serviço para uma assinatura do Azure.
 - O usuário B tem uma conta da Microsoft.
@@ -143,8 +143,8 @@ Só pode haver um administrador de serviços por assinatura do Azure. A alteraç
 
 | Conta de administrador da conta | Pode alterar o administrador de serviços para um conta Microsoft diferente? | Pode alterar o administrador de serviço para uma conta do Azure AD no mesmo diretório? | Pode alterar o administrador de serviço para uma conta do Azure AD em um diretório diferente? |
 | --- | --- | --- | --- |
-| Conta da Microsoft | SIM | Não | Não |
-| Conta do AD do Azure | SIM | SIM | Não |
+| Conta da Microsoft | Sim | Não | Não |
+| Conta do AD do Azure | Sim | Sim | Não |
 
 Se o administrador da conta for uma conta do Azure AD, você poderá alterar o administrador do serviço para uma conta do Azure AD no mesmo diretório, mas não em um diretório diferente. Por exemplo, abby@contoso.com pode alterar o administrador de serviço para bob@contoso.com, mas não pode alterar o administrador de serviços para john@notcontoso.com, a menos que john@notcontoso.com tenha uma presença no diretório contoso.com.
 
@@ -152,7 +152,7 @@ Para obter mais informações sobre contas da Microsoft e contas do Azure AD, co
 
 ## <a name="view-the-account-administrator"></a>Exibir o Administrador da Conta
 
-O Administrador da Conta é o usuário que inscreveu-se inicialmente para a assinatura do Azure e é responsável como o proprietário de cobrança da assinatura. Para alterar o Administrador de Conta de uma assinatura, consulte [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
+O Administrador da Conta é o usuário que inscreveu-se inicialmente para a assinatura do Azure e é responsável como o proprietário de cobrança da assinatura. Para alterar o Administrador de Conta de uma assinatura, consulte [Transferir a propriedade de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 Siga estas etapas para exibir o Administrador da Conta.
 
@@ -170,4 +170,4 @@ Siga estas etapas para exibir o Administrador da Conta.
 
 * [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)
-* [Adicionar ou alterar administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+* [Adicionar ou alterar administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660589"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980640"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -56,7 +56,7 @@ A implantação de um serviço de nuvem poderá falhar se os recursos que precis
 
 Também é possível controlar a cota/uso atual da sua assinatura no portal: portal do Azure => Assinaturas => \<assinatura adequada>=> "Uso + cota".
 
-Informações relacionadas ao uso/consumo de recursos também podem ser recuperadas por meio das APIs de Cobrança do Azure. Confira [API de uso de recursos do Azure (versão prévia)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Informações relacionadas ao uso/consumo de recursos também podem ser recuperadas por meio das APIs de Cobrança do Azure. Confira [API de uso de recursos do Azure (versão prévia)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Como posso alterar o tamanho de uma VM de serviço de nuvem implantada sem reimplantá-la?
 Você não pode alterar o tamanho de uma VM de serviço de nuvem implantada sem reimplantá-la. O tamanho da VM é criado em CSDEF, que somente pode ser atualizado com uma reimplantação.
@@ -66,17 +66,17 @@ Para obter mais informações, consulte [Como atualizar um serviço de nuvem](cl
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que eu não consigo implantar os Serviços de Nuvem por meio das APIs de Gerenciamento de Serviços ou PowerShell ao usar a conta de armazenamento do Azure Resource Manager? 
 
 Como o serviço de nuvem é um recurso clássico que não é compatível diretamente com o modelo de Azure Resource Manager, você não pode associá-lo com as contas de armazenamento de Azure Resource Manager. Veja algumas opções: 
- 
+
 - Implantar por meio da API REST.
 
     Quando você implanta por meio da API REST do Gerenciamento de Serviços, é possível contornar a limitação especificando uma URL SAS para o armazenamento de blobs, que funcionará com a conta de armazenamento clássica e do Azure Resource Manager. Leia mais sobre a propriedade 'PackageUrl' [aqui](/previous-versions/azure/reference/ee460813(v=azure.100)).
-  
+
 - Implantar por meio do [Portal do Azure](https://portal.azure.com).
 
     Isso funcionará na [portal do Azure](https://portal.azure.com) à medida que a chamada passa por um proxy/Shim que permite a comunicação entre Azure Resource Manager e recursos clássicos. 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que o portal do Azure exige que eu forneça uma conta de armazenamento para a implantação? 
 
-No portal clássico, o pacote foi carregado diretamente para a camada da API de gerenciamento e, então, a camada da API colocaria temporariamente o pacote em uma conta de armazenamento interno.  Esse processo causa problemas de desempenho e escalabilidade, porque a camada da API não foi projetada para ser um serviço de carregamento de arquivo.  No portal do Azure (modelo de implantação do Gerenciador de Recursos), ignoramos a etapa provisória do primeiro carregamento para a camada da API, resultando em implantações mais rápidas e mais confiáveis. 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que o portal do Azure exige que eu forneça uma conta de armazenamento para a implantação?
 
-Quanto ao custo, ele é muito pequeno e você pode reutilizar a mesma conta de armazenamento em todas as implantações. Você pode usar a [calculadora de preços de armazenamento](https://azure.microsoft.com/pricing/calculator/#storage1) para determinar o custo para carregar o service pack (CSPKG), fazer o download do CSPKG, e então excluir o CSPKG. 
+No portal clássico, o pacote foi carregado diretamente para a camada da API de gerenciamento e, então, a camada da API colocaria temporariamente o pacote em uma conta de armazenamento interno.  Esse processo causa problemas de desempenho e escalabilidade, porque a camada da API não foi projetada para ser um serviço de carregamento de arquivo.  No portal do Azure (modelo de implantação do Gerenciador de Recursos), ignoramos a etapa provisória do primeiro carregamento para a camada da API, resultando em implantações mais rápidas e mais confiáveis.
+
+Quanto ao custo, ele é muito pequeno e você pode reutilizar a mesma conta de armazenamento em todas as implantações. Você pode usar a [calculadora de preços de armazenamento](https://azure.microsoft.com/pricing/calculator/#storage1) para determinar o custo para carregar o service pack (CSPKG), fazer o download do CSPKG, e então excluir o CSPKG.

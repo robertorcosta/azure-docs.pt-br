@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o Azure Monitor para contêineres | Microsoft 
 description: O Azure Monitor para contêineres é uma solução que monitora a integridade dos clusters AKS e Instâncias de Contêiner no Azure. Este artigo responde a perguntas comuns.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 0984de51221c506bb1824e4dcfd93eef56453a4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0d2be8b573dbbf047f4a27ae9ac9f611b76dc51
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405077"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977755"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor para contêineres
 
@@ -73,7 +73,7 @@ A tabela ContainerInventory contém informações sobre contêineres parados e e
  
 ## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Como fazer resolver erro de *registro de assinatura ausente* ?
 
-Se você receber o erro **registro de assinatura ausente para Microsoft. OperationsManagement**, você poderá resolvê-lo registrando o provedor de recursos **Microsoft. OperationsManagement** na assinatura em que o espaço de trabalho está definido. A documentação para saber como fazer isso pode ser encontrada [aqui](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+Se você receber o erro **registro de assinatura ausente para Microsoft. OperationsManagement**, você poderá resolvê-lo registrando o provedor de recursos **Microsoft. OperationsManagement** na assinatura em que o espaço de trabalho está definido. A documentação para saber como fazer isso pode ser encontrada [aqui](../../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Há suporte para clusters AKS habilitados para RBAC?
 

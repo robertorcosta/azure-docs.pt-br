@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083520"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981146"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Criar um circuito do ExpressRoute usando Azure Resource Manager modelo
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
 > * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
@@ -44,7 +44,7 @@ Para ver mais modelos relacionados, selecione [aqui](https://azure.microsoft.com
 
 Para criar um circuito de ExpressRoute implantando um modelo:
 
-1. Selecione **Experimente** no seguinte bloco de código e siga as instruções para entrar no Azure cloud Shell.
+1. Selecione **Testar** no seguinte bloco de código e, em seguida, siga as instruções para entrar no Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
@@ -74,15 +74,15 @@ Para criar um circuito de ExpressRoute implantando um modelo:
     O nome do grupo de recursos é o nome do namespace do barramento de serviço com **RG** anexado.
 
 2. Selecione **Copiar** para copiar o script do PowerShell.
-3. Clique com o botão direito do mouse no console do Shell e selecione **colar**.
+3. Clique com o botão direito do mouse no console do Shell e selecione **Colar**.
 
-Demora alguns minutos para criar um hub de eventos.
+Pode demorar alguns minutos para criar um hub de eventos.
 
 Azure PowerShell é usado para implantar o modelo neste tutorial. Para outros métodos de implantação de modelo, consulte:
 
-* [Usando o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [Usando CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [Usando a API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Usando o portal do Azure](../azure-resource-manager/templates/deploy-portal.md).
+* [Usando CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
+* [Usando a API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="delete"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 
@@ -101,7 +101,7 @@ $resourceGroupName = "${circuitName}rg"
 Remove-AzExpressRouteCircuit -ResourceGroupName $resourceGroupName -Name $circuitName
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar o circuito, continue para as próximas etapas:
 

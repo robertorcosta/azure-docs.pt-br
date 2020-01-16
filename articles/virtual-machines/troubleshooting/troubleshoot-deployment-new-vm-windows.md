@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103482"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981399"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +35,7 @@ Para outros problemas de implantação de VM e perguntas, confira [Solucionar pr
 ## <a name="collect-activity-logs"></a>Coletar logs de atividades
 Para iniciar a solução de problemas, colete os logs de atividades para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
-[Exibir operações de implantação](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Exibir operações de implantação](../../azure-resource-manager/templates/deployment-history.md)
 
 [Exibir logs de atividades para gerenciar recursos do Azure](../../resource-group-audit.md)
 
@@ -88,7 +88,7 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
   * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
   * Adicione a nova VM à mesma rede virtual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure](restart-resize-error-troubleshooting.md).
 
 

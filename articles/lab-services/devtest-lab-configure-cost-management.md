@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 247327d001342fd0e2943ae7cf010e648761cdaa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318157"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976354"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Acompanhe os custos associados a um laboratório no Azure DevTest Labs
 Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como exibir o Trent de custo estimado para o mês do calendário atual do laboratório. O artigo também mostra como exibir o custo acumulado no mês por recurso no laboratório.
@@ -29,7 +29,7 @@ Nesta seção, você aprenderá a usar o gráfico de **tendência de custo estim
 
 Para exibir o gráfico Tendência de custo estimado mensal, siga estas etapas: 
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório.  
 4. Selecione **configuração e políticas** no menu à esquerda.  
@@ -49,7 +49,7 @@ Para exibir o gráfico Tendência de custo estimado mensal, siga estas etapas:
 
      Os seguintes custos *não* estão incluídos no cálculo de custo:
 
-   * As assinaturas do CSP e do Dreamspark não têm suporte atualmente, pois o Azure DevTest Labs usa as [APIs de cobrança do Azure](../billing/billing-usage-rate-card-overview.md) para calcular o custo do laboratório e essas APIs não dão suporte a assinaturas do Dreamspark ou do CSP.
+   * As assinaturas do CSP e do Dreamspark não têm suporte atualmente, pois o Azure DevTest Labs usa as [APIs de cobrança do Azure](../cost-management-billing/manage/usage-rate-card-overview.md) para calcular o custo do laboratório e essas APIs não dão suporte a assinaturas do Dreamspark ou do CSP.
    * Suas tarifas da oferta. No momento, não é possível usar as tarifas de oferta (mostradas em sua assinatura) que você negociou com a Microsoft ou parceiros Microsoft. Somente as tarifas pagas conforme o uso são usadas.
    * Seus impostos
    * Seus descontos
@@ -70,9 +70,9 @@ O DevTest Labs lhe permite gerenciar melhor os custos em seu laboratório defini
       - **Corrigido**: os destinos de custo são rastreados para o intervalo de datas especificado nas datas de início e término. Normalmente, esses valores representam por quanto tempo seu projeto está agendado para ser executado.
    - Especifique uma **Meta de custo**. Por exemplo, quanto você planeja gastar neste laboratório no período de tempo definido.
    - Selecione para habilitar ou desabilitar qualquer limite que você deseja que seja relatado – em incrementos de 25% –, até 125% de sua **Meta de custo** especificada.
-      - **Notificar**: Quando esse limite for atingido, você será notificado por uma URL de webhook que você especificar.
-      - **Plotar no gráfico**: Quando esse limite é atingido, os resultados são plotados no gráfico de tendência de custo que você pode exibir, conforme descrito em exibindo o gráfico de tendência de custo estimado mensal.
-   - Se optar por **Notificar** quando o limite for atingido, você precisará especificar uma URL de webhook. Na área de integração de custos, selecione **Clique aqui para adicionar uma integração**. Insira uma **URL** de webhook no painel configurar notificação e, em seguida, selecione **OK**.
+      - **Notificar**: quando esse limite for atingido, você será notificado por uma URL de webhook que você especificar.
+      - **Plotar no gráfico**: quando esse limite é atingido, os resultados são plotados no grafo de tendência de custo que você pode exibir, conforme descrito em exibindo o gráfico de tendência de custo estimado mensal.
+   - Se optar por **Notificar** quando o limite for atingido, você precisará especificar uma URL de webhook. Na área de integração de custos, selecione **Clique aqui para adicionar uma integração**. Insira uma **URL de webhook** no painel configurar notificação e, em seguida, selecione **OK**.
 
        ![Painel Configurar notificação](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
@@ -85,7 +85,7 @@ O DevTest Labs lhe permite gerenciar melhor os custos em seu laboratório defini
 ## <a name="view-cost-by-resource"></a>Exibir custo por recurso 
 O recurso de tendência de custo mensal em laboratórios permite que você veja quanto você gastou no mês do calendário atual. Ele também mostra a projeção dos gastos até o fim do mês, com base em seus gastos nos últimos sete dias. Para ajudá-lo a entender por que os gastos no laboratório estão atendendo aos limites no início, você pode usar o recurso de **custo por recurso** que mostra o custo acumulado do mês **por recurso** em uma tabela.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.  
 4. Selecione **configuração e políticas** no menu à esquerda.
@@ -95,9 +95,9 @@ O recurso de tendência de custo mensal em laboratórios permite que você veja 
 
 Esse recurso ajuda a identificar facilmente os recursos que custam mais para que você possa tomar medidas para reduzir os gastos com o laboratório. Por exemplo, o custo de uma VM é baseado no tamanho da VM. Quanto maior o tamanho da VM, mais é o custo. Você pode encontrar facilmente o tamanho de uma VM e o proprietário, para que você possa se comunicar com o proprietário da VM para entender por que esse tamanho de VM é necessário e se há uma chance de diminuir o tamanho.
 
-A política de desligamento [automático](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) ajuda a reduzir o custo desligando VMs de laboratório em um determinado momento do dia. No entanto, um usuário de laboratório pode recusar a política de desligamento, o que aumenta o custo da execução da VM. Você pode selecionar uma VM na tabela para ver se ela foi recusada da política de desligamento automático. Se esse for o caso, você poderá se comunicar com o proprietário da VM para descobrir por que a VM foi recusada da política.
+A [política de desligamento automático](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) ajuda a reduzir o custo desligando VMs de laboratório em um determinado momento do dia. No entanto, um usuário de laboratório pode recusar a política de desligamento, o que aumenta o custo da execução da VM. Você pode selecionar uma VM na tabela para ver se ela foi recusada da política de desligamento automático. Se esse for o caso, você poderá se comunicar com o proprietário da VM para descobrir por que a VM foi recusada da política.
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Eis aqui algumas coisas para experimentar a seguir:
 
 * [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) - saiba como definir as várias políticas usadas para controlar como seu laboratório e suas VMs são usados. 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e58b3f651a7a8f65d3450cf4b069d4e3f252d928
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100276"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982277"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatizar tarefas de gerenciamento em máquinas virtuais do Azure com a Extensão do Agente do SQL Server (Clássica)
 > [!div class="op_single_selector"]
@@ -32,12 +32,12 @@ ms.locfileid: "70100276"
 A Extensão de Agente IaaS do SQL Server (SQLIaaSAgent) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este tópico fornece uma visão geral dos serviços compatível com a extensão, bem como instruções de instalação, status e remoção.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para exibir a versão do Gerenciador de Recursos deste artigo, consulte [Extensão do SQL Server Agent para o Resource Manager de VMs do SQL Server](../sql/virtual-machines-windows-sql-server-agent-extension.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para exibir a versão do Gerenciador de Recursos deste artigo, consulte [Extensão do SQL Server Agent para o Resource Manager de VMs do SQL Server](../sql/virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="supported-services"></a>Serviços com suporte
 A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de administração:
 
-| Recurso de administração | Descrição |
+| Recurso de administração | Description |
 | --- | --- |
 | **Backup Automatizado do SQL** |Automatiza o agendamento de backups para todos os bancos de dados da instância padrão do SQL Server na VM. Para saber mais, veja [Backup automatizado para o SQL Server em Máquinas Virtuais do Azure (Clássico)](../classic/sql-automated-backup.md). |
 | **Aplicação de patch automatizada do SQL** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows para a VM podem ocorrer, evitando atualizações da carga de trabalho durante horários de pico. Para obter mais informações, confira [Aplicação de patch automatizada para SQL Server em máquinas virtuais do Azure (Clássico)](../classic/sql-automated-patching.md). |
@@ -46,7 +46,7 @@ A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de ad
 ## <a name="prerequisites"></a>Pré-requisitos
 Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 
-### <a name="operating-system"></a>Sistema operacional:
+### <a name="operating-system"></a>Sistema Operacional:
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -56,7 +56,7 @@ Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 * SQL Server 2014
 * SQL Server 2016
 
-### <a name="azure-powershell"></a>PowerShell do Azure:
+### <a name="azure-powershell"></a>Azure PowerShell:
 [Baixe e configure os comandos mais recentes do Azure PowerShell](/powershell/azure/overview).
 
 Em seguida, conecte o Windows PowerShell à sua assinatura do Azure usando o comando **Add-AzureAccount** .

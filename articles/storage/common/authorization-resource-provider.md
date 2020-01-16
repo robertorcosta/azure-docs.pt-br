@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613866"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972357"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
 
@@ -72,7 +72,7 @@ Para obter exemplos de código que mostram como autorizar e chamar operações d
 
 O Gerenciador de Recursos e os modelos de implantação clássicos representam duas maneiras de implantar e gerenciar soluções do Azure. A Microsoft recomenda usar o modelo de implantação Azure Resource Manager ao criar uma nova conta de armazenamento. Se possível, a Microsoft também recomenda que você recrie contas de armazenamento clássica existentes com o modelo do Resource Manager. Embora você possa criar uma conta de armazenamento usando o modelo de implantação clássico, o modelo clássico é menos flexível e, eventualmente, será preterido.
 
-Para obter mais informações sobre os modelos de implantação do Azure, consulte [Resource Manager e implantação clássica](../../azure-resource-manager/resource-manager-deployment-model.md).
+Para obter mais informações sobre os modelos de implantação do Azure, consulte [Resource Manager e implantação clássica](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Próximos passos
 

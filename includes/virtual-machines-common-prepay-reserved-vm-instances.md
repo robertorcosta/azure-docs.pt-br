@@ -4,14 +4,14 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/21/2019
-ms.openlocfilehash: 9bed0a47c6c13b3c209f593509b71aa697c6eb4a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 119ef52bd801f66cd25a844d3a87b1906881c484
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021185"
 ---
-Ao se comprometer com uma instância de VM reservada do Azure, você pode economizar dinheiro. O desconto da reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e atributos da reserva. Você não precisa atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do uso da VM. Para VMs do Windows, o medidor de uso é dividido em dois medidores separados. Há um medidor de computação, que é o mesmo que o medidor do Linux e um medidor de IP do Windows. Os encargos que você vê quando faz a compra são apenas para os custos de computação. Os encargos não incluem os custos de software do Windows. Para obter mais informações sobre os custos de software, consulte [custos de software não incluídos com instâncias de VM reservadas do Azure](../articles/billing/billing-reserved-instance-windows-software-costs.md).
+Ao se comprometer com uma instância de VM reservada do Azure, você pode economizar dinheiro. O desconto da reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e atributos da reserva. Você não precisa atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do uso da VM. Para VMs do Windows, o medidor de uso é dividido em dois medidores separados. Há um medidor de computação, que é o mesmo que o medidor do Linux e um medidor de IP do Windows. Os encargos que você vê quando faz a compra são apenas para os custos de computação. Os encargos não incluem os custos de software do Windows. Para obter mais informações sobre os custos de software, consulte [custos de software não incluídos com instâncias de VM reservadas do Azure](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Determinar o tamanho correto da VM antes de comprar
 
@@ -78,7 +78,7 @@ As instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos 
 
 ## <a name="buy-a-reserved-vm-instance"></a>Comprar uma Instância de VM Reservada
 
-Você pode comprar uma instância de VM reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](../articles/billing/billing-monthly-payments-reservations.md).
+Você pode comprar uma instância de VM reservada no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pague pela reserva [antecipadamente ou com pagamentos mensais](../articles/cost-management-billing/reservations/monthly-payments-reservations.md).
 Esses requisitos se aplicam à compra de uma instância de VM reservada:
 
 - Você deve estar em uma função de proprietário para pelo menos uma assinatura de EA ou uma assinatura com uma taxa pré-paga.
@@ -111,7 +111,7 @@ Se você tiver um contrato EA, poderá usar a **opção Adicionar mais** para ad
 
 Seus dados de uso têm um preço efetivo de zero para o uso, que obtém um desconto de reserva. Você pode ver qual instância de VM recebeu o desconto de reserva para cada reserva.
 
-Para obter mais informações sobre como os descontos de reserva aparecem nos dados de uso, consulte [entender o uso de reserva do Azure para o registro de sua empresa](../articles/billing/billing-understand-reserved-instance-usage-ea.md) se você for um cliente do ea. Se você tiver uma assinatura individual, consulte [entender o uso de reserva do Azure para sua assinatura paga conforme o uso](../articles/billing/billing-understand-reserved-instance-usage.md).
+Para obter mais informações sobre como os descontos de reserva aparecem nos dados de uso, consulte [entender o uso de reserva do Azure para o registro de sua empresa](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) se você for um cliente do ea. Se você tiver uma assinatura individual, consulte [entender o uso de reserva do Azure para sua assinatura paga conforme o uso](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Alterar uma reserva após a compra
 
@@ -134,7 +134,7 @@ No entanto, você pode *trocar* uma reserva se desejar fazer alterações.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
 
@@ -142,12 +142,12 @@ Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+- Para aprender a gerenciar uma reserva, confira [Gerenciar Reservas do Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md).
 - Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
-    - [O que são Reservas do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
-    - [Gerenciar Reservas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-    - [Entender como o desconto de reserva é aplicado](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [Noções básicas sobre o uso de reserva para uma assinatura com taxas pagas conforme o uso](../articles/billing/billing-understand-reserved-instance-usage.md)
-    - [Entender o uso de reserva para seu registro de empresa](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-    - [Custos de software do Windows não estão incluídos nas reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+    - [O que são Reservas do Azure?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+    - [Gerenciar Reservas no Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    - [Entender como o desconto de reserva é aplicado](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
+    - [Noções básicas sobre o uso de reserva para uma assinatura com taxas pagas conforme o uso](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)
+    - [Entender o uso de reserva para seu registro de empresa](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+    - [Custos de software do Windows não estão incluídos nas reservas](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
     - [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)

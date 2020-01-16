@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 1ee238e833569bac73bc95932a8d9f044640a59b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b9b84cb2c442e7da65da332da1a78b28c32c4de9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770315"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979656"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -51,7 +51,7 @@ Uma regra da rede virtual instrui o servidor do Banco de Dados do Azure para MyS
 
 Até que você execute uma ação, as VMs em suas sub-redes não podem se comunicar com seu servidor do Banco de Dados do Azure para MySQL. Uma ação que estabelece a comunicação é a criação de uma regra da rede virtual. A lógica para escolher a abordagem de regra da VNet requer uma discussão de comparação e contraste que envolve as opções de segurança concorrentes oferecidas pelo firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>R. Permitir o acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>a. Permitir o acesso aos serviços do Azure
 
 O painel de segurança de conexão tem um botão de **ON/OFF** rotulado como **Permitir acesso aos serviços do Azure**. A configuração **ON** permite as comunicações de todos os endereços IP do Azure e todas as sub-redes do Azure. Esses IPs ou sub-redes do Azure não podem pertencer a você. Essa configuração **ON** é provavelmente mais aberta do que você deseja que seu Banco de Dados do Azure para MySQL seja. O recurso de regra da rede virtual oferece um maior controle granular.
 
@@ -90,7 +90,7 @@ Cada regra da rede virtual aplica-se a todo o seu servidor do Banco de Dados do 
 Há uma separação de funções de segurança na administração de pontos de extremidade de serviço de rede virtual. A ação é necessária em cada uma das seguintes funções:
 
 - **Administrador de rede:** &nbsp; ativar o ponto de extremidade.
-- **Administrador de banco de dados:** &nbsp; atualize a ACL (lista de controle de acesso) para adicionar a sub-rede fornecida ao servidor do Banco de Dados do Azure para MySQL.
+- **Administrador de banco de dados:** &nbsp; atualizar a lista de controle de acesso (ACL) para adicionar a sub-rede fornecida ao banco de dados do Azure para o servidor MySQL.
 
 *Alternativa de RBAC:*
 
@@ -118,7 +118,7 @@ Para o Banco de Dados do Azure para MySQL, o recurso de regras da rede virtual t
 
 - Ativar pontos de extremidade de serviço de rede virtual para o Banco de Dados do Azure para MySQL usando a marca de serviço **Microsoft.Sql** também habilita os pontos de extremidade para todos os serviços de Banco de Dados do Azure: Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL, Banco de Dados SQL do Azure e SQL Data Warehouse do Azure.
 
-- O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizado para memória.
+- O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras da rede virtual não:
     - [VPN (rede virtual privada) site a site (S2S)][vpn-gateway-indexmd-608y]
@@ -146,7 +146,7 @@ Para obter artigos sobre como criar regras de VNet, consulte:
 - [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MySQL usando a CLI do Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -160,4 +160,4 @@ Para obter artigos sobre como criar regras de VNet, consulte:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

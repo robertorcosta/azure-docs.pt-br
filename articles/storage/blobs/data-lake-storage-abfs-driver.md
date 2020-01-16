@@ -8,16 +8,16 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 370717e09e788faa56662c4c88e2e7c0de21eef7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933145"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970271"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>ABFS (driver de sistema de arquivos de Blob do Azure): um driver de Armazenamento do Microsoft Azure dedicado para Hadoop
 
-Um dos principais métodos de acesso para dados no Azure Data Lake Storage Gen2 é via [Sistema de Arquivos Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). O Data Lake Storage Gen2 permite que os usuários do Armazenamento de Blobs do Azure acessem um novo driver, o driver do Sistema de Arquivos de Blobs do Azure ou `ABFS`. O ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Usando esse driver, muitos aplicativos e estruturas podem acessar dados no armazenamento de Blobs do Azure sem nenhum código referenciando explicitamente o serviço Data Lake Store Gen2. 
+Um dos principais métodos de acesso para dados no Azure Data Lake Storage Gen2 é via [Sistema de Arquivos Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). O Data Lake Storage Gen2 permite que os usuários do Armazenamento de Blobs do Azure acessem um novo driver, o driver do Sistema de Arquivos de Blobs do Azure ou `ABFS`. O ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Usando esse driver, muitos aplicativos e estruturas podem acessar dados no armazenamento de Blobs do Azure sem nenhum código referenciando explicitamente o serviço Data Lake Store Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Recurso anterior: driver do Azure Storage Blob do Windows
 
@@ -36,21 +36,21 @@ Consistente com outras implementações do FileSystem no Hadoop, o driver ABFS d
 Usando o formato de URI acima, as ferramentas e estruturas padrão do Hadoop podem ser utilizadas para referenciar esses recursos:
 
 ```bash
-hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data 
-hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/ 
+hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data
+hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/
 ```
 
 Internamente, o driver ABFS converte os recursos especificados no URI em arquivos e diretórios e faz chamadas à API REST do Azure Data Lake Store com essas referências.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
-O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo Hadoop possa acessar com segurança os recursos contidos em uma conta compatível com Azure Data Lake Storage Gen2. Detalhes completos dos esquemas de autenticação disponíveis são fornecidos no [guia de segurança do Armazenamento do Microsoft Azure](../common/storage-security-guide.md). Eles são:
+O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo Hadoop possa acessar com segurança os recursos contidos em uma conta compatível com Azure Data Lake Storage Gen2. Detalhes completos dos esquemas de autenticação disponíveis são fornecidos no [guia de segurança do Armazenamento do Microsoft Azure](security-recommendations.md). Eles são:
 
 - **Chave Compartilhada:** permite que os usuários acessem TODOS os recursos na conta. A chave é criptografada e armazenada na configuração do Hadoop.
 
 - **Token de Portador OAuth do Azure Active Directory:** os tokens de portador do Azure Active Directory são adquiridos e atualizados pelo driver usando a identidade do usuário final ou uma Entidade de Serviço configurada. Usando esse modelo de autenticação, todo o acesso é autorizado por chamada usando a identidade associada ao token fornecido e avaliado em relação à Lista de Controle de Acesso (ACL) POSIX atribuída.
 
-   > [!NOTE] 
+   > [!NOTE]
    > O Azure Data Lake Storage Gen2 dá suporte apenas a pontos de extremidade do Azure AD v 1.0.
 
 ### <a name="configuration"></a>Configuração

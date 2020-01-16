@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: singhkays
 ms.service: virtual-machines
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 40da2016026c8a7e02d1b243a783d01559e8c197
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c550174bff0529e0fc619f1de79c41ab7cf62a36
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005513"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020839"
 ---
-Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
+Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Meta de migração
 O Gerenciador de Recursos possibilita implantar aplicativos complexos por meio de modelos, configurar máquinas virtuais usando extensões de VM e incorporar o gerenciamento de acesso e a marcação. O Azure Resource Manager inclui implantação paralela e escalonável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo também oferece gerenciamento de ciclo de vida de computação, rede e armazenamento de maneira independente. Por fim, há um enfoque para habilitar a segurança por padrão com a imposição de máquinas virtuais em uma rede virtual.
@@ -25,14 +25,14 @@ Há suporte para quase todos os recursos do modelo de implantação clássica re
 ## <a name="supported-resources-for-migration"></a>Recursos com suporte para migração
 Esses recursos de IaaS clássicos têm suporte durante a migração
 
-* Máquinas Virtuais
+* Máquinas virtuais
 * Conjuntos de Disponibilidade
 * Serviços de Nuvem com Máquinas Virtuais
 * Contas de armazenamento
 * Redes Virtuais
 * Gateways VPN
 * Express Route Gateways _(na mesma assinatura como Rede Virtual somente)_
-* Grupos de segurança de rede
+* Grupos de Segurança de Rede
 * Tabelas de Rotas
 * IPs Reservados
 
@@ -75,7 +75,7 @@ Se a sua conta de armazenamento não tiver discos associados ou dados de Máquin
 > O modelo de implantação do Resource Manager não tem o conceito de discos e imagens clássicas. Quando a conta de armazenamento é migrada, os discos e imagens clássicos não ficarão visíveis na pilha do Resource Manager, mas os VHDs de backup permanecem na conta de armazenamento.
 
 As capturas de tela a seguir mostram como atualizar uma conta de armazenamento clássico para uma conta de armazenamento Azure Resource Manager usando portal do Azure:
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Navegue até sua conta de armazenamento.
 3. Na seção **configurações** , clique em **migrar para o ARM**.
 4. Clique em **validar** para determinar a viabilidade de migração.
@@ -101,7 +101,7 @@ Alguns recursos e configurações não são suportados atualmente; as seções a
 ### <a name="unsupported-features"></a>Recursos sem suporte
 Atualmente, não há suporte para os seguintes recursos. Se preferir, você pode remover essas configurações, migrar as VMs e, em seguida, habilitar as configurações novamente no modelo de implantação do Gerenciador de Recursos.
 
-| Provedor de recursos | Recurso | Recomendações |
+| Provedor de recursos | Recurso | Recomendação |
 | --- | --- | --- |
 | Computação | Discos de máquina virtual não associados. | Os blobs VHD por trás desses discos serão migrados quando a Conta de Armazenamento for migrada |
 | Computação | Imagens de máquinas virtuais. | Os blobs VHD por trás desses discos serão migrados quando a Conta de Armazenamento for migrada |
@@ -112,13 +112,13 @@ Atualmente, não há suporte para os seguintes recursos. Se preferir, você pode
 ### <a name="unsupported-configurations"></a>Configurações sem suporte
 Atualmente, não há suporte para as seguintes configurações.
 
-| O Barramento de | Configuração | Recomendações |
+| Serviço | Configuração | Recomendação |
 | --- | --- | --- |
-| Gerenciador de Recursos |RBAC (controle de acesso baseado em função) para recursos clássicos |Como o URI dos recursos é modificado após a migração, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração. |
+| Resource Manager |RBAC (controle de acesso baseado em função) para recursos clássicos |Como o URI dos recursos é modificado após a migração, é recomendável planejar as atualizações da política de RBAC que precisam ocorrer após a migração. |
 | Computação |Várias sub-redes associadas a uma VM |Atualize a configuração de sub-rede para referenciar apenas uma sub-rede. Isso poderá exigir que você remova um NIC secundário (que está referenciado a outra sub-rede) da máquina virtual e anexá-lo novamente depois que a migração for concluída. |
 | Computação |Máquinas virtuais que pertencem a uma rede virtual, mas que não têm uma sub-rede explícita atribuída |Opcionalmente, você pode excluir a VM. |
 | Computação |Máquinas virtuais que têm alertas e políticas de Escala Automática |A migração passa e essas configurações serão descartadas. É altamente recomendável que você avalie seu ambiente antes de fazer a migração. Se preferir, você pode redefinir as configurações de alerta após a conclusão da migração. |
-| Computação |Extensões de VM do XML (BGInfo 1.*, Depurador, Implantação da Web e Depuração Remota do Visual Studio) |Não há suporte para isso. Recomendamos que você remova essas extensões da máquina virtual para continuar a migração, ou elas serão eliminadas automaticamente durante o processo de migração. |
+| Computação |Extensões de VM do XML (BGInfo 1.\*, Depurador, Implantação da Web e Depuração Remota do Visual Studio) |Isso não tem suporte. Recomendamos que você remova essas extensões da máquina virtual para continuar a migração, ou elas serão eliminadas automaticamente durante o processo de migração. |
 | Computação |Diagnóstico de inicialização com o armazenamento Premium |Desabilite o recurso de Diagnóstico de Inicialização para as VMs antes de continuar com a migração. Você pode habilitar novamente o diagnóstico de inicialização na pilha do Gerenciador de Recursos após a migração ser concluída. Além disso, os blobs que estão sendo usados para captura de tela e logs seriais devem ser excluídos para que você não seja cobrado por eles. |
 | Computação | Serviços de nuvem que contêm funções de trabalho/web | Não há suporte para esse recurso no momento. |
 | Computação | Serviços de nuvem que contêm mais de um conjunto de disponibilidade ou vários conjuntos de disponibilidade. |Não há suporte para esse recurso no momento. Mova as Máquinas Virtuais para a mesmo conjunto de disponibilidade antes de fazer a migração. |
@@ -126,8 +126,8 @@ Atualmente, não há suporte para as seguintes configurações.
 | Computação | VM com extensão de backup ou instantâneo | Essas extensões são instaladas em uma máquina Virtual configurada com o serviço de Backup do Azure. Enquanto não houver suporte para a migração dessas VMs, siga as diretrizes descritas [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) para manter os backups feitos antes da migração.  |
 | Rede |Redes virtuais que contêm máquinas virtuais e funções de trabalho/web |Não há suporte para esse recurso no momento. Mova as funções Web/Trabalho para as suas próprias redes virtuais antes de fazer a migração. Depois que a rede virtual clássica for migrada, a rede virtual do Azure Resource Manager pode ser emparelhada com a rede virtual clássica para obter uma configuração semelhante como antes.|
 | Rede | Circuitos do ExpressRoute clássico |Não há suporte para esse recurso no momento. Esses circuitos precisam ser migrados para o Azure Resource Manager antes da migração do IaaS ser iniciada. Para saber mais, consulte [Movimentação dos circuitos do ExpressRoute do modelo de implantação clássico para o Resource Manager](../articles/expressroute/expressroute-move.md).|
-| Serviço de aplicativo do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
+| Serviço de Aplicativos do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
 | Azure HDInsight |Redes virtuais que contêm serviços do HDInsight |Não há suporte para esse recurso no momento. |
 | Serviços de Ciclo de Vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics |Não há suporte para esse recurso no momento. |
-| Azure AD Domain Services |Redes virtuais que contêm serviços do Azure AD Domain Services |Não há suporte para esse recurso no momento. |
+| Serviços de Domínio do AD do Azure |Redes virtuais que contêm serviços do Azure AD Domain Services |Não há suporte para esse recurso no momento. |
 | Gerenciamento de API do Azure |Redes virtuais que contêm implantações do Gerenciamento de API do Azure |Não há suporte para esse recurso no momento. Para migrar a VNET IaaS, altere a VNET da implantação do Gerenciamento de API, que é uma operação sem tempo de inatividade. |

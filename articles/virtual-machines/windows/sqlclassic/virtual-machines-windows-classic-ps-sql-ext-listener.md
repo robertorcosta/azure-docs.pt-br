@@ -15,24 +15,24 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d2dce6875ec39810a81bb5ae454d953a7b7ab0a9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ca13d5e8369d007188a17352913519172ed8744e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032711"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978192"
 ---
 # <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configurar um ouvinte externo para grupos de disponibilidade em VMs SQL Server do Azure
 > [!div class="op_single_selector"]
 > * [Ouvinte interno](../classic/ps-sql-int-listener.md)
-> * [External Listener](../classic/ps-sql-ext-listener.md)
+> * [Ouvinte externo](../classic/ps-sql-ext-listener.md)
 > 
 > 
 
 Este tópico mostra como configurar um ouvinte para um grupo de disponibilidade AlwaysOn que está acessível externamente na Internet. Isso se tornou possível associando o endereço **VIP (IP virtual público)** do serviço de nuvem ao ouvinte.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 O seu grupo de disponibilidade pode conter somente réplicas locais, somente no Azure ou locais e no Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões usando várias redes virtuais (VNets). As etapas a seguir pressupõem que você já tenha [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas não configurou um ouvinte.
 
@@ -129,8 +129,8 @@ Para acessar o ouvinte de fora da rede virtual, você deve usar o balanceamento 
 
 Ao contrário do exemplo anterior, a autenticação do SQL deve ser usada, porque o chamador não pode usar a autenticação do Windows pela Internet. Para obter mais informações, consulte [AlwaysOn Availability Group in Azure VM: Client Connectivity Scenarios](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)(Grupo de disponibilidade AlwaysOn na VM do Azure: cenários de conectividade do cliente). Ao usar a autenticação do SQL, certifique-se de que você crie o mesmo logon em ambas as réplicas. Para saber mais sobre como solucionar problemas de logons com Grupos de Disponibilidade, consulte [Como mapear logons ou usar um usuário de banco de dados SQL contido para se conectar a outras réplicas e mapear para bancos de dados de disponibilidade](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
-Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes deverão especificar **MultisubnetFailover=True** na cadeia de conexão. Isso resulta em tentativas de conexão em paralelo para réplicas nas sub-redes diferentes. Observe que esse cenário inclui uma implantação de grupo de disponibilidade do AlwaysOn entre regiões.
+Se as réplicas do AlwaysOn estiverem em sub-redes diferentes, os clientes deverão especificar **MultisubnetFailover=True** na cadeia de conexão. Isso resulta em tentativas de conexão paralela para réplicas em sub-redes diferentes. Observe que esse cenário inclui uma implantação de grupo de disponibilidade do AlwaysOn entre regiões.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

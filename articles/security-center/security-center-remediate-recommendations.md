@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5217c4c7b68c487d7285ec03700266ad2768606d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 325c68e5e4531e5519596bea00c370c26460a8ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571515"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981902"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Corrigir recomendações na central de segurança do Azure
 
-As recomendações fornecem sugestões sobre como proteger melhor seus recursos. Implemente uma recomendação seguindo as etapas de correção fornecidas na recomendação. 
+As recomendações fornecem sugestões sobre como proteger melhor seus recursos. Implemente uma recomendação seguindo as etapas de correção fornecidas na recomendação.
 
 ## Etapas de correção<a name="remediation-steps"></a>
 
@@ -46,12 +46,12 @@ Para implementar a correção rápida de correção:
 
     [![selecionar correção rápida!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. Na guia **recursos não íntegros** , selecione os recursos em que você deseja implementar a recomendação e clique em **corrigir**. 
+1. Na guia **recursos não íntegros** , selecione os recursos em que você deseja implementar a recomendação e clique em **corrigir**.
 
     > [!NOTE]
     > Alguns dos recursos listados podem estar desabilitados, pois você não tem as permissões apropriadas para modificá-los.
 
-1. Na caixa de confirmação, leia os detalhes e as implicações de correção. 
+1. Na caixa de confirmação, leia os detalhes e as implicações de correção.
 
     ![Correção rápida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
@@ -67,19 +67,19 @@ Para implementar a correção rápida de correção:
 
 ## Log de correções de correção rápida no log de atividades<a name="activity-log"></a>
 
-A operação de correção usa uma implantação de modelo ou chamada à API de PATCH REST para aplicar a configuração no recurso. Essas operações são registradas no [log de atividades do Azure](../azure-resource-manager/resource-group-audit.md).
+A operação de correção usa uma implantação de modelo ou chamada à API de PATCH REST para aplicar a configuração no recurso. Essas operações são registradas no [log de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md).
 
 
 ## <a name="recommendations-with-quick-fix-remediation"></a>Recomendações com a correção rápida de correção
 
-|Recomendações|Implicação|
+|Recomendação|Implicação|
 |---|---|
 |A auditoria em servidores SQL deve ser habilitada|Esta ação habilitará a auditoria do SQL nesses servidores e em seus bancos de dados. <br>**Observação**: <ul><li>Para cada região dos SQL Servers selecionados, uma conta de armazenamento para salvar os logs de auditoria será criada e compartilhada por todos os servidores nessa região.</li><li>Para garantir a auditoria adequada, não exclua nem renomeie o grupo de recursos nem as contas de armazenamento.</li></ul>|
 |A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL|Esta ação habilitará o ADS (segurança de dados avançada) do SQL nas instâncias gerenciadas do SQL selecionadas. <br>**Observação**: <ul><li>Para cada região e grupo de recursos das instâncias gerenciadas do SQL selecionadas, uma conta de armazenamento para salvar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li> Os anúncios são cobrados a $15 por instância gerenciada do SQL.</li></ul>|
-|A avaliação de vulnerabilidade deve ser habilitada em suas instâncias gerenciadas do SQL|Esta ação habilitará a avaliação de vulnerabilidade do SQL nas instâncias gerenciadas do SQL selecionadas. <br>**Observação**:<ul><li>A avaliação de vulnerabilidade do SQL faz parte do pacote do SQL Advanced Data Security (ADS). Se o ADS ainda não estiver habilitado, ele será habilitado automaticamente na instância gerenciada.</li><li>Para cada região e grupo de recursos das instâncias gerenciadas do SQL selecionadas, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
+|A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL|Esta ação habilitará a avaliação de vulnerabilidade do SQL nas instâncias gerenciadas do SQL selecionadas. <br>**Observação**:<ul><li>A avaliação de vulnerabilidade do SQL faz parte do pacote do SQL Advanced Data Security (ADS). Se o ADS ainda não estiver habilitado, ele será habilitado automaticamente na instância gerenciada.</li><li>Para cada região e grupo de recursos das instâncias gerenciadas do SQL selecionadas, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
 |A segurança de dados avançada deve ser habilitada em seus servidores SQL|Esta ação habilitará o ADS (segurança de dados avançada) nesses servidores selecionados e seus bancos de dado. <br>**Observação**:<ul><li>Para cada região e grupo de recursos dos SQL Servers selecionados, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todos os servidores nessa região. <</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
 |A avaliação de vulnerabilidade deve ser habilitada em seus servidores SQL|Esta ação habilitará a avaliação de vulnerabilidade do SQL nesses servidores selecionados e seus bancos de dados. <br>**Observação**:<ul><li>A avaliação de vulnerabilidade do SQL faz parte do pacote do SQL Advanced Data Security (ADS). Se o ADS ainda não estiver habilitado, ele será habilitado automaticamente no SQL Server.</li><li>Para cada região e grupo de recursos dos SQL Servers selecionados, uma conta de armazenamento para armazenar os resultados da verificação será criada e compartilhada por todas as instâncias nessa região.</li><li>Os anúncios são cobrados a $15 por SQL Server.</li></ul>||
-|A Transparent Data Encryption em bancos de dados SQL deve ser habilitada|Essa ação habilita o TDE (SQL Database Transparent Data Encryption) nos bancos de dados selecionados. <br>**Observação**: por padrão, as chaves TDE gerenciadas pelo serviço serão usadas. 
+|A Transparent Data Encryption em bancos de dados SQL deve ser habilitada|Essa ação habilita o TDE (SQL Database Transparent Data Encryption) nos bancos de dados selecionados. <br>**Observação**: por padrão, as chaves TDE gerenciadas pelo serviço serão usadas.
 |A transferência segura para contas de armazenamento deve ser habilitada|Essa ação atualiza a segurança da conta de armazenamento para permitir somente solicitações por conexões seguras. (HTTPS). <br>**Observação**:<ul><li>Todas as solicitações que usam HTTP serão rejeitadas.</li><li>Quando você estiver usando o serviço arquivos do Azure, a conexão sem criptografia falhará, incluindo cenários usando SMB 2,1, SMB 3,0 sem criptografia e alguns tipos do cliente Linux SMB. Saiba mais.</li></ul>|
 |Aplicativo Web deve ser acessível somente por HTTPS|Essa ação redirecionará todo o tráfego de HTTP para HTTPS nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto de extremidade HTTPS que não tenha um certificado SSL será exibido no navegador com um ' erro de privacidade '. Portanto, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Verifique se os firewalls do aplicativo Web e do pacote estão protegendo o serviço de aplicativo, permitir encaminhamento de sessões HTTPS.</li></ul>|
 |O aplicativo de funções deve ser acessível apenas por HTTPS|Essa ação redirecionará todo o tráfego de HTTP para HTTPS nos recursos selecionados. <br>**Observação**:<ul><li>Um ponto de extremidade HTTPS que não tenha um certificado SSL será exibido no navegador com um ' erro de privacidade '. Portanto, os usuários que têm um domínio personalizado precisam verificar se configuraram um certificado SSL.</li><li>Verifique se os firewalls do aplicativo Web e do pacote estão protegendo o serviço de aplicativo, permitir encaminhamento de sessões HTTPS.</li></ul>|
@@ -94,7 +94,7 @@ A operação de correção usa uma implantação de modelo ou chamada à API de 
 |Os logs de diagnóstico no Key Vault deve estar habilitados|Esta ação habilita os logs de diagnóstico em cofres de chaves. Os logs de diagnóstico e as métricas são salvos no espaço de trabalho selecionado.|
 |Os logs de diagnóstico no barramento de serviço devem ser habilitados|Essa ação habilita os logs de diagnóstico no barramento de serviço. Os logs de diagnóstico e as métricas são salvos no espaço de trabalho selecionado.|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a central de segurança, consulte os seguintes tópicos:
 

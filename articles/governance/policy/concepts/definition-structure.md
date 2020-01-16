@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: c067a5a603c1adcafe6827b3118ecff20ae23238
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770927"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972843"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -76,7 +76,7 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/tag-support.md).
+`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />modos de provedor de recursos (versão prévia)
 
@@ -552,7 +552,7 @@ Para obter detalhes completos sobre cada efeito, ordem de avaliação, proprieda
 
 ### <a name="policy-functions"></a>Funções de política
 
-Todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso em uma regra de política, exceto as funções e funções definidas pelo usuário a seguir:
+Todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/templates/template-functions.md) estão disponíveis para uso em uma regra de política, exceto as funções e funções definidas pelo usuário a seguir:
 
 - copyIndex()
 - deployment()

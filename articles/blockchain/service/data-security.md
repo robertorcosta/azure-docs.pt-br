@@ -4,12 +4,12 @@ description: Conceitos de segurança e acesso a dados do serviço Blockchain do 
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: e1a40acfec6b0dc5cdf21fb84b341b6b4987797a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455720"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982237"
 ---
 # <a name="azure-blockchain-service-security"></a>Segurança do serviço Blockchain do Azure
 
@@ -23,7 +23,7 @@ Os recursos do serviço Blockchain do Azure são isolados em uma rede virtual pr
 
 ## <a name="encryption"></a>Criptografia
 
-Os dados do usuário são armazenados no armazenamento do Azure. Os dados do usuário são criptografados em movimento e em repouso para segurança e confidencialidade. Para obter mais informações, consulte: [Guia de segurança do armazenamento do Azure](../../storage/common/storage-security-guide.md).
+Os dados do usuário são armazenados no armazenamento do Azure. Os dados do usuário são criptografados em movimento e em repouso para segurança e confidencialidade. Para obter mais informações, consulte: [Guia de segurança do armazenamento do Azure](../../storage/blobs/security-recommendations.md).
 
 ## <a name="authentication"></a>Autenticação
 
@@ -33,7 +33,7 @@ As transações podem ser enviadas para nós blockchain por meio de um ponto de 
 
 Há três modos de autenticação para acesso RPC.
 
-### <a name="basic-authentication"></a>Autenticação básica
+### <a name="basic-authentication"></a>Autenticação Básica
 
 A autenticação básica usa um cabeçalho de autenticação HTTP que contém o nome de usuário e a senha. Nome de usuário é o nome do nó blockchain. A senha é definida durante o provisionamento de um membro ou nó. A senha pode ser alterada usando o portal do Azure ou a CLI.
 
@@ -41,7 +41,7 @@ A autenticação básica usa um cabeçalho de autenticação HTTP que contém o 
 
 As chaves de acesso usam uma cadeia de caracteres gerada aleatoriamente incluída na URL do ponto de extremidade. Duas chaves de acesso ajudam a habilitar a rotação de chaves. As chaves podem ser geradas novamente a partir do portal do Azure e da CLI.
 
-### <a name="azure-active-directory"></a>Active Directory do Azure
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 O Azure Active Directory (AD do Azure) usa um mecanismo de autenticação baseado em declaração em que o usuário é autenticado pelo Azure AD usando as credenciais de usuário do Azure AD. O Azure AD fornece gerenciamento de identidade baseado em nuvem e permite que os clientes usem uma única identidade em toda a empresa e acessem aplicativos na nuvem. O serviço Blockchain do Azure integra-se ao Azure AD habilitando a Federação de ID, logon único e autenticação multifator. Você pode atribuir usuários, grupos e funções de aplicativo em sua organização para acesso de membro e nó do blockchain.
 
@@ -57,6 +57,6 @@ As chaves privadas são usadas para assinar digitalmente as transações. No blo
 
 As chaves Constellation são usadas para identificar exclusivamente um nó de quorum. As chaves Constellation são geradas no momento do provisionamento do nó e são especificadas no parâmetro privateFor de uma transação privada no quorum.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [como configurar o acesso de Azure Active Directory para o serviço Blockchain do Azure](configure-aad.md).

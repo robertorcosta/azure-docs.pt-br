@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 27d43af2d5860d287d8b5914379747ae528db34b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073258"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980161"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual de dependência Azure Monitor para Windows
 
@@ -71,7 +71,7 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| NOME | Valor/exemplo |
+| Nome | Valor/exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publicador | Microsoft.Azure.Monitoring.DependencyAgent |
@@ -82,7 +82,7 @@ O JSON a seguir mostra o esquema para a extensão do agente de dependência de V
 
 Você pode implantar as extensões de VM do Azure com modelos de Azure Resource Manager. Você pode usar o esquema JSON detalhado na seção anterior em um modelo de Azure Resource Manager para executar a extensão do agente de dependência de VM do Azure durante uma implantação de modelo de Azure Resource Manager.
 
-O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual. Ou você pode colocá-lo no nível raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/child-resource-name-type.md).
+O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual. Ou você pode colocá-lo no nível raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/templates/child-resource-name-type.md).
 
 O exemplo a seguir pressupõe que a extensão do agente de dependência está aninhada dentro do recurso de máquina virtual. Quando você Aninha o recurso de extensão, o JSON é colocado no objeto `"resources": []` da máquina virtual.
 

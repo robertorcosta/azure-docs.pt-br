@@ -10,16 +10,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: d34182e09bf453dbec1e9592f131cb9b3b78a086
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0506527808892bf1ee531d892e2773d095e18560
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086483"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965638"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas das máquinas virtuais no Azure
 
-Pode haver vários motivos pelos quais uma máquina virtual entra em um estado não inicializável. Para solucionar problemas com as máquinas virtuais criadas usando o modelo de implantação do Resource Manager, use os seguintes recursos de depuração: Suporte de Captura de Tela e Saída do Console para máquinas virtuais do Azure. 
+Pode haver vários motivos pelos quais uma máquina virtual entra em um estado não inicializável. Para resolver problemas com suas máquinas virtuais criadas usando o modelo de implantação do Gerenciador de recursos, você pode usar os seguintes recursos de depuração: saída do console e suporte a captura de tela para máquinas virtuais do Azure. 
 
 Para Máquinas Virtuais do Linux, exiba a saída do log de console no portal. Para Máquinas Virtuais do Windows e do Linux, o Azure permite que você veja uma captura de tela da VM no hipervisor. Há suporte para os dois recursos nas máquinas virtuais do Azure em todas as regiões. Anotações, capturas de tela e saídas podem levar até 10 minutos para aparecer na sua conta de armazenamento.
 
@@ -79,7 +79,7 @@ O perfil de diagnóstico permite que você selecione a conta de armazenamento em
 }
 ```
 
-Para obter mais informações sobre como implantar recursos usando modelos, confira [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+Para obter mais informações sobre como implantar recursos usando modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitar o diagnóstico de inicialização em uma máquina virtual existente 
 

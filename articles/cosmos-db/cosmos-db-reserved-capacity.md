@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441940"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969364"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade reservada no Azure Cosmos DB
 
@@ -20,9 +20,9 @@ Azure Cosmos DB capacidade reservada ajuda você a economizar dinheiro confirman
 
 A capacidade reservada do Azure Cosmos DB pode reduzir significativamente os custos do Cosmos DB&mdash;até 65% nos preços regulares, com um compromisso antecipado de um a três anos. A capacidade reservada proporciona um desconto de cobrança e não afeta o estado do runtime dos seus recursos do Azure Cosmos DB.
 
-Capacidade reservada do Azure Cosmos DB cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede. Assim que você compra uma reserva, as cobranças de taxa de transferência que correspondem aos atributos de reserva não são mais cobradas nas taxas de pagamento conforme o uso. Para obter mais informações sobre reservas, confira o artigo [Reservas do Azure](../billing/billing-save-compute-costs-reservations.md).
+Capacidade reservada do Azure Cosmos DB cobre a taxa de transferência provisionada para seus recursos. Ela não cobre encargos de armazenamento e rede. Assim que você compra uma reserva, as cobranças de taxa de transferência que correspondem aos atributos de reserva não são mais cobradas nas taxas de pagamento conforme o uso. Para obter mais informações sobre reservas, confira o artigo [Reservas do Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
-Você pode comprar a capacidade reservada do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../billing/billing-monthly-payments-reservations.md). Para comprar uma capacidade reservada:
+Você pode comprar a capacidade reservada do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar uma capacidade reservada:
 
 * Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.  
 * Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
@@ -74,22 +74,22 @@ Quando sua reserva expirar, as instâncias do Azure Cosmos DB continuarão sendo
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Para obter ajuda com a identificação da capacidade reservada correta, consulte [entender como o desconto de reserva é aplicado a Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+Para obter ajuda com a identificação da capacidade reservada correta, consulte [entender como o desconto de reserva é aplicado a Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
-É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+É possível cancelar, trocar ou reembolsar reservas com determinadas limitações. Para saber mais, confira [Trocas e reembolsos via autoatendimento para Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Próximos passos
 
 O desconto da reserva é aplicado automaticamente aos recursos do Azure Cosmos DB que correspondem ao escopo e aos atributos da reserva. Você pode atualizar o escopo da reserva por meio do portal do Azure, do PowerShell, da CLI do Azure ou da API.
 
-*  Para saber como os descontos da capacidade reservada são aplicados ao Azure Cosmos DB, confira [Entender o desconto de reserva do Azure](../billing/billing-understand-cosmosdb-reservation-charges.md).
+*  Para saber como os descontos da capacidade reservada são aplicados ao Azure Cosmos DB, confira [Entender o desconto de reserva do Azure](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
 * Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
-   * [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)  
-   * [Gerenciar reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)  
-   * [Entender o uso de reserva para seu registro de empresa](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)
+   * [Quais são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [Gerenciar reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
+   * [Entender o uso de reserva para seu registro de empresa](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
+   * [Entender o uso de reserva para a sua assinatura paga conforme o uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Reservas do Azure no programa CSP do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.

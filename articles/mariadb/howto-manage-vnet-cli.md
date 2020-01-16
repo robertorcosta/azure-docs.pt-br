@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: eea6f6751f7e7f6ded1b1c7004115d101f1dcc94
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9f15c8230c2dad558e9a125ebe6874a7429f3488
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965899"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Criar e gerenciar o Banco de Dados do Azure para MariaDB para pontos de extremidade de serviço do MariaDB VNet usando a CLI do Azure
 
@@ -24,7 +24,7 @@ Para seguir este guia de instruções, você precisa:
 - Um [banco de dados e um servidor do Banco de Dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 > [!NOTE]
-> O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizado para memória.
+> O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 ## <a name="configure-vnet-service-endpoints"></a>Configurar pontos de extremidade de serviço de rede virtual
 Os comandos [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) são usados para configurar redes virtuais.
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Para ver a versão instalada, execute o comando `az --version`. Caso precise instalá-la ou atualizá-la, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Para ver a versão instalada, execute o comando `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 Se você estiver executando a CLI localmente, precisará fazer logon em sua conta usando o comando [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
 ```azurecli-interactive
@@ -55,7 +55,7 @@ As VNets e os recursos de serviço do Azure podem estar na mesma assinatura ou e
 > [!IMPORTANT]
 > É altamente recomendável ler este artigo sobre considerações e configurações de ponto de extremidade de serviço antes de configurá-los. **Ponto de extremidade de serviço de rede virtual:** um [ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo formais de serviço do Azure. Os pontos de extremidade de serviços de VNet usam o nome de tipo de serviço **Microsoft.Sql**, que se refere ao serviço do Azure chamado Banco de Dados SQL. Essa marca de serviço também se aplica aos bancos de dados do Banco de Dados SQL do Azure, Banco de Dados do Azure para MariaDB, PostgreSQL e MySQL. É importante observar ao aplicar a marca de serviço **Microsoft.Sql** a um ponto de extremidade do serviço VNet que ela configura o tráfego de ponto de extremidade de serviço para todos os serviços do Banco de Dados do Azure, incluindo o Banco de Dados SQL do Azure, Banco de Dados do Azure para PostgreSQL, Banco de Dados do Azure para MariaDB, e Banco de Dados do Azure para servidores MySQL na sub-rede.
 
-### <a name="sample-script"></a>Script de exemplo
+### <a name="sample-script"></a>Exemplo de script
 
 Este script de amostra é usado para criar um Banco de Dados do Azure para MariaDB, criar um ponto de extremidade de serviço VNet, VNet e proteger o servidor na sub-rede com uma regra VNet. Neste script de exemplo, altere o nome de usuário administrador e a senha. Substitua a SubscriptionID usada nos comandos `az account set --subscription` pelo identificador de assinatura.
 
@@ -133,4 +133,4 @@ az group delete --name myresourcegroup
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

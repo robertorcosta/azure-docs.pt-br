@@ -3,12 +3,12 @@ title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406605"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982484"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
@@ -59,9 +59,9 @@ Passar um parâmetro de blueprint que usa uma função, como `[resourceGroup().t
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
+Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

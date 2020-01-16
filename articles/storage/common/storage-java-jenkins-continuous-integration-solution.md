@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839127"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970180"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução de integração contínua do Jenkins
 
@@ -49,7 +49,7 @@ Alguns dos benefícios de usar o serviço Blob para hospedar seus artefatos de c
      
       Embora uma solução Jenkins CI típica seria configurada para ser executada como um serviço, executar o Jenkins.war na linha de comando será suficiente para este tutorial.
 * Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <https://www.azure.com>.
-* Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Criar uma Conta de Armazenamento](../common/storage-quickstart-create-account.md).
+* Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Criar uma Conta de Armazenamento](../common/storage-account-create.md).
 * Estar familiarizado com a solução de CI Jenkins é recomendável, mas não obrigatório, já que o conteúdo a seguir usará um exemplo básico para mostrar as etapas necessárias ao usar o serviço Blob como um repositório para os artefatos de compilação de CI Jenkins.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Como usar o serviço Blob com a Jenkins CI
@@ -104,7 +104,7 @@ Para fins de instrução, primeiro você precisa criar um trabalho que criará v
 12. Selecione **salvar** para salvar suas configurações.
 13. No painel do Jenkins, selecione **compilar agora** para ser executado **MyJob**. Examine a saída do console para o status. As mensagens de status para o armazenamento do Azure serão incluídas na saída do console quando a ação de pós-compilação iniciar o carregamento dos artefatos de compilação.
 14. Após a conclusão bem-sucedida do trabalho, você poderá examinar os artefatos de compilação abrindo o blob público.
-    1. Entre no [Portal do Azure](https://portal.azure.com).
+    1. Entre no [portal do Azure](https://portal.azure.com).
     2. Selecione **Armazenamento**.
     3. Selecione o nome da conta de armazenamento que você usou para o Jenkins.
     4. Selecione **Contêineres**.
@@ -129,8 +129,8 @@ Depois de executar uma compilação, você pode verificar a saída do console de
 Esta seção fornece uma visão geral dos componentes do serviço Blob.
 
 * **Conta de Armazenamento**: todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Uma conta de armazenamento é o nível mais alto do namespace para acessar blobs. Uma conta pode conter um número ilimitado de contêineres, desde que seu tamanho total seja inferior a 100 TB.
-* **Contêiner**: o contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
-* **Blob**: um arquivo de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Contêiner**: o contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem estar em um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs.
+* **Blob**: um arquivo de qualquer tipo e tamanho. Há dois tipos de blobs que podem ser armazenados no Armazenamento do Azure: blobs de blocos e de páginas. A maioria dos arquivos são blobs de bloco. Um único blob de blocos pode ter até 200 GB de tamanho. Este tutorial usa blobs de bloco. Os blobs de página, um outro tipo de blob, podem ter até 1 TB de tamanho e são mais eficientes quando os intervalos de bytes em um arquivo são modificados com frequência. Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Bloco, Blobs de Anexo e Blobs de Página](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato de URL**: os blobs são endereçáveis usando o seguinte formato de URL:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -141,15 +141,15 @@ Esta seção fornece uma visão geral dos componentes do serviço Blob.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
+## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de solução de problemas
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Conheça Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
 * [Referência de SDK do Cliente de Armazenamento do Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog da Equipe do Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Para saber mais, visite [Azure para desenvolvedores Java](/java/azure).

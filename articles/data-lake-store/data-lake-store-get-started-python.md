@@ -1,5 +1,5 @@
 ---
-title: 'Python: Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Python: operações de gerenciamento de conta no Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Saiba como usar o SDK do Python para trabalhar com as operações de gerenciamento de conta do Azure Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 494959e071fb5777f9a815b5bde4bd093cf10bd6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fad832ba7b16e8dbb37043d971368062fcbd842f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088791"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966034"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 usando Python
 > [!div class="op_single_selector"]
 > * [SDK .NET](data-lake-store-get-started-net-sdk.md)
-> * [API REST](data-lake-store-get-started-rest-api.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-Saiba como usar o SDK do Python do Azure Data Lake Storage Gen1 para executar operações básicas de gerenciamento de contas como criar uma conta do Data Lake Storage Gen1, listar as contas do Data Lake Storage Gen1, etc. Para obter instruções sobre como executar operações do sistema de arquivos no Data Lake Storage Gen1 usando Python, consulte [Operações do sistema de arquivos no Data Lake Storage Gen1 usando Python](data-lake-store-data-operations-python.md).
+Saiba como usar o SDK do Python para Azure Data Lake Storage Gen1 executar operações básicas de gerenciamento de conta, como criar uma conta de Data Lake Storage Gen1, listar as contas de Data Lake Storage Gen1, etc. Para obter instruções sobre como executar operações de sistema de arquivos em Data Lake Storage Gen1 usando o Python, consulte [operações de sistema de arquivos em data Lake Storage Gen1 usando Python](data-lake-store-data-operations-python.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Saiba como usar o SDK do Python do Azure Data Lake Storage Gen1 para executar op
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Um grupo de recursos do Azure**. Para obter instruções, veja [Criar um grupo de recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+* **Um grupo de recursos do Azure**. Para obter instruções, veja [Criar um grupo de recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 ## <a name="install-the-modules"></a>Instalar os módulos
 
@@ -130,7 +130,7 @@ O snippet a seguir primeiro cria o cliente da conta do Data Lake Storage Gen1. E
     adlsAcctClient.account.delete(adlsAccountName)
     
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Operações de filesystem no Data Lake Storage Gen1 usando Python](data-lake-store-data-operations-python.md).
 
 ## <a name="see-also"></a>Consulte também

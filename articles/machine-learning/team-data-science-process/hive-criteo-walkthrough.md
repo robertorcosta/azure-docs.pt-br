@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492360"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968726"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
@@ -44,7 +44,7 @@ Este é um trecho das 20 primeiras colunas de duas observações (linhas) desse 
 
 Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados. É descrito um método simples para lidar com os valores ausentes. Detalhes adicionais dos dados são explorados aos armazená-los em tabelas do Hive.
 
-**Definição:** *CTR (taxa de clickthrough):* é o percentual de cliques nos dados. Neste conjunto de dados da Criteo, a CTR é de cerca de 3,3% ou 0,033.
+**Definição:** *taxa de clickthrough (CTR):* é a porcentagem de cliques nos dados. Neste conjunto de dados da Criteo, a CTR é de cerca de 3,3% ou 0,033.
 
 ## <a name="mltasks"></a>Exemplos de tarefas de previsão
 Dois exemplos de problemas de previsão são abordados neste passo a passo:
@@ -60,7 +60,7 @@ Dois exemplos de problemas de previsão são abordados neste passo a passo:
 
 Configure seu ambiente de Ciência de dados do Azure para a criação de soluções analíticas de previsão com clusters do HDInsight em três etapas:
 
-1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md): esta conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
+1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md): esta conta de armazenamento é usada para armazenar dados no Armazenamento de Blob do Azure. Os dados usados em clusters do HDInsight são armazenados aqui.
 2. [Personalizar clusters Hadoop do Azure HDInsight para ciência de dados](customize-hadoop-cluster.md): esta etapa cria um cluster Hadoop do Azure HDInsight com o Anaconda Python 2.7 de 64 bits instalado em todos os nós. Há duas etapas importantes (descritas neste tópico) a serem executadas para personalizar o cluster do HDInsight.
 
    * Você deve vincular a conta de armazenamento criada na etapa 1 ao cluster do HDInsight quando ele é criado. Essa conta de armazenamento é usada para acessar dados que podem ser processados dentro do cluster.

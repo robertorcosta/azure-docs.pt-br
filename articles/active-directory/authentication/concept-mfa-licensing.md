@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a2afad33aea7fa2a21135dca0995ad862a2258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1528bffc613d2e8ab2c0150095d90791b649198a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848656"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979494"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
 
@@ -30,9 +30,9 @@ Quando se trata de proteger suas contas, verificação em duas etapas deve ser p
 
 A tabela a seguir descreve as diferenças entre as versões de autenticação multifator:
 
-| Versão | Descrição |
+| Versão | Description |
 | --- | --- |
-| Opção gratuita | Os clientes que estão utilizando os benefícios gratuitos do Azure AD podem usar os [padrões de segurança](../conditional-access/concept-conditional-access-security-defaults.md) para habilitar a autenticação multifator em seu ambiente. |
+| Opção gratuita | Os clientes que estão utilizando os benefícios gratuitos do Azure AD podem usar os [padrões de segurança](../fundamentals/concept-fundamentals-security-defaults.md) para habilitar a autenticação multifator em seu ambiente. |
 | Autenticação Multifator para Office 365 | Esta versão é gerenciada no portal do Office 365 ou Microsoft 365. Os administradores podem [proteger recursos do Office 365 com a verificação de duas etapas](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versão faz parte de uma assinatura do Office 365. |
 | Autenticação Multifator para Administradores do Azure AD | Os usuários atribuídos à função Administrador global do Azure AD nos locatários do Azure AD podem habilitar a verificação em duas etapas sem custo adicional. |
 | Autenticação Multifator do Azure | Geralmente conhecida como a versão "completa", a Autenticação Multifator do Azure oferece o conjunto mais avançado de recursos. Ela fornece opções de configuração adicionais por meio do [portal do Azure](https://portal.azure.com), relatórios avançados e suporte para uma variedade de aplicativos locais e na nuvem. A autenticação multifator do Azure é um recurso de [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e [Microsoft 365 Business](https://www.microsoft.com/microsoft-365/business). |
@@ -48,7 +48,7 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 > Esta tabela de comparação aborda os recursos que fazem parte de cada versão da Autenticação Multifator. Se você tiver o serviço completo da Autenticação Multifator do Azure, alguns recursos podem não estar disponíveis caso você use [MFA na nuvem ou MFA no local](concept-mfa-whichversion.md).
 >
 
-| Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para Administradores do Azure AD | Autenticação Multifator do Azure | Padrões de segurança | 
+| Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para Administradores do Azure AD | Autenticação Multifator do Azure | Padrões de segurança |
 | --- |:---:|:---:|:---:|:---:|
 | Proteger contas de administrador do Azure AD com MFA |● |● (Apenas para contas de Administrador Global do Azure AD) |● |● |
 | Aplicativos móveis como um fator secundário |● |● |● |● |

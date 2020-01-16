@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381dfb4fca7476d5805bff92d58ecbbf49679346
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354864"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979966"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure
 
@@ -79,7 +79,7 @@ Para configurar a Transparent Data Encryption por meio do portal do Azure, será
 
 Você define a Transparent Data Encryption dentro e fora do nível do banco de dados. Para habilitar a Transparent Data Encryption em um banco de dados, vá para o [portal do Azure](https://portal.azure.com) e entre com a conta de Administrador ou Colaborador do Azure. Localize as configurações de Transparent Data Encryption no banco de dados do usuário. Por padrão, é utilizada a Transparent Data Encryption de serviço gerenciado. Um certificado de Transparent Data Encryption é gerado automaticamente para o servidor que contém o banco de dados. Para a instância gerenciada do SQL do Azure use T-SQL para ativar a transparent data encryption e desativar um banco de dados.
 
-![Transparent Data Encryption de serviço gerenciado](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
+![Transparent Data Encryption de serviço gerenciado](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)
 
 Você define a chave mestra de Transparent Data Encryption, também conhecida como protetor de Transparent Data Encryption, no nível do servidor. Para usar a Transparent Data Encryption com suporte Bring Your Own Key e proteger os bancos de dados com uma chave do Key Vault, consulte as configurações de Transparent Data Encryption no servidor.
 

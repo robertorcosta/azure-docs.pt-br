@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495061"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981126"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários para análises avançadas no Azure Machine Learning
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
@@ -29,7 +29,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 > **Para todos os cenários a seguir, você precisa:**
 > <br/>
 > 
-> * [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md)
+> * [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [Criar um workspace de Azure Machine Learning](../studio/create-workspace.md)
 > 
@@ -186,9 +186,9 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 
 1. Desanexe o banco de dados no local de origem. Para saber mais, veja [Desanexar um banco de dados](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 1. Na janela de prompt de comando do Windows Explorer ou Windows, copie os arquivos do banco de dados e os arquivos de log desanexados para o local de destino na VM do SQL Server no Azure.
-1. Anexe os arquivos copiados à instância de destino do SQL Server. Para saber mais, veja [Anexar um banco de dados](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
+1. Anexe os arquivos copiados à instância de destino do SQL Server. Para obter mais informações, consulte [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
-[Mover um Banco de Dados utilizando Desanexar e Anexar (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
+[Mover um banco de dados utilizando Desanexar e Anexar (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
 ## <a name="largedbtohive"></a>Cenário \#7: Big Data em arquivos locais, com um banco de dados Hive em clusters Hadoop do Azure HDInsight como destino
 ![Big Data no Hive local de destino][9]

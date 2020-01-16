@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: d1cb34f1666db0e213a41fa8d2e684ba148b7e61
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7756d4c808e104b0de14e1cea4af5e843cff755c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088456"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981776"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível adicionar o desktop remoto para máquinas virtuais do Azure devido a IP estático
 
 Este artigo descreve um problema no qual você não pode adicionar uma área de trabalho remota para Máquinas Virtuais do Windows do Azure (VMs) depois que um IP estático é configurado na VM.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -63,7 +63,7 @@ Para resolver esse problema, use o controle Serial para ativar o DHCP ou [redefi
 
         netsh interface ip set address name="<NIC Name>" source=dhc
 
-    Por exemplo, se a interface interwork nomear "Ethernet 2", execute o seguinte comando:
+    Por exemplo, se o adaptador de rede nomear "Ethernet 2", execute o seguinte comando:
 
         netsh interface ip set address name="Ethernet 2" source=dhc
 
@@ -71,6 +71,6 @@ Para resolver esse problema, use o controle Serial para ativar o DHCP ou [redefi
 
         netsh interface ip show config
 
-    Você não precisa reiniciar a VM neste momento. A VM estará de volta acessível.
+    Não é necessário reiniciar a VM nesse momento. A VM retornará acessível.
 
 Depois disso, se você quiser configurar o IP estático para a VM, consulte [Configurar endereços IP estático para uma VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).

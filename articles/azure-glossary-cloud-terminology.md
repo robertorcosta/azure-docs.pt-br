@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659552"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978769"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -31,7 +31,7 @@ O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuv
 
 ## <a name="account"></a>account
 Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Ele também é conhecido como uma conta do Azure Embora uma conta pode ser um dos seguintes: um trabalho existente, escola, ou pessoais conta da Microsoft, ou um nome de usuário do Office 365 e senha. Você também pode criar uma conta para gerenciar uma assinatura do Azure, quando você se inscreve para o [avaliação gratuita](https://azure.microsoft.com).  
-veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) e [contas que você pode usar para entrar no](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicativo de API
 Outro nome para o [aplicativo de Serviço de Aplicativo](#app-service-app).
@@ -96,11 +96,11 @@ Veja [Regiões do Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>recurso
 Um item que faz parte de sua solução do Azure. Cada serviço do Azure permite que você implante tipos diferentes de recursos, como bancos de dados ou máquinas virtuais.   
-Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Veja [Visão geral do Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="resource-group"></a>grupo de recursos
 Um contêiner no Resource Manager que armazena os recursos relacionados para um aplicativo. O grupo de recursos pode incluir todos os recursos de um aplicativo ou apenas os recursos que são agrupados logicamente. Você pode decidir como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.  
-Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Veja [Visão geral do Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>modelo do Resource Manager
 Um arquivo JSON que define declarativamente um ou mais recursos do Azure e que define as dependências entre os recursos implantados. O modelo pode ser usado para implantar os recursos de forma consiste e repetida.  
@@ -108,7 +108,7 @@ Veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templa
 
 ## <a name="resource-provider"></a>provedor de recursos
 Um serviço que fornece os recursos que você pode implantar e gerenciar por meio do Resource Manager. Cada provedor de recursos oferece operações para trabalhar com os recursos implantados. Os provedores de recursos podem ser acessados por meio do portal do Azure, Azure PowerShell e vários SDKs de programação.  
-Veja [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Veja [Visão geral do Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="role"></a>função
 Um meio para controlar o acesso que pode ser atribuído a usuários, grupos e serviços. As funções são capazes de executar ações, por exemplo, criar, gerenciar e ler recursos do Azure.  

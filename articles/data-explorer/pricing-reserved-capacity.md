@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbb2108967353b851a0fa0ee610ec30380e3fc50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769091"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969280"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Pagar antecipadamente pelas unidades de marcação de Data Explorer do Azure com a capacidade reservada do Azure Data Explorer
 
@@ -27,8 +27,8 @@ Você pode comprar o Azure Data Explorer capacidade reservada no [portal do Azur
 * Para o programa CSP (provedor de soluções na nuvem), somente os agentes de administração ou os agentes de vendas podem comprar a capacidade reservada do Azure Data Explorer.
 
 Para obter detalhes sobre como clientes corporativos e clientes pagos conforme o uso são cobrados por compras de reserva, consulte:
-* [Entender o uso de reserva do Azure para seu registro corporativo](../billing/billing-understand-reserved-instance-usage-ea.md) 
-* [Entenda o uso de reserva do Azure para sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md).
+* [Entender o uso de reserva do Azure para seu registro corporativo](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 
+* [Entenda o uso de reserva do Azure para sua assinatura paga conforme o uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="determine-the-right-markup-usage-before-purchase"></a>Determinar o uso correto da marcação antes da compra
 
@@ -54,7 +54,7 @@ Se você precisar cancelar sua reserva de capacidade reservada do Azure Data Exp
 
 Se você precisar alterar a reserva de capacidade reservada do Azure Data Explorer para outro termo, poderá Exchange para outra reserva que seja de valor igual ou maior. A data de início do prazo da nova reserva não é a mesma da reserva trocada. O prazo de 1 ou 3 anos começa quando você cria a nova reserva. Para solicitar uma troca, vá até a reserva no portal do Azure e selecione **Trocar** para criar uma solicitação de suporte.
 
-Para obter mais informações sobre como trocar ou reembolsar reservas, consulte trocas [e reembolsos de reserva](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Para obter mais informações sobre como trocar ou reembolsar reservas, consulte trocas [e reembolsos de reserva](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="manage-your-reserved-capacity-reservation"></a>Gerenciar sua reserva de capacidade reservada
 
@@ -63,18 +63,18 @@ O desconto de reserva das unidades de marcação do Azure Data Explorer é aplic
 
 > [!NOTE]
 > * Você pode atualizar o escopo do Azure Data Explorer reserva de capacidade reservada por meio do [portal do Azure](https://portal.azure.com), do PowerShell, da CLI ou da API.
-> * Para saber como gerenciar a reserva de capacidade reservada do Azure Data Explorer, consulte [gerenciar a capacidade reservada do azure data Explorer](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
+> * Para saber como gerenciar a reserva de capacidade reservada do Azure Data Explorer, consulte [gerenciar a capacidade reservada do azure data Explorer](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md).
 
 ## <a name="next-steps"></a>Próximos passos
 
-Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
+Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
-* [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
-* [Gerenciar Reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
-* [Compreender o desconto de Reservas do Azure](../billing/billing-understand-reservation-charges.md)
-* [Entender o uso de reserva para a sua assinatura paga conforme o uso](../billing/billing-understand-reserved-instance-usage.md)
-* [Entender o uso de reserva para seu registro de empresa](../billing/billing-understand-reserved-instance-usage-ea.md)
-* [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center.](https://docs.microsoft.com/partner-center/azure-reservations)
+* [O que são Reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Gerenciar Reservas do Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Compreender o desconto de Reservas do Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Entender o uso de reserva para a sua assinatura paga conforme o uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [Entender o uso de reserva para seu registro de empresa](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Reservas do Azure no programa de CSP (Provedor de Soluções na Nuvem) do Partner Center](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
 

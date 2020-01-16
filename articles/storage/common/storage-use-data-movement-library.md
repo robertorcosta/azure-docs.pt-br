@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 22dae518a45d5c4af20044d5f3eb88e764e92c8b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895123"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978384"
 ---
-# <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca de movimentação de dados
+# <a name="transfer-data-with-the-data-movement-library"></a>Transferir dados com a biblioteca de Movimentação de Dados
 
 A biblioteca de movimentação de dados do armazenamento do Azure é uma biblioteca de software livre de plataforma cruzada projetada para carregamento de alto desempenho, download e cópia de BLOBs e arquivos. Essa biblioteca é a estrutura de movimentação de dados principal que capacita o [AzCopy](../storage-use-azcopy.md). A biblioteca de movimentação de dados fornece métodos convenientes que não estão disponíveis na biblioteca de cliente de armazenamento do Azure para .NET. Esses métodos fornecem a capacidade de definir o número de operações paralelas, acompanhar o progresso da transferência, retomar facilmente uma transferência cancelada e muito mais.
 
@@ -35,9 +35,9 @@ Este documento demonstra como criar um aplicativo de console .NET Core que é ex
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Uma conta do Armazenamento do Azure](storage-quickstart-create-account.md)
+- [Uma conta do Armazenamento do Azure](storage-account-create.md)
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 1. Visite o [.NET Core Installation Guide](https://www.microsoft.com/net/core) (Guia de Instalação do .NET Core) para instalar o .NET Core. Ao selecionar o seu ambiente, escolha a opção de linha de comando.
 2. Na linha de comando, crie um diretório para seu projeto. Navegue nesse diretório, digite `dotnet new console -o <sample-project-name>` para criar um projeto de console C#.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073679"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967454"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -73,7 +73,7 @@ Você tem várias opções para copiar uma instância de Gerenciamento de API pa
 * Criar seu próprio recurso de backup e restauração usando a [API REST de Gerenciamento de API](/rest/api/apimanagement/). Use a API REST para salvar e restaurar as entidades da instância do serviço que você deseja.
 * Baixe a configuração de serviço usando o Git e carregue-a em uma nova instância. Para obter mais informações, confira [Saiba como salvar e definir a configuração do seu serviço de Gerenciamento de API usando o Git](api-management-configuration-repository-git.md).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Posso gerenciar minha instância de Gerenciamento de API por meio de programação?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>É possível gerenciar minha instância de Gerenciamento de API programaticamente?
 Sim, você pode gerenciar o Gerenciamento de API de forma programática, usando:
 
 * A [API REST de Gerenciamento de API](/rest/api/apimanagement/)
@@ -83,7 +83,7 @@ Sim, você pode gerenciar o Gerenciamento de API de forma programática, usando:
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como adicionar um usuário ao grupo Administradores?
 Veja como você pode adicionar um usuário ao grupo Administradores:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Vá para o grupo de recursos que tem a instância de Gerenciamento de API que você deseja atualizar.
 3. No gerenciamento de API, atribua a função **colaborador do serviço de gerenciamento de API** ao usuário.
 
@@ -103,7 +103,7 @@ Para configurar vários ambientes, por exemplo, um ambiente de teste e um ambien
 * Hospede APIs diferentes no mesmo locatário.
 * Hospede as mesmas APIs em locatários diferentes.
 
-### <a name="can-i-use-soap-with-api-management"></a>Pode usar SOAP com Gerenciamento de API?
+### <a name="can-i-use-soap-with-api-management"></a>É possível usar SOAP com o Gerenciamento de API?
 O suporte a [Passagem SOAP](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) agora está disponível. Os administradores podem importar o WSDL do serviço SOAP e o Gerenciamento de API do Azure criará um front-end SOAP. Documentação do portal de desenvolvedor, console de teste, políticas e análise estão disponíveis para serviços SOAP.
 
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>Posso configurar um servidor de autorização OAUth 2.0 com segurança ADFS?
@@ -119,7 +119,7 @@ Sim. Consulte os modelos de início rápido do [serviço de gerenciamento de API
 Sim. Isso pode ser feito usando o PowerShell ou enviando diretamente à API. Isso desabilitará a validação da cadeia de certificados e permitirá que você use certificados autoassinados ou assinados de forma privada ao se comunicar do Gerenciamento de API com os serviços de back-end.
 
 #### <a name="powershell-method"></a>Método com o PowerShell ####
-Use os cmdlets [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (para um novo back-end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (para um back-end existente) do PowerShell e defina o parâmetro `-SkipCertificateChainValidation` como `True`. 
+Use os cmdlets [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (para um novo back-end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (para um back-end existente) do PowerShell e defina o parâmetro `-SkipCertificateChainValidation` como `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -139,13 +139,13 @@ Sim. O Gerenciamento de API funciona com o Azure ExpressRoute.
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Por que exigimos uma sub-rede dedicada em Resource Manager tipo VNETs quando o Gerenciamento de API é implantado nelas?
 O requisito de sub-rede dedicado para o Gerenciamento de API vem do fato de ser desenvolvido no modelo de implantação Clássico (camada PAAS V1). Embora possamos implantar em uma VNET do Resource Manager (camada V2), isso tem consequências. O modelo de implantação Clássico no Azure não é rigorosamente acoplado ao modelo do Resource Manager e, portanto, se você criar um recurso na camada V2, a camada V1 não o reconhecerá e isso acarretará problemas, como o Gerenciamento de API tentar usar um IP que já está alocado a uma NIC (desenvolvido em V2).
-Para saber mais sobre a diferença dos modelos do Resource Manager e Clássico no Azure, consulte [diferença nos modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md).
+Para saber mais sobre a diferença dos modelos do Resource Manager e Clássico no Azure, consulte [diferença nos modelos de implantação](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Qual é o tamanho mínimo de sub-rede necessário ao implantar o Gerenciamento de API em uma VNET?
 O tamanho mínimo de sub-rede necessário para implantar o Gerenciamento de API é [/29](../virtual-network/virtual-networks-faq.md#configuration), que é o tamanho mínimo de sub-rede que o Azure oferece suporte.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Posso mover um serviço de Gerenciamento de API de uma assinatura para outra?
-Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Há restrições ou problemas conhecidos com a importação da minha API?
 [Restrições e problemas conhecidos](api-management-api-import-restrictions.md) para formatos Open API (Swagger), WSDL e WADL.

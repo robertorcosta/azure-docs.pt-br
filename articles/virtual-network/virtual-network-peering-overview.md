@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646737"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980098"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -34,7 +34,7 @@ Os benefícios do uso do emparelhamento de rede virtual, seja local ou global, i
 * A capacidade de recursos em uma rede virtual se comunicarem com recursos em uma rede virtual diferente.
 * A capacidade de transferir dados entre redes virtuais entre as assinaturas do Azure, Azure Active Directory locatários, modelos de implantação e regiões do Azure.
 * A capacidade de emparelhar redes virtuais criadas por meio do Azure Resource Manager.
-* A capacidade de emparelhar uma rede virtual criada por meio do Resource Manager para uma criada por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* A capacidade de emparelhar uma rede virtual criada por meio do Resource Manager para uma criada por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Nenhum tempo de inatividade para recursos em qualquer rede virtual ao criar o emparelhamento ou depois que o emparelhamento é criado.
 
 O tráfego de rede entre redes virtuais emparelhadas é particular. O tráfego entre as redes virtuais é mantido na rede de backbone da Microsoft. Não são necessários a Internet pública, os gateways ou a criptografia na comunicação entre as redes virtuais.

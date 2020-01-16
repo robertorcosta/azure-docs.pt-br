@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 6e85e33cf0488cf688303c590c2bbaf5d671d9b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467114"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980478"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -63,25 +63,25 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Serviço confiável|Cenários de uso com suporte|
 | --- | --- |
 |Serviço de implantação de Máquinas Virtuais do Microsoft Azure|[Implanta certificados para VMs a partir do Key Vault gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
-|Serviço de implantação de modelo do Azure Resource Manager|[Transmite valores seguros durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Serviço de implantação de modelo do Azure Resource Manager|[Transmite valores seguros durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md).|
 |Serviço de criptografia de volume do Azure Disk Encryption|Permite acesso à Chave do BitLocker (VM do Windows) ou à Frase Secreta de DM (VM do Linux) e à Chave de Criptografia de Chave durante a implantação da máquina virtual. Isso habilita o [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).|
-|Serviço de Backup do Azure|Permite backup e restauração de chaves e segredos relevantes durante o backup de Máquinas Virtuais do Azure, usando o [Backup do Azure](../backup/backup-introduction-to-azure-backup.md).|
+|Backup do Azure|Permite backup e restauração de chaves e segredos relevantes durante o backup de Máquinas Virtuais do Azure, usando o [Backup do Azure](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online e SharePoint Online|Permite acesso à chave de cliente para Criptografia do Serviço de Armazenamento do Azure com [Chave de Cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
-|Proteção de Informações do Azure|Permitir acesso à chave de locatário para [Proteção de Informações do Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Serviço de aplicativo do Azure|[Implanta o Certificado do Aplicativo Web do Azure por meio do Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
+|Azure Information Protection|Permitir acesso à chave de locatário para [Proteção de Informações do Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
+|Serviço de Aplicativos do Azure|[Implanta o Certificado do Aplicativo Web do Azure por meio do Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Banco de dados SQL do Azure|[Transparent Data Encryption com suporte Bring Your Own Key para Data Warehouse e Banco de Dados SQL do Azure](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Armazenamento do Azure|[Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
-|Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
+|Azure Data Lake Store|[Criptografia de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 |Gerenciamento de API do Azure|[Implantar certificados para o domínio personalizado de Key Vault usando o MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
-|Fábrica de dados do Azure|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Data Factory|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 
 
 
 > [!NOTE]
 > Você deve configurar as políticas relevantes de acesso ao cofre de chaves para permitir que os serviços correspondentes tenham acesso ao Key Vault.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Proteger seu cofre de chaves](key-vault-secure-your-key-vault.md)
 * [Configurar redes virtuais e firewalls do Azure Key Vault](key-vault-network-security.md)

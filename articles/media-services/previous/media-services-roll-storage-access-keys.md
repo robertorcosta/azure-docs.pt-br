@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015797"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981952"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento 
 
 Ao criar uma nova conta do AMS (Serviços de Mídia do Azure), você também é solicitado a selecionar uma conta de Armazenamento do Azure, que é usada para armazenar o conteúdo de mídia. Você pode adicionar mais de uma conta de armazenamento à sua conta dos Serviços de Mídia. Este artigo mostra como rotacionar chaves de armazenamento. Também mostra como adicionar contas de armazenamento a uma conta de mídia. 
 
-Para executar as ações descritas neste artigo, é necessário usar [APIs do Gerenciador de Recursos do Azure](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para saber mais, consulte [Como gerenciar os recursos do Azure com o PowerShell e o Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
+Para executar as ações descritas neste artigo, é necessário usar [APIs do Gerenciador de Recursos do Azure](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para saber mais, consulte [Como gerenciar os recursos do Azure com o PowerShell e o Resource Manager](../../azure-resource-manager/management/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Quando uma nova conta de armazenamento é criada, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticar o acesso à sua conta de armazenamento. Para manter as conexões de armazenamento mais seguro, é recomendável regenerar periodicamente e fazer uma rotação de sua chave de acesso de armazenamento. Duas chaves de acesso (primária e secundária) são fornecidas para habilitá-lo a manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra chave de acesso. Esse procedimento também é chamado de "implantação de chaves de acesso".
 
@@ -71,7 +71,7 @@ O exemplo a seguir demonstra como obter a conta de armazenamento e sincronizá-l
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Etapas para adicionar contas de armazenamento à sua conta do AMS
 
-O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS: [Anexe várias contas de armazenamento a uma conta de Serviços de Mídia](meda-services-managing-multiple-storage-accounts.md).
+O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS: [Anexar várias contas de armazenamento a uma conta de Serviços de Mídia](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -80,4 +80,4 @@ O artigo a seguir mostra como adicionar contas de armazenamento à conta do AMS:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Agradecimentos
-Gostaríamos de agradecer às seguintes pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
+Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.

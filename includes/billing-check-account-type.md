@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: ef2b428eded71de23cae86bca8e29eced78af683
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449195"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75987779"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com).
  
@@ -21,9 +21,9 @@ ms.locfileid: "75449195"
  
     ![Captura de tela que mostra o Contrato de Cliente da Microsoft na página de propriedades](./media/billing-check-account-type/billing-mca-property.png)
     
-    O **Tipo** na página de propriedades determina o tipo de sua conta. Ele pode ser Programa do Microsoft Online Services, Contrato Enterprise, Contrato de Cliente da Microsoft ou Contrato de Parceiro da Microsoft. Para saber mais sobre os tipos de contas de cobrança, confira [Exibir suas contas de cobrança no portal do Azure](../articles/billing/billing-view-all-accounts.md).  
+    O **Tipo de conta de cobrança** na página de propriedades determina o tipo de sua conta. Ele pode ser Programa do Microsoft Online Services, Contrato Enterprise, Contrato de Cliente da Microsoft ou Contrato de Parceiro da Microsoft. Para saber mais sobre os tipos de contas de cobrança, confira [Exibir suas contas de cobrança no portal do Azure](../articles/cost-management-billing/manage/view-all-accounts.md).  
  
-4. Caso tenha acesso a vários escopos do orçamento, verifique o tipo na coluna **Tipo da conta de cobrança**.
+4. Se você tiver acesso a vários escopos de cobrança, verifique o tipo na coluna **tipo de conta de cobrança** .
  
     ![Captura de tela que mostra o Contrato de Cliente da Microsoft na página de lista de contas de cobrança](./media/billing-check-account-type/billing-account-type-in-the-list.png)
  

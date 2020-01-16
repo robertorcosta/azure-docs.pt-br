@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090019"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981413"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ Para outros problemas de implantação de VM e perguntas, confira [Solucionar pr
 ## <a name="collect-activity-logs"></a>Coletar logs de atividades
 Para iniciar a solução de problemas, colete os logs de atividades para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
-[Exibir operações de implantação](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Exibir operações de implantação](../../azure-resource-manager/templates/deployment-history.md)
 
 [Exibir logs de atividades para gerenciar recursos do Azure](../../resource-group-audit.md)
 
@@ -42,13 +42,13 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** Se o sistema operacional for Linux generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Linux especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
+**Y:** se o sistema operacional for Linux generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Linux especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
 
 **Erros de upload:**
 
-**N<sup>1</sup>:** Se o sistema operacional for Linux generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento porque a VM está presa no estágio de provisionamento.
+**N<sup>1</sup>:** se o sistema operacional for Linux generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento, pois a VM estará paralisada no estágio de provisionamento.
 
-**N<sup>2</sup>:** Se o sistema operacional for Linux especializado e ele for carregado como generalizado, você receberá um erro de falha de provisionamento porque a nova VM está em execução com o nome do computador, o nome de usuário e a senha originais.
+**N<sup>2</sup>:** se o sistema operacional for Linux especializado e ele for carregado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais.
 
 **Resolução:**
 
@@ -56,15 +56,15 @@ Para resolver esses dois erros, carregue o VHD original, disponível no local, c
 
 **Erros de captura:**
 
-**N<sup>3</sup>:** Se o sistema operacional for Linux generalizado e ele for capturado como especializado, você receberá um erro de tempo limite de provisionamento porque a VM original não é utilizável, pois está marcada como generalizada.
+**N<sup>3</sup>:** se o sistema operacional for Linux generalizado e ele for capturado como especializado, você receberá um erro de tempo limite de provisionamento, pois a VM original não será utilizável, já que estará marcada como generalizada.
 
-**N<sup>4</sup>:** Se o sistema operacional for Linux especializado e ele for capturado como generalizado, você receberá um erro de falha de provisionamento porque a nova VM está em execução com o nome do computador, o nome de usuário e a senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
+**N<sup>4</sup>:** se o sistema operacional for Linux especializado e ele for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
 
 **Resolução:**
 
 Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Imagem personalizada/de galeria/Marketplace; falha de alocação
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
 Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada em um cluster que não tem suporte para o tamanho da VM sendo solicitado ou não tem espaço livre disponível para acomodar a solicitação.
 
 **Causa 1:** o cluster não dá suporte ao tamanho de VM solicitado.
@@ -87,6 +87,6 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
   * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
   * Adicione a nova VM à mesma rede virtual.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](../linux/restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

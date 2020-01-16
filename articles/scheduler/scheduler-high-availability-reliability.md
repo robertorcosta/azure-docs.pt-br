@@ -9,19 +9,19 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 3cc15d173ad735d77505f636bd230e0876371271
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300941"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979297"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidade e confiabilidade para Agendador do Azure
 
 > [!IMPORTANT]
 > O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está [sendo desativado](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Para continuar trabalhando com os trabalhos que você configurou no Agendador, [migre para o aplicativo lógico do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md) assim que possível. 
 
-O Agendador do Azure fornece [alta disponibilidade](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) e confiabilidade para seus trabalhos. Para obter mais informações, veja [SLA para Agendador](https://azure.microsoft.com/support/legal/sla/scheduler).
+O Agendador do Azure fornece [alta disponibilidade](https://docs.microsoft.com/azure/architecture/framework/#resiliency) e confiabilidade para seus trabalhos. Para obter mais informações, veja [SLA para Agendador](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## <a name="high-availability"></a>Alta disponibilidade
 
@@ -73,6 +73,6 @@ Para saber como configurar um ponto de extremidade alternativo, consulte [errorA
 ## <a name="see-also"></a>Consulte também
 
 * [O que é o Agendador do Azure?](scheduler-intro.md)
-* [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
+* [Hierarquia de entidades, terminologia e conceitos](scheduler-concepts-terms.md)
 * [Criar agendamentos complexos e recorrência avançada](scheduler-advanced-complexity.md)
 * [Limites, cotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166991"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974518"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Logs e métricas do Firewall do Azure
 
@@ -20,7 +20,7 @@ Você pode monitorar o Firewall do Azure usando os logs de firewall. Você tamb�
 
 Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos e analisados nos logs do Azure Monitor ou por ferramentas diferentes, como Excel e Power BI.
 
-As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas. 
+As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 
@@ -33,7 +33,7 @@ As métricas são leves e podem dar suporte a cenários quase em tempo real, tor
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ As métricas são leves e podem dar suporte a cenários quase em tempo real, tor
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,7 +83,7 @@ Você tem três opções para armazenar os logs:
 
    As entradas do log de atividades são coletadas por padrão e podem ser exibidas no portal do Azure.
 
-   Você pode usar [os logs de atividades do Azure](../azure-resource-manager/resource-group-audit.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações enviadas à sua assinatura do Azure.
+   Você pode usar [os logs de atividades do Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações enviadas à sua assinatura do Azure.
 
 ## <a name="metrics"></a>Métricas
 
@@ -122,7 +122,7 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
    Quando você adiciona mais endereços IP públicos ao firewall, mais portas SNAT estão disponíveis, reduzindo a utilização de portas SNAT. Além disso, quando o firewall é dimensionado por diferentes motivos (por exemplo, CPU ou taxa de transferência) portas SNAT adicionais também ficam disponíveis. De modo eficaz, um determinado percentual de utilização de portas SNAT pode ficar inativo sem a adição de endereços IP públicos, apenas porque o serviço foi expandido. Você pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis no firewall. Mas, você não pode controlar diretamente o dimensionamento de firewall. Atualmente, as portas SNAT são adicionadas somente aos cinco primeiros endereços IP públicos.   
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como monitorar as métricas e logs do Firewall do Azure, veja [Tutorial: Monitorar os logs de Firewall do Azure](tutorial-diagnostics.md).
 

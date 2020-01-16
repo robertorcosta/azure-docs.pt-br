@@ -15,19 +15,19 @@ ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8757b634b76867a2d5ccce3dcfdc9d66ef25c25e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 24d8a0b88da44c53cb176244cd5fe7377514abda
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032729"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978109"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Provisionar uma máquina virtual do SQL Server usando o Azure PowerShell (Clássico)
 
 Este artigo fornece as etapas para a criação de uma máquina virtual do SQL Server no Azure usando os cmdlets do PowerShell.
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 Para obter a versão do Resource Manager desse tópico, consulte [Provisionar uma máquina virtual do SQL Server usando o Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
 
@@ -197,7 +197,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Depois de fazer logon no computador com a área de trabalho remota, configure o SQL Server com base nas instruções em [Etapas para configurar a conectividade do SQL Server em uma VM do Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Encontre mais instruções para o provisionamento de máquinas virtuais com o PowerShell na [documentação das máquinas virtuais](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

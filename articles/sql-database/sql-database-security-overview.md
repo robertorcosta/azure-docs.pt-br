@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997319"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978582"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma visão geral dos recursos de segurança do Banco de Dados SQL do Azure
 
@@ -41,12 +41,12 @@ As [regras da rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)
 > [!NOTE]
 > O controle do acesso com regras de firewall *não* se aplica a **uma instância gerenciada**. Para saber mais sobre a configuração de rede necessária, confira [conectar-se a uma instância gerenciada](sql-database-managed-instance-connect-app.md)
 
-## <a name="access-management"></a>gerenciamento de acesso
+## <a name="access-management"></a>Gerenciamento de acesso
 
 > [!IMPORTANT]
 > O gerenciamento de bancos de dados e de servidores de banco de dados no Azure é controlado por atribuições de função da sua conta de usuário do portal. Para saber mais sobre esse artigo, confira [Controle de acesso baseado em função no Portal do Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 A autenticação é o processo de provar que o usuário é quem diz ser. O Banco de Dados SQL do Azure dá suporte a dois tipos de autenticação:
 
@@ -73,7 +73,7 @@ Como prática recomendada, crie funções personalizadas quando necessário. Adi
 
 ### <a name="row-level-security"></a>Segurança em nível de linha
 
-A segurança em nível de linha permite que os clientes controlem o acesso a linhas em uma tabela de banco de dados com base nas características do usuário que está executando uma consulta (por exemplo, associação ao grupo ou contexto de execução). A segurança em nível de linha também pode ser usada para implementar conceitos de segurança personalizados baseados em rótulo. Para saber mais, confira [Segurança em nível de linha](/sql/relational-databases/security/row-level-security).
+A segurança em nível de linha permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário executando uma consulta (por exemplo, associação a grupo ou contexto de execução). A segurança em nível de linha também pode ser usada para implementar conceitos de segurança personalizados baseados em rótulo. Para saber mais, confira [Segurança em nível de linha](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -104,7 +104,7 @@ Como prática recomendada, recomende que, na cadeia de conexão do aplicativo, v
 Por exemplo, ao usar o driver ADO.NET, isso é realizado por meio de **encrypt = true** e **TrustServerCertificate = false**. Se você obtiver sua cadeia de conexão do portal do Azure, ela terá as configurações corretas.
 
 > [!IMPORTANT]
-> Observe que alguns drivers que não são da Microsoft não podem usar o TLS por padrão ou contar com uma versão mais antiga do TLS (< 1.2) para funcionar. Nesse caso, SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir que esses drivers e aplicativos se conectem ao banco de dados SQL, especialmente se você armazená-los. 
+> Observe que alguns drivers que não são da Microsoft não podem usar o TLS por padrão ou contar com uma versão mais antiga do TLS (< 1.2) para funcionar. Nesse caso, SQL Server ainda permite que você se conecte ao seu banco de dados. No entanto, é recomendável que você avalie os riscos de segurança de permitir que esses drivers e aplicativos se conectem ao banco de dados SQL, especialmente se você armazená-los.
 >
 > Para obter mais informações sobre TLS e conectividade, consulte [Considerações sobre TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -136,9 +136,9 @@ A máscara de dados dinâmicos do Banco de Dados SQL limita a exposição de dad
 
 A [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é um serviço fácil de ser configurado que pode descobrir, acompanhar e ajudar a corrigir vulnerabilidades potenciais do banco de dados com o objetivo de melhorar de maneira proativa a segurança geral do banco de dados. A avaliação de vulnerabilidade (VA) faz parte da oferta de segurança de dados avançada (ADS), um pacote unificado para funcionalidades avançadas de segurança do SQL. A avaliação de vulnerabilidade pode ser acessada e gerenciada por meio do portal central da ADS do SQL.
 
-### <a name="data-discovery--classification"></a>Descoberta de dados e classificação
+### <a name="data-discovery--classification"></a>Descoberta e classificação de dados
 
-A descoberta e classificação de dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Pode servir como infraestrutura para:
+A descoberta e classificação de dados (atualmente em versão prévia) fornece recursos internos avançados no Banco de Dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos de dados. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Esse recurso pode funcionar como a infraestrutura para:
 
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlando o acesso e fortalecendo a segurança de bancos de dados que contêm dados altamente confidenciais.
