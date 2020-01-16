@@ -2,7 +2,7 @@
 title: Evento de exclusão de pool – Azure | Microsoft Docs
 description: Referência de exclusão do pool de lote evento inicial.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 9bf50bd19ca3f4316c4c2ddbcdd3333745ebefd7
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: bcbfe009e2880c0155a067305cc28317678cbfa6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258556"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026702"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de exclusão de pool
 
@@ -34,7 +34,7 @@ ms.locfileid: "70258556"
 
 |Elemento|Tipo|Observações|
 |-------------|----------|-----------|
-|`id`|Cadeia|A ID do pool.|
+|`id`|String|A ID do pool.|
 |`startTime`|DateTime|A hora de início da exclusão do pool.|
 |`endTime`|DateTime|A hora de conclusão da exclusão do pool.|
 

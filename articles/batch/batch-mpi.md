@@ -3,7 +3,7 @@ title: Usar tarefas de várias instâncias para executar aplicativos MPI - Azure
 description: Saiba como executar aplicativos de MPI (interface de transmissão de mensagens) usando o tipo de tarefa de várias instâncias no Lote do Azure.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
@@ -11,14 +11,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f54f5d5265508bb3716ff4ffd4d1d741d3bfa2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fd58a18b4926d911df8493670ccd7da97708e075
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094966"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029672"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usar tarefas de várias instâncias para executar aplicativos de MPI (Interface de transmissão de mensagens) no Lote
 
@@ -39,8 +39,8 @@ Quando você envia uma tarefa com as configurações de várias instâncias para
 1. O serviço Lote cria um **primário** e várias **subtarefas** com base nas configurações de várias instâncias. O número total de tarefas (as principais e todas as subtarefas) corresponde ao número de **instâncias** (nós de computação) que você especificar nas configurações de várias instâncias.
 2. O Lote designa um de nós de computação como o **mestre** e agenda para ocorrer nele a execução a tarefa principal. Ele agenda a execução das subtarefas para ocorrer no restante dos nós de computação alocados para a tarefa de várias instâncias, uma subtarefa por nó.
 3. As tarefas principais e todas as subtarefas baixam os **arquivos de recurso comum** que você especificar nas configurações de várias instâncias.
-4. Depois que os arquivos de recursos comuns tiverem sido baixados, a tarefa principal e as subtarefas executarão o **comando de coordenação** especificado nas configurações de várias instâncias. O comando de coordenação normalmente é usado para preparar nós para executar a tarefa. Isso pode incluir a inicialização de serviços em segundo plano (como `smpd.exe` [o Microsoft MPI][msmpi_msdn]) e a verificação de que os nós estão prontos para processar mensagens entre nós.
-5. A tarefa principal executará o **comando de aplicativo** no nó mestre *após* o comando de coordenação ter sido concluído com êxito pela tarefa principal e por todas as subtarefas. O comando do aplicativo é a linha de comando da tarefa de várias instâncias em si, que é executada somente pela tarefa principal. Em uma solução baseada em [MS-MPI][msmpi_msdn], é aqui que você executa o aplicativo habilitado para MPI usando `mpiexec.exe`o.
+4. Depois que os arquivos de recursos comuns tiverem sido baixados, a tarefa principal e as subtarefas executarão o **comando de coordenação** especificado nas configurações de várias instâncias. O comando de coordenação normalmente é usado para preparar nós para executar a tarefa. Isso pode incluir a inicialização de serviços em segundo plano (como o `smpd.exe`da [Microsoft MPI][msmpi_msdn]) e a verificação de que os nós estão prontos para processar mensagens entre nós.
+5. A tarefa principal executará o **comando de aplicativo** no nó mestre *após* o comando de coordenação ter sido concluído com êxito pela tarefa principal e por todas as subtarefas. O comando do aplicativo é a linha de comando da tarefa de várias instâncias em si, que é executada somente pela tarefa principal. Em uma solução baseada em [MS-MPI][msmpi_msdn], é aqui que você executa o aplicativo habilitado para MPI usando `mpiexec.exe`.
 
 > [!NOTE]
 > Embora seja funcionalmente distinto, a "tarefa de várias instâncias" não é um tipo de tarefa exclusivo como [StartTask][net_starttask] ou [JobPreparationTask][net_jobprep]. A tarefa de várias instâncias é simplesmente uma tarefa de lote padrão ([CloudTask][net_task] no .net do lote) cujas configurações de várias instâncias foram configuradas. Neste artigo, nos referimos a isso como a **tarefa de várias instâncias**.
@@ -194,7 +194,7 @@ Para obter detalhes completos sobre essas e outras variáveis de ambiente do nó
 >
 >
 
-## <a name="resource-files"></a>Arquivos de recursos
+## <a name="resource-files"></a>Arquivos de recurso
 Há dois conjuntos de arquivos de recursos a serem considerados para tarefas de várias instâncias: **arquivos de recurso comuns** que *todas* as tarefas baixam (principal e subtarefas) e **arquivos de recurso** especificados para a própria tarefa de várias instâncias, que é baixado *somente pela tarefa principal*.
 
 Você pode especificar um ou mais **arquivos de recurso comum** nas configurações de várias instâncias de uma tarefa. Esses arquivos de recurso comum são baixados do [Armazenamento do Azure](../storage/common/storage-introduction.md) no **diretório compartilhado da tarefa** de cada nó pela tarefa principal e por todas as subtarefas. Você pode acessar o diretório compartilhado da tarefa das linhas de comando do aplicativo e de coordenação usando a variável de ambiente `AZ_BATCH_TASK_SHARED_DIR` . O caminho `AZ_BATCH_TASK_SHARED_DIR` é idêntico em todos os nós alocados para a tarefa de várias instâncias, assim você pode compartilhar um único comando de coordenação entre a tarefa principal e todas as subtarefas. O Lote não "compartilha" o diretório no sentido de acesso remoto, mas você pode usá-lo como um ponto de montagem ou compartilhamento conforme mencionado anteriormente na dica sobre variáveis de ambiente.
@@ -218,7 +218,7 @@ Quando você exclui uma tarefa de várias instâncias, a tarefa principal e toda
 A lista de tarefas recentes de um nó de computação reflete a id da subtarefa se a tarefa recente fizer parte de uma tarefa de várias instâncias.
 
 ## <a name="obtain-information-about-subtasks"></a>Obtenha informações sobre subtarefas
-Para obter informações sobre subtarefas usando a biblioteca .NET do lote, chame o método [CloudTask. ListSubtasks][net_task_listsubtasks] . Esse método retorna informações sobre todas as subtarefas e sobre o nó de computação que executou as tarefas. Com essas informações, você pode determinar o diretório raiz de cada subtarefa, a id do pool, seu estado atual, o código de saída e muito mais. Você pode usar essas informações em combinação com o método [PoolOperations.][poolops_getnodefile] getnodefile para obter os arquivos da subtarefa. Observe que esse método não retorna informações sobre a tarefa principal (id 0).
+Para obter informações sobre subtarefas usando a biblioteca .NET do lote, chame o método [CloudTask. ListSubtasks][net_task_listsubtasks] . Esse método retorna informações sobre todas as subtarefas e sobre o nó de computação que executou as tarefas. Com essas informações, você pode determinar o diretório raiz de cada subtarefa, a id do pool, seu estado atual, o código de saída e muito mais. Você pode usar essas informações em combinação com o método [PoolOperations. Getnodefile][poolops_getnodefile] para obter os arquivos da subtarefa. Observe que esse método não retorna informações sobre a tarefa principal (id 0).
 
 > [!NOTE]
 > Salvo indicação em contrário, os métodos .NET do lote que operam no próprio [CloudTask][net_task] de várias instâncias se aplicam *somente* à tarefa principal. Por exemplo, quando você chama o método [CloudTask. ListNodeFiles][net_task_listnodefiles] em uma tarefa de várias instâncias, somente os arquivos da tarefa principal são retornados.
@@ -327,7 +327,7 @@ Delete pool? [yes] no: yes
 Sample complete, hit ENTER to exit...
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * O blog do Microsoft HPC & equipe do lote do Azure discute o [suporte a MPI para Linux no lote do Azure][blog_mpi_linux]e inclui informações sobre como usar o [OpenFOAM][openfoam] com o lote. Você pode encontrar exemplos de código do Python para o [exemplo OpenFOAM no GitHub][github_mpi].
 * Saiba como [criar pools de nós de computação Linux](batch-linux-nodes.md) para uso em suas soluções MPI do Lote do Azure.
 

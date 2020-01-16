@@ -1,18 +1,18 @@
 ---
 title: Práticas recomendadas-lote do Azure
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver sua solução de lote do Azure.
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535659"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026152"
 ---
 # <a name="azure-batch-best-practices"></a>Práticas recomendadas do lote do Azure
 
@@ -109,7 +109,7 @@ As tarefas são unidades individuais de trabalho que compõem um trabalho. As ta
 - **Envie um grande número de tarefas em uma coleção.**  
     As tarefas podem ser enviadas em uma base individual ou em coleções. Envie tarefas em [coleções](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) de até 100 de uma vez ao realizar o envio em massa de tarefas para reduzir a sobrecarga e o tempo de envio.
 
-### <a name="task-execution"></a>Execução da tarefa
+### <a name="task-execution"></a>Execução das tarefas
 
 - **Escolhendo o máximo de tarefas por nó**  
     O lote dá suporte a tarefas de sobrecarregar em nós (executando mais tarefas do que um nó tem núcleos). Cabe a você garantir que suas tarefas se ajustem aos nós no pool. Por exemplo, você pode ter uma experiência degradada se tentar agendar oito tarefas, cada uma consumindo 25% de uso da CPU em um nó (em um pool com `maxTasksPerNode = 8`).

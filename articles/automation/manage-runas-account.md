@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1761eebe51c5ccb4d30b93ad4122dfc185d216e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418049"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028265"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da Automação do Azure
 
@@ -20,19 +20,19 @@ Quando você cria uma conta Executar como, ela cria uma nova entidade de serviç
 
 Há dois tipos de Contas Executar como:
 
-* **Conta Executar como do Azure** -essa conta é usada para gerenciar recursos do [modelo de implantação do Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) .
+* **Conta Executar como do Azure** -essa conta é usada para gerenciar recursos do [modelo de implantação do Resource Manager](../azure-resource-manager/management/deployment-models.md) .
   * Cria um aplicativo do Azure AD com um certificado autoassinado, cria uma conta de entidade de serviço para o aplicativo no Azure AD e atribui a função de Colaborador à conta na assinatura atual. Você pode alterar essa configuração para Proprietário ou qualquer outra função. Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
   * Cria um ativo de certificado de Automação chamado *AzureRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado que é usada pelo aplicativo do Azure AD.
   * Cria um ativo de conexão de Automação chamado *AzureRunAsConnection* na conta de Automação especificada. O ativo de conexão contém applicationId, tenantId, subscriptionId e a impressão digital do certificado.
 
-* **Conta Executar como clássica do Azure** -essa conta é usada para gerenciar os recursos do [modelo de implantação clássico](../azure-resource-manager/resource-manager-deployment-model.md) .
+* **Conta Executar como clássica do Azure** -essa conta é usada para gerenciar os recursos do [modelo de implantação clássico](../azure-resource-manager/management/deployment-models.md) .
   * Cria um certificado de gerenciamento na assinatura
   * Cria um ativo de certificado de Automação chamado *AzureClassicRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
   * Cria um ativo de conexão de Automação chamado *AzureClassicRunAsConnection* na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, subscriptionId e o nome do ativo de certificado.
   * Deve ser um coadministrador na assinatura para criar ou renovar
 
   > [!NOTE]
-  > As assinaturas do Azure CSP (Provedor de Soluções na Nuvem do Azure) dão suporte apenas ao modelo do Azure Resource Manager, serviços que não são do Azure Resource Manager não estão disponíveis no programa. Ao usar uma assinatura do CSP, a conta Executar Como Clássica do Azure não é criada. A conta Executar Como do Azure ainda é criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+  > As assinaturas do Azure CSP (Provedor de Soluções na Nuvem do Azure) dão suporte apenas ao modelo do Azure Resource Manager, serviços que não são do Azure Resource Manager não estão disponíveis no programa. Ao usar uma assinatura do CSP, a conta Executar Como Clássica do Azure não é criada. A conta Executar Como do Azure ainda é criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
   > [!NOTE]
   > A entidade de serviço para uma conta Executar como não tem permissões para ler Azure Active Directory por padrão. Se você quiser adicionar permissões para ler ou gerenciar o Azure Active Directory, será necessário conceder essa permissão na entidade de serviço sob permissões de **API**. Para saber mais, consulte [adicionar permissões para acessar APIs da Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).

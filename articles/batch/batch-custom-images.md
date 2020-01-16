@@ -2,18 +2,18 @@
 title: Provisionar um pool personalizado de uma imagem gerenciada-Azure batch | Microsoft Docs
 description: Crie um pool do lote de um recurso de imagem gerenciada para provisionar nós de computação com o software e os dados para seu aplicativo.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: lahugh
-ms.openlocfilehash: 82a5f79ca7b7a16cd8f7294ebd1f70816b40ad82
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "73519247"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029754"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem gerenciada para criar um pool de máquinas virtuais
 
@@ -116,6 +116,6 @@ Se a imagem ou o recurso subjacente for removido, você poderá receber um erro 
 
 Para obter mais informações sobre como usar o Packer para criar uma VM, consulte [criar uma imagem do Linux com o packr](../virtual-machines/linux/build-image-with-packer.md) ou [criar uma imagem do Windows com o packr](../virtual-machines/windows/build-image-with-packer.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
