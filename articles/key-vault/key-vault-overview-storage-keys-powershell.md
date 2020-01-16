@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707093"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980858"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerenciar chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -46,7 +46,7 @@ Key Vault é um aplicativo da Microsoft que é previamente registrado em todos o
 | --- | --- | --- |
 | AD do Azure | Azure Governamental | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | AD do Azure | Público do Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,7 @@ Para concluir este guia, primeiro você deve fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Criar um cofre de chave](quick-create-powershell.md)
-- [Criar uma conta de Armazenamento do Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
+- [Criar uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve usar apenas letras minúsculas e números. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 
 ## <a name="manage-storage-account-keys"></a>Gerenciar chaves de conta de armazenamento

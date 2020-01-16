@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610600"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976115"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -97,7 +97,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 | **Data type** | **Como se conectar** | **Conector de dados?** | **Comentários** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Conectar AWS](connect-aws.md) | V | |
-| AzureActivity | [Conectar Atividades do Azure](connect-azure-activity.md) e [Visão geral dos logs de atividade](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [Conectar Atividades do Azure](connect-azure-activity.md) e [Visão geral dos logs de atividade](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Conectar o Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Conectar o Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Diagnóstico do Azure](../firewall/tutorial-diagnostics.md) | V | |
@@ -105,7 +105,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 | AzureNetworkAnalytics_CL  | [Esquema de análise de tráfego](../network-watcher/traffic-analytics.md) [Análise de tráfego](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Conectar CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Conectar Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Conectar eventos de segurança do Windows](connect-windows-security-events.md)  | V | Para as pastas de trabalho Protocolos Inseguros, confira [Configuração da pasta de trabalho de protocolos inseguros](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [Conectar eventos de segurança do Windows](connect-windows-security-events.md)  | V | Para as pastas de trabalho Protocolos Inseguros, confira [Configuração da pasta de trabalho de protocolos inseguros](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | syslog | [Conectar Syslog](connect-syslog.md) | V | |
 | WAF (Firewall do Aplicativo Web) da Microsoft – (AzureDiagnostics) |[Conectar Firewall do Aplicativo Web da Microsoft](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Conectar Symantec](connect-symantec.md) | V | |

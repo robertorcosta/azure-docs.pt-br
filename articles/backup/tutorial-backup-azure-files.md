@@ -3,12 +3,12 @@ title: Tutorial – Backup de compartilhamentos de Arquivos do Azure
 description: Neste tutorial, saiba como usar o portal do Azure para configurar um cofre dos Serviços de Recuperação e fazer backup de compartilhamentos de arquivo do Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171860"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921642"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
 
@@ -20,7 +20,7 @@ Neste guia, você aprenderá a:
 > * Configurar um cofre de Serviços de Recuperação para fazer backup de Arquivos do Azure
 > * Executar um trabalho de backup sob demanda para criar um ponto de restauração
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de fazer backup de um compartilhamento de arquivos do Azure, verifique se ele está presente em um dos [tipos de Conta de Armazenamento com suporte](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Depois fazer essa verificação, é possível proteger o compartilhamento dos arquivos.
 
@@ -28,7 +28,6 @@ Antes de fazer backup de um compartilhamento de arquivos do Azure, verifique se 
 
 A cópia de segurança para compartilhamentos de arquivos do Azure está em versão prévia. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de uso geral v2. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
 
-* Não é possível proteger compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais ou firewall habilitados.
 * Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
 * A quantidade máxima de backups agendados por dia é de um.
 * A quantidade máxima de backups sob demanda por dia é de quatro.

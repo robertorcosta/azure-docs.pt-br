@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459149"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979269"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação aprimora a eficiência por meio da multiplexação de recursos entre diferentes clientes por custos baixos. Infelizmente, ela também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura a fim de executar seus aplicativos confidenciais e VMs que possam pertencer a um usuário aleatório e possivelmente malicioso.
@@ -190,7 +190,7 @@ Portanto, o Armazenamento do Azure é executado em um hardware separado sem cone
 A SAS significa que podemos conceder a um cliente permissões limitadas para objetos em nossa conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Podemos conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
 
 ### <a name="ip-level-storage-isolation"></a>Isolamento de armazenamento no nível do IP
-Você pode habilitar o firewall e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que possuem um endereço IP no intervalo definido podem se conectar ao [Armazenamento do Azure](../../storage/common/storage-security-guide.md).
+Você pode habilitar o firewall e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que possuem um endereço IP no intervalo definido podem se conectar ao [Armazenamento do Azure](../../storage/blobs/security-recommendations.md).
 
 Os dados de armazenamento IP podem ser protegidos contra usuários não autorizados por meio de um mecanismo de rede usado para alocar um túnel dedicado de tráfego para o armazenamento IP.
 
@@ -203,18 +203,18 @@ O Azure oferece os seguintes tipos de criptografia para proteger os dados:
 #### <a name="encryption-in-transit"></a>Criptografia em trânsito
 A criptografia em trânsito é um mecanismo de proteção de dados quando eles são transmitidos entre redes. Com o Armazenamento do Azure, você pode proteger dados usando:
 
--   [Criptografia de nível de transporte](../../storage/common/storage-security-guide.md), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
+-   [Criptografia de nível de transporte](../../storage/blobs/security-recommendations.md), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
 
--   [Criptografia na transmissão](../../storage/common/storage-security-guide.md), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
+-   [Criptografia na transmissão](../../storage/blobs/security-recommendations.md), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
 
--   [Criptografia do cliente](../../storage/common/storage-security-guide.md), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
+-   [Criptografia do cliente](../../storage/blobs/security-recommendations.md), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
 #### <a name="encryption-at-rest"></a>Criptografia em repouso
 Para muitas organizações, a [criptografia de dados em repouso](isolation-choices.md) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão “em repouso”:
 
--   [Criptografia do Serviço de Armazenamento](../../storage/common/storage-security-guide.md) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
+-   [Criptografia do Serviço de Armazenamento](../../storage/blobs/security-recommendations.md) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
 
--   [Client-side Encryption](../../storage/common/storage-security-guide.md) também fornece o recurso de criptografia em repouso.
+-   [Client-side Encryption](../../storage/blobs/security-recommendations.md) também fornece o recurso de criptografia em repouso.
 
 -   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
 

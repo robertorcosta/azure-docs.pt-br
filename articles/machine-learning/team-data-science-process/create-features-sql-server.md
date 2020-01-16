@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602927"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982068"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Você pode usar o SQL ou uma linguagem de programação como o Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
@@ -31,7 +31,7 @@ Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](htt
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md)
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md)
 * Armazenou seus dados no SQL Server. Se não tiver feito isso, veja [Mover dados para um Banco de Dados SQL do Azure para o Azure Machine Learning](move-sql-azure.md) para obter instruções sobre como mover os dados para lá.
 
 ## <a name="sql-featuregen"></a>Geração de recursos com o SQL
@@ -68,7 +68,7 @@ Aqui está uma breve cartilha sobre os dados de localização de latitude/longit
 * O sinal indica se estamos norte ou sul, leste ou oeste no globo.
 * Um dígito de centena não zero indica longitude, não a latitude que está sendo usada.
 * O dígito de dezena indica uma posição de cerca de 1.000 quilômetros. Ele fornece informações úteis sobre o continente ou o oceano em que estamos.
-* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Isso indica, aproximadamente, que grande estado ou país/região, estamos no.
+* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Ele indica, aproximadamente, o estado grande ou país/região em que estamos.
 * A primeira casa decimal representa até 11,1 km: ela pode distinguir a posição de uma cidade grande de uma cidade grande vizinha.
 * A segunda casa decimal representa 1,1 km: ela pode separar um vila da próxima.
 * A terceira casa decimal representa até 110 m: ela pode identificar um campo agrícola ou campus institucional grande.

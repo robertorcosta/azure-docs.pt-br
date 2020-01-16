@@ -3,7 +3,7 @@ title: Exemplo de Script da CLI do Azure – Criar conta do Lote – assinatura 
 description: O script cria uma conta de Lote do Azure no modo de assinatura do usuário. Essa conta aloca nós de computação em sua assinatura.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: lahugh
-ms.openlocfilehash: 55429e0aafe978cfa6861d73b132ebcee26de493
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 38c908e1e490d1b852abc64ba0e3f695307d5341
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449702"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029313"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Exemplo de CLI: Criar uma conta do Lote no modo de assinatura do usuário
 

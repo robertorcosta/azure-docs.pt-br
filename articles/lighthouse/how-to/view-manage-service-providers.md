@@ -1,14 +1,14 @@
 ---
 title: Exibir e gerenciar provedores de serviços
 description: Os clientes podem usar a página Provedores de serviços no portal do Azure para exibir informações sobre provedores de serviços, ofertas de provedor de serviço e recursos delegados.
-ms.date: 11/15/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463803"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046132"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
@@ -47,13 +47,13 @@ Um cliente pode adicionar uma nova oferta de provedores de serviços na página 
 
 Se o cliente desejar remover uma oferta de provedor de serviços, poderá selecionar o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
 
-## <a name="update-service-provider-offers"></a>Atualizar ofertas do provedor de serviços
+## <a name="update-service-provider-offers"></a>Atualizar as ofertas do provedor de serviços
 
-Depois que um cliente tiver adicionado uma oferta, um provedor de serviços poderá publicar uma versão atualizada da mesma oferta no Azure Marketplace. Por exemplo, eles podem querer adicionar uma nova definição de função. Se uma nova versão da oferta tiver sido publicada, a página de **ofertas do provedor** mostrará um ícone de "atualização" na linha dessa oferta. O cliente pode selecionar esse ícone para ver as diferenças entre a versão atual da oferta e a nova.
+Após um cliente adicionar uma oferta, um provedor de serviços poderá publicar uma versão atualizada da mesma oferta no Azure Marketplace. Por exemplo, talvez eles queiram adicionar uma nova definição de função. Se uma nova versão da oferta tiver sido publicada, a página **Ofertas do provedor** mostrará um ícone de "atualização" na linha dessa oferta. O cliente pode selecionar esse ícone para ver as diferenças entre a versão atual da oferta e a nova.
 
  ![Ícone de oferta de atualização](../media/update-offer.jpg)
 
-Depois de revisar as alterações, o cliente pode optar por atualizar para a nova versão. Depois disso, as autorizações e outras configurações especificadas na nova versão serão aplicadas a quaisquer assinaturas e/ou grupos de recursos que tenham sido delegados para essa oferta.
+Depois de revisar as alterações, o cliente pode optar por atualizar para a nova versão. Assim que fizer isso, as autorizações e outras configurações especificadas na nova versão serão aplicadas a quaisquer assinaturas e/ou grupos de recursos que tenham sido delegados a essa oferta.
 
 ## <a name="view-delegations"></a>Exibir delegações
 
@@ -61,7 +61,10 @@ As delegações representam as atribuições de função que concedem permissõe
 
 Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de delegação ou filtre por clientes, ofertas ou palavras-chave específicos.
 
-## <a name="next-steps"></a>Próximas etapas
+> [!NOTE]
+> Os clientes não verão essas atribuições de função ou todos os usuários do locatário do provedor de serviços que receberam essas funções, ao [Exibir informações de atribuição de função para o escopo delegado no portal do Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) ou via APIs.
+
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Azure Lighthouse](../overview.md).
 - Saiba como os provedores de serviço podem [exibir e gerenciar clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.

@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421852"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979484"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar o gerenciamento de atualizações, o controle de alterações e as soluções de inventário em várias VMs
 
@@ -41,7 +41,7 @@ A lista de máquinas virtuais é filtrada para mostrar somente as máquinas virt
 
 ### <a name="resource-group-limit"></a> Limitações de integração
 
-O número de grupos de recursos que você pode usar para a integração é limitado pelos [limites de implantação do Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Implantações do Gerenciador de recursos, não devem ser confundidas com implantações de atualização, são limitadas a cinco grupos de recursos por implantação. Para garantir a integridade da integração, dois desses grupos de recursos são reservados para configurar o espaço de trabalho do Log Analytics, a conta de Automação e os recursos relacionados. Isso deixa você com três grupos de recursos para selecionar para a implantação. Esse limite se aplica apenas à integração simultânea, não ao número de grupos de recursos que podem ser gerenciados por uma solução de automação.
+O número de grupos de recursos que você pode usar para a integração é limitado pelos [limites de implantação do Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Implantações do Gerenciador de recursos, não devem ser confundidas com implantações de atualização, são limitadas a cinco grupos de recursos por implantação. Para garantir a integridade da integração, dois desses grupos de recursos são reservados para configurar o espaço de trabalho do Log Analytics, a conta de Automação e os recursos relacionados. Isso deixa você com três grupos de recursos para selecionar para a implantação. Esse limite se aplica apenas à integração simultânea, não ao número de grupos de recursos que podem ser gerenciados por uma solução de automação.
 
 Você também pode usar um runbook para integração, para obter mais informações, consulte [soluções integradas de atualização e controle de alterações para a automação do Azure](automation-onboard-solutions.md).
 

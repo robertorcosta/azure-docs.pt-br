@@ -3,12 +3,12 @@ title: Tutorial – Criar um cluster do Kubernetes com o AKS (Serviço de Kubern
 description: Tutorial ilustrando como criar um cluster do Kubernetes com o serviço do Azure Kubernetes e o Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: cea9d93ed418a4f2e90fa3f2dfd3441f4b296316
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e04abdab2893e76a65615635ae9937797be89855
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374957"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708267"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: Criar um cluster do Kubernetes com o Serviço de Kubernetes do Azure usando o Terraform
 
@@ -140,10 +140,8 @@ Crie o arquivo de configuração do Terraform que declara os recursos para o clu
 
         default_node_pool {
             name            = "agentpool"
-            count           = var.agent_count
+            node_count      = var.agent_count
             vm_size         = "Standard_DS1_v2"
-            os_type         = "Linux"
-            os_disk_size_gb = 30
         }
 
         service_principal {

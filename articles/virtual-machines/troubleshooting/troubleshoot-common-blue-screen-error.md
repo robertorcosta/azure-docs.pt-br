@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 921e97fa393a3005e3ba392502d291301df3d65c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d9732f232c5a7ec1e551f42fe0e8187e382aec6e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058073"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981879"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>O Windows mostra um erro de tela azul durante a inicialização de uma VM do Azure
 Este artigo descreve o erro de tela azul que você pode encontrar ao inicializar uma VM (Máquina Virtual) do Windows no Microsoft Azure. Ele fornece as etapas para ajudar você a coletar dados para um tíquete de suporte. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve o uso do modelo de implantação do Resource Manager, que recomendamos usar para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo descreve o uso do modelo de implantação do Resource Manager, que recomendamos usar para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma 
 

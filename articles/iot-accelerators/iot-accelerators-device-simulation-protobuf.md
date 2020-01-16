@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447974"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982138"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
 
@@ -41,7 +41,7 @@ Para executar as etapas neste guia de instruções, você precisará de:
 * Postman. Baixe o [Postman para Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Um [hub IoT implantado na assinatura do Azure](../iot-hub/iot-hub-create-through-portal.md). Você precisa da cadeia de conexão do hub IoT para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 * Um [banco de dados do Cosmos DB implantado em sua assinatura do Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) que usa a API de SQL e que está configurado para [consistência forte](../cosmos-db/manage-account.md). Você precisa da cadeia de conexão do banco de dados do Cosmos DB para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
-* Uma [conta de Armazenamento do Azure implantada em sua assinatura do Azure](../storage/common/storage-quickstart-create-account.md). Você precisa da cadeia de conexão da conta de armazenamento para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
+* Uma [conta de Armazenamento do Azure implantada em sua assinatura do Azure](../storage/common/storage-account-create.md). Você precisa da cadeia de conexão da conta de armazenamento para concluir as etapas neste guia. Você pode obter a cadeia de conexão no portal do Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparar seu ambiente de desenvolvimento
 
@@ -70,7 +70,7 @@ Abra o arquivo **.vscode/launch.json** e atribua sua cadeia de conexão do Cosmo
 
 Para executar localmente o microsserviço do adaptador de armazenamento, clique em **Depurar \> Iniciar Depuração**.
 
-A janela **Terminal** no Visual Studio Code mostra a saída do microsserviço em execução, incluindo uma URL para a verificação de integridade do serviço Web: <http://127.0.0.1:9022/v1/status>. Quando você navegar até esse endereço, o status deve ser "Okey: Ativo e em funcionamento".
+A janela **Terminal** no Visual Studio Code mostra a saída do microsserviço em execução, incluindo uma URL para a verificação de integridade do serviço Web: <http://127.0.0.1:9022/v1/status>. Quando você navegar até esse endereço, o status deverá ser "OK: ativo e em funcionamento".
 
 Deixe o microsserviço do adaptador de armazenamento em execução nesta instância do Visual Studio Code enquanto conclui as próximas etapas.
 
@@ -265,7 +265,7 @@ Para configurar e executar a simulação:
 
 Para parar a simulação, selecione a solicitação **Parar a simulação** no Postman e clique em **Enviar**.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode parar os dois microsserviços em execução local em suas instâncias do Visual Studio Code (**Depurar \> Parar Depuração**).
 
@@ -275,6 +275,6 @@ Se você não precisar mais instâncias do Hub IoT e do Cosmos DB, exclua-as de 
 
 Muitos recursos do Hub IoT não dão suporte nativo a Protobuf ou a outros formatos binários. Por exemplo, você não pode rotear com base na carga de mensagem, pois o Hub IoT não será capaz de processar a carga da mensagem. No entanto, você pode rotear com base nos cabeçalhos de mensagem.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você aprendeu a personalizar a Simulação de Dispositivo para usar Protobuf a fim de enviar telemetria. A próxima etapa é saber como [Implantar uma imagem personalizada na nuvem](iot-accelerators-device-simulation-deploy-image.md).

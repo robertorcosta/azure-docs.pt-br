@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038870"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981724"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Diretrizes de preços para VMs de SQL Server do Azure
 
@@ -57,7 +57,7 @@ Se você tiver uma carga de trabalho de produção não leve, use uma das seguin
 | Edição do SQL Server | Carga de trabalho |
 |-----|-----|
 | Web | Sites pequenos |
-| Standard | Cargas de trabalho pequenas a médias |
+| Padrão | Cargas de trabalho pequenas a médias |
 | Enterprise | Cargas de trabalho grandes ou críticas|
 
 Você tem duas opções de pagamento para licenciamento dessas edições do SQL Server: *pagamento por uso* ou *BYOL (traga sua própria licença)* .
@@ -111,7 +111,7 @@ Trazer seu próprio licenciamento do SQL por meio da Mobilidade de Licença é r
 
 Para usar BYOL com uma VM do SQL Server, você deve ter uma licença para o SQL Server Standard ou Enterprise e o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção obrigatória em alguns programas de licenciamento por volume e uma compra adicional com outros. O nível de preço fornecido pelos programas de Licenciamento por Volume varia, com base no tipo de contrato e na quantidade e/ou no compromisso com o SQL Server. Porém, como uma regra geral, trazer sua própria licença para cargas de trabalho de produção contínuas agrega os seguintes benefícios:
 
-| Benefício do método BYOL | DESCRIÇÃO |
+| Benefício do método BYOL | Description |
 |-----|-----|
 | **Economia de custos** | A [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) oferece economia de até 55%. Para obter mais informações, consulte [alternar modelo de licenciamento](virtual-machines-windows-sql-ahb.md) |
 | **Réplica secundária passiva gratuita** | Outro benefício de trazer sua própria licença é o [licenciamento gratuito para uma réplica secundária passiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fins de alta disponibilidade. Isso reduz pela metade o custo de licenciamento de uma implantação do SQL Server altamente disponível (por exemplo, usar os Grupos de Disponibilidade Always On). Os direitos para executar a réplica secundária passiva são fornecidos pelo benefício do Software Assurance para Servidores de Failover. |
@@ -164,9 +164,9 @@ Para outros fluxos de trabalho, considere o desligamento e a reinicialização a
 > [!IMPORTANT]
 > Desligar e desalocar a VM é a única maneira de evitar cobranças. Simplesmente interromper ou usar as opções de energia para desligar a VM ainda incorrerá em cobranças por uso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para obter diretrizes gerais de preços do Azure, confira [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](../../../billing/billing-getting-started.md). Para obter os preços das Máquinas Virtuais mais recentes, incluindo o SQL Server, veja a página de preços de VM do Azure para [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [VMs do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Para obter diretrizes gerais de preços do Azure, confira [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](../../../cost-management-billing/manage/getting-started.md). Para obter os preços das Máquinas Virtuais mais recentes, incluindo o SQL Server, veja a página de preços de VM do Azure para [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [VMs do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Para obter uma visão geral do SQL Server em execução em Máquinas Virtuais do Azure, consulte os seguintes artigos:
 

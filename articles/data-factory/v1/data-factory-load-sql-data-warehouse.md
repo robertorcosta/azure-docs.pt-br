@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b5fec342cf9f228edce80e3f0e8fb5243196973d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924162"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980914"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
-> Este artigo se aplica à versão 1 da fábrica de dados. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar dados para ou do SQL Data Warehouse do Azure usando o Data Factory](../connector-azure-sql-data-warehouse.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se você estiver usando a versão atual do serviço Data Factory, consulte [Copiar dados para ou do SQL Data Warehouse do Azure usando o Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
 O [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) é um banco de dados baseado em nuvem e expansível com capacidade de processar volumes imensos de dados, relacionais e não relacionais.  Criado em arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse é otimizado para cargas de trabalho do data warehouse corporativas.  Ele oferece a elasticidade da nuvem com a flexibilidade de dimensionar o armazenamento e a computação de modo independente.
@@ -45,7 +45,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
+* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 * Dados do [TPC-H](http://www.tpc.org/tpch/): usaremos o TPC-H como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, o que ajuda você a gerar o conjunto de dados.  Você pode baixar código-fonte para `dbgen` de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou então baixar o binário compilado de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Execute dbgen.exe com os comandos a seguir para gerar um arquivo simples de 1 TB para a tabela `lineitem` dividido em 10 arquivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -116,7 +116,7 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 3. No painel **Novo data factory**:
 
    1. Insira **LoadIntoSQLDWDataFactory** para o **nome**.
-       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “LoadIntoSQLDWDataFactory” não está disponível**, altere o nome da data factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criá-la novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.  
+       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o erro: **O nome da data factory “LoadIntoSQLDWDataFactory” não está disponível**, altere o nome da data factory (por exemplo, yournameLoadIntoSQLDWDataFactory) e tente criá-la novamente. Veja o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.  
    2. Selecione sua **assinatura**do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas:
       1. Selecione **Usar existente** para selecionar um grupo de recursos existente.
@@ -141,7 +141,7 @@ Na página **Propriedades** :
 
 1. Insira **CopyFromBlobToAzureSqlDataWarehouse** para o **Nome da tarefa**
 2. Selecione opção **Executar uma vez agora**.   
-3. Clique em \\**Próximo**.  
+3. Clique em **Próximo**.  
 
     ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
@@ -183,7 +183,7 @@ Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dad
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
 
-A opção **Permitir polybase** é marcada por padrão.  Clique em \\**Próximo**.
+A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 

@@ -1,26 +1,25 @@
 ---
 title: 'Início Rápido: Reconhecer a fala de um microfone, C# (Unity) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 149ec84732171cd57b3f8a9590d5340107536eac
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818873"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927929"
 ---
 > [!NOTE]
 > O SDK de Fala para Unity dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64), ao Android (x86, ARM32/64) e ao iOS (simulador x64, ARM32 e ARM64)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar:
 
@@ -37,7 +36,7 @@ Se você já fez isso, ótimo. Vamos continuar.
 1. Abra o Unity. Se você estiver usando o Unity pela primeira vez, a janela **Hub do Unity** *<version number>* será exibida. (Você também pode abrir o Hub do Unity diretamente para chegar a essa janela.)
 
    [![Janela do Hub do Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
-1. Selecione **Novo**. A janela **Criar um novo projeto com o Unity** *<version number>* é exibida.
+1. Selecione **Novo**. A janela **Criar um projeto com o Unity** *<version number>* será exibida.
 
    [![Criar um novo projeto no Hub do Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-create-a-new-project.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-create-a-new-project.png#lightbox)
 1. Em **Nome do Projeto**, digite **csharp-unity**.

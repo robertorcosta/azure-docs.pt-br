@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792894"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980435"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar de um painel de informações do cliente em streaming com Aplicativos Lógicos do Azure e Azure Functions
 
@@ -104,7 +104,7 @@ Para exibir históricos de execução anteriores no Visual Studio ou no portal d
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implantação automatizados
 
-Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo do Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) em qualquer região do Azure no mundo. Você pode usar essa funcionalidade para modificar os parâmetros para a criação de versões diferentes do seu aplicativo e para integrar a solução no Azure Pipelines. Você também pode incluir o Azure Functions no seu modelo de implantação, para que você possa gerenciar a solução inteira, com todas as dependências, como um modelo único. Saiba como [automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
+Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo do Azure Resource Manager](../azure-resource-manager/templates/overview.md) em qualquer região do Azure no mundo. Você pode usar essa funcionalidade para modificar os parâmetros para a criação de versões diferentes do seu aplicativo e para integrar a solução no Azure Pipelines. Você também pode incluir o Azure Functions no seu modelo de implantação, para que você possa gerenciar a solução inteira, com todas as dependências, como um modelo único. Saiba como [automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
 
 Para um exemplo de um modelo de implantação com uma função do Azure, verifique o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

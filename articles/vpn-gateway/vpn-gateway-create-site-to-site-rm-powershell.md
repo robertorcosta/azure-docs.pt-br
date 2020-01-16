@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 85ea3855b13350901d85701e9bca8d87ff6632c3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: d1693a6165aa31b221b6901e2e1c8b2955a3dfb3
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778763"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045678"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma Rede Virtual com uma conexão VPN site a site usando o PowerShell
 
@@ -33,23 +33,15 @@ Uma conexão de gateway de VPN Site a Site é usada para conectar a rede local a
 
 ## <a name="before"></a>Antes de começar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
 * Verifique se você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Para obter mais informações sobre dispositivos VPN compatíveis e a configuração de dispositivo, confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 * Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, você precisará trabalhar em conjunto com alguém que possa lhe fornecer os detalhes. Ao criar essa configuração, você deve especificar os prefixos de intervalo de endereços IP que o Azure roteará para seu local. Nenhuma das sub-redes da rede local podem se sobrepor às sub-redes de rede virtual às quais você deseja se conectar.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
 
-### <a name="running-powershell-locally"></a>Executando o PowerShell localmente
-
-Se você optar por instalar e usar o PowerShell localmente, instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Os cmdlets do PowerShell são atualizados com frequência e geralmente você precisará atualizar seu cmdlets do PowerShell para obter a funcionalidade mais recente do recurso. Se você não atualizar seus cmdlets do PowerShell, os valores especificados poderão falhar. 
-
-Para localizar a versão que você está usando, execute 'Get-Module -ListAvailable Az'. Se você precisa fazer a atualização, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-Se você estiver executando o PowerShell localmente, também precisará executar ‘Connect-AzAccount’ para criar uma conexão com o Azure.
-
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Valores de exemplo
 
@@ -257,6 +249,15 @@ Se os prefixos de endereço IP que você deseja rotear para o seu local forem al
 ## <a name="modifygwipaddress"></a>Para modificar o endereço IP do gateway para um gateway de rede local
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+
+## <a name="deleteconnection"></a>Para excluir uma conexão de gateway
+
+Se você não souber o nome da sua conexão, poderá encontrá-la usando o cmdlet ' Get-AzVirtualNetworkGatewayConnection '.
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+-ResourceGroupName TestRG1
+```
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -2,21 +2,21 @@
 title: Simulação de R paralelo com o Lote do Azure
 description: 'Tutorial: instruções passo a passo para executar uma simulação financeira Monte Carlo no Lote do Azure usando o pacote doAzureParallel em R'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321899"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029217"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação de R paralelo com o Lote do Azure 
 
@@ -30,7 +30,7 @@ Este tutorial mostra como implantar um pool do Lote e executar um trabalho de R 
 > * Criar um pool do Lote como um back-end paralelo para a sessão de R
 > * Executar uma simulação paralela do exemplo no pool
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma distribuição [R](https://www.r-project.org/) instalada, como o [Microsoft R Open](https://mran.microsoft.com/open). Use a versão do R 3.3.1 ou posterior.
 
@@ -110,7 +110,7 @@ Para este tutorial, altere a configuração da seguinte maneira:
 * Aumente o `maxTasksPerNode` para *2*, para aproveitar os dois núcleos em cada nó
 * Defina `dedicatedNodes` como *0* para poder experimentar as VMs de baixa prioridade disponíveis para o Lote. Defina o `min` de `lowPriorityNodes` como *5*. e o `max` como *10*, ou escolha números menores se desejar. 
 
-Mantenha os padrões para as configurações restantes e salve o arquivo. O arquivo deve ser semelhante ao seguinte:
+Mantenha os padrões para as configurações restantes e salve o arquivo. Ela deve parecer com o seguinte:
 
 ```json
 {
@@ -207,7 +207,7 @@ Uma simulação local é concluída em alguns segundos ou menos:
 difftime(end_s, start_s) 
 ```
 
-O tempo de execução estimado para 10 milhões de resultados localmente, usando uma aproximação linear, é em torno de 30 minutos:
+O runtime estimado para 10 milhões de resultados localmente, usando uma aproximação linear, é em torno de 30 minutos:
 
 ```R 
 1000 * difftime(end_s, start_s, unit = "min") 
@@ -248,7 +248,7 @@ difftime(end_p, start_p, unit = "min")
 
 Você deve ver que a execução da simulação no pool do Lote fornece um aumento significativo no desempenho ao longo do tempo esperado para executar a simulação localmente. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O trabalho é excluído automaticamente após a sua conclusão. Quando o cluster não for mais necessário, chame a função `stopCluster` no pacote doAzureParallel para excluí-lo:
 

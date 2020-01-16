@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645184"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979160"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Alertar e monitorar fábricas de dados usando Azure Monitor
 
@@ -67,7 +67,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
-* Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+* Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Defina o cabeçalho `Content-Type` como `application/json`.
 * Defina o cabeçalho de autorização para o token Web JSON obtido do Azure Active Directory (Azure AD). Para mais informações, consulte [Autenticação de solicitações](../active-directory/develop/authentication-scenarios.md).
 
@@ -188,7 +188,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>headers
 
 * Substitua `{api-version}` por `2016-09-01`.
-* Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+* Substitua `{resource-id}` pela ID do recurso para o qual você deseja editar as configurações de diagnóstico. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Defina o cabeçalho `Content-Type` como `application/json`.
 * Defina o cabeçalho de autorização para um token Web JSON que você obteve do Azure AD. Para mais informações, consulte [Autenticação de solicitações](../active-directory/develop/authentication-scenarios.md).
 
