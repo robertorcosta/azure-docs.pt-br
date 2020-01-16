@@ -3,12 +3,12 @@ title: 'Início Rápido: Nova atribuição de política com o PowerShell'
 description: Neste início rápido, use o Azure PowerShell para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482398"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978302"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando o Azure PowerShell
 
@@ -17,7 +17,7 @@ A primeira etapa para compreender a conformidade no Azure é identificar o statu
 O módulo do Azure PowerShell é usado para gerenciar recursos do Azure da linha de comando do ou em scripts.
 Este guia explica como usar o módulo Az para criar uma atribuição de política.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -30,7 +30,7 @@ Este guia explica como usar o módulo Az para criar uma atribuição de polític
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Para saber mais sobre como registrar e exibir provedores de recursos, consulte [Provedores de recursos e tipos](../../azure-resource-manager/resource-manager-supported-services.md).
+  Para saber mais sobre como registrar e exibir provedores de recursos, consulte [Provedores de recursos e tipos](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -93,7 +93,7 @@ ManagementGroupIds          : {managementGroupId}
 
 Os resultados correspondem ao que você vê na **Conformidade do recurso** de uma atribuição de política na exibição do portal do Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Use o seguinte comando para remover a atribuição criada:
 

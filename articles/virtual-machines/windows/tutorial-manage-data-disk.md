@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 7c68299e4df187b1e9006d9ee1f2f70a13df3c52
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064777"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780259"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerenciar discos do Azure com o Azure PowerShell
 
@@ -46,11 +46,11 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 **Disco do sistema operacional** - Os discos do sistema operacional podem ser dimensionados para até 4 terabytes e hospedar o sistema operacional das máquinas virtuais.  O disco do SO é atribuído à letra da unidade *C:* por padrão. A configuração de cache do disco do SO é otimizada para desempenho do SO. O disco do SO **não deve** hospedar aplicativos nem dados. Para aplicativos e dados, use um disco de dados, que é detalhado posteriormente neste artigo.
 
-**Disco temporário**: discos temporários usam uma unidade de estado sólido localizada no mesmo host do Azure que a VM. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo [tamanho da máquina virtual](sizes.md). Os discos temporários são atribuídos à letra da unidade *D:* por padrão.
+**Disco temporário** - Discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a máquina virtual. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo [tamanho da máquina virtual](sizes.md). Os discos temporários são atribuídos à letra da unidade *D:* por padrão.
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Os discos de dados extras podem ser adicionados para instalação de aplicativos e armazenamento de dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável responsivo é necessário. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
+Os discos de dados extras podem ser adicionados para instalação de aplicativos e armazenamento de dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável responsivo é necessário. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM.
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 

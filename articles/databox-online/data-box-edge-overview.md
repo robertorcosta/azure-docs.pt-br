@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 38aa45a9fe9e182fa98756725a8b20d737929d23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 654ca34ae4c0e393920965083567e3d9c71148d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585384"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863624"
 ---
 # <a name="what-is-azure-stack-edge"></a>O que é o Azure Stack Edge? 
 
@@ -27,7 +27,7 @@ O Azure Stack Edge é uma solução de hardware como serviço. A Microsoft envia
 
 Aqui estão os vários cenários em que o Azure Stack Edge pode ser usado para inferências rápidas de ML (Machine Learning) na borda e pré-processamento de dados, antes do envio para o Microsoft Azure.
 
-- **Inferência com o Azure Machine Learning** – Com o Azure Stack Edge, é possível executar modelos de ML para obter resultados rápidos que podem ser tratados, antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode ser transferido para continuar a treinar novamente e melhorar os modelos de ML. Para obter mais informações sobre como usar os Modelos de Aceleração de Hardware do Azure Machine Learning no dispositivo Azure Stack Edge, confira [Implantar Modelos de Aceleração de Hardware do Azure Machine Learning no Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferência com o Azure Machine Learning** – Com o Azure Stack Edge, é possível executar modelos de ML para obter resultados rápidos que podem ser tratados, antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode ser transferido para continuar a treinar novamente e melhorar os modelos de ML. Para obter mais informações sobre como usar os Modelos de Aceleração de Hardware do Azure Machine Learning no dispositivo Azure Stack Edge, confira [Implantar Modelos de Aceleração de Hardware do Azure Machine Learning no Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Pré-processar dados** – transforme dados antes de enviá-los para o Azure para criar um conjunto de dados mais acionável. O pré-processamento pode ser usado para: 
 
@@ -43,7 +43,7 @@ Aqui estão os vários cenários em que o Azure Stack Edge pode ser usado para i
 
 O Azure Stack Edge tem as seguintes funcionalidades:
 
-|Recurso |DESCRIÇÃO  |
+|Recurso |Descrição  |
 |---------|---------|
 |Inferência de IA acelerada| Habilitada pela FPGA interna.|
 |Computação       |Permite a análise, o processamento e a filtragem de dados.|

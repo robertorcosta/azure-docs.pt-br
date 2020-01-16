@@ -1,23 +1,22 @@
 ---
 title: 'Início Rápido: Reconhecer a fala de um microfone, C++ (macOS) – Serviço de Fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer fala em C++ no macOS usando o SDK de Fala
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 885e853528eb0b20079e6a7739450687ed001b8e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 08459238173b379280cb513ccb3242e4f15ef0bc
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818902"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927902"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar:
 
@@ -51,7 +50,7 @@ Antes de começar:
   g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 1. Defina o caminho da biblioteca do carregador para apontar para a biblioteca do SDK de Fala.
 

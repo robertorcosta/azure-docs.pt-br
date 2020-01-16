@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70231383"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895959"
 ---
 ::: zone target="docs"
 
@@ -41,12 +41,12 @@ Neste tutorial, você aprenderá como:
 > * Copiar dados para o Data Box Disk
 > * Verificar os dados
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 - Você concluiu o [Tutorial: instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Os discos são desbloqueados e conectados a um computador cliente.
-- O computador cliente usado para copiar dados para os discos precisa executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- O computador cliente usado para copiar dados para os discos precisa executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Certifique-se de que o tipo de armazenamento pretendido para seus dados corresponde aos [tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Revise [Limites de disco gerenciado em limites de tamanho de objeto do Azure](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -73,9 +73,9 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
 
     |Destino de armazenamento selecionado  |Tipo de conta de armazenamento|Tipo de conta de armazenamento de preparo |Pastas e subpastas  |
     |---------|---------|---------|------------------|
-    |Conta de armazenamento     |GPv1 ou GPv2                 | ND | BlockBlob <br> PageBlob <br> AzureFile        |
-    |Conta de armazenamento     |Conta de armazenamento de blobs         | ND | BlockBlob        |
-    |Discos gerenciados     |ND | GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Conta de armazenamento     |GPv1 ou GPv2                 | NA | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Conta de armazenamento     |Conta de armazenamento de blobs         | NA | BlockBlob        |
+    |Discos gerenciados     |NA | GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
     |Conta de armazenamento <br> Discos gerenciados     |GPv1 ou GPv2 | GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
     |Conta de armazenamento <br> Discos gerenciados    |Conta de armazenamento de blobs | GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
@@ -101,7 +101,7 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
     
     Os parâmetros e as opções para o comando são tabulados da seguinte maneira:
     
-    |Parâmetros/Opções  |DESCRIÇÃO |
+    |Parâmetros/Opções  |Descrição |
     |--------------------|------------|
     |Fonte            | Especifica o caminho para o diretório de origem.        |
     |Destino       | Especifica o caminho para o diretório de destino.        |
@@ -270,7 +270,7 @@ Se você encontrar erros usando a ferramenta de Dividir cópia, veja como [soluc
 Depois que a cópia de dados for concluída, você poderá prosseguir para a validação dos dados. Se você usou a ferramenta Split Copy, ignore a validação (a ferramenta também executa a validação) e avance para o próximo tutorial.
 
 
-## <a name="validate-data"></a>Validar dados
+## <a name="validate-data"></a>Validar os dados
 
 Se você não tiver usado a ferramenta Split Copy para copiar dados, será necessário validar seus dados. Para verificar os dados, execute as seguintes etapas.
 
@@ -329,7 +329,7 @@ Execute as etapas a seguir para conectar e copiar dados do computador para o Dat
 
 Use o procedimento opcional de [divisão e cópia](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) ao usar vários discos e tiver um conjunto de dados grande que precisa ser dividido e copiado entre todos os discos.
 
-### <a name="validate-data"></a>Validar dados
+### <a name="validate-data"></a>Validar os dados
 
 Execute as etapas a seguir para verificar os dados.
 

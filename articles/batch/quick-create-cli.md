@@ -2,20 +2,20 @@
 title: Início rápido do Azure - Executar trabalho do Lote - CLI
 description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322502"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029482"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho em Lote com a CLI do Azure
 
@@ -189,7 +189,7 @@ AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se você quiser continuar com exemplos e tutoriais do Lote, use a conta do Lote e a conta de armazenamento vinculada criada neste guia de início rápido. Não há nenhum encargo pela conta do Lote.
 
 Você é cobrado pelos pools enquanto os nós estão em execução, mesmo se não há trabalhos agendados. Quando você não precisar mais um pool, exclua-o com o comando [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. 

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3ead9eefd6f0d4c504cc7711ea4e03facf8edc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12e79df4af2dab097a41cf8482d5a344080890cf
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231520"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769687"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar sua primeira função durável em C\#
 
@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a usar o Visual Studio 2019 para criar e testar l
 
 ![Como executar funções duráveis no Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
@@ -34,7 +34,7 @@ Para concluir este tutorial:
 
 ## <a name="create-a-function-app-project"></a>Crie um projeto de aplicativo de funções
 
-O modelo do Azure Functions cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para o gerenciamento, implantação e compartilhamento de recursos.
+O modelo do Azure Functions cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
 1. No Visual Studio, selecione **Novo** > **Projeto** no menu **Arquivo**.
 
@@ -48,7 +48,7 @@ O modelo do Azure Functions cria um projeto que pode ser publicado em um aplicat
 
     ![Caixa de diálogo Criar um Aplicativo do Azure Functions no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
-    | Configuração      | Valor sugerido  | DESCRIÇÃO                      |
+    | Configuração      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |
     | **Versão** | Azure Functions 2.0 <br />(.NET Core) | Cria um projeto de função que usa o tempo de execução versão 2.0 do Azure Functions, que oferece suporte ao .NET Core. O Azure Functions 1.0 é compatível com o .NET Framework. Para obter mais informações, consulte [Como direcionar para versões do Azure Functions runtime](../functions-versions.md).   |
     | **Modelo** | Vazio | Cria um aplicativo de funções vazio. |
@@ -75,7 +75,7 @@ As etapas a seguir usam um modelo para criar o código da durable function no pr
 
 Uma nova durable function será adicionada ao aplicativo.  Abra o novo arquivo .cs para exibir o conteúdo. Essa durable function é um exemplo simples de encadeamento de funções com os seguintes métodos:  
 
-| Método | FunctionName | DESCRIÇÃO |
+| Método | FunctionName | Descrição |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Gerencia a orquestração durável. Nesse caso, a orquestração é iniciada, cria uma lista e adiciona o resultado de três chamadas de função à lista.  Quando as três chamadas de função são concluídas, ela retorna a lista. |
 | **`SayHello`** | `<file-name>_Hello` | A função retorna uma saudação. É a função que contém a lógica de negócios que está sendo orquestrada. |

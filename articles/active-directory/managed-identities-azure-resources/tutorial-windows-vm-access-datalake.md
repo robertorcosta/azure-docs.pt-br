@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181892"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977875"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Data Lake Storage
 
@@ -32,11 +32,19 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > * Conceder acesso a um Azure Data Lake Store à sua VM
 > * Obter um token de acesso usando a identidade da VM e usá-lo para acessar um Azure Data Lake Store
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Conceder acesso ao Azure Data Lake Store à sua VM
+
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acesso
 
 Agora você pode conceder o acesso a arquivos e pastas em um Azure Data Lake Store à sua VM.  Para esta etapa, é possível usar um Data Lake Store existente ou criar um novo.  Para criar um novo Data Lake Store usando o Portal do Azure, siga este [Guia de início rápido do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Também há guias de início rápido que usam a CLI do Azure e o Azure PowerShell na [documentação do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
@@ -56,7 +64,7 @@ No seu Data Lake Storage, crie uma nova pasta e conceda à identidade atribuída
 
 A identidade gerenciada atribuída pelo sistema da VM agora pode executar todas as operações nos arquivos da pasta que você criou.  Para saber mais sobre como gerenciar acesso ao Data Lake Store, leia este artigo sobre [Controle de acesso no Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-lo para chamar o sistema de arquivos do Azure Data Lake Storage
+## <a name="access-data"></a>Acessar dados
 
 O Azure Data Lake Storage tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando identidades gerenciadas para recursos do Azure.  Para autenticar para o sistema de arquivos do Data Lake Store, você enviar um token de acesso emitido pelo Azure AD para o ponto de extremidade do sistema de arquivos do Data Lake Store em um cabeçalho de autorização no formato “Bearer <ACCESS_TOKEN_VALUE>”.  Para saber mais sobre o suporte do Data Lake Store à autenticação do Azure AD, leia [Autenticação com o Data Lake Store usando o Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
@@ -68,7 +76,7 @@ Neste tutorial, você se autenticará na API REST do sistema de arquivos do Data
 1. No portal, navegue até **Máquinas Virtuais**, acesse a VM Windows e, em **Visão geral**, clique em **Conectar**.
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o **PowerShell** na sessão remota. 
-4. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para as identidades gerenciadas locais para o ponto de extremidade do Azure para obter um token de acesso ao Azure Data Lake Storage.  O identificador de recursos para Data Lake Store é `https://datalake.azure.net/`.  O Data Lake faz uma correspondência exata no identificador de recursos, por isso a barra à direita é importante.
+4. Usando o `Invoke-WebRequest` do PowerShell, faça uma solicitação para as identidades gerenciadas locais para o ponto de extremidade do Azure para obter um token de acesso ao Azure Data Lake Storage.  O identificador de recursos para Data Lake Storage é `https://datalake.azure.net/`.  O Data Lake faz uma correspondência exata no identificador de recursos, por isso a barra à direita é importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -173,6 +181,12 @@ Neste tutorial, você se autenticará na API REST do sistema de arquivos do Data
    ```
 
 Usando outras APIs do sistema de arquivos do Data Lake Store, é possível acrescentar aos arquivos, baixar arquivos e muito mais.
+
+
+## <a name="disable"></a>Desabilitar
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

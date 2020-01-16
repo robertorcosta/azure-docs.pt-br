@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498965"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888287"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutorial: Adicionar resultados do LUIS ao Application Insights de um Bot em C#
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Capturar dados de bot e de Reconhecimento vocal no Application Insights
 > * Consultar o Application Insights para obter dados de Reconhecimento vocal
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um bot do Serviço de bot do Azure, criado com o Application Insights habilitado.
 * Código de bot baixado do **[tutorial](luis-csharp-tutorial-bf-v4.md)** de bot anterior. 
@@ -162,7 +162,7 @@ Para adicionar dados ao Application Insights, você precisa da chave de instrume
 1. No Visual Studio, compile e execute o bot. 
 1. Inicie o emulador do bot e abra o bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) é descrita no tutorial anterior.
 
-1. Faça uma pergunta ao bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) é descrita no tutorial anterior.
+1. Faça uma pergunta ao bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) é descrita no tutorial anterior.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Exibir entradas do LUIS no Application Insights
 
@@ -186,7 +186,7 @@ O Application Insights oferece a capacidade de consultar os dados com a linguage
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Execute a consulta. As novas colunas de topIntent, pontuação e enunciado estão disponíveis. Selecione a coluna topIntent para classificar.
+1. Executa a consulta. As novas colunas de topIntent, pontuação e enunciado estão disponíveis. Selecione a coluna topIntent para classificar.
 
 Saiba mais sobre a [Linguagem de consulta Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou sobre [exportar os dados para o Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 

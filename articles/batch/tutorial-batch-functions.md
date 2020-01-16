@@ -2,7 +2,7 @@
 title: Disparar um trabalho em lotes usando o Azure Functions
 description: Tutorial – Aplicar OCR a documentos digitalizados conforme eles são adicionados a um blob de armazenamento
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: d5a5197227ff62ca0c610e2c4e269480690d3faf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343076"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029232"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutorial: Disparar um trabalho em lotes usando o Azure Functions
 
 Neste tutorial, você aprenderá como disparar um trabalho em lotes usando o Azure Functions. Vamos examinar um exemplo no qual os documentos adicionados a um contêiner de blobs do Armazenamento do Microsoft Azure têm OCR (reconhecimento óptico de caracteres) aplicado a eles por meio do Lote do Azure. Para simplificar o processamento de OCR, configuraremos uma função do Azure que executa um trabalho OCR do Lote cada vez que um arquivo é adicionado ao contêiner de blob.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Confira [Criar uma conta do Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e vincular contas.
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como disparar um trabalho em lotes usando o Azu
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-batch-pool-and-batch-job-using-batch-explorer"></a>Criar um pool em lotes e trabalho em lotes usando o Batch Explorer
 
@@ -75,7 +75,7 @@ Nesta seção, você criará a Função do Azure, que dispara o trabalho em lote
 
 1. Siga as etapas em [Criar uma função disparada pelo armazenamento de blob do Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function) para criar uma função.
     1. Quando uma conta de armazenamento for solicitada, use a mesma conta de armazenamento que você vinculou à sua conta do Lote.
-    1. Para **pilha de tempo de execução**, escolha .NET. Gravaremos nossa função em C# para aproveitar o SDK do .NET em Lote.
+    1. Para **pilha de runtime**, escolha .NET. Gravaremos nossa função em C# para aproveitar o SDK do .NET em Lote.
 1. Depois de criar a função disparada pelo blob, use o [`run.csx`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/run.csx) e [`function.proj`](https://github.com/Azure-Samples/batch-functions-tutorial/blob/master/function.proj) do GitHub, na Função.
     * `run.csx` é executado quando um novo blob é adicionado ao seu contêiner de blob de entrada.
     * `function.proj` lista as bibliotecas externas no código da Função, por exemplo, o SDK do .NET em Lote.
@@ -92,8 +92,8 @@ Além disso, é possível inspecionar o arquivo de logs na parte inferior da jan
 2019-05-29T19:45:25.846 [Information] Creating job...
 2019-05-29T19:45:25.847 [Information] Accessing input container <inputContainer>...
 2019-05-29T19:45:25.847 [Information] Adding <fileName> as a resource file...
-2019-06-21T20:02:35.129 [Information] Name of output text file: <outputTxtFile>
-2019-06-21T20:02:35.130 [Information] Name of output PDF file: <outputPdfFile>
+2019-05-29T19:45:25.848 [Information] Name of output text file: <outputTxtFile>
+2019-05-29T19:45:25.848 [Information] Name of output PDF file: <outputPdfFile>
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 

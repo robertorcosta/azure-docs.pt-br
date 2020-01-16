@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843127"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020843"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -37,8 +37,8 @@ Esta seção pressupõe que você está criando um novo aplicativo de funções 
 
     Quando você pressiona Enter, os seguintes recursos do Azure são criados em sua assinatura:
 
-    * **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** : Contém todos os recursos criados do Azure. O nome é baseado no nome de seu aplicativo de funções.
-    * **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)** : Uma conta de armazenamento padrão é criada com um nome exclusivo baseado no nome de seu aplicativo de funções.
+    * **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** : Contém todos os recursos criados do Azure. O nome é baseado no nome de seu aplicativo de funções.
+    * **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** : Uma conta de armazenamento padrão é criada com um nome exclusivo baseado no nome de seu aplicativo de funções.
     * **[Plano de hospedagem](../articles/azure-functions/functions-scale.md)** : Um plano de consumo é criado na região Oeste dos EUA para hospedar seu aplicativo de funções sem servidor.
     * **Aplicativo de funções**: Seu projeto é implantado e executado no novo aplicativo de funções.
 

@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: bfe786405ad32f68af33fcea1131fe856c9f38d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fbfd3e2577655e8cfccd84fffe2971ff509bd2f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440047"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977449"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Assinatura do Azure**. Se você não tiver uma assinatura, poderá criar uma conta de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** e de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma.
+* **Conta de Armazenamento do Azure**. Você usa o armazenamento de blobs como um armazenamento de dados de **origem** e de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-account-create.md) para conhecer as etapas para criar uma.
 * Crie um **contêiner de blob** no Armazenamento de Blobs, crie uma **pasta** de entrada no contêiner e carregue alguns arquivos na pasta. Você pode usar ferramentas como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para se conectar ao armazenamento de Blobs do Azure, criar um contêiner de blobs, carregar arquivos de entrada e verificar os arquivos de saída.
 * Instale o **Azure PowerShell**. Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps). Este guia de início rápido usa o PowerShell para invocar chamadas à API REST.
 * **Crie um aplicativo no Azure Active Directory** seguindo [esta instrução](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anote os valores a seguir, que você usará em etapas posteriores: **ID do aplicativo**, **clientSecrets** e **ID do locatário**. Atribua o aplicativo à função "**Colaborador**".
@@ -47,7 +47,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 1. Inicie o **PowerShell**. Mantenha o Azure PowerShell aberto até o fim deste guia de início rápido. Se você fechar e reabrir, precisará executar os comandos novamente.
 
     Execute o comando a seguir e insira o nome de usuário e senha usados para entrar no portal do Azure:
-    
+
     ```powershell
     Connect-AzAccount
     ```
@@ -430,7 +430,7 @@ Veja o exemplo de saída:
         "runGroupId":"04a2bb9a-71ea-4c31-b46e-75276b61bafc",
         "pipelineName":"Adfv2QuickStartPipeline",
         "parameters":{  
-    
+
         },
         "invokedBy":{  
             "id":"2bb3938176ee43439752475aa12b2251",
@@ -444,15 +444,15 @@ Veja o exemplo de saída:
         "message":"",
         "lastUpdated":"2019-09-03T07:22:57.8862692Z",
         "annotations":[  
-    
+
         ],
         "runDimension":{  
-    
+
         },
         "isLatest":true
     }
     ```
-    
+
 2. Execute o script a seguir para recuperar os detalhes de execução da atividade de cópia, por exemplo, o tamanho dos dados lidos/gravados.
 
     ```powershell

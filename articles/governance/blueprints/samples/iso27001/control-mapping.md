@@ -1,14 +1,14 @@
 ---
 title: Exemplo de controles de blueprint da ISO 27001
 description: Mapeamento de controles da amostra de blueprint da ISO 27001. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 07/22/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: effc68f3b7daa576b855fb61b39c1e47929a614e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 501884491dbef85cdf8a29cb5fdcef44a68235a9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546669"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920565"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint ISO 27001
 

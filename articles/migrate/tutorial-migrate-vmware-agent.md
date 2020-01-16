@@ -1,19 +1,15 @@
 ---
 title: Migrar VMs VMware com a migração baseada em agente das Migrações para Azure
 description: Saiba como executar uma migração baseada em agente de VMs VMware com as Migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196291"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028960"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
@@ -61,7 +57,7 @@ Para decidir se deseja usar a migração sem agente ou baseada em agente, leia e
 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de iniciar este tutorial, você deverá:
 
@@ -83,7 +79,7 @@ Se você não tiver executado uma avaliação, precisará configurar as permiss�
 
 - **Criar um projeto**: sua conta do Azure precisa de permissões para criar um projeto de Migrações para Azure. 
 - **Registrar o dispositivo de replicação de Migrações para Azure**: o dispositivo de replicação cria e registra um aplicativo do Azure Active Directory em sua conta do Azure. Você precisa delegar permissões para isso.
-- **Criar um Cofre de Chaves**: para migrar VMs VMware usando a Migração de Servidor de Migrações para Azure, as Migrações para Azure criam um cofre de chaves no grupo de recursos para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você precisa de permissões de atribuição de função no grupo de recursos no qual o projeto de Migrações para Azure reside. 
+- **Criar um Cofre de Chaves**: Para migrar VMs VMware usando a Migração de Servidor de Migrações para Azure, as Migrações para Azure criam um cofre de chaves no grupo de recursos para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você precisa de permissões de atribuição de função no grupo de recursos no qual o projeto de Migrações para Azure reside. 
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto
@@ -177,9 +173,9 @@ Verifique se os servidores e as VMs VMware cumprem os requisitos para a migraç�
 > [!NOTE]
 > A migração baseada em agente com a Migração de Servidor de Migrações para Azure baseia-se nos recursos do serviço do Azure Site Recovery. Alguns requisitos podem ser vinculados à documentação do Site Recovery.
 
-1. [Verifique](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor VMware.
-2. [Verifique](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) os requisitos de suporte da VM para a migração.
-3. Verifique as configurações da VM. As VMs locais que você replica para o Azure devem cumprir os [requisitos de VM do Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verifique](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) os requisitos do servidor VMware.
+2. [Verifique](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) os requisitos de suporte da VM para a migração.
+3. Verifique as configurações da VM. As VMs locais que você replica para o Azure devem cumprir os [requisitos de VM do Azure](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -232,7 +228,7 @@ Para configurar o dispositivo de replicação, baixe um modelo OVA (Open Virtual
 Baixe o modelo da seguinte maneira:
 
 1. No projeto Migrações para Azure, clique em **Servidores** em **Metas de Migração**.
-2. Em **Migrações para Azure – Servidores** > **Migrações para Azure: Migração de Servidor**, clique em **Descobrir**.
+2. Na página **Migrações para Azure – Servidores** > **Migrações para Azure: Migração de Servidor**, clique em **Descobrir**.
 
     ![Descobrir VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
@@ -336,7 +332,7 @@ Agora, selecione as VMs para migração.
     - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Próximo**.
     - Selecione **Sim** se você tiver computadores Windows Server cobertos com assinaturas ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que estão sendo migrados. Em seguida, clique em **Próximo**.
 
-12. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do sistema operacional e o conjunto de disponibilidade. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do sistema operacional e o conjunto de disponibilidade. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **Tamanho da VM**: se você estiver usando recomendações de avaliação, o menu suspenso de tamanho da VM conterá o tamanho recomendado. Caso contrário, as Migrações para Azure escolherão um tamanho com base na correspondência mais próxima na assinatura do Azure. Como alternativa, escolha um tamanho manual em **Tamanho da VM do Azure**. 
     - **Disco do SO**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do sistema operacional é o disco que tem o carregador de inicialização e o instalador do sistema operacional. 
@@ -424,7 +420,7 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 
 ## <a name="post-migration-best-practices"></a>Melhores práticas pós-migração
 
-- Configuração local
+- Local
     - Mova o tráfego do aplicativo para o aplicativo em execução na instância migrada da VM do Azure.
     - Remova as VMs locais do inventário local de VMs.
     - Remova as VMs locais dos backups locais.

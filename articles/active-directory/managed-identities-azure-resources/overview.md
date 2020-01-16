@@ -15,18 +15,18 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee30962db230417bf3e20a354614a5ebb8f35a0
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a6c4363d6124a7cec075003f7b54a2825c3f489a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561905"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977981"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Um desafio comum ao criar aplicativos de nuvem é como gerenciar as credenciais no código para autenticar serviços de nuvem. Proteger as credenciais é uma tarefa importante. O ideal é que as credenciais nunca apareçam em estações de trabalho do desenvolvedor e não sejam verificadas no controle de origem. O Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais, os segredos e outras chaves, mas seu código precisa se autenticar no Key Vault para recuperá-los. 
+Um desafio comum ao criar aplicativos de nuvem é como gerenciar as credenciais no código para autenticar serviços de nuvem. Proteger as credenciais é uma tarefa importante. O ideal é que as credenciais nunca apareçam em estações de trabalho do desenvolvedor e não sejam verificadas no controle de origem. O Azure Key Vault fornece uma maneira de armazenar com segurança as credenciais, os segredos e outras chaves, mas seu código precisa se autenticar no Key Vault para recuperá-los.
 
 As identidades de gerenciado para a funcionalidade de recursos do Azure no Azure AD (Azure Active Directory) resolve esse problema. O recurso oferece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Você pode usar a identidade para se autenticar em qualquer serviço que dê suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter credenciais em seu código.
 
@@ -50,9 +50,9 @@ Há dois tipos de identidades gerenciadas:
 - Uma **identidade gerenciada atribuída pelo sistema** é habilitada diretamente em uma instância de serviço do Microsoft Azure. Quando a identidade é habilitada, o Azure cria uma identidade para a instância do locatário do Azure AD confiado pela assinatura da instância. Depois que a identidade é criada, as credenciais são provisionadas para a instância. O ciclo de vida de uma identidade atribuída ao sistema está diretamente relacionado à instância de serviço do Azure na qual ela está habilitada. Se a instância é excluída, o Azure limpa automaticamente as credenciais e a identidade no Azure AD.
 - Uma **identidade gerenciada atribuída pelo usuário** é criada como um recurso autônomo do Azure. Por meio de um processo de criação, o Microsoft Azure cria uma identidade no locatário do Azure AD confiado pela assinatura em uso. Depois que a identidade é criada, ela pode ser atribuída a uma ou mais instâncias de serviço do Azure. O ciclo de vida de uma identidade atribuída pelo usuário é gerenciado separadamente do ciclo de vida das instâncias de serviço do Azure a que ela é atribuída.
 
-Internamente, as identidades gerenciadas são entidades de serviço de um tipo especial, que estão bloqueadas para serem usadas apenas com recursos do Azure. Quando a identidade gerenciada é excluída, a entidade de serviço correspondente é removida automaticamente. 
+Internamente, as identidades gerenciadas são entidades de serviço de um tipo especial, que estão bloqueadas para serem usadas apenas com recursos do Azure. Quando a identidade gerenciada é excluída, a entidade de serviço correspondente é removida automaticamente.
 
-Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso para os serviços que dão suporte à autenticação do Azure AD. O Azure é responsável por reverter as credenciais que são usadas pela instância de serviço. 
+Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso para os serviços que dão suporte à autenticação do Azure AD. O Azure é responsável por reverter as credenciais que são usadas pela instância de serviço.
 
 O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam com VMs (máquinas virtuais):
 
@@ -63,7 +63,7 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
 | Criação |  Criada como parte de um recurso do Azure (por exemplo, uma máquina virtual do Azure ou o Serviço de Aplicativo do Azure) | Criada como um recurso independente do Azure |
 | Ciclo de vida | Ciclo de vida compartilhado com o recurso do Azure com o qual a identidade gerenciada é criada. <br/> Quando o recurso pai é excluído, a identidade gerenciada também é excluída. | Ciclo de vida independente. <br/> Precisa ser explicitamente excluída. |
 | Compartilhamento entre recursos do Azure | Não pode ser compartilhada. <br/> Só pode ser associada a um único recurso do Azure. | Pode ser compartilhada <br/> A mesma identidade gerenciada atribuída pelo usuário pode ser associada a mais de um recurso do Azure. |
-| Casos de uso comuns | Cargas de trabalho que estão contidas em um único recurso do Azure <br/> Cargas de trabalho para as quais você precisa de identidades independentes. <br/> Por exemplo, um aplicativo que é executado em uma única máquina virtual | Cargas de trabalho que são executadas em vários recursos e que podem compartilhar uma única identidade. <br/> Cargas de trabalho que precisam de pré-autorização para um recurso seguro como parte de um fluxo de provisionamento. <br/> Cargas de trabalho em que os recursos são reciclados com frequência, mas as permissões devem permanecer consistentes. <br/> Por exemplo, uma carga de trabalho em que várias máquinas virtuais precisam acessar o mesmo recurso | 
+| Casos de uso comuns | Cargas de trabalho que estão contidas em um único recurso do Azure <br/> Cargas de trabalho para as quais você precisa de identidades independentes. <br/> Por exemplo, um aplicativo que é executado em uma única máquina virtual | Cargas de trabalho que são executadas em vários recursos e que podem compartilhar uma única identidade. <br/> Cargas de trabalho que precisam de pré-autorização para um recurso seguro como parte de um fluxo de provisionamento. <br/> Cargas de trabalho em que os recursos são reciclados com frequência, mas as permissões devem permanecer consistentes. <br/> Por exemplo, uma carga de trabalho em que várias máquinas virtuais precisam acessar o mesmo recurso |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Como uma identidade gerenciada atribuída pelo sistema funciona com uma VM do Azure
 
@@ -116,7 +116,7 @@ Saiba como usar uma identidade gerenciada com uma VM do Windows:
 * [Acessar Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
 * [Acessar o Azure Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Acessar SQL do Azure](tutorial-windows-vm-access-sql.md)
-* [Acessar o Armazenamento do Azure usando uma chave de acesso](tutorial-windows-vm-access-storage.md)
+* [Acessar o Armazenamento do Azure usando uma chave de acesso](tutorial-vm-windows-access-storage.md)
 * [Acessar o Armazenamento do Azure usando assinaturas de acesso compartilhado](tutorial-windows-vm-access-storage-sas.md)
 * [Acessar um recurso que não seja do Azure AD com o Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
 
@@ -136,7 +136,7 @@ Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 * [Instâncias de Contêiner do Azure](../../container-instances/container-instances-managed-identity.md)
 * [Tarefas do Registro de Contêiner do Azure](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
 * [Hubs de eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
-* [Funções do Azure](/azure/app-service/overview-managed-identity)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Serviço de Kubernetes do Azure](/azure/aks/use-managed-identity)
 * [Aplicativos Lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
 * [Barramento de Serviço do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)

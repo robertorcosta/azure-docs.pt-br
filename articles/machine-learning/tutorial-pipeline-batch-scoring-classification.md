@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: f7446bc4a7f827fe1c65a0ce8df8ce6a5627624c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4850a58ae96b9fc5e8293efbac0de447915289ca
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532779"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763344"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 
@@ -139,7 +139,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Os pipelines de aprendizado de máquina não podem ser executados localmente; portanto, execute-os nos recursos de nuvem ou nos *destinos de computação remota*. Um destino de computação remota é um ambiente de computação virtual reutilizável em que você executa experimentos e fluxos de trabalho de aprendizado de máquina. 
 
-Execute o código a seguir para criar um destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) habilitado para GPU e anexe-o ao seu workspace. Para obter mais informações sobre destinos de computação, confira o [artigo conceitual](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
+Execute o código a seguir para criar um destino [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) habilitado para GPU e anexe-o ao seu workspace. Para obter mais informações sobre destinos de computação, confira o [artigo conceitual](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
 
 
 ```python

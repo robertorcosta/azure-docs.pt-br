@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b06342d5034b820be4e6fd49436546a5aa7b7e02
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111998"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749788"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Linux no Azure
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -178,7 +178,7 @@ O exemplo a seguir cria um alerta para uso médio da CPU.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você configurou e exibiu o desempenho de sua VM. Você aprendeu como:
+Neste tutorial, você configurou e exibiu o desempenho de sua VM. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um grupo de recursos e uma VM

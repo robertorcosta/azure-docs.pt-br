@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: c97c8231265cf87f52333a56d21d6fb13180c554
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 5680bd1c3fadab8edcde1634c708ca8683c0e99c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021139"
 ---
 ## <a name="create-base-resources"></a>Criar recursos de base
 
@@ -23,7 +23,7 @@ Use o mesmo grupo de recursos e o local para todos os recursos. Então, no final
 
 Abaixo há um resumo das etapas a serem seguidas nestas seções: 
 
-1. Crie um [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md).
+1. Crie um [grupo de recursos](../articles/azure-resource-manager/management/overview.md).
 
 2. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439420"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977329"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie dados do Armazenamento de blobs do Azure para um banco de dados SQL usando a ferramenta Copy Data
 
@@ -39,7 +39,7 @@ Neste tutorial, você executa as seguintes etapas:
 ## <a name="prerequisites"></a>Prerequisites
 
 * **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento do Azure**: Use o armazenamento de Blobs como um armazenamento de dados de _origem_. Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+* **Conta de Armazenamento do Azure**: Use o armazenamento de Blobs como um armazenamento de dados de _origem_. Se você não tiver uma conta de armazenamento do Azure, confira as instruções em [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 * **Banco de Dados SQL do Azure**: Use um banco de dados SQL como o armazenamento de dados do _coletor_. Se você não tiver um banco de dados SQL, confira as instruções em [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
@@ -78,18 +78,18 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**:
-    
+
     ![Criação do novo data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
 
     O nome do seu data factory deve ser _globalmente exclusivo_. Você deve ver a seguinte mensagem de erro:
-    
+
     ![Mensagem de erro do novo data factory](./media/doc-common-process/name-not-available-error.png)
 
     Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. Por exemplo, use o nome _**seunome**_ **ADFTutorialDataFactory**. Para ver as regras de nomenclatura de artefatos do Data Factory, confira [Regras de nomenclatura do Data Factory](naming-rules.md).
 1. Selecione a **assinatura** do Azure na qual deseja criar o novo data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
-    
+
     a. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa.
 
     b. Selecione **Criar novo**e insira o nome de um grupo de recursos.
@@ -101,7 +101,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
 1. Selecione **Criar**.
 
 1. Depois de finalizada a criação, a home page do **Data Factory** é exibida.
-    
+
     ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
 1. Para iniciar a interface do usuário do Azure Data Factory em uma guia separada, selecione o bloco **Criar e Monitorar**.
 
@@ -125,7 +125,7 @@ Prepare o Armazenamento de blobs e o banco de dados SQL para o tutorial, executa
     ![Selecione o serviço de origem vinculado](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. Na página **Escolha o arquivo de entrada ou a pasta**, execute as seguintes etapas:
-    
+
     a. Clique em **Navegar** para navegar até a pasta **adfv2tutorial/input**, selecione o arquivo **inputEmp.txt** e então clique em **Escolher**.
 
     b. Clique em **Avançar** para mover-se para a próxima etapa.

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como fazer o desenvolvimento do Kubernetes de equipe com contêineres e microsserviços com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 396358be63f93fde2ba5ec5f00545708dbfa19d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 86d8d559a2d6408eb6846705887a82b440d50d7b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438208"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770825"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolvimento em equipe no Kubernetes – Azure Dev Spaces
 
@@ -236,4 +236,4 @@ Saiba como o Azure Dev Spaces ajuda você a desenvolver aplicativos mais complex
 > [Trabalhando com vários contêineres e desenvolvimento em equipe](multi-service-nodejs.md)
 
 [helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

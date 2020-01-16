@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 9042bece9b9a4c914941d65d615045cf365b67b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dc987fa1a3476b81b198726350d56333b53c795f
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034380"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780293"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -47,7 +47,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Para instalar aplicativos e dados de armazenamento, outros discos de dados podem ser adicionados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
+Para instalar aplicativos e dados de armazenamento, outros discos de dados podem ser adicionados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM.
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 
@@ -182,7 +182,7 @@ exit
 
 Ao criar um instantâneo do disco, o Azure cria uma cópia do disco de apenas leitura, de um ponto no tempo. Instantâneos de máquina virtual do Azure são úteis para salvar rapidamente o estado de uma máquina virtual antes de fazer alterações de configuração. No caso de um problema ou erro, a VM pode ser restaurada usando um instantâneo. Quando uma máquina virtual tem mais de um disco, um instantâneo é tirado de cada disco independentemente dos outros. Para fazer backups consistentes de aplicativos, considere parar a máquina virtual antes de tirar instantâneos de disco. Como alternativa, utilize o [serviço de Backup do Azure](/azure/backup/), que permite realizar backups automáticos, enquanto a máquina virtual está em execução.
 
-### <a name="create-snapshot"></a>Como criar um instantâneo
+### <a name="create-snapshot"></a>Criar instantâneo
 
 Antes de criar um instantâneo de disco da máquina virtual, você deve ter a ID ou o nome do disco. Utilize o comando [az vm show](/cli/azure/vm#az-vm-show) para obter a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável e utilizada em uma etapa posterior.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961406"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970494"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Mover VMs do Azure entre regiões públicas e do Azure Governamental 
 
@@ -65,7 +65,7 @@ Configure uma [rede do Azure](../virtual-network/quick-create-portal.md) de dest
 
 ### <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
 
-Configure uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md).
+Configure uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md).
 
 - O Site Recovery replica máquinas locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após o failover.
 - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.

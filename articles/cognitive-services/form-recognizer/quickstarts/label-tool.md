@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 2abbf06fee8189bc6ca678e546c8e88504409a51
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660385"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770281"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -33,9 +33,11 @@ Para concluir este início rápido, é necessário ter:
 
 Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de exemplo. Siga as etapas a seguir para configurar o contêiner do Docker. Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
 1. Primeiro, instale o Docker em um computador host. O computador host pode ser o seu computador local ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)ou [Linux](https://docs.docker.com/install/)). Ou você pode usar um serviço de hospedagem do Docker no Azure, como o [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure/aks/index), as [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/index) ou um cluster do Kubernetes [implantado em um Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). O computador host deve atender aos seguintes requisitos de hardware:
+
     | Contêiner | Mínimo | Recomendadas|
     |:--|:--|:--|
-    |Ferramenta de rotulagem de exemplo|2 núcleos, 4 GB de memória|4 núcleos, 8 GB de memória
+    |Ferramenta de rotulagem de exemplo|2 núcleos, 4 GB de memória|4 núcleos, 8 GB de memória|
+    
 1. Em seguida, você precisará da [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Se ainda não tiver feito isto, instale-a em seu computador.
 1. Depois, insira o comando a seguir em um prompt de comando. Os valores para `<username>` e `<password>` estão no seu email de boas-vindas ao Reconhecimento de Formulários.
     ```
@@ -49,7 +51,8 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para [http://localhost:3000](http://localhost:3000).
+
+   Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
 > Você também pode rotular documentos e treinar modelos usando a API REST do Reconhecimento de Formulários. Para treinar e analisar com a API REST, confira [Treinar com rótulos usando a API REST e o Python](./python-labeled-data.md).

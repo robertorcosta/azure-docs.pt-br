@@ -3,12 +3,12 @@ title: 'Início Rápido: Nova atribuição de política com os modelos'
 description: Neste início rápido, você usa um modelo do Resource Manager para criar uma atribuição de política para identificar recursos que não estão em conformidade.
 ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: e22c14768622408fb3afb0e491d4179b6113e4ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b9b0024e5c15c78c6777b8657839791484d66b5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980521"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
 
@@ -56,7 +56,7 @@ Alguns recursos adicionais:
 - para encontrar mais exemplos de modelo, confira [Modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - Para ver a referência de modelo, acesse [Referência de modelo do Azure](/azure/templates/microsoft.authorization/allversions).
 - Para saber como desenvolver modelos do Resource Manager, confira a [Documentação do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Para conhecer a implantação de nível de assinatura, confira [Create resource groups and resources at the subscription level](../../azure-resource-manager/deploy-to-subscription.md) (Criar grupos de recursos e recursos no nível da assinatura).
+- Para conhecer a implantação de nível de assinatura, confira [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md) (Criar grupos de recursos e recursos no nível da assinatura).
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
 

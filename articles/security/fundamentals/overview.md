@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750136"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045871"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão Geral
@@ -69,7 +69,7 @@ A [solução de Segurança e Auditoria](../../security-center/security-center-in
 Além disso, você pode configurar a Segurança e Conformidade para [realizar automaticamente ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando um evento específico for detectado.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-O [Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Use um [modelo do Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para a implantação, e esse modelo pode ser útil para diferentes ambientes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
+O [Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Use um [modelo do Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para a implantação, e esse modelo pode ser útil para diferentes ambientes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação.
 
 As implantações baseadas em modelos do Azure Resource Manager ajudam a melhorar a segurança das soluções implantadas no Azure devido às configurações de controle de segurança padrão, e podem ser integradas às implantações baseadas em modelo padronizadas. Isso reduz o risco de erros de configuração de segurança que podem ocorrer durante as implantações manuais.
 
@@ -142,16 +142,16 @@ No Application Diagnostics, você pode ver os eventos agrupados destas maneiras:
 A seção fornece outras informações sobre os principais recursos em segurança de armazenamento do Azure e informações de resumo sobre esses recursos.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções RBAC internas](../../role-based-access-control/built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o [modelo Azure Resource Manager](../../storage/common/storage-security-guide.md) pode ser controlado por meio do RBAC (Controle de Acesso Baseado em Função).
+Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções RBAC internas](../../role-based-access-control/built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o [modelo Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado por meio do RBAC (Controle de Acesso Baseado em Função).
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 Uma [SAS (Assinatura de Acesso Compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
 A criptografia em trânsito é um mecanismo de proteção de dados quando eles são transmitidos entre redes. Com o Armazenamento do Azure, você pode proteger dados usando:
--   [Criptografia de nível de transporte](../../storage/common/storage-security-guide.md), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
+-   [Criptografia de nível de transporte](../../storage/blobs/security-recommendations.md), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
 
--   [Criptografia na transmissão](../../storage/common/storage-security-guide.md), como a [criptografia SMB 3.0](../../storage/common/storage-security-guide.md) para [compartilhamentos de Arquivo do Azure](../../storage/files/storage-dotnet-how-to-use-files.md).
+-   [Criptografia na transmissão](../../storage/blobs/security-recommendations.md), como a [criptografia SMB 3.0](../../storage/blobs/security-recommendations.md) para [compartilhamentos de Arquivo do Azure](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   Criptografia do cliente, que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
@@ -266,9 +266,9 @@ O Gerenciador de Tráfego oferece uma variedade de métodos de roteamento de tr�
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 O [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) oferece alta disponibilidade e desempenho de rede para seus aplicativos. É um balanceador de carga do tipo Camada 4 (TCP, UDP) que distribui o tráfego de entrada entre as instâncias de serviço íntegras definidas em um conjunto de balanceadores de carga. O Azure Load Balancer pode ser configurado para:
 
--   Balancear carga de tráfego de entrada na Internet para máquinas virtuais. Essa configuração é conhecida como [balanceamento de carga voltada para a Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-   Balancear carga de tráfego de entrada na Internet para máquinas virtuais. Essa configuração é conhecida como [balanceamento de carga voltada para a Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer).
 
--   Balanceie o tráfego de carga entre as máquinas virtuais em uma rede virtual, entre as máquinas virtuais nos serviços de nuvem ou entre os computadores locais e as máquinas virtuais em uma rede virtual entre as instalações. Essa configuração é conhecida como [balanceamento de carga interno](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-   Balanceie o tráfego de carga entre as máquinas virtuais em uma rede virtual, entre as máquinas virtuais nos serviços de nuvem ou entre os computadores locais e as máquinas virtuais em uma rede virtual entre as instalações. Essa configuração é conhecida como [balanceamento de carga interno](../../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 - Encaminhe o tráfego externo para uma máquina virtual específica
 

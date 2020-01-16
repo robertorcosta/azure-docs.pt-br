@@ -1,36 +1,36 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: digital-twins
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 01/07/2020
 ms.custom: include file
-ms.openlocfilehash: 4ed5be09d952d4d64c269e3eaf698ad7a74fffdd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014084"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895516"
 ---
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Selecione a barra lateral inicial e, em seguida, **+ Criar um recurso**. 
 
-   [![Expanda a barra lateral inicial e selecione + Criar um recurso](./media/create-digital-twins-portal/create-a-resource.png)](./media/create-digital-twins-portal/create-a-resource.png#lightbox)
+   [![Expanda a barra lateral inicial e selecione + Criar um recurso](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
 
 1. Pesquise por **Gêmeos Digitais** e selecione **Gêmeos Digitais**. 
 
-   [![Seleções para criar uma nova instância dos Gêmeos Digitais](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![Seleções para criar uma nova instância dos Gêmeos Digitais](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png)](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png#lightbox)
 
    Como alternativa, selecione **Internet das Coisas** e selecione **Gêmeos Digitais (versão prévia)** .
 
 1. Selecione **Criar** para iniciar o processo de implantação.
 
-   [![Criar e confirmar a implantação do recurso](./media/create-digital-twins-portal/create-and-confirm-resource.png)](./media/create-digital-twins-portal/create-and-confirm-resource.png#lightbox)
+   [![Criar e confirmar a implantação do recurso](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. No painel **Gêmeos Digitais**, insira as seguintes informações:
    * **Nome do Recurso**: Criar um nome exclusivo para sua instância de Gêmeos Digitais.

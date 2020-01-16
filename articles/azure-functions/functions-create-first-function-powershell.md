@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8f77083ae0107ed9f9c5e3943cfcec25846ff087
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 934f3f69d46362e4bef4e713bcee23e9a3e24eb6
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227212"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769346"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Criar sua primeira função do PowerShell no Azure
 
@@ -26,7 +26,7 @@ Você usará a [Extensão Azure Functions para Visual Studio Code] para criar um
 
 As etapas a seguir são compatíveis com macOS, Windows e sistemas operacionais baseados em Linux.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia de início rápido:
 
@@ -48,7 +48,7 @@ Para concluir este guia de início rápido:
 
 ## <a name="create-a-function-app-project"></a>Crie um projeto de aplicativo de funções
 
-O modelo de projeto do Azure Functions no Visual Studio Code cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para o gerenciamento, implantação e compartilhamento de recursos. 
+O modelo de projeto do Azure Functions no Visual Studio Code cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
 1. No Visual Studio Code, selecione o logotipo do Azure para exibir a área **Azure: Functions** e, em seguida, selecione o ícone Criar Projeto.
 

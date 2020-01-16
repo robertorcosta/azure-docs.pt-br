@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214807"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732308"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
@@ -56,7 +56,7 @@ Um balanceador de carga padrão só oferece suporte a um endereço IP público p
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite *MyResourceGroupLBAZ* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
     | SKU           | Selecione **Padrão**.                          |
@@ -98,8 +98,8 @@ Nesta seção, você cria regras do grupo de segurança de rede para permitir co
 1. No Portal do Azure, clique em **Todos os recursos** no menu esquerdo e, em seguida, pesquise e clique em **myNetworkSecurityGroup** localizado no grupo de recursos **myResourceGroupLBAZ**.
 2. Em **Configurações**, clique em **Regras de segurança de entrada** e clique em **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
+    - *Service Tag* – para **Origem**.
+    - *Internet* – para **Marca de serviço de origem**
     - *80* - para os **Intervalos de porta de destino**
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**
@@ -110,8 +110,8 @@ Nesta seção, você cria regras do grupo de segurança de rede para permitir co
  
    ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita as etapas 2 a 4 para criar outra regra denominada *myRDPRule* para permitir uma conexão de RDP de entrada usando a porta 3389 com os seguintes valores:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
+    - *Service Tag* – para **Origem**.
+    - *Internet* – para **Marca de serviço de origem**
     - *3389* - para os **Intervalos de porta de destino**
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**
@@ -205,7 +205,7 @@ Para permitir que o balanceador de carga monitore o status de seu aplicativo, us
 
 Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Definir a configuração de IP de front-end para o tráfego de entrada e o pool de IP de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. Crie uma regra do balanceador de carga *myLoadBalancerRuleWeb* para escutar a porta 80 no front-end *FrontendLoadBalancer* e enviar o tráfego de rede com carga balanceada ao pool de endereços de back-end *myBackEndPool* também usando a porta 80. 
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
 2. Em **Configurações**, clique em **Regras de balanceamento de carga** e em **Adicionar**.
 3. Use estes valores para configurar a regra do balanceamento de carga:
     - *myHTTPRule* – para o nome da regra de balanceamento de carga.
@@ -215,6 +215,7 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
     - *myBackendPool* – para o nome do pool de back-end.
     - *myHealthProbe* – para o nome da investigação de integridade.
 4. Clique em **OK**.
+    
     
     ![Adicionando uma regra de balanceamento de carga](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 
@@ -227,7 +228,7 @@ Uma regra de balanceador de carga é usada para definir como o tráfego é distr
 
 Para ver o balanceador de carga distribuir o tráfego entre as VMs distribuídas pela zona, você poderá forçar a atualização do navegador da Web.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para isso, selecione o grupo de recursos que contém o balanceador de carga e clique em **Excluir**.
 

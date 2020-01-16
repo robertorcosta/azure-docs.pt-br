@@ -3,16 +3,16 @@ title: 'Tutorial: Gerenciar a governança de marcas'
 description: Neste tutorial, use o efeito Modificar do Azure Policy para criar e impor um modelo de governança de tag em recursos novos e existentes.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482262"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965991"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
 
-[Marcas](../../../azure-resource-manager/resource-group-using-tags.md) representam um aspecto fundamental da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para gerenciamento de marcas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), essas podem ser a base de aplicação das suas políticas de negócios com o Azure Policy ou para [controlar custos com o Gerenciamento de Custos](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[Marcas](../../../azure-resource-manager/management/tag-resources.md) representam um aspecto fundamental da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para gerenciamento de marcas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), essas podem ser a base de aplicação das suas políticas de negócios com o Azure Policy ou para [controlar custos com o Gerenciamento de Custos](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Não importa como ou por quê você usa essas marcas, é importante que possa adicionar, alterar e removê-las rapidamente de seus recursos do Azure.
 
 O efeito [Modificar](../concepts/effects.md#modify) do Azure Policy foi desenvolvido para ajudar na governança das marcas, independentemente do estágio atual da governança do recurso. O **Modificar** ajuda quando:
@@ -28,7 +28,7 @@ Neste tutorial, você concluirá as seguintes tarefas:
 > - Mapear cada requisito para uma definição de política
 > - Agrupar as políticas de tag em uma iniciativa
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -194,7 +194,7 @@ Após a criação das políticas de marca acima, junte-as em uma única iniciati
 
 Assim como as políticas [deployIfNotExists](../concepts/effects.md#deployifnotexists), a política **Modificar** usa tarefas de correção para alterar os recursos existentes sem conformidade. Siga as instruções em [Como corrigir recursos](../how-to/remediate-resources.md) para identificar seus recursos **Modificar** sem conformidade e corrija as marcas em sua taxonomia definida.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seguir para excluir qualquer uma das atribuições ou definições criadas acima:
 
@@ -204,7 +204,7 @@ Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seg
 
 1. Clique com o botão direito na linha e selecione as reticências no final da definição ou da atribuição e selecione **Excluir Definição** (ou **Excluir Atribuição**).
 
-## <a name="review"></a>Análise
+## <a name="review"></a>Revisão
 
 Neste tutorial, você aprendeu as seguintes tarefas:
 

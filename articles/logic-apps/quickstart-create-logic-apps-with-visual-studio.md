@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428643"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968881"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
 
@@ -61,7 +61,7 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
 
 ## <a name="create-azure-resource-group-project"></a>Criar um projeto do grupo de recursos do Azure
 
-Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
+Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 1. Inicie o Visual Studio. Faça logon usando sua conta do Azure.
 
@@ -109,7 +109,7 @@ Quando tiver seu projeto do Grupo de Recursos do Azure, crie seu aplicativo lóg
 
    ![Selecione assinatura do Azure, grupo de recursos e local do recurso](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Configuração | Valor de exemplo | DESCRIÇÃO |
+   | Configuração | Valor de exemplo | Descrição |
    | ------- | ------------- | ----------- |
    | Conta de usuário | Fabrikam <br> sophia-owen@fabrikam.com | A conta que você usou quando entrou no Visual Studio |
    | **Assinatura** | Pré-paga <br> (sophia-owen@fabrikam.com) | O nome para sua assinatura do Azure e a conta associada |

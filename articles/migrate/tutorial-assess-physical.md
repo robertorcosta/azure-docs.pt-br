@@ -1,18 +1,14 @@
 ---
 title: Avaliar servidores físicos para migração para o Azure com a avaliação de servidor de Migrações para Azure
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280541"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028997"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Avaliar servidores físicos com as migrações para Azure: Avaliação de Servidor
 
@@ -34,7 +30,7 @@ Este tutorial é o segundo de uma série que demonstra como avaliar e migrar ser
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Conclua](tutorial-prepare-physical.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
@@ -141,7 +137,7 @@ Caso haja algum problema, você poderá acessar os logs do script em C:\ProgramD
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se o dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Verifique se o dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
 
 
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
@@ -296,7 +292,7 @@ As classificações de confiança para uma avaliação são indicadas a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 > [!div class="checklist"]
 > * Configurou um dispositivo das Migrações para Azure

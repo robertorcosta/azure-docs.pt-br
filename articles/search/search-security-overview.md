@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c1a800ceb12c2e7ad69329d0391478a8e2ae268b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945679"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978599"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Segurança e privacidade de dados no Azure Pesquisa Cognitiva
 
@@ -49,7 +49,7 @@ A criptografia se estende durante todo o pipeline de indexação: de conexões, 
 
 Vários mecanismos de segurança estão disponíveis para todo o Azure e, portanto, ficam automaticamente disponíveis para os recursos de Pesquisa Cognitiva do Azure que você criar.
 
-+ [Bloqueios no nível de recurso ou da assinatura para impedir a exclusão](../azure-resource-manager/resource-group-lock-resources.md)
++ [Bloqueios no nível de recurso ou da assinatura para impedir a exclusão](../azure-resource-manager/management/lock-resources.md)
 + [RBAC (controle de acesso baseado em função) para controlar o acesso a informações e operações administrativas](../role-based-access-control/overview.md)
 
 Todos os serviços do Azure oferecem suporte a RBAC para definir níveis de acesso consistentes em todos os serviços. Por exemplo, a exibição de dados confidenciais, como a chave do administrador, é restrita às funções de Proprietário e Colaborador, enquanto a exibição do status do serviço fica disponível para os membros de qualquer função. O RBAC fornece funções de Leitor, Colaborador e Proprietário. Por padrão, todos os administradores de serviço são membros da função Proprietário.

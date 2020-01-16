@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0094add11755ecb0c303adf874abe5a4a8f5811
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429095"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746210"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e usar métricas e logs de diagnóstico com um hub IoT
 
@@ -125,7 +125,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>Habilitar os logs de diagnóstico 
 
-Os [logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md) estão desabilitados por padrão quando você cria um hub IoT. Nesta seção, habilite os logs de diagnóstico para o seu hub.
+Os [logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) estão desabilitados por padrão quando você cria um hub IoT. Nesta seção, habilite os logs de diagnóstico para o seu hub.
 
 1. Primeiro, caso ainda não esteja em seu hub no portal, clique em **Grupos de recursos** e no grupo de recursos Contoso-Resources. Selecione o hub na lista de recursos exibidos. 
 

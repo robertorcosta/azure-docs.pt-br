@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c00749191b83423e771535525afcbdd7892da88e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 41801fce41cd79898e9ebd12f9ca970f17b017bb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895433"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891709"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Início Rápido: Iniciar um aplicativo Spring Java usando a CLI do Azure
 
@@ -28,10 +28,10 @@ Seguindo este início rápido, você aprenderá a:
 > * Implantar cada microsserviço
 > * Atribuir um ponto de extremidade público para seu aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 >[!Note]
-> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
+> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 >[!TIP]
 > O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo.  Ele tem ferramentas comuns do Azure pré-instaladas, incluindo as versões mais recentes do Git, do JDK, do Maven e da CLI do Azure. Se você fez logon na assinatura do Azure, inicie o [Azure Cloud Shell](https://shell.azure.com) em shell.azure.com.  Você pode saber mais sobre o Azure Cloud Shell [lendo nossa documentação](../cloud-shell/overview.md)
@@ -69,7 +69,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    Saiba mais sobre [grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+    Saiba mais sobre [grupos de recursos do Azure](../azure-resource-manager/management/overview.md).
 
 4. Abra uma janela da CLI do Azure e execute os seguintes comandos para provisionar uma instância do Azure Spring Cloud.
 
@@ -86,6 +86,9 @@ az extension add --name spring-cloud
         az configure --defaults spring-cloud=<service instance name>
     ```
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+
 ## <a name="setup-your-configuration-server"></a>Configure seu servidor de configuração
 
 Atualize o config-server com a localização do repositório git do nosso projeto:
@@ -93,6 +96,9 @@ Atualize o config-server com a localização do repositório git do nosso projet
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
 ## <a name="build-the-microservices-applications-locally"></a>Criar os aplicativos de microsserviços localmente
 
@@ -132,6 +138,9 @@ az spring-cloud app deploy -n account-service --jar-path ./account-service/targe
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
+
 ## <a name="assign-public-endpoint-to-gateway"></a>Atribuir um ponto de extremidade público ao gateway
 
 Precisamos de uma maneira de acessar o aplicativo por meio de um navegador da Web. Nosso aplicativo de gateway precisa de um ponto de extremidade voltado para o público, que pode ser atribuído usando o seguinte comando:
@@ -155,7 +164,10 @@ Também é possível navegar pelo portal do Azure para localizar a URL.
 1. Selecione **Gateway**
 
     ![Captura de tela da execução de PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Localize a URL na página **Visão geral do gateway** ![Captura de tela da execução do PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+1. Localize a URL na página **Visão geral do gateway**![Captura de tela da execução do PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Próximas etapas
 

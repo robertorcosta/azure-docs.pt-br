@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: ca78a9d7eeeeccb71fea75f6ab429e76f2344bbe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f9d7fa5df1f7568aa357abf8b5864344d768cf75
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895464"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891762"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Início Rápido: Iniciar seu aplicativo Spring Cloud a partir do código-fonte
 
@@ -28,10 +28,10 @@ Seguindo este início rápido, você aprenderá a:
 > * Implantar cada microsserviço
 > * Atribuir um ponto de extremidade público para seu aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 >[!Note]
-> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para saber mais.
+> Atualmente, o Azure Spring Cloud é oferecido como visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para saber mais sobre o suporte durante as visualizações, confira as [Perguntas frequentes](https://azure.microsoft.com/support/faq/) ou envie uma [Solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) para saber mais.
 
 Antes de começar, verifique se sua assinatura do Azure possui as dependências necessárias:
 
@@ -76,6 +76,9 @@ Defina o nome do grupo de recursos padrão e o nome do cluster usando os seguint
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
 ## <a name="create-the-spring-cloud-application"></a>Criar o aplicativo Spring Cloud
 
@@ -137,12 +140,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > Os logs do kpack mostrarão apenas a implantação mais recente se essa implantação foi criada a partir da origem usando kpack.
 
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Atribuir um ponto de extremidade público ao gateway
 
 1. Abra a página **Painel de Aplicativo**.
 2. Selecione o aplicativo `gateway` para mostrar a página **Detalhes do Aplicativo**.
 3. Selecione **Atribuir Domínio** para atribuir um ponto de extremidade público ao gateway. Isso pode demorar alguns minutos. 
 4. Insira o IP público atribuído em seu navegador para exibir o aplicativo em execução.
+
+> [!div class="nextstepaction"]
+> [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Próximas etapas
 

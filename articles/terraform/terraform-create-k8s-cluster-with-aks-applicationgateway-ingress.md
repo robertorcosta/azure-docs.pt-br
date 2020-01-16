@@ -3,12 +3,12 @@ title: Tutorial – Criar um controlador de entrada do Gateway de Aplicativo no 
 description: Tutorial que ilustra como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure usando o Gateway de Aplicativo como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159100"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867393"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Criar um controlador de entrada do Gateway de Aplicativo no Serviço de Kubernetes do Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 > * Usar o Terraform e o AKS para criar um cluster do Kubernetes.
 > * Usar a ferramenta kubectl para testar a disponibilidade de um cluster do Kubernetes.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -261,7 +261,7 @@ Crie um arquivo de configuração do Terraform que cria todos os recursos.
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -543,7 +543,7 @@ Terraform rastreia o estado localmente através do arquivo `terraform.tfstate`. 
 
     ![Menu da conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
-1. Anote o valor da **key1** **key**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
+1. Anote o valor da **chave1** **chave**. (Selecionar o ícone à direita da chave copia o valor para a área de transferência.)
 
     ![Chaves de acesso da conta de armazenamento](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
@@ -759,7 +759,7 @@ Quando tiver o Gateway de Aplicativo, o AKS e o AGIC instalados, você poderá i
     kubectl apply -f aspnetapp.yaml
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo.  
 

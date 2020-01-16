@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 63a85e86b1882bdaf4e5b85601a7deabe5b3bbef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc6b1a2516a454c843f176e947cc3a56186b0b47
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442143"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939934"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introdução à API do Cassandra do Azure Cosmos DB
 
-A API do Cassandra do Azure Cosmos DB pode ser usada como o armazenamento de dados para aplicativos escritos para o [Apache Cassandra](https://cassandra.apache.org/). Isso significa que ao usar os [drivers do Apache](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) em conformidade com CQLv4 existentes, o aplicativo do Cassandra agora pode se comunicar com a API do Cassandra do Azure Cosmos DB. Em muitos casos, é possível alternar entre o uso do Apache Cassandra e a API do Cassandra do Azure Cosmos DB simplesmente alterando uma cadeia de conexão. 
+A API do Cassandra do Azure Cosmos DB pode ser usada como o armazenamento de dados para aplicativos escritos para o [Apache Cassandra](http://cassandra.apache.org). Isso significa que ao usar os [drivers do Apache](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) em conformidade com CQLv4 existentes, o aplicativo do Cassandra agora pode se comunicar com a API do Cassandra do Azure Cosmos DB. Em muitos casos, é possível alternar entre o uso do Apache Cassandra e a API do Cassandra do Azure Cosmos DB simplesmente alterando uma cadeia de conexão. 
 
 A API do Cassandra permite interagir com os dados armazenados no Azure Cosmos DB usando as ferramentas de CQL (Linguagem de Consulta do Cassandra), baseadas no Cassandra (como cqlsh) e os drivers de cliente do Cassandra com os quais você já está familiarizado.
 
