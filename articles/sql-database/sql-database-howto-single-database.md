@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811214"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027709"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como usar um banco de dados individual no Banco de Dados SQL do Azure
 
 Nesta seção, é possível encontrar vários guias, scripts e explicações que podem ajudar você a gerenciar e configurar seu banco de dados individual no Banco de Dados SQL do Azure
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migre
 
 - [Migrar para o Banco de Dados SQL](sql-database-single-database-migrate.md) – saiba mais sobre o processo de migração recomendado e ferramentas para a migração para uma Instância Gerenciada.
 - Saiba como [gerenciar o Banco de Dados SQL após a migração](sql-database-manage-after-migration.md).
@@ -42,7 +42,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Habilitar as notificações por email para ajuste automático](sql-database-automatic-tuning-email-notifications.md) para obter informações sobre recomendações de ajuste.
 - [Aplicar as recomendações de desempenho](sql-database-advisor-portal.md) e otimizar seu banco de dados.
 - [Criar alertas](sql-database-insights-alerts-portal.md) para receber notificações do Banco de Dados SQL do Azure.
-- [Solucionar problemas de conectividade](sql-database-troubleshoot-common-connection-issues.md) se perceber alguns problemas de conectividade entre os aplicativos e o banco de dados. Você também pode usar o [Resource Health para problemas de conectividade](sql-database-resource-health.md).
+- [Solucionar problemas de conectividade](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) se perceber alguns problemas de conectividade entre os aplicativos e o banco de dados. Você também pode usar o [Resource Health para problemas de conectividade](sql-database-resource-health.md).
 - [Gerenciar o espaço de arquivo](sql-database-file-space-management.md) para monitorar o uso de armazenamento no banco de dados.
 
 ## <a name="query-distributed-data"></a>Consulta de dados distribuídos
@@ -72,5 +72,5 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Usar o Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) para consultar dados fragmentados.
 - [Usar a estrutura de Dapper](sql-database-elastic-scale-working-with-dapper.md) para consultar dados fragmentados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [Guias de instruções para Instância Gerenciada](sql-database-howto-managed-instance.md)

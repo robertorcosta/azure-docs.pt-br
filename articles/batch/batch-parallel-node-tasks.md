@@ -3,7 +3,7 @@ title: Executar tarefas em paralelo para usar recursos de computação com efici
 description: Aumente a eficiência e reduza os custos usando menos nós de computação e executando tarefas simultâneas em cada nó em um pool do Lote do Azure
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45c35e6d9fb611ebf73c4eab8b517d8575b8e82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094938"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026818"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Execute tarefas simultaneamente para maximizar o uso dos nós de computação do Lote 
 
@@ -43,7 +43,7 @@ Você configura os nós de computação para a execução paralela das tarefas n
 O lote do Azure permite que você defina tarefas por nó até (4x) o número de nós principais. Por exemplo, se o pool estiver configurado com nós de tamanho "Grande" (quatro núcleos), será possível definir `maxTasksPerNode` como 16. No entanto, independentemente de quantos núcleos o nó tem, você não pode ter mais de 256 tarefas por nó. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, confira [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md). Para saber mais sobre limites de serviço, confira [Cotas e limites para o serviço de Lote do Azure](batch-quota-limit.md).
 
 > [!TIP]
-> Certifique-se de levar em conta `maxTasksPerNode` o valor ao construir uma [fórmula de dimensionamento automático][enable_autoscaling] para o pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
+> Lembre-se de levar em conta o valor de `maxTasksPerNode` ao construir uma [fórmula de dimensionamento automático][enable_autoscaling] para o pool. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetada por um aumento nas tarefas por nó. Consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md) para saber mais.
 >
 >
 
@@ -52,7 +52,7 @@ Quando os nós de computação em um pool puderem executar as tarefas simultanea
 
 Usando a propriedade [CloudPool. TaskSchedulingPolicy][task_schedule] , você pode especificar que as tarefas devem ser atribuídas uniformemente em todos os nós no pool ("difusão"). Ou você pode especificar que o máximo possível de tarefas deve ser atribuído a cada nó antes de as tarefas serem atribuídas a outro nó no pool ("remessa").
 
-Como um exemplo de como esse recurso é valioso, considere o pool de [nós\_padrão D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) que está configurado com um valor de 16 [CloudPool. MaxTasksPerComputeNode][maxtasks_net] . Se o [CloudPool. TaskSchedulingPolicy][task_schedule] for configurado com um [ComputeNodeFillType][fill_type] do *Pack*, ele maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool](batch-automatic-scaling.md) de dimensionamento automático removesse nós não utilizados do pool (nós sem todas as tarefas atribuídas). Isso minimiza o uso de recursos e economizando dinheiro.
+Como um exemplo de como esse recurso é valioso, considere o pool de nós [padrão de\_D14](../cloud-services/cloud-services-sizes-specs.md) (no exemplo acima) configurado com um valor de 16 [CloudPool. MaxTasksPerComputeNode][maxtasks_net] . Se o [CloudPool. TaskSchedulingPolicy][task_schedule] for configurado com um [ComputeNodeFillType][fill_type] do *Pack*, ele maximizaria o uso de todos os 16 núcleos de cada nó e permitiria que um [pool de dimensionamento](batch-automatic-scaling.md) automático removesse nós não utilizados do pool (nós sem nenhuma tarefa atribuída). Isso minimiza o uso de recursos e economizando dinheiro.
 
 ## <a name="batch-net-example"></a>Exemplo de .NET do Lote
 Este trecho de código de API [.net do lote][api_net] mostra uma solicitação para criar um pool que contém quatro nós com um máximo de quatro tarefas por nó. Isso especifica uma política de agendamento de tarefas que preencherá cada nó com tarefas antes de atribuir tarefas a outro nó no pool. Para obter mais informações sobre como adicionar pools usando a API .NET do lote, consulte [BatchClient. PoolOperations. createpool][poolcreate_net].
@@ -89,7 +89,7 @@ Este trecho da API [REST do lote][api_rest] mostra uma solicitação para criar 
 ```
 
 > [!NOTE]
-> Você pode definir o `maxTasksPerNode` elemento e a propriedade [MaxTasksPerComputeNode][maxtasks_net] somente no momento da criação do pool. Eles não poderão ser modificados após a criação do pool.
+> Você pode definir o elemento `maxTasksPerNode` e a propriedade [MaxTasksPerComputeNode][maxtasks_net] somente no momento da criação do pool. Eles não poderão ser modificados após a criação do pool.
 >
 >
 
@@ -123,7 +123,7 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 ### <a name="batch-explorer-heat-map"></a>Mapa de Calor do Explorador do Lote
 [O Batch Explorer][batch_labs] é uma ferramenta cliente autônoma, rica e exclusiva para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. O Batch Explorer contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Quando estiver executando o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample] , você poderá usar o recurso de mapa de calor para visualizar facilmente a execução de tarefas paralelas em cada nó.
 

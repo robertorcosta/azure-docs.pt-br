@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753916"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027790"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -182,8 +182,6 @@ No servidor que está sendo exibido como "aparece offline" no portal, examine a 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**O ponto de extremidade do servidor tem um status de integridade “Sem Atividade” e o estado do servidor na folha de servidores registrados é “Online”**  
 
 Um status de integridade do ponto de extremidade de servidor de “Sem Atividade” significa que o ponto de extremidade do servidor não registrou a atividade de sincronização em log nas últimas duas horas.
@@ -393,6 +391,22 @@ Esse erro ocorre porque o agente do Azure File Sync não pode acessar o comparti
 3. [Certifique-se de que a sincronização de arquivos do Azure tem acesso à conta de armazenamento.](#troubleshoot-rbac)
 4. [Verifique se as configurações de firewall e de rede virtual na conta de armazenamento estão definidas adequadamente (se habilitadas)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134351804"></a>**Falha na sincronização porque a solicitação não está autorizada a executar esta operação.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (decimal)** | -2134351804 |
+| **Cadeia de caracteres de erro** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Correção necessária** | Sim |
+
+Esse erro ocorre porque o agente de Sincronização de Arquivos do Azure não está autorizado a acessar o compartilhamento de arquivos do Azure. Você pode solucionar esse erro trabalhando nas seguintes etapas:
+
+1. [Verifique se a conta de armazenamento existe.](#troubleshoot-storage-account)
+2. [Verifique se que existe o compartilhamento de arquivos do Azure.](#troubleshoot-azure-file-share)
+3. [Verifique se as configurações de firewall e de rede virtual na conta de armazenamento estão definidas adequadamente (se habilitadas)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Certifique-se de que a sincronização de arquivos do Azure tem acesso à conta de armazenamento.](#troubleshoot-rbac)
+
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**O nome da conta de armazenamento usado não pôde ser resolvido.**  
 
 | | |
@@ -495,7 +509,7 @@ Se o compartilhamento de arquivos do Azure tiver sido excluído, você precisar�
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Correção necessária** | Sim |
 
-Este erro ocorre quando a assinatura do Azure é suspensa. A sincronização será reativada quando a assinatura do Azure for restaurada. Consulte [Por que minha assinatura do Azure está desativada e como eu a reativo?](../../billing/billing-subscription-become-disable.md) para obter mais informações.
+Este erro ocorre quando a assinatura do Azure é suspensa. A sincronização será reativada quando a assinatura do Azure for restaurada. Consulte [Por que minha assinatura do Azure está desativada e como eu a reativo?](../../cost-management-billing/manage/subscription-disabled.md) para obter mais informações.
 
 <a id="-2134364052"></a> **A conta de armazenamento tem um firewall ou redes virtuais configuradas.**  
 

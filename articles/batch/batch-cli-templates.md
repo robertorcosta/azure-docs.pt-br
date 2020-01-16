@@ -2,21 +2,21 @@
 title: Executar trabalhos de ponta a ponta usando modelos - Lote do Azure | Microsoft Docs
 description: Crie pools de lote, trabalhos e tarefas com arquivos de amostra e a CLI do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095305"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029740"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
@@ -24,7 +24,7 @@ Ao usar a extensão do Lote do Microsoft Azure é possível executar trabalhos d
 
 Criar e usar arquivos de modelo JSON com a CLI do Azure para criar pools de Lote, trabalhos e tarefas. Use os comandos de extensão CLI para carregar facilmente os arquivos de entrada de trabalho na conta de armazenamento associada à conta do Lote e baixe os arquivos de saída de trabalho.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Uma extensão da CLI do Azure permite que o Lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos CLI diretamente ou integre-os aos scripts.
 
@@ -290,7 +290,7 @@ Atualmente, o suporte à transferência de arquivo e de modelo foi adicionado so
 
 Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou sugestões, seja nos comentários deste artigo ou no [repositório da Comunidade do Lote](https://github.com/Azure/Batch).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Documentação detalhada de instalação e uso, amostras e código-fonte estão disponíveis no [repositório GitHub do Azure](https://github.com/Azure/azure-batch-cli-extensions).
 

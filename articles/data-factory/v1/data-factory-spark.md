@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d30b2001889a2555f736de0685fe23de1ea0e055
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438834"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969239"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -36,23 +36,23 @@ ms.locfileid: "75438834"
 > Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Se você estiver usando a versão atual do serviço Data Factory, consulte [ transformar dados usando a atividade Apache Spark no Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introdução
-A atividade do Spark é uma das [atividades de transformação de dados](data-factory-data-transformation-activities.md) compatíveis com o Data Factory. Essa atividade executa o programa do Spark especificado no cluster Spark no Azure HDInsight. 
+A atividade do Spark é uma das [atividades de transformação de dados](data-factory-data-transformation-activities.md) compatíveis com o Data Factory. Essa atividade executa o programa do Spark especificado no cluster Spark no Azure HDInsight.
 
 > [!IMPORTANT]
 > - A atividade do Spark não dá suporte a clusters HDInsight Spark que usam o Azure Data Lake Store como armazenamento primário.
 > - A atividade do Spark é compatível apenas com clusters HDInsight Spark existentes (seus próprios). Ele não dá suporte a um serviço vinculado ao HDInsight sob demanda.
 
 ## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Passo a passo: Criar um pipeline com uma atividade do Spark
-Estas são as etapas típicas para criar um pipeline do data factory com uma atividade do Spark: 
+Estas são as etapas típicas para criar um pipeline do data factory com uma atividade do Spark:
 
 * Criar um data factory.
 * Crie um serviço vinculado do Armazenamento do Azure para vincular o armazenamento associado ao cluster HDInsight Spark ao data factory.
 * Crie um serviço vinculado do HDInsight para vincular o cluster Spark no HDInsight ao data factory.
-* Crie um conjunto de dados que se refere ao serviço vinculado do Armazenamento. No momento, você deve especificar um conjunto de dados de saída para uma atividade mesmo que não exista nenhuma saída sendo produzida. 
+* Crie um conjunto de dados que se refere ao serviço vinculado do Armazenamento. No momento, você deve especificar um conjunto de dados de saída para uma atividade mesmo que não exista nenhuma saída sendo produzida.
 * Crie um pipeline com a atividade do Spark que se refere ao serviço vinculado do HDInsight criado. A atividade está configurada com o conjunto de dados que você criou na etapa anterior como um conjunto de dados de saída. O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamente). Portanto, é necessário especificar o conjunto de dados de saída mesmo que a atividade não produza efetivamente uma saída.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Crie uma conta de armazenamento de uso geral seguindo as instruções descritas em [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
+1. Crie uma conta de armazenamento de uso geral seguindo as instruções descritas em [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
 1. Crie um cluster Spark no HDInsight seguindo as instruções descritas no tutorial [Criar um cluster Spark no HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associe a conta de armazenamento criada na etapa 1 a esse cluster.
 
@@ -90,10 +90,10 @@ Para criar um data factory, siga estas etapas:
     ![Folha Data Factory](./media/data-factory-spark/data-factory-blade.png)
 
 ### <a name="create-linked-services"></a>Criar serviços vinculados
-Nesta etapa, você cria dois serviços vinculados. Um serviço vincula o cluster Spark ao data factory e o outro serviço vincula o armazenamento ao data factory. 
+Nesta etapa, você cria dois serviços vinculados. Um serviço vincula o cluster Spark ao data factory e o outro serviço vincula o armazenamento ao data factory.
 
 #### <a name="create-a-storage-linked-service"></a>Criar um serviço vinculado do Armazenamento
-Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjunto de dados que você cria em uma etapa posterior neste passo a passo refere-se a esse serviço vinculado. O serviço vinculado HDInsight que você define na próxima etapa também se refere a esse serviço vinculado. 
+Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjunto de dados que você cria em uma etapa posterior neste passo a passo refere-se a esse serviço vinculado. O serviço vinculado HDInsight que você define na próxima etapa também se refere a esse serviço vinculado.
 
 1. Na folha **Data factory**, selecione **Criar e implantar**. O Editor do Data Factory é exibido.
 
@@ -110,7 +110,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjun
 1. Para implantar o serviço vinculado, selecione **Implantar** na barra de comandos. Depois que o serviço vinculado é implantado com êxito, a janela Rascunho 1 desaparece. Você verá **AzureStorageLinkedService** no modo de exibição de árvore à esquerda.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Como criar um serviço vinculado do HDInsight
-Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o cluster HDInsight Spark ao data factory. O cluster do HDInsight é usado para executar o programa especificado do Spark na atividade do Spark neste exemplo. 
+Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o cluster HDInsight Spark ao data factory. O cluster do HDInsight é usado para executar o programa especificado do Spark na atividade do Spark neste exemplo.
 
 1. No Editor do Data Factory, selecione **Mais** > **Nova computação** > **Cluster HDInsight**.
 
@@ -147,14 +147,14 @@ Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o clust
 
     Para obter mais informações sobre o serviço vinculado do HDInsight, consulte [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-1. Para implantar o serviço vinculado, selecione **Implantar** na barra de comandos. 
+1. Para implantar o serviço vinculado, selecione **Implantar** na barra de comandos.
 
 ### <a name="create-the-output-dataset"></a>Como criar um conjunto de dados de saída
 O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamente). Portanto, é necessário especificar um conjunto de dados de saída para a atividade do Spark no pipeline, embora a atividade não produza nenhuma saída. Especificar um conjunto de dados de entrada para a atividade é opcional.
 
 1. No Data Factory Editor, selecione **Mais** > **Novo conjunto de dados** > **Armazenamento de Blobs do Azure**.
 
-1. Copie e cole o snippet a seguir na janela de Rascunho-1. O snippet JSON define um conjunto de dados chamado **OutputDataset**. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfspark** e na pasta denominada **pyFiles/output**. Conforme mencionado anteriormente, esse conjunto de dados é fictício. O programa do Spark neste exemplo não produz nenhuma saída. A seção **availability** especifica que o conjunto de dados de saída é produzido diariamente. 
+1. Copie e cole o snippet a seguir na janela de Rascunho-1. O snippet JSON define um conjunto de dados chamado **OutputDataset**. Além disso, você especifica que os resultados estão armazenados no contêiner de blobs denominado **adfspark** e na pasta denominada **pyFiles/output**. Conforme mencionado anteriormente, esse conjunto de dados é fictício. O programa do Spark neste exemplo não produz nenhuma saída. A seção **availability** especifica que o conjunto de dados de saída é produzido diariamente.
 
     ```json
     {
@@ -226,7 +226,7 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
     > [!IMPORTANT]
     > Recomendamos que você não defina essa propriedade como `Always` em um ambiente de produção, a menos que esteja solucionando um problema.
 
-    e. A seção de **saídas** tem um conjunto de dados de saída. É necessário especificar um conjunto de dados de saída, mesmo que o programa do Spark não produza nenhuma saída. O conjunto de dados de saída aciona o agendamento para o pipeline (por hora, diariamente, etc.). 
+    e. A seção de **saídas** tem um conjunto de dados de saída. É necessário especificar um conjunto de dados de saída, mesmo que o programa do Spark não produza nenhuma saída. O conjunto de dados de saída aciona o agendamento para o pipeline (por hora, diariamente, etc.).
 
     Para obter mais informações sobre as propriedades compatíveis com a atividade do Spark, consulte a seção [Propriedades da atividade do Spark](#spark-activity-properties).
 
@@ -260,12 +260,12 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-1. Confirme se os dados da tabela de HVAC são exibidos. 
+1. Confirme se os dados da tabela de HVAC são exibidos.
 
     ![Resultados da consulta do Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Para obter instruções detalhadas, consulte a seção [Executar uma consulta SQL do Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+Para obter instruções detalhadas, consulte a seção [Executar uma consulta SQL do Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ### <a name="troubleshooting"></a>Solução de problemas
 Como getDebugInfo é definido como **Sempre**, você vê uma subpasta log na pasta pyFiles no contêiner de blob. O arquivo de log na pasta de log fornece informações adicionais. Esse arquivo de log é especialmente útil quando há um erro. Em um ambiente de produção, recomendamos defini-lo como **Falha**.
@@ -288,7 +288,7 @@ Para obter uma solução de problemas adicional, execute as seguintes etapas:
 As seções a seguir fornecem informações sobre as entidades do data factory para usar o cluster Spark e a atividade do Spark no data factory.
 
 ## <a name="spark-activity-properties"></a>Propriedades da Atividade do Spark
-Esta é a definição JSON de exemplo de um pipeline com uma atividade do Spark: 
+Esta é a definição JSON de exemplo de um pipeline com uma atividade do Spark:
 
 ```json
 {
@@ -342,7 +342,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON.
 ## <a name="folder-structure"></a>Estrutura de pastas
 A atividade do Spark não é compatível com um script embutido, como as atividades do Pig e do Hive. Os trabalhos do Spark também são mais extensíveis do que trabalhos do Pig/Hive. Para trabalhos do Spark, você pode fornecer várias dependências, como pacotes jar (colocados em CLASSPATH do Java), arquivos do Python (colocados em PYTHONPATH) e outros arquivos.
 
-Crie a estrutura de pastas a seguir no armazenamento de blobs referenciado pelo serviço vinculado do HDInsight. Em seguida, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz representada por **entryFilePath**. Por exemplo, carregue arquivos do Python na subpasta pyFiles e arquivos jar na subpasta jars da pasta raiz. Em runtime, o serviço Data Factory espera a seguinte estrutura de pastas no armazenamento de blobs: 
+Crie a estrutura de pastas a seguir no armazenamento de blobs referenciado pelo serviço vinculado do HDInsight. Em seguida, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz representada por **entryFilePath**. Por exemplo, carregue arquivos do Python na subpasta pyFiles e arquivos jar na subpasta jars da pasta raiz. Em runtime, o serviço Data Factory espera a seguinte estrutura de pastas no armazenamento de blobs:
 
 | Caminho | Description | Obrigatório | Tipo |
 | ---- | ----------- | -------- | ---- |

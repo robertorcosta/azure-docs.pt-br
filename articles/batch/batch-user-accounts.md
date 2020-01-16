@@ -2,7 +2,7 @@
 title: Executar tarefas em contas de usuário - Lote do Azure | Microsoft Docs
 description: Configurar contas de usuário para executar tarefas no Lote do Azure
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: d4975935c872f059dde6b08bcd7a4f06540c2dfd
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74194966"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029608"
 ---
 > [!NOTE] 
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
@@ -159,7 +159,7 @@ Uma conta de usuário nomeado é útil quando você deseja executar todas as tar
 
 Você também pode usar uma conta de usuário nomeado para executar uma tarefa que defina permissões em recursos externos, como compartilhamentos de arquivos. Com uma conta de usuário nomeado, você controla a identidade do usuário e pode usar a identidade do usuário para definir permissões.  
 
-As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI\-.
+As contas de usuário nomeado permitem o SSH sem senha entre os nós Linux. É possível usar uma conta de usuário nomeado com nós Linux que precisam executar tarefas de várias instâncias. Cada nó no pool pode executar tarefas em uma conta de usuário definida no pool inteiro. Para saber mais sobre tarefas de várias instâncias, confira [Usar tarefas de várias instâncias para executar aplicativos de MPI](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Criar contas de usuário nomeado
 
@@ -333,6 +333,6 @@ A versão 2017-01-01.4.0 do serviço de Lote introduz uma alteração significat
 | `run_elevated` não especificado | Nenhuma atualização é necessária                                                                                                                                  |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).

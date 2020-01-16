@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357559"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028878"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conectar-se de forma privada a uma conta de armazenamento usando o ponto de extremidade privado do Azure
 O ponto de extremidade privado do Azure é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado.
@@ -127,11 +127,11 @@ Nesta seção, você criará uma conta de armazenamento particular usando um pon
     | Subscription | Selecione sua assinatura. |
     | Grupo de recursos | Selecione **myResourceGroup**. Você o criou na seção anterior.|
     |Local|Selecione **WestCentralUS**.|
-    |Nome|Insira *myPrivateEndpoint*.  |
+    |Nome|Insira *myPrivateEndpoint*.  |
     |Subrecurso de armazenamento|Deixe o **blob**padrão. |
     | **REDE** |  |
-    | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
-    | Sub-rede | Selecione  *mySubnet*. |
+    | Rede virtual  | Selecione *MyVirtualNetwork* no grupo de recursos *MyResource*Group. |
+    | Sub-rede | Selecione *mysubnet*. |
     | **INTEGRAÇÃO DE DNS PRIVADO**|  |
     | Integrar com a zona DNS privado  | Deixe o padrão **Sim**. |
     | Zona DNS privada  | Deixe o padrão **(novo) privatelink.blob.Core.Windows.net**. |
@@ -172,8 +172,8 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 Nesta seção, você se conectará de forma privada à conta de armazenamento usando o ponto de extremidade privado.
 
-1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
-2. Insira `nslookup mystorageaccount.blob.core.windows.net` você receberá uma mensagem semelhante a esta:
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
+2. Insira `nslookup mystorageaccount.blob.core.windows.net` você receberá uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -192,7 +192,7 @@ Nesta seção, você se conectará de forma privada à conta de armazenamento us
 10. Selecione **Conectar**.
 11. Procurar os contêineres de blob de mystorageaccount 
 12. Opcionalmente Crie pastas e/ou carregue arquivos no *mystorageaccount*. 
-13. Feche a conexão de área de trabalho remota para *myVM*. 
+13. Feche a conexão de área de trabalho remota para *myVM*. 
 
 Opções adicionais para acessar a conta de armazenamento:
 - Gerenciador de Armazenamento do Microsoft Azure é um aplicativo autônomo gratuito da Microsoft que permite que você trabalhe visualmente com os dados do armazenamento do Azure no Windows, no macOS e no Linux. Você pode instalar o aplicativo para navegar de forma privada o conteúdo da conta de armazenamento. 
@@ -202,9 +202,9 @@ Opções adicionais para acessar a conta de armazenamento:
 
 ## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando você terminar de usar o ponto de extremidade privado, a conta de armazenamento e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
-1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
+1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
 2. Selecione **Excluir grupo de recursos**. 
-3. Insira o grupo de *recursos* de para **digite o nome** e selecione **excluir**. 
+3. Insira *myResourceGroup* para **DIGITAR O NOME DO GRUPO DE RECURSOS:** e selecione **Excluir**. 
 
 ## <a name="next-steps"></a>Próximos passos
-Neste guia de início rápido, você criou uma VM em uma rede virtual e uma conta de armazenamento e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança à conta de armazenamento usando o link privado. Para saber mais sobre o ponto de extremidade privado, consulte [o que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).
+Neste guia de início rápido, você criou uma VM em uma rede virtual e uma conta de armazenamento e um ponto de extremidade privado. Você se conectou a uma VM da Internet e se comunica com segurança à conta de armazenamento usando o link privado. Para saber mais sobre o ponto de extremidade privado, consulte [o que é o ponto de extremidade privado do Azure?](private-endpoint-overview.md).

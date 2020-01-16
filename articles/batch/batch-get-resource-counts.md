@@ -2,19 +2,19 @@
 title: Contar os estados para tarefas e nós – Lote do Azure | Microsoft Docs
 description: Conte o estado das tarefas do Lote do Azure e nós de computação para ajudar a gerenciar e monitorar soluções do Lote.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 7b41be8c325cd238592f33369499348885de1778
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 5e90045b7863968e8c61c3cbc382434bc8be415a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323533"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029710"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorar soluções do Lote pela contagem de tarefas e nós por estado
 
@@ -35,9 +35,9 @@ Se você está usando uma versão do serviço que não dá suporte às operaçõ
 A operação Obter Contagens de Tarefas conta tarefas pelos seguintes estados:
 
 - **Ativa** – uma tarefa que está na fila e é capaz de executar, mas não está atualmente atribuída a um nó de computação. Uma tarefa também é `active` se é [dependente de uma tarefa pai](batch-task-dependencies.md) que ainda não foi concluída. 
-- **Executando** – uma tarefa que foi atribuída a um nó de computação, mas ainda não foi concluída. Uma tarefa é contada `running` como quando seu estado `preparing` é ou `running`, conforme indicado pela operação [obter informações sobre uma tarefa][rest_get_task] .
+- **Executando** – uma tarefa que foi atribuída a um nó de computação, mas ainda não foi concluída. Uma tarefa é contada como `running` quando seu estado é `preparing` ou `running`, conforme indicado pela operação [obter informações sobre uma tarefa][rest_get_task] .
 - **Concluída** – uma tarefa que não é mais elegível para ser executada porque foi concluída com êxito, ou então foi concluída com êxito e também esgotou seu limite de repetição. 
-- **Bem-sucedida** – uma tarefa cujo resultado da execução da tarefa é `success`. O lote determina se uma tarefa teve êxito ou falhou verificando `TaskExecutionResult` a propriedade da propriedade [executionInfo][rest_get_exec_info] .
+- **Bem-sucedida** – uma tarefa cujo resultado da execução da tarefa é `success`. O lote determina se uma tarefa teve êxito ou falhou verificando a propriedade `TaskExecutionResult` da propriedade [executionInfo][rest_get_exec_info] .
 - **Bem-sucedida** – uma tarefa cuja execução tem resultado `failure`.
 
 O exemplo de código .NET a seguir mostra como recuperar contagens de tarefas por estado: 
@@ -71,7 +71,7 @@ A operação Listar Contagens de Nós de Pool lista nós de computação pelos s
 - **Refazendo a imagem** – um nó no qual o sistema operacional está sendo reinstalado.
 - **Em execução** – um nó que está executando uma ou mais tarefas (exceto a tarefa iniciar).
 - **Iniciando** – um nó no qual o serviço de Lote está iniciando. 
-- **StartTaskFailed** -um nó no qual a [tarefa inicial][rest_start_task] falhou e se esgotou todas as repetições e `waitForSuccess` , em que é definida na tarefa inicial. O nó não é utilizável para execução de tarefas.
+- **StartTaskFailed** -um nó no qual a [tarefa inicial][rest_start_task] falhou e se esgotou todas as repetições e na qual `waitForSuccess` é definida na tarefa inicial. O nó não é utilizável para execução de tarefas.
 - **Desconhecido** – um nó que perdeu contato com o serviço de Lote e cujo estado não é conhecido.
 - **Não utilizável** – um nó que não pode ser usado para execução da tarefa devido a erros.
 - **WaitingForStartTask** – um nó no qual a tarefa iniciar começou a ser executada, mas `waitForSuccess` está definida e a tarefa iniciar não foi concluída.
@@ -118,7 +118,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 ```
 Você pode usar um padrão semelhante para REST e outras linguagens compatíveis para obter contagens de nó para pools.
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Veja a [visão geral dos recursos do Lote](batch-api-basics.md) para saber mais sobre os conceitos e os recursos do serviço do Lote. O artigo aborda os recursos principais do Lote, como pools, nós de computação, trabalhos e tarefas, e fornece uma visão geral dos recursos do serviço.
 

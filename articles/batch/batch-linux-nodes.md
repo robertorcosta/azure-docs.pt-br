@@ -3,7 +3,7 @@ title: Executar o Linux em nós de computação de máquina virtual - Lote do Az
 description: Saiba como processar suas cargas de trabalho de computação paralelas em pools de máquinas virtuais do Linux no Lote do Azure.
 services: batch
 documentationcenter: python
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18df43ebf3a20547917ddd372d922741b4cee849
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 27273fecc9d117079cfda58d537cf7342d3c5dc4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350112"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027066"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar os nós de computação do Linux em pools do Lote
 
@@ -45,10 +45,10 @@ Quando você configura uma referência de imagem de máquina virtual, especifica
 
 | **Propriedades de referência de imagem** | **Exemplo** |
 | --- | --- |
-| Publicador |Canônico |
+| Publicador |Canonical |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Versão |latest |
+| Versão |mais recente |
 
 > [!TIP]
 > Você pode saber mais sobre essas propriedades e como relacionar as imagens do Marketplace em [Navegue e selecione imagens da máquina virtual Linux no Azure com o PowerShell ou a CLI](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Observe que nem todas as imagens do Marketplace são compatíveis com o Lote no momento. Para saber mais, confira [SKU do agente do nó](#node-agent-sku).
@@ -63,14 +63,14 @@ O agente do nó do Lote é um programa que é executado em cada nó no pool e fo
 * batch.node.windows amd64
 
 > [!IMPORTANT]
-> Nem todas as imagens de máquina virtual que estão disponíveis no Marketplace são compatíveis no momento com os agentes do nó do Lote disponíveis. Use os SDKs do Lote para listar os SKUs do agente de nó disponíveis e as imagens de máquina virtual com as quais eles são compatíveis. Consulte a [Lista de imagens de máquina virtual](#list-of-virtual-machine-images) posteriormente neste artigo para obter mais informações e exemplos de como recuperar uma lista de imagens válidas no tempo de execução.
+> Nem todas as imagens de máquina virtual que estão disponíveis no Marketplace são compatíveis no momento com os agentes do nó do Lote disponíveis. Use os SDKs do Lote para listar os SKUs do agente de nó disponíveis e as imagens de máquina virtual com as quais eles são compatíveis. Consulte a [Lista de imagens de máquina virtual](#list-of-virtual-machine-images) posteriormente neste artigo para obter mais informações e exemplos de como recuperar uma lista de imagens válidas no runtime.
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Crie um pool do Linux: Python no Lote
+## <a name="create-a-linux-pool-batch-python"></a>Criar um pool do Linux: Python do Lote
 O trecho de código a seguir mostra um exemplo de como usar a [biblioteca de cliente lote do Microsoft Azure para Python][py_batch_package] para criar um pool de nós de computação do Ubuntu Server. A documentação de referência para o módulo python do lote pode ser encontrada no [pacote Azure. batch][py_batch_docs] em ler os documentos.
 
-Esse trecho de código cria um [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU, versão). No código de produção, no entanto, recomendamos que você use o método [list_node_agent_skus][py_list_skus] para determinar e selecionar entre as combinações de SKU do agente de nó e de imagem disponíveis em tempo de execução.
+Esse trecho de código cria um [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU, versão). No código de produção, no entanto, é recomendável que você use o método [list_node_agent_skus][py_list_skus] para determinar e selecionar nas combinações de SKU do agente de imagem e nó disponíveis em tempo de execução.
 
 ```python
 # Import the required modules from the
@@ -146,7 +146,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id=ubuntu1404agent.id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Crie um pool do Linux: .NET no Lote
+## <a name="create-a-linux-pool-batch-net"></a>Criar um pool do Linux: .NET do Lote
 O trecho de código a seguir mostra um exemplo de como usar a biblioteca de cliente [.net do lote][nuget_batch_net] para criar um pool de nós de computação do Ubuntu Server. Você pode encontrar a [documentação de referência do .net do lote][api_net] em docs.Microsoft.com.
 
 O trecho de código a seguir usa o [PoolOperations][net_pool_ops]. O método [ListNodeAgentSkus][net_list_skus] para selecionar na lista de combinações de SKU de agente de nó e imagem do Marketplace com suporte no momento. Essa técnica é interessante porque a lista de combinações com suporte pode ser alterada periodicamente. Os mais comum é que combinações com suporte sejam adicionadas.
@@ -217,33 +217,33 @@ A tabela a seguir relaciona as imagens de máquina virtual do Marketplace que s�
 
 | **Publicador** | **Oferta** | **Imagem do SKU** | **Versão** | **ID do SKU do agente do nó** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| lote | rendering-centos73 | renderização | latest | batch.node.centos 7 |
-| lote | rendering-windows2016 | renderização | latest | batch.node.windows amd64 |
-| Canônico | UbuntuServer | 16.04-LTS | latest | batch.node.ubuntu 16.04 |
-| Canônico | UbuntuServer | 14.04.5-LTS | latest | batch.node.ubuntu 14.04 |
-| Credativ | Debian | 9 | latest | batch.node.debian 9 |
-| Credativ | Debian | 8 | latest | batch.node.debian 8 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
-| microsoft-azure-batch | centos-container | 7-4 | latest | batch.node.centos 7 |
-| microsoft-azure-batch | centos-container-rdma | 7-4 | latest | batch.node.centos 7 |
-| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | latest | batch.node.ubuntu 16.04 |
-| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | latest | batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | latest | batch.node.windows amd64 |
-| OpenLogic | CentOS | 7.4 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.4 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.3 | latest | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.4 | latest | batch.node.centos 7 |
-| SUSE | SLES-HPC | 12-SP2 | latest | batch.node.opensuse 42.1 |
+| batch | rendering-centos73 | renderização | mais recente | batch.node.centos 7 |
+| batch | rendering-windows2016 | renderização | mais recente | batch.node.windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | mais recente | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
+| Credativ | Debian | 9 | mais recente | batch.node.debian 9 |
+| Credativ | Debian | 8 | mais recente | batch.node.debian 8 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | mais recente | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | mais recente | batch.node.windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | mais recente | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | mais recente | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | mais recente | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | mais recente | batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | mais recente | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | mais recente | batch.node.windows amd64 |
+| OpenLogic | CentOS | 7.4 | mais recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | mais recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | mais recente | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | mais recente | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | mais recente | batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | mais recente | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Conectar-se a nós do Linux usando SSH
 Durante o desenvolvimento ou durante a solução de problemas, talvez seja necessário entrar nos nós em seu pool. Ao contrário dos nós de computação do Windows, não é possível usar o protocolo RDP para se conectar aos nós Linux. Em vez disso, o serviço do Lote habilita acesso do SSH em cada nó para a conexão remota.
@@ -324,7 +324,7 @@ O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquin
 
 Se você implantar aplicativos para os nós do Lote usando [pacotes de aplicativos](batch-application-packages.md), você também será cobrado pelos recursos de Armazenamento do Azure que consomem seus pacotes de aplicativos. Em geral, os custos de Armazenamento do Azure são mínimos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os [exemplos de código do Python][github_samples_py] no repositório [Azure-batch-Samples][github_samples] no GitHub contêm scripts que mostram como executar operações comuns em lote, como pool, trabalho e criação de tarefas. O [Leiame][github_py_readme] que acompanha os exemplos do Python tem detalhes sobre como instalar os pacotes necessários.
 

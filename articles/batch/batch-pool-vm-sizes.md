@@ -3,7 +3,7 @@ title: Escolher tamanhos de VM para pools - Azure Batch | Microsoft Docs
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 34ab09f7d8d47804992b8ef6864bfea60d1c9b4d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983743"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026617"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -38,30 +38,30 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 
 Os tamanhos de VM promocional ou de visualização não listados não são garantidos para suporte.
 
-| Série de VM  | Tamanhos com suporte | Modo de alocação do pool de contas do lote<sup>1</sup> |
+| Série da VM  | Tamanhos com suporte | Modo de alocação do pool de contas do lote<sup>1</sup> |
 |------------|---------|-----------------|
-| Série A básica | Todos os tamanhos *, exceto* Basic_A0 (a0) | Any |
-| Séria A | Todos os tamanhos *, exceto* Standard_A0 | Any |
-| Série Av2 | Todos os tamanhos | Any |
+| Série A básica | Todos os tamanhos *, exceto* Basic_A0 (a0) | Qualquer |
+| Séria A | Todos os tamanhos *, exceto* Standard_A0 | Qualquer |
+| Série Av2 | Todos os tamanhos | Qualquer |
 | Série B | Nenhum | Não disponível |
 | Série DC | Nenhum | Não disponível |
-| Dv2, série DSv2 | Todos os tamanhos | Any |
-| Dv3, série Dsv3 | Todos os tamanhos | Any |
-| Ev3, série Esv3 | Todos os tamanhos | Any |
-| Série Fsv2 | Todos os tamanhos | Any |
-| Série H | Todos os tamanhos | Any |
-| Série HB<sup>2</sup> | Todos os tamanhos | Any |
-| HC-série<sup>2</sup> | Todos os tamanhos | Any |
-| Série Ls | Todos os tamanhos | Any |
+| Dv2, série DSv2 | Todos os tamanhos | Qualquer |
+| Dv3, série Dsv3 | Todos os tamanhos | Qualquer |
+| Ev3, série Esv3 | Todos os tamanhos | Qualquer |
+| Série Fsv2 | Todos os tamanhos | Qualquer |
+| Série H | Todos os tamanhos | Qualquer |
+| Série HB<sup>2</sup> | Todos os tamanhos | Qualquer |
+| HC-série<sup>2</sup> | Todos os tamanhos | Qualquer |
+| Série Ls | Todos os tamanhos | Qualquer |
 | Série Lsv2 | Nenhum | Não disponível |
-| Série M | Standard_M64ms (somente baixa prioridade), Standard_M128s (somente baixa prioridade) | Any |
+| Série M | Standard_M64ms (somente baixa prioridade), Standard_M128s (somente baixa prioridade) | Qualquer |
 | Série Mv2 | Nenhum | Não disponível |
-| Série NC | Todos os tamanhos | Any |
-| Série NCv2<sup>2</sup> | Todos os tamanhos | Any |
-| Série NCv3<sup>2</sup> | Todos os tamanhos | Any |
-| Série ND<sup>2</sup> | Todos os tamanhos | Any |
+| Série NC | Todos os tamanhos | Qualquer |
+| Série NCv2<sup>2</sup> | Todos os tamanhos | Qualquer |
+| Série NCv3<sup>2</sup> | Todos os tamanhos | Qualquer |
+| Série ND<sup>2</sup> | Todos os tamanhos | Qualquer |
 | Série NDv2 | Todos os tamanhos | Modo de assinatura do usuário |
-| Série NV | Todos os tamanhos | Any |
+| Série NV | Todos os tamanhos | Qualquer |
 | Série NVv3 | Nenhum | Não disponível |
 | SAP HANA | Nenhum | Não disponível |
 
@@ -71,11 +71,11 @@ Os tamanhos de VM promocional ou de visualização não listados não são garan
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools na configuração de Serviço de Nuvem
 
-Os pools de lote na configuração do Serviço de Nuvem oferecem suporte a todos os [tamanhos de VM para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md) **exceto** para:
+Os pools do lote na configuração do serviço de nuvem dão suporte a todos os [tamanhos de VM para serviços de nuvem](../cloud-services/cloud-services-sizes-specs.md) **, exceto** para o seguinte:
 
-| Série de VM  | Tamanhos sem suporte |
+| Série da VM  | Tamanhos sem suporte |
 |------------|-------------------|
-| Séria A   | Extra pequeno       |
+| Séria A   | Extrapequena       |
 | Série Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>Considerações de tamanhos
@@ -92,7 +92,7 @@ Os pools de lote na configuração do Serviço de Nuvem oferecem suporte a todos
 
 * **Configuração do pool** - Em geral, você tem mais opções de tamanho de VM quando você cria um pool na configuração da Máquina Virtual, em comparação com a configuração do serviço de nuvem.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
 * Para obter informações sobre tamanhos de VM de computação intensiva, consulte [Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote](batch-pool-compute-intensive-sizes.md).

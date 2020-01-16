@@ -2,7 +2,7 @@
 title: Monitorar Lote com o Azure Application Insights | Microsoft Docs
 description: Aprenda como instrumentar um aplicativo .NET do Lote do Azure usando a biblioteca do Azure Application Insights.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
-ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: c69ef0bf20e2ade15d2278d0fc2fabd75f39153b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322577"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029506"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 
@@ -37,7 +37,7 @@ Uma solução C# de exemplo com código para acompanhar este artigo está dispon
 
 * [Recurso do Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione a opção *Geral* **Tipo de Aplicativo**.
+   * Use o Portal do Azure para criar um *recurso* do Application Insights. Selecione o **tipo de aplicativo**geral.
 
    * Copie a [chave de instrumentação](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) do portal. Essa chave será necessária mais adiante neste artigo.
   
@@ -56,7 +56,7 @@ Consulte o Application Insights do aplicativo .NET usando o namespace **Microsof
 
 ## <a name="instrument-your-code"></a>Instrumentalize seu código
 
-Para instrumentar o código, a solução precisa criar um [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) do Application Insights. No exemplo, o TelemetryClient carrega a configuração do arquivo [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Certifique-se de atualizar o ApplicationInsights.config nos projetos a seguir com a chave de instrumentação do Application Insights Microsoft.Azure.Batch.Samples.TelemetryStartTask and TopNWordsSample.
+Para instrumentar o código, a solução precisa criar um [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) do Application Insights. No exemplo, o TelemetryClient carrega a configuração do arquivo [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Certifique-se de atualizar o ApplicationInsights.config nos projetos a seguir com a chave de instrumentação do Application Insights: Microsoft.Azure.Batch.Samples.TelemetryStartTask e TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
@@ -341,7 +341,7 @@ pool.StartTask = new StartTask()
 Devido à natureza em grande escala dos aplicativos do Lote do Azure executando em produção, convém limitar a quantidade de dados coletados pelo Application Insights para gerenciar os custos. Consulte [Amostragem em Application Insights](../azure-monitor/app/sampling.md) e obtenha alguns mecanismos para fazer isso.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre o [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Para suporte do Application Insights em outros idiomas, consulte a [documentação de integrações, plataformas e idiomas](../azure-monitor/app/platforms.md).

@@ -1,7 +1,7 @@
 ---
 title: Converter configurações para recursos de composição para configuração de estado – automação do Azure
 description: Saiba como converter configurações para recursos de composição para configuração de estado na automação do Azure.
-keywords: DSC, PowerShell, configuração, instalação
+keywords: DSC,powershell,configuração,instalação
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,19 +10,19 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85c13a7175bca015ab24c8b09500b47e3ea846ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c060462a84b197cdd0aec1beecc0b4d4807feb49
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231646"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030105"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Converter configurações em recursos de composição
 
 > Aplica-se a: Windows PowerShell 5,1
 
 Depois de começar a criar as configurações, você pode criar rapidamente "cenários" que gerenciam grupos de configurações.
-Os exemplos seriam:
+Exemplos seriam:
 
 - criar um servidor Web
 - criar um servidor DNS
@@ -50,13 +50,13 @@ O cmdlet carregará o conteúdo de sua configuração, obterá a lista de parâm
 Depois de gerar um módulo, você pode incrementar a versão e adicionar notas de versão cada vez que fizer alterações e publicá-las em seu próprio [repositório do PowerShellGet](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
 Depois de criar um módulo de recurso de composição contendo sua configuração (ou várias configurações), você pode usá-los na [experiência de criação combinável](/azure/automation/compose-configurationwithcompositeresources) no Azure ou adicioná-los aos [scripts de configuração DSC](/powershell/scripting/dsc/configurations/configurations) para gerar arquivos MOF e [carregar os arquivos MOF para a automação do Azure](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Em seguida, registre os servidores no [local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) ou [no Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para efetuar pull das configurações.
+Em seguida, registre os servidores no [local](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [no Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) para efetuar pull das configurações.
 A atualização mais recente para o projeto também publicou [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) para a automação do Azure para automatizar o processo de importação de configurações do Galeria do PowerShell.
 
 Para experimentar a automatização da criação de recursos de composição para DSC, visite a [Galeria do PowerShell](https://www.powershellgallery.com/packages/compositeresource/) e baixe a solução ou clique em "site do projeto" para exibir a [documentação](https://github.com/microsoft/compositeresource).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Visão Geral da Configuração de Estado Desejado do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
+- [Visão geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Recursos de DSC](/powershell/scripting/dsc/resources/resources)
-- [Configurando o Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [Configurando o Gerenciador de Configurações Local](/powershell/scripting/dsc/managing-nodes/metaconfig)

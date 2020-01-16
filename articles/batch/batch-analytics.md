@@ -2,7 +2,7 @@
 title: Análise de lote do Azure | Documentos do Microsoft
 description: Referência para análise de lote do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 03cb6231a42e27c474e20f4c6ae91095156bb766
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: jushiman
+ms.openlocfilehash: 39a8bfb6a48bf55ae9f2ec36f7716959e6ada9dd
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095509"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027391"
 ---
 # <a name="batch-analytics"></a>Análise de lote
 Os tópicos na Análise de lote contêm informações de referência para os eventos e alertas disponíveis para recursos de serviço em lotes.

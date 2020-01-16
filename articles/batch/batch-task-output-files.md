@@ -2,7 +2,7 @@
 title: Persistir a saída de tarefa e de trabalho no Armazenamento do Azure com a API do serviço de Lote do Azure - Lote do Azure | Microsoft Docs
 description: Saiba como usar a API do serviço de lote para manter a saída de tarefa e o trabalho em lotes no Armazenamento do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.service: batch
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 03/05/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e4a2af09b432961211a5f38ecd2d9dacd89d3868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d77da2a0298758dad3eff1a61aff45796bfb6c5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094450"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029643"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -187,7 +187,7 @@ O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos
 6. Quando solicitado a escolher a tecnologia de persistência a usar para executar o exemplo, digite **2** para executar o exemplo usando a API do serviço de lote para manter a saída da tarefa.
 7. Se desejado, execute o exemplo novamente, inserindo **3** para manter a saída com a API de serviço de lote e também para nomear o contêiner de destino e o caminho de blob de acordo com o padrão de Convenções de Arquivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre persistência de saída de tarefa com a biblioteca de Convenções de Arquivo para .NET, consulte [Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET](batch-task-output-file-conventions.md).
 - Para obter mais informações sobre outras abordagens para manter os dados de saída em lote do Azure, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md).

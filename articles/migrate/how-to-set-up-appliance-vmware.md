@@ -1,17 +1,14 @@
 ---
 title: Configurar um dispositivo de migrações para Azure para VMware
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs VMware.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: adb78682e80d78aa4fa6b48507f1fcce789a3fe1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360167"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029051"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um dispositivo para VMs VMware
 
@@ -72,7 +69,7 @@ Importe o arquivo baixado e crie uma VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
 
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo
@@ -114,7 +111,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 
 ### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
 1. Em **Especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP do vCenter Server. Você pode manter a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escutará.
-2. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir VMs no vCenter Server. Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode definir o escopo da descoberta limitando o acesso à conta do vCenter de forma adequada; saiba mais sobre como definir o escopo da descoberta [aqui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+2. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta somente leitura que o dispositivo usará para descobrir VMs no vCenter Server. Você pode definir o escopo da descoberta limitando o acesso à conta do vCenter de forma adequada; saiba mais sobre como definir o escopo da descoberta [aqui](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 3. Clique em **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais de VM

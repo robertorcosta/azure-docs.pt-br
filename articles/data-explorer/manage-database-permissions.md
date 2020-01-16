@@ -1,5 +1,5 @@
 ---
-title: Gerenciar permissões de banco de dados no Data Explorer do Azure
+title: Gerenciar permissões de banco de dados no Azure Data Explorer
 description: Este artigo descreve os controles de acesso baseados em função para bancos de dados e tabelas no Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758719"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030096"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gerenciar permissões do banco de dados do Azure Data Explorer
 
@@ -27,7 +27,7 @@ O Azure Data Explorer tem as seguintes funções:
 |Função                       |Permissões                                                                        |
 |---------------------------|-----------------------------------------------------------------------------------|
 |Administrador do banco de dados             |Pode fazer qualquer ação no escopo de um banco de dados específico.|
-|Usuário do banco de dados              |Pode ler todos os dados e metadados no banco de dados. Além disso, podem criar tabelas (tornando-se o administrador da tabela para essa tabela) e funções no banco de dados.|
+|Usuário de banco de dados              |Pode ler todos os dados e metadados no banco de dados. Além disso, podem criar tabelas (tornando-se o administrador da tabela para essa tabela) e funções no banco de dados.|
 |Visualizador do banco de dados            |Pode ler todos os dados e metadados no banco de dados.|
 |Ingestor de banco de dados          |Pode ingerir dados para todas as tabelas existentes no banco de dados, mas não consultar os dados.|
 |Monitor do banco de dados           |Pode executar comandos '.show ...' no contexto do banco de dados e suas entidades filhas.|
@@ -36,13 +36,13 @@ O Azure Data Explorer tem as seguintes funções:
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Gerenciar permissões no portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Navegue até o cluster do Azure Data Explorer.
 
 1. Na seção **Visão geral**, selecione o banco de dados onde você quer gerenciar as permissões.
 
-    ![Selecionar um banco de dados](media/manage-database-permissions/select-database.png)
+    ![Selecionar banco de dados](media/manage-database-permissions/select-database.png)
 
 1. Selecione **Permissões** e, em seguida, **Adicionar**.
 
@@ -73,7 +73,9 @@ O Azure Data Explorer tem as seguintes funções:
     ```
 
     A saída do comando mostra a lista de usuários existentes e as funções às quais eles estão atribuídos no banco de dados.
+    
+    Para obter exemplos referentes à Azure Active Directory e ao modelo de autorização Kusto, consulte [princípios e provedores de identidade](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Gravar consultas](write-queries.md)
