@@ -1,24 +1,27 @@
 ---
 title: Conheça a terminologia do Azure Service Fabric
-description: Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação.
+description: Aprenda a terminologia e os conceitos de Service Fabric de chave usados no restante da documentação.
 author: masnider
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: cf2cfdad10d93bb4f28345d75a86fdcd94587410
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465598"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024896"
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
+
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  É possível [hospedar clusters do Service Fabric em qualquer lugar](service-fabric-deploy-anywhere.md): Azure, em um datacenter local ou em qualquer provedor de nuvem.  O Service Fabric é o orquestrador que fornece energia à [Malha do Azure Service Fabric](/azure/service-fabric-mesh). É possível usar qualquer estrutura para gravar os serviços e escolher onde executar o aplicativo a partir de várias opções de ambiente. Este artigo apresenta detalhes da terminologia usada pelo Service Fabric para compreensão dos termos usados na documentação.
 
 ## <a name="infrastructure-concepts"></a>Conceitos de infraestrutura
+
 **Cluster**: um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados.  Os clusters podem ser dimensionados para milhares de máquinas.
 
-**Nó**: um computador ou VM que faz parte de um cluster é chamado de *nó*. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características, como propriedades de posicionamento. Cada computador ou VM tem um serviço Windows de início automático, `FabricHost.exe` que começa a ser executado na inicialização e então inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único computador ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
+**Nó**: um computador ou VM que faz parte de um cluster é chamado de *nó*. Cada nó recebe um nome de nó (cadeia de caracteres). Os nós têm características, como propriedades de posicionamento. Cada computador ou VM tem um serviço Windows de início automático, `FabricHost.exe` que começa a ser executado na inicialização e então inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único computador ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
 
 ## <a name="application-and-service-concepts"></a>Conceitos de aplicativo e serviço
 
@@ -30,7 +33,7 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 
 **Application**: um aplicativo é a unidade de implantação, controle de versão e tempo de vida de um aplicativo de Malha. O ciclo de vida de cada instância do aplicativo pode ser gerenciado independentemente.  Os aplicativos são compostos de um ou mais pacotes de códigos de serviço e configurações. Um aplicativo é definido usando o esquema do RM (Modelo de Recurso) do Azure.  Os serviços são descritos como propriedades do recurso de aplicativo em um modelo RM.  Redes e volumes usados pelo aplicativo são referenciados pelo aplicativo.  Ao criar um aplicativo, o aplicativo, os serviços, a rede e os volumes são modelados usando o Modelo de Recurso do Service Fabric.
 
-**Serviço**: um serviço em um aplicativo representa um microsserviço e executa uma função completa e independente. Cada serviço é composto de um ou mais pacotes de códigos que descrevem tudo o que é necessário para executar a imagem de contêiner associada ao pacote de códigos.  O número de serviços em um aplicativo pode ser escalado e reduzido verticalmente.
+**Serviço**: um serviço em um aplicativo representa um microsserviço e executa uma função completa e independente. Cada serviço é composto por um ou mais pacotes de código que descrevem tudo o que é necessário para executar a imagem de contêiner associada ao pacote de códigos.  O número de serviços em um aplicativo pode ser escalado e reduzido verticalmente.
 
 **Rede**: um recurso de rede cria uma rede privada para os aplicativos e é independente dos aplicativos ou serviços que podem fazer referência à rede. Vários serviços de diferentes aplicativos podem fazer parte da mesma rede. Redes são recursos implantáveis que são referenciados por aplicativos.
 
@@ -85,13 +88,14 @@ Há dois tipos de serviço:
 
 **Pacote de configuração**: um diretório de disco contendo os arquivos de configuração estáticos somente leitura do tipo de serviço, normalmente arquivos de texto. Os arquivos no diretório do pacote de configuração são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando você cria um serviço nomeado, os arquivos no pacote de configuração são copiados para um ou mais nós selecionados para executar o serviço nomeado. O código começa a ser executado e agora pode acessar os arquivos de configuração.
 
-**Contêineres**: por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em imagens de contêiner. Contêineres são uma tecnologia de virtualização que virtualiza o sistema operacional subjacente de aplicativos. Um aplicativo e seu runtime, dependências e bibliotecas do sistema são executados dentro de um contêiner. O contêiner tem acesso privado total à exibição isolada do próprio contêiner dos constructos de sistema operacional. O Service Fabric dá suporte a contêineres do Docker em contêineres Linux e Windows Server. Para obter mais informações, leia [Service Fabric e contêineres](service-fabric-containers-overview.md).
+**Contêineres**: por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em imagens de contêiner. Contêineres são uma tecnologia de virtualização que abstrai o sistema operacional subjacente dos aplicativos. Um aplicativo e seu runtime, dependências e bibliotecas do sistema são executados dentro de um contêiner. O contêiner tem acesso privado total à exibição isolada do próprio contêiner dos constructos de sistema operacional. O Service Fabric dá suporte a contêineres do Windows Server e contêineres do Docker no Linux. Para obter mais informações, leia [Service Fabric e contêineres](service-fabric-containers-overview.md).
 
 **Esquema de partição**: ao criar um serviço nomeado, você especifica um esquema de partição. Serviços com quantidades substanciais de estado dividem os dados entre as partições, que distribuem o estado pelos nós do cluster. Ao dividir os dados entre partições, você pode dimensionar o estado do serviço nomeado. Dentro de uma partição, serviços nomeados sem monitoração de estado têm instâncias, enquanto serviços nomeados com estado têm réplicas. Geralmente, serviços nomeados sem monitoração de estado têm apenas uma partição, pois não têm estado interno. As instâncias de partição proporcionam disponibilidade. Se uma instância falhar, outras instâncias continuarão funcionando normalmente, então o Service Fabric criará uma nova instância. Os serviços nomeados com estado mantêm seu estado dentro das réplicas e cada partição tem seu próprio conjunto de réplicas para que o estado seja mantido em sincronia. Se uma réplica falhar, Service Fabric criará uma nova réplica a partir das réplicas existentes.
 
 Leia o artigo [Particionar os Reliable Services do Service Fabric](service-fabric-concepts-partitioning.md) para saber mais.
 
 ## <a name="system-services"></a>Serviços do sistema
+
 Há serviços do sistema que são criados em cada cluster que fornece os recursos de plataforma do Service Fabric.
 
 **Serviço de nomenclatura**: cada cluster do Service Fabric tem um Serviço de Nomenclatura que resolve nomes de serviço para uma localização no cluster. Você gerencia os nomes de serviço e propriedades, como um DNS (Serviço de Nomes de Domínio ) da Internet para o cluster. Os clientes comunicam-se com segurança com qualquer nó no cluster usando o Serviço de Nomenclatura para resolver um nome de serviço e sua localização. Os aplicativos movem-se dentro do cluster. Por exemplo, isso pode ser devido a falhas, balanceamento de recursos ou o redimensionamento do cluster. Você pode desenvolver serviços e clientes que resolvem o local de rede atual. Os clientes obtêm o endereço IP do computador real e a porta em que ele está sendo executado.
@@ -105,22 +109,26 @@ Leia [Entender a configuração ImageStoreConnectionString](service-fabric-image
 Leia o artigo [Implantar um aplicativo](service-fabric-deploy-remove-applications.md) para saber mais sobre como implantar aplicativos no serviço do Repositório de Imagens.
 
 **Serviço do Gerenciador de Failover**: cada cluster do Service Fabric tem um serviço de Gerenciador de Failover responsável pelas seguintes ações:
-   - Executa funções relacionadas a alta disponibilidade e consistência dos serviços.
-   - Orquestra upgrades de aplicativo e de cluster.
-   - Interage com outros componentes do sistema.
+
+ - Executa funções relacionadas a alta disponibilidade e consistência dos serviços.
+ - Orquestra upgrades de aplicativo e de cluster.
+ - Interage com outros componentes do sistema.
 
 **Reparar o serviço do Gerenciador**: este é um serviço de sistema opcional que permite que as ações de reparo sejam executadas em um cluster de maneira segura, automática e transparente. O Gerenciador de reparo é usado em:
+
    - Realizar reparos de manutenção do Azure na [durabilidade Silver e Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) dos clusters do Azure Service Fabric.
    - Realizar ações de reparo para [Aplicativo de Orquestração de Patch](service-fabric-patch-orchestration-application.md)
 
-## <a name="deployment-and-application-models"></a>Implantação e modelos de aplicativos 
+## <a name="deployment-and-application-models"></a>Implantação e modelos de aplicativos
 
 Para implantar os serviços será necessário descrever como deverão ser executados. O Service Fabric dá suporte a três diferentes modelos de implantação:
 
 ### <a name="resource-model-preview"></a>Modelo de recurso (versão prévia)
+
 Os Recursos do Service Fabric são tudo o que pode ser implantado individualmente no Service Fabric, incluindo aplicativos, serviços, redes e volumes. Os recursos são definidos usando um arquivo JSON, que pode ser implantado em um ponto de extremidade do cluster.  Para a Malha do Service Fabric, é usado o esquema do Modelo de Recurso do Azure. Um esquema de arquivo YAML também pode ser usado para criar arquivos de definição com mais facilidade. Os recursos podem ser implantados em qualquer lugar em que o Service Fabric execute. O modelo de recursos é a maneira mais simples de descrever os aplicativos do Service Fabric. O foco principal é a implantação e o gerenciamento simples de serviços de contêiner. Para saber mais, leia [Introdução ao Modelo de Recurso do Service Fabric](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### <a name="native-model"></a>Modelo nativo
+
 O modelo de aplicativo nativo fornece aos aplicativos acesso de nível baixo completo ao Service Fabric. Os aplicativos e serviços são definidos como tipos registrados em arquivos de manifesto XML.
 
 O modelo nativo dá suporte às estruturas Reliable Services e Reliable Actors, que fornecem acesso às APIs de runtime do Service Fabric e APIs de gerenciamento de cluster em C# e Java. O modelo nativo também dá suporte a executáveis e contêineres arbitrários. O modelo nativo não é tem suporte no [ambiente de Malha do Service Fabric](/azure/service-fabric-mesh/service-fabric-mesh-overview).
@@ -138,6 +146,7 @@ Você também pode executar os aplicativos existentes no Service Fabric:
 Leia o artigo [Escolher um modelo de programação para seu serviço](service-fabric-choose-framework.md) para saber mais.
 
 ### <a name="docker-compose"></a>Docker Compose 
+
 O [Docker Compose](https://docs.docker.com/compose/) é parte do projeto Docker. O Service Fabric dá suporte limitado para [implantar aplicativos usando o modelo do Docker Compose](service-fabric-docker-compose.md).
 
 ## <a name="environments"></a>Ambientes
@@ -150,7 +159,8 @@ O Service Fabric é uma tecnologia de plataforma de software livre em que vário
  - **Cluster de desenvolvimento do Service Fabric**: fornece uma experiência de desenvolvimento local no Windows, Linux ou Mac para o desenvolvimento de aplicativos do Service Fabric.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matriz de suporte do modelo de implantação, estrutura e ambiente
-Diferentes ambientes possuem diferentes níveis de suporte para modelos de implantação e estrutura. A tabela a seguir descreve as combinações de modelo de implantação e estrutura com suporte.
+
+Ambientes diferentes têm diferentes níveis de suporte para estruturas e modelos de implantação. A tabela a seguir descreve as combinações de modelo de implantação e estrutura com suporte.
 
 | Tipo de aplicativo | Descrito por | Malha do Microsoft Azure Service Fabric | Clusters do Microsoft Azure Service Fabric (qualquer sistema operacional)| Cluster local | Cluster autônomo |
 |---|---|---|---|---|---|
@@ -164,8 +174,8 @@ A tabela a seguir descreve os diferentes modelos de aplicativos e as ferramentas
 | Aplicativos de Malha do Service Fabric | Modelo de recurso (YAML & JSON) | VS 2017 |Sem suporte |Sem suporte | Com suporte - apenas ambiente de Malha | Sem suporte|
 |Aplicativos nativos do Service Fabric | Modelo de aplicativo nativo (XML) | VS 2017 e VS 2015| Com suporte|Com suporte|Com suporte|Com suporte|
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximos passos
+
 Para saber mais sobre o Service Fabric:
 
 * [Visão geral da Malha do Serviço](service-fabric-overview.md)

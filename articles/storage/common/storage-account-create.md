@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486710"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975927"
 ---
 # <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de armazenamento e todos os outros recursos nesse grupo de recursos. Para obter mais informações sobre como excluir um grupo de recursos, consulte [excluir recursos e grupo](../../azure-resource-manager/resource-group-delete.md)de recursos.
+Como alternativa, você pode excluir o grupo de recursos, que exclui a conta de armazenamento e todos os outros recursos nesse grupo de recursos. Para obter mais informações sobre como excluir um grupo de recursos, consulte [excluir recursos e grupo](../../azure-resource-manager/management/delete-resource-group.md)de recursos.
 
 > [!WARNING]
 > Não é possível restaurar uma conta de armazenamento excluída nem recuperar nenhuma parte de seu conteúdo antes da exclusão. Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Isso também é verdadeiro para todos os recursos na conta – depois que você excluir um blob, tabela, fila ou arquivo, ele será excluído permanentemente.
