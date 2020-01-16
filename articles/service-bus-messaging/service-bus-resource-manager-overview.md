@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d473cf2a79fb86028797205ee7885b51169b10bf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452330"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978230"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
 
@@ -207,7 +207,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Criar a implantação
 
-Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/deployment-modes.md).
+Para criar a nova implantação, execute o cmdlet `New-AzResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/templates/deployment-modes.md).
 
 O comando abaixo solicita os três parâmetros na janela do PowerShell:
 
@@ -227,7 +227,7 @@ Você também pode usar parâmetros embutidos quando executa o cmdlet de implant
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Para executar uma implantação [completa](../azure-resource-manager/deployment-modes.md), defina o parâmetro **Mode** como **Complete**:
+Para executar uma implantação [completa](../azure-resource-manager/templates/deployment-modes.md), defina o parâmetro **Mode** como **Complete**:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -261,5 +261,5 @@ Agora você já viu o fluxo de trabalho básico e os comandos para implantar um 
 * [Tipos de recursos do Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
-[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
+[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/templates/deploy-powershell.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

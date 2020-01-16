@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da40b635b0fc094275d8d46b8c5ad6d3d90bea24
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 43ff230d4769a23c9007b3da29858d2105366f9f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101822"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978093"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Backup automatizado para SQL Server em Máquinas Virtuais do Azure (Clássico)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "70101822"
 O backup automatizado configura automaticamente o [Backup Gerenciado do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todos os bancos de dados novos e existentes em uma VM do Azure executando o SQL Server 2014 Standard ou Enterprise. Isso permite que você configure backups regulares do banco de dados que utilizam o durável armazenamento de Blobs do Azure. O Backup Automatizado depende da [Extensão do agente IaaS do SQL Server](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para exibir a versão do Resource Manager deste artigo, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure do Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para exibir a versão do Resource Manager deste artigo, veja [Backup Automatizado para o SQL Server em Máquinas Virtuais do Azure do Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
@@ -66,10 +66,10 @@ Para usar o Backup Automatizado, considere os seguintes pré-requisitos:
 ## <a name="settings"></a>Configurações
 A tabela a seguir descreve as opções que podem ser configuradas para Backup Automatizado. Para VMs clássicas, você deve usar o PowerShell para definir essas configurações.
 
-| Configuração | Intervalo (Padrão) | Descrição |
+| Configuração | Intervalo (Padrão) | Description |
 | --- | --- | --- |
 | **Backup Automatizado** |Habilitar/desabilitar (Desabilitado) |Habilita ou desabilita o Backup Automatizado de uma VM do Azure que executa o SQL Server 2014 Standard ou Enterprise. |
-| **Período de retenção** |Um a 30 dias (30 dias) |O número de dias para manter um backup. |
+| **Período de Retenção** |Um a 30 dias (30 dias) |O número de dias para manter um backup. |
 | **Conta de armazenamento** |Conta de armazenamento do Azure (a conta de armazenamento criada para a VM especificada) |Uma conta de armazenamento do Azure a ser usada para armazenar arquivos de Backup Automatizado no armazenamento de blobs. Um contêiner é criado neste local para armazenar todos os arquivos de backup. A convenção de nomenclatura do arquivo de backup inclui a data, hora e nome do computador. |
 | **Criptografia** |Habilitar/desabilitar (Desabilitado) |Habilita ou desabilita a criptografia. Quando a criptografia está habilitada, os certificados usados para restaurar o backup estão localizados na conta de armazenamento especificado no mesmo contêiner automaticbackup usando a mesma convenção de nomenclatura. Se a senha for alterada, um novo certificado será gerado com essa senha, mas o certificado antigo permanece para restaurar backups anteriores. |
 | **Senha** |Texto da senha (nenhum) |Uma senha para as chaves de criptografia. Isso só é necessário se a criptografia estiver habilitada. Para restaurar um backup criptografado, você deverá ter a senha correta e o certificado relacionado que foi usado no momento em que o backup foi feito. |
@@ -106,10 +106,10 @@ Para desabilitar o backup automático, execute o mesmo script sem o parâmetro *
 > 
 > 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 O Backup Automatizado configura o Backup Gerenciado em VMs do Azure. Portanto, é importante [ler a documentação do Backup Gerenciado](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e suas implicações.
 
-Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte tópico: [Backup e restauração para o SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+Você pode encontrar outras orientações de backup e de restauração para o SQL Server em VMs do Azure no seguinte tópico: [Backup e restauração do SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [Extensão do agente IaaS do SQL Server](../classic/sql-server-agent-extension.md).
 

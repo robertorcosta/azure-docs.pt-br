@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 22734d29973f0d7102307aa9038b6ebe7cc2521b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 01/14/2020
+ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903319"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045139"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Entender e usar os SDKs de Hub IoT do Azure
 
@@ -84,7 +84,7 @@ SDK do dispositivo de Hub IoT do Azure para Python:
 SDK do dispositivo do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
-* [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Amostras](https://github.com/Azure-Samples/azure-iot-samples-ios)
 * Referência da API: consulte [referência da API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 ## <a name="azure-iot-hub-service-sdks"></a>SDKs de serviços do Hub IoT
@@ -111,8 +111,8 @@ SDK de serviço de Hub IoT do Azure para Node.js:
 
 SDK de serviço de Hub IoT do Azure para Python: 
 
-* Fazer download do [pip](https://pypi.python.org/pypi/azure-iothub-service-client/)
-* [Código-fonte](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated)
+* Fazer download do [pip](https://pypi.python.org/pypi/azure-iot-hub/)
+* [Código-fonte](https://github.com/Azure/azure-iot-sdk-python/tree/master)
 
 SDK de serviço de Hub IoT do Azure para C: 
 
@@ -122,7 +122,7 @@ SDK de serviço de Hub IoT do Azure para C:
 SDK do serviço do Hub IoT para iOS: 
 
 * Instalar de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
-* [Exemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Amostras](https://github.com/Azure-Samples/azure-iot-samples-ios)
 
 > [!NOTE]
 > Consulte os arquivos Leiame nos repositórios GitHub para obter informações sobre como usar os gerenciadores de pacotes específicos à linguagem e à plataforma para instalar binários e dependências em seu computador de desenvolvimento.
@@ -160,7 +160,7 @@ Dispositivo de Provisionamento do Azure e SDKs de serviço para Python:
 * [Código-fonte](https://github.com/Azure/azure-iot-device)
 * Baixe a [SDK de Dispositivo](https://pypi.org/project/azure-iot-device/) e a [SDK de Serviço](https://pypi.org/project/azure-iothub-provisioningserviceclient/) no pip
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os SDKs de IoT do Azure também fornecem um conjunto de ferramentas para ajudá-lo com o desenvolvimento:
 * [iothub-diagnostics](https://github.com/Azure/iothub-diagnostics): uma ferramenta de linha de comando de plataforma cruzada para ajudar a diagnosticar problemas relacionados à conexão com o IoT Hub.

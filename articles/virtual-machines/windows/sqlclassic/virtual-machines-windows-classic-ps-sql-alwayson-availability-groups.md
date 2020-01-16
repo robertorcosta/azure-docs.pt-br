@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100367"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978153"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On em uma VM do Azure com o PowerShell
 > [!div class="op_single_selector"]
-> * [Clássico UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Clássico PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Clássico: Interface de usuário](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Clássico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Antes de começar, considere que agora você pode concluir esta tarefa no modelo do Azure Resource Manager. O modelo do Azure Resource Manager é recomendável para novas implantações. Confira, [Introdução aos grupos de disponibilidade Always On do SQL Server em máquinas virtuais do Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica.
+> Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação clássica.
 
 As VMs (máquinas virtuais) do Azure podem ajudar os administradores de banco de dados a reduzir o custo de um sistema SQL Server de alta disponibilidade. Este tutorial mostra como implementar um grupo de disponibilidade usando o SQL Server Always On de ponta a ponta dentro de um ambiente do Azure. Ao final do tutorial, sua solução SQL Server AlwaysOn no Azure consistirá nos seguintes elementos:
 
@@ -238,7 +238,7 @@ O servidor do controlador de domínio foi provisionado com êxito. Em seguida, v
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    O GUID especificado acima é o GUID para o tipo de objeto de computador. A conta **CORP\Install** precisa das permissões **Ler Todas as Propriedades** e **Criar Objetos de Computador** para criar objetos do Active Direct para o cluster de failover. A permissão **Ler Todas as Propriedades** já foi fornecida a CORP\Install por padrão, portanto, você não precisa concedê-la explicitamente. Para obter mais informações sobre as permissões necessárias para criar o cluster de failover, [consulte Guia passo a passo do cluster de failover: Configurando contas](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)no Active Directory.
+    O GUID especificado acima é o GUID para o tipo de objeto de computador. A conta **CORP\Install** precisa das permissões **Ler Todas as Propriedades** e **Criar Objetos de Computador** para criar objetos do Active Direct para o cluster de failover. A permissão **Ler Todas as Propriedades** já foi fornecida a CORP\Install por padrão, portanto, você não precisa concedê-la explicitamente. Para saber mais sobre as permissões necessárias para criar o cluster de failover, confira o [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx) (Guia passo a passo do cluster de failover: configurando contas no Active Directory).
 
     Concluída a configuração do Active Directory e dos objetos de usuário, você criará duas VMs do SQL Server e as ingressará nesse domínio.
 
@@ -377,17 +377,17 @@ O servidor do controlador de domínio foi provisionado com êxito. Em seguida, v
     As VMs do SQL Server agora estão provisionadas e em execução, mas estão instaladas com o SQL Server com as opções padrão.
 
 ## <a name="initialize-the-failover-cluster-vms"></a>Inicializar as VMs do cluster de failover
-Nesta seção, você precisa modificar os três servidores que usará no cluster de failover e na instalação do SQL Server. Especificamente:
+Nesta seção, você precisa modificar os três servidores que usará no cluster de failover e na instalação do SQL Server. Mais especificamente:
 
-* Todos os servidores: Você precisa instalar o recurso de clustering de **failover** .
-* Todos os servidores: Você precisa adicionar o **CORP\Install** como o **administrador**da máquina.
-* Somente ContosoSQL1 e ContosoSQL2: Você precisa adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
-* Somente ContosoSQL1 e ContosoSQL2: Você precisa adicionar **NT AUTHORITY\SYSTEM** como uma entrada com as seguintes permissões:
+* Todos os servidores: é necessário instalar o recurso **Clustering de Failover**.
+* Todos os servidores: é necessário adicionar **CORP\Install** como o **administrador** do computador.
+* Somente ContosoSQL1 e ContosoSQL2: é necessário adicionar **CORP\Install** como uma função **sysadmin** no banco de dados padrão.
+* Somente ContosoSQL1 e ContosoSQL2: é necessário adicionar **NT AUTHORITY\System** como uma conexão com as seguintes permissões:
 
   * Alterar qualquer grupo de disponibilidade
   * Conectar o SQL
   * Exibir o estado do servidor
-* Somente ContosoSQL1 e ContosoSQL2: O protocolo **TCP** já está habilitado na VM SQL Server. No entanto, ainda é necessário abrir o firewall para o acesso remoto do SQL Server.
+* Somente ContosoSQL1 e ContosoSQL2: o protocolo **TCP** já está habilitado na VM do SQL Server. No entanto, ainda é necessário abrir o firewall para o acesso remoto do SQL Server.
 
 Agora você está pronto para começar. Começando com o **ContosoQuorum**, siga as etapas abaixo:
 
@@ -564,7 +564,7 @@ Agora você está pronto para configurar o grupo de disponibilidade. Você usar�
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora você implementou com êxito o SQL Server Always On criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para grupos de disponibilidade Always On no Azure](../classic/ps-sql-int-listener.md).
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server nas Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

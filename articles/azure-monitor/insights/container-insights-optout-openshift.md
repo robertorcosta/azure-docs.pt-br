@@ -3,12 +3,12 @@ title: Como parar de monitorar o cluster do Azure Red Hat OpenShift | Microsoft 
 description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: e726d2d8254598869f1c6305421c674c870e3d31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404284"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977779"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres
 
@@ -16,13 +16,13 @@ Depois de habilitar o monitoramento do cluster do Azure Red Hat OpenShift, você
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
-São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON que especifica a configuração para interromper o monitoramento e o outro contém valores de parâmetro que você configura para especificar a ID de recurso de cluster OpenShift e a região do Azure na qual o cluster é implantado. 
+São fornecido dois modelos do Azure Resource Manager para dar suporte para remover os recursos de solução de forma consistente e repetida no seu grupo de recursos. Um é um modelo JSON que especifica a configuração para interromper o monitoramento e o outro contém valores de parâmetro que você configura para especificar a ID de recurso de cluster OpenShift e a região do Azure na qual o cluster é implantado.
 
 Se você não estiver familiarizado com o conceito de implantação de recursos usando um modelo, veja:
-* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando o CLI do Azure versão 2.0.65 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Criar modelo
 
@@ -90,7 +90,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 5. Salve esse arquivo como **OptOutParam.json** em uma pasta local.
 
-6. Você está pronto para implantar o modelo. 
+6. Você está pronto para implantar o modelo.
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Remover a solução usando a CLI do Azure
 
@@ -98,7 +98,7 @@ Execute o comando a seguir com CLI do Azure no Linux para remover a solução e 
 
 ```azurecli
 az login   
-az account set --subscription "Subscription Name" 
+az account set --subscription "Subscription Name"
 az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Próximos passos
 
-Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md). 
+Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).

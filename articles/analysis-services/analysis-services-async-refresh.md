@@ -4,15 +4,15 @@ description: Descreve como usar a API REST do Azure Analysis Services para codif
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573387"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029868"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -30,7 +30,7 @@ A URL base segue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por exemplo, considerando um modelo chamado AdventureWorks, em um servidor chamado myserver, localizado na região do Azure Oeste dos EUA. O nome do servidor é:
+Por exemplo, considere um modelo chamado AdventureWorks em um servidor chamado `myserver`, localizado na região oeste dos EUA do Azure. O nome do servidor é:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -97,22 +97,33 @@ O corpo pode ser semelhante ao seguinte:
 
 Não é necessário especificar parâmetros. O padrão será aplicado.
 
-| NOME             | Digite  | DESCRIÇÃO  |Padrão  |
+| Nome             | Tipo  | Description  |Padrão  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
-| `MaxParallelism` | int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
-| `RetryCount`     | int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
-| `Objects`        | Matriz | Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
+| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism, que pode ser definida no [comando Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) da TMSL ou com o uso de outros métodos.       | 10        |
+| `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
+| `Objects`        | Array | Uma matriz de objetos a serem processados. Cada objeto inclui: "table" ao processar a tabela inteira ou "table" e "partition" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
 O CommitMode é igual ao partialBatch. Ele é usado ao fazer uma carga inicial de grandes conjuntos de dados, que pode levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (ela não reverterá lotes confirmadas com êxito).
 
 > [!NOTE]
 > No em que esse texto foi escrito, o tamanho do lote era o valor de MaxParallelism, mas esse valor poderá ser alterado.
 
+### <a name="status-values"></a>Valores de status
+
+|Valor de status  |Description  |
+|---------|---------|
+|`notStarted`    |   Operação ainda não iniciada.      |
+|`inProgress`     |   Operação em andamento.      |
+|`timedOut`     |    A operação atingiu o tempo limite com base no tempo limite especificado pelo usuário.     |
+|`cancelled`     |   Operação cancelada pelo usuário ou pelo sistema.      |
+|`failed`     |   Falha na operação.      |
+|`succeeded`      |   Operação bem-sucedida.      |
+
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Para verificar o status de uma operação de atualização, use o verbo GET na ID da atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, **inProgress** será retornado no status.
+Para verificar o status de uma operação de atualização, use o verbo GET na ID da atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, `inProgress` será retornado no status.
 
 ```
 {
@@ -214,6 +225,6 @@ Consulte [Criar entidade de serviço - portal do Azure](../active-directory/deve
 ## <a name="see-also"></a>Consulte também
 
 [Exemplos](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

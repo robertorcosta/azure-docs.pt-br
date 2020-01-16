@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: d92832d1eee995e8883dc6c8ed0f58c9755e40f8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 74d10c8fbe2f82d6148f5e13cb57c46dd645f76f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058416"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979549"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda a criação de VMs por meio do Resource Manager. Certifique-se de que você entenda como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda a criação de VMs por meio do Resource Manager. Certifique-se de que você entenda como os [endereços IP](virtual-network-ip-addresses-overview-classic.md) funcionam no Azure.
 
 ![Diferença entre ILPIP e VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -182,6 +182,6 @@ Você também pode usar `nslookup` para consultar o registro A do subdomínio:
 nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
 ``` 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 * Saiba mais sobre [IPs reservados](virtual-networks-reserved-public-ip.md).

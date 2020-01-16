@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: be563e39ed1bfa405830999a96d8630b6f8254bb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057965"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981344"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>A área de trabalho remota se desconecta com frequência na VM do Azure
 
 Este artigo explica como solucionar problemas de desconexões frequentes em uma máquina virtual do Azure (VM) por meio do RDP do Protocolo de Área de Trabalho Remota.
 
 > [!NOTE] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos. É recomendável usar esse modelo para novas implantações, em vez de usar o modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos. É recomendável usar esse modelo para novas implantações, em vez de usar o modelo de implantação clássico.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -151,7 +151,7 @@ Para solucionar esse problema, use o controle Serial ou [repare a VM off-line](#
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
-16. Defina o controle de tempo de ociosidade da sessão de RDP:     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
+16. Defina o controle de tempo de ociosidade da sessão de RDP: REG ADD ' Server\winstations\rdp-TCP do HKLM\BROKENSYSTEM\ControlSet001\control\Terminal "/v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
 

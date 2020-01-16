@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c682749de0be6329a254bda25a32954dd44e6db
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210950"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978710"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registros usando o SDK do .NET
 
@@ -30,7 +30,7 @@ ms.locfileid: "74210950"
 Normalmente, o acesso programático aos recursos do Azure é concedido por meio de uma conta dedicada, em vez de suas próprias credenciais de usuário. Essas contas dedicadas são denominadas contas da 'entidade de serviço'. Para usar o projeto de exemplo SDK do DNS do Azure, você precisa primeiro criar uma conta da entidade de serviço e atribuir as permissões corretas.
 
 1. Siga [estas instruções](../active-directory/develop/howto-authenticate-service-principal-powershell.md) para criar uma conta da entidade de serviço (o projeto de exemplo SDK do DNS do Azure pressupõe uma autenticação baseada em senhas.)
-2. Crie um grupo de recursos ([aqui](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+2. Crie um grupo de recursos ([aqui](../azure-resource-manager/templates/deploy-portal.md)).
 3. Use o RBAC do Azure para conceder à conta da entidade de serviço permissões do 'Colaborador da Zona DNS' para o grupo de recursos ([aqui](../role-based-access-control/role-assignments-portal.md).)
 4. Se você usar o projeto de exemplo SDK do DNS do Azure, edite o arquivo 'program.cs' como a seguir:
 
@@ -43,7 +43,7 @@ Normalmente, o acesso programático aos recursos do Azure é concedido por meio 
 Para usar o SDK do .NET de DNS, você precisa instalar o pacote NuGet da **Biblioteca de Gerenciamento de DNS do Azure** e outros pacotes do Azure requeridos.
 
 1. No **Visual Studio**, abra um projeto ou um novo projeto.
-2. Acesse **Ferramentas** **>** **Gerenciamento de Pacotes NuGet** **>** **Gerenciar Pacotes NuGet para Solução...** .
+2. Vá para **ferramentas** **>** **Gerenciador de pacotes NuGet** **>** **gerenciar pacotes NuGet para solução...** .
 3. Clique em **Procurar**, marque a caixa de seleção **Incluir pré-lançamento** e digite **Microsoft.Azure.Management.Dns** na caixa de pesquisa.
 4. Selecione o pacote e clique em **Instalar** adicioná-lo a seu projeto do Visual Studio.
 5. Repita o processo acima para também instalar os seguintes pacotes: **Microsoft.Rest.ClientRuntime.Azure.Authentication** e **Microsoft.Azure.Management.ResourceManager**.
@@ -164,6 +164,6 @@ while (page.NextPageLink != null)
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Baixe o [projeto de exemplo SDK do .NET do DNS do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), que inclui mais exemplos de como usar o SDK do .NET do DNS do Azure, incluindo exemplos para outros tipos de registro DNS.

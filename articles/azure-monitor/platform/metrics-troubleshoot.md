@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243233"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974864"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas de gráficos de métricas
 
@@ -29,7 +29,7 @@ Você clica no botão **Selecione um recurso**, mas não vê seu recurso na caix
 
 1. Certifique-se de que você selecionou o grupo de recursos correto.
     > [!WARNING]
-    > Para melhorar o desempenho, na primeira vez que você abre o Metrics Explorer, o menu suspenso **Grupo de Recursos** não mostra nenhum grupo de recursos previamente selecionado. Você precisa escolher pelo menos um grupo para ver os recursos.
+    > Para obter o melhor desempenho, quando você abre o Metrics Explorer pela primeira vez, o menu suspenso **grupo de recursos** não tem grupos de recursos previamente selecionados. Você precisa escolher pelo menos um grupo para ver os recursos.
 
 ## <a name="chart-shows-no-data"></a>O gráfico não mostra dados
 
@@ -37,7 +37,7 @@ Você clica no botão **Selecione um recurso**, mas não vê seu recurso na caix
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>O provedor de recursos Microsoft. insights não está registrado para sua assinatura
 
-A exploração de métricas precisa do provedor de recursos *Microsoft.Insights* registrado em sua assinatura. Em muitos casos, ele é registrado automaticamente (ou seja, depois de configurar uma regra de alerta, personalizar as configurações de diagnóstico de qualquer recurso ou configurar uma regra de dimensionamento automático). Se o provedor de recursos Microsoft. insights não estiver registrado, você deverá registrá-lo manualmente seguindo as etapas descritas em [provedores de recursos e tipos do Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+A exploração de métricas precisa do provedor de recursos *Microsoft.Insights* registrado em sua assinatura. Em muitos casos, ele é registrado automaticamente (ou seja, depois de configurar uma regra de alerta, personalizar as configurações de diagnóstico de qualquer recurso ou configurar uma regra de dimensionamento automático). Se o provedor de recursos Microsoft. insights não estiver registrado, você deverá registrá-lo manualmente seguindo as etapas descritas em [provedores de recursos e tipos do Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Solução:** Abra **assinaturas**, guia **provedores de recursos** e verifique se o *Microsoft. insights* está registrado para sua assinatura.
 
@@ -113,7 +113,7 @@ Por padrão, as métricas de sistema operacional convidado são armazenadas na c
 
 1. Use o [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para validar que as métricas estão fluindo para a conta de armazenamento. Se as métricas não estiverem sendo coletadas, siga o [Guia de solução de problemas da Extensão de Diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais sobre como começar a usar o Gerenciador de métricas](metrics-getting-started.md)
 * [Saiba mais sobre os recursos avançados do Gerenciador de métricas](metrics-charts.md)

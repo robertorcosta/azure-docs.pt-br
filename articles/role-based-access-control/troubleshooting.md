@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707772"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980981"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solução de problemas com o RBAC para recursos do Azure
 
@@ -41,13 +41,13 @@ Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar RBAC quando as assinaturas são movidas entre locatários
 
-- Se você precisar de etapas sobre como transferir uma assinatura para um locatário diferente do Azure AD, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
+- Se você precisar de etapas sobre como transferir uma assinatura para um locatário diferente do Azure AD, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
 - Quando você transfere uma assinatura a outro locatário do AAD, todas as atribuições de função são excluídas permanentemente do locatário de origem e não são migradas para o locatário de destino. Você precisa recriar as atribuições de função no locatário de destino. Você também precisa recriar manualmente as identidades gerenciadas dos recursos do Azure. Para obter mais informações, consulte [perguntas frequentes e problemas conhecidos com identidades gerenciadas](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se você for um administrador global do Azure AD e não tiver acesso a uma assinatura após sua movimentação entre locatários, use a opção **Gerenciamento de acesso para recursos do Azure** para [elevar temporariamente seu acesso](elevate-access-global-admin.md) para obter acesso à assinatura.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas com os administradores de serviço ou coadministradores
 
-- Se você estiver tendo problemas com o administrador de serviços ou coadministradores, consulte [Adicionar ou alterar os administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e as funções de [administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](rbac-and-directory-admin-roles.md).
+- Se você estiver tendo problemas com o administrador de serviços ou coadministradores, consulte [Adicionar ou alterar os administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) e as funções de [administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Acesso negado ou erros de permissão
 
@@ -56,7 +56,7 @@ Este artigo responde a perguntas comuns sobre o RBAC (controle de acesso baseado
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Atribuições de função com entidade de segurança desconhecida
 
-Se você atribuir uma função a uma entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) e, posteriormente, excluir essa entidade de segurança sem remover a atribuição de função, o tipo de entidade de segurança para a atribuição de função será listado como **desconhecido**. A captura de tela a seguir mostra um exemplo na portal do Azure. O nome da entidade de segurança está listado como **identidade excluída** e a **identidade não existe mais**. 
+Se você atribuir uma função a uma entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) e, posteriormente, excluir essa entidade de segurança sem remover a atribuição de função, o tipo de entidade de segurança para a atribuição de função será listado como **desconhecido**. A captura de tela a seguir mostra um exemplo no portal do Azure. O nome da entidade de segurança está listado como **identidade excluída** e a **identidade não existe mais**. 
 
 ![Grupo de recursos do aplicativo Web](./media/troubleshooting/unknown-security-principal.png)
 

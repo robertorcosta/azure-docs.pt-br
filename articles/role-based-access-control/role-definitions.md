@@ -15,12 +15,12 @@ ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996429"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981011"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de função nos recursos do Azure
 
@@ -48,7 +48,7 @@ Operações são especificadas com cadeias de caracteres que têm o seguinte for
 
 A parte `{action}` de uma cadeia de caracteres de operação especifica o tipo de operações que você pode executar em um tipo de recurso. Por exemplo, você verá as seguintes subcadeias de caracteres em `{action}`:
 
-| Subcadeia de caracteres de ação    | Descrição         |
+| Subcadeia de caracteres de ação    | Description         |
 | ------------------- | ------------------- |
 | `*` | O caractere curinga concede acesso a todas as operações que correspondem à cadeia de caracteres. |
 | `read` | Habilita operações de leitura (GET). |
@@ -98,7 +98,7 @@ Para dar suporte a operações de dados, novas propriedades de dados foram adici
 - Gravar um blob de armazenamento em um contêiner
 - Deletar uma mensagem em uma fila
 
-Aqui está a definição da função de [leitor de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-reader) , que `Actions` inclui `DataActions` operações nas propriedades e. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
+Aqui está a definição da função de [leitor de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-reader) , que inclui operações nas propriedades `Actions` e `DataActions`. Essa função permite que você leia o contêiner de blob e também os dados blob subjacentes.
 
 ```json
 {
@@ -137,7 +137,7 @@ Proprietário
 &nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Colaborador de Dados do Storage Blob
+Colaborador de dados do blob de armazenamento
 
 &nbsp;&nbsp;&nbsp;&nbsp;Ações<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -148,17 +148,17 @@ Colaborador de Dados do Storage Blob
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Como Alice tem uma ação curinga`*`() em um escopo de assinatura, suas permissões herdam para permitir que executem todas as ações de gerenciamento. Alice pode ler, gravar e excluir os contêineres. No entanto, Alice não pode executar operações de dados sem realizar etapas adicionais. Por exemplo, por padrão, Alice não pode ler os blobs dentro de um contêiner. Para ler os blobs, Alice teria que recuperar as chaves de acesso de armazenamento e usá-las para acessar os blobs.
+Como Alice tem uma ação curinga (`*`) em um escopo de assinatura, suas permissões herdam para permitir que executem todas as ações de gerenciamento. Alice pode ler, gravar e excluir os contêineres. No entanto, Alice não pode executar operações de dados sem realizar etapas adicionais. Por exemplo, por padrão, Alice não pode ler os blobs dentro de um contêiner. Para ler os blobs, Alice teria que recuperar as chaves de acesso de armazenamento e usá-las para acessar os blobs.
 
-As permissões de Bob são restritas apenas `Actions` ao `DataActions` e especificadas na função [colaborador de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) . Com base na função, Bob pode executar operações de dados e de gerenciamento. Por exemplo, Bob pode ler, gravar e excluir contêineres na conta de armazenamento especificada e também pode ler, gravar e excluir os BLOBs.
+As permissões de Bob são restritas apenas à `Actions` e `DataActions` especificadas na função [colaborador de dados do blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) . Com base na função, Bob pode executar operações de dados e de gerenciamento. Por exemplo, Bob pode ler, gravar e excluir contêineres na conta de armazenamento especificada e também pode ler, gravar e excluir os BLOBs.
 
-Para saber mais sobre a segurança de plano de dados e gerenciamento, confira o [Guia de segurança de Armazenamento do Azure](../storage/common/storage-security-guide.md).
+Para saber mais sobre a segurança de plano de dados e gerenciamento, confira o [Guia de segurança de Armazenamento do Azure](../storage/blobs/security-recommendations.md).
 
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Quais ferramentas de suportam usando o RBAC para operações de dados?
 
 Para visualizar e trabalhar com operações de dados, você deve ter as versões corretas das ferramentas ou SDKs:
 
-| Ferramenta  | Version  |
+| Ferramenta  | Versão  |
 |---------|---------|
 | [PowerShell do Azure](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
 | [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
@@ -176,7 +176,7 @@ Para exibir e usar as operações de dados na API REST, você precisa definir o 
 
 Uma permissão `Actions`especifica as operações de gerenciamento permitidas pela função a ser realizada. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Aqui estão alguns exemplos de operações de gerenciamento que podem ser usadas no `Actions`.
 
-| Cadeia de caracteres da operação    | Descrição         |
+| Cadeia de caracteres da operação    | Description         |
 | ------------------- | ------------------- |
 | `*/read` | Concede acesso a operações de leitura a todos os tipos de recursos de todos os provedores de recursos do Azure.|
 | `Microsoft.Compute/*` | Concede acesso a todas as operações a todos os tipos de recursos no provedor de recursos Microsoft.Compute.|
@@ -196,7 +196,7 @@ A permissão `NotActions` especifica as operações de gerenciamento que são ex
 
 Uma permissão `DataActions` que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Por exemplo, se um usuário tem acesso de leitura blob dados para uma conta de armazenamento, eles podem ler blobs dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser usados em `DataActions`.
 
-| Cadeia de caracteres da operação    | Descrição         |
+| Cadeia de caracteres da operação    | Description         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retorna um blob ou uma lista de blobs. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retorna o resultado de escrever um blob. |
@@ -213,7 +213,7 @@ O `NotDataActions` permissão especifica as operações de dados que são exclu�
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-A `AssignableScopes` propriedade especifica os escopos (grupos de gerenciamento, assinaturas, grupos de recursos ou recursos) que têm essa definição de função disponível. Você pode tornar a função disponível para atribuição somente nos grupos de gerenciamento, assinaturas ou grupos de recursos que o exigem. Você deve usar pelo menos um grupo de gerenciamento, uma assinatura, um grupo de recursos ou uma ID de recurso.
+A propriedade `AssignableScopes` especifica os escopos (grupos de gerenciamento, assinaturas, grupos de recursos ou recursos) que têm essa definição de função disponível. Você pode tornar a função disponível para atribuição somente nos grupos de gerenciamento, assinaturas ou grupos de recursos que o exigem. Você deve usar pelo menos um grupo de gerenciamento, uma assinatura, um grupo de recursos ou uma ID de recurso.
 
 As funções internas têm `AssignableScopes` definido como o escopo raiz (`"/"`). O escopo raiz indica que a função está disponível para atribuição em todos os escopos. Exemplos de escopos válidos que podem ser atribuídos incluem:
 
@@ -228,7 +228,7 @@ As funções internas têm `AssignableScopes` definido como o escopo raiz (`"/"`
 
 Para saber mais sobre `AssignableScopes` para funções personalizadas, confira as [Funções personalizadas para recursos do Azure](custom-roles.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Funções internas para recursos do Azure](built-in-roles.md)
 * [Funções personalizadas para recursos do Azure](custom-roles.md)

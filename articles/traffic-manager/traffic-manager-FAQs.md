@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784823"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045317"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -29,7 +29,7 @@ Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manag
 Portanto, o Gerenciador de Tráfego não fornece um ponto de extremidade ou o endereço IP para que os clientes se conectem. Se você desejar um endereço IP estático para o serviço, ele deverá ser configurado no serviço, não no Gerenciador de Tráfego.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?
-Conforme explicado em [Como o Gerenciador de Tráfego Funciona](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade de Gerenciador de Tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Portanto, Gerenciador de Tráfego pode rotear tráfego que origina da internet pública para um conjunto de pontos de extremidade que também são voltado para a internet. Se você tiver pontos de extremidade que estão dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm usuários fazendo solicitações DNS de tais redes internas, será possível usar o Gerenciador de Tráfego do Microsoft Azure para rotear esse tráfego.
+Conforme explicado em [Como o Gerenciador de Tráfego Funciona](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade de Gerenciador de Tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Portanto, Gerenciador de Tráfego pode rotear tráfego que origina da internet pública para um conjunto de pontos de extremidade que também são voltado para a internet. Se você tiver pontos de extremidade que estão dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) ou têm usuários fazendo solicitações DNS de tais redes internas, será possível usar o Gerenciador de Tráfego do Microsoft Azure para rotear esse tráfego.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gerenciador de tráfego dá suporte a sessões "adesivas"?
 
@@ -384,7 +384,7 @@ Para perfis com qualquer método de roteamento que não seja de Múltiplos Valor
 
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade|  Resposta fornecida|
 |--|--|--|
-|QUALQUER |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
+|ANY |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
 |A |    A / CNAME | Ponto de extremidade de destino|
 |A |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Ponto de extremidade de destino|
@@ -397,7 +397,7 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade | Resposta fornecida|
 |--|--|--|
-|QUALQUER |  Combinação de A e AAAA | Pontos de extremidade de destino|
+|ANY |  Combinação de A e AAAA | Pontos de extremidade de destino|
 |A |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
 |AAAA   |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA | NODATA |
@@ -497,13 +497,13 @@ O perfil pai não executa verificações de integridade no filho diretamente. Em
 
 A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
 
-| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Notas |
+| Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
 | --- | --- | --- |
-| Desabilitado. O perfil filho foi desabilitado. |Parado |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
+| Desabilitado. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
 | Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |
 | Online. Pelo menos, um ponto de extremidade do perfil filho está em um estado Online. Nenhum ponto de extremidade está no estado Degradado. |Veja acima. | |
 | CheckingEndpoints. Pelo menos, um ponto de extremidade do perfil filho é um 'CheckingEndpoint'. Nenhum ponto de extremidade está ‘Online’ ou ‘Degradado’ |Mesmo que acima. | |
-| Inativo. Todos os pontos de extremidade de perfil filho estão com status Desabilitado ou Parado ou esse é um perfil que não tem nenhum ponto de extremidade. |Parado | |
+| Inativo. Todos os pontos de extremidade de perfil filho estão com status Desabilitado ou Parado ou esse é um perfil que não tem nenhum ponto de extremidade. |Parada | |
 
 ## <a name="next-steps"></a>Próximas etapas:
 

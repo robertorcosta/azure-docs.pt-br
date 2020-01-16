@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7e617ae2263f1388feef3754f6cd16130ed436
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 684b212ca771af6c336cf6239e18ea367f2da5ce
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059539"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045103"
 ---
 Este artigo usa cmdlets do PowerShell. Para executar os cmdlets, é possível usar o Azure Cloud Shell, um ambiente de shell interativo hospedado no Azure e usado por meio do navegador. O Azure Cloud Shell vem com cmdlets do Azure PowerShell pré-instalados.
 
@@ -29,4 +29,6 @@ Para executar qualquer código contido neste artigo no Azure Cloud Shell, abra u
 
 **Executando o PowerShell localmente**
 
-Você também pode instalar e executar os cmdlets Azure PowerShell localmente no seu computador. Os cmdlets do PowerShell são atualizados com frequência. Se você não estiver executando a versão mais recente, os valores especificados nas instruções poderão falhar. Para localizar as versões do Azure PowerShell instaladas no seu computador, use `Get-Module -ListAvailable Az` o cmdlet. Para instalar ou atualizar o, consulte [instalar o Azure PowerShell Module](/powershell/azure/install-az-ps).
+Você também pode instalar e executar os cmdlets Azure PowerShell localmente no seu computador. Os cmdlets do PowerShell são atualizados com frequência. Se você não estiver executando a versão mais recente, os valores especificados nas instruções poderão falhar. Para localizar as versões do Azure PowerShell instaladas no seu computador, use o cmdlet `Get-Module -ListAvailable Az`. Para instalar ou atualizar o, consulte [instalar o Azure PowerShell Module](/powershell/azure/install-az-ps).
+
+Se você estiver executando o PowerShell localmente, certifique-se de executar ' Connect-AzAccount ' para criar sua conexão com o Azure.

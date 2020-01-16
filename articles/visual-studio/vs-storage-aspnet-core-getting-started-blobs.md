@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91e95dcf7cfc46073e2fd752a0e7e5ae6fce4ee8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ff221a32ff6c995d019b13f20ca2c3f9e2027f63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300070"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980729"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET Core)
 
@@ -28,7 +28,7 @@ ms.locfileid: "72300070"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos ou blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto. Para saber mais sobre Armazenamento de Blobs, consulte [Introdução ao Armazenamento de Blobs](../storage/blobs/storage-blobs-introduction.md).
+O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos ou blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto. Para saber mais sobre armazenamento de Blobs, consulte [Introdução ao armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
 Esse tutorial exibe como gravar o código ASP.NET Core para alguns cenários comuns que usam o Armazenamento de Blobs do Azure. Entre os cenários estão a criação de um contêiner de blobs, bem como carregamento, listagem, download e exclusão de blobs.
 
@@ -69,7 +69,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 1. Na caixa de diálogo **Armazenamento do Microsoft Azure**, selecione a conta do Armazenamento do Azure a ser usada para este tutorial. Para criar uma nova conta do Armazenamento do Azure, selecione **Criar uma Nova Conta de Armazenamento** e preencha o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, selecione **Adicionar**. O Visual Studio instala o pacote NuGet para o Armazenamento do Azure, e uma cadeia de conexão de armazenamento para **appSettings.json**.
 
 > [!TIP]
-> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 >
 > Você também pode criar uma conta de armazenamento usando o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), a [CLI do Azure](../storage/common/storage-azure-cli.md) ou o [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -99,7 +99,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-## <a name="connect-to-a-storage-account-and-get-a-container-reference"></a>Conectar-se para uma conta de armazenamento e obter uma referência de contêiner
+## <a name="connect-to-a-storage-account-and-get-a-container-reference"></a>Conectar-se a uma conta de armazenamento e obter uma referência de contêiner
 
 Um contêiner de blobs é uma hierarquia aninhada de blobs e as pastas. As outras etapas neste documento exigem uma referência a um contêiner de blobs, para que o código seja colocado o seu próprio método para reutilização.
 
@@ -512,7 +512,7 @@ As seguintes etapas ilustram como excluir um blob:
 
 1. Execute o aplicativo e selecione **Excluir blob** para excluir o blob especificado na chamada do método `CloudBlobContainer.GetBlockBlobReference`. O texto *êxito!* deve aparecer no navegador. Selecione o botão **Voltar** do navegador e, em seguida, selecione **Listar blobs** para verificar se o blob não está mais no contêiner.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você aprendeu a armazenar, listar e recuperar blobs no Armazenamento do Azure usando ASP.NET Core. Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
 

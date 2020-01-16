@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459382"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980184"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) são uma excelente maneira de implantar grupos de recursos relacionados. Esta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento básico e como modificar esse modelo para atender a vários cenários. Todos os exemplos foram obtidos neste [repositório GitHub](https://github.com/gatneil/mvss).
@@ -75,7 +75,7 @@ Todos os recursos exigem propriedades `type`, `name`, `apiVersion` e `location`.
 ```
 
 ## <a name="specify-location"></a>Especificar o local
-Para especificar o local da rede virtual, use uma [Função de modelo do Resource Manager](../azure-resource-manager/resource-group-template-functions.md). Essa função deve ser colocada entre aspas e colchetes desta forma: `"[<template-function>]"`. Nesse caso, use a função `resourceGroup`. Ele não usa nenhum argumento de entrada e retorna um objeto JSON com metadados sobre o grupo de recursos no qual essa implantação está sendo implantada. O grupo de recursos é definido pelo usuário no momento da implantação. Esse valor será indexado nesse objeto JSON com `.location` para obter o local do objeto JSON.
+Para especificar o local da rede virtual, use uma [Função de modelo do Resource Manager](../azure-resource-manager/templates/template-functions.md). Essa função deve ser colocada entre aspas e colchetes desta forma: `"[<template-function>]"`. Nesse caso, use a função `resourceGroup`. Ele não usa nenhum argumento de entrada e retorna um objeto JSON com metadados sobre o grupo de recursos no qual essa implantação está sendo implantada. O grupo de recursos é definido pelo usuário no momento da implantação. Esse valor será indexado nesse objeto JSON com `.location` para obter o local do objeto JSON.
 
 ```json
        "location": "[resourceGroup().location]",

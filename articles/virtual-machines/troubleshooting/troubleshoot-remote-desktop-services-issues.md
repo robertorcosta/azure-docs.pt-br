@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168948"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981781"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de área de trabalho remota não estiver iniciando uma VM do Azure
 
 Este artigo descreve como solucionar problemas quando você se conecta a uma máquina virtual (VM) do Azure e os Serviços de Área de Trabalho Remota, ou TermService, não estão sendo iniciados ou não são iniciados.
 
 > [!NOTE]  
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve o uso do modelo de implantação do Gerenciador de Recursos. Recomendamos que você use esse modelo para novas implantações em vez do modelo de implantação clássico.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e o clássico](../../azure-resource-manager/management/deployment-models.md). Este artigo descreve o uso do modelo de implantação do Gerenciador de Recursos. Recomendamos que você use esse modelo para novas implantações em vez do modelo de implantação clássico.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -36,16 +36,16 @@ Ao tentar conectar uma VM, você enfrenta os seguintes cenários:
 
 - Você visualiza remotamente os logs de eventos na VM usando o Visualizador de Eventos. Você vê que os Serviços de Área de Trabalho Remota, TermService, não estão sendo iniciados ou não são iniciados. O log a seguir está um exemplo:
 
-    **Nome do log**:      Sistema </br>
-    **Fonte**:        Gerenciador de Controle de Serviço </br>
-    **Data**:          16/12/2017 11:19:36</br>
-    **ID de evento**:      7022</br>
-    **Categoria da Tarefa**: Nenhum</br>
-    **Nível**:         Erro</br>
-    **Palavras-chave**:      Clássico</br>
-    **Usuário**:          N/D</br>
+    **Nome de log**: sistema </br>
+    **Origem**: Gerenciador de controle de serviço </br>
+    **Data**: 12/16/2017 11:19:36 AM</br>
+    **A ID de evento**: 7022</br>
+    **Categoria de tarefa**: nenhum</br>
+    **Nível**: erro</br>
+    **Palavras-chave**: clássico</br>
+    **Usuário**: n/d</br>
     **Computador**: vm.contoso.com</br>
-    **Descrição**: Os Serviços de Área de Trabalho Remota travaram ao iniciar. 
+    **Descrição**: serviço The Remote Desktop Services parou ao iniciar. 
 
     Você também pode usar o recurso Serial Access Console para procurar esses erros executando a seguinte consulta: 
 
@@ -145,7 +145,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
     1. [Anexar um disco de dados à VM](../windows/attach-managed-disk-portal.md
 ).
-    2. Use o Console Serial, você pode copiar o arquivo para a nova unidade. Por exemplo: `copy C:\temp\ProcMonTrace.PML F:\`. Nesse comando, F é a letra do driver do disco de dados anexado.
+    2. Use o Console Serial, você pode copiar o arquivo para a nova unidade. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Nesse comando, F é a letra do driver do disco de dados anexado.
     3. Desanexe a unidade de dados e conecte-a em uma VM funcional que tenha o ubstakke do Process Monitor instalado.
 
 6. Abra **ProcMonTrace.PML** usando o Process Monitor na VM funcional. Em seguida, filtrar por **resultado é acesso negado**, conforme mostrado na seguinte captura de tela:
@@ -205,7 +205,7 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma conexão de área de trabalho remota para a VM de recuperação. Certifique-se de que o disco conectado esteja sinalizado como **Online** no console de gerenciamento de disco. Anote a letra da unidade atribuída ao disco do SO anexado.
-3. Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Assumimos que a letra da unidade atribuída ao disco do SO anexado é **F**. Substitua-o pelo valor apropriado na sua VM. 
+3. Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Supomos que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua-o pelo valor apropriado em sua VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -221,6 +221,6 @@ Para solucionar esse problema, use o Console Serial. Ou então, [repare a VM off
 
 4. [Desanexe o disco do SO e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema for resolvido.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Entrar em contato com o suporte
 
 Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.

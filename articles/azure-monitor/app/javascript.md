@@ -1,18 +1,18 @@
 ---
-title: Application Insights do Azure para aplicativos Web JavaScript | Microsoft Docs
-description: Obter contagens de sessões e exibições de páginas e dados de clientes da Web e acompanhar padrões de uso. Detecte exceções e problemas de desempenho em páginas da Web do JavaScript.
+title: Aplicativo Azure insights para aplicativos Web JavaScript
+description: Obter a exibição de página e contagens de sessão, dados de cliente Web, SPA (aplicativos de página única) e rastrear padrões de uso. Detecte exceções e problemas de desempenho em páginas da Web do JavaScript.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706606"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045840"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -97,46 +97,46 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo que eles podem ser padronizados como false. Todos os campos são opcionais, exceto `instrumentationKey`.
 
-| name | Padrão | Descrição |
+| Nome | Padrão | Description |
 |------|---------|-------------|
-| instrumentationKey | nulo | **Obrigatório**<br>Chave de instrumentação que você obteve do portal do Azure. |
+| instrumentationKey | nulo | **Necessário**<br>Chave de instrumentação que você obteve do portal do Azure. |
 | accountId | nulo | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
 | sessionRenewalMs | 1,8 milhões | Uma sessão será registrada se o usuário estiver inativo por esse período de tempo em milissegundos. O padrão é 30 minutos |
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
 | maxBatchSizeInBytes | 10000 | Tamanho máximo do lote de telemetria. Se um lote exceder esse limite, ele será imediatamente enviado e um novo lote será iniciado |
 | maxBatchInterval | 15000 | Quanto tempo para a telemetria do lote antes de enviar (milissegundos) |
-| disableExceptionTracking | falso | Se for true, as exceções não serão concolhidas. O padrão é falso. |
-| disableTelemetry | falso | Se for true, a telemetria não será coletada ou enviada. O padrão é falso. |
-| enableDebug | falso | Se for true, os dados de depuração **internos** serão lançados como uma exceção **em vez** de serem registrados, independentemente das configurações de log do SDK. O padrão é falso. <br>***Observação:*** A habilitação dessa configuração resultará em uma telemetria descartada sempre que ocorrer um erro interno. Isso pode ser útil para identificar rapidamente problemas com sua configuração ou uso do SDK. Se você não quiser perder a telemetria durante a depuração, considere usar `consoleLoggingLevel` ou `telemetryLoggingLevel` em vez de `enableDebug`. |
+| disableExceptionTracking | false | Se for true, as exceções não serão concolhidas. O padrão é false. |
+| disableTelemetry | false | Se for true, a telemetria não será coletada ou enviada. O padrão é false. |
+| enableDebug | false | Se for true, os dados de depuração **internos** serão lançados como uma exceção **em vez** de serem registrados, independentemente das configurações de log do SDK. O padrão é false. <br>***Observação:*** A habilitação dessa configuração resultará em uma telemetria descartada sempre que ocorrer um erro interno. Isso pode ser útil para identificar rapidamente problemas com sua configuração ou uso do SDK. Se você não quiser perder a telemetria durante a depuração, considere usar `consoleLoggingLevel` ou `telemetryLoggingLevel` em vez de `enableDebug`. |
 | loggingLevelConsole | 0 | Registra erros **internos** de Application insights no console do. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
 | loggingLevelTelemetry | 1 | Envia erros **internos** de Application insights como telemetria. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
 | diagnosticLogInterval | 10000 | interno Intervalo de sondagem (em MS) para fila de log interno |
 | samplingPercentage | 100 | Porcentagem de eventos que serão enviados. O padrão é 100, o que significa que todos os eventos são enviados. Defina isso se desejar preservar o limite de dados para aplicativos de grande escala. |
-| autoTrackPageVisitTime | falso | Se for true, em um Pageview, o tempo de exibição da página instrumentada anterior será rastreado e enviado como telemetria e um novo temporizador será iniciado para o Pageview atual. O padrão é falso. |
-| disableAjaxTracking | falso | Se for true, as chamadas AJAX não serão coletadas. O padrão é falso. |
-| disableFetchTracking | true | Se for true, as solicitações de busca não serão coletadas. O padrão é true |
-| overridePageViewDuration | falso | Se for true, o comportamento padrão de trackPageView será alterado para registrar o final do intervalo de duração da exibição de página quando trackPageView for chamado. Se for false e nenhuma duração personalizada for fornecida para trackPageView, o desempenho de exibição de página será calculado usando a API de tempo de navegação. O padrão é falso. |
+| autoTrackPageVisitTime | false | Se for true, em um Pageview, o tempo de exibição da página instrumentada anterior será rastreado e enviado como telemetria e um novo temporizador será iniciado para o Pageview atual. O padrão é false. |
+| disableAjaxTracking | false | Se for true, as chamadas AJAX não serão coletadas. O padrão é false. |
+| disableFetchTracking | true | Se for true, as solicitações de busca não serão coletadas. O padrão é verdadeiro |
+| overridePageViewDuration | false | Se for true, o comportamento padrão de trackPageView será alterado para registrar o final do intervalo de duração da exibição de página quando trackPageView for chamado. Se for false e nenhuma duração personalizada for fornecida para trackPageView, o desempenho de exibição de página será calculado usando a API de tempo de navegação. O padrão é false. |
 | maxAjaxCallsPerView | 500 | Padrão 500-controla quantas chamadas AJAX serão monitoradas por exibição de página. Defina como-1 para monitorar todas as chamadas AJAX (ilimitadas) na página. |
 | disableDataLossAnalysis | true | Se for falso, os buffers do remetente da telemetria interna serão verificados na inicialização para os itens ainda não enviados. |
-| disableCorrelationHeaders | falso | Se for false, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de dependência para correlacioná-los com as solicitações correspondentes no lado do servidor. O padrão é falso. |
+| disableCorrelationHeaders | false | Se for false, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de dependência para correlacioná-los com as solicitações correspondentes no lado do servidor. O padrão é false. |
 | correlationHeaderExcludedDomains |  | Desabilitar cabeçalhos de correlação para domínios específicos |
 | correlationHeaderDomains |  | Habilitar cabeçalhos de correlação para domínios específicos |
-| disableFlushOnBeforeUnload | falso | Padrão false. Se for true, o método Flush não será chamado quando o evento onBeforeUnload for disparado |
+| disableFlushOnBeforeUnload | false | Padrão false. Se for true, o método Flush não será chamado quando o evento onBeforeUnload for disparado |
 | enableSessionStorageBuffer | true | Padrão verdadeiro. Se for true, o buffer com todas as telemetrias não enviadas será armazenado no armazenamento de sessão. O buffer é restaurado no carregamento da página |
-| isCookieUseDisabled | falso | Padrão false. Se for true, o SDK não armazenará nem lerá nenhum dado de cookies.|
+| isCookieUseDisabled | false | Padrão false. Se for true, o SDK não armazenará nem lerá nenhum dado de cookies.|
 | cookieDomain | nulo | Domínio de cookie personalizado. Isso será útil se você quiser compartilhar Application Insights cookies entre subdomínios. |
-| isRetryDisabled | falso | Padrão false. Se for false, tente novamente 206 (êxito parcial), 408 (timeout), 429 (número excessivo de solicitações), 500 (erro interno do servidor), 503 (Serviço indisponível) e 0 (offline, somente se detectado) |
-| isStorageUseDisabled | falso | Se for true, o SDK não armazenará nem lerá nenhum dado do armazenamento local e de sessão. O padrão é falso. |
+| isRetryDisabled | false | Padrão false. Se for false, tente novamente 206 (êxito parcial), 408 (timeout), 429 (número excessivo de solicitações), 500 (erro interno do servidor), 503 (Serviço indisponível) e 0 (offline, somente se detectado) |
+| isStorageUseDisabled | false | Se for true, o SDK não armazenará nem lerá nenhum dado do armazenamento local e de sessão. O padrão é false. |
 | isBeaconApiDisabled | true | Se for false, o SDK enviará toda a telemetria usando a [API de Beacon](https://www.w3.org/TR/beacon) |
-| onunloadDisableBeacon | falso | Padrão false. Quando a guia for fechada, o SDK enviará toda a telemetria restante usando a [API de Beacon](https://www.w3.org/TR/beacon) |
+| onunloadDisableBeacon | false | Padrão false. Quando a guia for fechada, o SDK enviará toda a telemetria restante usando a [API de Beacon](https://www.w3.org/TR/beacon) |
 | sdkExtension | nulo | Define o nome da extensão do SDK. Somente caracteres alfabéticos são permitidos. O nome da extensão é adicionado como um prefixo à marca ' ia. Internal. sdkVersion ' (por exemplo, ' ext_javascript: 2.0.0 '). O padrão é nulo. |
-| isBrowserLinkTrackingEnabled | falso | O padrão é falso. Se for true, o SDK rastreará todas as solicitações de [link do navegador](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
+| isBrowserLinkTrackingEnabled | false | O padrão é false. Se for true, o SDK rastreará todas as solicitações de [link do navegador](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) . |
 | appId | nulo | AppId é usado para a correlação entre dependências AJAX acontecendo no lado do cliente com as solicitações do lado do servidor. Quando a API de Beacon está habilitada, ela não pode ser usada automaticamente, mas pode ser definida manualmente na configuração. O padrão é NULL |
-| enableCorsCorrelation | falso | Se for true, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de CORS para correlacionar as dependências do AJAX de saída com as solicitações correspondentes no lado do servidor. O padrão é false |
-| namePrefix | indefinido | Um valor opcional que será usado como sufixo de nome para localStorage e o nome do cookie.
-| enableAutoRouteTracking | falso | Rastreie automaticamente as alterações de rota em SPA (aplicativos de página única). Se for true, cada alteração de rota enviará um novo Pageview para Application Insights. As alterações de rota de hash (`example.com/foo#bar`) também são registradas como novas exibições de página.
-| enableRequestHeaderTracking | falso | Se verdadeiro, os cabeçalhos de solicitação de busca do AJAX & são rastreados, o padrão é false.
-| enableResponseHeaderTracking | falso | Se verdadeiro, os cabeçalhos de resposta da solicitação de busca do AJAX & são rastreados, o padrão é false.
+| enableCorsCorrelation | false | Se for true, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de CORS para correlacionar as dependências do AJAX de saída com as solicitações correspondentes no lado do servidor. O padrão é falso |
+| namePrefix | não definido | Um valor opcional que será usado como sufixo de nome para localStorage e o nome do cookie.
+| enableAutoRouteTracking | false | Rastreie automaticamente as alterações de rota em SPA (aplicativos de página única). Se for true, cada alteração de rota enviará um novo Pageview para Application Insights. As alterações de rota de hash (`example.com/foo#bar`) também são registradas como novas exibições de página.
+| enableRequestHeaderTracking | false | Se verdadeiro, os cabeçalhos de solicitação de busca do AJAX & são rastreados, o padrão é false.
+| enableResponseHeaderTracking | false | Se verdadeiro, os cabeçalhos de resposta da solicitação de busca do AJAX & são rastreados, o padrão é false.
 | distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo de AI_AND_W3C ou o modo W3C for definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados.
 
 ## <a name="single-page-applications"></a>Aplicativos de página única

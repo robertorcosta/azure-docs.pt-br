@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226528"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977610"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -357,7 +357,7 @@ Digamos que o JSON acima seja salvo como metricfromLogsAlertStatic.json, então 
 }
 ```
 
-Supondo que o arquivo de parâmetro acima seja salvo como metricfromLogsAlertStatic.parameters.json, será possível criar o alerta de métrica para logs de usando o [modelo de recursos para criação no portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Supondo que o arquivo de parâmetro acima seja salvo como metricfromLogsAlertStatic.parameters.json, será possível criar o alerta de métrica para logs de usando o [modelo de recursos para criação no portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 Como alternativa, também é possível usar o comando do Azure Powershell abaixo:
 
@@ -673,7 +673,7 @@ Digamos que o JSON acima seja salvo como metricfromLogsAlertDynamic.json, então
 }
 ```
 
-Supondo que o arquivo de parâmetro acima seja salvo como metricfromLogsAlertDynamic.parameters.json, será possível criar o alerta de métrica para logs de usando o [modelo de recursos para criação no portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Supondo que o arquivo de parâmetro acima seja salvo como metricfromLogsAlertDynamic.parameters.json, será possível criar o alerta de métrica para logs de usando o [modelo de recursos para criação no portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 Como alternativa, também é possível usar o comando do Azure Powershell abaixo:
 
@@ -687,7 +687,7 @@ Ou use Implantar o modelo de recurso usando a CLI do Azure:
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [alertas de métrica](alerts-metric.md).
 - Saiba mais sobre os [alertas de log no Azure](../../azure-monitor/platform/alerts-unified-log.md).

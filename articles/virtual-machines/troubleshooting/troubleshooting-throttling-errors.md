@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de erros de limitação no Azure | Microsoft Docs
-description: Erros de limitação, novas tentativas e retiradas na Computação do Azure.
+description: Erros de limitação, novas tentativas e backoff no Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103295"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045368"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solução de problemas de erros de limitação de API 
 
@@ -26,13 +26,13 @@ Solicitações de computação do Azure podem ser limitadas a uma assinatura e p
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitação pelo Azure Resource Manager vs. provedores de recursos  
 
-Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e a limitação de todas as solicitações de API recebidas. Os limites de taxa de chamada do Azure Resource Manager e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
+Como a porta de entrada para o Azure, o Azure Resource Manager faz a validação de autenticação e de primeira ordem e a limitação de todas as solicitações de API recebidas. Os limites de taxa de chamada do Azure Resource Manager e os cabeçalhos HTTP de resposta de diagnóstico relacionados são descritos [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
  
 Quando um cliente da API do Azure recebe um erro de limitação, o status HTTP é 429 Solicitações Demais. Para entender se a limitação da solicitação é feita pelo Azure Resource Manager ou um provedor de recursos subjacente, como CRP, inspecione `x-ms-ratelimit-remaining-subscription-reads` quanto a solicitações GET e os cabeçalhos de resposta `x-ms-ratelimit-remaining-subscription-writes` quanto a solicitações não GET. Se a contagem de chamada restante está se aproximando de 0, o limite de chamada geral da assinatura definido pelo Azure Resource Manager foi atingido. As atividades de todos os clientes de assinatura são contadas juntas. Caso contrário, a limitação é proveniente de provedor de recursos de destino (aquele tratado pelo segmento `/providers/<RP>` da URL da solicitação). 
 
 ## <a name="call-rate-informational-response-headers"></a>Cabeçalhos de resposta informativa de taxa de chamada 
 
-| Cabeçalho                            | Formato de valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
+| Cabeçalho                            | Formato de valor                           | Exemplo                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas à API restante para a política de limitação abrangendo o grupo de operações ou o bucket de recursos, incluindo o destino dessa solicitação                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | O número de contagens de chamadas "cobradas" para essa solicitação HTTP para o limite da política aplicável. Geralmente é 1. Solicitações em lote, por exemplo, para dimensionar um conjunto de dimensionamento de máquinas virtuais, podem cobrar várias contagens. |
@@ -98,6 +98,6 @@ Os cmdlets do PowerShell usam uma API de serviço REST, que pode ser facilmente 
 - Se o código de cliente precisar de VMs, discos e instantâneos de um local específico do Azure, use o formulário baseado em localização da consulta, em vez de consultar todas as VMs da assinatura para então filtrar por local no lado do cliente: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` consulta pontos de extremidade regionais do Provedor de Recursos de Computação. 
 -   Ao criar ou atualizar recursos de API em particular, VMs e conjuntos de dimensionamento de máquinas virtuais, é muito mais eficiente rastrear a operação assíncrona retornada para a conclusão do que fazer a sondagem na URL de recurso em si (com base no `provisioningState`).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações orientação de novas tentativas para outros serviços no Azure, veja [Orientação de novas tentativas para serviços específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

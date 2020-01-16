@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 45b7b419277d338d70cf285838103f97d4eb5c3a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749671"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978610"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerenciar dados de usuário na Central de Segurança do Azure
 Este artigo fornece informações sobre como é possível gerenciar dados de usuário na Central de Segurança do Azure. O gerenciamento de dados de usuário inclui a capacidade de acessar, excluir ou exportar dados.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Um usuário da Central de Segurança com a função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta. Para saber mais sobre a função de administrador da conta, consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções leitor, proprietário e colaborador. Consulte [Administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Um usuário da Central de Segurança com a função de Leitor, Proprietário, Colaborador ou Administrador da Conta pode acessar os dados do cliente dentro da ferramenta. Para saber mais sobre a função de administrador da conta, consulte [funções internas para o controle de acesso baseado em função do Azure](../role-based-access-control/built-in-roles.md) para saber mais sobre as funções leitor, proprietário e colaborador. Consulte [Administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Pesquisar e identificar dados pessoais
 Um usuário da Central de Segurança pode exibir os dados pessoais por meio do portal do Azure. A Central de Segurança armazena apenas detalhes de contato de segurança, como endereços de email e números de telefone. Para obter mais informações, consulte [fornecer detalhes de contato de segurança na central de segurança do Azure](security-center-provide-security-contact-details.md).
