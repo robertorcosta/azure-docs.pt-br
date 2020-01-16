@@ -2,20 +2,20 @@
 title: Cargas de trabalho de contêiner - Lote do Azure | Microsoft Docs
 description: Saiba como executar aplicativos de imagens de contêiner no Lote do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090749"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029713"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -25,20 +25,20 @@ Você deve estar familiarizado com os conceitos de contêiner e como criar um po
 
 ## <a name="why-use-containers"></a>Por que usar contêineres?
 
-O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, crie e teste um contêiner localmente e, em seguida, carregue a imagem do contêiner em um registro no Azure ou em outro local. O modelo de implantação do contêiner garante que o ambiente de tempo de execução do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
+O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, crie e teste um contêiner localmente e, em seguida, carregue a imagem do contêiner em um registro no Azure ou em outro local. O modelo de implantação do contêiner garante que o ambiente de runtime do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Versão do SDK**: Os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
+* **Versões do SDK**: os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0
     * SDK do .NET para o Lote versão 8.0.0
     * SDK do Python para o Lote versão 4.0
     * SDK Java para o Lote versão 3.0
     * SDK Node. js para o Lote versão 3.0
 
-* **Contas**: Em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Microsoft Azure.
+* **Contas**: em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Azure.
 
-* **Uma imagem de máquina virtual com suporte**: Os contêineres só têm suporte em pools criados com a configuração de maquina virtual a partir de imagens detalhadas na seção a seguir, "Imagens de máquina virtual com suporte". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
+* **Uma imagem de VM compatível**: há suporte para contêineres apenas nos pools criados com a Configuração de Máquina Virtual com base nas imagens detalhadas na seção a seguir, "Imagens de máquina virtual compatíveis". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limitações
 
@@ -70,7 +70,7 @@ Para cargas de trabalho de contêiner do Linux, atualmente o Lote dá suporte pa
 
 Há suporte para essas imagens apenas para uso em pools do Lote do Azure. Elas apresentam:
 
-* Um tempo de execução do contêiner [Moby](https://github.com/moby/moby) 
+* Um runtime do contêiner [Moby](https://github.com/moby/moby) 
 
 * Drivers de GPU NVIDIA pré-instalados, para agilizar a implantação em VMs da série N do Azure
 
@@ -227,7 +227,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Para executar uma tarefa de contêiner em um pool habilitado para contêiner, especifique as configurações específicas do contêiner. As configurações incluem a imagem a ser usada, o registro e as opções de execução do contêiner.
 
-* Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Observe que a `--rm` opção de contêiner não requer uma `--runtime` opção adicional, pois ela é encarregada pelo lote. 
+* Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Observe que a opção de contêiner `--rm` não requer uma opção de `--runtime` adicional, pois ela é encarregada pelo lote. 
 
 * Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
 
@@ -302,7 +302,7 @@ CloudTask containerTask = new CloudTask (
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Consulte também o kit de ferramentas [Batch Shipyard](https://github.com/Azure/batch-shipyard) para facilitar a implantação de cargas de trabalho do contêiner no Lote do Azure através de [receitas Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 

@@ -1,17 +1,14 @@
 ---
 title: Selecione uma opção de migração VMware com migração de servidor migrações para Azure | Microsoft Docs
 description: Fornece uma visão geral das opções para migrar VMs VMware para o Azure com migração de servidor de migrações para Azure
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: raynew
-ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974658"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028721"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
@@ -25,7 +22,7 @@ ms.locfileid: "74974658"
 
 ## <a name="compare-migration-methods"></a>Comparar métodos de migração
 
-Use essas comparações selecionadas para ajudá-lo a decidir qual método usar. Você também pode examinar os requisitos de suporte completo para migração [baseada em](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) agente e sem [agentes](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) .
+Use essas comparações selecionadas para ajudá-lo a decidir qual método usar. Você também pode examinar os requisitos de suporte completo para migração [baseada em](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) agente e sem [agentes](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) .
 
 **Configuração** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
@@ -46,14 +43,14 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseado em agente**
 --- | --- | --- | ---
 **Avaliação** | Avalie servidores antes da migração.  A avaliação é opcional. Sugerimos que você avalie as máquinas antes de migrá-las, mas não é necessário. <br/><br/> Para avaliação, as migrações para Azure configuram um dispositivo leve para descobrir e avaliar as VMs. | Se você executar uma migração sem agente após a avaliação, o mesmo dispositivo de migração do Azure configurado para avaliação será usado para a migração sem agente.  |  Se você executar uma migração baseada em agente após a avaliação, a configuração do dispositivo para avaliação não será usada durante a migração sem agente. Você pode deixar o dispositivo em vigor ou removê-lo se não quiser fazer mais descoberta e avaliação.
-**Preparar servidores VMware e VMs para migração** | Defina várias configurações em servidores VMware e VMs. | obrigatórios | obrigatórios
-**Adicionar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | obrigatórios | obrigatórios
-**Implantar o dispositivo de migrações para Azure** | Configure um dispositivo leve em uma VM VMware para avaliação e descoberta de VM. | obrigatórios | Não obrigatório.
-**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que você deseja replicar | Não obrigatório | obrigatórios
-**Implantar o dispositivo de replicação de migração de servidor de migrações para Azure** | Configurar um dispositivo em uma VM VMware para descobrir VMs e fazer a ponte entre o serviço de mobilidade em execução em VMs e migração de servidor de migrações para Azure | Não obrigatório | obrigatórios
-**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | obrigatórios | obrigatórios
-**Executar uma migração de teste** | Executar uma migração de teste para verificar se tudo está funcionando conforme o esperado. | obrigatórios | obrigatórios
-**Executar uma migração completa** | Migre as VMs. | obrigatórios | obrigatórios
+**Preparar servidores VMware e VMs para migração** | Defina várias configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
+**Adicionar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
+**Implantar o dispositivo de migrações para Azure** | Configure um dispositivo leve em uma VM VMware para avaliação e descoberta de VM. | Obrigatório | Não obrigatório.
+**Instalar o serviço de mobilidade em VMs** | Instalar o serviço de mobilidade em cada VM que você deseja replicar | Não obrigatório | Obrigatório
+**Implantar o dispositivo de replicação de migração de servidor de migrações para Azure** | Configurar um dispositivo em uma VM VMware para descobrir VMs e fazer a ponte entre o serviço de mobilidade em execução em VMs e migração de servidor de migrações para Azure | Não obrigatório | Obrigatório
+**Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
+**Executar uma migração de teste** | Executar uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
+**Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório
 
 
 

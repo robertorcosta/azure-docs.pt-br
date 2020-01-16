@@ -4,15 +4,15 @@ description: Saiba como instalar e configurar um gateway de dados local para se 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572848"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029888"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados local
 
@@ -25,13 +25,13 @@ Para saber mais sobre o gateway e como ele é usado pelo Azure Analysis Services
 **Requisitos mínimos:**
 
 * .NET 4.5 Framework
-* Versão de 64 bits do Windows 7/Windows Server 2008 R2 (ou posterior)
+* versão de 64 bits do Windows 8/Windows Server 2012 R2 (ou posterior)
 
-**Recomendados:**
+**Recomendado:**
 
 * CPU de 8 núcleos
 * Memória de 8 GB
-* Versão de 64 bits do Windows 2012 R2 (ou posterior)
+* versão de 64 bits do Windows 8/Windows Server 2012 R2 (ou posterior)
 
 **Considerações importantes:**
 
@@ -127,9 +127,9 @@ Após ter instalado e registrado seu gateway, você precisa criar um recurso de 
 
     ![Êxito ao conectar o servidor ao recurso de gateway](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-É isso. Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
+Pronto! Se precisar abrir portas ou solucionar qualquer problema, não deixe de conferir [Gateway de dados local](analysis-services-gateway.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciar o Analysis Services](analysis-services-manage.md)   
 * [Obter dados do Azure Analysis Services](analysis-services-connect.md)   

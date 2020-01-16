@@ -3,7 +3,7 @@ title: Enviar um grande número de tarefas – Lote do Azure | Microsoft Docs
 description: Como enviar com eficácia um grande número de tarefas em um único trabalho em Lotes do Azure
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: ''
-ms.openlocfilehash: fc47b18dd51bbaa48d950515cccfe618d9e58426
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 29d5ca378f13e047773c4e036c5e43f944fd08e3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132759"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029522"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Enviar muitas tarefas para um trabalho em lotes
 
@@ -35,7 +35,7 @@ O tamanho máximo da coleção de tarefas que pode ser adicionado em uma única 
 
 * As seguintes APIs de Lote limitam a coleção a **100 tarefas**. O limite poderia ser menor dependendo do tamanho das tarefas, por exemplo, se as tarefas tiverem um grande número de arquivos de recursos ou variáveis de ambiente.
 
-    * [API REST](/rest/api/batchservice/task/addcollection)
+    * [REST API](/rest/api/batchservice/task/addcollection)
     * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
     * [API Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
@@ -209,7 +209,7 @@ except Exception as e:
     raise e
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre como usar a extensão da CLI do Lote do Azure com [modelos da CLI do Lote](batch-cli-templates.md).
 * Saiba mais sobre a [extensão do SDK do Python do Lote](https://pypi.org/project/azure-batch-extensions/).

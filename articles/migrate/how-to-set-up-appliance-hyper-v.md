@@ -1,17 +1,14 @@
 ---
 title: Configurar um dispositivo de migrações para Azure para Hyper-V
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs do Hyper-V.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534497"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029097"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um dispositivo para VMs do Hyper-V
 
@@ -73,8 +70,8 @@ Importe o arquivo baixado e crie a VM.
 3. Em **Localizar Pasta**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Próximo**.
 1. Em **Selecionar Máquina Virtual**, clique em **Avançar**.
 2. Em **Escolher Tipo de Importação**, clique em **Copiar a máquina virtual (criar uma nova ID exclusiva)** . Em seguida, clique em **Próximo**.
-3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em \\**Próximo**.
-4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em \\**Próximo**.
+3. Em **Escolher Destino**, mantenha a configuração padrão. Clique em **Próximo**.
+4. Em **Pastas de Armazenamento**, mantenha a configuração padrão. Clique em **Próximo**.
 5. Em **Escolher Rede**, especifique o comutador virtual que será usado pela VM. O comutador precisa de conectividade com a Internet para enviar dados ao Azure.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
@@ -82,7 +79,7 @@ Importe o arquivo baixado e crie a VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
 
 ## <a name="configure-the-appliance"></a>Configurar o dispositivo
 
