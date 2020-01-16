@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978110"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972720"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para blobs do Armazenamento do Azure
 
@@ -68,13 +68,13 @@ Quando **Excluir Blob** é chamado em um blob de base (qualquer blob que não se
 > [!NOTE]  
 > Quando um blob com exclusão reversível é substituído, um instantâneo com exclusão reversível do estado do blob antes da operação de gravação é gerado automaticamente. O novo blob herda a camada do blob substituído.
 
-A exclusão reversível não salve seus dados nos casos de exclusões de contêiner ou conta, nem quando os metadados de blob e as propriedades de blob são substituídos. Para proteger uma conta de armazenamento contra exclusão incorreta, você pode configurar um bloqueio usando o Azure Resource Manager. Consulte o artigo do Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md) para saber mais.
+A exclusão reversível não salve seus dados nos casos de exclusões de contêiner ou conta, nem quando os metadados de blob e as propriedades de blob são substituídos. Para proteger uma conta de armazenamento contra exclusão incorreta, você pode configurar um bloqueio usando o Azure Resource Manager. Consulte o artigo do Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md) para saber mais.
 
 A tabela a seguir detalha o comportamento esperado quando a exclusão reversível é ativada:
 
-| Operação de API REST | Tipo de recurso | Descrição | Alteração no comportamento |
+| Operação de API REST | Tipo de recurso | Description | Alteração no comportamento |
 |--------------------|---------------|-------------|--------------------|
-| [Excluir](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Sem alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
+| [Delete (excluir)](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Sem alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
 | [Excluir Contêiner](/rest/api/storageservices/delete-container) | Contêiner | Exclui o contêiner, incluindo todos os blobs que ele contém. | Sem alteração. Os blobs no contêiner excluído não são recuperáveis. |
 | [Colocar Blob](/rest/api/storageservices/put-blob) | Blobs de bloco, acréscimo e página | Cria um novo blob ou substitui um blob existente dentro de um contêiner | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
 | [Excluir Blob](/rest/api/storageservices/delete-blob) | Blobs de bloco, acréscimo e página | Marca um blob ou instantâneo de blob para exclusão. O blob ou o instantâneo é excluído depois durante a coleta de lixo | Se usado para excluir que um instantâneo de blob, esse instantâneo será marcado como com exclusão reversível. Se usado para excluir um blob, esse blob será marcado como com exclusão reversível. |
@@ -307,7 +307,7 @@ blockBlob.StartCopy(copySource);
 
 Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, é recomendável ativar a exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode reduzir esse custo e latência adicionais armazenando os dados frequentemente substituídos em uma conta de armazenamento separada em que a exclusão reversível está desabilitada. 
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Para quais serviços de armazenamento posso usar a exclusão reversível?
 
@@ -335,7 +335,7 @@ Sim, a exclusão reversível é configurável para contas de armazenamento exist
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se eu excluir uma conta ou contêiner inteiro com exclusão reversível ativada, todos os BLOBs associados serão salvos?
 
-Não, se você excluir uma conta ou um contêiner inteiro, todos os blobs associados serão excluídos permanentemente. Para obter mais informações sobre como proteger uma conta de armazenamento de exclusões acidentais, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md).
+Não, se você excluir uma conta ou um contêiner inteiro, todos os blobs associados serão excluídos permanentemente. Para obter mais informações sobre como proteger uma conta de armazenamento de exclusões acidentais, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Posso exibir as métricas de capacidade dos dados excluídos?
 

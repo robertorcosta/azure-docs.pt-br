@@ -2,7 +2,7 @@
 title: Variáveis de ambiente de tempo de execução de tarefa – lote do Azure | Microsoft Docs
 description: Orientação e referência da variável de ambiente do tempo de execução da tarefa para análise do lote do Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177142"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027194"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução do lote do Azure
 
@@ -44,7 +44,7 @@ As linhas de comando executadas por tarefas nos nós de computação não são e
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-| Nome da variável                     | Descrição                                                              | Disponibilidade | Exemplo |
+| Nome da variável                     | Description                                                              | Disponibilidade | Exemplo |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | O nome da conta do lote à qual a tarefa pertence.                  | Todas as tarefas.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | A URL da conta do Lote. | Todas as tarefas. | `https://myaccount.westus.batch.azure.com` |

@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b938de0fec099b3f964eae60dc94d059e05a1c6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517101"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973484"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -37,7 +37,7 @@ Você precisará de privilégios de administrador para concluir o processo de in
 
 As informações publicadas neste artigo se aplicam à implantação de Matrizes Virtuais StorSimple no portal do Azure e na Nuvem do Microsoft Azure Governamental.
 
-### <a name="get-started"></a>Introdução
+### <a name="get-started"></a>Comece agora
 O fluxo de trabalho de implantação consiste em preparação do portal, provisionamento de uma matriz virtual no seu ambiente virtualizado e conclusão da instalação. Para começar com a implantação do StorSimple Virtual Array como um servidor de arquivos ou um servidor iSCSI, você precisará consultar os seguintes recursos tabulados.
 
 #### <a name="deployment-articles"></a>Artigos sobre implantação
@@ -104,11 +104,11 @@ Uma única instância do serviço Gerenciador de Dispositivos StorSimple pode ge
 > Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço.
 > 
 > * Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#optional-step-configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
-> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
+> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obtenha a chave de registro do serviço
+## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obter a chave de registro do serviço
 
 Depois que o serviço Gerenciador de Dispositivos StorSimple estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple com o serviço.
 
@@ -148,7 +148,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
 Esta é uma etapa opcional e deve ser executada somente se você não habilitou a criação automática de uma conta de armazenamento com seu serviço.
 
-Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para obter instruções passo a passo.
+Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/common/storage-account-create.md) para obter instruções passo a passo.
 
 Execute as etapas a seguir no [Portal do Azure](https://ms.portal.azure.com/) na página do serviço Gerenciador de Dispositivos StorSimple para adicionar uma conta de armazenamento do Microsoft Azure existente.
 
@@ -156,7 +156,7 @@ Execute as etapas a seguir no [Portal do Azure](https://ms.portal.azure.com/) na
 
 1. Navegue até seu serviço Gerenciador de Dispositivos, selecione e clique duas vezes nele. Isso abre a folha **Visão geral**.
 2. Selecione **Credenciais da conta de armazenamento** na seção **Configuração**.
-3. Clique em **Adicionar** .
+3. Clique em **Adicionar**.
 4. Na folha **Adicionar uma conta de armazenamento**, faça o seguinte:
    
    1. Para **Assinatura**, selecione **Atual**.
@@ -165,7 +165,7 @@ Execute as etapas a seguir no [Portal do Azure](https://ms.portal.azure.com/) na
    
    3. Selecione **Habilitar** para criar um canal seguro para comunicação de rede entre o dispositivo StorSimple e a nuvem. Selecione **Desabilitar** somente se você estiver operando em uma nuvem privada.
    
-   4. Clique em **Adicionar** . Você será notificado depois que a conta de armazenamento tiver sido criada com êxito.<br></br>
+   4. Clique em **Adicionar**. Você será notificado depois que a conta de armazenamento tiver sido criada com êxito.<br></br>
    
       ![Adicionar uma credencial de conta de armazenamento existente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
