@@ -2,18 +2,18 @@
 title: Use a Galeria de imagens compartilhadas para criar um pool personalizado – lote do Azure | Microsoft Docs
 description: Crie um pool do lote com a Galeria de imagens compartilhadas para provisionar imagens personalizadas para nós de computação que contêm o software e os dados de que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
-ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827924"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029657"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool personalizado
 
@@ -79,7 +79,7 @@ Um instantâneo é uma cópia completa somente leitura de um VHD. Para criar um 
 
 Para criar uma imagem gerenciada de um instantâneo, use ferramentas de linha de comando do Azure como o comando [az image create](/cli/azure/image). Crie uma imagem especificando um instantâneo de disco do sistema operacional e, opcionalmente, um ou mais instantâneos de disco de dados.
 
-### <a name="create-a-shared-image-gallery"></a>Criar uma galeria de imagens compartilhadas
+### <a name="create-a-shared-image-gallery"></a>Criar uma Galeria de Imagens Compartilhadas
 
 Depois de criar a imagem gerenciada com êxito, você precisará criar uma galeria de imagens compartilhada para disponibilizar sua imagem personalizada. Para saber como criar uma galeria de imagens compartilhada para suas imagens, consulte [criar uma galeria de imagens compartilhadas com CLI do Azure](../virtual-machines/linux/shared-images.md) ou [criar uma galeria de imagens compartilhadas usando o portal do Azure](../virtual-machines/linux/shared-images-portal.md).
 
@@ -150,6 +150,6 @@ Se você planeja criar um pool com centenas ou milhares de VMs ou mais usando um
 
 * **Redimensionar tempo limite.** Se o pool contiver um número fixo de nós (se não autoescala), aumente a propriedade `resizeTimeout` do pool, dependendo do tamanho do pool. Para cada 1000 VMs, o tempo limite de redimensionamento recomendado é de pelo menos 15 minutos. Por exemplo, o tempo limite de redimensionamento recomendado para um pool com 2000 VMs é de pelo menos 30 minutos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).

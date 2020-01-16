@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895168"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965714"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chamar operações da API REST com autorização de chave compartilhada
 
@@ -23,13 +23,13 @@ Este artigo mostra como chamar as APIs REST do armazenamento do Azure, incluindo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O aplicativo de exemplo lista os contêineres de BLOB para uma conta de armazenamento. Para testar o código neste artigo, você precisa dos seguintes itens: 
+O aplicativo de exemplo lista os contêineres de BLOB para uma conta de armazenamento. Para testar o código neste artigo, você precisa dos seguintes itens:
 
-- Instale o [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) com a carga de trabalho de **desenvolvimento do Azure** .
+- Instale o [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) com a carga de trabalho de **Desenvolvimento do Azure**.
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Uma conta de armazenamento de uso geral. Se você ainda não tiver uma conta de armazenamento, consulte o artigo [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
+- Uma conta de armazenamento de uso geral. Se você ainda não tiver uma conta de armazenamento, consulte o artigo [Criar uma conta de armazenamento](storage-account-create.md).
 
 - O exemplo neste artigo mostra como listar os contêineres em uma conta de armazenamento. Para ver a saída, adicione alguns contêineres de armazenamento de blobs na conta de armazenamento antes de iniciar.
 
@@ -43,7 +43,7 @@ Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu 
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Este comando clona o repositório para sua pasta do git local. Para abrir a solução do Visual Studio, procure a pasta storage-dotnet-rest-api-with-auth, abra-a e clique duas vezes em StorageRestApiAuth.sln. 
+Este comando clona o repositório para sua pasta do git local. Para abrir a solução do Visual Studio, procure a pasta storage-dotnet-rest-api-with-auth, abra-a e clique duas vezes em StorageRestApiAuth.sln.
 
 ## <a name="about-rest"></a>Sobre o REST
 
@@ -93,16 +93,16 @@ Para segurança ao executar em produção, sempre use HTTPS em vez de HTTP. Para
 
 Em nosso projeto de exemplo, o código para criar o cabeçalho de autorização está em uma classe separada. A ideia é que você poderia pegar a classe inteira e adicioná-la à sua própria solução e usá-la "como está". O código de cabeçalho de autorização funciona para a maioria das chamadas da API REST ao Armazenamento do Azure.
 
-Para criar a solicitação, que é um objeto HttpRequestMessage, vá para ListContainersAsyncREST em Program.cs. As etapas para criar a solicitação são: 
+Para criar a solicitação, que é um objeto HttpRequestMessage, vá para ListContainersAsyncREST em Program.cs. As etapas para criar a solicitação são:
 
-- Crie o URI a ser usado para chamar o serviço. 
+- Crie o URI a ser usado para chamar o serviço.
 - Crie o objeto HttpRequestMessage e defina a carga. A carga é nula para ListContainersAsyncREST porque não estamos transmitindo nada.
 - Adicione os cabeçalhos de solicitação para x-ms-date e x-ms-version.
 - Obtenha o cabeçalho de autorização e adicione-o.
 
-Algumas informações básicas de que você precisa: 
+Algumas informações básicas de que você precisa:
 
-- Para ListContainers, o **método** é `GET`. Esse valor é definido ao instanciar a solicitação. 
+- Para ListContainers, o **método** é `GET`. Esse valor é definido ao instanciar a solicitação.
 - O **recurso** é a parte de consulta do URI que indica qual API está sendo chamada e, portanto, o valor é `/?comp=list`. Conforme observado anteriormente, o recurso está na página de documentação de referência que mostra as informações sobre a [API ListContainers](/rest/api/storageservices/List-Containers2).
 - O URI é construído com a criação do ponto de extremidade do serviço Blob para essa conta de armazenamento e a concatenação do recurso. O valor da **URI de solicitação** acaba sendo `http://contosorest.blob.core.windows.net/?comp=list`.
 - Para ListContainers, **requestBody** é nulo e não há **cabeçalhos** extra.
@@ -160,7 +160,7 @@ Agora que você construiu a solicitação, você pode chamar o método SendAsync
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -209,7 +209,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -308,7 +308,7 @@ Vamos começar com esses dois campos canonizados, pois eles são necessários pa
 
 ### <a name="canonicalized-headers"></a>Cabeçalhos canônicos
 
-Para criar esse valor, recupere os cabeçalhos que começam com "x-ms-", classifique-os e formate-os em uma cadeia de caracteres de instâncias `[key:value\n]` concatenadas em uma cadeia de caracteres. Neste exemplo, os cabeçalhos canonizados têm esta aparência: 
+Para criar esse valor, recupere os cabeçalhos que começam com "x-ms-", classifique-os e formate-os em uma cadeia de caracteres de instâncias `[key:value\n]` concatenadas em uma cadeia de caracteres. Neste exemplo, os cabeçalhos canonizados têm esta aparência:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -316,7 +316,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 Aqui está o código usado para criar essa saída:
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -444,7 +444,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 Em ListContainersAsyncREST, altere o código que define o URI para a API de ListBlobs. O nome do contêiner é **container-1**.
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -516,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Corpo da resposta (XML):** a resposta XML isso mostra a lista de blobs e suas propriedades. 
+**Corpo da resposta (XML):** a resposta XML isso mostra a lista de blobs e suas propriedades.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -572,4 +572,4 @@ Neste artigo, você aprendeu como fazer uma solicitação para a API REST do arm
 - [API REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api)
 - [API REST do serviço de arquivo](/rest/api/storageservices/file-service-rest-api)
 - [API REST do serviço Fila](/rest/api/storageservices/queue-service-rest-api)
-- [API REST de Serviço Tabela](/rest/api/storageservices/table-service-rest-api)
+- [API REST do serviço Tabela](/rest/api/storageservices/table-service-rest-api)

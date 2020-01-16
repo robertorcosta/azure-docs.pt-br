@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210982"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980523"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -115,7 +115,7 @@ As várias cadeias de caracteres em um registro DNS não devem ser confundidas c
 
 ### <a name="tags"></a>Marcas
 
-As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
+As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/management/tag-resources.md).
 
 O DNS do Azure dá suporte ao uso de marcas do Azure Resource Manager em recursos de zona DNS.  Ele não oferece suporte a marcas em conjuntos de registros DNS, embora "metadados" tenham suporte nos Conjuntos de registros DNS como uma alternativa, conforme explicado abaixo.
 
@@ -135,8 +135,8 @@ No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeç
 
 | Cabeçalho | Comportamento |
 | --- | --- |
-| nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
-| > If-Match \<ETag |PUT só terá êxito se o recurso existir e a Etag corresponder |
+| Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
+| If-match \<etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |
 | If-match * |PUT só terá êxito se houver recursos |
 | If-none-match * |PUT só terá êxito se não houver recursos |
 
@@ -147,7 +147,7 @@ Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).

@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718060"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982174"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início Rápido: Encaminhar eventos de Armazenamento de Blobs para o ponto de extremidade da Web com o portal do Azure
 
@@ -24,7 +24,7 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo
 
 Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
 
-![Exibir resultados](./media/blob-event-quickstart-portal/view-results.png)
+![Exibir os resultados](./media/blob-event-quickstart-portal/view-results.png)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -38,7 +38,7 @@ Ao concluir, você verá que os dados do evento foram enviados para um aplicativ
 
    ![Selecione armazenamento](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Para assinar eventos, crie uma conta de armazenamento v2 para uso geral ou uma conta de armazenamento de blobs. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
+1. Para assinar eventos, crie uma conta de armazenamento v2 para uso geral ou uma conta de armazenamento de blobs. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
    ![Etapas de início](./media/blob-event-quickstart-portal/provide-blob-values.png)
 
@@ -130,7 +130,7 @@ Você pode disparar um evento para o armazenamento de Blobs carregando um arquiv
    }]
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje continuar a trabalhar com esse evento, não limpe os recursos criados neste artigo. Caso contrário, exclua os recursos criados neste artigo.
 

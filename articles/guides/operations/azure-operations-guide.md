@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693443"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970854"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -178,7 +178,7 @@ Os administradores podem acessar o Azure PowerShell e a CLI do Azure por meio de
 
 ## <a name="azure-subscriptions"></a>Assinaturas do Azure
 
-Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um Administrador da Conta (que tem controle total sobre a assinatura) e um Administrador de Serviços (que tem controle sobre todos os serviços na assinatura). Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Além dos administradores, é possível conceder controle detalhado de recursos do Azure usando [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/overview.md) a contas individuais.
+Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um Administrador da Conta (que tem controle total sobre a assinatura) e um Administrador de Serviços (que tem controle sobre todos os serviços na assinatura). Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Além dos administradores, é possível conceder controle detalhado de recursos do Azure usando [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/overview.md) a contas individuais.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecionar e habilitar uma assinatura do Azure
 
@@ -206,7 +206,7 @@ Para obter mais informações, confira [gerenciar o acesso usando o portal do Az
 
 Um componente importante de usar o Azure é a capacidade de exibir informações de cobrança. O portal do Azure fornece insights detalhados sobre as informações de cobrança do Azure.
 
-Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Obter informações de cobrança de APIs de cobrança
 
@@ -216,7 +216,7 @@ Além de exibir a cobrança no portal, você pode acessar as informações de co
 
 - Você pode usar a API de Cartão de Taxa do Azure para listar todos os recursos disponíveis, junto com os metadados e informações de preços sobre cada um desses recursos.
 
-Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
+Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo previsto com a calculadora de preços
 
@@ -328,19 +328,19 @@ Você pode implantar máquinas virtuais do Azure usando o portal do Azure, usand
 
 Implantar uma máquina virtual usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode selecionar muitas imagens diferentes do sistema operacional com configurações diferentes. Todos os requisitos de armazenamento e de rede são configurados durante a implantação. Para obter mais informações, consulte "Criar uma máquina virtual no portal do Azure" para [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-Além de implantar uma máquina virtual do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Além de implantar uma máquina virtual do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Implantar uma máquina virtual do Azure usando o PowerShell permite a automação completa da implantação de todos os recursos de máquina virtual relacionados, incluindo armazenamento e rede. Para obter mais informações, consulte [Criar uma VM do Windows usando o Resource Manager e o PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-Além de implantar recursos de computação do Azure individualmente, você pode usar o módulo do Azure PowerShell para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Além de implantar recursos de computação do Azure individualmente, você pode usar o módulo do Azure PowerShell para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>CLI (interface de linha de comando)
 
 Assim como acontece com o módulo do PowerShell, a interface de linha de comando do Azure fornece automação de implantação e pode ser usada em sistemas Windows, OS X ou Linux. Quando você estiver usando o comando **vm quick-create** da CLI do Azure, todos os recursos de máquina virtual relacionados (incluindo armazenamento e rede) e a máquina virtual em si serão implantados. Para obter mais informações, consulte [Criar uma VM Linux no Azure usando a CLI](../../virtual-machines/linux/quick-create-cli.md).
 
-Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+Do mesmo modo, você pode usar uma CLI do Azure para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e a CLI do Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-virtual-machines"></a>Acesso e segurança para máquinas virtuais
 
@@ -408,15 +408,15 @@ Há várias opções para a implantação de uma conta de armazenamento.
 
 #### <a name="portal"></a>Portal
 
-Implantar uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um compartilhamento de arquivo ou contêiner de blob usando o portal. Você pode criar as entidades de armazenamento de Tabela e de Filas programaticamente. Para obter mais informações, consulte [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
+Implantar uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um compartilhamento de arquivo ou contêiner de blob usando o portal. Você pode criar as entidades de armazenamento de Tabela e de Filas programaticamente. Para obter mais informações, consulte [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 
-Além de implantar uma conta de armazenamento do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo, incluindo quaisquer contas de armazenamento. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Além de implantar uma conta de armazenamento do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo, incluindo quaisquer contas de armazenamento. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Implantar uma conta de armazenamento do Azure usando o PowerShell permite a automação da implantação completa da conta de armazenamento. Para obter mais informações, consulte [Usar o Azure PowerShell com o Armazenamento do Azure](../../storage/common/storage-powershell-guide-full.md).
 
-Além de implantar recursos do Azure individualmente, você pode usar o módulo do Azure PowerShell para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Além de implantar recursos do Azure individualmente, você pode usar o módulo do Azure PowerShell para implantar um modelo do Azure Resource Manager. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>CLI (interface de linha de comando)
 
@@ -474,7 +474,7 @@ Há várias opções para a implantação de uma rede virtual.
 - Modelos do Azure Resource Manager
 
 > **Quando usar**: Sempre que você estiver trabalhando com VMs no Azure, você trabalhará com redes virtuais. Isso permite a segmentação de suas VMs em sub-redes privadas e voltadas para o público semelhantes a data centers locais.
-> 
+>
 > **Introdução**: Implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual por meio do portal, você pode selecionar uma rede virtual existente ou crie uma nova. Comece e [crie uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
