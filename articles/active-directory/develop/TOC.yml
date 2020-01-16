@@ -82,6 +82,8 @@
               href: tutorial-v2-windows-uwp.md
             - name: .NET da Área de trabalho do Windows
               href: tutorial-v2-windows-desktop.md
+            - name: Usar o modo de dispositivo compartilhado em seu aplicativo Android
+              href: tutorial-v2-shared-device-mode.md
         - name: Aplicativos Daemon
           items:
             - name: Aplicativo Web do daemon ASP.NET
@@ -208,6 +210,8 @@
                   href: scenario-mobile-app-configuration.md
                 - name: Configuração específica de plataformas móveis
                   items:
+                    - name: Modo de dispositivo compartilhado para dispositivos Android
+                      href: shared-device-mode.md
                     - name: Xamarin Android
                       href: msal-net-xamarin-android-considerations.md
                     - name: Navegador do sistema no Android

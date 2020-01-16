@@ -54,8 +54,12 @@
                   href: supportability/classic-deployment-model-quota-increase-requests.md
             - name: Aumentar os limites de rede
               href: supportability/networking-quota-requests.md
+    - name: Solucionar problemas do portal do Azure
+      items:
         - name: Solucionar problemas de assinatura com o SKU ou com uma região
           href: supportability/sku-series-unavailable.md
+        - name: Capturar um rastreamento de navegador para solucionar problemas
+          href: capture-browser-trace.md
 - name: Referência
   items:
     - name: Atalhos do teclado

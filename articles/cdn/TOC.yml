@@ -6,7 +6,7 @@
       href: cdn-overview.md
     - name: Comparar recursos do produto
       href: cdn-features.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Criar um perfil e um ponto de extremidade
       href: cdn-create-new-endpoint.md
@@ -40,7 +40,7 @@
       href: cdn-china-delivery.md
     - name: Suporte do HTTP/2
       href: cdn-http2.md
-    - name: Recuperar uma lista POP do Verizon
+    - name: Recuperar IPs do POP
       href: cdn-pop-list-api.md
     - name: Migrar do Verizon Standard para o Verizon Premium
       href: cdn-migrate.md
@@ -99,7 +99,7 @@
           href: cdn-verizon-premium-rules-engine.md
         - name: Usar Gerenciador de Tráfego
           href: cdn-traffic-manager.md
-    - name: Analise
+    - name: Analisar
       href: cdn-log-analysis.md
       items:
         - name: Logs de diagnóstico do Azure
