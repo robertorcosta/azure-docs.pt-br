@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304772"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971203"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Com a [Extensão de diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
+Com a [Extensão de diagnóstico](diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-Este artigo descreve o processo para enviar métricas de desempenho do SO convidado dos Serviços de Nuvem clássicos do Azure para o armazenamento de métricas do Azure Monitor. A partir do Diagnóstico versão 1.11, você pode gravar as métricas diretamente no armazenamento de métricas do Azure Monitor, no qual as métricas da plataforma padrão já são coletadas. 
+Este artigo descreve o processo para enviar métricas de desempenho do SO convidado dos Serviços de Nuvem clássicos do Azure para o armazenamento de métricas do Azure Monitor. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. 
 
-Armazená-las nesse local permite que você acesse as mesmas ações possíveis para as métricas da plataforma. As ações incluem alertas quase em tempo real, criação de gráficos, roteamento, acesso a partir de uma API REST e muito mais.  Anteriormente, a Extensão de diagnóstico gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor.  
+Armazená-las nesse local permite que você acesse as mesmas ações possíveis para as métricas da plataforma. As ações incluem alertas em tempo quase real, gráficos, roteamento, acesso a uma API REST e muito mais.  Anteriormente, a Extensão de diagnóstico gravava no Armazenamento do Azure, mas não no armazenamento de dados do Azure Monitor.  
 
 O processo descrito neste artigo só funciona para contadores de desempenho nos Serviços de Nuvem do Azure. Ele não funciona para outras métricas personalizadas. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- Você deve ser um [administrador ou coadministrador de serviços](~/articles/billing/billing-add-change-azure-subscription-administrator.md) em sua assinatura do Azure. 
+- Você deve ser um [administrador ou co-administrador de serviços](../../cost-management-billing/manage/add-change-subscription-administrator.md) em sua assinatura do Azure. 
 
-- Sua assinatura precisará ser registrada com [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
@@ -50,8 +50,8 @@ O processo descrito neste artigo só funciona para contadores de desempenho nos 
 Crie uma entidade de serviço em seu locatário do Azure Active Directory usando as instruções em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que pode acessar recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Observe o seguinte ao percorrer esse processo: 
 
 - Você pode colocar qualquer URL na URL de entrada.  
-- Crie um novo segredo do cliente para esse aplicativo.  
-- Salve a chave e a ID do cliente para uso em etapas posteriores.  
+- Crie um novo segredo de cliente para este aplicativo.  
+- Salve a Chave e a ID do cliente para serem usadas em etapas posteriores.  
 
 Ao aplicativo criado na etapa anterior *Editor de métricas de monitoramento*, dê as permissões ao recurso do qual deseja emitir métricas. Se você planeja usar o aplicativo para emitir métricas personalizadas de vários recursos, conceda essas permissões no nível da assinatura ou do grupo de recursos.  
 
@@ -182,7 +182,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 4. No menu suspenso do recurso, selecione seu serviço de nuvem clássico.
 
-5. No menu suspenso de namespaces, selecione **azure.vm.windows.guest**. 
+5. No menu suspenso namespaces, selecione **azure.vm.windows.guest**. 
 
 6. No menu suspenso de métricas, selecione **Bytes de Memória\Confirmados em Uso**. 
 
@@ -190,7 +190,7 @@ Use a filtragem de dimensão e os recursos de divisão para exibir a memória to
 
  ![Métricas do portal do Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre as [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
 

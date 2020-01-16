@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc5b1f2f8e8b529149184ce173bcdd315311bad4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647247"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975320"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -146,7 +146,7 @@ Há cenários nos quais é necessário definir manualmente o endereço IP de um 
 4. Iniciar a máquina virtual.
 5. [Configure manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) os endereços IP secundários dentro do sistema operacional (e também o endereço IP primário no Windows) para corresponder com o que você definiu no Azure.
 
-Com as etapas anteriores, o endereço IP atribuído ao adaptador de rede no Azure, e no sistema de operacional de uma máquina virtual. Para controlar em quais máquinas virtuais dentro de sua assinatura você definiu manualmente os endereços IP dentro de um sistema operacional, considere a adição de uma [marca](../azure-resource-manager/resource-group-using-tags.md) do Azure às máquinas virtuais. Você pode usar "Atribuição de endereço IP: estático", por exemplo. Dessa forma, você pode localizar facilmente, dentro de sua assinatura, as máquinas virtuais para as quais você definiu manualmente o endereço IP para dentro do sistema operacional.
+Com as etapas anteriores, o endereço IP atribuído ao adaptador de rede no Azure, e no sistema de operacional de uma máquina virtual. Para controlar em quais máquinas virtuais dentro de sua assinatura você definiu manualmente os endereços IP dentro de um sistema operacional, considere a adição de uma [marca](../azure-resource-manager/management/tag-resources.md) do Azure às máquinas virtuais. Você pode usar "Atribuição de endereço IP: estático", por exemplo. Dessa forma, você pode localizar facilmente, dentro de sua assinatura, as máquinas virtuais para as quais você definiu manualmente o endereço IP para dentro do sistema operacional.
 
 Além de permitir que uma máquina virtual se comunique com outros recursos na mesma rede, ou em redes virtuais conectadas, um endereço IP privado também permite que uma máquina virtual se comunique externamente com a Internet. Conexões de saída são endereços de rede de origem convertidos pelo Azure em um endereço IP público imprevisível. Para saber mais sobre a conectividade de Internet de saída do Azure, leia o artigo [Conectividade de Internet de saída do Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você não pode realizar comunicação de entrada com o endereço IP privado de uma máquina virtual pela Internet. Se as conexões de saída exigirem um endereço IP público previsível, associe um recurso de endereço IP público a um adaptador de rede.
 

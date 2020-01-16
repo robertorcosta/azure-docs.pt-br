@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420442"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978028"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usar o AD FS relatório de atividade do aplicativo (versão prévia) para migrar aplicativos para o Azure AD
 
@@ -32,7 +32,7 @@ O AD FS relatório de atividade do aplicativo (versão prévia) no portal do Azu
 
 Os dados de atividade do aplicativo AD FS estão disponíveis para os usuários que recebem qualquer uma dessas funções de administrador: administrador global, leitor de relatórios, leitor de segurança, administrador de aplicativos ou administrador de aplicativos de nuvem.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Sua organização deve estar atualmente usando AD FS para acessar aplicativos.
 * Azure AD Connect Health deve ser habilitado em seu locatário do Azure AD.
@@ -73,7 +73,7 @@ O relatório de atividade do aplicativo AD FS está disponível no portal do Azu
 
 A tabela a seguir lista todos os testes de configuração que são executados em AD FS aplicativos.
 
-|Resultado  |Aprovação/aviso/falha  |DESCRIÇÃO  |
+|Result  |Aprovação/aviso/falha  |Description  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> Pelo menos uma regra não migrada foi detectada para AdditionalAuthentication.       | Aprovação/aviso          | A terceira parte confiável tem regras para solicitar a autenticação multifator (MFA). Para mudar para o Azure AD, traduza essas regras em políticas de acesso condicional. Se você estiver usando uma MFA local, recomendamos que você mude para o Azure MFA. [Saiba mais sobre o acesso condicional](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> A terceira parte confiável tem AdditionalWSFedEndpoint definido como true.       | Aprovado/Reprovado          | A terceira parte confiável no AD FS permite vários pontos de extremidade de asserção de WS-alimentados. Atualmente, o Azure AD dá suporte apenas a um. Se você tiver um cenário em que esse resultado está bloqueando a migração, [informe-nos](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
@@ -109,7 +109,7 @@ Se você tiver configurado uma regra de declaração para o aplicativo no AD FS,
 
 A tabela a seguir lista todos os testes de regra de declaração que são executados em AD FS aplicativos.
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Description  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | A instrução Condition usa expressões regulares para avaliar se a declaração corresponde a um determinado padrão.  Para obter uma funcionalidade semelhante no Azure AD, você pode usar a transformação predefinida, como IfEmpty (), StartWith (), Contains (), entre outras. Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 |UNSUPPORTED_CONDITION_CLASS      | A instrução Condition tem várias condições que precisam ser avaliadas antes da execução da instrução de emissão. O Azure AD pode dar suporte a essa funcionalidade com as funções de transformação da declaração, onde você pode avaliar vários valores de declaração.  Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
@@ -122,8 +122,9 @@ A tabela a seguir lista todos os testes de regra de declaração que são execut
 |UNSUPPORTED_ISSUANCE_TRANSFORMATION      | A instrução de emissão usa expressões regulares para transformar o valor da declaração a ser emitida. Para obter uma funcionalidade semelhante no Azure AD, você pode usar a transformação predefinida, como Extract (), Trim (), ToLower, entre outras. Para obter mais informações, consulte [Personalizar declarações emitidas no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).          |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
+- [Vídeo: como usar o relatório de AD FS atividade para migrar um aplicativo](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Gerenciando aplicativos com o Azure Active Directory](what-is-application-management.md)
 - [Gerenciar o acesso aos aplicativos](what-is-access-management.md)
 - [Federação do Azure AD Connect](../hybrid/how-to-connect-fed-whatis.md)

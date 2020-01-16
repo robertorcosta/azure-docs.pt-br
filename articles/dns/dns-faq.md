@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: allensu
-ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212023"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974546"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "74212023"
 
 ### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
-O Sistema de Nomes de Domínio (DNS) traduz ou resolve um nome de site ou serviço para seu endereço IP. O DNS do Azure é um serviço de hospedagem para domínios DNS. Ele fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure.
+O Sistema de Nomes de Domínio (DNS) traduz ou resolve um nome de site ou serviço para seu endereço IP. O DNS do Azure é um serviço de hospedagem para domínios DNS. Ele fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure.
 
 Domínios DNS no DNS do Azure estão hospedados na rede global do Azure de servidores de nomes DNS. Esse sistema usa a rede Anycast para que cada consulta DNS seja respondida pelo servidor DNS mais próximo disponível. O DNS do Azure fornece desempenho rápido e alta disponibilidade para seu domínio.
 
@@ -32,7 +32,7 @@ O modelo de faturamento do DNS do Azure é baseado no número de zonas DNS hospe
 
 Para saber mais, veja a [página de preços do DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="what-is-the-sla-for-azure-dns"></a>O que é o SLA para DNS do Azure?
+### <a name="what-is-the-sla-for-azure-dns"></a>Qual é o SLA para o DNS do Azure?
 
 O Azure garante que as solicitações válidas de DNS recebam uma resposta de pelo menos um servidor de nomes DNS do Azure 100% do tempo.
 
@@ -68,7 +68,7 @@ O DNS do Azure só oferece suporte à hospedagem de domínios DNS estáticos, em
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>O DNS do Azure dá suporte ao registro de nome de domínio?
 
-Não. O DNS do Azure atualmente não oferece suporte à opção de comprar nomes de domínio. Para comprar domínios, você deve usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Confira [Delegar um domínio ao Azure DNS](dns-domain-delegation.md)para saber mais.
+Não. O DNS do Azure atualmente não oferece suporte à opção de comprar nomes de domínio. Para comprar domínios, você deve usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)para saber mais.
 
 O recurso para comprar nomes de domínio é rastreado no backlog do Azure. Use o site de feedback para [registrar seu suporte para esse recurso](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
@@ -100,7 +100,7 @@ Seguimos as regras de escape de formatação mestre de arquivo da zona [RFC 1035
 
 Atualmente, esse suporte não está disponível para registros TXT criados no portal do Azure.
 
-## <a name="alias-records"></a>Registro de alias
+## <a name="alias-records"></a>Registros de alias
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Quais são alguns cenários em que os registros de alias são úteis?
 
@@ -110,7 +110,7 @@ Consulte a seção de cenários na [visão geral dos registros de alias do DNS d
 
 Os conjuntos de registros de alias são suportados para os seguintes tipos de registro em uma zona DNS do Azure:
  
-- Uma 
+- A 
 - AAAA
 - CNAME 
 
@@ -167,7 +167,7 @@ Sim. As zonas DNS podem ser movidas entre grupos de recursos ou entre assinatura
 
 Não há efeito nas consultas DNS quando você move uma zona DNS. Os servidores de nomes atribuídos à zona permanecem os mesmos. Consultas DNS são processadas normalmente.
 
-Para saber mais e instruções sobre como mover as zonas DNS, veja [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+Para saber mais e instruções sobre como mover as zonas DNS, veja [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Quanto tempo leva para as alterações de DNS entrarem em vigor?
 
@@ -195,7 +195,7 @@ Os nomes de domínio internacionalizados (IDNs) codificam cada nome DNS usando [
 
 Para configurar IDNs no DNS do Azure, converta o nome da zona ou o nome do conjunto de registros em punycode. No momento, o DNS do Azure não oferece suporte à conversão interna de ou para o punycode.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre o DNS do Azure](dns-overview.md).
 

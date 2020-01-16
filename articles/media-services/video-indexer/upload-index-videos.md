@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815389"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972619"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -40,6 +40,7 @@ Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalme
 - A URL fornecida no `videoURL` param precisa ser codificada.
 - A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL.
 - Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo.
+- Você pode carregar até 60 filmes por minuto.
 
 > [!Tip]
 > É recomendável usar o .NET Framework versão 4.6.2. ou superior porque versões mais antigas do .NET Framework não usam TLS 1.2 por padrão.
@@ -61,24 +62,24 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |name|Descrição|
+        |Nome|Description|
         |---|---|
-        |ID|A ID do vídeo|
+        |id|A ID do vídeo|
         |state|O estado do vídeo|  
     - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
-  - propriedades
+  - Propriedades
     
-      |name|Descrição|
+      |Nome|Description|
       |---|---|
-      |ID| A ID do vídeo|
+      |id| A ID do vídeo|
       |faceId|A identificação de face que aparece no índice de vídeo|
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
       |personName|O nome da pessoa|
         
     - Exemplo: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>Notas
+#### <a name="notes"></a>Observações
 
 - O Video Indexer retorna quaisquer parâmetros existentes fornecidos na URL original.
 - A URL fornecida deve ser codificada.
@@ -94,7 +95,7 @@ Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fund
 
 O preço depende da opção de indexação selecionada.  
 
-### <a name="priority"></a>prioridade
+### <a name="priority"></a>priority
 
 Os vídeos são indexados pelo Video Indexer de acordo com a prioridade. Use o parâmetro **priority** para especificar a prioridade de índice. Os seguintes valores são válidos: **Baixo**, **Normal** (padrão) e **Alto**.
 
@@ -311,9 +312,9 @@ public class AccountContractSlim
 
 Os códigos de status listados na tabela a seguir podem ser retornados pela operação de Upload.
 
-|Código de status|ErrorType (no corpo da resposta)|Descrição|
+|Código de status|ErrorType (no corpo da resposta)|Description|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|O mesmo vídeo já está em curso de ser processado na conta especificada.|
+|409|VIDEO_INDEXING_IN_PROGRESS|O mesmo vídeo já está em curso de ser processado na conta especificada.|
 |400|VIDEO_ALREADY_FAILED|O mesmo vídeo falhou ao processar na conta informada há menos de duas horas. Os clientes da API devem aguardar pelo menos duas horas antes de carregar novamente um vídeo.|
 
 ## <a name="next-steps"></a>Próximos passos

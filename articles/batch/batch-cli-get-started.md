@@ -3,7 +3,7 @@ title: Introdução à CLI do Azure do Lote | Microsoft Docs
 description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azure para gerenciar recursos de serviço do Lote do Azure
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd4a93b9829d69d9d0262428d23d2156d732c006
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6d625e092618d1190c3dcdf9997b1ce35211d75
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095417"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027292"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -151,7 +151,7 @@ Quando você consulta o serviço Lote com uma operação `list`, pode especifica
 
 A tabela abaixo descreve as cláusulas OData com suporte no serviço Lote:
 
-| Cláusula | Descrição |
+| Cláusula | Description |
 |---|---|
 | `--select-clause [select-clause]` | Retorna um subconjunto de propriedades para cada entidade. |
 | `--filter-clause [filter-clause]` | Retorna apenas as entidades que correspondem à expressão de OData especificada. |
@@ -170,7 +170,7 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 * Você pode exibir a **saída do comando como JSON** com a opção `--json`. Por exemplo, o `az batch pool show pool001 --json` exibe propriedades do pool001 no formato JSON. Em seguida, você poderá copiar e modificar essa saída para usá-la em um `--json-file` (confira Arquivos JSON anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 * Para saber mais sobre recursos do Lote, consulte [Visão geral do Lote do Azure para desenvolvedores](batch-api-basics.md).

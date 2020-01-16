@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353228"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973923"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -47,11 +47,11 @@ As recomendações neste documento estão alinhadas com a [Classificação de Se
 
 Antes de iniciar esta lista de verificação, certifique-se de que não seja comprometido enquanto lê essa lista. Você precisa primeiro proteger suas contas com privilégios.
 
-Os invasores que obtêm o controle de contas com privilégios podem causar danos tremendos, portanto, é essencial proteger essas contas primeiro. Habilite e exija a MFA ( [autenticação multifator](../../active-directory/authentication/multi-factor-authentication.md) ) do Azure para todos os administradores em sua organização usando os [padrões de segurança do Azure ad](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) ou o [acesso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Se você ainda não implementou a MFA, faça isso agora! Isso é realmente importante.
+Os invasores que obtêm o controle de contas com privilégios podem causar danos tremendos, portanto, é essencial proteger essas contas primeiro. Habilite e exija a MFA ( [autenticação multifator](../../active-directory/authentication/multi-factor-authentication.md) ) do Azure para todos os administradores em sua organização usando os [padrões de segurança do Azure ad](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou o [acesso condicional](../../active-directory/conditional-access/plan-conditional-access.md). Se você ainda não implementou a MFA, faça isso agora! Isso é realmente importante.
 
 Tudo pronto? Vamos começar a trabalhar na lista de verificação.
 
-## <a name="step-1---strengthen-your-credentials"></a>Etapa 1: fortalecer suas credenciais 
+## <a name="step-1---strengthen-your-credentials"></a>Etapa 1: fortalecer suas credenciais
 
 A maioria das violações de segurança empresariais são originadas com uma conta comprometida com um de uma série de métodos como pulverização de senha, reprodução de violação ou phishing. Saiba mais sobre esses ataques neste vídeo (45 min):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -60,7 +60,7 @@ A maioria das violações de segurança empresariais são originadas com uma con
 
 Considerando a frequência com que as senhas são adivinhadas, obtidas por phishing, roubadas com malware ou reutilizadas, é fundamental auxiliar a senha com alguma forma de credencial forte, saiba mais sobre a [Autenticação Multifator do Azure](../../active-directory/authentication/multi-factor-authentication.md).
 
-Para habilitar facilmente o nível básico de segurança de identidade, você pode usar a habilitação de um clique com os [padrões de segurança do Azure ad](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Os padrões de segurança impõem o Azure MFA para todos os usuários em um locatário e bloqueia as entradas de protocolos herdados em todo o locatário.
+Para habilitar facilmente o nível básico de segurança de identidade, você pode usar a habilitação de um clique com os [padrões de segurança do Azure ad](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Os padrões de segurança impõem o Azure MFA para todos os usuários em um locatário e bloqueia as entradas de protocolos herdados em todo o locatário.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Comece a proibir senhas comumente atacadas e desative a complexidade tradicional e as regras de expiração.
 
@@ -86,7 +86,7 @@ Se a organização usar uma solução de identidade híbrida com autenticação 
 Saiba mais sobre como a [sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) funciona.
 
 > [!NOTE]
-> Se você habilitar a sincronização de hash de senha e estiver usando os serviços de Domínio do Azure AD, hashes Kerberos (AES 256) e, opcionalmente, hashes NTLM (RC4, sem salt) também serão criptografados e sincronizados com o Azure AD. 
+> Se você habilitar a sincronização de hash de senha e estiver usando os serviços de Domínio do Azure AD, hashes Kerberos (AES 256) e, opcionalmente, hashes NTLM (RC4, sem salt) também serão criptografados e sincronizados com o Azure AD.
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementar bloqueio inteligente de extranet do AD FS
 
@@ -106,7 +106,7 @@ Os aplicativos que usam seus próprios métodos herdados para realizar a autenti
 
 1. Bloquear a [autenticação herdada se você usar o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurar o [SharePoint Online e o Exchange Online para usar a autenticação moderna](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Se você tiver Azure AD Premium, use [políticas de acesso condicional](../../active-directory/conditional-access/conditions.md) para bloquear a autenticação herdada, caso contrário, use [os padrões de segurança do Azure ad](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
+3. Se você tiver Azure AD Premium, use [políticas de acesso condicional](../../active-directory/conditional-access/conditions.md) para bloquear a autenticação herdada, caso contrário, use [os padrões de segurança do Azure ad](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquear pontos de entrada de autenticação inválidos
 
@@ -123,7 +123,7 @@ Verifique se os usuários podem solicitar aprovação de administrador para novo
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementar o Azure AD Privileged Identity Management
 
-Outro impacto da "pressuposição de violação" é a necessidade de minimizar a probabilidade de que uma conta comprometida possa operar com uma função com privilégios. 
+Outro impacto da "pressuposição de violação" é a necessidade de minimizar a probabilidade de que uma conta comprometida possa operar com uma função com privilégios.
 
 O [Azure AD PIM (Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md) ajuda você a minimizar os privilégios de conta ajudando a:
 
@@ -172,13 +172,13 @@ O [Azure AD Identity Protection](../../active-directory/identity-protection/over
 
 O Azure AD Identity Protection fornece dois relatórios importantes que devem ser monitorados diariamente:
 1. Os relatórios de entradas arriscadas exibirão as atividades de entrada do usuário que você deve investigar, pois o proprietário legítimo pode não ter sido verificado na entrada.
-2. Os relatórios de usuário arriscados exibirão as contas de usuários que poderão ter sido comprometidas, como as credenciais perdidas detectadas ou usuário que entrou a partir de localizações diferentes causando um evento de viagem impossível. 
+2. Os relatórios de usuário arriscados exibirão as contas de usuários que poderão ter sido comprometidas, como as credenciais perdidas detectadas ou usuário que entrou a partir de localizações diferentes causando um evento de viagem impossível.
 
 ![Usuários sinalizados por risco](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Auditar aplicativos e permissões de consentimento
 
-Os usuários podem ser induzidos a navegar para um site comprometido ou aplicativos que obterão acesso às informações de perfil e aos dados do usuário, como seu email. Um ator mal-intencionado pode usar as permissões consentidas que recebeu para criptografar o conteúdo da caixa de correio e exigir um resgate para recuperar os dados da caixa de correio. [Os administradores devem revisar e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões fornecidas pelos usuários ou desabilitar a capacidade dos usuários de dar consentimento por padrão. 
+Os usuários podem ser induzidos a navegar para um site comprometido ou aplicativos que obterão acesso às informações de perfil e aos dados do usuário, como seu email. Um ator mal-intencionado pode usar as permissões consentidas que recebeu para criptografar o conteúdo da caixa de correio e exigir um resgate para recuperar os dados da caixa de correio. [Os administradores devem revisar e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões fornecidas pelos usuários ou desabilitar a capacidade dos usuários de dar consentimento por padrão.
 
 Além de auditar as permissões fornecidas pelos usuários, ele pode ajudar a tentar e localizar especificamente [aplicativos OAuth arriscados ou indesejados](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), que é uma funcionalidade disponível para ambientes Premium.
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195225"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974570"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 Muitas empresas estão tirando vantagem da análise de big data para ter ideias de negócios e ajudá-los a tomar decisões inteligentes. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É fundamental para uma empresa ter certeza de que os dados essenciais aos negócios são armazenados com mais segurança, com o nível correto de acesso concedido a usuários individuais. O Azure Data Lake Storage Gen1 foi criado para ajudar a atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança do Azure Data Lake Storage Gen1, incluindo:
 
-* Authentication
+* Autenticação
 * Autorização
 * Isolamento da rede
 * Proteção de dados
@@ -47,14 +47,14 @@ Depois que o Microsoft Azure Active Directory autentica um usuário para que ele
 ### <a name="rbac-for-account-management"></a>RBAC para o gerenciamento da conta
 Quatro funções básicas são definidas para o Azure Data Lake Storage Gen1 por padrão. As funções permitem operações diferentes em uma conta do Azure Data Lake Storage Gen1 usando o portal do Azure, os cmdlets do PowerShell e as APIs REST. As funções Proprietário e Colaborador podem realizar várias funções de administração na conta. Você pode atribuir a função Leitor para os usuários que só visualizam os dados de gerenciamento da conta.
 
-![Funções RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Funções RBAC")
+![Funções de RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Funções RBAC")
 
 Observe que, embora as funções sejam atribuídas para gerenciamento de conta, algumas funções afetam o acesso aos dados. Você precisa usar ACLs para controlar o acesso a operações que um usuário pode executar no sistema de arquivos. A tabela a seguir mostra um resumo dos direitos de gerenciamento e dos direitos de acesso de dados para as funções padrão.
 
 | Funções | Direitos de gerenciamento | Direitos de acesso a dados | Explicação |
 | --- | --- | --- | --- |
 | Nenhuma função atribuída |Nenhum |Controlado pela ACL |Os usuários não podem usar o portal do Azure ou os cmdlets do Azure PowerShell para percorrer o Azure Data Lake Storage Gen1. O usuário pode usar apenas as ferramentas de linha de comando. |
-| Proprietário |Todos |Todos |A função Proprietário é um superusuário. Essa função pode gerenciar tudo e tem acesso completo aos dados. |
+| Proprietário |Tudo |Tudo |A função Proprietário é um superusuário. Essa função pode gerenciar tudo e tem acesso completo aos dados. |
 | Leitor |Somente leitura |Controlado pela ACL |A função Leitor pode ver tudo sobre o gerenciamento da conta, como qual usuário é atribuído a qual função. A função Leitor não pode fazer alterações. |
 | Colaborador |Tudo, exceto adicionar e remover as funções. |Controlado pela ACL |A função Colaborador pode gerenciar alguns aspectos de uma conta, como implantações e a criação e o gerenciamento de alertas. Um Colaborador não pode adicionar ou remover funções. |
 | Administrador de Acesso do Usuário |Adicionar e remover funções |Controlado pela ACL |A função Administrador de Acesso do Usuário permite gerenciar o acesso do usuário às contas. |
@@ -66,17 +66,17 @@ O Azure Data Lake Storage Gen1 é um Sistema de Arquivos Distribuído como o HDF
 
 Recomendamos que você defina as ACLs para vários usuários usando [grupos de segurança](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Adicione usuários a um grupo de segurança e atribua as ACLs de um arquivo ou pasta ao grupo de segurança. Isso é útil quando você desejar fornecer permissões atribuídas, uma vez que estará limitado a um máximo de 28 entradas para permissões atribuídas. Para saber mais sobre como proteger melhor os dados armazenados no Data Lake Storage Gen1 usando grupos de segurança do Azure Active Directory, confira [Atribuir usuários ou grupo de segurança, como ACLs, ao sistema de arquivos do Azure Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
-![Relacionar permissões de acesso](./media/data-lake-store-security-overview/adl.acl.2.png "Relacionar permissões de acesso")
+![Listar permissões de acesso](./media/data-lake-store-security-overview/adl.acl.2.png "Listar permissões de acesso")
 
 ## <a name="network-isolation"></a>Isolamento da rede
 Use o Azure Data Lake Storage Gen1 para ajudar a controlar o acesso ao seu armazenamento de dados no nível da rede. Você pode habilitar o firewall e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que possuem um endereço IP no intervalo definido podem se conectar ao Azure Data Lake Storage Gen1.
 
-![Configurações de firewall e acesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Endereço IP e configurações de firewall")
+![Configurações de firewall e acesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Configurações de firewall e endereço IP")
 
 ## <a name="data-protection"></a>Proteção de dados
 O Azure Data Lake Storage Gen1 protege seus dados em todo o ciclo de vida. Para os dados em trânsito, o Azure Data Lake Storage Gen1 use o protocolo Transport Layer Security (TLS 1.2) padrão da indústria para proteger os dados na rede.
 
-![Criptografia no Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "criptografia no Data Lake Storage Gen1")
+![Criptografia em Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "Criptografia em Data Lake Storage Gen1")
 
 O Azure Data Lake Storage Gen1 também fornece criptografia para dados armazenados na conta. Você pode optar por ter seus dados criptografados ou optar por nenhuma criptografia. Se você optar por criptografia, os dados armazenados no Azure Data Lake Storage Gen1 são criptografados antes do armazenamento em mídia persistente. Nesse caso, o Azure Data Lake Storage Gen1 criptografa os dados automaticamente antes da persistência e descriptografa os dados antes da recuperação, por isso é completamente transparente para o cliente que acessa os dados. Não há nenhuma alteração de código necessária no lado do cliente para criptografar/descriptografar dados.
 
@@ -88,17 +88,17 @@ Você pode usar os logs de atividade ou de diagnóstico, dependendo se estar pro
 * As atividades relacionadas ao gerenciamento de conta usam as APIs do Azure Resource Manager e são exibidas no Portal do Azure por meio dos logs de atividade.
 * As atividades relacionadas aos dados usam APIs REST WebHDFS e são exibidas no portal do Azure por meio dos logs de diagnóstico.
 
-### <a name="activity-log"></a>Log de atividades
+### <a name="activity-log"></a>Logs de atividades
 Para cumprir as normas, uma organização poderá exigir trilhas de auditoria adequadas das atividades de gerenciamento da conta se precisar examinar incidentes específicos. O Azure Data Lake Storage Gen1 tem monitoramento interno e registra todas as atividades de gerenciamento da conta.
 
 Para trilhas de auditoria de gerenciamento de conta, exiba e escolha as colunas que deseja registrar em log. Você também pode exportar os logs de atividades para o Armazenamento do Microsoft Azure.
 
-![Log de atividades](./media/data-lake-store-security-overview/activity-logs.png "Log de atividades")
+![Log de atividade](./media/data-lake-store-security-overview/activity-logs.png "Logs de atividades")
 
-Para obter mais informações sobre como trabalhar com os logs, consulte [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/resource-group-audit.md).
+Para obter mais informações sobre como trabalhar com os logs, consulte [Exibir logs de atividades para auditar ações em recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="diagnostics-logs"></a>Logs de diagnóstico
-Você pode habilitar a auditoria de acesso a dados e log de diagnóstico no portal do Azure e enviar os logs para uma conta de armazenamento de BLOBs do Azure, um hub de eventos ou logs do Azure Monitor.
+Você pode habilitar a auditoria de acesso a dados e o log de diagnóstico no portal do Azure e enviar os logs para uma conta de armazenamento de BLOBs do Azure, um hub de eventos ou logs de Azure Monitor.
 
 ![Logs de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Logs de diagnóstico")
 
@@ -113,4 +113,3 @@ Se você quer ver os novos recursos incluídos no Azure Data Lake Storage Gen1, 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Proteger dados no Armazenamento do Data Lake Gen1](data-lake-store-secure-data.md)
-

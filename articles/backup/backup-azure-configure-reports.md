@@ -3,12 +3,12 @@ title: Configurar relatórios do Power BI
 description: Configure relatórios do Power BI para Backup do Azure usando um cofre dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f8a2dd927f996ea09e40c7db2e43b46c17f6258
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450116"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978368"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -30,7 +30,7 @@ Faça o download do último aplicativo (versão 1.8) para evitar esse problema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Criar uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
+- Criar uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
 - [Crie uma conta do Power BI](https://powerbi.microsoft.com/landing/signin/) para exibir, personalizar e criar seus próprios relatórios usando o portal do Power BI.
 - Registre o provedor de recursos **Microsoft.Insights** se ele ainda não estiver registrado. Use as assinaturas para a conta de armazenamento e o cofre dos Serviços de Recuperação para que os dados de relatório possam fluir para a conta de armazenamento. Para realizar essa etapa, vá para o portal do Azure e selecione **Assinatura** > **Provedores de recursos** e verificar se há esse provedor a fim de registrá-lo.
 
