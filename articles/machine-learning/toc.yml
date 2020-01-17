@@ -71,7 +71,7 @@
       href: concept-workspace.md
     - name: Ambientes
       href: concept-environments.md
-    - name: data
+    - name: Dados
       href: concept-data.md
     - name: Treinamento do modelo
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
@@ -310,15 +310,9 @@
         - name: Consumir em tempo real
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Executar previsões em lotes
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions.md
         - name: Previsões em lotes do designer
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
-        - name: Depurar e solucionar problemas de previsões de lote
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-batch-predictions.md
     - name: Monitorar modelos
       items:
         - name: Coletar e avaliar dados de modelo
@@ -343,6 +337,12 @@
         - name: 'Designer: Treinar novamente usando pipelines publicados'
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Usar etapa de execução paralela
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: Depurar e solucionar problemas de etapa de execução paralela
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
     - name: Gerenciar cotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

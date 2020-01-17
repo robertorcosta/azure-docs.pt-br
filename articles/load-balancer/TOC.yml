@@ -50,6 +50,8 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
+    - name: Componentes e limitações
+      href: concepts-limitations.md
     - name: Monitoramento da integridade
       items:
         - name: Investigações de integridade

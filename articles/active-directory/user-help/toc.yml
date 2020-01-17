@@ -2,44 +2,36 @@
   href: index.yml
 - name: Ajuda da verificação em duas etapas
   items:
-    - name: Visão geral
-      href: user-help-two-step-verification-overview.md
-    - name: Configurar métodos de verificação de dois fatores
-      items:
-        - name: Visão geral
-          href: multi-factor-authentication-end-user-first-time.md
-        - name: Configurar um aplicativo autenticador
-          href: multi-factor-authentication-setup-auth-app.md
-        - name: Configurar um dispositivo móvel
-          href: multi-factor-authentication-setup-phone-number.md
-        - name: Configurar um telefone comercial
-          href: multi-factor-authentication-setup-office-phone.md
+    - name: O que é a página de Verificação adicional?
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configurar um aplicativo autenticador
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Configurar um dispositivo móvel
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Configurar um telefone comercial
+      href: multi-factor-authentication-setup-office-phone.md
     - name: Gerenciar suas configurações
       href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Obter ajuda
-      href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Gerenciar senhas de aplicativo
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Como entrar
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Obter ajuda
+      href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Ajuda da redefinição de senha
   items:
-    - name: Visão geral
-      href: user-help-password-reset-overview.md
     - name: Inscrever-separa redefinição de senha
       href: active-directory-passwords-reset-register.md
     - name: Redefinir sua senha
       href: active-directory-passwords-update-your-own-password.md
 - name: Ajuda do aplicativo Microsoft Authenticator
   items:
-    - name: Visão geral
+    - name: O que é o aplicativo Microsoft Authenticator?
       href: user-help-auth-app-overview.md
     - name: Baixar e instalar o aplicativo
       href: user-help-auth-app-download-install.md
     - name: Adicionar contas
       items:
-        - name: Visão geral
-          href: user-help-auth-app-add-account-overview.md
         - name: Adicionar uma conta corporativa ou de estudante
           href: user-help-auth-app-add-work-school-account.md
         - name: Adicionar uma conta pessoal da Microsoft
@@ -56,10 +48,10 @@
       href: user-help-auth-app-faq.md
 - name: Ajuda do portal Minha Conta
   items:
-    - name: Visão geral
+    - name: O que é o portal Minha Conta?
       href: my-account-portal-overview.md
     - name: Gerenciar suas informações de segurança
-      href: user-help-security-info-overview.md
+      href: security-info-setup-signin.md
     - name: Gerenciar seus dispositivos conectados
       href: my-account-portal-devices-page.md
     - name: Alterar sua senha
@@ -72,14 +64,10 @@
       href: my-account-portal-sign-ins-page.md
 - name: Ajuda das informações de segurança
   items:
-    - name: Visão geral
-      href: user-help-security-info-overview.md
     - name: Adicionar informações de segurança durante a entrada
       href: security-info-setup-signin.md
     - name: Adicionar ou atualizar os métodos de informações de segurança
       items:
-        - name: Visão geral
-          href: security-info-add-update-methods-overview.md
         - name: Configurar um aplicativo autenticador
           href: security-info-setup-auth-app.md
         - name: Configurar mensagens de texto
@@ -98,8 +86,6 @@
       href: user-help-sign-in.md?toc=./toc.json
 - name: Ajuda Gerenciar dispositivos
   items:
-    - name: Visão geral
-      href: user-help-device-mgmt-overview.md
     - name: Adicionar seu dispositivo de trabalho
       href: user-help-join-device-on-network.md
     - name: Registrar seu dispositivo pessoal para trabalho
@@ -108,8 +94,6 @@
       href: user-help-device-remediation.md
 - name: Ajuda do portal Meus aplicativos
   items:
-    - name: Visão geral
-      href: my-apps-portal-end-user-overview.md
     - name: Acessar e usar o portal Meus Aplicativos
       href: my-apps-portal-end-user-access.md
     - name: Atualizar suas informações de perfil e conta
@@ -122,8 +106,6 @@
       href: my-apps-portal-end-user-troubleshoot.md
 - name: Ajuda do portal Meus Aplicativos (versão prévia)
   items:
-    - name: Visão geral
-      href: my-applications-portal-overview.md
     - name: Acessar e usar o portal Meus Aplicativos
       href: my-applications-portal-access.md
     - name: Acessar e usar workspaces

@@ -29,6 +29,10 @@
       href: security-center-compliance-dashboard.md
 - name: Conceitos
   items:
+    - name: Secure Score na Central de Segurança
+      href: security-center-secure-score.md
+    - name: Secure Score aprimorado
+      href: secure-score-security-controls.md
     - name: Permissões
       href: security-center-permissions.md
     - name: Segurança de dados
@@ -73,8 +77,6 @@
           href: security-center-alert-validation.md
 - name: Guias de instruções
   items:
-    - name: Melhorar sua pontuação segura
-      href: security-center-secure-score.md
     - name: Atualização para segurança avançada
       href: security-center-onboarding.md
     - name: Verifique suas VMs em busca de vulnerabilidades

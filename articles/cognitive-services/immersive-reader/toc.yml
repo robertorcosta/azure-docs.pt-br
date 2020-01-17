@@ -17,6 +17,8 @@
   items:
     - name: Iniciar a Leitura Avançada (Python)
       href: tutorial-python.md
+    - name: Usar vários recursos de Leitura Avançada
+      href: tutorial-multiple-resources.md
 - name: Instruções
   items:
     - name: Criar recurso de Leitura Avançada

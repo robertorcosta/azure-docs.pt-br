@@ -27,6 +27,8 @@
           href: azure-netapp-files-performance-benchmarks.md
         - name: Recomendações do teste de parâmetros de comparação de desempenho para o Azure NetApp Files
           href: azure-netapp-files-performance-metrics-volumes.md
+        - name: Perguntas frequentes sobre o desempenho do SMB
+          href: azure-netapp-files-smb-performance.md
     - name: Modelo de custo para o Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Diretrizes para planejamento de rede do Azure NetApp Files
