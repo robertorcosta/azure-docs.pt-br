@@ -37,7 +37,7 @@ Configure seu dispositivo móvel para funcionar como o método de verificação 
 
     ![Página Verificação de segurança adicional, com telefone de autenticação e mensagem de texto](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message-test.png)
 
-4. Na área **Etapa 3: Continuar usando os aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
+4. Na área **Etapa 3: Continue usando seus aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página Verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -50,7 +50,7 @@ Configure seu dispositivo móvel para funcionar como o método de verificação 
 
 1. Na página **Verificação de segurança adicional**, selecione **Telefone de autenticação** na área **Etapa 1: Como devemos entrar em contato com você**, selecione o país ou a região na lista suspensa e, em seguida, digite o número de telefone do dispositivo móvel.
 
-2. Selecione **Telefonar para mim** na área **Método** e, em seguida, selecione **Avançar**.
+2. Selecione **Ligar** na área **Método** e, em seguida, selecione **Avançar**.
 
     ![Página Verificação de segurança adicional, com telefone de autenticação e chamada telefônica](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call.png)
 
@@ -58,7 +58,7 @@ Configure seu dispositivo móvel para funcionar como o método de verificação 
 
     ![Como testar o número de telefone especificado](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call-test.png)
 
-4. Na área **Etapa 3: Continuar usando os aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
+4. Na área **Etapa 3: Continue usando seus aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página Verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
