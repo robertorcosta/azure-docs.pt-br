@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ad0eb602d9e7b907e23ebf7b91ed86650c1e807
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: eebbef25f2cd4539a5092f271c3944c24503f287
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790484"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156804"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de solução de problemas do barramento de serviço do Azure
 Este artigo fornece algumas das exceções .NET geradas pelo barramento de serviço .NET Framework APIs e também outras dicas para solucionar problemas. 
@@ -121,10 +121,10 @@ As etapas a seguir podem ajudá-lo a solucionar problemas de conectividade/certi
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- Quando houver problemas intermitentes de conectividade, execute o comando a seguir para verificar se há algum pacote Descartado. Mantenha-o em execução por aproximadamente 1 minuto para saber se as conexões estão parcialmente bloqueadas. Você pode baixar a ferramenta de `psping` [aqui](/sysinternals/downloads/psping).
+- Quando houver problemas intermitentes de conectividade, execute o comando a seguir para verificar se há algum pacote Descartado. Esse comando tentará estabelecer 25 conexões TCP diferentes a cada 1 segundo com o serviço e, em seguida, você poderá verificar quantos com êxito/falha e também ver a latência de conexão TCP. Você pode baixar a ferramenta de `psping` [aqui](/sysinternals/downloads/psping).
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     Você pode usar comandos equivalentes se estiver usando outras ferramentas, como `tnc`, `ping`e assim por diante. 
 - Obtenha um rastreamento de rede se as etapas anteriores não ajudarem e as analisarem ou entrem em contato com a [suporte da Microsoft](https://support.microsoft.com/).

@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/03/2019
+ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: bea59ff29579c5d009a87c8d1564db4c0baf6e69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 26056e9b52ea319856505db837c67dc68b2f4aa6
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793277"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157280"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Guia de solução de problemas para hubs de eventos do Azure
 Este artigo fornece algumas das exceções .NET geradas pelos hubs de eventos .NET Framework APIs e também outras dicas para solucionar problemas. 
@@ -59,7 +59,7 @@ A tabela a seguir relaciona os tipos de mensagens de exceção e suas causas e a
 
 Essa exceção pode acontecer se o número máximo de receptores (5) já tiver sido aberto em um nível de grupo por consumidor.
 
-#### <a name="event-hubs"></a>Hubs de evento
+#### <a name="event-hubs"></a>Hubs de Eventos
 Os Hubs de Eventos têm um limite de 20 grupos de consumidores por Hub de Eventos. Quando você tenta criar mais, recebe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ### <a name="timeoutexception"></a>TimeoutException
@@ -115,10 +115,10 @@ As etapas a seguir podem ajudá-lo a solucionar problemas de conectividade/certi
     ```shell
     telnet sbwagn2.servicebus.windows.net 5671
     ```
-- Quando houver problemas intermitentes de conectividade, execute o comando a seguir para verificar se há algum pacote Descartado. Mantenha-o em execução por aproximadamente 1 minuto para saber se as conexões estão parcialmente bloqueadas. Você pode baixar a ferramenta de `psping` [aqui](/sysinternals/downloads/psping).
+- Quando houver problemas intermitentes de conectividade, execute o comando a seguir para verificar se há algum pacote Descartado. Esse comando tentará estabelecer 25 conexões TCP diferentes a cada 1 segundo com o serviço e, em seguida, você poderá verificar quantos com êxito/falha e também ver a latência de conexão TCP. Você pode baixar a ferramenta de `psping` [aqui](/sysinternals/downloads/psping).
 
     ```shell
-    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    .\psping.exe -n 25 -i 1 -q yournamespace.servicebus.windows.net:5671 -nobanner     
     ```
     Você pode usar comandos equivalentes se estiver usando outras ferramentas, como `tnc`, `ping`e assim por diante. 
 - Obtenha um rastreamento de rede se as etapas anteriores não ajudarem e as analisarem ou entrem em contato com a [suporte da Microsoft](https://support.microsoft.com/). 
@@ -127,6 +127,6 @@ As etapas a seguir podem ajudá-lo a solucionar problemas de conectividade/certi
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de hubs de eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

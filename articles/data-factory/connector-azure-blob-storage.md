@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893317"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120206"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento de BLOBs do Azure usando Azure Data Factory
 
@@ -270,7 +270,7 @@ Um data factory pode ser associado a uma [identidade gerenciada para recursos do
 
 Saiba mais sobre a autenticação de armazenamento do Azure em geral em [Autenticar o acesso ao Armazenamento do Azure usando o Azure Active Directory](../storage/common/storage-auth-aad.md). Para usar identidades gerenciadas para autenticação de recursos do Azure, siga estas etapas:
 
-1. [Recupere data Factory informações de identidade gerenciadas](data-factory-service-identity.md#retrieve-managed-identity) copiando o valor de "ID do aplicativo de identidade de serviço" gerado junto com sua fábrica.
+1. [Recupere data Factory informações de identidade gerenciadas](data-factory-service-identity.md#retrieve-managed-identity) copiando o valor da **ID de objeto de identidade gerenciada** gerado junto com sua fábrica.
 
 2. Conceda a permissão adequada de identidade gerenciada no armazenamento do Azure Blob. Saiba mais sobre as funções em [Gerenciar os direitos de acesso aos dados de armazenamento do Azure com RBAC](../storage/common/storage-auth-aad-rbac.md).
 

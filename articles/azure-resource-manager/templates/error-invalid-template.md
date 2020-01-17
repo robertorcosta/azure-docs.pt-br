@@ -3,12 +3,12 @@ title: Erros de modelo inválidos
 description: Descreve como resolver erros de modelo inválido ao implantar modelos de Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.openlocfilehash: 9337812152dac7948afc7471760f3dc14443f549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484565"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154050"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolva erros de modelo inválido
 
@@ -86,18 +86,18 @@ Para os recursos-filho, o tipo e o nome têm o mesmo número de segmentos. Esse 
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -105,9 +105,9 @@ Ter os segmentos corretos pode ser difícil com os tipos de Resource Manager que
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
@@ -140,13 +140,13 @@ Você recebe esse erro quando recursos dependem entre si de uma maneira que impe
 
 Para resolver uma dependência circular:
 
-1. No modelo, localize o recurso identificado na dependência circular. 
-2. Para esse recurso, examine o **dependsOn** propriedade e quaisquer usos da **referência** função para ver quais recursos ele depende. 
+1. No modelo, localize o recurso identificado na dependência circular.
+2. Para esse recurso, examine o **dependsOn** propriedade e quaisquer usos da **referência** função para ver quais recursos ele depende.
 3. Examine os recursos para ver quais recursos eles dependem. Siga as dependências até você perceber um recurso depende do recurso original.
-5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todas as funções de **dependsOn** propriedade para identificar quaisquer dependências que não são necessários. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-lo. 
+5. Para os recursos envolvidos na dependência circular, examine cuidadosamente todas as funções de **dependsOn** propriedade para identificar quaisquer dependências que não são necessários. Remova essas dependências. Se você não tiver certeza de que uma dependência é necessária, tente removê-lo.
 6. Reimplante o modelo.
 
-Removendo valores do **dependsOn** propriedade pode causar erros quando você implanta o modelo. Se você receber um erro, adicione a dependência de volta ao modelo. 
+Removendo valores do **dependsOn** propriedade pode causar erros quando você implanta o modelo. Se você receber um erro, adicione a dependência de volta ao modelo.
 
 Se essa abordagem não resolver a dependência circular, considere mover parte de sua lógica de implantação para recursos filho (como extensões ou definições de configuração). Configure os recursos filho para implantar após os recursos envolvidos na dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 7065d5e9cae9e0a06eab82bd982693a1ad1d8fba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483772"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155648"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolva modelos do Azure Resource Manager para consistência de nuvem
 
@@ -22,7 +22,7 @@ Um dos principais benefícios do Azure é a consistência. Os investimentos de d
 A Microsoft oferece serviços de nuvem inteligentes e prontos para a empresa em muitos locais, incluindo:
 
 * A plataforma Azure global com suporte de uma rede cada vez maior de datacenters gerenciados pela Microsoft em regiões no mundo todo.
-* Nuvens soberanas isoladas, como o Azure Alemanha, o Azure Governamental e o Azure China (Azure operado pela 21Vianet). As nuvens soberanas fornecem uma plataforma consistente com a maioria dos mesmos recursos excelentes aos quais os clientes do Azure global têm acesso.
+* Nuvens soberanas isoladas como Azure Alemanha, Azure governamental e Azure China 21Vianet. As nuvens soberanas fornecem uma plataforma consistente com a maioria dos mesmos recursos excelentes aos quais os clientes do Azure global têm acesso.
 * Azure Stack, uma plataforma de nuvem híbrida que possibilita entregar serviços do Azure por meio do datacenter de sua empresa. As empresas podem configurar o Azure Stack em seus próprios datacenters ou consumir os Serviços do Azure por meio de provedores de serviço, executando o Azure Stack em suas instalações (também conhecidas como regiões hospedadas).
 
 No centro de todas essas nuvens, o Azure Resource Manager fornece uma API que permite a comunicação de uma ampla variedade de interfaces do usuário com a plataforma Azure. Essa API oferece funcionalidades avançadas de infraestrutura como código. Qualquer tipo de recurso que está disponível na plataforma de nuvem do Azure pode ser implantado e configurado com o Azure Resource Manager. Com um único modelo, você pode implantar e configurar seu aplicativo completo para um estado final operacional.
@@ -47,9 +47,9 @@ Para obter uma introdução aos modelos do Azure Resource Manager, confira [Impl
 
 A sintaxe básica de um modelo do Resource Manager é o JSON. Os modelos usam um superconjunto do JSON, estendendo a sintaxe com expressões e funções. O processador de linguagem do modelo é frequentemente atualizado para dar suporte a funções de modelo adicionais. Para obter uma explicação detalhada sobre as funções de modelo disponíveis, confira [Funções de modelo do Azure Resource Manager](template-functions.md).
 
-As novas funções de modelo introduzidas no Azure Resource Manager não ficam imediatamente disponíveis nas nuvens soberanas ou no Azure Stack. Para implantar um modelo com êxito, todas as funções referenciadas no modelo precisam estar disponíveis na nuvem de destino. 
+As novas funções de modelo introduzidas no Azure Resource Manager não ficam imediatamente disponíveis nas nuvens soberanas ou no Azure Stack. Para implantar um modelo com êxito, todas as funções referenciadas no modelo precisam estar disponíveis na nuvem de destino.
 
-As funcionalidades do Azure Resource Manager sempre serão introduzidas primeiro no Azure global. Use o seguinte script do PowerShell para verificar se as funções de modelo recém-introduzidas também estão disponíveis no Azure Stack: 
+As funcionalidades do Azure Resource Manager sempre serão introduzidas primeiro no Azure global. Use o seguinte script do PowerShell para verificar se as funções de modelo recém-introduzidas também estão disponíveis no Azure Stack:
 
 1. Crie um clone do repositório GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
 
@@ -69,7 +69,7 @@ O script implanta vários modelos minimizados, cada um contendo apenas funções
 
 ## <a name="working-with-linked-artifacts"></a>Trabalhando com artefatos vinculados
 
-Um modelo pode conter referências a artefatos vinculados e conter um recurso de implantação que é vinculado a outro modelo. Os modelos vinculados (também conhecidos como modelos aninhados) são recuperados pelo Resource Manager em runtime. Um modelo também pode conter referências a artefatos para extensões de VM (máquina virtual). Esses artefatos são recuperados pela extensão de VM em execução na VM para configuração da extensão de VM durante a implantação de modelo. 
+Um modelo pode conter referências a artefatos vinculados e conter um recurso de implantação que é vinculado a outro modelo. Os modelos vinculados (também conhecidos como modelos aninhados) são recuperados pelo Resource Manager em runtime. Um modelo também pode conter referências a artefatos para extensões de VM (máquina virtual). Esses artefatos são recuperados pela extensão de VM em execução na VM para configuração da extensão de VM durante a implantação de modelo.
 
 As seções a seguir descrevem considerações para consistência de nuvem durante o desenvolvimento de modelos que incluem artefatos que são externos ao modelo de implantação principal.
 
@@ -82,9 +82,9 @@ O seguinte código mostra como o parâmetro templateLink refere-se a um modelo a
 ```json
 "resources": [
   {
+     "type": "Microsoft.Resources/deployments",
      "apiVersion": "2017-05-10",
      "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
        "templateLink": {
@@ -100,9 +100,9 @@ O Azure Resource Manager avalia o modelo principal em runtime e recupera e avali
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>Tornar os modelos vinculados acessíveis entre nuvens
 
-Considere o local e a forma de armazenamento dos modelos vinculados usados. Em runtime, o Azure Resource Manager busca os modelos vinculados e, portanto, exige o acesso direto a eles. Uma prática comum é usar o GitHub para armazenar os modelos aninhados. Um repositório GitHub pode conter arquivos que são acessíveis publicamente por meio de uma URL. Embora essa técnica funcione bem para a nuvem pública e as nuvens soberanas, um ambiente do Azure Stack pode estar localizado em uma rede corporativa ou em um local remoto desconectado, sem nenhum acesso de saída à Internet. Nesses casos, o Azure Resource Manager não consegue recuperar os modelos aninhados. 
+Considere o local e a forma de armazenamento dos modelos vinculados usados. Em runtime, o Azure Resource Manager busca os modelos vinculados e, portanto, exige o acesso direto a eles. Uma prática comum é usar o GitHub para armazenar os modelos aninhados. Um repositório GitHub pode conter arquivos que são acessíveis publicamente por meio de uma URL. Embora essa técnica funcione bem para a nuvem pública e as nuvens soberanas, um ambiente do Azure Stack pode estar localizado em uma rede corporativa ou em um local remoto desconectado, sem nenhum acesso de saída à Internet. Nesses casos, o Azure Resource Manager não consegue recuperar os modelos aninhados.
 
-Uma melhor prática para implantações entre nuvens é armazenar os modelos vinculados em um local acessível para a nuvem de destino. O ideal é que todos os artefatos de implantação sejam mantidos em um pipeline de CI/CD (integração contínua/desenvolvimento contínuo) e implantados por meio dele. Como alternativa, você pode armazenar os modelos aninhados em um contêiner de armazenamento de blobs, do qual o Azure Resource Manager possa recuperá-los. 
+Uma melhor prática para implantações entre nuvens é armazenar os modelos vinculados em um local acessível para a nuvem de destino. O ideal é que todos os artefatos de implantação sejam mantidos em um pipeline de CI/CD (integração contínua/desenvolvimento contínuo) e implantados por meio dele. Como alternativa, você pode armazenar os modelos aninhados em um contêiner de armazenamento de blobs, do qual o Azure Resource Manager possa recuperá-los.
 
 Como o Armazenamento de Blobs em cada nuvem usa um FQDN (nome de domínio totalmente qualificado) de um ponto de extremidade diferente, configure o modelo com o local dos modelos vinculados com dois parâmetros. Os parâmetros podem aceitar a entrada do usuário no momento da implantação. Normalmente, os modelos são criados e compartilhados por várias pessoas; portanto, uma melhor prática é usar um nome padrão para esses parâmetros. As convenções de nomenclatura ajudam a tornar os modelos mais reutilizáveis entre regiões, nuvens e autores.
 
@@ -132,9 +132,9 @@ Em todo o modelo, os vínculos são gerados pela combinação do URI base (do pa
 ```json
 "resources": [
   {
-    "name": "shared",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
+    "name": "shared",
     "properties": {
       "mode": "Incremental",
       "templateLink": {
@@ -150,7 +150,7 @@ Usando essa abordagem, o valor padrão para o parâmetro `_artifactsLocation` é
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Usar _artifactsLocation em vez de vínculos hard-coding
 
-Além de ser usada para modelos aninhados, a URL no parâmetro `_artifactsLocation` é usada como base de todos os artefatos relacionados de um modelo de implantação. Algumas extensões de VM incluem um vínculo para um script armazenado fora do modelo. Para essas extensões, você não deve embutir os vínculos em código. Por exemplo, as extensões Script Personalizado e DSC do PowerShell podem ser vinculadas a um script externo no GitHub, conforme mostrado abaixo: 
+Além de ser usada para modelos aninhados, a URL no parâmetro `_artifactsLocation` é usada como base de todos os artefatos relacionados de um modelo de implantação. Algumas extensões de VM incluem um vínculo para um script armazenado fora do modelo. Para essas extensões, você não deve embutir os vínculos em código. Por exemplo, as extensões Script Personalizado e DSC do PowerShell podem ser vinculadas a um script externo no GitHub, conforme mostrado abaixo:
 
 ```json
 "properties": {
@@ -215,7 +215,7 @@ Sabendo que as nuvens e as regiões do Azure podem ser diferentes em seus servi�
 
 Um modelo implanta e configura recursos. Um tipo de recurso é fornecido por um provedor de recursos. Por exemplo, o provedor de recursos de computação (Microsoft.Compute) fornece vários tipos de recurso, como virtualMachines e availabilitySets. Cada provedor de recursos fornece uma API ao Azure Resource Manager definida por um contrato comum, permitindo uma experiência de criação consistente e unificada em todos os provedores de recursos. No entanto, um provedor de recursos disponível no Azure global pode não estar disponível em uma nuvem soberana ou uma região do Azure Stack.
 
-![Provedores de recursos](./media/templates-cloud-consistency/resource-providers.png) 
+![Provedores de recursos](./media/templates-cloud-consistency/resource-providers.png)
 
 Para verificar se os provedores de recursos disponíveis em determinada nuvem, execute o seguinte script na CLI ([interface de linha de comando](/cli/azure/install-azure-cli)) do Azure:
 
@@ -253,7 +253,7 @@ Um modelo sempre é implantado em um grupo de recursos que reside em uma região
 
 Mesmo que você possa codificar em código os nomes de região ao especificar as propriedades de recurso em um modelo, essa abordagem não garante que o modelo possa ser implantado em outros ambientes do Azure Stack, porque o nome da região muito provavelmente não existe nesse local.
 
-Para acomodar diferentes regiões, adicione um local de parâmetro de entrada ao modelo com um valor padrão. O valor padrão será usado se nenhum valor for especificado durante a implantação. 
+Para acomodar diferentes regiões, adicione um local de parâmetro de entrada ao modelo com um valor padrão. O valor padrão será usado se nenhum valor for especificado durante a implantação.
 
 A função de modelo `[resourceGroup()]` retorna um objeto que contém os seguintes pares chave/valor:
 
@@ -284,9 +284,9 @@ Referenciando a chave do local do objeto no defaultValue do parâmetro de entrad
 },
 "resources": [
   {
-    "name": "storageaccount1",
     "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2015-06-15",
+    "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
 ```
@@ -301,40 +301,40 @@ Por esse motivo, o Resource Manager introduziu o conceito de perfis de API para 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location the resources will be deployed to."
-            },
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location the resources will be deployed to."
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
     },
-    "variables": {},
-    "resources": [
-        {
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "name": "myavailabilityset",
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-03-30",
-            "location": "[parameters('location')]",
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            }
-        }
-    ],
-    "outputs": {}
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "apiVersion": "2016-03-30",
+      "name": "myavailabilityset",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": 2,
+        "platformUpdateDomainCount": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -357,16 +357,16 @@ Uma versão de perfil de API funciona como um alias para uma única versão de A
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -399,17 +399,17 @@ O perfil de API não é um elemento necessário em um modelo. Mesmo se você adi
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2016-01-01",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -423,7 +423,7 @@ O perfil de API não é um elemento necessário em um modelo. Mesmo se você adi
 
 ## <a name="check-endpoint-references"></a>Verificar referências de ponto de extremidade
 
-Os recursos podem ter referências a outros serviços na plataforma. Por exemplo, um IP público pode ter um nome DNS público atribuído a ele. A nuvem pública, as nuvens soberanas e as soluções do Azure Stack têm seus próprios namespaces de ponto de extremidade distintos. Na maioria dos casos, um recurso exige somente um prefixo como entrada no modelo. Durante o runtime, o Azure Resource Manager acrescenta o valor de ponto de extremidade a ele. Alguns valores de ponto de extremidade precisam ser especificados explicitamente no modelo. 
+Os recursos podem ter referências a outros serviços na plataforma. Por exemplo, um IP público pode ter um nome DNS público atribuído a ele. A nuvem pública, as nuvens soberanas e as soluções do Azure Stack têm seus próprios namespaces de ponto de extremidade distintos. Na maioria dos casos, um recurso exige somente um prefixo como entrada no modelo. Durante o runtime, o Azure Resource Manager acrescenta o valor de ponto de extremidade a ele. Alguns valores de ponto de extremidade precisam ser especificados explicitamente no modelo.
 
 > [!NOTE]
 > Para desenvolver modelos para consistência de nuvem, não embuta em código namespaces de ponto de extremidade.
@@ -444,7 +444,7 @@ Namespaces de ponto de extremidade também pode ser usados na saída de um model
 Em geral, evite pontos de extremidade embutidos em código em um modelo. A melhor prática é usar a função de modelo de referência para recuperar os pontos de extremidade dinamicamente. Por exemplo, o ponto de extremidade mais geralmente embutido em código é o namespace de ponto de extremidade para contas de armazenamento. Cada conta de armazenamento tem um FQDN exclusivo que é construído pela concatenação do nome da conta de armazenamento com o namespace de ponto de extremidade. Uma conta de Armazenamento de Blobs chamada mystorageaccount1 resulta em FQDNs diferentes, dependendo da nuvem:
 
 * **mystorageaccount1.blob.core.windows.net** quando criado na nuvem do Azure global.
-* **mystorageaccount1.blob.core.chinacloudapi.cn** quando criado na nuvem do Azure China.
+* **mystorageaccount1.blob.Core.chinacloudapi.cn** quando criado na nuvem da 21Vianet do Azure na China.
 
 A seguinte função de modelo de referência recupera o namespace de ponto de extremidade do provedor de recursos de armazenamento:
 
@@ -456,7 +456,7 @@ Substituindo o valor embutido em código do ponto de extremidade da conta de arm
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>Referir-se aos recursos existentes pela ID exclusiva
 
-Você também pode se referir a um recurso existente do mesmo ou de outro grupo de recursos, e na mesma assinatura ou de outra assinatura, no mesmo locatário na mesma nuvem. Para recuperar as propriedades do recurso, use o identificador exclusivo para o recurso propriamente dito. A função de modelo `resourceId` recupera a ID exclusiva de um recurso, como SQL Server, como mostra o seguinte código: 
+Você também pode se referir a um recurso existente do mesmo ou de outro grupo de recursos, e na mesma assinatura ou de outra assinatura, no mesmo locatário na mesma nuvem. Para recuperar as propriedades do recurso, use o identificador exclusivo para o recurso propriamente dito. A função de modelo `resourceId` recupera a ID exclusiva de um recurso, como SQL Server, como mostra o seguinte código:
 
 ```json
 "outputs": {
@@ -602,8 +602,8 @@ Como as extensões de VM são recursos internos do Resource Manager, elas têm s
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2015-06-15",
     "name": "myExtension",
     "location": "[parameters('location')]",
     ...
@@ -627,9 +627,9 @@ Cada extensão específica também tem um controle de versão. Essa versão é m
 
 ```json
 {
-    "name": "MyCustomScriptExtension",
     "type": "extensions",
     "apiVersion": "2016-03-30",
+    "name": "MyCustomScriptExtension",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]"
@@ -638,7 +638,7 @@ Cada extensão específica também tem um controle de versão. Essa versão é m
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.7",
-        ...   
+        ...
 ```
 
 Para recuperar uma lista das versões disponíveis de uma extensão de VM específica, use o cmdlet [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). O seguinte exemplo recupera as versões disponíveis para a extensão de VM de DSC (Desired State Configuration) do PowerShell de **myLocation**:
@@ -655,12 +655,12 @@ Para ver uma lista de fornecedores, use o comando [Get-AzureRmVmImagePublisher](
 
 A imagem a seguir mostra um exemplo típico de um processo de desenvolvimento para uma equipe usando um IDE (ambiente de desenvolvimento integrado). Em estágios diferentes na linha do tempo, diferentes tipos de teste são executados. Aqui, dois desenvolvedores estão trabalhando na mesma solução, mas esse cenário se aplica igualmente a um único desenvolvedor ou a uma equipe grande. Normalmente, cada desenvolvedor cria uma cópia local de um repositório central, permitindo que cada um trabalhe na cópia local sem afetar os outros que podem estar trabalhando nos mesmos arquivos.
 
-![Fluxo de trabalho](./media/templates-cloud-consistency/workflow.png) 
+![Fluxo de trabalho](./media/templates-cloud-consistency/workflow.png)
 
 Considere as seguintes dicas para testes e automação:
 
 * Utilize ferramentas de teste. Por exemplo, o Visual Studio Code e o Visual Studio incluem o IntelliSense e outros recursos que podem ajudá-lo a validar os modelos.
-* Para melhorar a qualidade do código durante o desenvolvimento no IDE local, faça a análise de código estático com testes de unidade e testes de integração. 
+* Para melhorar a qualidade do código durante o desenvolvimento no IDE local, faça a análise de código estático com testes de unidade e testes de integração.
 * Para obter uma experiência ainda melhor durante o desenvolvimento inicial, os testes de unidade e os testes de integração só deverão avisar quando um problema for encontrado; portanto, continue com os testes. Dessa forma, você pode identificar os problemas a serem resolvidos e priorizar a ordem das alterações, também conhecido como TDD (implantação orientada por testes).
 * Lembre-se de que alguns testes podem ser executados sem uma conexão com o Azure Resource Manager. Outros, como o teste de implantação de modelo, exigem que o Resource Manager execute determinadas ações que não podem ser executadas offline.
 * O teste de um modelo de implantação na API de validação não é igual a uma implantação real. Além disso, mesmo se você implantar um modelo de um arquivo local, as referências aos modelos aninhados no modelo serão recuperadas pelo Resource Manager diretamente, e os artefatos referenciados pelas extensões de VM serão recuperados pelo agente de VM em execução dentro da VM implantada.

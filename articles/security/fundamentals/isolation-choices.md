@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979269"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121940"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 O Azure permite que você execute aplicativos e VMs (máquinas virtuais) na infraestrutura física compartilhada. Uma das principais motivações econômicas para a execução de aplicativos em um ambiente de nuvem é a capacidade de distribuir o custo de recursos compartilhados entre vários clientes. Essa prática de multilocação aprimora a eficiência por meio da multiplexação de recursos entre diferentes clientes por custos baixos. Infelizmente, ela também apresenta o risco de compartilhar servidores físicos e outros recursos de infraestrutura a fim de executar seus aplicativos confidenciais e VMs que possam pertencer a um usuário aleatório e possivelmente malicioso.
@@ -179,7 +179,7 @@ A comunicação é permitida da VLAN de FC para a VLAN principal, mas não pode 
 ### <a name="logical-isolation-between-compute-and-storage"></a>Isolamento lógico entre computação e armazenamento
 Como parte de seu design fundamental, o Microsoft Azure separa a computação baseada em VM do armazenamento. Essa separação permite que a computação e o armazenamento sejam escalados de maneira independente, facilitando o fornecimento do isolamento e da multilocação.
 
-Portanto, o Armazenamento do Azure é executado em um hardware separado sem conectividade de rede com a Computação do Azure, exceto logicamente. [Isso](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) significa que, quando um disco virtual é criado, o espaço em disco não é alocado totalmente. Em vez disso, uma tabela é criada mapeando endereços no disco virtual para áreas no disco físico, e essa tabela é inicialmente vazia. **Na primeira vez que um cliente grava dados no disco virtual, o espaço no disco físico é alocado e um ponteiro até ele é posicionado na tabela.**
+Portanto, o Armazenamento do Azure é executado em um hardware separado sem conectividade de rede com a Computação do Azure, exceto logicamente. Isso significa que, quando um disco virtual é criado, o espaço em disco não é alocado para sua capacidade inteira. Em vez disso, uma tabela é criada mapeando endereços no disco virtual para áreas no disco físico, e essa tabela é inicialmente vazia. **Na primeira vez que um cliente grava dados no disco virtual, o espaço no disco físico é alocado e um ponteiro até ele é posicionado na tabela.**
 ### <a name="isolation-using-storage-access-control"></a>Isolamento usando o Controle de acesso de armazenamento
 **O Controle de acesso no Armazenamento do Azure** tem um modelo de controle de acesso simples. Cada assinatura do Azure pode criar uma ou mais Contas de armazenamento. Cada Conta de armazenamento tem uma única chave secreta usada para controlar o acesso a todos os dados na Conta de armazenamento.
 
@@ -320,14 +320,6 @@ A implantação do Azure têm vários níveis de isolamento de rede. O diagrama 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Opções de isolamento de rede para computadores em redes virtuais do Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- Saiba mais sobre [as opções de isolamento de rede para computadores nas redes virtuais do Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Isso inclui o cenário de front-end e back-end clássico em que as máquinas em uma rede de back-end específica ou sub-rede podem permitir que apenas determinados clientes ou outros computadores se conectem a um ponto de extremidade específico com base em uma lista de permissões de endereços IP.
 
-Isso inclui o cenário de front-end e back-end clássico em que as máquinas em uma rede de back-end específica ou sub-rede podem permitir que apenas determinados clientes ou outros computadores se conectem a um ponto de extremidade específico com base em uma lista de permissões de endereços IP.
-
-- [Isolamento de computação](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-O Microsoft Azure fornece vários serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa.
-
-- [Isolamento de armazenamento](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-O Microsoft Azure separa a computação baseada em VM do cliente do armazenamento. Essa separação permite que a computação e o armazenamento sejam escalados de maneira independente, facilitando o fornecimento do isolamento e da multilocação. Portanto, o Armazenamento do Azure é executado em um hardware separado sem conectividade de rede com a Computação do Azure, exceto logicamente. Todas as solicitações são executadas via HTTP ou HTTPS com base na escolha do cliente.
+- Saiba mais sobre o [isolamento de máquina virtual no Azure](../../virtual-machines/windows/isolation.md). A computação do Azure oferece tamanhos de máquina virtual que são isolados para um tipo de hardware específico e dedicados a um único cliente.

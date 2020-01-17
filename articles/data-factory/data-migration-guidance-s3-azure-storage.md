@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927471"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122637"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Use Azure Data Factory para migrar dados do Amazon S3 para o armazenamento do Azure 
 
@@ -47,7 +47,7 @@ A figura acima ilustra como você pode obter grandes velocidades de movimentaç�
 
 Dentro de uma única execução da atividade de cópia, o ADF tem um mecanismo de repetição interno para que possa lidar com um certo nível de falhas transitórias nos armazenamentos de dados ou na rede subjacente. 
 
-Ao fazer cópias binárias de S3 para BLOB e de S3 para ADLS Gen2, o ADF executa automaticamente o ponto de verificação.  Se uma execução de atividade de cópia tiver falhado ou atingido o tempo limite, em uma nova tentativa subsequente (certifique-se de repetir a contagem > 1), a cópia será retomada do último ponto de falha em vez de começar do início. 
+Ao fazer cópias binárias de S3 para BLOB e de S3 para ADLS Gen2, o ADF executa automaticamente o ponto de verificação.  Se uma execução da atividade de cópia tiver falhado ou expirar, em uma nova tentativa subsequente, a cópia será retomada do último ponto de falha em vez de começar do início. 
 
 ## <a name="network-security"></a>Segurança de rede 
 
@@ -86,72 +86,72 @@ Migrar dados por link privado:
 
 ### <a name="initial-snapshot-data-migration"></a>Migração de dados de instantâneo inicial 
 
-A partição de dados é recomendada especialmente ao migrar mais de 10 TB de dados.  Para particionar os dados, aproveite a configuração ' prefix ' para filtrar as pastas e os arquivos no Amazon S3 por nome e, em seguida, cada trabalho de cópia do ADF pode copiar uma partição de cada vez.  Você pode executar vários trabalhos de cópia do ADF simultaneamente para obter uma melhor taxa de transferência. 
+A partição de dados é recomendada especialmente ao migrar mais de 100 TB de dados.  Para particionar os dados, aproveite a configuração ' prefix ' para filtrar as pastas e os arquivos no Amazon S3 por nome e, em seguida, cada trabalho de cópia do ADF pode copiar uma partição de cada vez.  You can run multiple ADF copy jobs concurrently for better throughput. 
 
-Se qualquer um dos trabalhos de cópia falhar devido a um problema transitório de rede ou de armazenamento de dados, você poderá executar novamente o trabalho de cópia com falha para recarregar essa partição específica novamente do AWS S3.  Todos os outros trabalhos de cópia que carregam outras partições não serão afetados. 
+If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from AWS S3.  All other copy jobs loading other partitions will not be impacted. 
 
-### <a name="delta-data-migration"></a>Migração de dados Delta 
+### <a name="delta-data-migration"></a>Delta data migration 
 
-A maneira mais eficaz de identificar arquivos novos ou alterados do AWS S3 é usar a Convenção de nomenclatura com particionamento de tempo – quando os dados no AWS S3 tiverem sido particionados com informações de fatia de tempo no nome do arquivo ou da pasta (por exemplo,/yyyy/mm/dd/File.csv), o pipeline poderá identificar facilmente quais arquivos/pastas serão copiados incrementalmente. 
+The most performant way to identify new or changed files from AWS S3 is by using time-partitioned naming convention – when your data in AWS S3 has been time partitioned with time slice information in the file or folder name (for example, /yyyy/mm/dd/file.csv), then your pipeline can easily identify which files/folders to copy incrementally. 
 
-Como alternativa, se seus dados no AWS S3 não estiverem com o tempo particionado, o ADF poderá identificar arquivos novos ou alterados por seu LastModifiedDate.   A maneira como ele funciona é que o ADF examinará todos os arquivos do AWS S3 e copiará apenas o arquivo novo e atualizado cujo carimbo de data/hora da última modificação seja maior que um determinado valor.  Lembre-se de que, se você tiver um grande número de arquivos no S3, a verificação de arquivo inicial poderá demorar muito tempo, independentemente de quantos arquivos corresponderem à condição do filtro.  Nesse caso, é recomendável particionar os dados primeiro, usando a mesma configuração de "prefixo" para a migração de instantâneo inicial, para que a verificação de arquivo possa ocorrer em paralelo.  
+Alternatively, If your data in AWS S3 is not time partitioned, ADF can identify new or changed files by their LastModifiedDate.   The way it works is that ADF will scan all the files from AWS S3, and only copy the new and updated file whose last modified timestamp is greater than a certain value.  Be aware that if you have a large number of files in S3, the initial file scanning could take a long time regardless of how many files match the filter condition.  In this case you are suggested to partition the data first, using the same ‘prefix’ setting for initial snapshot migration, so that the file scanning can happen in parallel.  
 
-### <a name="for-scenarios-that-require-self-hosted-integration-runtime-on-azure-vm"></a>Para cenários que exigem o tempo de execução de integração auto-hospedado na VM do Azure 
+### <a name="for-scenarios-that-require-self-hosted-integration-runtime-on-azure-vm"></a>For scenarios that require self-hosted Integration runtime on Azure VM 
 
-Se você estiver migrando dados sobre o link privado ou se quiser permitir um intervalo IP específico no firewall do Amazon S3, será necessário instalar o tempo de execução de integração auto-hospedado na VM do Windows do Azure. 
+Whether you are migrating data over private link or you want to allow specific IP range on Amazon S3 firewall, you need to install self-hosted Integration runtime on Azure Windows VM. 
 
-- A configuração recomendada para começar com o para cada VM do Azure é Standard_D32s_v3 com 32 vCPU e 128 GB de memória.  Você pode continuar monitorando a utilização de CPU e de memória da VM IR durante a migração de dados para ver se você precisa escalar verticalmente a VM para melhorar o desempenho ou reduzir verticalmente a VM para economizar custo. 
-- Você também pode escalar horizontalmente associando até quatro nós de VM com um único IR de hospedagem interna.  Um único trabalho de cópia em execução em um IR de hospedagem interna particionará automaticamente o conjunto de arquivos e utilizará todos os nós de VM para copiar os arquivos em paralelo.  Para alta disponibilidade, é recomendável começar com 2 nós de VM para evitar um único ponto de falha durante a migração de dados. 
+- The recommend configuration to start with for each Azure VM is Standard_D32s_v3 with 32 vCPU and 128-GB memory.  You can keep monitoring CPU and memory utilization of the IR VM during the data migration to see if you need to further scale up the VM for better performance or scale down the VM to save cost. 
+- You can also scale out by associating up to 4 VM nodes with a single self-hosted IR.  A single copy job running against a self-hosted IR will automatically partition the file set and leverage all VM nodes to copy the files in parallel.  For high availability, you are recommended to start with 2 VM nodes to avoid single point of failure during the data migration. 
 
 ### <a name="rate-limiting"></a>Limitação de taxa 
 
-Como prática recomendada, realize uma POC de desempenho com um conjunto de exemplo representativo, para que você possa determinar um tamanho de partição apropriado. 
+As a best practice, conduct a performance POC with a representative sample dataset, so that you can determine an appropriate partition size. 
 
-Comece com uma única partição e uma única atividade de cópia com a configuração padrão DIU.  Aumente gradualmente a configuração de DIU até atingir o limite de largura de banda de sua rede ou o limite de IOPS/largura de banda dos armazenamentos de dados, ou se você tiver atingido o máximo de 256 DIU permitido em uma única atividade de cópia. 
+Start with a single partition and a single copy activity with default DIU setting.  Gradually increase the DIU setting until you reach the bandwidth limit of your network or IOPS/bandwidth limit of the data stores, or you have reached the max 256 DIU allowed on a single copy activity. 
 
-Em seguida, Aumente gradualmente o número de atividades de cópia simultâneas até atingir os limites do seu ambiente. 
+Next, gradually increase the number of concurrent copy activities until you reach limits of your environment. 
 
-Quando você encontrar erros de limitação relatados pela atividade de cópia do ADF, reduza a configuração de simultaneidade ou DIU no ADF ou considere aumentar os limites de largura de banda/IOPS da rede e dos armazenamentos de dados.  
+When you encounter throttling errors reported by ADF copy activity, either reduce the concurrency or DIU setting in ADF, or consider increasing the bandwidth/IOPS limits of the network and data stores.  
 
-### <a name="estimating-price"></a>Estimando o preço 
+### <a name="estimating-price"></a>Estimating Price 
 
 > [!NOTE]
-> Este é um exemplo de preço hipotético.  Seu preço real depende da taxa de transferência real em seu ambiente.
+> This is a hypothetical pricing example.  Your actual pricing depends on the actual throughput in your environment.
 
-Considere o pipeline a seguir construído para migrar dados do S3 para o armazenamento de BLOBs do Azure: 
+Consider the following pipeline constructed for migrating data from S3 to Azure Blob Storage: 
 
-![preço-pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![pricing-pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
-Vamos supor o seguinte: 
+Let us assume the following: 
 
-- O volume de dados total é 2 PB 
-- Migrando dados por HTTPS usando a primeira arquitetura da solução 
-- 2 PB são divididos em partições de 1 K e cada cópia move uma partição 
-- Cada cópia é configurada com DIU = 256 e atinge uma taxa de transferência de 1 GBps 
-- A simultaneidade ForEach está definida como 2 e a taxa de transferência agregada é de 2 GBps 
-- No total, leva 292 horas para concluir a migração 
+- Total data volume is 2 PB 
+- Migrating data over HTTPS using first solution architecture 
+- 2 PB is divided into 1 K partitions and each copy moves one partition 
+- Each copy is configured with DIU=256 and achieves 1 GBps throughput 
+- ForEach concurrency is set to 2 and aggregate throughput is 2 GBps 
+- In total, it takes 292 hours to complete the migration 
 
-Este é o preço estimado com base nas suposições acima: 
+Here is the estimated price based on the above assumptions: 
 
-![preço-tabela](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![pricing-table](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Referências adicionais 
-- [Conector de serviço de armazenamento simples da Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
+- [Amazon Simple Storage Service connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
 - [Azure Blob Storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage) (Conector do Armazenamento de Blobs do Azure)
 - [Conector do Azure Data Lake Store Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Criando e configurando Integration Runtime auto-hospedados](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Escalabilidade e alta disponibilidade do tempo de execução de integração auto-hospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Considerações de segurança de movimentação de dados](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Armazenar credenciais no Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Copiar arquivo incrementalmente com base no nome do arquivo particionado](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Copiar arquivos novos e alterados com base em LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
-- [Página de preços do ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+- [Copy activity performance tuning guide](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+- [Creating and configuring self-hosted Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+- [Self-hosted integration runtime HA and scalability](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
+- [Data movement security considerations](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+- [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Copy file incrementally based on time partitioned file name](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
+- [Copy new and changed files based on LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [ADF pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Modelo
 
-Aqui está o [modelo](solution-template-migration-s3-azure.md) para começar a migrar petabytes de dados que consistem em centenas de milhões de arquivos do Amazon S3 para Azure data Lake Storage Gen2.
+Here is the [template](solution-template-migration-s3-azure.md) to start with to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Copiar arquivos de vários contêineres com Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)

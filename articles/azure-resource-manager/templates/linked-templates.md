@@ -3,12 +3,12 @@ title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 5d01aa8df6eba9b4e68937434dffae315a445cc8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d278ba05fd8230a3573983a631e4e347ff31e4f
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477441"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119822"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -28,25 +28,25 @@ Para aninhar um modelo, adicione um [recurso de implantações](/azure/templates
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "apiVersion": "2017-05-10",
-            "name": "nestedTemplate1",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                  <nested-template-syntax>
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "name": "nestedTemplate1",
+      "apiVersion": "2017-05-10",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          <nested-template-syntax>
         }
-    ],
-    "outputs": {
+      }
     }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -54,41 +54,41 @@ O exemplo a seguir implanta uma conta de armazenamento por meio de um modelo ani
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-05-10",
-            "name": "nestedTemplate1",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "resources": [
-                        {
-                            "type": "Microsoft.Storage/storageAccounts",
-                            "apiVersion": "2019-04-01",
-                            "name": "[parameters('storageAccountName')]",
-                            "location": "West US",
-                            "kind": "StorageV2",
-                            "sku": {
-                                "name": "Standard_LRS"
-                            }
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "outputs": {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
     }
+  },
+  "resources": [
+    {
+      "name": "nestedTemplate1",
+      "apiVersion": "2017-05-10",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2019-04-01",
+              "name": "[parameters('storageAccountName')]",
+              "location": "West US",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "StorageV2"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -100,61 +100,61 @@ Você define o escopo por meio da propriedade `expressionEvaluationOptions`. Por
 
 ```json
 {
+  "type": "Microsoft.Resources/deployments",
   "apiVersion": "2017-05-10",
   "name": "nestedTemplate1",
-  "type": "Microsoft.Resources/deployments",
   "properties": {
-    "expressionEvaluationOptions": {
-      "scope": "inner"
-    },
-    ...
+  "expressionEvaluationOptions": {
+    "scope": "inner"
+  },
+  ...
 ```
 
 O modelo a seguir demonstra como as expressões de modelo são resolvidas de acordo com o escopo. Ele contém uma variável chamada `exampleVar` que é definida no modelo pai e no modelo aninhado. Ele retorna o valor da variável.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-        "exampleVar": "from parent template"
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-05-10",
-            "name": "nestedTemplate1",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "expressionEvaluationOptions": {
-                    "scope": "inner"
-                },
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "variables": {
-                        "exampleVar": "from nested template"
-                    },
-                    "resources": [
-                    ],
-                    "outputs": {
-                        "testVar": {
-                            "type": "string",
-                            "value": "[variables('exampleVar')]"
-                        }
-                    }
-                }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "variables": {
+    "exampleVar": "from parent template"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "nestedTemplate1",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "variables": {
+            "exampleVar": "from nested template"
+          },
+          "resources": [
+          ],
+          "outputs": {
+            "testVar": {
+              "type": "string",
+              "value": "[variables('exampleVar')]"
             }
+          }
         }
-    ],
-    "outputs": {
-        "messageFromLinkedTemplate": {
-            "type": "string",
-            "value": "[reference('nestedTemplate1').outputs.testVar.value]"
-        }
+      }
     }
+  ],
+  "outputs": {
+    "messageFromLinkedTemplate": {
+      "type": "string",
+      "value": "[reference('nestedTemplate1').outputs.testVar.value]"
+    }
+  }
 }
 ```
 
@@ -169,109 +169,109 @@ O exemplo a seguir implanta um SQL Server e recupera um segredo do Key Vault a s
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "The location where the resources will be deployed."
-            }
-        },
-        "vaultName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the keyvault that contains the secret."
-            }
-        },
-        "secretName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the secret."
-            }
-        },
-        "vaultResourceGroupName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the resource group that contains the keyvault."
-            }
-        },
-        "vaultSubscription": {
-            "type": "string",
-            "defaultValue": "[subscription().subscriptionId]",
-            "metadata": {
-                "description": "The name of the subscription that contains the keyvault."
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "The location where the resources will be deployed."
+      }
     },
-    "resources": [
-        {
-            "apiVersion": "2018-05-01",
-            "name": "dynamicSecret",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "expressionEvaluationOptions": {
-                    "scope": "inner"
-                },
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "adminLogin": {
-                            "type": "string"
-                        },
-                        "adminPassword": {
-                            "type": "securestring"
-                        },
-                        "location": {
-                            "type": "string"
-                        }
-                    },
-                    "variables": {
-                        "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
-                    },
-                    "resources": [
-                        {
-                            "name": "[variables('sqlServerName')]",
-                            "type": "Microsoft.Sql/servers",
-                            "apiVersion": "2018-06-01-preview",
-                            "location": "[parameters('location')]",
-                            "properties": {
-                                "administratorLogin": "[parameters('adminLogin')]",
-                                "administratorLoginPassword": "[parameters('adminPassword')]"
-                            }
-                        }
-                    ],
-                    "outputs": {
-                        "sqlFQDN": {
-                            "type": "string",
-                            "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
-                        }
-                    }
-                },
-                "parameters": {
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
-                    "adminLogin": {
-                        "value": "ghuser"
-                    },
-                    "adminPassword": {
-                        "reference": {
-                            "keyVault": {
-                                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-                            },
-                            "secretName": "[parameters('secretName')]"
-                        }
-                    }
-                }
-            }
-        }
-    ],
-    "outputs": {
+    "vaultName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the keyvault that contains the secret."
+      }
+    },
+    "secretName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the secret."
+      }
+    },
+    "vaultResourceGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the resource group that contains the keyvault."
+      }
+    },
+    "vaultSubscription": {
+      "type": "string",
+      "defaultValue": "[subscription().subscriptionId]",
+      "metadata": {
+        "description": "The name of the subscription that contains the keyvault."
+      }
     }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "dynamicSecret",
+      "properties": {
+        "mode": "Incremental",
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminLogin": {
+              "type": "string"
+            },
+            "adminPassword": {
+              "type": "securestring"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "variables": {
+            "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Sql/servers",
+              "apiVersion": "2018-06-01-preview",
+              "name": "[variables('sqlServerName')]",
+              "location": "[parameters('location')]",
+              "properties": {
+                "administratorLogin": "[parameters('adminLogin')]",
+                "administratorLoginPassword": "[parameters('adminPassword')]"
+              }
+            }
+          ],
+          "outputs": {
+            "sqlFQDN": {
+              "type": "string",
+              "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
+            }
+          }
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -285,26 +285,26 @@ Para vincular um modelo, adicione um [recurso de implantações](/azure/template
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                  "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-                  "contentVersion":"1.0.0.0"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+          "contentVersion":"1.0.0.0"
         }
-    ],
-    "outputs": {
+      }
     }
+  ],
+  "outputs": {
+  }
 }
 ```
 
@@ -319,20 +319,20 @@ Você pode fornecer os parâmetros para o modelo vinculado, seja em um arquivo e
 ```json
 "resources": [
   {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
-    "name": "linkedTemplate",
-    "properties": {
-      "mode": "Incremental",
-      "templateLink": {
-        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-        "contentVersion":"1.0.0.0"
-      },
-      "parametersLink": {
-        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-        "contentVersion":"1.0.0.0"
-      }
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2018-05-01",
+  "name": "linkedTemplate",
+  "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+    "contentVersion":"1.0.0.0"
+    },
+    "parametersLink": {
+    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+    "contentVersion":"1.0.0.0"
     }
+  }
   }
 ]
 ```
@@ -342,19 +342,19 @@ Para passar valores de parâmetro embutidos, use a propriedade **Parameters** .
 ```json
 "resources": [
   {
-     "type": "Microsoft.Resources/deployments",
-     "apiVersion": "2018-05-01",
-     "name": "linkedTemplate",
-     "properties": {
-       "mode": "Incremental",
-       "templateLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-          "contentVersion":"1.0.0.0"
-       },
-       "parameters": {
-          "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
-        }
-     }
+   "type": "Microsoft.Resources/deployments",
+   "apiVersion": "2018-05-01",
+   "name": "linkedTemplate",
+   "properties": {
+     "mode": "Incremental",
+     "templateLink": {
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+      "contentVersion":"1.0.0.0"
+     },
+     "parameters": {
+      "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
+    }
+   }
   }
 ]
 ```
@@ -370,42 +370,42 @@ O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
 ```json
 "resources": [
   {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
-    "name": "[concat('nestedTemplate', copyIndex())]",
-    // yes, copy works here
-    "copy":{
-      "name": "storagecopy",
-      "count": 2
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2018-05-01",
+  "name": "[concat('nestedTemplate', copyIndex())]",
+  // yes, copy works here
+  "copy":{
+    "name": "storagecopy",
+    "count": 2
+  },
+  "properties": {
+    "mode": "Incremental",
+    "expressionEvaluationOptions": {
+    "scope": "inner"
     },
-    "properties": {
-      "mode": "Incremental",
-      "expressionEvaluationOptions": {
-        "scope": "inner"
+    "template": {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+      {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(variables('storageName'), copyIndex())]",
+      "location": "West US",
+      "sku": {
+        "name": "Standard_LRS"
       },
-      "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[concat(variables('storageName'), copyIndex())]",
-            "location": "West US",
-            "kind": "StorageV2",
-            "sku": {
-              "name": "Standard_LRS"
-            }
-            // Copy works here when scope is inner
-            // But, when scope is default or outer, you get an error
-            //"copy":{
-            //  "name": "storagecopy",
-            //  "count": 2
-            //}
-          }
-        ]
+      "kind": "StorageV2"
+      // Copy works here when scope is inner
+      // But, when scope is default or outer, you get an error
+      //"copy":{
+      //  "name": "storagecopy",
+      //  "count": 2
+      //}
       }
+    ]
     }
+  }
   }
 ]
 ```
@@ -418,9 +418,9 @@ O exemplo a seguir mostra como usar uma URL base para criar duas URLs para model
 
 ```json
 "variables": {
-    "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-    "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-    "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
 }
 ```
 
@@ -428,7 +428,7 @@ Você também pode usar [deployment()](template-functions-deployment.md#deployme
 
 ```json
 "variables": {
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
 ```
 
@@ -442,17 +442,17 @@ Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e r
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [],
-    "outputs": {
-        "greetingMessage": {
-            "value": "Hello World",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "greetingMessage": {
+      "value": "Hello World",
+      "type" : "string"
     }
+  }
 }
 ```
 
@@ -460,30 +460,30 @@ O modelo principal implanta o modelo vinculado e obtém o valor retornado. Obser
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
-            "name": "linkedTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
-                    "contentVersion": "1.0.0.0"
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
+          "contentVersion": "1.0.0.0"
         }
-    ],
-    "outputs": {
-        "messageFromLinkedTemplate": {
-            "type": "string",
-            "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
-        }
+      }
     }
+  ],
+  "outputs": {
+    "messageFromLinkedTemplate": {
+      "type": "string",
+      "value": "[reference('linkedTemplate').outputs.greetingMessage.value]"
+    }
+  }
 }
 ```
 
@@ -493,34 +493,34 @@ O exemplo a seguir mostra um modelo que implanta um endereço IP público e reto
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "publicIPAddresses_name": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2018-11-01",
-            "name": "[parameters('publicIPAddresses_name')]",
-            "location": "eastus",
-            "properties": {
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
-                "idleTimeoutInMinutes": 4
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "resourceID": {
-            "type": "string",
-            "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "publicIPAddresses_name": {
+      "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2018-11-01",
+      "name": "[parameters('publicIPAddresses_name')]",
+      "location": "eastus",
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Dynamic",
+        "idleTimeoutInMinutes": 4
+      },
+      "dependsOn": []
+    }
+  ],
+  "outputs": {
+    "resourceID": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+    }
+  }
 }
 ```
 
@@ -528,64 +528,64 @@ Para usar o endereço IP público do modelo anterior ao implantar um balanceador
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "loadBalancers_name": {
-            "defaultValue": "mylb",
-            "type": "string"
-        },
-        "publicIPAddresses_name": {
-            "defaultValue": "myip",
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "loadBalancers_name": {
+      "defaultValue": "mylb",
+      "type": "string"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Network/loadBalancers",
-            "apiVersion": "2018-11-01",
-            "name": "[parameters('loadBalancers_name')]",
-            "location": "eastus",
+    "publicIPAddresses_name": {
+      "defaultValue": "myip",
+      "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/loadBalancers",
+      "apiVersion": "2018-11-01",
+      "name": "[parameters('loadBalancers_name')]",
+      "location": "eastus",
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "LoadBalancerFrontEnd",
             "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "LoadBalancerFrontEnd",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
-                            }
-                        }
-                    }
-                ],
-                "backendAddressPools": [],
-                "loadBalancingRules": [],
-                "probes": [],
-                "inboundNatRules": [],
-                "outboundNatRules": [],
-                "inboundNatPools": []
-            },
-            "dependsOn": [
-                "linkedTemplate"
-            ]
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
-            "name": "linkedTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters":{
-                    "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
-                }
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+              }
             }
+          }
+        ],
+        "backendAddressPools": [],
+        "loadBalancingRules": [],
+        "probes": [],
+        "inboundNatRules": [],
+        "outboundNatRules": [],
+        "inboundNatPools": []
+      },
+      "dependsOn": [
+        "linkedTemplate"
+      ]
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters":{
+          "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
@@ -599,37 +599,37 @@ Você pode usar essas entradas separadas no histórico para recuperar valores de
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "publicIPAddresses_name": {
-            "type": "string"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2018-11-01",
-            "name": "[parameters('publicIPAddresses_name')]",
-            "location": "southcentralus",
-            "properties": {
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Static",
-                "idleTimeoutInMinutes": 4,
-                "dnsSettings": {
-                    "domainNameLabel": "[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]"
-                }
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "returnedIPAddress": {
-            "type": "string",
-            "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "publicIPAddresses_name": {
+      "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2018-11-01",
+      "name": "[parameters('publicIPAddresses_name')]",
+      "location": "southcentralus",
+      "properties": {
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "idleTimeoutInMinutes": 4,
+        "dnsSettings": {
+          "domainNameLabel": "[concat(parameters('publicIPAddresses_name'), uniqueString(resourceGroup().id))]"
+        }
+      },
+      "dependsOn": []
+    }
+  ],
+  "outputs": {
+    "returnedIPAddress": {
+      "type": "string",
+      "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]"
+    }
+  }
 }
 ```
 
@@ -637,32 +637,32 @@ Os seguintes links de modelo para o modelo anterior. Ele cria três endereços I
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
-            "name": "[concat('linkedTemplate', copyIndex())]",
-            "copy": {
-                "count": 3,
-                "name": "ip-loop"
-            },
-            "properties": {
-              "mode": "Incremental",
-              "templateLink": {
-                "uri": "[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]",
-                "contentVersion": "1.0.0.0"
-              },
-              "parameters":{
-                  "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
-              }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "[concat('linkedTemplate', copyIndex())]",
+      "copy": {
+        "count": 3,
+        "name": "ip-loop"
+      },
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+        "uri": "[uri(deployment().properties.templateLink.uri, 'static-public-ip.json')]",
+        "contentVersion": "1.0.0.0"
+        },
+        "parameters":{
+          "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
@@ -672,9 +672,9 @@ Após a implantação, você pode recuperar os valores de saída com o seguinte 
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
-    $name = 'linkedTemplate' + $i;
-    $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
-    Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
+  $name = 'linkedTemplate' + $i;
+  $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+  Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
 }
 ```
 
@@ -685,10 +685,10 @@ Ou, script da CLI do Azure em um shell Bash:
 
 for i in 0 1 2;
 do
-    name="linkedTemplate$i";
-    deployment=$(az group deployment show -g examplegroup -n $name);
-    ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
-    echo "deployment $name returned $ip";
+  name="linkedTemplate$i";
+  deployment=$(az group deployment show -g examplegroup -n $name);
+  ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
+  echo "deployment $name returned $ip";
 done
 ```
 
@@ -707,21 +707,21 @@ O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "string" }
   },
   "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
-      "name": "linkedTemplate",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-          "contentVersion": "1.0.0.0"
-        }
-      }
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+      "contentVersion": "1.0.0.0"
     }
+    }
+  }
   ],
   "outputs": {
   }
@@ -744,20 +744,20 @@ Para a CLI do Azure em um shell Bash, você obtém um token para o contêiner e 
 
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
-    --resource-group ManageGroup \
-    --name storagecontosotemplates \
-    --query connectionString)
+  --resource-group ManageGroup \
+  --name storagecontosotemplates \
+  --query connectionString)
 token=$(az storage container generate-sas \
-    --name templates \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
+  --name templates \
+  --expiry $expiretime \
+  --permissions r \
+  --output tsv \
+  --connection-string $connection)
 url=$(az storage blob url \
-    --container-name templates \
-    --name parent.json \
-    --output tsv \
-    --connection-string $connection)
+  --container-name templates \
+  --name parent.json \
+  --output tsv \
+  --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
 az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```

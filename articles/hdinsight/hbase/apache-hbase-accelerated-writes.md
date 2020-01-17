@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179098"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156923"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do Azure HDInsight para o Apache HBase
 
@@ -37,7 +37,7 @@ O recurso de gravações aceleradas resolve o problema de latências de gravaç�
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como habilitar gravações aceleradas para o HBase no HDInsight
 
-Para criar um novo cluster HBase com o recurso de gravações aceleradas, siga as etapas em [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) até chegar à **etapa 3, armazenamento**. Em **configurações do metastore**, clique na caixa de seleção ao lado de **habilitar gravações aceleradas (versão prévia)** . Em seguida, continue com as etapas restantes para a criação do cluster.
+Para criar um novo cluster HBase com o recurso de gravações aceleradas, siga as etapas em [Configurar clusters no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) até chegar à **etapa 3, armazenamento**. Em **configurações do metastore**, clique na caixa de seleção ao lado de **habilitar gravações aceleradas**. Em seguida, continue com as etapas restantes para a criação do cluster.
 
 ![Habilitar a opção de gravações aceleradas para o Apache HBase do HDInsight](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 
@@ -61,7 +61,7 @@ Seguir essas etapas garantirá uma redução bem-sucedida da escala e evitará a
 
 Se o seu namenode entrar em modo de segurança após uma redução para baixo, use os comandos do HDFS para replicar novamente os blocos em replicação e obtenha o HDFS fora do modo seguro. Essa rereplicação permitirá que você reinicie o HBase com êxito.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Documentação oficial do Apache HBase no [recurso log de write-ahead](https://hbase.apache.org/book.html#wal)
 * Para atualizar o cluster do Apache HBase do HDInsight para usar gravações aceleradas, consulte [migrar um cluster do Apache HBase para uma nova versão](apache-hbase-migrate-new-version.md).

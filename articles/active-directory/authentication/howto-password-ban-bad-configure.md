@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb47b9df51803c76662b5fb4ca1fe23740e7af9a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847908"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155039"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de senhas proibidas personalizada
 
@@ -26,7 +26,7 @@ Muitas organizações descobrem que seus usuários criam senhas usando palavras 
 
 A configuração da lista de senhas proibidas personalizada exige uma licença do Azure Active Directory Premium P1 ou P2. Para obter informações mais detalhadas sobre Azure Active Directory licenciamento, consulte a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory**, métodos de **autenticação**e proteção por **senha**.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até **Azure Active Directory** > **métodos de autenticação** > de **segurança** > **proteção por senha**.
 1. Defina a opção **Impor lista personalizada** para **Sim**.
 1. Adicione cadeias de caracteres à **Lista de senhas proibidas personalizada**, uma cadeia de caracteres por linha
    * A lista de senhas excluídas personalizada pode conter até 1000 termos.
@@ -59,6 +59,6 @@ Quando um usuário tenta redefinir uma senha para algo que seria banido, ele vê
 
 [Visão geral conceitual das listas de senhas proibidas](concept-password-ban-bad.md)
 
-[Visão geral conceitual de proteção por senha do Azure AD](concept-password-ban-bad-on-premises.md)
+[ Visão geral conceitual da proteção por senha do Azure AD ](concept-password-ban-bad-on-premises.md)
 
 [Habilitar integração local com as listas de senhas proibidas](howto-password-ban-bad-on-premises.md)

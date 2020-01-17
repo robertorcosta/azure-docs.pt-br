@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921100"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121277"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associações do Azure Cosmos DB para o Azure Functions 2.x
 
@@ -255,9 +255,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo** || Deve ser definido como `cosmosDBTrigger`. |
-|**direction** || Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** || O nome da variável usado no código de função que representa a lista de documentos com alterações. |
+|**tipo** | N/D | Deve ser definido como `cosmosDBTrigger`. |
+|**direction** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**databaseName**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
@@ -1737,9 +1737,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo**     || Deve ser definido como `cosmosDB`.        |
-|**direction**     || Deve ser definido como `in`.         |
-|**name**     || Nome do parâmetro de associação que representa o documento na função.  |
+|**tipo**     | N/D | Deve ser definido como `cosmosDB`.        |
+|**direction**     | N/D | Deve ser definido como `in`.         |
+|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
 |**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
@@ -2366,9 +2366,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo**     || Deve ser definido como `cosmosDB`.        |
-|**direction**     || Deve ser definido como `out`.         |
-|**name**     || Nome do parâmetro de associação que representa o documento na função.  |
+|**tipo**     | N/D | Deve ser definido como `cosmosDB`.        |
+|**direction**     | N/D | Deve ser definido como `out`.         |
+|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/cosmos-db/).  |

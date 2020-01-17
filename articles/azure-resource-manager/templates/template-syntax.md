@@ -3,12 +3,12 @@ title: Estrutura e sintaxe do modelo
 description: Descreve a estrutura e as propriedades dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4cebe017793bc167f0a78c0be2f24154dc27b3c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7f9b964212d7b8056895aa1c6826766315af2ec2
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483889"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122059"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager
 
@@ -185,33 +185,17 @@ Você define recursos com a seguinte estrutura:
 "resources": [
   {
       "condition": "<true-to-deploy-this-resource>",
-      "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
+      "apiVersion": "<api-version-of-resource>",
       "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-      "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-      },
       "comments": "<your-reference-notes>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": <number-of-iterations>,
-          "mode": "<serial-or-parallel>",
-          "batchSize": <number-to-deploy-serially>
-      },
+      "location": "<location-of-resource>",
       "dependsOn": [
           "<array-of-related-resource-names>"
       ],
-      "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-              {
-                  "name": ,
-                  "count": ,
-                  "input": {}
-              }
-          ]
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
       },
       "sku": {
           "name": "<sku-name>",
@@ -221,12 +205,28 @@ Você define recursos com a seguinte estrutura:
           "capacity": <sku-capacity>
       },
       "kind": "<type-of-resource>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": <number-of-iterations>,
+          "mode": "<serial-or-parallel>",
+          "batchSize": <number-to-deploy-serially>
+      },
       "plan": {
           "name": "<plan-name>",
           "promotionCode": "<plan-promotion-code>",
           "publisher": "<plan-publisher>",
           "product": "<plan-product>",
           "version": "<plan-version>"
+      },
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
       },
       "resources": [
           "<array-of-child-resources>"
@@ -238,18 +238,18 @@ Você define recursos com a seguinte estrutura:
 | Nome do elemento | Obrigatório | Description |
 |:--- |:--- |:--- |
 | condition | Não | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando for `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. Consulte a [condição](conditional-resource-deployment.md). |
-| apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | type |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
+| apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Os serviços do Azure que expõem o nome do recurso a partes externas validam o nome para verificar se não há uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
-| local |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recurso exige um local, ao contrário de alguns deles (como uma atribuição de função). Consulte [definir local do recurso](resource-location.md). |
-| marcas |Não |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
 | comments |Não |Suas anotações para documentar os recursos no modelo. Para obter mais informações, confira [Comentários em modelos](template-syntax.md#comments). |
-| copy |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial quando você não deseja que todos os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](create-multiple-instances.md). |
+| local |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recurso exige um local, ao contrário de alguns deles (como uma atribuição de função). Consulte [definir local do recurso](resource-location.md). |
 | dependsOn |Não |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, eles são implantados em paralelo. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Os recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como configurar as dependências, confira [Definir as dependências nos modelos do Azure Resource Manager](define-resource-dependency.md). |
-| properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Especifique também uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
+| marcas |Não |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
 | sku | Não | Alguns recursos permitem que os valores definam a SKU para implantar. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
 | kind | Não | Alguns recursos permitem que um valor defina o tipo de recurso que você implantar. Por exemplo, você pode especificar o tipo de Cosmos DB para criar. |
+| copy |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial quando você não deseja que todos os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](create-multiple-instances.md). |
 | plan | Não | Alguns recursos permitem que um valor defina o plano para implantar. Por exemplo, você pode especificar a imagem do marketplace para uma máquina virtual. |
+| properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Especifique também uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recurso permitidos pelo esquema do recurso pai. A dependência do recurso pai não é implícita. Você deve definir explicitamente essa dependência. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>outputs
@@ -293,9 +293,9 @@ Para comentários embutidos, você pode usar o `//` ou `/* ... */`, mas essa sin
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2018-10-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
   "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
@@ -341,10 +341,10 @@ Para **recursos**, adicione um elemento `comments` ou um objeto de metadados. O 
 ```json
 "resources": [
   {
-    "comments": "Storage account used to store VM disks",
-    "apiVersion": "2018-07-01",
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2018-07-01",
     "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
     "metadata": {
       "comments": "These tags are needed for policy compliance."
@@ -384,11 +384,11 @@ Você pode dividir uma cadeia de caracteres em várias linhas. Por exemplo, a pr
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2018-10-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
     ]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
   /*
     storage account and network interface
     must be deployed first

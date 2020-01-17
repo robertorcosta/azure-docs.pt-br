@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6fb6153c2dc5794fce0e74d1981e98ad1f37fc1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278997"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156090"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>Configurar perguntas de segurança como seu método de verificação
 
-Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** para adicionar, atualizar ou excluir suas informações de segurança.
-
-Depois de configurar o método de redefinição de senha, você também precisará configurar o método de verificação de dois fatores usando um [aplicativo autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md) ou uma [chamada telefônica](security-info-setup-phone-number.md).
+Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>Se você não vir a opção de perguntas de segurança, é possível que sua organização não permita que você use essa opção para o método de redefinição de senha. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais ajuda.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Verificação de segurança versus autenticação de redefinição de senha
+
+Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Usado para |
+| ------ | -------- |
+| Aplicativo autenticador | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Mensagens de texto | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chamadas telefônicas | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chave de segurança | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Conta de email | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurar suas perguntas de segurança na página de Informações de segurança
 
@@ -71,7 +85,7 @@ Se você não quiser mais usar suas perguntas de segurança como um método de i
 
 1. Na página **Informações de segurança**, selecione o link **Excluir** ao lado da opção **Perguntas de segurança**.
 
-    ![Link para excluir o método de telefone de informações de segurança](media/security-info/securityinfo-myprofile-questionsdelete.png)
+    ![Link para excluir o método de telefone das informações de segurança](media/security-info/securityinfo-myprofile-questionsdelete.png)
 
 2. Selecione **Sim** da caixa de confirmação para excluir suas **perguntas de segurança**. Depois que suas perguntas de segurança terem sido excluídas, o método será removido das informações de segurança e desaparecerá da página **Informações de segurança**.
 
@@ -83,7 +97,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Texto de dispositivo móvel.** Insira o número do seu dispositivo móvel e receba um texto com um código que você usará para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [Configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
 
-- **Dispositivo móvel ou chamada telefônica de trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
+- **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
 - **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
 
@@ -92,7 +106,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Redefina sua senha se você a perdeu ou esqueceu, do [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [Redefinir sua senha de trabalho ou escola](active-directory-passwords-update-your-own-password.md).
 

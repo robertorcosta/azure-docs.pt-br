@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/8/2020
+ms.date: 1/15/2020
 ms.author: raiye
-ms.openlocfilehash: dd148a4dd454e2ebebcb6b9befc576570ecb0352
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778202"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122238"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -214,9 +214,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-2.94 _201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
-| WA-GUEST-OS-2,93 _201911-01 | 5 de dezembro de 2019 | Post 2,94 |  
-|~ WA-GUEST-OS-2.91 _201910-01 ~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+| WA-GUEST-OS-2,93 _201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
+| WA-GUEST-OS-2.92 _201911-01 | 5 de dezembro de 2019 | Post 2,94 |  
+|~~WA-GUEST-OS-2.91 _201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-2.90 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
 |~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019 |  
 |~~WA-GUEST-OS-2,88 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |

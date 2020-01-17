@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848384"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155139"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planejando uma implantação da autenticação multifator do Azure baseada em nuvem
 
@@ -85,18 +85,18 @@ Recomendamos que as organizações usem o acesso condicional para definir sua re
 ### <a name="configuring-a-named-location"></a>Configurando um local nomeado
 
 1. Abrir **Azure Active Directory** no portal do Azure
-2. Clique em **acesso condicional**
-3. Clique em **locais nomeados**
-4. Clique em **novo local**
+2. Selecionar **segurança**
+3. Em **gerenciar**, escolha **locais nomeados**
+4. Selecionar **novo local**
 5. No campo **nome** , forneça um nome significativo
-6. Selecione se você está definindo o local usando intervalos de IP ou países/regiões
-   1. Se estiver usando intervalos de IP
-      1. Decida se deseja marcar o local como confiável. Conectar de um local confiável diminui o risco de entrada do usuário. Marque esta localização como confiável se você souber que os intervalos de IP inseridos são estabelecidos e confiáveis em sua organização.
+6. Selecione se você está definindo o local usando *intervalos de IP* ou *países/regiões*
+   1. Se estiver usando *intervalos de IP*
+      1. Decida se deseja *Marcar como local confiável*. Conectar de um local confiável diminui o risco de entrada do usuário. Marque esta localização como confiável se você souber que os intervalos de IP inseridos são estabelecidos e confiáveis em sua organização.
       2. Especificar os intervalos de IP
-   2. Se estiver usando países/regiões
+   2. Se estiver usando *países/regiões*
       1. Expanda o menu suspenso e selecione os países ou regiões que você deseja definir para esse local nomeado.
-      2. Decida se as áreas desconhecidas devem ser incluídas. Áreas desconhecidas são endereços IP que não podem ser mapeados para um país/região.
-7. Clique em **Criar**
+      2. Decida se as *áreas desconhecidas*devem ser incluídas. Áreas desconhecidas são endereços IP que não podem ser mapeados para um país/região.
+7. Escolha **Criar**
 
 ## <a name="plan-authentication-methods"></a>Planejar métodos de autenticação
 
@@ -221,7 +221,7 @@ Para planejar sua estratégia de política de acesso condicional, que determinar
 ### <a name="create-conditional-access-policy"></a>Criar política de Acesso Condicional
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador global.
-1. Navegue até **Azure Active Directory**, **Acesso Condicional**.
+1. Navegue até **Azure Active Directory** > **segurança** > **acesso condicional**.
 1. Selecione **Nova política**.
    ![criar uma política de acesso condicional para habilitar a MFA para portal do Azure usuários no grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. .Forneça um nome significativo para a política.
@@ -277,7 +277,7 @@ Se você já tiver uma instância do NPS implantada e em uso, [a referência int
 
 Escolha o que acontece quando os usuários que não estão registrados com o MFA tentam se autenticar. Use a configuração do registro `REQUIRE_USER_MATCH` no caminho do registro `HKLM\Software\Microsoft\AzureMFA` para controlar o comportamento do recurso. Essa configuração tem uma única opção de configuração.
 
-| Chave | Value | Padrão |
+| Chave | Valor | Padrão |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Não definido (equivalente a TRUE) |
 
@@ -347,7 +347,7 @@ Relatórios para o Azure MFA
 
 A autenticação multifator do Azure fornece relatórios por meio do portal do Azure:
 
-| Relate | Location | Descrição |
+| Relate | Local | Description |
 | --- | --- | --- |
 | Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
 
@@ -359,4 +359,4 @@ Encontre soluções para problemas comuns com o Azure MFA no [artigo solução d
 
 * [Quais são os métodos de autenticação?](concept-authentication-methods.md)
 * [Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)
-* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Azure AD nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Por que foi um usuário solicitado ou não é solicitado a executar a MFA? Consulte a seção [relatório de entradas do Microsoft Azure Active Directory nos relatórios do documento de autenticação multifator do Azure](howto-mfa-reporting.md#azure-ad-sign-ins-report).

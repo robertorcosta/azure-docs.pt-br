@@ -3,14 +3,14 @@ title: Explore os recursos do Azure
 description: Aprenda a usar a linguagem de consulta do grafo de recursos para explorar seus recursos e descobrir como eles estão conectados.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: e489a4eafdbbd838c4850d67fcd8ec40f76f290c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0c191915b8c558d80ffef554ef758a35157e035c
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959230"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156974"
 ---
-# <a name="explore-your-azure-resources-with-resource-graph"></a>Explore seus recursos do Azure com o Resource Graph
+# <a name="explore-your-azure-resources-with-resource-graph"></a>Explore seus recursos do Azure com o Gráfico de Recursos
 
 O Gráfico de Recursos do Azure fornece a capacidade de explorar e descobrir seus recursos do Azure rapidamente e em escala. Projetado para respostas rápidas, é uma ótima maneira de aprender sobre seu ambiente e também sobre as propriedades que compõem seus recursos do Azure.
 
@@ -152,7 +152,7 @@ Voltando às propriedades originais da máquina virtual, vamos tentar encontrar 
 ```kusto
 Resources
 | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
-| project name, resourceGroup"
+| project name, resourceGroup
 ```
 
 ```azurecli-interactive
@@ -307,7 +307,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddr
 
 Para ver como realizar essas etapas em uma única consulta com o operador `join`, consulte a amostra [listar máquinas virtuais com seu adaptador de rede e IP público](../samples/advanced.md#join-vmpip) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a [linguagem de consulta](query-language.md).
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md).

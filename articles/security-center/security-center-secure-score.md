@@ -1,6 +1,6 @@
 ---
 title: Pontuação segura no Azure Security Center | Microsoft Docs
-description: " Priorize suas recomendações de segurança usando a pontuação segura na Central de Segurança do Azure. "
+description: " Priorize suas recomendações de segurança usando a pontuação segura na central de segurança do Azure. "
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,17 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156651"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar sua pontuação segura na Central de segurança do Azure
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar sua pontuação segura na central de segurança do Azure
 
+> [!NOTE]
+> Há uma pontuação segura aprimorada disponível na visualização. A pontuação segura aprimorada eventualmente substituirá a pontuação segura existente, mas, por um tempo, será executada lado a lado para facilitar a transição.
+>
+> Para obter detalhes sobre os benefícios da Pontuação segura aprimorada, consulte [aqui](secure-score-security-controls.md).
+>
+> Para fazer parte da versão prévia, abra o portal do Azure, inicie a central de segurança do Azure e selecione Pontuação segura. A partir daí, você verá uma faixa na parte superior da página que oferece a nova experiência de Pontuação segura. Como alternativa, clique [aqui](https://aka.ms/ascnewscore).
 
-Com tantos serviços oferecendo os benefícios de segurança, muitas vezes é difícil saber quais etapas seguir primeiro para proteger e otimizar sua carga de trabalho. A pontuação segura do Azure analisa suas recomendações de segurança e as prioriza para você, para que você saiba quais recomendações devem ser executadas primeiro. Isso ajuda a encontrar as vulnerabilidades de segurança mais sérias para que você possa priorizar a investigação. A pontuação segura é uma ferramenta que ajuda a avaliar sua postura de segurança de carga de trabalho.
+Com tantos serviços oferecendo os benefícios de segurança, muitas vezes é difícil saber quais etapas seguir primeiro para proteger e otimizar sua carga de trabalho. A pontuação segura do Azure analisa suas recomendações de segurança e as prioriza para você, para que você saiba quais recomendações devem ser executadas primeiro. Isso ajuda a encontrar as vulnerabilidades de segurança mais sérias para que você possa priorizar a investigação. A Secure Score é uma ferramenta que ajuda a avaliar a situação de segurança da carga de trabalho.
 
 ## <a name="secure-score-calculation"></a>Proteger o cálculo de pontuação
 
@@ -34,13 +40,12 @@ A Central de Segurança do Azure também fornece uma **pontuação geral segura*
 
 **A pontuação geral segura** é uma acumulação de todas as suas pontuações de recomendação. Você pode exibir sua pontuação geral segura entre suas assinaturas ou grupos de gerenciamento, dependendo do que você selecionar. A pontuação varia de acordo com a assinatura selecionada e as recomendações ativas nessas assinaturas.
 
- 
 Para verificar quais recomendações impactam mais a sua pontuação segura, você pode visualizar as três principais recomendações mais impactantes no painel da Central de Segurança ou pode classificar as recomendações na lista de recomendações usando a coluna **Impacto da pontuação de impacto**.
-
 
 Para visualizar sua pontuação geral segura:
 
 1. No painel do Azure, clique em **Central de Segurança** e, em seguida, clique em **Classificação de segurança**.
+
 2. Na parte superior, é possível ver os destaques da Classificação de Segurança:
    - A **Classificação de segurança geral** representa a classificação por políticas, por assinatura selecionada
    - **Classificação de segurança por categoria** mostra quais recursos precisam de mais atenção
@@ -78,7 +83,7 @@ A recomendação mostra quais ameaças sua carga de trabalho está exposta se as
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Este artigo mostrou como melhorar sua postura de segurança usando **Pontuação segura** na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira:
 
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.

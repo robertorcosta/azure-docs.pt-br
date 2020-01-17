@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772577"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122331"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -90,7 +90,7 @@ Você também fornece a configuração da plataforma de implantação de destino
 Quando a imagem é criada, os componentes exigidos pelo Azure Machine Learning também são adicionados. Por exemplo, os ativos necessários para executar o serviço Web e interagir com IoT Edge.
 
 #### <a name="batch-scoring"></a>Pontuação do lote
-A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais informações, consulte [previsões de lote em Big data](how-to-run-batch-predictions.md).
+A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais informações, consulte [previsões de lote em Big data](how-to-use-parallel-run-step.md).
 
 #### <a name="real-time-web-services"></a>Serviços Web em tempo real
 

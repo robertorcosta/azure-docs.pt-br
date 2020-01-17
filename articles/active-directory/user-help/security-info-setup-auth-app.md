@@ -12,23 +12,36 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 223dc6c340beb1b584ffbf90adc12667ed2feb23
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279076"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156175"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurar o aplicativo Microsoft Authenticator como seu método de verificação
 
-Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** para adicionar, atualizar ou excluir suas informações de segurança.
+Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
 Se for solicitado que você faça tais configurações imediatamente após entrar em sua conta corporativa ou de estudante, confira as etapas detalhadas no artigo [Configurar suas informações de segurança pela solicitação na página de entrada](security-info-setup-signin.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Caso não veja a opção do aplicativo autenticador, é possível que sua organização não permita que você use um aplicativo de autenticação para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o administrador para obter ajuda.
+> Se você não vir a opção de aplicativo autenticador, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+
+## <a name="security-vs-password-reset-verification"></a>Segurança vs. verificação de redefinição de senha
+
+Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Usado para |
+| ------ | -------- |
+| Aplicativo autenticador | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Mensagens de texto | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chamadas telefônicas | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chave de segurança | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Conta de email | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurar o aplicativo Microsoft Authenticator pela página de Informações de segurança
 
@@ -55,9 +68,9 @@ Dependendo das configurações da sua organização, você poderá usar um aplic
     ![Página Começar baixando o aplicativo](media/security-info/securityinfo-myprofile-getauthapp.png)
 
    > [!Note]
-   > Se você não quiser usar o aplicativo Microsoft Authenticator, selecione no link **Desejo usar um aplicativo autenticador diferente**.
+   > Se você não quiser usar o aplicativo Microsoft Authenticator, selecione o link **Desejo usar um aplicativo autenticador diferente**.
    >
-   > Se a organização permitir que você escolha um método diferente do aplicativo Authenticator, você poderá selecionar o link **Desejo configurar um método diferente**.
+   > Se a sua organização permitir que você escolha um método que não seja o aplicativo autenticador, você poderá selecionar o link **Desejo configurar um método diferente**.
 
 5. Permaneça na página **Configurar sua conta** enquanto configura o aplicativo Microsoft Authenticator em seu dispositivo móvel.
 
@@ -133,7 +146,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Texto de dispositivo móvel.** Insira o número do seu dispositivo móvel e receba um texto com um código que você usará para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [Configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
 
-- **Dispositivo móvel ou chamada telefônica de trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
+- **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
 - **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
 
@@ -144,7 +157,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Entre usando o aplicativo Microsoft Authenticator, as etapas a seguir no artigo [entrar usando a verificação em duas etapas ou informações de segurança](security-info-setup-signin.md) .
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848418"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155206"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 
@@ -78,7 +78,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
     ![Criar uma declaração personalizada para manter os usuários conectados](./media/howto-mfa-adfs/trustedip5.png)
 13. Clique em **Concluir**.
 14. Clique em **Aplicar**.
-15. Clique em **Ok**.
+15. Clique em **OK**.
 16. Feche o gerenciamento do AD FS.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados
@@ -86,7 +86,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **acesso condicional** > **locais nomeados**.
+2. Selecione **Azure Active Directory** > **segurança** > **acesso condicional** > **locais nomeados**.
 3. Na folha **acesso condicional-locais nomeados** , selecione **Configurar IPs confiáveis MFA**
 
    ![Locais nomeados de acesso condicional do Azure AD configurar IPs confiáveis de MFA](./media/howto-mfa-adfs/trustedip6.png)

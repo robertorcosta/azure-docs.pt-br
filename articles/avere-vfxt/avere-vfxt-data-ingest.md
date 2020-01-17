@@ -4,20 +4,20 @@ description: Como adicionar dados a um novo volume de armazenamento para uso com
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480593"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153711"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster vFXT – ingestão de dados paralela
 
-Depois de criar um novo cluster vFXT, a primeira tarefa pode ser mover dados para seu novo volume de armazenamento. No entanto, se o método habitual de movimentação de dados for emitir um comando de cópia simples de um cliente, você provavelmente verá um desempenho lento de cópia. Cópia de thread único não é uma boa opção para copiar dados para o armazenamento de back-end do cluster do Avere vFXT.
+Depois de criar um novo cluster vFXT, sua primeira tarefa pode ser mover dados para um novo volume de armazenamento no Azure. No entanto, se o método habitual de movimentação de dados for emitir um comando de cópia simples de um cliente, você provavelmente verá um desempenho lento de cópia. A cópia de thread único não é uma boa opção para copiar dados para o armazenamento de back-end do cluster avere vFXT.
 
-Como o cluster do Avere vFXT é um cache escalonável de vários clientes, a maneira mais rápida e eficiente de copiar dados para ele é com vários clientes. Essa técnica paraleliza a ingestão de arquivos e objetos.
+Como o avere vFXT para o cluster do Azure é um cache de vários clientes escalonáveis, a maneira mais rápida e eficiente de copiar dados para ele é com vários clientes. Essa técnica paraleliza a ingestão de arquivos e objetos.
 
 ![Diagrama mostrando a movimentação de dados de vários clientes com vários threads: na parte superior esquerda, um ícone para o armazenamento de hardware local tem várias setas vindo dele. As setas apontam para quatro computadores cliente. Em cada computador cliente, três setas apontam para o vFXT Avere. No vFXT Avere, várias setas apontam para o Armazenamento de Blobs.](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ A VM do ingestor de dados faz parte de um tutorial em que a VM recém-criada mon
 
 ## <a name="strategic-planning"></a>Planejamento estratégico
 
-Ao criar uma estratégia para copiar dados em paralelo, você deve compreender as vantagens e desvantagens de tamanho do arquivo, contagem de arquivos e profundidade de diretório.
+Ao criar uma estratégia para copiar dados em paralelo, você deve entender as compensações no tamanho do arquivo, contagem de arquivos e profundidade de diretório.
 
 * Quando os arquivos são pequenos, a métrica de interesse é arquivos por segundo.
 * Quando os arquivos são grandes (10 MiBi ou mais), a métrica de interesse é bytes por segundo.
 
-Cada processo de cópia tem uma taxa de transferência e uma taxa de arquivos transferidos, que podem ser medidas pelo tempo o comprimento do comando de cópia e fatorando o tamanho do arquivo e a contagem de arquivos. Explicar como medir as taxas está fora do escopo deste documento, mas é fundamental entender isso, esteja você lidando com arquivos grandes ou pequenos.
+Cada processo de cópia tem uma taxa de transferência e uma taxa de arquivos transferidos, que podem ser medidas pelo tempo o comprimento do comando de cópia e fatorando o tamanho do arquivo e a contagem de arquivos. Explicar como medir as tarifas está fora do escopo deste documento, mas é importante entender se você estará lidando com arquivos pequenos ou grandes.
 
 ## <a name="manual-copy-example"></a>Exemplo de cópia manual
 
@@ -278,11 +278,11 @@ Esse método é um método simples e econômico para conjuntos de data até o n�
 
 ## <a name="use-the-msrsync-utility"></a>Usar o utilitário msrsync
 
-A ferramenta ``msrsync`` também pode ser usada para mover dados para um arquivista central de back-end para o cluster do Avere. Essa ferramenta é projetada para otimizar o uso de largura de banda, executando vários processos ``rsync`` paralelos. Está disponível no GitHub em <https://github.com/jbd/msrsync>.
+A ferramenta de ``msrsync`` também pode ser usada para mover dados para um Filer principal de back-end para o cluster avere. Essa ferramenta é projetada para otimizar o uso de largura de banda, executando vários processos ``rsync`` paralelos. Está disponível no GitHub em <https://github.com/jbd/msrsync>.
 
 ``msrsync`` divide o diretório de origem em "buckets" separados e, em seguida, executa processos ``rsync`` individuais em cada bucket.
 
-Testes preliminares usando uma VM de quatro núcleos mostraram a melhor eficiência ao usar 64 processos. Use a opção ``msrsync`` ``-p`` para definir o número de processos como 64.
+Testes preliminares usando uma VM de quatro núcleos mostraram a melhor eficiência ao usar 64 processos. Use a opção ``msrsync````-p`` para definir o número de processos como 64.
 
 Você também pode usar o argumento ``--inplace`` com comandos ``msrsync``. Se você usar essa opção, considere a execução de um segundo comando (como com [rsync](#use-a-two-phase-rsync-process), descrito acima) para garantir a integridade dos dados.
 
@@ -323,7 +323,7 @@ Para usar ``msrsync`` para popular um volume de nuvem do Azure com um cluster av
 
 ## <a name="use-the-parallel-copy-script"></a>Usar o script de cópia paralela
 
-O script ``parallelcp`` também pode ser útil para mover dados para o armazenamento de back-end do seu cluster vFXT.
+O script de ``parallelcp`` também pode ser útil para mover dados para o armazenamento de back-end do cluster vFXT.
 
 O script a seguir adicionará o executável `parallelcp`. (Esse script foi desenvolvido para Ubuntu; se você estiver usando outra distribuição, deverá instalar ``parallel`` separadamente.)
 

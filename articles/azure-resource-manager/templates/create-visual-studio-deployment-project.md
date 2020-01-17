@@ -3,12 +3,12 @@ title: Criar e implantar projetos do grupo de recursos do Visual Studio
 description: Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: ee76c2ae94373b63be6a1efd9ae13d4629dd98c8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680623"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152724"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
@@ -350,9 +350,9 @@ Você não está limitado apenas aos recursos disponíveis por meio da interface
           }
         }
       },
+      "type": "Microsoft.Portal/dashboards",
       "apiVersion": "2015-08-01-preview",
       "name": "[concat('ARM-',resourceGroup().name)]",
-      "type": "Microsoft.Portal/dashboards",
       "location": "[resourceGroup().location]",
       "tags": {
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"

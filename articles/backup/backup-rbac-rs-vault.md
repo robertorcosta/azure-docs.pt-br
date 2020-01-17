@@ -4,12 +4,12 @@ description: Use o Controle de Acesso baseado em função para gerenciar o acess
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: afb8067f2547e3a26a505bb5ec8063dd340e8500
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172207"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156379"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 
@@ -35,25 +35,25 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | Criar cofre de Serviços de Recuperação | Colaborador de Backup | Grupo de recursos contendo o cofre |
 | Habilitar backup de VMs do Azure | Operador de Backup | Grupo de recursos contendo o cofre |
 | | Colaborador de Máquina Virtual | Recurso de VM |
-| Backup sob demanda de VM | Operador de Backup | Recurso de cofre de recuperação |
+| Backup sob demanda de VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador | Grupo de recursos no qual a VM será implantada |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
-| Restaurar backup de VM de discos não gerenciados | Operador de Backup | Recurso de cofre de recuperação |
+| Restaurar backup de VM de discos não gerenciados | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
 | | Colaborador da Conta de Armazenamento | Recurso de conta de armazenamento no qual os discos serão restaurados |
-| Restaurar discos gerenciados do backup da VM | Operador de Backup | Recurso de cofre de recuperação |
+| Restaurar discos gerenciados do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
 | | Colaborador da Conta de Armazenamento | Conta de armazenamento temporária selecionada como parte da restauração para manter dados do cofre antes de convertê-los em discos gerenciados |
 | | Colaborador | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado |
-| Restaurar arquivos individuais do backup da VM | Operador de Backup | Recurso de cofre de recuperação |
+| Restaurar arquivos individuais do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |
-| Criar política de backup para backup da VM do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
-| Modificar a política de backup da VM do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
-| Excluir a política de backup da VM do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
-| Interromper o backup (com retenção de dados ou exclusão de dados) no backup da VM | Colaborador de Backup | Recurso de cofre de recuperação |
-| Registrar-se no Windows Server/cliente/SCDPM local ou no Servidor de Backup do Azure | Operador de Backup | Recurso de cofre de recuperação |
-| Excluir o Windows Server/cliente/SCDPM local registrado ou o Servidor de Backup do Azure | Colaborador de Backup | Recurso de cofre de recuperação |
+| Criar política de backup para backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Modificar a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Excluir a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Interromper o backup (com retenção de dados ou exclusão de dados) no backup da VM | Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Registrar-se no Windows Server/cliente/SCDPM local ou no Servidor de Backup do Azure | Operador de Backup | Cofre dos Serviços de Recuperação |
+| Excluir o Windows Server/cliente/SCDPM local registrado ou o Servidor de Backup do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
 
 > [!IMPORTANT]
 > Se você especificar o Colaborador de VM em um escopo de recurso da VM e clicar em Backup como parte das configurações da VM, ele abrirá a tela 'Habilitar Backup', mesmo que o backup da VM já tenha sido realizado, pois a chamada para verificar o status do backup funciona apenas no nível de assinatura. Para evitar isso, vá para o cofre e abra a exibição de item de backup da VM ou especifique a função de Colaborador de VM em um nível de assinatura.
@@ -62,7 +62,7 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 
 A tabela a seguir captura as ações de gerenciamento de backup e a função correspondente necessária para executar a operação de compartilhamento de arquivos do Azure.
 
-| Operação de gerenciamento | Função necessária | Recursos |
+| Operação de gerenciamento | Função necessária | Implante |
 | --- | --- | --- |
 | Habilitar o backup de compartilhamentos de arquivos do Azure | Colaborador de Backup |Cofre dos Serviços de Recuperação |
 | |Conta de Armazenamento | Recurso de conta de armazenamento do colaborador |
@@ -71,15 +71,15 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função cor
 | | Colaborador da Conta de Armazenamento | Recursos da conta de armazenamento em que os compartilhamentos de arquivos de origem e de destino são presentes |
 | Restaurar arquivos individuais | Operador de Backup | Cofre dos Serviços de Recuperação |
 | |Colaborador da Conta de Armazenamento|Recursos da conta de armazenamento em que os compartilhamentos de arquivos de origem e de destino são presentes |
-| Parar proteção |Colaborador de Backup | Cofre dos Serviços de Recuperação |
+| Parar a proteção |Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | Cancelar o registro da conta de armazenamento do cofre |Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | |Colaborador da Conta de Armazenamento | Recurso da conta de armazenamento|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API REST](../role-based-access-control/role-assignments-rest.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.

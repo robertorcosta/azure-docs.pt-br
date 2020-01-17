@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 5049c32e06967cc123a24f07f601c1698bea3351
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896422"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122501"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento com o PowerShell
 
@@ -33,17 +33,17 @@ Os navegadores a seguir são compatíveis com a ferramenta de gerenciamento do:
 
 ## <a name="what-you-need-to-deploy-the-management-tool"></a>O que você precisa para implantar a ferramenta de gerenciamento
 
-Antes de implantar a ferramenta de gerenciamento, você precisará de um usuário Azure Active Directory (Azure AD) para criar um registro de aplicativo e implantar a interface do usuário de gerenciamento. Esse usuário precisa:
+Antes de implantar a ferramenta de gerenciamento, você precisará que um usuário do Azure AD (Azure Active Directory) crie um registro de aplicativo e implante a interface do usuário de gerenciamento. Esse usuário precisa:
 
 - Ter permissão para criar recursos em sua assinatura do Azure
-- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias seguindo as instruções em [permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Ter permissão para criar um aplicativo do Azure AD. Siga estas etapas para verificar se o usuário tem as permissões necessárias, seguindo as instruções em [Permissões necessárias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
 Para implantar e configurar com êxito a ferramenta de gerenciamento, primeiro você precisa baixar os seguintes scripts do PowerShell do repositório do [GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) e salvá-los na mesma pasta em seu computador local.
 
   - createWvdMgmtUxAppRegistration. ps1
   - updateWvdMgmtUxApiUrl. ps1
 
-Depois de implantar e configurar a ferramenta de gerenciamento, é recomendável solicitar que um usuário inicie a interface do usuário de gerenciamento para verificar se tudo funciona. O usuário que inicia a interface do usuário de gerenciamento deve ter uma atribuição de função que permita exibir ou editar o locatário da área de trabalho virtual do Windows.
+Depois de implantar e configurar a ferramenta de gerenciamento, é recomendável solicitar que um usuário inicie a interface do usuário de gerenciamento para verificar se tudo está funcionando. O usuário que inicia a interface do usuário de gerenciamento deve ter uma atribuição de função que permita exibir ou editar o locatário da Área de Trabalho Virtual do Windows.
 
 ## <a name="set-up-powershell"></a>Configurar o PowerShell
 
@@ -135,7 +135,7 @@ Para verificar a configuração de aplicativo do Azure AD e fornecer consentimen
    
    [![a página de autenticação com o URI de redirecionamento inserido](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. No painel esquerdo, selecione **permissões de API** para confirmar que as permissões foram adicionadas. Se você for um administrador global, selecione o botão **consentimento do administrador principal para `tenantname`** e siga os prompts da caixa de diálogo para fornecer consentimento de administrador para sua organização.
+5. No painel esquerdo, selecione **permissões de API** para confirmar que as permissões foram adicionadas. Se você for um administrador global, selecione o botão **conceder consentimento de administrador para `tenantname`** e siga os prompts de diálogo para fornecer consentimento de administrador para sua organização.
     
     [![a página permissões de API](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
 
@@ -152,15 +152,15 @@ Agora que você configurou a ferramenta de gerenciamento a qualquer momento, pod
    > Se você não concedeu consentimento de administrador ao configurar a ferramenta de gerenciamento, cada usuário que se conectar precisará fornecer seu próprio consentimento de usuário para usar a ferramenta.
 
 3. Quando for solicitado a escolher um grupo de locatários, selecione **grupo de locatários padrão** na lista suspensa.
-4. Quando você seleciona **grupo de locatários padrão**, um menu deve aparecer no lado esquerdo da janela. Neste menu, localize o nome do seu grupo de locatários e selecione-o.
+4. Quando você seleciona **Grupo de Locatários Padrão**, um menu deve ser exibido no lado esquerdo da janela. Nesse menu, encontre o nome do seu grupo de locatários e selecione-o.
    
    > [!NOTE]
-   > Se você tiver um grupo de locatários personalizado, insira o nome manualmente em vez de escolher na lista suspensa.
+   > Se tiver um grupo de locatários personalizado, digite o nome manualmente em vez de escolher na lista suspensa.
 
 ## <a name="report-issues"></a>Relatar problemas
 
-Se você tiver problemas com a ferramenta de gerenciamento ou outras ferramentas de área de trabalho virtual do Windows, siga as instruções em [modelos de Azure Resource Manager para serviços de área de trabalho remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-las no github.
+Caso tenha problemas com a ferramenta de gerenciamento ou outras ferramentas da Área de Trabalho Virtual do Windows, siga as instruções em [Modelos do Azure Resource Manager para Serviços de Área de Trabalho Remota](https://github.com/Azure/RDS-Templates/blob/master/README.md) para relatá-los no GitHub.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Agora que você aprendeu como implantar e se conectar à ferramenta de gerenciamento, você pode aprender a usar a ajuda do serviço do Azure para monitorar problemas de serviço e comunicados de integridade. Para saber mais, consulte nosso [tutorial de configuração de alertas de serviço](./set-up-service-alerts.md).
+Agora que aprendeu como implantar a ferramenta de gerenciamento e conectar-se a ela, você pode aprender a usar a ajuda do Serviço do Azure para monitorar problemas de serviço e avisos de integridade. Para saber mais, confira o tutorial [Configurar alertas de serviço](./set-up-service-alerts.md).

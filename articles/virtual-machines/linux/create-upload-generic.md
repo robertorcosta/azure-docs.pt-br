@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
-ms.openlocfilehash: d98efd46e3c2fbc11be2cde6a0c4f2b37acc8d7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ffa99c6ba0157eca133dc36ecbbb159b076b8bc0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934009"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155546"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para distribuições não endossadas
 
@@ -43,7 +43,7 @@ Este artigo concentra-se na orientação geral para executar a distribuição do
 
 ## <a name="general-linux-installation-notes"></a>Notas de instalação gerais do Linux
 * O formato VHDX (disco rígido virtual para Hyper-V) não tem suporte no Azure, apenas *VHD fixo*.  Você pode converter o disco para o formato VHD usando o Hyper-V Manager ou o cmdlet [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd). Se você estiver usando o VirtualBox, selecione **Tamanho fixo** em vez do padrão (alocado dinamicamente) ao criar o disco.
-* O Azure oferece suporte somente para máquinas virtuais de geração 1. Você pode converter uma máquina virtual de geração 1 do formato de arquivo VHDX em VHD e de expansão dinâmica em um disco de tamanho fixo. Mas observe não é possível alterar a geração de uma máquina virtual. Para saber mais, confira [Devo criar uma máquina virtual de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* O Azure dá suporte a máquinas virtuais Gen1 (inicialização do BIOS) & Gen2 (inicialização UEFI).
 * O tamanho máximo permitido para o VHD é 1.023 GB.
 * Ao instalar o sistema Linux, é recomendável usar partições padrão em vez do LVM (Gerenciador de Volume Lógico), que é o padrão para muitas instalações. Usar partições padrão evitará conflitos de nome do LVM com VMs clonadas, especialmente se um disco de SO já estiver conectado a outra VM idêntica para solução de problemas. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados nos discos de dados.
 * O suporte do kernel para a montagem de sistemas de arquivos UDF é necessário. Na primeira inicialização no Azure, a configuração de provisionamento é passada para a VM do Linux usando a mídia em formato UDF anexada ao convidado. O agente Linux do Azure deve montar o sistema de arquivos UDF para ler a configuração e provisionar a VM.

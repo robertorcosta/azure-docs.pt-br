@@ -1,14 +1,14 @@
 ---
 title: Locatários, funções e usuários em cenários do Azure Lighthouse
 description: Entenda os conceitos de locatários, usuários e funções do Azure Active Directory, além de como eles podem ser usados em cenários do Azure Lighthouse.
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453562"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156328"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locatários, funções e usuários em cenários do Azure Lighthouse
 
@@ -29,6 +29,9 @@ Atualmente, todas as [funções internas](../../role-based-access-control/built-
 - Não há suporte para a função [Proprietário](../../role-based-access-control/built-in-roles.md#owner).
 - Não há suporte para nenhuma função interna com permissão [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - A função interna [Administrador de Acesso de Usuário](../../role-based-access-control/built-in-roles.md#user-access-administrator) tem suporte, mas apenas para a finalidade limitada de [atribuir funções a uma identidade gerenciada no locatário do cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Nenhuma outra permissão normalmente concedida por essa função será aplicada. Se você definir um usuário com essa função, também deverá especificar as funções internas que esse usuário pode atribuir às identidades gerenciadas.
+
+> [!NOTE]
+> Quando uma nova função interna aplicável for adicionada ao Azure, ela poderá ser atribuída durante [a integração de um cliente usando modelos de Azure Resource Manager](../how-to/onboard-customer.md). Pode haver um atraso antes que a função recém-adicionada fique disponível no Portal do Cloud Partner ao [publicar uma oferta de serviço gerenciado](../how-to/publish-managed-services-offers.md).
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Práticas recomendadas para definir usuários e funções
 

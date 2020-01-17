@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562189"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154815"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos locais funciona em dispositivos associados ao Microsoft Azure Active Directory
 
@@ -24,12 +24,17 @@ Provavelmente, não é surpresa que um dispositivo associado ao Azure Active Dir
 
 Este artigo explica como isso funciona.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+ Se as máquinas Unidas do Azure AD não estiverem conectadas à rede da sua organização, uma VPN ou outra infraestrutura de rede será necessária. O SSO local requer comunicação de linha de visão com seus controladores de domínio AD DS locais.
+
 ## <a name="how-it-works"></a>Como funciona 
 
 Porque você precisa se lembrar de apenas um único nome de usuário e senha, o SSO simplifica o acesso a seus recursos e melhora a segurança do seu ambiente. Com um dispositivo associado ao Azure Active Directory, seus usuários já têm uma experiência de SSO para os aplicativos na nuvem em seu ambiente. Se o seu ambiente tiver um Azure Active Directory e um AD local, você provavelmente desejará expandir o escopo da sua experiência de SSO para os aplicativos de linha de negócios (LOB), compartilhamentos de arquivos e impressoras no local.  
 
 Os dispositivos associados ao Azure Actibe Directory não têm conhecimento sobre seu ambiente de AD local porque não estão associados a ele. No entanto, você pode fornecer informações adicionais sobre seu AD local para esses dispositivos com o Azure AD Connect.
-Um ambiente que possui um Microsoft Azure Active Directory e um AD local também é conhecido como ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha o Microsoft Azure Active Directory Connect implantado para sincronizar suas informações de identidade local com a nuvem. Como parte do processo de sincronização, o Microsoft Azure Active Directory Connect sincroniza informações de domínio locais com o Microsoft Azure Active Directory. Quando um usuário entra em um dispositivo associado ao Microsoft Azure Active Directory em um ambiente híbrido:
+
+Um ambiente que possui um Microsoft Azure Active Directory e um AD local também é conhecido como ambiente híbrido. Se você tiver um ambiente híbrido, é provável que você já tenha o Microsoft Azure Active Directory Connect implantado para sincronizar suas informações de identidade local com a nuvem. Como parte do processo de sincronização, Azure AD Connect sincroniza informações de usuário local para o Azure AD. Quando um usuário entra em um dispositivo associado ao Microsoft Azure Active Directory em um ambiente híbrido:
 
 1. O Microsoft Azure Active Directory envia o nome do domínio local do qual o usuário é membro de volta ao dispositivo. 
 1. O serviço de autoridade de segurança local (LSA) habilita a autenticação Kerberos no dispositivo.
@@ -44,7 +49,7 @@ Todos os aplicativos configurados para **autenticação integrada do Windows** o
 
 O Windows Hello for Business requer configuração adicional para habilitar o SSO local de um dispositivo associado do Microsoft Azure Active Directory. Para obter mais informações, consulte [Configurar dispositivos associados do Microsoft Azure Active Directory para logon único local usando o Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
-## <a name="what-you-get"></a>O que você ganha
+## <a name="what-you-get"></a>O que você terá
 
 Com o SSO, em um dispositivo associado ao Microsoft Azure Active Directory, você pode: 
 
@@ -66,6 +71,6 @@ Aplicativos e recursos que dependem da autenticação de máquina do Active Dire
 
 Você não pode compartilhar arquivos com outros usuários em um dispositivo associado ao Microsoft Azure Active Directory Domain Services.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, consulte [O que é gerenciamento de dispositivos no Azure Active Directory Domain Services?](overview.md) 

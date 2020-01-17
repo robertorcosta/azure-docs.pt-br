@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 11ea10f1deba5a21b98dea875a1b7dc94998aa00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fc7e40661ae345412eb0336322599616dc89d6c4
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402720"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122178"
 ---
 # <a name="message-deferral"></a>Adiamento de mensagens
 
@@ -32,7 +32,7 @@ Por fim, o adiamento ajuda na reordenação das mensagens da ordem de chegada em
 
 ## <a name="message-deferral-apis"></a>APIs de adiamento de mensagens
 
-A API é [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) ou [BrokeredMessage.DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) no cliente do .NET Framework, [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) no cliente do .NET Standard e **mesageReceiver.defer** ou **messageReceiver.deferSync** no cliente Java. 
+A API é [BrokeredMessage. Defer](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.defer?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_Defer) ou [BrokeredMessage. DeferAsync](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deferasync?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeferAsync) no cliente .NET Framework, [MessageReceiver. DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) no cliente .net Standard e [IMessageReceiver. Defer](/java/api/com.microsoft.azure.servicebus.imessagereceiver.defer?view=azure-java-stable) ou [IMessageReceiver. DeferAsync](/java/api/com.microsoft.azure.servicebus.imessagereceiver.deferasync?view=azure-java-stable) no cliente Java. 
 
 As mensagens adiadas permanecem na fila principal junto com todas as outras mensagens ativas (ao contrário de mensagens mortas que residem em uma subfila), mas elas não podem mais ser recebidas usando as funções Receive/ReceiveAsync regulares. Mensagens adiadas podem ser descobertas por meio da [procura de mensagens](message-browsing.md) se um aplicativo perder o controle delas.
 
@@ -41,7 +41,7 @@ Para recuperar uma mensagem adiada, seu proprietário é responsável por memori
 Se uma mensagem não puder ser processada porque um recurso específico para lidar com essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso sumariamente, uma maneira de colocar essa mensagem de lado por alguns minutos é lembrar o **NúmerodeSequência** em uma [mensagem agendada](message-sequencing.md) para ser postada em alguns minutos, e recuperar a mensagem adiada novamente quando a mensagem agendada chegar. Se um manipulador de mensagens depender de um banco de dados para todas as operações e o banco de dados estiver temporariamente indisponível, ele não deverá usar o adiamento, mas suspender o recebimento de mensagens completamente até o banco de dados estar disponível novamente.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

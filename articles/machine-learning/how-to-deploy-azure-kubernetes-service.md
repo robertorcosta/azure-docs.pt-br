@@ -1,7 +1,7 @@
 ---
-title: Como implantar modelos no serviço kubernetes do Azure
+title: How to deploy models to Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Saiba como implantar seus modelos de Azure Machine Learning como um serviço Web usando o serviço kubernetes do Azure.
+description: Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/16/2020
+ms.openlocfilehash: 78903d8f988efc1b0986f7e48050e63831b68319
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024941"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156821"
 ---
-# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
+# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Deploy a model to an Azure Kubernetes Service cluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web no AKS (serviço kubernetes do Azure). O serviço kubernetes do Azure é bom para implantações de produção de grande escala. Use o serviço kubernetes do Azure se você precisar de um ou mais dos seguintes recursos:
+Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
-- __Tempo de resposta rápido__.
+- __Fast response time__.
 - __Dimensionamento__ automático do serviço implantado.
 - Opções de __aceleração de hardware__ , como a GPU e as FPGA (matrizes de porta programável por campo).
 
@@ -43,7 +43,7 @@ Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS q
 
 - Um modelo de aprendizado de máquina registrado em seu espaço de trabalho. Se você não tiver um modelo registrado, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
@@ -109,7 +109,7 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 az ml computetarget create aks -n myaks
 ```
 
-Para obter mais informações, consulte o [AZ ml computetarget Create Ask](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) Reference.
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
 
 ## <a name="attach-an-existing-aks-cluster"></a>Anexar um cluster AKS existente
 
@@ -227,7 +227,7 @@ Para obter mais informações, consulte a referência de [implantação do model
 
 ### <a name="using-vs-code"></a>Usar o VS Code
 
-Para obter informações sobre como usar VS Code, consulte [implantar no AKs por meio da extensão vs Code](how-to-vscode-tools.md#deploy-and-manage-models).
+Para obter informações sobre como usar VS Code, consulte [implantar no AKs por meio da extensão vs Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
 > A implantação por meio do VS Code requer que o cluster AKS seja criado ou anexado ao seu espaço de trabalho com antecedência.

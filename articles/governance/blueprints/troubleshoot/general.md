@@ -1,18 +1,18 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas de criação, atribuição e remoção de plantas como violações de política e funções de parâmetro Blueprint.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982484"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157076"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar problemas usando o Azure Blueprint
 
-Você pode executar erros ao criar ou atribuir blueprints. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Você pode encontrar erros ao criar, atribuir ou remover plantas. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="finding-error-details"></a>Encontrar detalhes do erro
 
@@ -60,6 +60,22 @@ Passar um parâmetro de blueprint que usa uma função, como `[resourceGroup().t
 #### <a name="resolution"></a>Resolução
 
 Para passar uma função como um parâmetro, faça o escape de toda a cadeia de caracteres com `[`, de modo que o parâmetro de blueprint se pareça com `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que o Blueprints trate o valor como uma cadeia de caracteres ao processar o blueprint. O Blueprints, em seguida, coloca a função no artefato, permitindo que ela seja dinâmica conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+
+## <a name="delete-errors"></a>Erros de exclusão
+
+### <a name="assign-delete-timeout"></a>Cenário: tempo limite de exclusão de atribuição
+
+#### <a name="issue"></a>Problema
+
+A exclusão de uma atribuição de plano gráfico não foi concluída.
+
+#### <a name="cause"></a>Causa
+
+Uma atribuição de Blueprint pode ficar paralisada em um estado não terminal quando excluída. Esse estado é causado quando os recursos criados pela atribuição Blueprint ainda estão com exclusão pendente ou não retornam um código de status para plantas do Azure.
+
+#### <a name="resolution"></a>Resolução
+
+As atribuições do Blueprint em um estado não terminal são marcadas automaticamente **com falha** após um tempo limite de _6 horas_ . Depois que o tempo limite tiver ajustado o estado da atribuição Blueprint, a exclusão poderá ser repetida.
 
 ## <a name="next-steps"></a>Próximos passos
 

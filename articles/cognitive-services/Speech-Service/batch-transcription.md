@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4c2985f35621ff3120217cbe38705ad2c228d6f7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921466"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122093"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
@@ -28,7 +28,7 @@ A API oferece transcrição de fala para texto assíncrona e outros recursos. Vo
 - Baixar resultados de transcrição
 - Excluir informações de transcrição do serviço
 
-A API detalhada está disponível como um [documento do Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), sob o cabeçalho `Custom Speech transcriptions`.
+A API detalhada está disponível como um [documento do Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A), com o título `Custom Speech transcriptions`.
 
 Os trabalhos de transcrição do lote são agendados de acordo com a melhor iniciativa. Atualmente, não há nenhuma estimativa para quando um trabalho mudar para o estado em execução. Em carga normal do sistema, isso deve acontecer em minutos. Uma vez no estado de execução, a transcrição real é processada mais rápido do que o áudio em tempo real.
 
@@ -88,18 +88,13 @@ Parâmetros de configuração são fornecidos como JSON:
 Use essas propriedades opcionais para configurar a transcrição:
 
 | Parâmetro | Description |
-|-----------|------------|
-|`ProfanityFilterMode`|Especifica como lidar com profanação em resultados de reconhecimento
-||**`Masked`** -padrão. Substitui a profanação por asteriscos<br>`None`-desabilita a filtragem de profanação<br>`Removed`-remove toda a profanação do resultado<br>`Tags`-adiciona marcas de profanação
-|`PunctuationMode`|Especifica a manipulação de pontuação nos resultados do reconhecimento
-||`Automatic`-o serviço insere Pontuação<br>Pontuação `Dictated` ditada (falada)<br>**`DictatedAndAutomatic`** -padrão. Pontuação ditada e automática<br>`None`-desabilita a Pontuação
-|`AddWordLevelTimestamps`|Especifica se os carimbos de data/hora de nível de palavra devem ser adicionados à saída
-||`True`-habilita carimbos de data/hora de nível de palavra<br>**`False`** -padrão. Desabilitar carimbos de data/hora de nível de palavra
-|`AddSentiment`|Especifica se a análise de sentimentos foi adicionada ao expressão
-||`True`-habilita sentimentos por expressão<br>**`False`** -padrão. Desabilitar sentimentos
-|`AddDiarization`|Especifica se a análise de diarization é realizada. Se `true`, espera-se que a entrada seja áudio do canal mono contendo um máximo de duas vozes. `AddWordLevelTimestamps` precisa ser definido como `true`
-||`True`-habilita diarization<br>**`False`** -padrão. Desabilitar diarization
-|`TranscriptionResultsContainerUrl`|Token SAS opcional para um contêiner gravável no Azure. O resultado será armazenado neste contêiner
+|-----------|-------------|
+| `ProfanityFilterMode` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `None`, o que desativa a filtragem de profanação, `Masked` que substitui a profanidade por asteriscos, `Removed` que remove todos os palavrões do resultado ou `Tags`, que adiciona tags de "profanidade". A configuração padrão é `Masked`. |
+| `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `None`, o que desativa a pontuação, `Dictated` que implica pontuação explícita, `Automatic` que permite ao decodificador lidar com pontuação ou `DictatedAndAutomatic`, o que implica em sinais de pontuação ditados ou automáticos. |
+| `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora no nível da palavra devem ser adicionados à saída. Os valores aceitos são `true`, o que habilita os carimbos de data/hora no nível da palavra e `false` (o valor padrão) para desabilitá-los. |
+| `AddSentiment` | Especifica um sentimentos que deve ser adicionado ao expressão. Os valores aceitos são `true` que habilita a expressão e a `false` (o valor padrão) para desabilitá-lo. |
+| `AddDiarization` | Especifica que a análise de diarization deve ser executada na entrada que é esperada como canal mono contendo duas vozes. Os valores aceitos são `true` que habilita diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer que `AddWordLevelTimestamps` seja definido como true.|
+|`TranscriptionResultsContainerUrl`|Token SAS opcional para um contêiner gravável no Azure. O resultado será armazenado nesse contêiner.
 
 ### <a name="storage"></a>Armazenamento
 

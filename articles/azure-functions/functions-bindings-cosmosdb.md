@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925955"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120557"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -31,7 +31,7 @@ Este artigo explica como trabalhar com associações do [Azure Cosmos DB](../cos
 > [!NOTE]
 > As associações do Azure Cosmos DB têm suporte apenas para usar com a API do SQL. Para todas as outras APIs do Azure Cosmos DB, você deve acessar o banco de dados por meio da sua função usando o cliente estático da API, incluindo a [API do Azure Cosmos DB para MongoDB](../cosmos-db/mongodb-introduction.md), a [API do Cassandra](../cosmos-db/cassandra-introduction.md), a [API do Gremlin](../cosmos-db/graph-introduction.md) e a [API de Tabela](../cosmos-db/table-introduction.md).
 
-## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As associações do Azure Cosmos DB para Functions versão 1.x são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB), versão 1.x. O código-fonte para a associação está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB).
 
@@ -176,13 +176,13 @@ Não há suporte para atributos pelo JavaScript.
 
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `CosmosDBTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `CosmosDBTrigger`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo** || Deve ser definido como `cosmosDBTrigger`. |
-|**direction** || Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** || O nome da variável usado no código de função que representa a lista de documentos com alterações. |
+|**tipo** | N/D | Deve ser definido como `cosmosDBTrigger`. |
+|**direction** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**databaseName**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está sendo monitorada. |
@@ -1111,16 +1111,16 @@ Não há suporte para atributos pelo JavaScript.
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `DocumentDB`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo**     || Deve ser definido como `documentdb`.        |
-|**direction**     || Deve ser definido como `in`.         |
-|**name**     || Nome do parâmetro de associação que representa o documento na função.  |
+|**tipo**     | N/D | Deve ser definido como `documentdb`.        |
+|**direction**     | N/D | Deve ser definido como `in`.         |
+|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
-|**ID**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
+|**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações em tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada.|
 |**conexão**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação.|
@@ -1450,13 +1450,13 @@ Não há suporte para atributos pelo JavaScript.
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `DocumentDB` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `DocumentDB`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-|**tipo**     || Deve ser definido como `documentdb`.        |
-|**direction**     || Deve ser definido como `out`.         |
-|**name**     || Nome do parâmetro de associação que representa o documento na função.  |
+|**tipo**     | N/D | Deve ser definido como `documentdb`.        |
+|**direction**     | N/D | Deve ser definido como `out`.         |
+|**name**     | N/D | Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/documentdb/).  |

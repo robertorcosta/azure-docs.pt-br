@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: a64f680adbfca08e334f51697a305c93a408e1e4
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ca19aefdd213331214938b2af6c9a77501333fb0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922370"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121209"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -206,9 +206,9 @@ module.exports = function(context, myQueueItem) {
 
 ### <a name="trigger---python-example"></a>Gatilho – Exemplo do Python
 
-O exemplo a seguir demonstra como ler uma mensagem da fila do ServiceBus por meio de um gatilho.
+O exemplo a seguir demonstra como ler uma mensagem da fila do barramento de serviço por meio de um gatilho.
 
-Uma associação de ServiceBus é definida em *Function. JSON* , em que *Type* é definido como `serviceBusTrigger`.
+Uma associação do barramento de serviço é definida em *Function. JSON* , em que *Type* é definido como `serviceBusTrigger`.
 
 ```json
 {
@@ -274,7 +274,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
   }
   ```
 
-  Você pode definir a `Connection` propriedade para especificar a conta de Barramento de Serviço para usar, conforme mostrado no exemplo a seguir:
+  Você pode definir a propriedade `Connection` para especificar o nome de uma configuração de aplicativo que contém a cadeia de conexão do barramento de serviço a ser usada, conforme mostrado no exemplo a seguir:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -322,12 +322,13 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como "serviceBusTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**name** | N/D | O nome da variável que representa a fila ou mensagem de tópico no código de função. |
 |**queueName**|**QueueName**|Nome da fila a ser monitorada.  Defina somente se for monitorar uma fila, não para um tópico.
 |**topicName**|**TopicName**|Nome do tópico a ser monitorado. Defina somente se for monitorar um tópico, não uma fila.|
 |**subscriptionName**|**SubscriptionName**|Nome da assinatura a ser monitorada. Defina somente se for monitorar um tópico, não uma fila.|
 |**conexão**|**Conexão**|O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Barramento de Serviço para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome. Por exemplo, se você configurar `connection` para "MyServiceBus", o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada "AzureWebJobsMyServiceBus." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão do Barramento de serviço na configuração de aplicativo chamada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico. |
-|**accessRights**|**Access**|Direitos de acesso para a cadeia de caracteres de conexão. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como "escutar". Caso contrário, o runtime do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos. No Azure Functions versão 2. x e superior, essa propriedade não está disponível porque a versão mais recente do SDK de armazenamento não dá suporte a operações de gerenciamento.|
+|**accessRights**|**Access**|Direitos de acesso para a cadeia de caracteres de conexão. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como "escutar". Caso contrário, o runtime do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos. No Azure Functions versão 2. x e superior, essa propriedade não está disponível porque a versão mais recente do SDK do barramento de serviço não dá suporte a operações de gerenciamento.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` se estiver se conectando a uma fila ou assinatura [com reconhecimento de sessão](../service-bus-messaging/message-sessions.md) . `false` caso contrário, que é o valor padrão.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -340,7 +341,7 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a mensa
 * Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
 * `BrokeredMessage` – fornece a você a mensagem desserializada com o método [BrokeredMessage. GetBody\<t > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Esses parâmetros são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
+Esses tipos de parâmetro são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
 
 No JavaScript, acesse a mensagem da fila ou do tópico usando `context.bindings.<name from function.json>`. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
 
@@ -369,7 +370,7 @@ O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./f
 |`ReplyTo`|`string`|A resposta para o endereço da fila.|
 |`SequenceNumber`|`Int64`|Número exclusivo atribuído a uma mensagem pelo Barramento de Serviço.|
 |`To`|`string`|Enviar para o endereço.|
-|`Label`|`string`|Rótulo específico do aplicativo.|
+|`Label`|`string`|O rótulo específico do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|
 
 > [!NOTE]
@@ -510,7 +511,7 @@ public String pushToQueue(
  }
 ```
 
- Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
+ Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@ServiceBusQueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
 
 As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa a anotação `@ServiceBusTopicOutput` para descrever a configuração da Associação de saída. 
 
@@ -583,9 +584,9 @@ module.exports = function (context, myTimer) {
 
 ### <a name="output---python-example"></a>Saída – exemplo do Python
 
-O exemplo a seguir demonstra como gravar em uma fila do ServiceBus em Python.
+O exemplo a seguir demonstra como gravar em uma fila do barramento de serviço em Python.
 
-Uma definição de associação ServiceBue é definida em *Function. JSON* , em que *Type* é definido como `serviceBus`.
+Uma definição de associação do barramento de serviço é definida em *Function. JSON* , em que *Type* é definido como `serviceBus`.
 
 ```json
 {
@@ -646,7 +647,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Você pode definir a `Connection` propriedade para especificar a conta de Barramento de Serviço para usar, conforme mostrado no exemplo a seguir:
+Você pode definir a propriedade `Connection` para especificar o nome de uma configuração de aplicativo que contém a cadeia de conexão do barramento de serviço a ser usada, conforme mostrado no exemplo a seguir:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -659,7 +660,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-example).
 
-Você pode usar o atributo `ServiceBusAccount` para especificar a conta do Barramento de Serviço ao nível da classe, do método ou do parâmetro.  Para obter mais informações, consulte [Gatilho - atributos](#trigger---attributes).
+Você pode usar o atributo `ServiceBusAccount` para especificar a conta do barramento de serviço a ser usada no nível de classe, método ou parâmetro.  Para obter mais informações, consulte [Gatilho - atributos](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -669,11 +670,11 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |---------|---------|----------------------|
 |**tipo** | N/D | Deve ser definido como "serviceBus". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | N/D | Deve ser definido como "out". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | N/D | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**name** | N/D | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina somente se for enviar mensagens da fila, não para um tópico.
-|**topicName**|**TopicName**|Nome do tópico a ser monitorado. Defina somente se for enviar mensagens do tópico, não para uma fila.|
+|**topicName**|**TopicName**|Nome do tópico. Defina somente se for enviar mensagens do tópico, não para uma fila.|
 |**conexão**|**Conexão**|O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Barramento de Serviço para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome. Por exemplo, se você configurar `connection` para "MyServiceBus", o runtime do Functions procura por uma configuração de aplicativo que esteja nomeada "AzureWebJobsMyServiceBus." Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão do Barramento de serviço na configuração de aplicativo chamada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.|
-|**accessRights**|**Access**|Direitos de acesso para a cadeia de caracteres de conexão. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como "escutar". Caso contrário, o runtime do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos. No Azure Functions versão 2. x e superior, essa propriedade não está disponível porque a versão mais recente do SDK de armazenamento não dá suporte a operações de gerenciamento.|
+|**accessRights**|**Access**|Direitos de acesso para a cadeia de caracteres de conexão. Os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como "escutar". Caso contrário, o runtime do Functions talvez falhe ao tentar executar operações que exigem o gerenciamento de direitos. No Azure Functions versão 2. x e superior, essa propriedade não está disponível porque a versão mais recente do SDK do barramento de serviço não dá suporte a operações de gerenciamento.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -726,6 +727,12 @@ Esta seção descreve as definições de configuração global disponíveis para
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
             }
         }
     }
@@ -735,10 +742,8 @@ Esta seção descreve as definições de configuração global disponíveis para
 |Propriedade  |Padrão | Description |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|true|Se o gatilho deve ser marcado imediatamente como concluído (completar automaticamente) ou aguardar a conclusão do processamento da chamada.|
+|autoComplete|true|Se o gatilho deve marcar imediatamente a mensagem como concluída (AutoCompletar) ou aguardar até que a função seja encerrada com êxito para chamar a conclusão.|
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o runtime do Functions processa várias mensagens simultaneamente. Para direcionar o runtime para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. |
-|prefetchCount|N/D|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.|
-
 
 ## <a name="next-steps"></a>Próximos passos
 

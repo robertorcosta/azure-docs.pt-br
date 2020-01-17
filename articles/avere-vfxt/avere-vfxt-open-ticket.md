@@ -4,18 +4,18 @@ description: Explicação de como abrir tíquetes de suporte do Avere vFXT para 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 27f32a922a1b063096b0ccf28a01a78d442e0271
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889277"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153285"
 ---
 # <a name="get-help-with-your-system"></a>Obter ajuda com o sistema
 
-Se precisar de ajuda com o Avere vFXT para Azure, estas serão as diferentes maneiras de obter suporte:
+Para obter ajuda com seu avere vFXT para o sistema do Azure, aqui estão as maneiras de obter suporte:
 
 * **Problema com o Avere vFXT** – use o portal do Azure para abrir um tíquete de suporte para seu Avere vFXT conforme descrito [abaixo](#open-a-support-ticket-for-your-avere-vfxt).
 * **Cota** – se tiver um problema relacionado à cota, [solicite um aumento de cota](#request-a-quota-increase)
@@ -27,27 +27,33 @@ Se tiver problemas para implantar ou usar o Avere vFXT, solicite ajuda por meio 
 
 Siga estas etapas para garantir que o tíquete de suporte seja marcado com um recurso de seu cluster. Marcar o tíquete nos ajuda a encaminhá-lo para o recurso de suporte correto.
 
-1. Em [https://portal.azure.com](https://portal.azure.com), selecione **Grupos de Recursos**.
-
-   ![captura de tela do menu esquerdo do portal do Azure com "Grupos de recursos" circulado](media/avere-vfxt-ticket-rg.png)
-
-1. Navegue até o grupo de recursos que contém o cluster vFXT em que ocorreu o problema e clique em uma das máquinas virtuais do Avere.
+1. Em [https://portal.azure.com](https://portal.azure.com), selecione **Grupos de Recursos**. Navegue até o grupo de recursos que contém o cluster vFXT em que o problema ocorreu e clique em uma das máquinas virtuais de cluster avere.
 
     ![captura de tela do painel "visão geral" do grupo de recursos do portal do Azure com uma VM específica circulada](media/avere-vfxt-ticket-vm.png)
 
 1. Na página da VM, role para baixo até a parte inferior do painel esquerdo e clique em **Nova solicitação de suporte**.
 
-    ![Captura de tela da página da VM do portal do Azure com a VM da captura de tela anterior. O menu à esquerda foi rolado até a parte inferior e "Nova solicitação de suporte" foi circulado.](media/avere-vfxt-ticket-request.png)
+    ![Captura de tela da página da VM do portal do Azure com a VM da captura de tela anterior. O menu à esquerda é rolado para a parte inferior e ' nova solicitação de suporte ' é circulado.](media/avere-vfxt-ticket-request.png)
 
-1. Na primeira página da solicitação de suporte, clique em **Todos os Serviços** e, em **Armazenamento**, escolha **Avere vFXT**.
+1. Na primeira página da solicitação de suporte, escolha o tipo de problema e verifique se a assinatura correta está selecionada.
 
-    ![captura da tela da nova solicitação de suporte no portal do Azure com o cabeçalho "Básico" e um círculo ao redor do item "Serviço". O botão "Todos os serviços" está selecionado e o campo do menu suspenso tem o valor "Avere vFXT"](media/avere-vfxt-ticket-service.png)
+   Em **serviço**, clique em **todos os serviços** e procure em **armazenamento** para escolher **avere vFXT**.
 
-1. Na segunda página, escolha o tipo de problema e a categoria que melhor correspondem ao seu problema. Adicione um título curto e uma descrição que inclua a hora em que o problema ocorreu.
+   Adicione um breve resumo e selecione o tipo de problema.
 
-   ![captura da tela da nova solicitação de suporte com o cabeçalho "Problema", que contém vários campos que precisam ser preenchidos](media/avere-vfxt-ticket-problem.png)
+    ![captura de tela de uma nova exibição de solicitação de suporte no portal do Azure. A guia noções básicas está selecionada. Os itens da tela incluem tipo de problema, assinatura, serviço, resumo e tipo de problema.](media/ticket-basics.png)
 
-1. Na terceira página, preencha suas informações de contato e clique em **Criar**. Uma confirmação e um número de tíquete serão enviados para seu endereço de email e um membro da equipe de suporte entrará em contato com você.
+   Clique em **Avançar** para continuar.
+
+1. A segunda página do formulário de suporte contém sugestões para corrigir o problema com base na descrição resumida. Clique no botão **Avançar** na parte inferior se você ainda precisar criar um tíquete de suporte.
+
+   ![instantâneo da tela nova solicitação de suporte com a guia soluções selecionada. Um campo de texto no meio tem o título "solução recomendada" e explica as possíveis soluções.](media/ticket-solutions.png)
+
+1. Na terceira página, forneça detalhes-isso inclui informações sobre o cluster, a hora em que o problema ocorreu, a gravidade e como contatá-lo. Preencha as informações e clique no botão **Avançar** na parte inferior.
+
+   ![instantâneo da tela nova solicitação de suporte com a guia detalhes selecionada. Os campos de informações são organizados nas categorias ' detalhes do problema ', ' método de suporte ' e "informações de contato '.](media/ticket-details.png)
+
+1. Examine as informações na página final e clique em **criar**. Uma confirmação e um número de tíquete serão enviados para seu endereço de email e um membro da equipe de suporte entrará em contato com você.
 
 ## <a name="request-a-quota-increase"></a>Solicitar um aumento de cota
 

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278974"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156128"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurar um número de telefone como seu método de verificação
 
-Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** para adicionar, atualizar ou excluir suas informações de segurança.
+Siga estas instruções para adicionar os métodos de verificação em duas etapas e redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
 Se for solicitado que você faça tais configurações imediatamente após entrar em sua conta corporativa ou de estudante, confira as etapas detalhadas no artigo [Configurar suas informações de segurança pela solicitação na página de entrada](security-info-setup-signin.md).
 
@@ -30,7 +30,20 @@ Se for solicitado que você faça tais configurações imediatamente após entra
 > [!Note]
 > Informações de segurança não suportam o uso de extensões de telefone. Mesmo se você adicionar o formato adequado, +1 4255551234X12345, as extensões serão removidas antes da chamada ser feita.
 >
-> Caso não veja a opção de telefone, talvez sua organização não permita que você use um número de telefone para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o administrador para obter ajuda.
+> Se você não vir uma opção de telefone, é possível que sua organização não permita que você use essa opção para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais assistência.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Verificação de segurança versus autenticação de redefinição de senha
+
+Os métodos de informações de segurança são usados para a verificação de segurança de dois fatores e para a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Usado para |
+| ------ | -------- |
+| Aplicativo autenticador | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Mensagens de texto | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chamadas telefônicas | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chave de segurança | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Conta de email | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurar chamadas telefônicas da página de Informações de segurança
 
@@ -76,7 +89,7 @@ Se você não quiser mais usar chamadas telefônicas como um método de informa�
 
 1. Na página **Informações de segurança**, selecione o link **Excluir** ao lado da opção **Telefone**.
 
-    ![Link para excluir o método de telefone de informações de segurança](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+    ![Link para excluir o método de telefone das informações de segurança](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
 2. Selecione **Sim** na caixa de confirmação para excluir o número de **Telefone**. Depois que o número do telefone tiver sido excluído, ele será removido das suas informações de segurança e desaparecerá da página **Informações de segurança**. Se **Telefone** for o método padrão, o padrão será alterado para outro método disponível.
 
@@ -113,7 +126,7 @@ Você tem opções adicionais de como sua organização entra em contato com voc
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Redefina sua senha se você a perdeu ou esqueceu, do [portal de redefinição de senha](https://passwordreset.microsoftonline.com/) ou siga as etapas no artigo [Redefinir sua senha de trabalho ou escola](active-directory-passwords-update-your-own-password.md).
 

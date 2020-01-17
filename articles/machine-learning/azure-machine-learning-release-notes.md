@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771914"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122365"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -125,7 +125,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Correção para carregar RunConfigurations de caminhos relativos.
     + Ao chamar `keep_columns` ou `drop_columns` que resulta em uma coluna da série temporal sendo removida, os recursos correspondentes também serão descartados para o conjunto de resultados.
   + **azureml-interpretar**
-    + versão atualizada da interpretação-Community para 0.2.0
+    + Versão atualizada da interpretação-Community para 0.2.0
   + **azureml-pipeline-steps**
     + Valores com suporte documentados para `runconfig_pipeline_params` para as etapas de pipeline do Azure Machine Learning.
   + **azureml-pipeline-core**
@@ -1488,7 +1488,7 @@ A Computação do Azure Machine Learning pode ser criada no Python, pelo portal 
 + Pipelines de ML
   + Notebooks novos e atualizados para começar a ver exemplos de pipelines, escopo de lote e transferência de estilo: https://aka.ms/aml-pipeline-notebooks
   + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md)
-  + Saiba como [executar previsões em lotes usando pipelines](how-to-run-batch-predictions.md)
+  + Saiba como [executar previsões em lotes usando pipelines](how-to-use-parallel-run-step.md)
 + Computação de destino do Azure Machine Learning
   + [Notebooks de exemplo](https://aka.ms/aml-notebooks) agora são atualizados para usar essa nova computação gerenciada.
   + [Saiba mais sobre essa computação](how-to-set-up-training-targets.md#amlcompute)

@@ -4,14 +4,14 @@ description: Como adicionar um sistema de armazenamento de back-end ao seu Avere
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416468"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153982"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -32,7 +32,7 @@ Essas etapas usam o Painel de Controle do Avere. Leia [Acessar o cluster do vFXT
 
 ## <a name="create-a-core-filer"></a>Criar um arquivista central
 
-"Arquivista central" é um termo do vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo de hardware, como NetApp ou Isilon, ou pode ser um armazenamento de objetos de nuvem. Mais informações sobre os Filers principais podem ser encontradas no [Guia de configurações do cluster avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+O "principal Filer" é um termo vFXT para um sistema de armazenamento de back-end. O armazenamento pode ser um dispositivo de hardware, como NetApp ou Isilon, ou pode ser um armazenamento de objetos de nuvem. Mais informações sobre os Filers principais podem ser encontradas no [Guia de configurações do cluster avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Para adicionar um arquivista central, escolha um dos dois tipos principais de arquivistas centrais:
 
@@ -69,7 +69,7 @@ Em seguida, vá para [Criar uma junção](#create-a-junction).
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage Cloud principal Filer
 
-Para usar o Armazenamento de Blobs do Azure como armazenamento de back-end do cluster do vFXT, você precisa de um contêiner vazio para ser adicionado como um arquivista central.
+Para usar o armazenamento de BLOBs do Azure como o armazenamento de back-end do cluster vFXT, você precisa de um contêiner vazio para adicionar como um Filer principal.
 
 Adicionar o Armazenamento de Blobs ao seu cluster requer estas tarefas:
 

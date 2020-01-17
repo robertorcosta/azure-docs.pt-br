@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928606"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120534"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de Aplicativos Móveis para o Azure Functions 
 
@@ -23,7 +23,7 @@ As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dad
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes – Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
@@ -37,7 +37,7 @@ A associação de entrada dos Aplicativos Móveis carrega um registro de um pont
 
 Consulte o exemplo específico a um idioma:
 
-* [Script do C# (. CSx)](#input---c-script-example)
+* [Script do C# (.csx)](#input---c-script-example)
 * JavaScript
 
 ### <a name="input---c-script-example"></a>Entrada - exemplo de script C#
@@ -132,15 +132,15 @@ Para saber informações sobre propriedades de atributo que podem ser configurad
 
 ## <a name="input---configuration"></a>Entrada - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `MobileTable` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `MobileTable`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-| **tipo**|| Deve ser definido como "mobileTable"|
-| **direction**||Deve ser definido como "in"|
-| **name**|| Nome do parâmetro de entrada na assinatura de função.|
+| **tipo**| N/D | Deve ser definido como "mobileTable"|
+| **direction**| N/D |Deve ser definido como "in"|
+| **name**| N/D | Nome do parâmetro de entrada na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
-| **ID**| **Id** | O identificador exclusivo do registro a ser recuperado. Pode ser estático ou se basear no gatilho que invoca a função. Por exemplo, se você usar um gatilho da fila para sua função, o `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
+| **id**| **Id** | O identificador exclusivo do registro a ser recuperado. Pode ser estático ou se basear no gatilho que invoca a função. Por exemplo, se você usar um gatilho da fila para sua função, o `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.|
 |**conexão**|**Conexão**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias no aplicativo móvel. Crie uma configuração de aplicativo no aplicativo de funções que contenha a URL do aplicativo móvel e especifique o nome da configuração do aplicativo na propriedade `connection` na associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKey**|O nome de uma configuração de aplicativo que tem a chave de API do seu aplicativo móvel. Forneça a chave de API se [implementar uma chave de API no aplicativo móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou se [implementar uma chave de API no aplicativo móvel do .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma configuração de aplicativo no aplicativo de funções que contém a chave de API e adicione a propriedade `apiKey` na associação de entrada ao nome da configuração do aplicativo. |
 
@@ -166,7 +166,7 @@ Use a associação de saída dos Aplicativos Móveis para gravar um novo registr
 Consulte o exemplo específico a um idioma:
 
 * [C#](#output---c-example)
-* [Script do C# (. CSx)](#output---c-script-example)
+* [Script do C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - exemplo C#
@@ -290,13 +290,13 @@ Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-ex
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `MobileTable` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `MobileTable`.
 
-|Propriedade function.json | Propriedade de atributo |Descrição|
+|Propriedade function.json | Propriedade de atributo |Description|
 |---------|---------|----------------------|
-| **tipo**|| Deve ser definido como "mobileTable"|
-| **direction**||Deve ser definido como "out"|
-| **name**|| Nome do parâmetro de saída na assinatura de função.|
+| **tipo**| N/D | Deve ser definido como "mobileTable"|
+| **direction**| N/D |Deve ser definido como "out"|
+| **name**| N/D | Nome do parâmetro de saída na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados do aplicativo móvel|
 |**conexão**|**MobileAppUriSetting**|O nome de uma configuração de aplicativo que tem a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias no aplicativo móvel. Crie uma configuração de aplicativo no aplicativo de funções que contenha a URL do aplicativo móvel e especifique o nome da configuração do aplicativo na propriedade `connection` na associação de entrada. A URL é semelhante a `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|O nome de uma configuração de aplicativo que tem a chave de API do seu aplicativo móvel. Forneça a chave de API se [implementar uma chave de API no back-end do aplicativo móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou se [implementar uma chave de API no back-end do aplicativo móvel do .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fornecer a chave, crie uma configuração de aplicativo no aplicativo de funções que contém a chave de API e adicione a propriedade `apiKey` na associação de entrada ao nome da configuração do aplicativo. |
