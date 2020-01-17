@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: iot-hub
 author: kgremban
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: bad21019607c99964caa1712e50231705689aad2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce74966cab3469d59693c59831bb3d4ce625f90e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055325"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159220"
 ---
 >[!NOTE]
->Os recursos descritos neste artigo estão disponíveis apenas na camada standard do IoT Hub. Para obter mais informações sobre as camadas básicas e standard do IoT Hub, consulte [escolher a camada certa do IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+>Os recursos descritos neste artigo estão disponíveis apenas na camada standard do Hub IoT. Para obter mais informações sobre as camadas básica e Standard/gratuita do Hub IoT, consulte [escolher a camada certa do Hub IOT](../articles/iot-hub/iot-hub-scaling.md).
