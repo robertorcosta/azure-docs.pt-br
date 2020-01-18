@@ -1,26 +1,26 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: digital-twins
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 01/15/2020
 ms.custom: include file
-ms.openlocfilehash: e46041a33c12b3fcb40e5a04de11108471e59855
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: cb43c8b8c952d8db6cf450a7015c22c85e7fe4b5
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307256"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268185"
 ---
 O `objectIdType` (ou **tipo de identificador de objeto**) refere-se ao tipo de identidade que é dada a uma função. Além dos tipos `DeviceId` e `UserDefinedFunctionId`, os tipos de identificador de objeto correspondem às propriedades dos objetos do Azure Active Directory.
 
 A tabela a seguir contém os tipos de identificador de objeto com suporte no Gêmeos Digitais do Azure:
 
-| Digite | DESCRIÇÃO |
+| Tipo | Description |
 | --- | --- |
 | UserId | Atribui uma função a um usuário. |
 | deviceId | Atribui uma função a um dispositivo. |

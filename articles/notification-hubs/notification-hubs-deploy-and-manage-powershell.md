@@ -1,6 +1,6 @@
 ---
-title: Implantar e gerenciar os Hubs de Notificação usando o PowerShell
-description: Como criar e gerenciar os hubs de notificação usando o PowerShell para automação
+title: Implantar e gerenciar hubs de notificação usando o PowerShell
+description: Como criar e gerenciar hubs de notificação usando o PowerShell para automação
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5af920249000cabbc63f0c9ab453738450875172
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213409"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264637"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implantar e gerenciar hubs de notificação usando o PowerShell
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este artigo mostra como usar Criar e Gerenciar Hubs de Notificação de Azure usando o PowerShell. As tarefas de automação comuns a seguir são mostradas neste artigo.
 
@@ -38,7 +38,7 @@ O gerenciamento de hubs de notificação não tem suporte direto dos cmdlets inc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para saber mais sobre como adquirir uma assinatura, confira [Opções de compra], [Ofertas para membros] ou [Teste Gratuito].
+- Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para obter mais informações sobre como adquirir uma assinatura, confira [Opções de compra], [Ofertas para membros] ou [Teste Gratuito].
 - Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure].
 - Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
@@ -94,10 +94,10 @@ Para provisionar um novo Hub de Notificação, use a [API do .NET para Hubs de N
 
 Nesta parte do script, você configura quatro variáveis locais.
 
-1. `$Namespace`: defina como o nome do namespace em que você deseja criar um hub de notificação.
-2. `$Path`: defina esse caminho como o nome do novo hub de notificação.  Por exemplo, "MyHub".
-3. `$WnsPackageSid`: defina como o SID do pacote para seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
-4. `$WnsSecretkey`: defina como a chave secreta de seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
+1. `$Namespace`: defina isso para o nome do namespace em que você deseja criar um hub de notificação.
+2. `$Path`: defina esse caminho para o nome do novo hub de notificação.  Por exemplo, "MyHub".
+3. `$WnsPackageSid`: defina isso para o SID do pacote para seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: defina isso para a chave secreta de seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
 
 Essas variáveis são usadas para se conectar ao seu namespace e criar um novo hub de notificação configurado para manipular as notificações do WNS (Windows Notification Services) com credenciais dos WNS para um aplicativo do Windows. Para obter informações sobre como obter o SID de pacote e a chave de segredo, consulte o tutorial [Introdução aos Hubs de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
@@ -146,7 +146,7 @@ else
 }
 ```
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Gerenciar o Barramento de Serviço com o PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 - [Como criar filas, tópicos e assinaturas do Barramento de Serviço usando um script do PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)

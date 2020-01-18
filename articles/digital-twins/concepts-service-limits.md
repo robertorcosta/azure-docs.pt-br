@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: f54311af65d9678b2a51b23a38bab66111a818ca
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/17/2020
+ms.openlocfilehash: 8658bc44e41f61e717cf228a6d8e7cee6b477022
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383082"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264943"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de visualização pública
 
@@ -73,6 +73,6 @@ Os limites a seguir limitam o número total de todas as mensagens que seus dispo
 - 100 mensagens por segundo em todos os dispositivos
 -   25 mensagens por segundo por dispositivo
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para testar um exemplo de Gêmeos Digitais do Azure,vá para [Início Rápido para encontrar salas disponíveis](./quickstart-view-occupancy-dotnet.md).

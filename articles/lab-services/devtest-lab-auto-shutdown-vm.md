@@ -1,5 +1,5 @@
 ---
-title: Definir configurações de desligamento automático para uma VM no Azure DevTest Labs | Microsoft Docs
+title: Definir configurações de desligamento automático para uma VM no Azure DevTest Labs
 description: Saiba como definir as configurações de desligamento automático para uma VM (máquina virtual) para que a VM seja desligada automaticamente quando não estiver em uso.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 934e8fd71c901c89f328c777103a8cb39bf21ac4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4cca4fd4bc9cd880c5b7a75e54e8cfd8192bae1e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361564"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170203"
 ---
 # <a name="configure-autoshutdown-settings-for-a-vm-in-azure-devtest-labs"></a>Definir configurações de desligamento automático para uma VM no Azure DevTest Labs
 O Azure DevTest Labs permite que você controle o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) para cada laboratório. Este artigo mostra como configurar a política de desligamento automático para uma conta de laboratório e definir as configurações de desligamento automático para um laboratório na conta do laboratório. Para exibir como definir cada política de laboratório, confira [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -29,7 +29,7 @@ Como proprietário de um laboratório, você pode configurar uma programação d
 
 1. Na home page do seu laboratório, selecione **Configuração e políticas**.
 2. Selecione **Política de desligamento automático** na seção **Horários** do menu à esquerda.
-3. Selecione uma das opções. As seções a seguir fornecem mais detalhes sobre essas opções: A política de conjunto se aplica somente a novas VMs criadas no laboratório e não às VMs já existentes. 
+3. Selecione uma das opções. As seções a seguir fornecem mais detalhes sobre essas opções: A política de configuração se aplica apenas às novas VMs criadas no laboratório e não às VMs já existentes. 
 
     ![Opções de política de desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
@@ -38,13 +38,13 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
 Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.   
 4. Selecione **Configuração e políticas**.
 
     ![Painel de configurações de política](./media/devtest-lab-set-lab-policy/policies-menu.png)
-5. No painel **configuração e políticas** do laboratório, selecione desligamento **automático** em **agendas**.
+5. No painel **configuração e políticas** do laboratório, selecione **desligamento automático** em **agendas**.
    
     ![Desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 6. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
@@ -52,7 +52,7 @@ Para exibir (e alterar) as políticas de um laboratório, siga estas etapas:
 8. Especifique **Sim** ou **não** para a opção de enviar uma notificação 15 minutos antes do tempo de desligamento automático especificado. Se escolher **Sim**, insira um ponto de extremidade de URL de webhook ou endereço de email especificando onde você deseja que a notificação seja postada ou enviada. O usuário recebe a notificação e recebe a opção para atrasar o desligamento. Para obter mais informações, consulte a seção [notificações](#notifications) . 
 9. Clique em **Salvar**.
 
-    Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel Gerenciamento da VM e altere sua  configuração de desligamento automático.
+    Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel Gerenciamento da VM e altere sua configuração de **desligamento** automático.
 
 ## <a name="configure-autoshutdown-settings-for-a-vm"></a>Definir configurações de desligamento automático para uma VM
 
@@ -82,5 +82,5 @@ A notificação é enviada por meio do ponto de extremidade de gancho da Web con
 Recomendamos que você use os ganchos da Web porque eles são amplamente suportados por vários aplicativos (por exemplo, margem de atraso, aplicativos lógicos do Azure e assim por diante) e permite que você implemente sua própria maneira de enviar notificações. Para obter um exemplo de como receber notificações de desligamento automático de emails usando aplicativos lógicos do Azure, consulte[criar um aplicativo lógico que recebe notificações por email](devtest-lab-auto-shutdown.md#create-a-logic-app-that-receives-email-notifications). 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Consulte [gerenciar políticas de desligamento automático para um laboratório no Azure DevTest Labs](devtest-lab-auto-shutdown.md)

@@ -1,6 +1,6 @@
 ---
-title: Segurança dos Hubs de Notificação
-description: Este tópico explica a segurança para os hubs de notificação do Azure.
+title: Modelo de segurança dos hubs de notificação
+description: Saiba mais sobre o modelo de segurança para os hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273629"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263754"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos hubs de notificação
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este tópico descreve o modelo de segurança dos Hubs de notificação do Azure.
 
@@ -46,13 +46,13 @@ A chave com acesso de **escuta** permite que um aplicativo cliente se registre e
 
 ## <a name="security-claims"></a>Declarações de segurança
 
-Semelhantes a outras entidades, as operações de Hub de notificação são permitidas para três declarações de segurança: **Ouça**, **envie**e **gerencie**.
+Semelhante a outras entidades, as operações do hub de notificação são permitidas para três declarações de segurança: **escutar**, **Enviar**e **gerenciar**.
 
-| Declaração   | DESCRIÇÃO                                          | Operações permitidas |
+| Declaração   | Description                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Escutar  | Criar/atualizar, ler e excluir registros simples | Criar/Atualizar o registro<br><br>Ler registro<br><br>Ler todos os registros para um identificador<br><br>Excluir registro |
 | Enviar    | Enviar mensagens para o Hub de notificação                | Enviar mensagem |
-| Gerenciar  | CRUDs nos Hubs de notificação (incluindo atualização de credenciais PNS e chaves de segurança) e ler registros baseados em marcas |Criar/atualizar/ler/excluir hubs<br><br>Ler registros por marca |
+| Gerenciamento  | CRUDs nos Hubs de notificação (incluindo atualização de credenciais PNS e chaves de segurança) e ler registros baseados em marcas |Criar/atualizar/ler/excluir hubs<br><br>Ler registros por marca |
 
 Os hubs de notificação aceitam tokens SAS gerados com chaves compartilhadas configuradas diretamente no Hub.
 
@@ -64,7 +64,7 @@ Usar as políticas de acesso no nível de namespace (credenciais) para operaçõ
 
 Para criar uma nova declaração de segurança ou para exibir as chaves SAS existentes, faça o seguinte:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Selecione **Todos os recursos**.
 3. Selecione o nome do hub de notificação para o qual você deseja criar a declaração ou exibir a chave SAS.
 4. No menu à esquerda, selecione políticas de **acesso**.
@@ -79,6 +79,6 @@ Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=polic
 
 ![Obter chaves SAS](media/notification-hubs-push-notification-security/access1.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral dos Hubs de Notificação](notification-hubs-push-notification-overview.md)

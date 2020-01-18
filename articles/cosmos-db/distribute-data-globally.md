@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 4f17fc7df5aef449c3b0f6dd8d02ae58df959070
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384895"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264298"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Distribuição de dados global com o Azure Cosmos DB – visão geral
 
@@ -21,7 +21,7 @@ O Azure Cosmos DB é um serviço de banco de dados distribuído globalmente proj
 
 É possível configurar os bancos de dados para serem distribuídos globalmente e disponíveis em qualquer uma das regiões do Azure. Para diminuir a latência, coloque os dados próximos de onde os usuários estão. A escolha das regiões requeridas depende do alcance global de sua aplicação e onde seus usuários estão localizados. Cosmos DB replica os dados de forma transparente para todas as regiões associadas à sua conta do cosmos. Ele fornece uma única imagem do sistema do banco de dados do Azure Cosmos globalmente distribuído e dos contêineres que o aplicativo pode ler e gravar localmente. 
 
-Com o Azure Cosmos DB, você poderá adicionar ou remover as regiões associadas à sua conta a qualquer momento. Seu aplicativo não precisa ser pausado ou reimplementado para adicionar ou remover uma região. Ele continua sendo altamente disponível o tempo todo devido aos recursos de hospedagem múltipla que o serviço fornece nativamente.
+Com o Azure Cosmos DB, você poderá adicionar ou remover as regiões associadas à sua conta a qualquer momento. Seu aplicativo não precisa ser colocado em pausa nem reimplementado para adicionar ou remover uma região. Ele continua sendo altamente disponível o tempo todo devido aos recursos de hospedagem múltipla que o serviço fornece nativamente.
 
 ![Topologia de implantação altamente disponível](./media/distribute-data-globally/deployment-topology.png)
 
@@ -58,4 +58,4 @@ Leia mais sobre a distribuição global nos seguintes artigos:
 * [Escolher o nível certo de coerência para o seu aplicativo](consistency-levels-choosing.md)
 * [Níveis de coerência entre as APIs do Azure Cosmos DB](consistency-levels-across-apis.md)
 * [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
-* [Como implementar a sincronização personalizada para otimizar para maior disponibilidade e desempenho](how-to-custom-synchronization.md)
+

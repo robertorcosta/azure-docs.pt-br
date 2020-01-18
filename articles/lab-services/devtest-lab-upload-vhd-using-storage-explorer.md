@@ -1,5 +1,5 @@
 ---
-title: Carregar o arquivo VHD no Azure DevTest Labs usando o Explorer do Armazenamento do Microsoft Azure | Microsoft Docs
+title: Carregar arquivo VHD para Azure DevTest Labs usando Gerenciador de Armazenamento
 description: Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 3c187d104334fe75ec9e0ce41a3fdc14b508dfb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623256"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170366"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Carregar o arquivo VHD na conta de armazenamento do laboratório usando o Explorer do Armazenamento do Microsoft Azure
 
@@ -35,7 +35,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
 
 1. Obtenha o nome da conta de armazenamento do laboratório usando o Portal do Azure:
 
-    1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
     
     1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
     
@@ -121,7 +121,7 @@ As etapas a seguir mostram como carregar um arquivo VHD no DevTest Labs usando o
 
         ![Status de carregamento do arquivo][10]  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o Portal do Azure](devtest-lab-create-template.md)
 - [Criar uma imagem personalizada no Azure DevTest Labs de um arquivo VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

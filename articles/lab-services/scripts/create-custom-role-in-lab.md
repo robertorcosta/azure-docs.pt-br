@@ -1,5 +1,5 @@
 ---
-title: 'Script do PowerShell: Criar uma função personalizada em um laboratório no Azure DevTest Labs | Microsoft Docs'
+title: PowerShell-criar uma função personalizada em um laboratório no Azure DevTest Labs
 description: Este script do PowerShell adiciona um usuário externo a um laboratório no Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcad4e02105bff2dc78a4adc3ca614f997794d52
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160588"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166436"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Use o PowerShell para criar uma função personalizada em um laboratório no Azure DevTest Labs
 
@@ -30,7 +30,7 @@ Este script de amostra do PowerShell cria uma função personalizada para ser us
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
 
@@ -44,7 +44,7 @@ Este script usa os seguintes comandos:
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lista todas as funções de RBAC do Azure que estão disponíveis para atribuição. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Cria uma Função personalizada. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

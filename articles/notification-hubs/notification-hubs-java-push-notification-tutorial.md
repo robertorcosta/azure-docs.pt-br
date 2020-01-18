@@ -1,5 +1,5 @@
 ---
-title: Como usar Hubs de Notificação com Java
+title: Como usar os hubs de notificação do Azure com Java
 description: Aprenda a usar Hubs de notificação do Azure de um back-end do Java.
 services: notification-hubs
 documentationcenter: ''
@@ -16,19 +16,19 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213213"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263856"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como usar os Hubs de notificação do Java
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Este tópico descreve os principais recursos do totalmente novo do Java SDK do Hub de notificação do Azure com suporte oficial.
-Este é um projeto de software livre e você pode exibir todo o código do SDK no [SDK do Java].
+Este é um projeto de software livre e você pode exibir todo o código do SDK no [Java SDK].
 
 Normalmente, você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end de Java/PHP/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](https://msdn.microsoft.com/library/dn223264.aspx). Esse SDK Java fornece um wrapper estreito em relação a essas interfaces REST em Java.
 
@@ -41,7 +41,7 @@ O SDK atualmente oferece suporte para:
 * Envio regular
 * Envio agendado
 * Operações assíncronas via NIO Java
-* Plataformas compatíveis: APNS (iOS), FCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem serviços do Google)
+* Plataformas com suporte: APNS (iOS), FCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem Google Services)
 
 ## <a name="sdk-usage"></a>Uso do SDK
 
@@ -53,7 +53,7 @@ Para construir:
 
     mvn package
 
-## <a name="code"></a>Código
+## <a name="code"></a>Codificar
 
 ### <a name="notification-hub-cruds"></a>CRUDs do Hub de notificação
 
@@ -221,7 +221,7 @@ Excluir a instalação:
     hub.deleteInstallation(installation.getInstallationId());
     ```
 
-`CreateOrUpdate`, `Patch` e `Delete` acabam sendo consistentes com `Get`. A operação solicitada só vai para a fila do sistema durante a chamada e é executada em segundo plano. Get não foi projetado para o cenário principal do tempo de execução, mas apenas para depuração e solução de problemas, ele é totalmente restrito pelo serviço.
+`CreateOrUpdate`, `Patch` e `Delete` acabam sendo consistentes com `Get`. A operação solicitada só vai para a fila do sistema durante a chamada e é executada em segundo plano. Get não foi projetado para o cenário principal do runtime, mas apenas para depuração e solução de problemas, ele é totalmente restrito pelo serviço.
 
 Fluxo de envio para instalações é o mesmo para os registros. Para direcionar a notificação para uma instalação particular – basta usar a marca “InstallationId:{desired-id}". Nesse caso, o código é:
 
@@ -374,9 +374,9 @@ A execução do código Java agora deve produzir uma notificação que aparece n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Notificação. A partir daqui, você pode:
+Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Notificação. Nela você pode:
 
-* Baixe o [SDK do Java]completo, que contém todo o código do SDK.
+* Baixe o [Java SDK]completo, que contém todo o código do SDK.
 * Brincar com os exemplos:
   * [Introdução aos Hubs de Notificação]
   * [Enviar últimas notícias]
@@ -384,7 +384,7 @@ Este tópico mostrou como criar um cliente REST simples do Java para Hubs de Not
   * [Enviar notificações aos usuários autenticados]
   * [Enviar notificações entre plataformas aos usuários autenticados]
 
-[SDK do Java]: https://github.com/Azure/azure-notificationhubs-java-backend
+[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Introdução aos Hubs de Notificação]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Enviar últimas notícias]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533690"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169076"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Opções de suporte e ajuda dos serviços cognitivas do Azure
 
@@ -68,7 +68,7 @@ Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias pa
 | Serviço                       | URL de UserVoice de serviços cognitivas |
 |-------------------------------|---------------|
 | Detector de Anomalias              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
-| Serviços do Bing                 | https://cognitive.uservoice.com/forums/555907-bing-search |
+| Serviços Bing                 | https://cognitive.uservoice.com/forums/555907-bing-search |
 | Visual computacional               | https://cognitive.uservoice.com/forums/430309-computer-vision |
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Visão Personalizada                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
@@ -91,8 +91,8 @@ Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias pa
 
 As notas de versão são atualizadas conforme novas versões são disponibilizadas. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
- - [Serviço de Visão Personalizada](custom-vision-service/release-notes.md)
- - [API de Detecção Facial](face/releasenotes.md)
+ - [Visão Personalizada](custom-vision-service/release-notes.md)
+ - [Detecção Facial](face/releasenotes.md)
  - [Reconhecimento vocal (LUIS)](luis/whats-new.md)
  - [Serviços de Fala](speech-service/releasenotes.md)
  - [SDK de serviços de fala](speech-service/devices-sdk-release-notes.md)

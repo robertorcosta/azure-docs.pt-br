@@ -1,5 +1,5 @@
 ---
-title: Configurar um laboratório para usar Área de Trabalho Remota gateway no Azure DevTest Labs | Microsoft Docs
+title: Configurar um laboratório para usar Área de Trabalho Remota gateway no Azure DevTest Labs
 description: Saiba como configurar um laboratório no Azure DevTest Labs com um gateway de área de trabalho remota para garantir o acesso seguro às VMs do laboratório sem precisar expor a porta RDP.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f879a6389c7a77708e8041dd8b82dc3785679fa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162622"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170292"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurar seu laboratório no Azure DevTest Labs para usar um gateway de área de trabalho remota
 No Azure DevTest Labs, você pode configurar um gateway de área de trabalho remota para seu laboratório para garantir o acesso seguro às VMs (máquinas virtuais) do laboratório sem a necessidade de expor a porta RDP. O laboratório fornece um local central para que os usuários do laboratório exibam e se conectem a todas as máquinas virtuais às quais eles têm acesso. O botão **conectar** na página **máquina virtual** cria um arquivo RDP específico do computador que você pode abrir para se conectar ao computador. Você pode personalizar e proteger ainda mais a conexão RDP conectando seu laboratório a um gateway de área de trabalho remota. 

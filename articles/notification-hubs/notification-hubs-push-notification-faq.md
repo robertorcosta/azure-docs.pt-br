@@ -1,6 +1,6 @@
 ---
-title: 'Hubs de Notificação do Azure: perguntas frequentes | Microsoft Docs'
-description: Perguntas frequentes sobre como projetar/implementar soluções em Hubs de Notificação
+title: Perguntas frequentes sobre os hubs de notificação do Azure | Microsoft Docs
+description: Perguntas frequentes sobre como projetar e implementar soluções nos hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066868"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263822"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 
@@ -56,7 +56,7 @@ Para camadas Basic e Standard dos Hubs de Notificação, os aplicativos configur
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Como atualizar ou fazer downgrade do meu hub ou namespace para uma camada diferente?
 
-Vá para o  **[portal do Azure]**  > **Namespaces de Hubs de Notificação** ou **Hubs de Notificação**. Selecione o recurso que você deseja atualizar e vá para **Tipo de Preço**. Observe os seguintes requisitos:
+Vá para o **[Azure portal]**  > **Namespaces de Hubs de Notificação** ou **Hubs de Notificação**. Selecione o recurso que você deseja atualizar e vá para **Tipo de Preço**. Observe os seguintes requisitos:
 
 * O tipo de preço atualizado se aplica a *todos* os hubs no namespace com o qual você está trabalhando.
 * Se a contagem de dispositivos exceder o limite da camada que você estiver fazendo downgrade para, você precisa excluir dispositivos antes de você fazer o downgrade.
@@ -153,7 +153,7 @@ Todas as conexões do remetente para os Hubs de Notificações do Azure e para o
 
 Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. O remetente fornece uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página [Tutorial de Push Seguro dos Hubs de Notificação].
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
 
@@ -181,7 +181,7 @@ Os hubs de notificação do Azure criptografam todos os dados do cliente em repo
 
 ### <a name="is-there-audit-log-capability"></a>Há recursos de log de auditoria?
 
-Sim. Todas as operações de Gerenciamento de Hubs de Notificação atualizam o Log de Atividades do Azure para o qual está exposto no [portal do Azure]. O Log de Atividades do Azure fornece análises das operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar o quê, quem e quando de qualquer operação de gravação (PUT, POST, DELETE) feita para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. No entanto, o Log de Atividades não inclui as operações de leitura (GET).
+Sim. Todas as operações de Gerenciamento de Hubs de Notificação atualizam o Log de Atividades do Azure para o qual está exposto no [Azure portal]. O Log de Atividades do Azure fornece análises das operações executadas nos recursos em sua assinatura. Usando o Log de Atividades, você pode determinar o quê, quem e quando de qualquer operação de gravação (PUT, POST, DELETE) feita para os recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. No entanto, o Log de Atividades não inclui as operações de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoramento e solução de problemas
 
@@ -191,7 +191,7 @@ Os Hubs de Notificação do Azure fornecem vários recursos para a solução de 
 
 ### <a name="what-telemetry-features-are-available"></a>Quais recursos de telemetria estão disponíveis?
 
-Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no [portal do Azure]. Os detalhes das métricas estão disponíveis na página [Métricas de Hubs de Notificação].
+Os Hubs de Notificação do Azure permitem a exibição de dados de telemetria no [Azure portal]. Os detalhes das métricas estão disponíveis na página [Métricas de Hubs de Notificação].
 
 Você também pode acessar métricas programaticamente. Para obter mais informações, consulte os seguintes artigos:
 
@@ -202,7 +202,7 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 > [!NOTE]
 > Notificações com êxito significam simplesmente que as notificações por push foram entregues ao PNS externo (por exemplo, APNs para iOS e macOS ou FCM para dispositivos Android). É responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega para terceiros.  
 
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Preços dos Hubs de Notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [APIs REST dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -215,6 +215,6 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 [Solução de problemas de Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Hubs de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Importação/Exportação de Registros]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

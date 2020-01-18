@@ -4,8 +4,6 @@
   items:
     - name: O que é o Balanceador de Carga?
       href: load-balancer-overview.md
-    - name: O que é Load Balancer Standard?
-      href: load-balancer-standard-overview.md
 - name: Guia de Início Rápido
   items:
     - name: Criar o Standard Load Balancer

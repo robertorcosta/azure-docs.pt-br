@@ -1,5 +1,5 @@
 ---
-title: Como excluir e exportar dados pessoais do Azure DevTest Labs | Microsoft Docs
+title: Como excluir e exportar dados pessoais do Azure DevTest Labs
 description: Saiba como excluir e exportar dados pessoais do serviço Azure DevLast Labs para dar suporte às obrigações em conformidade com o GDPR (Regulamento Geral sobre a Proteção de Dados).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371178"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169692"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou excluir dados pessoais do Azure DevTest Labs
 Este artigo fornece etapas para excluir e exportar dados pessoais do serviço Azure DevTest Labs. 
@@ -68,7 +68,7 @@ Como usuário de laboratório, você pode solicitar uma exportação nos dados p
     ![Página de dados pessoais](./media/personal-data-delete-export/personal-data-page.png)
 2. Selecione o **grupo de recursos** que contém o laboratório.
 
-    ![Selecionar grupo de recursos](./media/personal-data-delete-export/select-resource-group.png)
+    ![Escolha o grupo de recursos](./media/personal-data-delete-export/select-resource-group.png)
 3. Selecione a **conta de armazenamento** no grupo de recursos.
 4. Na página **Conta de armazenamento**, selecione **Blobs**.
 
@@ -160,14 +160,14 @@ Agora, vamos examinar mais de perto os dados exportados. Conforme mencionado ant
 
 O **VirtualMachines. csv** contém as seguintes colunas de dados:
 
-| Nome da coluna | Descrição |
+| Nome da coluna | Description |
 | ----------- | ----------- | 
 | SubscriptionId | O identificador de assinatura no qual o laboratório existe. |
 | LabUId | Identificador de GUID exclusivo para o laboratório. |
 | LabName | Nome do laboratório. |
 | LabResourceId | ID de recurso de laboratório totalmente qualificado. |
 | ResourceGroupName | Nome do grupo de recursos que contém a VM | 
-| resourceId | ID de recurso totalmente qualificado para a VM. |
+| ResourceId | ID de recurso totalmente qualificado para a VM. |
 | ResourceUId | GUID da VM |
 | Nome | Nome da máquina virtual. |
 | CreatedTime | A data e hora em que a VM foi criada. |
@@ -188,14 +188,14 @@ O **VirtualMachines. csv** contém as seguintes colunas de dados:
 
 As colunas de dados contidas em **disks. csv** estão listadas abaixo:
 
-| Nome da coluna | Descrição | 
+| Nome da coluna | Description | 
 | ----------- | ----------- | 
 | SubscriptionId | ID da assinatura que contém o laboratório |
 | LabUId | GUID do laboratório |
-| LabName | Nome do laboratório | 
+| LabName | nome do laboratório | 
 | LabResourceId | ID de recurso totalmente qualificado para o laboratório | 
 | ResourceGroupName | Nome do grupo de recursos que contém o laboratório | 
-| resourceId | ID de recurso totalmente qualificado para a VM. |
+| ResourceId | ID de recurso totalmente qualificado para a VM. |
 | ResourceUId | GUID da VM |
  |Nome | O nome do disco anexado |
 | CreatedTime |A data e a hora em que o disco de dados foi criado. |
@@ -203,7 +203,7 @@ As colunas de dados contidas em **disks. csv** estão listadas abaixo:
 | ResourceStatus | Status do recurso. Ativo, se o recurso existir. Inativo, quando excluído. |
 | DiskBlobName | Nome do blob para o disco de dados. |
 | DiskSizeGB | O tamanho do disco de dados. |
-| Disco | Tipo de disco de dados. 0 para Standard, 1 para Premium. |
+| DiskType | Tipo de disco de dados. 0 para Standard, 1 para Premium. |
 | LeasedByVmId | ID de recurso da VM à qual o disco de dados foi anexado. |
 
 
@@ -212,8 +212,8 @@ As colunas de dados contidas em **disks. csv** estão listadas abaixo:
 
 Os dados exportados podem ser manipulados e visualizados usando ferramentas, como SQL Server, Power BI, etc. Esse recurso é especialmente útil quando você deseja relatar o uso de seu laboratório para sua equipe de gerenciamento que talvez não esteja usando a mesma assinatura do Azure que você faz.
 
-## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos: 
+## <a name="next-steps"></a>Próximos passos
+Veja os artigos a seguir: 
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)
 - [Perguntas frequentes](devtest-lab-faq.md)

@@ -1,6 +1,6 @@
 ---
-title: Como usar Hubs de Notificação com PHP
-description: Aprenda a usar Hubs de Notificação do Azure por meio de um back-end do PHP.
+title: Como usar os hubs de notificação do Azure com PHP
+description: Aprenda a usar Hubs de notificação do Azure de um back-end do PHP.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4df48475af4b140e4446dde9069eafcc95d9d3b2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213178"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263839"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Como usar Hubs de Notificação no PHP
 
@@ -282,7 +282,7 @@ Executar o código PHP agora deve produzir uma notificação que aparece no disp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de Notificação. A partir daqui, você pode:
+Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de Notificação. Nela você pode:
 
 * Baixar a [amostra de wrapper do PHP REST]completa, que contém todos os códigos acima.
 * Continuar a aprender sobre o recurso de criação de tags dos Hubs de Notificação no [tutorial Últimas Notícias]

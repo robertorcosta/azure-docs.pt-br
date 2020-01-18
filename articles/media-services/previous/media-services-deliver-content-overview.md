@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232261"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264671"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuir conteúdo aos clientes
 Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda aos clientes, sua meta será distribuir vídeo de alta qualidade a vários dispositivos sob diferentes condições de rede.
@@ -107,7 +107,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Formato HLS (Apple HTTP Live Streaming) com filtro somente áudio
 Por padrão, faixas somente áudio são incluídas no manifesto do HLS. Isso é necessário na certificação da Apple Store para redes de celular. Nesse caso, se um cliente não tiver largura de banda suficiente ou estiver conectado por uma conexão 2G, a reprodução será alternada para somente áudio. Isso ajuda a manter o streaming do conteúdo sem buffer, mas sem vídeo. Em alguns cenários, o buffer do player pode ser preferível a somente áudio. Se desejar remover a faixa somente áudio, adicione **audio-only=false** à URL.
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (Format = M3U8-AAPL-v3, áudio-only = false)
 
 Para saber mais, confira [Dynamic Manifest Composition support and HLS output additional features (Suporte à Composição de Manifesto Dinâmico e recursos adicionais da saída de HLS)](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -123,7 +123,7 @@ Por padrão, o formato de manifesto do Smooth Streaming contém a marca de repet
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=fmp4-v20)
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Download progressivo
 Com o download progressivo, é possível iniciar a reprodução da mídia antes de o arquivo inteiro ter sido baixado. Você não pode baixar progressivamente arquivos .ism* (ismv, isma, ismt ou ismc).

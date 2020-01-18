@@ -1,5 +1,5 @@
 ---
-title: Integre ambientes em Azure Pipelines no Azure DevTest Labs | Microsoft Docs
+title: Integre ambientes em Azure Pipelines no Azure DevTest Labs
 description: Saiba como integrar ambientes de Azure DevTest Labs em seus pipelines de CI (integração contínua) e distribuição contínua (CD) do Azure DevOps.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163919"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169419"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integre ambientes em seus pipelines de CI/CD do Azure DevOps
 Você pode usar a extensão de tarefas de Azure DevTest Labs que é instalada no Azure DevOps Services (anteriormente conhecido como Visual Studio Team Services) para integrar facilmente seu pipeline de integração contínua (CI)/entrega contínua (CD) com o Azure DevTest Labs. Essas extensões facilitam a implantação rápida de um [ambiente](devtest-lab-test-env.md) para uma tarefa de teste específica e, em seguida, a exclusão quando o teste é concluído. 
@@ -77,7 +77,7 @@ Na definição da versão, selecione **adicionar tarefas**e, em seguida, na guia
 2. Insira um nome para a definição da versão e, em seguida, salve-a.
 
 ## <a name="next-steps"></a>Próximos passos
-Confira os seguintes artigos: 
+Veja os artigos a seguir: 
 - [Crie ambientes com várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
 - Modelos de início rápido do Resource Manager para a automação do DevTest Labs do [repositório GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
 - [Página de solução de problemas do VSTS](/azure/devops/pipelines/troubleshooting)

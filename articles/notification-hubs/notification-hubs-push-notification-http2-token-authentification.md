@@ -1,6 +1,6 @@
 ---
-title: Autenticação baseada em token (HTTP/2) para o APNS em Hubs de Notificação do Azure | Microsoft Docs
-description: Este tópico explica como usar a nova autenticação de token para APNS
+title: Autenticação baseada em token (HTTP/2) para APNS nos hubs de notificação do Azure | Microsoft Docs
+description: Saiba como usar a nova autenticação de token para APNS.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111968"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263805"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para o APNS
+# <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em token (HTTP/2) para APNS
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este artigo explica como usar o novo protocolo HTTP/2 do APNS com autenticação baseada em token.
 
@@ -95,7 +95,7 @@ desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/de
 nm.UpdateNotificationHubAsync(desc);
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md)
 * [Configurar um hub de notificação no portal do Azure](create-notification-hub-portal.md)

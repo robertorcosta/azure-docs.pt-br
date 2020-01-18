@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402588"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168186"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço.
 * O Dependency Agent instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)a seguir.
+>Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms-preview)a seguir.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -321,7 +321,7 @@ Como vários registros podem existir para um processo e computador específicos 
 
 ### <a name="connections"></a>Conexões
 
-As métricas de conexão são gravadas em uma nova tabela no Log Analytics: VMConnection. Essa tabela fornece informações sobre as conexões de um computador (entrada e saída). As Métricas de Conexão também são expostas com APIs que fornecem meios para obter uma métrica específica durante um intervalo de tempo.  As conexões TCP resultantes de "*aceitan*-do em um soquete de escuta são de entrada, ao passo que as criadas *conectan*-do em determinada porta e IP são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
+As métricas de conexão são gravadas em uma nova tabela no Log Analytics: VMConnection. Essa tabela fornece informações sobre as conexões de um computador (entrada e saída). As Métricas de Conexão também são expostas com APIs que fornecem meios para obter uma métrica específica durante um intervalo de tempo.  As conexões TCP resultantes da aceitação em um soquete de escuta são de entrada, enquanto aquelas criadas pela conexão a um determinado IP e porta são de saída. A direção de uma conexão é representada pela propriedade Direction, o que pode ser definida para **entrada** ou **saída**. 
 
 Os registros nessas tabelas são gerados a partir dos dados relatados pelo agente de Dependência. Cada registro representa uma observação durante o intervalo de tempo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a respectiva entidade, ou seja, conexão ou porta, bem como as métricas associadas àquela entidade. Atualmente, apenas as atividades de rede que usam TCP via IPv4 são relatadas.
 

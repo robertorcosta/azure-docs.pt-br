@@ -4,12 +4,12 @@ description: Saiba como lidar com eventos externos na extensão de Funções Dur
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7d7fcc725d78b24a93b09cb9c76cf7dc0231cac2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0877161f8d668141c8efb7c06b10643bf209341f
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232889"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262955"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Lidando com eventos externos nas Funções Duráveis (Azure Functions)
 
@@ -22,7 +22,7 @@ Funções de orquestrador têm a capacidade de aguardar e escutar eventos extern
 
 Os métodos `WaitForExternalEvent` (.NET) e `waitForExternalEvent` (JavaScript) da [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger) permitem que uma função de orquestrador Espere e escute um evento externo de forma assíncrona. A função do orquestrador que está escutando declara o *nome* do evento e a *forma dos dados* que espera receber.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -44,7 +44,7 @@ public static async Task Run(
 > [!NOTE]
 > O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -59,11 +59,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 O exemplo anterior escuta um único evento específico e entra em ação quando ele é recebido.
 
 Você pode escutar vários eventos ao mesmo tempo, como no exemplo a seguir, que aguarda uma de três notificações de evento possíveis.
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Select")]
@@ -93,7 +95,7 @@ public static async Task Run(
 > [!NOTE]
 > O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -114,9 +116,11 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 O exemplo anterior escuta *qualquer* um de vários eventos. Também é possível aguardar *todos* os eventos.
 
-#### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -139,7 +143,9 @@ public static async Task Run(
 > [!NOTE]
 > O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
+No .NET, se a carga do evento não puder ser convertida no `T` do tipo esperado, uma exceção será lançada.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -158,12 +164,12 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 `WaitForExternalEvent` aguarda indefinidamente por alguma entrada.  O aplicativo de funções pode ser descarregado com segurança enquanto aguarda. Se um evento chegar para esta instância de orquestração, ela será ativada automaticamente e processará imediatamente o evento.
 
 > [!NOTE]
 > Se o seu aplicativo de funções utiliza o Plano de Consumo, não são feitas cobranças enquanto uma função de orquestrador está aguardando uma tarefa de `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript), independentemente do tempo de espera.
-
-No .NET, se a carga do evento não puder ser convertida no `T` do tipo esperado, uma exceção será lançada.
 
 ## <a name="send-events"></a>Enviar eventos
 
@@ -171,7 +177,7 @@ O método `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) da [Associação
 
 Abaixo, temos um exemplo de função disparada em fila que envia um evento de "Aprovação" para uma instância de função de orquestrador. A ID da instância de orquestração vem do corpo da mensagem da fila.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -186,7 +192,7 @@ public static async Task Run(
 > [!NOTE]
 > O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar o atributo `OrchestrationClient` em vez do atributo `DurableClient`, e deve usar o tipo de parâmetro `DurableOrchestrationClient` em vez de `IDurableOrchestrationClient`. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -197,12 +203,14 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+---
+
 Internamente, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) enfileira uma mensagem que é obtida pela função do orquestrador em espera. Se a instância não está aguardando o *nome do evento* especificado, a mensagem de evento é adicionada a uma fila na memória. Se posteriormente a instância de orquestração começa a escutar esse *nome do evento*, ela verifica a fila de mensagens de evento.
 
 > [!NOTE]
 > Se não houver nenhuma instância de orquestração com a *ID da instância* especificada, a mensagem de evento é descartada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar o tratamento de erros](durable-functions-error-handling.md)

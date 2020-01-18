@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0b24c064424b00fa9acb96b03c0a3c5ca69f67f2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930194"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264321"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações no aplicativo Azure IoT Central
 
-*Este artigo se aplica a operadores, construtores e administradores.*
+*Este artigo aplica-se a operadores, construtores e administradores.*
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
@@ -27,7 +27,7 @@ Dispositivos podem usar a medição de telemetria para enviar dados numéricos d
 
 ## <a name="create-a-telemetry-rule"></a>Criar uma regra de telemetria
 
-Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos uma medida de telemetria definida. Este exemplo usa um dispositivo de máquina de vendas conectado que envia telemetria de temperatura e umidade. A regra monitora a temperatura relatada pelo dispositivo e envia um email quando ultrapassa os 80 graus.
+Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos uma medida de telemetria definida. Este exemplo usa um dispositivo de máquina de vendas conectado que envia telemetria de temperatura e umidade. A regra monitora a temperatura relatada pelo dispositivo e envia um email quando fica acima de 70&deg; F.
 
 1. Usando a página **modelos de dispositivo** , navegue até o modelo de dispositivo para o qual você está adicionando a regra.
 
@@ -43,7 +43,7 @@ Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos 
 
 1. Digite um nome que o ajude a identificar a regra neste modelo de dispositivo.
 
-1. Para habilitar imediatamente a regra para todos os dispositivos criados para esse modelo, alterne **Habilitar regra para todos os dispositivos deste modelo**.
+1. Para habilitar imediatamente a regra para todos os dispositivos criados para este modelo, alterne **habilitar regra para todos os dispositivos deste modelo**.
 
    ![Detalhe da Regra](media/howto-create-telemetry-rules/rule_detail1.png)
 
@@ -58,8 +58,8 @@ A condição define os critérios que são monitorados pela regra.
 1. Escolha a telemetria que deseja monitorar na lista suspensa **Medida**.
 
 1. Em seguida, escolha **Agregação**, **Operador** e forneça um valor **Limite**.
-   - A agregação é opcional. Sem agregação, a regra é disparada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra estiver configurada para disparar quando a temperatura estiver acima de 80, a regra será disparada quase instantaneamente quando o dispositivo relatar a temperatura > 80.
-   - Se uma função como Contagem, Média, Mín, Máx for escolhida, o usuário deverá fornecer uma **Janela de tempo de agregação** por meio da qual a condição precisa ser avaliada. Por exemplo, se você definir o período como "5 minutos" e a regra procurar a temperatura Média acima de 80, a regra dispara quando a temperatura média estiver acima de 80 por pelo menos 5 minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
+   - A agregação é opcional. Sem agregação, a regra é disparada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra estiver configurada para disparar quando a temperatura estiver acima de 70&deg; F, a regra será disparada quase instantaneamente quando o dispositivo relatar a temperatura > 70.
+   - Se uma função como Contagem, Média, Mín, Máx for escolhida, o usuário deverá fornecer uma **Janela de tempo de agregação** por meio da qual a condição precisa ser avaliada. Por exemplo, se você definir o período como "5 minutos" e a regra procurar a temperatura média acima de 70, a regra será disparada quando a temperatura média estiver acima de 70&deg; F por pelo menos 5 minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
 
      ![Condição](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
@@ -90,7 +90,7 @@ Esta seção mostra como configurar as ações a serem executadas quando a regra
 
 ## <a name="parameterize-the-rule"></a>Parametrizar a regra
 
-As regras podem derivar determinados valores de **Propriedades do Dispositivo** como parâmetros. A utilização de parâmetros é útil em cenários onde os limites de telemetria variam para diferentes dispositivos. Ao criar a regra, escolha uma propriedade de dispositivo que especifique o limite, como **Limite Máximo Ideal**, em vez de fornecer um valor absoluto, como 80 graus. Quando a regra é executada, ela corresponde à telemetria do dispositivo com o valor fornecido na propriedade de dispositivo.
+As regras podem derivar determinados valores de **Propriedades do Dispositivo** como parâmetros. A utilização de parâmetros é útil em cenários onde os limites de telemetria variam para diferentes dispositivos. Ao criar a regra, escolha uma propriedade de dispositivo que especifique o limite, como o **limite máximo ideal**, em vez de fornecer um valor absoluto, como 70&deg; F. Quando a regra é executada, ela corresponde à telemetria do dispositivo com o valor definido na Propriedade do dispositivo.
 
 Usar parâmetros é uma maneira eficiente de reduzir o número de regras a serem gerenciadas por modelo de dispositivo.
 
@@ -108,7 +108,7 @@ Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desab
 
 Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desabilitar. Alterne o botão **Habilitar regra para este dispositivo** para habilitar ou desabilitar a regra para esse dispositivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como criar regras no aplicativo Azure IoT Central, estas são algumas das próximas etapas:
 

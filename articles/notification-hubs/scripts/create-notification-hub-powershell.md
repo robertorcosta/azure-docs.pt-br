@@ -1,23 +1,23 @@
 ---
-title: 'Script do PowerShell: Criar um hub de notificação do Azure | Microsoft Docs'
-description: Este script do PowerShell cria um hub de notificações do Azure.
-services: notification-hubs
+title: Criar um hub de notificação do Azure usando o PowerShell | Microsoft Docs
+description: Saiba como usar um script do PowerShell para criar um hub de notificação do Azure.
 author: dimazaid
-manager: kpiteira
-editor: spelluru
+manager: femila
+services: notification-hubs
+editor: sethmanheim
 ms.service: notification-hubs
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 01/14/2020
 ms.author: dimazaid
-ms.openlocfilehash: 93c5118962fed1bfda4d32afba942a6600664e5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01749e1ae5c29a7e77b2143939e25cf1ccd1aec2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172148"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263959"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>Usar o PowerShell para criar um hub de notificações do Azure
 
@@ -28,12 +28,12 @@ Este script de exemplo do PowerShell cria um hub de notificações de exemplo do
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * **Assinatura do Azure**: caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/notification-hubs/create-notification-hub/create-notification-hub.ps1 "Create a notification hub")]
-
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 
@@ -45,7 +45,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos: 
+Este script usa os seguintes comandos:
 
 | Comando | Observações |
 |---|---|
@@ -55,6 +55,6 @@ Este script usa os seguintes comandos:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).

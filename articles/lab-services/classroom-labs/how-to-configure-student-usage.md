@@ -1,5 +1,5 @@
 ---
-title: Definir configurações de uso em laboratórios de sala de aula dos Serviços de Laboratório do Azure | Microsoft Docs
+title: Definir configurações de uso em laboratórios de sala de aula do Azure Lab Services
 description: Saiba como configurar o número de usuários para o laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM e muito mais.
 services: lab-services
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584033"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169218"
 ---
-# <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar usuários de laboratório
+# <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
 
 
@@ -33,7 +33,7 @@ Este artigo descreve como adicionar usuários ao laboratório, registrá-los no 
 1. Na página **Adicionar usuários**, insira endereços de email dos usuários em linhas separadas ou em uma única linha e separados por ponto e vírgula. 
 
     ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
+4. Clique em **Salvar**. Você vê os endereços de email de usuários e seus status (registrados ou não) na lista. 
 
     ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
@@ -60,19 +60,19 @@ Você também pode adicionar usuários ao carregar um arquivo CSV com endereços
 ## <a name="send-invitations-to-users"></a>Enviar convites para usuários
 Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
 
-Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
+Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Por padrão, essa opção é ativada. 
 
 ### <a name="invite-all-users"></a>Convidar todos os usuários
-1. Alterne para a exibição **usuários** se você ainda não estiver na página e selecione **convidar tudo** na barra de ferramentas. 
+1. Alterne para a exibição **Usuários**, caso ainda não esteja na página, e selecione **Convidar todos** na barra de ferramentas. 
 
     ![Selecionar alunos](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-1. Na página **Enviar convite por email** , insira uma mensagem opcional e, em seguida, selecione **Enviar**. O email inclui automaticamente o link de registro. Você pode obter esse link de registro selecionando **... (reticências)** na barra de ferramentas e no **link de registro**. 
+1. Na página **Enviar convite por email**, insira uma mensagem opcional e, em seguida, selecione **Enviar**. O email inclui automaticamente o link de registro. Obtenha esse link de registro selecionando **... (reticências)** na barra de ferramentas e **Link de registro**. 
 
     ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Você verá o status de **convite** na lista de **usuários** . O status deve ser alterado para **enviando** e **enviado em \<data >** . 
+4. Você verá o status de **convite** na lista **Usuários**. O status deve ser alterado para **enviando** e **enviado em \<data >** . 
 
-    Para obter mais informações sobre como adicionar alunos a uma classe e gerenciar seu uso do laboratório, consulte [como configurar o uso do aluno](how-to-configure-student-usage.md).
+    Para obter mais informações sobre como adicionar alunos a uma aula e gerenciar o uso do laboratório, consulte [Como configurar o uso do aluno](how-to-configure-student-usage.md).
 
 ### <a name="invite-selected-users"></a>Convidar usuários selecionados
 
@@ -171,8 +171,8 @@ Na página **Opções de entrada** , selecione **entrar com o GitHub**.
 
 Por fim, eles são solicitados a criar um conta Microsoft que esteja vinculado à sua conta do GitHub. Ele ocorre automaticamente quando o aluno seleciona **Avançar**.  O aluno é imediatamente conectado e conectado ao laboratório da sala de aula.
 
-## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos:
+## <a name="next-steps"></a>Próximos passos
+Veja os artigos a seguir:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
 - [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)

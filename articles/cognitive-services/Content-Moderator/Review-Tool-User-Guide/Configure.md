@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757424"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169584"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a ferramenta de análise
 
@@ -25,7 +25,7 @@ A [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) tem
 
 ## <a name="manage-team-and-subteams"></a>Gerenciar equipe e subequipes
 
-A guia **equipe** permite que você gerencie sua equipe e subequipes &mdash;groups de usuários que podem ser notificados quando determinadas [revisões humanas](../review-api.md#reviews) são iniciadas. Você só pode ter uma equipe (que você cria ao se inscrever com a ferramenta de revisão), mas pode criar várias subequipes. O administrador da equipe pode convidar Membros, definir suas permissões e atribuí-los a diferentes subequipes.
+A guia **equipe** permite que você gerencie sua equipe e subequipes&mdash;grupos de usuários que podem ser notificados quando determinadas [revisões humanas](../review-api.md#reviews) são iniciadas. Você só pode ter uma equipe (que você cria ao se inscrever com a ferramenta de revisão), mas pode criar várias subequipes. O administrador da equipe pode convidar Membros, definir suas permissões e atribuí-los a diferentes subequipes.
 
 ![Examinar as configurações da equipe de ferramentas](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Se você for membro de mais de uma subequipe, poderá alternar entre essas subeq
 
 ## <a name="tags"></a>Marcas
 
-A guia **marcas** permite que você defina marcas de moderação personalizadas, além das duas marcas de moderação padrão &mdash;**isadulto** (**a**) e **isracy** (**r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
+A guia **marcas** permite que você defina marcas de moderação personalizadas, além das duas marcas de moderação padrão&mdash;**isadulto** (**a**) e **isracy** (**r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
 
 ![Exibição de marcas, incluindo as caixas de seleção "is Visible"](images/tags-4-disable.png)
 
@@ -90,14 +90,14 @@ Você pode excluir marcas personalizadas selecionando o ícone de Lixeira ao lad
 
 A guia **conectores** permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
 
-O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector de API de Detecção Facial, por exemplo, será necessário obter uma chave de assinatura [API de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
+O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector facial, por exemplo, será necessário obter uma chave de assinatura [facial](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
 
 A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectores:
 
-- API de Detecção de Emoções
-- Face API
+- Emoção
+- Face
 - Serviço de nuvem PhotoDNA
-- API de Análise de Texto
+- Análises de texto
 
 ### <a name="add-a-connector"></a>Adicionar um conexão
 

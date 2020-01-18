@@ -1,6 +1,6 @@
 ---
-title: Hubs de notificação - Arquitetura de Push Corporativo
-description: Orientação sobre como usar os Hubs de Notificação do Azure em um ambiente corporativo
+title: Arquitetura de push empresarial dos hubs de notificação
+description: Saiba mais sobre como usar os hubs de notificação do Azure em um ambiente corporativo
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,14 +16,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211913"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264026"
 ---
-# <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
+# <a name="enterprise-push-architectural-guidance"></a>Diretrizes de arquitetura corporativa por push
 
 As empresas hoje estão gradualmente migrando para a criação de aplicativos móveis para os usuários finais (externos) ou para os funcionários (internos). Eles têm sistemas de back-end no local como mainframes ou alguns aplicativos LoB que devem ser integrados na arquitetura de aplicativos móveis. Este guia fala sobre a melhor maneira de fazer esta integração recomendando a melhor solução para cenários comuns.
 
@@ -234,7 +234,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
     ![][3]
 
-    g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal do Azure], você veja algo semelhante ao seguinte:
+    g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Azure portal], você veja algo semelhante ao seguinte:
 
     ![][4]
 
@@ -272,7 +272,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 
     ![][5]
 
-4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço em seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no [Portal do Azure] para seu WebJob:
+4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço em seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no [Azure portal] para seu WebJob:
 
     ![][6]
 
@@ -291,4 +291,4 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Programação do Barramento de Serviço Pub/Sub]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Trabalho Web do Azure]: ../app-service/webjobs-create.md
 [Hubs de Notificação - tutorial universal do Windows]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

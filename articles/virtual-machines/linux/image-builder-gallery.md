@@ -7,16 +7,16 @@ ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 08441a98d9104109b4cfc130ab6adb31dc4fce45
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976121"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260507"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: criar uma imagem do Linux e distribuí-la para uma galeria de imagens compartilhadas 
 
-Este artigo mostra como você pode usar o construtor de imagens do Azure para criar uma versão de imagem em uma [Galeria de imagens compartilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)e, em seguida, distribuir a imagem globalmente.
+Este artigo mostra como você pode usar o construtor de imagens do Azure e o CLI do Azure, para criar uma versão de imagem em uma [Galeria de imagens compartilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)e, em seguida, distribuir a imagem globalmente. Você também pode fazer isso usando [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Usaremos um modelo. JSON de exemplo para configurar a imagem. O arquivo. JSON que estamos usando está aqui: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -202,7 +202,7 @@ Você deve ver que a imagem foi personalizada com uma *mensagem do dia* assim qu
 *******************************************************
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você quiser agora tentar repersonalizar a versão da imagem para criar uma nova versão da mesma imagem, pule as próximas etapas e vá para [usar o construtor de imagem do Azure para criar outra versão da imagem](image-builder-gallery-update-image-version.md).
 

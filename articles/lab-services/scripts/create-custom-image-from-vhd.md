@@ -1,5 +1,5 @@
 ---
-title: 'Script do PowerShell: Criar uma imagem personalizada de um arquivo VHD no Azure Lab Services | Microsoft Docs'
+title: PowerShell-criar imagem personalizada do arquivo VHD no Azure Lab Services
 description: Este script do PowerShell cria uma imagem personalizada de um arquivo VHD no Azure Lab Services.
 services: lab-services
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2d0cc4012adf2c17b2f7a2e769f2d666b158a8c8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38383462a665ced1ccb6c6a2f062fab0492eee9a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160555"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169976"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Usar o PowerShell para criar uma imagem personalizada de um arquivo VHD no Azure Lab Services
 
@@ -30,7 +30,7 @@ Este script de exemplo do PowerShell cria uma imagem personalizada de um arquivo
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a lab")]
 
@@ -44,7 +44,7 @@ Este script usa os seguintes comandos:
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtém as chaves de acesso para a conta de Armazenamento do Azure. |
 | [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adicione uma implantação do Azure a um grupo de recursos. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

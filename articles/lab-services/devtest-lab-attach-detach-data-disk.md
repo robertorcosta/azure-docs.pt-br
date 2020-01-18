@@ -1,5 +1,5 @@
 ---
-title: Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs | Microsoft Docs
+title: Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
 description: Saiba como anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2e168867ed342fb0b0545b5fdc330ba790f78de0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6b470c55815255c50a42821b0bf52219d890206
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304357"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170091"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
 O [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gerencia as contas de armazenamento associadas aos discos de dados da máquina virtual. Um usuário anexa um novo disco de dados a uma VM, especifica o tipo e o tamanho do disco que é necessário e o Azure cria e gerencia o disco automaticamente. O disco de dados pode então ser desanexado da VM e reanexado posteriormente à mesma VM ou anexado a outra VM que pertença ao mesmo usuário.
@@ -35,7 +35,7 @@ Antes de anexar um disco de dados a uma VM, leia estas dicas:
 ### <a name="attach-a-new-disk"></a>Anexar um novo disco
 Siga estas etapas para criar e anexar um novo disco de dados gerenciado a uma VM no Azure DevTest Labs.
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 1. Na lista de laboratórios, selecione o laboratório desejado. 
 1. Na lista de **Minhas máquinas virtuais**, selecione uma VM em execução.
@@ -105,6 +105,6 @@ Para fazer upgrade de um disco de dados não gerenciado, siga as etapas descrita
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como gerenciar discos de dados para [máquinas virtuais requisitáveis](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

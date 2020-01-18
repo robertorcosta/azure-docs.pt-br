@@ -33,7 +33,7 @@
         - name: Load Balancer
           items:
             - name: O que é o Balanceador de Carga?
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Zonas de disponibilidade e Standard Load Balancer
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Criar um Load Balancer Standard público com redundância de zona
@@ -57,7 +57,7 @@
                   href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
         - name: Endereço IP público
           href: '../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address'
-        - name: Banco de dados SQL
+        - name: Banco de Dados SQL
           items:
             - name: Zonas de disponibilidade com o Banco de Dados SQL
               href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'

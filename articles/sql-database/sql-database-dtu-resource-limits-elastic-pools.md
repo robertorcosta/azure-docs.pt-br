@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 1c9d3256f3898d57eb9f7fe5d758bcaffb37aca6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3f6bbef8f274c5efb99d5b98961450aa7b001527
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75637568"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264858"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 
@@ -88,7 +88,7 @@ Para pools elásticos do Banco de Dados SQL, as tabelas a seguir mostram os recu
 | Número máximo de BDs por pool | 50 | 100 | 100 | 100 | 100 |
 | Máximo de trabalhos simultâneos por pool (solicitações) | 200 | 400 | 800 | 1600 | 2400 |
 | Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Máximo de eDTUs por banco de dados | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
 | Armazenamento máximo por banco de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||

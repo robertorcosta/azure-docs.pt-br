@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 7185ac40cafce86c68efbf28c7e6a35fd4789bc3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 24369ed547b811b212518193a2ae2f76ed197754
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027648"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264620"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Visão geral do Agente de Máquina Virtual do Azure
 O Agente de VM (Máquina Virtual) do Microsoft Azure é um processo seguro e leve que gerencia a interação da máquina virtual (VM) com o Controlador de Malha do Azure. O Agente de VM tem uma função fundamental na habilitação e execução de extensões de máquina virtual do Azure. Extensões de VM habilitam a configuração de VM pós-implantação, como instalação e configuração de software. Extensões de VM também habilitam os recursos de recuperação como redefinir a senha administrativa de uma VM. Sem o Agente de VM do Azure, não é possível executar extensões da VM.
@@ -61,7 +61,8 @@ Se você não tiver os Agentes instalados, você não pode usar alguns dos servi
 ### <a name="manual-installation"></a>Instalação manual
 O agente de VM do Windows pode ser instalado manualmente com um pacote do Windows Installer. Instalação manual pode ser necessária quando você cria uma imagem VM personalizada que é implantada no Azure. Para instalar manualmente o Agente de VM do Windows, [faça o download do instalador do Agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789). O agente de VM tem suporte no Windows Server 2008 R2 e posterior.
 
-> [Observação!] É importante atualizar a opção AllowExtensionOperations depois de instalar manualmente o VMAgent em uma VM que foi implantada a partir da imagem sem o ProvisionVMAgent Enable.
+> [!NOTE]
+> É importante atualizar a opção AllowExtensionOperations depois de instalar manualmente o VMAgent em uma VM que foi implantada a partir da imagem sem o ProvisionVMAgent Enable.
 
 ```powershell
 $vm.OSProfile.AllowExtensionOperations = $true

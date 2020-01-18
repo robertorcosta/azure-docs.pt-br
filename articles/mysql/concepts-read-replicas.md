@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790107"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167338"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -132,7 +132,7 @@ Se você parar a replicação entre um servidor mestre e uma réplica de leitura
 
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 
-Quando um servidor mestre é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas tornam-se a servidores autônomos. O próprio servidor mestre é excluído.
+Quando um servidor mestre é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas se tornam servidores autônomos automaticamente e podem aceitar leituras e gravações. O próprio servidor mestre é excluído.
 
 ### <a name="user-accounts"></a>Contas de usuário
 
@@ -148,7 +148,7 @@ Os seguintes parâmetros de servidor estão bloqueados nos servidores mestre e d
 
 O parâmetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) está bloqueado nos servidores de réplica. 
 
-### <a name="other"></a>outro
+### <a name="other"></a>Outros
 
 - O GTID (identificadores de transação globais) não são compatíveis.
 - A criação de uma réplica de uma réplica não é suportada.

@@ -1,5 +1,5 @@
 ---
-title: Exibir e usar o modelo do Azure Resource Manager de uma máquina virtual | Microsoft Docs
+title: Exibir e usar o modelo de Azure Resource Manager de uma máquina virtual
 description: Saiba como usar o modelo do Azure Resource Manager de uma máquina virtual para criar outras VMs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c14abf3acce0084507a03f3d34fdd59566d88c28
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 7064fdeec04f4dc5ae2c73c1a3896cf2d10dd01d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854287"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169109"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais usando um modelo do Azure Resource Manager 
 
@@ -68,7 +68,7 @@ Em cenários como treinamento, demonstrações e avaliações, talvez você quei
 
 
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 * Aprenda como [Criar ambientes de várias VMs com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
 * [Implantar um modelo do Resource Manager para criar uma VM](devtest-lab-create-environment-from-arm.md#automate-deployment-of-environments)
 * Explore mais modelos do Resource Manager de início rápido para a automação do DevTest Labs do [repositório público do GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).

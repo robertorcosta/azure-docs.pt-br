@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 41b5d7519776ca84cf002d463048eb7a8dec2410
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790437"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169144"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Banco de Dados do Azure para MariaDB
 
@@ -137,7 +137,7 @@ Se você parar a replicação entre um servidor mestre e uma réplica de leitura
 
 ### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autônomo excluídos
 
-Quando um servidor mestre é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas tornam-se a servidores autônomos. O próprio servidor mestre é excluído.
+Quando um servidor mestre é excluído, a replicação é interrompida para todas as réplicas de leitura. Essas réplicas se tornam servidores autônomos automaticamente e podem aceitar leituras e gravações. O próprio servidor mestre é excluído.
 
 ### <a name="user-accounts"></a>Contas de usuário
 
@@ -153,7 +153,7 @@ Os seguintes parâmetros de servidor estão bloqueados nos servidores mestre e d
 
 O parâmetro [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) está bloqueado nos servidores de réplica.
 
-### <a name="other"></a>outro
+### <a name="other"></a>Outros
 
 - A criação de uma réplica de uma réplica não é suportada.
 - Tabelas na memória podem fazer com que as réplicas fiquem fora de sincronia. Essa é uma limitação da tecnologia de replicação MariaDB.
