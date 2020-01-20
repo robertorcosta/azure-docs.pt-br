@@ -173,8 +173,6 @@
           href: security-center-investigation.md
         - name: Gerenciar dados de usuário de investigação
           href: security-center-investigation-user-data.md
-        - name: Guias estratégicos de Aplicativos Lógicos
-          href: security-center-playbooks.md
         - name: Planejamento e operações
           href: security-center-planning-and-operations-guide.md
 - name: Referência
