@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Gerenciar o cluster Kubernetes do Azure com a interface do usuário da Web
 description: Usando a interface do usuário da Web Kubernetes no Serviço de Contêiner do Azure
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309578"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276990"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(PRETERIDO) Usando a interface do usuário da Web DO Kubernetes com o Serviço de Contêiner do Azure
 
@@ -49,7 +47,7 @@ Se não tem `kubectl` instalado, você pode executar:
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 ### <a name="connect-to-the-web-ui"></a>Conecte-se à interface do usuário da Web
 Você pode iniciar a interface do usuário Web Kubernetes executando:

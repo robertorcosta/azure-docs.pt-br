@@ -1,20 +1,18 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
-services: functions
+title: incluir arquivo
+description: incluir arquivo
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fd220a4a955a8b2cd583c2fe9e3899cb36c1587d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ea7396117935c13698a8c6cc6ef4029cc82b90bc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935951"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279580"
 ---
 O código para todas as funções em um aplicativo de funções específico está localizado em uma pasta do projeto raiz que contém um arquivo de configuração do host e uma ou mais subpastas. Cada subpasta contém o código para uma função separada. A estrutura de pastas é mostrada na seguinte representação:
 
@@ -36,7 +34,7 @@ Na versão 2. x e superior do tempo de execução do functions, todas as funçõ
 O arquivo [host. JSON](../articles/azure-functions/functions-host-json.md) contém configurações específicas de tempo de execução e está na pasta raiz do aplicativo de funções. Uma pasta *bin* contém pacotes e outros arquivos de biblioteca que o aplicativo de funções requer. Consulte os requisitos específicos a um idioma para um projeto de aplicativo de função:
 
 * [Biblioteca de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
-* [Script do C# (. CSx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [Script do C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
 * [Script em F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)

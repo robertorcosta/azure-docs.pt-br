@@ -1,21 +1,18 @@
 ---
 title: Saiba mais sobre os modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure
 description: Saiba mais sobre modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: gwallace
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: vashan
-ms.openlocfilehash: 063b3210877c06edf7eeddab37c50ed84033098a
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73065906"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279055"
 ---
 # <a name="orchestration-mode-preview"></a>Modo de orquestração (versão prévia)
 
@@ -42,7 +39,7 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração de VM      | Nenhum                                       | obrigatórios |
+| Modelo de configuração de VM      | Nenhum                                       | Obrigatório |
 | Adicionando Nova VM ao conjunto de dimensionamento  | As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | As VMs são criadas implicitamente e adicionadas ao conjunto de dimensionamento com base nas regras modelo de configuração de VM, contagem de instâncias e dimensionamento automático | |
 | Excluir VM                   | As VMs precisam ser excluídas individualmente, o conjunto de dimensionamento não será excluído se tiver alguma VM nela. | As VMs podem ser excluídas individualmente, a exclusão do conjunto de dimensionamento excluirá todas as instâncias de VM.  |
 | Anexar/desanexar VMs           | Sem suporte                              | Sem suporte |
@@ -55,7 +52,7 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 | Atualizações de modelo               | Sem suporte                              | Com suporte |
 | Controle de instância            | Controle de VM completo. As VMs têm um URI totalmente qualificado que oferece suporte a toda a gama de recursos de gerenciamento de VM do Azure (como Azure Policy, backup do Azure e Azure Site Recovery) | As VMs são recursos dependentes do conjunto de dimensionamento. As instâncias podem ser acessadas para gerenciamento somente por meio do conjunto de dimensionamento. |
 | Modelo de instância              | Definição do modelo Microsoft. Compute/VirtualMachines. | Definição do modelo Microsoft. Compute/VirtualMachineScaleSets/VirtualMachines. |
-| Capacity                    | Um conjunto de dimensionamento vazio pode ser criado; até 200 VMs podem ser adicionadas ao conjunto de dimensionamento | Os conjuntos de dimensionamento podem ser definidos com uma contagem de instâncias 0-1000 |
+| Capacidade                    | Um conjunto de dimensionamento vazio pode ser criado; até 200 VMs podem ser adicionadas ao conjunto de dimensionamento | Os conjuntos de dimensionamento podem ser definidos com uma contagem de instâncias 0-1000 |
 | Mover                        | Com suporte                                  | Com suporte |
 | Grupo de posicionamento único = = falso | Sem suporte                          | Com suporte |
 

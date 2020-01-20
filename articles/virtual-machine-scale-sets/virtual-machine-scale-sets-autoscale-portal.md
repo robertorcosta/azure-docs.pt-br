@@ -1,26 +1,19 @@
 ---
-title: Dimensionar automaticamente conjuntos de dimensionamento de máquinas virtuais no portal do Azure | Microsoft Docs
+title: Dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no portal do Azure
 description: Como criar regras de dimensionamento automático para conjuntos de dimensionamento de máquinas virtuais no portal do Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618777"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278193"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
@@ -47,14 +40,14 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
 
     Especifique as seguintes configurações para a regra:
     
-    | Parâmetro              | Explicação                                                                                                         | Value          |
+    | Parâmetro              | Explicação                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Tempo de agregação*     | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
     | *Nome da métrica*          | A métrica de desempenho a ser monitorada, na qual as ações do conjunto de dimensionamento serão aplicadas.                                                   | Porcentagem de CPU |
     | *Estatística de intervalo de agregação* | Define como as métricas coletadas em cada intervalo de agregação devem ser agregadas para análise.                             | Média        |
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
     | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 70             |
-    | *Duração*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
+    | *Duration*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                        | Aumentar porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
     | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
@@ -74,7 +67,7 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
 
     Use a mesma abordagem da regra anterior. Ajuste as seguintes configurações para a regra:
     
-    | Parâmetro              | Explicação                                                                                                          | Value          |
+    | Parâmetro              | Explicação                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                      | Menor que   |
     | *Limite*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 30             |
@@ -117,7 +110,7 @@ Os exemplos anteriores dimensionaram automaticamente um conjunto de dimensioname
 4. Para aumentar o número de instâncias, digite *10* como a contagem de instância.
 5. Escolha **Repetir dias específicos** para o tipo **Agendamento**.
 6. Selecione todos os dias de trabalho, de segunda-feira a sexta-feira.
-7. Escolha o fuso horário apropriado e especifique uma **Hora de início** *09:00*.
+7. Escolha o fuso horário apropriado e especifique uma **Hora de início***09:00*.
 8. Escolha **Adicionar uma condição de dimensionamento** novamente. Repita o processo para criar uma agenda denominada *Reduzir horizontalmente durante a noite* que dimensione para *3* instâncias e se repita a cada dia da semana, iniciando às *18:00*.
 9. Para aplicar suas regras de dimensionamento automático com base em agendamento, selecione **Salvar**.
 
@@ -126,7 +119,7 @@ Os exemplos anteriores dimensionaram automaticamente um conjunto de dimensioname
 Para ver como as regras de dimensionamento automático são aplicadas, selecione **Histórico de execuções** na parte superior da janela **Colocação em Escala**. A lista de eventos e grafo mostra quando as regras de dimensionamento automático são acionadas e o número de instâncias da VM no seu conjunto de dimensionamento aumenta ou diminui.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

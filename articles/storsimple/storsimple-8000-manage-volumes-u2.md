@@ -1,29 +1,21 @@
 ---
-title: Gerenciar volumes do StorSimple (Atualização 3) | Microsoft Docs
+title: Gerenciar volumes do StorSimple (atualização 3)
 description: Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634653"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278838"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar volumes (Atualização 3 e posterior)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este tutorial explica como usar o serviço do Gerenciador de Dispositivos do StorSimple para criar e gerenciar volumes nos dispositivos StorSimple da série 8000 que executam a Atualização 3 e posterior.
 
@@ -34,7 +26,7 @@ O serviço Gerenciador de Dispositivos StorSimple é uma extensão do portal do 
 Os volumes do StorSimple podem ser:
 
 * **Volumes fixados localmente**: os dados desses volumes permanecem no dispositivo StorSimple local em todos os momentos.
-* **Volumes em camadas**: os dados nesses volumes podem transbordar para a nuvem.
+* **Volumes hierárquicos**: os dados desses volumes podem transbordar para a nuvem.
 
 Um volume de arquivamento é um tipo de volume em camadas. O maior tamanho de bloco de eliminação de duplicação usado para volumes de arquivamento permite que o dispositivo transfira mais segmentos de dados para a nuvem.
 
@@ -173,7 +165,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
    
    1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
    2. Clique com o botão direito do mouse em **Gerenciamento de Disco** e selecione **Examinar Discos Novamente**.
-   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Avançar**.
+   3. Na lista de discos, selecione o volume que você atualizou, clique com o botão direito do mouse e selecione **Estender Volume**. O Assistente para Estender Volume é iniciado. Clique em **Próximo**.
    4. Conclua o assistente com a aceitação dos valores padrão. Depois que o assistente for concluído, o volume deve mostrar o tamanho aumentado.
       
       > [!NOTE]
@@ -325,7 +317,7 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 
 4. Clique em **Salvar** e, quando precisar confirmar, clique em **Sim**. O portal do Azure exibe uma notificação de atualização do volume e, em seguida, uma mensagem de êxito, depois que o volume é atualizado com êxito.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [Clonar um volume StorSimple](storsimple-8000-clone-volume-u2.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

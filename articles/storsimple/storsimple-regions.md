@@ -1,31 +1,23 @@
 ---
-title: Disponibilidade de região StorSimple | Microsoft Docs
+title: Disponibilidade de região do StorSimple
 description: Explica as regiões do Azure na qual vários modelos de dispositivo StorSimple estão disponíveis.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965135"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275121"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os datacenters do Azure operam em várias regiões geográficas do mundo para atender às demandas do cliente por desempenho, requisitos e preferências de local dos dados. Uma geografia do Azure é uma área definida do mundo que contém, pelo menos, uma Região do Azure. Uma região do Azure é uma área dentro de uma região geográfica que contém um ou mais datacenters.
 
@@ -71,7 +63,7 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 
 | #  | País/Região        | #  | País/Região     | #  | País/Região      | #  | País/Região             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
-| 1  | Austrália             | 16 | Região Administrativa Especial de Hong Kong      | 31 | Nova Zelândia         | 46 | África do Sul               |
+| 1  | Austrália             | 16 | RAE de Hong Kong      | 31 | Nova Zelândia         | 46 | África do Sul               |
 | 2  | Áustria               | 17 | Hungria            | 32 | Nigéria             | 47 | Coreia do Sul                |
 | 3  | Bahrein               | 18 | Islândia            | 33 | Noruega              | 48 | Espanha                      |
 | 4  | Bélgica               | 19 | Índia              | 34 | Peru                | 49 | Sri Lanka                  |
@@ -79,13 +71,13 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 | 6  | Canadá                | 21 | Irlanda            | 36 | Polônia              | 51 | Suíça                |
 | 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
 | 8  | Colômbia              | 23 | Itália              | 38 | Porto Rico         | 53 | Tailândia                   |
-| 9  | República Tcheca        | 24 | Japão              | 11,8 | Qatar               | 54 | Turquia                     |
+| 9  | República Tcheca        | 24 | Japão              | 39 | Catar               | 54 | Turquia                     |
 | 10 | Dinamarca               | 25 | Quênia              | 40 | Romênia             | 55 | Ucrânia                    |
 | 11 | Egito                 | 26 | Kuwait             | 41 | Rússia              | 56 | Emirados Árabes Unidos       |
 | 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
 | 13 | França                | 28 | Malásia           | 43 | Cingapura           | 58 | Estados Unidos              |
 | 14 | Alemanha               | 29 | México             | 44 | Eslováquia            | 59 | Vietnã                    |
-| 15 | Grécia                | 30 | Países Baixos        | 45 | Eslovênia            | 60 | Croácia                    |
+| 15 | Grécia                | 30 | Holanda        | 45 | Eslovênia            | 60 | Croácia                    |
 
 Essa lista é alterada à medida que mais países/regiões são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
@@ -104,7 +96,7 @@ O 8020 usa o armazenamento premium e a VM _Standard_DS3_ para criar um dispositi
 
 Se usar a Matriz Virtual StorSimple série 1200, haverá suporte para a imagem do disco virtual em todas as regiões do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre os [preços de vários modelos de StorSimple](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-8000-manage-storage-accounts.md).

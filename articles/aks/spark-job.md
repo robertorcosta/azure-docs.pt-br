@@ -1,26 +1,24 @@
 ---
 title: Executar um trabalho do Apache Spark com o AKS (Serviço de Kubernetes do Azure)
 description: Utilizar o AKS (Serviço de Kubernetes do Azure) para executar um trabalho do Apache Spark
-services: container-service
 author: lenadroid
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72e87acf418d5085a76f18c595bf31d43b0d64ac
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928992"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274657"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
 
 [Apache Spark][apache-spark] é um mecanismo rápido para processamento de dados em larga escala. A partir da [versão 2.3.0 do Spark][spark-latest-release], o Apache Spark dá suporte à integração nativa com clusters kubernetes. O AKS (Serviço de Kubernetes do Azure) é um ambiente Kubernetes gerenciado em execução no Azure. Este documento detalha a preparação e execução de trabalhos do Apache Spark em um cluster do AKS (Serviço de Kubernetes do Azure).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas deste artigo, você precisa dos itens a seguir.
 
@@ -330,7 +328,7 @@ Ao executar o trabalho, em vez de indicar uma URL do Jar remota, o esquema `loca
 > [!WARNING]
 > Na [documentação][spark-docs]do Spark: "o Agendador kubernetes é experimental no momento. Em versões futuras, pode haver alterações de comportamento em torno de configuração, imagens de contêiner e pontos de entrada".
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Faça check-out da documentação do Spark para obter mais detalhes.
 

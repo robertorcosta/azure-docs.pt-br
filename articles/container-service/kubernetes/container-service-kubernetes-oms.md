@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Monitorar o cluster do Azure Kubernetes – Gerenciamento de Operações
 description: Monitorando o cluster Kubernetes no Serviço de Contêiner do Azure usando o Log Analytics
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711755"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271064"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com Log Analytics
 
@@ -62,7 +60,7 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-log-analytics"></a>Monitorar contêineres como Log Analytics
 
-O Log Analytics é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. A Solução de Contêiner é uma solução do Log Analytics, que ajuda você a exibir o inventário, o desempenho e os logs de contêineres em um único local. É possível realizar auditoria e solucionar problemas de contêineres vendo os logs em um local centralizado, e localizar contêineres com ruídos e excesso de consumo em um host.
+O Log Analytics é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem. A solução de contêiner é uma solução no Log Analytics, que ajuda a exibir o inventário de contêiner, o desempenho e os logs em um único local. É possível realizar auditoria e solucionar problemas de contêineres vendo os logs em um local centralizado, e localizar contêineres com ruídos e excesso de consumo em um host.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
@@ -123,7 +121,7 @@ Para proteger a ID e a chave de espaço de trabalho do Log Analytics, você pode
   KEY:    88 bytes
   ```
 
-  - Criar o conjunto de daemon omsagent executando ```kubectl create -f omsagent-ds-secrets.yaml```
+  - Criar o omsagent daemon-set executando ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### <a name="conclusion"></a>Conclusão
 É isso! Após alguns minutos, você poderá ver os dados que fluem para o painel do Log Analytics.

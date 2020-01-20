@@ -1,27 +1,21 @@
 ---
-title: Implantar um conjunto de dimensionamento de máquinas virtuais usando o Visual Studio | Microsoft Docs
+title: Implantar um conjunto de escala de máquina virtual usando o Visual Studio
 description: Implantar um conjunto de escala de máquina virtual usando o Visual Studio e um modelo do Resource Manager
-services: virtual-machine-scale-sets
 ms.custom: H1Hack27Feb2017
-ms.workload: na
-documentationcenter: ''
+ms.workload: azure-vs
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: d397f81ce29e0ec738156b755948985a4edfc70b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0d0dc3fbb7e48b1f7e6936cfb65473dba882b776
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802265"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274229"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 
@@ -99,6 +93,6 @@ O **Cloud Explorer** permite que você gerencie recursos do Azure no Visual Stud
 
  O portal fornece a melhor maneira de gerenciar sua infraestrutura do Azure com um navegador da Web. Azure Resource Explorer fornece uma maneira fácil de explorar e depurar recursos do Azure. O Azure Resource Explorer oferece a exibição de instância e também mostra os comandos do PowerShell para os recursos que você está vendo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de implantar os Conjuntos de Dimensionamento de Máquinas Virtuais com êxito por meio do Visual Studio, é possível personalizar o projeto ainda mais para atender às necessidades do aplicativo. Por exemplo, configure o dimensionamento automático adicionando um recurso de **informações** . Você pode adicionar a infraestrutura ao modelo, como máquinas virtuais autônomas, ou implantar aplicativos usando a extensão de script personalizado. Bons modelos de exemplo podem ser encontrados no repositório GitHub de [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) . Pesquise `vmss`.

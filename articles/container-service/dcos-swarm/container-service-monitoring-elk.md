@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Monitorar um cluster DC/OS do Azure - pilha ELK
 description: Monitore um cluster de SO/DC no cluster do serviço de contêiner do Azure com ELK (Elasticsearch, Logstash e Kibana).
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467648"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277767"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com ELK
 
@@ -58,7 +56,7 @@ Depois que você navegue até a URL, você deve ver o painel HAPROXY, conforme m
 
 Para acessar o painel de Kibana, que é implantado na porta 5601, você precisa abrir a porta 5601. Siga as instruções [aqui](container-service-enable-public-access.md). Abra o painel de Kibana em: `http://localhost:5601`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para configuração e encaminhamento de log de aplicativo e sistema, confira [Log Management in DC/OS with ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/) (Gerenciamento de Log no DC/SO com ELK).
 

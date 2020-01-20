@@ -1,26 +1,20 @@
 ---
-title: Solucionar problemas de dimensionamento automático com conjunto de dimensionamento de máquinas virtuais | Microsoft Docs
+title: Solucionar problemas de dimensionamento automático com conjuntos de escala de máquina virtual
 description: Solução de problemas de dimensionamento automático com conjuntos de escala de máquina virtual. Compreenda os problemas típicos encontrados e como resolvê-los.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803563"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272425"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
 **Problema**: você criou uma infraestrutura de dimensionamento automático no Azure Resource Manager usando conjuntos de dimensionamento de máquinas virtuais, por exemplo, implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – suas regras de escala estão definidas e ele funciona muito bem, exceto que, independentemente da carga colocada nas VMs, ele não usa dimensionamento automático.
@@ -52,7 +46,7 @@ Alguns aspectos a serem considerados incluem:
     O Azure Resource Explorer é uma ferramenta indispensável de solução de problemas que mostra o estado dos seus recursos do Azure Resource Manager. Clique na sua assinatura e examine o Grupo de Recursos em que você está solucionando problemas. No Provedor de recursos de computação, examine o conjunto de escala de máquina virtual criado e verifique a Exibição de Instância, que mostra o estado de uma implantação. Verifique também a exibição de instância de VMs no conjunto de dimensionamento de máquinas virtuais. Em seguida, vá ao provedor de recursos Microsoft.Insights e verifique se as regras de dimensionamento automático parecem corretas.
 * A extensão de Diagnóstico está funcionando e emitindo os dados de desempenho?
   
-    **Update:** Dimensionamento automático do Azure foi aprimorado para usar um pipeline de métricas baseadas em host, que não requer mais uma extensão de diagnóstico a serem instalados. Os poucos parágrafos seguintes já não se aplicarão se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Um exemplo de modelos do Azure que foram convertidos para usar o pipeline de host está disponível aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Atualização:** O dimensionamento automático do Azure foi aperfeiçoado para usar um pipeline de métricas baseado em host que não requer mais a instalação de uma extensão de diagnóstico. Os poucos parágrafos seguintes já não se aplicarão se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Um exemplo de modelos do Azure que foram convertidos para usar o pipeline de host está disponível aqui: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     A utilização de métricas baseadas em host para o dimensionamento automático é melhor pelos seguintes motivos:
   

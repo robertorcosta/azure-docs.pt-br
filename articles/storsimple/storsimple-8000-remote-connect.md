@@ -1,32 +1,24 @@
 ---
-title: Conectar remotamente ao seu dispositivo StorSimple | Microsoft Docs
+title: Conectar remotamente ao seu dispositivo StorSimple
 description: Explica como configurar seu dispositivo para o gerenciamento remoto e como se conectar ao Windows PowerShell para StorSimple via HTTP ou HTTPS.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631712"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277289"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Conectar remotamente ao seu dispositivo StorSimple série 8000
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
-É possível conectar-se remotamente ao seu dispositivo por meio do Windows PowerShell. Ao se conectar dessa maneira, você não vê um menu. (Você verá um menu apenas se usar o console serial no dispositivo para se conectar.) Com a comunicação remota do Windows PowerShell, você se conectar a um espaço de execução específico. Também é possível especificar o idioma de exibição.
+É possível conectar-se remotamente ao seu dispositivo por meio do Windows PowerShell. Ao se conectar dessa maneira, você não vê um menu. (Você verá um menu somente se usar o console serial no dispositivo para se conectar.) Com a comunicação remota do Windows PowerShell, você se conecta a um runspace específico. Também é possível especificar o idioma de exibição.
 
 Para obter mais informações sobre como usar o Windows PowerShell remotamente para gerenciar seu dispositivo, acesse [Usar o Windows PowerShell para StorSimple para administrar seu dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 
@@ -62,7 +54,7 @@ Siga as seguintes etapas no Portal do Azure para habilitar o gerenciamento remot
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que você deseja configurar para o gerenciamento remoto. Acesse **Configurações do dispositivo > Segurança**.
 2. Na folha **Configurações de Segurança**, clique em **Gerenciamento Remoto**.
 3. Na folha **Gerenciamento remoto**, defina **Habilitar Gerenciamento Remoto** como **Sim**.
-4. Agora, você pode optar por conectar-se usando HTTP. (O padrão é conectar-se por HTTPS.) Certifique-se de que HTTP esteja selecionado.
+4. Agora, você pode optar por conectar-se usando HTTP. (O padrão é conectar-se via HTTPS.) Verifique se o HTTP está selecionado.
    
    > [!NOTE]
    > A conexão por HTTP só será aceitável em redes confiáveis.
@@ -141,7 +133,7 @@ Siga as seguintes etapas no Portal do Azure para habilitar o gerenciamento remot
 1. Vá até o seu serviço do Gerenciador de Dispositivos StorSimple. Selecione **Dispositivos** e, em seguida, selecione e clique no dispositivo que você deseja configurar para o gerenciamento remoto. Acesse **Configurações do dispositivo > Segurança**.
 2. Na folha **Configurações de Segurança**, clique em **Gerenciamento Remoto**.
 3. Defina **Habilitar o Gerenciamento Remoto** como **Sim**.
-4. Agora, você pode optar por conectar-se usando HTTPS. (O padrão é conectar-se por HTTPS.) Certifique-se de que HTTPS esteja selecionado.
+4. Agora, você pode optar por conectar-se usando HTTPS. (O padrão é conectar-se via HTTPS.) Certifique-se de que HTTPS esteja selecionado.
 5. Clique em ... e em **Baixar Certificado de gerenciamento remoto**. Especifique um local para salvar o arquivo. É necessário instalar esse certificado no computador cliente ou host que será usado para se conectar ao dispositivo.
 6. Clique em **Salvar** e, quando precisar confirmar, clique em **Sim**.
 
@@ -203,7 +195,7 @@ Cada um dos procedimentos acima é descrito abaixo.
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Para adicionar números de série do dispositivo ao host remoto
 1. Inicie o bloco de notas como administrador e abra o arquivo hosts localizado em \Windows\System32\Drivers\etc.
-2. Adicione as entradas a seguir ao arquivo de hosts: **Endereço IP do DATA 0**, **Endereço IP corrigido do Controlador 0** e **Endereço IP corrigido do Controlador 1**.
+2. Adicione as três entradas a seguir ao arquivo hosts: **endereço IP DATA 0**, **endereço IP fixo do controlador 0** e **endereço IP fixo do controlador 1**.
 3. Insira o número de série do dispositivo que você salvou anteriormente. Mapeie-o para o endereço IP conforme mostrado na imagem a seguir. Em controlador 0 e controlador 1, acrescente **Controller0** e **Controller1** no final do número de série (nome CN).
    
     ![Adicionando um Nome CN ao arquivo hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
@@ -237,14 +229,14 @@ Execute o procedimento a seguir no computador do qual você deseja fazer a conex
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Para o parâmetro -ComputerName no cmdlet, forneça o <*número de série do dispositivo de destino*>. Esse número de série foi mapeado para o endereço IP de DATA 0 no arquivo de hosts em seu host remoto; por exemplo, **SHX0991003G44MT** , como mostrado na imagem a seguir.
-5. Digite:
+5. Tipo:
    
      `Enter-PSSession $session`
 6. Você precisará aguardar alguns minutos e, em seguida, será conectado ao dispositivo via HTTPS por SSL. Você verá uma mensagem que indica que está conectado ao seu dispositivo.
    
     ![PowerShell remoto usando HTTPS e SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre como [usar o Windows PowerShell para administrar seu dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

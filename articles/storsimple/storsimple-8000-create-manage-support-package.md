@@ -1,29 +1,21 @@
 ---
-title: Criar um pacote de suporte do StorSimple da série 8000 | Microsoft Docs
+title: Criar um pacote de suporte da série StorSimple 8000
 description: Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481815"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277067"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Um pacote de suporte do StorSimple é um mecanismo fácil de usar que coleta todos os logs relevantes para ajudar o Suporte da Microsoft na solução de problemas do dispositivo StorSimple. Os logs coletados são criptografados e compactados.
 
@@ -72,7 +64,7 @@ Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte d
 
 Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
-| Parâmetro | Obrigatório/Opcional | DESCRIÇÃO |
+| Parâmetro | Obrigatório/Opcional | Description |
 | --- | --- | --- |
 | `-Path` |Obrigatório |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
 | `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
@@ -121,7 +113,7 @@ Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Micr
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Anote a nova senha para que você possa compartilhá-la com o Suporte da Microsoft quando solicitado.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: Edição de arquivos em um pacote de suporte em um compartilhamento protegido por senha
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: edição de arquivos em um pacote de suporte em um compartilhamento protegido por senha
 
 O exemplo a seguir mostra como descriptografar, editar e criptografar novamente um pacote de suporte.
 
@@ -145,7 +137,7 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre as [informações coletadas no pacote de Suporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
 * Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).

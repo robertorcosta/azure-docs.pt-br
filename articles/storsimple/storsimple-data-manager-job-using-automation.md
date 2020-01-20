@@ -1,25 +1,17 @@
 ---
-title: Usar a Automação do Azure para inicializar um trabalho no Gerenciador de Dados StorSimple | Microsoft Docs
+title: Usar a automação do Azure para iniciar um trabalho no Gerenciador de Dados do StorSimple
 description: Saiba como usar a Automação do Azure para disparar trabalhos do Gerenciador de Dados do StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60633446"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273986"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usar a Automação do Azure para disparar um trabalho
 
@@ -124,6 +116,6 @@ Execute as etapas a seguir para importar, publicar e executar o runbook para dis
 
     ![Adicionar Runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Use a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md).

@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Implantar contêineres com Helm em Kubernetes do Azure
 description: Use a ferramenta de empacotamento Helm para implantar contêineres em um cluster Kubernetes no Serviço de Contêiner do Azure
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712234"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271078"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(PRETERIDO) Usar o Helm para implantar contêineres em um cluster Kubernetes
 
@@ -149,7 +147,7 @@ Agora você pode usar comandos SQL padrão para criar bancos de dados, tabelas, 
  
  
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre como gerenciar gráficos de Kubernetes, consulte a [Documentação do Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
 

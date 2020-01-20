@@ -1,24 +1,24 @@
 ---
 title: AZ Spring Cloud
 description: Gerenciar a nuvem Spring do Azure usando o CLI do Azure
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 869a47469f8e0429d3726651c28f5a58acfcb856
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607833"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279037"
 ---
 # <a name="az-spring-cloud"></a>AZ Spring-Cloud
 
 ## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Gerenciar a nuvem Spring do Azure usando o CLI do Azure
 
 >[!Note]
-> O Azure Spring Cloud está atualmente em versão prévia.  Esses comandos podem ser alterados ou removidos em uma versão futura.
+> No momento, o Azure Spring Cloud está em versão prévia.  Esses comandos podem ser alterados ou removidos em uma versão futura.
 
 | AZ Spring-Cloud |  |
 |------|------:|
@@ -187,7 +187,7 @@ az spring-cloud app create --name -n
 | --Habilitar-armazenamento persistente | Valor booliano.  Se for true, montará um disco de 50 GB com o caminho padrão. |
 | --instance-count | Número de instâncias.  Padrão: 1. |
 | --é-público | Valor booliano.  Se for true, atribuirá um domínio público. |
-| --memória | Número de GB de memória por instância.  Padrão: 1. |
+| --memory | Número de GB de memória por instância.  Padrão: 1. |
 
 ### <a name="examples"></a>Exemplos
 
@@ -254,7 +254,7 @@ az spring cloud app deploy  --name -n
 | --instance-count | Número de instâncias. |
 | --jar-caminho | Se fornecido, implante o JAR do caminho fornecido. Caso contrário, implante a pasta atual como um tar. |
 | --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
-| --memória | Número de GB de memória por instância. |
+| --memory | Número de GB de memória por instância. |
 | --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
 | --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11`, `Java_8`. |
 | --módulo de destino | Módulo filho a ser implantado.  Necessário quando vários pacotes JAR são criados a partir do código-fonte. |
@@ -343,7 +343,7 @@ az spring-cloud app scale --name -n
 | --CPU | Número de núcleos de CPU virtual por instância de aplicativo. |
 | --implantação-d | Nome da implantação existente do aplicativo.  O padrão será a implantação de produção se não for especificado. |
 | --instance-count | Número de instâncias deste aplicativo. |
-| --memória | Número de GB de memória por instância de aplicativo. |
+| --memory | Número de GB de memória por instância de aplicativo. |
 | --no-wait | Não aguarde a conclusão das operações de execução longa. |
 
 ### <a name="examples"></a>Exemplos
@@ -723,7 +723,7 @@ Atualize uma associação de serviço para o cache do Azure para Redis.
 
 Crie uma implantação de preparo para o aplicativo.
 
-Para implantar o código ou atualizar as configurações para uma implantação existente, use `az spring-cloud app deploy --deployment <staging-deployment>` ou "AZ Spring-Cloud app Update--implantação <staging deployment>.
+Para implantar o código ou atualizar as configurações para uma implantação existente, use `az spring-cloud app deploy --deployment <staging-deployment>` ou "AZ Spring-Cloud app Update--<staging deployment>de implantação.
 
 | Parâmetros obrigatórios | |
 | --- | ---: |
@@ -739,7 +739,7 @@ Para implantar o código ou atualizar as configurações para uma implantação 
 | --instance-count | Número de instâncias. Padrão: 1. |
 | --jar-caminho | Se fornecido, implante jar.  Caso contrário, implante a pasta atual como um tar. |
 | --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m`. |
-| --memória | Número de GB de memória por instância. |
+| --memory | Número de GB de memória por instância. |
 | --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
 | --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11`, `Java_8`. |
 | --ignorar-clonar-configurações | Crie uma implantação de preparo clonando as configurações de implantação de produção atuais. |

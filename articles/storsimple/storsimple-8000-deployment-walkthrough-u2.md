@@ -1,31 +1,23 @@
 ---
-title: Implantar seu dispositivo StorSimple série 8000 no portal do Azure | Microsoft Docs
+title: Implantar seu dispositivo StorSimple 8000 Series no portal do Azure
 description: Descreve as etapas e as práticas recomendadas para implantar o dispositivo StorSimple série 8000 executando a Atualização 3 e posteriores, e o serviço do Gerenciador de Dispositivos StorSimple.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1f44690de1f38e3d337072cc7c974887eb0e31cc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965891"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273959"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implantar o dispositivo StorSimple no local (Atualização 3 e posteriores)
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Bem-vindo à implantação do dispositivo Microsoft Azure StorSimple. Estes tutoriais de implantação se aplicam à Atualização 3 ou posteriores do StorSimple série 8000. Esta série de tutoriais inclui uma lista de verificação de configuração, pré-requisitos de configuração e etapas de configuração detalhadas para seu dispositivo StorSimple.
 
 As informações nesses tutoriais pressupõem que você revisou as precauções de segurança e desembalou, colocou seu dispositivo StorSimple em um rack e instalou os cabos. Se você ainda precisa executar essas tarefas, comece com a revisão das [precauções de segurança](storsimple-8000-safety.md). Siga as instruções específicas do dispositivo para desempacotar, montar em rack e cabear o dispositivo.
@@ -42,7 +34,7 @@ Você precisará de privilégios de administrador para concluir o processo de in
 ## <a name="deployment-steps"></a>Etapas de implantação.
 Execute estas etapas necessárias para configurar o dispositivo StorSimple e conectá-lo ao serviço do gerenciador de dispositivos StorSimple. Além das etapas necessárias, há etapas e procedimentos opcionais que talvez sejam necessários durante a implantação. As instruções passo a passo de implantação indicam quando você deve executar cada uma destas etapas opcionais.
 
-| Etapa | Descrição |
+| Etapa | Description |
 | --- | --- |
 | **PRÉ-REQUISITOS** |Eles precisam ser concluídos na preparação para a próxima implantação. |
 | [Lista de verificação da configuração da implantação](#deployment-configuration-checklist) |Use essa lista de verificação para coletar e registrar informações antes e durante a implantação. |
@@ -52,10 +44,10 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 | [Etapa 1: Criar um novo serviço](#step-1-create-a-new-service) |Configure o armazenamento e o gerenciamento de nuvem para o dispositivo StorSimple. *Ignore esta etapa se você tem um serviço existente para outros dispositivos StorSimple*. |
 | [Etapa 2: Obter a chave de registro do serviço](#step-2-get-the-service-registration-key) |Use essa chave para registrar e conectar o dispositivo StorSimple ao serviço de gerenciamento. |
 | [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Para concluir a configuração usando o serviço de gerenciamento, conecte o dispositivo à sua rede e o registre no Azure. |
-| [Etapa 4: Concluir a configuração mínima do dispositivo](#step-4-complete-minimum-device-setup)</br>[Prática recomendada: Atualizar seu dispositivo StorSimple](#scan-for-and-apply-updates) |Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
+| [Etapa 4: Concluir a instalação mínima do dispositivo](#step-4-complete-minimum-device-setup)</br>[Opcional: Atualizar o dispositivo StorSimple](#scan-for-and-apply-updates) |Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
 | [Etapa 5: Criar um contêiner de volume](#step-5-create-a-volume-container) |Crie um contêiner para provisionar volumes. Um contêiner de volume tem a conta de armazenamento, largura de banda e configurações de criptografia para todos os volumes contidos nele. |
 | [Etapa 6: Criar um volume](#step-6-create-a-volume) |Provisione volumes de armazenamento no dispositivo StorSimple para seus servidores. |
-| [Etapa 7: Montar, inicializar e formatar um volume](#step-7-mount-initialize-and-format-a-volume)</br>[Opcional: Configurar o MPIO](storsimple-8000-configure-mpio-windows-server.md) |Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
+| [Etapa 7: Montar, inicializar e formatar um volume](#step-7-mount-initialize-and-format-a-volume)</br>[Opcional: configurar o MPIO](storsimple-8000-configure-mpio-windows-server.md) |Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
 | [Etapa 8: Fazer um backup](#step-8-take-a-backup) |Configure a política de backup para proteger seus dados |
 |  | |
 | **OUTROS PROCEDIMENTOS** |Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
@@ -104,10 +96,10 @@ Um serviço do gerenciador de dispositivos StorSimple e pode gerenciar vários d
 > Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 >
 > * Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
-> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
+> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
 
 
-## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obtenha a chave de registro do serviço
+## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obter a chave de registro do serviço
 Depois que o serviço Gerenciador de Dispositivos StorSimple estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple com o serviço.
 
 Execute as etapas a seguir no portal do Azure.
@@ -119,7 +111,7 @@ Use o Windows PowerShell para StorSimple para concluir a configuração inicial 
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>Etapa 4: Concluir a configuração mínima do dispositivo
+## <a name="step-4-complete-minimum-device-setup"></a>Etapa 4: Concluir a instalação mínima do dispositivo
 Para a configuração mínima de dispositivo do seu dispositivo StorSimple, é necessário: 
 
 * Forneça um nome amigável para seu dispositivo.
@@ -212,7 +204,7 @@ A extremidade da tomada de estéreo é considerada PIN 3 RX, a parte central é 
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Configurar um Dispositivo de Nuvem StorSimple](storsimple-8000-cloud-appliance-u2.md).
 * [Use o serviço Gerenciador de Dispositivos StorSimple para gerenciar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

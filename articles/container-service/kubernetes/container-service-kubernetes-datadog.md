@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Monitorar o cluster Kubernetes do Azure com o DataDog
 description: Monitorando o cluster Kubernetes no Serviço de Contêiner do Azure usando o DataDog
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ed146a224ec4225a7a0e85c76227fb1dc71b0b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712331"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271045"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com DataDog
 

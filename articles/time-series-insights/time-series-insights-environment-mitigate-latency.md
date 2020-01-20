@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b301bc6c1674cad26288556957ba6214df74f18d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863386"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278685"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Provavelmente, você enfrentará latência e limitação quando:
 - Adicionar uma origem de evento que contém os dados antigos que podem exceder a taxa de entrada alocada (o Time Series Insights precisará ser atualizado).
 - Adicionar mais origens de evento em um ambiente, resultando em um pico de eventos adicionais (que poderá exceder a capacidade do ambiente).
 - Enviar por push grandes quantidades de eventos históricos para uma origem de evento, resultando em um retardo (o Time Series Insights precisará ser atualizado).
-- Unir os dados de referência com a telemetria, resultando em um tamanho de evento maior.  De uma perspectiva de limitação, um pacote de dados recebido com um tamanho de pacote igual a 32 KB é tratado como 32 eventos, cada um com um tamanho de 1 KB. O tamanho máximo permitido do evento é de 32 KB; pacotes de dados maiores que 32 KB são truncados.
+- Unir os dados de referência com a telemetria, resultando em um tamanho de evento maior. De uma perspectiva de limitação, um pacote de dados recebido com um tamanho de pacote igual a 32 KB é tratado como 32 eventos, cada um com um tamanho de 1 KB. O tamanho máximo permitido do evento é de 32 KB; pacotes de dados maiores que 32 KB são truncados.
 
 ## <a name="video"></a>Vídeo
 
@@ -40,13 +40,13 @@ Provavelmente, você enfrentará latência e limitação quando:
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Monitorar a latência e a limitação com alertas
 
-Os alertas podem ajudá-lo a diagnosticar e atenuar os problemas de latência causados por seu ambiente.
+Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência que ocorrem em seu ambiente.
 
 1. Na portal do Azure, selecione seu ambiente de Time Series Insights. Em seguida, selecione **alertas**.
 
    [![adicionar um alerta ao seu ambiente de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
+1. Selecione **+ Nova regra de alerta**. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
    [![adicionar painel de alerta](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 

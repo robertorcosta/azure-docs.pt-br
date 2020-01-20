@@ -1,31 +1,24 @@
 ---
-title: Instalar o dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs
+title: Instalar Microsoft Azure StorSimple dispositivo 8100
 description: Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963594"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277095"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Seu Microsoft Azure StorSimple 8100 é um dispositivo único de compartimento montado em rack. Este tutorial explica como desempacotar, montar em rack e cabear o hardware do dispositivo StorSimple 8100 para que seja possível configurar e implantar o dispositivo StorSimple.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Desempacotar o dispositivo StorSimple 8100
@@ -34,7 +27,7 @@ As etapas a seguir fornecem instruções claras e detalhadas sobre como desempac
 ### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar o dispositivo
 Antes de desempacotar o dispositivo, leia as informações a seguir.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 1. Se for manejar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do compartimento. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 2. Coloque a caixa em uma superfície plana e nivelada.
@@ -49,11 +42,11 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rotular | Descrição |
+   | Rótulo | Description |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Espuma inferior |
-   |   3 |Dispositivos |
+   |   3 |Dispositivo |
    |   4 |Espuma superior |
    |   5 |Caixa de acessório |
 3. Depois de abrir a caixa, verifique se você tem estes itens:
@@ -68,7 +61,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    * 1 kit de montagem em rack (2 trilhos laterais com hardware de montagem)
    * Documentação de Introdução
      
-     Se você não tiver recebido algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+     Se você não recebeu algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 A próxima etapa é montar o dispositivo em rack.
 
@@ -90,7 +83,7 @@ O dispositivo deve ser instalado em um rack padrão de 19 polegadas (48 cm) com 
 2. Verifique se o local onde você pretende instalar tem energia de corrente alternada padrão de uma fonte independente ou uma PDU (unidade de distribuição de energia) em rack com um no-break.
 3. Verifique se um slot de 2U está disponível no rack em que você pretende montar o dispositivo.
 
-![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
+![ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 Se for instalar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 
@@ -111,7 +104,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
     **Fixando corrediças do trilho interno às laterais do compartimento**
    
-    Rótulo | Descrição
+    Rótulo | Description
     ----- | -----------
     1     | Parafusos de cabeça abaulada M 3x4
     2     | Corrediças dos chassis
@@ -125,7 +118,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
    
     **Fixando os conjuntos de trilhos internos ao rack**
    
-   | Rotular | Descrição |
+   | Rótulo | Description |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -151,7 +144,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Rotular | Descrição |
+   | Rótulo | Description |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -191,7 +184,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte traseira do dispositivo mostrando as portas de dados**
    
-   | Rotular | Descrição |
+   | Rótulo | Description |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -202,7 +195,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     **Cabeamento de rede para o dispositivo**
 
-   |Rotular | Descrição |
+   |Rótulo | Description |
    |----- | ----------- |
    | A    | LAN com acesso à Internet |
    | B    | Controlador 0 |
@@ -210,7 +203,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    | D    | Controlador 1 |
    | E    | PCM 1 |
    | F, G | Hosts |
-   | 0-5  | Interfaces de rede |
+   | 0-5  | Adaptadores de rede |
 
 
 
@@ -239,16 +232,16 @@ Execute as etapas a seguir para cabear a porta serial.
 2. Identifique o controlador ativo no backplane do dispositivo. Um LED azul piscante indica que o controlador está ativo.
 3. Use os cabos seriais fornecidos (se necessário, o conversor serial USB para seu laptop) e conecte o console ou o computador (com emulação de terminal para o dispositivo) com a porta serial do controlador ativo.
 4. Instale os drivers de USB seriais (fornecidos com o dispositivo) em seu computador.
-5. Configure a conexão serial como se segue: 115.200 baud, 8 bits de dados, 1 bit de parada, sem paridade e controle de fluxo definidos como nenhum.
+5. Configure a conexão serial da seguinte maneira: 115.200 bauds, 8 bits de dados, 1 bit de parada, sem paridade e controle de fluxo definida como Nenhum.
 6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu de console serial deve aparecer.
 
 > [!NOTE]
-> **Gerenciamento de luzes**: Quando o dispositivo for instalado em um datacenter remoto ou em uma sala de computadores com acesso limitado, verifique se as conexões de série para ambos os controladores estão sempre conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções na rede ou falhas inesperadas.
+> **Gerenciamento Noturno**: quando o dispositivo for instalado em um data center remoto ou em uma sala de computadores com acesso limitado, certifique-se de que as conexões seriais com ambos os controladores sempre estejam conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda se houver interrupções na rede ou falhas inesperadas.
 > 
 > 
 
 Agora o dispositivo está cabeado para energia, acesso à rede e conectividade serial. A próxima etapa será configurar o software e implantar o dispositivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

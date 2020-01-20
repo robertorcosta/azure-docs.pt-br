@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Início Rápido – cluster Kubernetes do Azure para Windows
 description: Aprenda a criar um cluster Kubernetes para contêineres do Windows no Serviço de Contêiner do Azure rapidamente com a CLI do Azure.
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148812"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277654"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(PRETERIDO) Implantar um cluster Kubernetes para contêineres do Windows
 
@@ -191,7 +189,7 @@ az group delete --name myResourceGroup
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, você implantou um cluster Kubernetes, conectou-o a um `kubectl`e implantou um pod com um contêiner do IIS. Para saber mais sobre o Serviço de Contêiner do Azure, continue no tutorial Kubernetes.
 

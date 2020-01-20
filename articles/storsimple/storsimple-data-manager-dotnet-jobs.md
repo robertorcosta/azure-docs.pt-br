@@ -1,29 +1,21 @@
 ---
-title: Usar o SDK do .NET para trabalhos do Gerenciador de Dados do Microsoft Azure StorSimple | Microsoft Docs
+title: Usar o SDK do .NET para trabalhos do Microsoft Azure StorSimple Gerenciador de Dados
 description: Saiba como usar o SDK do .NET para iniciar trabalhos do Gerenciador de Dados StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632259"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270736"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Use o SDK do .NET para iniciar a transformação de dados
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usar o SDK do .NET para iniciar a transformação de dados
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este artigo explica como você pode usar o recurso de transformação de dados dentro do serviço do Gerenciador de Dados StorSimple para transformar os dados do dispositivo StorSimple. Os dados transformados, em seguida, são consumidos por outros serviços do Azure na nuvem.
 
@@ -60,10 +52,10 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
         Você pode passar em todos os valores para ActiveDirectoryKey e AppName.
 
 2. Esse script gera como saída os seguintes valores:
-    * ID do cliente
+    * ID do Cliente
     * ID do locatário
     * Chave do Active Directory (a mesma inserida acima)
-    * ID da assinatura
+    * ID da Assinatura
 
         ![Saída de script dos parâmetros de configuração](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 
@@ -200,6 +192,6 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
 
     ![Snippet completo do código para disparar um trabalho do .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Use a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md).

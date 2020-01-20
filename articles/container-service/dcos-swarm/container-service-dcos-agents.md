@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Pools de agentes DC/OS para Serviço de Contêiner do Azure
 description: Como os pools de agentes públicos e privados funcionam com um cluster DC/OS do Serviço de Contêiner do Azure
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb9b33bf537ebd5a563f8e8a8afd45cd2e5b292d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60478439"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278374"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(PRETERIDO) Pools de agentes DC/OS para Serviço de Contêiner do Azure
 
@@ -23,9 +21,9 @@ ms.locfileid: "60478439"
 Os clusters DC/OS no Serviço de Contêiner do Azure contêm nós de agente em dois pools, um público e um privado. Um aplicativo pode ser implantado em qualquer um dos pools, afetando a acessibilidade entre computadores no seu serviço de contêiner. Os computadores podem ser expostos à Internet (público) ou mantidos internamente (privado). Este artigo fornece uma visão geral sobre o motivo da existência de pools público e privado.
 
 
-* **Agentes privados**: Nós de agentes privados são executados por meio de uma rede não roteável. Esta rede só é acessível por meio da zona de administrador ou por meio do roteador de borda de zona pública. Por padrão, o DC/SO inicia aplicativos em nós de agente privada. 
+* **Agentes privados**: nós de agente privado são executados por meio de uma rede não roteável. Esta rede só é acessível por meio da zona de administrador ou por meio do roteador de borda de zona pública. Por padrão, o DC/SO inicia aplicativos em nós de agente privada. 
 
-* **Agentes públicos**: Nós de agente público executam aplicativos e serviços DC/OS por meio de uma rede acessível publicamente. 
+* **Agentes públicos**: nós de agente público executam aplicativos e serviços DC/OS por meio de uma rede acessível publicamente. 
 
 Para obter mais informações sobre segurança de rede DC/OS, confira a [documentação do DC/OS](https://docs.mesosphere.com/).
 
@@ -42,7 +40,7 @@ O pool privado e o pool público pool são conjuntos de dimensionamento de máqu
 ## <a name="use-agent-pools"></a>Usar pools de agentes
 Por padrão, **Maratona** implanta qualquer novo aplicativo a nós de agente *particular* . Você deve implantar explicitamente o aplicativo nos nós *públicos* durante a criação do aplicativo. Selecione a guia **Opcional** e insira **slave_public** para o valor **Funções de Recurso Aceitas**. Esse processo está documentado [aqui](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) e na documentação do [DC/OS](https://docs.mesosphere.com/1.7/administration/installing/oss/custom/create-public-agent/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Leia mais sobre [como gerenciar seus contêineres DC/OS](container-service-mesos-marathon-ui.md).
 
 * Saiba como [abrir o firewall](container-service-enable-public-access.md) fornecido pelo Azure para permitir acesso público aos seus contêineres DC/OS.

@@ -1,26 +1,18 @@
 ---
-title: Use o sequenciamento de extensões com os conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Usar o sequenciamento de extensão com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como sequenciar o provisionamento de extensões durante a implantação de várias extensões em conjuntos de dimensionamento de máquinas virtuais.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620165"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278062"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Sequenciar o provisionamento de extensões em conjuntos de dimensionamento de máquinas virtuais
 As extensões de máquina virtual do Azure fornecem funcionalidades como a configuração após a implantação e gerenciamento, monitoramento, segurança e muito mais. Implantações de produção normalmente usam uma combinação de várias extensões configuradas para as instâncias de VM para obter os resultados desejados.
@@ -245,15 +237,15 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Não é possível adicionar a extensão com dependências?
 1. Verifique se as extensões especificadas em provisionAfterExtensions estão definidas no modelo de conjunto de dimensionamento.
-2. Verifique que não há dependências circulares sendo introduzidas. Por exemplo, a seguinte sequência não é permitida: ExtensãoA -> ExtensãoB -> ExtensãoC -> ExtensãoA
+2. Verifique que não há dependências circulares sendo introduzidas. Por exemplo, a sequência a seguir não é permitida: Extensiona-> ExtensionB-> ExtensionC-> Extensãoa
 3. Verifique que qualquer extensão para a qual você assumir dependências tenha uma propriedade "configurações" nas "propriedades" da extensão. Por exemplo, se a ExtensãoB precisa ser provisionada após a ExtensãoA, a ExtensãoA precisa ter o campo "configurações" nas "propriedades" da ExtensãoA. Você pode especificar uma propriedade "configurações" vazia se a extensão não exige nenhuma configuração obrigatória.
 
 ### <a name="not-able-to-remove-extensions"></a>Não é possível remover extensões?
 Assegure que as extensões sendo removidas não estejam listadas em provisionAfterExtensions para nenhuma outra extensão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Aprenda como [Implantar o aplicativo](virtual-machine-scale-sets-deploy-app.md) em conjuntos de dimensionamento de máquinas virtuais

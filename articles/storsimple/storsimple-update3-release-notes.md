@@ -1,30 +1,23 @@
 ---
-title: Notas de versão da Atualização 3 para o StorSimple 8000 Series | Microsoft Docs
+title: Notas de versão da Atualização 3 para o StorSimple 8000 Series
 description: Descreve os novos recursos, problemas e soluções alternativas da Atualização 3 para o StorSimple 8000 Series.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d18feba4ded3dfccb8f774112a7dc8d42b12f1d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530947"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275343"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Notas de versão da Atualização 3 para seu dispositivo StorSimple série 8000
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos da Atualização 3 para o StorSimple 8000 Series. Elas também contêm uma lista das atualizações de software do StorSimple incluídas nesta versão. 
 
 A Atualização 3 pode ser aplicada a qualquer dispositivo StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 2.2. A versão do dispositivo associada à Atualização 3 é 6.3.9600.17759.
@@ -51,10 +44,10 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos na Atuali
 | Não | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Migração de dados do lado do host |Na versão anterior, o Dispositivo de Nuvem do StorSimple ficaria offline durante a migração de dados do lado do host. Esse problema foi corrigido nesta versão. |Não |Sim |
-| 2 |Volumes afixados localmente |Na versão anterior, havia problemas relacionados a falhas de E/S, falhas de conversão de volume e falhas de caminho de dados para volumes fixos localmente. Esses problemas foram causados por raiz e corrigidos nesta versão. |Sim |Não |
+| 2 |Volumes fixados localmente |Na versão anterior, havia problemas relacionados a falhas de E/S, falhas de conversão de volume e falhas de caminho de dados para volumes fixos localmente. Esses problemas foram causados por raiz e corrigidos nesta versão. |Sim |Não |
 | 3 |Monitoramento |Havia vários problemas relacionados a unidades de emissão de relatórios e monitoramento, bem como gráficos de painel de dispositivos em que informações incorretas foram exibidas para volumes fixos localmente. Esses problemas foram corrigidos nesta versão. |Sim |Não |
 | 4 |Gravações pesadas E/S |Ao usar o StorSimple para cargas de trabalho que envolvem gravações pesadas, o usuário encontraria um bug não muito frequente em que o conjunto de trabalho estava sendo colocado em camadas na nuvem. Esse bug foi corrigido nesta versão. |Sim |Sim |
-| 5 |Backup |Em certos casos raros, nas versões anteriores do software, quando o usuário executava um backup de um clone remoto, ele encontraria erros de nuvem e a operação falharia. Nesta versão, o problema é corrigido e a operação é concluída com êxito. |Sim |Sim |
+| 5 |Backup |Em determinadas instâncias raras, nas versões anteriores do software, quando o usuário realizou um backup de um clone remoto, ele teria erros de nuvem e a operação geraria um erro. Nesta versão, o problema é corrigido e a operação é concluída com êxito. |Sim |Sim |
 | 6 |Política do backup |Em certos casos raros, nas versões anteriores do software, havia um bug relacionado à exclusão da política de backup. Esse problema foi corrigido nesta versão. |Sim |Sim |
 
 ## <a name="known-issues-in-update-3"></a>Problemas conhecidos na Atualização 3
@@ -63,7 +56,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | Não. | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum de disco |Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. |Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. |Sim |Não |
-| 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não |
+| 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Não é necessária nenhuma ação do usuário. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não |
 | 3 |Contas de armazenamento |Usar o serviço de Armazenamento para excluir a conta de armazenamento é um cenário sem suporte. Isso levará a uma situação na qual os dados do usuário não podem ser recuperados. | |Sim |Sim |
 | 4 |Failover de dispositivo |Não há suporte para vários failovers de um contêiner de volume do mesmo dispositivo de origem para diferentes dispositivos de destino. O failover de um único dispositivo inativo para vários dispositivos fará com que os contêineres de volume no primeiro dispositivo com failover percam a propriedade dos dados. Após o failover, esses contêineres de volume serão exibidos ou se comportarão de maneira diferente quando forem exibidos no Portal clássico do Azure. | |Sim |Não |
 | 5 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |

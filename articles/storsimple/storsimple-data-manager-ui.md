@@ -1,25 +1,17 @@
 ---
-title: Interface do usuário do Gerenciador de Dados do Microsoft Azure StorSimple | Microsoft Docs
+title: Interface do usuário do Microsoft Azure StorSimple Gerenciador de Dados
 description: Descreve como usar a interface do usuário do serviço do Gerenciador de Dados do StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 3a87b4c07d2e961d9876fb44c6584f37ad9246df
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d485a2655b569b3def6162934857b02dbe4f75ea
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796652"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273976"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 
@@ -64,7 +56,7 @@ A criação do serviço leva alguns minutos. Você vê uma notificação depois 
 
 ### <a name="create-a-data-transformation-job-definition"></a>Criar uma definição de trabalho de transformação de dados
 
-Em um serviço Gerenciador de Dados do StorSimple, você precisa criar uma definição de trabalho de transformação de dados. Uma definição de trabalho especifica os detalhes dos dados do StorSimple que você está interessado em mudar para uma conta de armazenamento no formato nativo. Depois de criar uma definição de trabalho, você pode executar o trabalho novamente com configurações diferentes de tempo de execução.
+Em um serviço Gerenciador de Dados do StorSimple, você precisa criar uma definição de trabalho de transformação de dados. Uma definição de trabalho especifica os detalhes dos dados do StorSimple que você está interessado em mudar para uma conta de armazenamento no formato nativo. Depois de criar uma definição de trabalho, você pode executar o trabalho novamente com configurações diferentes de runtime.
 
 Execute as etapas a seguir para criar uma definição de trabalho.
 
@@ -141,7 +133,7 @@ Execute as etapas a seguir para criar uma definição de trabalho.
 
 ### <a name="run-the-job-definition"></a>Executar definição de trabalho
 
-Sempre que você precisar mover dados do StorSimple para a conta de armazenamento especificada na definição de trabalho, você precisará executá-los. Em tempo de execução, alguns parâmetros podem ser especificados de forma diferente. As etapas são as seguintes:
+Sempre que você precisar mover dados do StorSimple para a conta de armazenamento especificada na definição de trabalho, você precisará executá-los. Em runtime, alguns parâmetros podem ser especificados de forma diferente. As etapas são as seguintes:
 
 1. Selecione o serviço do Gerenciador de Dados do StorSimple e acesse **Gerenciamento > Definições de trabalho**. Selecione e clique na definição de trabalho que você deseja executar.
      
@@ -160,6 +152,6 @@ Sempre que você precisar mover dados do StorSimple para a conta de armazenament
     ![Iniciar execução de trabalho 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Usar o SDK do .NET para iniciar trabalhos do Gerenciador de Dados do StorSimple](storsimple-data-manager-dotnet-jobs.md).

@@ -1,20 +1,18 @@
 ---
-title: Configurar seu ambiente de desenvolvimento do Azure Red Hat OpenShift | Microsoft Docs
+title: Configurar o ambiente de desenvolvimento do Azure Red Hat OpenShift
 description: Aqui estão os pré-requisitos para trabalhar com Microsoft Azure Red Hat OpenShift.
-services: openshift
 keywords: configuração da instalação do Red Hat openshift
 author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-manager: jeconnoc
-ms.openlocfilehash: fa09ed90258a62d37dafeea5f4760e1fabdc210b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 559c932c4826e82f36c09b85ee8da4186d90d34d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581608"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276083"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar seu ambiente de desenvolvimento do Red Hat OpenShift no Azure
 
@@ -100,7 +98,7 @@ Para registrar esses provedores e recursos manualmente, use as seguintes instru�
 
 O serviço do Azure Red Hat OpenShift requer um locatário associado do Azure Active Directory (Azure AD) que representa sua organização e sua relação com a Microsoft. Seu locatário do Azure AD permite que você registre, crie e gerencie aplicativos, bem como use outros serviços do Azure.
 
-Se você não tiver um Azure AD para usar como o locatário para seu cluster do Azure Red Hat OpenShift ou se desejar criar um locatário para teste, siga as instruções em [criar um locatário do Azure ad para o cluster do Azure Red Hat OpenShift](howto-create-tenant.md) antes de continuar com este guia .
+Se você não tiver um Azure AD para usar como o locatário para seu cluster do Azure Red Hat OpenShift ou se desejar criar um locatário para teste, siga as instruções em [criar um locatário do Azure ad para o cluster do Azure Red Hat OpenShift](howto-create-tenant.md) antes de continuar com este guia.
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Criar um usuário do Azure AD, um grupo de segurança e um objeto de aplicativo
 
@@ -108,7 +106,7 @@ O Azure Red Hat OpenShift requer permissões para executar tarefas no cluster, c
 
 Siga as instruções em [criar um objeto de aplicativo do Azure AD e um usuário](howto-aad-app-configuration.md) para criar uma entidade de serviço, gerar um segredo do cliente e uma URL de retorno de chamada de autenticação para seu aplicativo e criar um novo grupo de segurança do Azure AD e usuário para acessar o cluster.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora você está pronto para usar o Azure Red Hat OpenShift!
 

@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) CI/CD com o Mecanismo do Serviço de Contêiner do Azure e o modo Swarm
 description: Usar o Mecanismo do Serviço de Contêiner do Azure com o Docker Swarm Mode, um Registro de Contêiner do Azure e o Azure DevOps para fornecer continuamente um aplicativo .NET Core com vários contêineres
-services: container-service
 author: diegomrtnzg
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598560"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277925"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(PRETERIDO) Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Mecanismo do ACS e Docker Swarm Mode usando o Azure DevOps
 
@@ -27,7 +25,6 @@ Hoje, um dos maiores desafios ao desenvolver aplicativos modernos para a nuvem �
 * Registro de Contêiner do Azure
 * Azure DevOps
 
-Este artigo se baseia em um aplicativo simples, disponível no [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), desenvolvido com o ASP.NET Core. O aplicativo é composto de quatro serviços diferentes: três APIs da Web e um front-end da Web:
 
 ![Aplicativo de exemplo MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
@@ -108,7 +105,7 @@ Nesta etapa, você configura um pipeline de build para seu projeto do Azure DevO
 
     ![Azure DevOps – Novo pipeline de build vazio](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Em seguida, clique na guia **Variáveis** e crie duas novas variáveis: **RegistryURL** e **AgentURL**. Cole os valores de seu Registro e do DNS de Agentes do Cluster.
+4. Depois, clique na guia **Variáveis** e crie duas novas variáveis: **RegistryURL** e **AgentURL**. Cole os valores de seu Registro e do DNS de Agentes do Cluster.
 
     ![Azure DevOps – Configuração das variáveis de build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 
@@ -249,7 +246,7 @@ A versão do fluxo de trabalho é composta de duas tarefas que você adiciona.
 
 Agora que você concluiu a configuração, é hora de testar esse novo pipeline de CI/CD. A maneira mais fácil de testá-lo é atualizar o código-fonte e confirmar as alterações no repositório GitHub. Alguns segundos depois de enviar o código por push, você verá um novo build em execução no Azure DevOps. Depois de concluído com êxito, uma nova versão será disparada e implantará a nova versão do aplicativo no cluster Serviço de Contêiner do Azure.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre CI/CD com o Azure DevOps, consulte o artigo de [documentação Azure pipelines](/azure/devops/pipelines/?view=azure-devops) .
 * Para saber mais sobre o Mecanismo do ACS, veja o [repositório do GitHub do Mecanismo do ACS](https://github.com/Azure/acs-engine).

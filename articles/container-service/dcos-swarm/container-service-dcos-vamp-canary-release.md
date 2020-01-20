@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Versão Canário com Vamp no cluster de DC/SO do Azure
 description: Como usar Vamp para serviços de versão canário e aplicar filtragem de tráfego inteligente a um cluster DC/SO do Serviço de Contêiner do Azure
-services: container-service
 author: gggina
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61457944"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275652"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços da versão Canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
 
@@ -44,7 +42,7 @@ A [versão canário](https://martinfowler.com/bliki/CanaryRelease.html) é uma e
 
 ## <a name="set-up-vamp"></a>Configurar o Vamp
 
-Agora que você tem um cluster de DC/SO em execução, você pode instalar o Vamp da interface do usuário do DC/OS (http:\//localhost:80). 
+Agora que você tem um cluster DC/OS em execução, é possível instalar o modestas da interface do usuário do DC/OS (http:\//localhost: 80). 
 
 ![Interface do usuário do DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -131,7 +129,7 @@ Agora que o Vamp está em execução, implante um serviço de um plano gráfico.
 
 Em sua forma mais simples, um [plano gráfico do Vamp](https://vamp.io/documentation/using-vamp/blueprints/) descreve os pontos de extremidade (gateways), clusters e serviços a implantar. O Vamp usa clusters para agrupar diferentes variantes do mesmo serviço em grupos lógicos para a versão canário ou teste A/B.  
 
-Esse cenário usa um aplicativo monolítico de exemplo chamado [ **sava**](https://github.com/magneticio/sava), que está na versão 1.0. O monolito é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/sava:1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-los na porta 9050 neste caso. Implante o aplicativo por meio do Vamp usando um plano gráfico simples.
+Esse cenário usa um aplicativo monolítico de exemplo chamado [**sava**](https://github.com/magneticio/sava), que está na versão 1.0. O monolito é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/sava:1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-los na porta 9050 neste caso. Implante o aplicativo por meio do Vamp usando um plano gráfico simples.
 
 1. Acesse **Implantações**.
 
@@ -145,7 +143,6 @@ Esse cenário usa um aplicativo monolítico de exemplo chamado [ **sava**](https
     9050: sava_cluster/webport      # stable endpoint
    clusters:
     sava_cluster:               # cluster to create
-     services:
         -
           breed:
             name: sava:1.0.0        # service variant name
@@ -154,7 +151,7 @@ Esse cenário usa um aplicativo monolítico de exemplo chamado [ **sava**](https
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Clique em **Salvar**. O Vamp inicia a implantação.
+4. Clique em **Save** (Salvar). O Vamp inicia a implantação.
 
 A implantação é listada na página **Implantações**. Clique na implantação para monitorar seu status.
 
@@ -200,13 +197,12 @@ Para mesclar o novo serviço sava 1.1 com a implantação em execução:
 
 1. Na interface do usuário do Vamp, clique em **Planos Gráficos**.
 
-2. Clique em **Adicionar** e cole no seguinte blueprint do YAML: este blueprint descreve uma nova variante de serviço (sava: 1.1.0) para implantar no cluster existente (sava_cluster).
+2. Clique em **Adicionar** e cole o seguinte plano gráfico YAML: este plano gráfico descreve uma nova variante de serviço (sava: 1.1.0) para implantar no cluster existente (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name
    clusters:
     sava_cluster:       # cluster to update
-      services:
         -
           breed:
             name: sava:1.1.0    # service variant name
@@ -215,7 +211,7 @@ Para mesclar o novo serviço sava 1.1 com a implantação em execução:
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Clique em **Salvar**. O plano gráfico é armazenado e listado na página **Planos gráficos**.
+3. Clique em **Save** (Salvar). O plano gráfico é armazenado e listado na página **Planos gráficos**.
 
 4. Abra o menu de ação no plano gráfico do sava: 1.1 e clique em **Mesclar para**.
 
@@ -289,7 +285,7 @@ Este artigo foi uma breve introdução ao Vamp em um cluster de DC/SO. Para os i
 Também abordamos alguns recursos avançados do Vamp: mesclar uma nova variante de serviço à implantação em execução e introduzi-la incrementalmente, então filtrar o tráfego para resolver uma incompatibilidade conhecida.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como gerenciar ações do Vamp por meio da [API REST do Vamp](https://vamp.io/documentation/api/api-reference/).
 

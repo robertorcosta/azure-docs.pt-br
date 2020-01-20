@@ -1,26 +1,19 @@
 ---
-title: Modificar um conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Modificar um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como modificar e atualizar um conjunto de dimensionamento de máquinas virtuais do Azure com as APIs REST, Azure PowerShell e CLI do Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803142"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274444"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -73,7 +66,7 @@ Essas propriedades se aplicam ao conjunto de dimensionamento como um todo.
 
 
 ### <a name="the-scale-set-instance-view"></a>A exibição de instância do conjunto de dimensionamento
-Um conjunto de dimensionamento também tem uma "exibição de instância do conjunto de dimensionamento" que captura o estado atual do *tempo de execução* do conjunto de dimensionamento como um todo. Para consultar a exibição de instância de um conjunto de dimensionamento, você pode usar:
+Um conjunto de dimensionamento também tem uma "exibição de instância do conjunto de dimensionamento" que captura o estado atual do *runtime* do conjunto de dimensionamento como um todo. Para consultar a exibição de instância de um conjunto de dimensionamento, você pode usar:
 
 - a API REST com [compute/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) da seguinte maneira:
 
@@ -123,7 +116,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Essas propriedades fornecem um resumo do estado atual de tempo de execução das VMs no conjunto de dimensionamento, como o status das extensões aplicadas ao conjunto de dimensionamento.
+Essas propriedades fornecem um resumo do estado atual de runtime das VMs no conjunto de dimensionamento, como o status das extensões aplicadas ao conjunto de dimensionamento.
 
 
 ### <a name="the-scale-set-vm-model-view"></a>A exibição do modelo de VM do conjunto de dimensionamento
@@ -240,7 +233,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Essas propriedades descrevem o estado de tempo de execução atual de uma instância de VM dentro de um conjunto de escala, que inclui todas as extensões aplicadas ao conjunto de escala.
+Essas propriedades descrevem o estado de runtime atual de uma instância de VM dentro de um conjunto de escala, que inclui todas as extensões aplicadas ao conjunto de escala.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar propriedades globais do conjunto de dimensionamento
@@ -316,7 +309,7 @@ Para atualizar VMs existentes, você deve fazer uma "atualização manual" de ca
 - Você também pode usar [Azure SDKs](https://azure.microsoft.com/downloads/) específicos do idioma.
 
 >[!NOTE]
-> Clusters do Service Fabric só podem usar o modo *Automático*, mas a atualização é tratada de maneira diferente. Para obter mais informações, consulte [atualizações de aplicativo do Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Clusters do Service Fabric só podem usar o modo *Automático*, mas a atualização é tratada de maneira diferente. Para obter mais informações, consulte [Service Fabric atualizações de aplicativos](../service-fabric/service-fabric-application-upgrade.md).
 
 Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. Altera para o conjunto de dimensionamento de perfil de sistema operacional (como o nome de usuário administrador e senha) só pode ser alterado na versão da API *2017-12-01* ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
 
@@ -346,7 +339,7 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
 ### <a name="create-time-properties"></a>Propriedades do momento da criação
 Algumas propriedades só podem ser definidas ao criar o conjunto de dimensionamento. Essas propriedades incluem:
 
-- Zonas de Disponibilidades
+- Zonas de disponibilidade
 - Publicador de referência de imagem
 - Oferta de referência de imagem
 - Tipo de conta de armazenamento em disco de SO gerenciado
@@ -364,7 +357,7 @@ Algumas propriedades só podem ser alteradas para determinados valores se as VMs
 
 
 ## <a name="vm-specific-updates"></a>Atualizações específicas da VM
-Algumas modificações podem ser aplicadas a VMs específicas em vez das propriedades globais do conjunto de dimensionamento. Atualmente, a única atualização específica de VM compatível é anexação/desanexação de discos de dados para/de VMs no pacote de atualização. Esse recurso está em visualização. Para saber mais, confira a [documentação de versão prévia](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+Algumas modificações podem ser aplicadas a VMs específicas em vez das propriedades globais do conjunto de dimensionamento. Atualmente, a única atualização específica de VM compatível é anexação/desanexação de discos de dados para/de VMs no pacote de atualização. Esse recurso está em versão prévia. Para saber mais, confira a [documentação de versão prévia](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 
 ## <a name="scenarios"></a>Cenários
@@ -456,5 +449,5 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
 > Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, você precisará usar um índice de lista diferente de *0*.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Também é possível executar tarefas comuns de gerenciamento em conjuntos de dimensionamento com a [CLI do Azure](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

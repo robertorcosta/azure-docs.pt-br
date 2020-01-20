@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b4a2617bec145cf735058bc13c01bf8ebdfe6550
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201733"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275510"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Guia estratégico de segurança na Central de Segurança do Azure (versão prévia)
 Este documento ensina a usar guias estratégicos de segurança na Central de Segurança do Azure para responder a problemas de segurança.
+
+> [!NOTE]
+> O recurso de guias estratégicos de segurança foi renomeado para automação do fluxo de trabalho. Verifique a página de [automação do fluxo de trabalho (versão prévia)](https://docs.microsoft.com/azure/security-center/workflow-automation) para obter informações de conteúdo atualizadas. Esse conteúdo arquivado temporário está disponível para clientes que demonstraram isso anteriormente e serão removidos gradualmente. Qualquer recurso na versão prévia é guiado pelos [termos de uso complementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## <a name="what-is-security-playbook-in-security-center"></a>O que é o guia estratégico de segurança na Central de Segurança?
 Guia estratégico de segurança é uma coleção de procedimentos que podem ser executados na Central de Segurança depois que determinado guia estratégico é disparado pelo alerta selecionado. O guia estratégico de segurança pode ajudar a automatizar e coordenar a resposta a um alerta de segurança específico detectado pela Central de Segurança. Os guias estratégicos de segurança na Central de Segurança se baseiam nos [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que você pode usar os modelos que são fornecidos na categoria Segurança nos modelos de Aplicativos Lógicos; pode modificá-los com base em suas necessidades ou pode criar novos guias estratégicos usando o [fluxo de trabalho dos Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)e a Central de Segurança como o gatilho.
@@ -35,7 +38,7 @@ Siga estas etapas para criar um novo guia estratégico de segurança na Central 
 1.  Abra o painel **Central de Segurança**.
 2.  Na seção **Automação e Orquestração** no painel esquerdo, clique em **Guias Estratégicos (Versão prévia)** .
 
-    ![Aplicativo Lógico](./media/security-center-playbooks/security-center-playbooks-fig17.png)
+    ![Aplicativo de lógica](./media/security-center-playbooks/security-center-playbooks-fig17.png)
 
 3. Em **Central de Segurança - Guias estratégicos (Versão prévia)** , clique no botão **Adicionar**.
 
@@ -51,7 +54,7 @@ Siga estas etapas para criar um novo guia estratégico de segurança na Central 
 
 6. No campo **Pesquisar todos os gatilhos e conectores**, digite *Central de Segurança do Azure*e selecione **Quando uma resposta a um alerta da Central de Segurança do Azure é disparada**.
 
-    ![Disparador](./media/security-center-playbooks/security-center-playbooks-fig12.png)
+    ![Gatilho](./media/security-center-playbooks/security-center-playbooks-fig12.png)
 
 7. Agora você pode definir o que acontece ao adicionar o manual. Você pode adicionar uma ação, uma condição lógica, condições de caso de alternância ou loops.
 
@@ -73,7 +76,7 @@ Você pode executar um guia estratégico de segurança na Central de Segurança 
 
 5. Na página Guias estratégicos, selecione o guia estratégico que você deseja executar e clique no botão **Executar**. Se quiser ver o guia estratégico antes de dispará-lo, você pode clicar nele para abrir o designer.
 
-    ![Guias Estratégicos](./media/security-center-playbooks/security-center-playbooks-fig13.png)
+    ![Guias estratégicos](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 
 ### <a name="history"></a>Histórico
 

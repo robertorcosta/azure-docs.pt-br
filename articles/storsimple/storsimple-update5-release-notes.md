@@ -1,29 +1,22 @@
 ---
-title: Notas de versão da Atualização 5 para o StorSimple Série 8000 | Microsoft Docs
+title: Notas de versão da Atualização 5 para o StorSimple Série 8000
 description: Descreve os novos recursos, os problemas e as soluções alternativas da Atualização 5 para o StorSimple Série 8000.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844084"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275163"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de versão da Atualização 5 para o StorSimple Série 8000
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos abertos da Atualização 5 para o StorSimple Série 8000. Elas também contêm uma lista das atualizações de software do StorSimple incluídas nesta versão.
 
