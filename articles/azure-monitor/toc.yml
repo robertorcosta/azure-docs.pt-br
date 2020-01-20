@@ -6,6 +6,8 @@
       href: overview.md
     - name: Alterações de terminologia
       href: terminology.md
+    - name: Perguntas frequentes
+      href: faq.md
 - name: Inícios rápidos
   items:
     - name: Monitorar os recursos do Azure
@@ -113,14 +115,6 @@
       href: visualizations.md
     - name: Integrações de parceiro
       href: platform/partners.md
-    - name: Perguntas frequentes
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: Guias de instruções
   items:
     - name: Gerenciar o Azure Monitor
@@ -162,6 +156,8 @@
       items:
         - name: Visão geral do Application Insights
           href: app/app-insights-overview.md
+        - name: Perguntas frequentes
+          href: app/troubleshoot-faq.md
         - name: Monitoramento baseado em código
           items:
             - name: ASP.NET Core
@@ -170,7 +166,7 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
-            - name: Aplicativos não HTTP/aplicativos em segundo plano
+            - name: Aplicativos que não são HTTP e aplicativos em segundo plano
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
             - name: Console .NET
@@ -295,7 +291,7 @@
               href: app/availability-alerts.md
             - name: Testes de desempenho
               href: app/performance-testing.md
-            - name: solução de problemas
+            - name: Solução de problemas
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
         - name: Rastreamento distribuído
@@ -535,6 +531,8 @@
           items:
             - name: Visão geral dos agentes
               href: platform/agents-overview.md
+            - name: Perguntas frequentes
+              href: 'faq.md#agents'
             - name: Extensão de Diagnóstico do Azure
               items:
                 - name: Visão geral
@@ -565,7 +563,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
                     - name: Formato de logs de recurso de linhas JSON
                       href: platform/diagnostic-logs-append-blobs.md
-                    - name: solução de problemas
+                    - name: Solução de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
                   items:
@@ -633,7 +631,7 @@
             - name: Perguntas frequentes sobre disponibilidade geral
               href: insights/vminsights-ga-release-faq.md
             - name: Perguntas frequentes
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: Habilitar o monitoramento
               items:
                 - name: Habilitar a visão geral de monitoramento
@@ -679,7 +677,7 @@
             - name: Visão geral
               href: insights/container-insights-overview.md
             - name: Perguntas frequentes
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: Habilitar o monitoramento
               items:
                 - name: Habilitar a visão geral de monitoramento
@@ -726,7 +724,7 @@
               href: insights/container-insights-optout.md
             - name: Desabilitar monitoramento do Red Hat OpenShift
               href: insights/container-insights-optout-openshift.md
-            - name: solução de problemas
+            - name: Solução de problemas
               href: insights/container-insights-troubleshoot.md
         - name: Monitoramento do Docker e do Contêiner do Windows
           href: insights/containers.md
@@ -975,7 +973,7 @@
               href: platform/alerts-log-query.md
             - name: Ações de Webhook
               href: platform/alerts-log-webhook.md
-            - name: solução de problemas
+            - name: Solução de problemas
               href: platform/alert-log-troubleshoot.md
         - name: Regras de alerta do log de atividades
           items:
@@ -1077,7 +1075,7 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Usar webhooks e notificações por email
               href: platform/autoscale-webhook-email.md
-            - name: solução de problemas
+            - name: Solução de problemas
               href: platform/autoscale-troubleshoot.md
             - name: Esquemas de log de recursos
               href: platform/autoscale-resource-log-schema.md

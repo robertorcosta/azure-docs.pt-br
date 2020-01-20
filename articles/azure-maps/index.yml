@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação dos Mapas do Azure
-summary: O Azure Mapas da Microsoft fornece funcionalidades geoespaciais avançadas para desenvolvedores de todos os setores, contendo os mais recentes dados de mapeamento disponíveis para fornecer um contexto geográfico a aplicativos Web e móveis. O Azure Mapas é um conjunto de APIs REST em conformidade com a API Azure One para mapas, pesquisa, roteiros, tráfego, mobilidade, clima, fusos horários, geolocalização, delimitação geográfica, dados de mapa e Operações Espaciais, acompanhado de SDKs da Web e do Android para tornar o desenvolvimento fácil, flexível e portátil entre várias plataformas.
+summary: O Microsoft Azure Mapas fornece funcionalidades geoespaciais poderosas para desenvolvedores de todos os setores. Essas funcionalidades geoespaciais são empacotadas com os dados de mapeamento mais recentes. O Azure Mapas está disponível para aplicativos Web e móveis. O Azure Mapas é um conjunto de APIs REST em conformidade com o OneAPI do Azure. A seguir, há apenas uma visão geral de alto nível dos serviços que o Azure Mapas oferece – mapas, pesquisa, roteamento, tráfego, mobilidade, clima, fuso horário, geolocalização, delimitação geográfica, dados de mapa e operações espaciais. Os SDKs da Web e do Android permitem que o desenvolvimento seja fácil, flexível e portátil em várias plataformas.
 metadata:
   title: Documentação dos Mapas do Azure | Microsoft Docs
   description: Saiba mais sobre o Azure Mapas e como usá-lo para fornecer serviços geoespaciais para seu aplicativo Web ou móvel.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 1/15/2020
+  ms.openlocfilehash: f4ae414179f77413e5d5daa4fda635e0bf24c2aa
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75408643"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76264094"
 landingContent:
 - title: Sobre o Azure Mapas
   linkLists:
@@ -94,7 +94,7 @@ landingContent:
       url: how-to-add-tile-layer-android-map.md
     - text: Adicionar uma forma a um mapa
       url: how-to-add-shapes-to-android-map.md
-- title: Como desenvolver com Serviços Baseados na Localização
+- title: Desenvolvendo com serviços baseados em localização
   linkLists:
   - linkListType: concept
     links:

@@ -21,16 +21,12 @@
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: Usar o navegador
       href: luis-get-started-get-intent-from-browser.md
-    - name: Usar o SDK do .NET
+    - name: Usar o SDK
       items:
-        - name: Criar e gerenciar um aplicativo
-          href: sdk-csharp-quickstart-authoring-app.md
+        - name: Aplicativo de criação
+          href: sdk-authoring.md
         - name: Ponto de extremidade de previsão da consulta
-          href: sdk-csharp-quickstart-query-prediction-endpoint.md
-    - name: Usar o SDK do Python
-      items:
-        - name: Criar e gerenciar um aplicativo
-          href: sdk-python-quickstart-authoring-app.md
+          href: sdk-query-prediction-endpoint.md
     - name: Usar APIs REST
       items:
         - name: Obter a intenção
@@ -413,7 +409,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glossário
       href: luis-glossary.md
-    - name: solução de problemas
+    - name: Solução de problemas
       href: troubleshooting.md
       displayName: 'FAQ, import'
     - name: Preços e limites

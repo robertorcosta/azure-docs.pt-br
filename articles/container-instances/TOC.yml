@@ -63,6 +63,8 @@
           href: container-instances-encrypt-data.md
         - name: Implantar em hosts dedicados
           href: container-instances-dedicated-hosts.md
+        - name: Usar o conector dos Aplicativos Lógicos
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: Cenários de contêiner
       items:
         - name: Definir a política de reinicialização para tarefas de execução única

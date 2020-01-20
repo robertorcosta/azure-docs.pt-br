@@ -232,48 +232,68 @@
       items:
         - name: Perguntas frequentes sobre tradução de fala
           href: 'https://www.microsoft.com/translator/faq.aspx'
-- name: Transcrição de conversa
+- name: Cenários de conversa
   expanded: false
   items:
-    - name: Visão geral
+    - name: Transcrição de conversa
       items:
-        - name: O que é transcrição de conversas?
-          href: conversation-transcription.md
-    - name: Guias de instruções
-      items:
-        - name: Transcrição de conversas em tempo real
-          href: how-to-use-conversation-transcription.md
-        - name: Transcrição de conversas assíncrona
-          href: how-to-async-conversation-transcription.md
-    - name: Referência
-      items:
-        - name: SDK de fala
+        - name: Visão geral
           items:
-            - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-            - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-            - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-            - name: JavaScript
-              href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-            - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-            - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-            - name: Notas de versão
-              href: releasenotes.md
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-        - name: APIs REST
+            - name: O que é transcrição de conversas?
+              href: conversation-transcription.md
+        - name: Guias de instruções
           items:
-            - name: APIs REST de transcrição de conversas
-              href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+            - name: Transcrição de conversas em tempo real
+              href: how-to-use-conversation-transcription.md
+            - name: Transcrição de conversas assíncrona
+              href: how-to-async-conversation-transcription.md
+        - name: Referência
+          items:
+            - name: SDK de fala
+              items:
+                - name: C++
+                  href: 'https://aka.ms/csspeech/cppref'
+                  displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+                - name: 'C#'
+                  href: 'https://aka.ms/csspeech/csharpref'
+                  displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+                - name: Java
+                  href: 'https://aka.ms/csspeech/javaref'
+                  displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+                - name: JavaScript
+                  href: 'https://aka.ms/csspeech/javascriptref'
+                  displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+                - name: Objective-C
+                  href: 'https://aka.ms/csspeech/objectivecref'
+                  displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+                - name: Python
+                  href: 'https://aka.ms/csspeech/pythonref'
+                  displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+                - name: Notas de versão
+                  href: releasenotes.md
+                  displayName: 'release notes,updates,what''s new,what is new,changes'
+            - name: APIs REST
+              items:
+                - name: APIs REST de transcrição de conversas
+                  href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+    - name: Conversa em vários dispositivos
+      items:
+        - name: Visão geral
+          items:
+            - name: O que é a conversa em vários dispositivos?
+              href: multi-device-conversation.md
+        - name: Inícios rápidos
+          items:
+            - name: Iniciar uma conversa e ingressar em uma conversa
+              href: quickstarts/multi-device-conversation.md
+        - name: Referência
+          items:
+            - name: SDK de fala
+              items:
+                - name: C++
+                  href: 'https://aka.ms/csspeech/cppref'
+                - name: 'C#'
+                  href: 'https://aka.ms/csspeech/csharpref'
 - name: Assistentes de voz
   expanded: false
   items:

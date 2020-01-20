@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação da Detecção Facial
-summary: A API de Detecção Facial baseada em nuvem fornece aos desenvolvedores acesso aos algoritmos faciais avançados. Algoritmos de Detecção Facial da Microsoft habilitam a detecção de atributo facial e reconhecimento facial. Aprenda a analisar o conteúdo de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
+summary: O serviço de Detecção Facial baseado em nuvem fornece acesso a algoritmos avançados de detecção facial aos desenvolvedores. Algoritmos de Detecção Facial da Microsoft habilitam a detecção de atributo facial e reconhecimento facial. Aprenda a analisar o conteúdo de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
 metadata:
-  title: Documentação da API de Detecção Facial – Inícios rápidos, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
-  description: A API de Detecção Facial baseada em nuvem fornece aos desenvolvedores acesso aos algoritmos faciais avançados. Algoritmos de Detecção Facial da Microsoft habilitam a detecção de atributo facial e reconhecimento facial. Aprenda a analisar o conteúdo de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
+  title: Documentação da Detecção Facial – inícios rápidos, tutoriais, referência de API – Serviços Cognitivos do Azure | Microsoft Docs
+  description: O serviço de Detecção Facial baseado em nuvem fornece acesso a algoritmos avançados de detecção facial aos desenvolvedores. Algoritmos de Detecção Facial da Microsoft habilitam a detecção de atributo facial e reconhecimento facial. Aprenda a analisar o conteúdo de diferentes maneiras com guias de início rápido, tutoriais e exemplos.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,18 +11,18 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 438fe3ff0e48eba21acea596f8cbed4498aaca18
-  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+  ms.openlocfilehash: 6a078d8504ea988d44ff5d4bce190c72da28452f
+  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/16/2019
-  ms.locfileid: "74132696"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76166386"
 landingContent:
-- title: Sobre a API de Detecção Facial
+- title: Sobre o serviço de Detecção Facial
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é a API de Detecção Facial?
+    - text: O que é o serviço de Detecção Facial?
       url: Overview.md
 - title: Detectar faces
   linkLists:

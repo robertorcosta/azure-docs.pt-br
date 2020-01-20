@@ -4,7 +4,7 @@
   items:
     - name: O que é o Video Indexer?
       href: video-indexer-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Introdução
@@ -37,15 +37,15 @@
           href: customize-brands-model-overview.md
         - name: Linguagem
           href: customize-language-model-overview.md
-        - name: Pessoa
+        - name: Person
           href: customize-person-model-overview.md
 - name: Guias de como fazer
   items:
-    - name: Conecte-se ao Azure
+    - name: Conectar-se ao Azure
       href: connect-to-azure.md
     - name: Gerenciar conta conectada ao Azure
       href: manage-account-connected-to-azure.md
-    - name: Usar a API para carregar e indexar vídeos
+    - name: Carregar e indexar vídeos
       href: upload-index-videos.md
     - name: Examinar a saída do Video Indexer
       href: video-indexer-output-json-v2.md
@@ -67,7 +67,7 @@
       items:
         - name: Caracteres animados
           href: animated-characters-recognition.md
-        - name: Pessoa
+        - name: Person
           items:
             - name: usando o site do Video Indexer
               href: customize-person-model-with-website.md
