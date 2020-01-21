@@ -26,7 +26,7 @@ O registro no Serviço de Provisionamento de Dispositivos permite que um disposi
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>Adicionar os dispositivos usando uma entrada de registro individual à lista de bloqueios
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista negra, você pode desabilitar ou excluir sua entrada de registro. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para adicionar um dispositivo que tenha um registro individual à lista de bloqueios, você pode desabilitar ou excluir sua entrada de registro. 
 
 Para adicionar temporariamente o dispositivo à lista de bloqueios desabilitando sua entrada de registro: 
 
@@ -56,7 +56,7 @@ Depois de concluir o procedimento, você deve ver sua entrada removida da lista 
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Adicionar um intermediário X.509 ou Certificado de AC raiz à lista de bloqueios usando um grupo de registros
 
-Os certificados X.509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a relação de confiança é quebrada. O certificado deve estar na lista negra para impedir o Serviço de Provisionamento de Dispositivos de provisionar dispositivos downstream em qualquer cadeia que contenham esse certificado. Para saber mais sobre certificados X.509 e como eles são usados com o serviço de provisionamento, consulte [Certificados X.509](./concepts-security.md#x509-certificates). 
+Os certificados X.509 normalmente são organizados em uma cadeia de certificados de confiança. Se um certificado em qualquer estágio de uma cadeia for comprometido, a relação de confiança é quebrada. O certificado deve estar na lista de bloqueios para impedir o Serviço de Provisionamento de Dispositivos de provisionar dispositivos downstream em qualquer cadeia que contenham esse certificado. Para saber mais sobre certificados X.509 e como eles são usados com o serviço de provisionamento, consulte [Certificados X.509](./concepts-security.md#x509-certificates). 
 
 Um grupo de registros é uma entrada para dispositivos que compartilham um mecanismo de atestado comum de certificados X.509 assinados pela mesma AC intermediária ou raiz. A entrada de grupo de registros está configurada com o certificado x. 509 associado com a autoridade de certificação raiz ou intermediária. A entrada também é configurada com quaisquer valores de configuração, como um estado gêmeo e uma conexão de Hub IoT, que são compartilhados pelos dispositivos com esse certificado em sua cadeia de certificados. Para adicionar o certificado à lista de bloqueios, você pode desabilitar ou excluir seu grupo de registros.
 
