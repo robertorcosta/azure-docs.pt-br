@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462465"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280995"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia é para profissionais de ti (tecnologia da informação), arquitetos de ti, analistas de segurança de informações e administradores de nuvem para usar a central de segurança do Azure.
@@ -239,7 +239,7 @@ Essa página mostra os detalhes sobre o horário do ataque, o nome do host de or
 
 Nessa página, você também pode iniciar uma [investigação](https://docs.microsoft.com/azure/security-center/security-center-investigation) para entender melhor a linha do tempo do ataque, como o ataque ocorreu, quais sistemas foram possivelmente comprometidos, as credenciais que foram usadas, além de ver uma representação gráfica de toda a cadeia de ataque.
 
-Depois de identificar o sistema comprometido, você pode executar [guias estratégicos](https://docs.microsoft.com/azure/security-center/security-center-playbooks) de segurança que foram criados anteriormente. Guia estratégico de segurança é uma coleção de procedimentos que podem ser executados na Central de Segurança depois que determinado guia estratégico é disparado pelo alerta selecionado.
+Depois de identificar o sistema comprometido, você pode executar uma [automação de fluxo de trabalho](workflow-automation.md) criada anteriormente. Esses são uma coleção de procedimentos que podem ser executados da central de segurança uma vez disparados por um alerta.
 
 No [como aproveitar a central de segurança do Azure & Microsoft Operations Management Suite de um vídeo de resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) , você pode ver algumas demonstrações que podem ajudá-lo a entender como a central de segurança pode ser usada em cada uma dessas fases.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520750"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281284"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -85,7 +85,7 @@ Vídeos
 
 Artigos    
 * [Uso da Central de Segurança do Azure para uma resposta a incidentes](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatizar a resposta com o guia estratégico de segurança](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [Automatizar a resposta com a automação do fluxo de trabalho](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Defesa da nuvem avançada
 

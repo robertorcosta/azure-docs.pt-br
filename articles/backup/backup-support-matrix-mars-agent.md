@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893970"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281267"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -44,7 +44,7 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Local | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
 Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup (`net stop bengine`) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
@@ -88,21 +88,23 @@ Os sistemas operacionais devem ser de 64 bits e devem estar executando os servi�
 
 **Sistema operacional** | **Arquivos/pastas** | **Estado do sistema** | **Requisitos de software/módulo**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | SIM | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8.1 (Enterprise, Pro)| SIM |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 8 (Enterprise, Pro) | SIM | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Básico, Starter) | SIM | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
-Windows Server 2016 (Standard, Datacenter, Essentials) | SIM | SIM | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | SIM | SIM | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2012 (Standard, Datacenter, Foundation) | SIM | SIM |-.NET 4,5 <br> \- Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | SIM | SIM | -.NET 3,5, .NET 4,5 <br> \- Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | SIM | Não | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br> -Servidor virtual 2005 base + KB KB948515 para O
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | SIM | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
-Windows Server 2019 (Standard, Datacenter, Essentials) | SIM | SIM | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows 10 (Enterprise, Pro, Home) | Sim | Não |  Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8.1 (Enterprise, Pro)| Sim |Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 8 (Enterprise, Pro) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Básico, Starter) | Sim | Não | Verificar a versão do servidor correspondente para os requisitos de software/módulo
+Windows Server 2016 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Sim | Sim |-.NET 4,5 <br> \- Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sim | Sim | -.NET 3,5, .NET 4,5 <br> \- Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sim | Não | -.NET 3,5, .NET 4,5 <br> -Windows PowerShell <br> -Microsoft VC + + redistribuível compatível <br> -MMC (console de gerenciamento Microsoft) 3,0 <br> -Gerenciamento e manutenção de imagens de implantação (DISM. exe) <br> -Servidor virtual 2005 base + KB KB948515 para O
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sim | Não | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Sim | Sim | -.NET 4,5 <br> -Windows PowerShell <br> -Redistribuível do Microsoft VC + + compatível mais recente <br> -MMC (console de gerenciamento Microsoft) 3,0
 
 Para obter mais informações, consulte [supported mAbs and DPM Operating Systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ## <a name="backup-limits"></a>Limites do Backup
+
+### <a name="size-limits"></a>Limites de tamanho
 
 O backup do Azure limita o tamanho de uma fonte de dados de arquivo ou pasta cujo backup pode ser feito. Os itens que você faz backup de um único volume não podem exceder os tamanhos resumidos nesta tabela:
 
@@ -114,12 +116,16 @@ Windows Server 2008 SP2| 1\.700 GB
 Windows 8 ou superior| 54.400 GB
 Windows 7| 1\.700 GB
 
+### <a name="other-limitations"></a>Outras limitações
+
+- O MARS não oferece suporte à proteção de vários computadores com o mesmo nome para um único cofre.
+
 ## <a name="supported-file-types-for-backup"></a>Tipos de arquivo compatíveis para backup
 
 **Tipo** | **Suporte**
 --- | ---
 Criptografado| Com suporte.
-Compactado | Com suporte.
+Compressed | Com suporte.
 Esparsos | Com suporte.
 Compactados e esparsos |Com suporte.
 Links físicos| Sem suporte. Ignorada.
