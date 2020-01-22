@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305858"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289791"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
@@ -39,7 +39,7 @@ Rehospedar, recompilar, substituir ou desativar? IaaS ou PaaS? Para determinar a
 
 O micro Focus Enterprise Server é uma das maiores plataformas de Hospedagem de mainframes disponíveis. Você pode usá-lo para executar suas cargas de trabalho do z/OS em uma plataforma x86 menos dispendiosa no Azure.
 
-Introdução:
+Para começar:
 
 - [Instalar o Enterprise Server e o Enterprise Developer no Azure](./microfocus/set-up-micro-focus-azure.md)
 - [Configurar o CICS BankDemo for Enterprise Developer no Azure](./microfocus/demo.md)
@@ -50,7 +50,7 @@ Introdução:
 
 TmaxSoft OpenFrame é uma popular solução de rehospedagem de mainframe usada em cenários de comparação de precisão e deslocamento. Um ambiente OpenFrame no Azure é adequado para desenvolvimento, demonstrações, testes ou cargas de trabalho de produção.
 
-Introdução:
+Para começar:
 
 - [Introdução ao TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
 - [Baixe o ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
@@ -61,7 +61,7 @@ O IBM Z Development and Test Environment (IBM zD & T) configura um ambiente de n
 
 O ambiente de emulação no Azure pode hospedar diferentes tipos de instâncias Z por meio de ADCDs (distribuições controladas por desenvolvedores de aplicativos). Você pode executar o zD & T Personal Edition, o zD & T Parallel Sysplex e o zD & T Enterprise Edition no Azure e Azure Stack.
 
-Introdução:
+Para começar:
 
 - [Configurar o IBM zD & T 12,0 no Azure](./ibm/install-ibm-z-environment.md)
 - [Configurar ADCD em zD & T](./ibm/demo.md)
@@ -90,7 +90,7 @@ Com o IaaS do Azure, como uma VM, as funções específicas do sistema fornecem 
 
 ### <a name="scalability"></a>Escalabilidade
 
-Mainframes normalmente se expandem, enquanto os ambientes de nuvem se expandem. O Azure oferece uma variedade de tamanhos do [Linux](/azure/virtual-machines/linux/sizes) e do [Windows](/azure/virtual-machines/windows/sizes) para atender às suas necessidades. A nuvem também é dimensionada para cima ou para baixo para corresponder às especificações exatas do usuário. A capacidade de computação, o armazenamento e os serviços são [dimensionados](/azure/architecture/best-practices/auto-scaling) sob demanda em um modelo de cobrança baseado em uso.
+Os mainframes normalmente aumentam, enquanto os ambientes de nuvem são expandidos. O Azure oferece uma variedade de tamanhos do [Linux](/azure/virtual-machines/linux/sizes) e do [Windows](/azure/virtual-machines/windows/sizes) para atender às suas necessidades. A nuvem também é dimensionada para cima ou para baixo para corresponder às especificações exatas do usuário. A capacidade de computação, o armazenamento e os serviços são [dimensionados](/azure/architecture/best-practices/auto-scaling) sob demanda em um modelo de cobrança baseado em uso.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -110,11 +110,11 @@ O Azure governamental ganhou uma autoridade provisória para operar (P-ATO) para
 
 Para começar, baixe [Microsoft Azure governamental Cloud para aplicativos de mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Peça aos nossos [parceiros](partner-workloads.md) para ajudá-lo a migrar ou rehospedar seus aplicativos de mainframe. Para obter diretrizes detalhadas sobre como escolher uma solução de parceiro, consulte o site da Aliança de modernização de [plataforma](https://www.platformmodernization.org/pages/mainframe.aspx) .
+Peça aos nossos [parceiros](partner-workloads.md) para ajudá-lo a migrar ou rehospedar seus aplicativos de mainframe. 
 
-Confira também:
+Consulte também:
 
 - [White papers sobre tópicos de mainframe](mainframe-white-papers.md)
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)

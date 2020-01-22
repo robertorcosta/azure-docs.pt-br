@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300436"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293548"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copiar em massa de um banco de dados para o Azure Data Explorer usando o modelo de Azure Data Factory 
 
 O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerenciado. Ele oferece análise em tempo real sobre grandes volumes de dados que transmitem de várias fontes, como aplicativos, sites e dispositivos IoT. 
 
-Azure Data Factory é um serviço de integração de dados baseado em nuvem e totalmente gerenciado. Você pode usá-lo para preencher o banco de dados do Data Explorer do Azure com o seu sistema existente. E pode ajudá-lo a economizar tempo quando estiver criando soluções de análise. 
+Para copiar dados de um banco de dado no servidor Oracle, Netezza, Teradata ou SQL Server para o Azure Data Explorer, você precisa carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados têm que ser particionados em cada tabela para que você possa carregar linhas com vários threads em paralelo a partir de uma única tabela. Este artigo descreve um modelo a ser usado nesses cenários.
 
 Os [modelos de Azure data Factory](/azure/data-factory/solution-templates-introduction) são pipelines de data Factory predefinidos. Esses modelos podem ajudá-lo a começar rapidamente com Data Factory e reduzir o tempo de desenvolvimento em projetos de integração de dados. 
 
@@ -53,7 +53,7 @@ ADXTableName varchar(255)
 
 Os elementos de código são descritos na tabela a seguir:
 
-|Propriedade  |Descrição  | Exemplo
+|Propriedade  |Description  | Exemplo
 |---------|---------| ---------|
 |PartitionId   |  A ordem de cópia | 1  |  
 |SourceQuery   |  A consulta que indica quais dados serão copiados durante o tempo de execução do pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
@@ -79,7 +79,7 @@ Se o seu ControlTableDataset estiver em um formato diferente, crie um ControlTab
 
     c. Na lista suspensa **AzureDataExplorerTable** , selecione a tabela de data Explorer do Azure. Se o conjunto de um não existir, [crie o serviço vinculado do Azure data Explorer](data-factory-load-data.md#create-the-azure-data-explorer-linked-service) para adicionar o conjunto de um.
 
-    d. Selecione **usar este modelo**.
+    d. Selecione **Usar este modelo**.
 
     ![O painel "cópia em massa do banco de dados para o Azure Data Explorer"](media/data-factory-template/configure-bulk-copy-adx-template.png)
 
@@ -109,7 +109,7 @@ Se o seu ControlTableDataset estiver em um formato diferente, crie um ControlTab
 
 Agora você pode usar o modelo para copiar com eficiência grandes quantidades de dados de seus bancos de dados e tabelas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [copiar dados para o Azure data Explorer usando Azure data Factory](data-factory-load-data.md).
 * Saiba mais sobre o [conector de data Explorer do Azure](/azure/data-factory/connector-azure-data-explorer) no Azure data Factory.

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935971"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294330"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definir e usar trabalhos de moderação (.NET)
 
@@ -45,9 +45,9 @@ Enquanto a ferramenta de análise contém um fluxo de trabalho padrão, vamos [d
 
 Você pode usar o nome do fluxo de trabalho em seu código que inicia o trabalho de moderação.
 
-## <a name="create-your-visual-studio-project"></a>Criar um projeto do Visual Studio
+## <a name="create-your-visual-studio-project"></a>Criar seu projeto do Visual Studio
 
-1. Adicione um novo projeto de **Aplicativo do console (.NET Framework)** à solução.
+1. Adicione um novo projeto do **Aplicativo do console (.NET Framework)** à solução.
 
    No código de exemplo, nomeie o projeto **CreateReviews**.
 
@@ -119,12 +119,12 @@ public static class Clients
 }
 ```
 
-### <a name="initialize-application-specific-settings"></a>Inicializar configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicialize as configurações específicas do aplicativo
 
 Adicione as seguintes constantes e campos estáticos à classe **Programa** em Program.cs.
 
 > [!NOTE]
-> Você define a constante TeamName para o nome usado ao criar a assinatura do Content Moderator. Você pode recuperar o TeamName no [site do Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Você define a constante TeamName para o nome usado ao criar a assinatura do Content Moderator. Você recupera o teamname no site da Content Moderator.
 > Depois de fazer logon, selecione **Credenciais** do menu **Configurações** (engrenagem).
 >
 > O nome da equipe é o valor do campo **Id** na seção **API**.

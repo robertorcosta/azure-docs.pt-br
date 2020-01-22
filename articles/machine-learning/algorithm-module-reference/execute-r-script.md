@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232630"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312270"
 ---
 # <a name="execute-r-script"></a>Executar script R
 
-Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline do Azure Machine Learning designer (versão prévia).
+Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline de Azure Machine Learning designer.
 
 Com o R, você pode executar tarefas que atualmente não são suportadas por módulos existentes, como: 
 - Criar transformações de dados personalizadas
@@ -121,7 +121,7 @@ azureml_main <- function(dataframe1, dataframe2){
     > [!NOTE]
     >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de designer. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados no designer.
 
-1.  **Semente aleatória**: digite um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Esse parâmetro é equivalente a chamar `set.seed(value)` no código R.  
+1.  **Semente aleatória**: digite um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Este parâmetro é equivalente a chamar `set.seed(value)` no código de R.  
 
 1. Execute o pipeline.  
 
@@ -131,7 +131,7 @@ Os módulos **Executar script r** podem retornar várias saídas, mas devem ser 
 
 Mensagens e erros padrão do R são retornados para o log do módulo.
 
-## <a name="sample-scripts"></a>Exemplos de scripts
+## <a name="sample-scripts"></a>Scripts de exemplo
 
 Há várias maneiras pelas quais você pode estender seu pipeline usando o script R personalizado.  Esta seção fornece código de exemplo para tarefas comuns.
 
@@ -150,7 +150,7 @@ O módulo **Executar script r** dá suporte a arquivos de script r arbitrários 
 
     Se o arquivo de pacote de script contiver uma estrutura de diretório, a estrutura será preservada. No entanto, você deve alterar seu código para preceder o **pacote Directory./script** para o caminho.
 
-### <a name="process-data"></a>Processar dados
+### <a name="process-data"></a>Processamento de dados
 
 O exemplo a seguir mostra como dimensionar e normalizar dados de entrada:
 
@@ -260,28 +260,28 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | askpass      | 1,1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| polybase         | 3.5.1      | 
-| base64enc    | 0,1-3      | 
+| base         | 3.5.1      | 
+| base64enc    | 0.1-3      | 
 | BH           | 1.69.0-1   | 
-| associador        | 0.1.1      | 
+| bindr        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
-| bitops       | 1,0-6      | 
+| bitops       | 1.0-6      | 
 | ciar         | 1.3-22     | 
 | broom        | 0.5.2      | 
-| chamador        | 3.2.0      | 
-| acento        | 6.0-84     | 
+| callr        | 3.2.0      | 
+| caret        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | class        | 7.3-15     | 
-| CLI          | 1.1.0      | 
+| cli          | 1.1.0      | 
 | clipe        | 0.6.0      | 
 | cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| Compiler     | 3.5.1      | 
-| lápis       | 1.3.4      | 
+| {1&gt;compiler&lt;1}     | 3.5.1      | 
+| crayon       | 1.3.4      | 
 | curl         | 3.3        | 
-| Data. tabela   | 1.12.2     | 
+| data.table   | 1.12.2     | 
 | conjuntos de dados     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
@@ -292,13 +292,13 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | fansi        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
-| intercâmbio      | 0,8-71     | 
+| estrangeira      | 0,8-71     | 
 | vinculação           | 1.3.1      | 
 | gdata        | 2.18.0     | 
-| genéricos     | 0.0.2      | 
+| Genéricos     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
 | glmnet       | 2.0-18     | 
-| cola         | 1.3.1      | 
+| glue         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
 | gráficos     | 3.5.1      | 
@@ -306,37 +306,37 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | grade         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
-| foram        | 2.1.0      | 
-| mais alto        | 0.8        | 
+| haven        | 2.1.0      | 
+| highr        | 0.8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
 | ipred        | 0,9-9      | 
 | iteradores    | 1.0.10     | 
 | jsonlite     | 1.6        | 
-| KernSmooth   | -2, 23E-15    | 
+| KernSmooth   | 2.23-15    | 
 | knitr        | 1.23       | 
-| rotulagem     | 0.3        | 
-| malha      | 0,20-38    | 
+| rotulando     | 0.3        | 
+| lattice      | 0,20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
-| Markdown     | 1          | 
-| EM massa         | 7.3-51.4   | 
-| Tabela       | 1.2-17     | 
-| maneiras      | 3.5.1      | 
+| markdown     | 1          | 
+| MASS         | 7.3-51.4   | 
+| Matriz       | 1.2-17     | 
+| métodos      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| MIME         | 0,7        | 
+| mime         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
-| modelador       | 0.1.4      | 
+| modelr       | 0.1.4      | 
 | munsell      | 0.5.0      | 
 | nlme         | 3.1-140    | 
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
 | openssl      | 1.4        | 
-| completa     | 3.5.1      | 
-| pilares       | 1.4.1      | 
+| parallel     | 3.5.1      | 
+| pillar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
@@ -346,44 +346,44 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | progresso     | 1.2.2      | 
 | ps           | 1.3.0      | 
 | purrr        | 0.3.2      | 
-| quadprog     | 1,5-7      | 
+| quadprog     | 1.5-7      | 
 | quantmod     | 0.4-15     | 
 | R6           | 2.4.0      | 
 | randomForest | 4.6-14     | 
 | RColorBrewer | 1.1-2      | 
 | Rcpp         | 1.0.1      | 
 | RcppRoll     | 0.3.0      | 
-| leitura        | 1.3.1      | 
+| readr        | 1.3.1      | 
 | readxl       | 1.3.1      | 
 | receitas      | 0.1.5      | 
-| recorrespondência      | 1.0.1      | 
+| rematch      | 1.0.1      | 
 | reprex       | 0.3.0      | 
 | reshape2     | 1.4.3      | 
-| reticulate   | 1,12       | 
+| reticulate   | 1.12       | 
 | rlang        | 0.4.0      | 
-| rmarkdown    | 1,13       | 
+| rmarkdown    | 1.13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0,1        | 
 | rvest        | 0.3.4      | 
-| reduz       | 1.0.0      | 
-| Selecione      | 0.4-1      | 
+| escalas       | 1.0.0      | 
+| selectr      | 0.4-1      | 
 | espacial      | 7.3-11     | 
-| linhas      | 3.5.1      | 
-| QUADRADO      | 2017.10-1  | 
+| splines      | 3.5.1      | 
+| SQUAREM      | 2017.10-1  | 
 | stats        | 3.5.1      | 
 | stats4       | 3.5.1      | 
-| Cadeia de caracteres      | 1.4.3      | 
-| Cadeia de caracteres      | 1.3.1      | 
-| sobrevivência     | 2,44-1.1   | 
+| stringi      | 1.4.3      | 
+| stringr      | 1.3.1      | 
+| survival     | 2,44-1.1   | 
 | sys          | 3.2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
-| limpar        | 0.8.3      | 
+| tidyr        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
 | tidyverse    | 1.2.1      | 
-| Data de início     | 3043.102   | 
-| tinytex      | 0,13       | 
+| timeDate     | 3043.102   | 
+| tinytex      | 0.13       | 
 | ferramentas        | 3.5.1      | 
 | tseries      | 0,10 a 47    | 
 | TTR          | 0.23-4     | 
@@ -391,15 +391,15 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | utils        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| caixa estreita      | 0.3-2      | 
-| com        | 2.1.2      | 
+| whisker      | 0.3-2      | 
+| withr        | 2.1.2      | 
 | xfun         | 0.8        | 
 | xml2         | 1.2.0      | 
-| XTS          | 0.11-2     | 
-| YAML         | 2.2.0      | 
+| xts          | 0.11-2     | 
+| yaml         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
 | zoológico          | 1.8-6      | 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

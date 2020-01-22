@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 804cc7b2b0b51312ed756723fff5150b02f324cc
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 81ba4cc7be5f9361d21aaea2ba78d0fd6f0f8c95
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892797"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289910"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizar um modelo de marcas com a API do Video Indexer
 
@@ -27,43 +27,15 @@ Você pode usar a API do Video Indexer para criar, usar e editar modelos persona
 
 ## <a name="create-a-brand"></a>Criar uma marca
 
-Isso cria uma nova marca personalizada e adiciona-a ao modelo de marcas personalizado para a conta especificada.
+A API [criar uma marca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) cria uma nova marca personalizada e a adiciona ao modelo de marcas personalizadas para a conta especificada. 
 
-### <a name="request-url"></a>URL de Solicitação
+> [!NOTE]
+> A configuração **habilitado** (no corpo) como true coloca a marca na lista de *inclusão* para video indexer a ser detectada. Definir **enabled** como false coloca a marca na lista *Exclusões*, de modo que o Video Indexer não a detectará.
 
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
+Alguns outros parâmetros que podem ser definidos no corpo:
 
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Além desses parâmetros, você precisa fornecer um objeto JSON de corpo da solicitação que fornece informações sobre a nova marca seguindo o formato do exemplo a seguir.
-
-```json
-{
-  "name": "Example",
-  "enabled": true,
-  "tags": ["Tag1", "Tag2"],
-  "description": "This is an example",
-  "referenceUrl": "https://en.wikipedia.org/wiki/Example"
-}
-```
-
-Definir **enabled** como true coloca a marca na lista *Incluir*, para ser detectada pelo Video Indexer. Definir **enabled** como false coloca a marca na lista *Exclusões*, de modo que o Video Indexer não a detectará.
-
-O valor **referenceUrl** pode ser qualquer site de referência para a marca, assim como um link para sua página da Wikipédia.
-
-O valor **tags** é uma lista de marcas para a marca comercial. Isso é mostrado no campo *Categoria* da marca no site do Video Indexer. Por exemplo, a marca "Azure" pode ser marcada ou categorizada como "Nuvem".
+* O valor **referenceUrl** pode ser qualquer site de referência para a marca, assim como um link para sua página da Wikipédia.
+* O valor **tags** é uma lista de marcas para a marca comercial. Isso é mostrado no campo *Categoria* da marca no site do Video Indexer. Por exemplo, a marca "Azure" pode ser marcada ou categorizada como "Nuvem".
 
 ### <a name="response"></a>Resposta
 
@@ -89,28 +61,7 @@ A resposta fornece informações sobre a marca que você acabou de criar de acor
 
 ## <a name="delete-a-brand"></a>Excluir uma marca
 
-Remove uma marca do modelo de marcas personalizado para a conta especificada. A conta é especificada no parâmetro **accountId**. Quando chamada com êxito, a marca não estará mais nas listas de marcas *Inclusões* ou *Exclusões*.
-
-### <a name="request-url"></a>URL de Solicitação
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
-```
-
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|ID|inteiro|SIM|A ID da marca (gerada quando a marca foi criada)|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Nenhum outro corpo da solicitação é necessário para essa chamada.
+A API [excluir uma marca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) remove uma marca do modelo de marcas personalizadas da conta especificada. A conta é especificada no parâmetro **accountId**. Quando chamada com êxito, a marca não estará mais nas listas de marcas *Inclusões* ou *Exclusões*.
 
 ### <a name="response"></a>Resposta
 
@@ -118,28 +69,7 @@ Não há nenhum conteúdo retornado quando a marca é excluída com êxito.
 
 ## <a name="get-a-specific-brand"></a>Obter uma marca específica
 
-Isso permite que você pesquise os detalhes de uma marca no modelo de marcas personalizado para a conta especificada usando a ID da marca.
-
-### <a name="request-url"></a>URL de Solicitação
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
-
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|ID|inteiro|SIM|A ID da marca (gerada quando a marca foi criada)|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Nenhum outro corpo da solicitação é necessário para essa chamada.
+A API [obter uma marca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) permite pesquisar os detalhes de uma marca no modelo de marcas personalizadas para a conta especificada usando a ID da marca.
 
 ### <a name="response"></a>Resposta
 
@@ -168,44 +98,7 @@ A resposta fornece informações sobre a marca que você pesquisou (usando a ID 
 
 ## <a name="update-a-specific-brand"></a>Atualiza uma marca específica
 
-Isso permite que você pesquise os detalhes de uma marca no modelo de marcas personalizado para a conta especificada usando a ID da marca.
-
-### <a name="request-url"></a>URL de Solicitação
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
-```
-
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|ID|inteiro|SIM|A ID da marca (gerada quando a marca foi criada)|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Além desses parâmetros, é preciso fornecer um objeto JSON de corpo da solicitação que forneça informações atualizadas sobre a nova marca que você deseja atualizar, seguindo o formato do exemplo a seguir.
-
-```json
-{
-  "name": "Example",
-  "enabled": false,
-  "tags": ["Tag1", "NewTag2"],
-  "description": "This is an update example",
-  "referenceUrl": "https://en.wikipedia.org/wiki/Example",
-  "lastModifierUserName": "SampleUserName",
-  "created": "2018-04-25T14:59:52.7433333",
-  "lastModified": "2018-04-28T15:52:22.3413983",
-}
-```
-
-> [!NOTE]
-> Neste exemplo, a tag criada no corpo da solicitação de exemplo na seção **Criar uma marca** está sendo atualizada aqui com uma nova tag e uma nova descrição. O valor **enabled** também foi alterado para false para colocá-lo na lista *Excluir*.
+A API [atualizar uma marca](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) permite pesquisar os detalhes de uma marca no modelo de marcas personalizadas para a conta especificada usando a ID da marca.
 
 ### <a name="response"></a>Resposta
 
@@ -231,27 +124,7 @@ A resposta fornece as informações atualizadas sobre a marca que você acabou d
 
 ## <a name="get-all-of-the-brands"></a>Obter todas as marcas
 
-Isso retorna todas as marcas no modelo de marcas personalizado para a conta especificada, independentemente de a marca ser destinada a estar na lista de marcas de *Inclusões* ou *Exclusões*.
-
-### <a name="request-url"></a>URL de Solicitação
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
-
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Nenhum outro corpo da solicitação é necessário para essa chamada.
+A API [obter todas as marcas](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) retorna todas as marcas no modelo de marcas personalizadas para a conta especificada, independentemente de a marca estar destinada a estar na lista *incluir* ou *excluir* marcas.
 
 ### <a name="response"></a>Resposta
 
@@ -291,27 +164,7 @@ A resposta fornece uma lista de todas as marcas na sua conta e cada um dos seus 
 
 ## <a name="get-brands-model-settings"></a>Obter configurações de modelo de marcas
 
-Isso retorna as configurações de modelo de marcas na conta especificada. As configurações de modelo de marcas representam o estado habilitado ou desabilitado da detecção do banco de dados de marcas do Bing. Se as marcas do Bing não estiverem habilitadas, o Video Indexer só detectará marcas do modelo de marcas personalizado da conta especificada.
-
-### <a name="request-url"></a>URL de Solicitação
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
-```
-
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Nenhum outro corpo da solicitação é necessário para essa chamada.
+A API [obter configurações de marcas](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) retorna as configurações do modelo de marcas na conta especificada. As configurações de modelo de marcas representam o estado habilitado ou desabilitado da detecção do banco de dados de marcas do Bing. Se as marcas do Bing não estiverem habilitadas, o Video Indexer só detectará marcas do modelo de marcas personalizado da conta especificada.
 
 ### <a name="response"></a>Resposta
 
@@ -329,35 +182,9 @@ A resposta mostra se as marcas do Bing estão habilitadas seguindo o formato do 
 
 ## <a name="update-brands-model-settings"></a>Atualizar configurações de modelo de marcas
 
-Isso atualiza as configurações de modelo de marcas na conta especificada. As configurações de modelo de marcas representam o estado habilitado ou desabilitado da detecção do banco de dados de marcas do Bing. Se as marcas do Bing não estiverem habilitadas, o Video Indexer só detectará marcas do modelo de marcas personalizado da conta especificada.
+As [marcas de atualização](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) atualiza as configurações do modelo de marcas na conta especificada. As configurações de modelo de marcas representam o estado habilitado ou desabilitado da detecção do banco de dados de marcas do Bing. Se as marcas do Bing não estiverem habilitadas, o Video Indexer só detectará marcas do modelo de marcas personalizado da conta especificada.
 
-### <a name="request-url"></a>URL da solicitação:
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
-```
-
-[Confira os parâmetros necessários e teste-os usando o portal do desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?).
-
-### <a name="request-parameters"></a>Parâmetros da solicitação
-
-|**Nome**|**Tipo**|**Obrigatório**|**Descrição**|
-|---|---|---|---|
-|location|string|SIM|A região do Azure para a qual a chamada deve ser roteada. Para obter mais informações, confira [Regiões do Azure e Video Indexer](regions.md).|
-|accountId|string|SIM|Identificador global exclusivo para a conta|
-|accessToken|string|SIM|Token de acesso (precisa ser do escopo [Token de Acesso da Conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) a ser autenticado na chamada. Os tokens de acesso expiram em 1 hora.|
-
-### <a name="request-body"></a>Corpo da solicitação
-
-Além desses parâmetros, você precisa fornecer um objeto JSON de corpo da solicitação que fornece informações sobre a nova marca seguindo o formato do exemplo a seguir.
-
-```json
-{
-    "useBuiltIn":true
-}
-```
-
-> [!NOTE]
-> **useBuiltIn** definido como true representa que as marcas do Bing estão habilitadas. Se *useBuiltin* for false, as marcas do Bing estarão desabilitadas.
+O sinalizador **useBuiltIn** definido como true representa que as marcas do Bing estão habilitadas. Se *useBuiltin* for false, as marcas do Bing estarão desabilitadas.
 
 ### <a name="response"></a>Resposta
 

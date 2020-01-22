@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 46034c8392dc1720fe5e03fc5e419dba6ed20e0b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493819"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314463"
 ---
 # <a name="clean-missing-data-module"></a>Limpar módulo de dados ausentes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para remover, substituir ou inferir valores ausentes. 
 
@@ -80,7 +80,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
   
     Por exemplo, talvez você queira executar a substituição de valor ausente somente se 30% ou menos das linhas contiverem valores ausentes, mas deixar os valores como estão se mais de 30% das linhas tiverem valores ausentes.  
   
-    Você define o número como a taxa de valores ausentes para todos os valores na coluna. Por padrão, a **taxa máxima de valores ausentes** é definida como 1. Isso significa que os valores ausentes serão limpos mesmo se 100% dos valores na coluna estiverem ausentes.  
+    Você define o número como a proporção de valores ausentes para todos os valores na coluna. Por padrão, a **taxa máxima de valores ausentes** é definida como 1. Isso significa que os valores ausentes serão limpos mesmo se 100% dos valores na coluna estiverem ausentes.  
   
    
   
@@ -99,9 +99,9 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
   
     + **Substituir por modo**: calcula o modo da coluna e usa o modo como o valor de substituição para cada valor ausente na coluna.  
   
-        Aplica-se a colunas que têm tipos de dados inteiros, duplos, boolianos ou categóricos. 
+        Aplica-se às colunas que têm tipos de dados Inteiro, Duplo, Booleano ou Categórico. 
   
-    + **Remover linha inteira**: remove completamente qualquer linha no conjunto de informações que tenha um ou mais valores ausentes. Isso será útil se o valor ausente puder ser considerado aleatoriamente ausente.  
+    + **Remover linha inteira**: remove completamente qualquer linha no conjunto de informações que tenha um ou mais valores ausentes. Isso será útil se o valor ausente puder ser considerado como ausente aleatoriamente.  
   
     + **Remover coluna inteira**: remove completamente qualquer coluna no conjunto de informações que tenha um ou mais valores ausentes.  
   
@@ -109,7 +109,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
   
 6. O **valor de substituição** de opção estará disponível se você tiver selecionado a opção **valor personalizado de substituição**. Digite um novo valor a ser usado como o valor de substituição para todos os valores ausentes na coluna.  
   
-    Observe que você pode usar essa opção somente em colunas que têm os tipos de dados inteiro, duplo, booliano ou data. Para colunas de data, o valor de substituição também pode ser inserido como o número de tiques de 100 nanossegundos desde 1/1/0001 12:00 A.M.  
+    Observe que você pode usar essa opção somente em colunas que têm os tipos de dados inteiro, duplo, booliano ou data. Para colunas de data, o valor de substituição também poderá ser inserido como o número de tiques de 100 nanossegundos desde 1/1/0001 12:00 AM.  
   
 7. **Gerar coluna de indicador de valor ausente**: Selecione esta opção se desejar gerar uma indicação de que os valores na coluna atendem aos critérios de limpeza de valor ausente. Essa opção é particularmente útil quando você está configurando uma nova operação de limpeza e deseja certificar-se de que ela funciona como projetado.
   
@@ -143,6 +143,6 @@ Se você precisar repetir as operações de limpeza com frequência, recomendamo
 
 6.  Execute o pipeline.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

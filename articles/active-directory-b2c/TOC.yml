@@ -76,7 +76,7 @@
   items:
     - name: Integração de aplicativo
       items:
-        - name: Registrar um aplicativo OIDC
+        - name: Registrar um aplicativo
           href: tutorial-register-applications.md
         - name: Registrar um provedor de serviços SAML
           href: connect-with-saml-service-providers.md
@@ -233,7 +233,7 @@
               href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
         - name: Definir atributos personalizados
           href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-        - name: solução de problemas
+        - name: Solução de problemas
           items:
             - name: Coletar logs usando o Application Insights
               href: active-directory-b2c-troubleshoot-custom.md
@@ -282,6 +282,11 @@
                   items:
                     - name: IDs de cadeia de caracteres de localização
                       href: localization-string-ids.md
+                - name: DisplayControls
+                  href: display-controls.md
+                  items:
+                    - name: Verificação
+                      href: display-control-verification.md
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
@@ -320,11 +325,6 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: Validação
                       href: validation-technical-profile.md
-            - name: DisplayControls
-              href: display-controls.md
-              items:
-                - name: Verificação
-                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ee52f3a0bec058f1b94820123ac5514e4e855c05
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485926"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311386"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados. 
 
@@ -45,12 +45,11 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
 3.  Para a **tolerância de otimização**, especifique um valor de limite a ser usado ao otimizar o modelo. Se a melhoria entre as iterações cair abaixo do limite especificado, o algoritmo será considerado convergido em uma solução e o treinamento será interrompido.  
   
 4.  Para peso de **regularização L1** e **peso de regularização L2**, digite um valor a ser usado para os parâmetros de regularização L1 e L2. Um valor diferente de zero é recomendado para ambos.  
-  
      A *regularização* é um método para evitar o superajuste por meio da penalização de modelos com valores de coeficiente extremo. A regularização funciona adicionando a penalidade associada aos valores de coeficiente ao erro da hipótese. Assim, um modelo preciso com valores de coeficiente extremo seria penalizado mais, mas um modelo menos preciso com valores mais conservadores seria penalizado menos.  
   
-     A regularização L1 e L2 tem efeitos e usos diferentes.  
+     As regularizações L1 e L2 têm efeitos e usos diferentes.  
   
-    -   L1 pode ser aplicado a modelos esparsos, o que é útil ao trabalhar com dados altamente dimensionais.  
+    -   L1 pode ser aplicado aos modelos esparsos, que é útil ao trabalhar com dados de grande dimensão.  
   
     -   Por outro lado, a regularização L2 é preferível para dados que não são esparsos.  
   
@@ -63,7 +62,7 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
       
 5.  Para o **tamanho da memória para l-BFGS**, especifique a quantidade de memória a ser usada para a otimização de *l-BFGS* .  
   
-     L-BFGS significa "memória limitada Broyden-Fletcher-Goldfarb-Shanno". É um algoritmo de otimização que é popular para a estimativa de parâmetro. Esse parâmetro indica o número de posições passadas e gradientes a serem armazenados para o cálculo da próxima etapa.  
+     L-BFGS significa "memória limitada Broyden-Fletcher-Goldfarb-Shanno". É um algoritmo de otimização que é conhecido por estimativa de parâmetro. Esse parâmetro indica o número de posições anteriores e gradientes a armazenar o cálculo da próxima etapa.  
   
      Esse parâmetro de otimização limita a quantidade de memória usada para calcular a próxima etapa e direção. Quando você especifica menos memória, o treinamento é mais rápido, mas menos preciso.  
   
@@ -79,12 +78,11 @@ Por exemplo, a coluna de rótulo pode ser [voto] com os valores possíveis de "S
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
-
-+ Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do [modelo](./train-model.md) de treinamento e selecione **Visualizar**.   
+ 
   
 + Para fazer previsões sobre novos dados, use o modelo treinado e novos dados como entrada para o módulo [modelo de Pontuação](./score-model.md) . 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348793"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293633"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
 À medida que você gerencia clusters no Serviço de Kubernetes do Azure (AKS), geralmente é necessário isolar equipes e cargas de trabalho. O AKS fornece flexibilidade em como você pode executar clusters de vários inquilinos e isolar recursos. Para maximizar seu investimento no Kubernetes, esses recursos de multilocação e isolamento devem ser reconhecidos e implementados.
 
-Este artigo de práticas recomendadas se concentra no isolamento para operadores de cluster. Neste artigo, você aprenderá a:
+Este artigo de práticas recomendadas se concentra no isolamento para operadores de cluster. Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Planejar clusters de vários inquilinos e separação de recursos
@@ -32,7 +32,7 @@ O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas d
   * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][aks-best-practices-advanced-scheduler].
 * **Rede** inclui o uso de políticas de rede para controlar o fluxo de tráfego dentro e fora dos pods.
 * **Autenticação e autorização** incluem o usuário de RBAC (controle de acesso baseado em função) e integração do Azure Active Directory (AD), identidades de conjuntos e segredos no Cofre de Chaves do Azure. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para autenticação e autorização no AKs][aks-best-practices-identity].
-* **Contêineres** incluem políticas de segurança do pod, contextos de segurança do pod, imagens de varredura e tempos de execução para vulnerabilidades. Envolve também o uso do App Armor ou do Seccomp (Secure Computing) para restringir o acesso ao contêiner ao nó subjacente.
+* **Contêineres** incluem políticas de segurança do pod, contextos de segurança do pod, imagens de varredura e runtimes para vulnerabilidades. Envolve também o uso do App Armor ou do Seccomp (Secure Computing) para restringir o acesso ao contêiner ao nó subjacente.
 
 ## <a name="logically-isolate-clusters"></a>Isolar logicamente clusters
 
@@ -54,9 +54,9 @@ Uma abordagem comum para o isolamento de cluster é usar clusters AKS fisicament
 
 ![Isolamento físico de clusters de Kubernetes individuais em AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Clusters fisicamente separados geralmente têm uma baixa densidade de vagem. Como cada equipe ou carga de trabalho possui seu próprio cluster AKS, o cluster geralmente é provisionado em excesso com recursos de computação. Geralmente, um pequeno número de pods é planejado nesses nós. A capacidade não utilizada nos nós não pode ser usada para aplicativos ou serviços em desenvolvimento por outras equipes. Esses recursos em excesso contribuem para os custos adicionais em clusters fisicamente separados.
+Clusters fisicamente separados geralmente têm uma baixa densidade de vagem. Como cada equipe ou carga de trabalho possui seu próprio cluster AKS, o cluster geralmente é provisionado em excesso com recursos de computação. Muitas vezes, um pequeno número de pods é agendado nesses nós. A capacidade não utilizada nos nós não pode ser usada para aplicativos ou serviços em desenvolvimento por outras equipes. Esses recursos em excesso contribuem para os custos adicionais em clusters fisicamente separados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo concentra-se em isolamento de cluster. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 

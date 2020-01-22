@@ -4,12 +4,12 @@ description: Saiba como usar Aplicativo Azure insights com Azure Functions para 
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978076"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292919"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -74,7 +74,7 @@ Você pode ver que ambas as páginas têm uma **execução no Application insigh
 
 ![Executar no Application Insights](media/functions-monitoring/run-in-ai.png)
 
-A consulta a seguir é exibida. Você pode ver que a lista de invocação está limitada aos últimos 30 dias. A lista mostra no máximo 20 linhas (`where timestamp > ago(30d) | take 20`). A lista de detalhes de invocação é para os últimos 30 dias sem nenhum limite.
+A consulta a seguir é exibida. Você pode ver que os resultados da consulta são limitados aos últimos 30 dias (`where timestamp > ago(30d)`). Além disso, os resultados mostram, no máximo, 20 linhas (`take 20`). Por outro lado, a lista de detalhes de invocação para sua função é para os últimos 30 dias sem limite.
 
 ![Lista de invocações de Análise do Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -92,13 +92,13 @@ Para obter informações sobre como usar o Application Insights, consulte a [doc
 
 As áreas de Application Insights a seguir podem ser úteis ao avaliar o comportamento, o desempenho e os erros em suas funções:
 
-| Tab | Descrição |
+| Tab | Description |
 | ---- | ----------- |
 | **[Sucedi](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções de servidor. O **Nome da Operação** é o nome da função. Falhas em dependências não são mostradas a menos que você implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analisar problemas de desempenho. |
 | **Servidores** | Exibir a utilização de recursos e a taxa de transferência por servidor. Esses dados podem ser úteis para cenários de depuração em que as funções estão travando seus recursos subjacentes. Servidores são chamados de **Instâncias de função de nuvem**. |
 | **[Métrica](../azure-monitor/app/metrics-explorer.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e taxas de sucesso. |
-| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados em tempo real. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados quase em tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria da consulta
 
@@ -119,7 +119,7 @@ requests
 
 As tabelas disponíveis são mostradas na guia **esquema** à esquerda. Você pode encontrar os dados gerados por invocações de função nas tabelas a seguir:
 
-| Tabela | Descrição |
+| Tabela | Description |
 | ----- | ----------- |
 | **rastreamentos** | Logs criados pelo tempo de execução e por código de função. |
 | **requests** | Uma solicitação para cada invocação de função. |
@@ -157,7 +157,7 @@ O agente de Azure Functions também inclui um *nível de log* com cada log. [Log
 
 |LogLevel    |Codificar|
 |------------|---|
-|Rastreamento       | 0 |
+|Trace       | 0 |
 |Depuração       | 1 |
 |Informações | 2 |
 |Aviso     | 3 |
@@ -337,7 +337,7 @@ Você pode gravar logs no seu código de função que apareçam como rastreament
 
 Use um parâmetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) em funções, em vez de um parâmetro `TraceWriter`. Os logs criados usando `TraceWriter` vão para Application Insights, mas `ILogger` permite que você faça o [registro em log estruturado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Com um objeto `ILogger`, você chama os `Log<level>` [ métodos de extensão no ILogger ](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar logs. O código a seguir grava `Information` logs com a categoria "função".
+Com um objeto `ILogger`, você chama `Log<level>` [métodos de extensão em ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar logs. O código a seguir grava `Information` logs com a categoria "function. < YOUR_FUNCTION_NAME >. Usuário. "
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 Não chame `TrackRequest` ou `StartOperation<RequestTelemetry>` porque você verá solicitações duplicadas para uma invocação de função.  O runtime do Functions controla automaticamente as solicitações.
 
-Não definir `telemetryClient.Context.Operation.Id`. Essa configuração global causa correlação incorreta quando muitas funções são executadas simultaneamente. Em vez disso, crie uma nova instância de telemetria (`DependencyTelemetry`, `EventTelemetry`) e modifique a propriedade `Context`. Em seguida, passe a instância de telemetria para o método `Track` correspondente em `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Esse método garante que a telemetria tenha os detalhes de correlação corretos para a invocação de função atual.
+Não definir `telemetryClient.Context.Operation.Id`. Essa configuração global causa correlação incorreta quando muitas funções são executadas simultaneamente. Em vez disso, crie uma nova instância de telemetria (`DependencyTelemetry`, `EventTelemetry`) e modifique a propriedade `Context`. Em seguida, passe a instância de telemetria para o método `Track` correspondente em `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). Esse método garante que a telemetria tenha os detalhes de correlação corretos para a invocação de função atual.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Registrar telemetria personalizada em funções JavaScript
 
@@ -590,7 +590,7 @@ O parâmetro `tagOverrides` define o `operation_Id` para a ID de invocação da 
 
 ## <a name="dependencies"></a>Dependências
 
-As funções v2 coletam automaticamente as dependências para solicitações HTTP, ServiceBus e SQL.
+As funções v2 coletam automaticamente as dependências para solicitações HTTP, ServiceBus, EventHub e SQL.
 
 Você pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo na [ C# seção telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta em um *mapa de aplicativo* em Application insights semelhante à imagem a seguir:
 
@@ -602,7 +602,7 @@ Para relatar um problema com a integração do Application Insights em Functions
 
 ## <a name="streaming-logs"></a>Logs de streaming
 
-Ao desenvolver um aplicativo, muitas vezes você deseja ver o que está sendo gravado nos logs em tempo quase real durante a execução no Azure.
+Ao desenvolver um aplicativo, muitas vezes você deseja ver o que está sendo gravado nos logs quase em tempo real quando executado no Azure.
 
 Há duas maneiras de exibir um fluxo de arquivos de log que está sendo gerado por suas execuções de função.
 

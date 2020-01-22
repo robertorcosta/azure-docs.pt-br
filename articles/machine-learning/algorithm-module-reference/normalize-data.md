@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e4bc440d59f41988a52b8b7b808b74f95acdf46
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466046"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314259"
 ---
 # <a name="normalize-data-module"></a>Módulo normalizar dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para transformar um conjunto de um DataSet por meio de *normalização*.
 
@@ -31,11 +31,11 @@ A *normalização* evita esses problemas criando novos valores que mantêm a dis
 Esse módulo oferece várias opções para transformar dados numéricos:
 
 - Você pode alterar todos os valores para uma escala de 0-1 ou transformar os valores, representando-os como classificações de percentil em vez de valores absolutos.
-- Você pode aplicar a normalização a uma única coluna ou a várias colunas no mesmo conjunto de mesmos.
+- Você pode aplicar a normalização para uma única coluna ou em várias colunas em um mesmo conjunto de dados.
 - Se você precisar repetir o pipeline ou aplicar as mesmas etapas de normalização a outros dados, poderá salvar as etapas como uma transformação de normalização e aplicá-la a outros conjuntos de dados que tenham o mesmo esquema.
 
 > [!WARNING]
-> Alguns algoritmos exigem que os dados sejam normalizados antes de treinar um modelo. Outros algoritmos executam seu próprio dimensionamento ou normalização de dados. Portanto, ao escolher um algoritmo de aprendizado de máquina para usar na criação de um modelo de previsão, certifique-se de examinar os requisitos de dados do algoritmo antes de aplicar a normalização aos dados de treinamento.
+> Alguns algoritmos exigem que os dados sejam normalizados antes de treinar um modelo. Outros algoritmos executam o dimensionamento ou normalização dos seus próprios dados. Portanto, ao escolher um algoritmo de aprendizado de máquina para usar na criação de um modelo de previsão, certifique-se de examinar os requisitos de dados do algoritmo antes de aplicar a normalização aos dados de treinamento.
 
 ##  <a name="configure-normalize-data"></a>Configurar dados de normalização
 
@@ -68,7 +68,7 @@ Você pode aplicar apenas um método de normalização por vez usando esse módu
   
     - **Por minMax**: o normalizador min-max redimensiona linearmente cada recurso para o intervalo [0, 1].
     
-      Redimensionar para o intervalo [0, 1] é feito alternando os valores de cada recurso para que o valor mínimo seja 0 e, em seguida, dividindo pelo novo valor máximo (que é a diferença entre os valores máximos e mínimos originais).
+      O redimensionamento do intervalo [0,1] é feito mudando os valores de cada recurso para que o valor mínimo seja 0 e, em seguida, dividindo pelo novo valor máximo (que é a diferença entre os valores máximos e mínimos originais).
       
       Os valores na coluna são transformados usando a seguinte fórmula:  
   
@@ -98,15 +98,15 @@ Você pode aplicar apenas um método de normalização por vez usando esse módu
 
 O módulo **normalizar dados** gera duas saídas:
 
-- Para exibir os valores transformados, clique com o botão direito do mouse no módulo, selecione conjunto de valores **transformados**e clique em **Visualizar**.
+- Para exibir os valores transformados, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
 
     Por padrão, os valores são transformados em vigor. Se você quiser comparar os valores transformados com os valores originais, use o módulo [adicionar colunas](./add-columns.md) para recombinar os conjuntos de os e exibir as colunas lado a lado.
 
-- Para salvar a transformação para que você possa aplicar o mesmo método de normalização a outro conjunto de outros, clique com o botão direito do mouse no módulo, selecione **função de transformação**e clique em **salvar como transformação**.
+- Para salvar a transformação para que você possa aplicar o mesmo método de normalização a outro conjunto de um, selecione o módulo e selecione **registrar conjunto de registros** na guia **saídas** no painel direito.
 
     Em seguida, você pode carregar as transformações salvas no grupo **transformações** do painel de navegação esquerdo e aplicá-las a um conjunto de um DataSet com o mesmo esquema usando a [transformação./Apply](apply-transformation.md).  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968899"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292851"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizar as configurações de rede da VM do Azure de destino
 
@@ -27,7 +27,7 @@ Saiba como o Site Recovery fornece recuperação de desastre para [esse cenário
 
 Você pode fornecer as seguintes configurações de recurso-chave para a VM de failover ao replicar VMs do Azure:
 
-- [Balanceador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
+- [Balanceador de carga interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [IP público](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) para a sub-rede e para a NIC
 
@@ -55,7 +55,7 @@ Agora, Site Recovery honrará essas configurações e garantirá que a VM no fai
 
 Quando você disparar o failover de teste por meio do plano de recuperação, ele sempre perguntará a rede virtual do Azure. Esta rede virtual será usada para o failover de teste para os computadores que não têm as configurações de failover de teste pré-configuradas.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="unable-to-view-or-select-a-resource"></a>Não é possível exibir ou selecionar um recurso
 

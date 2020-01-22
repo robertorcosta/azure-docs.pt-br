@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b6a019fbea2ebfed67db4f7c2a9b0f8085438aa8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214577"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311641"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de resultados que contém pontuações geradas de um modelo e o módulo **avaliar modelo** computa um conjunto de métricas de avaliação padrão do setor.
   
@@ -40,7 +40,7 @@ Há três maneiras de usar o módulo **avaliar modelo** :
 
 ## <a name="use-the-training-data"></a>Usar os dados de treinamento
 
-Para avaliar um modelo, você deve conectar um conjunto de dados que contém um conjunto de colunas de entrada e pontuações.  Se nenhum outro dado estiver disponível, você poderá usar seu conjunto de dados original.
+Para avaliar um modelo, você deve se conectar a um conjunto de dados que contém um conjunto de colunas de entrada e classificações.  Se nenhum outro dado estiver disponível, você poderá usar seu conjunto de dados original.
 
 1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) à entrada do **modelo de avaliação**. 
 2. Clique em **avaliar módulo modelo** e execute o pipeline para gerar as pontuações de avaliação.
@@ -57,18 +57,15 @@ Um cenário comum no aprendizado de máquina é separar o conjunto de dados orig
 
 Você também pode conectar um segundo conjunto de pontuações para **avaliar o modelo**.  As pontuações podem ser um conjunto de avaliação compartilhado com resultados conhecidos ou um conjunto de resultados de um modelo diferente para os mesmos dados.
 
-Esse recurso é útil porque você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Ou, você pode comparar pontuações de duas execuções diferentes nos mesmos dados com parâmetros diferentes.
+This featureEste recurso é útil pois você pode comparar facilmente resultados de dois modelos diferentes nos mesmos dados. Ou, você pode comparar classificações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
 1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](score-model.md) à entrada do **modelo de avaliação**. 
 2. Conecte a saída do módulo modelo de Pontuação para o segundo modelo à entrada do lado direito do **modelo de avaliação**.
-3. Clique com o botão direito do mouse em **avaliar modelo**e selecione **executar selecionado** para gerar as pontuações de avaliação.
+3. Execute o pipeline.
 
 ## <a name="results"></a>Resultados
 
-Depois de executar o **modelo**de avaliação, clique com o botão direito do mouse no módulo e selecione **resultados da avaliação** para ver os resultados. Você pode:
-
-+ Salvar os resultados como um conjunto de um, para uma análise mais fácil com outras ferramentas
-+ Gerar uma visualização no designer
+Depois de executar o **modelo de avaliação**, clique com o botão direito do mouse no módulo e selecione **Visualizar resultados da avaliação** para ver os resultados.
 
 Se você conectar conjuntos de dados a ambas as entradas do **modelo de avaliação**, os resultados conterão métricas para ambos os conjuntos ou ambos os modelos.
 O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas para o conjunto de dados ou modelo anexado na porta correta.  
@@ -123,6 +120,6 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
 - O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
   
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

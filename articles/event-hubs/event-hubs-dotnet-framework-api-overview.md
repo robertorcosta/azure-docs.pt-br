@@ -1,6 +1,6 @@
 ---
 title: Visão geral das APIs do .NET Framework dos Hubs de Eventos do Azure | Microsoft Docs
-description: Um resumo de algumas das principais APIs de cliente .NET Framework de Hubs de Eventos.
+description: Este artigo fornece um resumo de alguns dos principais hubs de eventos .NET Framework APIs de cliente (gerenciamento e tempo de execução).
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822039"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312610"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Visão geral da API do .NET Framework de Hubs de Eventos
 
@@ -26,7 +26,7 @@ Os [cenários de monitoramento](event-hubs-metrics-azure-monitor.md) abrangem ta
 
 Para executar as seguintes operações de gerenciamento, você deve ter permissões para **Gerenciar** no namespace de Hubs de Eventos:
 
-### <a name="create"></a>Criar
+### <a name="create"></a>Create
 
 ```csharp
 // Create the event hub
@@ -174,7 +174,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 

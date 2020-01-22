@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993993"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290131"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Noções básicas sobre os termos em seu arquivo de uso e encargos do Azure
 
@@ -90,11 +90,11 @@ PublisherType | Tudo | Tipo de Publicador (valores: **Azure**, **AWS**, **Market
 Quantidade | Tudo | O número de unidades compradas ou consumidas.
 ReservationId | EA, MCA | Identificador exclusivo da instância de reserva comprada.
 ReservationName | EA, MCA | Nome da instância de reserva comprada.
-ResourceGroup | Tudo | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual o recurso está.
+ResourceGroup | Tudo | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual o recurso está. Nem todos os encargos são provenientes de recursos implantados em grupos de recursos. Os encargos que não têm um grupo de recursos serão mostrados como nulo/vazio, **outros**ou **não aplicáveis**.
 ResourceId<sup>1</sup> | Tudo | Identificador exclusivo do recurso [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
 ResourceLocation | Tudo | Localização do datacenter em que o recurso está sendo executado. Confira Localização.
-ResourceName | EA, PAYG | Nome do recurso.
-ResourceType | MCA | Tipo de instância do recurso.
+ResourceName | EA, PAYG | Nome do recurso. Nem todos os encargos são provenientes de recursos implantados. Os encargos que não têm um tipo de recurso serão mostrados como nulo/vazio, **outros**ou **não aplicáveis**.
+ResourceType | MCA | Tipo de instância do recurso. Nem todos os encargos são provenientes de recursos implantados. Os encargos que não têm um tipo de recurso serão mostrados como nulo/vazio, **outros**ou **não aplicáveis**.
 ServiceFamily | MCA | Família de serviços ao qual o serviço pertence.
 ServiceInfo1 | Tudo | Metadados específicos ao serviço.
 ServiceInfo2 | Tudo | Campo herdado com metadados opcionais específicos do serviço.

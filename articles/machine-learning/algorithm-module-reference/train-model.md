@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b62e03184453c4daea8615ee2bea39c936de5c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490383"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313970"
 ---
 # <a name="train-model-module"></a>Módulo Treinar Modelo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para treinar um modelo de classificação ou regressão. O treinamento ocorre depois que você define um modelo e define seus parâmetros e requer dados marcados. Você também pode usar **treinar modelo** para treinar novamente um modelo existente com novos dados. 
 
@@ -57,24 +57,23 @@ Em Azure Machine Learning, criar e usar um modelo de aprendizado de máquina nor
     
     Exemplos podem ser uma pontuação de risco de crédito, o tempo projetado para a falha de um disco rígido ou o número previsto de chamadas para um centro de atendimento em um determinado dia ou hora.  Se você não escolher uma coluna numérica, poderá receber um erro.
   
-    -   Se você não especificar qual coluna de rótulo usar, Azure Machine Learning tentará inferir qual é a coluna de rótulo apropriada, usando os metadados do conjunto de um. Se escolher a coluna errada, use o seletor de coluna para corrigi-la.
+    -   Se você não especificar qual coluna de rótulo usar, o Machine Learning do Azure tenta inferir qual é a coluna de rótulo apropriada, usando os metadados do conjunto de dados. Se escolher a coluna errada, use o seletor de coluna para corrigi-la.
   
     > [!TIP] 
     > Se você tiver problemas ao usar o seletor de coluna, consulte o artigo [selecionar colunas no conjunto de linhas](./select-columns-in-dataset.md) para obter dicas. Ele descreve alguns cenários comuns e dicas para usar as opções **with Rules** e **by Name** .
   
 5.  Execute o pipeline. Se você tiver muitos dados, isso pode levar algum tempo.
 
-## <a name="bkmk_results"></a>Da
+## <a name="bkmk_results"></a> Resultados
 
 Depois que o modelo for treinado:
 
-+ Para exibir os parâmetros de modelo e os pesos de recursos, clique com o botão direito do mouse na saída e selecione **Visualizar**.
-+ Para usar o modelo em outros pipelines, clique com o botão direito do mouse no modelo e selecione **salvar modelo**. Digite um nome para o modelo. 
 
-    Isso salva o modelo como um instantâneo que não é atualizado por execuções repetidas do pipeline.
++ Para usar o modelo em outros pipelines, selecione o módulo e selecione o ícone **registrar conjunto de registros** na guia **saídas** no painel direito. Você pode acessar modelos salvos na paleta de módulo em **conjuntos**de os.
+
 + Para usar o modelo na previsão de novos valores, conecte-o ao módulo [modelo de Pontuação](./score-model.md) , junto com os novos dados de entrada.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

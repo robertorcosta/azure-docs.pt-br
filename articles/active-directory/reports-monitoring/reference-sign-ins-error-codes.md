@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429464"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294092"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -96,6 +96,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50072|O usuário precisa se inscrever para autenticação de dois fatores (interativo).|
 |50074|O usuário não passou no desafio de MFA.|
 |50076|O usuário não passou no desafio MFA (não interativo).|
+|50078|A autenticação multifator apresentada expirou, você deve atualizar a autenticação multifator para acessar o.|
 |50079|O usuário precisa se inscrever para autenticação de dois fatores (logins não interativos).|
 |50085|O token de atualização precisa de logon do IDP social. Peça que o usuário tente fazer login novamente com seu nome de usuário e senha.|
 |50089|Fluxo de token expirado - Falha na autenticação. Peça que o usuário tente fazer login novamente com seu nome de usuário e senha|
@@ -184,7 +185,8 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente. Contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se tem todos os parâmetros necessários para a solicitação de logon. |
 |90051| Token de delegação inválido. Foi especificada uma ID de nuvem nacional inválida ({cloudid}).|
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
-|90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
+|90094| O aplicativo solicitou permissões às quais o usuário conectado não tem permissão para consentir e o usuário foi bloqueado. |
+|90095| O aplicativo solicitou permissões às quais o usuário conectado não tem permissão para consentir, e o usuário recebeu o formulário [solicitação de consentimento de administrador](../manage-apps/configure-admin-consent-workflow.md) . |
 |500011| A entidade de recurso chamada <site address> não foi encontrada no locatário denominado <tenant ID>. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Você pode ter enviado a solicitação de autenticação ao locatário errado.|
 |500021| O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
 |500121| A autenticação falhou durante uma solicitação de autenticação forte.|
@@ -193,6 +195,8 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |530032|Bloqueado pela política de segurança.| 
 |700016|O aplicativo com o identificador ' {appIdentifier} ' não foi encontrado no diretório ' {tenantname} '. Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Você pode ter enviado sua solicitação de autenticação para o locatário incorreto.|
 |900432|Não há suporte para o cliente confidencial na solicitação de nuvem cruzada.|
+|5000811|Não é possível verificar a assinatura de token SAML. O identificador de chave de assinatura não corresponde a nenhuma chave registrada válida.|
+|7000215|Foi fornecido um segredo do cliente inválido.|
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 

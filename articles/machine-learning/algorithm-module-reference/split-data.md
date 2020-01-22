@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b707971f0b150bce63b4dd0ffa4e55dc3b3d6bac
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492635"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313940"
 ---
 # <a name="split-data-module"></a>Módulo dividir dados
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para dividir um conjunto de módulos em dois conjuntos distintos.
 
@@ -44,7 +44,7 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     - **Divisão de expressão relativa**: Use essa opção sempre que desejar aplicar uma condição a uma coluna de número. O número pode ser um campo de data/hora, uma coluna que contém valores de idade ou moeda, ou até mesmo uma porcentagem. Por exemplo, talvez você queira dividir seu conjunto de dados dependendo do custo dos itens, agrupar pessoas por intervalos de idade ou separar dados por uma data de calendário.
 
-### <a name="split-rows"></a>Dividir linhas
+### <a name="split-rows"></a>Linhas de divisão
 
 1.  Adicione o módulo [dividir dados](./split-data.md) ao seu pipeline no designer, e conecte o DataSet que você deseja dividir.
   
@@ -54,13 +54,13 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     A taxa representa a porcentagem de linhas enviadas para o primeiro conjunto de resultados de saída, portanto, você deve digitar um número decimal entre 0 e 1.
      
-     Por exemplo, se você digitar 0,75 como o valor, o conjunto de registros será dividido usando uma proporção de 75:25, com 75% das linhas enviadas para o primeiro conjunto de resultados de saída e 25% enviado para o segundo conjunto de resultados de saída.
+     Por exemplo, se você digitar 0,75 como o valor, o conjunto de dados deve ser dividido usando a razão 75:25, com 75% das linhas enviadas para o primeiro conjunto de saída, e 25% enviadas para o segundo conjunto de saída.
   
 4. Selecione a opção **divisão aleatória** se desejar tornar aleatória a seleção de dados nos dois grupos. Essa é a opção preferida ao criar conjuntos de testes de treinamento e de teste.
 
-5.  **Semente aleatória**: digite um valor inteiro não negativo para inicializar a sequência pseudoaleatória de instâncias a serem usadas. Essa semente padrão é usada em todos os módulos que geram números aleatórios. 
+5.  **Semente aleatória**: digite um valor inteiro não negativo para inicializar a sequência pseudoaleatória de instâncias a serem usadas. Essa propagação padrão é usada em todos os módulos que geram números aleatórios. 
 
-     A especificação de uma semente torna os resultados geralmente reproduzíveis. Se você precisar repetir os resultados de uma operação de divisão, deverá especificar uma semente para o gerador de número aleatório. Caso contrário, a semente aleatória é definida por padrão como 0, o que significa que o valor de semente inicial é obtido do relógio do sistema. Como resultado, a distribuição de dados pode ser um pouco diferente cada vez que você executar uma divisão. 
+     A especificação de uma semente torna os resultados geralmente reproduzíveis. Se você precisar repetir os resultados de uma operação de divisão, deverá especificar uma semente para o gerador de número aleatório. Caso contrário, a propagação aleatória é definida por padrão como 0, o que significa que o valor de propagação inicial é obtido a partir do relógio do sistema. Como resultado, a distribuição de dados pode ser ligeiramente diferente cada vez que você executar uma divisão. 
 
 6. **Divisão de desratificação**: defina essa opção como **true** para garantir que os dois conjuntos de resultados de saída contenham uma amostra representativa dos valores na coluna *Strata* ou na *coluna de chave estratificação*. 
 
@@ -113,6 +113,6 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     A expressão divide o conjunto de um em dois conjuntos de linhas: linhas com valores que atendem à condição e todas as linhas restantes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

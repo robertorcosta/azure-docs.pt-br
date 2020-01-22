@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643634"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289077"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -27,7 +27,7 @@ Há duas razões comuns para porque a extensão do AD do Azure não está funcio
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar recursos do AD B2C do Azure no locatário existente de AD do Azure, com base em funcionário?
 
-O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável. Com as políticas personalizadas, Azure AD B2C pode federar o Azure AD, permitindo a autenticação de funcionários em uma organização.
+O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário do Azure AD B2C representa uma coleção de identidades a serem usadas com aplicativos de terceira parte confiável. Ao adicionar o **novo provedor de OpenID Connect** em **Azure ad B2C > provedores de identidade** ou com políticas personalizadas, Azure ad B2C pode federar o AD do Azure, permitindo a autenticação de funcionários em uma organização.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Posso usar AD B2C do Azure para fornecer logon social (Facebook e Google+) no Office 365?
 
@@ -120,7 +120,7 @@ Não, o AD B2C do Azure não dá suporte ao mesmo conjunto de relatórios que o 
 * **Relatórios de auditoria** incluem a atividade do administrador e a atividade do aplicativo.
 * **Relatórios de uso** incluem o número de usuários, o número de logons e o volume de MFA.
 
-### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a interface de usuário das páginas atendidas pelo AD B2C do Azure? Quais são os idiomas com suporte?
+### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a interface de usuário das páginas atendidas pelo AD B2C do Azure? Quais idiomas são compatíveis?
 
 Sim, consulte [personalização de idioma](active-directory-b2c-reference-language-customization.md). Podemos fornecer traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
 
@@ -137,8 +137,8 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 #### <a name="applicationstabapplications"></a>[Aplicativos](#tab/applications/)
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
 1. Exclua todos os **aplicativos** que você registrou em seu locatário Azure ad B2C.
 1. Selecione **Azure Active Directory** no menu à esquerda.
@@ -150,16 +150,16 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
-1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
+1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como o administrador da *assinatura*. Use a mesma conta corporativa ou de estudante ou a mesma conta Microsoft que você usou para se inscrever no Azure.
-1. Selecione o **diretório +** filtro de assinatura no menu superior e, em seguida, selecione o diretório que contém seu locatário de Azure ad B2C.
-1. No menu à esquerda, selecione **Azure ad B2C**. Ou então, selecione **todos os serviços** e procure e selecione **Azure ad B2C**.
+1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
+1. No menu à esquerda, selecione **Azure AD B2C**. Ou selecione **Todos os serviços** e pesquise e selecione **Azure AD B2C**.
 1. Exclua todos os **fluxos de usuário (políticas)** no locatário Azure ad B2C.
 1. Selecione **registros de aplicativo (versão prévia)** e, em seguida, selecione a guia **todos os aplicativos** .
 1. Exclua todos os aplicativos que você registrou.
@@ -170,7 +170,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
-1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
+1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.

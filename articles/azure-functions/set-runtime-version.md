@@ -3,16 +3,16 @@ title: Como direcionar para versões do Azure Functions runtime
 description: O Azure Functions é compatível com várias versões do runtime. Saiba como especificar a versão de runtime de um aplicativo de funções hospedado no Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942266"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294160"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar para versões do Azure Functions runtime
 
-Uma execução do aplicativo de funções em uma versão específica do Azure Functions runtime. Há duas versões principais: [1. x e 2. x](functions-versions.md), com a versão 3. x na visualização. Por padrão, os aplicativos de funções criados na versão 2.x do runtime. Este artigo explica como configurar um aplicativo de funções no Azure para executar a versão que você escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste local do Azure Functions](functions-run-local.md).
+Uma execução do aplicativo de funções em uma versão específica do Azure Functions runtime. Há três versões principais: [1. x, 2. x e 3. x](functions-versions.md). Por padrão, os aplicativos de funções são criados na versão 2. x do tempo de execução. Este artigo explica como configurar um aplicativo de funções no Azure para executar a versão que você escolher. Para obter informações sobre como configurar um ambiente de desenvolvimento local para uma versão específica, consulte [Código e teste local do Azure Functions](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Atualizações de versão automática e manual
 
@@ -27,7 +27,7 @@ Quando uma nova versão está disponível publicamente, um prompt no portal ofer
 
 A tabela a seguir mostra os valores de `FUNCTIONS_EXTENSION_VERSION` para cada versão principal para habilitar as atualizações automáticas:
 
-| Versão principal | Valor `FUNCTIONS_EXTENSION_VERSION` |
+| Versão principal | `FUNCTIONS_EXTENSION_VERSION` valor |
 | ------------- | ----------------------------------- |
 | 3.x  | `~3` |
 | 2. x  | `~2` |

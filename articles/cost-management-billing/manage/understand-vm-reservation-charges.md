@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989794"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290233"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
 
@@ -47,7 +47,7 @@ Quando você desliga um recurso, o desconto de reserva se aplica automaticamente
 
 ![Captura de tela de uma reserva aplicada e duas instâncias de VM correspondentes](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. Qualquer uso acima da linha de reserva é cobrado com base nas taxas regulares pagas conforme o uso. Não há cobrança por qualquer uso abaixo das reservas, pois ele já foi pago como parte da compra de reserva.
+1. Qualquer uso acima da linha de reserva é cobrado com base nas taxas regulares pagas conforme o uso. Você não será cobrado por nenhum uso abaixo da linha de reservas, pois já foi pago como parte da compra de reserva.
 2. Na hora 1, a instância 1 é executada por 0,75 hora e a instância 2, por 0,5 hora. O uso total relativo à hora 1 é de 1,25 hora. São cobradas as taxas de pagamento pelo uso da 0,25 hora restante.
 3. Nas horas 2 e 3, ambas as instâncias foram executadas por 1 hora. Uma instância está coberta pela reserva e a outro é cobrada com as taxas de pagamento pelo uso.
 4. Na hora 4, a instância 1 é executada por 0,5 hora e a instância 2, por 1 hora. A instância 1 está totalmente coberta pela reserva, e também 0,5 hora da instância 2. São cobradas as taxas de pagamento pelo uso da 0,5 hora restante.

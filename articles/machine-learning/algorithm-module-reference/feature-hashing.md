@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 60a9c6b237423337abb520b335c98d3c8c7549be
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497834"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312175"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência de módulo de hash de recurso
 
-Este artigo descreve um módulo incluído no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo incluído no Azure Machine Learning designer.
 
 Use o módulo hash de recurso para transformar um fluxo de texto em inglês em um conjunto de recursos inteiros. Em seguida, você pode passar esse conjunto de recursos com hash para um algoritmo de aprendizado de máquina para treinar um modelo de análise de texto.
 
@@ -50,9 +50,9 @@ Você pode controlar o tamanho dos n-grams usando a propriedade **n-grams** . Se
 
 |Termo (unigrams)|Frequência|
 |------------|---------------|
-|preços|3|
+|agendar|3|
 |I|3|
-|Informática|1|
+|livros|1|
 |deveria|1|
 
 Depois que o dicionário é criado, o módulo hash de recurso converte os termos do dicionário em valores de hash. Em seguida, ele computa se um recurso foi usado em cada caso. Para cada linha de dados de texto, o módulo gera um conjunto de colunas, uma coluna para cada recurso com hash.
@@ -129,6 +129,6 @@ As práticas recomendadas a seguir podem ajudá-lo a obter o máximo do módulo 
 
 O conjunto ideal de métodos de pré-processamento a serem aplicados em qualquer solução depende do domínio, do vocabulário e da necessidade de negócios. Pipeline com seus dados para ver quais métodos de processamento de texto são mais eficazes.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
             
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 

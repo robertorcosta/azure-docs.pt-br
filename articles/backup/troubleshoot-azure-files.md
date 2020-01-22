@@ -3,12 +3,12 @@ title: Solucionar problemas de Backup de compartilhamento de Arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 08/20/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 8b88ae568b07b36d2dd80c0ef30fe86646335043
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664608"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293939"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solucionar problemas do backup de Compartilhamentos de Arquivos do Azure
 
@@ -69,5 +69,5 @@ A tabela abaixo serve para configurar o backup:
 
 Para obter mais informações sobre o backup de compartilhamentos de arquivos do Azure, confira:
 
-- [Backup de compartilhamentos de arquivos do Azure](backup-azure-files.md)
+- [Backup de compartilhamentos de arquivos do Azure](backup-afs.md)
 - [Perguntas frequentes sobre backup de compartilhamentos de arquivos do Azure](backup-azure-files-faq.md)

@@ -1,6 +1,6 @@
 ---
 title: Cotas e limites – Hubs de Eventos do Azure | Microsoft Docs
-description: Este artigo fornece limites e cotas para Hubs de Eventos do Azure
+description: Este artigo fornece limites e cotas para os hubs de eventos do Azure. Por exemplo, número de namespaces por assinatura, número de hubs de eventos por namespace.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3cbcf36bdfb6bad3821216605ba86c8cd8332d18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbe747228fa2f587bc1369c3cb1fbbc91d1817e2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201442"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309533"
 ---
 # <a name="azure-event-hubs-quotas-and-limits"></a>Limites e cotas de Hubs de Eventos do Azure
 
@@ -28,7 +28,7 @@ Esta seção lista as cotas e limites básicos nos Hubs de Eventos do Azure.
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 

@@ -3,12 +3,12 @@ title: Visão geral de versões do Azure Functions runtime
 description: O Azure Functions é compatível com várias versões do runtime. Aprenda as diferenças entre elas e como escolher a certa para você.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921863"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290369"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
 
@@ -143,7 +143,7 @@ No Visual Studio, você seleciona a versão de runtime quando cria um projeto. O
 ```
 
 > [!NOTE]
-> Azure Functions 3. x e .NET requer que a extensão `Microsoft.Sdk.NET.Functions` seja pelo menos `3.0.0`.
+> Azure Functions 3. x e .NET requer que a extensão `Microsoft.NET.Sdk.Functions` seja pelo menos `3.0.0`.
 
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Atualizando aplicativos 2. x para 3. x no Visual Studio
 

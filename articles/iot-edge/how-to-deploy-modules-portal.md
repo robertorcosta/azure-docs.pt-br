@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7a3280e11d40a361c5a3305d71e58661b37b8bd1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563421"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290709"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
 
@@ -38,7 +38,7 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 1. Entre no [Portal do Azure](https://portal.azure.com) e navegue até o Hub IoT.
 1. No painel esquerdo, selecione **IOT Edge** no menu.
 1. Clique no ID do dispositivo alvo da lista de dispositivos.
-1. Na barra superior, selecione **definir módulos**.
+1. Na barra superior, selecione **Definir Módulos**.
 1. Na seção **configurações de registro de contêiner** da página, forneça as credenciais para acessar qualquer registro de contêiner privado que contenha suas imagens de módulo.
 1. Na seção **módulos IOT Edge** da página, selecione **Adicionar**.
 1. Examine os tipos de módulos no menu suspenso:
@@ -53,7 +53,7 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 
 ### <a name="specify-routes"></a>Especificar Rotas
 
-Na guia **rotas** , você define como as mensagens são passadas entre os módulos e o Hub IOT. As mensagens são construídas usando pares de nome/valor. Por padrão, uma rota é chamada de **rota** e definida como **de/messages/* para $upstream * *, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
+Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas usando pares nome/valor. Por padrão, uma rota é chamada de **rota** e definida como **de/messages/\* em $upstream**, o que significa que qualquer saída de mensagens por qualquer módulo é enviada para o Hub IOT.  
 
 Adicione ou atualize as rotas com informações de [declarar rotas](module-composition.md#declare-routes)e, em seguida, selecione **Avançar: revisar + criar** para continuar na próxima etapa do assistente.
 
@@ -92,7 +92,7 @@ Você pode implantar rapidamente um módulo do Azure Marketplace em seu disposit
 1. No portal do Azure, navegue até o Hub IoT.
 1. No painel esquerdo, em **Gerenciamento de dispositivo automático**, selecione **IOT Edge**.
 1. Selecione o dispositivo IoT Edge que deve receber a implantação.
-1. Na barra superior, selecione **definir módulos**.
+1. Na barra superior, selecione **Definir Módulos**.
 1. Na seção **módulos IOT Edge** , clique em **Adicionar**e selecione **módulo do Marketplace** no menu suspenso.
 
 ![Adicionar módulo no Hub IoT](./media/how-to-deploy-modules-portal/iothub-add-module.png)
