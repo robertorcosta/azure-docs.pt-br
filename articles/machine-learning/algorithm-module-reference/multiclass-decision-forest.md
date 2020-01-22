@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 85459fe586ccbb5adb1e86b153ec63252c0cce2d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f100271162d20f5d13033efcd04bfa20081b6073
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466011"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314650"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo de floresta de decisão multiclasse
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de aprendizado de máquina com base no algoritmo de *floresta de decisão* . Uma floresta de decisão é um modelo Ensemble que cria rapidamente uma série de árvores de decisão e, ao mesmo tempo, aprende com dados marcados.
 
@@ -28,14 +28,14 @@ O algoritmo de floresta de decisão é um método de aprendizado Ensemble para c
 
 As árvores de decisão em geral são modelos não paramétricos, o que significa que dão suporte a dados com distribuições variadas. Em cada árvore, uma sequência de testes simples é executada para cada classe, aumentando os níveis de uma estrutura de árvore até que um nó folha (decisão) seja atingido.
 
-As árvores de decisão têm muitas vantagens:
+Árvores de decisão têm muitas vantagens:
 
-+ Eles podem representar limites de decisão não lineares.
-+ Eles são eficientes na computação e no uso de memória durante o treinamento e a previsão.
-+ Eles executam seleção e classificação de recursos integrados.
-+ Eles são resilientes na presença de recursos ruidosas.
++ Podem representar limites de decisão não lineares.
++ São eficientes no uso de memória e computação durante o treinamento e a previsão.
++ Elas executam a seleção de recursos integrados e classificação.
++ Elas são flexíveis na presença de recursos com ruídos.
 
-O classificador de floresta de decisão em Azure Machine Learning consiste em um Ensemble de árvores de decisão. Em geral, os modelos de Ensemble fornecem melhor cobertura e precisão do que árvores de decisão única. Para obter mais informações, consulte [árvores de decisão](https://go.microsoft.com/fwlink/?LinkId=403677).
+O classificador de floresta de decisão em Azure Machine Learning consiste em um Ensemble de árvores de decisão. Em termos gerais, os modelos de ensemble fornecem melhor cobertura e precisão que árvores de decisão únicas. Para obter mais informações, consulte [árvores de decisão](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Como configurar a floresta de decisão multiclasse
 
@@ -60,13 +60,13 @@ O classificador de floresta de decisão em Azure Machine Learning consiste em um
 
     Esse valor também controla o número de árvores exibidas nos resultados, ao visualizar o modelo treinado. Para ver ou imprimir uma única árvore, você pode definir o valor como 1; no entanto, isso significa que apenas uma árvore pode ser produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
 
-6. **Profundidade máxima das árvores de decisão**: digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, com o risco de algum superajuste e um tempo de treinamento maior.
+6. **Profundidade máxima das árvores de decisão**: digite um número para limitar a profundidade máxima de qualquer árvore de decisão. Aumentar a profundidade da árvore pode aumentar a precisão, mas você corre o risco de algum tempo de treinamento com overfitting e maior.
 
 7. **Número de divisões aleatórias por nó**: digite o número de divisões a serem usadas ao compilar cada nó da árvore. Uma *divisão* significa que os recursos em cada nível da árvore (nó) são divididos aleatoriamente.
 
-8. **Número mínimo de amostras por nó folha**: indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore. Ao aumentar esse valor, você aumenta o limite para a criação de novas regras.
+8. **Número mínimo de amostras por nó folha**: indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore. Aumentando esse valor, você aumenta o limite para a criação de novas regras.
 
-    Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos cinco casos que atendam às mesmas condições.
+    Por exemplo, com o valor padrão de 1, um único caso pode causar uma nova regra a ser criada. Se você aumentar o valor para 5, os dados de treinamento precisam conter pelo menos cinco casos que atendem as mesmas condições.
 
 
 
@@ -76,14 +76,8 @@ O classificador de floresta de decisão em Azure Machine Learning consiste em um
 
 11. Execute o pipeline.
 
-## <a name="results"></a>Resultados
-
-Após a conclusão do treinamento:
-
-+ Para ver a árvore que foi criada em cada iteração, clique com o botão direito do mouse na saída do módulo [modelo de treinamento](./train-model.md) e selecione **Visualizar**.
-+ Para ver as regras para cada nó, clique em cada árvore para fazer uma busca detalhada nas divisões.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

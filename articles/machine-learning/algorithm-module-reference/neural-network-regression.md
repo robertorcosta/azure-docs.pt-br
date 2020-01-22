@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38b37a386e4e9829b5d90e31067ec9f6aaf75502
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465999"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314905"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
@@ -24,13 +24,13 @@ ms.locfileid: "73465999"
   
 ## <a name="module-overview"></a>Visão geral do módulo  
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
   
- Embora as redes neurais sejam amplamente conhecidas para uso em problemas complexos de aprendizado e modelagem, como reconhecimento de imagem, elas são facilmente adaptadas a problemas de regressão. Qualquer classe de modelos estatísticos pode ser chamada de rede neural se usar pesos adaptáveis e puder aproximar funções não lineares de suas entradas. Portanto, a regressão de rede neural é adequada para problemas em que um modelo de regressão mais tradicional não pode se ajustar a uma solução.
+ Embora as redes neurais sejam amplamente conhecidas para uso em problemas complexos de aprendizado e modelagem, como reconhecimento de imagem, elas são facilmente adaptadas para problemas de regressão. Qualquer classe de modelos estatísticos pode ser chamada de rede neural se ela usar pesos adaptáveis e puder aproximar funções não lineares de suas entradas. Assim, a regressão de rede neural é adequada para onde um modelo de regressão mais tradicional não tiver uma solução.
   
- A regressão de rede neural é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *marcado*, que inclui uma coluna de rótulo. Como um modelo de regressão prevê um valor numérico, a coluna de rótulo deve ser um tipo de dados numérico.  
+ A regressão de rede neural é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *marcado*, que inclui uma coluna de rótulo. Como um modelo de regressão prevê um valor numérico, a coluna de rótulo deve ser um tipo de dado numérico.  
   
  Você pode treinar o modelo fornecendo o modelo e o conjunto de dados marcado como uma entrada para [treinar o modelo](./train-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada.  
   
@@ -68,7 +68,7 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
   
 4. Para **número de nós ocultos**, digite o número de nós ocultos. O padrão é uma camada oculta com nós 100. (Essa opção não estará disponível se você definir uma arquitetura personalizada usando net #.)
   
-5.  Para **taxa de aprendizagem**, digite um valor que defina a etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo seja convergido mais rapidamente, mas pode Sobreusar mínimo locais.
+5.  Para **taxa de aprendizagem**, digite um valor que defina a etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer o modelo convergir mais rapidamente, mas com o risco mínimo de errar o alvo verdadeiro.
 
 6.  Para **número de iterações de aprendizado**, especifique o número máximo de vezes que o algoritmo processa os casos de treinamento.
 
@@ -91,11 +91,8 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
 
 Após a conclusão do treinamento:
 
-+ Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento e outros parâmetros da rede neural, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treino e selecione **Visualizar**.  
+- Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo pipeline.
-
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

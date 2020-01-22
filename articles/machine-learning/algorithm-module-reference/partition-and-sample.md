@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ce232fc9216166e94520203bb4afbf4c152aaf6f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497706"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314922"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e exemplo
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para executar a amostragem em um conjunto de um ou para criar partições do conjunto de seus.
 
-A amostragem é uma ferramenta importante no aprendizado de máquina, pois permite reduzir o tamanho de um conjunto de informações mantendo a mesma proporção de valores. Este módulo dá suporte a várias tarefas relacionadas que são importantes no aprendizado de máquina: 
+A amostragem é uma ferramenta importante na aprendizagem por máquina porque permite reduzir o tamanho de um conjunto de dados, mantendo a mesma proporção de valores. Este módulo dá suporte a várias tarefas relacionadas que são importantes no aprendizado de máquina: 
 
 - Dividir seus dados em várias subseções do mesmo tamanho. 
 
@@ -44,8 +44,8 @@ A amostragem é uma ferramenta importante no aprendizado de máquina, pois permi
 
 Esse módulo dá suporte a vários métodos para dividir seus dados em partições ou para amostragem. Escolha o método primeiro e, em seguida, defina as opções adicionais exigidas pelo método.
 
-- Principal
-- amostragem
+- de Cabeçalho
+- Amostragem
 - Atribuir a dobras
 - Selecionar dobra
 
@@ -89,9 +89,9 @@ Essa opção dá suporte à amostragem aleatória simples ou à amostragem aleat
 
     1. Todas as linhas de entrada são agrupadas (desratificadas) pelos valores na coluna Strata especificada.
 
-    2. As linhas são embaralhadas dentro de cada grupo.
+    2. As linhas são colocadas em ordem aleatória dentro de cada grupo.
 
-    3. Cada grupo é adicionado seletivamente ao conjunto de resultados de saída para atender à razão especificada.
+    3. Cada grupo é seletivamente adicionado ao conjunto de dados de saída para atender à taxa especificada.
 
 
 6. Execute o pipeline.
@@ -122,7 +122,7 @@ Use esta opção quando você quiser dividir o conjunto de dados em subconjuntos
 
     - **Partição com proporções personalizadas**: Use essa opção para especificar o tamanho de cada partição como uma lista separada por vírgulas.
 
-        Por exemplo, se você quiser criar três partições, com a primeira partição contendo 50% dos dados e as duas partições restantes, cada uma contendo 25% dos dados, clique na caixa **de texto lista de proporções separadas por vírgula** e digite estes números: @no_ _t_1_`.5, .25, .25`
+        Por exemplo, se você quiser criar três partições, com a primeira partição contendo 50% dos dados e as duas partições restantes, cada uma contendo 25% dos dados, clique na caixa **de texto lista de proporções separadas por vírgula** e digite estes números: `.5, .25, .25`
 
         A soma de todos os tamanhos de partição deve somar exatamente 1.
 
@@ -165,6 +165,6 @@ Essa opção é usada quando você divide um conjunto de um DataSet em várias p
 > [!NOTE]
 >  Você não pode exibir as designações de dobra diretamente; Eles estão presentes apenas nos metadados.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

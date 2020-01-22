@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0ab4a0ebf2844d064e40c8417ab22162d2d0ded6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ca47bed45f8d726010dde40a936da6f93eb0b140
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485874"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315007"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte de duas classes
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo baseado no algoritmo máquina de vetor de suporte. 
 
@@ -28,7 +28,7 @@ Depois de definir os parâmetros do modelo, treine o modelo usando os módulos d
 
 ## <a name="about-support-vector-machines"></a>Sobre as máquinas de vetor de suporte
 
-Os computadores de vetor de suporte estão entre os mais antigos dos algoritmos de aprendizado de máquina, e os modelos SVM foram usados em muitos aplicativos, da recuperação de informações à classificação de texto e imagem. SVMs pode ser usado para tarefas de classificação e regressão.
+O suporte às máquinas de vetor estão entre os mais recentes dos algoritmos de aprendizado da máquina e modelos SVM e tem sido usado em muitos aplicativos, da recuperação de informações até a classificação de texto e imagem. SVMs pode ser usado para tarefas de classificação e regressão.
 
 Esse modelo de SVM é um modelo de aprendizado supervisionado que requer dados rotulados. No processo de treinamento, o algoritmo analisa dados de entrada e reconhece padrões em um espaço de recurso multidimensional chamado de *hiperplano*.  Todos os exemplos de entrada são representados como pontos neste espaço e são mapeados para categorias de saída de tal forma que as categorias são divididas por uma grande e limpam uma lacuna possível.
 
@@ -46,7 +46,7 @@ Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os 
 
 3.  Para **número de iterações**, digite um número que denota o número de iterações usadas durante a criação do modelo.  
   
-     Esse parâmetro pode ser usado para controlar a compensação entre a precisão e a velocidade de treinamento.  
+     Este parâmetro pode ser usado para controlar o compromisso entre a precisão e a velocidade de treinamento.  
   
 4.  Para **lambda**, digite um valor a ser usado como o peso para regularização L1.  
   
@@ -66,18 +66,17 @@ Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os 
   
     -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](train-model.md) .
   
-
 10. Execute o pipeline.
 
 ## <a name="results"></a>Resultados
 
 Após a conclusão do treinamento:
 
-+ Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treinamento e selecione **Visualizar**.
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
-+ Para usar os modelos treinados para fazer previsões, conecte o modelo treinado ao módulo [modelo de Pontuação](score-model.md) .
++ Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

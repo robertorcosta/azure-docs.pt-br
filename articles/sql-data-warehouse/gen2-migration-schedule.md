@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f793fd68c83f90b87182647eef47a07eb452f45
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693025"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314769"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu data warehouse para Gen2
 
@@ -33,41 +33,12 @@ A tabela a seguir resume por região quando a camada de computação inferior Ge
 
 | **Região** | **Gen2 inferior disponível** | **Início das atualizações automáticas** |
 |:--- |:--- |:--- |
-| Leste da Austrália |Disponível |Concluído |
-| Sudeste da Austrália |Disponível |Concluído |
-| Sul do Brasil |Disponível |Concluído |
-| Canadá Central |Disponível |Concluído |
 | Leste do Canadá |1º de junho de 2020 |1º de julho de 2020 |
-| Centro dos EUA |Disponível |Concluído |
 | Leste da China |\* |\* |
-| Leste da China 2 |Disponível |Concluído |
 | Norte da China |\* |\* |
-| Norte da China 2 |Disponível |Concluído |
-| Ásia Oriental |Disponível |Concluído |
-| Leste dos EUA |Disponível |Concluído |
-| Leste dos EUA 2 |Disponível |Concluído |
-| França Central |Disponível |Em andamento |
 | Alemanha Central |\* |\* |
-| Centro-oeste da Alemanha |1º de setembro de 2019|1 de outubro de 2019 |
-| Centro da Índia |Disponível |Concluído |
-| Sul da Índia |Disponível |Concluído |
-| Oeste da Índia |1º de julho de 2019 |Em andamento |
-| Leste do Japão |Disponível |Concluído |
-| Oeste do Japão |Disponível |Concluído |
-| Coreia Central |Disponível |Concluído |
-| Sul da Coreia |Disponível |Concluído |
-| Centro-Norte dos EUA |Disponível |Concluído |
-| Norte da Europa |Disponível |Concluído |
-| Norte da África do Sul |12 de julho de 2019 |Concluído |
-| Centro-Sul dos Estados Unidos |Disponível |Concluído |
-| Sudeste da Ásia |Disponível |Concluído |
-| Norte dos EAU |20 de julho de 2019 |Concluído |
-| Sul do Reino Unido |Disponível |Em andamento |
-| Oeste do Reino Unido |Disponível |Em andamento |
-| Centro-Oeste dos EUA |1º de novembro de 2019 |1º de dezembro de 2019|
-| Europa Ocidental |Disponível |Concluído |
-| Oeste dos EUA |Disponível |Concluído |
-| Oeste dos EUA 2 |Disponível |Concluído |
+| Centro-oeste da Alemanha |Disponível |1 de maio de 2020 |
+| Oeste da Índia |Disponível |1 de maio de 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
@@ -135,7 +106,7 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 - R: se você estiver executando um DW600 ou DW1200 no Gen1, é aconselhável usar DW500c ou DW1000c respectivamente, já que Gen2 fornece mais memória, recursos e melhor desempenho do que o Gen1.
 
 **P: posso desabilitar o backup geográfico?**
-- R: não. O backup geográfico é um recurso corporativo para preservar a disponibilidade do seu data warehouse no caso de uma região se tornar indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
+- R: Não. O backup geográfico é um recurso corporativo para preservar a disponibilidade do seu data warehouse no caso de uma região se tornar indisponível. Abra uma [solicitação de suporte](sql-data-warehouse-get-started-create-support-ticket.md) em caso de outras dúvidas.
 
 **P: há uma diferença na sintaxe de T-SQL entre Gen1 e Gen2?**
 
@@ -147,9 +118,9 @@ Para saber mais, confira [Atualizar para Gen2](upgrade-to-latest-generation.md).
 
 **P: poderei criar uma nova instância do Gen1 depois que minha região for atualizada?**
 
-- R: não. Depois que uma região for atualizada, a criação de novas instâncias de Gen1 será desabilitada.
+- R: Não. Depois que uma região for atualizada, a criação de novas instâncias de Gen1 será desabilitada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Etapas de atualização](upgrade-to-latest-generation.md)
 - [Janelas de manutenção](maintenance-scheduling.md)

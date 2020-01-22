@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 19385870d184654d902cd40b45d4be3646c87b46
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493894"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314514"
 ---
 # <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
 
-Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.  
   
@@ -44,6 +44,6 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
   
 5. Para aplicar uma transformação ao novo conjunto de um, execute o pipeline.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
