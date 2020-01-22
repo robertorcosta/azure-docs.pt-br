@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3f4e9f8a607856e3de92a4824a4221071f3c02a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227133"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769244"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
@@ -18,7 +18,7 @@ Saiba como criar uma função que é disparada quando as mensagens são enviadas
 
 ![Exiba a mensagem nos logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
@@ -46,7 +46,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. No campo de pesquisa, digite `queue` e escolha o modelo **Gatilho de fila**.
 
-1. Se solicitado, selecione **Instalar** para instalar a extensão de Armazenamento do Azure em todas as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
+1. Se solicitado, selecione **Instalar** para instalar a extensão do Armazenamento do Azure e as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
 
     ![Instalar extensões de associação](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -58,7 +58,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     |---|---|---|
     | **Nome** | Exclusivo no aplicativo de funções | O nome dessa função disparada por filas. |
     | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
-    | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |    
+    | **Conexão da conta de armazenamento** | AzureWebJobsStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |    
 
 1. Clique em **Criar** para criar a função.
 
@@ -88,7 +88,7 @@ Agora que você tem uma fila de armazenamento, você pode testar a função adic
 
 1. De volta ao Portal do Azure, navegue até sua função, expanda os **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
 
-1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Filas** e **myqueue-items**; em seguida, clique em **Adicionar mensagem**.
+1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Filas** e **myqueue-items** e, em seguida, clique em **Adicionar Mensagem**.
 
     ![Adicione uma mensagem à fila.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
@@ -100,7 +100,7 @@ Agora que você tem uma fila de armazenamento, você pode testar a função adic
 
 1. No Gerenciador de Armazenamento, clique em **Atualizar** e verifique se a mensagem foi processada e se não está mais na fila.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

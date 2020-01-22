@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561495"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754600"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -30,7 +30,7 @@ Este tutorial mostra como configurar a recuperação de desastre para o VMs do A
 > [!NOTE]
 > Este artigo fornece instruções para implantar a recuperação de desastre com as configurações mais simples. Caso queira saber mais sobre as configurações personalizadas, analise os artigos na [seção Como fazer](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial:
 Crie o cofre em qualquer região, exceto a região de origem.
 
 1. Entre no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
-2. No portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**. Em seguida, selecione **Ferramentas de Gerenciamento** > **Backup e Site Recovery**.
+2. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**. Em seguida, selecione **Ferramentas de Gerenciamento** > **Backup e Site Recovery**.
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
 4. Crie um grupo de recursos ou selecione um existente. Especifique uma região do Azure. Para verificar as regiões com suporte, confira a disponibilidade geográfica nos [Detalhes dos Preços de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Para acessar rapidamente o cofre no painel, clique em **Fixar no painel** e em **Criar**.
@@ -77,15 +77,18 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-Caso queira controlar a conectividade de saída usando endereços IP em vez de URLs, dê permissão a esses endereços para regras de proxy, NSG ou firewalls baseados em IP.
+Se você estiver usando o NSG, crie regras NSG baseadas em marca de serviço para acesso ao Armazenamento do Azure, ao Azure Active Directory, ao serviço Site Recovery e ao monitoramento do Site Recovery. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+
+Caso queira controlar a conectividade de saída usando endereços IP em vez de regras NSG, permita esses endereços para regras NSG, proxy ou firewalls baseados em IP.
+
+>[!NOTE]
+>É recomendável sempre configurar regras NSG com marcas de serviço para o acesso de saída.
 
   - [Intervalos de IP do datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Intervalos de IP do datacenter do Microsoft Azure na Alemanha](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Intervalos de IP do datacenter do Microsoft Azure na China](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Endereços IP de ponto de extremidade de serviço do Site Recovery](https://aka.ms/site-recovery-public-ips)
-
-Se estiver usando NSG, você poderá criar regras de NSG de marca de serviço de armazenamento para a região de origem. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## <a name="verify-azure-vm-certificates"></a>Verifique os certificados de VM do Azure
 
@@ -132,7 +135,7 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 1. Clique em **Configurações** para exibir o destino e as configurações de replicação.
 2. Para substituir as configurações de destino padrão, clique em **Personalizar** ao lado de **Grupo de recursos, Rede, Armazenamento e Disponibilidade**.
 
-   ![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Definir configurações](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 3. Personalize as configurações de destino, conforme resumido na tabela.

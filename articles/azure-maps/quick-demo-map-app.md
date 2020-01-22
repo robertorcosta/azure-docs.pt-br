@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Pesquisa de Mapa Interativo com o Azure Mapas'
-description: Início Rápido do Azure – Criar uma demonstração de pesquisa de mapa interativo usando o Azure Mapas
+title: 'Início Rápido: Pesquisa de Mapa Interativo com o Azure Mapas | Microsoft Azure Mapas'
+description: Saiba como criar um aplicativo Web de demonstração para a pesquisa de mapa interativo usando o SDK Web do Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408405"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910689"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Início Rápido: Criar um mapa de pesquisa interativo usando o Azure Mapas
 
@@ -57,7 +57,7 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite con
 2. Na seção de configurações, selecione **Autenticação**.
 3. Copie a **Chave Primária** para sua área de transferência. Salve-a localmente para usar depois neste tutorial.
 
-![Obter a Chave Primária no portal](./media/quick-demo-map-app/get-key.png)
+![Obter chave primária do Azure Mapas no portal do Azure](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Fazer o download do aplicativo
 
@@ -73,7 +73,7 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite con
 4. Teste a experiência de pesquisa interativa. Na caixa de pesquisa no canto superior esquerdo do aplicativo Web da demonstração, pesquise **restaurantes**.
 5. Mova o mouse sobre a lista de endereços e locais que aparecem abaixo da caixa de pesquisa. Observe como o marcador correspondente no mapa mostra informações sobre esse local. Para preservar a privacidade de empresas particulares, são mostrados endereços e nomes fictícios.
 
-    ![Aplicativo Web de pesquisa interativa](./media/quick-demo-map-app/interactive-search.png)
+    ![Aplicativo Web de pesquisa interativa de mapas](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -5,17 +5,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 91674d6335ae95993bcdd59250658d562302b1dc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: de4d3ce11e23d7ec4f6ad26852e7d7d01eebe590
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954137"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780004"
 ---
-# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurar a recuperação de desastre para uma região secundária do Azure para uma VM do Azure        
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurar a recuperação de desastre para uma região secundária do Azure para uma VM do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
 
@@ -24,11 +24,11 @@ Este início rápido descreve como configurar a recuperação de desastre para u
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> Este artigo é como uma rápida explicação passo a passo para novos usuários. Ele usa o caminho mais simples, com as opções padrão e o mínimo de personalização.  Para um passo a passo mais completo, examine [nosso tutorial](azure-to-azure-tutorial-enable-replication.md).
+> Este artigo é um passo a passo rápido para novos usuários. Ele usa o caminho mais simples, com as opções padrão e o mínimo de personalização. Para obter um passo a passo completo, examine o tutorial [Habilitar a replicação](azure-to-azure-tutorial-enable-replication.md).
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-Faça logon no Portal do Azure em https://portal.azure.com.
+Faça logon no [Portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Habilitar a replicação para a VM do Azure
 
@@ -38,7 +38,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 4. Para este guia de início rápido, aceite as outras configurações padrão.
 5. Selecione **Examinar + Iniciar replicação**. Em seguida, selecione **Iniciar replicação** para iniciar um trabalho para habilitar a replicação da VM.
 
-    ![habilitar a replicação](media/azure-to-azure-quickstart/enable-replication1.png)
+   ![habilitar a replicação](media/azure-to-azure-quickstart/enable-replication1.png)
 
 ## <a name="verify-settings"></a>Verificar as configurações
 
@@ -51,14 +51,14 @@ Após o trabalho de replicação, você poderá verificar o status de replicaç�
 
    ![Status de replicação](media/azure-to-azure-quickstart/replication-status.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 A VM na região primária deixa de replicar quando você desabilita a replicação para ela:
 
-- As configurações de replicação de origem são limpas automaticamente. A extensão de Site Recovery instalada na VM como parte da replicação não é removida e precisa ser removida manualmente. 
+- As configurações de replicação de origem são limpas automaticamente. A extensão de Site Recovery instalada na VM como parte da replicação não é removida e precisa ser removida manualmente.
 - A cobrança do Site Recovery para a VM é interrompida.
 
-Interrompa a replicação da seguinte maneira
+Interrompa a replicação da seguinte maneira:
 
 1. No menu do portal do Azure, selecione **Máquinas virtuais** ou pesquise e selecione *Máquinas virtuais* em qualquer página. Selecione a VM que você deseja modificar.
 2. Em **Recuperação de desastre**, selecione **Desabilitar Replicação**.

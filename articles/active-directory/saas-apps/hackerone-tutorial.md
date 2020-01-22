@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0158a7df96f4c83763c5b2324ccc2bfcb5a72b5d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Azure Active Directory ao HackerOne
 
@@ -35,7 +35,7 @@ A integração do HackerOne ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao HackerOne, você precisa dos seguintes itens:
 
@@ -107,12 +107,9 @@ Para configurar o logon único do Azure AD com o HackerOne, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do HackerOne](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://hackerone.com/<company name>/authentication`
+    a. Na caixa de texto **URL de Logon**, insira o seguinte: `https://hackerone.com/users/saml/auth`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://hackerone.com/users/saml/metadata`
-
-    > [!NOTE]
-    > Esse valor de URL de Logon não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do HackerOne](mailto:support@hackerone.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    b. Na caixa de texto **Identificador (ID da Entidade)** , insira o seguinte: `hackerone.com`
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 

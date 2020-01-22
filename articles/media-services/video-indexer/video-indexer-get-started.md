@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839552"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941550"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início Rápido: Como inscrever-se e atualizar seu primeiro vídeo
 
@@ -32,6 +32,12 @@ Para começar a desenvolver com o Video Indexer, navegue para o site do [Video I
 > [!NOTE]
 > Um nome do vídeo não deve ter mais de 80 caracteres.
 
+### <a name="supported-file-formats-for-video-indexer"></a>Formatos de arquivo compatíveis com o Video Indexer
+
+Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com o Video Indexer.
+
+### <a name="upload-a-video"></a>Carregar um vídeo
+
 1. Conecte-se ao site do [Video Indexer](https://www.videoindexer.ai/).
 2. Para carregar um vídeo, pressione o botão ou o link **Carregar**.
 
@@ -45,9 +51,11 @@ Para começar a desenvolver com o Video Indexer, navegue para o site do [Video I
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora, é possível usar o site do [Video Indexer](video-indexer-view-edit.md) ou o [Portal do Desenvolvedor do Video Indexer](video-indexer-use-apis.md) para ver os insights do vídeo. 
+Confira [Carregar e indexar vídeos](upload-index-videos.md) para obter mais detalhes.
 
-## <a name="see-also"></a>Consulte também
+Depois de carregar e indexar um vídeo, você pode começar a usar o site do [Video Indexer](video-indexer-view-edit.md) ou o [Portal do Desenvolvedor do Video Indexer](video-indexer-use-apis.md) para ver as informações do vídeo. 
+
+## <a name="see-also"></a>Confira também
 
 [Visão geral do indexador vídeo](video-indexer-overview.md)
 

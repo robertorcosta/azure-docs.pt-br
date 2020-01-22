@@ -5,16 +5,16 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670400"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834311"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar um aplicativo Ruby do Linux para o Serviço de Aplicativo do Azure
 
-Este artigo descreve como o [Serviço de Aplicativo do Azure](app-service-linux-intro.md) executa aplicativos Ruby e como você pode personalizar o comportamento do Serviço de Aplicativo quando necessário. Os aplicativos Ruby precisam ser implantados com todos os módulos [pip](https://pypi.org/project/pip/) necessários.
+Este artigo descreve como o [Serviço de Aplicativo do Azure](app-service-linux-intro.md) executa aplicativos Ruby e como você pode personalizar o comportamento do Serviço de Aplicativo quando necessário. Os aplicativos Ruby precisam ser implantados com todos os [gems](https://rubygems.org/gems) necessários.
 
 Este guia fornece conceitos e instruções essenciais para desenvolvedores do Ruby que usam um contêiner interno do Linux no Serviço de Aplicativo. Se você nunca usou o Serviço de Aplicativo do Azure, siga o [Início Rápido do Ruby](quickstart-ruby.md) e o [tutorial do Ruby com o PostgreSQL](tutorial-ruby-postgres-app.md) primeiro.
 
@@ -47,7 +47,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
-> ou o
+> ou
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
@@ -72,7 +72,7 @@ Quando você implanta um [repositório do Git](../deploy-local-git.md?toc=%2fazu
 
 ### <a name="use---without-flag"></a>Usar o sinalizador --without
 
-Para executar `bundle install` com o sinalizador [--without](https://bundler.io/man/bundle-install.1.html), defina a [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)`BUNDLE_WITHOUT` como uma lista separada por vírgula de grupos. Por exemplo, o seguinte comando a define como `development,test`.
+Para executar `bundle install` com o sinalizador [--without](https://bundler.io/man/bundle-install.1.html), defina a [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `BUNDLE_WITHOUT` como uma lista separada por vírgula de grupos. Por exemplo, o seguinte comando a define como `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
@@ -82,7 +82,7 @@ Se essa configuração for definida, o mecanismo de implantação executará `bu
 
 ### <a name="precompile-assets"></a>Pré-compilar ativos
 
-As etapas pós-implantação não pré-compilam os ativos por padrão. Para ativar a pré-compilação de ativos, defina a `ASSETS_PRECOMPILE`[configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) como `true`. Em seguida, o comando `bundle exec rake --trace assets:precompile` é executado no final das etapas pós-implantação. Por exemplo:
+As etapas pós-implantação não pré-compilam os ativos por padrão. Para ativar a pré-compilação de ativos, defina a [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `ASSETS_PRECOMPILE` como `true`. Em seguida, o comando `bundle exec rake --trace assets:precompile` é executado no final das etapas pós-implantação. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a>Definir secret_key_base manualmente
 
-Para usar seu próprio valor `secret_key_base` em vez de deixar o Serviço de Aplicativo gerar um para você, defina a [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` com o valor desejado. Por exemplo:
+Para usar seu valor `secret_key_base` em vez de deixar o Serviço de Aplicativo gerar um para você, defina a [configuração de aplicativo](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` com o valor desejado. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"

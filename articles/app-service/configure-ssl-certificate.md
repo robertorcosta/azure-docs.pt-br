@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670730"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768446"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adicionar um certificado SSL no Serviço de Aplicativo do Azure
 
@@ -21,7 +21,7 @@ Depois que o certificado for adicionado ao aplicativo Serviço de Aplicativo ou 
 
 A tabela a seguir lista as opções disponíveis para adição de certificados no Serviço de Aplicativo:
 
-|Opção|DESCRIÇÃO|
+|Opção|Descrição|
 |-|-|
 | Criar um Certificado gratuito gerenciado pelo Serviço de Aplicativo (versão prévia) | Um certificado privado fácil de usar se você só precisa proteger seu [domínio personalizado](app-service-web-tutorial-custom-domain.md) `www` ou qualquer domínio não raiz no Serviço de Aplicativo. |
 | Comprar um certificado do Serviço de Aplicativo | Um certificado privado gerenciado pelo Azure. Ele combina a simplicidade do gerenciamento automatizado de certificado e a flexibilidade das opções de renovação e exportação. |
@@ -29,7 +29,7 @@ A tabela a seguir lista as opções disponíveis para adição de certificados n
 | Carregar um certificado privado | Se você já tiver um certificado privado de um provedor de terceiros, poderá carregá-lo. Consulte [Requisitos do certificado privado](#private-certificate-requirements). |
 | Carregar um certificado público | Os certificados públicos não são usados para proteger domínios personalizados, mas você pode carregá-los em seu código se precisar que eles acessem recursos remotos. |
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este guia de instruções, é necessário ter:
 
@@ -109,12 +109,12 @@ Inicie um pedido de certificado de Serviço de Aplicativo na <a href="https://po
 
 Use a tabela a seguir para ajudá-lo a configurar o certificado. Ao terminar, clique em **Criar**.
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |-|-|
-| NOME | Um nome amigável para o seu certificado de Serviço de Aplicativo. |
+| Nome | Um nome amigável para o seu certificado de Serviço de Aplicativo. |
 | Nome do Host do Domínio Raiz | Especifique o domínio raiz aqui. O certificado emitido protege *ambos*, o domínio raiz e o subdomínio `www`. No certificado emitido, o campo Nome Comum contém o domínio raiz, e o campo Nome Alternativo da Entidade contém o domínio `www`. Para proteger apenas um subdomínio qualquer, especifique aqui o nome de domínio totalmente qualificado do subdomínio (por exemplo, `mysubdomain.contoso.com`).|
-| Subscription | O datacenter onde o aplicativo Web está hospedado. |
-| Resource group | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que seu aplicativo de Serviço de Aplicativo, por exemplo. |
+| Subscription | A assinatura que conterá o certificado. |
+| Resource group | O grupo de recursos que conterá o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que seu aplicativo de Serviço de Aplicativo, por exemplo. |
 | Certificado SKU | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado curinga](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Termos legais | Clique para confirmar que você concorda com os termos legais. Os certificados são obtidos no GoDaddy. |
 
@@ -128,18 +128,18 @@ Selecione o certificado na página [Certificados do Serviço de Aplicativo](http
 
 O [Cofre da Chave](https://docs.microsoft.com/azure/key-vault/key-vault-overview) do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. É o armazenamento de escolha para certificados de Serviço de Aplicativo.
 
-Na página **Status do Key Vault**, clique em **Repositório do Key Vault** para criar um novo cofre ou escolher um cofre existente. Se você optar por criar um novo cofre, use a tabela a seguir para ajudá-lo a configurar o cofre e clique em Criar. veja para criar novo Key Vault no mesmo grupo de recursos e assinatura.
+Na página **Status do Key Vault**, clique em **Repositório do Key Vault** para criar um novo cofre ou escolher um cofre existente. Se você optar por criar um novo cofre, use a tabela a seguir para ajudá-lo a configurar o cofre e clique em Criar. Crie o Key Vault dentro da mesma assinatura e do mesmo grupo de recursos do aplicativo Serviço de Aplicativo.
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |-|-|
-| NOME | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
+| Nome | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
 | Resource group | Como recomendação, selecione o mesmo grupo de recursos do seu certificado de Serviço de Aplicativo. |
 | Location | Selecione o mesmo local que o aplicativo de Serviço de Aplicativo. |
 | Tipo de preço | Para obter mais informações, confira [Detalhes de preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define os aplicativos e o acesso permitido aos recursos do cofre. Você pode configurá-lo mais tarde seguindo as etapas em [Conceder acesso de vários aplicativos a um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Acesso à Rede Virtual | Restringir o acesso do cofre a determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde seguindo as etapas em [Configurar o Redes Virtuais e Firewall do Azure Key Vault](../key-vault/key-vault-network-security.md) |
 
-Depois de selecionar o cofre, feche a página **Repositório do Key Vault**. A opção **Armazenar** deve mostrar uma marca de seleção verde para sucesso. Mantenha a página aberta para a próxima etapa.
+Depois de selecionar o cofre, feche a página **Repositório do Key Vault**. A opção **Etapa 1: Armazenar** deverá mostrar uma marca de seleção verde para indicar êxito. Mantenha a página aberta para a próxima etapa.
 
 ### <a name="verify-domain-ownership"></a>Verificar a propriedade de domínio
 
@@ -183,11 +183,11 @@ No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no me
 
 No painel de navegação à esquerda de seu aplicativo, selecione **Configurações de TLS/SSL** > **Certificados de Chave Privada (.pfx)**  > **Importar Certificado do Key Vault**.
 
-![Importar certificado do Key Vault no Serviço de Aplicativo](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![Importar certificado do Key Vault no Serviço de Aplicativo](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 Use a tabela a seguir para selecionar o certificado.
 
-| Configuração | DESCRIÇÃO |
+| Configuração | Descrição |
 |-|-|
 | Subscription | A assinatura à qual o Key Vault pertence. |
 | Key Vault | O cofre com o certificado que você quer importar. |

@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 420db19a5ddcddfe37fa1a922e792fc0c8bc5b66
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701934"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912310"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Machine Learning como um módulo do IoT Edge (versão prévia)
 
 Use os Azure Notebooks para desenvolver um módulo de aprendizado de máquina e para implantá-lo em um dispositivo Linux executando o Azure IoT Edge. 
 
-Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial mostra todas as etapas necessárias para implantar um módulo do Azure Machine Learning que prevê quando um dispositivo falhará com base nos dados de temperatura do computador simulado. Para saber mais sobre o Azure Machine Learning no IoT Edge, confira a [Documentação do Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
+Use os módulos do IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial mostra todas as etapas necessárias para implantar um módulo do Azure Machine Learning que prevê quando um dispositivo falhará com base nos dados de temperatura do computador simulado. Para saber mais sobre o Azure Machine Learning no IoT Edge, confira a [Documentação do Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 O módulo do Azure Machine Learning criado neste tutorial lê os dados ambientais gerados pelo dispositivo e rotula as mensagens como anômalas ou não.
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Um dispositivo do Azure IoT Edge:
 
@@ -49,7 +49,7 @@ Um dispositivo do Azure IoT Edge:
 Recursos de nuvem:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
-* Um Workspace do Azure Machine Learning. Siga as instruções em [Usar o portal do Azure para começar com o Azure Machine Learning](../machine-learning/service/quickstart-get-started.md) para criar um desses modelos e aprender como usá-lo.
+* Um Workspace do Azure Machine Learning. Siga as instruções em [Usar o portal do Azure para começar com o Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) para criar um desses modelos e aprender como usá-lo.
    * Anote o nome do workspace, o grupo de recursos e a ID da assinatura. Esses valores estão disponíveis na visão geral de workspace no portal do Azure. Você usará esses valores posteriormente no tutorial para conectar um Azure Notebook aos recursos do workspace. 
 
 
@@ -133,7 +133,7 @@ Você talvez precise usar `sudo` para permissões elevadas para executar comando
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Exibir dados que chegam ao seu Hub IoT
 
-Você pode exibir as mensagens do dispositivo para nuvem recebidas pelo Hub IoT usando a [extensão do Kit de Ferramentas do Hub IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente, extensão do Kit de Ferramentas do Azure IoT).
+Você pode exibir as mensagens de dispositivo para nuvem que o hub IoT recebe usando a [extensão do Hub IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 As etapas a seguir mostram como configurar o Visual Studio Code para monitorar mensagens de dispositivo para a nuvem que chegam em seu Hub IoT.
 
@@ -151,7 +151,7 @@ As etapas a seguir mostram como configurar o Visual Studio Code para monitorar m
 
    ![Resposta do Azure Machine Learning no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los. Você também pode continuar usando o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

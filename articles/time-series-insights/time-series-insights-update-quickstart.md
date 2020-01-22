@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 12/20/2019
-ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 023128d35030f99458bc5fd2c7a4a155a856e4c9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497312"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861499"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Início Rápido: Explorar o ambiente de demonstração do Azure Time Series Insights Preview
 
@@ -45,7 +45,7 @@ O Gerenciador da Versão Prévia do Time Series Insights demonstra a análise da
 
       [![W7 na Usina 1 da Contoso](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Recentemente, a Contoso descobriu um incêndio em turbina eólica **W7**. As opiniões sobre o que causou o incêndio variam. No Time Series Insights, podemos ver que o sensor de alerta de incêndio foi ativado durante o incêndio.
+1. Recentemente, a Contoso descobriu um incêndio em turbina eólica **W7**. As opiniões sobre o que causou o incêndio variam. No Time Series Insights, o sensor de alerta de incêndio ativado durante o incêndio é exibido.
 
    1. Altere o intervalo de exibição para **9/3/17 20h a 10/3/17 20h (UTC)** .
    1. Selecione **Sistema de Segurança** > **FireAlert**.
@@ -59,7 +59,7 @@ O Gerenciador da Versão Prévia do Time Series Insights demonstra a análise da
 
       [![Examinar outros eventos ocorridos próximos a uma hora específica](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
-1. Os sensores de pressão do óleo e de avisos ativos aumentaram repentinamente logo antes do incêndio. Expanda a série temporal exibida para ver outros sinais evidentes que levaram ao incêndio. Os dois sensores flutuaram de forma consistente ao longo do tempo. As flutuações indicam um padrão persistente e preocupante.
+1. Os sensores de pressão do óleo e de avisos ativos aumentaram repentinamente logo antes do incêndio. Expanda a série temporal exibida para examinar outros sinais evidentes que levaram ao incêndio. Os dois sensores flutuaram de forma consistente ao longo do tempo. As flutuações indicam um padrão persistente e preocupante.
 
     * Altere o intervalo de exibição para **24/2/17 20h a 10/3/17 20h (UTC)** .
 
@@ -86,7 +86,7 @@ Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendên
 
        [![Alterar o intervalo de exibição e selecionar W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
-1. O aviso indica um problema com a tensão do gerador. A saída de energia geral do gerador está dentro dos parâmetros normais no intervalo atual. Aumentando nosso intervalo, vemos outro padrão surgir. Uma queda é evidente.
+1. O aviso indica um problema com a tensão do gerador. A saída de energia geral do gerador está dentro dos parâmetros normais no intervalo atual. Aumentando nosso intervalo, outro padrão surge. Uma queda é evidente.
 
     1. Remova o sensor **VoltageActuatorSwitchWarning**.
     1. Selecione **Sistema de Gerador** > **ActivePower**.
@@ -100,7 +100,7 @@ Ao usar o Time Series Insights e a telemetria de sensor, descobrimos uma tendên
 
       [![Estender o período de tempo para 60 dias](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Outros pontos de dados de sensor podem ser adicionados para fornecer um contexto superior. Quanto mais sensores vemos, maior é nossa compreensão do problema. Vamos criar um marcador para ver os valores reais. 
+1. Outros pontos de dados de sensor podem ser adicionados para fornecer um contexto superior. Quanto mais sensores vemos, maior é nossa compreensão do problema. Vamos criar um marcador para exibir os valores reais. 
 
     1. Selecione **Sistema Gerador** e selecione três sensores: **GridVoltagePhase1**, **GridVoltagePhase2** e **GridVoltagePhase3**.
     1. Crie um marcador no último ponto de dados na área visível.

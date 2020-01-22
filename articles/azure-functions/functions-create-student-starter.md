@@ -1,21 +1,21 @@
 ---
 title: Criar uma função usando o Microsoft Azure for Students Starter
 description: Saiba como criar uma função do Azure dentro de uma assinatura do Microsoft Azure for Students Starter
-Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
+Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409893"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921125"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Microsoft Azure for Students Starter
 
-Neste tutorial, criaremos uma função HTTP Olá, Mundo em uma assinatura do Microsoft Azure for Students Starter. Também examinaremos o que está disponível no Azure Functions nesse tipo de assinatura.
+Neste tutorial, criaremos uma função HTTP "Olá, Mundo" em uma assinatura do Microsoft Azure for Students Starter. Também examinaremos o que está disponível no Azure Functions nesse tipo de assinatura.
 
 O Microsoft *Azure for Students Starter* oferece uma introdução aos produtos do Azure necessários para desenvolver na nuvem sem nenhum custo para você. [Saiba mais sobre essa oferta aqui.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Entre no portal do Azure em <https://portal.azure.com> com sua conta do Azure.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para facilitar o gerenciamento, implantação e compartilhamento de recursos. 
+Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos.
 
-1. Selecione o botão **Novo** no canto superior esquerdo do portal do Azure, e selecione **Computação** > **Aplicativo de funções**.
+1. Selecione o botão **Criar um recurso**, localizado no canto superior esquerdo do portal do Azure. Em seguida, selecione **Computação** > **Aplicativo de Funções**.
 
     ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -43,7 +43,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | Configuração      | Valor sugerido  | DESCRIÇÃO                                        |
+    | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do aplicativo** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z`, `0-9` e `-`.  | 
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. | 
@@ -108,7 +108,7 @@ Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="supported-features-in-azure-for-students-starter"></a>Recursos com suporte no Microsoft Azure for Students Starter
+## <a name="supported-features-in-azure-for-students-starter"></a>Recursos compatíveis com o Microsoft Azure for Students Starter
 
 No Microsoft Azure for Students Starter, você tem acesso à maioria dos recursos do Azure Functions Runtime, com várias limitações importantes listadas abaixo:
 
@@ -116,7 +116,7 @@ No Microsoft Azure for Students Starter, você tem acesso à maioria dos recurso
     * Há suporte para todas as associações de entrada e saída! [Veja a lista completa aqui.](functions-triggers-bindings.md)
 * Linguagens com suporte: 
     * C# (.NET Core 2)
-    * Javascript (Node.js 8 e 10)
+    * JavaScript (Node.js 8 e 10)
     * F# (.NET Core 2)
     * [Veja as linguagens com suporte em planos superiores aqui](supported-languages.md)
 * O Windows é o único sistema operacional com suporte.

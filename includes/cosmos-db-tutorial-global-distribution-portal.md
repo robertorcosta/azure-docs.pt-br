@@ -2,18 +2,18 @@
 title: Distribuição global do Azure Cosmos DB
 description: Saiba como replicar dados globalmente com o Azure Cosmos DB no Portal do Azure
 services: cosmos-db
-author: rimman
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 12/26/2018
-ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171665"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752276"
 ---
 ## <a id="addregion"></a>Adicionar regiões de banco de dados globais usando o Portal do Azure
 O Azure Cosmos DB está disponível em todas as [regiões do Azure][azureregions] pelo mundo. Após a seleção do nível de consistência padrão para sua conta de banco de dados, você pode associar uma ou mais regiões (dependendo da sua escolha do nível de consistência padrão e das necessidades de distribuição global).
@@ -35,7 +35,7 @@ Há dois cenários comuns para configurar duas ou mais regiões:
 
 Para oferecer baixa latência para os usuários finais, é recomendável implantar o aplicativo e o Azure Cosmos DB nas regiões que correspondem aos locais em que os usuários do aplicativo estão localizados.
 
-Para o BCDR, é recomendável adicionar regiões com base nos pares de regiões descritos no artigo [BCDR (continuidade dos negócios e recuperação de desastres): Regiões combinadas do Azure][bcdr].
+Para o BCDR, é recomendável adicionar regiões com base nos pares de regiões descritos no artigo [BCDR (continuidade dos negócios e recuperação de desastres): Regiões emparelhadas do Azure][bcdr].
 
 <!--
 

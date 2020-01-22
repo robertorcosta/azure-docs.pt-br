@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707195"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028360"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -36,7 +36,7 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
@@ -48,7 +48,7 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 
 O Gerenciamento de API emite métricas a cada minuto, permitindo uma visibilidade quase em tempo real do estado e da integridade de suas APIs. A seguir está um resumo de algumas das métricas disponíveis:
 
-* Capacidade (versão prévia): ajuda a tomar decisões sobre seus atualizar/fazer downgrade dos seus serviços do APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da emissão dos relatórios. A métrica varia de 0 a 100 e é calculada com base nos recursos corretos do gateway, como a utilização da CPU e a memória.
+* Capacidade: ajuda a tomar decisões relacionadas a atualizar/fazer downgrade de seus serviços do APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da emissão dos relatórios. A métrica varia de 0 a 100 e é calculada com base nos recursos corretos do gateway, como a utilização da CPU e a memória.
 * Total de solicitações de gateway: o número de solicitações de API no período. 
 * Solicitações de gateway bem-sucedidas: o número de solicitações de API que recebeu códigos de resposta HTTP bem-sucedidos, incluindo 304, 307 e unidades menores que 301 (por exemplo, 200).
 * Solicitações de gateway com falha: o número de solicitações de API que recebeu códigos de resposta HTTP errôneos, incluindo 400 e qualquer coisa maior do que 500.
@@ -180,7 +180,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 }  
 ```
 
-| Propriedade  | Type | DESCRIÇÃO |
+| Propriedade  | Type | Descrição |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | time | date-time | Carimbo de data/hora de quando o gateway começa a processar a solicitação |
@@ -189,7 +189,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | durationMs | inteiro | Número de milissegundos do momento em que o gateway recebeu a solicitação até o momento em que a resposta foi enviada por completo. Inclui clienTime, cacheTime e backendTime. |
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
-| location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
+| local | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
 | httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
 | resourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objeto | Propriedades da solicitação atual |
@@ -223,7 +223,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Exibir logs de atividade

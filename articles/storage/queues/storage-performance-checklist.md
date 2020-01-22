@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: eb1821537e6e25b05dfdca3107729eecf4c6e1bf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614967"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750503"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Filas
 
 A Microsoft desenvolveu várias práticas comprovadas para desenvolver aplicativos de alto desempenho com o Armazenamento de Filas. Essa lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente ao criar seu aplicativo e durante todo o processo.
 
-O Armazenamento do Azure tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre as metas de escalabilidade do Armazenamento do Azure, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+O Armazenamento do Azure tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre as metas de escalabilidade do Armazenamento do Azure, confira [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) e [Metas de escalabilidade e desempenho do Armazenamento de Filas](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de verificação
 
@@ -194,5 +194,6 @@ Use filas para tornar a arquitetura do seu aplicativo escalonável. A seguir tem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Escalabilidade do Armazenamento do Microsoft Azure e metas de desempenho para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+- [Metas de escalabilidade e desempenho do Armazenamento de Filas](scalability-targets.md)
+- [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

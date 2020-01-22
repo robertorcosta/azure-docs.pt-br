@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083420"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770944"
 ---
 # <a name="expressroute-overview"></a>Visão geral do ExpressRoute
 O ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços em nuvem da Microsoft, como o Microsoft Azure e o Office 365.
@@ -39,7 +39,7 @@ Para saber mais, veja as [perguntas frequentes sobre o ExpressRoute](expressrout
 A Microsoft usa BGP, um protocolo padrão do setor para roteamento dinâmico, a fim de trocar rotas entre sua rede local, suas instâncias no Azure e os endereços públicos da Microsoft. Estabelecemos várias sessões BGP com sua rede para perfis de tráfego diferentes. Encontre mais detalhes no artigo [Circuito e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Redundância
-Cada circuito do ExpressRoute é formado por duas conexões com dois roteadores de borda do Microsoft Enterprise (MSEEs) do provedor de conectividade/borda de sua rede. A Microsoft exige uma conexão BGP dupla do provedor de conectividade/da borda de sua rede, uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
+Cada circuito do ExpressRoute é formado por duas conexões com dois roteadores MSEEs (de borda do Microsoft Enterprise) em uma [Localização do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) no provedor de conectividade/na borda da rede. A Microsoft exige uma conexão BGP dupla do provedor de conectividade/da borda de sua rede, uma para cada MSEE. Você pode optar por não implantar dispositivos redundantes/circuitos de Ethernet em seu lado. No entanto, os provedores de conectividade usam dispositivos redundantes para garantir que as conexões sejam entregues à Microsoft de forma redundante. É obrigatório ter uma configuração de conectividade de Camada 3 redundante para que nosso [SLA](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Conectividade com serviços de nuvem da Microsoft
 As conexões do ExpressRoute permitem o acesso aos seguintes serviços:
@@ -116,7 +116,7 @@ Para ver perguntas frequentes sobre o ExpressRoute, consulte as [Perguntas frequ
 * Saiba mais sobre [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 * Saiba mais sobre conexões e domínios de roteamento do ExpressRoute. Consulte [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).
 * Encontrar um provedor de serviços. Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
-* Verifique se todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
+* Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 * Consulte os requisitos para [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).
 * Configurar sua conexão do ExpressRoute.
   * [Criar e modificar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)

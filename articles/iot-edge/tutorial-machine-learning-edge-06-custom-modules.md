@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701839"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772356"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implantar módulos do IoT Edge personalizados
 
@@ -45,7 +45,7 @@ Para realizar essas tarefas, usamos três módulos personalizados:
 
   * Saídas:
     * **classify:** envia mensagens para "amlInput"
-    * **writeAvro:** envia mensagens "avroModuleInput"
+    * **writeAvro:** envia mensagens para "avroModuleInput"
     * **toIotHub:** envia mensagens para $upstream, que as passa para o Hub IoT conectado
 
 O diagrama abaixo mostra os módulos, entradas, saídas e as rotas do Hub do IoT Edge para a solução completa:

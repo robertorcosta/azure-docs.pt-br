@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532469"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982431"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o aprendizado de máquina automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -83,7 +83,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
        
     1. Verifique se o formulário **Configurações e visualização** é populado conforme mostrado a seguir e selecione **Avançar**.
         
-        Campo|DESCRIÇÃO| Valor para o tutorial
+        Campo|Descrição| Valor para o tutorial
         ---|---|---
         Formato de arquivo|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitado
         Delimitador|Um ou mais caracteres para especificar o limite entre regiões&nbsp; separadas e independentes em texto sem formatação ou outros fluxos de dados. |Vírgula
@@ -108,7 +108,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
     1. Selecione **y** como a coluna de destino, o que você quer prever. Essa coluna indica se o cliente assinou um depósito a prazo ou não.
     1. Selecione **Criar uma computação** e configure o destino de computação. Um destino de computação é um ambiente de recursos local ou baseado em nuvem usado para executar o script de treinamento ou hospedar a implantação do serviço. Para este experimento, usamos uma computação baseada em nuvem. 
 
-        Campo | DESCRIÇÃO | Valor para o tutorial
+        Campo | Descrição | Valor para o tutorial
         ----|---|---
         Nome da computação |Um nome exclusivo que identifique o contexto de computação.|automl-compute
         Tamanho&nbsp;da&nbsp;máquina virtual| Selecione o tamanho da máquina virtual da computação.|Standard_DS12_V2
@@ -129,7 +129,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
         >[!NOTE]
         > Neste tutorial, você não definirá uma pontuação de métrica nem um limite máximo de núcleos por iterações. Você também não bloqueará o teste dos algoritmos.
    
-        Configurações&nbsp;adicionais|DESCRIÇÃO|Valor&nbsp;para o&nbsp;tutorial
+        Configurações&nbsp;adicionais|Descrição|Valor&nbsp;para o&nbsp;tutorial
         ------|---------|---
         Métrica principal| Métrica de avaliação pela qual o algoritmo de aprendizado de máquina será medido.|AUC_weighted
         Personalização automática| Habilita o pré-processamento. Isso inclui limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos.| Habilitar
@@ -138,9 +138,9 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
         Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>validação cruzada&nbsp;k-fold&nbsp; <br> <br> Número de validações: 2
         Simultaneidade| O número máximo de iterações paralelas executadas e núcleos usados por iteração| Máximo de&nbsp;iterações&nbsp;simultâneas: 5<br> Máximo de&nbsp;núcleos&nbsp;por&nbsp;iteração: Nenhum
         
-        Selecione **OK**.
+        Clique em **Salvar**.
 
-1. Selecione **Criar** para executar o experimento. A tela **Detalhes da Execução** é aberta com o **Status da execução** à medida que a preparação do experimento é iniciada.
+1. Selecione **Concluir** para executar o experimento. A tela **Detalhes da Execução** é aberta com o **Status da execução** à medida que a preparação do experimento é iniciada.
 
 >[!IMPORTANT]
 > A preparação leva de **10 a 15 minutos** para preparar a execução do experimento.
@@ -155,7 +155,7 @@ Navegue até a guia **Modelos** para ver os algoritmos (modelos) testados. Por p
 
 Enquanto você aguarda a conclusão de todos os modelos de experimento, selecione o **Nome do algoritmo** de um modelo concluído para explorar seus detalhes de desempenho. 
 
-O seguinte navega pelas guias **Detalhes do modelo** e **Visualizações** para exibir as propriedades, as métricas e os gráficos de desempenho do modelo selecionado. 
+Fazer o seguinte navega pelas guias **Detalhes do modelo** e **Visualizações** para exibir as propriedades, as métricas e os gráficos de desempenho do modelo selecionado. 
 
 ![Detalhes da iteração de execução](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 

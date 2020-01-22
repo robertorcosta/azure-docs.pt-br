@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454547"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028898"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs do VMware para avaliação e migração para o Azure
 
@@ -104,8 +104,9 @@ Para se preparar para avaliação da VM do VMware, você precisa:
 
 ### <a name="verify-vmware-settings"></a>Verificar as configurações de VMware
 
-1. [Verifique](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) os requisitos do servidor do VMware.
-2. [Garanta](migrate-support-matrix-vmware.md#assessment-port-requirements) que as portas necessárias estejam abertas no vCenter Server.
+1. [Verifique](migrate-support-matrix-vmware.md#vmware-requirements) os requisitos do servidor do VMware.
+2. [Garanta](migrate-support-matrix-vmware.md#port-access) que as portas necessárias estejam abertas no vCenter Server.
+3. No vCenter Server, verifique se sua conta tem permissões para criar uma VM usando um arquivo OVA. Você implanta o dispositivo das Migrações para Azure como uma VM do VMware usando um arquivo OVA.
 
 
 ### <a name="set-up-an-account-for-assessment"></a>Configurar uma conta para avaliação
@@ -120,15 +121,12 @@ As Migrações para Azure precisam acessar o vCenter Server para descobrir VMs p
 
 ### <a name="verify-appliance-settings-for-assessment"></a>Verifique as configurações do dispositivo para avaliação
 
-Verifique os requisitos do dispositivo antes de implantá-lo.
+Antes de configurar o dispositivo das Migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
-1. [Verifique](migrate-support-matrix-vmware.md#assessment-appliance-requirements) os requisitos e as limitações do dispositivo.
-2. Se você estiver usando um proxy de firewall baseado em URL, [examine](migrate-support-matrix-vmware.md#assessment-url-access-requirements) as URLs do Azure que o dispositivo precisará acessar. Certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
-3. Examine os [dados de desempenho](migrate-appliance.md#collected-performance-data-vmware) e os [metadados](migrate-appliance.md#collected-metadata-vmware) que o dispositivo coleta durante a descoberta e a avaliação.
-4. [Observe](migrate-support-matrix-vmware.md#assessment-port-requirements) as portas acessadas pelo dispositivo.
-5. No vCenter Server, verifique se sua conta tem permissões para criar uma VM usando um arquivo OVA. Você implanta o dispositivo das Migrações para Azure como uma VM do VMware usando um arquivo OVA.
-
-Se estiver usando um firewall.proxy baseado em URL, permita o acesso às [URLs do Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements) necessárias.
+1. [Verificar](migrate-appliance.md#appliance---vmware) os requisitos do dispositivo para VMs do VMware.
+2. [Examine](migrate-appliance.md#url-access) as URLs do Azure que o dispositivo precisará acessar. Se estiver usando um firewall ou proxy baseado em URL, certifique-se de que ele permite o acesso às URLs necessárias.
+3. [Examine](migrate-appliance.md#collected-data---vmware) o que o dispositivo coletará durante a descoberta e a avaliação.
+4. [Observe](migrate-support-matrix-vmware.md#port-access) os requisitos de acesso da porta para o dispositivo.
 
 
 
@@ -137,23 +135,22 @@ Se estiver usando um firewall.proxy baseado em URL, permita o acesso às [URLs d
 
 Examine os requisitos para migração sem agente de VMs do VMware.
 
-1. [Examinar](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) os requisitos do servidor VMware.
-2. Configure uma conta com as [permissões necessárias](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions), de modo que as Migrações para Azure possam acessar o vCenter Server para migração sem agente usando as Migrações para Azure do servidor de migração.
-3. [Examine](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) os requisitos para as VMs do VMware que você deseja migrar para o Azure usando a migração sem agente.
-4. [Examine](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) os requisitos para usar o dispositivo de Migrações para Azure para a migração sem agente.
-5. Observe o [acesso à URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) e o [acesso à porta](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) que o dispositivo de Migrações para Azure precisa para migração sem agente.
+1. [Examine](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) os requisitos de servidor do VMware e as [permissões](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) de que as Migrações para Azure precisam para acessar o vCenter Server para migração sem agente usando a Migração de Servidor das Migrações para Azure.
+2. [Examine](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) os requisitos para as VMs do VMware que você deseja migrar para o Azure usando a migração sem agente.
+4. [Examine](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) os requisitos para usar o dispositivo de Migrações para Azure para a migração sem agente.
+5. Observe o [acesso à URL](migrate-appliance.md#url-access) e [acesso à porta](migrate-support-matrix-vmware-migration.md#agentless-ports) necessários para a migração sem agente.
 
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Preparar para migração do VMware baseada em agente
 
 Examine os requisitos para [migração de VMs do VMware baseada em agente](server-migrate-overview.md).
 
-1. [Examinar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) os requisitos do servidor VMware.
-2. Configure uma conta com as [permissões necessárias](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). de modo que as Migrações para Azure possam acessar o vCenter Server para migração baseada em agente usando as Migrações para Azure do servidor de migração.
-3. [Examine](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) os requisitos para as VMs do VMware que você deseja migrar para o Azure usando a migração baseada em agente, incluindo a instalação do serviço de mobilidade em cada VM que deseja migrar.
-4. Observe o [acesso à URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
-5. Examine o [acesso à porta](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) que os componentes de Migrações para Azure precisam para o acesso baseado em agente.
-
+1. [Examine](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) os requisitos de servidor do VMware e as permissões de que as Migrações para Azure precisam para acessar o vCenter Server para migração baseada em agente usando a Migração de Servidor das Migrações para Azure.
+2. [Examine](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) os requisitos para as VMs do VMware que você deseja migrar para o Azure usando a migração baseada em agente, incluindo a instalação do serviço de mobilidade em cada VM que deseja migrar.
+3. As migrações baseadas em agente usam um dispositivo de replicação:
+    - [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do dispositivo de replicação e as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no dispositivo.
+    - Examine os requisitos de acesso da [URL](migrate-replication-appliance.md#url-access) e da [porta](migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
+    
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você:

@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457625"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749558"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para Armazenamento de tabela
 
 A Microsoft desenvolveu várias práticas comprovadas para desenvolver aplicativos de alto desempenho com o Armazenamento de Tabela. Essa lista de verificação identifica as principais práticas que os desenvolvedores podem seguir para otimizar o desempenho. Tenha essas práticas em mente ao criar seu aplicativo e durante todo o processo.
 
-O Armazenamento do Azure tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre as metas de escalabilidade do Armazenamento do Azure, confira [Metas de escalabilidade e desempenho do Armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+O Armazenamento do Azure tem metas de escalabilidade e desempenho para capacidade, taxa de transação e largura de banda. Para obter mais informações sobre as metas de escalabilidade do Armazenamento do Azure, confira [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) e [Metas de escalabilidade e desempenho do Armazenamento de Tabelas](scalability-targets.md).
 
 ## <a name="checklist"></a>Lista de verificação
 
@@ -289,5 +289,6 @@ Se você estiver executando inserções em lotes e, em seguida, recuperando inte
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Escalabilidade do Armazenamento do Microsoft Azure e metas de desempenho para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Metas de escalabilidade e desempenho do Armazenamento de Tabelas](scalability-targets.md)
+- [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

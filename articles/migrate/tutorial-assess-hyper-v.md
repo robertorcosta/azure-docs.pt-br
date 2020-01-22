@@ -1,19 +1,15 @@
 ---
 title: Avaliar VMs do Hyper-V para migração para o Azure usando as Migrações para Azure | Microsoft Docs
 description: Descreve como avaliar as VMs locais do Hyper-V para migração para o Azure usando as Migrações para Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158388"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029018"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs do Hyper-V usando a avaliação de servidor das Migrações para Azure
 
@@ -38,12 +34,13 @@ Este tutorial é o segundo de uma série que demonstra como avaliar e migrar VMs
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Conclua](tutorial-prepare-hyper-v.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
 - Veja o que você deve ter feito no primeiro tutorial:
     - [Configurar as permissões do Azure](tutorial-prepare-hyper-v.md#prepare-azure) para as Migrações para Azure.
-    - [Preparar](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) os clusters, hosts e VMs do Hyper-V para avaliação.
+    - [Preparar](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) os clusters, hosts e VMs do Hyper-V para avaliação.
+    - [Preparar-se para a implantação](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) do dispositivo das Migrações para Azure, usado para avaliação e descoberta de VMs do Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
 
@@ -66,7 +63,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     --- | ---
     Ásia  | Sudeste Asiático
     Europa | Europa Setentrional ou Europa Ocidental
-    Reino Unido |  Sul do Reino Unido ou Oeste do Reino Unido
+    United Kingdom |  Sul do Reino Unido ou Oeste do Reino Unido
     Estados Unidos | Leste dos EUA, Oeste dos EUA 2 ou Centro-oeste dos EUA
 
     - A região do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
@@ -148,7 +145,7 @@ Importe o arquivo baixado e crie a VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
 
@@ -184,7 +181,7 @@ Configure o dispositivo pela primeira vez.
 
 Se estiver executando VHDs em SMBs, você precisará habilitar a delegação de credenciais do dispositivo para os hosts do Hyper-V. Isso exige o seguinte:
 
-- Você permite que cada host atue como um delegado para o dispositivo. Você deve ter feito isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou [executando o script de configuração de pré-requisitos do Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Você permite que cada host atue como um delegado para o dispositivo. Se tiver seguido os tutoriais na ordem, você fez isso no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deve ter configurado o CredSSP para os hosts [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou [executando um script](tutorial-prepare-hyper-v.md#prepare-with-a-script) que faz isso.
 - Habilite a delegação de CredSSP para que o dispositivo de Migrações para Azure possa atuar como o cliente, delegando credenciais a um host.
 
 Habilite no dispositivo da seguinte maneira:
@@ -335,7 +332,7 @@ As classificações de confiança para uma avaliação são indicadas a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 > [!div class="checklist"]
 > * Configurou um dispositivo das Migrações para Azure

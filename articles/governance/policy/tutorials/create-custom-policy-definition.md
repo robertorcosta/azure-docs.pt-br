@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885442"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966031"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -31,7 +31,7 @@ A abordagem para criação de uma política personalizada segue estas etapas:
 > - Determinar qual efeito será usado
 > - Redigir a definição de política
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -58,7 +58,7 @@ Há várias maneiras de determinar as propriedades de um recurso do Azure. Exami
   - Experiência de criação
   - Modelos de Início Rápido (GitHub)
   - Documentação de referência de modelo
-- Gerenciador de Recursos do Azure
+- Azure Resource Explorer
 
 ### <a name="view-resources-in-vs-code-extension"></a>Exibir recursos na extensão do VS Code
 
@@ -66,7 +66,7 @@ A [extensão do VS Code](../how-to/extension-for-vscode.md#search-for-and-view-r
 
 ### <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
-Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que você deseja gerenciar.
+Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que você deseja gerenciar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente no portal
 
@@ -151,7 +151,7 @@ Os [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quicksta
 Para validar se **supportsHttpsTrafficOnly** é a propriedade correta, verifique a referência do modelo do Resource Manager ao [recurso de conta de armazenamento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) no provedor de armazenamento.
 O objeto de propriedades tem uma lista de parâmetros válidos. A seleção do link [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao que estamos procurando para atender aos requisitos de negócios.
 
-### <a name="azure-resource-explorer"></a>Gerenciador de Recursos do Azure
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 Outra maneira de explorar os recursos do Azure é por meio do [Azure Resource Explorer](https://resources.azure.com) (versão prévia). Essa ferramenta usa o contexto de sua assinatura e, portanto, você precisa se autenticar no site com suas credenciais do Azure. Depois de autenticado, você poderá procurar por provedores, assinaturas, grupos de recursos e recursos.
 
@@ -216,7 +216,7 @@ az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' |
 Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Os resultados são semelhantes ao que vemos nos modelos do Resource Manager e por meio do Azure Resource Explorer. No entanto, os resultados do Azure Resource Graph também incluem detalhes do [alias](../concepts/definition-structure.md#aliases) _projetando_ a matriz de _aliases_:
+Os resultados são semelhantes ao que vemos nos modelos do Resource Manager e por meio do Azure Resource Explorer. No entanto, os resultados do Azure Resource Graph também incluem detalhes do [alias](../concepts/definition-structure.md#aliases)_projetando_ a matriz de _aliases_:
 
 ```kusto
 Resources
@@ -453,7 +453,7 @@ Com todas as três partes da política definida, esta é a nossa definição con
 
 A definição concluída pode ser usada para criar uma política. O portal e cada SDK (CLI do Azure, Azure PowerShell e API REST) aceitam a definição de diferentes maneiras. Portanto, examine os comandos de cada um para validar o uso correto. Em seguida, atribua-o, usando o efeito parametrizado, aos recursos adequados para gerenciar a segurança de suas contas de armazenamento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seguir para excluir qualquer uma das atribuições ou definições criadas acima:
 
@@ -463,7 +463,7 @@ Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seg
 
 1. Clique com o botão direito na linha e selecione as reticências no final da definição ou da atribuição e selecione **Excluir Definição** (ou **Excluir Atribuição**).
 
-## <a name="review"></a>Análise
+## <a name="review"></a>Revisão
 
 Neste tutorial, você realizou as seguintes tarefas com sucesso:
 

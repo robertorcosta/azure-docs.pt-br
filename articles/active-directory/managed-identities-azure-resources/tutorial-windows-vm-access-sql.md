@@ -5,22 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181186"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977854"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o SQL Azure
 
@@ -34,11 +33,17 @@ Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma V
 > * Crie um usuário contido no banco de dados que represente a identidade atribuída do sistema da VM
 > * Obtenha um token de acesso usando a identidade da VM e use-o para consultar um SQL Server do Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceda à VM acesso a um banco de dados em um SQL Server do Azure
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+## <a name="grant-access"></a>Conceder acesso
 
 Para conceder acesso da sua VM a um banco de dados em um SQL Server do Azure, você pode usar um SQL Server existente ou criar um novo. Para criar um novo servidor e banco de dados usando o portal do Azure, siga este [início rápido do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Também há inícios rápidos que usam a CLI do Azure e o Azure PowerShell na [documentação do SQL Azure](https://docs.microsoft.com/azure/sql-database/).
 
@@ -47,9 +52,9 @@ Há duas etapas para conceder acesso da VM a um banco de dados:
 1. Habilite a autenticação do Azure AD para o SQL Server.
 2. Crie um **usuário contido** no banco de dados que represente a identidade atribuída do sistema da VM.
 
-## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilitar a autenticação do Azure AD para o SQL Server
+### <a name="enable-azure-ad-authentication"></a>Habilitar a autenticação do Azure AD
 
-[Configure a autenticação do Azure AD para o SQL Server](/azure/sql-database/sql-database-aad-authentication-configure) usando estas etapas:
+**Para [configurar a autenticação do Azure AD para o SQL Server](/azure/sql-database/sql-database-aad-authentication-configure):**
 
 1.  No portal do Azure, selecione **Servidores SQL** na navegação à esquerda.
 2.  Clique no SQL Server a ser habilitado para autenticação do Azure AD.
@@ -58,14 +63,16 @@ Há duas etapas para conceder acesso da VM a um banco de dados:
 5.  Selecione uma conta de usuário do Azure AD para ser um administrador do servidor e clique em **Selecionar.**
 6.  Na barra de comandos, clique em **Salvar**.
 
-## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>Crie um usuário contido no banco de dados que represente a identidade atribuída do sistema da VM
+### <a name="create-contained-user"></a>Criar um usuário contido
 
-Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
+Esta seção mostra como criar um usuário contido no banco de dados que representa a identidade atribuída do sistema da VM. Para esta etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
 
 - [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 O BD SQL requer nomes de exibição exclusivos do AAD. Com isso, contas do AAD como usuários, grupos e Entidades de serviço (aplicativos) e nomes de VM habilitados para identidade gerenciada devem ser definidos exclusivamente no AAD com relação a seus nomes de exibição. O BD SQL verifica o nome de exibição do AAD durante a criação do T-SQL desses usuários e, se ele não for exclusivo, o comando falhará solicitando para fornecer um nome de exibição do AAD exclusivo para uma determinada conta.
+
+**Para criar um usuário contido:**
 
 1. Inicie o SQL Server Management Studio.
 2. Na caixa de diálogo **Conectar-se ao servidor**, insira o nome de seu SQL Server no campo **Nome do servidor**.
@@ -99,9 +106,9 @@ O BD SQL requer nomes de exibição exclusivos do AAD. Com isso, contas do AAD c
 
 O código em execução na VM agora pode obter um token usando sua identidade gerenciada atribuída pelo sistema e usar o token para autenticar-se para o SQL server.
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-lo para chamar o Azure SQL
+## <a name="access-data"></a>Acessar dados
 
-O SQL Azure tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando identidades gerenciadas para recursos do Azure. Você usa o método **token de acesso** para criar uma conexão para o SQL. Isso faz parte da integração do SQL Azure ao Azure AD e é diferente de fornecer as credenciais na cadeia de conexão.
+Esta seção mostra como obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-lo para chamar o Azure SQL. O SQL Azure tem suporte nativo para autenticação do Azure AD, de modo que pode aceitar diretamente os tokens de acesso obtidos usando identidades gerenciadas para recursos do Azure. Você usa o método **token de acesso** para criar uma conexão para o SQL. Isso faz parte da integração do SQL Azure ao Azure AD e é diferente de fornecer as credenciais na cadeia de conexão.
 
 Aqui está um exemplo de código .NET de abertura de uma conexão a SQL usando um token de acesso. Esse código deve ser executado na VM para ser capaz de acessar o ponto de extremidade da identidade gerenciada atribuída pelo sistema da VM. É necessário ter o **.NET Framework 4.6** ou superior ou o **.NET Core 2.2** ou superior para usar o método de token de acesso. Substitua os valores de AZURE-SQL-SERVERNAME e DATABASE de acordo. Observe a ID de recurso para o SQL Azure é `https://database.windows.net/`.
 
@@ -192,6 +199,12 @@ Como alternativa, uma maneira rápida de testar a configuração de ponta a pont
     ```
 
 Examine o valor de `$DataSet.Tables[0]` para exibir os resultados da consulta.
+
+
+## <a name="disable"></a>Desabilitar
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

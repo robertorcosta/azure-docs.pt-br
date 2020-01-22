@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e321fcdf4b5871cf4a55e7018229569a337e8305
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230935"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863253"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
@@ -18,7 +18,7 @@ Saiba como criar uma função disparada quando dados são adicionados ou alterad
 
 ![Exiba a mensagem nos logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
@@ -65,9 +65,9 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome** | Padrão | Use o nome da função padrão sugerido pelo modelo.|
     | **Conexão de conta do Azure Cosmos DB** | Nova configuração | Selecione **Novo** e depois escolha sua **Assinatura**, a **Conta de banco de dados** criada anteriormente e **Selecionar**. Isso cria uma configuração de aplicativo para sua conexão de conta. Essa configuração é usada pela associação para conexão com o banco de dados. |
-    | **Nome da coleção** | Itens | Nome da coleção a ser monitorada. |
-    | **Crie a coleção de concessão, se ela não existir** | Verificado | A coleção ainda não existe, então crie uma. |
-    | **Nome do banco de dados** | Tarefas | Nome do banco de dados com a coleção a ser monitorada. |
+    | **Nome do contêiner** | Itens | Nome do contêiner a ser monitorado. |
+    | **Crie o contêiner de concessão se ele não existir** | Verificado | O contêiner ainda não existe. Portanto, crie-o. |
+    | **Nome do banco de dados** | Tarefas | Nome do banco de dados com o contêiner a ser monitorado. |
 
 1. Clique em **Criar** para criar o banco de dados da função disparada do Azure Cosmos DB. Depois que a função for criada, o código de função baseado em modelo será exibido.  
 
@@ -75,9 +75,9 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
     Esse modelo de função grava o número de documentos e a primeira ID de documento para os logs.
 
-Em seguida, você conecta-se à sua conta do Azure Cosmos DB e cria a coleção `Items` no banco de dados `Tasks`.
+Em seguida, você se conecta à sua conta do Azure Cosmos DB e cria o contêiner `Items` no banco de dados `Tasks`.
 
-## <a name="create-the-items-collection"></a>Criar a coleção de itens
+## <a name="create-the-items-container"></a>Criar o contêiner Itens
 
 1. Abra uma segunda instância do [portal do Azure](https://portal.azure.com) em uma nova guia no navegador.
 
@@ -87,33 +87,32 @@ Em seguida, você conecta-se à sua conta do Azure Cosmos DB e cria a coleção 
 
 1. Escolha sua conta do Azure Cosmos DB e selecione o **Data Explorer**. 
 
-1. Em **Coleções**, escolha **taskDatabase** e selecione **Nova Coleção**.
+1. Em **API SQL**, escolha o banco de dados **Tarefas** e selecione **Novo Contêiner**.
 
-    ![Criar uma coleção](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![Criar um contêiner](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. Em **Adicionar Coleção**, use as configurações mostradas na tabela abaixo da imagem. 
+1. Em **Adicionar Contêiner**, use as configurações mostradas na tabela embaixo da imagem. 
 
-    ![Definir taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+    ![Definir o contêiner Tarefas](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Configuração|Valor sugerido|DESCRIÇÃO |
+    | Configuração|Valor sugerido|Descrição |
     | ---|---|--- |
     | **ID do banco de dados** | Tarefas |O nome do novo banco de dados. Isso deve corresponder ao nome definido na sua associação de função. |
-    | **ID da coleção** | Itens | O nome da nova coleção. Isso deve corresponder ao nome definido na sua associação de função.  |
-    | **Capacidade de armazenamento** | Fixo (10 GB)|Use o valor padrão. Esse valor é a capacidade de armazenamento do banco de dados. |
-    | **Taxa de transferência** |400 RU| Use o valor padrão. Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. |
-    | **[Chave de partição](../cosmos-db/partition-data.md)** | /category|Uma chave de partição que distribui dados uniformemente para cada partição. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. | 
+    | **ID do contêiner** | Itens | O nome do novo contêiner. Isso deve corresponder ao nome definido na sua associação de função.  |
+    | **[Chave de partição](../cosmos-db/partition-data.md)** | /category|Uma chave de partição que distribui dados uniformemente para cada partição. É importante selecionar a chave de partição correta ao criar um contêiner de alto desempenho. | 
+    | **Taxa de transferência** |400 RU| Use o valor padrão. Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. |    
 
-1. Clique em **OK** para criar a coleção Itens. Pode levar alguns instantes para a coleção ser criada.
+1. Clique em **OK** para criar o contêiner Itens. Pode levar alguns instantes para o contêiner ser criado.
 
-Depois que a coleção especificada na associação de função existir, você poderá testar a função adicionando documentos a essa nova coleção.
+Depois que o contêiner especificado na associação de função existir, você poderá testar a função adicionando itens a esse novo contêiner.
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Expanda a nova coleção **taskCollection** no Data Explorer, escolha **Documentos** e, em seguida, selecione **Novo Documento**.
+1. Expanda o novo contêiner **Itens** no Data Explorer, escolha **Itens** e selecione **Novo Item**.
 
-    ![Criar um documento em taskCollection](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+    ![Criar um item no contêiner Itens](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
-1. Substitua o conteúdo do novo documento pelo conteúdo a seguir e então escolha **Salvar**.
+1. Substitua o conteúdo do novo item pelo conteúdo a seguir e então escolha **Salvar**.
 
         {
             "id": "task1",
@@ -127,7 +126,7 @@ Depois que a coleção especificada na associação de função existir, você p
 
 1. (Opcional) Volte para o seu documento, faça uma alteração e, em seguida, clique em **Atualizar**. Em seguida, volte para os logs de função e verifique se a atualização também disparou a função.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

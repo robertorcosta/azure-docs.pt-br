@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b447a0328de210caeb23a1beb91c532853c180bc
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550410"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867481"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Início Rápido: usar um modelo de funcionalidade do dispositivo para criar um dispositivo IoT Plug and Play em versão prévia (Windows)
 
@@ -85,7 +85,7 @@ Neste início rápido, você usa o gerenciador de biblioteca [Vcpkg](https://git
 
 Neste início rápido, você usará um modelo de funcionalidade do dispositivo de exemplo existente e as interfaces associadas.
 
-1. Crie o diretório `pnp_app` na unidade local. Você usará essa pasta para os arquivos de modelo de dispositivo e o stub do código do dispositivo.
+1. Crie uma pasta `pnp_app` na unidade local. Você usará essa pasta para os arquivos de modelo de dispositivo e o stub do código do dispositivo.
 
 1. Baixe o [os arquivos de amostra de interface e do modelo de funcionalidade do dispositivo](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) e a [amostra de interface](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) e salve os arquivos na pasta `pnp_app`.
 
@@ -109,7 +109,7 @@ Agora que você tem um DCM e suas interfaces associadas, é possível gerar o c�
 
 1. Escolha o arquivo **SampleDevice.capabilitymodel.json** a ser usado para gerar o stub do código do dispositivo.
 
-1. Insira o nome do projeto **sample_device**. Esse será o nome do aplicativo do dispositivo.
+1. Insira o nome do projeto **sample_device**. Esse é o nome do aplicativo do dispositivo.
 
 1. Escolha **ANSI C** como a linguagem.
 
@@ -124,7 +124,7 @@ Agora que você tem um DCM e suas interfaces associadas, é possível gerar o c�
 
 ## <a name="build-and-run-the-code"></a>Criar e executar o código
 
-Use o código-fonte do SDK do dispositivo para criar o stub do código do dispositivo gerado. O aplicativo criado simula um dispositivo que se conecta a um Hub IoT. O aplicativo envia a telemetria e as propriedades e recebe comandos.
+Você usará o pacote Vcpkg para criar o stub do código do dispositivo gerado. O aplicativo criado simula um dispositivo que se conecta a um Hub IoT. O aplicativo envia a telemetria e as propriedades e recebe comandos.
 
 1. Crie o subdiretório `cmake` na pasta `sample_device` e navegue até essa pasta:
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 15c707b5424e84e99e0b1942bb623e6d3845213a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471251"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834375"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes
 
@@ -161,7 +161,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você desenvolveu e implantou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como implantar recursos do Azure com base em condições, veja:
+Neste tutorial, você desenvolveu e implantou um modelo para criar uma máquina virtual, uma rede virtual e os recursos dependentes. Para saber como usar scripts de implantação para executar operações pré/pós-implantação, confira:
 
 > [!div class="nextstepaction"]
-> [Condições de uso](./template-tutorial-use-conditions.md)
+> [Usar script de implantação](./template-tutorial-deployment-script.md)

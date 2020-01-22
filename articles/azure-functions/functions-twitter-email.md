@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226617"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768955"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Conecte o aplicativo lógico à função.
 > * Envie um email com base na resposta da função.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Uma conta do [Twitter](https://twitter.com/) ativa. 
 + Uma conta do [Outlook.com](https://outlook.com/) (para enviar notificações).
@@ -43,7 +43,7 @@ Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicati
 
 As APIs de Serviços Cognitivos estão disponíveis no Azure como recursos individuais. Use a API de Análise de Texto para detectar o sentimento dos tweets que estão sendo monitorados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
 
@@ -129,7 +129,7 @@ Agora você tem uma função que categoriza as pontuações de sentimento. Em se
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico   
 
-1. Clique no botão **Novo** no canto superior esquerdo do portal do Azure.
+1. No portal do Azure, clique no botão **Criar um recurso** localizado no canto superior esquerdo do portal do Azure.
 
 2. Clique em **Web** > **Aplicativo Lógico**.
  
@@ -161,7 +161,7 @@ Primeiro, crie uma conexão para sua conta do Twitter. O aplicativo lógico sond
 
     ![Configurações do conector do Twitter](media/functions-twitter-email/10-tweet-settings.png)
 
-    | Configuração      |  Valor sugerido   | DESCRIÇÃO                                        |
+    | Configuração      |  Valor sugerido   | Descrição                                        |
     | ----------------- | ------------ | ------------- |
     | **Texto da pesquisa** | #Azure | Use uma hashtag que seja popular o suficiente para gerar novos tweets no intervalo escolhido. Quando você usa a camada gratuita e a hashtag é muito popular, é possível consumir rapidamente a cota de transação na API dos Serviços Cognitivos. |
     | **Intervalo** | 15 | O tempo decorrido entre as solicitações do Twitter, em unidades de frequência. |
@@ -232,7 +232,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 
     ![Configure o email para enviar uma ação de email.](media/functions-twitter-email/21-configure-email.png)
     
-| Configuração      |  Valor sugerido   | DESCRIÇÃO  |
+| Configuração      |  Valor sugerido   | Descrição  |
 | ----------------- | ------------ | ------------- |
 | **Para** | Digitar endereço de email | O endereço de email que recebe a notificação. |
 | **Assunto** | Sentimento de tweet negativo detectado  | A linha de assunto do email de notificação.  |
@@ -283,7 +283,7 @@ Para desabilitar o aplicativo lógico, clique em **Visão Geral** e clique em **
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Crie um Recurso de API de Serviços Cognitivos.

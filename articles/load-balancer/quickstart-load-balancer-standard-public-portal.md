@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225200"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771454"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
 
-O balanceamento de carga fornece um nível mais alto de disponibilidade e escala por distribuir as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como carregar a carga de VMs usando um balanceador de carga padrão.
+O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como carregar a carga de VMs usando um balanceador de carga padrão.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -34,7 +34,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 
-Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carga de máquinas virtuais. Um balanceador de carga padrão só oferece suporte a um endereço IP público padrão. Ao criar um balanceador de carga padrão, você também deve criar um novo endereço IP público padrão configurado como o front-end (nomeado como *LoadBalancerFrontend* por padrão) para o balanceador de carga padrão. 
+Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carga de máquinas virtuais. Crie um Standard Load Balancer público ou um Standard Load Balancer interno. O Standard Load Balancer só dá suporte a um endereço IP público Standard; não há suporte para endereços IP públicos Básicos. Ao criar um Standard Load Balancer público, você também precisará criar um endereço IP público Standard configurado como o front-end (nomeado como *LoadBalancerFrontend*, por padrão) para o Standard Load Balancer. 
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Load Balancer.**
 2. Na guia **Noções Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações, aceite os padrões para as configurações restantes e selecione **Revisar + criar**:
@@ -43,7 +43,7 @@ Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carg
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite *myResourceGroupSLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
     | SKU           | Selecione **Padrão**.                          |
@@ -75,7 +75,7 @@ Para permitir que o Load Balancer monitore o status de seu aplicativo, use uma i
     
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myHealthProbe*. |
+    | Nome | Insira *myHealthProbe*. |
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira *80*.|
     | Intervalo | Insira *15* para o número de **Intervalo** em segundos entre tentativas de investigação. |
@@ -92,7 +92,7 @@ Uma regra do Load Balancer é usada para definir como o tráfego é distribuído
     
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myHTTPRule*. |
+    | Nome | Insira *myHTTPRule*. |
     | Protocolo | selecione **TCP**. |
     | Porta | Insira *80*.|
     | Porta de back-end | Insira *80*. |
@@ -112,7 +112,7 @@ Nesta seção, crie uma rede virtual, crie três máquinas virtuais para o pool 
 
     | Configuração | Valor |
     | ------- | ----- |
-    | NOME | Insira *myVNet*. |
+    | Nome | Insira *myVNet*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
     | Subscription | Selecione sua assinatura.|
     | Resource group | Selecione o recurso existente – *myResourceGroupSLB*. |
@@ -154,7 +154,7 @@ O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no poo
 
     | Configuração | VM 2| VM 3|
     | ------- | ----- |---|
-    | NOME |  *myVM2* |*myVM3*|
+    | Nome |  *myVM2* |*myVM3*|
     | Zona de disponibilidade | 2 |3|
     |IP público| SKU **Standard**|SKU **Standard**|
     | IP público – Zona de disponibilidade| **Redundância de zona** |**Redundância de zona**|
@@ -167,8 +167,8 @@ Nesta seção, você criará uma regra de grupo de segurança de rede para permi
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, na lista de recursos, selecione **myNetworkSecurityGroup** que está localizado no grupo de recursos **myResourceGroupSLB**.
 2. Em **Configurações**, selecione **Regras de segurança de entrada** e, em seguida, **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
+    - *Service Tag* – para **Origem**.
+    - *Internet* – para **Marca de serviço de origem**
     - *80* - para os **Intervalos de porta de destino**
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**
@@ -208,7 +208,7 @@ Nesta seção, você criará uma regra de grupo de segurança de rede para permi
 
 Para ver o Load Balancer distribuir o tráfego entre as três VMs, você pode personalizar a página padrão do servidor Web do IIS de cada VM e forçar a atualização de seu navegador da web no computador cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o grupo de recursos, o Load Balancer e todos os recursos relacionados. Para isso, selecione o grupo de recursos (*myResourceGroupSLB*) que contém o Load Balancer e clique em **Excluir**.
 

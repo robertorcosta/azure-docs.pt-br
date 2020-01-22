@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459939"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028886"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Início Rápido: Criar um ponto de extremidade privado usando portal do Azure
 
@@ -125,7 +125,7 @@ Nesta seção, você criará um servidor do banco de dados SQL no Azure.
 7. Selecione **OK**. 
 8. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração. 
 9. Quando a mensagem Validação aprovada for exibida, selecione **Criar**. 
-10. Quando vir a mensagem Validação aprovada, selecione Criar. 
+10. Quando a mensagem Validação aprovada for exibida, selecione Criar. 
 
 ## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
 
@@ -162,7 +162,7 @@ Nesta seção, você criará um SQL Server e adicionará um ponto de extremidade
     | ------- | ----- |
     |**REDE**| |
     | Rede virtual| Selecione *MyVirtualNetwork*. |
-    | Sub-rede | Selecione  *mySubnet*. |
+    | Sub-rede | Selecione *mySubnet*. |
     |**INTEGRAÇÃO DE DNS PRIVADO**||
     |Integrar com a zona DNS privado |Selecione **Sim** na barra superior. |
     |Zona DNS privado |Selecione *(New)privatelink.database.windows.net* |
@@ -199,9 +199,9 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL de forma privada da VM
 
-1. Na Área de Trabalho Remota de  *myVM*, abra o PowerShell.
+1. Na Área de Trabalho Remota do *myVM*, abra o PowerShell.
 
-2. Insira  `nslookup myserver.database.windows.net`. 
+2. Digite `nslookup myserver.database.windows.net`. 
 
     Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
@@ -227,11 +227,11 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 1. Selecione **Conectar**.
 2. Procurar bancos de dados no menu à esquerda.
 3. (Opcionalmente) Crie ou consulte informações no mydatabase.
-4. Feche a Conexão de Área de Trabalho Remota para  *myVm*. 
+4. Feche a conexão da área de trabalho remota para *myVm*. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando terminar de usar o ponto de extremidade privado, o SQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém: 
-1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
+1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa. 
 2. Selecione **Excluir grupo de recursos**. 
 3. Insira myResourceGroup em **DIGITAR O NOME DO GRUPO DE RECURSOS** e selecione **Excluir**.
 

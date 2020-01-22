@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.openlocfilehash: 71308b7f17d6009e8650cafbb02afd577fd73cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 42638af9f51770a9a5738cd92f91c28439af273a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437724"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750091"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Crie uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure
 
@@ -55,11 +55,11 @@ Registre o provedor de recursos Microsoft.DataMigration antes de criar sua prime
     - Selecione a **Assinatura** do Azure na qual quer criar a instância.
     - Selecione um **Grupo de Recursos** existente ou crie um novo.
     - Escolha o **Local** mais próximo ao seu servidor de origem ou de destino.
-    - Selecione uma **Rede virtual** (VNet) existente ou crie uma nova.
+    - Selecione uma **Rede virtual** existente ou crie uma.
 
-        A VNet fornece ao Serviço de Migração de Banco de Dados do Azure acesso ao banco de dados de origem e ao ambiente de destino.
+        A rede virtual fornece ao Serviço de Migração de Banco de Dados do Azure o acesso ao banco de dados de origem e ao ambiente de destino.
 
-        Para saber mais sobre como criar uma VNet no portal do Azure, confira o artigo [Criar uma rede virtual usando o portal do Azure](https://aka.ms/vnet).
+        Para obter mais informações sobre como criar uma rede virtual no portal do Azure, confira o artigo [Criar uma rede virtual usando o portal do Azure](https://aka.ms/vnet).
 
     - Selecione Básico: 1 vCore para o **Tipo de preço**.
 

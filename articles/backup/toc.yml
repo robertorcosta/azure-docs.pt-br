@@ -148,10 +148,28 @@
           href: backup-mabs-sharepoint-azure-stack.md
         - name: Proteger o banco de dados do SQL Server
           href: backup-mabs-sql-azure-stack.md
-    - name: Compartilhamentos de Arquivos do Azure
+    - name: Backup do compartilhamento de arquivos do Azure
       items:
-        - name: Backup de compartilhamentos de Arquivos do Azure
-          href: backup-azure-files.md
+        - name: No portal do Azure
+          items:
+            - name: Backup de compartilhamentos de Arquivos do Azure
+              href: backup-afs.md
+            - name: Restaurar compartilhamentos de arquivos do Azure
+              href: restore-afs.md
+            - name: Gerenciar backups de compartilhamento de Arquivos do Azure
+              href: manage-afs-backup.md
+        - name: Com a CLI do Azure
+          items:
+            - name: Backup do compartilhamentos de arquivos do Azure com a CLI
+              href: backup-afs-cli.md
+            - name: Restaurar compartilhamentos de arquivos do Azure com a CLI
+              href: restore-afs-cli.md
+            - name: Gerenciar backups de compartilhamento de arquivos do Azure com a CLI
+              href: manage-afs-backup-cli.md
+        - name: Com o PowerShell
+          items:
+            - name: Backup do compartilhamento de arquivos do Azure com o PowerShell
+              href: backup-azure-afs-automation.md
     - name: Fazer backup de VMs do Azure
       items:
         - name: Sobre o backup de VM do Azure
@@ -222,8 +240,6 @@
           href: backup-dpm-automation.md
         - name: Windows Server no portal do Azure
           href: backup-client-automation.md
-        - name: Compartilhamentos de arquivos do Azure no portal do Azure
-          href: backup-azure-afs-automation.md
         - name: SQL nos backups de VM do Azure
           href: backup-azure-sql-automation.md
     - name: Usar API REST do Backup do Azure

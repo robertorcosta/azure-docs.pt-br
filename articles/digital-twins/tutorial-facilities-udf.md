@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383232"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895352"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provisionar seu prédio e monitorar as condições de trabalho com a Versão prévia dos Gêmeos Digitais do Azure
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá como:
 > * Simular dados de sensor.
 > * Obter resultados de uma função definida pelo usuário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial pressupõe que você já tenha [concluído a configuração dos Gêmeos Digitais do Azure](tutorial-facilities-setup.md). Antes de prosseguir, verifique se você tem:
 
@@ -38,7 +38,7 @@ Este tutorial pressupõe que você já tenha [concluído a configuração dos G�
 - [SDK do .NET Core versão 2.1.403 ou posterior](https://www.microsoft.com/net/download) no computador de desenvolvimento para executar a amostra. Execute `dotnet --version` para verificar se a versão instalada é a correta. 
 - Use o [Visual Studio Code](https://code.visualstudio.com/) para explorar o código de exemplo. 
 
-> [!TIP]
+>[!TIP]
 > Use um nome de instância dos Gêmeos Digitais exclusivo quando estiver provisionando uma nova instância.
 
 ## <a name="define-conditions-to-monitor"></a>Definir condições a serem monitoradas
@@ -74,7 +74,7 @@ Além disso, observe a seção denominada **roleassignments**. Ela atribui a fun
 
    Modifique o arquivo JavaScript para monitorar a temperatura e outras condições. Adicione as linhas de código a seguir para procurar condições quando nenhum movimento é detectado na sala, os níveis de dióxido de carbono estão abaixo de 1.000 ppm e a temperatura está abaixo de 25 graus Celsius.
 
-   > [!NOTE]
+   >[!NOTE]
    > Esta seção modifica o arquivo *src\actions\userDefinedFunctions\availability.js* para que você possa saber com detalhes como escrever uma função definida pelo usuário. No entanto, você pode optar por usar diretamente o arquivo [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) em sua configuração. Esse arquivo tem todas as alterações exigidas por este tutorial. Se você usar esse arquivo, não deixe de usar o nome de arquivo correto para a chave **script** em [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
     a. Na parte superior do arquivo, adicione as seguintes linhas para a temperatura abaixo do comentário `// Add your sensor type here`:
@@ -178,7 +178,7 @@ Além disso, observe a seção denominada **roleassignments**. Ela atribui a fun
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > Para impedir o acesso não autorizado à API de Gerenciamento dos Gêmeos Digitais, o aplicativo **occupancy-quickstart** exige que você entre com suas credenciais de conta do Azure. Ele salva suas credenciais por um breve período, para que você não precise entrar toda vez que for executá-lo. Quando o programa é executado pela primeira vez e quando as credenciais salvas expiram, ele encaminha você para uma página de entrada e fornece um código específico da sessão para inserir nessa página. Siga os prompts para entrar com sua conta do Azure.
 
 1. Depois que a conta é autenticada, o aplicativo começa a criação de um grafo especial de exemplo conforme configurado em *provisionSample.yaml*. Aguarde até a conclusão do provisionamento. Isso levará alguns minutos. Depois disso, observe as mensagens na janela de comando e observe como o grafo espacial é criado. Observe como o aplicativo cria um hub IoT no nó raiz ou em `Venue`.
@@ -187,7 +187,7 @@ Além disso, observe a seção denominada **roleassignments**. Ela atribui a fun
 
     [![Exemplo de provisionamento](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > Se você receber uma mensagem de erro semelhante a "A operação de E/S foi anulada devido a uma saída de thread ou solicitação do aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer quando o cliente HTTP atingir o tempo limite devido a um problema de rede.
 
 ## <a name="simulate-sensor-data"></a>Simular dados de sensor
@@ -229,12 +229,12 @@ Nesta seção, você usará o projeto chamado *device-connectivity* no exemplo. 
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > Já que o exemplo de simulação não se comunica diretamente com a instância dos Gêmeos Digitais, ele não requer autenticação.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obter resultados da função definida pelo usuário
 
-A função definida pelo usuário é executada sempre que sua instância recebe dados de sensor e de dispositivo. Essa seção consulta sua instância dos Gêmeos Digitais do Azure para obter os resultados da função definida pelo usuário. Você verá em tempo real quando uma sala está disponível, se o ar está fresco e se temperatura está correta. 
+A função definida pelo usuário é executada sempre que sua instância recebe dados de sensor e de dispositivo. Essa seção consulta sua instância dos Gêmeos Digitais do Azure para obter os resultados da função definida pelo usuário. Você será notificado quase em tempo real, quando uma sala estiver disponível, se o ar estará fresco e se a temperatura estará correta. 
 
 1. Abra a janela de comando que você usou para provisionar o exemplo, ou uma nova janela de comando, e vá para a pasta **occupancy-quickstart\src** do exemplo novamente.
 
@@ -246,17 +246,17 @@ A função definida pelo usuário é executada sempre que sua instância recebe 
 
 A janela de saída mostra como a função definida pelo usuário é executada e intercepta eventos de simulação do dispositivo. 
 
-   [![Saída para a UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![Saída para a UDF](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A função `GetAvailableAndFreshSpaces` imprime a mensagem no console.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você quiser parar de explorar os Gêmeos Digitais do Azure neste momento, fique à vontade para excluir recursos criados neste tutorial:
 
 1. No menu à esquerda no [portal do Azure](https://portal.azure.com), escolha **Todos os recursos**, marque o grupo de recursos dos Gêmeos Digitais e a opção **Excluir**.
 
-    > [!TIP]
+    >[!TIP]
     > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
 
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho.

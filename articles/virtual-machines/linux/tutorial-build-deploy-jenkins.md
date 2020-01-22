@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034576"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778406"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Jenkins e o Azure DevOps Services
 
@@ -35,7 +35,7 @@ em um [grupo de implantação](https://docs.microsoft.com/azure/devops/pipelines
 > * Crie um ponto de extremidade de serviço do Jenkins.
 > * Crie um grupo de implantação para as máquinas virtuais do Azure.
 > * Criar um pipeline de lançamento no Azure Pipelines.
-> * Executar implantações manuais e disparadas por CI.
+> * Execute implantações manuais e disparadas por CI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -77,7 +77,7 @@ Primeiro, você precisa configurar dois plug-ins do Jenkins: **NodeJS** e **Impl
 5. Volte para o painel do Jenkins e selecione **Gerenciar o Jenkins**.
 6. Selecione **Configuração da Ferramenta Global**. Localize **NodeJS** e selecione **Instalações do NodeJS**.
 7. Marque a opção **Instalar automaticamente** e, em seguida, insira um valor de **Nome**.
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 ## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>Configurar um projeto Freestyle Jenkins para Node.js
 
@@ -87,7 +87,7 @@ Primeiro, você precisa configurar dois plug-ins do Jenkins: **NodeJS** e **Impl
     ![Adicionar um repositório ao seu build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
 4. Na guia **Criar Gatilhos**, selecione **Sondar SCM** e insira o agendamento `H/03 * * * *` para sondar o repositório Git em busca de alterações a cada três minutos. 
 5. Na guia **Ambiente de Build**, selecione **Fornecer Nó &amp; CAMINHO do compartimento/pasta de npm** e selecione o valor da **Instalação do NodeJS**. Deixe o **arquivo npmrc** definido como **usar padrão do sistema**.
-6. Na guia **Build**, selecione **Executar shell** e insira o comando `npm install` para garantir que todas as dependências sejam atualizadas.
+6. Na guia **Build**, selecione **Executar shell** e insira o comando `npm install` para garantir que todas as dependências são atualizadas.
 
 
 ## <a name="configure-jenkins-for-azure-devops-services-integration"></a>Configurar o Jenkins para integração com o Azure DevOps Services
@@ -176,15 +176,17 @@ Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIR
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você automatizou a implantação de um aplicativo no Azure usando o Jenkins para o build e o Azure DevOps Services para a versão. Você aprendeu como:
+Neste tutorial, você automatizou a implantação de um aplicativo no Azure usando o Jenkins para o build e o Azure DevOps Services para a versão. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Crie seu aplicativo no Jenkins.
 > * Configurar o Jenkins para integração com o Azure DevOps Services.
 > * Crie um grupo de implantação para as máquinas virtuais do Azure.
-> * Crie um pipeline de lançamento que configura as VMs e implanta o aplicativo.
+> * Criar um pipeline do Azure que configura as VMs e implanta o aplicativo.
 
-Para saber mais sobre como implantar uma pilha LAMP (Linux, Apache, MySQL e PHP), avance para o próximo tutorial.
+Para saber mais sobre como usar o Azure Pipelines para as etapas de build e versão, veja [isto](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+Para saber mais sobre como criar um pipeline da CI/CD baseado em YAML para implantação em VMs, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Implantar a pilha LAMP](tutorial-lamp-stack.md)
+> [CI/CD com o Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)

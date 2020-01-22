@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e81871e27c04f8a43f678110d7f44cc9c3be149c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717850"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940750"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Início Rápido: Passo a passo da Captura de Hubs de Eventos: Python
 
 A Captura é um recurso dos Hubs de Eventos do Azure. É possível usar a Captura para fornecer automaticamente os dados de streaming em seu hub de eventos para uma conta de armazenamento de Blobs do Azure de sua escolha. Essa funcionalidade facilita o processamento de lotes em dados de streaming em tempo real. Este artigo descreve como usar a Captura de Hubs de Eventos com o Python. Para obter mais informações sobre a Captura dos Hubs de Eventos, consulte [Captura de eventos por meio dos Hubs de Eventos do Azure][Overview of Event Hubs Capture].
 
 Este tutorial usa o [SDK do Python do Azure](https://azure.microsoft.com/develop/python/) para demonstrar o recurso de Captura. O programa *sender.py* envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O hub de eventos usa o recurso de Captura para gravar esses dados no armazenamento de Blobs em lotes. O aplicativo *capturereader.py* lê esses blobs, cria um arquivo de acréscimo para cada um dos dispositivos e grava os dados em arquivos *.csv* em cada dispositivo.
+
+> [!IMPORTANT]
+> Este guia de início rápido usa a versão 1 do SDK do Python dos Hubs de Eventos do Azure. Se você é novo nos Hubs de Eventos do Azure, use a versão 5 do SDK do Python. Para obter um início rápido que usa a versão 5 do SDK do Python, confira [este artigo](get-started-capture-python-v2.md). Se precisar migrar o código existente da versão 1 para a versão 5, confira o [guia de migração](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
 
 Neste passo a passo, você vai: 
 
@@ -36,7 +39,7 @@ Neste passo a passo, você vai:
 > * Enviar dados para o hub de eventos usando um script Python.
 > * Ler e processar arquivos da Captura dos Hubs de Eventos usando outro script Python.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Python 3.4 ou posterior, com `pip` instalado e atualizado.
   
@@ -54,7 +57,7 @@ Neste passo a passo, você vai:
 
 Crie uma conta de armazenamento e um contêiner para usar na captura. 
 
-1. Entre no [Portal do Azure][Azure portal].
+1. Entre no [portal do Azure][Azure portal].
 2. No painel de navegação esquerdo, selecione **Contas de armazenamento** e na tela **Contas de armazenamento** selecione **Adicionar**.
 3. Na tela de criação da conta de armazenamento, selecione uma assinatura e um grupo de recursos e nomeie a conta de armazenamento. É possível manter as outras seleções no padrão. Selecione **Examinar + criar**, examine as configurações e, em seguida, selecione **Criar**. 
    

@@ -7,18 +7,21 @@ ms.date: 09/26/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 363739bbab67b92e78e0cdb56cf98cdb8e1446eb
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 44fe68b8b04a1192c928e04c7d2a9d147f400130
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350894"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748298"
 ---
 # <a name="azure-storage-samples-using-javascript"></a>Exemplos do Armazenamento do Azure que usam JavaScript
 
 As tabelas a seguir fornecem uma visão geral de nosso repositório de exemplos e os cenários abordados em cada um deles. Clique nos links para exibir o código de exemplo correspondente no GitHub.
 
-## <a name="blob-samples"></a>Exemplos de blob
+> [!NOTE]
+> Essas amostras usam a biblioteca v10 do Armazenamento do Azure para JavaScript. Para o código v12, confira [exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples) no repositório do GitHub.
+
+## <a name="blob-samples-v10"></a>Amostras de blob (v10)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -43,7 +46,7 @@ As tabelas a seguir fornecem uma visão geral de nosso repositório de exemplos 
 | Definir regras Cors | [Introdução ao serviço Blob do Azure em JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L152) |
 | Blob de instantâneo | [Introdução ao serviço Blob do Azure em JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L79) |
 
-## <a name="file-samples"></a>Exemplos de arquivo
+## <a name="file-samples-v10"></a>Amostras de arquivo (v10)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ As tabelas a seguir fornecem uma visão geral de nosso repositório de exemplos 
 | Listar diretórios e arquivos | [Introdução ao Serviço de Arquivo do Azure em JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L115) |
 | Listar compartilhamentos | [Introdução ao Serviço de Arquivo do Azure em JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L187) |
 
-## <a name="queue-samples"></a>Exemplos de fila
+## <a name="queue-samples-v10"></a>Amostras de fila (v10)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -71,7 +74,7 @@ As tabelas a seguir fornecem uma visão geral de nosso repositório de exemplos 
 | Estatísticas da Fila | [Introdução ao serviço Fila do Azure em JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L149) |
 | Atualização de mensagem | [Introdução ao serviço Fila do Azure em JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L176) |
 
-## <a name="table-samples"></a>Exemplos de tabela
+## <a name="table-samples-v10"></a>Amostras de tabela (v10)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dfe17b99c1a9b1130695c8e5cd9c65ca7681d35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470941"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921631"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -194,7 +194,7 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
     Faça as seguintes alterações:
 
-    * **deloymentScope**: Selecione o escopo de implantação nas opções `Management Group`, `Subscription` e `Resource Group`. Use **Grupo de Recursos** neste tutorial. Para saber mais sobre os escopos, confira [Escopos de implantação](deploy-rest.md#deployment-scope).
+    * **deploymentScope**: Selecione o escopo de implantação nas opções `Management Group`, `Subscription` e `Resource Group`. Use **Grupo de Recursos** neste tutorial. Para saber mais sobre os escopos, confira [Escopos de implantação](deploy-rest.md#deployment-scope).
     * **ConnectedServiceName**: Especifique o nome da conexão de serviço criada anteriormente.
     * **SubscriptionName**:  Especifique a ID da assinatura de destino.
     * **action**: a ação **Criar ou Atualizar Grupo de Recursos** executa 2 ações – 1. criar um grupo de recursos se um novo nome de grupo de recursos for fornecido; 2. implantar o modelo especificado.

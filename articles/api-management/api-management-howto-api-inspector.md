@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072523"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768513"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depure suas APIs usando o rastreamento de solicitação
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 ![Inspetor de API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
@@ -47,10 +47,12 @@ Neste tutorial, você aprenderá como:
 4. Selecione a operação **GetSpeakers**.
 5. Não se esqueça de incluir um cabeçalho HTTP chamado **Ocp-Apim-Trace** com o valor definido como **true**.
 
-    > [!NOTE]
-    > Se Ocp-Apim-Subscription-Key não for preenchido automaticamente, você poderá recuperá-la indo até o Portal do Desenvolvedor e expor as chaves na página do perfil.
+   > [!NOTE]
+   > * Se Ocp-Apim-Subscription-Key não for preenchido automaticamente, você poderá recuperá-la indo até o Portal do Desenvolvedor e expor as chaves na página do perfil.
+   > * Para obter um rastreamento quando o cabeçalho HTTP Ocp-Apim-Trace for usado, a configuração **Permitir rastreamento** na chave de assinatura precisará ser habilitada. Para definir a configuração **Permitir rastreamento**, em **Gerenciamento de API** no menu à esquerda, selecione **Assinaturas**.
+   >   ![Permitir rastreamento no painel Assinaturas do Gerenciamento de API](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Clique em **"Enviar"** para fazer uma chamada de API. 
+6. Clique em **Enviar** para fazer uma chamada à API. 
 7. Aguarde a conclusão da chamada. 
 8. Acesse a guia **Rastreamento** no **Console de API**. Você pode clicar em qualquer um dos links a seguir para ir até as informações de rastreamento detalhadas: **entrada**, **back-end**, **saída**.
 
@@ -65,7 +67,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Rastrear uma chamada

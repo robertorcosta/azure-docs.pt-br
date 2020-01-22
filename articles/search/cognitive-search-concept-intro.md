@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791038"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754572"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introdução à IA na Pesquisa Cognitiva do Azure
 
@@ -103,7 +103,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 ## <a name="key-features-and-concepts"></a>Principais recursos e conceitos
 
-| Conceito | DESCRIÇÃO| Links |
+| Conceito | Descrição| Links |
 |---------|------------|-------|
 | Conjunto de habilidades | Um recurso nomeado de nível superior que contém uma coleção de habilidades. Um conjunto de habilidades é o pipeline de enriquecimento. Ele é invocado durante a indexação por um indexador. | Confira [Definir um conjunto de habilidades](cognitive-search-defining-skillset.md) |
 | Habilidades cognitivas | Uma transformação atômica em um pipeline de enriquecimento. Geralmente, é um componente que extrai ou infere a estrutura e, portanto, aumenta o seu entendimento sobre os dados de entrada. Quase sempre, a saída é baseada em texto e o processamento é de idioma natural ou de imagem que extrai ou gera o texto usando entradas de imagem. A saída de uma habilidade pode ser mapeada para um campo em um índice ou usada como entrada para um enriquecimento de downstream. Uma habilidade é predefinida e fornecida pela Microsoft ou personalizada, ou seja, criada e implantada por você. | [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) |
@@ -113,11 +113,11 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 | Desbloqueio de documento | O processo de extração ou criação de conteúdo de texto de fontes que não são de texto durante a indexação. O OCR (reconhecimento óptico de caracteres) é um exemplo, mas geralmente se refere à funcionalidade principal do indexador, pois o indexador extrai o conteúdo de arquivos de aplicativo. A fonte de dados que fornece o local do arquivo de origem e a definição do indexador que fornece os mapeamentos de campo são os dois fatores-chave no desbloqueio de documento. | Confira [Visão geral dos indexadores](search-indexer-overview.md) |
 | Formatação | Consolidar os fragmentos de texto em uma estrutura maior ou, ao contrário, dividir partes de texto maiores em um tamanho gerenciável para processamento de downstream posterior. | Confira [Habilidade de Modelagem](cognitive-search-skill-shaper.md), [Habilidade de Mesclagem de Texto](cognitive-search-skill-textmerger.md) e [Habilidade de Divisão de Texto](cognitive-search-skill-textsplit.md) |
 | Documentos enriquecidos | Uma estrutura interna transitória, gerada durante o processamento, com a saída final refletida em um índice de pesquisa. Um conjunto de qualificações que determina quais aprimoramentos são executados. Os mapeamentos de campo determinam quais elementos de dados são adicionados ao índice. Opcionalmente, você pode criar um repositório de conhecimento para persistir e explorar documentos enriquecidos usando ferramentas como o Gerenciador de Armazenamento, o Power BI ou qualquer outra ferramenta que se conecte ao armazenamento de Blobs do Azure. | Confira [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md) |
-| Indexador |  Um rastreador que extrai dados e metadados pesquisáveis de uma fonte de dados externa e popula um índice com base nos mapeamentos de campo a campo entre o índice e a fonte de dados para desbloqueio de documento. Para enriquecimentos de IA, o indexador invoca um conjunto de habilidades e contém os mapeamentos de campo que associam a saída do enriquecimento aos campos de destino no índice. A definição do indexador contém todas as instruções e as referências para as operações do pipeline e o pipeline é invocado quando você executa o indexador. Com a configuração adicional, você poderá reutilizar o processamento existente e executar somente as etapas e habilidades que foram alteradas. | Confira [Indexadores](search-indexer-overview.md) e [Indexação incremental (versão prévia)](cognitive-search-incremental-indexing-conceptual.md). |
-| Fonte de dados  | Um objeto usado por um indexador para se conectar a uma fonte de dados externa dos tipos com suporte no Azure. | Confira [Visão geral dos indexadores](search-indexer-overview.md) |
+| Indexador |  Um rastreador que extrai dados e metadados pesquisáveis de uma fonte de dados externa e popula um índice com base nos mapeamentos de campo a campo entre o índice e a fonte de dados para desbloqueio de documento. Para enriquecimentos de IA, o indexador invoca um conjunto de habilidades e contém os mapeamentos de campo que associam a saída do enriquecimento aos campos de destino no índice. A definição do indexador contém todas as instruções e as referências para as operações do pipeline e o pipeline é invocado quando você executa o indexador. Com a configuração adicional, você poderá reutilizar o conteúdo processado existente e executar somente as etapas e as habilidades que foram alteradas. | Confira [Indexadores](search-indexer-overview.md) e [Enriquecimento incremental (versão prévia)](cognitive-search-incremental-indexing-conceptual.md). |
+| fonte de dados  | Um objeto usado por um indexador para se conectar a uma fonte de dados externa dos tipos com suporte no Azure. | Confira [Visão geral dos indexadores](search-indexer-overview.md) |
 | Índice | Um índice de pesquisa persistente na Pesquisa Cognitiva do Azure, criado com base em um esquema de índice que define a estrutura e o uso do campo. | Confira [Criar um índice básico](search-what-is-an-index.md) | 
 | Repositório de conhecimento | Uma conta de armazenamento em que os documentos aprimorados podem ser moldados e projetados juntamente com o índice de pesquisa | Confira [Introdução ao repositório de conhecimento](knowledge-store-concept-intro.md) | 
-| Cache do indexador | As saídas de habilidade de uma conta de armazenamento são armazenadas em cache pelo indexador. O cache permite que o indexador minimize o custo de reprocessar um grande número de documentos quando um conjunto de habilidades é editado. | Confira [Indexação incremental](cognitive-search-incremental-indexing-conceptual.md) | 
+| Cache | Uma conta de armazenamento que contém a saída armazenada em cache criada por um pipeline de enriquecimento. A habilitação do cache preserva a saída existente que não é afetada por alterações em um conjunto de habilidades ou em outros componentes do pipeline de enriquecimento. | Confira [Enriquecimento incremental](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 
@@ -139,7 +139,7 @@ Você pode usar a `api-version=2019-05-06` REST ou o SDK .NET. Se estiver explor
 
 Esta etapa usa as APIs REST para criar uma solução de enriquecimento de IA. Apenas duas APIs são adicionadas ou estendidas para o enriquecimento de IA. As outras APIs têm a mesma sintaxe que as versões disponíveis ao público.
 
-| API REST | DESCRIÇÃO |
+| API REST | Descrição |
 |-----|-------------|
 | [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa, fornecendo os dados de origem usados para criar documentos enriquecidos.  |
 | [Criar Conjunto de Qualificações (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Essa API é específica do enriquecimento de IA. Trata-se de um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) em um pipeline de enriquecimento durante a indexação. |
@@ -174,4 +174,4 @@ Para obter mais informações sobre problemas ou dúvidas específicas, confira 
 + [Início Rápido: Experimentar o enriquecimento de IA em um passo a passo no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Aprender a usar as APIs de enriquecimento de IA](cognitive-search-tutorial-blob.md)
 + [Repositório de conhecimento (versão prévia)](knowledge-store-concept-intro.md)
-+ [Passo a passo do repositório de dados de conhecimento](knowledge-store-howto.md)
++ [Criar um repositório de conhecimento no REST](knowledge-store-create-rest.md)

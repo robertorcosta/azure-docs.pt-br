@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227158"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769295"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função disparada pelo Armazenamento de Blobs do Azure
 
@@ -18,7 +18,7 @@ Saiba como criar uma função disparada quando arquivos são carregados ou atual
 
 ![Exiba a mensagem nos logs.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 + Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 + Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -45,7 +45,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 1. No campo de pesquisa, digite `blob` e escolha o modelo **Gatilho de blob**.
 
-1. Se solicitado, selecione **Instalar** para instalar a extensão de Armazenamento do Azure em todas as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
+1. Se solicitado, selecione **Instalar** para instalar a extensão do Armazenamento do Azure e as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
 
     ![Instalar extensões de associação](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 
@@ -77,7 +77,7 @@ Em seguida, você pode se conectar à sua conta de armazenamento do Azure e cria
 
     ![Insira as credenciais de armazenamento e conecte-se.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Contêineres de blob**, clique em **Criar contêiner de blob**, digite `samples-workitems` e pressione enter.
+1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Contêineres de Blob**, clique em **Criar Contêiner de Blob**, digite `samples-workitems` e, em seguida, pressione Enter.
 
     ![Crie uma fila de armazenamento.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -87,7 +87,7 @@ Agora que você tem um contêiner de blob, você pode testar a função carregan
 
 1. De volta ao Portal do Azure, navegue até sua função, expanda os **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
 
-1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Contêineres de blob** e **samples-workitems**. Clique em **Carregar** e depois em **Carregar arquivos...** .
+1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Contêineres de Blob** e **samples-workitems**. Clique em **Carregar** e depois em **Carregar arquivos...** .
 
     ![Carregue um arquivo para o contêiner de blob.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
@@ -100,7 +100,7 @@ Agora que você tem um contêiner de blob, você pode testar a função carregan
     >[!NOTE]
     > Quando seu aplicativo de funções é executado no plano de consumo padrão, pode haver um atraso de até vários minutos entre o blob que está sendo adicionado ou atualizado e a função sendo disparada. Se você precisar de baixa latência em suas funções disparadas por blob, considere executar seu aplicativo de funções em um Plano do Serviço de Aplicativo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

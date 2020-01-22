@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326425"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945221"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutorial: Iniciar a Leitura Avançada usando o projeto de exemplo do Python
 
@@ -28,9 +28,9 @@ Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avanç
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-* Um recurso de Leitura Avançada configurado para autenticação do Azure AD (Azure Active Directory). Siga [estas instruções](./azure-active-directory-authentication.md) para a configuração. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
+* Um recurso de Leitura Avançada configurado para autenticação do Azure Active Directory. Siga [estas instruções](./how-to-create-immersive-reader.md) para a configuração. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do ambiente. Salve a saída da sessão em um arquivo de texto para referência futura.
 * [Git](https://git-scm.com/)
 * [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) e [pip](https://docs.python.org/3/installing/index.html). Do Python 3.4 em diante, o pip é incluído por padrão com os instaladores de binários do Python.
@@ -40,20 +40,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 * [módulo de solicitações](https://pypi.org/project/requests/2.7.0/)
 * Um IDE como o [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação do Azure AD
+## <a name="configure-authentication-credentials"></a>Configurar as credenciais de autenticação
 
-Escreva uma API de back-end para recuperar um token de autenticação do Azure AD.
-
-Você precisará de alguns valores da etapa de pré-requisito de configuração da autenticação do Azure AD acima para esta parte. Veja novamente o arquivo de texto que você salvou dessa sessão.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Quando você tiver esses valores, crie um arquivo chamado _.env_ e cole o código a seguir nele, fornecendo os valores de propriedade personalizada acima. Substitua o arquivo _.env._ no aplicativo de exemplo pelo arquivo que você acaba de criar.
+Crie um arquivo chamado _.env_ e cole o código a seguir nele, fornecendo os valores fornecidos quando você criou o recurso de Leitura Avançada.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

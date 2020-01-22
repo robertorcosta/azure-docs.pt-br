@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196392"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028660"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -95,18 +95,18 @@ Para se preparar para a avaliação do servidor físico, você precisa verificar
 
 ### <a name="verify-physical-server-settings"></a>Verificar as configurações do servidor físico
 
-1. Verifique os [requisitos do servidor físico](migrate-support-matrix-physical.md#assessment-physical-server-requirements) para avaliação do servidor.
-2. Verifique se as [portas necessárias](migrate-support-matrix-physical.md#assessment-port-requirements) estão abertas nos servidores físicos.
+1. Verifique os [requisitos do servidor físico](migrate-support-matrix-physical.md#physical-server-requirements) para avaliação do servidor.
+2. Verifique se as [portas necessárias](migrate-support-matrix-physical.md#port-access) estão abertas nos servidores físicos.
 
 
 ### <a name="verify-appliance-settings"></a>Verificar configurações do dispositivo
 
 Antes de configurar o dispositivo das Migrações para Azure e iniciar a avaliação no próximo tutorial, prepare-se para a implantação do dispositivo.
 
-1. [Verifique](migrate-support-matrix-physical.md#assessment-appliance-requirements) os requisitos do dispositivo.
-2. [Examine](migrate-support-matrix-physical.md#assessment-appliance-url-access) as URLs do Azure que o dispositivo precisará acessar.
-3. Examine os dados que o dispositivo coletará durante a descoberta e a avaliação.
-4. [Observe](migrate-support-matrix-physical.md#assessment-port-requirements) os requisitos de acesso da porta para o dispositivo.
+1. [Verifique](migrate-appliance.md#appliance---physical) os requisitos de dispositivo para servidores físicos.
+2. [Examine](migrate-appliance.md#url-access) as URLs do Azure que o dispositivo precisará acessar.
+3. [Examine](migrate-appliance.md#collected-data---vmware) o que o dispositivo coletará durante a descoberta e a avaliação.
+4. [Observe](migrate-support-matrix-physical.md#port-access) os requisitos da porta de acesso para avaliação do servidor.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configurar uma conta para descoberta de servidor físico
@@ -116,10 +116,19 @@ As Migrações para Azure precisam de permissões para descobrir servidores loca
 - **Windows:** Configure uma conta de usuário local em todos os servidores Windows que você deseja incluir na descoberta. A conta de usuário precisa ser adicionada aos seguintes grupos:      – Usuários do Gerenciamento Remoto      – Usuários do Monitor de Desempenho      – Usuários do Log de Desempenho
 - **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
 
+## <a name="prepare-for-physical-server-migration"></a>Preparar para migração do servidor físico
+
+Examine os requisitos para migração de servidores físicos.
+
+- [Examine](migrate-support-matrix-physical-migration.md#physical-server-requirements) os requisitos do servidor físico para a migração.
+- Migrações para Azure: A Migração de Servidor usa um servidor de replicação para a migração de servidor físico:
+    - [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos de implantação do dispositivo de replicação e as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no dispositivo.
+    - Examine os requisitos de acesso da [URL](migrate-replication-appliance.md#url-access) e da [porta] (migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você irá:
+Neste tutorial, você:
 
 > [!div class="checklist"]
 > * Configurou permissões de conta do Azure.

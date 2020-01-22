@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2018
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d7200dd89d51817a5d146ff4d33e2501ed2826
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278021"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971956"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure
 
@@ -36,11 +36,22 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 > [!NOTE]
 > A autenticação do Azure Active Directory para Armazenamento do Azure está em versão prévia.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+
+
+## <a name="enable"></a>Habilitar
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Conceder acesso
+
+
+### <a name="create-storage-account"></a>Criar Conta de Armazenamento
 
 Nesta seção, você criará uma conta de armazenamento.
 
@@ -53,7 +64,7 @@ Nesta seção, você criará uma conta de armazenamento.
 
     ![Criar nova conta de armazenamento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Criar um contêiner de blob e carregar um arquivo na conta de armazenamento
+### <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Criar um contêiner de blob e carregar um arquivo na conta de armazenamento
 
 Arquivos exigem armazenamento de blobs, então é preciso criar um contêiner de blobs para armazenar o arquivo. Em seguida, você carrega um arquivo no contêiner de blobs na nova conta de armazenamento.
 
@@ -69,9 +80,9 @@ Arquivos exigem armazenamento de blobs, então é preciso criar um contêiner de
 7. No painel **Carregar blob**, em **Arquivos**, clique no ícone de pasta e navegue até o arquivo **hello_world.txt** em seu computador local, selecione-o e clique em **Carregar**.
     ![Carregar arquivo de texto](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Conceder à sua VM acesso a um contêiner do Armazenamento do Azure
+### <a name="grant-access"></a>Conceder acesso
 
-Você pode usar a identidade gerenciada atribuída pelo sistema da VM para recuperar os dados no Azure Storage Blob.
+Esta seção mostra como conceder à sua VM acesso a um contêiner do Armazenamento do Azure. Você pode usar a identidade gerenciada atribuída pelo sistema da VM para recuperar os dados no Azure Storage Blob.
 
 1. Navegue de volta para sua conta de armazenamento criado recentemente.
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.
@@ -83,7 +94,7 @@ Você pode usar a identidade gerenciada atribuída pelo sistema da VM para recup
 
     ![Atribuir permissões](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>Obter um token de acesso e usá-lo para chamar o Armazenamento do Azure 
+## <a name="access-data"></a>Acessar dados 
 
 O Armazenamento do Azure tem suporte nativo para autenticação do Azure AD, de modo que ele pode aceitar diretamente os tokens de acesso obtidos por meio da identidade gerenciada. Isso faz parte da integração do Armazenamento do Azure com o Azure AD, e é diferente de fornecer as credenciais na cadeia de conexão.
 
@@ -160,6 +171,13 @@ namespace StorageOAuthToken
 A resposta tem o conteúdo do arquivo:
 
 `Hello world! :)`
+
+
+## <a name="disable"></a>Desabilitar
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

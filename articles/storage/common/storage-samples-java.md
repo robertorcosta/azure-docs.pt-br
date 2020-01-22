@@ -7,18 +7,21 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 2d08180d40233c0ab990bc700f0412d11647d5f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dfdde1ae981dcd2d539dec3667e44e90cef4d1c8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349957"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748035"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure usando Java
 
 A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e os cenários abordados em cada exemplo. Clique nos links para exibir o código de exemplo correspondente no GitHub.
 
-## <a name="blob-samples"></a>Exemplos de blob
+> [!NOTE]
+> Essas amostras usam a biblioteca v11 do Armazenamento do Azure para Java. Para o código v12, confira [exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob) no repositório do GitHub.
+
+## <a name="blob-samples-v11"></a>Amostras de blob (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -39,7 +42,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 | Propriedades do serviço | [Introdução ao Serviço Blob do Azure em Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
 | Blob de instantâneo | [Introdução ao Serviço Blob do Azure em Java](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
 
-## <a name="file-samples"></a>Exemplos de arquivo
+## <a name="file-samples-v11"></a>Amostras de arquivo (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 | Listar compartilhamentos | [Introdução ao Serviço Arquivo do Azure em Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
 | Compartilhar metadados/propriedades/estatísticas | [Introdução ao Serviço Arquivo do Azure em Java](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
 
-## <a name="queue-samples"></a>Exemplos de fila
+## <a name="queue-samples-v11"></a>Amostras de fila (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -66,7 +69,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 | Propriedades do serviço de fila | [Introdução ao Serviço Fila do Azure em Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
 | Atualização de mensagem | [Introdução ao Serviço Fila do Azure em Java](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
 |
-## <a name="table-samples"></a>Exemplos de tabela
+## <a name="table-samples-v11"></a>Amostras de tabela (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|

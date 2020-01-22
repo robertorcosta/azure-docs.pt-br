@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar uma cerca geográfica usando o Azure Mapas'
-description: 'Tutorial: Configure um limite geográfico usando o Azure Mapas.'
+title: 'Tutorial: Criar uma cerca geográfica e controlar dispositivos em um mapa | Microsoft Azure Mapas'
+description: Neste tutorial, saiba como configurar uma cerca geográfica e controlar dispositivos em relação à cerca geográfica usando o Serviço Espacial do Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407826"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910936"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
@@ -58,7 +58,7 @@ Abra o aplicativo Postman e siga as etapas a seguir para carregar o limite geogr
 
 3. Clique em **Parâmetros** e insira os seguintes pares de chave/valor a serem usados para a URL da solicitação POST. Substitua o valor subscription-key pela chave do Azure Mapas.
    
-    ![Postman de parâmetros de chave-valor](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parâmetros para carregar dados (cerca geográfica) no Postman](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Clique em **Corpo** e, em seguida, selecione o formato de entrada bruto e escolha JSON como o formato de entrada na lista suspensa. Forneça o seguinte JSON como dados a serem carregados:
 
@@ -177,7 +177,7 @@ Você pode ver todos os [manipuladores de eventos com suporte](https://docs.micr
 
 1. Criar um aplicativo lógico no portal do Azure
 
-   ![Criar Aplicativos Lógicos](./media/tutorial-geofence/logic-app.png)
+   ![Criar Aplicativos Lógicos do Azure para manipular eventos de cerca geográfica](./media/tutorial-geofence/logic-app.png)
 
 2. Selecione um gatilho de solicitação HTTP e, em seguida, selecione "enviar um email" como uma ação no conector do Outlook
   
@@ -185,7 +185,7 @@ Você pode ver todos os [manipuladores de eventos com suporte](https://docs.micr
 
 3. Salve o Aplicativo Lógico para gerar o ponto de extremidade de URL HTTP e copie a URL HTTP.
 
-   ![Ponto de extremidade de Aplicativos Lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Gerar um ponto de extremidade de Aplicativos Lógicos](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Criar uma assinatura de Eventos do Azure Mapas
@@ -196,15 +196,15 @@ Siga as etapas abaixo para criar uma assinatura de evento para eventos de entrad
 
 1. Navegue até sua conta do Azure Mapas por meio [deste link ao portal](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) e selecione a guia Eventos.
 
-   ![Status do Azure Mapas](./media/tutorial-geofence/events-tab.png)
+   ![Navegue até os eventos da conta do Azure Mapas](./media/tutorial-geofence/events-tab.png)
 
 2. Para criar uma assinatura de evento, selecione Assinatura de Evento na página de eventos.
 
-   ![Assinatura de Eventos do Azure Mapas](./media/tutorial-geofence/create-event-subscription.png)
+   ![Criar uma assinatura de Eventos do Azure Mapas](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Nomeie a assinatura de eventos e assine o tipo de evento Entrada. Agora, selecione o Web Hook como "Tipo de Ponto de Extremidade" e copie seu ponto de extremidade de URL HTTP do Aplicativo Lógico em "Ponto de Extremidade"
 
-   ![Assinatura de eventos](./media/tutorial-geofence/events-subscription.png)
+   ![Detalhes da assinatura de Eventos do Azure Mapas](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Usar a API de limite geográfico
@@ -214,7 +214,7 @@ Você pode usar a API de limite geográfico para verificar se um **dispositivo**
 > [!Note]
 > O cenário e o comportamento acima se baseiam na mesma **ID do dispositivo** para que ela reflita os cinco locais diferentes, conforme a figura abaixo.
 
-![Mapa do limite geográfico](./media/tutorial-geofence/geofence.png)
+![Mapa de cerca geográfica no Azure Mapas](./media/tutorial-geofence/geofence.png)
 
 No aplicativo Postman, abra uma nova guia na mesma coleção criada acima. Selecione o método HTTP GET na guia do compilador:
 

@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707740"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912273"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados de dispositivo simulado
 
@@ -123,7 +123,7 @@ Agora que temos a compilação do projeto, conecte-se ao seu hub IoT para acessa
 
 1. Você pode exibir as mensagens que estão sendo enviadas para o hub clicando com o botão direito do mouse em qualquer dispositivo e selecionando **Iniciar Monitoramento do Ponto de Extremidade de Evento Interno**. As mensagens serão exibidas no painel de saída no Visual Studio Code.
 
-1. Interrompa o monitoramento clicando no painel de saída **Kit de Ferramentas do Hub IoT do Azure** e escolha **Interromper o Monitoramento do Ponto de Extremidade de Evento Interno**.
+1. Interrompa o monitoramento clicando no painel de saída **Hub IoT do Azure** e escolha **Interromper o Monitoramento do Ponto de Extremidade de Evento Interno**.
 
 1. Permita que a execução do aplicativo seja concluída, o que leva alguns minutos.
 

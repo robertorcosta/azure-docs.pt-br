@@ -4,12 +4,12 @@ description: Saiba como criar Azure Functions em execução em uma imagem person
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e70edac09c8b2d61c148c9ba0fd04ec231e9a965
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551481"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769312"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Crie uma função no Linux usando uma imagem personalizada
 
@@ -17,7 +17,7 @@ O Azure Functions permite hospedar suas funções no Linux em seu próprio cont�
 
 Neste tutorial, você aprenderá a implantar suas funções no Azure como uma imagem personalizada do Docker. Esse padrão será útil quando você precisar personalizar a imagem de contêiner interna. Convém usar uma imagem personalizada quando suas funções precisarem de uma versão de idioma específico, ou exigirem uma configuração ou dependência específica que não é fornecida na imagem interna. Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
-Este tutorial explica como usar o Azure Functions Core Tools para criar uma função em uma imagem personalizada do Linux. Publique essa imagem em um aplicativo de funções no Azure, que foi criado usando a CLI do Azure. Posteriormente, você atualizará a função para se conectar ao armazenamento de Filas do Azure. Você também a habilitará.  
+Este tutorial explica como usar o Azure Functions Core Tools para criar uma função em uma imagem personalizada do Linux. Publique essa imagem em um aplicativo de funções no Azure, que foi criado usando a CLI do Azure. Posteriormente, você atualizará a função para se conectar ao armazenamento de Filas do Azure.
 
 Neste tutorial, você aprenderá como:
 
@@ -101,7 +101,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 Quando o comando for concluído, você poderá executar o novo contêiner localmente.
 
 ### <a name="run-the-image-locally"></a>Executar a imagem localmente
-Verifique se a imagem criada funciona executando a imagem do Docker em um contêiner local. Execute o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e envie o nome e a marcação da imagem para ele. Lembre-se de especificar a porta usando o argumento `-p`.
+Verifique se a imagem criada funciona executando a imagem do Docker em um contêiner local. Execute o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e envie o nome e a marcação da imagem para ele. Lembre-se de especificar as portas usando o argumento `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -118,7 +118,7 @@ Depois de verificar o aplicativo de funções no contêiner, interrompa a execu�
 
 ## <a name="push-to-docker-hub"></a>Enviar por push para o Docker Hub
 
-Um Registro é um aplicativo que hospeda imagens e fornece a imagem de serviços e serviços de contêiner. Para compartilhar sua imagem, você deve enviá-la por push para um registro. O Hub do Docker é um Registro para imagens do Docker que permite hospedar seus próprios repositórios públicos ou particulares.
+Um Registro é um aplicativo que hospeda imagens e fornece serviços de contêiner e imagem. Para compartilhar sua imagem, você deve enviá-la por push para um registro. O Hub do Docker é um Registro para imagens do Docker que permite hospedar seus próprios repositórios públicos ou particulares.
 
 Antes de enviar uma imagem por push, você deve entrar no Hub do Docker usando o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Substitua `<docker-id>` pelo nome de sua conta e digite sua senha no console do prompt. Para obter outras opções de senha de Hub do Docker, confira a [documentação de comandos de logon do docker](https://docs.docker.com/engine/reference/commandline/login/).
 
@@ -140,7 +140,7 @@ Após o push ter êxito, você pode usar a imagem como a origem de implantação
 
 ## <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-Hospedagem do Linux para contêineres personalizados do Functions compatíveis em [planos Dedicados (Serviço de Aplicativo)](functions-scale.md#app-service-plan) e [planos Premium](functions-premium-plan.md#features). Este tutorial usa um plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre hospedagem, confira [Comparação de planos de hospedagem do Azure Functions](functions-scale.md).
+Há suporte para a hospedagem no Linux de contêineres personalizados do Functions em [planos Dedicados (Serviço de Aplicativo)](functions-scale.md#app-service-plan) e [planos Premium](functions-premium-plan.md#features). Este tutorial usa um plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre hospedagem, confira [Comparação de planos de hospedagem do Azure Functions](functions-scale.md).
 
 O exemplo a seguir cria um plano Premium chamado `myPremiumPlan` no **tipo de preço Elástico Premium 1** (`--sku EP1`), na região Oeste dos EUA (`-location WestUS`) e em um contêiner do Linux (`--is-linux`).
 
@@ -346,13 +346,13 @@ Depois que a associação é definida, você pode usar o `name` da associação 
 Na pasta raiz, execute o comando [docker build](https://docs.docker.com/engine/reference/commandline/build/) novamente e, desta vez, atualize a versão na tag para `v1.0.2`. Como antes, substitua `<docker-id>` pela ID da conta do Docker Hub. 
 
 ```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
+docker build --tag <docker-id>/mydockerimage:v1.0.2
 ```
 
 Envie por push a imagem atualizada de volta para o repositório.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0
+docker push <docker-id>/mydockerimage:v1.0.2
 ```
 
 ### <a name="verify-the-updates-in-azure"></a>Verificar as atualizações no Azure

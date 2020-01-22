@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 50c5067c3db2f07da225b72d9ba0a8f0bdc44368
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431770"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748146"
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemplos de Armazenamento do Azure usando .NET
 
@@ -21,7 +21,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 > [!NOTE]
 > Esses exemplos usam a biblioteca .NET v11 do Armazenamento do Azure. Para o código v12, confira [exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) no repositório do GitHub.
 
-## <a name="blob-samples"></a>Exemplos de blob
+## <a name="blob-samples-v11"></a>Amostras de blob (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -42,7 +42,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 | Propriedades do serviço | [Introdução aos blobs](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Blob de instantâneo | [Fazer backup de discos de máquina virtual do Azure com instantâneos incrementais](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
-## <a name="file-samples"></a>Exemplos de arquivo
+## <a name="file-samples-v11"></a>Amostras de arquivo (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -56,7 +56,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 | Listar compartilhamentos | [Exemplo de Armazenamento de Arquivos do .NET para Armazenamento do Azure](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 | Compartilhar metadados/propriedades/estatísticas | [Exemplo de Armazenamento de Arquivos do .NET para Armazenamento do Azure](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 
-## <a name="queue-samples"></a>Exemplos de fila
+## <a name="queue-samples-v11"></a>Amostras de fila (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|
@@ -69,7 +69,7 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 | Propriedades do serviço de fila | [Introdução ao Serviço Fila do Azure no .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
 | Atualização de mensagem | [Introdução ao Serviço Fila do Azure no .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 
-## <a name="table-samples"></a>Exemplos de tabela
+## <a name="table-samples-v11"></a>Amostras de tabela (v11)
 
 | **Cenário** | **Código de exemplo** |
 |--------------|-----------------|

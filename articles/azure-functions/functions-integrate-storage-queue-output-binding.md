@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226876"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769176"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 
@@ -18,7 +18,7 @@ No Azure Functions, as associações de entrada e saída fornecem uma maneira de
 
 ![Mensagem da fila mostrada no Gerenciador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia de início rápido:
 
@@ -34,7 +34,7 @@ Nesta seção, você usa a interface do usuário do portal para adicionar uma as
 
 1. Selecione a função que você criou no guia de início rápido anterior.
 
-1. Selecione **Integrar > Nova saída > Armazenamento de fila do Azure**.
+1. Selecione **Integrar > Nova Saída > Armazenamento de Filas do Azure**.
 
 1. Clique em **Selecionar**.
 
@@ -48,7 +48,7 @@ Nesta seção, você usa a interface do usuário do portal para adicionar uma as
 
     ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Configuração      |  Valor sugerido   | DESCRIÇÃO                              |
+    | Configuração      |  Valor sugerido   | Descrição                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome do parâmetro de mensagem** | outputQueueItem | O nome do parâmetro de associação de saída. | 
     | **Conexão da conta de armazenamento** | AzureWebJobsStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
@@ -103,7 +103,7 @@ Nesta seção, você adiciona o código que grava uma mensagem na fila de saída
 
     ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    Observe que o **Corpo da solicitação** contém o valor de `name` *Azure*. Esse valor aparece na mensagem da fila que é criada quando a função é invocada.
+    Observe que o **Corpo da solicitação** contém o valor de `name`*Azure*. Esse valor aparece na mensagem da fila que é criada quando a função é invocada.
     
     Como uma alternativa para selecionar **Executar** aqui, você pode chamar a função inserindo uma URL em um navegador e especificando o valor `name` na cadeia de consulta. O método de navegador é mostrado no [guia de início rápido anterior](functions-create-first-azure-function.md#test-the-function).
 
@@ -149,7 +149,7 @@ Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o 
 
 1. Execute a função novamente e você verá uma nova mensagem exibida na fila.  
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 

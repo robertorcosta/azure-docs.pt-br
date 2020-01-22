@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383138"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895553"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
 
@@ -27,7 +27,7 @@ O vídeo a seguir resume a instalação do início rápido:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Se você ainda não tiver uma conta do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -83,11 +83,11 @@ O grafo espacial é provisionado usando o arquivo [provisionSample.yaml](https:/
 
 1. A etapa de provisionamento pode levar alguns minutos. Ela também provisiona um Hub IoT em sua instância dos Gêmeos Digitais. Ela será repetida até que o Hub IoT exiba o Status=`Running`.
 
-    [![Provisionar o exemplo – Status = Em execução](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Provisionar o exemplo – Status = Em execução](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. No final da execução, copie a `ConnectionString` do dispositivo para usar no exemplo do simulador de dispositivo. Copie apenas a cadeia de caracteres descrita nesta imagem.
 
-    [![Copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![Copiar a cadeia de conexão](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > É possível exibir e modificar seu grafo espacial usando o [Visualizador de Grafos dos Gêmeos Digitais do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -102,9 +102,9 @@ Compile e execute o aplicativo do dispositivo simulador de sensor executando est
 1. Execute `cd device-connectivity`.
 1. Execute `dotnet restore`.
 1. Edite [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) para atualizar **DeviceConnectionString** com a `ConnectionString` anterior. Salve o arquivo atualizado.
-1. Execute `dotnet run` para começar a enviar dados de sensor. Você verá que eles são enviados para os Gêmeos Digitais, conforme mostrado na imagem a seguir.
+1. Execute `dotnet run` para começar a enviar dados de sensor. Ele será enviado para os Gêmeos Digitais do Azure, conforme mostrado na imagem a seguir.
 
-     [![Conectividade do dispositivo](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![Conectividade do dispositivo](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. Deixe que esse simulador seja executado para que você possa exibir os resultados lado a lado com a ação da próxima etapa. A janela mostra os dados de sensor simulado enviados para os Gêmeos Digitais. A próxima etapa faz consultas em tempo real para encontrar salas disponíveis com ar fresco.
 
@@ -123,7 +123,7 @@ O exemplo de sensor simula os valores de dados aleatórios para dois sensores. E
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![Obter espaços disponíveis com ar fresco](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![Obter espaços disponíveis com ar fresco](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 Para entender o que aconteceu neste início rápido e quais APIs foram chamadas, abra o [Visual Studio Code](https://code.visualstudio.com/Download) com o projeto de workspace do código encontrado em `digital-twins-samples-csharp`. Use o seguinte comando:
 
@@ -137,14 +137,14 @@ Os tutoriais se aprofundam no código. Eles ensinam como modificar dados de conf
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOME | Substitua por |
+| Nome | Substitua por |
 | --- | --- |
 | NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
 | SUA_LOCALIZAÇÃO | A região do servidor na qual sua instância está hospedada |
 
 Ou, para sua conveniência, navegue até o [Swagger dos Gêmeos Digitais](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os tutoriais abordam detalhes sobre como:
 
@@ -161,7 +161,7 @@ Para continuar nos tutoriais, não limpe os recursos criados neste início rápi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este início rápido usou um cenário simples e aplicativos de exemplo para mostrar como os Gêmeos Digitais podem ser usados para encontrar salas com boas condições de trabalho. Para obter uma análise detalhada do cenário, confira este tutorial:
+Este início rápido usou um cenário simples e aplicativos de exemplo para mostrar como os Gêmeos Digitais podem ser usados para encontrar salas com boas condições de trabalho. Para obter uma análise detalhada do cenário, leia este tutorial:
 
 >[!div class="nextstepaction"]
 >[Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial](tutorial-facilities-setup.md)

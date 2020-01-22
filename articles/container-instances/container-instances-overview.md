@@ -4,12 +4,12 @@ description: O serviço das Instâncias de Contêiner do Azure oferece a maneira
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552314"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888026"
 ---
 # <a name="what-is-azure-container-instances"></a>O que são as Instâncias de Contêiner do Azure?
 
@@ -54,7 +54,7 @@ Alguns recursos estão restritos a contêineres Linux:
 * Vários contêineres por grupo de contêineres
 * Montagem de volume ([Arquivos do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
 * [Métricas de uso do recurso](container-instances-monitor.md) com o Azure Monitor
-* [Implantação da rede virtual (versão prévia](container-instances-vnet.md))
+* [Implantação da rede virtual](container-instances-vnet.md)
 * [Recursos da GPU](container-instances-gpu.md) (versão prévia)
 
 Para implantações de contêiner do Windows, use imagens baseadas em [imagens base do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) comuns.
@@ -66,12 +66,9 @@ Para implantações de contêiner do Windows, use imagens baseadas em [imagens b
 
 As Instâncias de Contêiner do Azure são compatíveis com a programação de [grupos com vários contêineres](container-instances-container-groups.md) que compartilham um computador host, uma rede local, um armazenamento e um ciclo de vida. Isso permite que você combine seu aplicativo principal com outros contêineres com função de suporte, como sidecars de log.
 
-## <a name="virtual-network-deployment-preview"></a>Implantação da rede virtual (versão prévia)
+## <a name="virtual-network-deployment"></a>Implantação da rede virtual
 
-Atualmente em versão prévia, esse recurso de Instâncias de Contêiner do Azure permite [implantação de instâncias de contêiner em uma Rede Virtual do Azure](container-instances-vnet.md). Ao implantar instâncias de contêiner em uma sub-rede em sua rede virtual, elas podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
-
-> [!IMPORTANT]
-> Determinados recursos de Instâncias de Contêiner do Azure estão em visualização e algumas [limitações se aplicam](container-instances-vnet.md#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desses recursos podem ser alterados antes da disponibilidade geral (GA).
+Atualmente disponível para cargas de trabalho de produção em um subconjunto de regiões do Azure, esse recurso de Instâncias de Contêiner do Azure permite [implantação de instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md). Ao implantar instâncias de contêiner em uma sub-rede em sua rede virtual, elas podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Próximas etapas
 

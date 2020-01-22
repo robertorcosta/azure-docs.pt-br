@@ -1040,8 +1040,6 @@
         - name: Stream Analytics do Azure
           href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
           maintainContext: true
-        - name: Aplicativos Lógicos e Barramento de serviço
-          href: change-feed-hl7-fhir-logic-apps.md
         - name: Hubs de Eventos do Azure e Armazenamento do Azure
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Usar iniciador do Spring Boot

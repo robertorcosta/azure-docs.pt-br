@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437746"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708284"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Início Rápido: Criar uma instância do modo híbrido com portal do Azure e Serviço de Migração de Banco de Dados do Azure
 
@@ -172,7 +172,7 @@ Atualmente, a desinstalação do modo híbrido do Serviço de Migração de Banc
 
 ## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Configurar o Hybrid Worker do Serviço de Migração de Banco de Dados do Azure usando o PowerShell
 
-Além de instalar o Hybrid Worker do Serviço de Migração de Banco de Dados do Azure por meio do portal do Azure, fornecemos um script do PowerShell que você pode usar para automatizar as etapas de instalação do trabalho depois de criar uma instância do Serviço de Migração de Banco de Dados do Azure no modo híbrido. O script:
+Além da instalação do Hybrid Worker do Serviço de Migração de Banco de Dados do Azure por meio do portal do Azure, fornecemos um [script do PowerShell](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) que você pode usar para automatizar as etapas de instalação do Hybrid Worker depois de criar uma instância do Serviço de Migração de Banco de Dados do Azure no modo híbrido. O script:
 
 1. Cria um AdApp.
 2. Baixa o instalador.

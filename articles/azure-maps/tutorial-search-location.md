@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Pesquisar com Azure Mapas'
-description: 'Tutorial: Pesquisar ponto de interesse próximo usando os Mapas do Azure'
+title: 'Tutorial: Pesquisar localizações próximas em um mapa | Microsoft Azure Mapas'
+description: Neste tutorial, você aprenderá a pesquisar localizações (pontos de interesse) próximas em um mapa usando o Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432723"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910819"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -49,7 +49,7 @@ Crie uma nova conta dos Mapas seguindo as etapas abaixo:
     * Leia a *Política de Privacidade* e de *Licença* e marque a caixa de seleção para aceitar os termos.
     * Selecione o botão **Criar**.
 
-![Criar a conta dos Mapas no portal](./media/tutorial-search-location/create-account.png)
+![Criar uma conta do Azure Mapas no portal do Azure](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -61,9 +61,9 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite con
 2. Na seção de configurações, selecione **Autenticação**.
 3. Copie a **Chave Primária** para sua área de transferência. Salve-a localmente para usar depois neste tutorial.
 
-![Obter a Chave Primária no portal](./media/tutorial-search-location/get-key.png)
+![Obter a Chave Primária no portal do Azure](./media/tutorial-search-location/get-key.png)
 
-Para obter mais detalhes sobre a autenticação no Azure Mapas, confira [Gerenciar a autenticação no Azure Mapas](how-to-manage-authentication.md).
+Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 

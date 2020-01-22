@@ -124,6 +124,8 @@
           href: scale-vmware-assessment.md
         - name: Avaliar grandes números de VMs do Hyper-V
           href: scale-hyper-v-assessment.md
+        - name: Avaliar grandes números de servidores físicos
+          href: scale-physical-assessment.md
         - name: Automatizar a migração de um grande número de VMs
           href: how-to-migrate-at-scale.md
         - name: Exemplos de migração (série da Contoso)

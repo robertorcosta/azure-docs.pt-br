@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6adb48b9d6c490b60302f93101506ec53679ae4f
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530132"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861805"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de Versão Prévia do Azure Time Series Insights
 
@@ -39,7 +39,7 @@ Inscreva-se em uma [assinatura do Azure gratuita](https://azure.microsoft.com/fr
 
 ## <a name="prerequisites"></a>Prerequisites
 
-* No mínimo, você deve ter a função de **Colaborador** para a assinatura do Azure. Para obter mais informações, confira [Gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+* No mínimo, você deve ter a função de **Colaborador** para a assinatura do Azure. Para obter mais informações, leia [Gerenciar o acesso usando o controle de acesso baseado em função e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Criar uma simulação de dispositivo
 
@@ -51,7 +51,7 @@ Nesta seção, você criará três dispositivos simulados que enviam dados para 
 
 1. Na próxima página, selecione **Experimentar agora**. Em seguida, insira os parâmetros necessários na página da **solução Criar Simulação de Dispositivo**.
 
-   Parâmetro|DESCRIÇÃO
+   Parâmetro|Descrição
    ---|---
    **Nome da implantação** | Esse valor exclusivo é usado para criar um grupo de recursos. Os recursos do Azure listados são criados e atribuídos ao grupo de recursos.
    **Assinatura do Azure** | Especifique a mesma assinatura usada para criar o ambiente do Time Series Insights na seção anterior.
@@ -62,12 +62,12 @@ Nesta seção, você criará três dispositivos simulados que enviam dados para 
 
    [![Provisione a solução de simulação de dispositivo.](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Após a conclusão do provisionamento, você verá duas atualizações exibindo que o estado da implantação foi movido de **Provisionamento** para **Pronto**. 
+1. Após a conclusão do provisionamento, duas notificações serão exibidas anunciando que o estado da implantação mudou de **Provisionamento** para **Pronto**. 
 
    >[!IMPORTANT]
    > Não insira seu acelerador de solução ainda. Mantenha essa página da Web aberta porque você retornará a ela mais tarde.
 
-   [![Provisionamento da solução de simulação de dispositivo concluído.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
+   [![Provisionamentos da solução de simulação de dispositivo concluídos.](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
 
 1. Agora, inspecione os recursos recentemente criados no portal do Azure. Na página **Grupos de recursos**, observe que um grupo de recursos foi criado usando o **Nome da solução** fornecido na última etapa. Anote os recursos que foram criados para a simulação do dispositivo.
 
@@ -92,7 +92,7 @@ Esta seção descreve como criar um ambiente de visualização do Azure Time Ser
     | **Grupo de recursos** | Selecione um grupo de recursos existente ou crie um novo para o recurso de ambiente de Versão Prévia do Azure Time Series Insights. Um grupo de recursos é um contêiner para os recursos do Azure. É uma melhor prática usar o mesmo grupo de recursos que os outros recursos IoT criados pelo simulador de dispositivo. |
     | **Localidade** | Selecione uma região do data center para o seu ambiente de Versão Prévia do Azure Time Series Insights. Para evitar latência adicional, é melhor criar seu ambiente de Versão Prévia do Azure Time Series Insights na mesma região que o Hub IoT criado pelo simulador de dispositivo. |
     | **Camada** |  Selecione **PAYG** (*pagamento conforme o uso*). Essa é a SKU para a Versão Prévia do Azure Time Series Insights. |
-    | **Nome da propriedade** | Insira um valor que identifique exclusivamente sua instância de série temporal. O valor inserido na caixa **ID da Propriedade** não poderá ser alterado posteriormente. Para este tutorial, insira ***iothub-connection-device-id***. Para saber mais sobre a ID do Time Series, confira [Melhores práticas para a escolha de uma ID do Time Series](./time-series-insights-update-how-to-id.md). |
+    | **Nome da propriedade** | Insira um valor que identifique exclusivamente sua instância de série temporal. O valor inserido na caixa **ID da Propriedade** não poderá ser alterado posteriormente. Para este tutorial, insira ***iothub-connection-device-id***. Para saber mais sobre a ID da série temporal, leia [Melhores práticas para a escolha de uma ID da série temporal](./time-series-insights-update-how-to-id.md). |
     | **Nome da conta de armazenamento** | Insira um nome global exclusivo para uma nova conta de armazenamento.|
     |**Habilitar o armazenamento warm**|Selecione **Sim** para habilitar o armazenamento warm. Você pode voltar mais tarde e habilitar essa configuração. |
     |**Retenção de dados (em dias)**|Escolha a opção padrão de sete dias. |
@@ -125,7 +125,7 @@ Esta seção descreve como criar um ambiente de visualização do Azure Time Ser
 
     [![Página Examinar + Criar com o botão Criar.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
-    Você pode ver o status da implantação:
+    Você pode examinar o status da implantação:
 
     [![Notificação de que a implantação foi concluída.](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
@@ -169,7 +169,7 @@ Agora que você implantou seu ambiente do Time Series Insights, comece a transmi
 
     Selecione **Iniciar simulação**.
 
-    No painel de simulação do dispositivo, você verá **Dispositivos ativos** e **Mensagens totais**.
+    No painel de simulação do dispositivo, **Dispositivos ativos** e **Mensagens totais** serão exibidos.
 
     [![Painel de simulação de IoT do Azure.](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
@@ -181,9 +181,9 @@ Nesta seção, você executa análise básica em seus dados de série temporal u
 
     [![A URL do gerenciador da Versão Prévia do Time Series Insights.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. No Gerenciador do Time Series Insights, você verá uma barra abrangendo a parte superior da tela. Este é seu seletor de disponibilidade. Verifique se você tem pelo menos dois minutos selecionados e, se necessário, expanda o período selecionando e arrastando os identificadores do seletor para a esquerda e para a direita.
+1. No Gerenciador do Time Series Insights, barra abrangendo a parte superior da tela será exibida. Este é seu seletor de disponibilidade. Verifique se você tem pelo menos dois minutos selecionados e, se necessário, expanda o período selecionando e arrastando os identificadores do seletor para a esquerda e para a direita.
 
-1. Você poderá ver **Instâncias de Série Temporal** à esquerda.
+1. As **Instâncias de Série Temporal** serão exibidas à esquerda.
 
     [![Lista de instâncias órfãs.](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
@@ -205,7 +205,7 @@ Nesta seção, você executa análise básica em seus dados de série temporal u
 
 ## <a name="define-and-apply-a-model"></a>Definir e aplicar um modelo
 
-Nesta seção, você aplicará um modelo para estruturar seus dados. Para concluir o modelo, você definirá tipos, hierarquias e instâncias. Para saber mais sobre modelagem de dados, confira [Modelo de Série Temporal](./time-series-insights-update-tsm.md).
+Nesta seção, você aplicará um modelo para estruturar seus dados. Para concluir o modelo, você definirá tipos, hierarquias e instâncias. Para saber mais sobre modelagem de dados, leia [Modelo de Série Temporal](./time-series-insights-update-tsm.md).
 
 1. No gerenciador, selecione a guia **Modelo**:
 
@@ -254,9 +254,9 @@ Nesta seção, você aplicará um modelo para estruturar seus dados. Para conclu
 
     Escolha **Aplicar**.
 
-1. Clique em **Salvar**. Você deve ver três variáveis criadas.
+1. Clique em **Salvar**. Três variáveis são criadas e exibidas.
 
-    [![Depois de adicionar o tipo, veja-o na exibição Modelo.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+    [![Após adicionar o tipo, examine-o na exibição Modelo.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
 
 1. Selecione a guia **Hierarquias**. Em seguida, selecione **+ Adicionar**.
    

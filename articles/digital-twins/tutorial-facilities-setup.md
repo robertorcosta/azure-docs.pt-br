@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383020"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895497"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar a Versão prévia dos Gêmeos Digitais do Azure e configurar um grafo espacial
 
@@ -36,7 +36,7 @@ No primeiro tutorial desta série, você aprenderá a:
 
 Estes tutoriais usam e modificam os mesmos exemplos que o [início rápido para encontrar salas disponíveis](quickstart-view-occupancy-dotnet.md) usa, para uma cobertura mais detalhada e aprofundada dos conceitos.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você ainda não tem uma conta do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -102,7 +102,7 @@ Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\dig
    * **Tenant**: insira a ID de diretório de seu [locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Você também anotou essa ID na seção onde [definiu permissões de aplicativo](#grant-permissions-to-your-app).
    * **BaseUrl**: insira a URL da instância dos Gêmeos Digitais. Para obter essa URL, substitua os espaços reservados nessa URL pelos valores da instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Você também pode obter essa URL modificando a URL da API de Gerenciamento na [seção de implantação](#deploy-digital-twins). Substitua **swagger/** por **api/v1.0/** .
 
-1. Confira uma lista de recursos dos Gêmeos Digitais que você pode explorar usando o exemplo. Execute o comando a seguir:
+1. Examine uma lista de recursos dos Gêmeos Digitais que você pode explorar usando o exemplo. Execute o comando a seguir:
 
     ```cmd/sh
     dotnet run
@@ -129,7 +129,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 Essa função usa [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) na mesma pasta. Abra esse arquivo e observe a hierarquia de um prédio comercial: *Local*, *Andar*, *Área* e *Salas*. Qualquer um desses espaços físicos pode conter *dispositivos* e *sensores*. Cada entrada tem um modelo predefinido `type`&mdash;por exemplo, Andar, Sala.
@@ -150,7 +149,7 @@ O arquivo **provisionSample.yaml** contém os seguintes nós:
 
 - **devices**: os espaços podem conter `devices`, que são entidades físicas ou virtuais que gerenciam uma quantidade de sensores. Por exemplo, um dispositivo pode ser o telefone do usuário, um pod de sensor do Raspberry Pi ou um gateway. No prédio imaginário do exemplo, observe como a sala chamada **Sala de Foco** contém um dispositivo **Raspberry Pi 3 A1**. Cada nó do dispositivo é identificado por um único `hardwareId`, que está codificado no exemplo. Para configurar esse exemplo para uma produção real, substitua-os pelos valores de sua configuração.  
 
-- **sensors**: um dispositivo pode conter vários `sensors`. Eles podem detectar e registrar alterações físicas, como temperatura, movimento e nível de bateria. Cada nó de sensor é identificado exclusivamente por um `hardwareId`, que, no nosso caso, está no código. Em um aplicativo real, substitua-os usando os identificadores exclusivos dos sensores da instalação. O arquivo provisionSample.yaml tem dois sensores para gravar *Motion* e *CarbonDioxide*. Adicione outro sensor para registrar a *Temperatura*, adicionando as linhas a seguir abaixo das linhas do sensor CarbonDioxide. Observe que eles são fornecidos em provisionSample.yaml como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha. 
+- **sensors**: um dispositivo pode conter vários `sensors`. Eles podem detectar e registrar alterações físicas, como temperatura, movimento e nível de bateria. Cada nó de sensor é identificado exclusivamente por um `hardwareId`, que, no nosso caso, está no código. Em um aplicativo real, substitua-os usando os identificadores exclusivos dos sensores da instalação. O arquivo provisionSample.yaml tem dois sensores para gravar *Motion* e *CarbonDioxide*. Adicione outro sensor para registrar a *Temperatura*, adicionando as linhas a seguir abaixo das linhas do sensor CarbonDioxide. Eles são fornecidos em provisionSample.yaml como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha. 
 
     ```yaml
             - dataType: Temperature
@@ -164,7 +163,7 @@ Salve e feche o arquivo provisionSample.yaml. No próximo tutorial, você adicio
 > [!TIP]
 > É possível exibir e modificar seu grafo espacial usando o [Visualizador de Grafos dos Gêmeos Digitais do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você quiser parar de explorar os Gêmeos Digitais do Azure neste momento, fique à vontade para excluir recursos criados neste tutorial:
 

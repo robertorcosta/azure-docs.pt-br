@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 31af4ad9c6985202555dbcbe86c52e45d5c4154a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453291"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028733"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Avaliar as VMs do VMware usando a Avaliação de Servidor das Migrações para Azure
 
@@ -41,11 +41,11 @@ Veja o que você deve ter feito no primeiro tutorial:
 
 - [Configurar as permissões do Azure](tutorial-prepare-vmware.md#prepare-azure) para as Migrações para Azure.
 - [Preparar o VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) para avaliação:
-   - Verificar as configurações do VMware.
-   - Configurar permissões para criar uma VM VMware com um modelo OVA.
-   - Configurar uma conta para descoberta de VM. 
-   - Disponibilizar as portas necessárias.
-   - Lembre-se das URLs necessárias para o acesso ao Azure.
+   - [Verificar](migrate-support-matrix-vmware.md#vmware-requirements) as configurações do VMware.
+   - Configurar permissões no VMware para criar uma VM do VMware com um modelo OVA.
+   - Configurar uma [conta para descoberta da VM](migrate-support-matrix-vmware.md#vmware-requirements). 
+   - Disponibilizar as [portas necessárias](migrate-support-matrix-vmware.md#port-access).
+   - Lembre-se das [URLs necessárias](migrate-replication-appliance.md#url-access) para o acesso ao Azure.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
 
@@ -130,7 +130,7 @@ Importe o arquivo baixado e crie uma VM:
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
-Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Verifique se a VM do dispositivo pode se conectar às [URLs do Azure](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Configurar o dispositivo
 
@@ -172,7 +172,7 @@ O dispositivo precisa se conectar ao vCenter Server para descobrir a configuraç
 1. Em **Especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP da instância do vCenter Server. Você pode manter a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escutará.
 1. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta do vCenter Server que o dispositivo usará para descobrir VMs na instância do vCenter Server. 
 
-   Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Você pode [definir o escopo da descoberta](tutorial-assess-vmware.md#set-the-scope-of-discovery) limitando o acesso à conta do vCenter.
+   Verifique se a conta tem as [permissões necessárias para a descoberta](migrate-support-matrix-vmware.md#vmware-requirements). Você pode [definir o escopo da descoberta](tutorial-assess-vmware.md#set-the-scope-of-discovery) limitando o acesso à conta do vCenter.
 1. Selecione **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Especificar credenciais de VM

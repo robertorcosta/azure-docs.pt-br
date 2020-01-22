@@ -1,17 +1,21 @@
 ---
 title: Início Rápido para aprender a usar a Configuração de Aplicativos do Azure
 description: Um Início Rápido para o uso da Configuração de Aplicativo do Azure com aplicativos Java Spring.
-author: yidon
-ms.author: yidon
+services: azure-app-configuration
+documentationcenter: ''
+author: lisaguthrie
+manager: maiye
+editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c4fee6c61ba58a8a1629b5c98d7eebdadfdf1a89
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.author: lcozzens
+ms.openlocfilehash: 172fe646b294ca511a22128094c56172c4268018
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495210"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750298"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo Java Spring com a Configuração de Aplicativos do Azure
 
@@ -46,7 +50,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
    * Gere um projeto **Maven** com **Java**.
    * Especifique uma versão do **Spring Boot** igual ou maior que 2.0.
    * Especifique os nomes de **Grupo** e **Artefato** do aplicativo.
-   * Adicione a dependência da **Web**.
+   * Adicione a dependência do **Spring Web**.
 
 3. Após especificar as opções anteriores, selecione **Gerar Projeto**. Quando solicitado, baixe o projeto para um caminho no computador local.
 
@@ -60,13 +64,17 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M5</version>
+        <version>1.1.0</version>
     </dependency>
     ```
 
 3. Crie um arquivo Java chamado *MessageProperties.java* no diretório do pacote do aplicativo. Adicione as linhas a seguir:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.boot.context.properties.ConfigurationProperties;
+
     @ConfigurationProperties(prefix = "config")
     public class MessageProperties {
         private String message;
@@ -84,6 +92,11 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 4. Crie um arquivo Java chamado *HelloController.java* no diretório do pacote do aplicativo. Adicione as linhas a seguir:
 
     ```java
+    package com.example.demo;
+
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
     @RestController
     public class HelloController {
         private final MessageProperties properties;
@@ -102,11 +115,13 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 5. Abra o arquivo Java do aplicativo principal e adicione `@EnableConfigurationProperties` para habilitar esse recurso.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
@@ -125,11 +140,13 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
     mvn clean package
     mvn spring-boot:run
     ```
+
 2. Depois que o aplicativo estiver em execução, use *curl* para testar o aplicativo, por exemplo:
 
       ```CLI
       curl -X GET http://localhost:8080/
       ```
+
     Você verá a mensagem inserida no repositório de Configuração de Aplicativos.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

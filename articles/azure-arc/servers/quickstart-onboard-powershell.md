@@ -10,18 +10,18 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951437"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834071"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Início Rápido: Conectar computadores ao Azure usando o Azure Arc para servidores – PowerShell
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Examine os clientes compatíveis e a configuração de rede necessária na [Visão geral do Azure Arc para servidores](overview.md).
 
@@ -35,6 +35,9 @@ Uma entidade de serviço é uma identidade de gerenciamento limitada especial qu
 ### <a name="steps-to-create-the-service-principal"></a>Etapas para criar a entidade de serviço
 
 Neste exemplo, usaremos o [Azure PowerShell](/powershell/azure/install-az-ps) para criar um SPN (nome da entidade de serviço). Como alternativa, você pode seguir as etapas listadas em [Criar uma entidade de serviço usando o portal do Azure](../../active-directory/develop/howto-create-service-principal-portal.md) para essa tarefa.
+
+> [!NOTE]
+> Ao criar a entidade de serviço, você deverá ser um Administrador de Acesso de Usuário ou Proprietário na assinatura que deseja usar para integração. Se você não tiver permissões suficientes para criar atribuições de função, a entidade de serviço poderá ser criada, mas não poderá integrar computadores.
 
 A função `Azure Connected Machine Onboarding` contém apenas as permissões necessárias para a integração. Você pode definir a permissão de um SPN para permitir que seu escopo cubra um grupo de recursos ou uma assinatura.
 
@@ -142,7 +145,7 @@ No Windows, abra o PowerShell como administrador em um nó de destino e execute:
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ Parâmetros:
 * `tenant-id`: A GUID do locatário. Você pode encontrá-lo no portal do Azure selecionando **Azure Active Directory** -> **Propriedades** -> **ID de Diretório**.
 * `subscription-id`: O GUID da assinatura no Azure em que você deseja conectar seu computador.
 * `resource-group`: O grupo de recursos em que você deseja conectar seu computador.
-* `location`: Confira [Regiões e locais do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Essa localização pode ser a mesmo ou uma diferente, assim como ocorre com a localização do grupo de recursos. Para a versão prévia pública, há suporte para o serviço em **WestUS2** e **Europa Ocidental**.
+* `location`: Confira [Regiões e locais do Azure](https://azure.microsoft.com/global-infrastructure/regions/). Essa localização pode ser a mesmo ou uma diferente, assim como ocorre com a localização do grupo de recursos. Para versão prévia pública, há suporte para o serviço em **WestUS2**, **Sudeste Asiático** e **Europa Ocidental**.
 * `resource-name`:  (*Opcional*) Usado para a representação de recursos do Azure do seu computador local. Se você não especificar esse valor, o nome do host do computador será usado.
 
 Você pode encontrar mais informações sobre a ferramenta 'azcmagent' em [Referência do Azcmagent](azcmagent-reference.md).
