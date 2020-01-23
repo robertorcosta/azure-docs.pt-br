@@ -4,7 +4,7 @@
   items:
     - name: Sobre as Âncoras Espaciais
       href: overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar aplicativo para Unity
@@ -40,7 +40,7 @@
       href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Como iniciar um novo aplicativo Android
       href: tutorials/tutorial-new-android-app.md
-- name: Instruções
+- name: Como fazer
   items:
     - name: Criar e localizar âncoras
       href: create-locate-anchors-overview.md
@@ -57,7 +57,7 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: No C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Usar sensores no dispositivo para descobrir âncoras próximas
+    - name: Usar a relocalização grosseira para descobrir âncoras próximas
       items:
         - name: 'No C#/Unity'
           href: how-tos/set-up-coarse-reloc-unity.md
@@ -77,7 +77,7 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Conceitos
   items:
-    - name: Authentication
+    - name: Autenticação
       href: concepts/authentication.md
     - name: Relacionamentos de âncora
       href: concepts/anchor-relationships-way-finding.md
