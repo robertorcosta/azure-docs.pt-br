@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: ea213921c736bc3b6bf88c0bdd81a96656ecbe5b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121226"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547278"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -21,7 +21,7 @@ Este artigo explica como trabalhar com associações de armazenamento de Fila do
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As associações de armazenamento Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 2.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
+As associações de armazenamento de fila são fornecidas no pacote NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) , versão 2. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -29,7 +29,7 @@ As associações de armazenamento Filas são fornecidas no pacote NuGet [Microso
 
 ## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
-As associações de Armazenamento de Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
+As associações de armazenamento de fila são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) , versão 3. x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -40,17 +40,7 @@ O Functions espera uma cadeia de caracteres codificada *base64*. Todos os ajuste
 
 Use o gatilho de fila para iniciar uma função quando um novo item é recebido em uma fila. A mensagem da fila é fornecida como entrada para a função.
 
-## <a name="trigger---example"></a>Gatilho - exemplo
-
-Consulte o exemplo específico a um idioma:
-
-* [C#](#trigger---c-example)
-* [Script do C# (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Gatilho - exemplo C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que consulta a fila `myqueue-items` e grava um log cada vez que um item de fila é processado.
 
@@ -67,7 +57,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O exemplo a seguir mostra uma associação de gatilho de fila em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
 
@@ -122,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 A seção [uso](#trigger---usage) explica `myQueueItem`, que é chamado pela `name` propriedade function.json.  A [seção de metadados de mensagem](#trigger---message-metadata) explica todas as outras variáveis mostradas.
 
-### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho de fila em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função controla a `myqueue-items` fila e grava um log cada vez que um item de fila é processado.
 
@@ -167,23 +157,7 @@ module.exports = async function (context, message) {
 
 A seção [uso](#trigger---usage) explica `myQueueItem`, que é chamado pela `name` propriedade function.json.  A [seção de metadados de mensagem](#trigger---message-metadata) explica todas as outras variáveis mostradas.
 
-### <a name="trigger---java-example"></a>Gatilho - exemplo Java
-
-O exemplo Java a seguir mostra as funções do acionador da fila de armazenamento que registra a mensagem acionada colocada na fila `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-### <a name="trigger---python-example"></a>Gatilho – Exemplo do Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 O exemplo a seguir demonstra como ler uma mensagem de fila passada para uma função por meio de um gatilho.
 
@@ -231,7 +205,27 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Gatilho – atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+O exemplo de Java a seguir mostra uma função de gatilho de fila de armazenamento, que registra a mensagem disparada colocada na fila `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>Gatilho-atributos e anotações
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho de fila:
 
@@ -261,7 +255,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
   }
   ```
 
-  Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-example).
+  Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -287,6 +281,47 @@ A conta de armazenamento a ser usada é determinada na seguinte ordem:
 * O `StorageAccount` atributo aplicado à classe.
 * A configuração do aplicativo "AzureWebJobsStorage".
 
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos no script Java.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Não há suporte para atributos no Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A anotação `QueueTrigger` fornece acesso à fila que dispara a função. O exemplo a seguir torna a mensagem da fila disponível para a função por meio do parâmetro `message`.
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| Propriedade    | Description |
+|-------------|-----------------------------|
+|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
+|`queueName`  | Declara o nome da fila na conta de armazenamento. |
+|`connection` | Aponta para a cadeia de conexão da conta de armazenamento. |
+
+---
+
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `QueueTrigger`.
@@ -303,7 +338,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
-Em C# e script C#, acesse os dados da mensagem usando um parâmetro de método, como `string paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. É possível associar a qualquer um dos seguintes tipos:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Acesse os dados da mensagem usando um parâmetro de método, como `string paramName`. É possível associar a qualquer um dos seguintes tipos:
 
 * Objeto - o runtime do Functions desserializa um conteúdo JSON em uma instância de uma classe arbitrária definida em seu código. 
 * `string`
@@ -312,7 +349,30 @@ Em C# e script C#, acesse os dados da mensagem usando um parâmetro de método, 
 
 Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
-Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de fila. Se o conteúdo for JSON, ele é desserializado em um objeto. Essa carga útil também é passada como o segundo parâmetro para a função.
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+Acesse os dados da mensagem usando um parâmetro de método, como `string paramName`. O `paramName` é o valor especificado na propriedade `name` de *Function. JSON*. É possível associar a qualquer um dos seguintes tipos:
+
+* Objeto - o runtime do Functions desserializa um conteúdo JSON em uma instância de uma classe arbitrária definida em seu código. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+A carga do item de fila está disponível por meio de `context.bindings.<NAME>` onde `<NAME>` corresponde ao nome definido em *Function. JSON*. Se a carga for JSON, o valor será desserializado em um objeto.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Acesse a mensagem da fila por meio do parâmetro digitado como [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A anotação [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) fornece acesso à mensagem da fila que disparou a função.
+
+---
 
 ## <a name="trigger---message-metadata"></a>Gatilho - metadados da mensagem
 
@@ -365,22 +425,12 @@ O arquivo [host.json](functions-host-json.md#queues) contém configurações que
 
 Use a associação de saída do armazenamento de Filas do Azure para que você grave mensagens em uma fila.
 
-## <a name="output---example"></a>Saída - exemplo
-
-Consulte o exemplo específico a um idioma:
-
-* [C#](#output---c-example)
-* [Script do C# (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Saída - exemplo C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que cria uma mensagem da fila para cada solicitação HTTP recebida.
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -393,7 +443,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="output---c-script-example"></a>Saída - exemplo de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O exemplo a seguir mostra uma associação de gatilho de HTTP em um arquivo *function.json* e código [script C# (.csx)](functions-reference-csharp.md) que usa a associação. A função cria um item de fila com um conteúdo de objeto **CustomQueueMessage** para cada solicitação HTTP recebida.
 
@@ -454,7 +504,7 @@ public static void Run(
 }
 ```
 
-### <a name="output---javascript-example"></a>Saída - exemplo JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho HTTP em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função cria um item da fila para cada solicitação HTTP recebida.
 
@@ -504,25 +554,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Saída - exemplo de Java
-
- O exemplo a seguir mostra uma função Java que cria uma mensagem de fila quando disparada por uma solicitação HTTP.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-No [biblioteca de runtime de funções Java](/java/api/overview/azure/functions/runtime), use o `@QueueOutput` anotação em parâmetros cujo valor seria gravado no armazenamento de fila.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
-
-### <a name="output---python-example"></a>Saída – exemplo do Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 O exemplo a seguir demonstra como gerar valores únicos e múltiplos para filas de armazenamento. A configuração necessária para *Function. JSON* é a mesma de qualquer forma.
 
@@ -585,7 +617,29 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>Saída - atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+ O exemplo a seguir mostra uma função Java que cria uma mensagem de fila para quando disparada por uma solicitação HTTP.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+No [biblioteca de runtime de funções Java](/java/api/overview/azure/functions/runtime), use o `@QueueOutput` anotação em parâmetros cujo valor seria gravado no armazenamento de fila.  O tipo de parâmetro deve ser `OutputBinding<T>`, em que `T` é qualquer tipo de Java nativo de um POJO.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Saída-atributos e anotações
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
@@ -611,9 +665,54 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-example).
+Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output).
 
 Você pode usar o `StorageAccount` atributo para especificar a conta de armazenamento no nível de classe, método ou parâmetro. Para obter mais informações, confira Gatilho – atributos.
+
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos no script Java.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Não há suporte para atributos no Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A anotação `QueueOutput` permite que você acesse a gravação de uma mensagem de uma saída de uma função. O exemplo a seguir mostra uma função disparada por HTTP que cria uma mensagem de fila.
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| Propriedade    | Description |
+|-------------|-----------------------------|
+|`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
+|`queueName`  | Declara o nome da fila na conta de armazenamento. |
+|`connection` | Aponta para a cadeia de conexão da conta de armazenamento. |
+
+O parâmetro associado à anotação `QueueOutput` é digitado como uma instância de [\>de saída\<t](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) .
+
+---
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -631,7 +730,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="output---usage"></a>Saída - uso
 
-Em C# e script C#, grave uma mensagem de fila única usando um parâmetro de método como o `out T paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Você pode usar o tipo de retorno de método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Grave uma mensagem de fila única usando um parâmetro de método, como `out T paramName`. Você pode usar o tipo de retorno de método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
 * Um objeto serializado como JSON
 * `string`
@@ -645,8 +746,43 @@ Em C# e script C#, grave várias mensagens de fila usando um dos seguintes tipos
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-Em funções em JavaScript, use `context.bindings.<name>` para acessar a mensagem de fila de saída. Você pode usar uma cadeia de caracteres ou um objeto serializável em JSON para o conteúdo de item de fila.
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
+Grave uma mensagem de fila única usando um parâmetro de método, como `out T paramName`. O `paramName` é o valor especificado na propriedade `name` de *Function. JSON*. Você pode usar o tipo de retorno de método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
+
+* Um objeto serializado como JSON
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, certifique-se de ter uma referência para [a versão correta do SDK do Armazenamento](#azure-storage-sdk-version-in-functions-1x).
+
+Em C# e script C#, grave várias mensagens de fila usando um dos seguintes tipos: 
+
+* `ICollector<T>` ou `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+O item fila de saída está disponível por meio de `context.bindings.<NAME>` em que `<NAME>` corresponde ao nome definido em *Function. JSON*. Você pode usar uma cadeia de caracteres ou um objeto serializável em JSON para o conteúdo de item de fila.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Há duas opções para a saída de uma mensagem do hub de eventos de uma função:
+
+- **Valor de retorno**: defina a propriedade `name` em *Function. JSON* como `$return`. Com essa configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
+
+- **Imperativo**: passe um valor para o método [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) do parâmetro declarado como um tipo [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . O valor passado para `set` é persistido como uma mensagem de armazenamento de fila.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Há duas opções para a saída de uma mensagem do hub de eventos de uma função usando a anotação [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
+
+- **Valor de retorno**: ao aplicar a anotação à própria função, o valor de retorno da função é persistido como uma mensagem do hub de eventos.
+
+- **Imperativo**: para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), em que `T` é um POJO ou qualquer tipo de Java nativo. Com essa configuração, passar um valor para o método `setValue` persiste o valor como uma mensagem do hub de eventos.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 
@@ -679,7 +815,6 @@ Esta seção descreve as definições de configuração global disponíveis para
     }
 }
 ```
-
 
 |Propriedade  |Padrão | Description |
 |---------|---------|---------|

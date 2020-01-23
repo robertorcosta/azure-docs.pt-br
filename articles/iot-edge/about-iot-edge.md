@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1c14d1dd171f9bca6b6bdc61e35c0d541b29cb3c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026152"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511205"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Azure IoT Edge
 
@@ -26,7 +26,7 @@ A análise impulsiona o valor comercial em soluções de IoT, mas nem todas as a
 O Azure IoT Edge é composto de três componentes:
 
 * Os **módulos do IoT Edge** são contêineres que executam serviços do Azure, serviços de terceiros ou o seu próprio código. Os módulos são implantados em dispositivos do IoT Edge e executados localmente nesses dispositivos.
-* O **tempo de execução do IoT Edge** é executado em cada dispositivo IoT Edge e gerencia os módulos implantados em cada dispositivo. 
+* O **runtime do IoT Edge** é executado em cada dispositivo IoT Edge e gerencia os módulos implantados em cada dispositivo.
 * Uma **interface baseada em nuvem** permite monitorar e gerenciar dispositivos do IoT Edge remotamente.
 
 >[!NOTE]
@@ -44,9 +44,9 @@ O Azure IoT Edge permite implantar processamento de eventos complexos, aprendiza
 
 Quando você deseja implantar seu próprio código para seus dispositivos, o Azure IoT Edge também oferece suporte para essa situação. O Azure IoT Edge mantém o mesmo modelo de programação de outros serviços Azure IoT. É possível executar o mesmo código em um dispositivo ou na nuvem. O Azure IoT Edge oferece suporte para Linux e Windows, portanto você pode codificar para a plataforma de sua escolha. Ele dá suporte para Java, .NET Core 2.0, Node.js, C e Python, de modo que os desenvolvedores possam codificar em uma linguagem que já conhecem e usar a lógica de negócios existente.
 
-## <a name="iot-edge-runtime"></a>Tempo de execução do IoT Edge
+## <a name="iot-edge-runtime"></a>runtime do IoT Edge
 
-O tempo de execução do Azure IoT Edge permite lógica personalizada e de nuvem em dispositivos IoT Edge. O runtime se encontra no dispositivo IoT Edge e executa operações de gerenciamento e comunicação. O tempo de execução executa várias funções:
+O runtime do Azure IoT Edge permite lógica personalizada e de nuvem em dispositivos IoT Edge. O runtime se encontra no dispositivo IoT Edge e executa operações de gerenciamento e comunicação. O runtime executa várias funções:
 
 * Instala e atualiza cargas de trabalho no dispositivo.
 * Mantém os padrões de segurança do Azure IoT Edge no dispositivo.
@@ -54,9 +54,9 @@ O tempo de execução do Azure IoT Edge permite lógica personalizada e de nuvem
 * Fornece um relatório sobre a integridade do módulo para a nuvem para o monitoramento remoto.
 * Gerencia a comunicação entre dispositivos de folha downstream e um dispositivo do IoT Edge, entre módulos em um dispositivo do IoT Edge e entre um dispositivo do IoT Edge e a nuvem.
 
-![O tempo de execução do IoT Edge envia informações e relatórios para o Hub IoT](./media/about-iot-edge/runtime.png)
+![O runtime do IoT Edge envia informações e relatórios para o Hub IoT](./media/about-iot-edge/runtime.png)
 
-A maneira como você usa um dispositivo do Azure IoT Edge é uma decisão inteiramente sua. O tempo de execução costuma ser usado para implantar a IA em dispositivos de gateway que agregam e processam dados de outros dispositivos locais; no entanto, esse modelo de implantação é apenas uma opção.
+A maneira como você usa um dispositivo do Azure IoT Edge é uma decisão inteiramente sua. O runtime costuma ser usado para implantar a IA em dispositivos de gateway que agregam e processam dados de outros dispositivos locais; no entanto, esse modelo de implantação é apenas uma opção.
 
 O runtime do Azure IoT Edge é executado em um grande conjunto de dispositivos IoT, o que permite que seja usado de várias maneiras. Ele dá suporte a sistemas operacionais Windows e Linux e abstrai os detalhes de hardware. Use um dispositivo anterior ao Raspberry Pi 3 caso não esteja processando muitos dados ou um servidor industrial para executar cargas de trabalho com uso intensivo de recursos.
 

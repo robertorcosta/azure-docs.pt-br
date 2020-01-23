@@ -1,27 +1,19 @@
 ---
 title: Exemplos do Azure PowerShell – Usar uma imagem de VM personalizada
 description: Esse script cria um conjunto de dimensionamento de máquinas virtuais que usa uma imagem de VM personalizada como a origem para as instâncias de VM.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aba720f210eb429544e1828934b8245c706547f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a272cf534ef8ac9cbc45c05f1b9d3f0fecfa1f3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350863"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276654"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de uma imagem de VM personalizada com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais que usa uma imagem de VM personalizada como a origem para as instâncias de VM.

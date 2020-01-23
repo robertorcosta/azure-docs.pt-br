@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: daa3ff7cb9006a0ec940a57a4db31746dcb0550a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888109"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548060"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3.0: exemplos de dicionário
 
@@ -23,7 +23,7 @@ Fornece exemplos que mostram como os termos no dicionário são usados no contex
 
 ## <a name="request-url"></a>URL de Solicitação
 
-Envia uma solicitação `POST` para:
+Envie uma solicitação `POST` para:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
-<table width="100%">
-  <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0`.</td>
-  </tr>
-  <tr>
-    <td>from</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
-  </tr>
-  <tr>
-    <td>Para</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
-  </tr>
-</table>
+| Parâmetro de consulta | Description |
+| --------- | ----------- |
+| api-version <img width=200/> | **Parâmetro obrigatório**.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`. |
+| de | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`. |
+| para | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo `dictionary`.  | 
 
 Os cabeçalhos de solicitação incluem:
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>DESCRIÇÃO</th>
-  <tr>
-    <td>Cabeçalho (s) de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
-  </tr>
-  <tr>
-    <td>Tipo de conteúdo</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>O tamanho do corpo da solicitação.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. É possível omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.</td>
-  </tr>
-</table> 
+| headers  | Description |
+| ------ | ----------- |
+| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
+| Content-Length   | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação. |
+| X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. É possível omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`. |
 
 ## <a name="request-body"></a>Corpo da solicitação
 

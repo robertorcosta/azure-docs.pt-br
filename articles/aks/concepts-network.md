@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913893"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547958"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -45,7 +45,7 @@ Para simplificar a configuração de rede para cargas de trabalho de aplicativos
 
     ![Diagrama mostrando o fluxo de tráfego do NodePort em um cluster AKS][aks-nodeport]
 
-- **LoadBalancer** - Cria um recurso do balanceador de carga do Azure, configura um endereço IP externo e conecta os pods solicitados ao pool de back-ends do balanceador de carga. Para permitir que o tráfego de clientes alcance o aplicativo, as regras de balanceamento de carga são criadas nas portas desejadas. 
+- **LoadBalancer** - Cria um recurso do balanceador de carga do Azure, configura um endereço IP externo e conecta os pods solicitados ao pool de back-ends do balanceador de carga. Para permitir que o tráfego dos clientes chegue ao aplicativo, as regras de balanceamento de carga são criadas nas portas desejadas. 
 
     ![Diagrama mostrando o fluxo de tráfego do Balanceador de Carga em um cluster AKS][aks-loadbalancer]
 

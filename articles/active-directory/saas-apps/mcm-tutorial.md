@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed3e5c543f96876d9b6078f1bd47839a0a0396a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227488"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: Integração do Azure Active Directory ao MCM
 
@@ -34,7 +34,7 @@ A integração do MCM ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD com o MCM, você precisará dos seguintes itens:
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o MCM, execute as seguintes etapa
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente MCM](https://mcmtechnology.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente MCM](https://mcmtechnology.com/support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o MCM, execute as seguintes etapa
 
 ### <a name="configure-mcm-single-sign-on"></a>Configurar o do logon único MCM
 
-Para configurar o logon único no lado do **MCM**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do MCM](https://mcmtechnology.com/support/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **MCM**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do MCM](https://mcmtechnology.com/support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -183,7 +183,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-mcm-test-user"></a>Criar um usuário de teste do MCM
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no MCM. Trabalhe com a  [equipe de suporte MCM](https://mcmtechnology.com/support/) para adicionar os usuários na plataforma MCM. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no MCM. Trabalhe com a  [equipe de suporte MCM](https://mcmtechnology.com/support) para adicionar os usuários na plataforma MCM. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 >[!NOTE]
 >É possível usar qualquer outra ferramenta de criação da conta de usuário do MCM ou APIs fornecidas pelo MCM para provisionar as contas de usuário do Azure AD.

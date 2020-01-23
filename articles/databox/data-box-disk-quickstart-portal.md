@@ -9,27 +9,16 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70232900"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514061"
 ---
 ::: zone target="docs"
 
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box Disk usando o portal do Azure
-
-::: zone-end
-
-::: zone target="chromeless"
-
-## <a name="get-started-with-azure-data-box-disk"></a>Introdução ao Azure Data Box Disk 
-
-::: zone-end
-
-::: zone target="docs"
 
 Este início rápido descreve como implantar o Azure Data Box Disk usando o portal do Azure. As etapas incluem como, rapidamente, criar um pedido, receber discos, descompactar, conectar e copiar dados para discos de modo que eles sejam carregados no Azure.
 
@@ -47,7 +36,7 @@ Este guia descreve as etapas necessárias para usar o Azure Data Box Disk no por
 
 ::: zone target="docs"
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar:
 
@@ -74,7 +63,7 @@ Entre no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](https://ak
 
 ::: zone target="docs"
 
-## <a name="order"></a>Classificar
+## <a name="order"></a>Order
 
 Esta etapa leva aproximadamente 5 minutos.
 
@@ -143,7 +132,7 @@ O tempo para concluir essa operação depende do tamanho dos dados.
     1. Verifique se há logs de erros para quaisquer falhas e tome as medidas apropriadas.
     2. Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Esta etapa leva de 2 a 3 minutos para ser concluída.
 

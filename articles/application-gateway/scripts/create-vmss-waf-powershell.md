@@ -4,7 +4,6 @@ description: Exemplo de Script do Azure PowerShell - Criar um gateway de aplicat
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d3dfb9708e22a86af8fb9854e424f7da7d1f410a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fd36775e15376054bed34d9e828344c529313d3b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202868"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273417"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Restringir o tráfego da Web usando o Azure PowerShell
 
@@ -29,7 +28,7 @@ Este script cria um gateway de aplicativo com um firewall do aplicativo Web que 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/application-gateway/create-vmss/create-vmss-waf.ps1 "Create application gateway with WAF")]
 

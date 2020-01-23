@@ -1,27 +1,19 @@
 ---
 title: Exemplos do Azure PowerShell – Instalar aplicativos
 description: Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 e usa a Extensão de Script Personalizado para instalar um aplicativo Web básico.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 196ac6c59315fbb2ab291b08138575c7757bb9cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a885306928fc42be5773c0d1d558d2810e355c54
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350891"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276514"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Instalar aplicativos em um conjunto de dimensionamento de máquinas virtuais com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 e usa a Extensão de Script Personalizado para instalar um aplicativo Web básico. Depois de executar o script, é possível acessar o aplicativo Web por meio de navegador da Web.

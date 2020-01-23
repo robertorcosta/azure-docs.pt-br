@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2da2214cd5fab378368a363e6f18e02626b9d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dfa07b3df7071ed99a02b854ff41ad6a5137c8dc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373114"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292834"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-figma"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Figma
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como integrar o Figma ao Azure AD (Azure Active
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -92,7 +92,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Você obterá `TENANT ID` da etapa 11 do artigo do Figma [Configurar o processo de SSO de SAML do Azure Active Directory](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Você obterá `TENANT ID` da etapa 11 do artigo do Figma [Configurar o processo de SSO de SAML do Azure Active Directory](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 1. O aplicativo Figma espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -100,7 +100,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo Figma espera que mais alguns atributos sejam passados novamente na resposta SAML, que são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
 
-    | NOME | Atributo de Origem|
+    | Nome | Atributo de Origem|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
     | `displayName` | `user.displayname` |
@@ -146,7 +146,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-figma-sso"></a>Configurar o SSO do Figma
 
-Para configurar o logon único no lado do Figma, será necessário seguir o artigo do Figma [Configurar o processo de SSO de SAML do Azure Active Directory](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+Para configurar o logon único no lado do Figma, será necessário seguir o artigo do Figma [Configurar o processo de SSO de SAML do Azure Active Directory](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 ### <a name="create-figma-test-user"></a>Criar um usuário de teste do Figma
 

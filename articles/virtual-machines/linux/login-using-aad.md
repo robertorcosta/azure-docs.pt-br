@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951302"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544609"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -53,7 +53,7 @@ No momento, há suporte para as seguintes distribuições do Linux durante a ver
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
-| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Red Hat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 18.04 |
 
@@ -66,17 +66,17 @@ No momento, há suporte para as seguintes regiões do Azure durante a versão pr
 > Para usar esse recurso de versão prévia, somente implante uma distribuição do Linux com suporte em uma região do Azure com suporte. Não há suporte para o recurso no Azure Governamental nem nas nuvens soberanas.
 
 
-Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
 Para habilitar a autenticação do Azure AD para suas VMs do Linux no Azure, você precisa garantir que sua configuração de rede de VMs permita o acesso de saída aos seguintes pontos de extremidade pela porta TCP 443:
 
-* https://login.microsoftonline.com
-* https://device.login.microsoftonline.com
-* https://pas.windows.net
-* https://management.azure.com
-* https://packages.microsoft.com
+* https:\//login.microsoftonline.com
+* https:\//device.login.microsoftonline.com
+* https:\//pas.windows.net
+* https:\//management.azure.com
+* https:\//packages.microsoft.com
 
 > [!NOTE]
 > Atualmente, os grupos de segurança de rede do Azure não podem ser configurados para VMs habilitadas com a autenticação do Azure AD.

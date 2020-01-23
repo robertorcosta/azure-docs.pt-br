@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9e89336973b0b13544c5bc0bccec41652c6952e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 366a8cc2d8b08c9508053eaeb8bf70622fd870cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755102"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548094"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Criptografia de dados do Azure Cosmos DB 
 
@@ -46,7 +46,7 @@ R: As chaves são gerenciadas pela Microsoft.
 R: A Microsoft tem um conjunto de diretrizes internas para rotação de chave de criptografia, que o Cosmos DB segue. As diretrizes específicas não são publicadas. A Microsoft publica o [SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx), que é visto como um subconjunto de orientação interna e tem práticas recomendadas úteis para desenvolvedores.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>P: Posso usar minhas próprias chaves de criptografia?
-R: O Cosmos DB é um serviço PaaS e trabalhamos intensamente para manter o serviço fácil de usar. Observamos que essa pergunta geralmente é feita como uma pergunta substituta para o cumprimento de um requisito de conformidade, como as normas PCI-DSS. Como parte da criação desse recurso, trabalhamos com auditores de conformidade para garantir que os clientes que usam o Cosmos DB atendam a seus requisitos sem a necessidade de gerenciar as próprias chaves.
+R: Sim agora esse recurso está disponível para as novas contas do cosmos e isso deve ser feito no momento da criação da conta. Consulte o documento [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) para obter mais informações.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>P: Em quais regiões a criptografia está ativada?
 R: A criptografia está ativada para todos os dados do usuário em todas as regiões do Azure Cosmos DB.

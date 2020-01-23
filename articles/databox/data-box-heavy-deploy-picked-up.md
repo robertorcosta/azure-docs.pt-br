@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240341"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514435"
 ---
 ::: zone target = "docs"
 
@@ -35,13 +35,13 @@ Este tutorial descreve como devolver o Azure Data Box Heavy e verificar os dados
 Neste tutorial, você aprenderá sobre tópicos como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Preparar para o envio
 > * Enviar o Data Box Heavy para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminar dados do Data Box Heavy
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -134,7 +134,7 @@ Após a conclusão do upload no Azure, o Data Box apaga os dados nos discos de a
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Preparar para o envio
 > * Enviar o Data Box Heavy para a Microsoft
 > * Verificar o carregamento de dados para o Azure

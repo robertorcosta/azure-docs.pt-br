@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Início Rápido – cluster Kubernetes do Azure para Linux
 description: Aprenda a criar um cluster Kubernetes para contêineres do Linux no Serviço de Contêiner do Azure rapidamente com a CLI do Azure.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659602"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273492"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(PRETERIDO) Implantar um cluster Kubernetes para os contêineres do Linux
 
@@ -86,7 +84,7 @@ Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Para verificar a conexão ao seu cluster, use o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para retornar uma lista de nós do cluster.
+Para verificar a conexão com o cluster, use o comando [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) para retornar uma lista dos nós de cluster.
 
 ```azurecli-interactive
 kubectl get nodes

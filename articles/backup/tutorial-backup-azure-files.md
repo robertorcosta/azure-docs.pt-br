@@ -3,12 +3,12 @@ title: Tutorial – Backup de compartilhamentos de Arquivos do Azure
 description: Neste tutorial, saiba como usar o portal do Azure para configurar um cofre dos Serviços de Recuperação e fazer backup de compartilhamentos de arquivo do Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921642"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293922"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
 
@@ -43,29 +43,29 @@ Este tutorial presume que você já estabeleceu um compartilhamento de arquivos 
 
 1. Crie um cofre de Serviços de Recuperação na mesma região que o compartilhamento de arquivos. Caso já tenha um cofre, abra a página de Visão geral do cofre e clique em **Backup**.
 
-    ![Clique em Backup na página de visão geral do seu cofre](./media/backup-file-shares/overview-backup-page.png)
+    ![Clique em Backup na página de visão geral do seu cofre](./media/tutorial-backup-azure-files/overview-backup-page.png)
 
 2. No menu **Meta de backup**, em **Do que deseja fazer backup?** , escolha o Compartilhamento de Arquivos do Azure.
 
-    ![Escolha o compartilhamento de arquivos do Azure como meta de Backup](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+    ![Escolha o compartilhamento de arquivos do Azure como meta de Backup](./media/tutorial-backup-azure-files/choose-azure-fileshare-from-backup-goal.png)
 
 3. Clique em **Backup** para configurar o compartilhamento de arquivos do Azure para seu cofre de Serviços de Recuperação.
 
-   ![Clique em Backup para associar o compartilhamento de arquivos do Azure ao cofre](./media/backup-file-shares/set-backup-goal.png)
+   ![Clique em Backup para associar o compartilhamento de arquivos do Azure ao cofre](./media/tutorial-backup-azure-files/set-backup-goal.png)
 
     Depois de o cofre ser associado ao compartilhamento de arquivos do Azure, o menu Backup é aberto e solicita que você selecione uma Conta de armazenamento. O menu exibe todas as Contas de armazenamento com suporte na região do cofre e que ainda não estão associadas a um cofre de Serviços de Recuperação.
 
-   ![Selecione sua conta de armazenamento](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![Selecione sua conta de armazenamento](./media/tutorial-backup-azure-files/list-of-storage-accounts.png)
 
 4. Na lista de Contas de armazenamento, selecione uma conta e clique em **OK**. Na conta de armazenamento, o Azure procura compartilhamentos de arquivos cujo backup pode ser feito. Caso tenha adicionado seus compartilhamentos de arquivos e não os esteja vendo na lista, aguarde um pouco até que eles sejam exibidos.
 
-   ![Compartilhamentos de arquivos estão sendo detectados](./media/backup-file-shares/discover-file-shares.png)
+   ![Compartilhamentos de arquivos estão sendo detectados](./media/tutorial-backup-azure-files/discover-file-shares.png)
 
 5. Na lista de **Compartilhamentos de Arquivos**, selecione um ou mais dos compartilhamentos de arquivos dos quais deseja fazer backup e clique em **OK**.
 
 6. Depois de escolher seus Compartilhamentos de Arquivos, o menu Backup alterna para **Política de backup**. Nesse menu, selecione uma política de backup existente ou crie uma nova, depois clique em **Habilitar backup**.
 
-   ![Selecione uma política de backup ou crie uma nova](./media/backup-file-shares/apply-backup-policy.png)
+   ![Selecione uma política de backup ou crie uma nova](./media/tutorial-backup-azure-files/apply-backup-policy.png)
 
     Depois de estabelecer uma política de backup, um instantâneo dos Compartilhamentos de Arquivos será executado no horário agendado, e o ponto de recuperação fica retido para o período escolhido.
 
@@ -77,19 +77,19 @@ Depois de configurar a política de backup, você desejará criar um backup sob 
 
 1. Abra o cofre de Serviços de Recuperação que contém os pontos de recuperação do compartilhamento de arquivos e clique em **Itens de Backup**. A lista com os tipos de Itens de Backup é exibida.
 
-   ![Lista de itens de backup](./media/backup-file-shares/list-of-backup-items.png)
+   ![Lista de itens de backup](./media/tutorial-backup-azure-files/list-of-backup-items.png)
 
 2. Na lista, selecione **Armazenamento do Azure (Arquivos do Azure)** . A lista de compartilhamentos de arquivos do Azure é exibida.
 
-   ![Lista de compartilhamentos de arquivos do Azure](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![Lista de compartilhamentos de arquivos do Azure](./media/tutorial-backup-azure-files/list-of-azure-files-backup-items.png)
 
 3. Na lista de compartilhamentos de arquivos do Azure, selecione o compartilhamento de arquivo desejado. O menu Item de Backup do compartilhamento de arquivo selecionado é aberto.
 
-   ![Menu de item de backup do compartilhamento de arquivo selecionado](./media/backup-file-shares/backup-item-menu.png)
+   ![Menu de item de backup do compartilhamento de arquivo selecionado](./media/tutorial-backup-azure-files/backup-item-menu.png)
 
 4. No menu Item de Backup, clique em **Fazer Backup Agora**. Como esse é um trabalho de backup sob demanda, não há nenhuma política de retenção associada ao ponto de recuperação. A caixa de diálogo **Fazer Backup Agora** é aberta. Especifique até que dia deseja manter o ponto de recuperação escolhendo o último dia.
 
-   ![Escolha a data de retenção do ponto de recuperação](./media/backup-file-shares/backup-now-menu.png)
+   ![Escolha a data de retenção do ponto de recuperação](./media/tutorial-backup-azure-files/backup-now-menu.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -103,4 +103,4 @@ Neste tutorial, você usou o portal do Azure para:
 Continue para o próximo artigo a fim de restaurar um backup de um compartilhamento de arquivos do Azure.
 
 > [!div class="nextstepaction"]
-> [Restaurar a partir do backup do compartilhamento de arquivos do Azure](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
+> [Restaurar a partir do backup do compartilhamento de arquivos do Azure](restore-afs.md)

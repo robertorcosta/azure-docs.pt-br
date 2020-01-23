@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729600"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548774"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implantar o armazenamento de BLOBs do Azure no módulo IoT Edge em seu dispositivo
 
@@ -37,7 +37,7 @@ O portal do Azure orienta você durante a criação de um manifesto de implanta�
 
 ### <a name="configure-a-deployment-manifest"></a>Configurar um manifesto de implantação
 
-Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. O portal do Azure tem um assistente que o orienta na criação de um manifesto de implantação, em vez de criar o documento JSON manualmente. Ele tem três etapas organizadas em guias: **módulos**, **rotas**e **revisão + criar**.
+Um manifesto de implantação é um documento JSON que descreve quais módulos implantar, como os dados fluem entre os módulos e as propriedades desejadas dos módulos gêmeos. O portal do Azure tem um assistente que orienta você durante a criação de um manifesto de implantação. Ele tem três etapas organizadas em guias: **módulos**, **rotas**e **revisão + criar**.
 
 #### <a name="add-modules"></a>Adicionar módulos
 
@@ -57,11 +57,11 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
    > [!IMPORTANT]
    > Azure IoT Edge diferencia maiúsculas de minúsculas quando você faz chamadas para módulos e o SDK de armazenamento também usa como padrão letras minúsculas. Embora o nome do módulo no [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) seja **AzureBlobStorageonIoTEdge**, alterar o nome para minúsculas ajuda a garantir que suas conexões com o armazenamento de BLOBs do Azure no módulo IOT Edge não sejam interrompidas.
 
-3. Na guia **Opções de criação do contêiner** , você fornecerá o código JSON para fornecer informações da conta de armazenamento e uma montagem para o armazenamento em seu dispositivo.
+3. Abra a guia **Opções de criação do contêiner** .
 
    ![Configurações de módulo de configuração](./media/how-to-deploy-blob/addmodule-tab3.png)
 
-   Copie e cole o JSON a seguir na caixa, referindo-se às descrições do espaço reservado na próxima etapa.
+   Copie e cole o JSON a seguir na caixa, para fornecer informações da conta de armazenamento e uma montagem para o armazenamento em seu dispositivo.
   
    ```json
    {
@@ -80,13 +80,13 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
    }
    ```
 
-4. Atualize o JSON que você copiou para **as opções de criação de contêiner** com as seguintes informações:
+4. Atualize o JSON que você copiou em **Opções de criação de contêiner** com as seguintes informações:
 
    - Substitua `<your storage account name>` por um nome de que você possa se lembrar. Os nomes de conta devem ter entre 3 e 24 caracteres, com letras minúsculas e números. Não são permitidos espaços.
 
    - Substitua `<your storage account key>` por uma chave base64 de 64 bytes. É possível gerar uma chave com ferramentas como [GeneratePlus](https://generate.plus/en/base64). Você utilizará essas credenciais para acessar o armazenamento de blobs a partir de outros módulos.
 
-   - Substitua `<storage mount>` de acordo com o sistema operacional do contêiner. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no dispositivo do IoT Edge no qual você quer que o módulo do blob armazene os dados. A montagem de armazenamento mapeia um local em seu dispositivo que você fornece a um local definido no módulo.
+   - Substitua `<storage mount>` de acordo com o sistema operacional do contêiner. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório existente no dispositivo IOT Edge em que o módulo de blob armazenará seus dados. A montagem de armazenamento mapeia um local em seu dispositivo que você fornece a um local definido no módulo.
 
      - Para contêineres do Linux, o formato é *\<caminho de armazenamento ou volume >:/blobroot*. Por exemplo
          - usar [montagem de volume](https://docs.docker.com/storage/volumes/): **My-volume:/blobroot**
@@ -261,6 +261,7 @@ Edite **as opções de criação de contêiner** (no portal do Azure) **ou o cam
 Ao conectar-se a módulos de armazenamento de blobs adicionais, altere o ponto de extremidade para indicar a porta do host atualizada.
 
 ## <a name="next-steps"></a>Próximos passos
+
 Saiba mais sobre o [armazenamento de BLOBs do Azure no IOT Edge](how-to-store-data-blob.md)
 
 Para obter mais informações sobre como os manifestos de implantação funcionam e como criá-los, consulte [Entender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).

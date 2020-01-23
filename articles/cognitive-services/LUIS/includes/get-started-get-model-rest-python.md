@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 8cefd8357893657d94959cb853004b34b0ec9d8d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f4d180dd6ad99d5bc00e6970e22b756aa26275da
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505840"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268202"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Chave inicial.
 * Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório GitHub cognitive-services-language-understanding.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. A ID do aplicativo é mostrada no painel do aplicativo.
-* O ID da versão no aplicativo que recebe os enunciados. A ID padrão é “0.1”.
+* A ID da versão no aplicativo que recebe os enunciados. A ID padrão é “0.1”.
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -55,8 +55,8 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
     # The version number of your LUIS app
     LUIS_APP_VERSION = "0.1"
     
-    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/examples'
-    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/train'
+    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/examples'
+    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/train'
     
     HEADERS = {'Ocp-Apim-Subscription-Key': LUIS_authoringKey}
     
@@ -76,11 +76,11 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
     train()
     trainStatus()
     ```
-1. Substitua os valores a seguir:
+1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` com a chave inicial
-    * `YOUR-ENDPOINT` com o ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com o ID do aplicativo
+    * `YOUR-KEY` com sua chave inicial
+    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-APP-ID` com a ID do seu aplicativo
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, insira o seguinte comando para executar o arquivo:
 
@@ -92,7 +92,7 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
 
 [!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 

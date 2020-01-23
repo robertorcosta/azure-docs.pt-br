@@ -2,17 +2,17 @@
 title: Início Rápido da Configuração de Aplicativo do Azure com o .NET Core | Microsoft Docs
 description: Um Início Rápido para o uso da Configuração de Aplicativo do Azure com aplicativos .NET Core
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: yegu
-ms.openlocfilehash: 46aab7bcb9ec941bee465b0d87430b7415b2dfeb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: cf6c84e0fa3d3d5306e3295d082efc4a27cfdea6
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413685"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310026"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
@@ -52,7 +52,7 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 1. Adicione uma referência ao pacote NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, executando o seguinte comando:
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-010550001-251
     ```
 
 2. Execute o seguinte comando para restaurar pacotes do projeto:

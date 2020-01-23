@@ -4,7 +4,6 @@ description: Exemplo de Script do Azure PowerShell - Gerenciar o tráfego da web
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b9b34f124d1260fe17d1f43c6e97f20fd116c5f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 89915cdd4ae88f1092c45e1d428679a99f1ac906
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202849"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273394"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>Gerenciar o tráfego da Web com o Azure PowerShell
 
@@ -29,7 +28,7 @@ Este script cria um gateway de aplicativo que usa um conjunto de dimensionamento
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/application-gateway/create-vmss/create-vmss.ps1 "Create application gateway")]
 

@@ -3,15 +3,15 @@ title: Tutorial – Configurar a instância do Servidor de Configuração no Azu
 description: Neste tutorial, você aprenderá como configurar uma instância do Servidor de Configuração do Spring Cloud para seu Azure Spring Cloud no portal do Azure
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708795"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277523"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutorial: Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
 
@@ -19,7 +19,7 @@ Este artigo mostra como conectar uma instância do Servidor de Configuração do
 
 A configuração do Spring Cloud oferece suporte no lado do servidor e do cliente para configuração externalizada em um sistema distribuído. Com a instância do Servidor de Configuração, você tem um local central para gerenciar propriedades externas para aplicativos em todos os ambientes. Para obter mais informações, confira a [Referência do Servidor de Configuração do Spring Cloud](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 * Um serviço do Azure Spring Cloud já provisionado e em execução. Para configurar e iniciar um serviço do Azure Spring Cloud, confira [Início Rápido: iniciar um aplicativo Java Spring usando a CLI do Azure](spring-cloud-quickstart-launch-app-cli.md).
 
@@ -124,7 +124,7 @@ Todas as propriedades configuráveis usadas para configurar os repositórios Git
 
 Agora que você salvou seus arquivos de configuração em um repositório, é necessário conectar o Azure Spring Cloud a ele.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 
 1. Vá até a página **Visão geral** do Azure Spring Cloud.
 

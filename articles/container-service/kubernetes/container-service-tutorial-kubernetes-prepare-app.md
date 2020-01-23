@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Tutorial do Serviço de Contêiner do Azure – preparar aplicativo
 description: Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995384"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275423"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(PRETERIDO) Criar imagens de contêiner a serem usadas com o Serviço de Contêiner do Azure
 
@@ -107,7 +105,7 @@ Navegue até `http://localhost:8080` para ver o aplicativo em execução.
 
 ![Imagem do cluster Kubernetes no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens de contêiner. A imagem `azure-vote-front` será carregada em uma instância do Registro de Contêiner do Azure no próximo tutorial.
 

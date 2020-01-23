@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826170"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543147"
 ---
 # <a name="azure-application-skus-tab"></a>Guia de SKUs de aplicativo do Azure
 
@@ -44,11 +44,11 @@ A próxima captura de tela mostra o formulário detalhes de SKU para um modelo d
 
 Forneça os valores de SKU a seguir.  Os campos anexados a um asterisco são obrigatórios.
 
-|    Campo         |       DESCRIÇÃO                                                            |
+|    Campo         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Título\***     | Um título para a SKU. Esse título é mostrado na galeria para este item.   |
-| **\* de resumo**    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
-| **Descrição\*** | Uma descrição detalhada da SKU. Há suporte para HTML básico.                 | 
+| **Resumo\***    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
+| **Description\*** | Uma descrição detalhada da SKU. Há suporte para HTML básico.                 | 
 | **Tipo de SKU\***   | Tipo de solução de aplicativo do Azure, selecione ***modelo de solução** para este cenário. |
 | **\* de disponibilidade na nuvem** | O local do SKU. O padrão é **Azure público**.  <b/>**Azure público** -o aplicativo será implantável para clientes em todas as regiões públicas do Azure que têm integração com o Marketplace.  <b/>aplicativo de **nuvem do Azure governamental** será implantado na nuvem do Azure governamental. Antes de publicar no [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda que os editores testem e validem sua solução funcione conforme o esperado nesse ambiente. Para preparação e teste, solicite [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
 | **Este é um SKU privado?\*** | Selecione **Sim** se esta SKU estiver disponível apenas para um grupo selecionado de clientes. |
@@ -66,11 +66,11 @@ A próxima captura de tela mostra o formulário de detalhes de SKU para um aplic
 
 Defina as seguintes configurações de SKU. Os campos anexados a um asterisco são obrigatórios.
 
-|    Campo         |       DESCRIÇÃO                                                            |
+|    Campo         |       Description                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Título\***     | Um título para a SKU. Esse título é mostrado na galeria para este item.   |
-| **\* de resumo**    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
-| **Descrição\*** | Uma descrição detalhada da SKU. Há suporte para HTML básico.                 | 
+| **Resumo\***    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
+| **Description\*** | Uma descrição detalhada da SKU. Há suporte para HTML básico.                 | 
 | **Tipo de SKU\***   | Tipo de solução de aplicativo do Azure, selecione ***aplicativo gerenciado** para este cenário. 
 | **\* de disponibilidade na nuvem** | O local do SKU. O padrão é **Azure público**.  <b/>**Azure público** -o aplicativo será implantável para clientes em todas as regiões públicas do Azure que têm integração com o Marketplace.  <b/>aplicativo de **nuvem do Azure governamental** será implantado na nuvem do Azure governamental. Antes de publicar no [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda que os editores testem e validem sua solução funcione conforme o esperado nesse ambiente. Para preparação e teste, solicite [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   O Microsoft Azure Governamental é uma nuvem de comunidade do governo, com acesso controlado para clientes federais, estaduais, locais ou tribais dos EUA e parceiros qualificados para atender a essas entidades. |
 | **Este é um SKU privado?\*** | Selecione **Sim** se esta SKU estiver disponível apenas para um grupo selecionado de clientes. |
@@ -82,17 +82,19 @@ Defina as seguintes configurações de SKU. Os campos anexados a um asterisco s�
 
 ### <a name="package-details-for-solution-template"></a>Detalhes do pacote do modelo de solução
 
-   ![Detalhes do pacote do modelo de solução](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Detalhes do pacote do modelo de solução](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Forneça os valores de **detalhes do pacote** a seguir.  Os campos anexados a um asterisco são obrigatórios.
 
 - **Versão\*** -a versão do pacote que será carregada. As tags de versão devem ter o formato X.Y.Z, onde X, Y e Z são inteiros.
 - **Arquivo de pacote (. zip)\*** -este pacote contém os arquivos a seguir, salvos em um arquivo. zip.
-  - MainTemplate.json – o arquivo do modelo de implantação que é usado para implantar a solução/aplicativo e criar os recursos definidos para a solução. Para obter mais informações, confira [Como criar arquivos de modelo de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition.json - Esse arquivo é usado pelo portal do Azure para gerar a interface do usuário para o provisionamento dessa solução/aplicação. Para obter mais informações, confira [Criar uma interface do usuário do portal do Azure para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **MainTemplate. json\*** -o arquivo de modelo de implantação usado para implantar a solução/aplicativo e criar os recursos definidos para a solução. Para obter mais informações, confira [Como criar arquivos de modelo de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition. json\*** -esse arquivo é usado pelo portal do Azure para gerar a interface do usuário para provisionar esta solução/aplicativo. Para obter mais informações, confira [Criar uma interface do usuário do portal do Azure para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Scripts (se necessário)-quaisquer scripts adicionais que possam ser necessários ao executar o modelo, por exemplo, `Microsoft.Compute/virtualMachines/extensions`.
+  - Modelos aninhados (se necessário)-quaisquer modelos aninhados adicionais.
 
-  >[!IMPORTANT] 
-  >Esse pacote deve conter outros modelos ou scripts aninhados que sejam necessários para provisionar o aplicativo. Os arquivos MainTemplate.json e createUIDefinition.json precisam estar na pasta raiz.
+  > [!IMPORTANT] 
+  > Esse pacote deve conter outros modelos ou scripts aninhados que sejam necessários para provisionar o aplicativo. O arquivo MainTemplate. JSON e o arquivo createUIDefinition. JSON devem estar na pasta raiz. Para obter mais informações sobre os artefatos de implantação, consulte [modelos de Azure Resource Manager – guia de práticas recomendadas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### <a name="package-details-for-managed-application"></a>Detalhes de pacote do aplicativo gerenciado
@@ -154,6 +156,6 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 4. Em **SKU de política**, selecione Gratuito ou Standard como o tipo de SKU de política. A SKU Standard é necessária para as políticas de auditoria.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você descreverá ainda mais sua oferta e fornecerá ativos de marketing na [guia Marketplace](./cpp-marketplace-tab.md). 

@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 4deae28d172bf717f527824be4be050975614c7d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 424d797410c091dc53687284c2b32e2f1f0358e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277383"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549063"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -40,16 +40,7 @@ Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
-Consulte o exemplo específico a um idioma:
-
-* [C#](#trigger---c-example)
-* [Script do C# (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Gatilho - exemplo C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 A exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê [metadados de mensagem](#trigger---message-metadata) e registra uma mensagem de fila do Barramento de Serviço:
 
@@ -70,7 +61,7 @@ public static void Run(
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função lê [metadados de mensagem](#trigger---message-metadata) e registra uma mensagem de fila do Barramento de Serviço do Microsoft Azure.
 
@@ -110,90 +101,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>Gatilho - Exemplo F#
-
-O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função F#](functions-reference-fsharp.md) que usa a associação. A função registra em log uma mensagem de fila do barramento de serviço. 
-
-Aqui estão os dados de associação no arquivo *function.json*:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Aqui está o código de script F#:
-
-```fsharp
-let Run(myQueueItem: string, log: ILogger) =
-    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
-```
-
-### <a name="trigger---java-example"></a>Gatilho - exemplo Java
-
-A função Java a seguir usa a anotação `@ServiceBusQueueTrigger` da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração de um gatilho de fila do barramento de serviço. A função captura a mensagem colocada na fila e a adiciona aos logs.
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
-```
-
-A seguinte função Java mostra a recuperação de metadados definidos nas _Propriedades do usuário_ de uma mensagem do barramento de serviço: 
-```java
-public class ServiceBusQueueTriggerJava {
-    @FunctionName("ServiceBusQueueTriggerJava")
-    public void run(
-            @ServiceBusQueueTrigger(name = "message", queueName = "myqueue", connection = "AzureWebJobsStorage") String message,
-            @BindingName("UserProperties") UserProperties userProperties,
-            final ExecutionContext context
-    ) {
-        context.getLogger().info("Java Service Bus Queue trigger function executed.");
-        context.getLogger().info(message);
-        context.getLogger().info(userProperties.key1);
-        context.getLogger().info(userProperties.key2);
-    }
-}
-
-public class UserProperties {
-    public String key1;
-    public String key2;
-}
-```
-
-As funções Java também podem ser disparadas quando uma mensagem é adicionada a um tópico do barramento de serviço. O exemplo a seguir usa a anotação `@ServiceBusTopicTrigger` para descrever a configuração do gatilho.
-
-```java
-@FunctionName("sbtopicprocessor")
-    public void run(
-        @ServiceBusTopicTrigger(
-            name = "message",
-            topicName = "mytopicname",
-            subscriptionName = "mysubscription",
-            connection = "ServiceBusConnection"
-        ) String message,
-        final ExecutionContext context
-    ) {
-        context.getLogger().info(message);
-    }
-```
-
-### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função lê [metadados de mensagem](#trigger---message-metadata) e registra uma mensagem de fila do Barramento de Serviço do Microsoft Azure. 
 
@@ -226,7 +134,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a name="trigger---python-example"></a>Gatilho – Exemplo do Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 O exemplo a seguir demonstra como ler uma mensagem da fila do barramento de serviço por meio de um gatilho.
 
@@ -277,7 +185,44 @@ def main(msg: func.ServiceBusMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Gatilho – atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A função Java a seguir usa a anotação `@ServiceBusQueueTrigger` da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração de um gatilho de fila do barramento de serviço. A função captura a mensagem colocada na fila e a adiciona aos logs.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+```
+
+As funções Java também podem ser disparadas quando uma mensagem é adicionada a um tópico do barramento de serviço. O exemplo a seguir usa a anotação `@ServiceBusTopicTrigger` para descrever a configuração do gatilho.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+```
+
+---
+
+## <a name="trigger---attributes-and-annotations"></a>Gatilho-atributos e anotações
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguintes atributos para configurar um gatilho do Barramento de Serviço:
 
@@ -308,7 +253,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
   }
   ```
 
-  Para ver um exemplo completo, consulte [Gatilho – exemplo de C#](#trigger---c-example).
+  Para obter um exemplo completo, consulte [gatilho-exemplo](#trigger---example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
 
@@ -336,6 +281,28 @@ A conta de Barramento de Serviço a ser usada é determinada na seguinte ordem:
 * O `ServiceBusAccount` atributo aplicado à classe.
 * A configuração de aplicativo "AzureWebJobsServiceBus".
 
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos pelo JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Não há suporte para atributos no Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A anotação `ServiceBusQueueTrigger` permite que você crie uma função que é executada quando uma mensagem de fila do barramento de serviço é criada. As opções de configuração disponíveis incluem nome da fila e nome da cadeia de conexão.
+
+A anotação `ServiceBusTopicTrigger` permite designar um tópico e uma assinatura para direcionar quais dados disparam a função.
+
+Consulte o [exemplo](#trigger---example) de gatilho para obter mais detalhes.
+
+---
+
 ## <a name="trigger---configuration"></a>Gatilho – configuração
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `ServiceBusTrigger`.
@@ -356,7 +323,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="trigger---usage"></a>Gatilho - uso
 
-Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a mensagem de fila ou tópico:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Os seguintes tipos de parâmetro estão disponíveis para a mensagem de fila ou tópico:
 
 * `string` -Se a mensagem for de texto.
 * `byte[]` - Útil para dados binários.
@@ -365,7 +334,32 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a mensa
 
 Esses tipos de parâmetro são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
 
-No JavaScript, acesse a mensagem da fila ou do tópico usando `context.bindings.<name from function.json>`. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+Os seguintes tipos de parâmetro estão disponíveis para a mensagem de fila ou tópico:
+
+* `string` -Se a mensagem for de texto.
+* `byte[]` - Útil para dados binários.
+* Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
+* `BrokeredMessage` – fornece a você a mensagem desserializada com o método [BrokeredMessage. GetBody\<t > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+
+Esses parâmetros são para Azure Functions versão 1. x; para 2. x e superior, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Acesse a mensagem da fila ou do tópico usando `context.bindings.<name from function.json>`. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+A mensagem da fila está disponível para a função por meio de um parâmetro digitado como `func.ServiceBusMessage`. A mensagem do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou um objeto JSON.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+A mensagem do barramento de serviço de entrada está disponível por meio de um parâmetro `ServiceBusQueueMessage` ou `ServiceBusTopicMessage`.
+
+[Consulte o exemplo para obter detalhes](#trigger).
+
+---
 
 ## <a name="trigger---poison-messages"></a>Gatilho - mensagens suspeitas
 
@@ -404,18 +398,9 @@ Consulte [exemplos de código](#trigger---example) que usam essas propriedades n
 
 Use a associação de saída do barramento de serviço do Azure para enviar mensagens de fila ou de tópico.
 
-## <a name="output---example"></a>Saída - exemplo
+### <a name="output---example"></a>Saída - exemplo
 
-Consulte o exemplo específico a um idioma:
-
-* [C#](#output---c-example)
-* [Script do C# (.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Saída - exemplo C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 A exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que envia uma mensagem de fila do Barramento de Serviço:
 
@@ -429,7 +414,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-### <a name="output---c-script-example"></a>Saída - exemplo de script C#
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
 O exemplo a seguir mostra uma associação de saída de Barramento de Serviço em um arquivo *function.json* e uma [função script C#](functions-reference-csharp.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
 
@@ -480,79 +465,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-### <a name="output---f-example"></a>Saída - Exemplo #F
-
-O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [Função script C#](functions-reference-fsharp.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
-
-Aqui estão os dados de associação no arquivo *function.json*:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Aqui está o código de script C# que cria uma mensagem única:
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
-    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.LogInformation(message)
-    outputSbQueue = message
-```
-
-### <a name="output---java-example"></a>Saída - exemplo de Java
-
-O exemplo a seguir mostra uma função Java que envia uma mensagem para uma fila do barramento de serviço `myqueue` quando disparada por uma solicitação HTTP.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
-```
-
- Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@ServiceBusQueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
-
-As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa a anotação `@ServiceBusTopicOutput` para descrever a configuração da Associação de saída. 
-
-```java
-@FunctionName("sbtopicsend")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
-            final ExecutionContext context) {
-        
-        String name = request.getBody().orElse("Azure Functions");
-
-        message.setValue(name);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-        
-    }
-```
-
-### <a name="output---javascript-example"></a>Saída - exemplo JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída de Barramento de Serviço em um arquivo *function.json* e uma [função JavaScript C#](functions-reference-node.md) que usa a associação. A função usa um gatilho de timer para enviar uma mensagem da fila a cada 15 segundos.
 
@@ -604,7 +517,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="output---python-example"></a>Saída – exemplo do Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 O exemplo a seguir demonstra como gravar em uma fila do barramento de serviço em Python.
 
@@ -654,7 +567,46 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>Saída - atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+O exemplo a seguir mostra uma função Java que envia uma mensagem a uma fila `myqueue` do Barramento de Serviço quando disparada por uma solicitação HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+```
+
+ Na [biblioteca de runtime das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
+
+As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa a anotação `@ServiceBusTopicOutput` para descrever a configuração da Associação de saída. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Saída-atributos e anotações
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -680,9 +632,27 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-example).
+Para obter um exemplo completo, consulte [saída-exemplo](#output---example).
 
-Você pode usar o atributo `ServiceBusAccount` para especificar a conta do barramento de serviço a ser usada no nível de classe, método ou parâmetro.  Para obter mais informações, consulte [Gatilho - atributos](#trigger---attributes).
+Você pode usar o atributo `ServiceBusAccount` para especificar a conta do Barramento de Serviço ao nível da classe, do método ou do parâmetro.  Para obter mais informações, consulte [Gatilho - atributos](#trigger---attributes-and-annotations).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
+
+O script não dá suporte C# a atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Não há suporte para atributos pelo JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Não há suporte para atributos no Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+As anotações `ServiceBusQueueOutput` e `ServiceBusTopicOutput` estão disponíveis para gravar uma mensagem como uma saída de função. O parâmetro decorado com essas anotações deve ser declarado como um `OutputBinding<T>` onde `T` é o tipo correspondente ao tipo da mensagem.
+
+---
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -704,7 +674,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 No Azure Functions 1. x, o runtime criará a fila se ela não existir e você tiver definido `accessRights` como `manage`. Nas funções versão 2. x e superior, a fila ou o tópico já deve existir; Se você especificar uma fila ou um tópico que não existe, a função falhará. 
 
-Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a associação de saída:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Use os seguintes tipos de parâmetro para a associação de saída:
 
 * `out T paramName` - `T` pode ser qualquer tipo serializável em JSON. Se o valor do parâmetro for nulo quando a função existir, o Functions criará a mensagem com um objeto nulo.
 * `out string` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
@@ -719,9 +691,36 @@ Ao trabalhar com C# funções:
 
 * Para acessar a ID da sessão, associe a um tipo de [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) e use a propriedade `sessionId`.
 
-No JavaScript, acesse a fila ou o tópico usando `context.bindings.<name from function.json>`. Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto JavaScript (desserializado em JSON) para `context.binding.<name>`.
+# <a name="c-scripttabcsharp-script"></a>[C#Prescritiva](#tab/csharp-script)
 
-Para enviar uma mensagem para uma fila habilitada para sessão em outrosC# idiomas, use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging) em vez da Associação de saída interna.
+Use os seguintes tipos de parâmetro para a associação de saída:
+
+* `out T paramName` - `T` pode ser qualquer tipo serializável em JSON. Se o valor do parâmetro for nulo quando a função existir, o Functions criará a mensagem com um objeto nulo.
+* `out string` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
+* `out byte[]` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
+* `out BrokeredMessage`-se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
+* `out Message`-se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x e superior)
+* `ICollector<T>` ou `IAsyncCollector<T>` - Para a criação de várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
+
+Ao trabalhar com C# funções:
+
+* As funções assíncronas precisam de um valor de retorno ou `IAsyncCollector` em vez de um parâmetro `out`.
+
+* Para acessar a ID da sessão, associe a um tipo de [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) e use a propriedade `sessionId`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Acesse a fila ou o tópico usando `context.bindings.<name from function.json>`. Você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto JavaScript (desserializado em JSON) para `context.binding.<name>`.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging) em vez da Associação de saída interna.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Use o [SDK do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging) em vez da Associação de saída interna.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Exceções e códigos de retorno
 

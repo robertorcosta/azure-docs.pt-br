@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 580d1316c2bfc6514a148ed6fba78a8e77bd880e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c9e7c23806d4a0a0e2c0b36122d9eb087c986556
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614915"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549165"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel a nós do Linux no serviço kubernetes do Azure (AKS)
 
@@ -39,7 +39,7 @@ Em um cluster do AKS, os nós do Kubernetes executam como VMs (máquinas virtuai
 
 Algumas atualizações de segurança, como atualizações de kernel, exigem uma reinicialização do nó para finalizar o processo. Um nó do Linux que requer uma reinicialização cria um arquivo chamado */var/run/reboot-Required*. Esse processo de reinicialização não ocorre automaticamente.
 
-Você pode usar seus próprios fluxos de trabalho e processos para manipular reinicializações de nós ou usar `kured` para orquestrar o processo. Com o `kured`, [um daemonset][DaemonSet] é implantado e executa um pod em cada nó do Linux no cluster. Esses pods no DaemonSet inspecionam a existência do arquivo */var/run/reboot-required* e, em seguida, iniciam um processo para reinicializar os nós.
+Você pode usar seus próprios fluxos de trabalho e processos para manipular reinicializações de nós ou usar `kured` para orquestrar o processo. Com o `kured`, [um daemonset][DaemonSet] é implantado e executa um pod em cada nó do Linux no cluster. Esses pods no Daemonset observam a existência do arquivo */var/run/reboot-Required* e, em seguida, iniciam um processo para reinicializar os nós.
 
 ### <a name="node-upgrades"></a>Upgrades de nós
 
@@ -83,7 +83,7 @@ NAME                       STATUS                     ROLES     AGE       VERSIO
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Depois que o processo de atualização for concluído, você poderá exibir o status dos nós usando o comando [kubectl Get][kubectl-get-nodes] Nodes `--output wide` com o parâmetro. Essa saída adicional permite ver uma diferença em *KERNEL-VERSION* dos nós subjacentes, conforme mostrado na seguinte saída de exemplo. O *AKs-nodepool1-28993262-0* foi atualizado em uma etapa anterior e mostra a versão *do kernel 4.15.0-1039-Azure*. O nó *AKs-nodepool1-28993262-1* que não foi atualizado mostra a versão *do kernel 4.15.0-1037-Azure*.
+Depois que o processo de atualização for concluído, você poderá exibir o status dos nós usando o comando [kubectl Get Nodes][kubectl-get-nodes] com o parâmetro `--output wide`. Essa saída adicional permite ver uma diferença em *KERNEL-VERSION* dos nós subjacentes, conforme mostrado na seguinte saída de exemplo. O *AKs-nodepool1-28993262-0* foi atualizado em uma etapa anterior e mostra a versão *do kernel 4.15.0-1039-Azure*. O nó *AKs-nodepool1-28993262-1* que não foi atualizado mostra a versão *do kernel 4.15.0-1037-Azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -91,9 +91,9 @@ aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4   
 aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Este artigo detalha como usar `kured` o para reinicializar os nós do Linux automaticamente como parte do processo de atualização de segurança. Para atualizar para a versão mais recente do kubernetes, você pode [atualizar o cluster do AKS][aks-upgrade].
+Este artigo detalha como usar `kured` para reinicializar os nós do Linux automaticamente como parte do processo de atualização de segurança. Para atualizar para a versão mais recente do kubernetes, você pode [atualizar o cluster do AKS][aks-upgrade].
 
 Para clusters AKS que usam nós do Windows Server, consulte [atualizar um pool de nós em AKs][nodepool-upgrade].
 

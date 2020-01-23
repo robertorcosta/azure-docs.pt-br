@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cd0366a0029ccc4816308e280ac93b7c724bb82a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 300b497765dd1081fbad36292c01c56da5bb5e38
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034619"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277257"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI do Azure
 
@@ -37,22 +37,12 @@ Este tutorial usa a CLI dentro do [Azure Cloud Shell](https://docs.microsoft.com
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="high-availability-in-azure-overview"></a>Visão geral de alta disponibilidade no Azure
-A alta disponibilidade no Azure pode ser criada de várias maneiras diferentes. Duas opções que você tem são conjuntos de disponibilidade e zonas de disponibilidade. Usando conjuntos de disponibilidade, suas VMs serão protegidas contra falhas que podem ocorrer em um datacenter. Isso inclui falhas de hardware e falhas de software do Azure. Usando zonas de disponibilidade, as VMs serão colocadas em infraestrutura fisicamente separada sem recursos compartilhados e, portanto, serão protegidas de falhas no datacenter inteiro.
-
-Use Conjuntos de Disponibilidade ou Zonas de Disponibilidade quando você desejar implantar soluções confiáveis baseadas em VM no Azure.
-
-### <a name="availability-set-overview"></a>Visão geral do conjunto de disponibilidade
+## <a name="overview"></a>Visão geral
 
 Um Conjunto de disponibilidade é uma funcionalidade de agrupamento lógico que você pode usar no Azure para garantir que os recursos da VM colocados nele sejam isolados uns dos outros quando forem implantados em um datacenter do Azure. O Azure garante que as VMs colocadas em um Conjunto de disponibilidade sejam executadas em vários servidores físicos, racks de computação, unidades de armazenamento e comutadores de rede. Se uma falha de hardware ou software do Azure ocorrer, apenas um subconjunto de suas VMs será afetado e seu aplicativo geral permanecerá disponível e ativo para seus clientes. Os Conjuntos de Disponibilidade são uma funcionalidade essencial quando você deseja compilar soluções de nuvem confiáveis.
 
 Vamos considerar uma solução comum baseada em VM na qual você pode ter quatro servidores Web front-end e usar duas VMs de back-end que hospedam um banco de dados. Com o Azure, convém definir dois conjuntos de disponibilidade antes de implantar suas VMs: um conjunto de disponibilidade para a camada "Web" e um conjunto de disponibilidade para a camada "banco de dados". Ao criar uma nova VM, você pode especificar o conjunto de disponibilidade como um parâmetro para o comando az vm create e o Azure garantirá automaticamente que as VMs criadas dentro do conjunto de disponibilidade sejam isoladas em vários recursos de hardware físico. Se o hardware físico no qual um de seus servidores Web ou VMs do servidor de banco de dados estiverem em execução enfrentar um problema, você saberá que outras instâncias de seu servidor Web e VMs de banco de dados permanecerão em execução, pois estão em um hardware diferente.
 
-### <a name="availability-zone-overview"></a>Visão geral de zona de disponibilidade
-
-Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege os aplicativos e dados contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
-
-De modo semelhante aos conjuntos de disponibilidade, vamos considerar uma solução comum baseada em VM na qual você pode ter quatro servidores Web front-end e usar duas VMs de back-end que hospedam um banco de dados. De modo semelhante aos conjuntos de disponibilidade, você desejará implantar suas VMs em duas zonas de disponibilidade separadas: uma zona de disponibilidade para a camada "Web" e outra zona de disponibilidade para a camada "banco de dados". Quando você cria uma VM e especifica a zona de disponibilidade como um parâmetro para o comando az vm create, o Azure garante automaticamente que as VMs criadas sejam isoladas entre zonas de disponibilidade totalmente diferentes. Se todo o datacenter no qual um de seus servidores Web ou VMs do servidor de banco de dados estiverem em execução enfrentar um problema, você saberá que outras instâncias de seu servidor Web e VMs de banco de dados permanecerão em execução, pois estarão em execução em datacenters totalmente separados.
 
 ## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
@@ -113,7 +103,7 @@ az vm availability-set list-sizes \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um conjunto de disponibilidade

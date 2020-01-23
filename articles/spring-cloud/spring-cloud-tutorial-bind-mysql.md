@@ -1,23 +1,23 @@
 ---
 title: Tutorial – Como associar uma instância do Banco de Dados do Azure para MySQL ao aplicativo Azure Spring Cloud
 description: Este tutorial mostrará como associar uma instância do Banco de Dados do Azure para MySQL ao aplicativo Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.author: brendm
+ms.openlocfilehash: 657aa70d77fd1af9fd2121a3e98ea3aca7773642
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708820"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277554"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Tutorial: Associar uma instância do Banco de Dados do Azure para MySQL ao seu aplicativo Azure Spring Cloud 
 
 Com o Azure Spring Cloud, é possível associar serviços do Azure selecionados aos seus aplicativos automaticamente, em vez de precisar configurar manualmente seu aplicativo Spring Boot. Este tutorial mostra como associar seu aplicativo à instância do Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma instância do Azure Spring Cloud implantada
 * Uma conta do Banco de Dados do Azure para MySQL

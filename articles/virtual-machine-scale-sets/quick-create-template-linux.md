@@ -1,27 +1,19 @@
 ---
 title: Início Rápido – Criar um conjunto de dimensionamento de máquinas virtuais do Linux com um modelo do Azure
 description: Saiba como criar rapidamente um dimensionamento de máquinas virtuais do Linux com um modelo do Azure Resource Manager que implante um aplicativo de exemplo e configure regras de dimensionamento automático
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a2712bc4a758a0cac6fe8357a0d4c14c594978c3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351102"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279180"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implantar e gerenciar um conjunto de máquinas virtuais idênticas de dimensionamento automático. É possível dimensionar o número de VMs manualmente no conjunto de dimensionamento ou definir as regras para o dimensionamento automático com base no uso de recursos, como CPU, demanda de memória ou tráfego de rede. Um balanceador de carga do Azure então distribui o tráfego para as instâncias de VM no conjunto de dimensionamento. Neste guia de início rápido, você cria um conjunto de dimensionamento de máquinas virtuais e implanta um aplicativo de exemplo com um modelo do Azure Resource Manager.

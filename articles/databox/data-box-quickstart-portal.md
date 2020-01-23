@@ -9,24 +9,14 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772742"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313766"
 ---
-::: zone target="docs"
-
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box usando o portal do Azure
-
-::: zone-end
-
-::: zone target="chromeless"
-
 # <a name="get-started-with-azure-data-box"></a>Introdução ao Azure Data Box 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -44,7 +34,7 @@ Este guia descreve como implantar o Azure Data Box usando o portal do Azure. As 
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar:
 
@@ -68,7 +58,7 @@ Antes de começar:
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se você:
 
@@ -89,7 +79,7 @@ Antes de começar, verifique se você:
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Classificar
+## <a name="order"></a>Order
 
 Esta etapa leva aproximadamente 5 minutos.
 
@@ -114,7 +104,7 @@ Quando você receber o Data Box, execute as etapas a seguir para cabear, conecta
     - Cabo de alimentação com aterramento (incluso) com potência igual ou superior a 10 A e um conector IEC60320 C-13 em uma extremidade para a conexão ao dispositivo.
     - Um cabo de rede RJ-45 CAT 6 (usar com adaptador de rede MGMT)
     - Dois cabos de cobre SFP+ Twinax de 10 GbE (usar com adaptadores de rede DATA 1 ou DATA 2 de 10 Gbps)
-    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps, respectivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps respectivamente)
 
 3. Remova e coloque o dispositivo em uma superfície plana. 
     
@@ -125,10 +115,10 @@ Quando você receber o Data Box, execute as etapas a seguir para cabear, conecta
     1. Conecte o cabo de alimentação ao dispositivo.
     2. Use o cabo de rede RJ-45 CAT 6 para conectar o computador host à porta de gerenciamento (MGMT) no dispositivo. 
     3. Use o cabo de cobre SFP+ Twinax para conectar, pelo menos, um adaptador de rede de 10 Gbps (preferível a 1 Gbps), DATA 1 ou DATA 2, aos dados. 
-    4. Ative o dispositivo. O botão de energia está localizado no painel frontal do dispositivo.
+    4. Ligar o dispositivo. O botão de energia está localizado no painel frontal do dispositivo.
 
 
-## <a name="connect"></a>Connect
+## <a name="connect"></a>Conectar
 
 Essa etapa demora cerca de 5 a 7 minutos para ser concluída.
 
@@ -164,7 +154,7 @@ O tempo para concluir essa operação depende do tamanho dos dados.
     1. Verifique se há logs de erros para quaisquer falhas e tome as medidas apropriadas.
     2. Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Esta etapa leva de 2 a 3 minutos para ser concluída.
 

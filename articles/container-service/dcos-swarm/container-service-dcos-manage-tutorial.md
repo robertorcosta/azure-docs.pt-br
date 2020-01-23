@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 description: Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1c9b3bfdbe7aff203efa6b36f0e40cb65aba1175
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000416"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278348"
 ---
 # <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(PRETERIDO) Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 

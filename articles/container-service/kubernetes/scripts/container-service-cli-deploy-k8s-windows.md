@@ -1,27 +1,21 @@
 ---
-title: Exemplo de script da CLI do Azure – criar o cluster do Windows Kubernetes do ACS | Microsoft Docs
+title: Exemplo de script da CLI do Azure – criar o cluster do Windows Kubernetes do ACS
 description: Exemplo de script da CLI do Azure – criar o cluster do Windows Kubernetes do ACS
-services: container-service
-documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
-editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Contêineres, Microsserviços, Kubernetes, DC/SO, Azure
 ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 1f24f036858f9c77ed6b07af27617d3e3706bba2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bc940f09a98eb4ee42290dcfd11d0800f6c3b9e4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001581"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270677"
 ---
 # <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(PRETERIDO) Criar um cluster do Windows do Kubernetes do Serviço de Contêiner do Azure
 
@@ -33,7 +27,7 @@ Este exemplo cria um cluster do Serviço de Contêiner do Azure executando Kuber
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

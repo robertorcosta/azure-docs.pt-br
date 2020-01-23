@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Atualizar sortimento de estoque de varejo usando canais de publicação/assinatura e filtros de tópicos com o portal do Azure | Microsoft Docs
+title: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 description: Neste tutorial, você aprenderá como enviar e receber mensagens de um tópico e uma assinatura e como adicionar e usar regras de filtro usando .NET
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5424a07f8ecd7eab962a4f865fac91741810e4b1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991934"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310111"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -34,7 +34,7 @@ Um exemplo desse cenário é uma atualização de sortimento de estoque para vá
 
 Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
@@ -98,7 +98,7 @@ Para executar o código, faça o seguinte:
 
     ![Receber saída](./media/service-bus-tutorial-topics-subscriptions-portal/receive-output.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua o namespace e a fila. Para fazer isso, selecione esses recursos no portal e clique em **Excluir**.
 
@@ -395,11 +395,11 @@ private async Task ReceiveMessages(string subscription)
 ```
 
 > [!NOTE]
-> É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
+> É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e administrem entidades de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você provisionou recursos usando o portal do Azure e, em seguida, enviou e recebeu mensagens de um tópico do Barramento de Serviço e as respectivas assinaturas. Você aprendeu como:
+Neste tutorial, você provisionou recursos usando o portal do Azure e, em seguida, enviou e recebeu mensagens de um tópico do Barramento de Serviço e as respectivas assinaturas. Você aprendeu a:
 
 > [!div class="checklist"]
 > * Criar um tópico de Barramento de Serviço e uma ou mais assinaturas para esse tópico usando o portal do Azure

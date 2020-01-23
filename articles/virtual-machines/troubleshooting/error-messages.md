@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695323"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543011"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Entender as mensagens de erro comuns ao gerenciar máquinas virtuais no Azure
 
@@ -37,7 +37,7 @@ As VMs do Azure usam o seguinte formato JSON para a resposta de erro:
     "message":"Top level error message",
     "details":[
      {
-      "code":"Inner evel error code",
+      "code":"Inner level error code",
       "message":"Inner level error message"
      }
     ]
@@ -108,7 +108,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  InvalidParameter  |  Não é possível especificar substituições da imagem de utilizador para um disco que já está definido na referência de imagem especificada.  |
 |  InvalidParameter  |  Um disco chamado "{0}" já utiliza a mesma URL do VHD {1}.  |
 |  InvalidParameter  |  A contagem especificada de domínios de falha de {0} deve estar no intervalo de {1} a {2}.  |
-|  InvalidParameter  |  O tipo de licença {0} é inválido. Os tipos de licença válidos são: Windows_Client ou Windows_Server, diferencia maiúsculas de minúsculas.  |
+|  InvalidParameter  |  O tipo de licença {0} é inválido. Os tipos de licenças válidos são: Windows_Client ou Windows_Server, sensíveis às maiúsculas e minúsculas.  |
 |  InvalidParameter  |  O nome do host Linux não pode ter mais de {0} caracteres de comprimento ou conter os seguintes caracteres: {1}.  |
 |  InvalidParameter  |  O caminho de destino das chaves públicas Ssh está limitado ao valor predefinido {0} devido a um problema conhecido no agente de provisionamento do Linux.  |
 |  InvalidParameter  |  Já existe um disco no LUN {0}.  |
@@ -205,7 +205,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  VMExtensionManagementInternalError  |  Vários erros ocorreram ao preparar as extensões da VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
 |  VMExtensionProvisioningError  |  A VM reportou uma falha durante o processamento da extensão "{0}". Mensagem de erro: “{1}”.  |
 |  VMExtensionProvisioningError  |  Houve falha no provisionamento de várias extensões de VM na VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
-|  VMExtensionProvisioningTimeout  |  Provisionamento de extensão da VM "{0}" expirou. A instalação da extensão pode estar demorando muito tempo, ou não foi possível obtê-la.  |
+|  VMExtensionProvisioningTimeout  |  O provisionamento da extensão de VM '{0}' atingiu o tempo limite. A instalação da extensão pode estar demorando muito ou não foi possível obter o status da extensão.  |
 |  VMMarketplaceInvalidInput  |  A criação de uma máquina virtual a partir de uma imagem do tipo não Mercado não necessita de Informações do plano. Remova as Informações do plano existentes no pedido. O nome de disco do SO é {0}.  |
 |  VMMarketplaceInvalidInput  |  As informações de compra não coincidem. Não é possível implantar a partir da imagem do Marketplace. O nome de disco do SO é {0}.  |
 |  VMMarketplaceInvalidInput  |  A criação de uma máquina virtual a partir da imagem de Mercado necessita que o pedido inclua as Informações do plano. O nome de disco do SO é {0}.  |
@@ -215,5 +215,5 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  VMStartTimedOut  |  A VM "{0}" não foi iniciada no tempo alocado. A VM ainda pode ser iniciada com êxito. Verifique o estado da energia mais tarde.  |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se precisar de mais ajuda, você pode contatar os especialistas do Azure nos [fóruns do MSDN do Azure e nos fóruns do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter Suporte**.
