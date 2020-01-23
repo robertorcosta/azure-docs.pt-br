@@ -191,6 +191,9 @@
         - name: Rotular imagens
           displayName: 'data, dataset, labeling'
           href: how-to-label-images.md
+        - name: Criar conjuntos de dados com rótulos
+          displayName: 'data, labels, torchvision'
+          href: how-to-use-labeled-dataset.md
     - name: Treinar modelos
       items:
         - name: Usar o designer
