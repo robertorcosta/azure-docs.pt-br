@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052499"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513449"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -118,7 +118,7 @@ Se você compartilhar código com outros projetos, lembre-se de remover sua chav
 Todos os dados são criptografados em repouso e à medida que se movem entre data centers.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Os dados são criptografados em trânsito do meu aplicativo para servidores do Application Insights?
-Sim, usamos HTTPS para enviar dados ao portal de praticamente todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web HTTPS. A única exceção é que os dados enviados de páginas da Web em HTTP simples.
+Sim, usamos HTTPS para enviar dados ao portal de praticamente todos os SDKs, incluindo servidores Web, dispositivos e páginas da Web HTTPS. 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>O SDK cria armazenamento local temporário?
 
@@ -173,7 +173,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 Por padrão, `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é usado para persistir dados. As permissões para acessar essa pasta são restritas ao usuário atual e aos Administradores. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
 
-O prefixo de pasta `appInsights-node` pode ser substituído, alterando o valor de tempo de execução da variável estática `Sender.TEMPDIR_PREFIX` localizada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+O prefixo de pasta `appInsights-node` pode ser substituído, alterando o valor de runtime da variável estática `Sender.TEMPDIR_PREFIX` localizada em [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
 
 
@@ -234,9 +234,9 @@ Os SDKs variam entre diferentes plataformas, e há vários componentes que você
 
 | Sua ação | Classes de dados coletados (consulte a tabela a seguir) |
 | --- | --- |
-| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Requests<br/>**Exceções**<br/>Sessão<br/>users |
+| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Solicitações<br/>**Exceções**<br/>Sessão<br/>usuários |
 | [Instalar o Status Monitor no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitação<br/>Sessão<br/>users |
+| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Solicitar<br/>Sessão<br/>usuários |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
@@ -261,11 +261,11 @@ Para [SDKs para outras plataformas][platforms], consulte seus documentos.
 | PageViews |URL e nome da página ou o nome de tela |
 | Desempenho do cliente |URL/nome de página, tempo de carregamento do navegador |
 | Ajax |Chamadas HTTP da página da Web para o servidor |
-| Requests |URL, duração, código de resposta |
+| Solicitações |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), Cadeia de conexão, URI, sincronização/Async, duração, êxito, instrução SQL (com Status Monitor) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo de origem, número de linha `thread id` |
 | Falhas |`Process id`, `parent process id`, `crash thread id`; patch do aplicativo, `id`, Build;  tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços de início e término binários, nome e caminho binários, tipo de CPU |
-| Rastreamento |**Mensagem** e nível de severidade |
+| Trace |**Mensagem** e nível de severidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de solicitação, taxa de exceções, bytes particulares do processo, taxa de E/S, duração da solicitação, comprimento da fila de solicitações |
 | Disponibilidade |Código de resposta de teste da Web, duração de cada etapa de teste, nome do teste, carimbo de data/hora, sucesso, tempo de resposta, local de teste |
 | Diagnóstico do SDK |Mensagem de rastreamento ou exceção |

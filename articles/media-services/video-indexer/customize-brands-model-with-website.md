@@ -1,5 +1,5 @@
 ---
-title: Usar o site do Video Indexer para personalizar um modelo de marcas – Azure
+title: Use o site Video Indexer para personalizar modelos de marcas – Azure
 titleSuffix: Azure Media Services
 description: Este artigo mostra como personalizar um modelo de marcas com o site do Video Indexer.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 956ca7af055768398392045ecf9b383d2eb1060f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838358"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513891"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizar um modelo de marcas com o site do Video Indexer
 
@@ -89,6 +89,6 @@ A seção **Excluir marcas** representa as marcas que você deseja que o Video I
 1. Clique no ícone de lixeira ao lado da marca que você deseja excluir.
 2. Clique em "Excluir" e a marca não aparecerá mais na sua lista *Excluir marcas*.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Personalizar o modelo de Marcas usando APIs](customize-brands-model-with-api.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932653"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513687"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você analise as [consultas de log](../log-query/log-query-overview.md) de um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
@@ -22,12 +22,12 @@ Os grupos de computadores no Azure Monitor permitem que você analise as [consul
 ## <a name="creating-a-computer-group"></a>Criando um grupo de computadores
 É possível criar um grupo de computadores no Azure Monitor usando qualquer um dos métodos da tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
 
-| Método | Descrição |
+| Método | Description |
 |:--- |:--- |
 | Consulta de log |Crie uma consulta de log que retorne uma lista de computadores. |
 | API de Pesquisa de Log |Use a API da Pesquisa de Logs para criar programaticamente um grupo de computadores com base nos resultados de uma consulta de log. |
 | Active Directory |Examine automaticamente a associação de grupo de qualquer computador de agente que seja membro de um domínio do Active Directory e crie um grupo no Azure Monitor para cada grupo de segurança. (computadores Windows, somente)|
-| Configuration Manager | Importe coleções do System Center Configuration Manager e crie um grupo no Azure Monitor para cada uma. |
+| Configuration Manager | Importe coleções do Microsoft Endpoint Configuration Manager e crie um grupo no Azure Monitor para cada uma. |
 | Windows Server Update Services |Examine automaticamente clientes ou servidores do WSUS para grupos de direcionamento e crie um grupo no Azure Monitor para cada um. |
 
 ### <a name="log-query"></a>Consulta de log
@@ -47,9 +47,9 @@ Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa 
 
 A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:---|:---|
-| name   | Nome da consulta a ser exibida no portal. |
+| Nome   | Nome da consulta a ser exibida no portal. |
 | Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
 | Categoria       | Categoria para organizar as consultas no portal. |
 
@@ -75,7 +75,7 @@ Você configura o Azure Monitor para importar grupos do WSUS a partir de **Confi
 
 Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+### <a name="configuration-manager"></a>Configuration Manager
 Quando você configura o Azure Monitor para importar associações de coleção do Configuration Manager, ele cria um grupo de computadores para cada coleção.  As informações de associação de coleção são recuperadas a cada 3 horas para manter os grupos de computadores atualizados. 
 
 Antes de importar as coleções do Gerenciador de Configurações, será necessário [conectar o Configuration Manager ao Azure Monitor](collect-sccm.md).  
@@ -119,7 +119,7 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
 Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Os registros não são criados para grupos de computadores com base em consultas de log.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |
