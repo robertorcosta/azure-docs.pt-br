@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9355ae1522c653924574b94594e894fdaf3f764e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: ea6e5b5ac829c95a0eca328e8f7f40e7d4a9a94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646657"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547975"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de referências do Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -23,7 +23,7 @@ Esta folha de referências fornece dicas úteis e melhores práticas para a comp
 
 O gráfico a seguir mostra o processo de criação de um data warehouse:
 
-![Esboço]
+![Esboço](media/sql-data-warehouse-cheat-sheet/picture-flow.png)
 
 ## <a name="queries-and-operations-across-tables"></a>Consultas e operações entre tabelas
 
@@ -36,16 +36,16 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design de sua
 
 ## <a name="data-migration"></a>Migração de dados
 
-Primeiro, carregue seus dados no [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou no Armazenamento de Blobs do Azure. Em seguida, use o PolyBase para carregar seus dados em tabelas de preparo. Use a seguinte configuração:
+Primeiro, carregue seus dados no [Azure Data Lake Storage](../data-factory/connector-azure-data-lake-store.md) ou no Armazenamento de Blobs do Azure. Em seguida, use o PolyBase para carregar seus dados em tabelas de preparo. Use a seguinte configuração:
 
-| Design | Recomendações |
+| Design | Recomendação |
 |:--- |:--- |
 | Distribuição | Round Robin |
-| Indexação | Heap |
+| Indexação | Pilha |
 | Particionamento | Nenhum |
-| Classe de recursos | largerc ou xlargerc |
+| Classe de recurso | largerc ou xlargerc |
 
-Saiba mais sobre [migração de dados], [carregamento de dados] e o [processo ELT (Extrair, Carregar e Transformar)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
+Saiba mais sobre [migração de dados](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md). 
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelas replicadas ou distribuídas
 
@@ -62,10 +62,10 @@ Use as seguintes estratégias, dependendo das propriedades da tabela:
 * Certifique-se de que as chaves de hash comuns tenham o mesmo formato de dados.
 * Não distribua no formato varchar.
 * As tabelas de dimensão com chave de hash comum para uma tabela de fatos com operações join frequentes podem ser distribuídas por hash.
-* Use *[sys.dm_pdw_nodes_db_partition_stats]* para analisar qualquer distorção nos dados.
-* Use *[sys.dm_pdw_request_steps]* para analisar as movimentações de dados por trás das consultas, monitorar o tempo que as operações de difusão e organização em ordem aleatória levam. Isso é útil para examinar a estratégia de distribuição.
+* Use *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* para analisar qualquer distorção nos dados.
+* Use *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* para analisar as movimentações de dados por trás das consultas, monitorar o tempo que as operações de difusão e organização em ordem aleatória levam. Isso é útil para examinar a estratégia de distribuição.
 
-Saiba mais sobre [tabelas replicadas] e [tabelas distribuídas].
+Saiba mais sobre [tabelas replicadas](design-guidance-for-replicated-tables.md) e [tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 
 ## <a name="index-your-table"></a>Indexar a tabela
 
@@ -73,7 +73,7 @@ A indexação é útil para a ler as tabelas rapidamente. Há um conjunto único
 
 | Type | Ideal para... | Fique atento se...|
 |:--- |:--- |:--- |
-| Heap | • Tabela de preparo/temporária<br></br>• Pequenas tabelas com pequenas consultas |• Qualquer pesquisa examina a tabela inteira |
+| Pilha | • Tabela de preparo/temporária<br></br>• Pequenas tabelas com pequenas consultas |• Qualquer pesquisa examina a tabela inteira |
 | Índice clusterizado | • Tabelas com até 100 milhões de linhas<br></br>• Tabelas grandes (mais de 100 milhões de linhas) com apenas de 1 a 2 colunas bastante utilizadas |• Usada em uma tabela replicada<br></br>•    Você possui consultas complexas envolvendo várias operações Join e Group By<br></br>•  Você faz atualizações nas colunas indexadas: isso consome memória |
 | CCI (Índice Columnstore Clusterizado) (Padrão) | •   Tabelas grandes (mais de 100 milhões de linhas) | • Usada em uma tabela replicada<br></br>•    Você fizer operações de atualização massivas na tabela<br></br>•  Você particiona sua tabela em excesso: os grupos de linhas não se estendem entre diferentes partições e nós de distribuição |
 
@@ -85,7 +85,7 @@ A indexação é útil para a ler as tabelas rapidamente. Há um conjunto único
 * Com base na frequência de carregamento incremental e no tamanho, você deseja automatizar quando reorganiza ou recria os índices. A limpeza é sempre útil.
 * Seja estratégico quando quiser cortar um grupo de linhas. Qual o tamanho dos grupos de linhas abertas? Qual é a quantidade de dados que você espera carregar nos próximos dias?
 
-Saiba mais sobre [Índices].
+Saiba mais sobre [Índices](sql-data-warehouse-tables-index.md).
 
 ## <a name="partitioning"></a>Particionamento
 Você pode particionar a tabela quando tiver uma tabela de fatos grande (maior que 1 bilhão de linhas). Em 99% dos casos, a chave de partição deve ser baseada na data. Tenha cuidado para não particionar excessivamente, especialmente quando você tiver um índice columnstore clusterizado.
@@ -93,22 +93,22 @@ Você pode particionar a tabela quando tiver uma tabela de fatos grande (maior q
 Com tabelas de preparo que exigem ELT, você pode se beneficiar do particionamento. Ele facilita o gerenciamento de ciclo de vida de dados.
 Tenha cuidado para não particionar excessivamente os dados, especialmente em um índice columnstore clusterizado.
 
-Saiba mais sobre [partições].
+Saiba mais sobre [partições](sql-data-warehouse-tables-partition.md).
 
 ## <a name="incremental-load"></a>Carga incremental
 
-Se você for carregar incrementalmente os dados, primeiro certifique-se de alocar classes de recursos maiores para carregar os dados.  Isso é particularmente importante ao carregar em tabelas com índices columnstore clusterizados.  Confira [classes de recursos](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) para obter detalhes.  
+Se você for carregar incrementalmente os dados, primeiro certifique-se de alocar classes de recursos maiores para carregar os dados.  Isso é particularmente importante ao carregar em tabelas com índices columnstore clusterizados.  Confira [classes de recursos](resource-classes-for-workload-management.md) para obter detalhes.  
 
 É recomendável usar o PolyBase e o ADF V2 para automatizar os pipelines ELT dentro do data warehouse.
 
-Para obter um grande lote de atualizações em seus dados históricos, considere usar um [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) para escrever os dados que você deseja manter em uma tabela, em vez de usar INSERT, UPDATE e DELETE.
+Para obter um grande lote de atualizações em seus dados históricos, considere usar um [CTAS](sql-data-warehouse-develop-ctas.md) para escrever os dados que você deseja manter em uma tabela, em vez de usar INSERT, UPDATE e DELETE.
 
 ## <a name="maintain-statistics"></a>Manter as estatísticas
  Até que as estatísticas automáticas estejam em disponibilidade geral, será necessária a manutenção manual das estatísticas. É importante atualizar as estatísticas quando ocorrem alterações *significativas* em seus dados. Isso ajuda a otimizar seus planos de consulta. Se você achar que demora demais para manter todas as estatísticas, seja mais seletivo sobre quais colunas têm estatísticas. 
 
 Você também pode definir a frequência das atualizações. Por exemplo, convém atualizar as colunas de data, onde novos valores podem ser adicionados, diariamente. Você obterá mais benefícios se tiver estatísticas em colunas envolvidas em junções, colunas usadas na cláusula WHERE e colunas encontradas em GROUP BY.
 
-Saiba mais sobre [estatísticas].
+Saiba mais sobre [estatísticas](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="resource-class"></a>classe de recurso
 Os grupos de recursos são usados como uma maneira de alocar memória para as consultas. Se você precisar de mais memória para melhorar a consulta ou a velocidade de carregamento, aloque classes de recursos superiores. Por outro lado, usar classes de recursos maiores afeta a simultaneidade. Você deseja considerar isso antes de mover todos os seus usuários para classes de recursos maiores.
@@ -117,7 +117,7 @@ Se você notar que as consultas demoram muito, verifique se seus usuários não 
 
 Por fim, ao usar a Gen2 do [pool do SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
 
-Saiba mais sobre como trabalhar com [classes de recursos e simultaneidade].
+Saiba mais sobre como trabalhar com [classes de recursos e simultaneidade](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Reduzir seu custo
 Um recurso-chave do Azure Synapse é a capacidade de [gerenciar recursos de computação](sql-data-warehouse-manage-compute-overview.md). Você poderá pausar o pool do SQL quando ele não estiver em uso e isso interromperá a cobrança dos recursos de computação. Você pode dimensionar os recursos para atender às suas exigências de desempenho. Para pausar, use o [portal do Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Para dimensionar, use o [portal do Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), ou um [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
@@ -139,29 +139,3 @@ Implante com um clique seus spokes em bancos de dados SQL do pool do SQL:
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
-
-
-<!--Image references-->
-[Esboço]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
-
-<!--Article references-->
-[carregamento de dados]:design-elt-data-loading.md
-[deeper guidance]:guidance-for-loading-data.md
-[índices]:sql-data-warehouse-tables-index.md
-[partições]:sql-data-warehouse-tables-partition.md
-[estatísticas]:sql-data-warehouse-tables-statistics.md
-[classes de recursos e simultaneidade]:resource-classes-for-workload-management.md
-[tabelas replicadas]:design-guidance-for-replicated-tables.md
-[tabelas distribuídas]:sql-data-warehouse-tables-distribute.md
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migração de dados]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
-
-[Azure Data Lake Storage]: ../data-factory/connector-azure-data-lake-store.md
-[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
