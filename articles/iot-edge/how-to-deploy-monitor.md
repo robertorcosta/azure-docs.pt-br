@@ -9,12 +9,12 @@ ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1e15f237bddd586f81c3b04483111f7e211bfb10
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563404"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510253"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -24,7 +24,7 @@ Para obter mais informações, consulte [entender IOT Edge implantações autom�
 
 ## <a name="identify-devices-using-tags"></a>Identificar dispositivos usando marcações
 
-Antes de criar uma implantação, você precisa conseguir especificar quais dispositivos você deseja afetar. O Azure IoT Edge identifica os dispositivos usando **marcações** no dispositivo gêmeo. Cada dispositivo pode ter várias marcas que você define de qualquer forma que faça sentido para sua solução. 
+Antes de criar uma implantação, você precisa conseguir especificar quais dispositivos você deseja afetar. O Azure IoT Edge identifica os dispositivos usando **marcações** no dispositivo gêmeo. Cada dispositivo pode ter várias marcas que você define de qualquer forma que faça sentido para sua solução.
 
 Por exemplo, se você gerenciar um campus de prédios inteligentes, poderá adicionar localização, tipo de sala e marcas de ambiente a um dispositivo:
 
@@ -63,7 +63,7 @@ Há cinco etapas para criar uma implantação. As seções a seguir explicam cad
 
 Você pode adicionar até 20 módulos a uma implantação. Se você criar uma implantação sem módulos, ela removerá os módulos atuais dos dispositivos de destino.
 
-Em implantações, você pode gerenciar as configurações para os módulos agente de IoT Edge e IoT Edge Hub. Selecione **configurações de tempo de execução** para configurar os dois módulos de tempo de execução. Em implantação em camadas, os módulos de tempo de execução não são incluídos, portanto não podem ser configurados. 
+Em implantações, você pode gerenciar as configurações para os módulos agente de IoT Edge e IoT Edge Hub. Selecione **configurações de tempo de execução** para configurar os dois módulos de tempo de execução. Em implantação em camadas, os módulos de tempo de execução não são incluídos, portanto não podem ser configurados.
 
 Você pode adicionar três tipos de módulos:
 
@@ -76,15 +76,15 @@ Você pode adicionar três tipos de módulos:
 Para adicionar um código personalizado como um módulo ou para adicionar um módulo de serviço do Azure manualmente, siga estas etapas:
 
 1. Na seção **credenciais de registro de contêiner** da página, forneça os nomes e as credenciais para qualquer registro de contêiner privado que contenha as imagens de módulo para essa implantação. O agente de IoT Edge relatará o erro 500 se ele não conseguir encontrar a credencial do registro de contêiner para uma imagem do Docker.
-1. Na seção **módulos IOT Edge** da página, clique em **Adicionar**.
+1. Na seção **Módulos do IoT Edge** da página, clique em **Adicionar**.
 1. Selecione **IOT Edge módulo** no menu suspenso.
 1. Dê ao seu módulo um **nome de módulo IOT Edge**.
 1. No campo **URI da Imagem**, insira a imagem de contêiner para o módulo.
 1. Use o menu suspenso para selecionar uma **Política de reinicialização**. Escolha uma das seguintes opções:
    * **sempre** -o módulo sempre reinicia se for desligado por qualquer motivo.
    * **nunca** -o módulo nunca será reiniciado se for desligado por qualquer motivo.
-   * **em** caso de falha-o módulo será reiniciado se ele falhar, mas não se for desligado corretamente. 
-   * Não **íntegro** – o módulo será reiniciado se ele falhar ou retornar um status não íntegro. Cabe a cada módulo implementar a função de status da integridade. 
+   * **em** caso de falha-o módulo será reiniciado se ele falhar, mas não se for desligado corretamente.
+   * Não **íntegro** – o módulo será reiniciado se ele falhar ou retornar um status não íntegro. Cabe a cada módulo implementar a função de status da integridade.
 1. Use o menu suspenso para selecionar o **Status** desejado do módulo. Escolha uma das seguintes opções:
    * **executando-em** execução é a opção padrão. O módulo será iniciado imediatamente depois de ser implantado.
    * **parado** -depois de ser implantado, o módulo permanecerá ocioso até ser chamado para ser iniciado por você ou por outro módulo.
@@ -97,7 +97,7 @@ Para adicionar um código personalizado como um módulo ou para adicionar um mó
 
 Para adicionar um módulo do Azure Marketplace, siga estas etapas:
 
-1. Na seção **módulos IOT Edge** da página, clique em **Adicionar**.
+1. Na seção **Módulos do IoT Edge** da página, clique em **Adicionar**.
 1. Selecione o **módulo Marketplace** no menu suspenso.
 1. Escolha um módulo na página **IOT Edge do Marketplace do módulo** . O módulo selecionado é configurado automaticamente para sua assinatura, grupo de recursos e dispositivo. Em seguida, ele aparece na lista de módulos de IoT Edge. Alguns módulos podem exigir configuração adicional. Para obter mais informações, consulte [implantar módulos do Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
 
@@ -105,7 +105,7 @@ Para adicionar um módulo do Azure Marketplace, siga estas etapas:
 
 Para adicionar um módulo do Azure Stream Analytics, siga estas etapas:
 
-1. Na seção **módulos IOT Edge** da página, clique em **Adicionar**.
+1. Na seção **Módulos do IoT Edge** da página, clique em **Adicionar**.
 1. Selecione **Azure Stream Analytics módulo** no menu suspenso.
 1. No painel direito, escolha sua **assinatura**.
 1. Escolha seu trabalho do IoT **Edge**.
@@ -113,9 +113,9 @@ Para adicionar um módulo do Azure Stream Analytics, siga estas etapas:
 
 #### <a name="configure-module-settings"></a>Definir configurações de módulo
 
-Depois de adicionar um módulo a uma implantação, você pode selecionar seu nome para abrir a página **atualizar IOT Edge módulo** . Nessa página, você pode editar as configurações do módulo, as variáveis de ambiente, as opções criar e o módulo. Se você adicionou um módulo do Marketplace, talvez ele já tenha alguns desses parâmetros preenchidos. 
+Depois de adicionar um módulo a uma implantação, você pode selecionar seu nome para abrir a página **atualizar IOT Edge módulo** . Nessa página, você pode editar as configurações do módulo, as variáveis de ambiente, as opções criar e o módulo. Se você adicionou um módulo do Marketplace, talvez ele já tenha alguns desses parâmetros preenchidos.
 
-Se você estiver criando uma implantação em camadas, poderá estar Configurando um módulo que existe em outras implantações direcionando os mesmos dispositivos. Para atualizar o módulo de texto sem substituir outras versões, abra a guia **configurações de configuração do módulo** . Crie uma nova **Propriedade MyModule** com um nome exclusivo para uma subseção dentro das propriedades desejadas do módulo r, por exemplo `properties.desired.settings`. Se você definir propriedades dentro do campo `properties.desired`, ele substituirá as propriedades desejadas para o módulo definido em qualquer implantação de prioridade mais baixa. 
+Se você estiver criando uma implantação em camadas, poderá estar Configurando um módulo que existe em outras implantações direcionando os mesmos dispositivos. Para atualizar o módulo de texto sem substituir outras versões, abra a guia **configurações de configuração do módulo** . Crie uma nova **Propriedade MyModule** com um nome exclusivo para uma subseção dentro das propriedades desejadas do módulo r, por exemplo `properties.desired.settings`. Se você definir propriedades dentro do campo `properties.desired`, ele substituirá as propriedades desejadas para o módulo definido em qualquer implantação de prioridade mais baixa.
 
 ![Definir a propriedade addmodule para implantação em camadas](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -154,9 +154,9 @@ Use a propriedade tags dos dispositivos para direcionar os dispositivos específ
 
 Como várias implantações podem direcionar o mesmo dispositivo, você deve atribuir a cada implantação um número de prioridade. Se houver algum conflito, a implantação com a prioridade mais alta (valores maiores indicam prioridade mais alta) vence. Se duas implantações tiverem o mesmo número de prioridade, aquela que foi criada mais recentemente ganhará.
 
-Se várias implantações tiverem como destino o mesmo dispositivo, somente aquela com a prioridade mais alta será aplicada. Se várias implantações em camadas tiverem como destino o mesmo dispositivo, elas serão todas aplicadas. No entanto, se alguma das propriedades for duplicada, como se houver duas rotas com o mesmo nome, a da implantação em camadas de prioridade mais alta substituirá o restante. 
+Se várias implantações tiverem como destino o mesmo dispositivo, somente aquela com a prioridade mais alta será aplicada. Se várias implantações em camadas tiverem como destino o mesmo dispositivo, elas serão todas aplicadas. No entanto, se alguma das propriedades for duplicada, como se houver duas rotas com o mesmo nome, a da implantação em camadas de prioridade mais alta substituirá o restante.
 
-Qualquer implantação em camadas direcionada a um dispositivo deve ter uma prioridade mais alta do que a implantação base para ser aplicada. 
+Qualquer implantação em camadas direcionada a um dispositivo deve ter uma prioridade mais alta do que a implantação base para ser aplicada.
 
 1. Insira um inteiro positivo para a **Prioridade** da implantação.
 1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição é baseada nas marcas de dispositivo ou nas propriedades relatadas do dispositivo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`.
@@ -179,7 +179,7 @@ Para exibir os detalhes de uma implantação e monitorar os dispositivos que a e
 
 1. Inspecione a lista de implantação. Para cada implantação, você pode exibir os seguintes detalhes:
    * **ID** – o nome da implantação.
-   * **Tipo** -o tipo de implantação, **implantação** ou **implantação em camadas**. 
+   * **Tipo** -o tipo de implantação, **implantação** ou **implantação em camadas**.
    * **Condição de destino** -a marca usada para definir os dispositivos de destino.
    * **Prioridade** – o número de prioridade atribuído à implantação.
    * **Métricas de sistema** - **Desejados** especifica o número de dispositivos gêmeos em Hub IoT que batem com a condição desejada, e **Aplicados** especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado aos seus módulos gêmeos no Hub IoT.

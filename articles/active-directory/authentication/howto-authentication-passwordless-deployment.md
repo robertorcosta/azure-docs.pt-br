@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848486"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512565"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Concluir uma implantação de autenticação com senha
 
@@ -108,7 +108,7 @@ Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a hab
    - A implantação do Intune é a opção recomendada.
 - [Habilitar o provedor de credenciais com um pacote de provisionamento](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Se a implantação do Intune não for possível, os administradores deverão implantar um pacote em cada computador para habilitar a funcionalidade do provedor de credenciais. A instalação do pacote pode ser executada por uma das seguintes opções:
-      - Política de Grupo ou System Center Configuration Manager (SCCM)
+      - Política de Grupo ou Configuration Manager
       - Instalação local em um computador com Windows 10
 
 ### <a name="register-security-keys"></a>Registrar chaves de segurança
@@ -129,9 +129,9 @@ Considere suas necessidades de negócios e os casos de uso para cada método de 
 
 A tabela a seguir descreve os casos de uso a serem implementados durante este projeto.
 
-| Área | Descrição |
+| Área | Description |
 | --- | --- |
-| **Acessar** | A conexão sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
+| **Access** | A conexão sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
 | **Governança** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
 | **Segurança** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar o logon sem senha. |
@@ -245,7 +245,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Função do Azure AD | Descrição |
+| Função do Azure AD | Description |
 | --- | --- |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação |
 | Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |

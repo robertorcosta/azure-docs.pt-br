@@ -4,28 +4,25 @@ description: Saiba como integrar com o Firewall do Azure para proteger o tráfeg
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687224"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513330"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
 O ASE (Ambiente de Serviço de Aplicativo) tem diversas dependências externas às quais ele requer acesso para funcionar corretamente. O ASE reside na VNet (rede virtual) do Azure do cliente. Os clientes devem permitir o tráfego de dependência do ASE, que é um problema para os clientes que desejam bloquear toda a saída da VNet.
 
-Um ASE tem várias dependências de entrada. O tráfego de gerenciamento de entrada não pode ser enviado por meio de um dispositivo de firewall. Os endereços de origem para esse tráfego são conhecidos e publicados no documento [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/environment/management-addresses). Você pode criar regras de Grupo de Segurança de Rede com essas informações para proteger o tráfego de entrada.
+Há vários pontos de extremidade de entrada que são usados para gerenciar um ASE. O tráfego de gerenciamento de entrada não pode ser enviado por meio de um dispositivo de firewall. Os endereços de origem para esse tráfego são conhecidos e publicados no documento [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/environment/management-addresses). Também há uma marca de serviço chamada AppServiceManagement que pode ser usada com grupos de segurança de rede (NSGs) para proteger o tráfego de entrada.
 
-As dependências de saída do ASE são quase que totalmente definidas com FQDNs, que não têm endereços estáticos por trás delas. A falta de endereços estáticos significa que os NSGs (Grupos de Segurança de Rede) não podem ser usados para bloquear o tráfego de saída de um ASE. Os endereços mudam com frequência suficiente para que não seja possível configurar regras com base na resolução atual e usá-las para criar NSGs. 
+As dependências de saída do ASE são quase que totalmente definidas com FQDNs, que não têm endereços estáticos por trás delas. A falta de endereços estáticos significa que os grupos de segurança de rede não podem ser usados para bloquear o tráfego de saída de um ASE. Os endereços mudam com frequência suficiente para que não seja possível configurar regras com base na resolução atual e usá-las para criar NSGs. 
 
 A solução para proteger os endereços de saída está em usar um dispositivo de firewall que possa controlar o tráfego de saída com base em nomes de domínio. Firewall do Azure pode restringir o tráfego de HTTP e HTTPS de saída com base no FQDN de destino.  
-
-> [!NOTE]
-> Neste momento, não é possível bloquear totalmente a conexão de saída no momento.
 
 ## <a name="system-architecture"></a>Arquitetura do sistema
 
@@ -42,6 +39,12 @@ O tráfego de e para um ASE deve obedecer às convenções a seguir
 
 ![ASE com o fluxo de conexão do Firewall do Azure][5]
 
+## <a name="locking-down-inbound-management-traffic"></a>Bloqueando o tráfego de gerenciamento de entrada
+
+Se sua sub-rede do ASE ainda não tiver um NSG atribuído a ele, crie um. Dentro do NSG, defina a primeira regra para permitir o tráfego da marca de serviço chamada AppServiceManagement nas portas 454, 455. Isso é tudo o que é necessário para que os IPs públicos gerenciem seu ASE. Os endereços que estão atrás dessa marca de serviço são usados apenas para administrar o serviço de Azure App. O tráfego de gerenciamento que flui por essas conexões é criptografado e protegido com certificados de autenticação. O tráfego típico nesse canal inclui itens como os comandos iniciados pelo cliente e as investigações de integridade. 
+
+ASEs que são feitas por meio do portal com uma nova sub-rede são feitas com um NSG que contém a regra de permissão para a marca AppServiceManagement.  
+
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Como configurar o Firewall do Azure com seu ASE 
 
 As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
@@ -51,14 +54,19 @@ As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
    ![selecionar pontos de extremidade de serviço][2]
   
 1. Crie uma sub-rede chamada AzureFirewallSubnet na VNET em que o ASE está localizado. Siga as instruções da [documentação do Firewall do Azure](https://docs.microsoft.com/azure/firewall/) para criar seu Firewall do Azure.
+
 1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de aplicativo, selecione Adicionar coleção de regras de aplicativo. Forneça um nome e uma prioridade e defina Permitir. Na seção Marcas de FQDN, forneça um nome, defina os endereços de origem como * e selecione a marca FQDN do Ambiente do Serviço de Aplicativo e o Windows Update. 
    
    ![Adicionar regra de aplicativo][1]
    
-1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção Regras, forneça um nome, selecione **Qualquer um**, defina * como Endereços de Origem e Destino e defina as portas como 123. Essa regra permite que o sistema execute a sincronização de relógio usando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar na triagem dos problemas do sistema.
+1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção regras, em endereços IP, forneça um nome, selecione um ptocol de **qualquer**, defina * para endereços de origem e de destino e defina as portas como 123. Essa regra permite que o sistema execute a sincronização de relógio usando o NTP. Crie outra regra da mesma forma para a porta 12000 para ajudar na triagem dos problemas do sistema. 
 
    ![Adicionar regra de rede NTP][3]
+   
+1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de rede, selecione Adicionar coleção de regras de rede. Forneça um nome e uma prioridade e defina Permitir. Na seção regras em marcas de serviço, forneça um nome, selecione um protocolo de **qualquer**, defina * para endereços de origem, selecione uma marca de serviço de AzureMonitor e defina as portas como 80, 443. Essa regra permite que o sistema forneça Azure Monitor com informações de integridade e métricas.
 
+   ![Adicionar regra de rede de marca de serviço NTP][6]
+   
 1. Criar uma tabela de rotas com os endereços de gerenciamento dos [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) com um próximo salto da Internet. As entradas da tabela de rota são necessárias para evitar problemas de roteamento assimétrico. Adicione as rotas para as dependências de endereço IP indicadas abaixo nas dependências de endereço IP com um próximo salto de Internet. Adicione uma rota da Solução de Virtualização à sua tabela de rotas para 0.0.0.0/0 com o próximo nó sendo seu endereço IP privado do Firewall do Azure. 
 
    ![Criando uma tabela de rotas][4]
@@ -248,7 +256,25 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 
 ## <a name="us-gov-dependencies"></a>Dependências de US Gov
 
-Por US Gov você ainda precisa definir pontos de extremidade de serviço para armazenamento, SQL e Hub de eventos.  Você também pode usar o Firewall do Azure com as instruções anteriores neste documento. Se você precisar usar seu próprio dispositivo de firewall de saída, os pontos de extremidade serão listados abaixo.
+Para ASEs em regiões US Gov, siga as instruções na seção [Configurando o Firewall do Azure com o ase](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) deste documento para configurar um firewall do Azure com seu ASE.
+
+Se você quiser usar um dispositivo que não seja o Firewall do Azure no US Gov 
+
+* Os serviços compatíveis com o Ponto de Extremidade de Serviço devem ser configurados com pontos de extremidade de serviço.
+* Pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo de firewall.
+* Pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar de acordo com seu ASE com base em vários qualificadores.
+
+O Linux não está disponível em regiões US Gov e, portanto, não está listado como uma configuração opcional.
+
+#### <a name="service-endpoint-capable-dependencies"></a>Dependências com capacidade de Ponto de Extremidade de Serviço ####
+
+| Ponto de extremidade |
+|----------|
+| SQL do Azure |
+| Armazenamento do Azure |
+| Hub de Eventos do Azure |
+
+#### <a name="dependencies"></a>Dependências ####
 
 | Ponto de extremidade |
 |----------|
@@ -375,3 +401,4 @@ Por US Gov você ainda precisa definir pontos de extremidade de serviço para ar
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

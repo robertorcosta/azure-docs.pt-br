@@ -1,5 +1,5 @@
 ---
-title: Monitore eventos do Azure Media Services com Event Grid usando o portal | Microsoft Docs
+title: Monitorar eventos dos serviços de mídia do Azure com a grade de eventos com o portal
 description: Este artigo mostra como se inscrever no Event Grid para monitorar eventos do Azure Media Services.
 services: media-services
 documentationcenter: na
@@ -13,20 +13,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/15/2018
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60326491"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509216"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorar eventos do Media Services com o Event Grid usando o portal do Azure
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Esse serviço usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Esse serviço usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
 
-Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. Neste artigo, podemos enviar eventos para um aplicativo web que coleta e exibe as mensagens.
+Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No artigo, enviamos eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
 
@@ -86,6 +86,6 @@ Você pode acionar eventos para a conta do Media Services executando uma tarefa 
 
 ![Exibição do evento de assinatura](./media/monitor-events-portal/view-subscription-event.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)

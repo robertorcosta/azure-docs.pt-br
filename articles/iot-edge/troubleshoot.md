@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912280"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514248"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -105,7 +105,7 @@ No Windows:
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o Gerenciador de segurança de IoT Edge não está em execução, verifique se o arquivo de configuração yaml
 
 > [!WARNING]
-> Os arquivos YAML não podem conter guias como recuo. Use 2 espaços no lugar.
+> Os arquivos YAML não podem conter guias como recuo. Use 2 espaços no lugar. Elementos de nível superior não devem ter espaços à esquerda.
 
 No Linux:
 
@@ -121,7 +121,7 @@ No Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Verifique os logs de contêiner de problemas
 
-Depois que o Daemon de segurança de IoT Edge está em execução, examine os logs de contêineres para detectar problemas. Comece com seus contêineres implantados e examine os contêineres que compõem o tempo de execução de IoT Edge: edgeAgent e edgeHub. Os logs do agente de IoT Edge normalmente fornecem informações sobre o ciclo de vida de cada contêiner. Os logs de Hub de IoT Edge fornecem informações sobre mensagens e roteamento. 
+Depois que o Daemon de segurança de IoT Edge está em execução, examine os logs de contêineres para detectar problemas. Comece com seus contêineres implantados e examine os contêineres que compõem o tempo de execução de IoT Edge: edgeAgent e edgeHub. Os logs do agente de IoT Edge normalmente fornecem informações sobre o ciclo de vida de cada contêiner. Os logs de Hub de IoT Edge fornecem informações sobre mensagens e roteamento.
 
    ```cmd
    iotedge logs <container name>
@@ -163,7 +163,7 @@ Substitua `env: {}` por:
    ```
 
    > [!WARNING]
-   > Arquivos YAML não podem conter guias como recuo. Use 2 espaços no lugar.
+   > Arquivos YAML não podem conter guias como recuo. Use 2 espaços no lugar. Itens de nível superior não podem ter espaço em branco à esquerda.
 
 Salve o arquivo e reinicie o gerenciador de segurança do IoT Edge.
 
@@ -249,7 +249,7 @@ Um contêiner não é executado e os logs do edgeAgent mostram um erro 403.
 
 **Causa raiz**
 
-O agente do IOT Edge não tem permissões para acessar a imagem de um módulo.
+O agente de IoT Edge não tem permissões para acessar a imagem de um módulo.
 
 **Resolução**
 
@@ -435,6 +435,6 @@ Certifique-se de definir isso para os módulos *edgeAgent* e *edgeHub* também.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Você acha que encontrou um bug na plataforma IoT Edge? [Envie um problema](https://github.com/Azure/iotedge/issues) para que possamos continuar melhorando. 
+Você acha que encontrou um bug na plataforma IoT Edge? [Envie um problema](https://github.com/Azure/iotedge/issues) para que possamos continuar melhorando.
 
 Se você tiver mais dúvidas, crie uma [Solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support) para obter ajuda.

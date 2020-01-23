@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/21/2020
+ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456919"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511562"
 ---
 # <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
 
@@ -47,9 +47,9 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | Digite | DESCRIÇÃO |
+| Atributo | Tipo | Description |
 | --- | --- | --- |
-| ID | cadeia de caracteres | Identificador exclusivo do evento. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
 | subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
 | eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
@@ -85,17 +85,17 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Relatório
+- Relate
 - RoleDefinition
 - Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Espaço
+- Espacial
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- System
+- Sistema
 - Usuário
 - UserBlobMetadata
 - UserExtendedProperty
@@ -248,7 +248,7 @@ Os exemplos a seguir demonstram como configurar os pontos de extremidade suporta
 
 Uma solicitação HTTP POST autenticada em relação a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
@@ -356,7 +356,7 @@ Sempre que o sistema estiver em um estado de espera de retrocesso, a atualizaç�
 
 Quando um endpoint se torna inacessível, o sistema entra em um tempo de espera de recuo exponencial de até 30 minutos. Os eventos são descartados em cada tempo de espera de recuo acionado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda [como usar o Swagger de Gêmeos Digitais do Azure](how-to-use-swagger.md).
 

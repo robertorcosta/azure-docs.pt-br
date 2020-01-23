@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953086"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513602"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
 
-A avaliação offline é um método que permite testar e avaliar a eficácia do serviço Personalizador sem alterar o código nem afetar a experiência do usuário. A avaliação offline usa os dados passados, enviados de seu aplicativo para a API de Classificação, para comparar o desempenho de diferentes classificações.
+A avaliação offline é um método que permite testar e avaliar a eficácia do serviço Personalizador sem alterar o código nem afetar a experiência do usuário. A avaliação offline usa dados passados, enviados do seu aplicativo para as APIs de classificação e recompensa, para comparar a forma como as classificações diferentes foram executadas.
 
 A avaliação offline é executada em um intervalo de datas. O intervalo pode terminar na hora atual. O início do intervalo não pode ser maior que o número de dias especificado para a [retenção de dados](how-to-settings.md).
 
@@ -56,9 +56,9 @@ Quando você executa uma avaliação offline, é muito importante analisar os _l
 
 ## <a name="how-offline-evaluations-are-done"></a>Como são feitas as avaliações offline
 
-As avaliações offline são feitas usando um método chamado **Avaliação Contrafatual**. 
+As avaliações offline são feitas usando um método chamado **Avaliação Contrafatual**.
 
-O Personalizador se baseia na suposição de que o comportamento dos usuários (e, portanto, as recompensas) é impossível de prever retrospectivamente (o Personalizador não pode saber o que teria acontecido se o usuário tivesse visto algo diferente do que viu) e apenas deve aprender com as recompensas medidas. 
+O Personalizador se baseia na suposição de que o comportamento dos usuários (e, portanto, as recompensas) é impossível de prever retrospectivamente (o Personalizador não pode saber o que teria acontecido se o usuário tivesse visto algo diferente do que viu) e apenas deve aprender com as recompensas medidas.
 
 Este é o processo conceitual usado para avaliações:
 
@@ -70,11 +70,11 @@ Este é o processo conceitual usado para avaliações:
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.
@@ -96,7 +96,7 @@ Recomendamos examinar as avaliações de recurso e fazer as seguintes perguntas:
 * Há algum recurso indesejável que não deve ser usado para personalização devido a considerações regulamentares ou referentes a uso responsável? Há algum recurso que pode representar (ou seja, estar correlacionado ou espelhar de maneira aproximada) recursos indesejáveis?
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar o personalizador](how-to-settings.md)
 [executar avaliações offline](how-to-offline-evaluation.md) entender [como o personalizador funciona](how-personalizer-works.md)

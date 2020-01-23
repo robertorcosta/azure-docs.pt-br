@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919334"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511885"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de autenticação Azure Active Directory
 
@@ -59,7 +59,7 @@ O gerenciamento de senhas com segurança é uma das partes mais importantes do g
 
 Use a tabela a seguir para encontrar a solução recomendada para atenuar o problema que precisa ser resolvido:
 
-| Problema | Recomendações |
+| Problema | Recomendação |
 | :- | :- |
 | Nenhum mecanismo para proteção contra senhas fracas | Habilitar [SSPR (redefinição de senha de autoatendimento)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) do Azure AD e [proteção por senha](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | Nenhum mecanismo para detectar senhas vazadas | Habilitar a [sincronização de hash de senha](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS) para obter informações |
@@ -127,8 +127,8 @@ Como um usuário na sua organização, um dispositivo é uma identidade importan
 
 Você pode realizar essa meta colocando as identidades do dispositivo e gerenciando-as no Azure AD usando um dos seguintes métodos:
 
-- As organizações podem usar [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para gerenciar o dispositivo e impor políticas de conformidade, a integridade do dispositivo atestar e definir políticas de acesso condicional com base no fato de o dispositivo estar em conformidade. Microsoft Intune pode gerenciar dispositivos iOS, desktops Mac (via integração do JAMF), áreas de trabalho do Windows (usando nativamente o gerenciamento de dispositivos móveis para Windows 10 e o cogerenciamento com o Microsoft Endpoint Manager/System Center Configuration Manager) e dispositivos móveis Android.
-- O [ingresso no Azure ad híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) fornece gerenciamento com políticas de grupo, System Center Configuration Manager ou Microsoft Endpoint Manager em um ambiente com Active Directory dispositivos de computadores ingressados no domínio. As organizações podem implantar um ambiente gerenciado por meio de PHS ou PTA com SSO contínuo. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário por meio de SSO em sua nuvem e recursos locais, permitindo que você proteja o acesso aos seus recursos de nuvem e locais com [acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) ao mesmo tempo.
+- As organizações podem usar [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) para gerenciar o dispositivo e impor políticas de conformidade, a integridade do dispositivo atestar e definir políticas de acesso condicional com base no fato de o dispositivo estar em conformidade. Microsoft Intune pode gerenciar dispositivos iOS, desktops Mac (via integração do JAMF), áreas de trabalho do Windows (usando nativamente o gerenciamento de dispositivos móveis para Windows 10 e o cogerenciamento com o Microsoft Endpoint Configuration Manager) e dispositivos móveis Android.
+- O [ingresso no Azure ad híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) fornece gerenciamento com políticas de grupo ou Configuration Manager de ponto de extremidade da Microsoft em um ambiente com Active Directory dispositivos de computadores ingressados no domínio. As organizações podem implantar um ambiente gerenciado por meio de PHS ou PTA com SSO contínuo. Trazer seus dispositivos para o Azure AD maximiza a produtividade do usuário por meio de SSO em sua nuvem e recursos locais, permitindo que você proteja o acesso aos seus recursos de nuvem e locais com [acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) ao mesmo tempo.
 
 Se você tiver dispositivos Windows ingressados no domínio que não estão registrados na nuvem ou dispositivos Windows ingressados no domínio que são registrados na nuvem, mas sem políticas de acesso condicional, você deve registrar os dispositivos não registrados e, em ambos os casos, [usar o ingresso do Azure ad híbrido como um controle](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) em suas políticas de acesso condicional.
 
@@ -141,7 +141,7 @@ Se você estiver gerenciando dispositivos com MDM ou Microsoft Intune, mas não 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Leitura recomendada de políticas de acesso de confiança de dispositivo
 
 - [Como planejar sua implementação de junção de Azure Active Directory híbrida](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [Configurações de acesso ao dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello for Business
 
@@ -205,7 +205,7 @@ Com os [locais nomeados](https://docs.microsoft.com/azure/active-directory/repor
 
 Com base na prioridade, use a tabela abaixo para encontrar a solução recomendada que melhor atenda às necessidades da sua organização:
 
-| **Prioridade** | **Cenário** | **Recomendações** |
+| **Prioridade** | **Cenário** | **Recomendação** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Se você usar PHS ou PTA e locais nomeados não tiverem sido definidos | Definir locais nomeados para melhorar a detecção de eventos de risco |
 | 2 | Se você for federado e não usar a declaração "insideCorporateNetwork" e os locais nomeados não tiverem sido definidos | Definir locais nomeados para melhorar a detecção de eventos de risco |
@@ -256,7 +256,7 @@ O acesso condicional é uma ferramenta essencial para melhorar a postura de segu
 #### <a name="conditional-access-recommended-reading"></a>Leitura recomendada de acesso condicional
 
 - [Práticas recomendadas para acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Configurações de acesso ao dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurações de acesso à identidade e ao dispositivo](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referência de configurações de acesso condicional Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Políticas de acesso condicional comum](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
