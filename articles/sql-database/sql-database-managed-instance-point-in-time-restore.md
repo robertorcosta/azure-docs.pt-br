@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707661"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515115"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurar um banco de dados SQL em uma instância gerenciada para um ponto anterior no tempo
 
@@ -48,9 +48,9 @@ A tabela a seguir mostra cenários de restauração pontual para instâncias ger
 
 |           |Restaurar o banco de BD existente para a mesma instância gerenciada| Restaurar o banco de BD existente para outra instância gerenciada|Restaurar o DB removido para a mesma instância gerenciada|Restaurar o BD removido para outra instância gerenciada|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure portal**| SIM|Não |Não|Não|
-|**CLI do Azure**|SIM |SIM |Não|Não|
-|**PowerShell**| SIM|SIM |SIM|SIM|
+|**Azure portal**| Sim|Não |Não|Não|
+|**CLI do Azure**|Sim |Sim |Não|Não|
+|**PowerShell**| Sim|Sim |Sim|Sim|
 
 ## <a name="restore-an-existing-database"></a>Restaurar um banco de dados existente
 
@@ -136,7 +136,7 @@ Para obter uma explicação detalhada dos parâmetros disponíveis, consulte a [
 
 ## <a name="restore-a-deleted-database"></a>Restaurar um banco de dados excluído
 
-A restauração de um banco de dados excluído só pode ser feita usando o PowerShell. O banco de dados pode ser restaurado para a mesma instância ou outra instância.
+A restauração de um banco de dados excluído pode ser feita usando o PowerShell ou o portal do Azure. Use este documento para fazer isso pelo [portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). O banco de dados pode ser restaurado para a mesma instância ou outra instância.
 
 Para restaurar um banco de dados excluído usando o PowerShell, especifique os valores para os parâmetros no comando a seguir. Em seguida, execute o comando:
 

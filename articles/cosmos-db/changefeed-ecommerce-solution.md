@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442064"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513485"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -93,7 +93,7 @@ Crie os recursos do Azure - Azure Cosmos DB, Conta de armazenamento, Hub de Even
 
 Agora, você criará uma coleção para realizar eventos do site de comércio eletrônico. Quando um usuário visualiza um item, adiciona um item ao carrinho ou compra um item, a coleção recebe um registro que inclui a ação ("visualizado", "adicionado" ou "comprado"), o nome do item envolvido, o preço do item envolvido e o número de ID do carrinho de usuário envolvido.
 
-1. Acesse o [portal do Azure](https://portal.azure.com/) e localize a **Conta do Azure Cosmos DB** criada pela implantação do modelo.  
+1. Vá para [portal do Azure](https://portal.azure.com/) e localize a **conta de Azure Cosmos DB** que é criada pela implantação do modelo.  
 
 2. No painel **Data Explorer**, selecione **Nova Coleção** e preencha o formulário com os seguintes detalhes:  
 
@@ -117,7 +117,7 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obter a cadeia de conexão do Azure Cosmos DB
 
-1. Acesse o [portal do Azure](https://portal.azure.com/) e localize a **Conta do Azure Cosmos DB** criada pela implantação do modelo.  
+1. Vá para [portal do Azure](https://portal.azure.com/) e localize a **conta de Azure Cosmos DB** que é criada pela implantação do modelo.  
 
 2. Navegue até o painel **Chaves**, copie a CADEIA DE CONEXÃO PRIMÁRIA e copie-a para um bloco de notas ou outro documento que você terá acesso a todo o laboratório. É necessário rotulá-la como **Cadeia de Conexão do Cosmos DB**. Posteriormente, será necessário copiar a cadeia de caracteres no código, portanto, anote-a e lembre-se em que local está armazenando-a.
 
@@ -177,7 +177,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
  
 6. Aguarde o programa ser executado. As estrelas significam que os dados estão sendo coletados! Mantenha o programa em execução - é importante que muitos dados sejam coletados.  
 
-7. Se você navegar até o [portal do Azure](https://portal.azure.com/), em seguida, para a conta do Cosmos DB no grupo de recursos e, em **Data Explorer**, verá os dados aleatórios importados em **changefeedlabcollection** .
+7. Se você navegar até [portal do Azure](https://portal.azure.com/) e, em seguida, para a conta de Cosmos DB em seu grupo de recursos, para **Data Explorer**, você verá os dados aleatórios importados em seu **changefeedlabcollection** .
  
    ![Dados gerados no portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
 
 O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para processamento de dados de streaming em tempo real. Neste laboratório, você usará o Stream Analytics para processar novos eventos do Hub de Eventos (isto é, quando um item for visualizado, adicionado a um carrinho ou comprado), incorporar esses eventos à análise de dados em tempo real e enviá-los para o Power BI para visualização.
 
-1. No [portal do Azure](https://portal.azure.com/), navegue até o grupo de recursos e, em seguida, até **streamjob1** (o job de análise de fluxo que você criou no prelab).  
+1. No [portal do Azure](https://portal.azure.com/), navegue até o grupo de recursos e, em seguida, para **streamjob1** (o trabalho do Stream Analytics que você criou no prelab).  
 
 2. Selecione **Entradas** como demonstrado abaixo.  
 
@@ -320,7 +320,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
 Agora, você observará como é possível usar a nova ferramenta de análise de dados para conectar um site de comércio eletrônico real. Para criar o site de comércio eletrônico, use um banco de dados Cosmos do Azure para armazenar a lista de categorias de produtos (mulheres, homens, unissex), o catálogo de produtos e uma lista dos itens mais populares.
 
-1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), depois para a **conta do Cosmos DB** e, em seguida, para **Data Explorer**.  
+1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), em seguida, para sua **conta de Cosmos DB**e, em seguida, para **Data Explorer**.  
 
    Adicione duas coleções em **changefeedlabdatabase** -  **de produtos** e **categorias** com capacidade de armazenamento fixo.
 
@@ -390,9 +390,8 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 ## <a name="delete-the-resources"></a>Excluir os recursos
 
-Para excluir os recursos criados durante este laboratório, navegue até o grupo de recursos no [portal do Azure](https://portal.azure.com/) e, em seguida, selecione **Excluir grupo de recursos** no menu superior da página e siga as instruções fornecidas.
+Para excluir os recursos que você criou durante este laboratório, navegue até o grupo de recursos em [portal do Azure](https://portal.azure.com/), em seguida, selecione **excluir grupo de recursos** no menu na parte superior da página e siga as instruções fornecidas.
 
 ## <a name="next-steps"></a>Próximos passos 
   
 * Para saber mais sobre feed de alterações, consulte [como trabalhar com suporte de feed de alterações no Azure Cosmos DB](change-feed.md) 
-* [Solução de notificação de feed de alterações](change-feed-hl7-fhir-logic-apps.md) para organização de serviços de saúde usando Azure Cosmos DB.

@@ -1,6 +1,6 @@
 ---
 title: Indexando os Arquivos de Mídia com a Visualização do Azure Media Indexer 2 | Microsoft Docs
-description: O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a Visualização do Indexador de Mídia 2 .
+description: O Azure Media Indexer permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a Visualização do Indexador de Mídia 2 .
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 60458365fd9ed3a9a72f5c2da82431fb55792a50
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464072"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514469"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a Preview do Azure Media Indexer 2
 
 > [!NOTE]
-> O processador de mídia [Azure Media indexer 2](media-services-process-content-with-indexer2.md) será desativado em 1º de janeiro de 2020. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substituem esse processador de mídia herdado. Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
+> O processador de mídia [Azure Media indexer 2](media-services-process-content-with-indexer2.md) será desativado. Para as datas de desativação, consulte este tópico de [componentes herdados](legacy-components.md) . Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substituem esse processador de mídia herdado. Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](migrate-indexer-v1-v2.md).
 
 O MP (processador de mídia) da **Preview do Indexador de Mídia do Azure 2** permite tornar conteúdo e arquivos de mídia pesquisáveis, bem como gerar faixas de legendagem oculta. Comparada à versão anterior do [Indexador de Mídia do Azure](media-services-index-content.md), a **Preview do Indexador de Mídia do Azure 2** executa uma indexação mais rápida e oferece maior suporte a idiomas. Os idiomas com suporte incluem o inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), português, árabe, russo e japonês.
 
@@ -52,7 +52,7 @@ Um trabalho de indexação pode gerar arquivos de legenda oculta nos seguintes f
 Arquivos de CC (Legenda Oculta) nesses formatos podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.
 
 ## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
-Ao criar uma tarefa de indexação com a **Preview do Indexador de Mídia do Azure 2**, é necessário especificar uma predefinição de configuração.
+Ao criar uma tarefa de indexação com a **Preview do Azure Media Indexer 2**, é necessário especificar uma predefinição de configuração.
 
 O JSON a seguir define os parâmetros disponíveis.
 

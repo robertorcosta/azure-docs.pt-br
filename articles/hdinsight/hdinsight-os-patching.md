@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: a97a03f7ef20ae56cec04341fe76b79ee657547b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.custom: hdinsightactive
+ms.date: 01/21/2020
+ms.openlocfilehash: 102ae56bb9dce2898c14bdc710420759a527a9e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748481"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514690"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurar o agendamento de aplicação de patch do so para clusters HDInsight baseados em Linux
 
@@ -27,6 +27,19 @@ O HDInsight fornece suporte para que você execute tarefas comuns em seu cluster
 
 > [!NOTE]  
 > As ações de script não aplicarão atualizações automaticamente para todos os ciclos de atualização futuros. Execute os scripts sempre que novas atualizações devem ser aplicadas para instalar as atualizações e reinicie a VM.
+
+## <a name="preparation"></a>Preparação
+
+Patch em um ambiente de não produção representativo antes da implantação na produção. Desenvolva um plano para testar adequadamente seu sistema antes de sua aplicação de patch real.
+
+De tempos em tempos, de uma sessão SSH com o cluster, você pode receber uma mensagem informando que uma atualização está disponível. A mensagem pode ser semelhante a:
+
+```
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade it
+```
+
+A aplicação de patch é opcional e a seu critério.
 
 ## <a name="restart-nodes"></a>Reinicializar nós
   
@@ -52,9 +65,9 @@ O script de `install-updates-schedule-reboots` aceita dois parâmetros numérico
 > [!NOTE]
 > Você deve marcar um script como persistente depois de aplicá-lo a um cluster existente. Caso contrário, quaisquer nós novos criado por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão. Se você aplicar o script como parte do processo de criação do cluster, ele será persistido automaticamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter etapas específicas sobre como usar as ações de script, consulte as seções a seguir em [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md):
 
-* [Usar uma ação de script durante a criação do cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Aplicar uma ação de script em um cluster em execução](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Usar uma ação de script durante a criação do cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
+- [Aplicar uma ação de script em um cluster em execução](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ab8019a8537d4080afdb457459f09cd156ff4ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc8162a157cee10deeb8bf3f1e62a53fbdd30d0e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365522"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513432"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho do Log Analytics no Portal do Azure
 Use o menu **Espaços de trabalho do Log Analytics** para criar um espaço de trabalho do Log Analytics usando o portal do Azure. Um espaço de trabalho do Log Analytics é um ambiente exclusivo para dados de log do Azure Monitor. Cada workspace tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado workspace. Você precisa de um espaço de trabalho do Log Analytics se pretender coletar dados das seguintes fontes:
 
 * Recursos do Azure em sua assinatura
 * Computadores locais monitorados pelo System Center Operations Manager
-* Coleções de dispositivos do System Center Configuration Manager 
+* Coleções de dispositivos de Configuration Manager 
 * Dados de diagnóstico ou de log do armazenamento do Azure
 
 Para outras fontes, como as VMs do Azure e as VMs do Windows ou do Linux em seu ambiente, veja os tópicos a seguir:
@@ -40,7 +40,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
   
 2. Clique em **Adicionar**e selecione opções para os seguintes itens:
 
-   * Forneça um nome para o novo **Espaço de Trabalho do Log Analytics**, como *DefaultLAWorkspace*. Esse nome deve ser globalmente exclusivo em todas as assinaturas de Azure Monitor.
+   * Forneça um nome para o novo **Espaço de Trabalho do Log Analytics**, como *DefaultLAWorkspace*. Esse nome deve ser globalmente exclusivo em todas as assinaturas do Azure Monitor.
    * Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
    * Para o **Grupo de Recursos**, escolha entre usar um grupo de recursos existente já configurado ou criar um novo.  
    * Selecione um **local** disponível.  Para obter mais informações, consulte quais [regiões log Analytics está disponível no](https://azure.microsoft.com/regions/services/) e procure por Azure monitor no campo **Pesquisar um produto** .  

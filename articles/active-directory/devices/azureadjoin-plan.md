@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746055"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512412"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -129,7 +129,7 @@ Revisar as políticas compatíveis ou não compatíveis para determinar se você
 
 Se sua solução de MDM não estiver disponível por meio da galeria de aplicativo do Azure Active Directory, você pode adicioná-lo seguindo o processo descrito em [integração do Active Directory do Azure com o MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Por meio de cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. Microsoft Intune permite que o cogerenciamento com o SCCM. Para obter mais informações, consulte [cogerenciamento para dispositivos Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se você usar um produto MDM que não seja o Intune, entre em contato com seu provedor de MDM em cenários de cogerenciamento aplicável.
+Por meio de cogerenciamento, você pode usar o SCCM para gerenciar determinados aspectos de seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. Microsoft Intune permite que o cogerenciamento com o SCCM. Para obter mais informações sobre o cogerenciamento para dispositivos Windows 10, consulte [o que é cogerenciamento?](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Se você usar um produto MDM que não seja o Intune, entre em contato com seu provedor de MDM em cenários de cogerenciamento aplicável.
 
 **Recomendação:** considere MDM somente a dispositivos adicionados ao gerenciamento do Azure Active Directory.
 

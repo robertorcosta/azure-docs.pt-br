@@ -16,22 +16,15 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295119"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512956"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerações do design de identidade híbrida do Active Directory do Azure - próximas etapas
 Agora que você terminou de definir seus requisitos e examinou todas as opções para sua solução de gerenciamento de dispositivo móvel, você está pronto para executar as próximas etapas para implantar a infraestrutura de suporte que é ideal para você e sua organização.
-
-## <a name="hybrid-identity-solutions"></a>Soluções de identidade híbrida
--Aproveitar os cenários de solução específica que atenda às suas necessidades é uma ótima maneira de analisar e planejar os detalhes de implantação de uma infra-estrutura de gerenciamento de dispositivo móvel. As soluções a seguir descrevem vários dos cenários mais comuns de gerenciamento de dispositivo móvel:
-
-* Os [dispositivos móveis de gerenciamento e PCs na solução de ambientes empresariais](https://technet.microsoft.com/library/dn582037.aspx) ajudam você a gerenciar dispositivos móveis estendendo sua infraestrutura do System Center 2012 Configuration Manager local para a nuvem com o Microsoft Intune. Essa infraestrutura híbrida ajuda os profissionais de TI em mídia e grandes ambientes permitem BYOD e acesso remoto, reduzindo a complexidade administrativa.
-* O [gerenciamento de dispositivos móveis para a solução do Configuration Manager 2007](https://technet.microsoft.com/library/dn508400.aspx) ajuda você a gerenciar dispositivos móveis quando sua infraestrutura é posicionada em um System Center Configuration Manager 2007. Esta solução mostra como configurar um único servidor executando o System Center 2012 Configuration Manager para que você possa executar o Microsoft Intune e tirar proveito de sua capacidade MDM.
-* O [gerenciamento de dispositivos móveis na solução de ambientes pequenos](https://technet.microsoft.com/library/dn715906.aspx) destina-se a pequenas empresas que precisam dar suporte ao MDM. Isso explica como usar o Microsoft Intune para estender sua infra-estrutura atual para dar suporte a gerenciamento de dispositivos móveis e BYOD. Essa solução descreve o cenário mais simples com suporte para usar o Microsoft Intune em uma configuração somente em nuvem autônoma sem servidores locais.
 
 ## <a name="hybrid-identity-documentation"></a>Documentação de identidade híbrida
 Conceitos e procedimentos de planejamento, implantação e conteúdo de administração são úteis ao implementar sua solução de gerenciamento de dispositivo móvel:
@@ -46,8 +39,7 @@ O monitoramento dos seguintes recursos geralmente fornece as últimas notícias 
 * [Blog do Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Blog Microsoft na nuvem](https://blogs.technet.com/b/in_the_cloud/)
 * [Blog do Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
-* [Blog do Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configurationmgr/)
-* [Blog da Equipe do Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configmgrteam/)
+* [Blog do Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)

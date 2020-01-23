@@ -1,6 +1,6 @@
 ---
 title: Visão geral das APIs de Node de Retransmissão do Azure | Microsoft Docs
-description: Visão geral da API de Node de Retransmissão
+description: Este artigo fornece uma visão geral da API do node. js para o serviço de retransmissão do Azure. Ele também mostra como usar o pacote de nó hyco-WS.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699387"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514503"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API de Node de Conexões Híbridas de Retransmissão
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
-O [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pacote de Node para as Conexões Híbridas de Retransmissão do Azure baseia-se e estende o ['ws'](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de Conexões Híbridas do serviço de retransmissão do Azure. 
+O [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacote de Node para as Conexões Híbridas de Retransmissão do Azure baseia-se e estende o ['ws'](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de Conexões Híbridas do serviço de retransmissão do Azure. 
 
 Os aplicativos existentes que `require('ws')` pode usar esse pacote com `require('hyco-ws')` em vez disso, que também permite cenários híbridos em que um aplicativo pode escutar conexões WebSocket localmente do "dentro do firewall" e por meio de Conexões Híbridas, tudo ao mesmo tempo.
   
@@ -131,7 +131,7 @@ Argumentos do Construtor:
 - `server` (obrigatório) – o URI totalmente qualificado para um nome de Conexão Híbrida a escutar costuma ser construído com o método auxiliar WebSocket.createRelayListenUri().
 - `token` (obrigatório) – esse argumento contém uma cadeia de caracteres de token emitida anteriormente ou uma função de retorno de chamada que pode ser chamada para obter uma cadeia de caracteres tal token. A opção de retorno de chamada é preferencial, pois permite renovação de tokens.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Eventos
 
 `RelayedServer`instâncias de emitem três eventos que permitem lidar com solicitações de entrada, estabelecer conexões e detectar condições de erro. Você deve assinar o evento `connect` para lidar com mensagens. 
 
@@ -143,7 +143,7 @@ function(headers)
 
 O evento `headers` é gerado antes de uma conexão de entrada ser aceita, permitindo a modificação dos cabeçalhos a enviar ao cliente. 
 
-##### <a name="connection"></a>connection
+##### <a name="connection"></a>conexão
 
 ```JavaScript
 function(socket)
@@ -152,7 +152,7 @@ function(socket)
 Emitido quando uma nova conexão WebSocket é aceita. O objeto é do tipo `ws.WebSocket`, igual ao do pacote básico.
 
 
-##### <a name="error"></a>error
+##### <a name="error"></a>erro
 
 ```JavaScript
 function(error)
@@ -208,7 +208,7 @@ WebSocket.relayedConnect(
 );
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a Retransmissão do Azure, visite estes links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
 * [APIs de Retransmissão Disponíveis](relay-api-overview.md)
