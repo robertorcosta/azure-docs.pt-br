@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338490"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514129"
 ---
 ::: zone target="docs"
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 > * Cabear seu Data Box
 > * Conectar-se ao seu Data Box
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -91,7 +91,7 @@ Após receber o dispositivo, você precisará cabear e conectar-se ao seu dispos
     - Cabo de alimentação com aterramento (incluso) com potência igual ou superior a 10 A e um conector IEC60320 C-13 em uma extremidade para a conexão ao dispositivo.
     - Um cabo de rede RJ-45 CAT 6 (usar com adaptador de rede MGMT)
     - Dois cabos de cobre SFP+ Twinax de 10 GbE (usar com adaptadores de rede DATA 1 ou DATA 2 de 10 Gbps)
-    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps, respectivamente)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (usar com adaptador de rede DATA 3 configurado como 10 Gbps ou 1 Gbps respectivamente)
 
 3. Remova e coloque o dispositivo em uma superfície plana. 
     
@@ -102,7 +102,7 @@ Após receber o dispositivo, você precisará cabear e conectar-se ao seu dispos
     1. Conecte o cabo de alimentação ao dispositivo.
     2. Use o cabo de rede RJ-45 CAT 6 para conectar o computador host à porta de gerenciamento (MGMT) no dispositivo. 
     3. Use o cabo de cobre SFP+ Twinax para conectar, pelo menos, um adaptador de rede de 10 Gbps (preferível a 1 Gbps), DATA 1 ou DATA 2, aos dados. 
-    4. Ative o dispositivo. O botão de energia está localizado no painel frontal do dispositivo.
+    4. Ligar o dispositivo. O botão de energia está localizado no painel frontal do dispositivo.
 
 ::: zone-end
 

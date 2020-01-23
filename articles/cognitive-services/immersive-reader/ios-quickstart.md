@@ -8,18 +8,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: b82a86d6a3f7b2afd8feee18a863e34b7a6079a4
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 7f46f7697207fe194f4fb7c3584c40c87abdb727
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945501"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514197"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Início Rápido: Criar um aplicativo iOS que inicia a Leitura Avançada (Swift)
 
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 
-Neste início rápido, você criará um aplicativo iOS do zero e integrará a Leitura Avançada. Um exemplo de funcionamento completo deste Início Rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift).
+Neste início rápido, você criará um aplicativo iOS do zero e integrará a Leitura Avançada. Um exemplo de funcionamento completo deste Início Rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

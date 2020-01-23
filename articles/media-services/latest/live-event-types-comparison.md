@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888386"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543045"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
@@ -28,19 +28,19 @@ Nos Serviços de Mídia do Azure, um [Evento ao vivo](https://docs.microsoft.com
 
 A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** -um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. Os fluxos ingeridos passam pelo evento ao vivo sem nenhum processamento adicional. 
+* **LiveEventEncodingType. None** -um codificador ao vivo local envia um fluxo de taxas de bits múltiplas. Os fluxos ingeridos passam pelo evento ao vivo sem nenhum processamento adicional. Também conhecido como evento de passagem ao vivo.
 * **LiveEventEncodingType. Standard** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. Se o feed de contribuição for de 720p ou de resolução superior, a predefinição de **default720p** codificará um conjunto de 6 pares de resolução/taxa de bits (os detalhes são seguidos posteriormente no artigo).
 * **LiveEventEncodingType. Premium1080p** -um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo e os serviços de mídia criam fluxos de taxas de bits múltiplas. A predefinição de default1080p especifica o conjunto de saída de pares de resolução/taxa de bits (os detalhes são seguidos posteriormente no artigo). 
 
 | Recurso | Evento ao vivo de passagem | Evento ao vivo Standard ou Premium1080p |
 | --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não |SIM |
+| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não |Sim |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 a 60 quadros / seg) |1080p de (1920 x 1088 em 30 quadros por segundo)|
 | Camadas máximas recomendadas no feed de contribuição|Até 12|Um áudio|
 | Camadas máximo na saída| Igual à entrada|Até 6 (consulte predefinições de sistema abaixo)|
 | Largura de banda agregada máxima de feed de contribuição|60 Mbps|N/D|
 | Taxa de bits máxima para uma única camada de contribuição |20 Mbps|20 Mbps|
-| Suporte para várias faixas de áudio de idioma|SIM|Não|
+| Suporte para várias faixas de áudio de idioma|Sim|Não|
 | Codecs de vídeo de entrada com suporte |H.264/AVC e H.265/HEVC|H.264/AVC|
 | Codecs de vídeo de saída com suporte|Igual à entrada|H.264/AVC|
 | Suporte para a profundidade de bits de vídeo, entrada e saída|Até 10 bits incluindo HDR 10/HLG|8 bits|
@@ -51,13 +51,14 @@ A tabela a seguir compara os recursos dos tipos de evento ao vivo. Os tipos são
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
 | Preço|Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo”|Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo”|
 | Tempo de execução máximo| 24 horas x 365 dias, linha ao vivo | 24 horas x 365 dias, linear ao vivo (versão prévia)|
-| Capacidade de passar por meio do embedded CEA 608/708 legendas de dados|SIM|SIM|
+| Capacidade de passar por meio do embedded CEA 608/708 legendas de dados|Sim|Sim|
+| Capacidade de ativar a transcrição dinâmica|Sim|Sim|
 | Suporte para inserção de imagens fixas|Não|Não|
 | Suporte para sinalização de anúncios via API| Não|Não|
-| Suporte para o ad sinalização por meio de mensagens na faixa de SCTE-35|SIM|SIM|
-| Capacidade de recuperação de interrupções breves no feed de contribuição|SIM|Parcial|
-| Suporte para GOPs de entrada não uniforme|SIM|Não – entrada deve ter GOP duração fixa|
-| Suporte para entrada de taxa de quadros variável|SIM|Não – a entrada deve ser uma taxa de quadros fixa. Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. Mas o feed de contribuição não pode descartar a taxa de quadros (por exemplo, para 15 quadros/segundo).|
+| Suporte para o ad sinalização por meio de mensagens na faixa de SCTE-35|Sim|Sim|
+| Capacidade de recuperação de interrupções breves no feed de contribuição|Sim|Parcial|
+| Suporte para GOPs de entrada não uniforme|Sim|Não – entrada deve ter GOP duração fixa|
+| Suporte para entrada de taxa de quadros variável|Sim|Não – a entrada deve ser uma taxa de quadros fixa. Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. Mas o feed de contribuição não pode descartar a taxa de quadros (por exemplo, para 15 quadros/segundo).|
 | Desligamento automático do Evento ao Vivo quando há perda do feed de entrada|Não|Após 12 horas, se não houver nenhum LiveOutput em execução|
 
 ## <a name="system-presets"></a>Predefinições do sistema

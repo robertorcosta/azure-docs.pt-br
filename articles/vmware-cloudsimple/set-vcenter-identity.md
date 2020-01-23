@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: eeced5205b836a15a43fbccfb8c6cb60b4bec29f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990313"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76542858"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
 
@@ -33,7 +33,7 @@ Este guia explica as tarefas para configurar Active Directory controladores de d
 Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter), [Escale temporariamente os privilégios do vCenter](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente contas de serviço devem ser adicionadas ao grupo *Administradores* .  
+> Novos usuários devem ser adicionados somente a *Cloud-Owner-Group*, *Cloud-global-cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* ou, *Cloud-global-VM-admin-Group*.  Os usuários adicionados ao grupo de *Administradores* serão removidos automaticamente.  Somente as contas de serviço devem ser adicionadas ao grupo de *Administradores* e as contas de serviço não devem ser usadas para entrar na interface do usuário da Web do amvSphere.   
 
 
 ## <a name="identity-source-options"></a>Opções de origem de identidade
@@ -61,7 +61,7 @@ Use as informações na tabela a seguir ao configurar seu domínio de Active Dir
 | **URL do servidor primário** | Servidor LDAP do controlador de domínio primário para o domínio.<br><br>Use o formato `ldap://hostname:port` ou `ldaps://hostname:port`. A porta geralmente é 389 para conexões LDAP e 636 para conexões LDAPs. Para Active Directory implantações de controlador de vários domínios, a porta geralmente é 3268 para LDAP e 3269 para LDAPs.<br><br>Um certificado que estabelece confiança para o ponto de extremidade LDAPs do servidor Active Directory é necessário quando você usa `ldaps://` na URL LDAP primária ou secundária. |
 | **URL do servidor secundário** | Endereço de um servidor LDAP do controlador de domínio secundário que é usado para failover. |
 | **Escolher certificado** | Se você quiser usar LDAPs com o servidor LDAP Active Directory ou a origem de identidade do servidor OpenLDAP, um botão escolher certificado será exibido depois que você digitar `ldaps://` na caixa de texto URL. Uma URL secundária não é necessária. |
-| **Nome de Usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
+| **Nome de usuário** | ID de um usuário no domínio que tem um mínimo de acesso somente leitura ao DN base para usuários e grupos. |
 | **Senha** | Senha do usuário que é especificada pelo nome de usuário. |
 
 Quando tiver as informações na tabela anterior, você poderá adicionar seu Active Directory local como uma fonte de identidade de logon único no vCenter.
@@ -116,7 +116,7 @@ Depois que a conexão de rede for estabelecida, siga as etapas em [adicionar Act
 
 4. Selecione **logon único > configuração**.
 
-    ![Logon Único](media/OnPremAD02.png)
+    ![Logon único](media/OnPremAD02.png)
 
 5. Abra a guia **fontes de identidade** e clique em **+** para adicionar uma nova fonte de identidade.
 

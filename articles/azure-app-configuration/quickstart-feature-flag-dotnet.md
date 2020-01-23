@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 0aecf2284e448f879bc20391c8528f8efde42d94
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: bdb00bfbadec68fa110f747858d264a2c34f8bd1
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184965"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120862"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo .NET Framework
 
@@ -27,7 +27,7 @@ Neste início rápido, você incorporará a Configuração de Aplicativos do Azu
 
 As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com suporte abrangente a sinalizadores de recursos. Essas bibliotecas se baseiam no sistema de configuração do .NET. Elas são integradas diretamente à Configuração de Aplicativos por meio de seu provedor de configuração do .NET.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -67,22 +67,32 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 1. Atualize o método `Main` para se conectar à Configuração de Aplicativos, especificando a opção `UseFeatureFlags` para que os sinalizadores de recursos sejam recuperados. Em seguida, exiba uma mensagem se o sinalizador de recursos `Beta` estiver habilitado.
 
     ```csharp
-        static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            AsyncMain().Wait();
+        }
+
+        private static async Task AsyncMain()
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .AddAzureAppConfiguration(options => 
-                { 
+                .AddAzureAppConfiguration(options =>
+                {
                     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                           .UseFeatureFlags(); 
+                           .UseFeatureFlags();
                 }).Build();
-            
-            IServiceCollection services = new ServiceCollection(); 
-            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement(); 
-            IFeatureManager featureManager = services.BuildServiceProvider().GetRequiredService<IFeatureManager>(); 
-            
-            if (featureManager.IsEnabled("Beta")) 
-            { 
-                Console.WriteLine("Welcome to the beta"); 
+
+            IServiceCollection services = new ServiceCollection();
+
+            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement();
+
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            {
+                IFeatureManager featureManager = serviceProvider.GetRequiredService<IFeatureManager>();
+
+                if (await featureManager.IsEnabledAsync("Beta"))
+                {
+                    Console.WriteLine("Welcome to the beta!");
+                }
             }
 
             Console.WriteLine("Hello World!");
@@ -95,7 +105,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Se você usar o Windows PowerShell, execute o seguinte comando:
+    Se você usa o Windows PowerShell, execute o comando a seguir:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
@@ -105,7 +115,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
     ![Aplicativo com sinalizador de recursos habilitado](./media/quickstarts/dotnet-app-feature-flag.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

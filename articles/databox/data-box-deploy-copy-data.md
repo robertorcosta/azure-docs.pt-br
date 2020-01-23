@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d86da3013a3cb4573556bc14ea1e6a0fbab72623
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: c82a67bbbf8f1a4f77db6ca965031e85e69ee100
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240385"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514163"
 ---
 ::: zone target="docs"
 
@@ -35,12 +35,12 @@ Este tutorial descreve como conectar-se e copiar dados do computador host usando
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, verifique se:
 
@@ -130,7 +130,7 @@ Depois de conectar-se ao compartilhamento SMB, comece a cópia de dados. Você p
   
  Os atributos são descritos na tabela a seguir.
     
-|Atributo  |DESCRIÇÃO  |
+|Atributo  |Descrição  |
 |---------|---------|
 |/e     |Copia subdiretórios, inclusive diretórios vazios.         |
 |/r:     |Especifica o número de repetições em cópias com falha.         |
@@ -283,7 +283,7 @@ Para obter instruções passo a passo, acesse [Tutorial: Usar o Data Box para im
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box como:
 
 > [!div class="checklist"]
-> * Pré-requisitos
+> * Prerequisites
 > * Conectar-se à caixa de dados
 > * Copiar dados para caixa de dados
 

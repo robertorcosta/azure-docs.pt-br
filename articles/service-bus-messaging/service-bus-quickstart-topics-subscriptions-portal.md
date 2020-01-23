@@ -1,19 +1,19 @@
 ---
-title: 'Início Rápido: usar o portal do Azure para criar tópicos e assinaturas do Barramento de Serviço'
+title: usar o portal do Azure para criar tópicos e assinaturas do Barramento de Serviço
 description: 'Início Rápido: Neste Início Rápido, você aprenderá a criar um tópico do Barramento de Serviço e assinaturas para esse tópico usando o portal do Azure.'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6788bf43ef97daf5ef2f823a502c223d718abaac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a1e330a62a58daaa3fb2a2e8758d14791a3208c1
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718870"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260813"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Início Rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico
 Neste Início Rápido, você usará o portal do Azure para criar um tópico do Barramento de Serviço e, em seguida, criará assinaturas para esse tópico. 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073075"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544745"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -42,7 +42,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script personalizado para Windows permite a execução de qualquer script do PowerShell em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para lidar com a extensão na VM, você precisa ter o agente do Windows Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 
@@ -63,9 +63,9 @@ O agente Convidado do Windows é executado em vários sistemas operacionais. No 
 
 Algumas extensões não têm suporte em todos os sistemas de operacionais e podem emitir *Código de Erro 51, 'SO sem suporte'* . Consulte a documentação da extensão individual sobre a capacidade de suporte.
 
-#### <a name="network-access"></a>Acesso à rede
+#### <a name="network-access"></a>Acesso de rede
 
-Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, como pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
+Os pacotes de extensão são baixados do repositório de extensão do Armazenamento do Microsoft Azure, e os carregamentos de status de extensão são postados no Armazenamento do Microsoft Azure. Se você usar a versão [com suporte](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, pois pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)de IP privado). Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
 
 > [!IMPORTANT]
 > Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
@@ -148,7 +148,7 @@ O exemplo a seguir mostra a instalação da extensão Microsoft Antimalware no p
 
 ![Instalar a extensão de antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
+### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
@@ -251,6 +251,10 @@ A movimentação da propriedade **comando para execução** para a configuraçã
     }
 }
 ```
+
+Em uma VM IaaS do Azure que usa extensões, no console certificados, você pode ver certificados que têm o assunto **_gerador de certificado do Microsoft Azure CRP_** . Em uma VM RDFE clássica, esses certificados têm o nome da entidade **_Gerenciamento de serviços do Windows Azure para extensões_** .
+
+Esses certificados protegem a comunicação entre a VM e seu host durante a transferência de configurações protegidas (senha, outras credenciais) usadas pelas extensões. Os certificados são criados pelo controlador de malha do Azure e passados para o agente de VM. Se você parar e iniciar a VM todos os dias, um novo certificado poderá ser criado pelo controlador de malha. O certificado é armazenado no repositório de certificados pessoais do computador. Esses certificados podem ser excluídos. O agente de VM recria certificados se necessário.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Como agentes e extensões são atualizados?
 
@@ -411,19 +415,19 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 
 Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 
-1. Selecionar uma máquina virtual.
+1. Selecione uma VM.
 2. Escolha **Extensões**.
 3. Selecione a extensão desejada.
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referência a extensões de VM comuns
-| Nome da extensão | DESCRIÇÃO | Mais informações |
+| Nome da extensão | Description | Mais informações |
 | --- | --- | --- |
 | Extensão de script personalizado para o Windows |Executar scripts em uma máquina virtual do Azure |[Extensão de script personalizado para o Windows](custom-script-windows.md) |
 | Extensão de DSC para o Windows |Extensão PowerShell DSC (Configuração de Estado Desejado) |[Extensão DSC para Windows](dsc-overview.md) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre extensões de VM, consulte [Visão geral de recursos e extensões de máquina virtual do Azure](overview.md).

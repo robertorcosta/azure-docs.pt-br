@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012528"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530908"
 ---
 Este artigo explica como planejar o backup e a DR (recuperação de desastre) de VMs (máquinas virtuais) e discos de IaaS no Azure. Este documento aborda discos gerenciados e discos não gerenciados.
 
@@ -51,7 +51,7 @@ Para proteger cargas de trabalho do aplicativo contra o tempo de inatividade dev
 
 Devido a esses domínios de falha separados, as falhas de hardware localizadas geralmente não afetam várias VMs no conjunto ao mesmo tempo. Ter domínios de falha separados fornece alta disponibilidade para o aplicativo. É considerada uma melhor prática usar conjuntos de disponibilidade quando a alta disponibilidade é necessária. A próxima seção aborda o aspecto de recuperação de desastre.
 
-### <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
+### <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastre
 
 A recuperação de desastre é a capacidade de recuperação de incidentes raros, mas importantes. Esses incidentes incluem falhas não transitórias de larga escala, como interrupções de serviço que afetam toda uma região. A recuperação de desastre inclui backup e arquivamento de dados e pode incluir a intervenção manual, como a restauração um banco de dados com base em um backup.
 
@@ -110,7 +110,7 @@ Para discos não gerenciados, use o tipo de armazenamento com redundância local
 | Cenário | Replicação automática | Solução de DR |
 | --- | --- | --- |
 | Discos SSD Premium | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
-| Discos gerenciados | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
+| Managed Disks | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos não gerenciados com armazenamento com redundância local | Local ([armazenamento com redundância local](../articles/storage/common/storage-redundancy-lrs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) |
 | Discos não gerenciados com armazenamento com redundância geográfica | Várias regiões ([armazenamento com redundância geográfica](../articles/storage/common/storage-redundancy-grs.md)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
 | Discos não gerenciados de armazenamento com redundância geográfica com acesso de leitura | Entre regiões ([armazenamento com redundância geográfica com acesso de leitura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)<br/>[Instantâneos consistentes](#alternative-solution-consistent-snapshots) |
@@ -119,9 +119,9 @@ A alta disponibilidade é melhor alcançada com discos gerenciados em um conjunt
 
 Suas escolhas de alta disponibilidade, backup e DR nos níveis do aplicativo ou da infraestrutura podem ser representadas da seguinte maneira:
 
-| Nível |   alta disponibilidade   | Backup ou DR |
+| Nível |   Alta disponibilidade   | Backup ou DR |
 | --- | --- | --- |
-| Aplicativo | SQL Server AlwaysOn | Serviço de Backup do Azure |
+| Aplicativo | SQL Server AlwaysOn | Backup do Azure |
 | Infraestrutura    | Conjunto de disponibilidade  | Armazenamento com redundância geográfica com instantâneos consistentes |
 
 ### <a name="using-azure-backup"></a>Usando o Backup do Azure 
@@ -151,8 +151,6 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 1.  Configure a política de backup e selecione a VM na mesma interface do usuário.
 
 1.  Verifique se o Agente de Backup está instalado na VM. Se a VM for criada usando uma imagem da galeria do Azure, o Agente de Backup já estará instalado. Caso contrário (ou seja, se você estiver usando uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para a [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.  Depois que as etapas anteriores forem concluídas, o backup será executado em intervalos regulares, conforme especificado na política de backup. Se necessário, dispare o primeiro backup manualmente no painel do cofre do portal do Azure.
 

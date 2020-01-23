@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992303"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547567"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
@@ -117,16 +117,12 @@ No momento, a oferta de Desenvolvimento/Teste não se aplica aos clientes do Azu
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferir uma conta empresarial para um novo registro
 
-Uma transferência de conta move um proprietário de conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Isso é executado quando você tem vários registros ativos e deseja apenas mover os proprietários de conta selecionados.
+Uma transferência de conta move um proprietário da conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Isso é feito quando você tem vários registros ativos e só deseja mover os proprietários da conta selecionados.
 
 Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um novo registro:
 
 - Somente as contas especificadas na solicitação são transferidas. Se todas as contas forem escolhidas, elas serão todas transferidas.
 - O registro de origem retém o próprio status como ativo ou estendido. Você poderá continuar usando o registro até que ele expire.
-
-### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
-
-Você pode efetuar uma transferência de conta para a frente até a data de início do registro de destino ou a data de início da conta, o que tiver uma data de início posterior. Após a transferência da conta, todas as informações de uso na conta antes da data de início de vigência da transferência permanecem no registro do qual você está transferindo. As informações de uso após a data de transferência serão movidas para o registro de destino.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -134,14 +130,13 @@ Ao solicitar uma transferência de conta, forneça as seguintes informações:
 
 - O número do registro de destino, o nome da conta e o email do proprietário da conta a ser transferido
 - Para o registro de origem, o número de registro e a conta a serem transferidos
-- Para a data de efetivação da transferência de conta, ela pode ser regressiva até a data de início do registro de destino ou a data de início da conta, o que tiver uma data de início posterior
 
 Outros pontos para ter em mente antes de uma transferência de conta:
 
 - A aprovação de um administrador de EA é necessária para o registro de origem e o de destino
 - Se uma transferência de conta não atender aos seus requisitos, considere uma transferência de registro.
 - A transferência de conta transfere todos os serviços e assinaturas relacionados às contas específicas.
-- Depois que a transferência for concluída, a conta transferida aparecerá inativa no registro de origem e aparecerá ativa sob o registro de destino.
+- Depois que a transferência for concluída, a conta transferida aparecerá inativa no registro de origem e aparecerá ativa no registro de destino.
 - A conta mostra a data de término correspondente à data de transferência efetiva no registro de origem e como uma data de início no registro de destino.
 - Qualquer uso ocorrido para a conta antes da data de transferência efetiva permanece sob o registro de origem.
 
@@ -150,27 +145,24 @@ Outros pontos para ter em mente antes de uma transferência de conta:
 
 Uma transferência de registro é considerada quando:
 
-- O termo de compromisso de um registro atual chegou a um fim.
+- O termo de compromisso de um registro atual chegou ao fim.
 - Um registro está no status expirado/estendido e um novo contrato é negociado.
-- Se você tiver vários registros e desejar consolidar todas as contas e cobrança em um único registro.
+- Se você tiver vários registros e desejar consolidar todas as contas e a cobrança em um só registro.
 
 Quando você solicita a transferência de um Registro Enterprise inteiro para um registro, as seguintes ações ocorrem:
 
-- Todos os serviços do Azure, assinaturas, contas, departamentos e toda a estrutura de registro, incluindo todos os administradores do departamento EA, são transferidos para um novo registro de destino.
+- Todos os serviços, as assinaturas, as contas, os departamentos e toda a estrutura de registro do Azure, incluindo todos os administradores de departamento do EA, são transferidos para um novo registro de destino.
 - O status do registro é definido como _Transferido_. O registro transferido está disponível apenas para fins de relatório de uso histórico.
 - Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional em relação ao registro.
 - Qualquer saldo de compromisso monetário restante no contrato é perdido, incluindo termos futuros.
 -   Se o registro do qual você está transferindo tiver compras de RI, o valor de compra de RI permanecerá no registro de origem, no entanto, todos os benefícios de RI serão transferidos para serem utilizados no novo registro.
 -   O valor avulso de compra do Marketplace e todos os valores fixos mensais já incorridos no registro antigo não serão transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
--   Após uma transferência de registro pré-datada, todos os valores avulsos de compras permanecerão no registro de origem.
 
 ### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
 
-O dia de transferência efetivo pode ser em ou após a data de início do registro de destino.
+A data de efetivação da transferência pode ser a data de início do registro de destino ou uma data posterior a ela.
 
 O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
-
-Uma transferência de versão anterior tem suporte até a data de início do registro de destino. Fornecer a data de transferência escolhida não afeta o uso de uma fatura excedente que já foi emitida.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -182,7 +174,7 @@ Ao solicitar uma transferência de registro, forneça as seguintes informações
 
 Outros pontos para ter em mente antes de uma transferência de registro:
 
-- É necessária a aprovação dos administradores EA de destino e de registro de origem.
+- É necessária a aprovação dos administradores do EA do registro de origem e de destino.
 - Se uma transferência de registro não atender aos seus requisitos, considere uma transferência de conta.
 - O status do registro de origem será atualizado para transferido e só estará disponível para fins de relatório de uso histórico.
 
@@ -211,7 +203,7 @@ Para exibir os usuários com acesso RBAC à assinatura:
 Se a assinatura for transferida para uma conta em um locatário diferente do Azure AD, todos os usuários, grupos e entidades de serviço que tiverem [RBAC](../../role-based-access-control/overview.md) para gerenciar recursos _perderão_ o acesso. Embora o acesso RBAC não esteja presente, o acesso à assinatura pode estar disponível por meio de mecanismos de segurança, incluindo:
 
 - Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
-- Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
+- Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
 - Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
 Se o destinatário precisar restringir o acesso a seus recursos do Azure, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:

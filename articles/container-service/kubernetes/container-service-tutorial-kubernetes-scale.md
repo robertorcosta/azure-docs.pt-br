@@ -1,20 +1,18 @@
 ---
 title: (PRETERIDO) Tutorial do Serviço de Contêiner do Azure – dimensionar aplicativo
 description: Tutorial do Serviço de Contêiner do Azure – dimensionar aplicativo
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993065"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274184"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(PRETERIDO) Dimensionar pods Kubernetes e a infraestrutura do Kubernetes
 

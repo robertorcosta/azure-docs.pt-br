@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892729"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545884"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -29,7 +29,7 @@ A partir da versão 2, a URL base do widget inclui a região da conta especifica
 
 Um widget de análise cognitiva inclui todos os insights visuais que foram extraídos do seu processo de indexação de vídeo. O widget cognitiva insights dá suporte aos seguintes parâmetros de URL opcionais.
 
-|name|Definição|Descrição|
+|Nome|Definição|Description|
 |---|---|---|
 |`widgets`|Cadeias de caracteres separadas por vírgula|Permite que você controle as informações que deseja renderizar. <br/> Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderiza apenas pessoas e marcas da interface do usuário do.<br/>Opções disponíveis: people, keywords, annotations, brands, sentiments, transcript e search.<br/>Observe que o parâmetro de URL `widgets` não tem suporte na versão 2.<br/>|
 |`locale`|Um código de idioma curto|Controla o idioma do insights. O valor padrão é `en`. <br/> Exemplo: `locale=de`.|
@@ -39,7 +39,7 @@ Um widget de análise cognitiva inclui todos os insights visuais que foram extra
 
 Você pode usar o widget Player para transmitir vídeo usando a taxa de bits adaptável. O widget Player dá suporte aos seguintes parâmetros de URL opcionais.
 
-|name|Definição|Descrição|
+|Nome|Definição|Description|
 |---|---|---|
 |`t`|Segundos desde o início|Faz com que o Player comece a ser reproduzido do ponto de tempo especificado.<br/> Exemplo: `t=60`.|
 |`captions`|Um código de idioma|Busca a legenda no idioma especificado durante o carregamento do widget para estar disponível no menu **legendas** .<br/> Exemplo: `captions=en-US`.|
@@ -52,9 +52,9 @@ Você pode usar o widget Player para transmitir vídeo usando a taxa de bits ada
 
 Você pode usar o widget editor para criar novos projetos e gerenciar informações de um vídeo. O widget editor dá suporte aos seguintes parâmetros de URL opcionais.
 
-|name|Definição|Descrição|
+|Nome|Definição|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|string|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
+|`accessToken`<sup>*</sup>|String|Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o parâmetro `accessToken`.|
 |`language`|Um código de idioma|Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`.|
 |`locale`|Um código de idioma curto|Controla o idioma do insights. O valor padrão é `en`.<br/>Exemplo: `language=de`.|
 
@@ -159,7 +159,8 @@ Esta seção mostra como obter a interação entre um widget do insights cogniti
             this.videobreakdown({
             videoId: "c4c1ad4c9a",
             syncTranscript: true,
-            syncLanguage: true
+            syncLanguage: true,
+            location: "trial" /* location option for paid accounts (default is trial) */
             });
 
             // Set the source dynamically.

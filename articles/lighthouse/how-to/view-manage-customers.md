@@ -1,14 +1,14 @@
 ---
 title: Exibir e gerenciar clientes e recursos delegados
 description: Como um provedor de serviços que usa o gerenciamento de recursos delegados do Azure, é possível exibir todos os seus recursos e assinaturas de cliente delegados acessando meus clientes no portal do Azure.
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456824"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543419"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
 
@@ -40,13 +40,20 @@ Os filtros na parte superior da página permitem que você classifique e agrupe 
 - Para ver mais detalhes sobre uma oferta e suas delegações, selecione o nome dela.
 - Para exibir mais detalhes sobre atribuições de função para assinaturas ou grupos de recursos delegados, selecione a entrada na coluna **Delegações**.
 
-## <a name="view-delegations"></a>Exibir delegações
+## <a name="view-and-manage-delegations"></a>Exibir e gerenciar delegações
 
 As delegações mostram a assinatura/o grupo de recursos que foi delegado, junto com os usuários e permissões que têm acesso a ele. Para exibir essas informações, selecione **Delegações** no lado esquerdo da página **Meus clientes**.
 
 Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de atribuição de acesso ou filtre por clientes, ofertas ou palavras-chave específicos.
 
+### <a name="view-role-assignments"></a>Exibir atribuições de função
+
 Os usuários e as permissões associados a cada delegação aparecem na coluna **Atribuições de função**. É possível selecionar cada entrada para exibir a lista completa de usuários, de grupos e de entidades de serviço que receberam acesso à assinatura ou grupo de recursos. De lá, é possível selecionar um usuário específico, grupo ou nome da entidade de serviço para obter mais detalhes.
+
+### <a name="remove-delegations"></a>Remover delegações
+
+Se você tiver incluído usuários com a [atribuição de registro de serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao integrar um cliente para o gerenciamento de recursos delegado do Azure, esses usuários poderão remover uma delegação selecionando o ícone de lixeira que aparece na linha para essa delegação. Quando eles fizerem isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
+
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabalhar no contexto de uma assinatura delegada
 

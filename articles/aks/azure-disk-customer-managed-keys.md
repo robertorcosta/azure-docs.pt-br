@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 1359f645c634f401f139fe1cd559f23aa4126c22
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 23a5dbf2333ca86c2d51d54bf983b00a71936eec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029976"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547941"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)
 
@@ -191,4 +191,4 @@ Examinar [as práticas recomendadas para segurança de cluster AKs][best-practic
 [byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
 [key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
-[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-scenarios-and-restrictions
+[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-regions

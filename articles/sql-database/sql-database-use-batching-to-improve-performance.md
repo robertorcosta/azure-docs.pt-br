@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822413"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545017"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
 
@@ -91,27 +91,27 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. Conforme a documentação do [log de transações write-ahead](https://msdn.microsoft.com/library/ms186259.aspx), registros de log são liberados no disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
+Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. Conforme a documentação do [log de transações write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), registros de log são liberados no disco quando a transação é confirmada. Então, incluindo mais chamadas em uma transação, a gravação no log de transações pode atrasar até que a transação seja confirmada. Na verdade, você está habilitando o envio em lote das gravações no log de transações do servidor.
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
 **Local para o Azure**:
 
-| Operações | Sem transação (ms) | Com transação (ms) |
+| Operations | Sem transação (ms) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
-| 1000 |128852 |102917 |
+| 1\.000 |128852 |102917 |
 
 **Do Azure para o Azure (mesmo datacenter)** :
 
-| Operações | Sem transação (ms) | Com transação (ms) |
+| Operations | Sem transação (ms) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
 | 100 |2145 |341 |
-| 1000 |21479 |2756 |
+| 1\.000 |21479 |2756 |
 
 > [!NOTE]
 > Os resultados não são parâmetros de comparação. Veja a [observação sobre os resultados de tempo neste artigo](#note-about-timing-results-in-this-article).
@@ -193,12 +193,12 @@ Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equi
 
 A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
-| Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
 | 100 |338 |51 |
-| 1000 |2615 |382 |
+| 1\.000 |2615 |382 |
 | 10000 |23830 |3586 |
 
 > [!NOTE]
@@ -233,12 +233,12 @@ Há alguns casos nos quais é preferível usar a cópia em massa do que os parâ
 
 Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
-| Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
 | 100 |636 |53 |
-| 1000 |2535 |341 |
+| 1\.000 |2535 |341 |
 | 10000 |21605 |2737 |
 
 > [!NOTE]
@@ -278,7 +278,7 @@ Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais real
 
 Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
-| Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
+| Operations | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -327,7 +327,7 @@ Em nossos testes, geralmente não houve vantagem em dividir lotes grandes em par
 
 | Tamanho do lote | Iterações | Parâmetros com valor de tabela (ms) |
 | --- | --- | --- |
-| 1000 |1 |347 |
+| 1\.000 |1 |347 |
 | 500 |2 |355 |
 | 100 |10 |465 |
 | 50 |20 |630 |
@@ -339,7 +339,7 @@ Em nossos testes, geralmente não houve vantagem em dividir lotes grandes em par
 
 Veja que o melhor desempenho para 1000 linhas é enviá-las ao mesmo tempo. Em outros testes (não mostrados aqui), houve um pequeno ganho de desempenho ao dividir um lote de 10000 linhas em dois lotes de 5000. Como o esquema da tabela para esses testes é relativamente simples, você pode executar testes em seus dados e tamanhos de lote específicos a fim de verificar essas conclusões.
 
-Outro fator a ser considerado é que, se o lote total ficar muito grande, o Banco de Dados SQL poderá aplicar uma limitação e recusar-se a confirmar o lote. Para obter melhores resultados, teste seu cenário específico para determinar se há um tamanho de lote ideal. Torne o tamanho do lote configurável no tempo de execução para permitir ajustes rápidos com base no desempenho ou em erros.
+Outro fator a ser considerado é que, se o lote total ficar muito grande, o Banco de Dados SQL poderá aplicar uma limitação e recusar-se a confirmar o lote. Para obter melhores resultados, teste seu cenário específico para determinar se há um tamanho de lote ideal. Torne o tamanho do lote configurável no runtime para permitir ajustes rápidos com base no desempenho ou em erros.
 
 Por fim, equilibre o tamanho do lote com os riscos associados ao envio em lote. Se houver erros transitórios ou a função falhar, considere as consequências da repetição da operação ou da perda dos dados no lote.
 
@@ -382,7 +382,7 @@ Se parâmetros com valor de tabela usarem um procedimento armazenado, você pode
 
 As seções a seguir descrevem como usar os parâmetros com valor de tabela em três cenários de aplicativo. O primeiro cenário mostra como o armazenamento em buffer e o envio em lote podem trabalhar juntos. O segundo cenário melhora o desempenho por meio da execução de operações mestre-detalhes em uma chamada com um único procedimento armazenado. O cenário final mostra como usar os parâmetros com valor de tabela em uma operação "UPSERT".
 
-### <a name="buffering"></a>Armazenamento em buffer
+### <a name="buffering"></a>de resposta
 
 Embora alguns cenários sejam candidatos óbvios ao envio em lote, há muitos cenários que poderiam se beneficiar do envio em lote por meio do processamento atrasado. No entanto, o processamento atrasado também representa um risco maior de que os dados sejam perdidos no caso de uma falha inesperada. É importante entender esse risco e considerar as consequências.
 
@@ -674,7 +674,7 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 * Evite a execução paralela de lotes que operam em uma única tabela em um banco de dados. Se você optar por dividir um único lote entre vários threads de trabalho, execute testes para determinar o número ideal de threads. Após um limite não especificado, uma quantidade maior de threads diminuirá o desempenho em vez de aumentá-lo.
 * Considere o armazenamento em buffer de acordo com o tamanho e o tempo como uma maneira de implementar o envio em lote para mais cenários.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados individuais](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 

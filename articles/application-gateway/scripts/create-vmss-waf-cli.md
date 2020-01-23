@@ -4,7 +4,6 @@ description: Exemplo de Script da CLI do Azure - Criar um gateway de aplicativo 
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 68c0b1c01d79f591b5023d2e048d1788a3eaffd4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e9d2a8a8d47128161c10e81fe70a950f1ed81e1e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117367"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273375"
 ---
 # <a name="restrict-web-traffic-using-the-azure-cli"></a>Restringir o tráfego de web usando a CLI do Azure
 
@@ -29,7 +28,7 @@ Este script cria um gateway de aplicativo com um firewall do aplicativo Web que 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/application-gateway/create-vmss/create-vmss-waf.sh "Create application gateway")]
 

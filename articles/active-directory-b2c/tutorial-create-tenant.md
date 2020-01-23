@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b7e872f3320a2c72b6e9fb3ffba65510b205ca03
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425584"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547584"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial - Criar um locatário do Azure Active Directory B2C
 
@@ -68,6 +68,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     Para **Grupo de recursos**, selecione **Criar novo**. Insira um **nome** para o grupo de recursos que conterá o locatário, selecione o **local do grupo de recursos**e, em seguida, selecione **criar**.
 
     ![Formulário vincular configurações de assinatura no portal do Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
+    
+    Você pode vincular vários locatários Azure AD B2C a uma única assinatura do Azure para fins de cobrança. 
 
 ## <a name="select-your-b2c-tenant-directory"></a>Selecione seu diretório de locatário B2C
 

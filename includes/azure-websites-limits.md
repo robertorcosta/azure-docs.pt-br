@@ -4,14 +4,14 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: a05229f22e1682d73b627e3b4644ba64e653335f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 17d6947efcbaf8a01aeca70bf7a88dcc7b65cd0a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414527"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548182"
 ---
-| Recurso | Grátis | Compartilhado | Básica | Standard | Premium (v2) | Isolado </th> |
+| Grupos | Gratuito | Compartilhado | Básico | Padrão | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicativos Web, móveis ou de API](https://azure.microsoft.com/services/app-service/) por [Azure app plano de serviço](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [Plano do Serviço de Aplicativo](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -24,21 +24,21 @@ ms.locfileid: "74414527"
 | Largura de banda |165 MB |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |Ilimitada, aplicam-se [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | Arquitetura do aplicativo |32 bits |32 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |32 bits/64 bits |
 | Web Sockets por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |
-| Conexões IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 64.000 |
+| Conexões IP | 600 | 600 | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | Depende do tamanho da instância<sup>8</sup> | 16.000 |
 | [Conexões do depurador](../articles/app-service/troubleshoot-dotnet-visual-studio.md) simultâneas por aplicativo |1 |1 |1 |5 |5 |5 |
 | Certificados do serviço de aplicativo por assinatura<sup>9</sup>| Sem suporte | Sem suporte |10 |10 |10 |10 |
 | Domínios personalizados por aplicativo</a> |0 (somente subdomínio do azurewebsites.net)|500 |500 |500 |500 |500 |
 | domínio personalizado [Suporte a SSL](../articles/app-service/configure-ssl-certificate.md) |Sem suporte, certificado curinga para *. azurewebsites.net disponível por padrão|Sem suporte, certificado curinga para *. azurewebsites.net disponível por padrão|Conexões SSL de SNI ilimitadas |Conexões SSL de SNI ilimitadas e IP SSL incluídas |Conexões SSL de SNI ilimitadas e IP SSL incluídas | Conexões SSL de SNI ilimitadas e IP SSL incluídas|
 | Conexões híbridas por plano | | | 5 | 25 | 200 | 200 |
 | Balanceador de carga integrado | |X |X |X |X |X<sup>10</sup> |
-| [Sempre ativo](../articles/app-service/configure-common.md) | | |X |X |X |X |
+| [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Backups agendados](../articles/app-service/manage-backup.md) | | | | Backups agendados a cada 2 horas, no máximo 12 backups por dia (manual + agendado) | Backups agendados a cada hora, um máximo de 50 backups por dia (manual + agendado) | Backups agendados a cada hora, um máximo de 50 backups por dia (manual + agendado) |
 | [Autoescala](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [Trabalhos](../articles/app-service/webjobs-create.md)Web<sup>11</sup> |X |X |X |X |X |X |
 | [Agendador do Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Monitoramento do ponto de extremidade](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Slots de preparo](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
-| Contrato de Nível de Serviço | |  |99,95%|99,95%|99,95%|99,95%|  
+| SLA | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
 
 <sup>1</sup>Aplicativos e cotas de armazenamento são oferecidos por plano de Serviço de Aplicativo, a menos que haja indicação contrária.  
 <sup>2</sup>O número real de aplicativos que podem ser hospedados nesses computadores depende da atividade dos aplicativos, do tamanho das instâncias do computador e da utilização do recurso correspondente.  
@@ -50,4 +50,4 @@ ms.locfileid: "74414527"
 <sup>8</sup> As conexões IP máximas são por instância e dependem do tamanho da instância: 1.920 por instância B1/S1/P1V2, 3.968 por instância B2/S2/P2V2, 8.064 por instância B3/S3/P3V2.  
 <sup>9</sup> O limite de cota de Certificado do Serviço de Aplicativo por assinatura pode ser aumentado por meio de uma solicitação de suporte para um limite máximo de 200.  
 <sup>10</sup> Serviço do Aplicativo Isolado SKUs podem ter balanceamento de carga internamente (ILB) com Azure Load Balancer, portanto, não há conectividade pública da Internet. Como resultado, alguns recursos do Serviço de Aplicativo Isolado de ILB devem ser usados de computadores com acesso direto ao ponto de extremidade de rede de ILB.  
-<sup>11</sup> Execute executáveis personalizados e/ou scripts sob demanda, em um agendamento ou continuamente como uma tarefa em segundo plano em sua instância do serviço de aplicativo. Para a execução contínua de Trabalhos Web, a opção Sempre Ativado é obrigatória. Trabalhos Web agendados requerem o Agendador do Azure Gratuito ou Standard. Não há nenhum limite predefinido para o número de trabalhos Web que podem ser executados em uma instância do serviço de aplicativo. Há limites práticos que dependem do que o código do aplicativo está tentando fazer.  
+<sup>11</sup> Execute executáveis personalizados e/ou scripts sob demanda, em um agendamento ou continuamente como uma tarefa em segundo plano em sua instância do serviço de aplicativo. Sempre Ativo é exigido para a execução contínua de Trabalhos Web. O Agendador do Azure Gratuito ou Padrão é necessário para os Trabalhos Web agendados. Não há nenhum limite predefinido para o número de trabalhos Web que podem ser executados em uma instância do serviço de aplicativo. Há limites práticos que dependem do que o código do aplicativo está tentando fazer.  

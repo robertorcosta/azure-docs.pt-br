@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cb15f637337df05c61eeac611286b49e23b6adac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293633"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549182"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Este artigo de práticas recomendadas se concentra no isolamento para operadores
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Design de clusters para multi locação
 
-O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, com o escopo definido para os recursos de que cada equipe precisa. Um [namespace][k8s-namespaces] no kubernetes cria um limite de isolamento lógico. Recursos e considerações adicionais do kubernetes para isolamento e multi locação incluem as seguintes áreas:
+O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, com o escopo definido para os recursos de que cada equipe precisa. Um [namespace][k8s-namespaces] no kubernetes cria um limite de isolamento lógico. Os recursos e considerações adicionais do kubernetes para isolamento e multilocação incluem as seguintes áreas:
 
 * **O agendamento** inclui o uso de recursos básicos, como cotas de recursos e orçamentos de interrupção de conjuntos. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para recursos básicos do Agendador no AKs][aks-best-practices-scheduler].
   * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][aks-best-practices-advanced-scheduler].

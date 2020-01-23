@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241386"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514401"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ Este início rápido descreve como implantar o Azure Data Box Heavy usando o por
 
 Para obter a implantação detalhada passo a passo e instruções de acompanhamento, acesse [Tutorial: Solicitar o Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Preencha os seguintes pré-requisitos de configuração para o site de instalação, serviço e dispositivo do Data Box antes de implantar o dispositivo.
 
@@ -63,7 +63,7 @@ Antes de começar, verifique se:
 
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Classificar
+## <a name="order"></a>Order
 
 Esta etapa leva aproximadamente 5 minutos.
 
@@ -160,7 +160,7 @@ O tempo para concluir essa operação depende do tamanho dos dados.
     1. Verifique se há logs de erros para quaisquer falhas e tome as medidas apropriadas.
     2. Verifique se seus dados estão nas contas de armazenamento antes de excluí-los da fonte.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Esta etapa leva de 2 a 3 minutos para ser concluída.
 
