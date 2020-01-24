@@ -258,7 +258,7 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Leste do Canadá | Cidade de Quebec |
 | Índia Central | Pune |
 | EUA Central | Iowa |
-| Ásia Oriental | RAE de Hong Kong |
+| Leste da Ásia | RAE de Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
 | França Central | Paris |
@@ -307,7 +307,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Leste do Canadá         | Canadá Central     |
 | Índia Central       | Sul da Índia        |
 | EUA Central          | Leste dos EUA 2          |
-| Ásia Oriental           | Sudeste Asiático     |
+| Leste da Ásia           | Sudeste Asiático     |
 | Leste dos EUA             | Oeste dos EUA            |
 | Leste dos EUA 2           | EUA Central         |
 | França Central      | Sul da França       |
@@ -322,7 +322,7 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Oeste da África do Sul   | Norte da África do Sul |
 | Centro-Sul dos EUA    | Centro-Norte dos EUA   |
 | Sul da Índia         | Índia Central      |
-| Sudeste Asiático      | Ásia Oriental          |
+| Sudeste Asiático      | Leste da Ásia          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |
 | Oeste do Reino Unido             | Sul do Reino Unido           |
 | US Gov - Arizona      | US Gov - Texas       |

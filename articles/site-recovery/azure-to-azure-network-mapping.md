@@ -30,10 +30,10 @@ Mapeie as redes da seguinte forma:
 
     ![ Criar um mapeamento de rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-3. Em **Adicionar mapeamento de rede**, selecione os locais de origem e destino. Em nosso exemplo, a VM de origem está executando na região da Ásia Oriental e é replicada para a região do Sudeste Asiático.
+3. Em **Adicionar mapeamento de rede**, selecione os locais de origem e destino. Em nosso exemplo, a VM de origem está executando na região do Leste da Ásia e é replicada para a região do Sudeste Asiático.
 
     ![Selecionar origem e destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Agora, crie um mapeamento de rede na direção oposta. Em nosso exemplo, a origem agora será o Sudeste Asiático e o destino será a Ásia Oriental.
+3. Agora, crie um mapeamento de rede na direção oposta. Em nosso exemplo, a origem agora será o Sudeste Asiático e o destino será o Leste da Ásia.
 
     ![Adicionar painel de mapeamento de rede - Selecionar os locais de origem e destino para a rede de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 

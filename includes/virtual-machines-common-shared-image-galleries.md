@@ -97,11 +97,11 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 | Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
 | Austrália Oriental        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
 | Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD Central     |
-| Sul do Brasil          | Ásia Oriental         | Coreia Central      | US DoD Leste        |
+| Sul do Brasil          | Leste da Ásia         | Coreia Central      | US DoD Leste        |
 | Canadá Central        | Leste dos EUA           | Sul da Coreia        | US Gov - Arizona     |
 | Leste do Canadá           | Leste dos EUA 2         | Centro-Norte dos EUA   | US Gov - Texas       |
 | Índia Central         | Leste dos EUA 2 EUAP    | Europa Setentrional       | US Gov - Virgínia    |
-| EUA Central            | França Central    | Centro-Sul dos EUA   | Índia Ocidental         |
+| EUA Central            | França Central    | Centro-Sul dos EUA   | Oeste da Índia         |
 | EUA Central EUAP       | Sul da França      | Centro-Oeste dos EUA    | Oeste dos EUA            |
 |                       |                   |                    | Oeste dos EUA 2          |
 

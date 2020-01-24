@@ -83,7 +83,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 - Sul do Reino Unido
 - Leste da Austrália
 - Sudeste da Austrália 
-- Ásia Oriental
+- Leste da Ásia
 - Sudeste Asiático
 - Coreia Central
 - Índia Central
@@ -110,7 +110,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 - Sul do Reino Unido
 - Leste da Austrália
 - Sudeste da Austrália
-- Ásia Oriental
+- Leste da Ásia
 - Sudeste Asiático 
 - Coreia Central
 - Índia Central

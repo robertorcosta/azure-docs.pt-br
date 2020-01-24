@@ -39,9 +39,9 @@ Esta é a arquitetura antes do failover.
 - A Empresa A tem redes e sub-redes idênticas nas regiões de origem e de destino do Azure.
 - Para reduzir o RTO (objetivo de tempo de recuperação), a empresa usa nós de réplica para SQL Server Always On, controladores de domínio, etc. Esses nós de réplica estão em uma VNet diferente na região de destino, para que eles possam estabelecer a conectividade VPN site a site entre as regiões de origem e de destino. Isso não é possível quando o mesmo espaço de endereços IP é usado na origem e no destino.  
 - Antes do failover, a arquitetura de rede é a seguinte:
-    - A região primária é o Azure na Ásia Oriental
+    - A região primária é o Azure no Leste da Ásia
         - A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
-        - A Ásia Oriental tem cargas de trabalho divididas em três sub-redes na rede virtual:
+        - O Leste da Ásia tem cargas de trabalho divididas em três sub-redes na rede virtual:
             - **Sub-rede 1**: 10.1.1.0/24
             - **Sub-rede 2**: 10.1.2.0/24
             - **Sub-rede 3**: 10.1.3.0/24
@@ -84,7 +84,7 @@ Neste exemplo, a Empresa A coloca aplicativos na região de origem em VNets dedi
 
 Antes do failover, a arquitetura é a seguinte:
 
-- VMs de aplicativo são hospedadas na região primária do Azure da Ásia Oriental:
+- VMs de aplicativo são hospedadas na região primária do Azure do Leste da Ásia:
     - VMs do **App1** ficam localizadas na **VNet de Origem 1**: 10.1.0.0/16.
     - VMs do **App2** ficam localizadas na **VNet de Origem 2**: 10.2.0.0/16.
     - A **VNet de Origem 1** tem duas sub-redes.
@@ -127,7 +127,7 @@ Neste cenário, a **Empresa B** tem um negócio híbrido, com parte da infraestr
 
 A arquitetura de rede tem a seguinte aparência antes do failover.
 
-- VMs de aplicativo são hospedadas no Azure na Ásia Oriental.
+- VMs de aplicativo são hospedadas no Azure no Leste da Ásia.
 - A Ásia Oriental tem uma VNet (**VNet de Origem**) com o espaço de endereço 10.1.0.0/16.
   - A Ásia Oriental tem cargas de trabalho divididas entre três sub-redes na **VNet de Origem**:
     - **Sub-rede 1**: 10.1.1.0/24
@@ -149,7 +149,7 @@ Se ocorrer uma interrupção regional na origem, a Empresa B poderá fazer failo
 
 - Com os endereços IP de destino já em vigor antes do failover, a Empresa B pode orquestrar o failover e estabelecer automaticamente após o failover conexões entre a **VNet de Recuperação** e a **VNet do Azure**.
 - Dependendo dos requisitos do aplicativo, as conexões entre as duas VNets (**VNet de Recuperação** e **VNet do Azure**) na região de destino podem ser estabelecida antes, durante (como etapa intermediária) ou depois do failover. A empresa pode usar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando as conexões serão estabelecidas.
-- A conexão original entre o Azure da Ásia Oriental e o datacenter local deve ser desconectada antes de estabelecer a conexão entre o Azure do Sudeste Asiático e o datacenter local.
+- A conexão original entre o Azure do Leste da Ásia e o datacenter local deve ser desconectada antes de estabelecer a conexão entre o Azure do Sudeste Asiático e o datacenter local.
 - O roteamento local é reconfigurado para apontar para a região e os gateways de destino após o failover.
 
 ![Conectividade local para Azure depois do failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)

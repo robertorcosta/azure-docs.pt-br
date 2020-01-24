@@ -68,7 +68,7 @@ A tabela a seguir mostra os emparelhamentos disponíveis das regiões primárias
 | Centro-Sul dos EUA |Centro-Norte dos EUA |
 | Leste dos EUA 2 |EUA Central |
 | Oeste da Europa |Europa Setentrional |
-| Sudeste Asiático |Ásia Oriental |
+| Sudeste Asiático |Leste da Ásia |
 | Leste do Japão |Oeste do Japão |
 
 No evento improvável de os dados de uma região primária serem perdidos, a Microsoft tentará recuperá-los. Se não for possível recuperar os dados primários, o failover geográfico será executado e os clientes afetados receberão uma notificação em suas assinaturas.

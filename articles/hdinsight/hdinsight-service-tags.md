@@ -104,7 +104,7 @@ Por exemplo, se o cluster for criado na região de `East US 2`, você precisará
 | Japão | Leste do Japão | HDInsight. JapanEast |
 | Europa | Europa Setentrional | HDInsight. NorthEurope |
 | &nbsp; | Oeste da Europa| HDInsight. WestEurope |
-| Ásia | Ásia Oriental | HDInsight. EastAsia |
+| Ásia | Leste da Ásia | HDInsight. EastAsia |
 | &nbsp; | Sudeste Asiático | HDInsight. SoutheastAsia |
 | Austrália | Austrália Oriental | HDInsight. AustraliaEast |
 

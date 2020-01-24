@@ -221,10 +221,10 @@ Para obter mais informações, consulte:
 Os serviços de entrega de licenças do Widevine fornecidos pelos Serviços de Mídia estão em versão prévia. Para saber mais, confira [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versão de outubro de 2015
-Os Serviços de Mídia agora também estão disponíveis nos seguintes data centers: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora você pode usar o Portal do Azure para [criar contas dos Serviços de Mídia](media-services-portal-create-account.md) e realizar diversas tarefas descritas na [página da Web da documentação dos Serviços de Mídia](https://azure.microsoft.com/documentation/services/media-services/). A Codificação Ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de unidades reservadas para codificação estão disponíveis nesses data centers.
+Os Serviços de Mídia agora também estão disponíveis nos seguintes data centers: Sul do Brasil, Oeste da Índia, Sul da Índia e Índia Central. Agora você pode usar o Portal do Azure para [criar contas dos Serviços de Mídia](media-services-portal-create-account.md) e realizar diversas tarefas descritas na [página da Web da documentação dos Serviços de Mídia](https://azure.microsoft.com/documentation/services/media-services/). A Codificação Ativa não está habilitada nesses data centers. Além disso, nem todos os tipos de unidades reservadas para codificação estão disponíveis nesses data centers.
 
 * Sul do Brasil:                                          somente as Unidades Reservadas para Codificação Standard e Básica estão disponíveis.
-* Índia Ocidental, Sul da Índia e Índia Central:             somente as Unidades Reservadas para Codificação do plano Básico estão disponíveis.
+* Oeste da Índia, Sul da Índia e Índia Central:             somente as Unidades Reservadas para Codificação do plano Básico estão disponíveis.
 
 ## <a id="september_changes_15"></a>Versão de setembro de 2015
 Os Serviços de Mídia agora oferecem a capacidade de proteger tanto vídeo por demanda quanto fluxos ao vivo com tecnologia de DRM modular Widevine. Você pode usar os seguintes parceiros de serviços de entrega para ajudá-lo a fornecer licenças do Widevine:

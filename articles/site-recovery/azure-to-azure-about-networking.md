@@ -71,7 +71,7 @@ Se preferir usar Site Recovery intervalos de endereços IP (não recomendado), v
 
    **Target (destino)** | **IP do Site Recovery** |  **Monitoramento de Recuperação de site IP**
    --- | --- | ---
-   Ásia Oriental | 52.175.17.132 | 13.94.47.61
+   Leste da Ásia | 52.175.17.132 | 13.94.47.61
    Sudeste Asiático | 52.187.58.193 | 13.76.179.223
    Índia Central | 52.172.187.37 | 104.211.98.185
    Sul da Índia | 52.172.46.220 | 104.211.224.190

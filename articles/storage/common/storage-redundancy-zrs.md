@@ -12,7 +12,7 @@ ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
 ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2019
 ms.locfileid: "74895191"
@@ -35,7 +35,7 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - França Central
 - Leste do Japão
 - Sul do Reino Unido
-- Centro dos EUA
+- EUA Central
 - Leste dos EUA
 - Leste dos EUA 2
 - Oeste dos EUA 2

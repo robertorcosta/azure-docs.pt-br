@@ -38,7 +38,7 @@ A primeira rodada de migração de tráfego para gateways mais recentes está ag
 - Oeste do Japão
 - Leste do Japão
 - Leste dos EUA 2
-- Ásia Oriental
+- Leste da Ásia
 
 A migração de tráfego alterará o endereço IP público que o DNS resolve para o banco de dados SQL.
 Você será afetado se tiver:

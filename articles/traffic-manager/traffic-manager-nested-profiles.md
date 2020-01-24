@@ -30,7 +30,7 @@ Os exemplos a seguir ilustram como usar os perfis aninhados do Gerenciador de Tr
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemplo 1: combinando roteamento de tráfego de “Desempenho” e “Ponderado”
 
-Suponha que você implantou um aplicativo nas seguintes regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
+Suponha que você implantou um aplicativo nas seguintes regiões do Azure: Oeste dos EUA, Europa Ocidental e Leste da Ásia. Você usa o método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
 
 ![Perfil único do Gerenciador de Tráfego][4]
 
@@ -71,7 +71,7 @@ No entanto, suponha que você prefere o failover de tráfego da Europa Ocidental
 
 ![Tráfego de roteamento de “Desempenho” com failover preferencial][6]
 
-Como o ponto de extremidade da Europa Ocidental tem prioridade maior que o ponto de extremidade do Oeste dos EUA, todo o tráfego é enviado para o ponto de extremidade da Europa Ocidental quando os dois pontos de extremidade estão online. Se a Europa Ocidental falhar, seu tráfego será direcionado para o Oeste dos EUA. Com o perfil aninhado, o tráfego é direcionado para a Ásia Oriental somente quando há uma falha na Europa Ocidental e no Oeste dos EUA.
+Como o ponto de extremidade da Europa Ocidental tem prioridade maior que o ponto de extremidade do Oeste dos EUA, todo o tráfego é enviado para o ponto de extremidade da Europa Ocidental quando os dois pontos de extremidade estão online. Se a Europa Ocidental falhar, seu tráfego será direcionado para o Oeste dos EUA. Com o perfil aninhado, o tráfego é direcionado para o Leste da Ásia somente quando há uma falha na Europa Ocidental e no Oeste dos EUA.
 
 É possível repetir esse padrão para todas as regiões. Substitua os três pontos de extremidade no perfil pai por três perfis filho, cada um deles fornecendo uma sequência de failover priorizada.
 

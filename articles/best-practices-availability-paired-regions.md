@@ -28,7 +28,7 @@ Figura 1 – Pares regionais do Azure
 
 | painel Geografia do app&#39;s selecionado | Regiões emparelhadas |  |
 |:--- |:--- |:--- |
-| Ásia |Ásia Oriental |Sudeste Asiático |
+| Ásia |Leste da Ásia |Sudeste Asiático |
 | Austrália |Leste da Austrália |Sudeste da Austrália |
 | Austrália |Austrália Central |Austrália Central 2 |
 | Brasil |Sul do Brasil |Centro-Sul dos Estados Unidos |
@@ -39,7 +39,7 @@ Figura 1 – Pares regionais do Azure
 | França |França Central|Sul da França|
 | Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |
-| Índia |Índia Ocidental |Sul da Índia |
+| Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia do Sul |Coreia Central |Sul da Coreia |
 | América do Norte |Leste dos EUA |Oeste dos EUA |
@@ -56,7 +56,7 @@ Figura 1 – Pares regionais do Azure
 
 Tabela 1 – mapeamento de pares regionais do Azure
 
-- A Índia ocidental é emparelhada apenas em uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
+- A Índia ocidental é emparelhada apenas em uma direção. A região secundária do Oeste da Índia é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
 - O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é EUA Central do Sul. A região secundária do Sul EUA Central não é sul do Brasil.
 - A região secundária do US Gov Iowa é US Gov-Virgínia.
 - A região secundária do US Gov-Virgínia é US Gov Texas.

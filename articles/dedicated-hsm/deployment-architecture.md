@@ -35,7 +35,7 @@ Os HSMs são distribuídos pelos datacenters da Microsoft e podem ser facilmente
 * Oeste dos EUA 2
 * Centro-Sul dos Estados Unidos
 * Sudeste Asiático
-* Ásia Oriental
+* Leste da Ásia
 * Norte da Europa
 * Europa Ocidental
 * Sul do Reino Unido

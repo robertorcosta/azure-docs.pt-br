@@ -190,7 +190,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Leste da Austrália | https:\//australiaeast.monitoring.azure.com
 |Leste do Japão | https:\//japaneast.monitoring.azure.com
 |Sudeste Asiático  | https:\//southeastasia.monitoring.azure.com |
-|Ásia Oriental | https:\//eastasia.monitoring.azure.com
+|Leste da Ásia | https:\//eastasia.monitoring.azure.com
 |Coreia Central   | https:\//koreacentral.monitoring.azure.com
 
 

@@ -68,7 +68,7 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Sul do Brasil
     * Índia Central
     * Centro dos EUA
-    * Ásia Oriental
+    * Leste da Ásia
     * Leste dos EUA
     * Oeste do Japão
     * Norte da Europa
@@ -81,7 +81,7 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Oeste dos EUA 2
 * **Várias combinações de regiões do Azure**
     * Leste dos EUA, Sul do Brasil
-    * Leste dos EUA, Ásia Oriental
+    * Leste dos EUA, Leste da Ásia
     * Oeste da Europa, Sul do Brasil
     * Oeste da Europa, Sudeste Asiático
     * Oeste da Europa, Norte dos EAU
@@ -89,7 +89,7 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Oeste dos EUA, Oeste da Europa
     * Oeste dos EUA, Norte dos EAU
     * Oeste da Europa, Norte dos EAU, Sudeste Asiático
-    * Oeste dos EUA, Oeste da Europa, Ásia Oriental
+    * Oeste dos EUA, Oeste da Europa, Leste da Ásia
     * Oeste dos EUA, Norte da Europa, Sudeste Asiático, Norte dos EAU, Norte da África do Sul 
 * **Azure + Azure Front Door**: implantação em qualquer combinação única ou múltipla de regiões do Azure listada acima
 * **Azure + CDN do Azure do Microsoft**: implantação em qualquer combinação de regiões única do Azure listada acima

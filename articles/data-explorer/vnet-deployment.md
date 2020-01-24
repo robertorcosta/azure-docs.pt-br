@@ -112,7 +112,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Índia Central | 40.81.249.251 |
 | EUA Central | 40.67.188.68 |
 | EUA Central EUAP | 40.89.56.69 |
-| Ásia Oriental | 20.189.74.103 |
+| Leste da Ásia | 20.189.74.103 |
 | Leste dos EUA | 52.224.146.56 |
 | Leste dos EUA 2 | 52.232.230.201 |
 | EUAP dos EUA 2 leste | 52.253.226.110 |
@@ -133,7 +133,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Oeste do Reino Unido | 40.81.122.39 |
 | Centro-Oeste dos EUA | 52.159.55.120 |
 | Oeste da Europa | 51.145.176.215 |
-| Índia Ocidental | 40.81.88.112 |
+| Oeste da Índia | 40.81.88.112 |
 | Oeste dos EUA | 13.64.38.225 |
 | Oeste dos EUA 2 | 40.90.219.23 |
 
@@ -151,7 +151,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Índia Central | 23.99.5.162 |
 | EUA Central | 168.61.212.201 |
 | EUA Central EUAP | 168.61.212.201 |
-| Ásia Oriental | 168.63.212.33 |
+| Leste da Ásia | 168.63.212.33 |
 | Leste dos EUA | 137.116.81.189 |
 | Leste dos EUA 2 | 137.116.81.189 |
 | Leste dos EUA 2 EUAP | 137.116.81.189 |
@@ -172,7 +172,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | Oeste do Reino Unido | 23.97.212.5 |
 | Centro-Oeste dos EUA | 168.61.212.201 |
 | Oeste da Europa | 23.97.212.5 |
-| Índia Ocidental | 23.99.5.162 |
+| Oeste da Índia | 23.99.5.162 |
 | Oeste dos EUA | 23.99.5.162 |
 | Oeste dos EUA 2 | 23.99.5.162 | 
 

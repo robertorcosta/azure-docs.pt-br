@@ -76,7 +76,7 @@ Para aproveitar totalmente a distribuição geográfica do sistema, você deve t
 
 4. Use a política `set-backend` combinada com as políticas condicionais `choose` para construir uma política de roteamento apropriada na seção `<inbound> </inbound>` do arquivo.
 
-    Por exemplo, o arquivo XML abaixo funcionaria para as regiões Oeste dos EUA e Ásia Oriental:
+    Por exemplo, o arquivo XML abaixo funcionaria para as regiões Oeste dos EUA e Leste da Ásia:
 
     ```xml
     <policies>

@@ -114,7 +114,7 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Leste do Canadá | https:\//kailani-cae.one.microsoft.com | Canadá Central | https:\//tm-kailani.cae.one.microsoft.com |
 | Público | Índia Central | https:\//kailani-cin.one.microsoft.com | Sul da Índia | https:\//tm-kailani-cin.one.microsoft.com |
 | Público | EUA Central | https:\//kailani-cus.one.microsoft.com | Leste dos EUA 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Público | Ásia Oriental | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
+| Público | Leste da Ásia | https:\//kailani11.one.microsoft.com | Sudeste Asiático | https:\//tm-kailani11.one.microsoft.com |
 | Público | Leste dos EUA | https:\//kailani1.one.microsoft.com | Oeste dos EUA | https:\//tm-kailani1.one.microsoft.com |
 | Público | Leste dos EUA 2 | https:\//kailani-ess.one.microsoft.com | EUA Central | https:\//tm-kailani-ess.one.microsoft.com |
 | Público | Leste do Japão | https:\//japaneast01.afs.azure.net | Oeste do Japão | https:\//tm-japaneast01.afs.azure.net |
@@ -125,7 +125,7 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Europa Setentrional | https:\//kailani7.one.microsoft.com | Oeste da Europa | https:\//tm-kailani7.one.microsoft.com |
 | Público | Centro-Sul dos EUA | https:\//southcentralus01.afs.azure.net | Centro-Norte dos EUA | https:\//tm-southcentralus01.afs.azure.net |
 | Público | Sul da Índia | https:\//kailani-sin.one.microsoft.com | Índia Central | https:\//tm-kailani-sin.one.microsoft.com |
-| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Ásia Oriental | https:\//tm-kailani10.one.microsoft.com |
+| Público | Sudeste Asiático | https:\//kailani10.one.microsoft.com | Leste da Ásia | https:\//tm-kailani10.one.microsoft.com |
 | Público | Sul do Reino Unido | https:\//kailani-uks.one.microsoft.com | Oeste do Reino Unido | https:\//tm-kailani-uks.one.microsoft.com |
 | Público | Oeste do Reino Unido | https:\//kailani-ukw.one.microsoft.com | Sul do Reino Unido | https:\//tm-kailani-ukw.one.microsoft.com |
 | Público | Centro-Oeste dos EUA | https:\//westcentralus01.afs.azure.net | Oeste dos EUA 2 | https:\//tm-westcentralus01.afs.azure.net |

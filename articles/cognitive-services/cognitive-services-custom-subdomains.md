@@ -75,7 +75,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Sul do Brasil | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canadá Central | `https://canadacentral.api.cognitive.microsoft.com` |
 | | Centro dos EUA | `https://centralus.api.cognitive.microsoft.com` |
-| | Ásia Oriental | `https://eastasia.api.cognitive.microsoft.com` |
+| | Leste da Ásia | `https://eastasia.api.cognitive.microsoft.com` |
 | | Leste dos EUA | `https://eastus.api.cognitive.microsoft.com` |
 | | Leste dos EUA 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | França Central | `https://francecentral.api.cognitive.microsoft.com` |

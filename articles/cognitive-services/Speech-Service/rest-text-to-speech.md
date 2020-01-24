@@ -47,7 +47,7 @@ O ponto de extremidade `voices/list` permite obter uma lista completa de vozes p
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Ásia Oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Leste da Ásia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Leste dos EUA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Leste dos EUA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |

@@ -48,7 +48,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 
 | País | Região | Endereços IP de origem permitidos | Destino permitido | Direção |
 | ---- | ---- | ---- | ---- | ----- |
-| Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
+| Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Austrália | Austrália Oriental | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
 | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |

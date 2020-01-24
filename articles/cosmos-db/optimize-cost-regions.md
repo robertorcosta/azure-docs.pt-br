@@ -29,14 +29,14 @@ Em um sistema de vários mestres, as RUs disponíveis para operações de grava�
 
 ### <a name="example"></a>Exemplo
 
-Considere que você tenha um contêiner no Oeste dos EUA provisionado com uma taxa de transferência de 10.000 RU/s e tenha armazenado 1 TB de dados este mês. Suponha que você adicionou três regiões (Leste dos EUA, Europa Setentrional e Ásia Oriental), cada uma com o mesmo armazenamento e taxa de transferência, e quer a capacidade de gravar nos contêineres nas quatro regiões a partir do seu aplicativo globalmente distribuído. O valor total da sua fatura mensal (considerando 31 dias) em um mês é o seguinte:
+Considere que você tenha um contêiner no Oeste dos EUA provisionado com uma taxa de transferência de 10.000 RU/s e tenha armazenado 1 TB de dados este mês. Suponha que você adicionou três regiões (Leste dos EUA, Norte da Europa e Leste da Ásia), cada uma com o mesmo armazenamento e taxa de transferência, e quer a capacidade de gravar nos contêineres nas quatro regiões a partir do seu aplicativo globalmente distribuído. O valor total da sua fatura mensal (considerando 31 dias) em um mês é o seguinte:
 
 |**Item**|**Uso (mensalmente)**|**Tarifa**|**Custo mensal**|
 |----|----|----|----|
 |Cobrança da taxa de transferência para o contêiner no Oeste dos EUA (várias regiões de gravação) |10 mil RU/s * 24 * 31 |US$ 0,016 por 100 RU/s por hora |US$ 1.190,40 |
-|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Europa Setentrional e Ásia Oriental (várias regiões de gravação) |(3 + 1) * 10 mil RU/s * 24 * 31 |US$ 0,016 por 100 RU/s por hora |US$ 4.761,60 |
+|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Norte da Europa e Leste da Ásia (várias regiões de gravação) |(3 + 1) * 10 mil RU/s * 24 * 31 |US$ 0,016 por 100 RU/s por hora |US$ 4.761,60 |
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA |1 TB (ou 1.024 GB) |US$ 0,25/GB |$256 |
-|Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental |3 * 1 TB (ou 3.072 GB) |US$ 0,25/GB |$768 |
+|Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Norte da Europa e Leste da Ásia |3 * 1 TB (ou 3.072 GB) |US$ 0,25/GB |$768 |
 |**Total**|||**$6976** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Melhorar a utilização de taxa de transferência por região

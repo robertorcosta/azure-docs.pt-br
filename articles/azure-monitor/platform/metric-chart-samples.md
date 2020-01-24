@@ -33,7 +33,7 @@ Selecione o recurso do Serviço de Aplicativo e encontre a métrica **Percentual
 
 ## <a name="application-availability-by-region"></a>Disponibilidade do aplicativo por região
 
-Exiba a disponibilidade do aplicativo por região para identificar quais localizações geográficas estão tendo problemas. Este gráfico mostra a métrica de disponibilidade do Application Insights. Você pode ver que o aplicativo monitorado não tem problemas com a disponibilidade do datacenter do Leste dos EUA, mas ele está enfrentando um problema de disponibilidade parcial do Oeste dos EUA e Ásia Oriental.
+Exiba a disponibilidade do aplicativo por região para identificar quais localizações geográficas estão tendo problemas. Este gráfico mostra a métrica de disponibilidade do Application Insights. Você pode ver que o aplicativo monitorado não tem problemas com a disponibilidade do datacenter do Leste dos EUA, mas ele está enfrentando um problema de disponibilidade parcial do Oeste dos EUA e Leste da Ásia.
 
 ![Gráfico de disponibilidade média por localizações](./media/metric-chart-samples/availability-run-location.png)
 

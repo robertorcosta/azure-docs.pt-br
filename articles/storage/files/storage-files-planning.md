@@ -214,7 +214,7 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Leste do Canadá     |LRS     |
 |Índia Central  |LRS     |
 |EUA Central *   |LRS, ZRS    |
-|Ásia Oriental      |LRS     |
+|Leste da Ásia      |LRS     |
 |Leste dos EUA *        |LRS, ZRS|
 |Leste dos EUA 2 *      |LRS, ZRS     |
 |França Central |LRS, ZRS|
@@ -237,7 +237,7 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Oeste do Reino Unido    |LRS     |
 |Centro-Oeste dos EUA|LRS     |
 |Europa Ocidental *    |LRS, ZRS|
-|Índia Ocidental   |LRS     |
+|Oeste da Índia   |LRS     |
 |Oeste dos EUA        |LRS     |
 |Oeste dos EUA 2      |LRS, ZRS|
 

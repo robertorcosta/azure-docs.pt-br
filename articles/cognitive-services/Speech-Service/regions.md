@@ -42,7 +42,7 @@ O SDK de fala está disponível nessas regiões para **reconhecimento de fala**,
 | Centro-Norte dos EUA | `northcentralus`     | https://northcentralus.cris.ai |
 | Centro-Sul dos EUA | `southcentralus`     | https://southcentralus.cris.ai |
 | Índia Central    | `centralindia`       | https://centralindia.cris.ai   |
-| Ásia Oriental        | `eastasia`           | https://eastasia.cris.ai       |
+| Leste da Ásia        | `eastasia`           | https://eastasia.cris.ai       |
 | Sudeste Asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
 | Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
 | Coreia Central    | `koreacentral`       | https://koreacentral.cris.ai   |
@@ -59,7 +59,7 @@ As regiões disponíveis para **reconhecimento de intenção** por meio do SDK d
 
 | Região global | Região           | Parâmetro do SDK de Fala |
 | ------------- | ---------------- | -------------------- |
-| Ásia          | Ásia Oriental        | `eastasia`           |
+| Ásia          | Leste da Ásia        | `eastasia`           |
 | Ásia          | Sudeste Asiático   | `southeastasia`      |
 | Austrália     | Austrália Oriental   | `australiaeast`      |
 | Europa        | Europa Setentrional     | `northeurope`        |

@@ -176,7 +176,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul da França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Pacífico Asiático** | |
-| Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |

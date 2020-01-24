@@ -82,7 +82,7 @@ Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
 Canadá | Canadá central ou leste do Canadá
-Europa | Europa Setentrional ou Europa Ocidental
+Europa | Norte da Europa ou Europa Ocidental
 França | França Central
 Índia | Índia central ou sul da Índia
 Japão |  Leste do Japão ou oeste do Japão

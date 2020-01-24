@@ -81,7 +81,7 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 |    centralus             |    EUA Central                            |
 |    chinaeast             |    Leste da China                            |
 |    chinanorth            |    Norte da China                           |
-|    eastasia              |    Ásia Oriental                             |
+|    eastasia              |    Leste da Ásia                             |
 |    eastus                |    Leste dos EUA                               |
 |    eastus2               |    Leste dos EUA 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
@@ -107,7 +107,7 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 |    usgovvirginia         |    USGov Virginia                        |
 |    westcentralus         |    Centro-oeste dos EUA                       |
 |    westeurope            |    Oeste da Europa                           |
-|    WestIndia             |    Índia Ocidental                               |
+|    WestIndia             |    Oeste da Índia                               |
 |    westus                |    Oeste dos EUA                               |
 |    westus2               |    Oeste dos EUA 2                             |
 

@@ -53,7 +53,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Configurar um cofre dos Serviços de Recuperação
 
-1. Crie um grupo de recursos no qual você criará o cofre dos Serviços de Recuperação. No exemplo a seguir, o grupo de recursos é denominado VMwareDRtoAzurePS e é criado na região da Ásia Oriental.
+1. Crie um grupo de recursos no qual você criará o cofre dos Serviços de Recuperação. No exemplo a seguir, o grupo de recursos é denominado VMwareDRtoAzurePS e é criado na região do Leste da Ásia.
 
    ```azurepowershell
    New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -66,7 +66,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
    ```
 
-2. Criar um cofre dos Serviços de Recuperação. No exemplo a seguir, o cofre dos Serviços de Recuperação é denominado VMwareDRToAzurePs e é criado na região da Ásia Oriental e no grupo de recursos criado na etapa anterior.
+2. Criar um cofre dos Serviços de Recuperação. No exemplo a seguir, o cofre dos Serviços de Recuperação é denominado VMwareDRToAzurePs e é criado na região do Leste da Ásia e no grupo de recursos criado na etapa anterior.
 
    ```azurepowershell
    New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"

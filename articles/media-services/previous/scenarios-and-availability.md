@@ -186,7 +186,7 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Índia Ocidental, sul da Índia e Índia Central. 
+Disponível em todos os datacenters, exceto: Alemanha, sul do Brasil, Oeste da Índia, sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Codificando processadores de mídia
 
@@ -250,8 +250,8 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
 |S1|GA|Tudo|
-|S2|GA|Todos, exceto sul do Brasil e Índia Ocidental|
-|S3|GA|Todos, exceto Índia Ocidental|
+|S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
+|S3|GA|Todos, exceto Oeste da Índia|
 
 ## <a name="additional-notes"></a>Observações adicionais
 

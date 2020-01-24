@@ -10,7 +10,7 @@ ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
 ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75973371"
@@ -35,7 +35,7 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 - Sul do Reino Unido
 - Leste dos EUA
 - Leste dos EUA 2
-- Centro dos EUA
+- EUA Central
 
 A Microsoft continua a habilitar GZRS e RA-GZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre as regiões com suporte.
 

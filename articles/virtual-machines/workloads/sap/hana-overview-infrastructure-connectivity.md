@@ -31,7 +31,7 @@ A Microsoft requer as seguintes informações para implantar unidades de instân
 - Informações de contatos comerciais (incluindo endereço de email e número de telefone).
 - Informações de contatos técnicos (incluindo endereço de email e número de telefone).
 - Informações de contatos da rede técnica (incluindo endereço de email e número de telefone).
-- Região de implantação do Azure (por exemplo, oeste dos EUA, Leste da Austrália ou Europa Setentrional).
+- Região de implantação do Azure (por exemplo, oeste dos EUA, Leste da Austrália ou Norte da Europa).
 - SAP HANA no Azure (instâncias grandes) SKU (configuração).
 - Para cada região de implantação do Azure:
     - Um intervalo de endereços IP /29 para conexões de ER-P2P que conectar redes virtuais do Azure para instâncias grandes HANA.

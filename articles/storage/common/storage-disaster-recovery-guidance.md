@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2e0ae05ff8c32a70991769171cb29b229c2b0be1
 ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/28/2019
 ms.locfileid: "75526355"
@@ -124,7 +124,7 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 - Sudeste da Ásia
 - Austrália Oriental
 - Sudeste da Austrália
-- Centro dos EUA
+- EUA Central
 - Leste dos EUA 2
 - Centro-oeste dos EUA
 - Oeste dos EUA 2

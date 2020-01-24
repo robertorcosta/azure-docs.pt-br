@@ -45,8 +45,8 @@ Configure um novo projeto de migrações para Azure em uma assinatura do Azure e
 
    **Geografia** | **Região do local de armazenamento**
     --- | ---
-    Ásia   | Sudeste Asiático ou Ásia Oriental
-    Europa | Europa Setentrional ou Europa Ocidental
+    Ásia   | Sudeste Asiático ou Leste da Ásia
+    Europa | Norte da Europa ou Europa Ocidental
     Japão  | Leste do Japão ou oeste do Japão
     Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
     Estados Unidos | EUA Central ou oeste dos EUA 2

@@ -33,7 +33,7 @@ Permita o tráfego dos endereços IP listados para o tempo de execução de inte
 
 |                | Região              | Endereços IP                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
-| Ásia           | Ásia Oriental           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
+| Ásia           | Leste da Ásia           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
 | &nbsp;         | Sudeste Asiático      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
 | Austrália      | Austrália Oriental      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
 | &nbsp;         | Sudeste da Austrália | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |

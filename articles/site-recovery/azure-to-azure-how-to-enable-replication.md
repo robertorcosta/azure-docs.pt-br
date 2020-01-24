@@ -31,7 +31,7 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
 1. No cofre, clique em **+Replicar**.
 2. Observe os seguintes campos:
    - **Fonte**: o ponto de origem das VMs que, neste caso, é o **Azure**.
-   - **Local de origem**: a região do Azure de onde você deseja proteger suas VMs. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
+   - **Local de origem**: a região do Azure de onde você deseja proteger suas VMs. Para esta ilustração, a localização da fonte é 'Leste da Ásia'
    - **Modelo de implantação**: o modelo de implantação do Azure de computadores de origem.
    - **Assinatura de origem**: a assinatura à qual as VMs de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
    - **Grupo de recursos**: o grupo de recursos ao qual pertencem as máquinas virtuais de origem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.

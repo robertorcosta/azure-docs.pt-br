@@ -119,23 +119,23 @@ Os recursos do aplicativo devem ser implantados em cada geografia em que há dem
 
 ![Cenário 3: Configuração com o primário no Leste dos EUA.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-No final do dia (por exemplo, 23h na hora local), os bancos de dados ativos devem ser alternados para a próxima região (Europa Setentrional). Essa tarefa pode ser totalmente automatizada usando o [serviço de agendamento do Azure](../scheduler/scheduler-intro.md).  A tarefa envolve as seguintes etapas:
+No final do dia (por exemplo, 23h na hora local), os bancos de dados ativos devem ser alternados para a próxima região (Norte da Europa). Essa tarefa pode ser totalmente automatizada usando o [serviço de agendamento do Azure](../scheduler/scheduler-intro.md).  A tarefa envolve as seguintes etapas:
 
-* Alternar o servidor primário no grupo de failover para a Europa Setentrional usando o failover amigável (1)
-* Remover o grupo de failover entre o Leste dos EUA e a Europa Setentrional
-* Criar um novo grupo de failover com o mesmo nome mas entre a Europa Setentrional e a Ásia Oriental (2).
-* Adicionar o primário na Europa Setentrional e o secundário na Ásia Oriental a esse grupo de failover (3).
+* Alternar o servidor primário no grupo de failover para o Norte da Europa usando o failover amigável (1)
+* Remover o grupo de failover entre o Leste dos EUA e o Norte da Europa
+* Criar um novo grupo de failover com o mesmo nome mas entre o Norte da Europa e o Leste da Ásia (2).
+* Adicionar o primário no Norte da Europa e o secundário no Leste da Ásia a esse grupo de failover (3).
 
 O seguinte diagrama ilustra a nova configuração após o failover planejado:
 
-![Cenário 3: Fazendo a transição do primário para a Europa Setentrional.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
+![Cenário 3: Fazendo a transição do primário para o Norte da Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Se uma interrupção ocorrer na Europa Setentrional, por exemplo, o failover automático de banco de dados será iniciado pelo grupo de failover, o que resulta efetivamente na movimentação do aplicativo para a próxima região antes do prazo (1).  Nesse caso, o Leste dos EUA é a única região secundária restante até que a Europa Setentrional fique online novamente. As duas regiões restantes atendem aos clientes em todas as três geografias alternando funções. O agendador do Azure precisa ser ajustado de acordo. Como as demais regiões recebem tráfego de usuário adicional da Europa, o desempenho do aplicativo é afetado não apenas pela latência adicional, mas também por um aumento do número de conexões do usuário final. Depois que a interrupção for atenuada na Europa Setentrional, o banco de dados secundário será imediatamente sincronizado com o primário atual. O seguinte diagrama ilustra uma interrupção na Europa Setentrional:
+Se uma interrupção ocorrer no Norte da Europa, por exemplo, o failover automático de banco de dados será iniciado pelo grupo de failover, o que resulta efetivamente na movimentação do aplicativo para a próxima região antes do prazo (1).  Nesse caso, o Leste dos EUA é a única região secundária restante até que o Norte da Europa fique online novamente. As duas regiões restantes atendem aos clientes em todas as três geografias alternando funções. O agendador do Azure precisa ser ajustado de acordo. Como as demais regiões recebem tráfego de usuário adicional da Europa, o desempenho do aplicativo é afetado não apenas pela latência adicional, mas também por um aumento do número de conexões do usuário final. Depois que a interrupção for atenuada no Norte da Europa, o banco de dados secundário será imediatamente sincronizado com o primário atual. O seguinte diagrama ilustra uma interrupção no Norte da Europa:
 
-![Cenário 3: Interrupção na Europa Setentrional.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
+![Cenário 3: Interrupção no Norte da Europa.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Reduza o tempo em que a experiência do usuário final na Europa é degradada pela latência longa. Para fazer isso, você deve implantar de forma proativa uma cópia do aplicativo e criar os bancos de dados secundários em outra região local (Europa Ocidental) como uma substituição da instância do aplicativo offline na Europa Setentrional. Quando o último ficar online novamente, você pode decidir se deseja continuar usando a Europa Ocidental ou remover a cópia do aplicativo de lá e voltar a usar a Europa Setentrional.
+> Reduza o tempo em que a experiência do usuário final na Europa é degradada pela latência longa. Para fazer isso, você deve implantar de forma proativa uma cópia do aplicativo e criar os bancos de dados secundários em outra região local (Europa Ocidental) como uma substituição da instância do aplicativo offline no Norte da Europa. Quando o último ficar online novamente, você pode decidir se deseja continuar usando a Europa Ocidental ou remover a cópia do aplicativo de lá e voltar a usar o Norte da Europa.
 
 Os principais **benefícios** desse design são:
 

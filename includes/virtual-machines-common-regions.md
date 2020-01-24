@@ -21,7 +21,7 @@ ms.locfileid: "76021169"
 ## <a name="what-are-azure-regions"></a>O que são as regiões do Azure?
 O Azure opera em vários datacenters no mundo inteiro. Esses datacenters estão agrupados em regiões geográficas, oferecendo a você a flexibilidade de escolher onde compilar seus aplicativos. 
 
-Você cria recursos do Azure em regiões definidas, como “Oeste dos EUA”, “Europa Setentrional” ou “Sudeste Asiático”. Você pode ver a [lista de regiões e suas localizações](https://azure.microsoft.com/regions/). Dentro de cada região, há vários datacenters para fornecer redundância e disponibilidade. Essa abordagem oferece flexibilidade para projetar aplicativos para criar VMs mais próximas de seus usuários, bem como para atender quaisquer requisitos legais, de conformidade ou relacionados a impostos.
+Você cria recursos do Azure em regiões definidas, como “Oeste dos EUA”, “Norte da Europa” ou “Sudeste Asiático”. Você pode ver a [lista de regiões e suas localizações](https://azure.microsoft.com/regions/). Dentro de cada região, há vários datacenters para fornecer redundância e disponibilidade. Essa abordagem oferece flexibilidade para projetar aplicativos para criar VMs mais próximas de seus usuários, bem como para atender quaisquer requisitos legais, de conformidade ou relacionados a impostos.
 
 ## <a name="special-azure-regions"></a>Regiões especiais do Azure
 O Azure tem algumas regiões especiais que podem ser úteis durante a criação de seus aplicativos para fins de conformidade ou jurídicos. Essas regiões especiais incluem:
@@ -46,7 +46,7 @@ Exemplos de pares de regiões incluem:
 |:--- |:--- |
 | Oeste dos EUA |Leste dos EUA |
 | Europa Setentrional |Oeste da Europa |
-| Sudeste Asiático |Ásia Oriental |
+| Sudeste Asiático |Leste da Ásia |
 
 Você pode ver a [lista completa de pares de regiões aqui](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 

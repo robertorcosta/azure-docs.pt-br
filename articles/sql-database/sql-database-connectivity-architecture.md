@@ -86,7 +86,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Leste da China 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
-| Ásia Oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Leste da Ásia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | Leste dos EUA              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Leste dos EUA 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | França Central       | 40.79.137.0, 40.79.129.1 |

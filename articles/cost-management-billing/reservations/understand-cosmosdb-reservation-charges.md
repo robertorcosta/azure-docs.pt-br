@@ -11,7 +11,7 @@ ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
 ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75995553"
@@ -52,7 +52,7 @@ O desconto de reserva é aplicado aos custos de taxa de transferência do Azure 
 |Azure Cosmos DB – 100 RU/s/hora – Leste dos EUA 2|  Leste dos EUA 2     |     1    |
 |Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA|   Centro-Norte dos Estados Unidos      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA|   Oeste dos EUA      |     1    |
-|Azure Cosmos DB – 100 RU/s/hora – centro dos EUA| Centro dos EUA        |     1    |
+|Azure Cosmos DB – 100 RU/s/hora – EUA Central| EUA Central        |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA 2|   Oeste dos EUA 2      |      1   |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA|   Centro-oeste dos EUA      |       1  |
 |Azure Cosmos DB – 100 RU/s/hora – Leste dos EUA|   Leste dos EUA      |  1       |
@@ -62,7 +62,7 @@ O desconto de reserva é aplicado aos custos de taxa de transferência do Azure 
 |Azure Cosmos DB – 100 RU/s/hora - AC Leste|   Leste do Canadá      |    1,1      |
 |Cos do Azure DB - 100 RU / s / Hora - JA Leste|   Leste do Japão      |    1.125     |
 |Azure Cosmos DB - 100 RU / s / Hora - JA Oeste|     Oeste do Japão    |   1.125       |
-|Azure Cosmos DB – 100 RU/s/hora – Índia Ocidental|     Índia Ocidental    |    1.1375     |
+|Azure Cosmos DB – 100 RU/s/hora – Oeste da Índia|     Oeste da Índia    |    1.1375     |
 |Azure Cosmos DB – 100 RU/s/hora – Índia Central|    Índia Central     |  1.1375       |
 |Azure Cosmos DB – 100 RU/s/hora - AU Leste|     Leste da Austrália    |   1,15       |
 |Azure Cosmos DB - 100 RU/s/Hour - CA Central|  Canadá Central       |   1.2       |

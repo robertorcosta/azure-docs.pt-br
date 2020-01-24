@@ -85,7 +85,7 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 ![Local-para-Azure com o ExpressRoute antes do failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Região**. Os aplicativos são implantados na região do Azure East Asia.
+- **Região**. Os aplicativos são implantados na região Leste da Ásia do Azure.
 - **Redes virtuais de spoke**. Aplicativos são implantados em duas redes virtuais de spoke:
     - **VNet1 de origem**: 10.1.0.0/24.
     - **VNet2 de origem**: 10.2.0.0/24.

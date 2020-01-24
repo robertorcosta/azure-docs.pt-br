@@ -87,7 +87,7 @@ Por exemplo, você pode fazer as seguintes atividades de cópia:
 * Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL do Azure.
 
 ## <a name="global"></a>Movimentação de dados globalmente disponível
-O Azure Data Factory está disponível apenas nas regiões Oeste dos EUA, Leste dos EUA e Europa Setentrional. No entanto, o serviço que possibilita a Atividade de cópia está disponível globalmente nas seguintes regiões e regiões geográficas. A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Confira [Serviços por região](https://azure.microsoft.com/regions/#services) para ver a disponibilidade do Data Factory e da Movimentação de Dados em uma região.
+O Azure Data Factory está disponível apenas nas regiões Oeste dos EUA, Leste dos EUA e Norte da Europa. No entanto, o serviço que possibilita a Atividade de cópia está disponível globalmente nas seguintes regiões e regiões geográficas. A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Confira [Serviços por região](https://azure.microsoft.com/regions/#services) para ver a disponibilidade do Data Factory e da Movimentação de Dados em uma região.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copiar dados entre armazenamentos de dados em nuvem
 Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Data Factory usa uma implantação de serviço na região que está mais perto do local do coletor na mesma região geográfica para realizar a movimentação de dados. Consulte a tabela a seguir para ver o mapeamento:
@@ -110,11 +110,11 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
-| &nbsp; | Ásia Oriental | Sudeste Asiático |
+| &nbsp; | Leste da Ásia | Sudeste Asiático |
 | Austrália | Austrália Oriental | Austrália Oriental |
 | &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
 | Índia | Índia Central | Índia Central |
-| &nbsp; | Índia Ocidental | Índia Central |
+| &nbsp; | Oeste da Índia | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |
 | Japão | Leste do Japão | Leste do Japão |
 | &nbsp; | Oeste do Japão | Leste do Japão |

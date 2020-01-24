@@ -54,7 +54,7 @@ O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte
 * Austrália Central
 * Austrália Oriental
 * Sul do Reino Unido
-* Ásia Oriental
+* Leste da Ásia
 * Coreia Central
 * Índia Central
 * Virgínia, Governo dos EUA

@@ -107,7 +107,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |
 |EUA Central| ✔ |  |
-|Ásia Oriental| ✔ |  |
+|Leste da Ásia| ✔ |  |
 |Leste dos EUA | ✔ | ✔<sup>1</sup> |
 |Leste dos EUA 2| ✔ |  |
 |França Central| ✔ |  |
@@ -123,7 +123,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |Sul do Reino Unido| ✔ | |
 |Oeste do Reino Unido| ✔ |  |
 |Oeste da Europa| ✔ | ✔<sup>1</sup> |
-|Índia Ocidental| ✔ |  |
+|Oeste da Índia| ✔ |  |
 |Oeste dos EUA| ✔ | ✔<sup>1</sup> |
 |Oeste dos EUA 2| ✔ |  |
 

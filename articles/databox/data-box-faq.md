@@ -53,7 +53,7 @@ a. O Data Box tem uma capacidade bruta de 100 TB e uma capacidade utilizável de
 a.  Para obter informações sobre em quais países/regiões o Data Box está disponível, acesse [Disponibilidade de regiões](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Em quais regiões posso armazenar dados com o Data Box?
-a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental, na Europa Setentrional, na França, no Reino Unido, no Japão, na Austrália e no Canadá. Para saber mais, acesse [Disponibilidade por região](data-box-overview.md#region-availability).
+a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental, no Norte da Europa, na França, no Reino Unido, no Japão, na Austrália e no Canadá. Para saber mais, acesse [Disponibilidade por região](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Quem deverei contatar se eu tiver problemas com o Data Box?
 a. Caso tenha problemas com o Data Box, [contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
