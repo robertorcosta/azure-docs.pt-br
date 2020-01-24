@@ -12,13 +12,12 @@ ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44a0e93c87c50fbc63cddad349ec9b5fbf45d91f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843896"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697992"
 ---
 # <a name="authorization-agents-android"></a>Agentes de autorização (Android)
 
@@ -38,7 +37,7 @@ Se o aplicativo usar uma estratégia de `WebView` sem integrar Microsoft Authent
 
 Se o aplicativo usar MSAL com suporte a Microsoft Authenticator ou Portal da Empresa, os usuários poderão ter uma experiência de SSO entre aplicativos se o usuário tiver uma entrada ativa com um dos aplicativos.
 
-## <a name="webview"></a>WebView
+## <a name="webview"></a>Exibição da Web
 
 Para usar o WebView no aplicativo, coloque a seguinte linha no JSON de configuração do aplicativo que é passado para MSAL:
 
@@ -80,14 +79,14 @@ Os seguintes navegadores foram testados para ver se eles são redirecionados cor
 | | Navegador interno | Chrome | Opera  | Microsoft Edge | Navegador de UC | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | passagem | passagem |não aplicável |não aplicável |não aplicável |não aplicável |
-| Samsung S7 (API 25) | passá | passagem | passagem | passagem | fail |passagem |
-| Huawei (API 26) |Pass * * | passagem | fail | passagem | passagem |passagem |
-| Vivo (API 26) |passagem|passagem|passagem|passagem|passagem|fail|
-| Pixel 2 (API 26) |passagem | passagem | passagem | passagem | fail |passagem |
+| Samsung S7 (API 25) | passá | passagem | passagem | passagem | falha |passagem |
+| Huawei (API 26) |Pass * * | passagem | falha | passagem | passagem |passagem |
+| Vivo (API 26) |passagem|passagem|passagem|passagem|passagem|falha|
+| Pixel 2 (API 26) |passagem | passagem | passagem | passagem | falha |passagem |
 | Oppo | passagem | Não aplicável * * * |não aplicável  |não aplicável |não aplicável | não aplicável|
-| OnePlus (API 25) |passagem | passagem | passagem | passagem | fail |passagem |
-| Nexus (API 28) |passagem | passagem | passagem | passagem | fail |passagem |
-|MI | passagem | passagem | passagem | passagem | fail |passagem |
+| OnePlus (API 25) |passagem | passagem | passagem | passagem | falha |passagem |
+| Nexus (API 28) |passagem | passagem | passagem | passagem | falha |passagem |
+|MI | passagem | passagem | passagem | passagem | falha |passagem |
 
 \* O navegador interno da Samsung é a Samsung Internet.  
 \* * O navegador interno do Huawei é o navegador Huawei.  

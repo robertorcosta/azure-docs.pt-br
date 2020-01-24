@@ -1,22 +1,18 @@
 ---
 title: Criar/Personalizar planos de recuperação no Azure Site Recovery
 description: Saiba como criar e personalizar planos de recuperação para recuperação de desastres usando o Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 9bb5a1a3aa0c2a4681ddecb5e20df41d481755ec
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.topic: how-to
+ms.date: 01/23/2020
+ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084515"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705829"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
-Este artigo descreve como criar e personalizar um plano de recuperação no [Azure Site Recovery](site-recovery-overview.md). Antes de iniciar, [saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
+Este artigo descreve como criar e personalizar um plano de recuperação para failover no [Azure site Recovery](site-recovery-overview.md). Antes de iniciar, [saiba mais](recovery-plan-overview.md) sobre planos de recuperação.
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 
@@ -24,22 +20,25 @@ Este artigo descreve como criar e personalizar um plano de recuperação no [Azu
 2. Em **Criar plano de recuperação**, especifique um nome para o plano.
 3. Escolha uma fonte e destino com base nos computadores do plano e selecione **Gerenciador de Recursos** para o modelo de implantação. O local de origem deve ter computadores habilitados para failover e recuperação. 
 
-   **Failover** | **Fonte** | **Destino** 
+    **Failover** | **Origem** | **Target (destino)** 
    --- | --- | ---
-   Azure para o Azure | Região do Azure |Região do Azure
-   VMware no Azure | Servidor de configuração | Azure
-   Computadores físicos para o Azure | Servidor de configuração | Azure   
-   Hyper-V gerenciado pelo VMM no Azure  | Nome de exibição do VMM | Azure
-   Hyper-V sem VMM no Azure | Nome do site Hyper-V | Azure
-   VMM no VMM |Nome amigável de VMM | Nome de exibição do VMM 
+   Azure para o Azure | Selecione a região do Azure | Selecione a região do Azure
+   VMware no Azure | Selecionar o servidor de configuração | Selecionar o Azure
+   Computadores físicos para o Azure | Selecionar o servidor de configuração | Selecionar o Azure   
+   Hyper-V para Azure | Selecione o nome do site do Hyper-V | Selecionar o Azure
+   Hyper-V (gerenciado pelo VMM) para o Azure  | Selecione o servidor do VMM | Selecionar o Azure
+  
+    Observe o seguinte:
+    -  Você só pode usar um plano de recuperação para failover do local de origem para o Azure. Você não pode usar um plano de recuperação para failback do Azure.
+    - O local de origem deve ter computadores habilitados para failover e recuperação. 
+    - Um plano de recuperação pode conter computadores com a mesma fonte e destino. 
+    - Você pode incluir VMs do VMware e VMs do Hyper-V gerenciadas pelo VMM, no mesmo plano.
+    - As VMs VMware e os servidores físicos podem estar no mesmo plano.
 
-   > [!NOTE]
-   > Um plano de recuperação pode conter computadores com a mesma fonte e destino. VMs VMware e Hyper-V gerenciadas pelo VMM não podem estar no mesmo plano. VMs VMware e servidores físicos podem estar no mesmo plano, em que a fonte é um servidor de configuração.
-
-2. Em **Selecionar máquinas virtuais de itens**, selecione as máquinas (ou o grupo de replicação) que deseja adicionar ao plano. Em seguida, clique em **OK**.
+4. Em **Selecionar máquinas virtuais de itens**, selecione as máquinas (ou o grupo de replicação) que deseja adicionar ao plano. Em seguida, clique em **OK**.
     - Os computadores são adicionados a um grupo padrão (Grupo 1) no plano. Após o failover, todos os computadores neste grupo são iniciados ao mesmo tempo.
     - Você só pode selecionar computadores que estejam em locais de origem e destino especificados. 
-1. Clique em **OK** para criar o plano.
+5. Clique em **OK** para criar o plano.
 
 ## <a name="add-a-group-to-a-plan"></a>Adicionar um grupo a um plano
 
@@ -57,7 +56,7 @@ Você pode personalizar um plano de recuperação com a adição de um script ou
 - Se estiver replicando no Azure, você poderá integrar runbooks de automação do Azure ao plano de recuperação. [Saiba mais](site-recovery-runbook-automation.md).
 - Se estiver replicando máquinas virtuais Hyper-V gerenciadas pelo System Center VMM, você pode criar um script no servidor VMM local e incluí-lo no plano de recuperação.
 - Quando você adiciona um script, ele adiciona um novo conjunto de ações para o grupo. Por exemplo, um conjunto de pré-etapas para o Grupo 1 é criado com o nome *Grupo 1: pré-etapas*. Todas as pré-etapas são listadas dentro desse conjunto. Você poderá adicionar um script no site primário, somente se tiver um servidor VMM implantado.
-- Se adicionar uma ação manual, quando o plano de recuperação é executado, ele para no ponto em que você inseriu a ação manual. Uma caixa de diálogo solicita que você especificar que a ação manual foi concluída.
+- Se você adicionar uma ação manual, quando o plano de recuperação for executado, ele será interrompido no ponto em que você inseriu a ação manual. Uma caixa de diálogo solicita que você especificar que a ação manual foi concluída.
 - Para criar um script no servidor do VMM, siga as instruções [neste artigo](hyper-v-vmm-recovery-script.md).
 - Scripts podem ser aplicados durante o failover para o site secundário e durante o failback do site secundário para o primário. O suporte depende do cenário de replicação:
     
@@ -88,7 +87,7 @@ Assista a um vídeo que demonstra como criar um plano de recuperação.
 
 > [!VIDEO https://www.youtube.com/embed/1KUVdtvGqw8]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [execução de failovers](site-recovery-failover.md).  
 

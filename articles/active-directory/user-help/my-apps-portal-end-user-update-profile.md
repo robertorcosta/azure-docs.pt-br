@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233160"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704860"
 ---
 # <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Atualizar o perfil e as informações de conta corporativa ou de estudante no portal meus aplicativos
 
@@ -132,7 +131,7 @@ Você pode optar por sair de todos os lugares em que estiver conectado no moment
 
 2. Na caixa de confirmação sair de todos os **lugares** , selecione **Sim** para confirmar que deseja sair de todas as suas sessões e dispositivos. Selecione **não** se você mudar de ideia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de concluir as atualizações na página de **perfil** , você pode:
 

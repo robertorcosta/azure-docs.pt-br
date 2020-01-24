@@ -1,5 +1,5 @@
 ---
-title: Serviços de Mídia do Azure com modelo de licença do PlayReady
+title: Modelo de licença do Azure Media Services V3 com Microsoft PlayReady
 description: Este tópico fornece uma visão geral de um modelo de licença do PlayReady que é usado para configurar as licenças do PlayReady.
 author: juliako
 manager: femila
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0ce0d40bfd9d41838573f6355ceffc17761111c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472644"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705880"
 ---
-# <a name="media-services-playready-license-template-overview"></a>Visão geral do modelo de licença do PlayReady dos Serviços de Mídia 
+# <a name="media-services-v3-with-playready-license-template"></a>Modelo de licença dos serviços de mídia v3 com PlayReady 
 
 Os Serviços de Mídia do Azure permitem criptografar o conteúdo com **Microsoft PlayReady**. Os Serviços de Mídia também fornecem um serviço para entrega de licenças PlayReady. É possível usar APIs de Serviços de Mídia para configurar licenças PlayReady. Quando um player tenta reproduzir o conteúdo protegido pelo PlayReady, uma solicitação é enviada ao serviço de entrega de licenças para obter uma licença. Se o serviço de licença aprovar a solicitação, ele emite a licença que é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 
-As licenças PlayReady contêm os direitos e as restrições que você quer que o tempo de execução do DRM (gerenciamento de direitos digitais) do PlayReady imponha quando um usuário tenta reproduzir o conteúdo protegido. Aqui estão alguns exemplos de restrições de licença PlayReady que você pode especificar:
+As licenças PlayReady contêm os direitos e as restrições que você quer que o runtime do DRM (gerenciamento de direitos digitais) do PlayReady imponha quando um usuário tenta reproduzir o conteúdo protegido. Aqui estão alguns exemplos de restrições de licença PlayReady que você pode especificar:
 
 * A data e o horário em que a licença é válida.
 * O valor de data e hora em que a licença expira. 
@@ -62,7 +62,7 @@ O XML está em conformidade com o esquema XML do modelo de licença PlayReady de
 
 Os Serviços de Mídia fornecem tipos que podem ser usadas para configurar um modelo de licenças do PlayReady. 
 
-O snippet de código a seguir usa classes .NET dos Serviços de Mídia para configurar o modelo de licença PlayReady. As classes são definidas no namespace [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet). O snippet configura o PlayRight da licença do PlayReady. PlayRight concede ao usuário a capacidade para reproduzir o conteúdo sujeito a quaisquer restrições configuradas na licença e no próprio PlayRight (para política específica de reprodução). Grande parte da política em um PlayRight refere-se à restrição de saída que controla os tipos de saídas que o conteúdo pode ser reproduzido. Também inclui quaisquer restrições que devem ser colocadas em vigor quando uma determinada saída é usada. Por exemplo, se DigitalVideoOnlyContentRestriction estiver habilitada, o tempo de execução do DRM só permite que o vídeo seja exibido por saídas digitais. (As saídas de vídeo analógicas não são permitidas para transmitir o conteúdo.)
+O snippet de código a seguir usa classes .NET dos Serviços de Mídia para configurar o modelo de licença PlayReady. As classes são definidas no namespace [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet). O snippet configura o PlayRight da licença do PlayReady. PlayRight concede ao usuário a capacidade para reproduzir o conteúdo sujeito a quaisquer restrições configuradas na licença e no próprio PlayRight (para política específica de reprodução). Grande parte da política em um PlayRight refere-se à restrição de saída que controla os tipos de saídas que o conteúdo pode ser reproduzido. Também inclui quaisquer restrições que devem ser colocadas em vigor quando uma determinada saída é usada. Por exemplo, se DigitalVideoOnlyContentRestriction estiver habilitada, o runtime do DRM só permite que o vídeo seja exibido por saídas digitais. (As saídas de vídeo analógicas não são permitidas para transmitir o conteúdo.)
 
 > [!IMPORTANT]
 > A licença PlayReady tem restrições que são avançadas. Se as proteções de saída são muito restritivas, o conteúdo pode ser impagável no caso de alguns clientes. Para obter mais informações, consulte [Regras de conformidade do PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
@@ -311,6 +311,6 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
     </xs:schema>
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira como [proteger com DRM](protect-with-drm.md)

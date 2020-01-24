@@ -1,19 +1,19 @@
 ---
 title: Chamar um webhook com um alerta de métrica clássico no Azure Monitor
 description: Saiba como redirecionar alertas de métrica do Azure para outros sistemas diferentes do Azure.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286170"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705506"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chamar um webhook com um alerta de métrica clássico no Azure Monitor
 É possível usar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para encaminhá-lo para serviços que enviam mensagens de SMS, para registrar bugs, notificar uma equipe por meio de serviços de chat ou envio de mensagens ou qualquer outra ação. 
@@ -72,11 +72,11 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 | Campo | Obrigatório | Conjunto fixo de valores | Observações |
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |O status do alerta como base nas condições que você definiu. |
-| context |S | |O contexto do alerta. |
+| contexto |S | |O contexto do alerta. |
 | timestamp |S | |A hora em que o alerta foi disparado. |
-| ID |S | |Cada regra de alerta tem uma ID exclusiva. |
+| id |S | |Cada regra de alerta tem uma ID exclusiva. |
 | name |S | |O nome do alerta. |
-| Description |S | |Uma descrição do alerta. |
+| descrição |S | |Uma descrição do alerta. |
 | conditionType |S |Metric, Event |Há suporte para dois tipos de alertas: de métrica e evento. Alertas de métricas são baseados na condição de uma métrica. Alertas de eventos são baseados em um evento no log de atividades. Use esse valor para verificar se o alerta é baseado em uma métrica ou em um evento. |
 | condition |S | |Os campos específicos para verificação com base no valor de **conditionType**. |
 | metricName |Para alertas de métrica | |O nome da métrica define o que a regra monitora. |
@@ -85,22 +85,22 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 | threshold |Para alertas de métrica | |O valor de limite no qual o alerta é ativado. |
 | windowSize |Para alertas de métrica | |O período que é usado para monitorar a atividade de alertas com base no limite. O valor deve ser entre 5 minutos e 1 dia. O valor deve estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas de métrica |Average, Last, Maximum, Minimum, None, Total |Como os dados coletados devem ser combinados ao longo do tempo. O valor padrão é Average. Consulte os [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| operator |Para alertas de métrica | |O operador usado para comparar os dados de métrica atuais com o limite definido. |
+| operador |Para alertas de métrica | |O operador usado para comparar os dados de métrica atuais com o limite definido. |
 | subscriptionId |S | |A ID de assinatura do Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos do recurso afetado. |
 | resourceName |S | |O nome do recurso afetado. |
 | resourceType |S | |O tipo do recurso afetado. |
-| ResourceId |S | |A ID do recurso afetado. |
+| resourceId |S | |A ID do recurso afetado. |
 | resourceRegion |S | |A região ou local do recurso afetado. |
 | portalLink |S | |Um link direto para a página de resumo de recursos do portal. |
-| propriedades |N |Opcional |Um conjunto de pares chave/valor que tem detalhes sobre o evento. Por exemplo: `Dictionary<String, String>`. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou em interface do usuário, os usuários podem inserir pares chave/valor que podem ser transmitidos por meio do conteúdo. Um modo alternativo de transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta). |
+| properties |N |Opcional |Um conjunto de pares chave/valor que tem detalhes sobre o evento. Por exemplo, `Dictionary<String, String>`. O campo de propriedades é opcional. Em um fluxo de trabalho personalizado baseado em aplicativo lógico ou em interface do usuário, os usuários podem inserir pares chave/valor que podem ser transmitidos por meio do conteúdo. Um modo alternativo de transmitir as propriedades personalizadas para o webhook é por meio do próprio URI do webhook (como parâmetros de consulta). |
 
 > [!NOTE]
 > Somente é possível definir o campo de **propriedades** usando [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 >
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais sobre os alertas e webhooks do Azure no vídeo [Integrar Alertas do Azure com o PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Saiba como [Executar exemplos de scripts da Automação do Azure (runbooks) em alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem de SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).

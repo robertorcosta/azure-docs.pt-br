@@ -16,13 +16,12 @@ ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae798c6108ec78b92b1ee6ac167b01c2f72c26d9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f2ce993b8fbf2a1b04ea4ad9d992ba278dbc964e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679705"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701409"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Aplicativos cliente públicos de conta única e múltipla
 
@@ -30,13 +29,13 @@ Este artigo o ajudará a entender os tipos usados em aplicativos cliente públic
 
 A ADAL (biblioteca de autenticação Azure Active Directory) modela o servidor.  Em vez disso, a MSAL (biblioteca de autenticação da Microsoft) modela o aplicativo cliente.  A maioria dos aplicativos Android é considerada clientes públicos. Um cliente público é um aplicativo que não pode manter um segredo com segurança.  
 
-O MSAL especializada a superfície de API de `PublicClientApplication` para simplificar e esclarecer a experiência de desenvolvimento para aplicativos que permitem que apenas uma conta seja usada de cada vez. `PublicClientApplication` é subclasse por `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication`.  O diagrama a seguir mostra a relação entre essas classes.
+O MSAL especializa a superfície de API do `PublicClientApplication` para simplificar e esclarecer a experiência de desenvolvimento para aplicativos que permitem que apenas uma conta seja usada por vez. `PublicClientApplication` é uma subclasse por `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication`.  O diagrama a seguir mostra a relação entre essas classes.
 
 ![Diagrama de classe UML SingleAccountPublicClientApplication](./media/single-multi-account/single-and-multiple-account.png)
 
 ## <a name="single-account-public-client-application"></a>Aplicativo cliente público de conta única
 
-A classe `SingleAccountPublicClientApplication` permite que você crie um aplicativo baseado em MSAL que permita que apenas uma única conta seja conectada por vez. `SingleAccountPublicClientApplication` difere de `PublicClientApplication` das seguintes maneiras:
+A classe `SingleAccountPublicClientApplication` permite que você crie um aplicativo baseado em MSAL que permite que apenas uma única conta seja conectada por vez. `SingleAccountPublicClientApplication` é diferente de `PublicClientApplication` nestes aspectos:
 
 - MSAL rastreia a conta atualmente conectada.
   - Se seu aplicativo estiver usando um agente (o padrão durante o registro do aplicativo portal do Azure) e estiver instalado em um dispositivo em que um agente está presente, o MSAL verificará se a conta ainda está disponível no dispositivo.
@@ -114,14 +113,14 @@ if (app.signOut())
 
 A classe `MultipleAccountPublicClientApplication` é usada para criar aplicativos baseados em MSAL que permitem que várias contas sejam conectadas ao mesmo tempo. Ele permite que você obtenha, adicione e remova contas da seguinte maneira:
 
-### <a name="add-an-account"></a>Adicionar conta
+### <a name="add-an-account"></a>Adicionar uma conta
 
 Use uma ou mais contas em seu aplicativo chamando `acquireToken` uma ou mais vezes.  
 
 ### <a name="get-accounts"></a>Obter contas
 
 - Chame `getAccount` para obter uma conta específica.
-- Chame `getAccounts`to obter uma lista de contas conhecidas no momento para o aplicativo.
+- Chame `getAccounts`para obter uma lista de contas conhecidas no momento para o aplicativo.
 
 Seu aplicativo não poderá enumerar todas as contas da plataforma de identidade da Microsoft no dispositivo conhecido pelo aplicativo agente. Ele só pode enumerar contas que foram usadas pelo seu aplicativo.  As contas que foram removidas do dispositivo não serão retornadas por essas funções.
 

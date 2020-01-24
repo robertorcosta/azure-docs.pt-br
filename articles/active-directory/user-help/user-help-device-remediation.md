@@ -13,13 +13,12 @@ ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028571"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704622"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "você não pode chegar lá daqui"
 
@@ -51,7 +50,7 @@ Se você receber a mensagem **Você não pode acessar esse lugar daqui** para in
 ![Mensagem de erro relacionada à conexão à rede](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>Para verificar se o dispositivo foi adicionado à sua rede
-1. Entre no Windows usando sua conta corporativa ou de estudante. Por exemplo: alain@contoso.com.
+1. Entre no Windows usando sua conta corporativa ou de estudante. Por exemplo, alain@contoso.com.
 
 2. Conecte-se à rede corporativa por meio de uma VPN (rede virtual privada) ou DirectAccess.
 
@@ -68,7 +67,7 @@ Se o dispositivo não estiver adicionado à rede da sua organização, você ter
 
 - **Registrar seu dispositivo pessoal para trabalho.** Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Após o registro do dispositivo, ele poderá acessar os recursos restritos da sua organização. Para saber mais e obter instruções passo a passo, consulte [Registrar seu dispositivo pessoal à rede da sua organização](user-help-register-device-on-network.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
 - [Entre com seu telefone, não com sua senha](user-help-auth-app-sign-in.md)

@@ -11,13 +11,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4e0f434831f624dbd8c9c1302aab6816cd3d148
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2801ccc69f15aa275e58e433984ddb4f7c18b66
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966156"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699029"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -49,7 +48,7 @@ Há um conjunto de erros gerados pelo sistema operacional, que pode exigir um tr
 
 Basicamente, há dois casos de erros AcquireTokenSilent:
 
-| Caixa | Descrição |
+| Caixa | Description |
 |------|-------------|
 | **Caso 1**: o erro pode ser resolvido com uma entrada interativa | Para erros causados pela falta de tokens válidos, uma solicitação interativa é necessária. Mais especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para serem resolvidos.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como apertar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele.|
 | **Caso 2**: o erro não pode ser resolvido com uma entrada interativa | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também pode tentar uma nova tentativa posteriormente, mas quando e como depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
@@ -63,7 +62,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 - [preterido] acquireTokenSilent(…)
 - [preterido] acquireTokenByRefreshToken(…) 
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
 try{
@@ -106,7 +105,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 - acquireTokenSilentAsync(...)
 - [preterido] acquireTokenSilent(…)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```java
 // *Inside callback*
@@ -140,7 +139,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 
 - acquireTokenSilentWithResource(…)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```objc
 [context acquireTokenSilentWithResource:[ARGS], completionBlock:^(ADAuthenticationResult *result) {
@@ -213,7 +212,7 @@ As seguintes diretrizes fornecem exemplos para o tratamento de erro com todos os
 - AcquireTokenAsync (..., ClientAssertion,...)
 - AcquireTokenAsync (..., userdeclaration,...)   
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
 try {
@@ -254,7 +253,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 
 - acquireToken(…, PromptBehavior.Never)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
     try {acquireToken(…, PromptBehavior.Never);
@@ -286,7 +285,7 @@ catch(AdalServiceException e) {
 
 As diretrizes a seguir fornecem exemplos de tratamento de erro com todos os métodos ADAL AcquireToken(...) não silenciosos. 
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```java
 AcquireTokenAsync(…);
@@ -315,7 +314,7 @@ public void onError(Exception e) {
 
 As diretrizes a seguir fornecem exemplos de tratamento de erro com todos os métodos ADAL AcquireToken(...) não silenciosos. 
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```objc
 [context acquireTokenWithResource:[ARGS], completionBlock:^(ADAuthenticationResult *result) {
@@ -346,7 +345,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 
 - AcquireTokenByAuthorizationCodeAsync(…)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
 try {
@@ -375,7 +374,7 @@ Um AcquireToken com falha tem os seguintes casos:
 | **Caso 2**:<br>Não pode ser resolvido com uma solicitação interativa. O erro pode sofrer nova tentativa. | 1. faça uma única tentativa, pois a principal do usuário final inseriu um estado que resulta em um êxito.<br><br>2. se a repetição falhar, apresente ao usuário final uma ação com base no erro específico que pode invocar uma nova tentativa ("tentar entrar novamente"). |
 | **Caso 3**:<br>Não pode ser resolvido com uma solicitação interativa. O erro não pode sofrer nova tentativa. | 1. não tente repetir a tentativa imediata. Apresente ao usuário final uma ação com base no erro específico que pode invocar uma nova tentativa ("Tentar entrar novamente"). |
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```javascript
 AuthContext.acquireToken(…, function(error, errorDesc, token) {
@@ -418,7 +417,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 - AcquireTokenAsync(…,ClientAssertion, …)
 - AcquireTokenAsync(…,UserAssertion, …)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
 try {
@@ -443,7 +442,7 @@ As seguintes diretrizes fornecem exemplos de tratamento de erro com métodos ADA
 
 - AcquireTokenAsync(…, UserAssertion, …)
 
-O código deve ser implementado da seguinte maneira:
+O código seria implementado da seguinte maneira:
 
 ```csharp
 try {

@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4328ea6145d32616f1784d94976dab29216fbc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 83717f9a78d80923f020ab699be9ddabbbcc12ef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851998"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699998"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
 
@@ -76,7 +75,7 @@ As seguintes referências são removidas (somente projetos ASP.NET 4, como no Vi
 
 ## <a name="webconfig-or-appconfig-changes"></a>alterações de web.config ou app.config
 
-- Adicionadas as entradas de configuração a seguir:
+- Adicionadas as seguintes entradas de configuração:
 
     ```xml
     <appSettings>
@@ -126,9 +125,9 @@ Alterações adicionais se você selecionou a opção **Ler dados do diretório*
 
 ## <a name="code-changes-and-additions"></a>Adições e alterações de código
 
-- Adicionado o atributo `[Authorize]` para `Controllers/HomeController.cs` e outros controladores existentes.
+- Adicionado o `[Authorize]` atributo para `Controllers/HomeController.cs` e outros controladores existentes.
 
-- Adicionada uma classe de inicialização de autenticação, `App_Start/Startup.Auth.cs`, que contém a lógica de inicialização para a autenticação do Azure AD. Se você tiver selecionado a opção **Ler dados do diretório**, esse arquivo também contém código para receber um código de OAuth e do trocá-lo por um token de acesso.
+- Adicionada uma classe de inicialização de autenticação, `App_Start/Startup.Auth.cs`, que contém a lógica de inicialização para a autenticação do Azure AD. Se você tiver selecionado a opção **Ler dados do diretório**, esse arquivo também contém código para receber um código de OAuth e trocá-lo por um token de acesso.
 
 - Adicionada uma classe de controlador, `Controllers/AccountController.cs`, que contém os métodos `SignIn` e `SignOut`.
 
@@ -162,7 +161,7 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos 
 
 [Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
 - [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)

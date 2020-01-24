@@ -1,18 +1,18 @@
 ---
 title: Prepare-se para Azure Monitor migração de alertas clássicos atualizando seus aplicativos lógicos e runbooks
+author: yanivlavi
 description: Saiba como modificar seus WebHooks, aplicativos lógicos e runbooks para se preparar para a migração voluntária.
-author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827396"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705557"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicas
 
@@ -25,14 +25,14 @@ Se você optar por migrar voluntariamente suas regras de alerta clássicas para 
 
 ## <a name="api-changes"></a>Alterações de API
 
-As APIs que criam e gerenciam as regras de`microsoft.insights/alertrules`alerta clássicas () são diferentes das APIs que criam e gerenciam`microsoft.insights/metricalerts`novos alertas de métrica (). Se você criar e gerenciar programaticamente regras de alerta clássicas hoje, atualize seus scripts de implantação para trabalhar com as novas APIs.
+As APIs que criam e gerenciam as regras de alerta clássicas (`microsoft.insights/alertrules`) são diferentes das APIs que criam e gerenciam novos alertas de métrica (`microsoft.insights/metricalerts`). Se você criar e gerenciar programaticamente regras de alerta clássicas hoje, atualize seus scripts de implantação para trabalhar com as novas APIs.
 
 A tabela a seguir é uma referência às interfaces programáticas para alertas clássicos e novos:
 
 |         |Alertas clássicos  |Novos alertas de métrica |
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|CLI do Azure     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo do Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas de métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -57,7 +57,7 @@ Use a tabela a seguir para mapear os campos de carga do webhook do formato clás
 | Operador (como o valor da métrica agregada é comparado com o limite) | **context.condition.operator** | **data.context.condition.operator** |
 | Limite | **context.condition.threshold** | **Data. Context. Condition. allOf [0]. Threshold** |
 | Valor da métrica | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| ID da assinatura | **context.subscriptionId** | **data.context.subscriptionId** |
+| ID da Assinatura | **context.subscriptionId** | **data.context.subscriptionId** |
 | Grupo de recursos do recurso afetado | **context.resourceGroup** | **data.context.resourceGroup** |
 | Nome do recurso afetado | **context.resourceName** | **data.context.resourceName** |
 | Tipo do recurso afetado | **context.resourceType** | **data.context.resourceType** |
@@ -163,7 +163,7 @@ A maioria de [nossos parceiros que se integram com alertas clássicos](https://d
 
 Se você estiver usando uma integração de parceiro que não está listada aqui, confirme com o provedor de integração que a integração funciona com novos alertas de métrica.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Como usar a ferramenta de migração](alerts-using-migration-tool.md)
 - [Entender como a ferramenta de migração funciona](alerts-understand-migration.md)

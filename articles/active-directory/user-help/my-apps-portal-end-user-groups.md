@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803930"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704945"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Atualizar suas informações de grupos no portal meus aplicativos
 
@@ -41,7 +40,7 @@ Se o administrador tiver concedido permissão para exibir o bloco **grupos** , v
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Abra o navegador da Web e vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o navegador da Web e vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -175,7 +174,7 @@ Você pode ingressar um grupo já existente na página **grupos** .
 
     ![Página grupos de junção, com o botão sair do grupo realçado](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Acesse e use aplicativos no portal meus aplicativos](my-apps-portal-end-user-access.md).
 

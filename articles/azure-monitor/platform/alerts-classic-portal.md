@@ -1,17 +1,17 @@
 ---
 title: Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
 description: Saiba como usar o portal do Azure, a CLI ou o Powershell para criar, exibir e gerenciar regras de alerta de métrica clássicos.
-author: snehithm
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
-ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yalavi
+ms.openlocfilehash: fd15d6bb9442d91c672fdd444313880001880e07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66129771"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705591"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
 
@@ -35,7 +35,7 @@ Os alertas de métrica clássicos no Azure Monitor fornecem uma maneira para not
 
 6. Selecione **Proprietários de email...** se você quiser que administradores e coadministradores recebam notificações por email quando o alerta for acionado.
 
-7. Se você quiser enviar notificações para endereços de email adicionais quando o alerta for acionado, adicione-os no campo **Emails adicionais do administrador**. Vários emails separados com ponto e vírgula, no seguinte formato: *e-mail\@contoso.com;email2\@contoso.com*
+7. Se você quiser enviar notificações para endereços de email adicionais quando o alerta for acionado, adicione-os no campo **Emails adicionais do administrador**. Separe vários emails com ponto e vírgula, no seguinte formato: *email\@contoso. com; email2\@contoso.com*
 
 8. Coloque um URI válido no campo **Webhook** se você quiser que ele seja chamado quando o alerta for acionado.
 
@@ -127,9 +127,9 @@ Esta seção mostra como usar os comandos do PowerShell para criar, exibir e ger
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Regras de alerta clássico não podem ser criadas por meio do PowerShell. Para criar uma regra de alerta que você precisa usar o novo ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) comando.
+8. Regras de alerta clássico não podem ser criadas por meio do PowerShell. Para criar uma regra de alerta, você precisa usar o novo comando [' Add-AzMetricAlertRule '](/powershell/module/az.monitor/add-azmetricalertrule) .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar um alerta de métrica clássico com um modelo do Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook](../../azure-monitor/platform/alerts-webhooks.md).

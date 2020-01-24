@@ -16,13 +16,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4babb7e869f4fc83bcdb530a580a29dda234293
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e57e027848294cbff570cb64d0ad4bbf05693ffe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373789"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699794"
 ---
 # <a name="web-api"></a>API Web
 
@@ -80,5 +79,5 @@ Quando o aplicativo Web usa seu código de autorização para obter um token de 
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
+- Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
 - Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD

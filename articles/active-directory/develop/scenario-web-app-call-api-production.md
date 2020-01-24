@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 439b7e07b2e2aa77afd027fa57cc6f7705626d81
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964949"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701630"
 ---
 # <a name="web-app-that-calls-web-apis---move-to-production"></a>Aplicativo Web que chama APIs da Web – mover para produção
 

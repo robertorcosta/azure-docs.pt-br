@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389357"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694338"
 ---
 ## <a name="lifecycle"></a>Ciclo de vida
 
@@ -33,7 +33,7 @@ Na guia **ciclo de vida** , você especifica quando a atribuição de um usuári
 
 1. Para permitir que o usuário Estenda suas atribuições, defina **permitir que os usuários estendam o acesso** para **Sim**.
 
-    Se as extensões forem permitidas na política, o usuário receberá um email 14 dias e também um dia antes que sua atribuição de pacote de acesso seja definida para expirar solicitando que estendam a atribuição.
+    Se as extensões forem permitidas na política, o usuário receberá um email 14 dias e também um dia antes que sua atribuição de pacote de acesso seja definida para expirar solicitando que estendam a atribuição. Se o usuário enviar uma solicitação para estender o acesso, a data da extensão deverá ser em ou antes que as atribuições expirem conforme definido na política usada para conceder ao usuário acesso ao pacote de acesso. Por exemplo, se a política indicar que as atribuições estão definidas para expirar em 30 de junho, a extensão máxima que um usuário pode solicitar é 30 de junho.
 
     Se o acesso de um usuário for estendido, ele não poderá solicitar o pacote de acesso após a data de extensão especificada (data definida no fuso horário do usuário que criou a política).
 

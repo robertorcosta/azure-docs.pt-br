@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f2513b1fee022199f040ba0dcf83110c0b3b1365
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964813"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701562"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -53,11 +52,11 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
-   1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
+   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **AspNetCore-webapp**.
    1. Para **URI de redirecionamento**, adicione o tipo de aplicativo e o destino do URI que aceitará respostas de token retornadas após a autenticação bem-sucedida. Por exemplo, insira **https://localhost:44321** . Em seguida, selecione **Registrar**.
 1. Selecione o menu **Autenticação** e, em seguida, adicione as seguintes informações:
    1. Para **URL de resposta**, adicione **https://localhost:44321/signin-oidc** do tipo **Web**.
-   1. Na seção **Configurações avançadas** , defina **URL de logoff** para **https://localhost:44321/signout-oidc** .
+   1. Na seção **Configurações avançadas**, defina **URL de Logoff** como **https://localhost:44321/signout-oidc** .
    1. Em **Concessão implícita**, selecione **Tokens de ID**.
    1. Clique em **Salvar**.
 
@@ -65,7 +64,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
    1. Escolha os tipos de conta com suporte para seu aplicativo. (Consulte [tipos de conta com suporte](./v2-supported-account-types.md).)
-   1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2**.
+   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **MailApp-openidconnect-v2**.
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **https://localhost:44326/** .
 1. Selecione **Registrar** para criar o aplicativo.
 1. Selecione o menu **autenticação** .
@@ -99,7 +98,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
-   1. Na seção **nome** , insira um nome de aplicativo significativo que será exibido aos usuários do aplicativo. Por exemplo, digite **Python-webapp**.
+   1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **Python-webapp**.
    1. Altere os **tipos de conta com suporte** para **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
    1. Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira o seguinte URI de redirecionamento: **http://localhost:5000/getAToken** .
 1. Selecione **Registrar** para criar o aplicativo.

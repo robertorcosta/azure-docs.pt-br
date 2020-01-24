@@ -12,13 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842792"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697329"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: configurar os termos de serviço e a política de privacidade para um aplicativo
 
@@ -40,7 +39,7 @@ Os exemplos a seguir mostram o usuário experiência de consentimento quando as 
 
 Antes de adicionar links aos termos de serviço e aos documentos da declaração de privacidade do seu aplicativo, verifique se os URLs seguem essas diretrizes.
 
-| Diretriz     | Descrição                           |
+| Diretriz     | Description                           |
 |---------------|---------------------------------------|
 | Formatar        | URL Válida                             |
 | Esquemas válidos | HTTP e HTTPS<br/>Recomendamos HTTPS |
@@ -67,7 +66,7 @@ Siga estas etapas na portal do Azure.
 
     ![As propriedades do aplicativo contêm termos de serviço e URLs de política de privacidade](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"> </a> Usando o objeto de aplicativo JSON
+### <a name="app-object-json"></a> Usando o objeto de aplicativo JSON
 
 Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usar o editor de manifesto no Portal do Azure ou no Portal de Registro do Aplicativo para incluir links para os termos de serviço e a declaração de privacidade do seu aplicativo.
 
@@ -78,7 +77,7 @@ Se preferir modificar diretamente o objeto JSON do aplicativo, você poderá usa
     }
 ```
 
-### <a name="msgraph-beta-rest-api"> </a> Usando a API REST do MSGraph beta
+### <a name="msgraph-beta-rest-api"></a> Usando a API REST do MSGraph beta
 
 Para atualizar programaticamente todos os seus aplicativos, você pode usar a API REST beta do MSGraph para atualizar todos os seus aplicativos para incluir links para os termos de serviço e documentos de declaração de privacidade.
 

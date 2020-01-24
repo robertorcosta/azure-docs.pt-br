@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c15580481c153a58122db593f678998be485b57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233187"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704996"
 ---
 # <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Localize e use os aplicativos baseados em nuvem da sua organização no portal meus aplicativos
 
@@ -70,7 +69,7 @@ Um ícone é adicionado à direita da barra de **endereços** , permitindo que v
 #### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Para alterar o portal meus aplicativos usando a extensão
 Você pode escolher quantos aplicativos exibir na seção **usado recentemente** e decidir se deseja permitir que as URLs internas da sua organização redirecionem.
 
-1. Selecione o ícone de **extensão de entrada segura do novo aplicativo meus aplicativos** ![ícone de extensão](media/my-apps-portal/my-apps-portal-extension-icon.png) à direita da barra de **endereços** e, em seguida, selecione **entrar para começar**.
+1. Selecione o ícone de extensão do ![ícone](media/my-apps-portal/my-apps-portal-extension-icon.png) de extensão de **entrada segura de meus aplicativos** no lado direito da barra de **endereços** e selecione **entrar para começar**.
 
 2. Clique com o botão direito do mouse no ícone de **configurações** ![ícone de configurações](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)e selecione **configurações**.
 
@@ -88,7 +87,7 @@ Se você tiver permissão para acessar e usar os aplicativos baseados em nuvem d
 
 1. Entre sua conta corporativa ou de estudante.
 
-2. Abra o navegador da Web e vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o navegador da Web e vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -102,7 +101,7 @@ Exiba e use os aplicativos da sua organização de um Intune Managed Browser em 
 
 1. Em seu dispositivo móvel, baixe e instale o aplicativo Intune Managed Browser da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e o [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Abra o aplicativo Intune Managed Browser, vá para https://myapps.microsoft.comou use o link fornecido por sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o aplicativo Intune Managed Browser, vá para https://myapps.microsoft.com ou use o link fornecido por sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -116,7 +115,7 @@ Exiba e use o portal **meus aplicativos** de um dispositivo iPhone ou iPad, exec
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Safari.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -130,7 +129,7 @@ Exibir e usar o portal **meus aplicativos** em um dispositivo Android.
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Google Chrome.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -154,7 +153,7 @@ Se o administrador tiver concedido a você permissão, você poderá adicionar u
 
     Alguns aplicativos podem exigir aprovação do administrador antes de serem adicionados. Nessa situação, o aplicativo não é adicionado à página de **aplicativos** até que o administrador o aprove.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de acessar a página de **aplicativos** , você pode:
 

@@ -17,13 +17,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66c509b1b901889241d6837611a2c373750fdb3a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 95d3deff73ce357f012b15a7fc1cfa3decdb4bda
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834783"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701358"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
 
@@ -72,9 +71,9 @@ O Azure AD envia uma `LogoutResponse` em resposta a um elemento `LogoutRequest`.
 O Azure AD define os valores `ID`, `Version` e `IssueInstant` no elemento `LogoutResponse`. Ele também define o elemento `InResponseTo` como o valor do atributo `ID` da `LogoutRequest` que emitiu a resposta.
 
 ### <a name="issuer"></a>Emissor
-O Azure ad define esse valor `https://login.microsoftonline.com/<TenantIdGUID>/` como \<onde TenantIdGUID > é a ID de locatário do locatário do Azure AD.
+O Azure AD define esse valor como `https://login.microsoftonline.com/<TenantIdGUID>/` em que \<TenantIdGUID > é a ID de locatário do locatário do Azure AD.
 
 Para avaliar o valor do elemento `Issuer` , use o valor do **URI da ID do aplicativo** fornecido durante o registro do aplicativo.
 
 ### <a name="status"></a>Status
-O Azure AD usa o elemento `StatusCode` no elemento `Status` para indicar o sucesso ou a falha da desconexão. Quando a tentativa de desconexão falha, o elemento `StatusCode` também pode conter mensagens de erro personalizadas.
+O Azure AD usa o elemento `StatusCode` no elemento `Status` para indicar o êxito ou a falha da saída. Quando a tentativa de saída falha, o elemento `StatusCode` também pode conter mensagens de erro personalizadas.

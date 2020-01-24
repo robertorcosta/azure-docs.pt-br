@@ -12,15 +12,14 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dee6973a638a2cabc0ccc2138ed9db8b798f4d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820391"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705115"
 ---
-# <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Acessar e iniciar aplicativos do portal meus aplicativos (versão prévia)
+# <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Acesse e inicie aplicativos no portal Meus Aplicativos (versão prévia)
 
 Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseados na Web (versão prévia) para exibir, organizar e iniciar muitos dos aplicativos baseados em nuvem da sua organização. Se você não tiver acesso ao portal **meus aplicativos** , contate a assistência técnica da sua organização para obter permissão.
 
@@ -53,7 +52,7 @@ Se você tiver permissão para acessar e usar os aplicativos baseados em nuvem d
 
 1. Entre em sua conta corporativa ou de estudante no seu computador.
 
-2. Abra um navegador da Web com suporte e vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para usar uma página personalizada para sua organização, como `https://myapps.microsoft.com/contoso.com`.
+2. Abra um navegador da Web com suporte e vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para usar uma página personalizada para sua organização, como `https://myapps.microsoft.com/contoso.com`.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -63,7 +62,7 @@ Exiba e use os aplicativos da sua organização do Intune Managed Browser aplica
 
 1. Em seu dispositivo móvel, baixe e instale o aplicativo Intune Managed Browser da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou o [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Abra o aplicativo Intune Managed Browser, vá para https://myapps.microsoft.comou use o link fornecido por sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Abra o aplicativo Intune Managed Browser, vá para https://myapps.microsoft.com ou use o link fornecido por sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -73,7 +72,7 @@ Exiba e use o portal **meus aplicativos** de um dispositivo iPhone ou iPad, exec
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Safari.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -83,7 +82,7 @@ Exibir e usar o portal **meus aplicativos** em um dispositivo Android.
 
 1. Em seu dispositivo móvel, inicie um aplicativo de navegador da Web, como o Google Chrome.
 
-2. Vá para https://myapps.microsoft.comou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+2. Vá para https://myapps.microsoft.com ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
     A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
@@ -95,21 +94,21 @@ Você pode iniciar qualquer um dos aplicativos baseados em nuvem disponíveis no
 
     Uma nova página é aberta para o aplicativo, onde você pode entrar (se necessário) ou começar a usar o aplicativo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de acessar o portal **meus aplicativos** , você pode:
 
-- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para obter mais informações, consulte [acessar e usar espaços de trabalho no portal meus aplicativos (versão prévia)](my-applications-portal-workspaces.md).
+- Organize seus aplicativos em várias categorias criadas e fornecidas pela sua organização. Para saber mais, confira [Acessar e usar espaços de trabalho no portal Meus Aplicativos (versão prévia)](my-applications-portal-workspaces.md).
 
-- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para obter mais informações, consulte [Editar ou revogar permissões de aplicativo no portal meus aplicativos (versão prévia)](my-applications-portal-permissions-saved-accounts.md).
+- Revisar, atualizar ou revogar permissões concedidas a aplicativos. Para saber mais, confira [Editar ou revogar permissões de aplicativos no portal Meus aplicativos (versão prévia)](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
->Se você não vir espaços de trabalho ou categorias disponíveis, significa que o administrador não configurou nem compartilhou nenhum com você. Entre em contato com o suporte técnico da sua organização para obter assistência adicional ou permissões para ver espaços de trabalho compartilhados.
+>Se você não vê nenhum espaço de trabalho ou categoria disponível, significa que seu administrador não configurou ou compartilhou nenhum com você. Entre em contato com o suporte técnico da sua organização para obter assistência ou permissões adicionais para ver espaços de trabalho compartilhados.
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Atualize suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais que aparecem no portal **meu perfil** (versão prévia).
+- [Atualizar suas informações de perfil e conta](my-account-portal-overview.md). Instruções sobre como atualizar suas informações pessoais exibidas no portal **Meus Perfil** (versão prévia).
 
-- [Gerencie suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **organizações** do meu portal do **meu perfil** .
+- [Gerenciar suas organizações](my-account-portal-organizations-page.md). Instruções sobre como exibir e gerenciar suas informações relacionadas à organização na página **Organizações** do portal **Meu Perfil**.
 
-- [Gerencie seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **dispositivos** do meu portal do **meu perfil** .
+- [Gerenciar seus dispositivos conectados](my-account-portal-devices-page.md). Instruções sobre como gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, na página **Dispositivos** do portal **Meu Perfil**.

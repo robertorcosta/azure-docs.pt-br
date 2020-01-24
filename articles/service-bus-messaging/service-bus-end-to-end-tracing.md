@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa71ca7ea976ab4d724a061d0d0809cdb5767f4f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310993"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705744"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 
@@ -28,12 +28,12 @@ Uma parte desse problema é monitorar partes lógicas do trabalho. Inclui o resu
 Quando um produtor envia uma mensagem por meio de uma fila, normalmente acontece no escopo de alguma outra operação lógica, iniciado por algum outro cliente ou serviço. A mesma operação dará continuidade ao consumidor quando ele recebe uma mensagem. O produtor e o consumidor (e outros serviços que processam a operação), presumivelmente emitem eventos de telemetria para rastrear o fluxo e o resultado da operação. Para correlacionar esses eventos e rastrear a operação end-to-end, cada serviço que informa a telemetria deve gravar todos os eventos com um contexto de rastreamento.
 
 Mensagens do Barramento de Serviço do Microsoft Azure definiu propriedades de carga que produtores e consumidores devem usar para passar esse contexto de rastreamento.
-O protocolo se baseia o [protocolo HTTP Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+O protocolo se baseia o [protocolo HTTP Correlation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome da Propriedade        | DESCRIÇÃO                                                 |
+| Nome da propriedade        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  ID de diagnóstico       | Identificador exclusivo de uma chamada externa do produtor para a fila. Consulte [Request-Id no protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
-|  Correlation-Context | Contexto de operação, é propagado por todos os serviços envolvidos no processamento da operação. Para obter mais informações, consulte [contexto de correlação no protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
+|  ID de diagnóstico       | Identificador exclusivo de uma chamada externa do produtor para a fila. Consulte [Request-Id no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
+|  Correlation-Context | Contexto de operação, é propagado por todos os serviços envolvidos no processamento da operação. Para obter mais informações, consulte [contexto de correlação no protocolo HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Rastreamento automático de cliente de .NET do Barramento de Serviço
 
@@ -49,7 +49,7 @@ Dependendo do tipo do seu projeto, instale o SDK do Application Insights:
 - [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - instalar a versão 2.2.0-beta2 ou superior.
 Esses links fornecem detalhes sobre como instalar o SDK, criando recursos e configurando o SDK (se necessário). Para aplicativos diferentes do ASP.NET, consulte o artigo [Application Insights do Azure para aplicativos de Console](../azure-monitor/app/console.md).
 
-Se você usar [padrão de manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você conclui: todas as chamadas de Barramento de Serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Caso contrário, consulte o exemplo a seguir para o controle de processamento de mensagem manual.
+Se você usar o [padrão do manipulador de mensagens](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para processar mensagens, você está pronto: todas as chamadas de Barramento de Serviço feitas pelo serviço são automaticamente rastreadas e correlacionadas com outros itens de telemetria. Caso contrário, consulte o exemplo a seguir para o controle de processamento de mensagem manual.
 
 #### <a name="trace-message-processing"></a>Processamento de mensagem de rastreamento
 
@@ -139,9 +139,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 Neste exemplo, o ouvinte registra duração, resultado, identificador exclusivo e a hora de início para cada operação de Barramento de Serviço.
 
-#### <a name="events"></a>Events
+#### <a name="events"></a>Eventos
 
-Para cada operação, dois eventos são enviados: 'Iniciar' e 'Parar'. Provavelmente, você só está interessado em eventos de 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
+Para cada operação, dois eventos são enviados: 'Start' e 'Stop'. Provavelmente, você só está interessado em eventos de 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
 
 A carga do evento fornece um ouvinte com o contexto da operação, ele replica os parâmetros de entrada de API e valor de retorno. A carga do evento de 'Stop' tem todas as propriedades da carga do evento de 'Start', portanto você pode ignorar o evento de 'Start' completamente.
 
@@ -225,7 +225,7 @@ Você pode usar `IsEnabled` também implementar estratégias de amostragem. Amos
 
 Na presença de vários `DiagnosticSource` ouvintes para a mesma fonte, é suficiente para apenas um ouvinte aceitar o evento, portanto `IsEnabled` não é garantido para ser chamado,
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Correlação de Application Insights](../azure-monitor/app/correlation.md)
 * [Monitore Dependências do Application Insights](../azure-monitor/app/asp-net-dependencies.md) para ver se REST, SQL ou outros recursos externos estão causando lentidão.

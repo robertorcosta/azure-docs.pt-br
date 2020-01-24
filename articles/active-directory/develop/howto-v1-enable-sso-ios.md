@@ -15,15 +15,14 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7915c0dae652e113410002128e4ea19ddba68a07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962630"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696904"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Habilitar o SSO entre aplicativos no iOS usando o ADAL
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como habilitar o SSO entre aplicativos no iOS usando a ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -36,9 +35,9 @@ Neste passo a passo, você aprenderá a configurar o SDK em seu aplicativo para 
 Estas instruções se aplicam a:
 
 * Azure Active Directory (Azure Active Directory)
-* Azure Active Directory B2C
+* Active Directory B2C do Azure
 * Azure Active Directory B2B
-* Acesso condicional ao Azure Active Directory
+* Acesso Condicional do Active Directory do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -110,7 +109,7 @@ Se um agente compatível for instalado no dispositivo, como o aplicativo Microso
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Como podemos garantir que o aplicativo é válido
 
-A necessidade de garantir a identidade de uma chamada de aplicativo para o agente é fundamental para a segurança fornecida em logons assistidos por agente. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no tempo de execução, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo. Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
+A necessidade de garantir a identidade de uma chamada de aplicativo para o agente é fundamental para a segurança fornecida em logons assistidos por agente. O iOS e o Android não impõem identificadores exclusivos que são válidos somente para um determinado aplicativo, portanto, aplicativos mal-intencionados podem "falsificar" o identificador de um aplicativo legítimo e receber os tokens destinados ao aplicativo legítimo. Para garantir que estejamos sempre nos comunicando com o aplicativo certo no runtime, pedimos ao desenvolvedor que forneça um redirectURI personalizado ao registrar seu aplicativo com a Microsoft. O modo como os desenvolvedores devem criar esse URI de redirecionamento é abordado com detalhes logo abaixo. Este redirectURI personalizado contém a ID de Pacote do aplicativo e tem a garantia da Apple App Store de ser exclusivo para o aplicativo. Quando um aplicativo chama o agente, o agente solicita que o sistema operacional iOS o forneça com a ID de Pacote que chamou o agente. O agente fornece a ID de Pacote para a Microsoft na chamada para nosso sistema de identidade. Se a ID de Pacote do aplicativo não corresponder com a ID de Pacote fornecida para nós pelo desenvolvedor durante o registro, negaremos o acesso aos tokens do recurso que o aplicativo está solicitando. Essa verificação garante que apenas o aplicativo registrado pelo desenvolvedor receba tokens.
 
 **O desenvolvedor tem a opção de definir se o SDK chama o agente ou usa o fluxo não assistido por agente.** No entanto, se o desenvolvedor optar por não usar o fluxo assistido por agente, perderá o benefício de usar as credenciais de SSO que o usuário já pode ter adicionado ao dispositivo e isso impedirá que o aplicativo seja usado com recursos empresariais fornecidos pela Microsoft aos seus clientes, como o Acesso Condicional, funcionalidades de gerenciamento do Intune e autenticação baseada em certificado.
 
@@ -165,7 +164,7 @@ Para SSO não assistido por agente entre aplicativos, os SDKs gerenciam grande p
 
 Para habilitar o SSO entre aplicativos que você possui, é necessário fazer o seguinte:
 
-1. Verifique se que todos os seus aplicativos usam a mesma ID de cliente ou de aplicativo.
+1. Verifique se todos os seus aplicativos usam a mesma ID de cliente ou ID do aplicativo.
 2. Certifique-se de que todos os aplicativos compartilhem o mesmo certificado de assinatura da Apple para que você possa compartilhar os conjuntos de chaves.
 3. Solicite o mesmo direito de conjunto de chaves para cada um dos seus aplicativos.
 4. Conte aos SDKs sobre o conjunto de chaves compartilhado que você deseja usar.
@@ -231,7 +230,7 @@ Quando os direitos estiverem configurados corretamente, você deverá ver um arq
 </plist>
 ```
 
-Quando você tem os direitos do conjunto de chaves habilitado em cada um de seus aplicativos, e você está pronto para usar o SSO, conte a identidade do SDK sobre seu conjunto de chaves usando a seguinte configuração seu `ADAuthenticationSettings` com a seguinte configuração:
+Depois de ter o direito do conjunto de chaves habilitado em cada um dos seus aplicativos, e você estiver pronto para usar o SSO, informe ao SDK de identidade sobre seu conjunto de chaves usando a seguinte configuração em seu `ADAuthenticationSettings` com a seguinte configuração:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -263,7 +262,7 @@ A capacidade de seu aplicativo de usar o agente é ativada quando você cria o �
 ```
 A configuração `AD_CREDENTIALS_AUTO` permitirá que o SDK tente chamar o agente, `AD_CREDENTIALS_EMBEDDED` impedirá que o SDK chame o agente.
 
-#### <a name="step-2-registering-a-url-scheme"></a>Etapa 2: registrar um esquema de URL
+#### <a name="step-2-registering-a-url-scheme"></a>Etapa 2: Registrando um esquema de URL
 
 A plataforma de identidade usa URLs para invocar o agente e, em seguida, devolver o controle ao seu aplicativo. Para concluir esse percurso de ida e volta você precisa de um esquema de URL registrado para o aplicativo que seja de conhecimento da plataforma de identidade. Isso pode acontecer junto com outros esquemas de aplicativo que você pode ter registrado anteriormente com seu aplicativo.
 
@@ -308,7 +307,7 @@ Para dar suporte à autenticação baseada em certificado, é necessário regist
 
 ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Etapa 4: adicionar um parâmetro de configuração ao aplicativo
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Etapa 4: adicione um parâmetro de configuração ao aplicativo
 
 O ADAL usa – canOpenURL: para verificar se o agente está instalado no dispositivo. No iOS 9, a Apple bloqueou os esquemas que um aplicativo pode consultar. Você precisará adicionar "msauth" à seção LSApplicationQueriesSchemes de seu `info.plist file`.
 
@@ -324,6 +323,6 @@ O ADAL usa – canOpenURL: para verificar se o agente está instalado no disposi
 
 Agora, o SDK de identidade compartilhará automaticamente as credenciais em seus aplicativos e invocará o agente se ele estiver presente em seu dispositivo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre o [protocolo de logon único SAML](single-sign-on-saml-protocol.md)

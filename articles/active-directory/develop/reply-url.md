@@ -10,13 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920320"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702514"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitações e restrições de URL de resposta/URI de redirecionamento
 
@@ -26,7 +25,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local para o qual o servido
 
 A tabela a seguir mostra o número máximo de URIs de redirecionamento que você pode adicionar ao registrar seu aplicativo.
 
-| Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
+| Contas sendo conectadas | Número máximo de URIs de redirecionamento | Description |
 |--------------------------|---------------------------------|-------------|
 | Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
 | Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | `signInAudience` campo no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* |

@@ -17,13 +17,12 @@ ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2591485c6e528eb9f422ce966ec7738af49dbddc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532415"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701035"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure AD (Active Directory)
 
@@ -54,7 +53,7 @@ Atualmente, o método preferencial para proteger chamadas para uma API Web é us
 * Recursos de HTML5, como armazenamento local ou por sessão, concedem controle total sobre o cache de tokens e o gerenciamento de tempo de vida, enquanto o gerenciamento de cookies é opaco para o aplicativo
 * Tokens de acesso não são suscetíveis a ataques de CSRF (solicitação intersite forjada)
 
-O fluxo de concessão implícita não emite tokens de atualização, principalmente por motivos de segurança. Um token de atualização não tem escopo tão restrito quanto tokens de acesso, concedendo muito mais capacidade e, assim, causando muito mais danos caso seja vazado. No fluxo de implícita, os tokens são fornecidos na URL, por isso, o risco de interceptação é maior do que na concessão de código de autorização.
+O fluxo de concessão implícita não emite tokens de atualização, principalmente por motivos de segurança. Um token de atualização não tem um escopo restrito como tokens de acesso, concedendo muito mais energia, provocando muito mais danos caso ele seja vazado. No fluxo implícito, os tokens são entregues na URL, portanto, o risco de interceptação é maior do que na concessão de código de autorização.
 
 No entanto, um aplicativo JavaScript tem outro mecanismo à sua disposição para renovar tokens de acesso sem solicitar repetidamente as credenciais ao usuário. O aplicativo pode usar um iframe oculto para executar novas solicitações de token em relação ao ponto de extremidade de autorização do Azure AD: enquanto o navegador ainda tiver uma sessão ativa (ou seja, tiver um cookie de sessão) em relação ao domínio do Azure AD, a solicitação de autenticação poderá ocorrer com êxito sem necessidade de interação do usuário.
 
@@ -62,13 +61,13 @@ Esse modelo concede ao aplicativo JavaScript a capacidade de renovar independent
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>A concessão implícita é adequada para meu aplicativo?
 
-A concessão implícita apresenta mais riscos do que outras concessões, e as áreas que você precisa prestar atenção são bem documentadas (por exemplo, o [uso indevido do token de acesso para representar o proprietário do recurso no fluxo implícito][OAuth2-Spec-Implicit-Misuse] e o [modelo de ameaça OAuth 2,0 e segurança Considerações][OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais alto é amplamente devido ao fato de que seu objetivo é habilitar aplicativos que executam código ativo, fornecido por um recurso remoto a um navegador. Se você estiver planejando uma arquitetura SPA, não tem um componente de back-end ou pretende invocar uma API Web por meio de JavaScript, é recomendável usar o fluxo implícito para aquisição de token.
+A concessão implícita apresenta mais riscos do que outras concessões, e as áreas que você precisa prestar atenção são bem documentadas (por exemplo, o [uso indevido do token de acesso para representar o proprietário do recurso no fluxo implícito][OAuth2-Spec-Implicit-Misuse] e as [considerações de segurança e o modelo de ameaça do OAuth 2,0][OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais alto é amplamente devido ao fato de que seu objetivo é habilitar aplicativos que executam código ativo, fornecido por um recurso remoto a um navegador. Se você estiver planejando uma arquitetura SPA, não tem um componente de back-end ou pretende invocar uma API Web por meio de JavaScript, é recomendável usar o fluxo implícito para aquisição de token.
 
 Se o aplicativo é um cliente nativo, o fluxo implícito não é a melhor opção. A ausência do cookie de sessão do Azure AD no contexto de um cliente nativo priva o aplicativo dos meios de manter uma sessão com vida útil longa. Isso significa que o aplicativo se dirigirá repetidamente ao usuário ao obter tokens de acesso para novos recursos.
 
 Se você está desenvolvendo um aplicativo Web que inclui um back-end e que consome uma API de seu código de back-end, o fluxo implícito também não é uma boa opção. Outras concessões oferecem capacidade muito maior. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter tokens que refletem as permissões atribuídas ao próprio aplicativo, em vez de delegações de usuário. Isso significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um usuário não está ativamente envolvido em uma sessão e assim por diante. Não apenas isso, mas essas concessões dão garantias de segurança mais alta. Por exemplo, tokens de acesso nunca transitam pelo navegador do usuário, não correm o risco de ser salvos no histórico do navegador e assim por diante. O aplicativo cliente também pode executar a autenticação forte ao solicitar um token.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter uma lista completa de recursos de desenvolvedor, incluindo informações de referência para os protocolos e suporte a fluxos de concessão de autorização OAuth2 pelo Azure AD, consulte o [Guia do desenvolvedor do Azure ad][AAD-Developers-Guide]
 * Consulte [como integrar um aplicativo com o Azure ad][ACOM-How-To-Integrate] para obter mais detalhes sobre o processo de integração de aplicativos.

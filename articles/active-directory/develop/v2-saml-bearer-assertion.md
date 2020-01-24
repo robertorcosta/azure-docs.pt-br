@@ -17,13 +17,12 @@ ms.date: 08/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f5b983a00dfc0af2e7a40571ce58fafca5914e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964497"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700202"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML 2,0 do OAuth
 O fluxo de asserção do portador SAML 2,0 do OAuth permite solicitar um token de acesso OAuth usando uma Asserção SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma Asserção SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende de seu conteúdo para identificar o assunto da declaração para fins relacionados à segurança.
@@ -52,7 +51,7 @@ Registre o aplicativo no [portal](https://ms.portal.azure.com/#blade/Microsoft_A
     1. **Nome**: insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo.
     1. **Tipos de conta com suporte**: selecione as contas às quais você gostaria que seu aplicativo desse suporte.
     1. **URI de redirecionamento (opcional)** – selecione o tipo de aplicativo que você está criando, Web ou cliente público (Mobile & Desktop) e, em seguida, insira o URI de redirecionamento (ou URL de resposta) para seu aplicativo.
-    1. Quando terminar, selecione **Registro**.
+    1. Ao terminar, selecione **Registrar**.
 1. Anote a ID do aplicativo (cliente).
 1. No painel esquerdo, selecione **certificados & segredos**. Clique em **novo segredo do cliente** na seção **segredos do cliente** . Copie o novo segredo do cliente, você não poderá recuperar quando sair da folha.
 1. No painel esquerdo, selecione **permissões de API** e, em seguida, **adicione uma permissão**. Selecione **Microsoft Graph**, **permissões delegadas**e, em seguida, selecione **tarefas. ler** , pois pretendemos usar o API do Graph do Outlook. 

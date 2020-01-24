@@ -13,19 +13,18 @@ ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cba213824cba86b4ea54e852b7e2f1ede83abfea
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916138"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695799"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
 Os aplicativos MSAL (biblioteca de autenticação da Microsoft) geram mensagens de log que podem ajudar a diagnosticar problemas. Um aplicativo pode configurar o registro em log com algumas linhas de código, ter um controle personalizado sobre o nível de detalhes e determinar se dados pessoais e organizacionais serão registrados. Recomendamos que você crie um retorno de chamada de log MSAL e forneça uma maneira para os usuários enviarem logs quando tiverem problemas de autenticação.
 
-## <a name="logging-levels"></a>Níveis de registro de log
+## <a name="logging-levels"></a>Níveis de log
 
 O MSAL fornece vários níveis de detalhes de log:
 
@@ -207,15 +206,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = YES;
 MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 ```
 
-### <a name="logging-levels"></a>Níveis de registro de log
+### <a name="logging-levels"></a>Níveis de log
 
 Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use um dos seguintes valores:
 
-|Nível  |Descrição |
+|Nível  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Avisos |
+| `MSALLogLevelWarning` | Warnings |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreamento de API |
 
@@ -284,15 +283,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = true
 MSALGlobalConfig.loggerConfig.piiEnabled = false
 ```
 
-### <a name="logging-levels"></a>Níveis de registro de log
+### <a name="logging-levels"></a>Níveis de log
 
 Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use um dos seguintes valores:
 
-|Nível  |Descrição |
+|Nível  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Avisos |
+| `MSALLogLevelWarning` | Warnings |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreamento de API |
 

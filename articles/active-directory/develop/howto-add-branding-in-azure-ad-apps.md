@@ -14,13 +14,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130bfb055b41ea3d2726c83c06430a0ea58fe98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 37d6cd03c07c10bfac5b25e3850c7d3af97bcec7
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424563"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697482"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
@@ -57,9 +56,9 @@ Em uma versão anterior dessas diretrizes, recomendamos usar uma imagem de "crac
 
 Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as seções a seguir fornecem orientação visual para os dois cenários.
 
-**Se o aplicativo der suporte à inscrição do usuário final (por exemplo, grátis para avaliação ou modelo freemium)** : Você pode mostrar um botão de **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
+**Se seu aplicativo suportar a inscrição do usuário final (por exemplo, avaliação gratuita ou modelo freemium)** : Você pode mostrar um botão **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou sua conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
 
-**Se o aplicativo exige permissões com as quais somente os administradores podem consentir ou se o aplicativo exige licenciamento organizacional**: Aquisição de administrador separada de entrada do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para entrar e pedir que eles concedam autorização em nome dos usuários em sua organização, o que tem o benefício adicional da supressão de solicitações de consentimento do usuário final para seu aplicativo.
+**Se seu aplicativo exigir permissões que somente os administradores podem conferir ou se o aplicativo exigir licenciamento organizacional**: separe a aquisição do administrador de logon do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para entrar e pedir que eles concedam autorização em nome dos usuários em sua organização, o que tem o benefício adicional da supressão de solicitações de consentimento do usuário final para seu aplicativo.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Orientação visual para aquisição de aplicativo
 
@@ -71,7 +70,7 @@ Depois que os administradores derem consentimento ao seu aplicativo, eles podem 
 
 No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo:
 
-> *Se você já usa o Office 365 ou outro serviço corporativo da Microsoft, pode conceder o acesso <nome_aplicativo> aos dados de sua organização. Isso permitirá que os usuários acessem o <nome_aplicativo> com suas contas de trabalho existentes.*
+> *Se você já usa o Office 365 ou outro serviço comercial da Microsoft, é possível conceder < your_app_name > acesso aos dados da sua organização. Isso permitirá que os usuários acessem < your_app_name > com suas contas de trabalho existentes.*
 
 Para baixar o logotipo oficial da Microsoft para uso em seu aplicativo, clique com o botão direito do mouse naquela que você deseja usar e salve-o em seu computador.
 

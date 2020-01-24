@@ -13,13 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2815fbebd54a1e373aa8b3058f85d092c0bb098f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c5b8c506398af27ced284405dd75e48fb19a17af
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844882"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698842"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração ao Active Directory do Azure
 
@@ -73,7 +72,7 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 
 ### <a name="advanced-security-features"></a>Recursos avançados de segurança
 
-**Multi-Factor Authentication.**  O AD do Azure fornece Multi-Factor Authentication nativa. Os administradores de TI podem exigir Multi-Factor Authentication para acessar o aplicativo, para que você não precise codificar esse suporte por conta própria. Saiba mais sobre [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Autenticação multifator**  O AD do Azure fornece Multi-Factor Authentication nativa. Os administradores de TI podem exigir Multi-Factor Authentication para acessar o aplicativo, para que você não precise codificar esse suporte por conta própria. Saiba mais sobre [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Detecção de entrada anormal.**  O AD do Azure processa mais de um bilhão de entradas por dia, enquanto usa algoritmos de aprendizado de máquina para detectar atividades suspeitas e notifica os administradores de TI sobre possíveis problemas. Ao oferecer suporte a entrada no AD do Azure, o aplicativo obtém o benefício dessa proteção. Saiba mais sobre a [visualização do relatório de acesso do Azure Active Directory](../active-directory-view-access-usage-reports.md).
 

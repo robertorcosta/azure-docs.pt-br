@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f595013d5404f0cbcb17a0d24d6395a84fa5b607
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c7dea5acfce9ad964b050b6787f29e5d116a306b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266978"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704588"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Faça login usando a verificação em duas etapas ou informações de segurança
 
@@ -89,7 +88,7 @@ Se, por alguma razão, você não conseguir usar seu método de entrada primári
 
 3. Depois que você está em sua conta, você pode atualizar seus métodos de verificação (se necessário). Para obter mais informações sobre como adicionar ou mudar métodos, consulte o artigo [gerenciar as configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as informações de segurança no artigo [Visão geral da informação de segurança (visualização)](user-help-security-info-overview.md).
 

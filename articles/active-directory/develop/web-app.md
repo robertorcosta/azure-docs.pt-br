@@ -16,13 +16,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d41cd23d551e4834bf6b94f513e36ff46c1cd45
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: fe9fb67331340314ebeea3c9e8d34436b9088856
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373654"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699743"
 ---
 # <a name="web-apps"></a>Aplicativos Web
 
@@ -47,7 +46,7 @@ Veja os exemplos de código do navegador da Web para cenários de aplicativo Web
 
 Para registrar um aplicativo Web, consulte [registrar um aplicativo](quickstart-register-app.md).
 
-* Locatário Único – Se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
+* Locatário único: se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
 * Multilocatário – Se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deverá ser registrado no diretório da sua empresa, mas também deverá ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
 
 ## <a name="token-expiration"></a>Expiração do token
@@ -56,5 +55,5 @@ A sessão do usuário expira quando a vida útil do token emitido pelo Azure AD 
 
 ## <a name="next-steps"></a>Próximos passos
 
-* Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
+* Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
 * Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD

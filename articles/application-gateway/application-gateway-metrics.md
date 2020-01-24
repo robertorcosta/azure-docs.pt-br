@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 12759deb3e1775b5170d40cc609fe8c6226bf0d6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777811"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704571"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para o gateway de aplicativo
 
@@ -28,30 +28,30 @@ As métricas a seguir relacionadas ao tempo da solicitação e resposta estão d
 >
 > Se houver mais de um ouvinte no gateway de aplicativo, sempre filtre pela dimensão do *ouvinte* , comparando métricas de latência diferentes para obter uma inferência significativa.
 
+- **Tempo de conexão de back-end**
+
+  Tempo gasto estabelecendo uma conexão com um aplicativo de back-end. Isso inclui a latência de rede, bem como o tempo gasto pela pilha TCP do servidor de back-end para estabelecer novas conexões. No caso do SSL, ele também inclui o tempo gasto no handshake. 
+
+- **Tempo de resposta do primeiro byte do back-end**
+
+  Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor de back-end e o recebimento do primeiro byte do cabeçalho de resposta. Isso aproxima a soma do tempo de *conexão de back-end* e o tempo de resposta do aplicativo de back-end (o tempo que o servidor levou para gerar conteúdo, potencialmente buscar consultas de banco de dados e começar a transferir a resposta de volta para o gateway de aplicativo)
+
+- **Tempo de resposta do último byte do back-end**
+
+  Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor de back-end e o recebimento do último byte do corpo da resposta. Isso aproxima a soma do *tempo de resposta do primeiro back-end* e o tempo de transferência de dados (esse número pode variar muito dependendo do tamanho dos objetos solicitados e da latência da rede do servidor)
+
+- **Tempo total do gateway de aplicativo**
+
+  Tempo médio que leva para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como a média do intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até o momento em que a operação de envio de resposta termina, isso aproxima a soma do tempo de processamento do gateway de aplicativo e o *tempo de resposta do último byte de back-end*
+
 - **RTT do cliente**
 
   Tempo médio de ida e volta entre clientes e o gateway de aplicativo. Essa métrica indica quanto tempo leva para estabelecer conexões e retornar confirmações. 
 
-- **Tempo total do gateway de aplicativo**
+Essas métricas podem ser usadas para determinar se a lentidão observada é devido ao gateway de aplicativo, à saturação de pilha TCP do servidor de back-end e rede, ao desempenho do aplicativo de back-end ou ao tamanho de arquivo grande.
+Por exemplo, se houver um pico no tempo de resposta do primeiro byte de back-end, mas o tempo de conexão de back-end for constante, poderá ser inferido que o gateway de aplicativo para latência de back-end, bem como o tempo necessário para estabelecer a conexão, é estável e o pico é causado devido a um n aumentar o tempo de resposta do aplicativo back-end. Da mesma forma, se o tempo de resposta do pico no primeiro byte de back-end estiver associado a um pico correspondente no tempo de conexão de back-end, ele poderá ser deduzido de que a rede ou a pilha TCP do servidor está saturada. Se você notar um pico no tempo de resposta do último byte de back-end, mas o tempo de resposta do primeiro byte do back-end for constante, provavelmente o pico será devido a um arquivo maior sendo solicitado. Da mesma forma, se o tempo total do gateway de aplicativo for muito maior do que o tempo de resposta do último byte do back-end, ele poderá ser um sinal de afunilamento de desempenho no gateway de aplicativo.
 
-  Tempo médio que leva para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como a média do intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até o momento em que a operação de envio de resposta é concluída. É importante observar que isso geralmente inclui o tempo de processamento do gateway de aplicativo, o tempo que os pacotes de solicitação e resposta estão viajando pela rede e o tempo que o servidor back-end levou para responder.
-  
-Após a filtragem por ouvinte, se o *RTT do cliente* for muito mais do que o *tempo total do gateway de aplicativo*, ele poderá ser deduzido que a latência observada pelo cliente é devido à conectividade de rede entre o cliente e o gateway de aplicativo. Se ambas as latências forem comparáveis, a alta latência poderá ser devido a qualquer um dos seguintes: gateway de aplicativo, a rede entre o gateway de aplicativo e o aplicativo de back-end ou o desempenho do aplicativo de back-end.
 
-- **Tempo de resposta do primeiro byte do back-end**
-
-  Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor back-end e o recebimento do primeiro byte do cabeçalho de resposta, aproximar tempo de processamento do servidor back-end
-
-- **Tempo de resposta do último byte do back-end**
-
-  Intervalo de tempo entre o início do estabelecimento de uma conexão com o servidor de back-end e o recebimento do último byte do corpo da resposta
-  
-Se o *tempo total do gateway de aplicativo* for muito maior do que o *tempo de resposta do último byte de back-end* para um ouvinte específico, ele poderá ser deduzido de que a alta latência pode ser devido ao gateway de aplicativo. Por outro lado, se as duas métricas forem comparáveis, o problema poderá ser devido à rede entre o gateway de aplicativo e o aplicativo de back-end, ou o desempenho do aplicativo de back-end.
-
-- **Tempo de conexão de back-end**
-
-  Tempo gasto estabelecendo uma conexão com um aplicativo de back-end. No caso do SSL, ele inclui o tempo gasto no handshake. Observe que essa métrica é diferente das outras métricas de latência, pois isso só mede o tempo de conexão e, portanto, não deve ser diretamente comparado a magnitude com as outras latências. No entanto, a comparação do padrão de *tempo de conexão de back-end* com o padrão das outras latências pode indicar se um aumento em outras latências pode ser deduzido devido a uma variação na rede entre o aplicativo gateway e o aplicativo back-end. 
-  
 
 ### <a name="application-gateway-metrics"></a>Métricas do gateway de aplicativo
 

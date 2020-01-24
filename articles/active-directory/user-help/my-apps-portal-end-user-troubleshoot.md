@@ -12,13 +12,12 @@ ms.date: 03/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2987183900ad3232d46b2152bd52808ae96c802b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383067"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704826"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal meus aplicativos
 
@@ -48,7 +47,7 @@ Se você estiver tendo problemas ao instalar a extensão de entrada segura de me
 
 Se você estiver tendo problemas para entrar no portal **meus aplicativos** , você pode tentar o seguinte:
 
-- Verifique se você está usando a URL correta. Ele deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, https://myapps.microsoft.com/contoso.com como.
+- Verifique se você está usando a URL correta. Ele deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
 - Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
@@ -82,7 +81,7 @@ Se você estiver recebendo uma mensagem de **acesso negado** depois de iniciar u
 
 Se, depois de tentar essas coisas, você ainda não puder acessar seu aplicativo, deverá entrar em contato com o suporte técnico da sua organização para obter assistência.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de entrar no portal **meus aplicativos** , você também pode atualizar suas informações de perfil e conta, suas informações de grupo e informações de revisão de acesso (se você tiver permissão).
 

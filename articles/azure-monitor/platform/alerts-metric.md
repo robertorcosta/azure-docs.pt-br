@@ -1,18 +1,18 @@
 ---
 title: Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 description: Saiba como usar a CLI ou o portal do Azure para criar, exibir e gerenciar regras de alerta de métrica.
-author: snehithm
+author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f5f37591ed2ed250cb756c686ea15136921512
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712970"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705523"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -41,7 +41,7 @@ O procedimento a seguir descreve como criar uma regra de alerta de métrica no p
 
 7. Também é possível refinar a métrica ajustando o **Período** e a **Agregação**. Se a métrica tem dimensões, a tabela **Dimensões** é apresentada. Selecione um ou mais valores por dimensão. O alerta de métrica será executado e avaliará a condição com relação a todas as combinações de valores selecionadas. [Saiba mais sobre como os alertas de métricas multidimensionais funcionam](alerts-metric-overview.md). Também é possível **Selecionar \*** para qualquer uma das dimensões. **Selecionar \*** dimensionará dinamicamente a seleção para todos os valores atuais e futuros de uma dimensão.
 
-8. Você verá um gráfico da métrica referente às últimas 6 horas. Defina os parâmetros de alerta **Tipo de Condição**, **Frequência**, **Operador**, **Limite** ou **Confidencialidade**, que determinam a lógica que a regra de alerta de métrica avaliará. [Saiba mais sobre as opções de confidencialidade e tipo de condição dos Limites Dinâmicos](alerts-dynamic-thresholds.md).
+8. Você verá um gráfico da métrica referente às últimas 6 horas. Defina os parâmetros de alerta **Tipo de Condição**, **Frequência**, **Operador**, **Limite** ou **Confidencialidade**, que determinam a lógica que a regra de alerta de métrica avaliará. [Saiba mais sobre as opções de sensibilidade e o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md).
 
 9. Se você está usando um limite estático, o gráfico de métrica pode ajudar a determinar o que pode ser um limite razoável. Se você está usando Limites Dinâmicos, o gráfico de métrica exibe os limites calculados com base em dados recentes.
 
@@ -126,7 +126,7 @@ As seções anteriores descreveram como criar, exibir e gerenciar regras de aler
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar alertas de métrica usando modelos do Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Compreender como os alertas de métrica funcionam](alerts-metric-overview.md).

@@ -17,13 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919317"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700678"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e credenciais de senha do proprietário do recurso OAuth 2,0
 
@@ -69,13 +68,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| . | Condição | Descrição |
+| Parâmetro | Condição | Description |
 | --- | --- | --- |
-| `tenant` | obrigatórios | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
-| `client_id` | obrigatórios | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. | 
-| `grant_type` | obrigatórios | Deve ser definido como `password`. |
-| `username` | obrigatórios | Endereço de email do usuário. |
-| `password` | obrigatórios | A senha do usuário. |
+| `tenant` | Obrigatório | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
+| `client_id` | Obrigatório | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. | 
+| `grant_type` | Obrigatório | Deve ser definido como `password`. |
+| `username` | Obrigatório | Endereço de email do usuário. |
+| `password` | Obrigatório | A senha do usuário. |
 | `scope` | Recomendado | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve consentir esses escopos antes do tempo. |
 | `client_secret`| Às vezes é necessário | Se seu aplicativo for um cliente público, o `client_secret` ou `client_assertion` não poderá ser incluído.  Se o aplicativo for um cliente confidencial, ele deverá ser incluído. | 
 | `client_assertion` | Às vezes é necessário | Uma forma diferente de `client_secret`, gerada usando um certificado.  Consulte [credenciais de certificado](active-directory-certificate-credentials.md) para obter mais detalhes. | 
@@ -95,9 +94,9 @@ O exemplo a seguir mostra uma resposta de token bem-sucedida:
 }
 ```
 
-| . | Formatar | Descrição |
+| Parâmetro | Formatar | Description |
 | --------- | ------ | ----------- |
-| `token_type` | string | Sempre defina como `Bearer`. |
+| `token_type` | String | Sempre defina como `Bearer`. |
 | `scope` | Cadeia de caracteres separadas por espaço | Se um token de acesso foi retornado, esse parâmetro lista os escopos para os quais o token de acesso é válido. |
 | `expires_in`| int | Número de segundos para o qual o token de acesso incluído é válido. |
 | `access_token`| Cadeia de caracteres opaca | Emitido para os [escopos](v2-permissions-and-consent.md) que foram solicitados. |
@@ -110,7 +109,7 @@ Você pode usar o token de atualização para adquirir novos tokens de acesso e 
 
 Se o usuário não tiver fornecido o nome de usuário ou a senha corretos, ou se o cliente não tiver recebido o consentimento solicitado, a autenticação falhará.
 
-| Erro | Descrição | Ação do cliente |
+| Erro | Description | Ação do cliente |
 |------ | ----------- | -------------|
 | `invalid_grant` | A autenticação falhou | As credenciais estavam incorretas ou o cliente não tem consentimento para os escopos solicitados. Se os escopos não forem concedidos, um erro de `consent_required` será retornado. Se isso ocorrer, o cliente deve enviar o usuário para um prompt interativo usando uma visualização da Web ou um navegador. |
 | `invalid_request` | A solicitação foi mal construída | O tipo Grant não tem suporte nos contextos de autenticação `/common` ou `/consumers`.  Em vez disso, use `/organizations` ou uma ID de locatário. |
