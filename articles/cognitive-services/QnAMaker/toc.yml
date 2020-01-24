@@ -137,7 +137,7 @@
       href: Overview/language-support.md
     - name: limites
       href: limits.md
-    - name: solução de problemas
+    - name: Solução de problemas
       href: troubleshooting.md
     - name: Formatos de arquivo
       items:
@@ -181,7 +181,7 @@
             - name: Documentação de referência
               href: 'https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest'
             - name: NPM
-              href: 'https://www.npmjs.com/package/azure-cognitiveservices-qnamaker'
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker'
             - name: Exemplos
               href: 'https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs'
         - name: Python

@@ -84,9 +84,9 @@
 - name: Conceitos
   items:
     - name: Compatível com TLS
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: Substituição do TLS 1.0 e 1.1
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Visão geral de aprimoramentos de mensagem
       href: iot-hub-message-enrichments-overview.md
     - name: Visão geral de gerenciamento de dispositivo
