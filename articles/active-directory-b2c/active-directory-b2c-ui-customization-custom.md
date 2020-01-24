@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db9b95f82a18072af538d4aa946431dcef8d9cff
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949619"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154634"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -120,7 +120,7 @@ Valide se você está pronto executando as seguintes etapas:
 
 Para configurar a personalização da interface do usuário, você deve copiar o **ContentDefinition** e seus elementos filho do arquivo de base para o arquivo de extensões.
 
-1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> . Esse é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Abra o arquivo base da sua política. Por exemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Esse é um dos arquivos de política incluídos no pacote de início de política personalizada, que você deve ter obtido no pré-requisito, [introdução às políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Pesquise e copie todo o conteúdo do elemento **ContentDefinitions**.
 1. Abra o arquivo de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Pesquise o elemento **BuildingBlocks**. Se o elemento não existir, adicione-o.
 1. Cole todo o conteúdo do elemento **ContentDefinitions** que você copiou como filho do elemento **BuildingBlocks**.
@@ -146,19 +146,19 @@ Para configurar a personalização da interface do usuário, você deve copiar o
 
 1. Salve o arquivo de extensões.
 
-## <a name="upload-your-updated-custom-policy"></a>Carregar a política personalizada atualizada
+## <a name="upload-and-test-your-updated-custom-policy"></a>Carregar e testar sua política personalizada atualizada
+
+### <a name="upload-the-custom-policy"></a>Carregar a política personalizada
 
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
-1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-1. Selecione **Estrutura de Experiência de Identidade**.
-1. Clique em **Todas as Políticas**.
-1. Clique em **Carregar Política**.
+1. Procure e selecione **Azure ad B2C**.
+1. Em **políticas**, selecione **estrutura de experiência de identidade**.
+1. Selecione **carregar política personalizada**.
 1. Carregue o arquivo de extensões que você alterou anteriormente.
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Teste a política personalizada usando a opção **Executar Agora**
+### <a name="test-the-custom-policy-by-using-run-now"></a>Teste a política personalizada usando a opção **Executar Agora**
 
-1. Na página **Azure ad B2C** , vá para **todas as políticas**.
-1. Selecione a política personalizada carregada e clique no botão **Executar agora**.
+1. Selecione a política que você carregou e, em seguida, selecione **executar agora**.
 1. Você deverá conseguir se inscrever usando um endereço de email.
 
 ## <a name="reference"></a>Referência
@@ -172,7 +172,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 A pasta sample_templates/wingtip contém os seguintes arquivos HTML:
 
-| Modelo do HTML5 | Descrição |
+| Modelo do HTML5 | Description |
 |----------------|-------------|
 | *phonefactor.html* | Use esse arquivo como modelo para uma página de autenticação multifator. |
 | *resetpassword.html* | Use esse arquivo como modelo para uma página de esquecimento de senha. |
@@ -193,7 +193,7 @@ Aqui estão as etapas sobre como usar o exemplo:
 
 Na seção Modificar sua política personalizada de inscrição ou entrada, você configurou a definição de conteúdo para `api.idpselections`. O conjunto completo de IDs de definição de conteúdo reconhecidas pelo framework de experiência de identidade do Azure AD B2C e suas descrições estão na tabela a seguir:
 
-| ID de definição de conteúdo | Descrição |
+| ID de definição de conteúdo | Description |
 |-----------------------|-------------|
 | *api.error* | **Página de erro**. Essa página é exibida quando uma exceção ou um erro é encontrado. |
 | *api.idpselections* | **Página de seleção de provedor de identidade**. Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição. Essas opções são os provedores de identidade empresarial, provedores de identidade social, como Facebook e Google+, ou contas locais. |

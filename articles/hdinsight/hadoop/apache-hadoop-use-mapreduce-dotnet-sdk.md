@@ -1,48 +1,48 @@
 ---
 title: Enviar trabalhos MapReduce usando o SDK do .NET do Azure HDInsight
 description: Saiba como enviar tarefas do MapReduce para o Azure HDInsight Apache Hadoop usando o SDK do .NET do HDInsight.
-ms.reviewer: jasonh
 author: hrasheed-msft
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1ac2dda20ba1219c9f62e834b5cd2cfba8a50086
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 01/15/2020
+ms.openlocfilehash: e50510f2420d69be37af584a2648a794e1561ee3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718963"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157042"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
+
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clusters HDInsight vêm com um arquivo jar com alguns exemplos de MapReduce. O arquivo jar está localizado em */example/jars/hadoop-mapreduce-examples.jar*.  Um dos exemplos é *wordcount*. Você desenvolve um aplicativo do console C# para enviar um trabalho wordcount.  O trabalho lê o arquivo */example/data/gutenberg/davinci.txt* e gera os resultados em */example/data/davinciwordcount*.  Se você desejar executar novamente o aplicativo, você deve limpar a pasta de saída.
+Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clusters HDInsight vêm com um arquivo jar com alguns exemplos de MapReduce. O arquivo jar está `/example/jars/hadoop-mapreduce-examples.jar`.  Um dos exemplos é **wordcount**. Você desenvolve um aplicativo do console C# para enviar um trabalho wordcount.  O trabalho lê o arquivo de `/example/data/gutenberg/davinci.txt` e gera os resultados para `/example/data/davinciwordcount`.  Se você desejar executar novamente o aplicativo, você deve limpar a pasta de saída.
 
 > [!NOTE]  
 > As etapas neste artigo devem ser executadas em um cliente do Windows. Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com o Hive, use o seletor de tabulação mostrado na parte superior do artigo.
-> 
-> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este artigo, você deve ter os seguintes itens:
 
-* **Um cluster Hadoop no HDInsight**. Confira a [Introdução ao uso do Apache Hadoop baseado em Linux no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
-* **Visual Studio 2013/2015/2017**.
+* Um cluster do Apache Hadoop no HDInsight. Consulte [criar Apache Hadoop clusters usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
+
+* [Do Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight
-O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. 
 
-**Para enviar trabalhos**
+O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET, que facilitam o trabalho com clusters HDInsight do .NET.
 
-1. No Visual Studio, crie um aplicativo de console C#.
-2. No Console do Gerenciador de Pacotes NuGet, execute o comando a seguir:
+1. Inicie o Visual Studio e crie C# um aplicativo de console.
+
+1. Navegue até **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes** e digite o seguinte comando:
 
     ```   
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
-3. Use o seguinte código:
+
+1. Copie o código abaixo em **Program.cs**. Em seguida, edite o código definindo os valores para: `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey`e `defaultStorageContainerName`.
 
     ```csharp
     using System.Collections.Generic;
@@ -54,57 +54,56 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
     using Hyak.Common;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
-
+    
     namespace SubmitHDInsightJobDotNet
     {
         class Program
         {
             private static HDInsightJobManagementClient _hdiJobManagementClient;
-
+    
             private const string existingClusterName = "<Your HDInsight Cluster Name>";
-            private const string existingClusterUri = existingClusterName + ".azurehdinsight.net";
-            private const string existingClusterUsername = "<Cluster Username>";
             private const string existingClusterPassword = "<Cluster User Password>";
-
-            private const string defaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.windows.net
+            private const string defaultStorageAccountName = "<Default Storage Account Name>"; 
             private const string defaultStorageAccountKey = "<Default Storage Account Key>";
             private const string defaultStorageContainerName = "<Default Blob Container Name>";
-
-            private const string sourceFile = "/example/data/gutenberg/davinci.txt";  
+    
+            private const string existingClusterUsername = "admin";
+            private const string existingClusterUri = existingClusterName + ".azurehdinsight.net";
+            private const string sourceFile = "/example/data/gutenberg/davinci.txt";
             private const string outputFolder = "/example/data/davinciwordcount";
-
+    
             static void Main(string[] args)
             {
                 System.Console.WriteLine("The application is running ...");
-
+    
                 var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
                 _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
-
+    
                 SubmitMRJob();
-
+    
                 System.Console.WriteLine("Press ENTER to continue ...");
                 System.Console.ReadLine();
             }
-
+    
             private static void SubmitMRJob()
             {
                 List<string> args = new List<string> { { "/example/data/gutenberg/davinci.txt" }, { "/example/data/davinciwordcount" } };
-
+    
                 var paras = new MapReduceJobSubmissionParameters
                 {
                     JarFile = @"/example/jars/hadoop-mapreduce-examples.jar",
                     JarClass = "wordcount",
                     Arguments = args
                 };
-
+    
                 System.Console.WriteLine("Submitting the MR job to the cluster...");
                 var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                 var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                 System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                 System.Console.WriteLine("JobId is " + jobId);
-
+    
                 System.Console.WriteLine("Waiting for the job completion ...");
-
+    
                 // Wait for job completion
                 var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
                 while (!jobDetail.Status.JobComplete)
@@ -112,7 +111,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
                     Thread.Sleep(1000);
                     jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
                 }
-
+    
                 // Get job output
                 System.Console.WriteLine("Job output is: ");
                 var storageAccess = new AzureStorageAccess(defaultStorageAccountName, defaultStorageAccountKey,
@@ -121,8 +120,8 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
                 if (jobDetail.ExitValue == 0)
                 {
                     // Create the storage account object
-                    CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
-                        defaultStorageAccountName + 
+                    CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" +
+                        defaultStorageAccountName +
                         ";AccountKey=" + defaultStorageAccountKey);
     
                     // Create the blob client.
@@ -147,7 +146,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
                 else
                 {
                     // fetch stderr output in case of failure
-                    var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); 
+                    var output = _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess);
     
                     using (var reader = new StreamReader(output, Encoding.UTF8))
                     {
@@ -159,20 +158,21 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
             }
         }
     }
+
     ```
 
-4. Pressione **F5** para executar o aplicativo.
+1. Pressione **F5** para executar o aplicativo.
 
-Para executar o trabalho novamente, é necessário alterar o nome da pasta de saída do trabalho, no exemplo, "/example/data/davinciwordcount".
+Para executar o trabalho novamente, você deve alterar o nome da pasta de saída do trabalho, no exemplo `/example/data/davinciwordcount`.
 
-Quando o trabalho for concluído com êxito, o aplicativo imprimirá o conteúdo do arquivo de saída "part-r-00000".
+Quando o trabalho for concluído com êxito, o aplicativo imprime o conteúdo do arquivo de saída `part-r-00000`.
 
-## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
+## <a name="next-steps"></a>Próximos passos
+
+Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, leia os seguintes artigos:
 
 * Para enviar um trabalho de Hive, consulte [Executar consultas Apache Hive usando o SDK do .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
-* Para criar clusters HDInsight, confira [Criar Clusters Apache Hadoop baseados em Linux no HDInsight.](../hdinsight-hadoop-provision-linux-clusters.md).
+* Para criar clusters HDInsight, confira [Criar Clusters Apache Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Para gerenciar clusters HDInsight, consulte [Gerenciar clusters Apache Hadoop no HDInsight](../hdinsight-administer-use-portal-linux.md).
 * Para aprender sobre o SDK do .NET do HDInsight, consulte [referência do SDK do .NET do HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * Para autenticação não interativa no Azure, confira [Criar aplicativos .NET HDInsight de autenticação não interativa](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-

@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 208ffaa4c78e00031e41b6e2b8c01edb667b54a6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: df8b4d7ea44f885ee0fed0479ba87a4bc9ba1a29
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481151"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310162"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída para nós de cluster no serviço de kubernetes do Azure (AKS)
 
@@ -25,7 +25,7 @@ Este artigo detalha quais portas de rede e FQDNs (nomes de domínio totalmente q
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa do CLI do Azure versão 2.0.66 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.66 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Visão geral do tráfego de saída
 
@@ -36,7 +36,7 @@ Para aumentar a segurança do cluster AKS, talvez você queira restringir o trá
 Você pode usar o [Firewall do Azure][azure-firewall] ou um dispositivo de firewall de terceiros para proteger o tráfego de saída e definir as portas e os endereços necessários. O AKS não cria essas regras automaticamente para você. As portas e os endereços a seguir são para referência à medida que você cria as regras apropriadas no firewall de rede.
 
 > [!IMPORTANT]
-> Quando você usa o Firewall do Azure para restringir o tráfego de saída e criar uma UDR (rota definida pelo usuário) para forçar todo o tráfego de saída, certifique-se de criar uma regra DNAT apropriada no firewall para permitir corretamente o tráfego de entrada. Usar o Firewall do Azure com um UDR interrompe a configuração de entrada devido ao roteamento assimétrico. (O problema ocorre se a sub-rede AKs tem uma rota padrão que vai para o endereço IP privado do firewall, mas você está usando um serviço de entrada de balanceador de carga público ou kubernetes do tipo: Balancer). Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente de uma sessão estabelecida. Para saber como integrar o Firewall do Azure com o balanceador de carga de entrada ou serviço, consulte [integrar o Firewall do Azure com o Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+> Quando você usa o Firewall do Azure para restringir o tráfego de saída e criar uma UDR (rota definida pelo usuário) para forçar todo o tráfego de saída, certifique-se de criar uma regra DNAT apropriada no firewall para permitir corretamente o tráfego de entrada. Usar o Firewall do Azure com um UDR interrompe a configuração de entrada devido ao roteamento assimétrico. (O problema ocorre se a sub-rede AKS tem uma rota padrão que vai para o endereço IP privado do firewall, mas você está usando um serviço de entrada de balanceador de carga público ou kubernetes do tipo: Balanceador de carga). Nesse caso, o tráfego de entrada do balanceador de carga é recebido por meio de seu endereço IP público, mas o caminho de retorno passa pelo endereço IP privado do firewall. Como o firewall tem monitoração de estado, ele descarta o pacote de retorno porque o firewall não está ciente de uma sessão estabelecida. Para saber como integrar o Firewall do Azure com o balanceador de carga de entrada ou serviço, consulte [integrar o Firewall do Azure com o Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
 > Você pode bloquear o tráfego para a porta TCP 9000 e a porta TCP 22 usando uma regra de rede entre os IP do nó de trabalho de saída e o IP para o servidor de API.
 
 No AKS, há dois conjuntos de portas e endereços:
@@ -55,6 +55,7 @@ As seguintes regras de rede/portas de saída são necessárias para um cluster A
 * TCP [IPAddrOfYourAPIServer]: 443 será necessário se você tiver um aplicativo que precisa se comunicar com o servidor de API.  Essa alteração pode ser definida depois que o cluster é criado.
 * A porta TCP *9000* e a porta TCP *22* para o Pod frontal do túnel se comunicam com a extremidade do túnel no servidor de API.
     * Para obter mais especificações, consulte o*local *. HCP.\<location\>. azmk8s.Io* e * *. Execute.\<local\>endereços. azmk8s.Io* na tabela a seguir.
+* Porta UDP *123* para sincronização de tempo de protocolo NTP (NTP) (nós do Linux).
 * A porta UDP *53* para DNS também será necessária se você tiver o pods acessando diretamente o servidor de API.
 
 As seguintes regras de FQDN/aplicativo são necessárias:
@@ -73,7 +74,7 @@ As seguintes regras de FQDN/aplicativo são necessárias:
 | ntp.ubuntu.com             | UDP:123   | Esse endereço é necessário para a sincronização de horário do NTP em nós do Linux. |
 | packages.microsoft.com     | HTTPS:443 | Esse endereço é o repositório de pacotes da Microsoft usado para operações *apt-get* em cache.  Os pacotes de exemplo incluem Moby, PowerShell e CLI do Azure. |
 | acs-mirror.azureedge.net   | HTTPS:443 | Esse endereço é para o repositório necessário para instalar os binários necessários, como kubenet e CNI do Azure. |
-- Azure China
+- Azure China 21Vianet
 
 | FQDN                       | Port      | Uso      |
 |----------------------------|-----------|----------|
@@ -155,8 +156,8 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que t
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Esse endereço é usado para a operação correta de Azure Policy. (atualmente em visualização em AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir a operação correta de Azure Policy. (atualmente em visualização em AKS) |
-| *. GK.<location>. azmk8s.io | HTTPS:443 | O complemento do Azure Policy se comunica com o ponto de extremidade de auditoria do gatekeeper em execução no servidor mestre para obter os resultados da auditoria. |
-| dc.services.visualstudio.com | HTTPS:443 | O complemento do Azure Policy envia dados de telemetria para o ponto de extremidade do Application insights. |
+| *. GK.<location>. azmk8s.io | HTTPS:443 | Complemento do Azure Policy que se comunica com o ponto de extremidade de auditoria do gatekeeper em execução no servidor mestre para obter os resultados da auditoria. |
+| dc.services.visualstudio.com | HTTPS:443 | Complemento do Azure Policy que envia dados de telemetria para o ponto de extremidade do Application insights. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Exigido por nós baseados no Windows Server (em visualização pública) habilitado
 
