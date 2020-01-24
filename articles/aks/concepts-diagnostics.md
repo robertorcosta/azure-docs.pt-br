@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 69ae6766414dbe533500860b01852ee8d25c3a1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513907"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291372"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Visão geral de diagnóstico do AKS (serviço kubernetes do Azure)
 
@@ -30,7 +30,7 @@ Para acessar o diagnóstico do AKS:
 
 ## <a name="view-a-diagnostic-report"></a>Exibir um relatório de diagnóstico
 
-Depois de clicar em uma categoria, você pode exibir um relatório de diagnóstico específico para seu cluster. O relatório de diagnóstico chama de forma inteligente se há algum problema em seu cluster com ícones de status. Você pode fazer uma busca detalhada de cada tópico clicando em **mais informações** para ver uma descrição detalhada do problema, as ações recomendadas, links para documentos úteis, métricas relacionadas e dados de log. Os relatórios de diagnóstico são gerados de forma inteligente com base no estado atual do cluster após a execução de várias verificações. Os relatórios de diagnóstico podem ser uma ferramenta útil para identificar o problema do cluster e encontrar as próximas etapas para resolver o problema.
+Depois de clicar em uma categoria, você pode exibir um relatório de diagnóstico específico para seu cluster. O relatório de diagnóstico chama de forma inteligente se há algum problema em seu cluster com ícones de status. Você pode fazer uma busca detalhada de cada tópico clicando em **mais informações** para ver uma descrição detalhada do problema, as ações recomendadas, links para documentos úteis, métricas relacionadas e dados de log. Os relatórios de diagnóstico são gerados de forma inteligente com base no estado atual do cluster após a execução de uma variedade de verificações. Os relatórios de diagnóstico podem ser uma ferramenta útil para identificar o problema do cluster e encontrar as próximas etapas para resolver o problema.
 
 ![Relatório de diagnóstico](./media/concepts-diagnostics/diagnostic-report.png)
 
@@ -78,7 +78,7 @@ O gerenciamento de identidades e segurança detecta erros de autenticação e au
 - erros 401
 - erros 403
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Colete logs para ajudá-lo a solucionar ainda mais os problemas de cluster usando o [AKs Periscope](https://aka.ms/aksperiscope).
 
