@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972137"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714645"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -40,8 +40,8 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Configurações avançadas](#advanced-settings)
     * [Assistente do Cache do Azure para Redis](#azure-cache-for-redis-advisor)
     * [Escala](#scale)
-    * [Tamanho do cluster Redis](#cluster-size)
-    * [Persistência de dados do Redis](#redis-data-persistence)
+    * [Tamanho do cluster](#cluster-size)
+    * [Persistência de dados](#redis-data-persistence)
     * [Agendar atualizações](#schedule-updates)
     * [Replicação geográfica](#geo-replication)
     * [Rede Virtual](#virtual-network)
@@ -92,8 +92,8 @@ A seção **Configurações** permite acessar e definir as seguintes configuraç
 * [Configurações avançadas](#advanced-settings)
 * [Assistente do Cache do Azure para Redis](#azure-cache-for-redis-advisor)
 * [Escala](#scale)
-* [Tamanho do cluster Redis](#cluster-size)
-* [Persistência de dados do Redis](#redis-data-persistence)
+* [Tamanho do cluster](#cluster-size)
+* [Persistência de dados](#redis-data-persistence)
 * [Agendar atualizações](#schedule-updates)
 * [Replicação geográfica](#geo-replication)
 * [Rede Virtual](#virtual-network)
@@ -201,14 +201,9 @@ Clique em **Escala** para exibir ou alterar o tipo de preço do cache. Para obte
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Tamanho do cluster Redis
-Clique em **Tamanho do Cluster Redis (VISUALIZAÇÃO)** para alterar o tamanho do cluster de um cache premium em execução com clustering habilitado.
+Clique em **tamanho do cluster** para alterar o tamanho do cluster para um cache Premium em execução com clustering habilitado.
 
-> [!NOTE]
-> Observe que, embora a camada Premium do Cache do Azure para Redis tenha sido liberada para disponibilidade geral, o recurso Tamanho do Cluster Redis está atualmente em versão prévia.
->
->
-
-![Tamanho do cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![Tamanho do cluster](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 Para alterar o tamanho do cluster, use o controle deslizante ou digite um número entre 1 e 10 na caixa de texto **Contagem de fragmentos** e clique em **OK** para salvar.
 
@@ -219,7 +214,7 @@ Para alterar o tamanho do cluster, use o controle deslizante ou digite um númer
 
 
 ### <a name="redis-data-persistence"></a>Persistência de dados Redis
-Clique em **Persistência de dados do Redis** para habilitar, desabilitar ou configurar a persistência de dados para o cache premium. O Cache do Azure para Redis oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Clique em **persistência de dados** para habilitar, desabilitar ou configurar a persistência de dados para seu cache Premium. O Cache do Azure para Redis oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Para saber mais, confira [Como configurar a persistência para um Cache do Azure para Redis Premium](cache-how-to-premium-persistence.md).
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768207"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721312"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Logs no banco de dados do Azure para PostgreSQL-servidor único
 O banco de dados do Azure para PostgreSQL permite configurar e acessar os logs padrão do Postgres. Os logs podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho inferior. As informações de registro em log que você pode configurar e acessar incluem erros, informações de consulta, registros de vácuo, conexões e pontos de verificação. (O acesso aos logs de transações não está disponível).
@@ -29,7 +29,7 @@ Para saber mais sobre os parâmetros de log do Postgres, visite as seções [qua
 Para saber como configurar parâmetros no banco de dados do Azure para PostgreSQL, consulte a [documentação do portal](howto-configure-server-parameters-using-portal.md) ou a [documentação da CLI](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> Configurar um alto volume de logs, por exemplo, log de instruções, pode adicionar uma sobrecarga desempenho significativa. 
+> Configurar um alto volume de logs, por exemplo, log de instruções, pode adicionar uma sobrecarga de desempenho significativa. 
 
 ## <a name="access-log-files"></a>Acessar arquivos. log
 O formato de log padrão no banco de dados do Azure para PostgreSQL é. log. Uma linha de exemplo desse log é semelhante a:
@@ -99,7 +99,7 @@ A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo
 | TenantId | Sua ID de locatário |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
-| Type | Tipo do log. Sempre `AzureDiagnostics` |
+| Tipo | Tipo do log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID para a assinatura a que o servidor pertence |
 | ResourceGroup | Nome do grupo de recursos ao qual o servidor pertence |
 | ResourceProvider | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |

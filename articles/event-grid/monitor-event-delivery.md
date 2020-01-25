@@ -1,19 +1,19 @@
 ---
 title: Monitorar a entrega de mensagens da Grade de Eventos do Azure
-description: Descreve como monitorar a entrega de mensagens da Grade de Eventos do Azure.
+description: Este artigo descreve como usar o portal do Azure para ver o status da entrega de mensagens da grade de eventos do Azure.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169997"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722128"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da Grade de Eventos 
 
@@ -82,7 +82,7 @@ Você pode definir alertas sobre as métricas de nível de domínio e de tópico
 
 ![Exibir métricas de evento](./media/monitor-event-delivery/select-alerts.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre a entrega de eventos e repetições, [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 * Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).

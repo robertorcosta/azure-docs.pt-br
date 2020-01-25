@@ -3,26 +3,26 @@ title: Ciência de dados usando o Scala e o Spark no Azure – Processo de Ciên
 description: Como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b22d461d327e595908ea8cc18dd0d507fdc83ecd
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907707"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716768"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
 Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
 
-* Problema de regressão: Previsão do valor da gorjeta (US$) para uma corrida de táxi
-* Classificação binária: Previsão do valor da gorjeta ou não (1/0) para uma corrida de táxi
+* Problema de regressão: previsão do valor da gorjeta (US$) para uma corrida de táxi
+* Classificação binária: previsão da gorjeta ou não (1/0) para uma corrida de táxi
 
 O processo de modelagem requer treinamento e avaliação em um conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, você pode aprender a armazenar esses modelos no armazenamento de Blobs do Azure e a pontuar e avaliar seu desempenho preditivo. Este artigo também aborda os tópicos mais avançados de como otimizar modelos usando a validação cruzada e limpeza de hiperparâmetro. Os dados usados são uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013, disponível no GitHub.
 
@@ -41,7 +41,7 @@ As etapas de configuração e o código neste artigo são para o Azure HDInsight
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, confira as instruções em [Introdução: Criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
+* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
 
 ![Configuração de tipo de cluster do HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ Você pode carregar o notebook diretamente do GitHub para o servidor do Notebook
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: Contextos predefinidos de Spark e Hive, palavras mágicas Spark e bibliotecas Spark
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: contextos predefinidos de Spark e Hive, palavras mágicas Spark e bibliotecas Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Contextos predefinidos de Spark e Hive
     # SET THE START TIME
     import java.util.Calendar
@@ -226,7 +226,7 @@ O exemplo de código a seguir especifica o local dos dados de entrada a serem li
 
 **Saída:**
 
-Tempo de execução da célula: 8 segundos.
+Tempo de execução da célula: oito segundos.
 
 ### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Consultar a tabela e importar os resultados em um quadro de dados
 Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; filtre dados corrompidos e externos e imprima várias linhas.
@@ -250,17 +250,17 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
 |        13,5 |1.0 |2,9 |1.0 |
-|        16,0 |2,0 |3.4 |1.0 |
-|        10,5 |2,0 |1.0 |1.0 |
+|        16,0 |2.0 |3.4 |1.0 |
+|        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
-Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Depois, importará os resultados em um quadro de dados a fim de criar gráficos com as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de visualização automática do Jupyter.
+Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de Jupyter de visualização automática.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Usar local e palavra mágica do SQL para criar gráficos com dados
 Por padrão, a saída de qualquer snippet de código executado em um notebook Jupyter é disponibilizada no contexto da sessão que é persistida nos nós de trabalho. Se desejar salvar uma corrida nos nós de trabalho para cada cálculo e, se todos os dados necessários para o cálculo estiverem disponíveis localmente no nó do servidor do Jupyter (que é o nó de cabeçalho), você poderá usar a palavra mágica `%%local` para executar o snippet de código no servidor do Jupyter.
 
-* **Palavra mágica do SQL** (`%%sql`). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele estará disponível no modo local.
-* `%%local` **palavra mágica**. A palavra mágica `%%local` executa o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro `-o`. O parâmetro `-o` persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas `%%local` disparariam o próximo conjunto de snippets de código para serem executados localmente na saída das consultas SQL que é persistida localmente.
+* **Palavra mágica do SQL** (`%%sql`). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Essa configuração significa que a saída estará disponível no modo local.
+* `%%local` **mágica**. A palavra mágica `%%local` executa o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro `-o`. O parâmetro `-o` persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas `%%local` disparariam o próximo conjunto de snippets de código para serem executados localmente na saída das consultas SQL que é persistida localmente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consultar os dados usando SQL
 Essa consulta recupera as corridas de táxi por valor da tarifa, contagem de passageiros e valor da gorjeta.
@@ -411,7 +411,7 @@ Para indexação, use `StringIndexer()` e para codificação one-hot, use as fun
 
 **Saída:**
 
-Tempo de execução da célula: 4 segundos.
+Tempo de execução da célula: quatro segundos.
 
 ### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Criar amostras e dividir o conjunto de dados em frações de teste e treinamento
 Esse código cria uma amostragem aleatória dos dados (25% neste exemplo). Embora a amostragem não seja necessário para este exemplo, devido ao tamanho do conjunto de dados, o artigo demonstra como é possível obter amostras para que você saiba como usá-lo para seu próprio problema, quando for necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividimos o exemplo em uma parte de treinamento (75% neste exemplo) e uma parte de teste (25% neste exemplo) para usar na classificação e na modelagem de regressão.
@@ -450,7 +450,7 @@ Adicione um número aleatório (entre 0 e 1) à linha de alcance (em uma coluna 
 
 **Saída:**
 
-Tempo de execução da célula: 2 segundos.
+Tempo de execução da célula: dois segundos.
 
 ### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Especificar os recursos e a variável de treinamento, bem como criar treinamentos de codificação indexada e one-hot e entrada de testes denominada RDDs pontuais ou quadros de dados
 Esta seção contém código que mostra como indexar dados de texto categóricos como um tipo de dados de ponto rotulado e codificá-lo para que ele possa ser usado para treinar e testar a regressão logística de MLlib e outros modelos de classificação. Objetos de ponto rotulados são RDDs formatados de uma maneira para que sejam exigidos como dados de entrada pela maioria dos algoritmos de aprendizado de máquina na MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
@@ -493,7 +493,7 @@ Nesse código, você pode especificar a variável de destino (dependente) e os r
 
 **Saída:**
 
-Tempo de execução da célula: 4 segundos.
+Tempo de execução da célula: quatro segundos.
 
 ### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Categorizar e vetorizar recursos e destinos automaticamente para uso como entradas para modelos de aprendizado de máquina
 Use o AM do Spark para categorize o destino e os recursos para uso em funções de modelagem baseadas em árvore. O código conclui duas tarefas:
@@ -532,7 +532,7 @@ Este é o código para essas duas tarefas.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: Prever se uma gorjeta deve ser paga
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
 Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
 
 * Um **modelo de regressão logística`LogisticRegression()` usando a função**  do ML do Spark
@@ -723,9 +723,9 @@ Em seguida, criamos um modelo de classificação GBT usando a função `Gradient
 
 **Saída:**
 
-Área sob a curva ROC: 0,9846895479241554
+Área sob a curva ROC = 0,9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: Prever o valor da gorjeta
+## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: prever o valor da gorjeta
 Nesta seção, você criará dois tipos de modelo de regressão para prever o valor da gorjeta:
 
 * Um **modelo de regressão linear regularizado** usando a função `LinearRegression()` da AM do Spark. Você salvará o modelo e avaliará o modelo nos dados de teste.
@@ -853,7 +853,7 @@ Crie gráficos usando matplotlib do Python.
 ### <a name="create-a-gbt-regression-model"></a>Criar um modelo de regressão GBT
 Crie um modelo de regressão GBT usando a função `GBTRegressor()` da AM do Spark e avalie o modelo nos dados de teste.
 
-[GBTs (árvores com aumento gradiente)](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. As GBTs treinam árvores de decisão iterativamente para minimizar uma função de perda. Você pode usar GBTs para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
+As [árvores aumentadas para gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. GBTS treina árvores de decisão iterativamente para minimizar uma função de perda. Você pode usar GBTS para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

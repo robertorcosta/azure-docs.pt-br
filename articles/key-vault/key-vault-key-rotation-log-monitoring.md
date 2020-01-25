@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1f60ce3a23882a48e6008b76c0eedcab99e013b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a0aa20a8d1ddecfe401a4e099a4f298971779501
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883453"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720105"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com a rotação de chaves e auditoria
 
@@ -36,7 +36,7 @@ Este artigo guia você por:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-up-key-vault"></a>Configurar o Cofre de Chaves
+## <a name="set-up-key-vault"></a>Instalar Key Vault
 
 Para permitir que um aplicativo recupere um segredo do Cofre de Chaves, primeiro crie o segredo e carregue-o no cofre.
 
@@ -144,7 +144,7 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Adicione o código necessário para chamar o Cofre de Chaves e recuperar o valor do segredo. Primeiro, você deve adicionar a seguinte `using` instrução:
+Adicione o código necessário para chamar o Cofre de Chaves e recuperar o valor do segredo. Primeiro, você deve adicionar a seguinte instrução de `using`:
 
 ```csharp
 using Microsoft.Azure.KeyVault;
@@ -163,7 +163,7 @@ Ao executar o aplicativo, agora você deverá se autenticar no Azure Active Dire
 ## <a name="key-rotation-using-azure-automation"></a>Rotação de chaves usando a Automação do Azure
 
 > [!IMPORTANT]
-> Os runbooks de automação do Azure ainda exigem o `AzureRM` uso do módulo.
+> Os runbooks de automação do Azure ainda exigem o uso do módulo `AzureRM`.
 
 Agora você está pronto para configurar uma estratégia de rotação para os valores armazenados como segredos Key Vault. Os segredos podem ser girados de várias maneiras:
 
@@ -272,7 +272,7 @@ Em seguida, [crie uma função do Azure](../azure-functions/functions-create-fir
 
 Para criar um aplicativo de funções do Azure, selecione **criar um recurso**, pesquise no marketplace por **aplicativo de funções**e, em seguida, selecione **criar**. Durante a criação, você pode usar um plano de hospedagem existente ou criar um novo. Você também pode optar pela hospedagem dinâmica. Para obter mais informações sobre as opções de hospedagem para Azure Functions, consulte [como dimensionar Azure Functions](../azure-functions/functions-scale.md).
 
-Depois que o aplicativo de funções do Azure for criado, acesse-o e selecione o cenário do **temporizador** e **C\#**  para o idioma. Em seguida, selecione **criar esta função**.
+Depois que o aplicativo de funções do Azure for criado, acesse-o e selecione o cenário de **timer** e **C\#** para a linguagem. Em seguida, selecione **criar esta função**.
 
 ![Folha de Início das Funções do Azure](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -314,7 +314,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
         else
         {
             dtPrev = DateTime.UtcNow;
-            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+            log.Verbose($"Sync point file didn't have a date. Setting to now.");
         }
     }
 
@@ -417,7 +417,7 @@ Adicione um arquivo chamado Project. JSON com o seguinte conteúdo:
 
 Depois de selecionar **salvar**, Azure Functions baixará os binários necessários.
 
-Mude para a guia **Integrar** e atribua ao parâmetro do temporizador um nome significativo para ser usado na função. No código anterior, a função espera que o temporizador seja chamado *MyTimer*. Especifique uma [expressão cron](../app-service/webjobs-create.md#CreateScheduledCRON) para o temporizador da seguinte `0 * * * * *`maneira:. Essa expressão fará com que a função seja executada uma vez por minuto.
+Mude para a guia **Integrar** e atribua ao parâmetro do temporizador um nome significativo para ser usado na função. No código anterior, a função espera que o temporizador seja chamado *MyTimer*. Especifique uma [expressão cron](../app-service/webjobs-create.md#CreateScheduledCRON) para o temporizador da seguinte maneira: `0 * * * * *`. Essa expressão fará com que a função seja executada uma vez por minuto.
 
 Na mesma guia **integrar** , adicione uma entrada do tipo armazenamento de **BLOBs do Azure**. Essa entrada apontará para o arquivo Sync. txt que contém o carimbo de data/hora do último evento examinado pela função. Essa entrada será acessada dentro da função usando o nome do parâmetro. No código anterior, a entrada do armazenamento de BLOBs do Azure espera que o nome do parâmetro seja *inputBlob*. Selecione a conta de armazenamento na qual o arquivo Sync. txt será localizado (pode ser a mesma conta de armazenamento ou outra). No campo caminho, forneça o caminho para o arquivo no formato `{container-name}/path/to/sync.txt`.
 
@@ -429,7 +429,7 @@ Agora, a função está pronta. Volte para a guia **Desenvolver** e salve o cód
 
 Em seguida, você deve criar um aplicativo lógico do Azure que pega os eventos que a função está enviando para a fila do barramento de serviço, analisa o conteúdo e envia um email com base em uma condição sendo correspondida.
 
-[Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) selecionando **criar um recurso** > **aplicativo lógico**de**integração** > .
+[Crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) selecionando **criar um recurso** > **integração** > **aplicativo lógico**.
 
 Depois que o aplicativo lógico for criado, acesse-o e selecione **Editar**. No editor do aplicativo lógico, selecione **fila do barramento de serviço** e insira suas credenciais do barramento de serviço para conectá-lo à fila.
 

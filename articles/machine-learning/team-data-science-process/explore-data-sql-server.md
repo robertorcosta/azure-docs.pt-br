@@ -3,24 +3,24 @@ title: Explorar dados na máquina virtual do SQL Server – Processo de Ciência
 description: Como explorar dados armazenados em uma VM do SQL Server no Azure usando SQL ou uma linguagem de programação como Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be75490e4e86956337ce38133df6095790b3a374
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720088"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorar dados na Máquina Virtual do SQL Server no Azure
 
-Este artigo aborda como explorar dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
+Este artigo aborda como explorar dados armazenados em uma VM do SQL Server no Azure. Use SQL ou Python para examinar os dados.
 
 Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.md).
 
@@ -46,12 +46,12 @@ Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar 
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [!NOTE]
-> Para ver um exemplo prático, você pode usar o [conjunto de dados de Táxis de NYC](https://www.andresmh.com/nyctaxitrips/) e ver o IPNB intitulado [Realizar o wrangling de dados de NYC usando o IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um treinamento de ponta a ponta.
+> Para ver um exemplo prático, é possível usar o [conjunto de dados de Táxis de NYC](https://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado[NYC Data wrangling using IPython Notebook and SQL Server (Realizar o wrangling de dados de NYC usando o IPython Notebook e SQL Server)](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
 > 
 > 
 
 ## <a name="python"></a>Explorar dados de SQL com o Python
-Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blobs do Azure em seu ambiente de ciência de dados](data-blob.md). Os dados precisam ser carregados do banco de dados para um DataFrame pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
+Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blobs do Azure em seu ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dado em um dataframe do pandas e, em seguida, pode ser processado mais detalhadamente. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
 

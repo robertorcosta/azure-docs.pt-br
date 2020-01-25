@@ -3,20 +3,20 @@ title: Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados d
 description: As metas, as tarefas e os resultados para o estágio de modelagem dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538218"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720462"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
 
@@ -74,7 +74,7 @@ Os artefatos produzidos neste estágio incluem:
 
    * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem estão descritos na seção **Conjuntos de recursos** do relatório **Definição de dados**. Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
    * [Relatório de modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo testado, é produzido um relatório padrão baseado em modelo que fornece detalhes sobre cada experimento.
-   * **Decisão de ponto de verificação**: avalie se o modelo tem um bom desempenho, suficiente para implantá-lo em um sistema de produção. Algumas perguntas importantes a serem feitas são:
+   * **Decisão do ponto de verificação**: avalie se o modelo executa o suficiente para produção. Algumas perguntas importantes a serem feitas são:
      * O modelo responde à pergunta com confiança suficiente, considerando os dados de teste? 
      * Você deve experimentar abordagens alternativas? Você deve coletar dados adicionais, realizar mais engenharia de recursos ou fazer experimentos com outros algoritmos?
 

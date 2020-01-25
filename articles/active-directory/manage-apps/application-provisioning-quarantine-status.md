@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 933217b2ad86535d45f6674165ee162f263a8cd7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882889"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712167"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -63,7 +63,7 @@ Primeiro, resolva o problema que fez com que o aplicativo fosse colocado em quar
 
 - Verifique as configurações de provisionamento do aplicativo para certificar-se de que você [inseriu credenciais de administrador válidas](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). O Azure AD deve ser capaz de estabelecer uma relação de confiança com o aplicativo de destino. Verifique se você inseriu credenciais válidas e se sua conta tem as permissões necessárias.
 
-- Examine os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para investigar melhor quais erros estão causando a quarentena e resolver o erro. Acesse os logs de provisionamento no portal do Azure acessando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **os logs de provisionamento (versão prévia)** na seção **atividade** .
+- Examine os [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) para investigar melhor quais erros estão causando a quarentena e resolver o erro. Acesse os logs de provisionamento no portal do Azure acessando **Azure Active Directory** &gt; **aplicativos empresariais** &gt; **os logs de provisionamento (versão prévia)** na seção **atividade** .
 
 Depois de resolver o problema, reinicie o trabalho de provisionamento. Determinadas alterações nas configurações de provisionamento do aplicativo, como mapeamentos de atributo ou filtros de escopo, reiniciarão automaticamente o provisionamento para você. A barra de progresso na página de **provisionamento** do aplicativo indica quando o provisionamento foi iniciado pela última vez. Se você precisar reiniciar o trabalho de provisionamento manualmente, use um dos seguintes métodos:  
 

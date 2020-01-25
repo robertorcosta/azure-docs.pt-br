@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934490"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720686"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Listar atribuições de função usando o RBAC do Azure e o portal do Azure
 
@@ -125,6 +125,16 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
     ![Atribuições de função para uma identidade gerenciada atribuída pelo sistema](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. Para alterar a assinatura, clique na lista **assinaturas** .
+
+## <a name="list-number-of-role-assignments"></a>Listar número de atribuições de função
+
+Você pode ter até **2000** atribuições de função em cada assinatura. Para ajudá-lo a manter o controle desses limites, a guia **atribuições de função** inclui um gráfico que lista o número atual de atribuições de função.
+
+![Controle de acesso – número do gráfico de atribuições de função](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+Se estiver ficando próximo do número máximo e tentar adicionar mais atribuições de função, você verá um aviso no painel **Adicionar atribuição de função** . Você pode reduzir o número de atribuições de função excluindo atribuições de função que não são mais necessárias ou atribuindo funções a grupos em vez de usuários individuais.
+
+![Controle de acesso-Adicionar aviso de atribuição de função](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Próximos passos
 

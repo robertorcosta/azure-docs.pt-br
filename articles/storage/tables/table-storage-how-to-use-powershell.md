@@ -1,19 +1,18 @@
 ---
 title: Executar operações de armazenamento de Tabelas do Azure com o PowerShell | Microsoft Docs
 description: Saiba como executar tarefas comuns, como criar, consultar, excluir dados da conta de armazenamento de tabelas do Azure usando o PowerShell.
-services: cosmos-db
 author: roygara
-ms.service: cosmos-db
+ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
-ms.openlocfilehash: 4591cded820bbefb741d55a22d10a91bd4fff383
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.subservice: tables
+ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868500"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721465"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Tabelas do Azure com o Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -57,7 +56,7 @@ Add-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Recuperar a lista de locais
 
-Se você não souber qual localização você deseja usar, poderá listar as localizações disponíveis. Depois que a lista for exibida, encontre a que deseja usar. Esses exemplos usam **eastus**. Armazene esse valor na variável **location** para uso futuro.
+Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre o que deseja usar. Esses exemplos usam **eastus**. Armazene esse valor na variável **location** para uso futuro.
 
 ```powershell
 Get-AzLocation | select Location
@@ -139,7 +138,7 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 Get-AzStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um novo grupo de recursos e uma conta de armazenamento no início destas instruções, remova todos os ativos criados neste exercício removendo o grupo de recursos. Esse comando exclui todos os recursos contidos no grupo, bem como o próprio grupo de recursos.
 
@@ -161,7 +160,7 @@ Neste artigo de instruções, você aprendeu sobre operações comuns do armazen
 
 Para obter mais informações, consulte os seguintes artigos
 
-* [Cmdlets do PowerShell do armazenamento](/powershell/module/az.storage#storage)
+* [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage#storage)
 
 * [Trabalhando com tabelas do Azure do PowerShell-AzureRmStorageTable/AzTable PS Module v 2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

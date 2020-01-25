@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 97342f1dd4f6ce343626ba6c294f09dabe3db5c0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647272"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717213"
 ---
 # <a name="create-containers-for-reuse"></a>Criar contêineres para reutilização
 
@@ -27,7 +27,7 @@ Assim que tiver essa nova camada de contêiner (com configurações) e você a t
 
 Todos os exemplos de `docker run` neste documento pressupõem um console do Windows com um caractere de continuação de linha `^`. Considere o seguinte para seu próprio uso:
 
-* Não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
+* não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
 * Se você estiver usando um sistema operacional diferente do Windows, ou um console diferente do console do Windows, use o console/terminal, a sintaxe de pasta para montagens e o caractere de continuação de linha corretos para seu console e sistema.  Como o contêiner de serviços cognitivas é um sistema operacional Linux, a montagem de destino usa uma sintaxe de pasta em estilo Linux.
 * `docker run` exemplos usam o diretório fora da unidade de `c:` para evitar conflitos de permissão no Windows. Se você precisar usar um diretório específico como o diretório de entrada, talvez seja necessário conceder ao Docker permissão de serviço.
 
@@ -148,7 +148,7 @@ Siga estas etapas para usar o Dockerfile e colocar a nova imagem em seu registro
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar e usar a instância de contêiner do Azure](azure-container-instance-recipe.md)

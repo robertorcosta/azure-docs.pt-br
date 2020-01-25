@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bf01eea71134d932305cce7665c68d4dcc655cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975201"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712560"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ingressar uma máquina virtual do Windows Server em um Azure Active Directory Domain Services domínio gerenciado usando um modelo do Resource Manager
 
@@ -40,7 +40,7 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
 
 Os modelos do Resource Manager permitem definir a infraestrutura do Azure no código. Os recursos necessários, as conexões de rede ou a configuração de VMs podem ser todos definidos em um modelo. Esses modelos criam implantações consistentes e reproduzíveis a cada vez e podem ter controle de versão à medida que você faz alterações. Para obter mais informações, consulte [visão geral dos modelos de Azure Resource Manager][template-overview].
 
-Cada recurso é definido em um modelo usando JSON. O exemplo JSON a seguir usa o tipo de recurso *Microsoft. Compute/virtualMachines/Extensions* para instalar a Active Directory extensão de ingresso no domínio. São usados parâmetros que você especifica no momento da implantação. Quando a extensão é implantada, a VM é unida ao domínio gerenciado AD DS do Azure especificado.
+Cada recurso é definido em um modelo usando JavaScript Object Notation (JSON). O exemplo JSON a seguir usa o tipo de recurso *Microsoft. Compute/virtualMachines/Extensions* para instalar a Active Directory extensão de ingresso no domínio. São usados parâmetros que você especifica no momento da implantação. Quando a extensão é implantada, a VM é unida ao domínio gerenciado AD DS do Azure especificado.
 
 ```json
  {
@@ -94,7 +94,7 @@ Para criar uma VM do Windows Server e, em seguida, associá-la a um domínio ger
     | Prefixo do rótulo DNS          | Insira um nome DNS a ser usado para a VM, como *MyVM*. |
     | Tamanho da VM                   | Especifique um tamanho de VM, como *Standard_DS2_v2*. |
     | Domínio para ingressar            | O nome DNS do domínio gerenciado AD DS do Azure, como *aadds.contoso.com*. |
-    | Nome de usuário de domínio           | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
+    | Nome de usuário de domínio           | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aadds.contoso.com`. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
     | Senha do domínio           | A senha da conta de usuário especificada na configuração anterior. |
     | Caminho de UO opcional          | A UO personalizada na qual adicionar a VM. Se você não especificar um valor para esse parâmetro, a VM será adicionada à UO *computadores DC do AAD* padrão. |
     | Nome de usuário do administrador da VM         | Especifique uma conta de administrador local para criar na VM. |
@@ -123,7 +123,7 @@ Para ingressar uma VM do Windows Server existente em um domínio gerenciado AD D
     | Grupo de recursos            | Escolha o grupo de recursos com sua VM existente. |
     | Local                  | Selecione o local da VM existente. |
     | Lista de VMs                   | Insira a lista separada por vírgulas das VMs existentes para ingressar no domínio gerenciado AD DS do Azure, como *myVM1, myVM2*. |
-    | Nome de usuário de ingresso no domínio     | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
+    | Nome de usuário de ingresso no domínio     | A conta de usuário no domínio gerenciado AD DS do Azure que deve ser usada para ingressar a VM no domínio gerenciado, como `contosoadmin@aadds.contoso.com`. Essa conta deve ser um membro do grupo de *Administradores de DC do Azure ad* . |
     | Senha do usuário de ingresso no domínio | A senha da conta de usuário especificada na configuração anterior. |
     | Caminho de UO opcional          | A UO personalizada na qual adicionar a VM. Se você não especificar um valor para esse parâmetro, a VM será adicionada à UO *computadores DC do AAD* padrão. |
 

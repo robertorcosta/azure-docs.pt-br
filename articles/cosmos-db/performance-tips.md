@@ -4,14 +4,14 @@ description: Aprenda as opções de configuração do cliente para melhorar o de
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "71261318"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720989"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -21,7 +21,7 @@ ms.locfileid: "71261318"
 > * [.NET](performance-tips.md)
 > 
 
-O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e diminuir a escala é tão fácil quanto fazer uma única chamada de API. Para obter mais informações, consulte [como provisionar a taxa de transferência do contêiner](how-to-provision-container-throughput.md) ou [como provisionar a taxa de transferência do banco de dados](how-to-provision-database-throughput.md). No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o melhor desempenho ao usar o [SDK do SQL .NET](sql-api-sdk-dotnet-standard.md).
+O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e diminuir a escala é tão fácil quanto fazer uma única chamada de API. Para saber mais, veja [como provisionar a taxa de transferência do contêiner](how-to-provision-container-throughput.md) ou [como provisionar a taxa de transferência do banco de dados](how-to-provision-database-throughput.md). No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o melhor desempenho ao usar o [SDK do SQL .NET](sql-api-sdk-dotnet-standard.md).
 
 Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?" considere as seguintes opções:
 
@@ -40,7 +40,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
    * Modo direto
 
-     O modo direto dá suporte à conectividade por meio de protocolos TCP e HTTPS e é o modo de conectividade padrão se você estiver usando [o SDK Microsoft. Azure. Cosmos/.net v3](sql-api-sdk-dotnet-standard.md).
+     O modo direto dá suporte à conectividade por meio do protocolo TCP e é o modo de conectividade padrão se você estiver usando [o SDK Microsoft. Azure. Cosmos/.net v3](sql-api-sdk-dotnet-standard.md).
 
      Ao usar o modo Gateway, Cosmos DB usa a porta 443 e as portas 10250, 10255 e 10256 ao usar a API do Azure Cosmos DB para MongoDB. A porta 10250 mapeia para a uma instância do MongoDB padrão sem replicação geográfica, e as portas 10255/10256 mapeiam para a instância do MongoDB com funcionalidade de replicação geográfica. Ao usar o TCP no Modo Direto, além das portas do Gateway, você precisa garantir que o intervalo de portas de 10000 a 20000 está aberto, pois o Azure Cosmos DB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá o erro 503 Serviço indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para APIs diferentes e o usuário de portas de serviço para cada API:
 
@@ -49,9 +49,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
      |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
      |Direct    |     TCP    |  .NET SDK    | Portas dentro do intervalo de 10.000-20.000 |
 
-     O Cosmos DB oferece um modelo de programação RESTful simples e aberto via HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. Tanto TCP direto quanto HTTPS usam SSL para criptografar tráfego e autenticação inicial. Para ter um melhor desempenho, use o protocolo TCP quando possível.
+     O Cosmos DB oferece um modelo de programação RESTful simples e aberto via HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O protocolo TCP usa SSL para autenticação inicial e criptografia de tráfego. Para ter um melhor desempenho, use o protocolo TCP quando possível.
 
-     Para o SDK v3, o modo de conectividade é configurado durante a criação da instância CosmosClient, como parte do CosmosClientOptions.
+     Para o SDK v3, o modo de conectividade é configurado ao criar a instância CosmosClient, como parte do CosmosClientOptions, lembre-se de que o modo direto é o padrão.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -59,7 +59,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct
+        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
      });
      ```
 
@@ -71,7 +71,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-        ConnectionMode = ConnectionMode.Direct,
+        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
         ConnectionProtocol = Protocol.Tcp
      });
      ```

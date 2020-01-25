@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953944"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719748"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows
 
@@ -37,9 +37,9 @@ Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicat
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Instalar os drivers gráficos com suporte em sua máquina virtual
 
-Para aproveitar os recursos de GPU das VMs da série N do Azure na área de trabalho virtual do Windows, você deve instalar os drivers gráficos NVIDIA. Siga as instruções em [instalar drivers NVIDIA GPU em VMs da série N executando o Windows](/azure/virtual-machines/windows/n-series-driver-setup) para instalar drivers manualmente ou usando a [extensão de Driver Nvidia GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+Para aproveitar os recursos de GPU das VMs da série N do Azure na área de trabalho virtual do Windows, você deve instalar os drivers gráficos apropriados. Siga as instruções em [sistemas operacionais e drivers com suporte](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar drivers do fornecedor de gráficos apropriado, seja manualmente ou usando uma extensão de VM do Azure.
 
-Observe que somente os [Drivers NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distribuídos pelo Azure têm suporte na área de trabalho virtual do Windows.
+Somente os drivers distribuídos pelo Azure têm suporte para a área de trabalho virtual do Windows. Adicionalmente, para VMs do Azure com GPUs NVIDIA, somente os [Drivers NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) têm suporte na área de trabalho virtual do Windows.
 
 Após a instalação do driver, é necessária uma reinicialização da VM. Use as etapas de verificação nas instruções acima para confirmar se os drivers gráficos foram instalados com êxito.
 
@@ -74,7 +74,7 @@ Por padrão, aplicativos e áreas de trabalho em execução em configurações d
 
 Para verificar se os aplicativos estão usando a GPU para renderização, tente qualquer um dos seguintes:
 
-* Use o utilitário `nvidia-smi` conforme descrito em [verificar a instalação do driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
+* Para VMs do Azure com uma GPU NVIDIA, use o utilitário `nvidia-smi`, conforme descrito em [verificar a instalação do driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) para verificar a utilização da GPU ao executar seus aplicativos.
 * Em versões de sistema operacional com suporte, você pode usar o Gerenciador de tarefas para verificar a utilização da GPU. Selecione a GPU na guia "desempenho" para ver se os aplicativos estão utilizando a GPU.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificar a codificação de quadro acelerada por GPU
@@ -86,9 +86,9 @@ Para verificar se Área de Trabalho Remota está usando a codificação acelerad
 3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você vir "codificador de hardware AVC habilitado: 1", a codificação de GPU será usada.
 4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você vir "AVC disponível: 1 perfil inicial: 2048", será usado o AVC 444.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Essas instruções devem estar em funcionamento com a aceleração de GPU em uma única VM host de sessão. Algumas considerações adicionais para habilitar a aceleração de GPU em um pool de hosts maior:
 
-* Considere usar a [extensão de Driver Nvidia GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para simplificar a instalação e as atualizações de driver em várias VMS.
+* Considere usar uma [extensão de VM](/azure/virtual-machines/extensions/overview) para simplificar a instalação e as atualizações de driver em várias VMS. Use a [extensão de Driver Nvidia GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para VMs com GPUs NVIDIA e use a extensão de driver de GPU AMD (em breve) para VMs com GPUs AMD.
 * Considere o uso de Active Directory Política de Grupo para simplificar a configuração da diretiva de grupo em várias VMs. Para obter informações sobre como implantar Política de Grupo no domínio Active Directory, consulte [trabalhando com objetos política de grupo](https://go.microsoft.com/fwlink/p/?LinkId=620889).

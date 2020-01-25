@@ -2,20 +2,20 @@
 title: Tarefas para um contribuidor individual no Processo de Ciência de Dados de Equipe
 description: Uma explicação detalhada das tarefas para um colaborador individual em um projeto de equipe de ciência de dados.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64d9669c11f15de5e6bd616ff7a79f59b748363
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244292"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721244"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um contribuidor individual no Processo de Ciência de Dados de Equipe
 
@@ -42,7 +42,7 @@ Este tutorial pressupõe que os seguintes recursos e permissões foram configura
 - Configuração do **armazenamento de arquivos** do Azure para ativos compartilhados para sua equipe ou projeto, se aplicável
 - **Permissões** para clonar e enviar de volta para o repositório do projeto 
 
-Para clonar repositórios e modificar o conteúdo em seu computador local ou DSVM, ou montar o armazenamento de arquivos do Azure em seu DSVM, você precisará do seguinte:
+Para clonar repositórios e modificar o conteúdo em seu computador local ou DSVM, ou montar o armazenamento de arquivos do Azure em seu DSVM, você precisa considerar esta lista de verificação:
 
 - Uma assinatura do Azure.
 - Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte o [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix).
@@ -96,7 +96,7 @@ Para trabalhar com repositórios localmente e enviar por push suas alterações 
 
 Se sua equipe ou projeto tiver ativos compartilhados no armazenamento de arquivos do Azure, monte o armazenamento de arquivos em seu computador local ou DSVM. Siga as instruções em [montar o armazenamento de arquivos do Azure no computador local ou DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

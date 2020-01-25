@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: c0664cbc8097f18ec9722e789ad40d5925781637
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997064"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711665"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a exclusão de contas de usuário que saem do escopo
 
@@ -37,14 +37,14 @@ Como essa configuração é amplamente usada com o *WORKDAY para Active Director
 1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo. 
 1. Na seção Propriedades do seu aplicativo de provisionamento, copie o valor GUID associado ao campo *ID de Objeto*. Esse valor também é chamado de **ServicePrincipalId** do seu aplicativo e ele será usado em operações do Graph Explorer.
 
-   ![ID da Entidade de Serviço de Aplicativo do Workday](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![ID da Entidade de Serviço de Aplicativo do Workday](media/skip-out-of-scope-deletions/wd_export_01.png)
 
 ## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Etapa 2: entrar no Microsoft Graph Explorer
 
 1. Abrir o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Clique no botão “Entrar com a Microsoft” e entre usando as credenciais de administrador do aplicativo ou de administrador global do Azure AD.
 
-    ![Entrar no Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Entrar no Graph](media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. Após entrar com êxito, você verá os detalhes da conta de usuário no painel esquerdo.
 
@@ -56,11 +56,11 @@ No Microsoft Graph Explorer, execute a seguinte consulta GET, substituindo [serv
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![OBTER consulta de trabalho](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![OBTER consulta de trabalho](media/skip-out-of-scope-deletions/skip-03.png)
 
 Copie a resposta em um arquivo de texto. Ele se parecerá com o texto JSON mostrado abaixo, com valores realçados em amarelo específico para sua implantação. Adicione as linhas realçadas em verde ao final e atualize a senha da conexão workday realçada em azul. 
 
-   ![OBTER resposta do trabalho](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![OBTER resposta do trabalho](media/skip-out-of-scope-deletions/skip-04.png)
 
 Aqui está o bloco JSON a ser adicionado ao mapeamento. 
 
@@ -82,22 +82,22 @@ Na URL abaixo, substitua [servicePrincipalName] pelo **servicePrincipalName** ex
 ```
 Copie o texto atualizado da etapa 3 para o "corpo da solicitação" e defina o cabeçalho "Content-Type" como "Application/JSON" em "cabeçalhos de solicitação". 
 
-   ![Solicitação PUT](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![Solicitação PUT](media/skip-out-of-scope-deletions/skip-05.png)
 
 Clique em "executar consulta". 
 
 Você deve obter a saída como "êxito – código de status 204". 
 
-   ![COLOCAR resposta](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![COLOCAR resposta](media/skip-out-of-scope-deletions/skip-06.png)
 
 ## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Etapa 5: verificar se os usuários fora do escopo não são desabilitados
 
 Você pode testar esse sinalizador resulta no comportamento esperado atualizando suas regras de escopo para ignorar um usuário específico. No exemplo a seguir, estamos excluindo o funcionário com a ID 21173 (que estava anteriormente no escopo) adicionando uma nova regra de escopo: 
 
-   ![Exemplo de escopo](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Exemplo de escopo](media/skip-out-of-scope-deletions/skip-07.png)
 
 No próximo ciclo de provisionamento, o serviço de provisionamento do Azure AD identificará que o usuário 21173 saiu do escopo e, se a propriedade SkipOutOfScopeDeletions estiver habilitada, a regra de sincronização desse usuário exibirá uma mensagem, conforme mostrado abaixo: 
 
-   ![Exemplo de escopo](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![Exemplo de escopo](media/skip-out-of-scope-deletions/skip-08.png)
 
 

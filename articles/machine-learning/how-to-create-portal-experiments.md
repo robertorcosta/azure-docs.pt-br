@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894030"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720394"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Crie, explore e implante experimentos automatizados de aprendizado de máquina com o Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -153,9 +153,15 @@ Curtose| A medida de quão cauda os dados desta coluna é comparada a uma distri
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>Opções avançadas de pré-processamento
+## <a name="advanced-featurization-options"></a>Opções de personalização avançadas
 
-Ao configurar seus experimentos, você pode habilitar a configuração avançada `Preprocess`. Isso significa que, como parte do pré-processamento, as etapas de guardrails e personalização de dados a seguir são executadas automaticamente.
+Ao configurar seus experimentos, você pode habilitar a configuração avançada `feauturization`. 
+
+|Configuração do personalização | Description |
+| ------------- | ------------- |
+|"feauturization" = ' FeaturizationConfig '| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" = ' off '| Indica que a etapa personalização não deve ser feita automaticamente.|
+|"feauturization" = ' auto '| Indica que, como parte do pré-processamento, as etapas de guardrails e personalização de dados a seguir são executadas automaticamente.|
 
 |Pré-processando&nbsp;etapas| Description |
 | ------------- | ------------- |
@@ -177,11 +183,11 @@ A tabela a seguir descreve os dados atualmente com suporte guardrails e os statu
 
 Guardrail|Status|&nbsp;de condição para gatilho de&nbsp;
 ---|---|---
-Valores de&nbsp;ausentes&nbsp;imputação |**Aprovado** <br> <br> **Fixo**|    Nenhum valor ausente em nenhuma das colunas de&nbsp;de entrada <br> <br> Algumas colunas têm valores ausentes
+Valores de&nbsp;ausentes&nbsp;imputação |**Passagem** <br> <br> **Fixado**|    Nenhum valor ausente em nenhuma das colunas de&nbsp;de entrada <br> <br> Algumas colunas têm valores ausentes
 Validação cruzada|**Trabalhado**|Se nenhum conjunto de validação explícito for fornecido
-&nbsp;de&nbsp;detecção do recurso de cardinalidade de alta&nbsp;|  **Aprovado** <br> <br>**Trabalhado**|   Nenhum recurso de cardinalidade alta foi detectado <br><br> Colunas de entrada de alta cardinalidade foram detectadas
-Detecção de balanceamento de classe |**Aprovado** <br><br><br>**Alertado** |As classes são equilibradas nos dados de treinamento; Um conjunto de um DataSet é considerado balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras <br> <br> As classes nos dados de treinamento são desbalanceadas
-Consistência de dados de série temporal|**Aprovado** <br><br><br><br> **Fixo** |<br> Os valores de {horizonte, atraso, janela sem interrupção} selecionados foram analisados e não foram detectados problemas de falta de memória em potencial. <br> <br>Os valores selecionados {Horizonte, lag, janela sem interrupção} foram analisados e, potencialmente, farão com que o teste fique sem memória. A janela de atraso ou rolagem foi desativada.
+&nbsp;de&nbsp;detecção do recurso de cardinalidade de alta&nbsp;|  **Passagem** <br> <br>**Trabalhado**|   Nenhum recurso de cardinalidade alta foi detectado <br><br> Colunas de entrada de alta cardinalidade foram detectadas
+Detecção de balanceamento de classe |**Passagem** <br><br><br>**Alertado** |As classes são equilibradas nos dados de treinamento; Um conjunto de um DataSet é considerado balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras <br> <br> As classes nos dados de treinamento são desbalanceadas
+Consistência de dados de série temporal|**Passagem** <br><br><br><br> **Fixado** |<br> Os valores de {horizonte, atraso, janela sem interrupção} selecionados foram analisados e não foram detectados problemas de falta de memória em potencial. <br> <br>Os valores selecionados {Horizonte, lag, janela sem interrupção} foram analisados e, potencialmente, farão com que o teste fique sem memória. A janela de atraso ou rolagem foi desativada.
 
 ## <a name="run-experiment-and-view-results"></a>Executar experimento e exibir resultados
 
@@ -228,7 +234,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
     Usar ativos de implantação personalizados| Habilite esse recurso se você quiser carregar seu próprio script de Pontuação e arquivo de ambiente. [Saiba mais sobre scripts de Pontuação](how-to-deploy-and-where.md#script).
 
     >[!Important]
-    > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Espaços não são permitidos.
+    > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Não são permitidos espaços.
 
     O menu *avançado* oferece recursos de implantação padrão, como a [coleta de dados](how-to-enable-app-insights.md) e as configurações de utilização de recursos. Se você quiser substituir esses padrões, faça isso neste menu.
 

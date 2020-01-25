@@ -3,20 +3,20 @@ title: Criar recursos no SQL Server usando o SQL e Python - Processo de ciência
 description: Gere recursos para dados armazenados em uma VM do SQL Server no Azure usando o SQL e Python – parte do Processo de ciência de dados de equipe.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982068"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721737"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Você pode usar o SQL ou uma linguagem de programação como o Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
@@ -37,9 +37,9 @@ Este artigo supõe que você:
 ## <a name="sql-featuregen"></a>Geração de recursos com o SQL
 Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:  
 
-1. [Geração de recursos baseada em contagem](#sql-countfeature)
-2. [Agrupamento da Geração de Recursos](#sql-binningfeature)
-3. [Propagar os recursos de uma única coluna](#sql-featurerollout)
+* [Geração de recursos baseada em contagem](#sql-countfeature)
+* [Agrupamento da Geração de Recursos](#sql-binningfeature)
+* [Propagar os recursos de uma única coluna](#sql-featurerollout)
 
 > [!NOTE]
 > Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
@@ -47,7 +47,7 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Geração de recursos baseada em contagem
-Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
+Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Esses novos recursos podem então ser Unidos com a tabela original (usando colunas de chave primária) para ter recursos de contagem ao lado dos dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
-O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (usando 5 compartimentos) uma coluna numérica que poderá ser usada como um recurso:
+O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (usando cinco compartimentos) uma coluna numérica que poderá ser usada como um recurso:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ Aqui está uma breve cartilha sobre os dados de localização de latitude/longit
 * A terceira casa decimal representa até 110 m: ela pode identificar um campo agrícola ou campus institucional grande.
 * A quarta casa decimal representa até 11 m: ela pode identificar um lote de terreno. Ela é comparável à precisão típica de uma unidade GPS não corrigida sem interferência.
 * A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
-* A sexta casa decimal representa até 0,11 m: você pode usá-la para dispor estruturas detalhadamente, projetar paisagens e criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
+* A sexta casa decimal vale até 0,11 m: você pode usar esse nível para dispor estruturas em detalhes, para criar cenários, criando estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Essa meta pode ser obtida por meio de medidas criteriosas com GPS, como o GPS com uma diferença diferencial.
 
-As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas, disponível em `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito.
+As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Uma vez também pode chamar um ponto de extremidade REST, como a API do Bing Maps (consulte `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito).
 
     select
         <location_columnname>

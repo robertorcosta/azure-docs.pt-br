@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778338"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711688"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -52,7 +52,7 @@ Cada usuário ou grupo processado pelo serviço de provisionamento do Azure AD s
 
 Como um exemplo, considere o seguinte filtro de escopo:
 
-![Filtro de escopo](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Filtro de escopo](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 De acordo com esse filtro de escopo, os usuários devem atender aos seguintes critérios para serem provisionados:
 
@@ -117,7 +117,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 |----|----|----|----|
 |userPrincipalName|CORRESPONDÊNCIA DE REGEX|.\*@domain.com |Todos os usuários com userPrincipal que têm o domínio @domain.com estarão no escopo para provisionamento|
 |userPrincipalName|NÃO CORRESPONDÊNCIA DE REGEX|.\*@domain.com|Todos os usuários com userPrincipal que têm o domínio @domain.com estarão fora do escopo para provisionamento|
-|department|EQUALS|sales|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
+|department|EQUALS|impostos|Todos os usuários do departamento de vendas estão no escopo para provisionamento|
 |workerid|CORRESPONDÊNCIA DE REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos os funcionários com workerIDs entre 1 milhão e 2 milhões estão no escopo para provisionamento.|
 
 ## <a name="related-articles"></a>Artigos relacionados

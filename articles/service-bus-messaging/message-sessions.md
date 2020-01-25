@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7da3c3de5074df80c676238e4d43dbd677b0a3b4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091824"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720224"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagem: PEPS (primeiro a entrar, primeiro a sair) 
 
@@ -82,7 +82,7 @@ O estado de sessão mantido em uma fila ou em uma assinatura conta para a cota d
 
 ## <a name="impact-of-delivery-count"></a>Impacto da contagem de entrega
 
-A definição de contagem de entrega por mensagem no contexto de sessões varia um pouco da definição no a ausência de sessões. Aqui está uma tabela Resumindo quando a contagem de entrega é incrementada.
+A definição de contagem de entrega por mensagem no contexto de sessões varia um pouco da definição na ausência de sessões. Aqui está uma tabela Resumindo quando a contagem de entrega é incrementada.
 
 | Cenário | A contagem de entrega da mensagem é incrementada |
 |----------|---------------------------------------------|
@@ -90,7 +90,7 @@ A definição de contagem de entrega por mensagem no contexto de sessões varia 
 | A sessão é aceita, as mensagens dentro da sessão não são concluídas (mesmo se estiverem bloqueadas) e a sessão será fechada | Não |
 | A sessão é aceita, as mensagens são concluídas e, em seguida, a sessão é fechada explicitamente | N/A (esse é o fluxo padrão. Estas mensagens são removidas da sessão) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte os exemplos de [Microsoft. Azure. ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft. ServiceBus. Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) para obter um exemplo que usa o cliente .NET Framework para lidar com mensagens com reconhecimento de sessão. 
 

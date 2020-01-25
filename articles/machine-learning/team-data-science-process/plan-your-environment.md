@@ -3,20 +3,20 @@ title: Identificar cenários e planejar o processo de análise – Processo de C
 description: Identifique cenários e planeje o processamento de dados analíticos avançado, considerando uma série de questões fundamentais.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647298"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710316"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
 
@@ -75,11 +75,11 @@ Considere o uso do ADF (Azure Data Factory) quando os dados precisam ser migrado
 * um cenário híbrido que envolve tanto recursos locais quanto na nuvem
 * um cenário em que os dados são transacionados, modificados ou alterados pela lógica de negócios durante a migração
 
-Para saber mais, confira [Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory](move-sql-azure-adf.md).
+Para obter mais informações, consulte [mover dados de um SQL Server local para SQL Azure com Azure data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quanto dos dados será movido para o Azure?
 
-Conjuntos de dados extremamente grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, consulte a discussão sobre limites de tamanho para Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
+Grandes conjuntos de dado podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, consulte a discussão sobre limites de tamanho para Machine Learning Studio (clássico) na próxima seção. Nesses casos, você pode usar uma amostra dos dados durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Perguntas sobre características de dados: tipo, formato e tamanho
 

@@ -1,5 +1,5 @@
 ---
-title: Usar Docker Compose para implantar vários contêineres
+title: Usar o Docker Compose para implantar vários contêineres
 titleSuffix: Azure Cognitive Services
 description: Saiba como implantar vários contêineres de serviços cognitivas. Este artigo mostra como orquestrar várias imagens de contêiner do Docker usando Docker Compose.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311546"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716902"
 ---
-# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usar Docker Compose para implantar vários contêineres
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usar o Docker Compose para implantar vários contêineres
 
 Este artigo mostra como implantar vários contêineres de serviços cognitivas do Azure. Especificamente, você aprenderá a usar Docker Compose para orquestrar várias imagens de contêiner do Docker.
 
@@ -30,7 +30,7 @@ Pode ser útil orquestrar várias imagens de contêiner em um único computador 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente:
 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Mecanismo](https://www.docker.com/products/docker-engine)do Docker. Confirme se a CLI do Docker funciona em uma janela de console.
+* [Mecanismo do Docker](https://www.docker.com/products/docker-engine). Confirme se a CLI do Docker funciona em uma janela de console.
 * Um recurso do Azure com o tipo de preço correto. Somente os seguintes tipos de preço funcionam com este contêiner:
   * **Pesquisa Visual computacional** recurso somente com o tipo de preço F0 ou Standard.
   * Recurso de **reconhecimento de formulário** com o tipo de preço F0 ou Standard somente.
@@ -38,7 +38,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao Registro de contêiner
 
-Conclua e envie o formulário de solicitação de contêineres de [fala dos serviços cognitivas](https://aka.ms/speechcontainerspreview/). 
+Conclua e envie o [formulário de solicitação de contêineres de fala dos serviços cognitivas](https://aka.ms/speechcontainerspreview/). 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -182,7 +182,7 @@ Abra um navegador no computador host e vá para **localhost** usando a porta esp
 
 ![Contêiner do reconhecedor de formulário](media/form-recognizer-swagger-page.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Contêineres de serviços cognitivas](../cognitive-services-container-support.md)

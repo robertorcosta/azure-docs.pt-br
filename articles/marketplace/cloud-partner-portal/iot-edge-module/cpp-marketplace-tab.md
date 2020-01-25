@@ -8,19 +8,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814596"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721618"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Guia de mercado de módulo do IoT Edge
 
 A guia **Marketplace** da página **New Offer** permite que você forneça aos clientes em potencial informações e contratos de marketing, vendas e legais e gerencie leads gerados no mercado. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de Marketing**, **gerenciamento de leads**, e **Legal**.
 
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
 
@@ -33,11 +33,11 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obr
 | **Título\***                 | Título da oferta. Ele será exibido com destaque no marketplace.  Comprimento máximo de 50 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **\* de resumo**               | Breve resumo da oferta. Comprimento máximo de 100 caracteres. <!--ADD PICTURE IN ACTION-->|
 | **Resumo longo\***          | Mais Resumo da oferta (embora pudesse ser igual a **resumo**).  Comprimento máximo de 256 caracteres. <!--ADD PICTURE IN ACTION-->|
-| **Descrição\***           | Descrição da oferta.  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples.<br/> Ele deve incluir um *requisitos mínimos de hardware* parágrafo na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e arm32 do sistema operacional, 1 GB de RAM, 500 Mb de armazenamento</p>
+| **Description\***           | Descrição da oferta.  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples.<br/> Ele deve incluir um *requisitos mínimos de hardware* parágrafo na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e arm32 do sistema operacional, 1 GB de RAM, 500 Mb de armazenamento</p>
 | **Identificador de marketing\***  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Visualizar códigos de inscrição** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 | **Links úteis**          | A seleção múltipla de categorias comerciais e técnicas que oferecem pode ser melhor associada.  Um máximo de 10 permitido. Certifique-se de adicionar pelo menos um link à sua documentação e um link para os dispositivos compatíveis do IoT Edge a partir do [catálogo de dispositivos IoT do Azure](https://catalog.azureiotsolutions.com/). |
-| **Categorias sugeridas\*** | Selecione até cinco categorias. Elas serão mostradas em sua página de detalhes do produto. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria *Internet of Things \> IoT Edge*.|
+| **Categorias sugeridas\*** | Selecione até cinco categorias. Eles serão exibidos na sua página de detalhes do produto. Nas páginas de navegação, todos os módulos IoT Edge são mostrados na categoria *Internet of Things \> IoT Edge*.|
 |  |  |
 
 
@@ -61,20 +61,20 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos. Os campos obr
 
 - Ao navegar ofertas:
 
-    ![Como o módulo do IoT Edge é exibido ao navegar no portal do Azure nº 1](./media/iot-edge-module-portal-browse.png)
+    ![Como o módulo IoT Edge é exibido ao navegar no portal #1 do Azure](./media/iot-edge-module-portal-browse.png)
 
     ![Como o módulo IoT Edge é exibido durante a navegação no portal #2 do Azure](./media/iot-edge-module-portal-product-picker.png)
 
 - Quando você está procurando uma oferta:
 
-    ![Como o módulo do IoT Edge é exibido ao pesquisar o portal do Azure](./media/iot-edge-module-portal-search.png)
+    ![Como o módulo IoT Edge é exibido ao pesquisar o portal do Azure](./media/iot-edge-module-portal-search.png)
 
 - Ao analisar os detalhes da oferta:
 
     ![Como o módulo IoT Edge é exibido ao procurar os detalhes do produto no portal](./media/iot-edge-module-portal-pdp.png)
 
 
-## <a name="marketing-artifacts"></a>Artefatos de marketing
+## <a name="marketing-artifacts"></a>Artefatos de Marketing
 
 Esta seção tem as seguintes subseções: **Logotipos**, **Captura de tela** e **Vídeos**. 
 
@@ -91,10 +91,10 @@ Esta seção tem as seguintes subseções: **Logotipos**, **Captura de tela** e 
 | **Grande\***                 | formato do pixel 115 x 115 PNG                                                  |
 | **\* largo**                  | formato do pixel de 255 x 115 PNG                                                   |
 | **Hero**                  | formato de pixel de 815 x 290 PNG.  Opcional, no entanto, uma vez carregado, o ícone do herói não pode ser excluído. |
-| *Capturas de tela*  | Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o módulo do IoT Edge faz e como ele funciona. Você pode exibir diagramas de arquitetura ou usar ilustrações de caso por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
+| *Capturas de tela*  | Capturas de tela são exibidas na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. Você pode mostrar diagramas de arquitetura ou usar ilustrações de casos, por exemplo. Opcional, mas no máximo cinco capturas de tela por SKU. |
 | **Nome**                  | Nome ou o título. Comprimento máximo de 100 caracteres.                             |
 | **Imagem**                 | Imagem de captura de tela, o formato do pixel 533, 324 PNG                               |
-| *Vídeos*  | Vídeos são exibidos na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o módulo do IoT Edge faz e como ele funciona. |
+| *Vídeos*  | Vídeos são exibidos na sua página de detalhes do produto. Eles são uma boa maneira de comunicar visualmente o que o seu módulo IoT Edge faz e como funciona. |
 | **Nome**                  | Nome ou o título. Comprimento máximo de 100 caracteres.                             |
 | **Link**                  | URL do vídeo, hospedado no YouTube ou Vimeo                                        |
 | **Miniatura**             | formato do pixel 533, 324 PNG                                                     |
@@ -129,14 +129,14 @@ Use as seguintes diretrizes para um logotipo do Herói:
 *  Evite usar a maioria dos textos quando estiver criando o logotipo. O nome do editor, o título do plano, o resumo longo da oferta e um botão de criação são incorporados programaticamente dentro do logotipo quando a oferta é listada. 
 * Inclua um espaço retangular não utilizado no lado direito do logotipo do seu herói. Esse espaço em branco é de 415x100 pixels e deslocado a partir da esquerda por 370 pixels.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)
 -->
 
 
-## <a name="lead-management"></a>Gerenciamento de clientes potenciais
+## <a name="lead-management"></a>Gerenciamento de leads
 
 Esta seção permite que você configure as opções para coletar leads de clientes gerados a partir de suas ofertas do Azure Marketplace. Você pode selecionar as seguintes opções de armazenamento em uma lista suspensa.
 
@@ -159,7 +159,7 @@ Depois de publicar sua oferta, a conexão do lead é verificada e um lead de tes
 4. amp.com the tile -->
 
 
-## <a name="legal"></a>Legal
+## <a name="legal"></a>Informações Legais
 
 Esta seção permite fornecer os dois documentos legais necessários para cada oferta: Política de Privacidade e Termos de Uso.
 
@@ -171,6 +171,6 @@ Esta seção permite fornecer os dois documentos legais necessários para cada o
 |  |  |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use o [suporte](./cpp-support-tab.md) guia para fornecer suportam técnico e usuário de recursos para sua oferta.

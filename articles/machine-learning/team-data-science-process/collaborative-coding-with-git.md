@@ -2,20 +2,20 @@
 title: Codificação colaborativa com Git – Processo de Ciência de Dados da Equipe
 description: Como fazer o desenvolvimento de código de colaboração para projetos de ciência de dados usando o Git com o planejamento do Agile.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195533"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721890"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificação colaborativa com o Git
 
@@ -39,7 +39,7 @@ Você também pode criar uma nova ramificação usando o seguinte comando git ba
 git checkout -b <new branch name> <base branch name>
 
 ```
-Se você não especificar um \<nome de Branch base >, a nova ramificação será `master`baseada em. 
+Se você não especificar um nome de Branch base \<>, o novo Branch será baseado em `master`. 
 
 Para alternar para o Branch de trabalho, execute o seguinte comando: 
 
@@ -47,7 +47,7 @@ Para alternar para o Branch de trabalho, execute o seguinte comando:
 git checkout <working branch name>
 ```
 
-Depois de alternar para o Branch de trabalho, você pode começar a desenvolver o código ou artefatos de documentação para concluir o item de trabalho. Executar `git checkout master` o comutador de volta `master` para a ramificação.
+Depois de alternar para o Branch de trabalho, você pode começar a desenvolver o código ou artefatos de documentação para concluir o item de trabalho. A execução do `git checkout master` muda para a ramificação `master`.
 
 É uma boa prática criar uma ramificação git para cada item de trabalho de história de usuário. Em seguida, para cada item de trabalho de tarefa, você pode criar uma ramificação com base na ramificação de história de usuário. Organize as ramificações em uma hierarquia que corresponde à relação de tarefa de história de usuário quando você tem várias pessoas trabalhando em histórias de usuário diferentes para o mesmo projeto ou em tarefas diferentes para a mesma história de usuário. Você pode minimizar conflitos fazendo com que cada membro da equipe trabalhe em uma ramificação diferente ou em código diferente ou em outros artefatos ao compartilhar uma ramificação. 
 
@@ -61,7 +61,7 @@ Você também pode vincular um item de trabalho para uma branch existente. Na p�
 
 ## <a name='WorkonaBranchandCommittheChanges-2'></a>Trabalhar no Branch e confirmar as alterações 
 
-Depois de fazer uma alteração para seu item de trabalho, como adicionar um arquivo de script R à ramificação do `script` computador local, você pode confirmar a alteração do Branch local para o Branch de trabalho upstream usando os seguintes comandos do git bash:
+Depois de fazer uma alteração para seu item de trabalho, como adicionar um arquivo de script R ao Branch de `script` do computador local, você pode confirmar a alteração do Branch local para o Branch de trabalho upstream usando os seguintes comandos do git bash:
 
 ```bash
 git status
@@ -76,11 +76,11 @@ git push origin script
 
 Após uma ou mais confirmações e envios por push, quando estiver pronto para mesclar seu Branch de trabalho atual em sua ramificação base, você poderá criar e enviar uma *solicitação de pull* no Azure repos. 
 
-Na página principal do seu projeto DevOps do Azure, aponte para**solicitações de pull** do **repositórios** > no painel de navegação esquerdo. Em seguida, selecione um dos novos botões de **solicitação de pull** ou o link **criar uma solicitação de pull** .
+Na página principal do seu projeto DevOps do Azure, aponte para **repositórios** > **solicitações de pull** no painel de navegação esquerdo. Em seguida, selecione um dos novos botões de **solicitação de pull** ou o link **criar uma solicitação de pull** .
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Na tela **nova solicitação de pull** , se necessário, navegue até o repositório git e Branch para os quais você deseja mesclar suas alterações. Adicione ou altere outras informações que desejar. Emrevisores, adicione os nomes dos que você precisa para revisar suas alterações e, em seguida, selecione **criar**. 
+Na tela **nova solicitação de pull** , se necessário, navegue até o repositório git e Branch para os quais você deseja mesclar suas alterações. Adicione ou altere outras informações que desejar. Em **revisores**, adicione os nomes dos revisores e, em seguida, selecione **criar**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -98,11 +98,11 @@ Confirme se a solicitação está marcada como **concluída**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-Ao voltar para **repositórios** no painel de navegação esquerdo, você pode ver que foi alternado para o Branch mestre desde que a `script` ramificação foi excluída.
+Ao voltar para **repositórios** no painel de navegação esquerdo, você pode ver que foi alternado para o Branch mestre desde que a ramificação de `script` foi excluída.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-Você também pode usar os seguintes comandos do git bash para mesclar o Branch de `script` trabalho para sua ramificação base e excluir o Branch de trabalho após a mesclagem:
+Você também pode usar os seguintes comandos do git bash para mesclar o `script` Branch de trabalho para sua ramificação base e excluir o Branch de trabalho após a mesclagem:
 
 ```bash
 git checkout master
@@ -112,7 +112,7 @@ git branch -d script
 
 ![13](./media/collaborative-coding-with-git/13-spring-branch-deleted-commandline.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Executar tarefas de ciência de dados](execute-data-science-tasks.md) mostra como usar utilitários para concluir várias tarefas comuns de ciência de dados, como exploração interativa de dados, análise de dados, relatórios e criação de modelo.
 

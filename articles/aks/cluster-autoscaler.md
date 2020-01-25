@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885768"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713390"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -22,7 +22,7 @@ Este artigo mostra como habilitar e gerenciar o dimensionador automático de clu
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que você esteja executando o CLI do Azure versão 2.0.76 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure][azure-cli-install].
+Este artigo requer que você esteja executando o CLI do Azure versão 2.0.76 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="limitations"></a>Limitações
 
@@ -41,7 +41,7 @@ Para se ajustar às mudanças nas demandas de aplicativo, como entre a jornada d
 
 Tanto o Pod horizontal como o dimensionamento automática de clusters e o autoescalar podem diminuir o número de pods e nós conforme necessário. O dimensionador automático de cluster diminui o número de nós quando a capacidade não é utilizada por um período. Os pods em um nó a serem removidos pelo dimensionador automático de cluster são agendados com segurança em outro lugar no cluster. O dimensionador automático de cluster poderá não conseguir fazer a redução vertical se os pods não puderem ser movidos, como nas seguintes situações:
 
-* Um pod criado diretamente e que não tem o suporte de um objeto de controlador, como uma implantação ou um conjunto de réplicas.
+* Um pod é criado diretamente e não é apoiado por um objeto de controlador, como uma implantação ou um conjunto de réplicas.
 * Um PDB (orçamento de interrupção de pod) é muito restritivo e não permite que o número de pods fique abaixo de determinado limite.
 * Um pod usa seletores de nó ou uma antiafinidade que não pode ser cumprida se ele está agendado em outro nó.
 
@@ -61,7 +61,7 @@ Se você precisar criar um cluster AKS, use o comando [AZ AKs Create][az-aks-cre
 > [!IMPORTANT]
 > O dimensionamento automático do cluster é um componente de Kubernetes. Embora o cluster do AKS use um conjunto de dimensionamento de máquinas virtuais para os nós, não habilite ou edite manualmente as configurações de dimensionamento automático do conjunto de dimensionamento no portal do Azure ou usando a CLI do Azure. Permita que o dimensionador automático do cluster de Kubernetes gerencie as configurações de dimensionamento necessárias. Para obter mais informações, consulte posso [modificar os recursos do AKS no grupo de recursos do nó?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-O exemplo a seguir cria um cluster AKS com um pool de nós único apoiado por um conjunto de dimensionamento de máquinas virtuais. Ele também habilita o dimensionador do cluster em conjunto de nós para o cluster e define um mínimo de *1* e o máximo de *3* nós:
+O exemplo a seguir cria um cluster AKS com um único pool de nós apoiado por um conjunto de dimensionamento de máquinas virtuais. Ele também habilita o dimensionador do cluster em conjunto de nós para o cluster e define um mínimo de *1* e o máximo de *3* nós:
 
 ```azurecli-interactive
 # First create a resource group
@@ -154,7 +154,7 @@ Para saber mais sobre o que é registrado a partir do dimensionador de escalabil
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Usar o dimensionamento de autoescalar do cluster com vários pools de nós habilitados
 
-O conjunto de dimensionamento de clusters pode ser usado junto com os [vários pools de nós](use-multiple-node-pools.md) habilitados. Siga esse documento para saber como habilitar vários pools de nó e adicionar pools de nós adicionais a um cluster existente. Ao usar os dois recursos juntos, você habilita o dimensionador automático do cluster em cada pool de nós individual no cluster e pode passar regras exclusivas de dimensionamento automático para cada um deles.
+O conjunto de dimensionamento de clusters pode ser usado junto com [vários pools de nós](use-multiple-node-pools.md) habilitados. Siga esse documento para saber como habilitar vários pools de nó e adicionar pools de nós adicionais a um cluster existente. Ao usar os dois recursos juntos, você habilita o dimensionador automático do cluster em cada pool de nós individual no cluster e pode passar regras exclusivas de dimensionamento automático para cada um deles.
 
 O comando abaixo pressupõe que você seguiu as [instruções iniciais](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) anteriormente neste documento e deseja atualizar a contagem máxima de um pool de nós existente de *3* para *5*. Use o comando [AZ AKs nodepool Update][az-aks-nodepool-update] para atualizar as configurações de um pool de nós existente.
 
@@ -180,7 +180,7 @@ az aks nodepool update \
 
 Se desejar reabilitar o dimensionador automática do cluster em um cluster existente, você poderá habilitá-lo novamente usando o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , especificando os parâmetros *--Enable-cluster-autoscaleer*, *--min-Count*e *--Max-Count* .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou como dimensionar automaticamente o número de nós do AKS. Você também pode usar o dimensionador automático de pod horizontal para ajustar automaticamente o número de pods que executam o aplicativo. Para obter as etapas sobre como usar a escalabilidade horizontal Pod, consulte [dimensionar aplicativos em AKs][aks-scale-apps].
 

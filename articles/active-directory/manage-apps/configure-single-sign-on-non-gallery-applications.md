@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dcc2d6fc252f288f15e2583012798b4d0e9cee6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c99c38c9a1972bc434c7fa61d6745dac0d79d7b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169431"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711954"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar o logon único baseado em SAML para aplicativos que não são da Galeria
 
@@ -50,11 +50,11 @@ Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consul
 
 1. Insira as configurações a seguir. Você deve obter os valores do fornecedor do aplicativo. Pode inserir os valores manualmente ou carregar um arquivo de metadados para extrair o valor dos campos.
 
-    | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | DESCRIÇÃO |
+    | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | Description |
     |:--|:--|:--|:--|
     | **Identificador (ID da entidade)** | Obrigatório para alguns aplicativos | Obrigatório para alguns aplicativos | Identifica exclusivamente o aplicativo. O Azure AD envia o identificador para o aplicativo como o parâmetro Audience do token SAML. O aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo. Insira uma URL que usa o seguinte padrão: ' https://<subdomain>. contoso.com ' *você pode encontrar esse valor como o elemento **emissor** no **AuthnRequest** (solicitação SAML) enviado pelo aplicativo.* |
-    | **URL de Resposta** | obrigatórios | obrigatórios | Especifica onde o aplicativo espera receber o token SAML. A URL de resposta também é chamada de URL do ACS (Serviço do Consumidor de Declaração). Você pode usar os campos de URL de resposta adicionais para especificar várias URLs de resposta. Por exemplo, você pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para fins de teste, você pode especificar várias URLs de resposta (host local e URLs públicas) ao mesmo tempo. |
-    | **URL de logon** | obrigatórios | Não especifique | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo no Office 365 ou no painel de acesso do Azure AD. Quando em branco, o Azure AD executa o logon iniciado pelo IdP quando um usuário inicia o aplicativo do Office 365, do painel de acesso do Azure AD ou da URL de SSO do Azure AD.|
+    | **URL de Resposta** | Obrigatório | Obrigatório | Especifica onde o aplicativo espera receber o token SAML. A URL de resposta também é chamada de URL do ACS (Serviço do Consumidor de Declaração). Você pode usar os campos de URL de resposta adicionais para especificar várias URLs de resposta. Por exemplo, você pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para fins de teste, você pode especificar várias URLs de resposta (host local e URLs públicas) ao mesmo tempo. |
+    | **URL de logon** | Obrigatório | Não especifique | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo no Office 365 ou no painel de acesso do Azure AD. Quando em branco, o Azure AD executa o logon iniciado pelo IdP quando um usuário inicia o aplicativo do Office 365, do painel de acesso do Azure AD ou da URL de SSO do Azure AD.|
     | **Estado de retransmissão** | Opcional | Opcional | Especifica para onde o aplicativo deve redirecionar o usuário depois que a autenticação é concluída. Normalmente, o valor é uma URL válida para o aplicativo. No entanto, alguns aplicativos usam esse campo de forma diferente. Para obter mais informações, pergunte ao fornecedor do aplicativo.
     | **URL de logoff** | Opcional | Opcional | Usada para enviar as respostas de Logoff do SAML novamente ao aplicativo.
 
@@ -70,13 +70,13 @@ Quando um usuário é autenticado no aplicativo, o Azure AD emite ao aplicativo 
 
 2. Verifique o **Valor do Identificador de Nome**. O valor padrão é *user.principalname*. O identificador de usuário identifica exclusivamente cada usuário dentro do aplicativo. Por exemplo, se o endereço de email é tanto o nome de usuário quanto o identificador exclusivo, defina o valor como *user.mail*.
 
-3. Para modificar o **Valor do Identificador de Nome**, selecione o ícone **Editar** (um lápis) para o campo **Valor do Identificador de Nome**. Faça as alterações apropriadas na origem e no formato do identificador, conforme necessário. Para obter detalhes, confira [Como editar a NameId](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Salve as alterações quando terminar. 
+3. Para modificar o **Valor do Identificador de Nome**, selecione o ícone **Editar** (um lápis) para o campo **Valor do Identificador de Nome**. Faça as alterações apropriadas na origem e no formato do identificador, conforme necessário. Para obter detalhes, confira [Como editar a NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Salve as alterações quando terminar. 
  
 4. Para configurar as declarações de grupo, selecione o ícone **Editar** para o campo **Grupos retornados na declaração**. Para obter detalhes, confira [Configurar declarações de grupo](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. Para adicionar uma declaração, selecione **Adicionar nova declaração** na parte superior da página. Insira o **Nome** e selecione a fonte apropriada. Se você selecionar a origem **Atributo**, precisará escolher o **Atributo de origem** que deseja usar. Se você selecionar a origem **Tradução**, precisará escolher a **Transformação** e o **Parâmetro 1** que deseja usar. Para obter detalhes, confira [Como adicionar declarações específicas do aplicativo](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Salve as alterações quando terminar. 
+5. Para adicionar uma declaração, selecione **Adicionar nova declaração** na parte superior da página. Insira o **Nome** e selecione a fonte apropriada. Se você selecionar a origem **Atributo**, precisará escolher o **Atributo de origem** que deseja usar. Se você selecionar a origem **Tradução**, precisará escolher a **Transformação** e o **Parâmetro 1** que deseja usar. Para obter detalhes, confira [Como adicionar declarações específicas do aplicativo](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Salve as alterações quando terminar. 
 
-6. Selecione **Salvar**. A nova declaração será exibida na tabela.
+6. Clique em **Salvar**. A nova declaração será exibida na tabela.
 
    > [!NOTE]
    > Para obter outras maneiras de personalizar o token SAML do Azure AD para seu aplicativo, confira os recursos a seguir.
@@ -150,7 +150,7 @@ Se uma mensagem de erro for exibida, conclua as seguintes etapas:
 
 1. Copie e cole as informações específicas na caixa **Como é o erro?** .
 
-    ![Obter diretrizes de resolução](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Obter diretrizes de resolução](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
 2. Selecione **Obter diretrizes de resolução**. A causa raiz e as orientações para resolução aparecem.  Neste exemplo, o usuário não estava atribuído ao aplicativo.
 
@@ -160,7 +160,7 @@ Se uma mensagem de erro for exibida, conclua as seguintes etapas:
 
 Para obter mais informações, consulte [depurar o logon único baseado em SAML para aplicativos no Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir usuários e grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
 - [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)

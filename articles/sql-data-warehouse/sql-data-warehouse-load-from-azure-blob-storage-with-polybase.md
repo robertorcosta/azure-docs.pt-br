@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d928f2392f204baae6cfdbe864938ef0dee1d6ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: af505d7614b527d6dc7e1ce54136578d67824cf9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692664"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721159"
 ---
 # <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Carregar dados de varejo da Contoso para uma análise de SQL data warehouse
 
@@ -29,15 +29,15 @@ Neste tutorial, você irá:
 3. Execute otimizações após o carregamento ser concluído.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Para executar este tutorial, você precisa de uma conta do Azure que já tenha um data warehouse de análise SQ. Se você não tiver um data warehouse provisionado, consulte [criar uma data warehouse SQL e definir regra de firewall no nível de servidor] [criar um data warehouse SQL].
+Para executar este tutorial, você precisa de uma conta do Azure que já tenha um data warehouse de análise de SQL. Se você não tiver um data warehouse provisionado, consulte [criar um data warehouse e definir regra de firewall no nível de servidor](create-data-warehouse-portal.md).
 
 ## <a name="1-configure-the-data-source"></a>1. configurar a fonte de dados
 O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objeto externo são armazenadas em seu data warehouse de análise do SQL. Os dados são armazenados externamente.
 
 ### <a name="11-create-a-credential"></a>1.1. Criar uma credencial
-**Ignore esta etapa** se você estiver carregando os dados públicos da Contoso. Você não precisa de acesso seguro aos dados públicos, pois eles já estão acessíveis a qualquer pessoa.
+**Ignore esta etapa** se você estiver carregando os dados públicos da contoso. Você não precisa de acesso seguro aos dados públicos, pois eles já estão acessíveis a qualquer pessoa.
 
-**Não ignore esta etapa** se você estiver usando este tutorial como um modelo para carregar seus próprios dados. Para acessar dados por meio de uma credencial, use o seguinte script para criar uma credencial com escopo de banco de dados e, em seguida, usá-lo ao definir o local da fonte de dados.
+**Não ignore esta etapa** se você estiver usando este tutorial como um modelo para carregar seus próprios dados. Para acessar dados por meio de uma credencial, use o script a seguir para criar uma credencial com escopo de banco de dados. Em seguida, use-o ao definir o local da fonte de dados.
 
 ```sql
 -- A: Create a master key.
@@ -73,7 +73,7 @@ WITH (
 ```
 
 ### <a name="12-create-the-external-data-source"></a>1.2. Criar a fonte de dados externa
-Use este comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] para armazenar o local dos dados e o tipo de dados. 
+Use este comando [criar fonte de dados externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) para armazenar o local dos dados e o tipo de dados. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -90,7 +90,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. configurar o formato de dados
-Os dados são armazenados em arquivos de texto no armazenamento de blobs do Azure e cada campo é separado por um delimitador. No SSMS, execute o comando [criar formato de arquivo externo][CREATE EXTERNAL FILE FORMAT] a seguir para especificar o formato dos dados nos arquivos de texto. Os dados da Contoso são descompactados e delimitados por barra vertical.
+Os dados são armazenados em arquivos de texto no armazenamento de blobs do Azure e cada campo é separado por um delimitador. No SSMS, execute o comando criar formato de arquivo externo a seguir para especificar o formato dos dados nos arquivos de texto. Os dados da Contoso são descompactados e delimitados por barra vertical.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -214,7 +214,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Carregar os dados em novas tabelas
-Para carregar dados do armazenamento de BLOBs do Azure na tabela data warehouse, use a instrução [CREATE TABLE as Select (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] . O carregamento com CTAS aproveita as tabelas externas com rigidez de tipos que você criou. Para carregar os dados em novas tabelas, use uma instrução [CTAS][CTAS] por tabela. 
+Para carregar dados do armazenamento de BLOBs do Azure na tabela data warehouse, use a instrução [CREATE TABLE as Select (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) . O carregamento com [CTAS](sql-data-warehouse-develop-ctas.md) aproveita as tabelas externas com rigidez de tipos que você criou. Para carregar os dados em novas tabelas, use uma instrução CTAS por tabela. 
  
 O CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select. Se você selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e dos tipos de dados na tabela externa.
 
@@ -265,7 +265,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. otimizar a compactação columnstore
-Por padrão, a análise de SQL data warehouse armazena a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes motivos pelos quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore][manage columnstore indexes].
+Por padrão, a análise de SQL data warehouse armazena a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes motivos pelos quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
 
 Para otimizar o desempenho da consulta e a compactação columnstore após um carregamento, recrie a tabela para forçar o índice columnstore a compactar todas as linhas. 
 
@@ -277,12 +277,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para obter mais informações sobre como manter os índices columnstore, consulte o artigo [Gerenciar índices columnstore][manage columnstore indexes] .
+Para obter mais informações sobre como manter os índices columnstore, consulte o artigo [Gerenciar índices columnstore](sql-data-warehouse-tables-index.md) .
 
 ## <a name="6-optimize-statistics"></a>6. otimizar estatísticas
 É melhor criar estatísticas de coluna única imediatamente após um carregamento. Se você souber que determinadas colunas não serão em predicados de consulta, você poderá ignorar a criação de estatísticas nessas colunas. Se você criar estatísticas de coluna única em cada coluna, poderá levar muito tempo para recompilar todas as estatísticas. 
 
-Se você decidir criar estatísticas com uma coluna em cada coluna de cada tabela, poderá usar o exemplo de código do procedimento armazenado `prc_sqldw_create_stats` no artigo [estatísticas][statistics].
+Se você decidir criar estatísticas com uma coluna em cada coluna de cada tabela, poderá usar o exemplo de código do procedimento armazenado `prc_sqldw_create_stats` no artigo [estatísticas](sql-data-warehouse-tables-statistics.md).
 
 O exemplo a seguir é um bom ponto de partida para a criação de estatísticas. Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna de junção das tabelas de fatos. Você poderá adicionar estatísticas de coluna única ou múltipla às colunas de tabelas de fatos posteriormente.
 
@@ -341,29 +341,6 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para carregar o conjunto de dados completo, execute o exemplo [carregar o data warehouse de varejo completo da Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) no repositório de exemplos Microsoft SQL Server.
-
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento do SQL data warehouse] [Visão geral do desenvolvimento do SQL Data Warehouse].
-
-<!--Image references-->
-
-<!--Article references-->
-[Create a SQL Analytics data warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Analytics data warehouse]: sql-data-warehouse-overview-load.md
-[SQL Analytics data warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
-
-<!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
-
-<!--Other Web references-->
-[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para data warehouses](sql-data-warehouse-overview-develop.md).

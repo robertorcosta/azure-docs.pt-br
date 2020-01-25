@@ -1,18 +1,18 @@
 ---
 title: Assinaturas da Grade de Eventos do Azure por meio do portal
-description: Descreve como criar assinaturas da Grade de Eventos por meio do portal.
+description: Este artigo descreve como criar assinaturas de grade de eventos para as fontes com suporte, como o armazenamento de BLOBs do Azure, usando o portal do Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823404"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721499"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Assinar os eventos por meio do portal
 
@@ -28,7 +28,7 @@ Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do 
 
 1. Pesquise **Assinaturas da Grade de Eventos** e selecione-as nas opções disponíveis.
 
-   ![Search](./media/subscribe-through-portal/search.png)
+   ![Pesquisa](./media/subscribe-through-portal/search.png)
 
 1. Selecione **+ Assinatura de Evento**.
 
@@ -64,7 +64,7 @@ Algumas origens de eventos dão suporte para criação de uma assinatura de even
 
 O portal apresenta opções para criar uma assinatura de evento relevante para essa origem.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre a entrega de eventos e repetições, [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 * Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).

@@ -3,23 +3,23 @@ title: Dados de exemplo nas tabelas Hive do Azure HDInsight - Processo da Ciênc
 description: Reduzir dados armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir os dados a um tamanho mais gerenciável para análise.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042876"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719986"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo nas tabelas Hive do Azure HDInsight
-Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Abordaremos três métodos de amostragem popularmente usados:
+Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Ele aborda três métodos de amostragem populares usados:
 
 * Amostragem aleatória uniforme
 * Amostragem aleatória por grupos
@@ -31,7 +31,7 @@ Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Como enviar consultas de Hive
-Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop. Para isso, faça logon no nó principal do cluster do Hadoop, abra o Console de Linha de Comando do Hadoop e envie as consultas de Hive de lá. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
+Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop.  Faça logon no nó principal do cluster do Hadoop, abra o console de linha de comando do Hadoop e envie as consultas de Hive a partir daí. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Amostragem aleatória uniforme
 A amostragem aleatória uniforme significa que cada linha no conjunto de dados tem a mesma chance de amostra. Isso pode ser implementado adicionando um campo rand() extra ao conjunto de dados na consulta interna "select" e na consulta externa “select”, esta condição estará nesse campo aleatório.
@@ -81,7 +81,7 @@ Veja um exemplo de consulta com amostragem por grupo:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Amostragem estratificada
-A amostragem aleatória é estratificada em relação a uma variável categórica quando as amostras obtidas têm valores da categoria em questão que estão na mesma proporção como a população-mãe. Usando o mesmo exemplo acima, vamos supor que os dados têm subpopulações por estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se você especificar a taxa de amostragem estratificada para ser 0,5, a amostra obtida deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respectivamente.
+A amostragem aleatória é estratificada em relação a uma variável categórica quando as amostras obtidas têm valores da categoria em questão que estão na mesma proporção como a população-mãe. Usando o mesmo exemplo anterior, suponha que os dados têm subpopulações por estados: NJ tem 100 observações, NY tem 60 observações e WA tem 300 observações. Se você especificar a taxa de amostragem estratificada para ser 0,5, a amostra obtida deve ter aproximadamente 50, 30 e 150 observações de NJ, NY e WA, respectivamente.
 
 Veja um exemplo de consulta:
 

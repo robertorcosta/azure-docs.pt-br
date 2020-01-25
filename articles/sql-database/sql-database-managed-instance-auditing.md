@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 41d632b145a7187dd0aeaab740cd8546a3955e7f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9b96969027431f289e366b150fbfc6a62ee6a908
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819002"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719901"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à Auditoria da instância gerenciada do Banco de Dados SQL do Azure
 
@@ -171,7 +171,7 @@ Os logs de auditoria de uma instância gerenciada podem ser enviados para até m
 
 5. Selecione um destino para os eventos de auditoria – Hub de eventos, logs de Azure Monitor ou ambos. Configure os parâmetros necessários (por exemplo, espaço de trabalho do Log Analytics) para cada destino.
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
     ![Definir as configurações de diagnóstico](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 
@@ -233,11 +233,11 @@ As principais diferenças na sintaxe `CREATE AUDIT` para a auditoria do armazena
 
 - Uma nova sintaxe `TO URL` é fornecida e permite que você especifique a URL do contêiner de armazenamento de blobs do Azure onde arquivos `.xel` são colocados.
 - Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para habilitar o Hub par e Azure Monitor destinos de logs.
-- A sintaxe `TO FILE` **não tem suporte** porque a instância gerenciada do Banco de Dados SQL não pode acessar compartilhamentos de arquivos do Windows.
+- A sintaxe `TO FILE`**não tem suporte** porque a instância gerenciada do Banco de Dados SQL não pode acessar compartilhamentos de arquivos do Windows.
 - A opção de desligamento **não é compatível**.
-- `queue_delay`Não há suporte**para** de 0.
+- **Não há suporte** para `queue_delay` de 0.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma lista completa de métodos de consumo de log de auditoria, consulte o [Introdução à auditoria de banco de dados do SQL](sql-database-auditing.md).
 - Para obter mais informações sobre os programas do Azure que dão suporte à conformidade com padrões, consulte a [central de confiabilidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.

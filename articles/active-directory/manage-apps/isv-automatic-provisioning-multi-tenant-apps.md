@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e7f60335b3e75d93f408dec3386ca0bdcd6a0388
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232307"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711463"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -56,7 +56,7 @@ Aplicativos que exigem que um registro de usuário esteja presente no aplicativo
 
 O Azure AD fornece vários caminhos de integração para habilitar o provisionamento automático de usuário para seu aplicativo.
 
-* O [serviço de provisionamento do Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) gerencia o provisionamento e o desprovisionamento de usuários do Azure ad para seu aplicativo (provisionamento de saída) e de seu aplicativo para o Azure AD (provisionamento de entrada). O serviço se conecta ao sistema para pontos de extremidade de API de gerenciamento de usuário SCIM (gerenciamento de identidade de domínio cruzado) fornecidos pelo seu aplicativo.
+* O [serviço de provisionamento do Azure ad](user-provisioning.md) gerencia o provisionamento e o desprovisionamento de usuários do Azure ad para seu aplicativo (provisionamento de saída) e de seu aplicativo para o Azure AD (provisionamento de entrada). O serviço se conecta ao sistema para pontos de extremidade de API de gerenciamento de usuário SCIM (gerenciamento de identidade de domínio cruzado) fornecidos pelo seu aplicativo.
 
 * Ao usar o [Microsoft Graph](https://docs.microsoft.com/graph/), seu aplicativo gerencia o provisionamento de entrada e saída de usuários e grupos do Azure ad para seu aplicativo consultando a API de Microsoft Graph.
 
@@ -87,9 +87,9 @@ Para obter mais informações sobre como os usuários do serviço de provisionam
 
 * [Saiba mais sobre o SCIM Standard](https://aka.ms/SCIMOverview)
 
-* [Usando o sistema para o SCIM (gerenciamento de identidades entre domínios) para provisionar automaticamente usuários e grupos de Azure Active Directory para aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Usando o sistema para o SCIM (gerenciamento de identidades entre domínios) para provisionar automaticamente usuários e grupos de Azure Active Directory para aplicativos](use-scim-to-provision-users-and-groups.md)
 
-* [Entender a implementação de SCIM do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Entender a implementação de SCIM do Azure AD](use-scim-to-provision-users-and-groups.md)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para provisionamento
 
@@ -113,9 +113,9 @@ Se você quiser provisionar usuários somente na primeira entrada em seu aplicat
 
 O SAML JIT usa as informações de declarações no token SAML para criar e atualizar as informações do usuário no aplicativo. Os clientes podem configurar essas declarações necessárias no aplicativo do Azure AD, conforme necessário. Às vezes, o provisionamento JIT precisa ser habilitado no lado do aplicativo para que o cliente possa usar esse recurso. O JIT do SAML é útil para criar e atualizar usuários, mas não pode excluir ou desativar os usuários no aplicativo.
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 
-* [Habilitar logon único para seu aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Habilitar logon único para seu aplicativo](isv-sso-content.md)
 
 * [Envie sua listagem de aplicativos](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) e parceiro com a Microsoft para criar a documentação no site da Microsoft.
 

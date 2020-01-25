@@ -2,20 +2,20 @@
 title: Desenvolvimento ágil de projetos de ciência de dados – Processo de Ciência de Dados da Equipe
 description: Execute um projeto de ciência de dados de forma sistemática, controlada por versão e colaborativa em uma equipe de projeto usando o processo de ciência de dados de equipe.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260679"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722094"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
 
@@ -35,13 +35,13 @@ A figura a seguir ilustra um fluxo de trabalho típico de planejamento de Sprint
 
 ##  <a name='Terminology-1'></a>Tipos de item de trabalho
 
-Na estrutura de planejamento do TDSP Sprint, há quatro tipos de *item de trabalho* usados com frequência: *Recursos*, *histórias de usuários*, *tarefas*e *bugs*. A pendência de todos os itens de trabalho está no nível do projeto, não no nível do repositório git. 
+Na estrutura de planejamento do TDSP Sprint, há quatro tipos de *item de trabalho* usados com frequência: *recursos*, *histórias de usuários*, *tarefas*e *bugs*. A pendência de todos os itens de trabalho está no nível do projeto, não no nível do repositório git. 
 
 Aqui estão as definições para os tipos de item de trabalho:
 
-- **Recurso**: Um recurso corresponde a um envolvimento do projeto. Compromissos diferentes com um cliente são recursos diferentes, e é melhor considerar diferentes fases de um projeto como recursos diferentes. Se você escolher um esquema como  *\<ClientName >\<-engagementname >* para nomear seus recursos, você poderá reconhecer facilmente o contexto do projeto e do Engagement a partir dos próprios nomes.
+- **Recurso**: um recurso corresponde a um envolvimento do projeto. Compromissos diferentes com um cliente são recursos diferentes, e é melhor considerar diferentes fases de um projeto como recursos diferentes. Se você escolher um esquema como *\<clientname >-\<engagementname >* para nomear seus recursos, você poderá reconhecer facilmente o contexto do projeto e do Engagement dos próprios nomes.
   
-- **História de usuário**: As histórias de usuários são itens de trabalho necessários para concluir um recurso de ponta a ponta. Exemplos de histórias de usuários incluem:
+- **História de usuário**: as histórias de usuários são itens de trabalho necessários para concluir um recurso de ponta a ponta. Exemplos de histórias de usuários incluem:
   - Obter dados 
   - Explorar dados 
   - Gerar recursos
@@ -49,11 +49,11 @@ Aqui estão as definições para os tipos de item de trabalho:
   - Operacionalizar modelos 
   - Treinar modelos novamente
   
-- **Tarefa**: Tarefas são itens de trabalho atribuíveis que precisam ser feitos para concluir uma história de usuário específica. Por exemplo, as tarefas na história de usuário *obter dados* podem ser:
+- **Tarefa**: tarefas são itens de trabalho atribuíveis que precisam ser feitos para concluir uma história de usuário específica. Por exemplo, as tarefas na história de usuário *obter dados* podem ser:
   - Obter SQL Server credenciais
   - Carregar dados para SQL Data Warehouse
   
-- **Bug**: Bugs são problemas no código ou documentos existentes que devem ser corrigidos para concluir uma tarefa. Se os bugs forem causados por itens de trabalho ausentes, eles poderão ser escalados para serem histórias de usuários ou tarefas. 
+- **Bug**: bugs são problemas no código ou documentos existentes que devem ser corrigidos para concluir uma tarefa. Se os bugs forem causados por itens de trabalho ausentes, eles poderão ser escalados para serem histórias de usuários ou tarefas. 
 
 Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil que substitui recursos, histórias de usuários e tarefas com estágios e subestágios do ciclo de vida de TDSP. Para criar um modelo derivado de Agile que se alinhe especificamente com os estágios do ciclo de vida TDSP, consulte [usar um modelo de trabalho do Agile TDSP](#set-up-agile-dsp-6).
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre o planejamento do Sprint em Azure Boards, co
 
 Depois que o projeto e o repositório de código do projeto forem criados, você poderá adicionar um recurso à lista de pendências para representar o trabalho do seu projeto.
 
-1. Na página do seu projeto, selecione **quadros** > de**pendências** na navegação à esquerda. 
+1. Na página do seu projeto, selecione as **placas** > **registros** posteriores na navegação à esquerda. 
    
 1. Na guia lista de **pendências** , se o tipo de item de trabalho na barra superior for **histórias**, menu suspenso e selecione **recursos**. Em seguida, selecione **novo item de trabalho.**
    
@@ -86,7 +86,7 @@ Depois que o projeto e o repositório de código do projeto forem criados, você
    
    Você também pode vincular o recurso ao repositório de código do Azure Repos do projeto selecionando **Adicionar link** na seção de **desenvolvimento** . 
    
-   Depois de concluir a edição do recurso, selecione **salvar & fechar**.
+   Depois de editar o recurso, selecione **salvar & fechar**.
    
    ![Edite o recurso e selecione salvar & fechar](./media/agile-development/3a-add-link-repo.png)
 
@@ -96,7 +96,7 @@ Sob o recurso, você pode adicionar histórias de usuário para descrever as pri
 
 Para adicionar uma nova história de usuário a um recurso:
 
-1. Na guia **registro posterior** , selecione **+** à esquerda do recurso. 
+1. Na guia **registro posterior** , selecione a **+** à esquerda do recurso. 
    
    ![Adicionar uma nova história de usuário sob o recurso](./media/agile-development/4-sprint-add-story.png)
    
@@ -112,7 +112,7 @@ Para adicionar uma nova história de usuário a um recurso:
 
 Tarefas são etapas detalhadas específicas que são necessárias para concluir cada história de usuário. Depois que todas as tarefas de uma história de usuário forem concluídas, a história de usuário também deverá ser concluída. 
 
-Para adicionar uma tarefa a uma história de usuário, selecione **+** o próximo ao item de história de usuário e selecione **tarefa**. Preencha o título e outras informações na tarefa.
+Para adicionar uma tarefa a uma história de usuário, selecione o **+** ao lado do item de história de usuário e selecione **tarefa**. Preencha o título e outras informações na tarefa.
 
 ![Adicionar uma tarefa a uma história de usuário](./media/agile-development/7-sprint-add-task.png)
 
@@ -183,7 +183,7 @@ Você pode usar o modelo de processo de ciência de dados para criar projetos do
    
    ![Criar um projeto TDSP](./media/agile-development/15-newproject.png)
    
-1. No projeto recém-criado, selecione **quadros** > de**pendências** na navegação à esquerda.
+1. No projeto recém-criado, selecione **placas** > **registros** posteriores no painel de navegação esquerdo.
    
 1. Para tornar os projetos do TDSP visíveis, selecione o ícone **definir configurações da equipe** . Na tela **configurações** , marque a caixa de seleção **projetos TDSP** e, em seguida, selecione **salvar e fechar**.
    
@@ -195,20 +195,20 @@ Você pode usar o modelo de processo de ciência de dados para criar projetos do
    
    ![Criar item de trabalho do projeto de ciência de dados](./media/agile-development/17-dsworkitems0.png)
    
-1. Para adicionar um item de trabalho no projeto TDSP, selecione o **+** próximo ao projeto e, em seguida, selecione o tipo de item de trabalho a ser criado. 
+1. Para adicionar um item de trabalho no projeto TDSP, selecione o **+** ao lado do projeto e, em seguida, selecione o tipo de item de trabalho a ser criado. 
    
    ![Selecionar tipo de item de trabalho de ciência de dados](./media/agile-development/17-dsworkitems1.png)
    
 1. Preencha os detalhes no novo item de trabalho e selecione **salvar & fechar**.
    
-1. Continue a selecionar os **+** símbolos ao lado de itens de trabalho para adicionar novos estágios, subestágios e tarefas do TDSP. 
+1. Continue selecionando os símbolos de **+** ao lado de itens de trabalho para adicionar novos estágios, subestágios e tarefas do TDSP. 
    
 Aqui está um exemplo de como os itens de trabalho do projeto de ciência de dados devem aparecer no modo de exibição de **registros** posteriores:
 
 ![18](./media/agile-development/18-workitems1.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 A [codificação colaborativa com o Git](collaborative-coding-with-git.md) descreve como fazer o desenvolvimento de código colaborativo para projetos de ciência de dados usando o Git como a estrutura de desenvolvimento de código compartilhado e como vincular essas atividades de codificação ao trabalho planejado com o processo ágil.
 

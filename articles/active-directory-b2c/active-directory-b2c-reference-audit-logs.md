@@ -12,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e79b2342f481786caf46aeb9454e2961637da335
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948225"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712941"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -32,14 +32,14 @@ Os eventos do log de auditoria são mantidos apenas por **sete dias**. Planeje r
 
 A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividades:
 
-|Tipo de atividade |Descrição  |
+|Tipo de atividade |Description  |
 |---------|---------|
 |Autorização |Atividades relacionadas à autorização de um usuário para acessar os recursos do B2C (por exemplo, um administrador acessando uma lista de políticas do B2C).         |
 |Diretório |Atividades relacionadas aos atributos de diretório recuperados quando um administrador entra usando o portal do Azure. |
 |Aplicativo | Operações CRUD (criar, ler, atualizar e excluir) em aplicativos B2C. |
 |Chave |Operações CRUD em chaves armazenadas em um contêiner de chave B2C. |
 |Grupos |Operações CRUD em recursos do B2C. Por exemplo, políticas e provedores de identidade.
-|Authentication |Validação de credenciais de usuário e emissão de tokens.|
+|Autenticação |Validação de credenciais de usuário e emissão de tokens.|
 
 Para atividades CRUD do objeto de usuário, consulte a categoria **Diretório Principal**.
 
@@ -51,12 +51,12 @@ Esta imagem de exemplo da portal do Azure mostra os dados capturados quando um u
 
 O painel detalhes da atividade contém as seguintes informações relevantes:
 
-|Seção|Campo|Descrição|
+|Seção|Campo|Description|
 |-------|-----|-----------|
-| Atividade | name | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
+| Atividade | Nome | Qual atividade ocorreu. Por exemplo, *emita um id_token para o aplicativo*, que conclui a entrada do usuário real. |
 | Iniciado por (ator) | ObjectId | A **ID de objeto** do aplicativo B2C ao qual o usuário está se conectando. Esse identificador não é visível no portal do Azure, mas pode ser acessado por meio da API do Microsoft Graph. |
 | Iniciado por (ator) | SPNs | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
-| Destino(s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
+| Destino (s) | ObjectId | A **ID de objeto** do usuário que está entrando. |
 | Detalhes adicionais | TenantId | A **ID do locatário** do locatário do Azure ad B2C. |
 | Detalhes adicionais | PolicyId | A **ID de política** do fluxo do usuário (política) que está sendo usada para conectar o usuário. |
 | Detalhes adicionais | ApplicationId | A **ID do aplicativo** B2C para o qual o usuário está entrando. |
@@ -112,7 +112,7 @@ Siga estas etapas para registrar um aplicativo, conceda a ele as permissões de 
 1. Selecione o botão **selecionar** e, em seguida, selecione **concluído**.
 1. Selecione **Conceder permissões** e, em seguida, selecione **Sim**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de aplicativo (versão prévia)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Registros de Aplicativo (versão prévia)](#tab/app-reg-preview/)
 
 1. Em **Gerenciar**, selecione **Permissões de API**.
 1. Em **Permissões Configuradas**, selecione **Adicionar uma permissão**.
@@ -165,7 +165,7 @@ Write-Output "Searching for events starting $7daysago"
 $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-# Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
+# Parse audit report items, save output to file(s): auditX.json, where X = 0 through n for number of nextLink pages
 if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}

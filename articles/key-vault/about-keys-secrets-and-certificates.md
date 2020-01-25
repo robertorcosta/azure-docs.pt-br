@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832929"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720054"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -76,7 +76,7 @@ Onde:
 |`keyvault-name`|O nome de um cofre de chaves no serviço do Microsoft Azure Key Vault.<br /><br /> Nomes de Cofre de Chaves são selecionados pelo usuário e são globalmente exclusivos.<br /><br /> O nome do Key Vault deve ser uma sequência de 3 a 24 caracteres que contenha somente 0 a 9, a a z, A a Z, e -.|  
 |`object-type`|O tipo de objeto, "chaves" ou "segredos".|  
 |`object-name`|Um `object-name` é um nome fornecido por usuário e deve ser exclusivo em um Cofre de Chaves. O nome deve ser uma sequência de 1 a 127 caracteres que contenha somente 0 a 9, a a z, A a Z, e -.|  
-|`object-version`|Um `object-version` é um identificador de cadeia de caracteres 32, gerado pelo sistema, que é opcionalmente usado * o para atender a uma versão exclusiva de um objeto.|  
+|`object-version`|Um `object-version` é um identificador de cadeia de caracteres de 32 caracteres gerado pelo sistema, que é opcionalmente usado para direcionar uma versão exclusiva de um objeto.|  
 
 ## <a name="key-vault-keys"></a>Chaves do Cofre de Chaves
 

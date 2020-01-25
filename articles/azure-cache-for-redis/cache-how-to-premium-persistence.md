@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 40cd3467c7a4377427bb8db437e1047382933b1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412840"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714878"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Como configurar a persistência de dados de um Cache Redis do Azure Premium
 O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar a persistência em uma instância Premium do Cache Redis do Azure.
@@ -26,7 +26,13 @@ O Cache Redis do Azure oferece a persistência de Redis usando os seguintes mode
 * **Persistência de RDB**: quando a persistência de RDB (banco de dados do Redis) está configurada, o Cache Redis do Azure persiste um instantâneo do Cache Redis do Azure em um formato binário do Redis em disco com base em uma frequência de backup configurável. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com o uso do instantâneo mais recente. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#rdb-advantages) e as [desvantagens](https://redis.io/topics/persistence#rdb-disadvantages) de persistência de RDB.
 * **Persistência de AOF**: quando a persistência de AOF (Arquivo somente para anexação) está configurada, o Cache Redis do Azure salva todas as operações de gravação em um log salvo pelo menos uma vez por segundo em uma conta de Armazenamento do Azure. Se ocorrer um desastre que desabilite os caches primário e de réplica, o cache será reconstruído com as operações de gravação mais recentes. Saiba mais sobre as [vantagens](https://redis.io/topics/persistence#aof-advantages) e as [desvantagens](https://redis.io/topics/persistence#aof-disadvantages) da persistência de AOF.
 
-A persistência é configurada na folha **Novo Cache Redis do Azure** durante a criação do cache e no menu **Recurso** dos caches Premium existentes.
+A persistência grava dados do Redis em uma conta de armazenamento do Azure que você possui e gerencia. Você pode configurar a partir da folha **novo cache do Azure para Redis** durante a criação do cache e no **menu de recursos** para os caches Premium existentes.
+
+> [!NOTE]
+> 
+> O armazenamento do Azure criptografa automaticamente os dados quando eles são persistidos. Você pode usar suas próprias chaves para a criptografia. Para obter mais informações, consulte [chaves gerenciadas pelo cliente com Azure Key Vault](/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault).
+> 
+> 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -38,7 +44,7 @@ As etapas na próxima seção descrevem como configurar a persistência do Redis
 
 ## <a name="enable-redis-persistence"></a>Habilitar a persistência de Redis
 
-A persistência de Redis é habilitada na folha **Persistência de dados de Redis** escolhendo uma persistência de **RDB** ou **AOF**. Para novos caches, esta folha é acessada durante o processo de criação de cache, conforme descrito na seção anterior. Para os caches existentes, a folha **Persistência dos dados Redis** é acessada no **menu Recurso** do seu cache.
+A persistência de Redis está habilitada na folha **persistência de dados** escolhendo a persistência de **RDB** ou de **AoF** . Para novos caches, esta folha é acessada durante o processo de criação de cache, conforme descrito na seção anterior. Para os caches existentes, a folha **persistência de dados** é acessada no **menu de recursos** do seu cache.
 
 ![Configurações do Redis][redis-cache-settings]
 
@@ -125,7 +131,7 @@ Para a persistência de RDB e AOF:
 * Se você tiver dimensionado para um tamanho menor e não houver espaço suficiente no menor tamanho para conter todos os dados do último backup, as chaves serão removidas durante o processo de restauração, normalmente usando a política de remoção [allkeys-lru](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Posso alterar a frequência de backup de RDB depois de criar o cache?
-Sim, você pode alterar a frequência de backup para persistência de RDB na folha **Persistência de dados do Redis**. Para obter instruções, confira Configurar a persistência do Redis.
+Sim, você pode alterar a frequência de backup para persistência de RDB na folha de **persistência de dados** . Para obter instruções, confira Configurar a persistência do Redis.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Por que quando eu tenho uma frequência de backup de RDB de 60 minutos há mais de 60 minutos entre os backups?
 O intervalo da frequência de backup da persistência de RDB não é iniciado até que o processo de backup anterior seja concluído com êxito. Se a frequência de backup for de 60 minutos e usar um processo de backup de 15 minutos para concluir com êxito, o próximo backup não será iniciado até 75 minutos após a hora de início do backup anterior.

@@ -2,27 +2,27 @@
 title: Tarefas e funções do Processo de Ciência de Dados de Equipe
 description: Um contorno dos principais componentes, funções de pessoal e tarefas associadas para um grupo de ciência de dados.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbc066f4b01a01a589849ad524b58a9b5d9dfae1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260644"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720003"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Processo de Ciência de Dados de Equipe
 
 O TDSP (processo de ciência de dados de equipe) é uma estrutura desenvolvida pela Microsoft que fornece uma metodologia estruturada para criar soluções de análise preditiva e aplicativos inteligentes com eficiência. Este artigo descreve as principais funções de pessoal e tarefas associadas para uma equipe de ciência de dados padronizando esse processo.
 
-Este artigo introdutório fornece links para tutoriais sobre como configurar o ambiente TDSP para um grupo de ciência de dados inteiro, equipes de ciência de dados e projetos TDSP. Os tutoriais fornecem diretrizes detalhadas para o uso de repositórios Azure DevOps Projects, Azure Repos e Azure Boards ferramentas de planejamento Agile para controlar o acesso, hospedar e compartilhar o código e gerenciar tarefas da equipe.
+Este artigo introdutório fornece links para tutoriais sobre como configurar o ambiente TDSP. Os tutoriais fornecem orientação detalhada para o uso de Azure DevOps Projects, repositórios de Azure Repos e Azure Boards.  O objetivo motivador é mudar do conceito por meio da modelagem e da implantação.
 
 Os tutoriais usam o DevOps do Azure porque é como implementar o TDSP na Microsoft. O Azure DevOps facilita a colaboração integrando a segurança baseada em funções, o gerenciamento e o controle de itens de trabalho, e a hospedagem de código, o compartilhamento e o recurso de origem. Os tutoriais também usam uma [máquina virtual de ciência de dados](https://aka.ms/dsvm) do Azure (DSVM) como a área de trabalho de análise, que tem várias ferramentas de ciência de dados populares pré-configuradas e integradas ao software da Microsoft e aos serviços do Azure. 
 
@@ -40,13 +40,13 @@ Nessa estrutura, há leads de grupo e líderes de equipe. Normalmente, um projet
 ## <a name="definition-and-tasks-for-the-four-tdsp-roles"></a>Definição e tarefas para as quatro funções TDSP
 Com a suposição de que a unidade de ciência de dados consiste em equipes dentro de um grupo, há quatro funções distintas para a equipe de TDSP:
 
-1. **Gerente do grupo**: Gerencia toda a unidade de ciência de dados em uma empresa. Uma unidade de ciência de dados pode ter várias equipes, cada uma trabalhando em vários projetos de ciência de dados em áreas comerciais distintas. Um gerente de grupo pode delegar suas tarefas a um substituto, mas as tarefas associadas à função não são alteradas.
+1. **Gerente de grupo**: gerencia toda a unidade de ciência de dados em uma empresa. Uma unidade de ciência de dados pode ter várias equipes, cada uma trabalhando em vários projetos de ciência de dados em áreas comerciais distintas. Um gerente de grupo pode delegar suas tarefas a um substituto, mas as tarefas associadas à função não são alteradas.
    
-2. **Líder de equipe**: Gerencia uma equipe na unidade de ciência de dados de uma empresa. Uma equipe consiste em vários cientistas de dados. Para uma unidade de ciência de dados pequena, o gerente de grupo e o líder de equipe podem ser a mesma pessoa.
+2. **Líder de equipe**: gerencia uma equipe na unidade de ciência de dados de uma empresa. Uma equipe consiste em vários cientistas de dados. Para uma unidade de ciência de dados pequena, o gerente de grupo e o líder de equipe podem ser a mesma pessoa.
    
-3. **Líder do projeto**: Gerencia as atividades diárias de cientistas de dados individuais em um projeto de ciência de dados específico.
+3. **Líder de projeto**: gerencia as atividades diárias de cientistas de dados individuais em um projeto de ciência de dados específico.
    
-4. **Colaboradores individuais do projeto**: Cientistas de dados, analistas de negócios, engenheiros de dados, arquitetos e outros que executam um projeto de ciência de dados.
+4. **Colaboradores individuais do projeto**: cientistas de dados, analistas de negócios, engenheiros de dados, arquitetos e outros que executam um projeto de ciência de dados.
 
 > [!NOTE]
 > Dependendo da estrutura e do tamanho de uma empresa, uma única pessoa pode executar mais de uma função ou mais de uma pessoa pode preencher uma função.
@@ -116,7 +116,7 @@ A figura a seguir descreve o fluxo de trabalho do TDSP para a execução do proj
 As etapas do fluxo de trabalho podem ser agrupadas em três atividades:
 
 - Leads do projeto conduzem o planejamento do Sprint
-- Cientistas de dados desenvolvem artefatos em `git` branches para endereçar itens de trabalho
+- Cientistas de dados desenvolvem artefatos em branches `git` para endereçar itens de trabalho
 - Clientes potenciais do projeto ou outros membros da equipe fazem revisões de código e mesclam branches de trabalho para o Branch mestre
 
 Para obter instruções detalhadas sobre o fluxo de trabalho de execução do projeto, consulte [desenvolvimento ágil de projetos de ciência de dados](agile-development.md).
@@ -125,7 +125,7 @@ Para obter instruções detalhadas sobre o fluxo de trabalho de execução do pr
 
 Use o repositório de modelos de [projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) da equipe do Microsoft TDSP para dar suporte à colaboração e à execução eficiente do projeto. O repositório fornece uma estrutura de diretórios padronizada e modelos de documentos que você pode usar para seus próprios projetos TDSP.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Explore as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

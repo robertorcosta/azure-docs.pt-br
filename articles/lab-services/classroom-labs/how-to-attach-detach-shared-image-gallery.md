@@ -1,6 +1,6 @@
 ---
 title: Anexar ou desanexar uma galeria de imagens compartilhadas no Azure Lab Services | Microsoft Docs
-description: Saiba como anexar uma galeria de imagens compartilhadas a um laboratório no Azure Lab Services.
+description: Este artigo descreve como anexar uma galeria de imagens compartilhada a um laboratório de sala de aula no Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4f3f435110f0cba5ea2370f2900d4e7031904067
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 98a21e9fa846d5a91ed1242701484afaa641cddc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890323"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718032"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Anexar ou desanexar uma galeria de imagens compartilhadas no Azure Lab Services
 Os professores/administradores de laboratório podem salvar uma imagem de VM de modelo em uma [Galeria de imagens compartilhada](../../virtual-machines/windows/shared-image-galleries.md) do Azure para que ela seja reutilizada por outras pessoas. Como uma primeira etapa, o administrador do laboratório anexa uma galeria de imagens compartilhada existente à conta do laboratório. Depois que a Galeria de imagens compartilhada é anexada, os laboratórios criados na conta de laboratório podem salvar imagens na Galeria de imagens compartilhadas. Outros professores podem selecionar essa imagem na Galeria de imagens compartilhadas para criar um modelo para suas classes. 
@@ -42,7 +42,7 @@ Depois que a conta do laboratório for criada, você poderá executar as seguint
 - Desanexar uma galeria de imagens compartilhada da conta do laboratório
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>Criar e anexar uma galeria de imagens compartilhadas
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os serviços** no menu esquerdo. Selecione **Serviços de Laboratório** na seção **DEVOPS**. Se você selecionar a estrela (`*`) ao lado de **Serviços de Laboratório**, ela será adicionada à seção **FAVORITOS** no menu esquerdo. Na próxima vez em diante, selecione **Serviços de Laboratório** em **FAVORITOS**.
 
     ![Todos os Serviços -> Serviços de Laboratório](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
@@ -86,7 +86,7 @@ Somente uma galeria de imagens compartilhadas pode ser anexada a um laboratório
 
 ![Desanexar a Galeria de imagens compartilhadas da conta do laboratório](../media/how-to-use-shared-image-gallery/detach.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre como salvar uma imagem de laboratório na Galeria de imagens compartilhadas ou usar uma imagem da Galeria de imagens compartilhadas para criar uma VM, consulte [como usar a Galeria de imagens compartilhadas](how-to-use-shared-image-gallery.md).
 
 Para obter mais informações sobre galerias de imagens compartilhadas em geral, consulte [Galeria de imagens compartilhadas](../../virtual-machines/windows/shared-image-galleries.md).

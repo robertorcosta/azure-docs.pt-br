@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275807"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712350"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -38,10 +38,10 @@ Este artigo descreve os problemas atuais e anteriores com a aderência ao servi�
 
 | **Problemas de conformidade SCIM 2.0** |  **Corrigido?** | **Corrigir a data**  |  
 |---|---|---|
-| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | sim  |  18 de dezembro de 2018 | 
-| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  sim  | 18 de dezembro de 2018  | 
-|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | sim  |  18 de dezembro de 2018  | 
-|  As solicitações de criação de grupo contêm um URI de esquema inválido | sim  |  18 de dezembro de 2018  |  
+| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
+| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | 
+|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | 
+|  As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>As correções de serviços foram aplicadas automaticamente ao meu aplicativo SCIM já existente?
 
@@ -66,7 +66,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Obter trabalhos](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter trabalhos") 
+   ![Obter trabalhos](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obter trabalhos") 
 
 
 6. Nos resultados, copie a cadeia de caracteres completa de "ID" que começa com "customappsso" ou "scim".
@@ -74,7 +74,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Obter esquema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter esquema") 
+   ![Obter esquema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter esquema") 
 
 8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. Isso contém qualquer mapeamento de atributo personalizado que você adicionou para o seu aplicativo antigo e deve ser aproximadamente algumas milhares de linhas de JSON.
 9. Execute o comando a seguir para excluir o trabalho de provisionamento:
@@ -112,6 +112,6 @@ Sim. Se você tivesse codificado um aplicativo para o comportamento antigo que e
 7. Conclua o configuração de provisionamento de usuário conforme faria normalmente.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Saiba mais sobre o provisionamento e desprovisionamento para aplicativos SaaS](user-provisioning.md)
 

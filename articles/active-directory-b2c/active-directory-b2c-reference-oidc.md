@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 355bd75f865e821fa19fba0715cf5eca90a9a2d3
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 69b58b402b49e2346621bf473a0e897809f1c008
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829554"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712834"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -267,7 +267,7 @@ Quando você deseja desconectar o usuário do aplicativo, não é suficiente lim
 Para desconectar o usuário, redirecione o usuário para o ponto de extremidade `end_session` listado no documento de metadados do OpenID Connect descrito anteriormente:
 
 ```HTTP
-GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
 | Parâmetro | Obrigatório | Description |

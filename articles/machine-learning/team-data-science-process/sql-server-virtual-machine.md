@@ -3,23 +3,23 @@ title: Explorar dados na máquina virtual do SQL Server – Processo de Ciência
 description: Explore + processar dados e gerar recursos usando o Python ou o SQL em uma máquina virtual SQL Server no Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d3eb4d2faf58d1861fda9d04437f9f9530c77672
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053609"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718473"
 ---
 # <a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
-Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
+Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Essa meta pode ser concluída por data Wrangling usando SQL ou usando uma linguagem de programação como Python.
 
 > [!NOTE]
 > As instruções SQL de exemplo neste documento pressupõem que os dados estão no SQL Server. Se não estiverem, consulte o mapa do processo de ciência de dados de nuvem para aprender a mover seus dados para o SQL Server.
@@ -53,7 +53,7 @@ Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar 
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Geração de Recursos
+### <a name="sql-featuregen"></a>Geração de recursos
 Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:  
 
 1. [Geração de recursos baseada em contagem](#sql-countfeature)
@@ -66,7 +66,7 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 > 
 
 ### <a name="sql-countfeature"></a>Geração de recursos baseada em contagem
-Os exemplos a seguir demonstram duas maneiras de gerar recursos de contagem. O primeiro método usa a soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
+Os exemplos a seguir demonstram duas maneiras de gerar recursos de contagem. O primeiro método usa a soma condicional e o segundo usa a cláusula 'where'. Esses resultados podem então ser Unidos com a tabela original (usando colunas de chave primária) para ter recursos de contagem ao lado dos dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -82,7 +82,7 @@ O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (us
 ### <a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
 Nesta seção, demonstraremos como propagar uma única coluna em uma tabela para gerar recursos adicionais. O exemplo presume que há uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
 
-Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/longitude (extraídos de [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)[Como medir a precisão de latitude e longitude?] do StackOverflow). É útil entender isso antes de destacar o campo local:
+Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/longitude (extraídos de [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)[Como medir a precisão de latitude e longitude?] do StackOverflow). Estas diretrizes são úteis para entender antes de incluir o local como um ou mais recursos:
 
 * O sinal nos informa se estamos na parte norte ou sul, leste ou oeste do globo.
 * Um dígito em centenas diferente de zero informa que estamos usando longitude, não latitude!
@@ -95,7 +95,7 @@ Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/lo
 * A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
 * A sexta casa decimal representa até 0,11 m: você pode usá-la para dispor estruturas detalhadamente, projetar paisagens e criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
 
-As informações de local podem ser destacadas da maneira indicada a seguir, separando as informações de região, local e cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas disponível em [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) (Encontrar um local por ponto) para obter as informações de região/distrito.
+As informações de local podem ser destacadas da maneira indicada a seguir, separando as informações de região, local e cidade. Você também pode chamar um ponto de extremidade REST, como a API do Bing Maps, disponível em [localizar um local por ponto](https://msdn.microsoft.com/library/ff701710.aspx) para obter as informações de região/distrito.
 
     select 
         <location_columnname>
@@ -121,7 +121,7 @@ O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existen
 ![leitores de azureml][1] 
 
 ## <a name="python"></a>Usando uma linguagem de programação como Python
-Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante a processar dados no blob do Azure usando o Python, conforme documentado em [Processar dados de Blobs do Azure no ambiente de ciência de dados](data-blob.md). Os dados precisam ser carregados do banco de dados para um quadro de dados pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um quadro de dados nesta seção.
+Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante a processar dados no blob do Azure usando o Python, conforme documentado em [Processar dados de Blobs do Azure no ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dados em um quadro do data pandas para obter mais processamento. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um quadro de dados nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
 

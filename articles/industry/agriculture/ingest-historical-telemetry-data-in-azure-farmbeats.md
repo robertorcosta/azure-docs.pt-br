@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 32eb8e71cfb978fac5b4d6d05af4da4fdc9f67b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513925"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715528"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingerir dados telemétricos históricos
 
@@ -72,7 +72,7 @@ Siga estas etapas.
 
  Agora que você tem as credenciais necessárias, você pode definir o dispositivo e os sensores. Para fazer isso, crie os metadados chamando APIs FarmBeats. Observe que você precisará chamar as APIs como o aplicativo cliente que você criou na seção acima
 
- FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor.
+ FarmBeats Datahub tem as seguintes APIs que permitem a criação e o gerenciamento de metadados do dispositivo ou do sensor. Observe que, como um parceiro, você tem acesso apenas para ler, criar e atualizar os metadados; **A exclusão não é permitida por um parceiro.**
 
 - /**DeviceModel**: DeviceModel corresponde aos metadados do dispositivo, como o fabricante e o tipo de dispositivo, que é um gateway ou um nó.
 - **dispositivo**/: o dispositivo corresponde a um dispositivo físico presente no farm.
@@ -381,6 +381,41 @@ Aqui está um exemplo de uma mensagem de telemetria:
       ]
     }
   ]
+}
+```
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Não é possível exibir dados de telemetria depois de ingerir dados históricos/de streaming de seus sensores
+
+**Sintoma**: dispositivos ou sensores são implantados e você criou os dispositivos/sensores em FarmBeats e a telemetria ingerida para o EventHub, mas não pode obter ou exibir dados de telemetria no FarmBeats.
+
+**Ação corretiva**:
+
+1. Verifique se você fez o registro do parceiro corretamente-você pode verificar isso indo para o Swagger do datahub, navegue até a API do/Partner, faça uma obtenção e verifique se o parceiro está registrado. Caso contrário, siga as [etapas aqui](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) para adicionar o parceiro.
+2. Verifique se você criou os metadados (DeviceModel, dispositivo, SensorModel, sensor) usando as credenciais de cliente do parceiro.
+3. Verifique se você usou o formato de mensagem de telemetria correto (conforme especificado abaixo):
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 

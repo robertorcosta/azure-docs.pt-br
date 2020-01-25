@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3275e31744faba5b029e5a4619a51420400b9d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 162597bf3d02cdfe53d321185b326bfbb1f6bd0d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425602"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712760"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -99,6 +99,7 @@ O **TechnicalProfile** contém os seguintes elementos:
 | OutputClaimsTransformations | 0:1 | Uma lista de referências definidas previamente a transformações de declarações que devem ser executadas depois que as declarações são recebidas do provedor de declarações. |
 | ValidationTechnicalProfiles | 0:n | Uma lista de referências a outros perfis técnicos que o perfil técnico usa para fins de validação. Para obter mais informações, confira [perfil técnico de validação](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controla a produção do nome da entidade em tokens, em que o nome da entidade é especificado separadamente das declarações. Por exemplo, OAuth ou SAML.  |
+| IncludeInSso | 0:1 |  Se o uso desse perfil técnico deve aplicar o comportamento de SSO (logon único) para a sessão ou, em vez disso, exigir uma interação explícita. Valores possíveis: `true` (padrão) ou `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Um identificador de um perfil técnico do qual todas as declarações de entrada e saídas devem ser adicionadas a esse perfil técnico. O perfil técnico referenciado precisa ser definido no mesmo arquivo de política. |
 | IncludeTechnicalProfile |0:1 | Um identificador de um perfil técnico do qual todos os dados devem ser adicionados a esse perfil técnico. O perfil técnico referenciado precisa existir no mesmo arquivo de política. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil técnico diferente a ser usado para gerenciamento de sessão. |

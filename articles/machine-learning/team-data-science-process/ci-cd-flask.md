@@ -3,24 +3,24 @@ title: Criar um pipeline de CI/CD com o processo de ciência de dados de Azure P
 description: Crie um pipeline de integração contínua e entrega contínua para aplicativos de ia (inteligência artificial) usando o Docker e o kubernetes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260658"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721822"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Criar pipelines de CI/CD para aplicativos de ia usando Azure Pipelines, Docker e kubernetes
 
-Um aplicativo de ia (inteligência artificial) é um código de aplicativo inserido com um modelo de ML (aprendizado de máquina) pretreinado. Há sempre dois fluxos de trabalho para um aplicativo de ia: Os cientistas de dados criam o modelo ML, e os desenvolvedores de aplicativos criam o aplicativo e os expõem aos usuários finais para consumir. Este artigo descreve como implementar um pipeline de CI/CD (integração contínua e entrega contínua) para um aplicativo de ia que incorpore o modelo ML ao código-fonte do aplicativo. O código de exemplo e o tutorial usam um aplicativo Web simples do Python Flask e buscam um modelo pretreinado de uma conta de armazenamento de BLOBs do Azure privada. Você também pode usar uma conta de armazenamento AWS S3.
+Um aplicativo de ia (inteligência artificial) é um código de aplicativo inserido com um modelo de ML (aprendizado de máquina) pretreinado. Há sempre dois fluxos de trabalho para um aplicativo de ia: os cientistas de dados criam o modelo ML e os desenvolvedores de aplicativos criam o aplicativo e os expõem aos usuários finais para consumir. Este artigo descreve como implementar um pipeline de CI/CD (integração contínua e entrega contínua) para um aplicativo de ia que incorpore o modelo ML ao código-fonte do aplicativo. O exemplo de código e tutorial usam um aplicativo Web Python Flask e busca um modelo pretreinado de uma conta de armazenamento de BLOBs do Azure privada. Você também pode usar uma conta de armazenamento AWS S3.
 
 > [!NOTE]
 > O processo a seguir é uma das várias maneiras de fazer CI/CD. Há alternativas para essas ferramentas e os pré-requisitos.
@@ -65,4 +65,4 @@ O diagrama e as etapas a seguir descrevem a arquitetura de pipeline de CI/CD:
 - [TDSP (Processo de Ciência de dados de Equipe)](/azure/machine-learning/team-data-science-process/)
 - [AML (Azure Machine Learning)](/azure/machine-learning/)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [AKS (Serviços do Kubernetes do Azure)](/azure/aks/intro-kubernetes)
+- [AKS (Serviço de Kubernetes do Azure)](/azure/aks/intro-kubernetes)

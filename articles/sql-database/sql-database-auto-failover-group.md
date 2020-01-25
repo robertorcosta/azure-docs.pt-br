@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732409"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722536"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 
@@ -71,6 +71,13 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 - **Adicionar bancos de dados no pool elástico para o grupo de failover**
 
   É possível colocar todos ou vários bancos de dados dentro de um pool elástico no mesmo grupo de failover. Se o banco de dados primário estiver em um pool elástico, o banco de dados secundário é criado automaticamente no pool elástico com o mesmo nome (pool secundário). Você deve garantir que o servidor secundário contém um pool elástico com exatamente o mesmo nome e capacidade livre suficiente para hospedar os bancos de dados secundários que serão criados pelo grupo de failover. Se você adicionar um banco de dados no pool que já possui um banco de dados secundário no pool secundário, esse vínculo de replicação geográfica é herdado pelo grupo. Quando você adiciona um banco de dados que já tem um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo banco de dados secundário é criado no pool secundário.
+  
+- **Propagação inicial** 
+
+  Ao adicionar bancos de dados, pools elásticos ou instâncias gerenciadas a um grupo de failover, há uma fase de propagação inicial antes do início da replicação de dados. A fase de propagação inicial é a operação mais longa e cara. Após a conclusão da propagação inicial, os dados são sincronizados e, em seguida, somente as alterações de dados subsequentes são replicadas. O tempo necessário para que a semente inicial seja concluída depende do tamanho dos dados, do número de bancos de dado replicados e da velocidade do link entre as entidades no grupo de failover. Em circunstâncias normais, a velocidade de propagação típica é de 50-500 GB a uma hora para um único banco de dados ou pool elástico, e 18-35 GB de hora para uma instância gerenciada. A propagação é executada para todos os bancos de dados em paralelo. Você pode usar a velocidade de propagação declarada, juntamente com o número de bancos de dados e o tamanho total do dado para estimar quanto tempo a fase de propagação inicial levará antes de iniciar a replicação de dados.
+
+  Para instâncias gerenciadas, a velocidade do link de rota expressa entre as duas instâncias também precisa ser considerada ao estimar o tempo da fase de propagação inicial. Se a velocidade do link entre as duas instâncias for mais lenta do que o necessário, é provável que o tempo de propagação seja notavelmente afetado. Você pode usar a velocidade de propagação declarada, o número de bancos de dados, o tamanho total e a velocidade do link para estimar quanto tempo a fase de propagação inicial levará antes de iniciar a replicação de dados. Por exemplo, para um único banco de dados de 100 GB, a fase de semente inicial levaria de 2,8 a 5,5 horas se o link for capaz de enviar por push 35 GB por hora. Se o link só puder transferir 10 GB por hora, a propagação de um banco de dados de 100 GB levará cerca de 10 horas. Se houver vários bancos de dados a serem replicados, a propagação será executada em paralelo e, quando combinada com uma velocidade de link lento, a fase de propagação inicial poderá levar muito mais tempo, especialmente se a propagação paralela de dados de todos os bancos de dado exceder o disponível largura de banda do link. Se a largura de banda de rede entre duas instâncias for limitada e você estiver adicionando várias instâncias gerenciadas a um grupo de failover, considere adicionar várias instâncias gerenciadas ao grupo de failover sequencialmente, uma a uma.
+
   
 - **Zona DNS**
 

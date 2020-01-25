@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/30/2019
-ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/23/2020
+ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290335"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715923"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -95,6 +95,18 @@ Todos os dados de log coletados pelo Azure Monitor são armazenados em um espaç
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Você pode mover um espaço de trabalho Log Analytics existente para outra assinatura do Azure?
 Você pode mover um espaço de trabalho entre grupos de recursos ou assinaturas, mas não para uma região diferente. Consulte [mover um espaço de trabalho log Analytics para uma assinatura ou grupo de recursos diferente](platform/move-workspace.md).
+
+### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Por que não consigo ver o Gerenciador de consultas e salvar os botões no Log Analytics?
+
+O **Gerenciador de consultas**, os botões **salvar** e **novo regra de alerta** não estão disponíveis quando o escopo da [consulta](log-query/scope.md) é definido como um recurso específico. Para criar alertas, salvar ou carregar uma consulta, Log Analytics deve estar no escopo de um espaço de trabalho. Para abrir Log Analytics no contexto do espaço de trabalho, selecione **logs** no menu **Azure monitor** . O último workspace usado é selecionado, mas você pode selecionar qualquer outro workspace. Consulte o [escopo de consulta de log e o intervalo de tempo em Azure Monitor log Analytics](log-query/scope.md)
+
+### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Por que estou recebendo o erro: "registrar provedor de recursos ' Microsoft. insights ' para esta assinatura para habilitar esta consulta" ao abrir Log Analytics de uma VM? 
+Muitos provedores de recursos são registrados automaticamente, mas talvez seja necessário registrar manualmente alguns provedores de recursos. O escopo de registro é sempre a assinatura. Para saber mais, veja [Provedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+
+### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Por que estou recebendo uma mensagem de erro de acesso ao abrir Log Analytics de uma VM? 
+Para exibir os Logs da VM, você precisará receber permissão de leitura para os workspaces que armazenam os logs da VM. Nesses casos, o administrador deve conceder a você permissões no Azure.
+
+
 
 
 ## <a name="alerts"></a>Alertas
@@ -180,6 +192,12 @@ Especifique um [grupo de ação](platform/action-groups.md) novo ou existente pa
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Quais são os requisitos de firewall para agentes de Azure Monitor?
 Consulte [requisitos de firewall de rede](platform/log-analytics-agent.md#network-firewall-requirements)para obter detalhes sobre os requisitos de firewall.
 
+
+## <a name="visualizations"></a>Visualizações
+
+### <a name="why-cant-i-cant-see-view-designer"></a>Por que não consigo ver o designer de exibição?
+
+O designer de exibição só está disponível para usuários atribuídos com permissões de colaborador ou superior no espaço de trabalho Log Analytics.
 
 
 ## <a name="application-insights"></a>Percepções sobre o Aplicativo

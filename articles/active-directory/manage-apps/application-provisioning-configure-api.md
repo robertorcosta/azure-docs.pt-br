@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a891f87c3d03cf95c8051ee684916bb55441cb0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275727"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712230"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurar o provisionamento usando APIs de Microsoft Graph
 
-A portal do Azure é uma maneira conveniente de configurar o provisionamento de aplicativos individuais, um de cada vez. Mas se você estiver criando vários — ou até mesmo centenas, de instâncias de um aplicativo, pode ser mais fácil automatizar a criação e a configuração de aplicativos com APIs de Microsoft Graph. Este artigo descreve como automatizar a configuração de provisionamento por meio de APIs. Esse método é usado normalmente para aplicativos como [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
+A portal do Azure é uma maneira conveniente de configurar o provisionamento de aplicativos individuais, um de cada vez. Mas se você estiver criando vários — ou até mesmo centenas, de instâncias de um aplicativo, pode ser mais fácil automatizar a criação e a configuração de aplicativos com APIs de Microsoft Graph. Este artigo descreve como automatizar a configuração de provisionamento por meio de APIs. Esse método é usado normalmente para aplicativos como [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Visão geral das etapas para usar Microsoft Graph APIs para automatizar a configuração de provisionamento**
 
@@ -48,7 +48,7 @@ A portal do Azure é uma maneira conveniente de configurar o provisionamento de 
 1. Iniciar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Selecione o botão "entrar com a Microsoft" e entre usando o administrador global do Azure AD ou as credenciais de administrador do aplicativo.
 
-    ![Entrar no Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Entrar no Graph](media/application-provisioning-configure-api/wd_export_02.png)
 
 1. Após a entrada bem-sucedida, você verá os detalhes da conta de usuário no painel esquerdo.
 

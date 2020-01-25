@@ -3,26 +3,26 @@ title: Testar o código de ciência de dados com o Azure DevOps Services – Pro
 description: Teste de código de ciência de dados no Azure com o conjunto de dados de previsão de receita de adulto UCI com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336399"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721931"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Teste de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipe e o Azure DevOps Services
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
 
 ## <a name="introduction-on-code-testing"></a>Introdução ao teste de código
-"Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para ciência de dados, normalmente não fica claro o que significa e como você deve testar o código para estágios diferentes de um ciclo de vida de ciência de dados, como:
+"Teste de unidade" é uma prática permanente no desenvolvimento de software. Mas, para a ciência de dados, muitas vezes não está claro o que significa "teste de unidade" e como você deve testar o código para diferentes estágios de um ciclo de vida de ciência de dados, como:
 
 * Preparação dos dados
 * Análise da qualidade dos dados
@@ -54,7 +54,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Etapas para a criação de um projeto](./media/code-test/create_python_project_in_vs.PNG)
 
-    ![Gerenciador de soluções](./media/code-test/solution_explorer_in_vs.PNG)
+    ![Gerenciador de Soluções](./media/code-test/solution_explorer_in_vs.PNG)
 
 1. Insira o código do seu projeto no repositório de códigos do projeto do Azure DevOps: 
 
@@ -114,35 +114,35 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
     a. No repositório do projeto, selecione **Build e Versão** e, em seguida, selecione **+Novo** para criar um novo processo de build.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![Seleções para iniciar um novo processo de build](./media/code-test/create_new_build.PNG)
 
     b. Siga os prompts para selecionar o local do código-fonte, nome do projeto, repositório e informações de branch.
     
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![Informações de fonte, nome, repositório e branch](./media/code-test/fill_in_build_info.PNG)
 
     c. Selecione um modelo. Como não há um modelo de projeto do Python, comece selecionando **Processo vazio**. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie o build e selecione o agente. Escolha o padrão se quiser usar um DSVM para concluir o processo de build. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie o build e selecione o agente. Você pode escolher o padrão aqui se quiser usar um DSVM para concluir o processo de compilação. Para saber mais sobre agentes de configuração, consulte [Build e agentes de versão](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![Seleções de build e agente](./media/code-test/select_agent.PNG)
 
-    e. Selecione **+** no painel esquerdo para adicionar uma tarefa a essa fase de build. Já que vamos executar o script em Python **test1.py** para concluir todas as verificações, esta tarefa usará um comando do PowerShell para executar o código em Python.
+    e. Selecione **+** no painel esquerdo para adicionar uma tarefa a essa fase de build. Como vamos executar o script Python **Test1.py** para concluir todas as verificações, essa tarefa está usando um comando do PowerShell para executar o código Python.
     
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    ![Painel "Adicionar tarefas" com PowerShell selecionado](./media/code-test/add_task_powershell.PNG)
 
     f. Nos detalhes do PowerShell, preencha as informações necessárias, como o nome e a versão do PowerShell. Escolha **Script Embutido** como o tipo. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    Na caixa em **Script Embutido**, você pode digitar **python test1.py**. Verifique se a variável do ambiente está configurada corretamente para Python. Se você precisar de uma versão ou kernel diferente do Python, especifique explicitamente o caminho, como mostra a figura: 
     
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![Detalhes do PowerShell](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecione **Salvar e enfileirar** para concluir o processo de pipeline de build.
+    g. Selecione **salvar & fila** para concluir o processo de pipeline de compilação.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    ![Botão "Salvar e enfileirar"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. (Usamos mestre como o repositório aqui, mas você pode definir qualquer branch). O processo executa o arquivo **test1.py** no computador do agente para certificar-se de que tudo o que foi definido no código seja executado corretamente. 
+Agora, sempre que uma nova confirmação é enviada por push para o repositório de código, o processo de build iniciará automaticamente. (Aqui, usamos o mestre como o repositório, mas você pode definir qualquer ramificação.) O processo executa o arquivo **Test1.py** no computador do agente para garantir que tudo definido no código seja executado corretamente. 
 
 Se os alertas estiverem configurados corretamente, você receberá uma notificação por email após a conclusão do build. Você também pode verificar o status do build no Azure DevOps. Se ele falhar, verifique os detalhes do build e descubra qual parte está incorreta.
 
@@ -150,7 +150,7 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 
 ![Notificação do Azure DevOps sobre o êxito do build](./media/code-test/vs_online_build_succeed.PNG)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Veja o [repositório de previsão de receita UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para ver exemplos concretos de testes de unidade em cenários de ciência de dados.
 * Siga a estrutura e os exemplos anteriores do cenário de previsão de receita UCI em seus próprios projetos de ciência de dados.
 

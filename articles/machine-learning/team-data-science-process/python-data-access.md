@@ -3,20 +3,20 @@ title: Acesso a conjuntos de dados com a biblioteca de clientes do Python – Pr
 description: Instalar e usar a biblioteca de cliente do Python para acessar e gerenciar dados de Azure Machine Learning com segurança em um ambiente local do Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427381"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720972"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no workspace.
@@ -26,7 +26,7 @@ Este tópico fornece instruções sobre como:
 * instalar a biblioteca de cliente do Python de Machine Learning
 * acessar e carregar conjuntos de dados, incluindo instruções sobre como obter autorização para acessar conjuntos de dados de Azure Machine Learning no seu ambiente local do Python
 * acessar conjuntos de dados intermediários por meio de testes
-* usar a biblioteca de cliente do Python para enumerar os conjuntos de dados, acessar metadados, ler o conteúdo de um conjunto de dados, criar novos conjuntos de dados e atualizar conjuntos de dados existentes
+* usar a biblioteca de cliente do Python para enumerar conjuntos de clientes, acessar metadados, ler o conteúdo de um conjunto de valores, criar novos conjuntos de os e atualizar conjuntos de os existentes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A biblioteca de cliente do Python foi testada nos ambientes a seguir:
@@ -43,7 +43,7 @@ Ela tem uma dependência nos seguintes pacotes:
 É recomendável usar uma distribuição do Python como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que acompanham o Python, IPython e os três pacotes listados acima e instalados. Embora o IPython não seja estritamente necessário, é um ótimo ambiente para manipular e visualizar dados interativamente.
 
 ### <a name="installation"></a>Como instalar a biblioteca de cliente do Python de Azure Machine Learning
-A biblioteca de cliente do Python de Azure Machine Learning também deve ser instalada para concluir as tarefas descritas neste tópico. Ela está disponível no [Índice de Pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-la em seu ambiente Python, execute o seguinte comando no seu ambiente local Python:
+Instale a biblioteca de cliente Azure Machine Learning Python para concluir as tarefas descritas neste tópico. Essa biblioteca está disponível no [índice do pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-la em seu ambiente Python, execute o seguinte comando no seu ambiente local Python:
 
     pip install azureml
 
@@ -70,13 +70,13 @@ Por motivos de segurança, a funcionalidade do snippet de código está disponí
 
 Se a sua função não estiver definida como **Proprietário**, você pode solicitar a ser convidado novamente como um proprietário ou pedir ao proprietário do workspace para fornecer o snippet de código.
 
-Para obter o token de autorização, você pode fazer o seguinte:
+Para obter o token de autorização, você pode escolher uma destas opções:
 
 * Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações de seu espaço de trabalho no Azure Machine Learning Studio (clássico). Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários. Embora os tokens de autorização primários ou secundários possam ser usados no snippet de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
    ![Tokens de autorização](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Peça para ser promovido à função do proprietário. Para fazer isso, um proprietário atual do workspace precisa primeiro remover você do workspace e depois convidá-lo novamente como um proprietário.
+* Peça para ser promovido à função de proprietário: um proprietário atual do espaço de trabalho precisa primeiro removê-lo do espaço de trabalho e convidá-lo novamente como proprietário.
 
 Depois que os desenvolvedores obtiverem a ID do espaço de trabalho e o token de autorização, eles poderão acessar o espaço de trabalho usando o trecho de código, independentemente de sua função.
 
@@ -100,7 +100,7 @@ Depois que um experimento é executado no Machine Learning Studio (clássico), �
 
 Os conjuntos de dados intermediários podem ser acessados conforme o formato de dados for compatível com a biblioteca de cliente do Python.
 
-Há suporte para os seguintes formatos (as constantes para eles estão na classe `azureml.DataTypeIds` ):
+Há suporte para os seguintes formatos (as constantes para esses formatos estão na classe `azureml.DataTypeIds`):
 
 * Texto sem formatação
 * GenericCSV
@@ -124,7 +124,7 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
 2. Inserir um módulo **Conjunto de dados de Classificação Binária de Renda de Censo de Adulto** .
 3. Insira um módulo de [divisão][split] e conecte sua entrada à saída do módulo do conjunto de dados.
 4. Insira um módulo [converter para CSV][convert-to-csv] e conecte sua entrada a uma das saídas do módulo de [divisão][split] .
-5. Salve o teste, execute-o e aguarde o término da execução.
+5. Salve o experimento, execute-o e aguarde a conclusão do trabalho.
 6. Clique no nó saída no módulo [converter em CSV][convert-to-csv] .
 7. Quando o menu de contexto for exibido, selecione **Gerar Código de Acesso a Dados**.
    

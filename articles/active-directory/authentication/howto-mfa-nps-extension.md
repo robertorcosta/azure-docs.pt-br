@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848299"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712530"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -221,7 +221,7 @@ Depois que você habilita a MFA para um cliente RADIUS usando a extensão do NPS
 
 Se você tiver usuários que não são registrados na MFA, determine o que acontece quando eles tentam fazer a autenticação. Use a configuração de Registro *REQUIRE_USER_MATCH* no caminho do Registro *HKLM\Software\Microsoft\AzureMFA* para controlar o comportamento do recurso. Essa configuração tem uma opção de configuração única:
 
-| Chave | Value | Padrão |
+| Chave | Valor | Padrão |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Não definido (equivalente a TRUE) |
 
@@ -229,7 +229,7 @@ A finalidade dessa configuração é determinar o que fazer quando um usuário n
 
 Você pode optar por criar essa chave e defini-la como FALSE, e os usuários estão carregando e ainda não podem se inscrever no Azure MFA. Porém, como definir a chave permite que os usuários que não são registrados na MFA se conectem, você deve remover essa chave antes de ir para a produção.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="nps-extension-health-check-script"></a>Script de verificação de integridade da extensão do NPS
 
@@ -273,7 +273,7 @@ Os carimbos de data/hora Válido-de e Válido-até, que estão em formato legív
 
 ---
 
-### <a name="why-cant-i-sign-in"></a>Por que não consigo entrar?
+### <a name="why-cannot-i-sign-in"></a>Por que não posso entrar?
 
 Verifique se sua senha não expirou. A extensão NPS não oferece suporte à alteração de senhas como parte do fluxo de trabalho de entrada. Entre em contato com a equipe de ti da sua organização para obter mais assistência.
 

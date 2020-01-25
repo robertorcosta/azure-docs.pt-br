@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672255"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715117"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -24,9 +24,9 @@ O Serviço de Aplicativo do Azure dá suporte interno à autenticação e autori
 A autenticação e autorização seguras exigem um profundo entendimento de segurança, incluindo federação, criptografia, [gerenciamento JWT (Token Web JSON)](https://wikipedia.org/wiki/JSON_Web_Token), [tipos de concessão](https://oauth.net/2/grant-types/), e assim por diante. O Serviço de Aplicativo disponibiliza esses utilitários para que você possa investir mais tempo e energia no fornecimento de valor comercial ao seu cliente.
 
 > [!IMPORTANT]
-> Não é necessário usar o serviço de aplicativo para Authn/autho. Muitas estruturas da Web são agrupadas com recursos de segurança e você poderá utilizá-las, se desejar. Caso precise de mais flexibilidade do que o Serviço de Aplicativo fornece, você também poderá gravar seus próprios utilitários.  
+> Não é necessário usar o serviço de aplicativo para Authn/autho. Você pode usar os recursos de segurança agrupados em sua estrutura da Web de sua escolha ou pode escrever seus próprios utilitários. No entanto, tenha em mente que [o Chrome 80 está fazendo alterações significativas em sua implementação de SameSite para cookies](https://www.chromestatus.com/feature/5088147346030592) (data de lançamento em relação a 2020 de março), e a autenticação remota personalizada ou outros cenários que dependem de postagem de cookie entre sites podem ser interrompidos quando os navegadores Chrome do cliente são atualizados. A solução alternativa é complexa porque precisa dar suporte a diferentes comportamentos de SameSite para diferentes navegadores. 
 >
-> No entanto, se você estiver com qualquer uma das opções de serviço de aplicativo para autenticação remota, tenha em mente que o [Chrome 80 está fazendo alterações significativas em sua implementação de SameSite para cookies](https://www.chromestatus.com/feature/5088147346030592) (data de lançamento em relação a 2020 de março) e o mecanismo de autenticação do aplicativo pode ser interrompido quando navegadores cliente são atualizados. A documentação ASP.NET Core tem informações sobre como resolver isso em seu aplicativo, em [http: navegador SameSite alterações de impacto na autenticação](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Ele contém orientações úteis sobre como testar essa alteração significativa em relação aos principais navegadores, independentemente se você estiver usando ASP.NET Core ou não.
+> As versões ASP.NET Core 2,1 e acima hospedadas pelo serviço de aplicativo já estão corrigidas para essa alteração significativa e lidam com os navegadores Chrome 80 e mais antigos adequadamente. Além disso, o mesmo patch para o ASP.NET Framework 4.7.2 está sendo implantado nas instâncias do serviço de aplicativo em janeiro de 2020. Para obter mais informações, incluindo como saber se seu aplicativo recebeu o patch, consulte [Azure app Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 Para informações específicas sobre aplicativos móveis nativos, consulte [Autenticação e autorização de usuários para aplicativos móveis com Serviço de Aplicativo do Azure ](../app-service-mobile/app-service-mobile-auth.md).

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee241c9b4d26377931e828df60db1c50a9c86b84
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: a6ad3e91b6826680eb8bcc9da4fc9d1cee37564c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940880"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711622"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuário com o Azure Active Directory (Azure AD)
 
@@ -49,7 +49,7 @@ Automatizar o provisionamento para um aplicativo requer a criação e a integra�
 
 ## <a name="step-1-design-your-user-and-group-schema"></a>Etapa 1: criar seu esquema de usuário e grupo
 
-Cada aplicativo requer atributos diferentes para criar um usuário ou grupo. Inicie sua integração identificando os objetos (usuários, grupos) e atributos (nome, gerente, cargo, etc.) que seu aplicativo requer. Em seguida, você pode usar a tabela abaixo para entender como os atributos que seu aplicativo requer podem ser mapeados para um atributo no Azure AD e a RFC SCIM. Observe que você pode [Personalizar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) como os atributos são mapeados entre o Azure AD e o ponto de extremidade do SCIM. 
+Cada aplicativo requer atributos diferentes para criar um usuário ou grupo. Inicie sua integração identificando os objetos (usuários, grupos) e atributos (nome, gerente, cargo, etc.) que seu aplicativo requer. Em seguida, você pode usar a tabela abaixo para entender como os atributos que seu aplicativo requer podem ser mapeados para um atributo no Azure AD e a RFC SCIM. Observe que você pode [Personalizar](customize-application-attributes.md) como os atributos são mapeados entre o Azure AD e o ponto de extremidade do SCIM. 
 
 Os recursos do usuário são identificados pelo identificador de esquema, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, que está incluído nesta especificação de protocolo: https://tools.ietf.org/html/rfc7643.  O mapeamento padrão dos atributos de usuários no Azure AD para os atributos dos recursos do usuário é fornecido na tabela 1.  
 
@@ -119,14 +119,14 @@ Siga estas diretrizes gerais ao implementar um ponto de extremidade SCIM para ga
     - `and`
 * Não exija uma correspondência que diferencia maiúsculas de minúsculas em elementos estruturais em SCIM, em particular `op` valores de operação, conforme definido em https://tools.ietf.org/html/rfc7644#section-3.5.2. O Azure AD emite os valores de "op" como `Add`, `Replace`e `Remove`.
 * Microsoft Azure AD faz com que as solicitações busquem um usuário aleatório e um grupo para garantir que o ponto de extremidade e as credenciais sejam válidos. Isso também é feito como parte do fluxo de **conexão de teste** no [portal do Azure](https://portal.azure.com). 
-* O atributo no qual os recursos podem ser consultados deve ser definido como um atributo correspondente no aplicativo na [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [Personalizando mapeamentos de atributo de provisionamento de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* O atributo no qual os recursos podem ser consultados deve ser definido como um atributo correspondente no aplicativo na [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [Personalizando mapeamentos de atributo de provisionamento de usuário](customize-application-attributes.md)
 
 ### <a name="user-provisioning-and-deprovisioning"></a>Provisionamento e desprovisionamento de usuários
 
 A ilustração a seguir mostra as mensagens que Azure Active Directory envia para um serviço SCIM para gerenciar o ciclo de vida de um usuário no repositório de identidades do aplicativo.  
 
-![mostra a sequência de provisionamento e desprovisionamento de usuário][4]<br/>
-*Figura 4: sequência de provisionamento e desprovisionamento de usuários*
+![mostra a sequência de provisionamento e desprovisionamento de usuário](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
+*Sequência de provisionamento e desprovisionamento de usuário*
 
 ### <a name="group-provisioning-and-deprovisioning"></a>Provisionamento e desprovisionamento de grupo
 
@@ -135,8 +135,8 @@ O provisionamento e o desprovisionamento de grupos são opcionais. Quando implem
 * Solicitações para recuperar grupos especificam que o atributo Members deve ser excluído de qualquer recurso fornecido em resposta à solicitação.  
 * As solicitações para determinar se um atributo de referência tem um determinado valor são sobre o atributo de membros.  
 
-![mostra a sequência de provisionamento e desprovisionamento de grupo][5]<br/>
-*Figura 5: sequência de provisionamento e desprovisionamento de grupo*
+![mostra a sequência de provisionamento e desprovisionamento de grupo](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
+*Sequência de provisionamento e desprovisionamento de grupo*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Solicitações e respostas do protocolo SCIM
 Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM do Azure AD e exemplos de respostas esperadas. Para obter melhores resultados, você deve codificar seu aplicativo para lidar com essas solicitações nesse formato e emitir as respostas esperadas.
@@ -168,7 +168,7 @@ Esta seção fornece exemplos de solicitações SCIM emitidas pelo cliente SCIM 
   - [Atualizar grupo [adicionar membros]](#update-group-add-members) ( [solicitar](#request-11) /
 [resposta](#response-11))
   - [Atualizar grupo [remover membros]](#update-group-remove-members) ( [solicitar](#request-12) /
-[resposta](#response-12)) (
+[resposta](#response-12))
   - [Excluir grupo](#delete-group) ([solicitar](#request-13) [resposta](#response-13) /
 )
 
@@ -752,7 +752,7 @@ Para desenvolver seu próprio serviço Web em conformidade com a especificação
 
 * As bibliotecas Common Language Infrastructure (CLI) são oferecidas para uso com linguagens que se baseiam na infraestrutura em questão, como C#. Uma dessas bibliotecas, Microsoft. SystemForCrossDomainIdentityManagement. Service, declara uma interface, Microsoft. SystemForCrossDomainIdentityManagement. IProvider, mostrada na ilustração a seguir. Um desenvolvedor que usa as bibliotecas implementa essa interface com uma classe que pode ser referenciada, de modo genérico, como um provedor. As bibliotecas permitem que o desenvolvedor implante um serviço Web que esteja em conformidade com a especificação SCIM. O serviço Web pode ser hospedado dentro de Serviços de Informações da Internet ou qualquer assembly de CLI executável. A solicitação é convertida em chamadas aos métodos do provedor, que podem ser programadas pelo desenvolvedor para operar em algum repositório de identidades.
   
-   ![Divisão: uma solicitação convertida em chamadas para os métodos do provedor][3]
+   ![Divisão: uma solicitação convertida em chamadas para os métodos do provedor](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
   
 * [Manipuladores de ExpressRoute](https://expressjs.com/guide/routing.html) estão disponíveis para análise de objetos de solicitação node.js que representam chamadas (como definido pela especificação do SCIM) feitas para um serviço Web node.js.
 
@@ -1328,14 +1328,14 @@ Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser c
 3. Selecione **+ novo aplicativo** > **todos os** > **aplicativo inexistente na Galeria**.
 4. Insira um nome para seu aplicativo e selecione **Adicionar** para criar um objeto de aplicativo. O novo aplicativo é adicionado à lista de aplicativos empresariais e é aberto em sua tela de gerenciamento de aplicativo.
 
-   ![captura de tela mostra a Galeria de aplicativos do Azure AD][1]<br/>
-   *Figura 2: Galeria de aplicativos do Azure AD*
+   ![captura de tela mostra a Galeria de aplicativos do Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   *Galeria de aplicativos do Azure AD*
 
 5. Na tela gerenciamento de aplicativos, selecione **provisionamento** no painel esquerdo.
 6. No menu **Modo de Provisionamento**, selecione **Automático**.
 
-   ![exemplo: uma página de provisionamento de um aplicativo no portal do Azure][2]<br/>
-   *Figura 3: Configurando o provisionamento no portal do Azure*
+   ![exemplo: uma página de provisionamento de um aplicativo no portal do Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
+   *Configurando o provisionamento no portal do Azure*
 
 7. No campo **URL do locatário** , insira a URL do ponto de extremidade do SCIM do aplicativo. Exemplo: https://api.contoso.com/scim/
 8. Se o ponto de extremidade SCIM exigir um token de portador OAuth de um emissor diferente do Azure AD, copie o token de portador OAuth necessário para o campo opcional **Token Secreto**. Se esse campo for deixado em branco, o Azure AD incluirá um token de portador OAuth emitido pelo Azure AD com cada solicitação. Aplicativos que usam o Azure AD como provedor de identidade podem validar esse token emitido pelo Azure AD. 
@@ -1347,7 +1347,7 @@ Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser c
     > **Testar Conexão** consulta o ponto de extremidade SCIM para um usuário que não existe, usando um GUID aleatório como a propriedade correspondente selecionada na configuração do Azure AD. A resposta correta esperada é HTTP 200 OK com uma mensagem de SCIM ListResponse vazia.
 
 10. Se as tentativas de conexão com o aplicativo forem bem-sucedidos, selecione **salvar** para salvar as credenciais de administrador.
-11. Na seção **mapeamentos** , há dois conjuntos selecionáveis de [mapeamentos de atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes): um para objetos de usuário e outro para objetos de grupo. Selecione cada um para revisar os atributos que são sincronizados do Azure Active Directory para seu aplicativo. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre os usuários e os grupos no seu aplicativo para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
+11. Na seção **mapeamentos** , há dois conjuntos selecionáveis de [mapeamentos de atributo](customize-application-attributes.md): um para objetos de usuário e outro para objetos de grupo. Selecione cada um para revisar os atributos que são sincronizados do Azure Active Directory para seu aplicativo. Os atributos selecionados como propriedades **Correspondentes** serão usados para fazer a correspondência entre os usuários e os grupos no seu aplicativo para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
     > [!NOTE]
     > Opcionalmente, você pode desabilitar a sincronização dos objetos de grupo desabilitando o mapeamento "grupos".
@@ -1364,7 +1364,7 @@ Depois que o ciclo inicial for iniciado, você poderá selecionar **logs de prov
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Etapa 5: publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
-Se você estiver criando um aplicativo que será usado por mais de um locatário, você poderá disponibilizá-lo na Galeria de aplicativos do Azure AD. Isso facilitará para as organizações descobrirem o aplicativo e configurar o provisionamento. Publicar seu aplicativo na galeria do Azure AD e disponibilizar o provisionamento para outras pessoas é fácil. Confira as etapas [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). A Microsoft trabalhará com você para integrar seu aplicativo em nossa galeria, testar seu ponto de extremidade e liberar a [documentação](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) de integração para os clientes usarem. 
+Se você estiver criando um aplicativo que será usado por mais de um locatário, você poderá disponibilizá-lo na Galeria de aplicativos do Azure AD. Isso facilitará para as organizações descobrirem o aplicativo e configurar o provisionamento. Publicar seu aplicativo na galeria do Azure AD e disponibilizar o provisionamento para outras pessoas é fácil. Confira as etapas [aqui](../develop/howto-app-gallery-listing.md). A Microsoft trabalhará com você para integrar seu aplicativo em nossa galeria, testar seu ponto de extremidade e liberar a [documentação](../saas-apps/tutorial-list.md) de integração para os clientes usarem. 
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorização para o provisionamento de conectores na Galeria de aplicativos
@@ -1380,7 +1380,7 @@ Práticas recomendadas (recomendado, mas não obrigatório):
 * Suporte a várias URLs de redirecionamento. Os administradores podem configurar o provisionamento de "portal.azure.com" e "aad.portal.azure.com". O suporte a várias URLs de redirecionamento garantirá que os usuários possam autorizar o acesso do Portal.
 * Dê suporte a vários segredos para garantir uma renovação de segredo suave, sem tempo de inatividade. 
 
-**Tokens de portador OAuth de vida útil longa:** Se o seu aplicativo não oferecer suporte ao fluxo de concessão de código de autorização OAuth, você também poderá gerar um token de portador OAuth de vida útil longa do que um administrador pode usar para configurar a integração de provisionamento. O token deve ser permanente ou, caso contrário, o trabalho de provisionamento será [colocado em quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) quando o token expirar. Esse token deve estar abaixo de 1 KB de tamanho.  
+**Tokens de portador OAuth de vida útil longa:** Se o seu aplicativo não oferecer suporte ao fluxo de concessão de código de autorização OAuth, você também poderá gerar um token de portador OAuth de vida útil longa do que um administrador pode usar para configurar a integração de provisionamento. O token deve ser permanente ou, caso contrário, o trabalho de provisionamento será [colocado em quarentena](application-provisioning-quarantine-status.md) quando o token expirar. Esse token deve estar abaixo de 1 KB de tamanho.  
 
 Para métodos de autenticação e autorização adicionais, informe-nos no [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
@@ -1396,11 +1396,3 @@ Determinados aplicativos permitem o tráfego de entrada para seu aplicativo. Par
 * [Filtros de escopo para provisionamento de usuário](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notificações de provisionamento de conta](user-provisioning.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
-
-<!--Image references-->
-[0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png
-[1]: ./media/use-scim-to-provision-users-and-groups/scim-figure-2a.png
-[2]: ./media/use-scim-to-provision-users-and-groups/scim-figure-2b.png
-[3]: ./media/use-scim-to-provision-users-and-groups/scim-figure-3.png
-[4]: ./media/use-scim-to-provision-users-and-groups/scim-figure-4.png
-[5]: ./media/use-scim-to-provision-users-and-groups/scim-figure-5.png

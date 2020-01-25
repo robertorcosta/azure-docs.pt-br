@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035562"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721074"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conectar ao Azure Cosmos DB usando ferramentas de análise de BI com o driver ODBC
 
@@ -33,7 +33,7 @@ Vamos começar com o driver ODBC.
 
 1. Baixe os drivers para seu ambiente:
 
-    | Instalador | Sistemas operacionais com suporte| 
+    | Instalador | Sistemas operacionais compatíveis| 
     |---|---| 
     |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) para Windows de 64 bits| Versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.| 
     |[Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64) para 32 bits no Windows de 64 bits| Versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2003.| 
@@ -90,7 +90,7 @@ Vamos começar com o driver ODBC.
 
 ## <a id="#container-mapping"></a>Etapa 3: criar uma definição de esquema usando o método de mapeamento de contêiner
 
-Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de contêiner** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar os dois métodos de amostragem, mas cada contêiner só pode usar um método de amostragem específico. As etapas a seguir criam um esquema para os dados em um ou mais contêineres usando o método de mapeamento de contêiner. Esse método de amostragem recupera os dados na página de um contêiner para determinar a estrutura dos dados. Ele transpõe um contêiner para uma tabela no lado do ODBC. Esse método de amostragem é eficiente e rápido quando os dados em um contêiner são homogêneos. Se um contêiner contiver o tipo de dados heterogêneo, recomendamos que você use o [método de mapeamento de delimitadores de tabela](#table-mapping) , pois ele fornece um método de amostragem mais robusto para determinar as estruturas de dados no contêiner. 
+Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de contêiner** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar os dois métodos de amostragem, mas cada contêiner só pode usar um método de amostragem específico. As etapas a seguir criam um esquema para os dados em um ou mais contêineres usando o método de mapeamento de contêiner. Esse método de amostragem recupera os dados na página de um contêiner para determinar a estrutura dos dados. Ele transpõe um contêiner para uma tabela no lado do ODBC. Esse método de amostragem é eficiente e rápido quando os dados em um contêiner são homogêneos. Se um contêiner contiver um tipo de dados heterogêneo, recomendamos que você use o [método de mapeamento de delimitadores de tabela](#table-mapping) , pois ele fornece um método de amostragem mais robusto para determinar as estruturas de dados no contêiner. 
 
 1. Depois de concluir as etapas 1-4 em [conectar-se ao banco de dados Cosmos do Azure](#connect), clique em **Editor de esquema** na janela **instalação de DSN do driver ODBC do Azure Cosmos DB** .
 
@@ -245,6 +245,6 @@ Se você receber o seguinte erro, verifique se os valores de **Host** e **Tecla 
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Azure Cosmos DB, confira [Bem-vindo ao Azure Cosmos DB](introduction.md).

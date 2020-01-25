@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433511"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714456"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar o Cache Redis do Azure
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho e o tipo de preço desse cache. Este artigo mostra como dimensionar seu cache no Portal do Azure usando ferramentas como o Azure PowerShell e a CLI do Azure.
@@ -166,7 +166,7 @@ Se uma operação de dimensionamento falhar, o serviço tentará reverter a oper
 
 
 ### <a name="how-long-does-scaling-take"></a>Quanto tempo o dimensionamento leva?
-O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de dados no cache.
+O tempo de dimensionamento depende da quantidade de dados no cache, com grandes quantidades de dados que levam mais tempo para serem concluídos. O dimensionamento leva aproximadamente 20 minutos. Para caches clusterizados, o dimensionamento leva aproximadamente 20 minutos por fragmento.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Como saber quando o dimensionamento é concluído?
 No portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
@@ -176,6 +176,3 @@ No portal do Azure, você pode ver a operação de dimensionamento em andamento.
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

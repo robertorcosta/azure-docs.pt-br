@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: HT
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973371"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719068"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -32,10 +32,11 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 - Sudeste da Ásia
 - Norte da Europa
 - Europa Ocidental
+- Leste do Japão
 - Sul do Reino Unido
 - Leste dos EUA
 - Leste dos EUA 2
-- EUA Central
+- Centro dos EUA
 
 A Microsoft continua a habilitar GZRS e RA-GZRS em regiões adicionais do Azure. Verifique a página [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) regularmente para obter informações sobre as regiões com suporte.
 
@@ -129,6 +130,7 @@ Depois que a migração for concluída, a configuração de replicação da cont
 Tenha em mente as seguintes restrições sobre a migração ao vivo:
 
 - Enquanto a Microsoft lida com seu pedido de migração ao vivo prontamente, não há garantia de quando uma migração ao vivo será concluída. Se você precisar que seus dados sejam migrados para GZRS ou RA-GZRS em uma determinada data, a Microsoft recomenda que você execute uma migração manual. Geralmente, quanto mais dados você tiver em sua conta, mais tempo levará para migrar esses dados.
+- Há suporte para a migração dinâmica apenas para contas de armazenamento que usam a replicação GRS ou RA-GRS. Se sua conta usar LRS, você precisará primeiro alterar o tipo de replicação da sua conta para GRS ou RA-GRS antes de continuar. Essa etapa intermediária adiciona o ponto de extremidade secundário fornecido por GRS/RA-GRS.
 - Sua conta deve conter dados.
 - Você só pode migrar dados dentro da mesma região.
 - Apenas os tipos de conta de armazenamento padrão suportam a migração ao vivo. As contas de armazenamento premium devem ser migradas manualmente.
@@ -160,4 +162,4 @@ Um representante de suporte entrará em contato com você para fornecer assistê
 - [Replicação de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Armazenamento redundante local (LRS): Redundância de dados de baixo custo para o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [ZRS (armazenamento com redundância de zona): aplicativos de Armazenamento do Microsoft Azure altamente disponíveis](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
-- [Escalabilidade e metas de desempenho para contas de armazenamento Standard](scalability-targets-standard-account.md)
+- [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](scalability-targets-standard-account.md)

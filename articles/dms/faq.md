@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745403"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717783"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre como usar o serviço de migração de banco de dados do Azure
 
@@ -96,7 +96,7 @@ Durante uma migração de banco de dados típica e simples, você:
 1. Cria um banco de dados de destino.
 2. Avalie seus bancos de dados de origem.
     * Para migrações homogêneas, avalie seus bancos de dados existentes usando [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * Para migrações de heterogêneos (de fontes de concorrentes), avalie seus bancos de dados existentes com o [SSMA](https://aka.ms/get-ssma). Você também usa o SSMA para converter objetos de banco de dados e migrar o esquema para sua plataforma de destino.
+    * Para migrações heterogêneas (de fontes de concorrentes), avalie seus bancos de dados existentes com o [SSMA](https://aka.ms/get-ssma). Você também usa o SSMA para converter objetos de banco de dados e migrar o esquema para sua plataforma de destino.
 3. Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
 4. Crie um projeto de migração especificando os bancos de dados de origem, os bancos de dados de destino e as tabelas a serem migradas.
 5. Inicie a carga completa.

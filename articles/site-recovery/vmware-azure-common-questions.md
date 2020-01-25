@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: a078f1dc7d7aa3727f3f057f284c2ea5da923e07
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514843"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719544"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
 
@@ -169,7 +169,7 @@ Discos dinâmicos podem ser replicados. O disco do sistema operacional deve ser 
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se eu usar grupos de replicação para consistência de várias VMs, posso adicionar uma nova VM a um grupo de replicação existente?
 
-Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Porém:
+Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Porém
 
 - Você não pode adicionar uma VM a um grupo de replicação existente após o início da replicação.
 - Você não pode criar um grupo de replicação para VMs existentes.

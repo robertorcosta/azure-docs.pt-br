@@ -3,32 +3,32 @@ title: Dados de exemplo no armazenamento de blobs do Azure – Processo de Ciên
 description: Os dados de exemplo vão para o armazenamento de blobs do Azure por download realizado via programação e, em seguida, é feita a sua amostragem usando procedimentos escritos em Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1c455106e5faa4aa20ec56f37788e0b8c324fee1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042894"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720260"
 ---
 # <a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 
 Este artigo aborda os dados armazenados no armazenamento de blobs do Azure fazendo o download por meio de programação e, em seguida, amostrando-os usando procedimentos escritos em Python.
 
 **Por que fazer amostragem dos dados?**
-Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
+Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão dos dados, a exploração e a engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Baixar e reduzir os dados de exemplo
-1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 
+1. Baixe os dados do armazenamento de BLOBs do Azure usando o serviço blob do seguinte código Python de exemplo: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -61,7 +61,7 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Agora você pode trabalhar com o quadro de dados acima com a amostra de 1 por cento para exploração e geração de recursos adicional.
+Agora você pode trabalhar com o quadro de dados acima com a amostra de um percentual para exploração e geração de recursos adicionais.
 
 ## <a name="heading"></a>Carregar os dados e lê-los no Azure Machine Learning
 É possível usar o código de exemplo a seguir para os reduzir os dados e usá-los diretamente no Azure Machine Learning:

@@ -2,20 +2,20 @@
 title: Tarefas do gerenciador de grupos de Processo de Ciência de Dados de Equipe
 description: Siga estas instruções detalhadas sobre as tarefas que um gerente de grupo conclui em um projeto de equipe de ciência de dados.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053316"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721346"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tarefas do gerenciador de grupos de Processo de Ciência de Dados de Equipe
 

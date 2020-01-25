@@ -5,12 +5,12 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 178b8c120bc7a886eaca94d1551e489f96ba22b2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f2ca1566358fad45f6ec2860fcca96b887c54adb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609869"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722570"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Para configurar um contêiner de Docker local e ter um cluster do Service Fabric
     
     >[!NOTE]
     >
-    >É recomendado modificar o daemon diretamente no Docker porque o local do arquivo daemon.json pode variar de máquina para máquina. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >É recomendável modificar o daemon diretamente no Docker porque o local do arquivo daemon. JSON pode variar de um computador para o computador. Por exemplo, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]

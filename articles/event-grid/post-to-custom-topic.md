@@ -1,19 +1,19 @@
 ---
 title: Publicar evento para tópico personalizado de Grade de Eventos do Azure
-description: Descreve como publicar um evento para um tópico personalizado para a Grade de Eventos do Azure
+description: Este artigo descreve como publicar um evento para um tópico personalizado. Ele mostra o formato dos dados de postagem e evento.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304204"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721544"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar para tópico personalizado para Grade de Eventos do Azure
 
@@ -76,10 +76,10 @@ Para tópicos personalizados, os dados de nível superior contêm os mesmos camp
 ]
 ```
 
-Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (disponibilidade geral) ou 1 MB (visualização).
+Para obter uma descrição dessas propriedades, consulte [esquema de evento de Grade de Eventos do Azure](event-schema.md). Ao postar eventos em um tópico da grade de eventos, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz é limitado a 64 KB (disponibilidade geral) ou 1 MB (versão prévia).
 
 > [!NOTE]
-> Um evento de tamanho de até 64 KB é coberto pelo contrato de nível de serviço (SLA) disponibilidade geral (GA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Mais de 64 KB de eventos são cobrados em incrementos de 64 KB. 
+> Um evento de tamanho de até 64 KB é coberto pela disponibilidade geral (GA) Contrato de Nível de Serviço (SLA). O suporte para um evento de tamanho de até 1 MB está atualmente em visualização. Eventos acima de 64 KB são cobrados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -97,13 +97,13 @@ Por exemplo, um esquema de dados de evento válido é:
 }]
 ```
 
-## <a name="response"></a>Response
+## <a name="response"></a>Resposta
 
 Após a postagem para o ponto de extremidade do tópico, você receberá uma resposta. A resposta é um código de resposta HTTP padrão. Algumas respostas comuns são:
 
-|Result  |Response  |
+|Result  |Resposta  |
 |---------|---------|
-|Êxito  | 200 OK  |
+|Sucesso  | 200 OK  |
 |Os dados de evento têm formato incorreto | 400 Solicitação Inválida |
 |Chave de acesso inválida | 401 Não Autorizado |
 |Ponto de extremidade incorreto | 404 Não Encontrado |
@@ -124,7 +124,7 @@ Para erros, o corpo da mensagem tem o seguinte formato:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre o monitoramento de entregas de evento, consulte [Entrega de mensagens da Grade de Eventos do Monitor](monitor-event-delivery.md).
 * Para saber mais sobre a chave de autenticação, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).

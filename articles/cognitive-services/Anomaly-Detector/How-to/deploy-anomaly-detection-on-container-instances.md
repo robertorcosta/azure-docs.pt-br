@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 52d2e3ed59a7ad71177f34909e37ce885d603297
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2fba0a0d64502a30b6dfbc9f4f109bca65cca8b9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515280"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716355"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Implantar um contêiner de detector de anomalias nas instâncias de contêiner do Azure
 
@@ -38,5 +38,5 @@ Você deve primeiro concluir e enviar o [formulário de solicitação de contêi
 ## <a name="next-steps"></a>Próximos passos
 
 * Examine [instalar e executar contêineres](../anomaly-detector-container-configuration.md) para extrair a imagem de contêiner e executar o contêiner
-* Examinar [definir contêineres](../anomaly-detector-container-configuration.md) para definições de configuração
+* Revise [Configurar contêineres](../anomaly-detector-container-configuration.md) para configurações
 * [Saiba mais sobre o serviço de API do detector de anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

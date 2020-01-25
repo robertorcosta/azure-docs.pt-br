@@ -1,6 +1,6 @@
 ---
 title: Configurar e usar ambientes públicos no Azure DevTest Labs | Microsoft Docs
-description: Saiba como configurar e usar ambientes públicos no Azure DevTest Labs.
+description: Este artigo descreve como configurar e usar ambientes públicos (Azure Resource Manager modelos em um repositório git) no Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 127a6986e04cf90f69b2a8ec70b90b877e534708
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706035"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721686"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configurar e usar ambientes públicos no Azure DevTest Labs
 O Azure DevTest Labs tem um [repositório público de modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que pode ser usado para criar ambientes sem a necessidade de conectar uma origem do GitHub externa por conta própria. Esse repositório inclui modelos usados com frequência como os Aplicativos Web do Azure, Cluster do Service Fabric e ambiente de desenvolvimento do Farm do SharePoint. Esse recurso é semelhante ao repositório público de artefatos incluído em todos os laboratórios que você cria. O repositório de ambiente permite que você comece rapidamente com modelos de ambiente criados previamente com parâmetros de entrada mínimos para fornecer uma experiência de introdução simples aos recursos de PaaS nos laboratórios. 
@@ -46,5 +46,5 @@ Como usuário de laboratório, é possível criar um novo ambiente a partir da l
 
 ![Modelos de ambiente público](media/devtest-lab-configure-use-public-environments/public-environment-templates.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Esse repositório é um repositório de software livre que você pode contribuir para adicionar seus próprios modelos do Resource Manager usados com frequência e úteis. Para contribuir, basta enviar uma solicitação de pull no repositório.  

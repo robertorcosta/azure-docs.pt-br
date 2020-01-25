@@ -2,20 +2,20 @@
 title: Tarefas para o líder de projetos no Processo de Ciência de Dados da Equipe
 description: Uma explicação detalhada das tarefas de um líder de projeto em uma equipe de processo de ciência de dados de equipe
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244355"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714420"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tarefas do líder de projetos no processo de ciência de dados de equipe
 
@@ -45,7 +45,7 @@ Este tutorial pressupõe que o [gerente do grupo](group-manager-tasks.md) e o [l
 - **Repositórios** de modelos e utilitários de equipe
 - **Permissões** em sua conta da organização para criar e editar repositórios para seu projeto
 
-Para clonar repositórios e modificar o conteúdo em seu computador local ou Máquina Virtual de Ciência de Dados (DSVM) ou configurar o armazenamento de arquivos do Azure e montá-lo em seu DSVM, você também precisará do seguinte:
+Para clonar repositórios e modificar o conteúdo em seu computador local ou Máquina Virtual de Ciência de Dados (DSVM) ou configurar o armazenamento de arquivos do Azure e montá-lo em seu DSVM, você também precisa considerar esta lista de verificação:
 
 - Uma assinatura do Azure.
 - Git instalado em seu computador. Se você estiver usando um DSVM, o git será pré-instalado. Caso contrário, consulte o [apêndice Plataformas e ferramentas](platforms-and-tools.md#appendix).
@@ -91,7 +91,7 @@ Para popular o repositório do seu projeto com o conteúdo do seu repositório d
 
 Se você precisar personalizar o conteúdo do repositório do seu projeto para atender às necessidades específicas do seu projeto, poderá adicionar, excluir ou modificar arquivos e pastas do repositório. Você pode trabalhar diretamente no Azure Repos ou clonar o repositório para seu computador local ou DSVM, fazer alterações, confirmar e enviar por push suas atualizações para o repositório do projeto compartilhado. Siga as instruções em [Personalizar o conteúdo dos repositórios de equipe](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

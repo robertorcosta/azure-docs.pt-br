@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4175dfe4ed5b7aa1064e8ba25c5b44243e4c79b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028496"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722332"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
@@ -75,7 +75,7 @@ A seguir estão as descrições de propriedade:
 | name | cadeia de caracteres | nome exclusivo para a extensão |
 | type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
-| publicador | Microsoft.Azure.ServiceFabric | nome do editor de extensão de Service Fabric |
+| publicador | Microsoft.Azure.ServiceFabric | Nome do editor de extensão de Service Fabric |
 | clusterEndpont | cadeia de caracteres | URI: porta para ponto de extremidade de gerenciamento |
 | nodeTypeRef | cadeia de caracteres | nome do nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | tempo permitido para pausar a infraestrutura imutável do Azure |

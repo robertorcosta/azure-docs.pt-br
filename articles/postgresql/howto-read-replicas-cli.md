@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/23/2020
+ms.openlocfilehash: bb2c83757bd86d02a93c52bacdd03ce89186614e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770111"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719765"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerenciar réplicas de leitura do CLI do Azure, API REST
 
@@ -37,6 +37,11 @@ O parâmetro `azure.replication_support` deve ser definido como **REPLICA** no s
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
+> [!NOTE]
+> Se você receber o erro "valor inválido fornecido" ao tentar definir o Azure. replication_support da CLI do Azure, é provável que o servidor já tenha a réplica definida por padrão. Um bug está impedindo que essa configuração seja refletida corretamente nos servidores mais recentes em que a réplica é o padrão interno.
+> Você pode ignorar as etapas de preparação mestre e ir para criar a réplica.
+> Se você quiser confirmar se o servidor está nessa categoria, visite a página replicação do servidor no portal do Azure. "Desabilitar replicação" será esmaecido e "Adicionar réplica" estará ativo na barra de ferramentas.
+
 2. Reinicie o servidor para aplicar a alteração.
 
    ```azurecli-interactive
@@ -47,10 +52,10 @@ O parâmetro `azure.replication_support` deve ser definido como **REPLICA** no s
 
 O comando [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) requer os seguintes parâmetros:
 
-| Configuração | Valor de exemplo | Descrição  |
+| Configuração | Valor de exemplo | Description  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  O grupo de recursos em que o servidor de réplica será criado.  |
-| Nome | mydemoserver-réplica | O nome do novo servidor de réplica criado. |
+| name | mydemoserver-replica | O nome do novo servidor de réplica criado. |
 | source-server | mydemoserver | O nome ou a ID de recurso do servidor mestre existente do qual replicar. |
 
 No exemplo de CLI abaixo, a réplica é criada na mesma região que o mestre.

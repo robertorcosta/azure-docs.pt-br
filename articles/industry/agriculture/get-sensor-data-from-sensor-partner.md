@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 9bf5608a44aa19650a507ada3a0a437d34c13277
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705659"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715566"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -72,13 +72,16 @@ Você pode gerar as informações acima seguindo estas etapas: (Observe que essa
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrar dados do dispositivo usando as credenciais geradas
 
-Acesse o portal de parceiros de dispositivo para vincular o FarmBeats usando o conjunto de credenciais que você gerou na seção anterior:
-
+Agora você tem as seguintes informações geradas na seção anterior.
  - Ponto de extremidade de API
  - Cadeia de conexão do EventHub
  - ID do Cliente
  - Segredo do cliente
  - ID do locatário
+ 
+Você precisará fornecer isso ao seu parceiro de dispositivo para vincular o FarmBeats. Vá para o portal de parceiro do dispositivo para fazer o mesmo. Por exemplo, caso você esteja usando dispositivos de instrumentos Davis, vá para a página abaixo:
+
+[Instrumentos Davis](https://weatherlink.github.io/azure-farmbeats/setup)
 
  O provedor do dispositivo confirma uma integração bem-sucedida. Após a confirmação, você pode exibir todos os dispositivos e sensores no Azure FarmBeats.
 

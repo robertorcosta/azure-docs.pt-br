@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514479"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719833"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -130,7 +130,7 @@ Veja exemplos:
 
 ### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Suporte Azure Monitor para métricas e logs de diagnóstico dos serviços de mídia
 
-Agora você pode usar Azure Monitor para exibir os dados de telemetria emmited pelos serviços de mídia.
+Agora você pode usar Azure Monitor para exibir dados de telemetria emitidos pelos serviços de mídia.
 
 * Use os logs de diagnóstico Azure Monitor para monitorar solicitações enviadas pelo ponto de extremidade de entrega de chave dos serviços de mídia. 
 * Monitore as métricas emitidas pelos [pontos de extremidade de streaming](streaming-endpoint-concept.md)dos serviços de mídia.   

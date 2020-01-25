@@ -1,6 +1,6 @@
 ---
 title: Automatizar a adição de um usuário de laboratório no Azure DevTest Labs | Microsoft Docs
-description: Saiba como automatizar a adição de um usuário de laboratório a um laboratório no Azure DevTest Labs.
+description: Este artigo mostra como automatizar a adição de um usuário a um laboratório no Azure DevTest Labs usando modelos de Azure Resource Manager, o PowerShell e a CLI.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: deec67a2c64a57bbb380b3fd87bf820499e6efed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980060"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718132"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatize a adição de um usuário de laboratório a um laboratório no Azure DevTest Labs
 Azure DevTest Labs permite criar rapidamente ambientes de desenvolvimento e teste de autoatendimento usando o portal do Azure. No entanto, se você tiver várias equipes e várias instâncias do DevTest Labs, a automatização do processo de criação poderá poupar tempo. Os [modelos de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) permitem criar laboratórios, VMS de laboratório, imagens personalizadas, fórmulas e adicionar usuários de maneira automatizada. Este artigo se concentra especificamente na adição de usuários a uma instância do DevTest Labs.

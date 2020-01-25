@@ -2,24 +2,24 @@
 title: Executar tarefas de ciência de dados – Processo de Ciência de Dados da Equipe
 description: Como um cientista de dados pode executar um projeto de ciência de dados de modo rastreável, com controle de versão e colaborativo.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772271"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722196"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelagem e implantação
 
-Em geral, entre as tarefas de ciência de dados, temos: exploração, modelagem e implantação. Este artigo mostra como usar os utilitários **Exploração, Análise, Geração de Relatórios Interativas de Dados (IDEAR)** e **Modelagem e Geração de Relatórios Automatizadas (AMAR)** para completar várias tarefas comuns de ciência de dados como exploração interativa de dados, análise de dados, geração de relatórios e criação de modelo. Também descreve opções para implantar um modelo em um ambiente de produção usando uma variedade de kits de ferramentas e plataformas de dados, como os seguintes:
+Em geral, entre as tarefas de ciência de dados, temos: exploração, modelagem e implantação. Este artigo mostra como usar os utilitários **Exploração, Análise, Geração de Relatórios Interativas de Dados (IDEAR)** e **Modelagem e Geração de Relatórios Automatizadas (AMAR)** para completar várias tarefas comuns de ciência de dados como exploração interativa de dados, análise de dados, geração de relatórios e criação de modelo. As opções para implantar um modelo em um ambiente de produção podem incluir:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server com serviços de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)

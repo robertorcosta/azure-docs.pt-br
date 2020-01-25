@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/17/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0eafd090366623919891ff0b03dd85a0d3dbcf88
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
-ms.translationtype: HT
+ms.openlocfilehash: da84bea51271829e7d3e513ada21c69dbd61916c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263567"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719952"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -45,7 +45,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
 | **Europa** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
 | **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, vale do silício, silício Valley2, Washington DC, Washington DC2, Montreal, cidade de Quebec, Toronto |
-| **Ásia** | Leste da Ásia, Sudeste Asiático |Rae de Hong Kong, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
+| **Ásia** | Ásia Oriental, Sudeste Asiático |Rae de Hong Kong, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Oceânia** | Sudeste da Austrália, Leste da Austrália |Auckland, Melbourne, Perth, Sydney, Sydney2 |
@@ -163,7 +163,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 
 ### <a name="national-cloud-environment"></a>Ambientes de nuvem nacionais
 
-As nuvens nacionais do Azure são isoladas umas das outras e das desaconselhável globais do Azure. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros. 
+As nuvens nacionais do Azure são isoladas umas das outras e do Azure comercial global. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros. 
 
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
 

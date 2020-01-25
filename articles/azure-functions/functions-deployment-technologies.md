@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 39b3a96ddd3a9007600d1fa956c4e2d48f6adae9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921030"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714815"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -117,7 +117,7 @@ Você pode implantar uma imagem de contêiner do Linux que contém seu aplicativ
 >__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. É possível fazer isso de duas formas:
 >
 >* Crie um aplicativo de funções do Linux em um plano de serviço Azure App no portal do Azure. Para **publicar**, selecione **imagem do Docker**e configure o contêiner. Insira o local onde a imagem está hospedada.
->* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo usando o CLI do Azure. Para saber como, consulte [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-a-premium-plan).
+>* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo usando o CLI do Azure. Para saber como, consulte [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Para implantar em um aplicativo existente usando um contêiner personalizado, em [Azure Functions Core Tools](functions-run-local.md), use o comando [`func deploy`](functions-run-local.md#publish) .
 

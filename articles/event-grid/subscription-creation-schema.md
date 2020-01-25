@@ -1,19 +1,18 @@
 ---
 title: Esquema de assinatura de Grade de Eventos do Azure
-description: Descreve as propriedades para assinar um evento com a grade de eventos do Azure.
+description: Este artigo descreve as propriedades de assinatura de um evento com a grade de eventos do Azure. Esquema de assinatura da grade de eventos.
 services: event-grid
 author: banisadr
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/02/2019
+ms.date: 01/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845464"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720751"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
 
@@ -33,23 +32,23 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
  
 ## <a name="event-subscription-properties"></a>Propriedades da assinatura do evento
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| destination | object | O objeto que define o ponto de extremidade. |
-| filter | object | Um campo opcional para filtrar os tipos de eventos. |
+| destino | objeto | O objeto que define o ponto de extremidade. |
+| filtro | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | endpointType | cadeia de caracteres | O tipo de ponto de extremidade para a assinatura (webhook/HTTP, o Hub de evento ou fila). | 
 | endpointUrl | cadeia de caracteres | A URL de destino para eventos nesta assinatura de evento. | 
 
 ### <a name="filter-object"></a>objeto filter
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
-| includedEventTypes | array | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
+| includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
 | subjectBeginsWith | cadeia de caracteres | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
 | subjectEndsWith | cadeia de caracteres | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
 | isSubjectCaseSensitive | cadeia de caracteres | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
@@ -76,6 +75,6 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para ver uma introdução à Grade de Eventos, confira [O que é uma Grade de eventos?](overview.md)

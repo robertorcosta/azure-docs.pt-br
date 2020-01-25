@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705544"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718864"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o firewall do sistema operacional convidado na VM do Azure
 
@@ -86,7 +86,7 @@ Se você tiver um agente do Azure em funcionamento, você pode usar a [Extensão
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>Mitigação 4: Registro remoto 
+#### <a name="mitigation-4-remote-registry"></a>Mitigation 4: Registro remoto 
 
 Siga estas etapas para usar o [Registro Remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
@@ -120,7 +120,7 @@ Se você tiver uma situação em que você não pode alcançar a VM por meio de 
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Inicie uma conexão de Área de Trabalho Remota à VM de recuperação.
+2.  Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
 3.  Verifique se o disco está sinalizado como Online no console de Gerenciamento de Disco. Anote a letra da unidade atribuída ao disco do sistema operacional anexado.
 
@@ -148,7 +148,7 @@ Se você tiver uma situação em que você não pode alcançar a VM por meio de 
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'BROKENSYSTEM\ControlSet00'+$ControlSet+'\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
-    # To ensure the firewall is not set thru AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
+    # To ensure the firewall is not set through AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile'
@@ -160,6 +160,6 @@ Se você tiver uma situação em que você não pode alcançar a VM por meio de 
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Desanexar o disco do sistema e recriar a VM](troubleshoot-recovery-disks-portal-windows.md).
+10. [Desanexe o disco do sistema e recrie a VM](troubleshoot-recovery-disks-portal-windows.md).
 
 11. Verifique se o problema foi resolvido.

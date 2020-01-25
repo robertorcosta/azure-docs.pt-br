@@ -11,20 +11,20 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 63803f3ac477e48d8d1c14a72e2ee9b9d4860047
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a655ada93cd9db9db95295d445c0b4f27d772148
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685725"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721193"
 ---
-# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Usar o Stream Analytics do Azure com o SQL Data Warehouse
-A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Você pode aprender as noções básicas lendo [Introdução ao Stream Analytics do Azure][Introduction to Azure Stream Analytics]. Depois, você pode saber como criar uma solução de ponta a ponta com o Stream Analytics seguindo o tutorial [Introdução ao uso do Stream Analytics do Azure][Get started using Azure Stream Analytics] .
+# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usar Azure Stream Analytics com o Azure Synapse Analytics
+A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Você pode aprender as noções básicas lendo [Introdução ao Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md). Depois, você pode saber como criar uma solução de ponta a ponta com o Stream Analytics seguindo o tutorial [Introdução ao uso do Stream Analytics do Azure](../stream-analytics/stream-analytics-real-time-fraud-detection.md) .
 
-Neste artigo, você aprenderá a usar seu banco de dados do Azure SQL Data Warehouse como um coletor de saída para suas tarefas do Stream Analytics.
+Neste artigo, você aprenderá a usar seu banco de dados de data warehouse como um coletor de saída para seus trabalhos de Stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Primeiro, realize as etapas a seguir no tutorial [Introdução ao uso do Stream Analytics do Azure][Get started using Azure Stream Analytics] .  
+Primeiro, realize as etapas a seguir no tutorial [Introdução ao uso do Stream Analytics do Azure](../stream-analytics/stream-analytics-real-time-fraud-detection.md) .  
 
 1. Criar uma entrada de Hub de eventos
 2. Configurar e iniciar o aplicativo gerador de evento
@@ -50,39 +50,20 @@ Insira os seguintes valores na próxima página:
 * *Banco de dados*: especifique o nome de um banco de dados de destino.
 * *Nome do servidor*: especifique o nome do servidor do banco de dados que você acabou de especificar. Você pode usar o portal do Azure para encontrá-lo.
 
-![][server-name]
+![](./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png)
 
 * *Nome de usuário*: especifique o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados.
 * *Senha*: forneça a senha da conta de usuário especificada.
 * *Tabela*: especifique o nome da tabela de destino no banco de dados.
 
-![][add-database]
+![](./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png)
 
 ### <a name="step-4"></a>Etapa 4
 Clique no botão de verificação para adicionar essa saída e para verificar se o Stream Analytics pode se conectar com êxito ao banco de dados.
 
 Quando a conexão com o banco de dados for realizada com sucesso, você verá uma notificação no Portal. Você pode clicar em testar para testar a conexão com o banco de dados.
 
-## <a name="next-steps"></a>Próximas etapas
-Para obter uma visão geral da integração, consulte [Visão geral de integração do SQL Data Warehouse][SQL Data Warehouse integration overview].
+## <a name="next-steps"></a>Próximos passos
+Para obter uma visão geral da integração, consulte [integrar outros serviços](sql-data-warehouse-overview-integrate.md).
+Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para data warehouses](sql-data-warehouse-overview-develop.md).
 
-Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][SQL Data Warehouse development overview].
-
-<!--Image references-->
-
-[add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
-[server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
-[add-database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
-[test-connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
-
-<!--Article references-->
-
-[Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
-[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-real-time-fraud-detection.md
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
-[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

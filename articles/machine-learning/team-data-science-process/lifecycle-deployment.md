@@ -3,20 +3,20 @@ title: Estágio de implantação do ciclo de vida do Processo de Ciência de Dad
 description: As metas, as tarefas e as entregas para o estágio de implantação dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 156f2e95913dffd88de0b4669b13a5af5fc9605c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684691"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720479"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de implantação do ciclo de vida do Processo de Ciência de Dados de Equipe
 
@@ -33,7 +33,7 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 ![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Objetivo
+## <a name="goal"></a>Goal
 Implante modelos com um pipeline de dados em um ambiente de produção ou semelhante à produção para aceitação do usuário final. 
 
 ## <a name="how-to-do-it"></a>Como fazer isso
@@ -52,14 +52,14 @@ Depois que você tiver um conjunto de modelos com um bom desempenho, eles poder�
 
 Para obter exemplos de operacionalização de modelos com um serviço Web do Azure Machine Learning, consulte [Implantar um serviço Web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É uma prática recomendada integrar a telemetria e o monitoramento no modelo de produção e no pipeline de dados implantados. Essa prática ajuda com o relatório de status do sistema e a solução de problemas subsequentes.  
 
-## <a name="artifacts"></a>Artefatos
+## <a name="artifacts"></a>Artifacts
 
 * Um painel de status que exibe informações sobre a integridade do sistema e as principais métricas
 * Um relatório de modelagem final com detalhes da implantação
 * Um documento de arquitetura da solução final
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
@@ -69,6 +69,6 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
+Fornecemos orientações completas que demonstram todas as etapas no processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
 Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning).

@@ -3,20 +3,20 @@ title: Guia de IA do Azure para soluções de manutenção preditiva - Processo 
 description: Uma descrição completa da ciência de dados que oferece soluções de manutenção preditiva em vários setores verticais.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5cd16280ba942404ffb23fd1c9d0e1a20af8c7c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977124"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721805"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -37,13 +37,13 @@ A primeira metade deste guia descreve problemas típicos de negócios, os benef�
 | [Recursos de treinamento para manutenção preditiva](#training-resources-for-predictive-maintenance) | qualquer ou todos os itens acima e quiser aprender os conceitos fundamentais por trás da ciência de dados, ferramentas e técnicas.
 
 ### <a name="prerequisite-knowledge"></a>Pré-requisito de conhecimento
-O conteúdo BDM não espera que o leitor tenha qualquer conhecimento de ciência de dados anteriores. Para o conteúdo TDM, um conhecimento básico de ciência de dados e de estatísticas é útil. Recomenda-se o conhecimento de dados do Azure e serviços IA, Python, R, XML e JSON. As técnicas de IA são implementadas em pacotes Python e R. Modelos de solução são implementados usando os serviços do Microsoft Azure, ferramentas de desenvolvimento e SDKs.
+O conteúdo BDM não espera que o leitor tenha qualquer conhecimento de ciência de dados anteriores. Para o conteúdo TDM, um conhecimento básico de ciência de dados e de estatísticas é útil. Recomenda-se o conhecimento de dados do Azure e serviços IA, Python, R, XML e JSON. As técnicas de IA são implementadas em pacotes Python e R. Os modelos da solução são implementados usando serviços do Azure, ferramentas de desenvolvimento e SDKs.
 
 ## <a name="business-case-for-predictive-maintenance"></a>Caso de negócios para manutenção preventiva
 
 As empresas exigem que os equipamentos críticos estejam operando com eficiência e utilização máximas para realizar seu retorno sobre os investimentos de capital. Esses ativos podem variar de mecanismos de aeronave, turbinas, elevadores ou resfriadores industriais, que custam milhões, até dispositivos diários como fotocopiadoras, máquinas de café ou coolers de água.
 - Por padrão, a maioria das empresas dependem da _manutenção corretiva_, onde as partes são substituídas como e quando falharem. A manutenção corretiva garante que as peças sejam usadas integralmente (portanto, sem desperdiçar a vida útil do componente), mas gera custos por tempo de inatividade, mão de obra e requisitos de manutenção não programada (fora do horário comercial ou em locais inconvenientes).
-- No próximo nível, manutenção preventiva _prática de negócios_, onde determinam o tempo de vida útil de uma peça e realizam a manutenção ou substituem antes da falha. A manutenção preventiva evita falhas catastróficas e não programadas. Mas os altos custos de tempo de inatividade programado, subutilização do componente antes de seu ciclo de vida completo de uso e trabalho ainda permanecem.
+- No próximo nível, manutenção preventiva _prática de negócios_, onde determinam o tempo de vida útil de uma peça e realizam a manutenção ou substituem antes da falha. A manutenção preventiva evita falhas catastróficas e não programadas. Mas os altos custos do tempo de inatividade agendado, a subutilização do componente durante seu tempo de vida útil e o trabalho ainda permanecem.
 - O objetivo da _manutenção preditiva_ é otimizar o equilíbrio entre a manutenção corretiva e preventiva, habilitando a substituição de componentes _no momento_ certo. Esta abordagem substitui os componentes apenas quando estiverem perto de uma falha. Ao aumentar a vida útil do componente (comparado à manutenção preventiva) e reduzir os custos de mão de obra e manutenção não programada (pela manutenção corretiva), as empresas podem obter economias de custo e vantagens competitivas.
 
 ## <a name="business-problems-in-pdm"></a>Problemas de negócios em PdM
@@ -92,7 +92,7 @@ Esta seção se concentra em um conjunto de casos de uso de PdM de vários setor
 |**Financeiro** |                         |
 |_Falha de caixa eletrônico_ é um problema comum no setor de serviços bancários. O problema aqui é relatar a probabilidade que uma transação de saque em caixa eletrônico pode ser interrompida devido a um atolamento de papel ou falha em peça no caso de caixa eletrônico. Com base na previsão de falhas de transação, a manutenção pode ser feita nos caixas eletrônicos para evitar proativamente que ocorram falhas.| Em vez de permitir que o computador falhe no meio de uma transação, a alternativa desejável é programar a máquina par anegar o serviço com base na previsão.|
 |**Energia** |                          |
-|_Falhas na turbina do vento_: as turbinas do vento são a fonte de energia principal em países/regiões responsáveis por ambiente e envolvem altos custos de capital. Um componente principal nas turbinas eólicas é o motor gerador. sua falha renderiza a turbina ineficaz. Também é altamente caro corrigir.|KPIs preventivos como MTTF (tempo médio de falha) podem ajudar as empresas de energia a evitar falhas de turbina e a verificar o tempo de inatividade mínimo. As probabilidades de falha informam aos técnicos para monitorar turbinas que provavelmente falharão em breve e agendam regimes com base em tempo de manutenção. Modelos de previsão fornecem insights sobre diferentes fatores que contribuem com a falha, o que ajuda a técnicos entender melhor as causas raizes dos problemas.|
+|_Falhas na turbina do vento_: as turbinas do vento são a fonte de energia principal em países/regiões responsáveis por ambiente e envolvem altos custos de capital. Um componente-chave em turbinas de vento é o motor gerador, cuja falha renderiza a turbina ineficaz. Também é altamente caro corrigir.|KPIs preventivos como MTTF (tempo médio de falha) podem ajudar as empresas de energia a evitar falhas de turbina e a verificar o tempo de inatividade mínimo. As probabilidades de falha informam aos técnicos para monitorar turbinas que provavelmente falharão em breve e agendam regimes com base em tempo de manutenção. Modelos de previsão fornecem insights sobre diferentes fatores que contribuem com a falha, o que ajuda a técnicos entender melhor as causas raizes dos problemas.|
 |_Falhas de disjuntor_: a distribuição de eletricidade para casas e empresas requer linhas de energia estejam operacionais em todos os momentos para garantir o fornecimento de energia. Os disjuntores ajudam a limitar ou evitar danos às linhas de energia durante sobrecarga ou condições climáticas adversas. O problema da empresa aqui é prever falhas do disjuntor.| As soluções de PdM ajudam a reduzir os custos de reparo e a aumentar o ciclo de vida de equipamentos como disjuntores. Ajudam a melhorar a qualidade da rede de energia reduzindo falhas inesperadas e interrupções de serviço.|
 |**Transporte e logística** |    |
 |_Falhas de porta do elevador_: grandes empresas de elevador fornecem um serviço de pilha completa para milhões de elevadores funcionais em todo o mundo. Segurança, Tempo de atividade, confiabilidade e segurança elevador são a principal preocupação de  seus clientes. Essas empresas rastreiam esses e vários outros atributos por meio de sensores, para ajudá-los com manutenção corretiva e preventiva. Em um elevador, o problema mais importante do cliente é o mal funcionamento das portas do elevador. O problemas das empresas neste caso é fornecer um aplicativo preditivo da base de conhecimento que irá prever as possíveis causas de falhas de porta.| Os elevadores são investimentos de capital para potencialmente um tempo de vida de 20 a 30 anos. Para que cada venda potencial possa ser altamente competitiva; portanto, as expectativas para o serviço de suporte são altas. A manutenção preditiva pode fornecer essas empresas com uma vantagem sobre seus concorrentes em seus produtos e as ofertas de serviço.|
@@ -257,7 +257,7 @@ Esta seção discute as técnicas de modelagem principal para problemas de PdM, 
 > deve ser determinada em conjunto com o especialista de domínio.
 
 ### <a name="binary-classification"></a>Classificação binária
-A classificação binária é usada para _prever a probabilidade de uma parte do equipamento falhar dentro de um período de tempo futuro_ , chamado de _período de horizonte futuro X_. X é determinado pelo problema de negócios e pelos dados em mãos, em consultoria com o especialista em domínio. Os exemplos abrangem:
+A classificação binária é usada para _prever a probabilidade de uma parte do equipamento falhar dentro de um período de tempo futuro_ , chamado de _período de horizonte futuro X_. X é determinado pelo problema de negócios e pelos dados em mãos, em consultoria com o especialista em domínio. São exemplos:
 - _prazo de entrega mínimo_ necessário para substituir componentes, implantar recursos de manutenção, realizar a manutenção para evitar um problema que pode ocorrer nesse período.
 - _a contagem mínima de eventos_ que pode acontecer antes que ocorra um problema.
 
@@ -271,7 +271,7 @@ Aqui, a pergunta é: "qual é a probabilidade de o ativo falhar nas próximas X 
 Figura 3. Rotulação para classificação binária
 
 Exemplos de estratégia de rotulagem para alguns dos casos de uso estão listados abaixo.
-- _Atrasos de voo_: X pode ser escolhido como 1 dia, para prever atrasos nas próximas 24 horas. Então todos os voos que estão dentro do prazo de 24 horas antes das falhas foram rotulados como 1s.
+- _Atrasos de voo_: X podem ser escolhidos como um dia, para prever atrasos nas próximas 24 horas. Então todos os voos que estão dentro do prazo de 24 horas antes das falhas foram rotulados como 1s.
 - _Falhas de caixa eletrônico_: pode ser uma meta para determinar a probabilidade de falha de uma transação na próxima hora. Nesse caso, todas as transações que aconteceram na última depois da falha são rotuladas como 1. Para prever a probabilidade sobre as próximas notas de moeda N liberada, todas as notas liberadas dentro das últimas notas N de uma falha são rotuladas como 1.
 - _Falhas de disjuntor_:  o objetivo pode ser prever a próxima falha do comando disjuntor. Nesse caso, X é escolhido para ser um comando futuro.
 - _Falhas da porta do trem_: X pode ser escolhido como dois dias.
@@ -423,7 +423,7 @@ Em contraparte, a PdM envolve _a pontuação em lote_. Para estar de acordo com 
 
 A seção final deste guia fornece uma lista de modelos de solução PdM, tutoriais e experiências implementadas no Azure. Esses aplicativos PdM podem ser implantados em uma assinatura do Azure em minutos em alguns casos. Eles podem ser usados como prova de conceito demonstrações, as áreas restritas para fazer experiências com alternativas ou aceleradores para implementações de produção real. Esses modelos estão localizados na [Galeria dde IA do Azure](https://gallery.azure.ai) ou [Azure GitHub](https://github.com/Azure). Esses exemplos diferentes serão transferidos para esse modelo de solução ao longo do tempo.
 
-| # | Title | Descrição |
+| # | Title | Description |
 |--:|:------|-------------|
 | 2 | [Modelo da Solução de Manutenção Preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de software livre que demonstra a modelagem do Azure ML e uma infraestrutura do Azure completa capaz de dar suporte a cenários de manutenção preditiva no contexto do monitoramento remoto de IoT. |
 | 3 | [Aprendizado profundo para manutenção preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com solução de demonstração do uso de redes LSTM (memória de prazo curto-longo) (uma classe de redes neurais recorrente) para manutenção preditiva, com um [postagem de blog sobre esse exemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|

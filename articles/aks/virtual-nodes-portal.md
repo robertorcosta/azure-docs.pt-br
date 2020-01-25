@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: ab0aebf0b66ac01e19699795b14063df31cb9621
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6a50663fd0cc907e0dc97b50decd8b6edbaa42cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263766"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713214"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
 
@@ -22,7 +22,7 @@ Este artigo mostra como criar e configurar os recursos de rede virtual e um clus
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nós virtuais permitem a comunicação de rede entre pods executados em ACI e o cluster do AKS. Para fornecer essa comunicação, uma sub-rede de rede virtual é criada e permissões delegadas são atribuídas. Nós virtuais só funcionam com clusters do AKS criados usando rede *avançada*. Por padrão, os clusters do AKS são criados com rede *básica*. Este artigo mostra como criar uma rede virtual e sub-redes para então implantar um cluster do AKS que usa rede avançada.
+Os nós virtuais habilitam a comunicação de rede entre os pods que são executados em ACI (instâncias de contêiner do Azure) e o cluster AKS. Para fornecer essa comunicação, uma sub-rede de rede virtual é criada e permissões delegadas são atribuídas. Nós virtuais só funcionam com clusters do AKS criados usando rede *avançada*. Por padrão, os clusters do AKS são criados com rede *básica*. Este artigo mostra como criar uma rede virtual e sub-redes para então implantar um cluster do AKS que usa rede avançada.
 
 Se você não tiver usado anteriormente ACI, registre o provedor de serviço com sua assinatura. Você pode verificar o status do registro do provedor de ACI usando o comando [AZ Provider List][az-provider-list] , conforme mostrado no exemplo a seguir:
 
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Se o provedor aparecer como não *registrado*, registre o provedor usando o [AZ Provider Register] [AZ-Provider-Register], conforme mostrado no exemplo a seguir:
+Se o provedor aparecer como não *registrado*, registre o provedor usando o [registro do provedor AZ][az-provider-register] , conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -112,7 +112,7 @@ Use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] para configurar `
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para verificar a conexão ao seu cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista de nós do cluster.
+Para verificar a conexão com o cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista dos nós de cluster.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -217,11 +217,11 @@ $ curl -L 10.241.0.4
 
 Feche a sessão de terminal do pod de teste com `exit`. Quando a sessão for encerrada, o pod será excluído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, agendamos um pod no nó virtual e atribuímos a um endereço IP privado interno. Ao invés disso, você pode criar uma implantação de serviço e direcionar o tráfego para o pod por meio de um balanceador de carga ou controlador de entrada. Para obter mais informações, consulte [criar um controlador de entrada básico em AKs][aks-basic-ingress].
 
-Os nós virtuais são um componente de uma solução de dimensionamento no AKS. Para obter mais informações sobre esses itens, confira os artigos a seguir:
+Os nós virtuais são um componente de uma solução de dimensionamento no AKS. Para saber mais sobre essas soluções de dimensionamento, consulte os artigos a seguir:
 
 - [Usar o dimensionador de kubernetes horizontal Pod][aks-hpa]
 - [Usar o dimensionador de cluster kubernetes][aks-cluster-autoscaler]
@@ -247,3 +247,4 @@ Os nós virtuais são um componente de uma solução de dimensionamento no AKS. 
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

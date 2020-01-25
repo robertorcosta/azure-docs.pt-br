@@ -8,12 +8,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 12/23/2019
 ms.reviewer: ''
-ms.openlocfilehash: f93ab61fcba53ebf39adf8ad56137f4a1df7d5fd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615037"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715187"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>Manual de práticas recomendadas de segurança do banco de dados SQL do Azure
 
@@ -462,7 +462,7 @@ Ao usar CLE:
 - Proteja chaves simétricas com chaves/certificados assimétricos (não senhas) para evitar o uso do 3DES. 
 
 - Tenha cuidado ao migrar um banco de dados usando a criptografia em nível de célula por meio de exportação/importação (arquivos bacpac). 
-  - Confira o artigo [recomendações para usar a criptografia em nível de célula no banco de dados SQL do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) sobre como evitar chaves perder ao migrar e para outras diretrizes de práticas recomendadas.
+  - Confira o artigo [recomendações para usar a criptografia em nível de célula no banco de dados SQL do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) sobre como evitar a perda de chaves ao migrar e para outras diretrizes de práticas recomendadas.
 
 Ao usar Always Encrypted, tenha em mente que Always Encrypted foi projetado principalmente para proteger dados confidenciais em uso de usuários de alto privilégio do banco de dados SQL do Azure (operadores de nuvem, DBAs) – consulte [proteger dados confidenciais em uso de usuários com alto privilégio e não autorizados](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Esteja atento aos seguintes desafios ao usar Always Encrypted para proteger dados de usuários de aplicativos:
 

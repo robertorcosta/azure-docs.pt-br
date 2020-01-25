@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57a066132cbc8812fac95862bd1b02a3fc59ff2f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: HT
+ms.openlocfilehash: cbddd912831247e30f2913414c6dfa13131dde99
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293888"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719850"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -44,7 +44,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Governo da Austrália** | Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
 | **Europa** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique, Munique |
 | **América do Norte** | Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, vale do silício, silício Valley2, Washington DC, Washington DC2, Montreal, cidade de Quebec, Toronto |
-| **Ásia** | Leste da Ásia, Sudeste Asiático |Rae de Hong Kong, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
+| **Ásia** | Ásia Oriental, Sudeste Asiático |Rae de Hong Kong, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Oceânia** | Sudeste da Austrália, Leste da Austrália |Auckland, Melbourne, Perth, Sydney, Sydney2 | 
@@ -96,7 +96,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Dublim** | [DB3 Equinix](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa Setentrional | 10G, 100G | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Centro-oeste da Alemanha | 10G, 100G | Colt, CIX, GEANT, Interxion, Megaport, laranja, operadora DE Telia |
 | **Estrutura** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Oeste da Suíça | 10G, 100G | Equinix |
-| **Rae de Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Leste da Ásia | N/D | Redes aryaka Networks, British Telecom, CenturyLink Cloud Connect, diretor de telecomunicações, China Telecom global, Equinix, internuvem, Megaport, comunicação de NTT, laranja, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
+| **Rae de Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Ásia Oriental | N/D | Redes aryaka Networks, British Telecom, CenturyLink Cloud Connect, diretor de telecomunicações, China Telecom global, Equinix, internuvem, Megaport, comunicação de NTT, laranja, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Jacarta** | Indonésia Telkom | 4 | N/D | Database | |
 | **Joanesburgo** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Norte da África do Sul | Database | British Telecom, soluções de Internet – conexão em nuvem, Liquid Telecom, laranja, teraco |
 | **Kuala Lumpur** | [DotCom de tempo Menara objetivos](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | N/D | N/D | TIME dotCom |
@@ -109,8 +109,8 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | N/D | Database | C3ntro, Equinix, Megaport, Neutrona Networks |
 | **Milão** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | N/D | Database | |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | N/D | Bell Canada, Cologix, Megaport, Telus, Zayo |
-| **Mumbai** | Tata Communications | 2 | Oeste da Índia | N/D | CloudXchange global (GCX), dependência Jio, Sify, comunicações Tata, Verizon |
-| **Mumbai2** | Airtel | 2 | Oeste da Índia | N/D | Airtel, Sify, Vodafone Idea |
+| **Mumbai** | Tata Communications | 2 | Índia Ocidental | N/D | CloudXchange global (GCX), dependência Jio, Sify, comunicações Tata, Verizon |
+| **Mumbai2** | Airtel | 2 | Índia Ocidental | N/D | Airtel, Sify, Vodafone Idea |
 | **Munique** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | N/D | 10G, 100G | |
 | **Nova Iorque** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | N/D | N/D | CenturyLink Cloud Connect, Colt, Coresite, Equinix, MultiCloud, Megaport, pacote, Zayo |
 | **Newport (País de Gales)** | [Dados da Próxima Geração](https://www.nextgenerationdata.co.uk) | 1 | Oeste do Reino Unido | N/D | Telecomunicações britânicas, Colt, comunicações de nível 3, dados da próxima geração |
@@ -142,7 +142,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 
 ### <a name="national-cloud-environments"></a>Ambientes de nuvem nacionais
 
-As nuvens nacionais do Azure são isoladas umas das outras e das desaconselhável globais do Azure. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros.
+As nuvens nacionais do Azure são isoladas umas das outras e do Azure comercial global. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros.
 
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
 | **Localidade** | **Endereço** | **Regiões locais do Azure**| **ER direto** | **Provedores de serviço** |

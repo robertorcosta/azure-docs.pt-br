@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277981"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722145"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -187,11 +187,11 @@ A métrica primária determina a métrica a ser usada durante o treinamento do m
 
 Saiba mais sobre as definições específicas dessas métricas em [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
 
-### <a name="data-preprocessing--featurization"></a>Pré-processamento de dados & personalização
+### <a name="data-featurization"></a>Personalização de dados
 
-Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar o pré-processamento/personalização adicional, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess).
+Em todos os experimentos de aprendizado de máquina automatizados, seus dados são [dimensionados e normalizados automaticamente](concept-automated-ml.md#preprocess) para ajudar *determinados* algoritmos que são sensíveis a recursos que estão em escalas diferentes.  No entanto, você também pode habilitar personalização adicionais, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess).
 
-Para habilitar esse personalização, especifique `"preprocess": True` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Para habilitar esse personalização, especifique `"featurization": 'auto'` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
 > As etapas de pré-processamento automatizado de machine learning (normalização de recursos, manipulação de dados ausentes, conversão de texto em números etc.) tornam-se parte do modelo subjacente. Ao usar o modelo para previsões, as mesmas etapas de pré-processamento aplicadas durante o treinamento são aplicadas aos dados de entrada automaticamente.
@@ -324,7 +324,7 @@ Você pode exibir os resultados de treinamento em um widget ou embutido se estiv
 ## <a name="understand-automated-ml-models"></a>Entender os modelos de ML automatizados
 
 Qualquer modelo produzido usando o ML automatizado inclui as seguintes etapas:
-+ Engenharia automatizada de recursos (se pré-processar = true)
++ Engenharia automatizada de recursos (se `"featurization": 'auto'`)
 + Dimensionamento/normalização e algoritmo com valores de hiperparâmetro
 
 Tornamos transparente para obter essas informações da fitted_model saída do ML automatizado.
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Engenharia automatizada de recursos
 
-Consulte a lista de pré-processamento e [engenharia automatizada de recursos](concept-automated-ml.md#preprocess) que ocorre quando feauturization = auto.
+Consulte a lista de pré-processamento e [engenharia automatizada de recursos](concept-automated-ml.md#preprocess) que ocorre quando `"featurization": 'auto'`.
 
 Considere este exemplo:
 + Há quatro recursos de entrada: A (numérico), B (numérico), C (numérico), D (DateTime)
@@ -403,7 +403,7 @@ Use essas duas APIs na primeira etapa do modelo ajustado para entender mais.  Co
    |----|--------|
    |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
    |TypeDetected|Tipo de dados detectado do recurso de entrada.|
-   |Descartada|Indica se o recurso de entrada foi descartado ou usado.|
+   |Passou|Indica se o recurso de entrada foi descartado ou usado.|
    |EngineeringFeatureCount|Número de recursos gerados por meio de transformações automatizadas de engenharia de recursos.|
    |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
    
