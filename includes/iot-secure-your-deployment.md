@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840676"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748751"
 ---
 Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
 
@@ -77,7 +77,7 @@ Ao estabelecer uma conexão TLS segura com o IoT Hub, o dispositivo IoT autentic
 
 ## <a name="securing-the-connection"></a>Protegendo a conexão
 
-A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Se possível, [configure seu hub](../articles/iot-hub/iot-hub-tls.md) para usar o TLS 1,2, pois ele fornece a maior segurança.
+A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Verifique o [suporte a TLS no Hub IOT](../articles/iot-hub/iot-hub-tls-support.md) para ver como configurar seu hub para usar o TLS 1,2, pois ele fornece a maior segurança.
 
 ## <a name="securing-the-cloud"></a>Proteger a nuvem
 

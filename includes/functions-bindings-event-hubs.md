@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 6324fd0e2957aea46fb5876aa8c91f0906205ccc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694420"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748771"
 ---
 ## <a name="trigger"></a>Gatilho
 
@@ -699,6 +699,6 @@ Esta seção descreve as definições de configuração global disponíveis para
 
 |Propriedade  |Padrão | Description |
 |---------|---------|---------|
-|`maxBatchSize`|64|A contagem máxima de eventos recebidos por loop de recebimento.|
-|`prefetchCount`|N/D|A contagem de pré-busca padrão usada pelo `EventProcessorHost`subjacente.|
+|`maxBatchSize`|10|A contagem máxima de eventos recebidos por loop de recebimento.|
+|`prefetchCount`|300|A contagem de pré-busca padrão usada pelo `EventProcessorHost`subjacente.|
 |`batchCheckpointFrequency`|1|O número de lotes de eventos para processar antes de criar um ponto de verificação do cursor do EventHub.|

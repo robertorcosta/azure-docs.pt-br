@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 06b54c3038e8b4f5879a93b696920534c2199008
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414482"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76749003"
 ---
 Este artigo fornece uma visão geral dos recursos de disponibilidade das VMs (máquinas virtuais) do Azure.
 
-## <a name="high-availability"></a>alta disponibilidade
+## <a name="high-availability"></a>Alta disponibilidade
 
 As cargas de trabalho normalmente se disseminam entre diferentes máquinas virtuais para obter alta taxa de transferência, desempenho e para criar redundância no caso de uma VM ser afetada devido a uma atualização ou outro evento. 
 
@@ -38,7 +38,7 @@ Saiba mais sobre como implantar uma VM do [Windows](../articles/virtual-machines
 
 Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilham a mesma fonte de alimentação e o mesmo comutador de rede, de forma semelhante a um rack em um datacenter local. 
 
-### <a name="update-domains"></a>Domínios de atualização
+### <a name="update-domains"></a>Atualizar domínios
 
 Um domínio de atualização é um grupo lógico de hardwares subjacentes que podem passar por manutenção ou ser reinicializados ao mesmo tempo. 
 
@@ -54,15 +54,15 @@ Os conjuntos de dimensionamento de máquinas virtuais permitem que você especif
 
 |   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |----|----|----|
-| Modelo de configuração de VM| Nenhum. VirtualMachineProfile é indefinido no modelo do conjunto de dimensionamento. | Obrigatório. VirtualMachineProfile é populado no modelo de conjunto de dimensionamento. |
+| Modelo de configuração de VM| Nenhum. VirtualMachineProfile é indefinido no modelo do conjunto de dimensionamento. | Obrigatórios. VirtualMachineProfile é populado no modelo de conjunto de dimensionamento. |
 | Adicionando Nova VM ao conjunto de dimensionamento| As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | As VMs são criadas implicitamente e adicionadas ao conjunto de dimensionamento com base no modelo de configuração da VM, contagem de instâncias e regras de dimensionamento automático. |
-| Zonas de Disponibilidades| Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade| Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
+| Zonas de disponibilidade| Dá suporte à implantação regional ou a VMs em uma zona de disponibilidade| Dá suporte à implantação regional ou a vários Zonas de Disponibilidade; Pode definir a estratégia de balanceamento de zona |
 | Domínios de falha| Pode definir a contagem de domínios de falha. 2 ou 3 com base no suporte regional e 5 para a zona de disponibilidade. O domínio de falha de VM atribuído continuará com o ciclo de vida da VM, incluindo desalocar e reiniciar. | Pode definir 1, 2 ou três domínios de falha para implantações não zonais e 5 para implantações de zona de disponibilidade. O domínio de falha de VM atribuído não persiste com o ciclo de vida da VM, as máquinas virtuais recebem um domínio de falha no momento da alocação. |
-| Domínios de atualização| N/D Os domínios de atualização são mapeados automaticamente para domínios de falha| N/D Os domínios de atualização são mapeados automaticamente para domínios de falha |
+| Atualizar domínios| N/D Os domínios de atualização são mapeados automaticamente para domínios de falha| N/D Os domínios de atualização são mapeados automaticamente para domínios de falha |
 
 **Domínios de falha e domínios de atualização**
 
-Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [número de domínios de falha por região](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
+Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [gerenciar a disponibilidade de máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
@@ -81,6 +81,6 @@ As VMs em um conjunto de disponibilidade também são distribuídas automaticame
 
 ![Conjuntos de disponibilidade](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora você pode começar a usar esses recursos de redundância e disponibilidade para criar seu ambiente do Azure. Para obter informações de práticas recomendadas, confira [Práticas recomendadas de disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
 
