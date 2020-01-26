@@ -1,6 +1,6 @@
 ---
 title: Filas de mensagens mortas do Barramento de Serviço | Microsoft Docs
-description: Visão geral das filas de mensagens mortas do Barramento de Serviço
+description: Descreve as filas de mensagens mortas no barramento de serviço do Azure. As filas do barramento de serviço e as assinaturas de tópico fornecem uma subfila secundária, chamada de fila de mensagens mortas.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: e1c3798c36b497423ea1d0cb5da6fabbd6a935f7
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516591"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761008"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço
 
@@ -114,7 +114,7 @@ Você pode acessar a fila de mensagens mortas usando a seguinte sintaxe:
 Se você estiver usando o SDK do .NET, poderá obter o caminho para a fila de mensagens mortas usando o método SubscriptionClient. FormatDeadLetterPath (). Esse método usa o nome do tópico/assinatura e sufixos com **/$DeadLetterQueue**.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Confira os artigos a seguir para obter mais informações sobre as filas do Barramento de Serviço:
 

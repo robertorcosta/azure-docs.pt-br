@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04bc29fb8a89f6e863f7c009e5299d1c702bf976
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721397"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760803"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados de equipe em ação – usando um cluster Azure HDInsight Hadoop em um conjunto de dados de 1 TB
 
@@ -56,7 +56,8 @@ Dois exemplos de problemas de previsão são abordados neste passo a passo:
 2. **Regressão**: prevê a probabilidade de um clique no anúncio por meio de características do usuário.
 
 ## <a name="setup"></a>Configurar um cluster Hadoop do HDInsight para ciência de dados
-**Observação:** Normalmente, essa etapa é uma tarefa de **administrador** .
+> [!NOTE]
+> Normalmente, essa etapa é uma tarefa de **administrador** .
 
 Configure seu ambiente de Ciência de dados do Azure para a criação de soluções analíticas de previsão com clusters do HDInsight em três etapas:
 
@@ -107,10 +108,8 @@ Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Lin
 > [!NOTE]
 > Para executar qualquer consulta de Hive, é sempre possível usar os seguintes comandos:
 >
->
-
-        cd %hive_home%\bin
-        hive
+>        cd %hive_home%\bin
+>        hive
 
 Após a REPL do Hive aparecer com um sinal "hive>", basta recortar e colar a consulta para executá-la.
 

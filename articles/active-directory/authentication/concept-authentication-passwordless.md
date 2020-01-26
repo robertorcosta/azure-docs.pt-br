@@ -1,26 +1,26 @@
 ---
 title: Azure Active Directory conexão sem senha (versão prévia)
-description: Entrada sem senha no Azure AD usando as chaves de segurança do FIDO2 ou o aplicativo Microsoft Authenticator (versão prévia)
+description: Saiba mais sobre as opções de entrada sem senha para Azure Active Directory usando as chaves de segurança FIDO2 ou o aplicativo Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d4dd3f0d4432930d62bb499fe72533b79d2a08
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848724"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756786"
 ---
 # <a name="passwordless-authentication-options"></a>Opções de autenticação com senha
 
-A autenticação multifator (MFA) é uma ótima maneira de proteger sua organização, mas os usuários ficam frustrados com a camada adicional sobre a existência de se lembrar de suas senhas. Os métodos de autenticação sem senha são mais convenientes, pois a senha é removida e substituída por algo que você tem algo ou algo que você sabe.
+A autenticação multifator (MFA) é uma ótima maneira de proteger sua organização, mas os usuários geralmente ficam frustrados com a camada de segurança adicional sobre a existência de lembrar suas senhas. Os métodos de autenticação sem senha são mais convenientes porque a senha é removida e substituída por algo que você tem, além de algo que você conhece ou algo que você sabe.
 
 |   | Algo que você tem | Algo que você está ou conhece |
 | --- | --- | --- |
@@ -36,23 +36,23 @@ Cada organização tem necessidades diferentes quando se trata de autenticação
 
 ## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
-O Windows Hello para empresas é ideal para os operadores de informações que têm seu próprio computador Windows designado. A biométrica e o PIN estão diretamente ligados ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração PKI e o suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método simples e conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
+O Windows Hello para empresas é ideal para os operadores de informações que têm seu próprio computador Windows designado. A biométrica e o PIN estão diretamente ligados ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de PKI (infraestrutura de chave pública) e suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
 
 O [Guia de planejamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello para empresas pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implantação do Windows Hello para empresas e as opções que você precisará considerar.
 
 ## <a name="microsoft-authenticator-app"></a>Aplicativo Microsoft Authenticator
 
-Permitir que o telefone do funcionário se torne um método de autenticação com senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Mas agora ele está disponível como uma opção sem senha.
+Permitir que o telefone do funcionário se torne um método de autenticação com senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Você também pode usar o aplicativo autenticador como uma opção com senha.
 
 ![Entrar no Microsoft Edge com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-Ele transforma qualquer telefone iOS ou Android em uma credencial forte e sem senha, permitindo que os usuários entrem em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e usando suas biométricas ( toque ou face) ou PIN para confirmar.
+O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar.
 
 ## <a name="fido2-security-keys"></a>Chaves de segurança do FIDO2
 
-As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. Ele permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
+As chaves de segurança FIDO2 são um método de autenticação de senha com base em padrões não Phish que pode ser fornecido em qualquer fator forma. A FIDO (Fast Identity online) é um padrão aberto para autenticação com senha. O FIDO permite que usuários e organizações aproveitem o padrão para entrar em seus recursos sem nome de usuário ou senha usando uma chave de segurança externa ou uma chave de plataforma incorporada a um dispositivo.
 
-Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Eles também podem entrar em navegadores com suporte.
+Para a visualização pública, os funcionários podem usar as chaves de segurança para entrar em seus dispositivos Windows 10 ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
 
 ![Entrar no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -67,7 +67,7 @@ Uma chave de segurança **deve** implementar os seguintes recursos e extensões 
 | 3 | HMAC-segredo | Essa extensão garante que você possa entrar em seu dispositivo quando ele estiver offline ou no modo avião. |
 | 4 | Várias contas por RP | Esse recurso garante que você possa usar a mesma chave de segurança em vários serviços, como conta da Microsoft e Azure Active Directory. |
 
-Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma diferentes que são conhecidos como compatíveis com a experiência sem senha. A Microsoft incentiva os clientes a avaliar as propriedades de segurança dessas chaves contatando o fornecedor, bem como a FIDO Alliance.
+Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma diferentes que são conhecidos como compatíveis com a experiência sem senha. Incentivamos você a avaliar as propriedades de segurança dessas chaves contatando o fornecedor, bem como a FIDO Alliance.
 
 | Provedor | Contato |
 | --- | --- |
@@ -79,11 +79,9 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
 > [!NOTE]
-> Se você comprar e planejar usar as chaves de segurança com base em NFC, precisará de um leitor NFC com suporte.
+> Se você comprar e planejar usar chaves de segurança baseadas em NFC, precisará de um leitor de NFC com suporte para a chave de segurança. O leitor NFC não é um requisito ou limitação do Azure. Consulte o fornecedor da sua chave de segurança baseada em NFC para obter uma lista de leitores NFC com suporte.
 
-Se você for um fornecedor e quiser obter seu dispositivo nesta lista, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
-
-As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
+Se você for um fornecedor e quiser obter seu dispositivo na lista de dispositivos com suporte, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
 ## <a name="what-scenarios-work-with-the-preview"></a>Quais cenários funcionam com a versão prévia?
 
@@ -91,8 +89,8 @@ As chaves de segurança do FIDO2 são uma ótima opção para empresas que são 
 - Os administradores podem direcionar todos os usuários ou Selecionar usuários/grupos dentro de seu locatário para cada método
 - Os usuários finais podem registrar e gerenciar esses métodos de autenticação com senha em seu portal de conta
 - Os usuários finais podem entrar com esses métodos de autenticação sem senha
-   - Microsoft Authenticator aplicativo: funcionará em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
-   - Chaves de segurança: funcionarão na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge.
+   - Microsoft Authenticator aplicativo: funciona em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (Windows 10) e com aplicativos móveis integrados em qualquer sistema operacional.
+   - Chaves de segurança: trabalhe na tela de bloqueio para o Windows 10 e a Web em navegadores com suporte, como o Microsoft Edge.
 
 ## <a name="next-steps"></a>Próximos passos
 

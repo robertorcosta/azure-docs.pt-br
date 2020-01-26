@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790890"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760786"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceitos e composição do Skills no Azure Pesquisa Cognitiva
 
@@ -37,13 +37,13 @@ Habilidades são criados em JSON. Você pode criar habilidades complexas com loo
 ### <a name="enrichment-tree"></a>Árvore de enriquecimento
 
 Para prever como um tipo de habilidade enriquece o seu documento progressivamente, vamos começar com a aparência do documento antes de qualquer enriquecimento. A saída da quebra de documento depende da fonte de dados e do modo de análise específico selecionado. Esse também é o estado do documento do qual os [mapeamentos de campo](search-indexer-field-mappings.md) podem fazer o conteúdo de origem ao adicionar dados ao índice de pesquisa.
-![Diagrama do repositório de conhecimento no diagrama](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Krepositório nowledge no diagrama de pipeline ")
+![Diagrama do repositório de conhecimento no diagrama](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagrama do repositório de conhecimento no diagrama")
 
 Quando um documento está no pipeline de enriquecimento, ele é representado como uma árvore de conteúdo e aprimoramentos associados. Essa árvore é instanciada como a saída da quebra de documento. O formato de árvore de enriquecimento permite que o pipeline de enriquecimento anexe metadados a tipos de dados primitivos pares, ele não é um objeto JSON válido, mas pode ser projetado em um formato JSON válido. A tabela a seguir mostra o estado de um documento entrando no pipeline de enriquecimento:
 
 |Modo de Source\Parsing de dados|Padrão|JSON, linhas JSON & CSV|
 |---|---|---|
-|Armazenamento de Blobs|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|Armazenamento de Blob|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/D |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/D|
 
@@ -56,7 +56,7 @@ No restante deste documento, vamos pressupor que estamos trabalhando com o [exem
 Cada habilidade requer um contexto. Um contexto determina:
 +   O número de vezes que a habilidade é executada, com base nos nós selecionados. Para valores de contexto da coleção de tipos, a adição de um ```/*``` no final resultará na invocação da habilidade para cada instância na coleção. 
 +   Em que na árvore de enriquecimento as saídas de habilidades são adicionadas. As saídas são sempre adicionadas à árvore como filhos do nó de contexto. 
-+   Forma das entradas. Para coleções de vários níveis, definir o contexto para a coleção pai afetará a forma da entrada da habilidade. Por exemplo, se você tiver uma árvore de enriquecimento com uma lista de países, cada um deles será aprimorado com uma lista de Estados que contém uma lista de ZipCodes.
++   Forma das entradas. Para coleções de vários níveis, definir o contexto para a coleção pai afetará a forma da entrada para a habilidade. Por exemplo, se você tiver uma árvore de enriquecimento com uma lista de países, cada um deles será aprimorado com uma lista de Estados que contém uma lista de ZipCodes.
 
 |Contexto|Entrada|Forma de entrada|Invocação de habilidades|
 |---|---|---|---|
@@ -65,7 +65,7 @@ Cada habilidade requer um contexto. Um contexto determina:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-O `sourceContext` só é usado em [projeções](knowledge-store-projection-overview.md)e entradas de habilidades. Ele é usado para construir objetos aninhados de vários níveis. Talvez seja necessário criar um novo onexão para passá-lo como uma entrada para uma habilidade ou projeto na loja de conhecimento. Como os nós de enriquecimento podem não ser um objeto JSON válido na árvore de enriquecimento e refrencing um nó na árvore retorna apenas esse estado do nó quando ele foi criado, usando os aprimoramentos como entradas de habilidades ou projeções exige que você crie um objeto JSON bem formado. O `sourceContext` permite que você construa um objeto de tipo anônimo e hierárquico, que exigiria várias habilidades se você estivesse usando apenas o contexto. O uso de `sourceContext` é mostrado na próxima seção. Examine a saída da habilidade que gerou um enriquecimento para determinar se ele é um objeto JSON válido e não um tipo primitivo.
+O `sourceContext` só é usado em [projeções](knowledge-store-projection-overview.md)e entradas de habilidades. Ele é usado para construir objetos aninhados de vários níveis. Talvez seja necessário criar um novo objeto para passá-lo como uma entrada para uma habilidade ou projeto na loja de conhecimento. Como os nós de enriquecimento podem não ser um objeto JSON válido na árvore de enriquecimento e fazer referência a um nó na árvore retorna apenas esse estado do nó quando ele foi criado, usando os aprimoramentos como entradas de habilidades ou projeções exige que você crie um objeto JSON bem formado. O `sourceContext` permite que você construa um objeto de tipo anônimo e hierárquico, que exigiria várias habilidades se você estivesse usando apenas o contexto. O uso de `sourceContext` é mostrado na próxima seção. Examine a saída da habilidade que gerou um enriquecimento para determinar se ele é um objeto JSON válido e não um tipo primitivo.
 
 ### <a name="projections"></a>Projeções
 
@@ -100,7 +100,7 @@ O nó raiz de todos os aprimoramentos é `"/document"`. Ao trabalhar com indexad
 
 ### <a name="skill-2-language-detection"></a>Detecção de idioma #2 de habilidades
  Embora a habilidade de detecção de idioma seja a terceira habilidade (#3 de habilidades) definida no Skill, é a próxima habilidade a ser executada. Como ela não é bloqueada exigindo qualquer entrada, ela será executada em paralelo com a habilidade anterior. Como a habilidade de divisão que precedeu, a habilidade de detecção de idioma também é invocada uma vez para cada documento. A árvore de enriquecimento agora tem um novo nó para o idioma.
- ![árvore de enriquecimento após a #2 de habilidades](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enárvore de rica após a execução da #2 de habilidades ")
+ ![árvore de enriquecimento após a #2 de habilidades](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Árvore de enriquecimento após a execução da #2 de habilidades")
  
  ### <a name="skill-3-key-phrases-skill"></a>#3 de habilidades: habilidade de frases-chave 
 
@@ -114,7 +114,7 @@ As cores dos conectores na árvore acima indicam que os aprimoramentos foram cri
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>Economize os aprimoramentos em uma loja de conhecimento 
 
-Habilidades também definem uma loja de conhecimento onde seus documentos aprimorados podem ser projetados como tabelas ou objetos. Para salvar seus dados aprimorados na loja de conhecimento, você define um conjunto de projeções de seu documento aprimorado. Para saber mais sobre a loja de conhecimento, consulte [visão geral da loja de conhecimento](knowledge-store-concept-intro.md)
+Habilidades também definem uma loja de conhecimento onde seus documentos aprimorados podem ser projetados como tabelas ou objetos. Para salvar seus dados aprimorados na loja de conhecimento, você define um conjunto de projeções para seu documento aprimorado. Para saber mais sobre a loja de conhecimento, consulte [visão geral da loja de conhecimento](knowledge-store-concept-intro.md)
 
 ### <a name="slicing-projections"></a>Projeções de fatias
 

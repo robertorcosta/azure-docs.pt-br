@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c14bebca775345ab478228f42d9b8416dd223032
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289077"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756187"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -39,7 +39,7 @@ Em um locatário do Azure AD, os usuários que pertencem ao locatário entram co
 
 Em um locatário do Azure AD B2C, a maioria dos aplicativos quer que o usuário entre com qualquer endereço de email (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, joe, bob, sarah ou jim). Você pode escolher um dos dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no Portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
 
-Contas de usuário para aplicativos sempre devem ser criadas por meio de um fluxo de usuário de inscrição, fluxo de usuário de inscrição ou de matrícula ou usando a API do Graph do Azure Active Directory. Contas de usuário criadas no portal do Azure só são usadas para administrar o locatário.
+As contas de usuário para aplicativos podem ser criadas por meio de um fluxo de usuário de inscrição, um fluxo de usuário de inscrição ou de entrada, a API de Microsoft Graph ou no portal do Azure.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 
@@ -150,7 +150,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
-1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
+1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
@@ -170,7 +170,7 @@ Você pode usar a experiência de **aplicativos** atual ou nossa nova experiênc
 1. Em **gerenciar**, selecione **configurações do usuário**.
 1. Se houver, em **conexões de conta do LinkedIn**, selecione **não**e, em seguida, selecione **salvar**.
 1. Em **gerenciar**, selecione **Propriedades**
-1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
+1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim**e, em seguida, selecione **salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
 1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.

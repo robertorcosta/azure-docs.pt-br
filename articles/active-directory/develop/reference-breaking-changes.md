@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702990"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758743"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação? 
 
@@ -40,7 +40,20 @@ O sistema de autenticação altera e adiciona recursos em uma base contínua par
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 
-Setembro de 2019: imposição adicional de semântica de POST de acordo com as regras de análise de URL-parâmetros duplicados dispararão um erro e uma [bom](https://www.w3.org/International/questions/qa-byte-order-mark) ignorada.
+Nenhum agendado neste momento.  Veja abaixo as alterações que estão no ou que estão chegando à produção. 
+
+## <a name="february-2020"></a>Fevereiro de 2020: 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Fragmentos vazios serão anexados a cada redirecionamento HTTP do ponto de extremidade de logon. 
+
+**Data de efetivação**: 8 de fevereiro de 2020
+
+**Pontos de extremidade afetados**: v1.0 e v2.0
+
+**Protocolo afetado**: fluxos OAuth e OIDC que usam response_type = Query – isso abrange o [fluxo do código de autorização](v2-oauth2-auth-code-flow.md) em alguns casos e o [fluxo implícito](v2-oauth2-implicit-grant-flow.md). 
+
+Quando uma resposta de autenticação é enviada do login.microsoftonline.com para um aplicativo via redirecionamento HTTP, o serviço acrescentará um fragmento vazio à URL de resposta.  Isso impede uma classe de ataques de redirecionamento, garantindo que o navegador apague qualquer fragmento existente na solicitação de autenticação.  Nenhum aplicativo deve ter uma dependência desse comportamento. 
+
 
 ## <a name="august-2019"></a>Agosto de 2019
 

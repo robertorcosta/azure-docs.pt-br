@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ser movidos entre reg
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/21/2019
+ms.date: 01/20/2020
 ms.author: raynew
-ms.openlocfilehash: 60b8708458e081d66514e092edc9ef9af7c33494
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9bc7dc66ccf3049ac878f7871c816e5ade1afde5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485241"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760701"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Suporte para mover recursos do Azure entre regiões
 
@@ -186,7 +186,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
-> | serviço | Não |
+> | serviço |  Sim | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -1001,7 +1001,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
-> | vaults | Sim (para cofres de backup, acho que? | 
+> | vaults | Não. [Desabilitar o cofre e recriar](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) para site Recovery  | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -1142,14 +1142,14 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
-> | storageaccounts | Sim?? | 
+> | storageaccounts | Sim | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
-> | Caches | Não | 
+> | caches | Não | 
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -1220,7 +1220,7 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
-> | stores | Não | 
+> | mercado | Não | 
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 

@@ -1,6 +1,6 @@
 ---
-title: Referência da sintaxe SQLRuleAction no Azure | Microsoft Docs
-description: Detalhes sobre a gramática de SQLRuleAction.
+title: Referência de sintaxe sqlruleaction no barramento de serviço do Azure
+description: Este artigo fornece uma referência para a sintaxe sqlruleaction. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem orientada.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60307471"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759621"
 ---
-# <a name="sqlruleaction-syntax"></a>Sintaxe SQLRuleAction
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referência de sintaxe sqlruleaction para o barramento de serviço do Azure
 
 Um *SqlRuleAction* é uma instância da classe [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações gravadas na sintaxe baseada na linguagem SQL executada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
@@ -71,7 +71,7 @@ Este artigo lista os detalhes sobre a gramática de ação de regras do SQL.
 
 Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao passo que uma tentativa de acessar uma propriedade de usuário inexistente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -123,11 +123,11 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
  `<pattern>` deve ser uma expressão avaliada como uma cadeia de caracteres. Usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres curinga:  
   
--   `%`:  Qualquer cadeia de caracteres com zero ou mais caracteres.  
+-   `%`: qualquer cadeia de caracteres com zero ou mais caracteres.  
   
--   `_`: Qualquer caractere único.  
+-   `_`: qualquer caractere único.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
@@ -147,7 +147,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
       <integer_constant> | <decimal_constant> | <approximate_number_constant> | <boolean_constant> | NULL  
 ```  
   
-### <a name="arguments"></a>Arguments  
+### <a name="arguments"></a>Argumentos  
   
 -   `<integer_constant>` é uma cadeia de números que não são incluídos em aspas e que não contêm pontos decimais. Os valores são armazenados como `System.Int64` internamente e seguem o mesmo intervalo.  
   
@@ -176,7 +176,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
@@ -187,7 +187,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 Constantes boolianas são representadas pelas palavras-chave `TRUE` ou `FALSE`. Os valores são armazenados como `System.Boolean`.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
@@ -220,7 +220,7 @@ A função `property(name)` retorna o valor da propriedade referenciada por `nam
 - A ação não falhará se propriedades de usuário inexistentes forem referenciadas.
 - Uma propriedade de usuário inexistente é avaliada como “Desconhecida” internamente, seguindo a mesma semântica de [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar operadores.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

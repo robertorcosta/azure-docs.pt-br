@@ -1,6 +1,6 @@
 ---
 title: Mensagens de pré-busca do Barramento de Serviço do Azure | Microsoft Docs
-description: Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure.
+description: Melhore o desempenho realizando a pré-busca de mensagens do Barramento de Serviço do Azure. As mensagens estão prontamente disponíveis para recuperação local antes de o aplicativo solicitar.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c63e6bf66e4832a1a5b0b5e6fc3dfbbf02d1e490
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125841"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760650"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Executar a pré-busca de mensagens do Barramento de Serviço do Azure
 
@@ -54,7 +54,7 @@ Se você precisar de uma taxa de transferência alta e o processamento de mensag
 
 A contagem de pré-busca máxima e a duração do bloqueio configurado na fila ou na assinatura precisam ser equilibradas, de modo que o tempo limite de bloqueio pelo menos exceda o tempo de processamento de mensagem esperado para o tamanho máximo do buffer de pré-busca, mais uma mensagem. Ao mesmo tempo, o tempo limite de bloqueio não deve ser longo o suficiente para que as mensagens possam exceder seu [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) quando são acidentalmente descartadas, exigindo assim que seu bloqueio expire antes de serem entregues novamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

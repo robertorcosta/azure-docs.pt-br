@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289605"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760837"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,11 +179,14 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 
 - Negue a conexão de Internet de saída usando as regras NSG.
 
-- Limitar o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure, usando a __marca de serviço__ de __armazenamento. Region_Name__ (por exemplo, Storage. eastus)
-   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. Region_Name__ (por exemplo, AzureContainerRegistry. eastus)
+- Para uma __instância de computação__ ou um __cluster de computação__, limite o tráfego de saída para os seguintes itens:
+   - Armazenamento do Azure, usando a __marca de serviço__ do __armazenamento__
+   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry__
    - Azure Machine Learning, usando a __marca de serviço__ de __AzureMachineLearning__
-   - No caso de instância de computação, nuvem do Azure, usando a __marca de serviço__ de __AzureResourceManager__
+   
+- Para uma __instância de computação__, adicione também os seguintes itens:
+   - Azure Resource Manager, usando a __marca de serviço__ de __AzureResourceManager__
+   - Azure Active Directory, usando a __marca de serviço__ de __AzureActiveDirectory__
 
 A configuração da regra NSG na portal do Azure é mostrada na imagem a seguir:
 
@@ -206,12 +209,12 @@ A configuração da regra NSG na portal do Azure é mostrada na imagem a seguir:
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Training__ do estimador
+> __Treinamento de estimador__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```

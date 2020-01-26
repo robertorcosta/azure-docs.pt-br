@@ -1,6 +1,6 @@
 ---
-title: Entidades de mensagens suspensas do Barramento de Serviço do Azure | Microsoft Docs
-description: Suspenda e reative as entidades de mensagens do Barramento de Serviço do Azure.
+title: Barramento de serviço do Azure – suspender entidades de mensagens
+description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagem do barramento de serviço do Azure (filas, tópicos e assinaturas).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170801"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760378"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
 
@@ -28,7 +28,7 @@ A suspensão de uma entidade normalmente é feita por razões administrativas ur
 
 Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema. O sistema suspende entidades apenas por razões administrativas graves como atingir a limite de gastos de assinatura. As entidades desabilitadas pelo sistema não podem ser reativadas pelo usuário, mas serão restauradas quando a causa a suspensão tiver sido resolvida.
 
-No portal, o **propriedades** seção para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra a alternância para uma fila:
+No portal, a seção de **Propriedades** para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra a alternância de uma fila:
 
 ![][1]
 
@@ -40,8 +40,8 @@ O portal permite apenas desabilitar completamente filas. Você também pode desa
 
 Os estados que podem ser definidos para uma fila são:
 
--   **Ativo**: a fila está ativa.
--   **Desabilitado**: a fila está suspensa.
+-   **Active**: a fila está ativa.
+-   **Disabled**: a fila está suspensa.
 -   **SendDisabled**: a fila está parcialmente suspensa, com o recebimento sendo permitido.
 -   **ReceiveDisabled**: a fila está parcialmente suspensa, com o envio sendo permitido.
 
@@ -57,7 +57,7 @@ $q.Status = "Disabled"
 Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

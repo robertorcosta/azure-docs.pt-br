@@ -1,6 +1,6 @@
 ---
-title: Procura de mensagens do Barramento de Serviço do Azure | Microsoft Docs
-description: Procurar e espiar mensagens do Barramento de Serviço
+title: Barramento de serviço do Azure-pesquisa de mensagem
+description: Procurar e inspecionar mensagens do barramento de serviço permite que um cliente do barramento de serviço do Azure enumere todas as mensagens que residem em uma fila ou assinatura.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 425cf262b80e83a4d06074a567a2921eee12f9c2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402744"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756389"
 ---
 # <a name="message-browsing"></a>Procura de mensagens
 
@@ -42,7 +42,7 @@ Quando chamado várias vezes, o método Peek enumera todas as mensagens que exis
 
 Você também pode propagar uma sobrecarga do método com um [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) em que iniciar e, em seguida, chamar a sobrecarga de método sem parâmetros para enumerar ainda mais. **PeekBatch** funciona de forma equivalente, mas recupera um conjunto de mensagens de uma só vez.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

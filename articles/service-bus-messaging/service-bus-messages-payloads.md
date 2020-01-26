@@ -1,6 +1,6 @@
 ---
 title: Mensagens, payloads e serialização do Barramento de Serviço do Azure | Microsoft Docs
-description: Visão geral dos payloads de mensagem do Barramento de Serviço
+description: Este artigo fornece uma visão geral das mensagens, cargas, roteamento de mensagens e serialização do barramento de serviço do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 26256fe968eff5f7570885278620fded5673b5a0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 11e56ae2483a254fb00e3593da7841f3f3d844f3
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249964"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759390"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
 
@@ -32,7 +32,7 @@ As propriedades do agente predefinidas são listadas na tabela a seguir. Os nome
  
 Os nomes equivalentes usados no nível do protocolo AMQP estão listados entre parênteses. 
 
-| Nome da Propriedade                         | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Nome da propriedade                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (content-type)           | Descreve opcionalmente o payload da mensagem com um descritor seguindo o formato de RFC2045, Seção 5; por exemplo, `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlation-id)       | Permite que um aplicativo especifique um contexto para a mensagem para fins de correlação; por exemplo, refletindo o **MessageId** de uma mensagem que está sendo respondida.                                                                                                                                                                                                                                                                  |
@@ -52,8 +52,8 @@ Os nomes equivalentes usados no nível do protocolo AMQP estão listados entre p
 | [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc)               | Para mensagens disponibilizadas apenas para recuperação após um atraso, essa propriedade define o instante do UTC no qual a mensagem será logicamente enfileirada, sequenciada e, portanto, disponibilizada para recuperação.                                                                                                                                                                                                                 |
 | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber)                        | O número de sequência é um inteiro de 64 bits atribuído a uma mensagem conforme ela é aceita e armazenada pelo agente e por funções como seu identificador verdadeiro. Para entidades particionadas, os 16 bits de nível mais alto refletem o identificador da partição. Os números de sequência aumentam de forma monotônica e não têm intervalo. Eles passam para 0 quando o intervalo de 48 a 64 bits é esgotado. Essa propriedade é somente leitura.                                                                |
 | [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) (group-id)                  | Para entidades com reconhecimento de sessão, esse valor definido pelo aplicativo especifica a afiliação de sessão da mensagem. As mensagens com o mesmo identificador de sessão estão sujeitas ao bloqueio de resumo e permitem a demultiplexação e o processamento na ordem exata. Para entidades que não estejam cientes de sessão, esse valor é ignorado.                                                                                                                                     |
-| [Size](/dotnet/api/microsoft.azure.servicebus.message.size)                                  | Reflete o tamanho armazenado da mensagem no log do agente como uma contagem de bytes, uma vez que ele contribui com a cota de armazenamento. Essa propriedade é somente leitura.                                                                                                                                                                                                                                                                                                       |
-| [Estado](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | Indica o estado da mensagem no log. Essa propriedade só é relevante durante a pesquisa de mensagens (“pico”), para determinar se a mensagem está “ativa” e disponível para recuperação assim que ela atingir o topo da fila, se ela é adiada ou se está esperando para ser agendada. Essa propriedade é somente leitura.                                                                                                                                           |
+| [Tamanho](/dotnet/api/microsoft.azure.servicebus.message.size)                                  | Reflete o tamanho armazenado da mensagem no log do agente como uma contagem de bytes, uma vez que ele contribui com a cota de armazenamento. Essa propriedade é somente leitura.                                                                                                                                                                                                                                                                                                       |
+| [State](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | Indica o estado da mensagem no log. Essa propriedade só é relevante durante a pesquisa de mensagens (“pico”), para determinar se a mensagem está “ativa” e disponível para recuperação assim que ela atingir o topo da fila, se ela é adiada ou se está esperando para ser agendada. Essa propriedade é somente leitura.                                                                                                                                           |
 | [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive)                            | Esse valor é a duração relativa após a qual a mensagem expira, a partir do momento em que a mensagem foi aceita e armazenada pelo agente, conforme capturada em **EnqueueTimeUtc**. Quando não definido explicitamente, o valor assumido será o **DefaultTimeToLive** para a respectiva fila ou tópico. Um valor **TimeToLive** no nível da mensagem não pode ser maior do que a configuração **DefaultTimeToLive** da entidade. Se ele for maior, é ajustado silenciosamente. |
 | [To](/dotnet/api/microsoft.azure.servicebus.message.to) (to)                               | Essa propriedade é reservada para uso futuro em cenários de roteamento e é atualmente ignorada pelo próprio agente. Os aplicativos podem usar esse valor em cenários de encadeamento de encaminhamento automático orientado à regra para indicar o destino lógico pretendido da mensagem.                                                                                                                                                                                   |
 | [ViaPartitionKey](/dotnet/api/microsoft.azure.servicebus.message.viapartitionkey)                       | Se uma mensagem é enviada por meio de uma fila de transferência no escopo de uma transação, esse valor seleciona a partição da fila de transferência.                                                                                                                                                                                                                                                                                                                 |
@@ -77,7 +77,7 @@ Quando estiver em trânsito ou armazenado dentro do Barramento de Serviço, o pa
 
 Diferentemente das variantes Java ou .NET Standard, a versão .NET Framework da API do Barramento de Serviço dá suporte à criação de instâncias **BrokeredMessage** passando objetos .NET arbitrários para o construtor. 
 
-Ao usar o protocolo SBMP herdado, esses objetos são serializados com o serializador binário padrão ou com um serializador fornecido externamente. Ao usar o protocolo AMQP, o objeto é serializado em um objeto AMQP. O receptor pode recuperar esses objetos com o método [GetBody\<T > ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) , fornecendo o tipo esperado. Com AMQP, os objetos são serializados em um gráfico AMQP dos objetos **ArrayList** e **IDictionary <string,object>** , e qualquer cliente do AMQP pode decodificá-los. 
+Ao usar o protocolo SBMP herdado, esses objetos são serializados com o serializador binário padrão ou com um serializador fornecido externamente. Ao usar o protocolo AMQP, o objeto é serializado em um objeto AMQP. O receptor pode recuperar esses objetos com o método [GetBody\<t > ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) , fornecendo o tipo esperado. Com AMQP, os objetos são serializados em um gráfico AMQP dos objetos **ArrayList** e **IDictionary <string,object>** , e qualquer cliente do AMQP pode decodificá-los. 
 
 Embora essa mágica de serialização oculta seja conveniente, os aplicativos devem assumir o controle explícito da serialização do objeto e transformar os grafos dos seus objetos em fluxos antes de incluí-los em uma mensagem e fazer o contrário no lado do receptor. Isso produz resultados interoperáveis. Também deve-se observar que, embora o AMQP tenha um avançado modelo de codificação binária, ele está vinculado ao ecossistema de mensagens AMQP e os clientes HTTP terão problemas para decodificar esses payloads. 
 
@@ -85,7 +85,7 @@ Geralmente, recomendamos JSON e Apache Avro como formatos de payload para dados 
 
 As variantes de .NET Standard e Java API só aceitam matrizes de bytes, o que significa que o aplicativo deve lidar com o controle de serialização do objeto. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

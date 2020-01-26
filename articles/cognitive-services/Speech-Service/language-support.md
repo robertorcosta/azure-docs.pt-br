@@ -3,20 +3,20 @@ title: Suporte a idiomas-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O serviço de fala dá suporte a vários idiomas para conversão de fala em texto e de texto em fala, juntamente com a tradução de fala. Este artigo fornece uma lista abrangente de suporte de idioma por recurso de serviço.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/23/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381045"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760616"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Suporte a idiomas e regiões para o serviço de fala
 
@@ -24,49 +24,58 @@ O suporte a idiomas varia de acordo com a funcionalidade do serviço de fala. As
 
 ## <a name="speech-to-text"></a>Conversão de fala em texto
 
-O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: frases.  Atualmente, a personalização de pronúncia está disponível apenas para `en-US` e `de-DE`. Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
+O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: frases. Atualmente, a personalização de pronúncia está disponível apenas para `en-US` e `de-DE`. Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
 
- Localidade | Idioma | Com suporte | Personalizável
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ Localidade | Idioma | Com suporte | Personalizações
 ------|------------|-----------|-------------
-`ar-EG` | Árabe (Egito), padrão moderno | Sim | Sim
-`ar-SA` | Árabe (Arábia Saudita) | Sim | Sim
-`ar-AE` | Árabe (dos EAU) | Sim | Sim
-`ar-KW` | Árabe (Kuwait) | Sim | Sim
-`ar-QA` | Árabe (Catar) | Sim | Sim
-`ca-ES` | Catalão | Sim | Não
-`da-DK` | Dinamarquês (Dinamarca) | Sim | Não
-`de-DE` | Alemão (Alemanha) | Sim | Sim
-`en-AU` | Inglês (Austrália) | Sim | Sim
-`en-CA` | Inglês (Canadá) | Sim | Sim
-`en-GB` | Inglês (Reino Unido) | Sim | Sim
-`en-IN` | English (India) | Sim | Sim
-`en-NZ` | Inglês (Nova Zelândia) | Sim | Sim
-`en-US` | Inglês (Estados Unidos) | Sim | Sim
-`es-ES` | Espanhol (Espanha) | Sim | Sim
-`es-MX` | Espanhol (México) | Sim | Sim
-`fi-FI` | Finlandês (Finlândia) | Sim | Não
-`fr-CA` | Francês (Canadá) | Sim | Sim
-`fr-FR` | Francês (França) | Sim | Sim
-`gu-IN` | Guzerate (indiano) | Sim | Sim
-`hi-IN` | Híndi (Índia) | Sim | Sim
-`it-IT` | Italiano (Itália) | Sim | Sim
-`ja-JP` | Japonês (Japão) | Sim | Sim
-`ko-KR` | Coreano (Coreia do Sul) | Sim | Sim
-`mr-IN` | Marati (Índia) | Sim | Sim
-`nb-NO` | Norueguês (Bokmål) (Noruega) | Sim | Não
-`nl-NL` | Holandês (Países Baixos) | Sim | Sim
-`pl-PL` | Polonês (Polônia) | Sim | Não
-`pt-BR` | Português (Brasil) | Sim | Sim
-`pt-PT` | Português (Portugal) | Sim | Sim
-`ru-RU` | Russo (Rússia) | Sim | Sim
-`sv-SE` | Sueco (Suécia) | Sim | Não
-`ta-IN` | Tâmil (Índia) | Sim | Sim
-`te-IN` | Télugo (Índia) | Sim | Sim
-`zh-CN` | Chinês (mandarim, simplificado) | Sim | Sim
-`zh-HK` | Chinês (Cantonês, tradicional) | Sim | Sim
-`zh-TW` | Chinês (Mandarim Taiwanês) | Sim | Sim
+`ar-AE` | Árabe (dos EAU) | Sim | Não
+`ar-BH` | Árabe (Bahrein) | Sim | Modelo de linguagem
+`ar-EG` | Árabe (Egito), padrão moderno | Sim | Modelo de linguagem
+`ar-KW` | Árabe (Kuwait) | Sim | Não
+`ar-QA` | Árabe (Catar) | Sim | Não
+`ar-SA` | Árabe (Arábia Saudita) | Sim | Não
+`ca-ES` | Catalão | Sim | Modelo de linguagem
+`da-DK` | Dinamarquês (Dinamarca) | Sim | Modelo de linguagem
+`de-DE` | Alemão (Alemanha) | Sim | Modelo acústico<br>Modelo de linguagem<br>Pronúncia
+`en-AU` | Inglês (Austrália) | Sim | Modelo acústico<br>Modelo de linguagem
+`en-CA` | Inglês (Canadá) | Sim | Modelo acústico<br>Modelo de linguagem
+`en-GB` | Inglês (Reino Unido) | Sim | Modelo acústico<br>Modelo de linguagem<br>Pronúncia
+`en-IN` | English (India) | Sim | Modelo acústico<br>Modelo de linguagem
+`en-NZ` | Inglês (Nova Zelândia) | Sim | Modelo acústico<br>Modelo de linguagem
+`en-US` | Inglês (Estados Unidos) | Sim | Modelo acústico<br>Modelo de linguagem<br>Pronúncia
+`es-ES` | Espanhol (Espanha) | Sim | Modelo acústico<br>Modelo de linguagem
+`es-MX` | Espanhol (México) | Sim | Modelo acústico<br>Modelo de linguagem
+`fi-FI` | Finlandês (Finlândia) | Sim | Modelo de linguagem
+`fr-CA` | Francês (Canadá) | Sim | Modelo acústico<br>Modelo de linguagem
+`fr-FR` | Francês (França) | Sim | Modelo acústico<br>Modelo de linguagem<br>Pronúncia
+`gu-IN` | Guzerate (indiano) | Sim | Modelo de linguagem
+`hi-IN` | Híndi (Índia) | Sim | Modelo acústico<br>Modelo de linguagem
+`it-IT` | Italiano (Itália) | Sim | Modelo acústico<br>Modelo de linguagem<br>Pronúncia
+`ja-JP` | Japonês (Japão) | Sim | Modelo de linguagem
+`ko-KR` | Coreano (Coreia do Sul) | Sim | Modelo de linguagem
+`mr-IN` | Marati (Índia) | Sim | Modelo de linguagem
+`nb-NO` | Norueguês (Bokmål) (Noruega) | Sim | Modelo de linguagem
+`nl-NL` | Holandês (Países Baixos) | Sim | Modelo de linguagem
+`pl-PL` | Polonês (Polônia) | Sim | Modelo de linguagem
+`pt-BR` | Português (Brasil) | Sim | Modelo acústico<br>Modelo de linguagem<br>Pronúncia
+`pt-PT` | Português (Portugal) | Sim | Modelo de linguagem
+`ru-RU` | Russo (Rússia) | Sim | Modelo acústico<br>Modelo de linguagem
+`sv-SE` | Sueco (Suécia) | Sim | Modelo de linguagem
+`ta-IN` | Tâmil (Índia) | Sim | Modelo de linguagem
+`te-IN` | Télugo (Índia) | Sim | Não
 `th-TH` | Tailandês (Tailândia) | Sim | Não
-`tr-TR` | Turquia | Sim | Sim
+`tr-TR` | Turquia | Sim | Não
+`zh-CN` | Chinês (mandarim, simplificado) | Sim | Modelo acústico<br>Modelo de linguagem
+`zh-HK` | Chinês (Cantonês, tradicional) | Sim | Modelo de linguagem
+`zh-TW` | Chinês (Mandarim Taiwanês) | Sim | Modelo de linguagem
 
 ## <a name="text-to-speech"></a>Conversão de texto em fala
 
@@ -102,7 +111,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 
 Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curto
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Árabe (Egito) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-EG, Hoda)” | "ar-ex-Hoda"
+<sup>**1**</sup>`ar-EG` | Árabe (Egito) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-EG, Hoda)” | "ar-ex-Hoda"
 `ar-SA` | Árabe (Arábia Saudita) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-SA, Naayf)” | "ar-SA-Naayf"
 `bg-BG` | Búlgaro | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (bg-BG, Ivan)” | "bg-BG-Ivan"
 `ca-ES` | Catalão (Espanha) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ca-ES, HerenaRUS)” | "ca-ES-HerenaRUS"
@@ -184,7 +193,7 @@ Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curt
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-ex suporta o moderno padrão árabe (MSA).*
+**1** *ar-ex dá suporte a Modern padrão árabe (MSA).*
 
 > [!NOTE]
 > Você pode usar o mapeamento de nome de serviço completo ou o nome de voz curto em suas solicitações de síntese de fala.

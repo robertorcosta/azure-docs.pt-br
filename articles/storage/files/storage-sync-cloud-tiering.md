@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7af4f68417b25b480ea5422eb13d6b2a5748212c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431734"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759696"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
  
-Quando um usuário abre um arquivo em camadas, a Sincronização de Arquivos do Azure recupera os dados de arquivo diretamente dos Arquivos do Azure, sem que o usuário precise saber que o arquivo está realmente armazenado no Azure. 
+Quando um usuário abre um arquivo em camadas, Sincronização de Arquivos do Azure rechama diretamente os dados de arquivo dos arquivos do Azure sem que o usuário precise saber que o arquivo está armazenado no Azure. 
  
  > [!Important]  
  > A camada de nuvem não dá suporte a pontos de extremidade do servidor nos volumes de sistema do Windows e somente arquivos com tamanho maior que 64 KiB podem ser dispostos em camadas nos Arquivos do Azure.
@@ -61,7 +61,7 @@ Manter mais dados armazenados localmente significará custos de saída menores, 
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Eu adicionei um novo ponto de extremidade de servidor. Quanto tempo levará até que meus arquivos estejam nessa camada de servidor?
-Nas versões 4.0 e superiores do agente de Sincronização de Arquivos do Azure, depois que os arquivos forem carregados no compartilhamento de arquivos do Azure, eles serão colocados em camadas de acordo com as políticas assim que a próxima sessão de camada for executada, o que acontece uma vez por hora. Em agentes mais antigos, a disposição em camadas pode levar até 24 horas para ocorrer.
+Nas versões 4,0 e acima do agente de Sincronização de Arquivos do Azure, depois que os arquivos forem carregados no compartilhamento de arquivos do Azure, eles serão em camadas de acordo com suas políticas assim que a próxima sessão de camadas for executada, o que acontecerá uma vez por hora. Em agentes mais antigos, a disposição em camadas pode levar até 24 horas para ocorrer.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Como saber se um arquivo foi distribuído em camadas?
@@ -127,6 +127,13 @@ Quando habilitado, o recurso de disposição em camadas na nuvem dispõe os arqu
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
+
+<a id="afs-image-thumbnail"></a>
+### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Por que meus arquivos em camadas não estão mostrando miniaturas ou visualizações no Windows Explorer?
+Para arquivos em camadas, miniaturas e visualizações não estarão visíveis no ponto de extremidade do servidor. Esse comportamento é esperado, pois o recurso de cache em miniatura do Windows ignora intencionalmente a leitura de arquivos com o atributo offline. Com a camada de nuvem habilitada, a leitura por meio de arquivos em camadas fará com que eles fossem baixados (rechamados).
+
+Esse comportamento não é específico do Sincronização de Arquivos do Azure, o Windows Explorer exibe um "X cinza" para todos os arquivos que têm o atributo offline definido. Você verá o ícone X ao acessar arquivos por SMB. Para obter uma explicação detalhada desse comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

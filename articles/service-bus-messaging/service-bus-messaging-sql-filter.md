@@ -1,6 +1,6 @@
 ---
 title: Referência da sintaxe SQLFilter do Barramento de Serviços do Azure | Microsoft Docs
-description: Detalhes sobre a gramática de SQLFilter.
+description: Este artigo fornece detalhes sobre a gramática do sqlfilter. Um SqlFilter dá suporte a um subconjunto do padrão SQL-92.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60591801"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759656"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
 
@@ -58,7 +58,7 @@ Um objeto *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/micros
   
 ```  
   
-## <a name="arguments"></a>Arguments  
+## <a name="arguments"></a>Argumentos  
   
 -   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
   
@@ -66,7 +66,7 @@ Um objeto *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/micros
 
 Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao passo que uma tentativa de acessar uma propriedade de usuário inexistente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -78,7 +78,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ```  
   
-### <a name="arguments"></a>Arguments  
+### <a name="arguments"></a>Argumentos  
 
  `<regular_identifier>` é uma cadeia de caracteres representada pela seguinte expressão regular:  
   
@@ -119,11 +119,11 @@ Um `<regular_identifier>` não pode ser uma palavra-chave reservada.
   
 `<pattern>` deve ser uma expressão avaliada como uma cadeia de caracteres. Usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres curinga:  
   
--   `%`:  Qualquer cadeia de caracteres com zero ou mais caracteres.  
+-   `%`: qualquer cadeia de caracteres com zero ou mais caracteres.  
   
--   `_`: Qualquer caractere único.  
+-   `_`: qualquer caractere único.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
@@ -172,7 +172,7 @@ Um `<regular_identifier>` não pode ser uma palavra-chave reservada.
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
@@ -183,7 +183,7 @@ Um `<regular_identifier>` não pode ser uma palavra-chave reservada.
 
 Constantes boolianas são representadas pelas palavras-chave **TRUE** ou **FALSE**. Os valores são armazenados como `System.Boolean`.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
@@ -279,7 +279,7 @@ Considere a seguinte semântica de [SqlFilter](/dotnet/api/microsoft.servicebus.
   
 -   Operadores aritméticos, como `+`, `-`, `*`, `/` e `%` seguem a mesma semântica que a associação do operador do C# em promoções de tipo de dados e conversões implícitas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Classe SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)

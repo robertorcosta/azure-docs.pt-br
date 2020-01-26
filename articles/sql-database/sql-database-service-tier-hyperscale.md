@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940801"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759492"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -72,7 +72,7 @@ A camada de serviço em Hiperescala só está disponível no [modelo vCore](sql-
 
 - **Storage**:
 
-  Você não precisa especificar o tamanho máximo de dados ao configurar um banco de dados da Hiperescala. Na camada de hiperescala, você é cobrado pelo armazenamento para seu banco de dados de acordo com o uso real. O armazenamento é alocado automaticamente entre 10 GB e 100 TB, em incrementos que são dinamicamente ajustados entre 10 GB e 40 GB.  
+  Você não precisa especificar o tamanho máximo de dados ao configurar um banco de dados da Hiperescala. No nível de hiperescala, você será cobrado pelo armazenamento de seu banco de dados com base na alocação real. O armazenamento é alocado automaticamente entre 40 GB e 100 TB, em incrementos que são dinamicamente ajustados entre 10 GB e 40 GB. Um banco de dados de hiperescala é criado com um tamanho inicial de 10 GB e começa crescendo 10 GB a cada 10 minutos, até atingir o tamanho de 40 GB.
 
 Para obter mais informações sobre os preços da Hiperescala, confira [Preços do Banco de Dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -173,7 +173,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - EUA Central
 - Leste da China 2
 - Norte da China 2
-- Leste da Ásia
+- Ásia Oriental
 - Leste dos EUA
 - Leste dos EUA 2
 - França Central
@@ -248,7 +248,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Migração de bancos de dados com objetos na memória persistentes | O hiperscale dá suporte apenas a objetos não persistentes na memória (tipos de tabela, SPs nativos e funções).  As tabelas persistentes na memória e outros objetos devem ser descartados e recriados como objetos não na memória antes de migrar um banco de dados para a camada de serviço de hiperescala.|
 | Alterar acompanhamento | O Controle de Alterações está atualmente em visualização pública e pode ser habilitado em bancos de dados de hiperescala novos ou existentes. |
 | Replicação geográfica  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
-| Cópia de banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
+| Cópia do banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) ainda não tem suporte para a hiperescala do banco de dados SQL do Azure, no entanto, TDE com chaves gerenciadas por serviço tem suporte total. |
 |Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
 |Insights de Desempenho de Consulta | No momento, não há suporte para informações de desempenho de consulta para bancos de dados de hiperescala. |

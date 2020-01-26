@@ -1,6 +1,6 @@
 ---
 title: Sistema de mensagens assíncronas do Barramento de Serviço | Microsoft Docs
-description: Descrição da mensagem assíncrona do Barramento de Serviço do Azure.
+description: Saiba como o barramento de serviço do Azure dá suporte a assincronismo por meio de um mecanismo de armazenamento e encaminhamento com filas, tópicos e assinaturas.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531107"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761025"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e alta disponibilidade
 
@@ -52,7 +52,7 @@ Há diversas maneiras de lidar com problemas de mensagens e entidades, e há dir
 O Barramento de Serviço contém várias mitigações para esses problemas. As seções a seguir discutem cada problema e as respectivas mitigações.
 
 ### <a name="throttling"></a>Limitação
-Com o Barramento de Serviço, a limitação possibilita o gerenciamento cooperativo de taxa de mensagens. Cada nó individual do Barramento de Serviço hospeda várias entidades. Cada uma dessas entidades faz demandas ao sistema em termos de CPU, memória, armazenamento e outros aspectos. Quando qualquer um desses aspectos detecta uso que excede os limites definidos, o Barramento de Serviço pode negar determinada solicitação. O chamador recebe um [ServerBusyException][ServerBusyException] e faz nova tentativa após 10 segundos.
+Com o Barramento de Serviço, a limitação possibilita o gerenciamento cooperativo de taxa de mensagens. Cada nó individual do Barramento de Serviço hospeda várias entidades. Cada uma dessas entidades faz demandas ao sistema em termos de CPU, memória, armazenamento e outros aspectos. Quando qualquer um desses aspectos detecta uso que excede os limites definidos, o Barramento de Serviço pode negar determinada solicitação. O chamador recebe um [ServerBusyException][ServerBusyException] e se recupera após 10 segundos.
 
 Como uma mitigação, o código deve ler o erro e interromper repetições da mensagem por pelo menos 10 segundos. Como o erro pode ocorrer em partes do aplicativo cliente, espera-se que cada parte dele execute independentemente a lógica de repetição. O código pode reduzir a probabilidade de restrição, habilitando o particionamento em uma fila ou um tópico.
 
@@ -62,10 +62,10 @@ Ocasionalmente, outros componentes do Azure podem ter problemas de serviço. Por
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Falha do Barramento de Serviço em um único subsistema
 Com qualquer aplicativo, circunstâncias podem fazer com que um componente interno do Barramento de Serviço se torne inconsistente. Quando o Barramento de Serviço detecta isso, ele coleta dados do aplicativo para ajudar a diagnosticar o que aconteceu. Depois que os dados são coletados, o aplicativo é reiniciado em uma tentativa de retorná-lo a um estado consistente. Esse processo acontece rapidamente e resulta em uma entidade que parece estar disponível por alguns minutos, embora os tempos de inatividade típicos sejam mais curtos.
 
-Nesses casos, o aplicativo cliente gera uma exceção [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. O SDK do Barramento de Serviço contém uma mitigação para esse problema na forma de lógica de repetição de cliente automatizada. Depois que o período de repetição se esgota e a mensagem não é entregue, você pode explorar usando outros recursos mencionados no artigo sobre como [lidar com interrupções e desastres][handling outages and disasters].
+Nesses casos, o aplicativo cliente gera uma exceção do tipo [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. O SDK do Barramento de Serviço contém uma mitigação para esse problema na forma de lógica de repetição de cliente automatizada. Depois que o período de repetição for esgotado e a mensagem não for entregue, você poderá explorar usando outros mencionados no artigo sobre como [lidar com interrupções e desastres][handling outages and disasters].
 
-## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu os conceitos básicos sobre mensagens assíncronas no Barramento de Serviço, saiba mais sobre como [lidar com interrupções e desastres][handling outages and disasters].
+## <a name="next-steps"></a>Próximos passos
+Agora que você aprendeu as noções básicas sobre mensagens assíncronas no barramento de serviço, leia mais detalhes sobre como [lidar com interrupções e desastres][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

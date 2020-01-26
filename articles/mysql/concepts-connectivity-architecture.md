@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 812a2b8b5fa0ad2b6e892dc77d4f76d2d22caeec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454356"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760327"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -40,9 +40,9 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Leste da China 2 | 40.73.82.1  |
 | Norte da China | 139.219.15.17    |
 | Norte da China 2 | 40.73.50.0     |
-| Leste da Ásia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
+| Ásia Oriental | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | Leste dos EUA | 40.121.158.30, 191.238.6.43  |
-| Leste dos EUA 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| Leste dos EUA 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | França Central | 40.79.137.0, 40.79.129.1  |
 | Alemanha Central | 51.4.144.100     |
 | Nordeste da Alemanha | 51.5.144.179  |

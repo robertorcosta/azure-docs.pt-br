@@ -11,12 +11,12 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bf092b5b6c6eb88b565a940de56d614426e34d8e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692501"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759594"
 ---
 # <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
 
@@ -24,9 +24,9 @@ Neste artigo, você aprenderá a criar um novo ponto de restauração definido p
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Criar pontos de restauração definidos pelo usuário por meio do PowerShell
 
-Para criar um ponto de restauração definido pelo usuário, use o cmdlet [New-AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] do PowerShell.
+Para criar um ponto de restauração definido pelo usuário, use o cmdlet [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0) do PowerShell.
 
-1. Antes de começar, certifique-se de [instalar Azure PowerShell][Install Azure PowerShell].
+1. Antes de começar, certifique-se de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Abra o PowerShell.
 3. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
 4. Selecione a assinatura que contém o banco de dados a ser restaurado.
@@ -60,7 +60,7 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 Os pontos de restauração definidos pelo usuário também podem ser criados por meio de portal do Azure.
 
-1. Entre em sua conta do [portal do Azure][Azure portal] .
+1. Entre em sua conta do [portal do Azure](https://portal.azure.com/) .
 
 2. Navegue até o SQL Data Warehouse para o qual você deseja criar um ponto de restauração.
 
@@ -72,30 +72,9 @@ Os pontos de restauração definidos pelo usuário também podem ser criados por
 
     ![Nome do ponto de restauração](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-- [Restaurar um data warehouse existente][Restore an existing data warehouse]
-- [Restaurar um data warehouse excluído][Restore a deleted data warehouse]
-- [Restaurar de um data warehouse de backup geográfico][Restore from a geo-backup data warehouse]
+- [Restaurar um data warehouse existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar um data warehouse excluído](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar de um data warehouse de backup geográfico](sql-data-warehouse-restore-from-geo-backup.md)
 
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[PowerShelldoc]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-<!--MSDN references-->
-[New-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

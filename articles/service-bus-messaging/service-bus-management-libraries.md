@@ -1,6 +1,6 @@
 ---
 title: Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs
-description: Gerencie namespaces e entidades de mensagens do Barramento de Serviço no .NET.
+description: Este artigo explica como usar as bibliotecas de gerenciamento do barramento de serviço do Azure para provisionar dinamicamente as entidades e namespaces do barramento de serviço.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816087"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756259"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 
@@ -166,5 +166,5 @@ namespace SBusADApp
 > [!IMPORTANT]
 > Para obter um exemplo completo, consulte o [exemplo de gerenciamento do .net no GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Referência de API de Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

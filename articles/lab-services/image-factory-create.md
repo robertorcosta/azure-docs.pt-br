@@ -1,6 +1,6 @@
 ---
 title: Criar uma fábrica de imagens no Azure DevTest Labs | Microsoft Docs
-description: Saiba como configurar uma fábrica de imagens Personalizada usando scripts de exemplo disponíveis no repositório git.
+description: Este artigo mostra como configurar uma fábrica de imagens Personalizada usando scripts de exemplo disponíveis no repositório git (Azure DevTest Labs).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 7779914d9681d0f80cab9568da6a20b15e3a2eb1
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 2c5a44a9505d4a312be521cdc3219c5e4ce95a42
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560012"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759441"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagens Personalizada no Azure DevTest Labs
 Este artigo mostra como configurar uma fábrica de imagens Personalizada usando scripts de exemplo disponíveis no [repositório git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).

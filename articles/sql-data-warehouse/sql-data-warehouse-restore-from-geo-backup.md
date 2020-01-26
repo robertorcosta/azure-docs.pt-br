@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 69ba3ed981a27dfff41ea9ea52e1da769a9366c4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685510"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759611"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure de restauração geográfica
 
@@ -26,24 +26,24 @@ Neste artigo, você aprende a restaurar seu data warehouse de um backup geográf
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedada por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão. Verifique se o SQL Server tem uma cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][Request a DTU quota change].
+**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedada por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão. Verifique se o SQL Server tem uma cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica do Azure por meio do PowerShell
 
-Para restaurar de um backup geográfico, use o cmdlet [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] e [Restore-AzSqlDatabase][Restore-AzSqlDatabase] .
+Para restaurar de um backup geográfico, use o cmdlet [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) e [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) .
 
 > [!NOTE]
 > Você pode executar uma restauração geográfica para Gen2! Para fazer isso, especifique um ServiceObjectiveName de Gen2 (por exemplo, DW1000**c**) como parâmetro opcional.
 >
 
-1. Antes de começar, certifique-se de [instalar Azure PowerShell][Install Azure PowerShell].
+1. Antes de começar, certifique-se de [instalar Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Abra o PowerShell.
 2. Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.
 3. Selecione a assinatura que contém a data warehouse a ser restaurada.
 4. Obtenha o data warehouse que você deseja recuperar.
 5. Crie a solicitação de recuperação para o data warehouse.
 6. Verifique o status do data warehouse restaurado geograficamente.
-7. Para configurar o data warehouse após a conclusão da restauração, veja [Configurar o banco de dados após a recuperação][Configure your database after recovery].
+7. Para configurar o data warehouse após a conclusão da restauração, veja [Configurar o banco de dados após a recuperação]( ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -76,7 +76,7 @@ O banco de dados recuperado será habilitado para TDE se o banco de dados de ori
 
 Siga as etapas descritas abaixo para restaurar uma SQL Data Warehouse do Azure de um backup geográfico:
 
-1. Entre em sua conta do [portal do Azure][Azure portal] .
+1. Entre em sua conta do [portal do Azure](https://portal.azure.com/) .
 1. Clique em **+ criar um recurso** e pesquise SQL data warehouse e clique em **criar**.
 
     ![Novo DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
@@ -89,30 +89,5 @@ Siga as etapas descritas abaixo para restaurar uma SQL Data Warehouse do Azure d
 2. Depois que o data warehouse tiver sido restaurado, verifique se o **status** está online.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Restaurar um data warehouse existente][Restore an existing data warehouse]
-- [Restaurar um data warehouse excluído][Restore a deleted data warehouse]
-
-<!--Image references-->
-
-<!--Article references-->
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-[Get-AzSqlDatabaseGeoBackup]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+- [Restaurar um data warehouse existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar um data warehouse excluído](sql-data-warehouse-restore-deleted-dw.md)

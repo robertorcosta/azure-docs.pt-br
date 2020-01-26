@@ -1,6 +1,6 @@
 ---
 title: Carimbos de data/hora e sequenciamento de mensagem do Barramento de Serviço do Azure | Microsoft Docs
-description: Preservar a ordem e a sequência de mensagem do Barramento de Serviço com carimbos de data/hora
+description: Este artigo explica como preservar o sequenciamento e a ordenação (com carimbos de data/hora) das mensagens do barramento de serviço do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402710"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756310"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Carimbos de data/hora e sequenciamento de mensagem
 
@@ -46,7 +46,7 @@ O **SequenceNumber** para uma mensagem agendada somente será válido enquanto a
 
 Como o recurso está ancorado em mensagens individuais e as mensagens só podem ser enfileiradas uma vez, o Barramento de Serviço não dá suporte a agendamentos recorrentes para mensagens.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

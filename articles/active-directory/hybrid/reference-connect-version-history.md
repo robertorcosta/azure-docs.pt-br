@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422351"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756293"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -84,6 +84,8 @@ Essa versão corrige um bug em que alguns servidores que foram atualizados autom
 ### <a name="fixed-issues"></a>Problemas corrigidos
 
 Em determinadas circunstâncias, os servidores que foram atualizados automaticamente para a versão 1.4.18.0 não reabilitaram a redefinição de senha de autoatendimento e o Write-back de senha após a conclusão da atualização. Essa versão de atualização automática corrige esse problema e reabilita a redefinição de senha de autoatendimento e o Write-back de senha.
+
+Corrigimos um bug no utilitário de compactação de erros de sincronização que não estava manipulando caracteres substitutos corretamente.
 
 ## <a name="14180"></a>1.4.18.0
 

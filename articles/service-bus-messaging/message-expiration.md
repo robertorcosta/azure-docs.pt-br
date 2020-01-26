@@ -1,6 +1,6 @@
 ---
-title: Expiração de mensagens do Barramento de Serviço do Azure | Microsoft Docs
-description: Expiração e a vida útil de mensagens do Barramento de Serviço do Azure
+title: Barramento de serviço do Azure-expiração de mensagem
+description: Este artigo explica a expiração e a vida útil das mensagens do barramento de serviço do Azure. Após esse prazo, a mensagem não é mais entregue.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 109ecc671b43365c433a626ff8d9fe55a5a626b5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310288"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756327"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 
@@ -82,7 +82,7 @@ Aqui está o que é considerado ociosidade de entidades (filas, tópicos e assin
  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 

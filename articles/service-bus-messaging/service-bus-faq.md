@@ -1,22 +1,22 @@
 ---
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
-description: Responde a algumas perguntas frequentes sobre o barramento de serviço do Azure.
+description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352883"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760242"
 ---
-# <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
 Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](https://azure.microsoft.com/support/faq/) para obter informações gerais sobre preços e suporte do Azure.
 
@@ -45,7 +45,7 @@ A ordenação não é garantida ao usar entidades particionadas. Se uma partiç�
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
-- Advanced Message Queuing Protocol (AMQP)
+- AMQP (Advanced Message Queuing Protocol)
 - Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
 - HTTP
 

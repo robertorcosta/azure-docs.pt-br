@@ -1,6 +1,6 @@
 ---
-title: Excluir um laboratório ou uma VM em laboratório no Azure DevTest Labs | Microsoft Docs
-description: Este artigo mostra como excluir um laboratório ou uma VM em um laboratório.
+title: Excluir um laboratório ou VM em um laboratório no Azure DevTest Labs
+description: Este artigo mostra como excluir um laboratório ou excluir uma VM em um laboratório usando o portal do Azure (Azure DevTest Labs).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127405"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759713"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Excluir um laboratório ou VM em um laboratório no Azure DevTest Labs
 Este artigo mostra como excluir um laboratório ou uma VM em um laboratório.
@@ -31,7 +31,7 @@ Quando você exclui uma instância do DevTest Labs de um grupo de recursos, o se
 
 Para excluir um laboratório, realize as seguintes ações: 
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
     ![Selecione seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
@@ -56,7 +56,7 @@ Máquina virtual, interface de rede e disco associado à VM são excluídos.
 
 Para excluir um laboratório, realize as seguintes ações: 
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
     ![Selecione seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
@@ -71,7 +71,7 @@ Para excluir uma VM a partir de **página de Máquina Virtual**, selecione **Exc
 ![Excluir VM de página VM](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se você quiser criar um laboratório, consulte os seguintes artigos: 
 
 - [Criar um laboratório](devtest-lab-create-lab.md)

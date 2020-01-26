@@ -1,6 +1,6 @@
 ---
-title: Redimensionar uma VM em um laboratório no Azure DevTest Labs | Microsoft Docs
-description: Saiba como redimensionar uma máquina virtual no Azure DevTest Labs
+title: Redimensionar uma VM em um laboratório no Azure DevTest Labs
+description: Saiba como alterar o tamanho de uma VM (máquina virtual) em Azure DevTest Labs com base em suas necessidades de desempenho de CPU, rede ou disco.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: a0bc618a9c0a02aae884d8be359df6bdbf4c0d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf7c425766a97aaa1d143133f04502a0aa3c36cb
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868041"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756170"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redimensionar uma VM em um laboratório no Azure DevTest Labs
 Um dos recursos importantes das máquinas virtuais do Azure é o que permite alterar o tamanho de uma VM (máquina virtual) com base em suas necessidades para CPU, rede ou desempenho do disco. Agora o Azure DevTest Labs dá suporte a esse recurso para VMs em um laboratório. O recurso de redimensionamento cumpre a política de laboratório para tamanhos de VM permitidos no laboratório. Ou seja, é possível alterar o tamanho de uma VM para apenas tamanhos permitidos no laboratório. 
@@ -31,7 +31,7 @@ Para redimensionar uma VM em um laboratório no Azure DevTest Labs, siga estas e
 > [!NOTE]
 > Se estiver conectado à VM por meio de uma sessão de área de trabalho remota (RDP), salve seu trabalho e desconecte-se da VM antes de redimensioná-la.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório que inclui a VM que você deseja redimensionar.  
 4. No painel esquerdo, selecione **Minhas Máquinas Virtuais**. 
@@ -49,7 +49,7 @@ Para redimensionar uma VM em um laboratório no Azure DevTest Labs, siga estas e
 10. Depois que a operação de redimensionamento for bem-sucedida, feche a janela **Notificações**. 
 11. Selecione **Visão geral** no menu à esquerda e selecione **Reiniciar** na barra de ferramentas para reiniciar a VM. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter informações detalhadas sobre o recurso de redimensionamento compatível com as máquinas virtuais do Azure, confira [Redimensionar máquinas virtuais](https://azure.microsoft.com/blog/resize-virtual-machines/).
 
 

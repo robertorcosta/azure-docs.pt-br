@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490767"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760820"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -107,6 +107,7 @@ A cadeia de caracteres usada para nomear o namespace deve seguir algumas restri�
 * Não pode ser Unicode.
 * Você pode usar alguns dos símbolos imprimíveis com códigos < 256 para os nomes de namespace. 
 * Você não pode usar símbolos com códigos < 32 (não imprimível), 32 (espaço), 58 (dois-pontos), 124 (pipe) e 126 – 140.
+* Ele não deve começar com um sublinhado "_" ou o recurso será ignorado.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Como tornar os conjuntos de recursos mais efetivos para o Personalizador
 
@@ -319,6 +320,6 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Aprendizado de reforço](concepts-reinforcement-learning.md) 

@@ -4,14 +4,14 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 04/17/2019
 ms.topic: include
-ms.openlocfilehash: bba762fca7154067e528ebbbb0ea94c8ba7965f3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 5069ca11313815375e0fb58ff8277e73a31d51d8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67171090"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756361"
 ---
 > [!NOTE]
 > Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020.
-> Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az). Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+> Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.3.0). Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.3.0).
 

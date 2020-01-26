@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/23/2020
 ms.author: raynew
-ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754509"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759799"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -146,7 +146,7 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<nome da região >
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD (Azure Active Directory).<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG (Grupo de Segurança de Rede).  | AzureActiveDirectory
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de destino. | EventsHub.\<nome da região >
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 
@@ -155,7 +155,7 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azu
 **Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório.\<nome da região >
-Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam ao Azure AD.<br/><br/> Se forem adicionados endereços do Azure AD no futuro, você precisará criar regras do NSG.  | AzureActiveDirectory
+Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Hub de eventos na região de origem. | EventsHub.\<nome da região >
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Site Recovery  | AzureSiteRecovery
 

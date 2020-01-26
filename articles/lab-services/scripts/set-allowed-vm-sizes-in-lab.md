@@ -1,6 +1,6 @@
 ---
-title: 'Script do PowerShell: Conjunto permitido tamanhos de VM no Azure Lab Services | Microsoft Docs'
-description: Este script do PowerShell define os tamanhos de VM permitidos no Azure Lab Services.
+title: 'Script do PowerShell: Definir tamanhos de VM permitidos no Azure Lab Services | Microsoft Docs'
+description: Este artigo inclui um exemplo de script do PowerShell que define os tamanhos de VM (máquina virtual) permitidos no Azure Lab Services.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c82e304d3e3d8df1206c7c05883399b74229af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160540"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760430"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Usar o PowerShell para definir os tamanhos de VM permitidos no Azure Lab Services
 
@@ -30,7 +30,7 @@ Este exemplo de script do PowerShell define os tamanhos de VM (máquinas virtuai
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Um laboratório**. O script exige que você tenha um laboratório existente. 
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell[main](../../../powershell_scripts/devtest-lab/set-allowed-vm-sizes-in-lab/set-allowed-vm-sizes-in-lab.ps1 "Add external user to a lab")]
 
@@ -45,7 +45,7 @@ Este script usa os seguintes comandos:
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Cria um recurso. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

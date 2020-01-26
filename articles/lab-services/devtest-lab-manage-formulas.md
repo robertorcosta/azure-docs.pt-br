@@ -1,6 +1,6 @@
 ---
 title: Gerenciar fórmulas no Azure DevTest Labs para criar VMs | Microsoft Docs
-description: Saiba como atualizar e remover fórmulas do Azure DevTest Labs
+description: Este artigo ilustra como criar uma fórmula de uma base (imagem personalizada, imagem do Marketplace ou outra fórmula) ou de uma máquina virtual existente.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a668c1f7cf401c109c1041232d7f28dd2accd750
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562426"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760395"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerenciar fórmulas do Azure DevTest Labs
 
@@ -38,7 +38,7 @@ Para saber mais sobre como adicionar usuários e permissões, consulte [Adiciona
 ### <a name="create-a-formula-from-a-base"></a>Criar uma fórmula de uma base
 As etapas a seguir o orientarão no processo de criação de uma fórmula usando uma imagem personalizada, uma imagem do Marketplace ou outra fórmula.
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
@@ -69,7 +69,7 @@ As etapas a seguir o orientarão no processo de criação de uma fórmula usando
     - **Configuração de endereço IP** -especifique se você deseja os endereços de IP compartilhados, privados ou públicos. Para obter mais informações sobre endereços IP compartilhados, consulte [Noções básicas dos endereços IP compartilhados no Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Data e hora de validade** – especifique a data e a hora de validade para a VM para que ela seja excluída automaticamente. 
     - **Tornar essa máquina reivindicável** - tornar uma máquina "reivindicável" significa que ela não será propriedade de ninguém no momento da criação. Em vez disso, os usuários do laboratório poderão assumir a propriedade ("reivindicar") a máquina na página do laboratório.     
-    - **Número de instâncias declaráveis** -especificar quantas instâncias declaráveis que você deseja criar. 
+    - **Número de instâncias claimáveis** – especifique quantas instâncias de declaração você deseja criar. 
 8. Selecione **Enviar** para criar a fórmula.
 
 9. Após a criação da fórmula, ela é exibida na lista da página **Fórmulas**.
@@ -82,7 +82,7 @@ As etapas a seguir o orientarão durante o processo de criação de uma fórmula
 > 
 > 
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.  
 4. Na página **Visão geral** do laboratório, selecione a VM com base na qual você deseja criar a fórmula.
@@ -99,7 +99,7 @@ As etapas a seguir o orientarão durante o processo de criação de uma fórmula
 ## <a name="modify-a-formula"></a>Modificar uma Fórmula
 Para modificar uma fórmula, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.  
 4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)** .
@@ -111,7 +111,7 @@ Para modificar uma fórmula, siga estas etapas:
 ## <a name="delete-a-formula"></a>Excluir uma fórmula
 Para excluir uma fórmula, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **Todos os Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 3. Na lista de laboratórios, selecione o laboratório desejado.  
 4. Na página **Configurações**, selecione **Fórmulas**.
@@ -130,6 +130,6 @@ Para excluir uma fórmula, siga estas etapas:
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionadas
 * [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de criar uma fórmula para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](devtest-lab-add-vm.md).
 
