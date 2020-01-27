@@ -33,7 +33,7 @@ A primeira rodada de migração de tráfego para gateways mais recentes está ag
 - Centro dos EUA
 - Sudeste da Ásia
 - Centro-Sul dos Estados Unidos
-- Norte da Europa
+- Europa do Norte
 - Centro-Norte dos EUA
 - Oeste do Japão
 - Leste do Japão

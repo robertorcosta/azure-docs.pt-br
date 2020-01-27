@@ -38,7 +38,7 @@ Os seguintes tipos de nós estão disponíveis para provisionamento ou reserva.
 
 | SKU           | CS28-nó                 | CS36-nó                 | CS36m-nó                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Região        | Leste dos Estados Unidos, Oeste dos Estados Unidos            | Leste dos Estados Unidos, Oeste dos Estados Unidos            | Oeste da Europa                 |
+| Região        | E.U.A. Leste, E.U.A. Oeste            | E.U.A. Leste, E.U.A. Oeste            | Oeste da Europa                 |
 | CPU           | 2x 2,2 GHz, 28 núcleos (56 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Disco de cache    | 1,6-TB NVMe                 | 3,2-TB NVMe                 | 3,2-TB NVMe                 |

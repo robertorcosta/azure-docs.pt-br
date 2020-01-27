@@ -46,7 +46,7 @@ O SDK de fala está disponível nessas regiões para **reconhecimento de fala**,
 | Sudeste Asiático   | `southeastasia`      | https://southeastasia.cris.ai  |
 | Leste do Japão       | `japaneast`          | https://japaneast.cris.ai      |
 | Coreia Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Austrália Oriental   | `australiaeast`      | https://australiaeast.cris.ai  |
+| Leste da Austrália   | `australiaeast`      | https://australiaeast.cris.ai  |
 | Canadá Central   | `canadacentral`      | https://canadacentral.cris.ai  |
 | Europa Setentrional     | `northeurope`        | https://northeurope.cris.ai    |
 | Oeste da Europa      | `westeurope`         | https://westeurope.cris.ai     |
@@ -61,7 +61,7 @@ As regiões disponíveis para **reconhecimento de intenção** por meio do SDK d
 | ------------- | ---------------- | -------------------- |
 | Ásia          | Leste da Ásia        | `eastasia`           |
 | Ásia          | Sudeste Asiático   | `southeastasia`      |
-| Austrália     | Austrália Oriental   | `australiaeast`      |
+| Austrália     | Leste da Austrália   | `australiaeast`      |
 | Europa        | Europa Setentrional     | `northeurope`        |
 | Europa        | Oeste da Europa      | `westeurope`         |
 | América do Norte | Leste dos EUA          | `eastus`             |

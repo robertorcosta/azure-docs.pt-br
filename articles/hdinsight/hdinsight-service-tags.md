@@ -56,7 +56,7 @@ Se você preferir a opção de marca de serviço dois, e o cluster estiver local
 
 | País | Região | Marca de serviço |
 | ---- | ---- | ---- |
-| Austrália | Austrália Oriental | HDInsight. AustraliaEast |
+| Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 | &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight. AustraliaCentral |
 | China | Leste da China 2 | HDInsight. ChinaEast2 |
@@ -106,7 +106,7 @@ Por exemplo, se o cluster for criado na região de `East US 2`, você precisará
 | &nbsp; | Oeste da Europa| HDInsight. WestEurope |
 | Ásia | Leste da Ásia | HDInsight. EastAsia |
 | &nbsp; | Sudeste Asiático | HDInsight. SoutheastAsia |
-| Austrália | Austrália Oriental | HDInsight. AustraliaEast |
+| Austrália | Leste da Austrália | HDInsight. AustraliaEast |
 
 #### <a name="group-2"></a>Grupo 2
 

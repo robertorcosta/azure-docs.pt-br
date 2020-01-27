@@ -50,7 +50,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 | ---- | ---- | ---- | ---- | ----- |
 | Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
-| Austrália | Austrália Oriental | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
+| Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
 | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
 | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
 | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |

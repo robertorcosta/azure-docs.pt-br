@@ -43,7 +43,7 @@ O ponto de extremidade `voices/list` permite obter uma lista completa de vozes p
 
 | Região | Ponto de extremidade |
 |--------|----------|
-| Austrália Oriental | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |

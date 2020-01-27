@@ -37,7 +37,7 @@ O plano de controle ou o servidor de API está em uma assinatura do Azure gerenc
 * Canadá Central
 * Europa Setentrional
 * Oeste da Europa
-* Austrália Oriental
+* Leste da Austrália
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Instalar a extensão mais recente do CLI do Azure AKS Preview
 

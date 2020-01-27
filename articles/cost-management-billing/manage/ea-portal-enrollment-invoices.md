@@ -413,8 +413,8 @@ Para os serviços em que a zona e a região afetam os preços, a tabela a seguir
 
 | Geografia | Regiões de transferência de dados | Regiões CDN |
 | --- | --- | --- |
-| Zona 1 | Norte da Europa <br> Europa Ocidental <br> Oeste dos EUA <br> Leste dos EUA <br> Centro-Norte dos Estados Unidos <br> Centro-Sul dos Estados Unidos <br> Leste dos EUA 2 <br> EUA Central | América do Norte <br> Europa |
-| Zona 2 | Leste do Pacífico Asiático <br> Sudeste do Pacífico Asiático <br> Leste do Japão <br> Oeste do Japão <br> Austrália Oriental <br> Sudeste da Austrália | Pacífico Asiático <br> Japão <br> América Latina <br> Oriente Médio / África <br> Austrália Oriental <br> Sudeste da Austrália |
+| Zona 1 | Norte da Europa <br> Europa Ocidental <br> Oeste dos EUA <br> Leste dos EUA <br> E.U.A. Centro-Norte <br> E.U.A. Centro-Sul <br> Leste dos EUA 2 <br> EUA Central | América do Norte <br> Europa |
+| Zona 2 | Leste do Pacífico Asiático <br> Sudeste do Pacífico Asiático <br> Leste do Japão <br> Oeste do Japão <br> Leste da Austrália <br> Sudeste da Austrália | Pacífico Asiático <br> Japão <br> América Latina <br> Oriente Médio / África <br> Leste da Austrália <br> Sudeste da Austrália |
 | Zona 3 | Sul do Brasil |   |
 
 **Tabela**  **4**  **: regiões de transferência de dados**

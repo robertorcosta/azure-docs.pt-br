@@ -69,7 +69,7 @@ Há computadores do Cloud Shell nas regiões a seguir:
 |Área|Região|
 |---|---|
 |Américas|Leste dos EUA, Centro-Sul dos EUA, Oeste dos EUA|
-|Europa|Norte da Europa, Europa Ocidental|
+|Europa|Europa do Norte, Europa Ocidental|
 |Pacífico Asiático|Índia Central, Sudeste Asiático|
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos do Azure

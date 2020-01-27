@@ -251,7 +251,7 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 
 | Região | Localização do Datacenter |
 |--------|---------------------|
-| Austrália Oriental | Nova Gales do Sul |
+| Leste da Austrália | Nova Gales do Sul |
 | Sudeste da Austrália | Vitória |
 | Sul do Brasil | Estado de São Paulo |
 | Canadá Central | Toronto |
@@ -300,8 +300,8 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 
 | Região primária      | Região emparelhada      |
 |---------------------|--------------------|
-| Austrália Oriental      | Sudeste da Austrália|
-| Sudeste da Austrália | Austrália Oriental     |
+| Leste da Austrália      | Sudeste da Austrália|
+| Sudeste da Austrália | Leste da Austrália     |
 | Sul do Brasil        | Centro-Sul dos EUA   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |

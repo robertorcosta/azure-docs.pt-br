@@ -104,7 +104,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | --- | --- |
 | Austrália Central | 20.37.26.134 |
 | Central2 da Austrália | 20.39.99.177 |
-| Austrália Oriental | 40.82.217.84 |
+| Leste da Austrália | 40.82.217.84 |
 | Sudeste da Austrália | 20.40.161.39 |
 | BrazilSouth | 191.233.25.183 |
 | Canadá Central | 40.82.188.208 |
@@ -143,7 +143,7 @@ Os [NSG (grupos de segurança de rede)](/azure/virtual-network/security-overview
 | --- | --- |
 | Austrália Central | 191.239.64.128 |
 | Austrália Central 2 | 191.239.64.128 |
-| Austrália Oriental | 191.239.64.128 |
+| Leste da Austrália | 191.239.64.128 |
 | Sudeste da Austrália | 191.239.160.47 |
 | Sul do Brasil | 23.98.145.105 |
 | Canadá Central | 168.61.212.201 |

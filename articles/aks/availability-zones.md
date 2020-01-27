@@ -35,7 +35,7 @@ Atualmente, os clusters AKS podem ser criados usando zonas de disponibilidade na
 * Leste dos EUA
 * França Central
 * Leste do Japão
-* Norte da Europa
+* Europa do Norte
 * Sudeste Asiático
 * Sul do Reino Unido
 * Europa Ocidental

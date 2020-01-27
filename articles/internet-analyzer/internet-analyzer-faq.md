@@ -71,7 +71,7 @@ Os seguintes pontos de extremidade pré-configurados estão disponíveis durante
     * Leste da Ásia
     * Leste dos EUA
     * Oeste do Japão
-    * Norte da Europa
+    * Europa do Norte
     * Norte da África do Sul
     * Sudeste Asiático
     * Norte dos EAU

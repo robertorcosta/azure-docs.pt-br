@@ -35,7 +35,7 @@ Figura 1 – Pares regionais do Azure
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
-| Europa |Norte da Europa (Irlanda) |Europa Ocidental (Holanda) |
+| Europa |Europa do Norte (Irlanda) |Europa Ocidental (Holanda) |
 | França |França Central|Sul da França|
 | Alemanha |Alemanha Central |Nordeste da Alemanha |
 | Índia |Índia Central |Sul da Índia |

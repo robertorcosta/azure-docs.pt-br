@@ -83,7 +83,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | | Leste do Japão | `https://japaneast.api.cognitive.microsoft.com` |
 | | Coreia Central | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Centro-Norte dos EUA | `https://northcentralus.api.cognitive.microsoft.com` |
-| | Norte da Europa | `https://northeurope.api.cognitive.microsoft.com` |
+| | Europa do Norte | `https://northeurope.api.cognitive.microsoft.com` |
 | | Norte da África do Sul | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | Centro-Sul dos Estados Unidos | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Sudeste Asiático | `https://southeastasia.api.cognitive.microsoft.com` |

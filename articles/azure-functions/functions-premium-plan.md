@@ -102,7 +102,7 @@ Abaixo estão as regiões com suporte no momento para cada sistema operacional.
 |--| -- | -- |
 |Austrália Central| ✔<sup>1</sup> | |
 |Austrália Central 2| ✔<sup>1</sup> | |
-|Austrália Oriental| ✔ | |
+|Leste da Austrália| ✔ | |
 |Sudeste da Austrália | ✔ | ✔<sup>1</sup> |
 |Sul do Brasil| ✔<sup>2</sup> |  |
 |Canadá Central| ✔ |  |

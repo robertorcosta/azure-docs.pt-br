@@ -91,7 +91,7 @@ O nome da região preenchido no campo Local do Recurso nos detalhes de uso varia
 |    KoreaCentral          |    Coreia Central                            |
 |    KoreaSouth            |    Sul da Coreia                              |
 |    northcentralus        |    Centro-Norte dos EUA                      |
-|    northeurope           |    Norte da Europa                          |
+|    northeurope           |    Europa do Norte                          |
 |    southcentralus        |    Centro-Sul dos Estados Unidos                      |
 |    southeastasia         |    Sudeste Asiático                        |
 |    SouthIndia            |    Sul da Índia                              |

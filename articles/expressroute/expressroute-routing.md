@@ -169,7 +169,7 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | **América do Sul** | |
 | Sul do Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Norte da Europa | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Europa do Norte | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
 | Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |

@@ -52,7 +52,7 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Sudeste Asiático
 - Índia Central
 - Leste do Japão
-- Austrália Oriental
+- Leste da Austrália
 - Sudeste da Austrália
 
 >[!NOTE]

@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 255ccb5c8e9529ab9b36186ec0eeb5b3f55ed64f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514248"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759220"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -265,7 +265,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **Causa raiz**
 
-O runtime do IoT Edge só pode oferecer suporte a nomes de host com menos de 64 caracteres. Normalmente, máquinas físicas não têm nomes de host longos, mas o problema é mais comum em uma máquina virtual. Os nomes de host gerados automaticamente para máquinas virtuais do Windows hospedadas no Azure, em particular, tendem a ser longos. 
+O runtime do IoT Edge só pode oferecer suporte a nomes de host com menos de 64 caracteres. Normalmente, máquinas físicas não têm nomes de host longos, mas o problema é mais comum em uma máquina virtual. Os nomes de host gerados automaticamente para máquinas virtuais do Windows hospedadas no Azure, em particular, tendem a ser longos.
 
 **Resolução**
 
@@ -302,7 +302,7 @@ O Hub de IoT Edge, que faz parte do tempo de execução do IoT Edge, é otimizad
 
 **Resolução**
 
-Para o Hub de IoT Edge, defina uma variável de ambiente **OptimizeForPerformance** como **false**. Há duas maneiras de fazer isso:
+Para o Hub de IoT Edge, defina uma variável de ambiente **OptimizeForPerformance** como **false**. Há duas maneiras de definir variáveis de ambiente:
 
 No Portal do Azure:
 
@@ -340,7 +340,7 @@ O comando do PowerShell `Get-WinEvent` depende de uma entrada de Registro estar 
 
 Defina uma entrada de registro para o daemon do IoT Edge. Crie um arquivo **iotedge.reg** com o conteúdo a seguir e importe para o Registro do Windows, clicando duas vezes nele ou usando o comando`reg import iotedge.reg`:
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -351,10 +351,10 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Falha do módulo do IoT Edge ao enviar uma mensagem para o edgeHub com o erro 404
 
-Um módulo do IoT Edge personalizado falha ao enviar uma mensagem para o edgeHub com um erro 404 `Module not found`. O daemon do IoT Edge imprime a seguinte mensagem nos logs: 
+Um módulo do IoT Edge personalizado falha ao enviar uma mensagem para o edgeHub com um erro 404 `Module not found`. O daemon do IoT Edge imprime a seguinte mensagem nos logs:
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **Causa raiz**
@@ -373,7 +373,7 @@ Azure IoT Edge permite a comunicação de um servidor local para a nuvem do Azur
 
 Embora o IoT Edge forneça configuração avançada para proteger o runtime do Azure IoT Edge e os módulos implantados, ele ainda depende da configuração do computador e da rede subjacente. Portanto, é imperativo garantir que as regras adequadas de rede e firewall sejam configuradas para proteger a comunicação em nuvem. A tabela a seguir pode ser usada como uma diretriz quando as regras de firewall de configuração para os servidores subjacentes em que o tempo de execução Azure IoT Edge está hospedado:
 
-|Protocolo|Port|Entrada|Saída|Diretriz|
+|Protocolo|Porta|Entrada|Saída|Orientação|
 |--|--|--|--|--|
 |MQTT|8883|BLOQUEADO (padrão)|BLOQUEADO (padrão)|<ul> <li>Configure a Saída como Aberta ao usar o MQTT como o protocolo de comunicação.<li>Não há suporte para o 1883 para MQTT no IoT Edge. <li>As conexões de Entrada devem ser bloqueadas.</ul>|
 |AMQP|5671|BLOQUEADO (padrão)|ABERTO (padrão)|<ul> <li>Protocolo de comunicação padrão do IoT Edge. <li> Precisa ser configurado como Aberto, quando o Azure IoT Edge não está configurado para outros protocolos com suporte ou quando o AMQP é o protocolo de comunicação desejado.<li>Não há suporte para o 5672 para AMQP no IoT Edge.<li>Bloqueie essa porta quando o Azure IoT Edge usar outro protocolo do Hub IoT com suporte.<li>As conexões de Entrada devem ser bloqueadas.</ul></ul>|
@@ -391,7 +391,7 @@ Por padrão, IoT Edge inicia os módulos em sua própria rede de contêiner isol
 
 **Opção 1: definir o servidor DNS em configurações do mecanismo de contêiner**
 
-Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner que serão aplicadas a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo:
+Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo:
 
 ```json
 {
@@ -401,16 +401,16 @@ Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de
 
 O exemplo acima define o servidor DNS para um serviço DNS acessível publicamente. Se o dispositivo de borda não puder acessar esse IP de seu ambiente, substitua-o pelo endereço do servidor DNS que está acessível.
 
-Coloque `daemon.json` no local certo para sua plataforma: 
+Coloque `daemon.json` no local certo para sua plataforma:
 
-| Plataforma | Local |
+| Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host do Windows com contêineres do Windows | `C:\ProgramData\iotedge-moby\config` |
 
 Se o local já contiver `daemon.json` arquivo, adicione a chave **DNS** a ele e salve o arquivo.
 
-*Reinicie o mecanismo de contêiner para que as atualizações entrem em vigor*
+Reinicie o mecanismo de contêiner para que as atualizações entrem em vigor.
 
 | Plataforma | Comando |
 | --------- | -------- |
@@ -431,9 +431,9 @@ Você pode definir o servidor DNS para *criaroptions* de cada módulo na implant
 }
 ```
 
-Certifique-se de definir isso para os módulos *edgeAgent* e *edgeHub* também.
+Certifique-se de definir essa configuração para os módulos *edgeAgent* e *edgeHub* também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você acha que encontrou um bug na plataforma IoT Edge? [Envie um problema](https://github.com/Azure/iotedge/issues) para que possamos continuar melhorando.
 

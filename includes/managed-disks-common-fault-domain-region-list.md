@@ -47,7 +47,7 @@ ms.locfileid: "72783541"
 | Norte da China         | 2                       |
 | Norte da China 2       | 2                       |
 |                     |                         |
-| Austrália Oriental      | 2                       |
+| Leste da Austrália      | 2                       |
 | Sudeste da Austrália | 2                       |
 | Austrália Central   | 2                       |
 | Austrália Central 2 | 2                       |

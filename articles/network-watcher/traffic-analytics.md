@@ -72,7 +72,7 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Oeste dos EUA 2
 * França Central
 * Europa Ocidental
-* Norte da Europa
+* Europa do Norte
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido
@@ -103,7 +103,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Centro dos EUA
 * França Central
 * Europa Ocidental
-* Norte da Europa
+* Europa do Norte
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido

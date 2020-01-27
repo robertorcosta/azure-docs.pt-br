@@ -179,7 +179,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
 |Leste dos EUA| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Norte da Europa    | https:\//northeurope.monitoring.azure.com/ |
+|Europa do Norte    | https:\//northeurope.monitoring.azure.com/ |
 |Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
 |Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
 |França Central | https:\//francecentral.monitoring.azure.com |

@@ -54,7 +54,7 @@ O custo da FarmBeats do Azure é uma agregação do custo dos serviços do Azure
 ### <a name="regions-supported"></a>Regiões com suporte
 
 Atualmente, o Azure FarmBeats tem suporte em ambientes de nuvem pública nas seguintes regiões:
-* Austrália Oriental
+* Leste da Austrália
 * EUA Central
 * Leste dos EUA
 * Leste dos EUA 2

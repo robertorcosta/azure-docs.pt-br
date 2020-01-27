@@ -118,7 +118,7 @@ O failover de conta está disponível em versão prévia para todos os clientes 
 
 - Leste da Ásia
 - Sudeste da Ásia
-- Austrália Oriental
+- Leste da Austrália
 - Sudeste da Austrália
 - Centro dos EUA
 - Leste dos EUA 2

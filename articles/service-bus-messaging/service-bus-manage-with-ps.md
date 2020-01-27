@@ -1,6 +1,6 @@
 ---
 title: Usar o PowerShell para gerenciar recursos do Barramento de Serviço do Azure | Microsoft Docs
-description: Use o módulo do PowerShell para criar e gerenciar recursos do Barramento de Serviço
+description: Este artigo explica como usar Azure PowerShell módulo para criar e gerenciar entidades do barramento de serviço (namespaces, filas, tópicos, assinaturas).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311039"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759237"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
 
@@ -29,7 +29,7 @@ Também é possível gerenciar entidades do Barramento de Serviço usando modelo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, você precisará atender aos seguintes pré-requisitos:
 
@@ -43,7 +43,7 @@ A primeira etapa é usar o PowerShell para fazer logon em sua conta do Azure e a
 
 ## <a name="provision-a-service-bus-namespace"></a>Provisionar um namespace do Barramento de Serviço
 
-Ao trabalhar com namespaces de barramento de serviço, você pode usar o [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [remover AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [ Conjunto AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdlets.
+Ao trabalhar com namespaces do barramento de serviço, você pode usar os cmdlets [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
 Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
 
@@ -83,7 +83,7 @@ Esta parte do script tem a seguinte função:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Criar uma regra de autorização de namespace
 
-O exemplo a seguir mostra como gerenciar regras de autorização de namespace usando o [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [ Conjunto AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule), e [AzServiceBusAuthorizationRule remover](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) cmdlets.
+O exemplo a seguir mostra como gerenciar as regras de autorização de namespace usando os cmdlets [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)e [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) .
 
 ```powershell
 # Query to see if rule exists
@@ -147,7 +147,7 @@ else
 
 ### <a name="modify-queue-properties"></a>Modificar propriedades da fila
 
-Depois de executar o script na seção anterior, você pode usar o [AzServiceBusQueue conjunto](/powershell/module/az.servicebus/set-azservicebusqueue) cmdlet para atualizar as propriedades de uma fila, como no exemplo a seguir:
+Depois de executar o script na seção anterior, você pode usar o cmdlet [set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) para atualizar as propriedades de uma fila, como no exemplo a seguir:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True

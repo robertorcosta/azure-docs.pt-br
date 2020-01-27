@@ -111,7 +111,7 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
 | Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
 | &nbsp; | Leste da Ásia | Sudeste Asiático |
-| Austrália | Austrália Oriental | Austrália Oriental |
+| Austrália | Leste da Austrália | Leste da Austrália |
 | &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
 | Índia | Índia Central | Índia Central |
 | &nbsp; | Oeste da Índia | Índia Central |

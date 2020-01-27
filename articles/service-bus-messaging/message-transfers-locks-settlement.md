@@ -1,6 +1,6 @@
 ---
-title: Transferência de mensagem, bloqueios e liquidação do Barramento de Serviço do Azure | Microsoft Docs
-description: Visão geral das transferências de mensagens do Barramento de Serviço e das operações de liquidação
+title: Transferências, bloqueios e liquidações de mensagens do barramento de serviço do Azure
+description: Este artigo fornece uma visão geral das operações de transferência, bloqueios e transferências de mensagens do barramento de serviço do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/24/2019
 ms.author: aschhab
-ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676275"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759271"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e liquidação
 
@@ -104,7 +104,7 @@ O modo [Receive-and-Delete](/dotnet/api/microsoft.servicebus.messaging.receivemo
 
 A vantagem desse modo é que o destinatário não precisa realizar outra ação em relação à mensagem e também não sofre atraso por causa do resultado da liquidação. Se os dados contidos nas mensagens individuais têm valor baixo e/ou só são úteis por um período muito curto, esse modo é uma opção razoável.
 
-### <a name="peeklock"></a>PeekLock
+### <a name="peeklock"></a>BloqueioDePico
 
 O modo [Peek-Lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) diz ao agente que o cliente destinatário deseja liquidar as mensagens recebidas explicitamente. A mensagem é disponibilizada para o destinatário para ser processada enquanto é mantida em um bloqueio exclusivo no serviço, de forma que outros destinatários concorrentes não possam vê-la. A duração do bloqueio é inicialmente definida no nível da assinatura ou da fila e pode ser estendida pelo cliente proprietário do bloqueio por meio da operação [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 

@@ -26,7 +26,7 @@ SAP HANA no serviço do Azure (instâncias grandes) com base em carimbos de revi
 
 - Oeste dos EUA
 - Leste dos EUA
-- Austrália Oriental
+- Leste da Austrália
 - Sudeste da Austrália
 - Oeste da Europa
 - Europa Setentrional

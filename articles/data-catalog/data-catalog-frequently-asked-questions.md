@@ -37,7 +37,7 @@ No momento, os serviços de Catálogo de Dados estão disponíveis nos seguintes
 * Leste dos EUA
 * Oeste da Europa
 * Europa Setentrional
-* Austrália Oriental
+* Leste da Austrália
 * Sudeste Asiático
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Quais são os limites ao número de ativos de dados?
