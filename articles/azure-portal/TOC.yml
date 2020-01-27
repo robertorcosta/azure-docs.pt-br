@@ -56,6 +56,8 @@
               href: supportability/networking-quota-requests.md
     - name: Solucionar problemas do portal do Azure
       items:
+        - name: Recuperar um painel excluído
+          href: recover-shared-deleted-dashboard.md
         - name: Solucionar problemas de assinatura com o SKU ou com uma região
           href: supportability/sku-series-unavailable.md
         - name: Capturar um rastreamento de navegador para solucionar problemas

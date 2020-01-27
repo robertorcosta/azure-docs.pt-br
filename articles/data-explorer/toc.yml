@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: Conceitos
   items:
-    - name: Visão geral de ingestão de dados
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: Ingestão de dados
+      items:
+        - name: Visão geral de ingestão de dados
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: Visão geral da visualização de dados
       href: viz-overview.md
     - name: Visão geral da segurança
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: Ingestão de streaming
           href: ingest-data-streaming.md
+        - name: Uso de SDKs
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: SDK do Node
+              href: node-ingest-data.md
+            - name: SDK Padrão do .NET
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: SDK do Node
-          href: node-ingest-data.md
-        - name: SDK Padrão do .NET
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Copiar dados usando o Azure Data Factory
-          href: data-factory-load-data.md
+        - name: dados formatados em json
+          href: ingest-json-formats.md
     - name: Consultar dados
       items:
         - name: Gravar consultas
@@ -182,7 +186,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: data
+        - name: Dados
           items:
             - name: Excluir dados
               href: delete-data.md
@@ -204,6 +208,8 @@
           items:
             - name: Integração com o Data Factory
               href: data-factory-integration.md
+            - name: Copiar dados usando o Azure Data Factory
+              href: data-factory-load-data.md
             - name: Copiar dados em massa usando o modelo do Azure Data Factory
               href: data-factory-template.md
             - name: Executar comandos de controle usando o Azure Data Factory

@@ -1,56 +1,116 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Monitoramento e ajuste
+### YamlMime:Landing
+title: Monitoramento do Banco de Dados SQL do Azure e ajuste de desempenho
+summary: O Banco de Dados SQL do Azure fornece ferramentas para ajudar a coletar métricas e informações de diagnóstico para monitorar seu banco de dados e aprimorar seu desempenho.
 metadata:
-  title: Banco de Dados SQL do Azure – monitoramento e ajuste
-  meta.description: Learn how to monitor and tune your Azure SQL database.
-  services: sql-database
-  ms.subservice: performance
-  author: jovanpop-msft
-  manager: craigg
+  title: Documentação de monitoramento e ajuste do Banco de Dados SQL do Azure
+  description: O Banco de Dados SQL do Azure fornece ferramentas para ajudar a coletar métricas e informações de diagnóstico para monitorar seu banco de dados e aprimorar seu desempenho.
   ms.service: sql-database
-  ms.tgt_pltfrm: na
-  ms.devlang: null
-  ms.topic: overview
-  ms.date: 02/08/2019
-  ms.author: jovanpop
-sections:
-  - items:
-      - type: paragraph
-        text: O Banco de Dados SQL do Azure permite que você monitore e ajuste facilmente sua carga de trabalho de banco de dados.
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - title: Insights de Desempenho de Consulta
-            href: /azure/sql-database/sql-database-query-performance
-            html: <p>Monitore facilmente o uso de recursos no seu Banco de Dados SQL do Azure (banco de dados individual ou em pool) usando funcionalidades de monitoramento internas no portal do Azure.</p>
-          - title: Azure SQL Analytics
-            href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json'
-            html: '<p>O monitoramento de Análise de SQL do Azure permite monitorar facilmente uma grande frota de bancos de dados, pools elásticos e instâncias em uma única tela.</p>'
-          - title: Ajuste automático
-            href: /azure/sql-database/sql-database-automatic-tuning
-            html: <p>O ajuste automático recomenda e corrige automaticamente problemas de plano de consulta e cria e descarta índices para melhorar o desempenho.</p>
-          - title: Insight de Desempenho Inteligente
-            href: /azure/sql-database/sql-database-intelligent-insights
-            html: <p>Inteligência interna do Banco de Dados SQL do Azure detecta eventos de interrupção que causam baixo desempenho em seus bancos de dados e fornece recomendações de atenuação quando possível.</p>
-          - title: Recomendações do desempenho
-            href: /azure/sql-database/sql-database-advisor
-            html: <p>O Banco de Dados SQL do Azure fornece recomendações que podem ajudá-lo a otimizar seu banco de dados no portal do Azure.</p>
-          - title: Métricas e logs
-            href: /azure/sql-database/sql-database-metrics-diag-logging
-            html: '<p>Transmita sua telemetria de diagnóstico de banco de dados para a Análise de SQL do Azure, os Hubs de Eventos do Azure ou o armazenamento de Blobs do Azure para integrações personalizadas.</p>'
-  - title: Mais recursos
-    items:
-      - type: paragraph
-        text: Saiba mais sobre recursos adicionais que podem ajudar você a otimizar o desempenho do banco de dados.
-      - type: list
-        style: unordered
-        items:
-          - html: Saiba mais sobre <a href="sql-database-monitor-tune-overview.md">monitoramento e ajuste</a> no Banco de Dados SQL do Azure.
-          - html: 'Saiba como <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">processamento de consulta inteligente</a> pode melhorar o desempenho do banco de dados.'
-          - html: Configurar e operar o <a href="sql-database-operate-query-store.md">Repositório de Consultas</a> – a principal tecnologia do SQL Server que permite que você obtenha informações em tempo real sobre o desempenho da consulta.
-          - html: Saiba como usar <a href="sql-database-operate-query-store.md">Exibições de Gerenciamento Dinâmico</a> para analisar o desempenho da sua carga de trabalho.
-          - html: Saiba como monitorar atividades de banco de dados com <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
-          - html: Saiba como <a href="sql-database-performance-guidance.md">ajustar manualmente o seu banco de dados</a>.
+  ms.subservice: performance
+  ms.topic: landing-page
+  ms.collection: performance
+  author: CarlRabeler
+  ms.author: carlrab
+  ms.date: 01/24/2020
+  ms.openlocfilehash: 237e9dccb84948b9d60ba6d54367d538b90e1d55
+  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/24/2020
+  ms.locfileid: "76715224"
+landingContent:
+- title: Sobre o monitoramento e o ajuste de desempenho
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Monitoramento e ajuste de desempenho
+      url: sql-database-monitor-tune-overview.md
+  - linkListType: learn
+    links:
+    - text: Guia estratégico de monitoramento do banco de dados do Microsoft Azure
+      url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
+- title: Coletar métricas e logs
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Log de diagnósticos e métricas
+      url: sql-database-metrics-diag-logging.md
+    - text: Entender o log de diagnóstico de desempenho
+      url: sql-database-intelligent-insights-use-diagnostics-log.md
+- title: Limites de recursos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Limites de recursos vCore de banco de dados individual
+      url: sql-database-vcore-resource-limits-single-databases.md
+    - text: Limites de recursos DTU de banco de dados individual
+      url: sql-database-dtu-resource-limits-single-databases.md
+    - text: Limites de recursos vCore do pool elástico
+      url: sql-database-vcore-resource-limits-elastic-pools.md
+    - text: Limites de recursos DTU do pool elástico
+      url: sql-database-dtu-resource-limits-elastic-pools.md
+    - text: Limites do recursos de instância gerenciada
+      url: sql-database-managed-instance-resource-limits.md
+    - text: Limites do recursos de pools da instância gerenciada
+      url: sql-database-instance-pools.md#instance-pools-resource-limitations
+- title: Introdução – Portal do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Usar inteligência artificial no portal do Azure para ajustar o desempenho
+      url: sql-database-performance.md
+  - linkListType: concept
+    links:
+    - text: Recomendações de ajuste do Assistente do Banco de Dados SQL do Azure
+      url: sql-database-advisor.md
+    - text: Análise de Desempenho de Consultas
+      url: sql-database-query-performance.md
+    - text: Azure SQL Analytics
+      url: ../azure-monitor/insights/azure-sql.md
+    - text: Insights inteligentes
+      url: sql-database-intelligent-insights.md
+    - text: Padrões de desempenho detectáveis
+      url: sql-database-intelligent-insights-troubleshoot-performance.md
+    - text: Ajuste automático
+      url: sql-database-automatic-tuning.md
+  - linkListType: video
+    links:
+    - text: Insights inteligentes
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
+    - text: Ajuste automático
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
+- title: Ajuste de desempenho manual
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Diretrizes para ajuste do desempenho manual
+      url: sql-database-performance-guidance.md
+  - linkListType: concept
+    links:
+    - text: Usar o Repositório de Consultas
+      url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
+    - text: Usando DMVs
+      url: sql-database-monitoring-with-dmvs.md
+    - text: Usar eventos estendidos
+      url: sql-database-xevent-db-diff-from-svr.md
+    - text: Diagnóstico de desempenho de hiperescala
+      url: sql-database-hyperscale-performance-diagnostics.md
+- title: Dimensionamento de recursos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Dimensionar recursos dinamicamente
+      url: sql-database-scale-resources.md
+  - linkListType: concept
+    links:
+    - text: Dimensionar recursos do banco de dados individual
+      url: sql-database-single-database-scale.md
+    - text: Dimensionamento de recursos do pool elástico
+      url: sql-database-elastic-pool-scale.md
+    - text: Dimensionar recursos da instância gerenciada
+      url: sql-database-managed-instance.md#managed-instance-management-operations
+    - text: Expansão de leitura
+      url: sql-database-read-scale-out.md
+  - linkListType: video
+    links:
+    - text: Dimensionamento dinâmico
+      url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player
