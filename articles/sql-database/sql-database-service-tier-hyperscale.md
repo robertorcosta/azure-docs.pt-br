@@ -173,7 +173,7 @@ No momento, a camada de hiperescala do banco de dados SQL do Azure está dispon�
 - EUA Central
 - Leste da China 2
 - Norte da China 2
-- Ásia Oriental
+- Leste da Ásia
 - Leste dos EUA
 - Leste dos EUA 2
 - França Central
