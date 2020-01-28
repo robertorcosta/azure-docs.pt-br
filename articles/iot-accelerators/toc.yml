@@ -23,7 +23,7 @@
       href: iot-accelerators-device-simulation-overview.md
     - name: Manutenção preditiva
       href: iot-accelerators-predictive-walkthrough.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Experimente uma solução de monitoramento remoto
@@ -221,6 +221,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
+    - name: Opções de Ajuda e suporte
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Monitoramento remoto
       items:
         - name: Guia de referência do desenvolvedor (.NET)
