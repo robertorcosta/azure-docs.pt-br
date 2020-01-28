@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170042"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168875"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemplo: Explorar um aplicativo de processamento de imagens com o C#
 
@@ -28,11 +28,11 @@ Explore um aplicativo básico do Windows que usa o Computer Vision para executar
 > * Execute o aplicativo de amostra e interaja com ele para executar vários cenários
 > * Explore os vários cenários incluídos no aplicativo de amostra
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de explorar o aplicativo de amostra, verifique se você atendeu aos seguintes pré-requisitos:
 
-* Você deve ter o [Visual Studio 2015 ](https://visualstudio.microsoft.com/downloads/) ou posterior.
+* É necessário ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
 * Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave. Anote a URL do ponto de extremidade de serviço também.
 
 ## <a name="get-the-sample-app"></a>Obter o aplicativo de exemplo
@@ -89,7 +89,7 @@ Você pode executar o aplicativo de amostra para ver como ele interage com você
 
 1. Em **Selecione um cenário** no painel de navegação, selecione um dos cenários atualmente incluídos no aplicativo de amostra:  
 
-   | Cenário | DESCRIÇÃO |
+   | Cenário | Descrição |
    |----------|-------------|
    |Analisar a imagem | Usa a operação [Analisar imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para analisar uma imagem local ou remota. Você pode escolher os recursos visuais e a linguagem para a análise e ver a imagem e os resultados.  |
    |Analisar imagem com modelo de domínio | Usa a operação [Listar modelos específicos de domínio](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) para listar os modelos de domínio a partir dos quais você pode selecionar e a operação [Reconhecer conteúdo específico de domínio](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) para analisar uma imagem local ou remota usando o modelo de domínio selecionado. Você também pode escolher o idioma para a análise. |
@@ -304,11 +304,11 @@ O método `UploadAndThumbnailImageAsync` cria uma nova instância `ComputerVisio
 
 O método `RecognizeUrlAsync` cria uma nova instância `ComputerVisionClient`, usando a chave de assinatura e o URL do terminal especificados. Ele chama o método `ComputerVisionClient.GenerateThumbnailAsync`, passando a largura, a altura, a URL da imagem e se deseja usar o recorte inteligente e retorna o resultado como `Stream`. Os métodos herdados da classe `ImageScenarioPage` apresentam os resultados retornados na página do cenário.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua a pasta na qual você clonou o repositório `Microsoft/Cognitive-Vision-Windows`. Se você optou por usar as imagens de amostra, exclua também a pasta na qual você clonou o repositório `Microsoft/Cognitive-Face-Windows`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Introdução à API de Detecção Facial](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Introdução à serviço de Detecção Facial](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

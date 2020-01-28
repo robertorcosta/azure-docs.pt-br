@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907834"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512837"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
@@ -44,9 +44,9 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Antes de concluir as etapas deste tutorial, crie primeiro um Front Door e integre pelo menos um domínio personalizado. Para obter mais informações, confira [Tutorial: Adicionar um domínio personalizado ao seu Front Door](front-door-custom-domain.md).
+Antes de concluir as etapas deste tutorial, crie primeiro um Front Door e integre pelo menos um domínio personalizado. Para saber mais, confira [Tutorial: Adicionar um domínio personalizado ao seu Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>Certificados SSL
 
@@ -91,7 +91,7 @@ Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse pro
 Registre a entidade de serviço para o Azure Front Door Service como aplicativo no seu Azure Active Directory, via PowerShell.
 
 > [!NOTE]
-> Essa ação só precisa ser executada **uma vez** por locatário.
+> Essa ação requer permissões de Administrador global e precisa ser executada apenas **uma vez** por locatário.
 
 1. Se for necessário, instale o [Azure PowerShell](/powershell/azure/install-az-ps) no PowerShell em seu computador local.
 
@@ -147,7 +147,7 @@ Se você estiver usando seu próprio certificado, a validação de domínio não
 
 O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de domínio personalizado e *Valor* é o nome de host .azurefd.net padrão do Front Door:
 
-| NOME            | Tipo  | Valor                 |
+| Nome            | Type  | Valor                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 

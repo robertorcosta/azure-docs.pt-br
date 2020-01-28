@@ -1,18 +1,18 @@
 ---
 title: Recuperação de desastre para tópicos personalizados na Grade de Eventos do Azure
-description: Saiba como sobreviver a interrupções regionais para manter a Grade de Eventos do Azure conectada.
+description: Este tutorial orientará você ao longo do processo de configurar sua arquitetura de eventos a ser recuperada se o serviço da Grade de Eventos passar a ser não íntegro em uma região.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 87f8f79e2cf125fa5735653153d8fcaa781f5200
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790270"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511511"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar sua própria recuperação de desastre para tópicos personalizados na Grade de Eventos
 A recuperação de desastre tem como foco a recuperação após uma perda grave de funcionalidade do aplicativo. Este tutorial o orientará pelo processo de configurar sua arquitetura de eventos a ser recuperada se o serviço de Grade de Eventos se tornar não íntegro em uma região específica.
@@ -46,7 +46,7 @@ Anote essa URL, pois você precisará dela posteriormente.
 
 Primeiro, crie dois tópicos de Grade de Eventos. Esses tópicos funcionarão como principais e secundários. Por padrão, seus eventos fluirão por meio do tópico principal. Se houver uma interrupção no serviço na região primária, a secundária assumirá.
 
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 
 1. No canto superior esquerdo do menu principal do Azure, escolha **Todos os Serviços** > pesquise **Grade de Eventos** > selecione **Tópicos de Grade de Eventos**.
 

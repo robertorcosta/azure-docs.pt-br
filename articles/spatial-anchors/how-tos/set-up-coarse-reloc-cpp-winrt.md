@@ -1,6 +1,6 @@
 ---
 title: Relocalização grosseira no C++/WinRT
-description: Explicação detalhada de como criar e localizar âncoras usando sensores no dispositivo em C++/WinRT.
+description: Explicação detalhada de como criar e localizar âncoras usando relocalização de alta granularidade em C++/WinRT.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: dd759ed4cbda936b00ce2ac0946184f9f6581c78
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790358"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548281"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cwinrt"></a>Como criar e localizar âncoras usando sensores no dispositivo em C++/WinRT
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74790358"
 
 As Âncoras Espaciais do Azure podem associar dados de sensor de posicionamento no dispositivo com as âncoras que você criar. Esses dados também podem ser usados para determinar rapidamente se há âncoras próximas ao seu dispositivo. Para obter mais informações, confira [Relocalização grosseira](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia, verifique se você tem:
 

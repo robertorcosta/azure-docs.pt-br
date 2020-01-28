@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79f5284f95f6157c70461179177179a9fbee4fe0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561942"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293684"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ServiceNow
 
@@ -46,9 +46,15 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O ServiceNow é compatível com SSO iniciado por **SP** e com o [Provisionamento de usuário automatizado](servicenow-provisioning-tutorial.md).
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. 
 
-Você pode configurar o aplicativo ServiceNow Clássico (móvel) com o Azure AD para habilitar o SSO. Ele é compatível com usuários Android e iOS. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+* O ServiceNow dá suporte a SSO iniciado por **SP**.
+
+* O ServiceNow dá suporte ao [Provisionamento de usuário automatizado](servicenow-provisioning-tutorial.md).
+
+* Após configurar o ServiceNow, você poderá impor controles de sessão, que protegem contra o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* Você pode configurar o aplicativo ServiceNow Clássico (móvel) com o Azure AD para habilitar o SSO. Ele é compatível com usuários Android e iOS. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 ## <a name="add-servicenow-from-the-gallery"></a>Adicionar o ServiceNow da galeria
 
@@ -460,3 +466,7 @@ Ao selecionar o bloco do ServiceNow no Painel de Acesso, você deverá ser conec
 - [Configurar provisionamento de usuário](servicenow-provisioning-tutorial.md)
 
 - [Experimente o ServiceNow com o Azure AD](https://aad.portal.azure.com)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [Como proteger o ServiceNow com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

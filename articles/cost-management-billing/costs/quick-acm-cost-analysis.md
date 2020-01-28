@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 0221930f0b9fff0c9d4e398559f8d12999a66e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982854"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294143"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -138,24 +138,29 @@ Você pode exibir o conjunto de dados completo de qualquer exibição. As seleç
 
 A tabela a seguir lista algumas das opções mais comuns de agrupamento e filtragem, bem como quando você deve usá-las.
 
-| Propriedade | Quando usar |
-| --- | --- |
-| **Período de cobrança** | Detalhe os custos por mês da fatura. Essa opção é importante para assinaturas de teste/desenvolvimento e pagas conforme o uso, que não estão associadas a meses do calendário. As contas EA/MCA podem usar meses do calendário no seletor de data ou a granularidade mensal para atingir a mesma meta. |
-| **Tipo de preço** | Detalhe uso, compra, reembolso e custos de reserva não usada. As compras de reserva e reembolsos só estão disponíveis ao usar custos de ação, e não custos amortizados. Os custos da reserva não usada somente ficam disponíveis ao examinar os custos amortizados. |
-| **Cloud** | Detalhe os custos por AWS e Azure. Os custos do AWS só estão disponíveis para grupos de gerenciamento, contas de cobrança externas e assinaturas externas. |
-| **Departamento** / **Seção de fatura** | Detalhe os custos por seção de fatura MCA ou departamento EA. Essa opção está disponível somente para contas de cobrança EA/MCA e perfis de cobrança MCA. |
-| **Conta de registro** | Detalhe os custos pelo proprietário da conta EA. Essa opção está disponível somente para departamentos e contas de cobrança EA. |
-| **Frequência** | Detalhe os custos com base no uso, únicos e recorrentes. |
-| **Medidor** | Detalhe os custos pelo medidor de uso do Azure. Esta opção está disponível somente para o uso do Azure. Todas as compras e o uso do Marketplace mostrarão **Não especificado** ou **não atribuído**. |
-| **Tipo de publicador** | Detalhe os custos do AWS, do Azure e do Marketplace. |
-| **Reserva** | Detalhe os custos por reserva. Qualquer uso que não inclua uma reserva será mostrado como **Não especificado**. |
-| **Recurso** | Detalhe os custos por recurso. Todas as compras serão mostradas como **Não especificado**, pois são aplicadas no nível do perfil de cobrança MCA ou de conta de cobrança EA/PAYG.  |
-| **Grupo de recursos** | Detalhe os custos por grupo de recursos. Esta opção está disponível apenas para uso não clássico. O uso de recurso clássico mostrará **outro** e compras mostrarão **Não especificado**. |
-| **Tipo de recurso** | Detalhe os custos por tipo de recurso. Esta opção está disponível apenas para uso não clássico. O uso de recurso clássico mostrará **outro** e compras mostrarão **Não especificado**. |
-| **Nome do serviço** ou **Categoria do medidor** | Detalhe o custo por serviço do Azure. Esta opção está disponível somente para o uso do Azure. Todas as compras e o uso do Marketplace mostrarão **Não especificado** ou **não atribuído**. |
-| **Camada de serviço** ou **Subcategoria de medidor** | Detalhe o custo por subclassificação do medidor de uso do Azure. Esta opção está disponível somente para o uso do Azure. Todas as compras e o uso do Marketplace mostrarão **Não especificado** ou **não atribuído**. |
-| **Assinatura** | Detalhe os custos por assinatura. Todas as compras mostram **Não especificado**. |
-| **Tag** | Detalhe os custos por valores de tag para uma chave de tag específica. |
+| Propriedade | Quando usar | Observações |
+| --- | --- | --- |
+| **Zonas de Disponibilidade** | Divida os custos da AWS segundo a zona de disponibilidade. | Aplicável somente a escopos e grupos de gerenciamento da AWS. Os dados do Azure não incluem a zona de disponibilidade e aparecerão como **Não aplicável**. |
+| **Período de cobrança** | Divida os custos do PAYG segundo o mês em que foram (ou serão) faturados. | Use o **Período de cobrança** para obter uma representação precisa dos encargos de PAYG faturados. Inclua dois dias extras antes e depois do período de cobrança se estiver filtrando para um intervalo de datas personalizado. Limitar às datas exatas do período de cobrança não corresponderá à fatura. Fazer isso mostrará os custos de todas as faturas do período de cobrança. Use a **ID da Fatura** para filtrar para uma fatura específica. Aplicável somente a assinaturas com PAYG, porque assinaturas com EA e MCA são cobradas pelos meses do calendário. As contas EA/MCA podem usar meses do calendário no seletor de data ou a granularidade mensal para atingir a mesma meta. |
+| **Tipo de preço** | Detalhe uso, compra, reembolso e custos de reserva não usada. | Compras e reembolsos de reserva só estão disponíveis quando são usados os custos reais, e não custos amortizados. Os custos da reserva não usada somente ficam disponíveis ao examinar os custos amortizados. |
+| **Departamento** | Divida os custos segundo o departamento do EA. | Disponível somente para EA e grupos de gerenciamento. Assinaturas com PAYG não têm um departamento e aparecerão como **Não aplicável** ou **Não atribuído**. |
+| **Conta de registro** | Detalhe os custos pelo proprietário da conta EA. | Disponível somente para grupos de gerenciamento, departamentos e contas de cobrança de EA. Assinaturas com PAYG não têm contas de registro de EA e aparecerão como **Não aplicável** ou **Não atribuído**. |
+| **Frequência** | Detalhe os custos com base no uso, únicos e recorrentes. | |
+| **ID da Fatura** | Divida os custos segundo a fatura cobrada. | Encargos não cobrados ainda não têm uma ID de fatura e os custos do EA não incluem detalhes da fatura e, portando, aparecerão como **Não aplicável**.  |
+| **Medidor** | Divida os custos segundo o medidor de uso. | As compras e o uso do Marketplace aparecerão como **Não aplicável**. Veja o **Tipo de encargo** para identificar compras e o **Tipo de editor** para identificar encargos do Marketplace. |
+| **Operação** | Divida os custos da AWS segundo a operação. | Aplicável somente a escopos e grupos de gerenciamento da AWS. Os dados do Azure não incluem a operação e aparecerão como **Não aplicável** – use o **Medidor** em vez deles. |
+| **Modelo de preços** | Divida os custos segundo o uso sob demanda, de reserva ou de spot. | As compras aparecem como **OnDemand**. Se vir **Não aplicável**, agrupe por **Reserva** para determinar se o uso é referente a reservas ou sob demanda e por **Tipo de encargo** para identificar compras.
+| **Provedor** | Detalhe os custos por AWS e Azure. | Disponível somente para grupos de gerenciamento. |
+| **Tipo de publicador** | Detalhe os custos do AWS, do Azure e do Marketplace. |  |
+| **Reserva** | Detalhe os custos por reserva. | Qualquer uso ou compra não associada a uma reserva aparecerá como **Não aplicável**. Agrupe segundo o **Tipo de editor** para identificar outras compras do Azure, da AWS ou do Marketplace. |
+| **Recurso** | Detalhe os custos por recurso. | As compras aparecerão como **Não aplicável**, pois são aplicadas no nível do perfil de cobrança MCA ou de conta de cobrança EA/PAYG e não estão associadas a um recurso específico. Agrupe segundo o **Tipo de editor** para identificar outras compras do Azure, da AWS ou do Marketplace. |
+| **Grupo de recursos** | Detalhe os custos por grupo de recursos. | Compras, recursos de locatário não associados a assinaturas, recursos de assinatura não implantados em um grupo de recursos e recursos clássicos não têm um grupo de recursos e aparecerão como **outros**, **serviços clássicos**, **$System** ou **Não aplicável**. |
+| **Tipo de recurso** | Detalhe os custos por tipo de recurso. | As compras e os serviços clássicos não têm um tipo de recurso do Azure Resource Manager e aparecerão como **outros**, **serviços clássicos** ou **Não aplicável**. |
+| **Localização do recurso** | Divida os custos por localização ou região. | As compras e o uso do Marketplace podem aparecer como **não atribuído**, **desconhecido**, **não mapeado** ou **não aplicável**. |
+| **Nome do serviço** ou **Categoria do medidor** | Detalhe o custo por serviço do Azure. | As compras e o uso do Marketplace aparecerão como **Não aplicável** ou **não atribuído**. |
+| **Camada de serviço** ou **Subcategoria de medidor** | Detalhe o custo por subclassificação do medidor de uso do Azure. | As compras e o uso do Marketplace aparecerão como **Não aplicável** ou **não atribuído**. |
+| **Assinatura** | Divida os custos segundo a assinatura do Azure e a conta vinculada da AWS. | As compras e os recursos de locatário podem aparecer como **não aplicável**. |
+| **Tag** | Detalhe os custos por valores de tag para uma chave de tag específica. | As marcas não estão disponíveis para compras, recursos de locatário não associados a assinaturas, recursos de assinatura não implantados em um grupo de recursos ou recursos clássicos. Observe que alguns serviços não incluem marcas nos dados de uso. Saiba mais sobre o [suporte a marcas para cada tipo de recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
 
 Para obter mais informações sobre termos, confira [Compreender os termos usados no arquivo de preços e uso do Azure](../understand/understand-usage.md).
 

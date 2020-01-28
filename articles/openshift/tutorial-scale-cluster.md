@@ -1,23 +1,21 @@
 ---
-title: Tutorial – Dimensionar um cluster do Red Hat OpenShift no Azure | Microsoft Docs
+title: Tutorial – Dimensionar um cluster do Red Hat OpenShift no Azure
 description: Saiba como dimensionar um cluster da Microsoft no Red Hat OpenShift no Azure usando a CLI do Azure
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: deb136a70c24cb7bd1b6c60505cc6ab0376a7b02
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: bf9172f0c84834c951446520ff0bfcc3ef756c9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672429"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278318"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Tutorial: Dimensionar um cluster do Red Hat OpenShift no Azure
 
-Este tutorial é a parte dois de uma série. Você aprenderá a criar um cluster da Microsoft no Red Hat OpenShift no Azure usando a CLI do Azure, dimensioná-lo e, em seguida, excluí-lo para limpar os recursos.
+Este tutorial é a parte dois de uma série. Você aprenderá a criar um cluster do Red Hat OpenShift no Microsoft Azure usando a CLI do Azure, dimensioná-lo e, em seguida, excluí-lo para limpar os recursos.
 
 Na segunda parte da série, você aprenderá como:
 
@@ -30,7 +28,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * Dimensionar um cluster do Red Hat OpenShift no Azure
 > * [Excluir um cluster do Red Hat OpenShift no Azure](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -44,7 +42,7 @@ Se você estiver executando a CLI do Azure localmente, execute `az login` para e
 az login
 ```
 
-Se você tiver acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` com a assinatura que você deseja usar.
+Caso tenha acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` pela assinatura que você deseja usar.
 
 ## <a name="step-2-scale-the-cluster-with-additional-nodes"></a>Etapa 2: Dimensionar o cluster com nós adicionais
 

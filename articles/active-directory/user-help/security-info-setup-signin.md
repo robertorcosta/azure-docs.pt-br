@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278990"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156107"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurar informações de segurança (versão prévia) de um prompt de entrada
 
@@ -26,6 +26,19 @@ Você poderá seguir estas etapas se for solicitado a você que configure suas i
 Você verá esse prompt apenas se não tiver configurado as informações de segurança exigidas pela sua organização. Se já tiver configurado suas informações de segurança mas quiser fazer alterações, você poderá seguir as etapas nos diversos artigos explicativos baseados em método. Para obter mais informações, confira [Adicionar ou atualizar sua visão de geral de informações de segurança](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Autenticação por redefinição de senha versus verificação de segurança
+
+Métodos de informações de segurança são usados para a verificação de segurança de dois fatores e a redefinição de senha. No entanto, nem todos os métodos podem ser usados para ambos.
+
+| Método | Usado para |
+| ------ | -------- |
+| Aplicativo autenticador | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Mensagens de texto | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chamadas telefônicas | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Chave de segurança | Autenticação por verificação de dois fatores e por redefinição de senha. |
+| Conta de email | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
+| Perguntas de segurança | Somente autenticação por redefinição de senha. Você precisará escolher outro método de verificação de dois fatores. |
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Entrar em sua conta corporativa ou de estudante
 

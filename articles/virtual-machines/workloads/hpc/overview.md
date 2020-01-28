@@ -1,23 +1,19 @@
 ---
-title: Computação de alto desempenho em VMs da série H – Máquinas Virtuais do Azure | Microsoft Docs
+title: Computação de alto desempenho em VMs da série H – Máquinas Virtuais do Azure
 description: Saiba mais sobre os recursos e as funcionalidades de VMs da série H otimizadas para HPC.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: jeconnoc
-editor: ''
+ms.author: amverma
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.author: amverma
-ms.openlocfilehash: d6e857a87e4c7df8ffb2be1eefb7a0290da5b10a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799001"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271011"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Computação de alto desempenho em VMs da série H
 

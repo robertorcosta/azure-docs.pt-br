@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c097c1f08bd72ed5795e4274c41e4eb48dbe34ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152955"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: Integração do Azure Active Directory com o &frankly
 
@@ -35,7 +35,7 @@ A integração do &frankly ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD ao &frankly, você precisará dos seguintes itens:
 
@@ -123,19 +123,15 @@ Para configurar o logon único do Azure AD com o &frankly, execute as seguintes 
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-7. Na seção **Configurar o &frankly**, copie as URLs apropriadas de acordo com suas necessidades.
-
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
-    a. URL de logon
-
-    b. Identificador do Azure Ad
-
-    c. URL de logoff
 
 ### <a name="configure-frankly-single-sign-on"></a>Configurar o logon único do &frankly
 
-Para configurar o logon único no lado do **&frankly**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do &frankly](mailto:help@andfrankly.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para habilitar o logon único no &frankly:
+
+1. Faça logon no &frankly. Acesse **Conta** > **Gerenciamento de Usuários**.
+1. Altere o mecanismo de autenticação do padrão para **Logon Corporativo (SAML)** .
+1. Carregue o **XML de Metadados de Federação** que você baixou na etapa 6 na seção anterior.
+1. Clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

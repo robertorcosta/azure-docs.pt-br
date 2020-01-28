@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Core para depurar e iterar rapidamente um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Java, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 9237137f86bf7b6b30eb908e0acbe3b8b0e624d9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a814516eb002eadb19100182d1917fd4aaa0cec6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867465"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293565"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Início Rápido: Depurar e iterar com o Visual Studio Code e o JavaDepurar e iterar no Kubernetes com o Visual Studio Code e o Java no Kubernetes – Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Neste guia, você aprenderá a:
 - Desenvolva o código em contêineres de maneira iterativa usando o Visual Studio Code.
 - Depure o código no seu espaço de desenvolvimento do Visual Studio Code.
 
-O Azure Dev Spaces também permite que você depure e itere usando:
+O Azure Dev Spaces também permite depurar e iterar usando:
 - [Node.js e Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core e Visual Studio Code](quickstart-netcore.md)
 - [.NET Core e Visual Studio](quickstart-netcore-visualstudio.md)

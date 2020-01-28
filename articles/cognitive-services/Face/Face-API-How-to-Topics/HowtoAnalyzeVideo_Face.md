@@ -1,7 +1,7 @@
 ---
-title: 'Exemplo: Análise de vídeo em tempo real – API de Detecção Facial'
+title: 'Exemplo: Análise de vídeo em tempo real – Detecção Facial'
 titleSuffix: Azure Cognitive Services
-description: Use a API de Detecção Facial para executar a análise em tempo quase real em quadros obtidos de um streaming de vídeo ao vivo.
+description: Use o serviço de Detecção Facial para executar uma análise quase em tempo real nos quadros obtidos de um fluxo de vídeo ao vivo.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114337"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169895"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como analisar vídeos em tempo real
 
@@ -142,7 +142,7 @@ Para colocar seu aplicativo em funcionamento o mais rápido possível, você usa
 
 A biblioteca contém a classe FrameGrabber, que implementa o sistema produtor-consumidor abordado acima para processar quadros de vídeo de uma webcam. O usuário pode especificar a forma exata da chamada à API, e a classe usa eventos para permitir que o código de chamada reconheça quando um novo quadro é adquirido ou um novo resultado de análise fica disponível.
 
-Para ilustrar algumas das possibilidades, há dois aplicativos de exemplo que usam a biblioteca. O primeiro é um aplicativo de console simples e uma versão simplificada do que é reproduzido abaixo. Ele captura quadros da webcam padrão e envia-os para a API de Detecção Facial para a detecção facial.
+Para ilustrar algumas das possibilidades, há dois aplicativos de exemplo que usam a biblioteca. O primeiro é um aplicativo de console simples e uma versão simplificada do que é reproduzido abaixo. Ele captura quadros da webcam padrão e envia-os para o serviço de Detecção Facial para a detecção facial.
 
 ```csharp
 using System;
@@ -159,7 +159,7 @@ namespace VideoFrameConsoleApplication
             // Create grabber, with analysis type Face[]. 
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
-            // Create Face API Client. Insert your Face API key here.
+            // Create Face Client. Insert your Face API key here.
             private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials("<subscription key>"),
             new System.Net.Http.DelegatingHandler[] { });
@@ -203,13 +203,12 @@ Para começar a usar esse exemplo, siga estas etapas:
 
 1. Obtenha chaves de API para as APIs da Pesquisa Visual em [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). Para a análise de quadro de vídeo, as APIs aplicáveis são:
     - [API da Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [API de Detecção de Emoções](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
     - [API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
 2. Clone o repositório GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Abra a amostra no Visual Studio 2015 e crie e execute os aplicativos de exemplo:
-    - Para BasicConsoleSample, a chave da API de Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Para BasicConsoleSample, a chave de Detecção Facial é embutida em código diretamente em [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Para LiveCameraSample, as chaves devem ser inseridas no painel Configurações do aplicativo. Elas serão persistentes entre as sessões como dados de usuário.
         
 

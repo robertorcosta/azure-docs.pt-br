@@ -1,5 +1,5 @@
 ---
-title: Exemplo de Script da CLI do Azure - Interromper e excluir uma máquina virtual em um laboratório | Microsoft Docs
+title: CLI do Azure – parar e excluir uma máquina virtual em um laboratório
 description: Esse script da CLI do Azure interrompe e exclui uma máquina virtual em um laboratório.
 services: lab-services
 author: spelluru
@@ -11,15 +11,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c89a5c069186a1612161f660d985ff9144c68e64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7465770eaeb35772012be2219858ccda512775d6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61084209"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166403"
 ---
 # <a name="use-azure-cli-to-stop-and-delete-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Usar a CLI do Azure para interromper e excluir uma máquina virtual em um laboratório no Azure DevTest Labs
 
@@ -29,7 +29,7 @@ Esse script da CLI do Azure interrompe e exclui uma VM (máquina virtual) em um 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/devtest-lab/stop-delete-virtual-machine-in-lab/stop-delete-virtual-machine-in-lab.sh "Stop and delete a VM in a lab")]
 

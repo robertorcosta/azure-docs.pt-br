@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 84220d5dda26c25f40138629e2be1f10d57fe3c4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: df7198b68a083abf9be4ffe88e7a5dd848b2c535
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555119"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119509"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o suporte do Apache Kafka Connect aos Hubs de Eventos do Azure (versão prévia)
 Conforme as necessidades de ingestão das empresas vai aumentando, também vai aumentando a necessidade de fazer a ingestão em vários coletores e fontes externas. O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornece essa estrutura para conectar e importar/exportar dados de ou para qualquer sistema externo, como o MySQL, o HDFS e o sistema de arquivos, por meio de um cluster do Kafka. Este tutorial explica como usar a estrutura do Kafka Connect com os Hubs de Eventos habilitado para Kafka.
@@ -34,7 +34,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Executar o Kafka Connect
 > * Criar conectores
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para concluir este passo a passo, é necessário atender aos seguintes pré-requisitos:
 
 - Assinatura do Azure. Se você não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/).
@@ -107,7 +107,9 @@ Nesta etapa, um trabalho do Kafka Connect é iniciado localmente em modo distrib
 4. Execute `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  A API REST do trabalho do Connect estará pronta para interação quando você vir `'INFO Finished starting connectors and tasks'`. 
 
 > [!NOTE]
-> Os Hubs de Eventos dão suporte a clientes do Kafka criando tópicos automaticamente. Uma verificação rápida do namespace no portal do Azure revela que os tópicos internos do trabalho do Connect foram criados automaticamente.
+> O Kafka Connect usa a API AdminClient do Kafka para criar automaticamente tópicos com configurações recomendadas, incluindo a compactação. Uma verificação rápida do namespace no portal do Azure revela que os tópicos internos do trabalho do Connect foram criados automaticamente.
+>
+>Os tópicos internos do Kafka Connect **precisam usar a compactação**.  A equipe dos Hubs de Eventos não será responsável por corrigir configurações inadequadas se os tópicos internos do Connect estiverem configurados incorretamente.
 
 ### <a name="create-connectors"></a>Criar conectores
 Esta seção percorre com você a configuração de conectores FileStreamSource e FileStreamSink. 

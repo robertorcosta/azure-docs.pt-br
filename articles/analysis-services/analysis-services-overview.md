@@ -4,15 +4,15 @@ description: Saiba mais sobre o Azure Analysis Services, uma PaaS (plataforma co
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749695"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274784"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -34,7 +34,7 @@ O Azure Analysis Services integra-se com vários serviços do Azure, permitindo 
 
 ## <a name="the-right-tier-when-you-need-it"></a>A camada certa quando você precisa
 
-Azure Analysis Services está disponível nas camadas **Desenvolvedor**, **Básico** e **Standard**. Em cada nível, os custos do plano variam de acordo com a potência do processamento, QPUs e quantidade de memória. Quando você cria um servidor, é possível selecionar um plano de dentro de uma camada. Você pode alterar os planos para cima ou para baixo na mesma camada ou fazer upgrade para uma camada mais alta, mas não é possível fazer downgrade de uma camada superior para uma camada inferior.
+Azure Analysis Services está disponível nas camadas **Desenvolvedor**, **Básico** e **Standard**. Em cada nível, os custos do plano variam de acordo com a potência do processamento, QPUs (Unidades de Processamento de Consulta) e quantidade de memória. Quando você cria um servidor, é possível selecionar um plano de dentro de uma camada. Você pode alterar os planos para cima ou para baixo na mesma camada ou fazer upgrade para uma camada mais alta, mas não é possível fazer downgrade de uma camada superior para uma camada inferior.
 
 ### <a name="developer-tier"></a>Camada de Desenvolvedor
 
@@ -47,7 +47,7 @@ Essa camada é recomendada para cenários de avaliação, desenvolvimento e test
 
 ### <a name="basic-tier"></a>Camada básica
 
-O nível é recomendado para soluções de produção com modelos tabulares menores, concorrência limitada do usuário e requisitos simples de atualização de dados. Escalar horizontalmente réplica de consulta *não está disponível* para essa camada. Perspectivas, várias partições e recursos do modelo tabular do DirectQuery *não têm suporte* nessa camada.  
+O nível é recomendado para soluções de produção com modelos tabulares menores, concorrência limitada do usuário e requisitos simples de atualização de dados. A expansão de réplica de consulta *não está disponível* para essa camada. Perspectivas, várias partições e recursos do modelo tabular do DirectQuery *não têm suporte* nessa camada.  
 
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -232,7 +232,7 @@ O Azure Analysis Services também dá suporte para uso de [DMVs (Modos de Exibi�
 
 A documentação específica do Azure Analysis Services está incluída aqui. Use o índice no lado esquerdo da tela do navegador para localizar artigos. 
 
-Como os modelos de tabela do Azure Analysis Services são muito parecidos com os modelos de tabela do SQL Server Analysis Services, há uma extensa biblioteca de artigos conceituais, procedurais, do desenvolvedor e de referência compartilhados na [Documentação do SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artigos na documentação do SQL Server Analysis Services mostram se também aplicam-se ao Azure Analysis Services por uma faixa APPLIES TO abaixo do título.
+Como os modelos de tabela do Azure Analysis Services são muito parecidos com os modelos de tabela do SQL Server Analysis Services, há uma extensa biblioteca de tutoriais de modelagem de dados, artigos conceituais, procedurais, do desenvolvedor e de referência compartilhados na [documentação do SQL Server Analysis Services](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artigos na documentação do SQL Server Analysis Services mostram se também aplicam-se ao Azure Analysis Services por uma faixa APPLIES TO abaixo do título.
 
 ![Documentação compartilhada](./media/analysis-services-overview/aas-overview-applies-to.png)
 

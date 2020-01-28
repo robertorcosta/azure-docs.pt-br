@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 68474738aabde1b14752aa33789d7e40c3831908
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846395"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154832"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir uma distribuição de um piloto da Autenticação Multifator do Azure
 
@@ -26,7 +26,7 @@ Neste tutorial, você aprende a configurar uma política de Acesso Condicional, 
 > * Habilitar a Autenticação Multifator do Microsoft Azure
 > * Testar a Autenticação Multifator do Microsoft Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação habilitada.
 * Uma conta com privilégios de Administrador Global.
@@ -36,10 +36,10 @@ Neste tutorial, você aprende a configurar uma política de Acesso Condicional, 
 ## <a name="enable-azure-multi-factor-authentication"></a>Habilitar a Autenticação Multifator do Microsoft Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de Administrador Global.
-1. Navegue até **Azure Active Directory**, **Acesso Condicional**
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**
 1. Selecione **Nova política**
 1. Nomeie a política **Piloto de MFA**
-1. Em **usuários e grupos**, selecione o botão de opção **Selecionar usuários e grupos**
+1. Em **Usuários e grupos**, selecione o botão de opção **Selecionar usuários e grupos**
     * Selecione seu grupo piloto criado como parte da seção de pré-requisitos deste artigo
     * Clique em **Concluído**
 1. Em **Aplicativos de nuvem**, selecione o botão de opção **Selecionar aplicativos**
@@ -59,18 +59,18 @@ Neste tutorial, você aprende a configurar uma política de Acesso Condicional, 
 Para provar que a política de Acesso Condicional funciona, você testa o logon em um recurso que não deve exigir o MFA e, em seguida, no portal do Azure que requer o MFA.
 
 1. Abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue até [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
-   * Faça logon com o usuário de teste criado como parte da seção de pré-requisitos deste artigo e observe que ele não deve solicitar para concluir o MFA.
+   * Faça logon com o usuário de teste criado como parte da seção de pré-requisitos deste artigo e observe que ele não deve solicitar a conclusão do MFA.
    * Feche a janela do navegador.
-2. Abra uma nova janela do navegador no modo InPrivate ou anônimo e navegue até [https://portal.azure.com](https://portal.azure.com).
-   * Faça logon com o usuário de teste criado como parte da seção de pré-requisitos deste artigo e observe que agora você deve ser solicitado a se registrar e usar a Autenticação Multifator do Azure.
+2. Abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue até [https://portal.azure.com](https://portal.azure.com).
+   * Faça logon com o usuário de teste criado como parte da seção de pré-requisitos deste artigo e observe que agora você deve ser solicitado a se registrar e usar a Autenticação Multifator do Microsoft Azure.
    * Feche a janela do navegador.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você decidir que não deseja mais usar a funcionalidade configurada como parte deste tutorial, faça a alteração a seguir.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**, **Acesso Condicional**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione a política de Acesso Condicional que você criou.
 1. Clique em **Excluir**.
 

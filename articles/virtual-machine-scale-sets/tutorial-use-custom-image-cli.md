@@ -1,27 +1,19 @@
 ---
-title: Tutorial - Usar uma imagem de VM personalizada em um conjunto de dimensionamento com a CLI 2.0 do Azure | Microsoft Docs
+title: Tutorial – Usar uma imagem de VM personalizada em um conjunto de dimensionamento com a CLI do Azure
 description: Aprenda a usar a CLI 2.0 do Azure para criar uma imagem de VM personalizada que pode ser usada para implantar um conjunto de dimensionamento de máquinas virtuais
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 95e22b40b56d3ac3129573958c77b8643c0e72dc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311571"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276140"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com a CLI do Azure
 Ao criar um conjunto de dimensionamento, você especifica uma imagem a ser usada quando as instâncias de VM forem implantadas. Para reduzir a quantidade de tarefas depois que as instâncias de VM forem implantadas, é possível usar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui todas as instalações ou configurações de aplicativo necessárias. Todas as instâncias de VM criadas no conjunto de dimensionamento usam a imagem de VM personalizada e estão prontas para atender ao tráfego do aplicativo. Neste tutorial, você aprenderá a:
@@ -87,7 +79,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>Criar uma imagem de VM personalizada da VM de origem
 A VM de origem agora é personalizada com o servidor Web Nginx instalado. Vamos criar a imagem de VM personalizada para usar com um conjunto de dimensionamento.
 
-Para criar uma imagem, a VM precisará ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm). Depois, defina o estado da VM como generalizado usando [az vm generalize](/cli//azure/vm) para que a plataforma do Azure saiba que a VM está pronta para usar uma imagem personalizada. Você só pode criar uma imagem por meio de uma VM generalizada:
+Para criar uma imagem, a VM precisará ser desalocada. Desaloque a VM com [az vm deallocate](/cli//azure/vm). Depois, defina o estado da VM como generalizado usando [az vm generalize](/cli//azure/vm) para que a plataforma do Azure saiba que a VM está pronta para usar uma imagem personalizada. Você só pode criar uma imagem usando uma VM generalizada:
 
 
 ```azurecli-interactive
@@ -154,7 +146,7 @@ Digite o endereço IP público no seu navegador da Web. A página da Web padrão
 ![NGINX sendo executado a partir de uma imagem de VM personalizada](media/tutorial-use-custom-image-cli/default-nginx-website.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive

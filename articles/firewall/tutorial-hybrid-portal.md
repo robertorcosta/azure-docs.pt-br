@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/02/2019
+ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468469"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264722"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure
 
@@ -45,15 +45,17 @@ Neste tutorial, você aprenderá como:
 
 Caso deseje usar o Azure PowerShell para concluir este procedimento, confira [Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-Há três requisitos principais para que este cenário funcione corretamente:
+Uma rede híbrida usa o modelo de arquitetura hub e spoke para rotear o tráfego entre as VNets do Azure e as redes locais. A arquitetura hub e spoke tem os seguintes requisitos:
 
-- Uma UDR (Rota Definida pelo Usuário) na sub-rede spoke que aponta para o endereço IP do Firewall do Azure como o gateway padrão. A propagação de rotas BGP deve estar **Desabilitada** nessa tabela de rotas.
-- Uma UDR na sub-rede do gateway do hub precisa apontar para o endereço IP do firewall como o próximo salto para as redes spoke.
+- Defina **AllowGatewayTransit** ao emparelhar o VNet-Hub com o VNet-Spoke. Em uma arquitetura de rede hub e spoke, um trânsito de gateway permite que redes virtuais spoke compartilhem o gateway de VPN no hub, em vez de implantar gateways de VPN em cada rede virtual spoke. 
 
-   Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
-- Verifique se você definiu **AllowGatewayTransit** ao emparelhar a VNet-Hub com a VNet-Spoke e **UseRemoteGateways** ao emparelhar a VNet-Spoke com a VNet-Hub.
+   Além disso, as rotas para as redes virtuais conectadas pelo gateway ou das redes locais serão propagadas automaticamente às tabelas de roteiros para as redes virtuais emparelhadas usando o trânsito de gateway. Para saber mais, confira [Configurar o trânsito de gateway de VPN para o emparelhamento de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+
+- Defina **UseRemoteGateways** quando você emparelhar VNet-Spoke com VNet-Hub. Se **UseRemoteGateways** estiver definido e **AllowGatewayTransit** no emparelhamento remoto também estiver definido, a rede virtual spoke usará gateways da rede virtual remota para trânsito.
+- Para rotear o tráfego de sub-rede spoke por meio do firewall do hub, você precisa de uma UDR (Rota Definida pelo Usuário) que aponta para o firewall com a opção **Desabilitar a propagação de rotas BGP** definida. A opção **Desabilitar a propagação de rotas BGP** impede a distribuição de rota para as sub-redes spoke. Isso impede que as rotas aprendidas entrem em conflito com sua UDR.
+- Configure uma UDR na sub-rede do gateway do hub que aponta para o endereço IP do firewall como o próximo salto para as redes spoke. Nenhuma UDR é necessária na sub-rede do Firewall do Azure, já que ela aprende as rotas com o BGP.
 
 Consulte a seção [Criar Rotas](#create-the-routes) deste tutorial para ver como essas rotas são criadas.
 
@@ -153,7 +155,7 @@ Agora implante o firewall na rede virtual do hub de firewall.
    |---------|---------|
    |Subscription     |\<sua assinatura\>|
    |Resource group     |**FW-Hybrid-Test** |
-   |NOME     |**AzFW01**|
+   |Nome     |**AzFW01**|
    |Location     |Selecionar o mesmo local usado anteriormente|
    |Escolher uma rede virtual     |**Usar existente**:<br> **VNet-hub**|
    |Endereço IP público     |Criar: <br>**Nome** - **fw-pip**. |
@@ -442,7 +444,7 @@ Em seguida, altere a ação de coleção de regras da rede do firewall para **De
 
 Feche as áreas de trabalho remotas existentes antes de testar a alteração das regras. Agora execute os testes novamente. Todos devem falhar nesse momento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode manter seus recursos de firewall para o próximo tutorial ou se não forem mais necessários, exclua o grupo de recursos **FW-Hybrid-Test** para excluir todos os recursos relacionados ao firewall.
 

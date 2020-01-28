@@ -1,27 +1,19 @@
 ---
-title: Tutorial - Criar e usar discos para conjuntos de dimensionamento com o CLI do Azure | Microsoft Docs
+title: Tutorial – Criar e usar discos para conjuntos de dimensionamento com a CLI do Azure
 description: Aprenda a usar a CLI do Azure para criar e usar Discos gerenciados com o conjunto de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751150"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278243"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e usar discos com conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
@@ -55,7 +47,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 | [Memória otimizada](../virtual-machines/linux/sizes-memory.md) | Série D, E, G e M | 6144 |
 | [Armazenamento otimizado](../virtual-machines/linux/sizes-storage.md) | Série L | 5630 |
 | [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 1440 |
-| [Alto desempenho](../virtual-machines/linux/sizes-hpc.md) | Séries A e H | 2000 |
+| [Alto desempenho](../virtual-machines/linux/sizes-hpc.md) | Série A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
@@ -84,8 +76,8 @@ Os discos Premium são apoiados por disco de baixa latência e alto desempenho b
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 |Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2,048 GB (2 TB) | 4,095 GB (4 TB) |
-| IOPS máxima por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
+| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1\.024 GB (1 TB) | 2,048 GB (2 TB) | 4,095 GB (4 TB) |
+| IOPS máxima por disco | 120 | 240 | 500 | 2\.300 | 5\.000 | 7\.500 | 7\.500 |
 Taxa de transferência por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tamanhos da VM Linux](../virtual-machines/linux/sizes.md).
@@ -289,7 +281,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o conjunto de dimensionamento e os discos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 
 ```azurecli-interactive

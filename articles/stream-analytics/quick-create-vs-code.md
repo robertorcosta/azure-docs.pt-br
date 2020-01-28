@@ -4,15 +4,15 @@ description: Este início rápido apresenta uma introdução para criar um traba
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659586"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313868"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Início Rápido: Criar um trabalho do Azure Stream Analytics no Visual Studio Code (versão prévia)
 
@@ -173,15 +173,17 @@ Siga as instruções em [Testar consultas localmente com alguns dados de exemplo
 
 5. Edite o arquivo **IoTHub1.json** recém-gerado com os valores a seguir. Mantenha os valores padrão para os campos não mencionados aqui.
 
-   |Configuração|Valor sugerido|DESCRIÇÃO|
+   |Configuração|Valor sugerido|Descrição|
    |-------|---------------|-----------|
    |Nome|Entrada|Insira um nome para identificar a entrada do trabalho.|
    |IotHubNamespace|MyASAIoTHub|Escolha ou insira o nome do hub IoT. Os nomes do hub IoT serão detectados automaticamente se eles forem criados na mesma assinatura.|
    |SharedAccessPolicyName|iothubowner| |
 
-   Use o recurso CodeLens para ajudar você a inserir uma cadeia de caracteres, fazer uma seleção em uma lista suspensa ou alterar o texto diretamente no arquivo. A captura de tela a seguir mostra **Selecionar em suas Assinaturas** como um exemplo.
+   Use o recurso CodeLens para ajudar você a inserir uma cadeia de caracteres, fazer uma seleção em uma lista suspensa ou alterar o texto diretamente no arquivo. A captura de tela a seguir mostra **Selecionar em suas Assinaturas** como um exemplo. As credenciais são listadas e salvas automaticamente no gerenciador de credenciais local.
 
    ![Configurar a entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+   ![Configurar o valor de entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
 
 ## <a name="preview-input"></a>Visualizar a entrada
 
@@ -203,7 +205,7 @@ Selecione **Visualizar dados** em **IoTHub1.json** na linha superior. Alguns dad
 
 5. Edite **BlobStorage** usando os valores a seguir. Mantenha os valores padrão para os campos não mencionados aqui. Use o recurso CodeLens para ajudar você a fazer uma seleção em uma lista suspensa ou inserir uma cadeia de caracteres.
 
-   |Configuração|Valor sugerido|DESCRIÇÃO|
+   |Configuração|Valor sugerido|Descrição|
    |-------|---------------|-----------|
    |Nome|Saída| Insira um nome para identificar a saída do trabalho.|
    |Conta de Armazenamento|asaquickstartstorage|Escolha ou insira o nome da conta de armazenamento. Os nomes das contas de armazenamento serão detectados automaticamente se eles forem criados na mesma assinatura.|

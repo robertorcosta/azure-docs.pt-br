@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Detectar rostos em uma imagem usando a API REST e Go'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você detectará faces em uma imagem usando a API de Detecção Facial com Go.
+description: Neste início rápido, você detectará rostos em uma imagem usando o serviço de Detecção Facial com o Go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 3ebcd7dfb7b1138f52663d7c919d4ce4d8bd088a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890534"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165832"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Go
 
@@ -23,7 +23,7 @@ Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Uma chave de assinatura da API de Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço API de Detecção Facial e obter sua chave.
+- Uma chave de assinatura da Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Detecção Facial e obter a sua chave.
 - Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Escrever o script
@@ -311,7 +311,7 @@ Você deverá ver uma cadeia de caracteres JSON dos dados faciais detectados imp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você escreveu um aplicativo de console do Go que chama a API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar os atributos deles. Em seguida, explore a documentação de referência de API de Detecção Facial para saber mais.
+Neste início rápido, você escreveu um aplicativo de console do Go que chama o serviço de Detecção Facial do Azure para detectar rostos em uma imagem e retornar os atributos deles. Em seguida, explore a documentação de referência de API de Detecção Facial para saber mais.
 
 > [!div class="nextstepaction"]
 > [API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

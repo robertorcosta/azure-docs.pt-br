@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: edb543a85779fb083b6990a58dc5ec0b8ef3eb9c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969608"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291406"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workplace by Facebook
 
@@ -33,7 +32,7 @@ Neste tutorial, você aprenderá a integrar o Workplace by Facebook ao Azure AD 
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, você precisará dos seguintes itens:
 
@@ -48,9 +47,10 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Workplace by Facebook dá suporte a SSO iniciado por **SP**
-* O Workplace by Facebook é compatível com **[provisionamento e desprovisionamento de usuário automatizados (recomendado)](workplacebyfacebook-provisioning-tutorial.md)**
 * O Workplace by Facebook dá suporte a **provisionamento Just-In-Time**
+* O Workplace by Facebook dá suporte a **[provisionamento de usuário automático](workplacebyfacebook-provisioning-tutorial.md)**
 * Agora, o aplicativo móvel do Workplace by Facebook pode ser configurado com o Azure AD para habilitar o SSO. Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+* Após configurar o Workplace by Facebook, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Adicionar o Workplace by Facebook da Galeria
 
@@ -92,8 +92,10 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
 
-    > [!NOTE] 
-    > Esses não são os valores reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Consulte a página Autenticação do Workplace Company Dashboard a fim de obter os valores corretos para a comunidade do Workplace.
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
+
+    > [!NOTE]
+    > Esses não são os valores reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Confira a página Autenticação do Workplace Company Dashboard a fim de obter os valores corretos para a comunidade do Workplace. Isso será explicado posteriormente no tutorial.
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -172,13 +174,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     f. Copie a **URL do Destinatário** da instância e cole-a na caixa de texto **URL de Logon** na seção **Configuração Básica do SAML** no portal do Azure.
 
-    g. Role até o final da seção e clique no botão **Testar SSO**. Isso resultará na exibição de uma janela pop-up com a página de logon do Azure AD apresentada. Insira suas credenciais como de costume para se autenticar.
+    g. Copie a **URL do ACS (Serviço do Consumidor de Declaração)** da sua instância e cole-a na caixa de texto **URL de Resposta** na seção **Configuração Básica de SAML** no portal do Azure.
+
+    h. Role até o final da seção e clique no botão **Testar SSO**. Isso resultará na exibição de uma janela pop-up com a página de logon do Azure AD apresentada. Insira suas credenciais como de costume para se autenticar.
 
     **Solução de problemas:** Verifique se o endereço de email retornado do Azure AD é o mesmo da conta do Workplace na qual você está conectado.
 
-    h. Depois que o teste for concluído com êxito, role até a parte inferior da página e clique no botão **Salvar**.
+    i. Depois que o teste for concluído com êxito, role até a parte inferior da página e clique no botão **Salvar**.
 
-    i. Agora, todos os usuários que usam o Workplace verão a página de logon do Azure AD para autenticação.
+    j. Agora, todos os usuários que usam o Workplace verão a página de logon do Azure AD para autenticação.
 
 1. **Redirecionamento de Logoff SAML (opcional)**  -
 
@@ -241,3 +245,7 @@ Quando você clica no bloco Workplace by Facebook no painel de acesso, você dev
 - [Configurar Provisionamento de Usuário](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Experimentar o Workplace by Facebook com o Azure AD](https://aad.portal.azure.com)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Como proteger o Workplace by Facebook com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

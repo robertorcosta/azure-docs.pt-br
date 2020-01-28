@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
-ms.openlocfilehash: 2beb1d3e4468ff96f629dd6ec7015376a7f3a904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 75b6dd1b2d76d12087270e155551402d1bcd4965
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984001"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274019"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entender sua fatura do Contrato Enterprise do Azure
 
@@ -129,7 +129,7 @@ Entre no [portal Enterprise](https://ea.azure.com) e, em seguida, selecione **Re
 
 ![Captura de tela que mostra a opção M + C no resumo de uso.](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-O total **Azure Marketplace** deve corresponder à **Venda Total** na sua fatura do marketplace. Para obter mais informações sobre seus encargos, vá para **Baixar Uso**. Em **Encargos do Marketplace**, selecione **Download**. Este relatório não inclui os impostos ou mostra as compras de uso único.  
+O total **Azure Marketplace** deve corresponder à **Venda Total** na sua fatura do marketplace. Para obter mais informações sobre seus encargos, vá para **Baixar Uso**. Em **Encargos do Marketplace**, selecione **Download**. O preço do Marketplace inclui um imposto, conforme determinado pelo editor. Os clientes não receberão uma fatura separada do editor para coletar o imposto sobre a transação.
 
 ![Captura de tela que mostra a opção de download nos encargos do Marketplace.](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 

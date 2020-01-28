@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: Identificar faces em imagens – API de Detecção Facial'
+title: 'Exemplo: Identificar rostos em imagens – Detecção Facial'
 titleSuffix: Azure Cognitive Services
 description: Este guia demonstra como identificar faces desconhecidas, usando objetos PersonGroup que são criados com base em pessoas conhecidas anteriormente.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977175"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169909"
 ---
 # <a name="example-identify-faces-in-images"></a>Exemplo: Identificar faces em imagens
 
-Este guia demonstra como identificar faces desconhecidas, usando objetos PersonGroup que são criados com base em pessoas conhecidas anteriormente. Os exemplos são gravados em C#, usando a biblioteca de clientes da API de Detecção Facial dos Serviços Cognitivos do Azure.
+Este guia demonstra como identificar faces desconhecidas, usando objetos PersonGroup que são criados com base em pessoas conhecidas anteriormente. As amostras foram escritas em C# com a biblioteca de clientes da Detecção Facial dos Serviços Cognitivos do Azure.
 
 ## <a name="preparation"></a>Preparação
 
@@ -131,7 +131,7 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Etapa 4: Identificar um rosto com relação a um PersonGroup definido
 
-Quando a API de Detecção Facial executa identificações, ela calcula a semelhança de uma face de teste entre todas as faces em um grupo. Ela retorna a pessoa mais comparável à face de teste. Esse processo é feito por meio da API [Face – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) ou pelo método IdentifyAsync da biblioteca de clientes.
+Quando o serviço de Detecção Facial faz identificações, ele calcula a semelhança de um rosto de teste entre todos os rostos em um grupo. Ela retorna a pessoa mais comparável à face de teste. Esse processo é feito por meio da API [Face – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) ou pelo método IdentifyAsync da biblioteca de clientes.
 
 A face de teste deve ser detectada por meio das etapas anteriores. Em seguida, a ID facial é passada para a API de identificação como um segundo argumento. Várias IDs faciais podem ser identificadas ao mesmo tempo. O resultado contém todos os resultados identificados. Por padrão, o processo de identificação retornará somente uma pessoa que melhor corresponda à face de teste. Se preferir, especifique o parâmetro opcional maxNumOfCandidatesReturned para permitir que o processo de identificação retorne mais candidatos.
 

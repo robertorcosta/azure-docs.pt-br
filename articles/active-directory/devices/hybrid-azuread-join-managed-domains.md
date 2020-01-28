@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787900918035dc8b14d3a173496ab1a23b0f93bb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 17bfbc29f38230dc2533c9ccc63cdee4fc776717
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813079"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512101"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -26,7 +26,7 @@ Como um usuário na sua organização, um dispositivo é uma identidade importan
 - Ingresso no Azure AD Híbrido
 - Registro do Azure AD
 
-Colocar os dispositivos no Azure AD maximiza a produtividade do usuário por meio de SSO (logon único) em recursos locais e na nuvem. Você pode proteger o acesso aos recursos locais e na nuvem com [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) ao mesmo tempo.
+Colocar os dispositivos no Azure AD maximiza a produtividade do usuário por meio de SSO (logon único) em recursos locais e na nuvem. Você pode proteger o acesso aos recursos locais e na nuvem com o [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) ao mesmo tempo.
 
 Neste tutorial, você aprenderá a configurar o ingresso no Azure Active Directory híbrido para dispositivos de computadores unidos ao domínio do Active Directory em um ambiente gerenciado. 
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Verificar dispositivos ingressados
 > * Solucionar problemas
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial presume que você esteja familiarizado com estes artigos:
 
@@ -53,7 +53,7 @@ Este tutorial presume que você esteja familiarizado com estes artigos:
 
 Para configurar o cenário neste artigo, é necessário que a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou posterior) esteja instalada.
 
-Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você quer que sejam unidos ao Azure AD híbrido com o Azure AD. Se os objetos de computador pertencerem a unidades organizacionais (OUs) específicas, você também deverá configurar as OUs para sincronizarem no Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador usando o Azure AD Connect, confira [Configurar filtragem usando o Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você quer que sejam unidos ao Azure AD híbrido com o Azure AD. Se os objetos de computador pertencerem a unidades organizacionais (OUs) específicas, você também deverá configurar as OUs para sincronizarem no Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador usando o Azure AD Connect, veja como [configurar a filtragem usando o Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
 A partir da versão 1.1.819.0, o Azure AD Connect inclui um assistente que você pode usar para configurar o ingresso no Azure AD híbrido. O assistente simplifica significativamente o processo de configuração. O assistente configura os SCPs (pontos de conexão do serviço) para registro do dispositivo.
 
@@ -66,12 +66,12 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (se você usa ou planeja usar o SSO contínuo)
 
-Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, confira [Solucionar problemas de detecção automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Se sua organização exigir acesso à Internet por meio de um proxy de saída, a Microsoft recomendará [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) de modo a permitir computadores Windows 10 para registro do dispositivo com o Azure AD. Se você encontrar problemas para configurar e gerenciar a WPAD, veja como [solucionar problemas de detecção automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Se você não usar a WPAD e precisar configurar as definições de proxy no computador, faça isso começando com o Windows 10 1709. Para saber mais, confira [Definir as configurações de WinHTTP usando um GPO (Objeto de Política de Grupo)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
-> Se você definir configurações de proxy em seu computador usando as configurações de WinHTTP, qualquer computador que não possa se conectar ao proxy configurado falhará ao se conectar à Internet.
+> Se você definir as configurações de proxy em seu computador usando as configurações de WinHTTP, qualquer computador que não possa se conectar ao proxy configurado não conseguirá se conectar à Internet.
 
 Se a organização exigir acesso à Internet por meio de um proxy de saída autenticado, será preciso garantir que os computadores com Windows 10 possam ser autenticados com êxito no proxy de saída. Como computadores com Windows 10 executam o registro de dispositivos usando o contexto do computador, será preciso configurar a autenticação de proxy de saída usando o contexto do computador. Acompanhe com o provedor de proxy de saída nos requisitos de configuração.
 
@@ -82,7 +82,7 @@ Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft men
 Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, será necessário ter:
 
 - As credenciais de um administrador global para o locatário do Azure AD
-- As credenciais de administrador corporativo para cada uma das florestas
+- Credenciais de administrador corporativo para cada uma das florestas
 
 **Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect:**
 
@@ -112,7 +112,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
    1. Selecione a floresta.
    1. Selecione o serviço de autenticação.
-   1. Selecione **Adicionar** para inserir as credenciais do administrador corporativo.
+   1. Selecione **Adicionar** para inserir as credenciais de administrador corporativo.
 
 1. Na página **Sistemas operacionais do dispositivo**, selecione os sistemas operacionais que os dispositivos no ambiente do Active Directory usam e selecione **Avançar**.
 
@@ -134,6 +134,9 @@ Se alguns dos seus dispositivos ingressados ao domínio forem dispositivos de n�
 - Configurar o SSO contínuo
 - Instalar o Workplace Join da Microsoft para computadores Windows de nível inferior
 
+> [!NOTE]
+> O suporte do Windows 7 foi encerrado em 14 de janeiro de 2020. Para obter mais informações, confira [O suporte do Windows 7 foi encerrado](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
+
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Definir as configurações de Intranet Local para registro do dispositivo
 
 Para concluir com êxito o ingresso dos dispositivos de nível inferior do Windows no Azure AD híbrido e evitar prompts de certificado quando os dispositivos autenticarem no Azure AD, envie uma política por push aos dispositivos ingressados no domínio para adicionar as seguintes URLs à zona da Intranet Local no Internet Explorer:
@@ -151,7 +154,7 @@ Para concluir o ingresso no Azure AD híbrido de seus dispositivos de nível inf
 
 Para registrar dispositivos de nível inferior do Windows, as organizações devem instalar o [Workplace Join da Microsoft nos computadores sem Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). O Workplace Join da Microsoft para computadores sem Windows 10 está disponível no Centro de Download da Microsoft.
 
-É possível implantar o pacote usando um sistema de distribuição de software como o [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
+É possível implantar o pacote usando um sistema de distribuição de software como o  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro `quiet`. O atual branch do Configuration Manager oferece benefícios adicionais em relação às versões anteriores, como a capacidade de rastrear registros concluídos.
 
 O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa une silenciosamente o dispositivo com o Azure AD usando as credenciais do usuário depois que ele se autentica com o Azure AD.
 
@@ -163,7 +166,7 @@ Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 - É necessário que haja um objeto com a **identificação do dispositivo** correspondente à ID no cliente do Windows.
 - O valor para **DeviceTrustType** deverá ser **Ingressado no Domínio**. Essa configuração equivale ao estado **ingressou no Azure AD híbrido** na página **Dispositivos** no portal do Azure AD.
-- Para dispositivos que são usados em Acesso Condicional, o valor para **Enabled** deve ser **True** e **DeviceTrustLevel** deve ser **Managed**.
+- Nos dispositivos que são usados em Acesso Condicional, o valor para **Enabled** deve ser **True** e **DeviceTrustLevel** deve ser **Managed**.
 
 **Para verificar os detalhes do serviço**:
 

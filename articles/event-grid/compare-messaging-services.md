@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790316"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122195"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
@@ -97,7 +97,7 @@ Em outros casos, você os vincula juntos para formar um pipeline de dados e even
 ![Visão geral de dados de fluxo](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos: 
+Veja os artigos a seguir: 
 - [Opções de mensagens assíncronas no Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Eventos, pontos de dados e mensagens – escolhendo o serviço de mensagens do Azure correto para seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Filas de armazenamento e filas do Barramento de Serviço — comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

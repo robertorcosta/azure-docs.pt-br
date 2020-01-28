@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3889378f34d66f54ea408da4aa43b12f86e7c586
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979046"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262584"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Criar uma regra e configurar notificações no aplicativo Azure IoT Central (versão prévia dos recursos)
 
@@ -25,21 +25,22 @@ ms.locfileid: "74979046"
 
 Os dispositivos usam a telemetria para enviar dados numéricos do dispositivo. Uma regra é disparada quando a telemetria do dispositivo selecionado ultrapassa um limite especificado.
 
-Neste tutorial, você criará uma regra para enviar um email quando a temperatura em um dispositivo de sensor ambiental exceder 80&deg; F.
+Neste tutorial, você criará uma regra para enviar um email quando a temperatura em um dispositivo de sensor ambiental exceder 70&deg; F.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Criar uma regra
 > * Adicionar uma ação de e-mail
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, você deve concluir os inícios rápidos [Criar um aplicativo do Azure IoT Central](./quick-deploy-iot-central.md) e [Adicionar um dispositivo simulado ao seu aplicativo do IoT Central](./quick-create-pnp-device.md) para criar o modelo de dispositivo **Sensor Ambiental** com o qual trabalhar.
 
 ## <a name="create-a-rule"></a>Criar uma regra
 
-Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos uma medida de telemetria definida. Este tutorial usa um dispositivo de sensor ambiental que envia telemetria de temperatura e umidade. Você adicionou esse modelo de dispositivo e criou um dispositivo simulado no início rápido [Adicionar um dispositivo simulado ao seu aplicativo de IoT Central](./quick-create-pnp-device.md). A regra monitora a temperatura relatada pelo dispositivo e envia um email quando ultrapassa os 80 graus.
+Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos uma medida de telemetria definida. Este tutorial usa um dispositivo de sensor ambiental que envia telemetria de temperatura e umidade. Você adicionou esse modelo de dispositivo e criou um dispositivo simulado no início rápido [Adicionar um dispositivo simulado ao seu aplicativo de IoT Central](./quick-create-pnp-device.md). A regra monitora a temperatura relatada pelo dispositivo e envia um email quando ultrapassa os 70 graus.
 
 1. No painel esquerdo, selecione **Regras**.
 
@@ -57,18 +58,18 @@ Para criar uma regra de telemetria, o modelo do dispositivo deve ter pelo menos 
 
 ### <a name="configure-the-rule-conditions"></a>Configurar as condições de regra
 
-As condições definem os critérios monitorados pela regra. Neste tutorial, você configurará a regra a ser acionada quando a temperatura exceder 80&deg; F.
+As condições definem os critérios monitorados pela regra. Neste tutorial, você configurará a regra a ser acionada quando a temperatura exceder 70&deg; F.
 
 1. Selecione **Temperatura** no menu suspenso **Telemetria**.
 
-1. Em seguida, escolha **É maior que** como o **Operador** e insira _80_ como o **Valor**.
+1. Em seguida, escolha **É maior que** como o **Operador** e insira _70_ como o **Valor**.
 
     ![Condição](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Opcionalmente, você pode definir uma **Agregação de tempo**. Ao selecionar uma agregação de tempo, você deve selecionar também um tipo de agregação, como média ou soma do menu suspenso de agregação.
 
-    * Sem agregação, a regra é disparada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra estiver configurada para disparar quando temperatura estiver acima de 80, então a regra será disparada quase instantaneamente quando o dispositivo relatar temperatura > 80.
-    * Com a agregação, a regra será disparada se o valor de agregação dos pontos de dados de telemetria na janela de tempo atender à condição. Por exemplo, se a regra estiver configurada para ser disparada quando a temperatura estiver acima de 80, a agregação de tempo estiver definida como 10 minutos e o tipo de agregação for a média, então a regra será disparada quando o dispositivo relatar uma temperatura média > 80, calculada durante um intervalo de 10 minutos.
+    * Sem agregação, a regra é disparada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra estiver configurada para disparar quando temperatura estiver acima de 70, então a regra será disparada quase instantaneamente quando o dispositivo relatar temperatura > 70.
+    * Com a agregação, a regra será disparada se o valor de agregação dos pontos de dados de telemetria na janela de tempo atender à condição. Por exemplo, se a regra estiver configurada para ser disparada quando a temperatura estiver acima de 70, a agregação de tempo estiver definida como 10 minutos e o tipo de agregação for a média, então a regra será disparada quando o dispositivo relatar uma temperatura média > 70, calculada durante um intervalo de 10 minutos.
 
      ![Condição de agregação](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -109,7 +110,7 @@ Escolha a regra que você deseja habilitar ou desabilitar. Adicione um filtro na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
+Neste tutorial, você aprendeu a:
 
 * Criar uma regra baseada em telemetria
 * Adicionar uma ação

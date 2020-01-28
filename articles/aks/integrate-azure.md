@@ -1,34 +1,32 @@
 ---
 title: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 description: Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
-services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758281"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276798"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrar com serviços gerenciados do Azure usando o Service Broker Aberto para Azure (OSBA)
 
 Junto com o [catálogo de serviços do Kubernetes ][kubernetes-service-catalog], o Service Broker Aberto para Azure (OSBA) permite que desenvolvedores utilizem serviços gerenciados pelo Azure no Kubernetes. Este guia se concentra na implantação do Serviço de catálogo do Kubernetes, Service Broker Aberto para Azure (OSBA) e aplicativos que usam serviços gerenciados pelo Azure usando o Kubernetes.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Uma assinatura do Azure
 
-* CLI do Azure: [instale localmente][azure-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
+* CLI do Azure: [instale-a localmente][azure-cli-install] ou use-a no [Azure Cloud Shell][azure-cloud-shell].
 
-* CLI 2.7+ do Helm: [instale localmente][helm-cli-install], ou use-o no [Azure Cloud Shell][azure-cloud-shell].
+* CLI 2.7+ do Helm: [instale-a localmente][helm-cli-install] ou use-a no [Azure Cloud Shell][azure-cloud-shell].
 
 * Permissões para criar uma Entidade de Serviço com a função de Colaborador na sua assinatura Azure
 
-* Um cluster do Serviço de Kubernetes do Azure (AKS) existente. Caso precise de um cluster AKS, siga o tutorial [Criar um cluster AKS][create-aks-cluster].
+* Um cluster do Serviço de Kubernetes do Azure (AKS) existente. Caso precise de um cluster AKS, siga o tutorial [Criar um cluster AKS ][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Instalar o catálogo de serviços
 
@@ -131,7 +129,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-Uma vez concluída a implantação de OSBA, instale a [CLI do serviço de catálogo][service-catalog-cli], uma interface de linha de comando fácil de usar para consultar os agentes de serviço, as classes de serviço, os planos de serviço e muito mais.
+Uma vez concluída a implantação de OSBA, instale a[CLI do serviço de catálogo][service-catalog-cli], uma interface de linha de comando fácil de usar para consultar os agentes de serviço, as classes de serviço, os planos de serviço e muito mais.
 
 Execute os comandos a seguir para instalar o binário da CLI do serviço de catálogo:
 
@@ -146,7 +144,7 @@ Agora, liste os agentes de serviço instalados:
 ./svcat get brokers
 ```
 
-Você deverá ver uma saída semelhante ao seguinte:
+Será exibida uma saída semelhante à seguinte:
 
 ```
   NAME                               URL                                STATUS

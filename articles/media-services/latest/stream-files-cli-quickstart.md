@@ -1,5 +1,5 @@
 ---
-title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure e o CLI do Azure | Microsoft Docs
+title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure e a CLI do Azure
 description: Execute as etapas deste tutorial para criar uma nova conta dos Serviços de Mídia do Azure, codificar um arquivo e transmiti-lo para o Player de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 58193a94d09dee5df611acf5d98c8661dd18abbb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639978"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514367"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – CLI
 
@@ -340,7 +340,7 @@ Aqui está um exemplo:
 >[!NOTE]
 >O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado em um ambiente de produção.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que criou neste tutorial, exclua o grupo de recursos.
 

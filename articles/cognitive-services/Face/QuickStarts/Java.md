@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6d0a5cdf4b33ba290042627f0ceaf4cf73a375c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977991"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169320"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Java
 
@@ -23,9 +23,9 @@ Neste início rápido, você usará a API de Detecção Facial do Azure com Java
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-- Uma chave de assinatura da API de Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço API de Detecção Facial e obter sua chave.
+- Uma chave de assinatura da Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Detecção Facial e obter a sua chave.
 - Qualquer Java IDE de sua preferência.
 
 ## <a name="create-the-java-project"></a>Criar o projeto Java
@@ -152,7 +152,7 @@ Diretamente abaixo do código anterior, adicione o seguinte bloco, que converte 
 }
 ```
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detecção Facial em um formato JSON legível na janela do console. Por exemplo:
 
@@ -248,7 +248,7 @@ Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um aplicativo de console simples de Java que usa chamadas REST com a API de Detecção Facial do Azure para detectar faces em uma imagem e retornar seus atributos. Agora, saiba como aproveitar mais essa funcionalidade em um aplicativo para Android.
+Neste início rápido, você criou um aplicativo de console Java simples que usa chamadas REST à API de Detecção Facial do Azure para detectar rostos em uma imagem e retornar os atributos deles. Agora, saiba como aproveitar mais essa funcionalidade em um aplicativo para Android.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

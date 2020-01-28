@@ -11,28 +11,28 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495233"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165756"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Início Rápido: Obter a intenção com um navegador
 
 Para entender o que um ponto de extremidade de previsão do LUIS retorna, exiba um resultado de previsão em um navegador da Web. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para consultar um aplicativo público, você precisará de:
 
-* Sua própria chave LUIS (Reconhecimento vocal). Caso você ainda não tenha uma assinatura para criar uma chave, registre-se em uma [conta gratuita](https://azure.microsoft.com/free/). A chave de criação do LUIS não funcionará. 
+* A própria chave de Criação ou Previsão do LUIS (Reconhecimento vocal) que pode ser obtida no [Portal do LUIS (versão prévia)](https://preview.luis.ai/). Caso você ainda não tenha uma assinatura para criar uma chave, registre-se em uma [conta gratuita](https://azure.microsoft.com/free/). 
 * A ID do aplicativo público: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## <a name="use-the-browser-to-see-predictions"></a>Usar o navegador para ver as previsões
 
 1. Abra um navegador da Web. 
-1. Use as URLs completas abaixo, substituindo `YOUR-KEY` por sua própria chave LUIS. As solicitações são solicitações GET e incluem a autorização, com a chave LUIS, como um parâmetro de cadeia de consulta.
+1. Use as URLs completas abaixo, substituindo `YOUR-KEY` pela própria chave de Criação ou Previsão do LUIS. As solicitações são solicitações GET e incluem a autorização, com a chave de Criação ou Previsão do LUIS, como um parâmetro de cadeia de consulta.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Solicitação de previsão V3](#tab/V3-1-1)
     

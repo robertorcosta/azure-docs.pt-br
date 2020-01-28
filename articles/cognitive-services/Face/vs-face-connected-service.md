@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: API de Detecção Facial C#'
+title: 'Tutorial: Serviço Conectado de Detecção Facial'
 titleSuffix: Azure Cognitive Services
-description: Crie um aplicativo do Windows que usa a API de Detecção Facial de Serviços Cognitivos para detectar características de rostos em uma imagem.
+description: Crie um aplicativo do Windows que usa o serviço de Detecção Facial de Serviços Cognitivos para detectar características de rostos em uma imagem.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0fe92fc7f19c3c899bcccfa9f9cc18029af049c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970288"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170233"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conectar a API de Detecção Facial dos Serviços Cognitivos usando Serviços Conectados no Visual Studio
+# <a name="connect-to-the-face-service-by-using-connected-services-in-visual-studio"></a>Conectar-se ao serviço de Detecção Facial usando os Serviços Conectados no Visual Studio
 
-Usando a API de Detecção Facial dos Serviços Cognitivos é possível detectar, analisar, organizar e marcar faces nas fotos.
+Usando o serviço de Detecção Facial do Azure, você pode detectar, analisar, organizar e marcar rostos em fotos.
 
-Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso de Serviço Conectado do Visual Studio para API de Detecção Facial dos Serviços Cognitivos. O recurso está disponível no Visual Studio 2017 15.7 ou posterior, com a extensão dos Serviços Cognitivos instalada.
+Este artigo e os artigos complementares fornecem detalhes sobre como usar o recurso Serviço Conectado do Visual Studio para o serviço de Detecção Facial. O recurso está disponível no Visual Studio 2017 15.7 ou posterior, com a extensão dos Serviços Cognitivos instalada.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma assinatura do Azure. Se você não tiver uma, poderá se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Microsoft Visual Studio 2017 versão 15.7 ou superior com a carga de trabalho de **Desenvolvimento para a Web** instalada. [Baixe agora](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Criar um projeto e adicionar suporte à API de Detecção Facial dos Serviços Cognitivos
+## <a name="create-a-project-and-add-support-for-face"></a>Criar um projeto e adicionar suporte à Detecção Facial
 
 1. Criar um novo projeto Web do ASP.NET Core. Use o modelo de projeto Vazio. 
 
@@ -47,16 +47,16 @@ Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso
 
    ![Selecione sua assinatura](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Selecione a assinatura que você quer usar e, em seguida, escolha um nome para a API de Detecção Facial ou escolha o link Editar para modificar o nome gerado automaticamente, escolha o grupo de recursos e Tipo de Preço.
+1. Selecione a assinatura que deseja usar e, em seguida, escolha um nome para o serviço de Detecção Facial ou escolha o link Editar para modificar o nome gerado automaticamente, escolha o grupo de recursos e o Tipo de Preço.
 
    ![Editar detalhes do serviço conectado](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    Acompanhe o link para obter detalhes sobre os tipos de preços.
 
 1. Escolha Adicionar para adicionar suporte para o Serviço Conectado.
-   O Visual Studio modifica o projeto para adicionar os pacotes NuGet, entradas do arquivo de configuração e outras alterações para dar suporte a uma conexão com API de Detecção Facial.
+   O Visual Studio modifica o projeto para adicionar os pacotes NuGet, as entradas do arquivo de configuração e outras alterações para dar suporte a uma conexão com o serviço de Detecção Facial.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Usar a API de Detecção Facial para detectar atributos de faces em uma imagem
+## <a name="use-the-face-service-to-detect-attributes-of-faces-in-an-image"></a>Usar o serviço de Detecção Facial para detectar atributos de rostos em uma imagem
 
 1. Adicione o seguinte usando instruções no Startup.cs.
  
@@ -79,7 +79,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso
       }
    ```
 
-1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, é possível usar uma das imagens nesta [página de API de Detecção Facial](https://azure.microsoft.com/services/cognitive-services/face/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item Existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções:
+1. Na pasta wwwroot do projeto, adicione uma pasta de imagens e adicione um arquivo de imagem à pasta wwwroot. Por exemplo, você pode usar uma das imagens da [página da Detecção Facial](https://azure.microsoft.com/services/cognitive-services/face/) do portal do Azure. Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta de imagens e escolha **Adicionar** > **Item Existente** para adicionar ao projeto. O projeto deve ser semelhante a este no Gerenciador de Soluções:
  
    ![pasta de imagens com arquivo de imagem](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -87,7 +87,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso
 
    ![Copiar se mais recente](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Substitua o método Configurar pelo seguinte código para acessar a API de Detecção Facial e testar uma imagem. Altere a cadeia de caracteres imagePath para o caminho e nome de arquivo corretos para a imagem de face.
+1. Substitua o método Configure pelo código a seguir para acessar o serviço de Detecção Facial e testar uma imagem. Altere a cadeia de caracteres imagePath para o caminho e nome de arquivo corretos para a imagem de face.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -231,11 +231,11 @@ Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso
         }
    ```
 
-1. Execute o aplicativo Web e veja o que a API de Detecção Facial localizou na imagem.
+1. Execute o aplicativo Web e veja o que o serviço de Detecção Facial encontrou na imagem.
  
-   ![Imagem e resultados formatados da API de Detecção Facial](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Imagem do serviço de Detecção Facial e os resultados formatados](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o serviço cognitivo e os recursos relacionados. Para excluir o grupo de recursos pelo portal:
 
@@ -245,4 +245,4 @@ Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o serv
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre a API de Detecção Facial, lendo as informações na [Documentação da API de Detecção Facial](Overview.md).
+Saiba mais sobre o serviço de Detecção Facial lendo a [Documentação da Detecção Facial](Overview.md).

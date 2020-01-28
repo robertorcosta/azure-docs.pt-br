@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969914"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169998"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início Rápido: Como criar um detector de objeto com a Visão Personalizada
 
@@ -23,7 +23,7 @@ Neste início rápido, você aprenderá a criar um detector de objeto por meio d
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um conjunto de imagens com o qual o modelo de detector será treinado. Você pode usar o conjunto de [imagens de exemplo](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) no GitHub. Ou pode escolher suas próprias imagens usando as dicas abaixo.
 
@@ -107,6 +107,8 @@ Depois que o treinamento for concluído, o desempenho do modelo será calculado 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
 Sempre que treinar o detector, você criará uma _iteração_ com suas próprias métricas de desempenho atualizadas. É possível exibir todas as iterações no painel à esquerda da guia **Desempenho**. No painel à esquerda, também é possível encontrar o botão **Excluir**, que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui qualquer imagem que esteja exclusivamente associada a ela.
+
+Confira [Usar o modelo com a API de previsão](./use-prediction-api.md) para saber como acessar seus modelos treinados de maneira programática.
 
 ## <a name="next-steps"></a>Próximas etapas
 

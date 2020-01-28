@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 61d7a2a7e4a60794710d602dab6b54e894bfc475
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232017"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549284"
 ---
+> [!NOTE]
+> O processo de integração do SmarterU com o Azure Active Directory também é documentado e mantido no [sistema de ajuda do SmarterU](https://help.smarteru.com/ID2053086).
+
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Azure Active Directory ao SmarterU
 
 Neste tutorial, você aprenderá a integrar o SmarterU ao Azure AD (Azure Active Directory).
@@ -34,7 +37,7 @@ A integração do SmarterU ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar a integração do Azure AD com o SmarterU, você precisa dos seguintes itens:
 
@@ -61,7 +64,7 @@ Para configurar a integração do SmarterU ao Azure AD, você precisará adicion
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar um novo aplicativo.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 

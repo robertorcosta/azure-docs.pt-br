@@ -1,27 +1,19 @@
 ---
-title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com a CLI do Azure | Microsoft Docs
+title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com a CLI do Azure
 description: Saiba como usar a CLI do Azure para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais conforme a demanda de CPU aumenta e diminui
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4064816ae932a0f26fd3478420c69f3e8fba8732
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9ede78933e6b9e6933b0c5dabce395eb10713c88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751269"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278448"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -105,7 +97,7 @@ az monitor autoscale rule create \
 
 ## <a name="generate-cpu-load-on-scale-set"></a>Gerar carga de CPU no conjunto de dimensionamento
 
-Para testar as regras de dimensionamento automático, gere carga da CPU nas instâncias de VM no conjunto de dimensionamento. Essa carga de CPU simulada faz com que o dimensionamento automático escale horizontalmente e aumente o número de instâncias de VM. Conforme a carga simulada de CPU vai sendo reduzida, as regras de dimensionamento automático para redução diminuem o número de instâncias de VM.
+Para testar as regras de dimensionamento automático, gere alguma carga de CPU nas instâncias de VM no conjunto de dimensionamento. Essa carga de CPU simulada faz com que o dimensionamento automático escale horizontalmente e aumente o número de instâncias de VM. Conforme a carga simulada de CPU vai sendo reduzida, as regras de dimensionamento automático reduzem horizontalmente e diminuem o número de instâncias de VM.
 
 Primeiro, liste os endereços e as portas para se conectar a instâncias de VM em um conjunto de dimensionamento, use [az vmss list-instance-connection-info](/cli/azure/vmss):
 
@@ -130,7 +122,7 @@ SSH para a primeira instância de VM. Especifique seu próprio endereço IP púb
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de conectado, instale o utilitário **stress**. Inicie *10* trabalhos de **stress** que geram carga de CPU. Esses trabalhos são executados por *420* segundos, o que é suficiente para fazer com que as regras de dimensionamento automático implementem a ação desejada.
+Depois de conectado, instale o utilitário **stress**. Inicie *10* **trabalhos** de stress que geram carga de CPU. Esses trabalhos são executados por *420* segundos, o que é suficiente para fazer com que as regras de dimensionamento automático implementem a ação desejada.
 
 ```azurecli-interactive
 sudo apt-get -y install stress
@@ -206,7 +198,7 @@ Assim que o **stress** é interrompido nas instâncias de VM inicias, a carga m�
 
 Saia do *watch* usando `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e a remover uma instância de VM até que a contagem mínima de duas instâncias seja alcançada.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` retorna o controle ao prompt sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso.
 

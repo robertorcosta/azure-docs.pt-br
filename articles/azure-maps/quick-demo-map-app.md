@@ -3,18 +3,18 @@ title: 'Início Rápido: Pesquisa de Mapa Interativo com o Azure Mapas | Microso
 description: Saiba como criar um aplicativo Web de demonstração para a pesquisa de mapa interativo usando o SDK Web do Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/08/2019
+ms.date: 1/14/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4081dd383fc0e7378bc8c8438781c13e6a34e075
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910689"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156430"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Início Rápido: Criar um mapa de pesquisa interativo usando o Azure Mapas
 
@@ -61,7 +61,7 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite con
 
 ## <a name="download-the-application"></a>Fazer o download do aplicativo
 
-1. Baixe ou copie o conteúdo do arquivo [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
+1. Acesse [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) e clique nele para exibir o conteúdo na interface do usuário do GitHub. Clique com o botão direito do mouse no botão **Bruto** e copie o conteúdo do arquivo ou 'Salvar como' para baixar o arquivo.
 2. Salve o conteúdo deste arquivo localmente como **AzureMapDemo.html**. Abra-o em um editor de texto.
 3. Pesquise pela cadeia de caracteres `<Your Azure Maps Key>`. Substitua-o pelo valor **Chave primária** da seção anterior.
 

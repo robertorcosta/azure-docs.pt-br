@@ -1,19 +1,17 @@
 ---
-title: Tutorial – Excluir um cluster do Red Hat OpenShift no Azure | Microsoft Docs
+title: Tutorial – Excluir um cluster do Red Hat OpenShift no Azure
 description: Neste tutorial, saiba como excluir um cluster do Red Hat OpenShift no Azure usando a CLI do Azure
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad70f4c3681705377a350fee8b02a55c526f26c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669346"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278768"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Tutorial: Excluir um cluster do Red Hat OpenShift no Azure
 
@@ -30,7 +28,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Dimensionar um cluster do Red Hat OpenShift no Azure](tutorial-scale-cluster.md)
 > * Excluir um cluster do Red Hat OpenShift no Azure
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar este tutorial:
 
@@ -44,7 +42,7 @@ Se você estiver executando a CLI do Azure localmente, execute `az login` para e
 az login
 ```
 
-Se você tiver acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` com a assinatura que você deseja usar.
+Caso tenha acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` pela assinatura que você deseja usar.
 
 ## <a name="step-2-delete-the-cluster"></a>Etapa 2: Excluir o cluster
 

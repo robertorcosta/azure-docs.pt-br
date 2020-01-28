@@ -1,6 +1,6 @@
 ---
 title: Relocalização grosseira no Swift
-description: Explicação detalhada de como criar e localizar âncoras usando sensores no dispositivo em Swift.
+description: Explicação detalhada de como criar e localizar âncoras usando relocalização de alta granularidade em Swift.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1381f6340d1b85376ad5be9e00c596aa921d957f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b568c43f8420b5a2f994b4cba145bf4d70b9010
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277191"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546156"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-swift"></a>Como criar e localizar âncoras usando sensores no dispositivo em Swift
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-swift"></a>Como criar e localizar âncoras usando relocalização de alta granularidade em Swift
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277191"
 
 As Âncoras Espaciais do Azure podem associar dados de sensor de posicionamento no dispositivo com as âncoras que você criar. Esses dados também podem ser usados para determinar rapidamente se há âncoras próximas ao seu dispositivo. Para obter mais informações, confira [Relocalização grosseira](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este guia, verifique se você tem:
 

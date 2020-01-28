@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c9a5138146897fdfed4661b85198cbff6b74bf5a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665218"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293854"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C# para dispositivos Windows
 
@@ -102,20 +102,21 @@ O manifesto de implantação compartilha as credenciais para seu registro de con
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+3. Abra o arquivo **.env** em sua solução de módulo. (Está oculto por padrão no Gerenciador de Soluções; portanto, pode ser necessário selecionar o botão **Mostrar Todos os Arquivos** para exibi-lo.) O arquivo .env deve conter as mesmas variáveis de nome de usuário e senha que você viu no arquivo deployment.template.json. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+4. Adicione os valores de **Nome de usuário** e **Senha** de seu Registro de Contêiner do Azure. 
 
-5. Save your changes to the .env file.
+5. Salve suas alterações no arquivo .env.
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com código personalizado
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+O código padrão do módulo recebe mensagens em uma fila de entrada e as passa adiante por meio de sua fila de saída. Vamos adicionar algum código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las ao Hub IoT. Atualize o módulo para que ele analise os dados de temperatura em cada mensagem e envie apenas a mensagem ao Hub IoT se a temperatura exceder determinado limite. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. No Visual Studio, abra **CSharpModule** > **Program.cs**.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. Na parte superior do namespace **CSharpModule**, adicione três instruções **using** aos tipos usados posteriormente:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

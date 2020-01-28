@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 6d926ccaac5ca05fe6f137102cbfdd45b0e182bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4bb3af4ddad7e40cbf7edd58cf5899ced2757512
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434624"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548791"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando o Node.js
 
@@ -147,7 +147,10 @@ Se planejar explorar exemplos do serviço Node.js, não limpe os recursos criado
 3. No Serviço de Provisionamento de Dispositivos no portal do Azure, selecione **Certificados**, clique no certificado que você enviou para este início rápido e pressione o botão **Excluir** na parte superior da janela **Detalhes do Certificado**.  
  
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste início rápido, você criou um registro de grupo para um Certificado de Autoridade de Certificação raiz ou intermediário X.509 usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. Para saber mais sobre os detalhes de configuração do dispositivo, prossiga para o tutorial de configuração do Serviço de Provisionamento de Dispositivos no portal do Azure. 
+
+Além disso, confira o [Exemplo de provisionamento de dispositivos do Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
  
 > [!div class="nextstepaction"]
 > [Tutoriais do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](./tutorial-set-up-cloud.md)

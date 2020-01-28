@@ -11,17 +11,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708284"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274804"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Início Rápido: Criar uma instância do modo híbrido com portal do Azure e Serviço de Migração de Banco de Dados do Azure
 
-O modo híbrido do Serviço de Migração de Banco de Dados do Azure gerencia migrações de banco de dados usando um trabalho de migração que é hospedado localmente junto com uma instância do Serviço de Migração de Banco de Dados do Azure em execução na nuvem. O modo híbrido é especialmente útil para cenários nos quais há uma falta de conectividade site a site entre a rede local e o Azure ou se há largura de banda de conectividade limitada de site a site.
+O modo híbrido do Serviço de Migração de Banco de Dados do Azure gerencia migrações de banco de dados usando um trabalho de migração hospedado localmente junto com uma instância do Serviço de Migração de Banco de Dados do Azure em execução na nuvem. O modo híbrido é especialmente útil para cenários nos quais há uma falta de conectividade site a site entre a rede local e o Azure ou se há largura de banda de conectividade limitada de site a site.
 
 >[!NOTE]
 >Atualmente, o Serviço de Migração de Banco de Dados do Azure em execução no modo híbrido é compatível com migrações do SQL Server para:
@@ -73,7 +73,7 @@ Registre o provedor de recursos Microsoft.DataMigration antes de criar sua prime
     - Escolha o **Local** mais próximo ao seu servidor de origem ou de destino.
     - No **Modo de serviço**, selecione **Híbrido (versão prévia)** .
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Criar serviço de migração – noções básicas](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Selecione **Examinar + criar**.
 
@@ -186,7 +186,7 @@ Esse script destina-se a uma rápida criação de protótipos quando o usuário 
 > [!IMPORTANT]
 > Esse script pressupõe que há uma instância do Serviço de Migração de Banco de Dados do Azure no modo híbrido e que a conta do Azure usada tenha permissões para criar AdApps no locatário e para modificar o RBAC na assinatura.
 
-Basta preencher os parâmetros na parte superior do script e, em seguida, executar o script de uma instância de Administrador do PowerShell.
+Preencha os parâmetros na parte superior do script e, em seguida, executar o script de uma instância de Administrador do PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas
 

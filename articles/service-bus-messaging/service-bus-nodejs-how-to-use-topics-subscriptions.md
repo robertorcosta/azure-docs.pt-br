@@ -1,6 +1,6 @@
 ---
-title: Usar tópicos e assinaturas do Barramento de Serviço do Azure com o pacote Node.js azure/service-bus
-description: 'Início Rápido: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js.'
+title: Usar tópicos do Barramento de Serviço do Azure com o pacote Node.js azure/service-bus
+description: Saiba como usar os tópicos e as assinaturas do Barramento de Serviço no Azure de um aplicativo Node.js usando o pacote azure/service-bus.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 3955b67bd0fd40eb903543a240795ed8bc36b3b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e6ac3c74a0a8346ad8a6820c676224bfcba0e8b4
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462104"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264434"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure-sb
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote do Node.js"]

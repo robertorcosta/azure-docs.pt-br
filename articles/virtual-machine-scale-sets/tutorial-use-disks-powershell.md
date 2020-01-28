@@ -1,27 +1,19 @@
 ---
-title: Tutorial – Criar e usar discos para conjuntos de dimensionamento com o Azure PowerShell | Microsoft Docs
+title: Tutorial – Criar e usar discos para conjuntos de dimensionamento com o Azure PowerShell
 description: Saiba como usar o Azure PowerShell para criar e usar Managed Disks com conjuntos de dimensionamento de máquinas virtuais, incluindo como adicionar, preparar, listar e desanexar discos.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728592"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278268"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: criar e usar discos com um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -56,7 +48,7 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 | [Memória otimizada](../virtual-machines/windows/sizes-memory.md) | Série D, E, G e M | 6144 |
 | [Armazenamento otimizado](../virtual-machines/windows/sizes-storage.md) | Série L | 5630 |
 | [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 1440 |
-| [Alto desempenho](../virtual-machines/windows/sizes-hpc.md) | Séries A e H | 2000 |
+| [Alto desempenho](../virtual-machines/windows/sizes-hpc.md) | Série A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
@@ -191,7 +183,7 @@ Get-AzLoadBalancerInboundNatRuleConfig -LoadBalancer $lb | Select-Object Name,Pr
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name myPublicIPAddress | Select IpAddress
 ```
 
-Para conectar-se à sua VM, especifique seu próprio endereço IP público e número da porta da instância de VM necessária, conforme mostrado com os comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento. Caso use o Azure Cloud Shell, execute esta etapa de um prompt do PowerShell local ou do Cliente da Área de Trabalho Remota. O exemplo a seguir se conecta a uma instância de VM em *1*:
+Para conectar-se à sua VM, especifique seu próprio endereço IP público e número da porta da instância de VM necessária, conforme mostrado com os comandos anteriores. Quando solicitado, insira as credenciais usadas quando você criou o conjunto de dimensionamento. Caso use o Azure Cloud Shell, execute esta etapa de um prompt do PowerShell local ou do Cliente da Área de Trabalho Remota. O exemplo abaixo se conecta a uma instância de VM em *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -243,7 +235,7 @@ PartitionNumber  DriveLetter  Offset   Size   Type
 1                H            1048576  128 GB  IFS
 ```
 
-Os discos em cada instância de VM em sei dimensionamento são automaticamente preparados da mesma maneira. À medida que seu conjunto de dimensionamento escala verticalmente, os discos de dados necessários são anexados às novas instâncias de VM. A Extensão de Script Personalizado também é executada para preparar os discos automaticamente.
+Os discos em cada instância de VM no dimensionamento são automaticamente preparados da mesma maneira. À medida que seu conjunto de dimensionamento escala verticalmente, os discos de dados necessários são anexados às novas instâncias de VM. A Extensão de Script Personalizado também é executada para preparar os discos automaticamente.
 
 Feche a sessão de conexão de área de trabalho remota com a instância de VM.
 
@@ -304,7 +296,7 @@ Update-AzVmss `
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o conjunto de dimensionamento e os discos, exclua o grupo de recursos e todos os seus recursos com [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

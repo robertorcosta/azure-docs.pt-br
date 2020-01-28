@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Detectar e exibir dados de rosto em uma imagem usando o SDK do .NET'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você criará um aplicativo Windows que usa a API de Detecção Facial para detectar e enquadrar rostos em uma imagem.
+description: Neste tutorial, você criará um aplicativo do Windows que usa o serviço de Detecção Facial para detectar e enquadrar rostos em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977957"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165913"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo WPF (Windows Presentation Framework) para exibir dados faciais em uma imagem
 
-Neste tutorial, você aprenderá a usar a API de Detecção Facial do Azure, por meio do SDK de cliente do .NET, para detectar rostos em uma imagem e, em seguida, apresentar esses dados na interface do usuário. Você criará um aplicativo WPF que detecta rostos, desenha um quadro em torno de cada um deles e exibe uma descrição do rosto na barra de status. 
+Neste tutorial, você aprenderá a usar o serviço de Detecção Facial do Azure, por meio do SDK do cliente .NET, para detectar rostos em uma imagem e, em seguida, apresentar esses dados na interface do usuário. Você criará um aplicativo WPF que detecta rostos, desenha um quadro em torno de cada um deles e exibe uma descrição do rosto na barra de status. 
 
 Este tutorial mostra como:
 
 > [!div class="checklist"]
 > - Criar um aplicativo WPF
-> - Instalar a biblioteca de clientes da API de Detecção Facial
+> - Instalar a biblioteca de clientes da Detecção Facial
 > - Use a biblioteca de clientes para detectar rostos em uma imagem
 > - Desenhar um quadro em torno de cada rosto detectado
 > - Exibir uma descrição do rosto em destaque na barra de status
@@ -37,9 +37,9 @@ O exemplo de código completo está disponível no repositório [Exemplo CSharp 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
-- Uma chave de assinatura da API de Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço API de Detecção Facial e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, denominadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
+- Uma chave de assinatura da Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções descritas em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço de Detecção Facial e obter a sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres do ponto de extremidade de serviço, denominadas `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`, respectivamente.
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
@@ -61,7 +61,7 @@ Abra *MainWindow.xaml* e substitua o conteúdo pelo código a seguir – esse c�
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 
-### <a name="create-the-main-class"></a>Criar a classe Main
+### <a name="create-the-main-class"></a>Criar a classe principal
 
 Abra *MainWindow.xaml.cs* e adicione os namespaces da biblioteca de clientes, junto com outros namespaces necessários. 
 
@@ -117,7 +117,7 @@ Adicione o código a seguir ao método **FacePhoto_MouseMove**. Esse manipulador
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 
 Execute o aplicativo e procure uma imagem contendo um rosto. Aguarde alguns segundos para permitir que o serviço de Detecção Facial responda. Você deve ver um retângulo vermelho em cada um dos rostos na imagem. Ao mover o mouse sobre um retângulo de enquadramento facial, a descrição desse rosto aparecerá na barra de status.
 

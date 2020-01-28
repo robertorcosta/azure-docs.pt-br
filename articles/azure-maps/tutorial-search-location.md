@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Pesquisar localizações próximas em um mapa | Microsoft Azure Mapas'
-description: Neste tutorial, você aprenderá a pesquisar localizações (pontos de interesse) próximas em um mapa usando o Microsoft Azure Mapas.
+description: Neste tutorial, você aprenderá a pesquisar pontos de interesse em um mapa usando os Microsoft Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910819"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153013"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutorial: Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -63,13 +63,13 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave que permite con
 
 ![Obter a Chave Primária no portal do Azure](./media/tutorial-search-location/get-key.png)
 
-Para obter mais detalhes sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
 ## <a name="create-a-new-map"></a>Criar um novo mapa
 
-A API de Controle de Mapeamento é uma biblioteca cliente conveniente que permite integrar facilmente os Mapas do Azure ao seu aplicativo Web. Ela oculta a complexidade das chamadas de serviço básicas REST e aumenta a produtividade com componentes estilizáveis e personalizáveis. As etapas a seguir mostra como criar uma página HTML estática inserida com a API do Controle de Mapeamento.
+A API de Controle de Mapeamento é uma biblioteca de clientes conveniente. Essa API permite que você integre com facilidade os Mapas ao seu aplicativo Web. Ela oculta a complexidade das chamadas básicas de serviço REST e aumenta a produtividade com os componentes personalizáveis. As etapas a seguir mostra como criar uma página HTML estática inserida com a API do Controle de Mapeamento.
 
 1. Em seu computador local, crie um novo arquivo e nomeie-o como **MapSearch.html**.
 2. Adicione os seguintes componentes HTML ao arquivo:
@@ -133,7 +133,7 @@ A API de Controle de Mapeamento é uma biblioteca cliente conveniente que permit
 
    Este segmento inicializa a API de Controle de Mapeamento da sua chave de conta do Azure Mapas. `atlas` é o namespace que contém a API e os componentes visuais relacionados. `atlas.Map` fornece o controle para um mapa visual e interativo na Web.
 
-4. Salve suas alterações no arquivo e abra a página HTML em um navegador. Esse é o mapa mais básico que você pode fazer chamando `atlas.Map` e usando sua chave de conta.
+4. Salve suas alterações no arquivo e abra a página HTML em um navegador. O mapa mostrado é o mais básico que você pode fazer chamando `atlas.Map` e usando a sua chave de conta.
 
    ![Exibir o mapa](./media/tutorial-search-location/basic-map.png)
 
@@ -163,7 +163,7 @@ A API de Controle de Mapeamento é uma biblioteca cliente conveniente que permit
     });
     ```
 
-   Neste segmento de código, um evento`ready` é adicionado ao mapa, que será disparado quando os recursos de mapa forem carregados e o mapa esteja pronto para ser acessado. No manipulador de eventos `ready` do mapa, uma fonte de dados é criada para armazenar os dados de resultado. Uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os dados de resultado na fonte de dados devem ser renderizados; neste caso, com um ícone de pino redondo azul escuro centralizado sobre as coordenadas do resultado e que permite a sobreposição de outros ícones. A camada de resultado é adicionada às camadas do mapa.
+   Neste segmento de código, um evento `ready` é adicionado ao mapa, que será disparado quando os recursos de mapa forem carregados e o mapa estiver pronto para ser acessado. No manipulador de eventos `ready` do mapa, uma fonte de dados é criada para armazenar os dados de resultado. Uma camada de símbolo é criada e anexada à fonte de dados. Essa camada especifica como os dados de resultados da fonte de dados devem ser renderizados. Nesse caso, o resultado é renderizado com um ícone de marcador redondo azul-escuro, centralizado sobre a coordenada de resultados e permite que outros ícones sejam sobrepostos. A camada de resultado é adicionada às camadas do mapa.
 
 <a id="usesearch"></a>
 
@@ -215,7 +215,7 @@ Esta seção mostra como usar a [API de Pesquisa](https://docs.microsoft.com/res
     });
     ```
 
-3. Salve o arquivo **MapSearch.html** e atualize seu navegador. Agora, você verá que o mapa está centralizado em Seattle e alfinetes azuis marcam os locais de postos de gasolina na região.
+3. Salve o arquivo **MapSearch.html** e atualize seu navegador. Você deverá ver o mapa centralizado em Seattle e marcadores redondos azuis nas localizações de postos de gasolina da região.
 
    ![Exibir o mapa com os resultados da pesquisa](./media/tutorial-search-location/pins-map.png)
 
@@ -229,9 +229,9 @@ Neste momento, a página MapSearch pode exibir os locais de pontos de interesse 
 
 ## <a name="add-interactive-data"></a>Adicionar dados interativos
 
-O mapa que fizemos até agora apenas analisa os dados de longitude/latitude para os resultados da pesquisa. Se você examinar o JSON bruto retornado pelo serviço de Pesquisa de Mapas, no entanto, verá que ele contém informações adicionais sobre cada posto de gasolina, incluindo o nome e endereço. Você pode incorporar esses dados ao mapa com caixas pop-up interativas.
+O mapa que fizemos até agora apenas analisa os dados de longitude/latitude para os resultados da pesquisa. No entanto, o JSON bruto retornado pelo serviço Pesquisa dos Mapas contém informações adicionais sobre cada posto de gasolina. Incluindo o nome e o endereço. Você pode incorporar esses dados ao mapa com caixas pop-up interativas.
 
-1. Adicione as linhas de código a seguir no manipulador de `ready` eventos do mapa após o código para consultar o serviço de pesquisa difusa. Isso criará uma instância de pop-up e adicionará um evento de passar o mouse à camada de símbolos.
+1. Adicione as linhas de código a seguir no manipulador de `ready` eventos do mapa após o código para consultar o serviço de pesquisa difusa. Esse código criará uma instância de um pop-up e adicionará um evento de passar o mouse à camada de símbolos.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

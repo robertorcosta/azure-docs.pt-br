@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476956"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263941"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Azure Data Box Edge
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Montar o dispositivo em rack
 > * Cabear o dispositivo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Os pré-requisitos de instalação de um dispositivo físico são os seguintes:
 
@@ -86,7 +86,7 @@ O dispositivo precisa ser instalado em um rack padrão de 19 polegadas. Use o pr
 > Os dispositivos Data Box Edge devem ser montados em rack para a operação apropriada.
 
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 - Antes de começar, leia as instruções de segurança no livreto Informações sobre Regulamentação, Segurança e Meio-ambiente. Esse livreto foi enviado com o dispositivo.
 - Comece a instalar os trilhos no espaço alocado mais próximo à parte inferior do compartimento de rack.
@@ -154,21 +154,10 @@ Localize os componentes para instalação do conjunto do kit de trilho:
 
     ![Encaixar e liberar a trava do tipo slam](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### <a name="route-the-cables"></a>Rotear os cabos
-
-> [!NOTE]
->  Se você não solicitou o CMA (Braço de Gerenciamento de Cabos) opcional, use as duas tiras com fixador de contato fornecidas no kit de trilho para rotear os cabos na parte traseira do sistema.
-
-1. Localize os suportes externos do CMA nas laterais interiores de ambas as bordas do rack.
-2. Agrupe os cabos com cuidado, afastando-os dos conectores do sistema nas laterais esquerda e direita.
-3. Passe as tiras com fixador de contato pelos slots nos suportes externos do CMA em cada lateral do sistema para fixar os conjuntos de cabos.
-
-
-    ![Rotear os cabos](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cabear o dispositivo
 
-Os procedimentos a seguir explicam como cabear o dispositivo do Data Box Edge para energia e rede.
+Passe os cabos e conecte o dispositivo. Os procedimentos a seguir explicam como cabear o dispositivo do Data Box Edge para energia e rede.
 
 Antes de começar o cabeamento do dispositivo, você precisará do seguinte:
 

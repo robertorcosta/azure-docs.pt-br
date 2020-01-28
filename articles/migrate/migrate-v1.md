@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 52fe4af87d1f5ed6684896aebf404926691ccb07
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186534"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514979"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -216,7 +216,7 @@ Depois de configurar um espaço de trabalho, baixe e instale agentes em cada com
 4. Copie a ID e a chave do workspace. Você precisará delas quando instalar o MMA na máquina local.
 
 > [!NOTE]
-> Para automatizar a instalação de agentes, use uma ferramenta de implantação, como o System Center Configuration Manager, ou use uma ferramenta de parceiro, como o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que oferece uma solução de implantação do agente para as Migrações para Azure.
+> Para automatizar a instalação de agentes, use uma ferramenta de implantação, como o Configuration Manager, ou uma ferramenta de parceiro, como o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), que oferece uma solução de implantação do agente para as Migrações para Azure.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Instalar o agente MMA em um computador com Windows
@@ -229,7 +229,7 @@ Para instalar o agente em uma máquina com Windows:
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
 
-Você pode instalar o agente na linha de comando ou usando um método automatizado, como o System Center Configuration Manager. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
+Você pode instalar o agente na linha de comando ou usando um método automatizado, como o Configuration Manager. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sobre como usar esses métodos para instalar o agente do MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Instalar o agente MMA em um computador com Linux
 

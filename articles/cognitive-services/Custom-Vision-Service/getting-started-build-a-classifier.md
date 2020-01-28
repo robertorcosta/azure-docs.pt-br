@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b664a586398e297a00ea9cd8fe68dc65e6ade5c8
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978672"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170019"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início Rápido: Como compilar um classificador com Visão Personalizada
 
@@ -23,7 +23,7 @@ Neste início rápido, você aprenderá a criar um classificador usando o site V
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um conjunto de imagens com o qual treinar o seu classificador. Veja abaixo as dicas sobre como escolher imagens.
 
@@ -110,6 +110,8 @@ Depois que o treinamento estiver concluído, o desempenho do modelo será estima
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
 Toda vez que você treina o classificador, cria uma nova _iteração_ com as suas próprias métricas de desempenho atualizadas. É possível exibir todas as iterações no painel à esquerda da guia **Desempenho**. Também é possível encontrar o botão **Excluir**, que pode ser usado para excluir uma iteração se ela estiver obsoleta. Ao excluir uma iteração, você exclui qualquer imagem que esteja exclusivamente associada a ela.
+
+Confira [Usar o modelo com a API de previsão](./use-prediction-api.md) para saber como acessar seus modelos treinados de maneira programática.
 
 ## <a name="next-steps"></a>Próximas etapas
 

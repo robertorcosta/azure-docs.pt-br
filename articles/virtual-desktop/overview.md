@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348817"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514265"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -86,17 +86,27 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 >[!NOTE]
 >Caso precise de uma assinatura do Azure, [inscreva-se em uma avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se estiver usando a versão de avaliação gratuita do Azure, use o Azure AD Domain Services para manter o Windows Server Active Directory em sincronia com o Azure Active Directory.
 
-As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ter acesso da porta TCP 443 de saída às seguintes URLs:
+As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ter acesso às seguintes URLs:
 
-* *.wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Endereço|Porta de saída|Finalidade|
+|---|---|---|
+|*.wvd.microsoft.com|Porta TCP 443|Tráfego de serviço|
+|*.blob.core.windows.net|Porta TCP 443|Agente, atualizações de pilha de SXS e tráfego de Agente|
+|*.core.windows.net|Porta TCP 443|Tráfego de agente|
+|*.servicebus.windows.net|Porta TCP 443|Tráfego de agente|
+|prod.warmpath.msftcloudes.com|Porta TCP 443|Tráfego de agente|
+|catalogartifact.azureedge.net|Porta TCP 443|Azure Marketplace|
+|kms.core.windows.net|Porta TCP 1688|Ativação do Windows 10|
+
+>[!IMPORTANT]
+>Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços, como o Azure AD.
 
 >[!NOTE]
->Abrir essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços como o Azure AD.
+>Você precisa usar o caractere curinga (*) para URLs que envolvem tráfego de serviço. Se preferir não usar * para o tráfego relacionado ao agente, encontre as URLs sem curinga da seguinte forma:
+>
+>1. Registre suas máquinas virtuais no pool de hosts da Área de Trabalho Virtual do Windows.
+>2. Abra o **Visualizador de Eventos** e navegue até **Windows** > **Logs de Aplicativos** e procure a ID de Evento 3702.
+>3. Inclua na lista de permissões as URLs encontradas com a ID de Evento 3702. As URLs com a ID de Evento 3702 são específicas da região. Você precisará repetir o processo de inclusão na lista de permissões com as URLs relevantes para cada região em que quiser implantar suas máquinas virtuais.
 
 A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e aplicativos do Windows que você fornece aos usuários e pela solução de gerenciamento, que é hospedada pela Microsoft como um serviço no Azure. As áreas de trabalho e os aplicativos podem ser implantados em VMs (máquinas virtuais) em qualquer região do Azure. A solução de gerenciamento e os dados dessas VMs residirão nos Estados Unidos. Isso poderá resultar na transferência de dados para os Estados Unidos.
 

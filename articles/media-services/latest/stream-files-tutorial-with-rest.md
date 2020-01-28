@@ -1,5 +1,5 @@
 ---
-title: Codificar um arquivo remoto baseado em URL e transmitir usando os Serviços de Mídia do Azure – REST | Microsoft Docs
+title: Codificar um arquivo remoto e transmitir usando os Serviços de Mídia do Azure v3
 description: Siga as etapas deste tutorial para codificar um arquivo baseado em URL e transmitir seu conteúdo com os Serviços de Mídia do Azure usando a REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685117"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514333"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -36,11 +36,11 @@ Este tutorial mostra como:
 > * Configurar Postman
 > * Enviar solicitações usando Postman
 > * Testar a URL de streaming
-> * Limpar recursos
+> * Limpar os recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 
@@ -382,7 +382,7 @@ Em geral, você deve limpar tudo, exceto os objetos que planeja reutilizar (norm
 
 Para excluir um recurso, selecione a operação "Excluir ..." em qualquer recurso que você queira excluir.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que você criou neste tutorial, exclua o grupo de recursos criados anteriormente.  
 

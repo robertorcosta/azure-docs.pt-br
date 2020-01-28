@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2bf769169b579cb0a06a48b3a5998efb89eb8fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 843dd403bc5434e2c79ee0bb85eb781b56bf3ec9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443323"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291440"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Workday
 
@@ -42,7 +41,11 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Workday é compatível com o SSO iniciado por **SP**.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
+
+* O Workday é compatível com o SSO iniciado por **SP**.
+
+* Após configurar o Workday, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workday-from-the-gallery"></a>Adicionar o Workday da galeria
 
@@ -244,7 +247,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ### <a name="create-workday-test-user"></a>Criar um usuário de teste do Workday
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Workday. Trabalhe com [a equipe de suporte do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para adicionar os usuários à plataforma Workday. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Workday. Trabalhe com [a equipe de suporte do Workday](https://www.workday.com/partners-services/services/support.html) para adicionar os usuários à plataforma Workday. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 
@@ -259,3 +262,7 @@ Quando escolher o bloco do Workday no Painel de Acesso, você deverá ser conect
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimentar o Workday com o Azure AD](https://aad.portal.azure.com)
+
+- [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-workday)
+
+- [Como proteger o Workday com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

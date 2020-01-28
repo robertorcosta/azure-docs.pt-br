@@ -1,26 +1,26 @@
 ---
-title: Início Rápido – Usar o portal do Azure para criar uma fila do Barramento de Serviço | Microsoft Docs
+title: Usar o portal do Azure para criar uma fila do Barramento de Serviço
 description: Neste início rápido, você aprenderá a criar uma fila do Barramento de Serviço usando o portal do Azure. Em seguida, você usará um aplicativo cliente de exemplo para enviar e receber mensagens da fila.
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242389"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260830"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início Rápido: Usar o portal do Azure para criar uma fila do Barramento de Serviço
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Barramento de Serviço, usando o [portal do Azure][Azure portal] para criar uma fila e um namespace de mensagens nesse namespace e obter as credenciais de autorização nesse namespace. O procedimento mostra como enviar e receber mensagens dessa fila usando a [	Biblioteca do .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
@@ -72,7 +72,7 @@ Para executar o código, faça o seguinte:
 
    ![saída do programa](./media/service-bus-quickstart-portal/dotnet.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 É possível usar o portal para remover o grupo de recursos, o namespace e a fila.
 

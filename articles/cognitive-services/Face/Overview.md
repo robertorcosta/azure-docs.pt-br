@@ -1,7 +1,7 @@
 ---
-title: O que é a API de Detecção Facial?
+title: O que é o serviço de Detecção Facial?
 titleSuffix: Azure Cognitive Services
-description: A API de Detecção Facial de Serviços Cognitivos do Azure fornece algoritmos que são usados para detectar, reconhecer e analisar rostos humanos em imagens.
+description: O serviço de Detecção Facial dos Serviços Cognitivos do Azure fornece algoritmos que são usados para detectar, reconhecer e analisar rostos humanos em imagens.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,25 +9,25 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961532"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170247"
 ---
-# <a name="what-is-the-azure-face-api"></a>O que é a API de Detecção Facial do Azure?
+# <a name="what-is-the-azure-face-service"></a>O que é o serviço de Detecção Facial do Azure?
 
-A API de Detecção Facial de Serviços Cognitivos do Azure fornece algoritmos que são usados para detectar, reconhecer e analisar rostos humanos em imagens. A capacidade para processar as informações faciais humanas é importante em muitos cenários de software diferentes. Os exemplos de cenários incluem segurança, interface do usuário natural, análise e gerenciamento de conteúdo de imagens, aplicativos móveis e robótica.
+O serviço de Detecção Facial dos Serviços Cognitivos do Azure fornece algoritmos que são usados para detectar, reconhecer e analisar rostos humanos em imagens. A capacidade para processar as informações faciais humanas é importante em muitos cenários de software diferentes. Os exemplos de cenários incluem segurança, interface do usuário natural, análise e gerenciamento de conteúdo de imagens, aplicativos móveis e robótica.
 
-A API de Detecção Facial fornece várias funções diferentes. Cada função é descrita nas seções a seguir. Continue lendo para saber mais sobre elas.
+O serviço de Detecção Facial fornece várias funções diferentes. Cada função é descrita nas seções a seguir. Continue lendo para saber mais sobre elas.
 
 ## <a name="face-detection"></a>Detecção facial
 
-A API de Detecção Facial detecta rostos humanos em uma imagem e retorna as coordenadas do retângulo de seus locais. Opcionalmente, a detecção facial pode extrair uma série de atributos relacionados à face. Os exemplos incluem pose da cabeça, gênero, idade, emoção, pelos faciais e óculos.
+O serviço de Detecção Facial detecta rostos humanos em uma imagem e retorna as coordenadas do retângulo dos locais. Opcionalmente, a detecção facial pode extrair uma série de atributos relacionados à face. Os exemplos incluem pose da cabeça, gênero, idade, emoção, pelos faciais e óculos.
 
 > [!NOTE]
-> O recurso de detecção facial também está disponível por meio da [API Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Se você quiser fazer ainda mais operações com dados faciais, use a API de Detecção Facial, que é o serviço discutido neste artigo.
+> O recurso de detecção facial também está disponível por meio da [API Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Caso deseje executar outras operações com os dados faciais, use o serviço de Detecção Facial, que é o serviço abordado neste artigo.
 
 ![Uma imagem de uma mulher e um homem, com retângulos desenhados em torno de seus rostos e informações de idade e gênero exibidas](./Images/Face.detection.jpg)
 
@@ -73,9 +73,9 @@ Para saber mais sobre a identificação da pessoa, confira o guia de conceitos [
 
 ## <a name="sample-apps"></a>Aplicativos de exemplo
 
-Os aplicativos de exemplo a seguir mostram algumas maneiras de usar a API de Detecção Facial:
+Os seguintes aplicativos de exemplo mostram algumas maneiras de usar o serviço de Detecção Facial:
 
-- [API de Detecção Facial da Microsoft: a Biblioteca de Clientes do Windows e amostra](https://github.com/Microsoft/Cognitive-Face-Windows) é um aplicativo WPF que demonstra vários cenários de detecção facial, análise e identificação.
+- [API de Detecção Facial: a Biblioteca de Clientes do Windows e amostra](https://github.com/Microsoft/Cognitive-Face-Windows) é um aplicativo WPF que demonstra vários cenários de detecção facial, análise e identificação.
 - [Aplicativo UWP FamilyNotes](https://github.com/Microsoft/Windows-appsample-familynotes) é um aplicativo UWP (Plataforma Universal do Windows) que usa identificação facial com fala, Cortana, tinta e câmera em um cenário de compartilhamento de anotações em família.
 
 ## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545720"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261544"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -55,7 +55,9 @@ Quando uma função de orquestração recebe mais trabalho a fazer (por exemplo,
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 
-O comportamento de fornecimento de eventos da Estrutura de Tarefas Duráveis está intimamente acoplado ao código da função funções de orquestrador que você escreve. Suponha que você tenha uma função funções de orquestrador de encadeamento de atividades, como a seguinte função funções de orquestrador de C#:
+O comportamento de fornecimento de eventos da Estrutura de Tarefas Duráveis está intimamente acoplado ao código da função funções de orquestrador que você escreve. Suponha que você tenha uma função de orquestrador de encadeamento de atividades, como a seguinte função de orquestrador:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Se você estiver codificando em JavaScript, sua função funções de orquestrador de encadeamento de atividades poderá ser semelhante ao seguinte código de exemplo:
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 Em cada instrução `await` (C#) ou `yield` (JavaScript), o Framework de Tarefa Durável verifica o estado de execução da função em algum back-end de armazenamento durável (normalmente, o Armazenamento de tabelas do Azure). Esse estado é o que chamamos de *histórico de orquestração*.
 
@@ -106,7 +110,7 @@ Quando o ponto de verificação for concluído, a função de orquestrador estar
 
 Após a conclusão, o histórico da função mostrado anteriormente se parece com a seguinte tabela no Armazenamento de Tabelas do Azure (abreviado para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | NOME             | Result                                                    | Status |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Nome             | Result                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -182,7 +186,7 @@ As funções de orquestrador também podem adicionar políticas de repetição �
 
 Para obter mais informações e exemplos, confira o artigo [Tratamento de erro](durable-functions-error-handling.md).
 
-### <a name="critical-sections-durable-functions-2x"></a>Seções críticas (Durable Functions 2.x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Seções críticas (Durable Functions 2.x, atualmente somente no .NET)
 
 As instâncias de orquestração têm thread único para que não seja preciso se preocupar com condições de corrida *dentro* de uma orquestração. No entanto, as condição de corrida são possíveis quando as orquestrações interagem com sistemas externos. Para atenuar as condições de corrida ao interagir com sistemas externos, as funções de orquestrador podem definir *seções críticas* usando um método `LockAsync` no .NET.
 
@@ -212,7 +216,9 @@ O recurso de seção crítica também é útil para coordenar alterações em en
 
 As funções de orquestrador não têm permissão para realizar E/S conforme descrito nas [restrições de código da função funções de orquestrador](durable-functions-code-constraints.md). A alternativa típica para essa limitação é encapsular o código que precisa realizar E/S em uma função de atividade. As orquestrações que interagem com sistemas externos frequentemente usam funções de atividade para realizar chamadas HTTP e retornar o resultado à orquestração.
 
-Para simplificar esse padrão comum, as funções de orquestrador podem usar o método `CallHttpAsync` no .NET para invocar APIs HTTP diretamente. Além de dar suporte a padrões básicos de solicitação/resposta, o `CallHttpAsync` dá suporte à manipulação automática de padrões de sondagem HTTP 202 assíncronos comuns e à autenticação com serviços externos usando [Identidades Gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Para simplificar esse padrão comum, as funções de orquestrador podem usar o método `CallHttpAsync` para invocar APIs HTTP diretamente.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+Além de dar suporte a padrões básicos de solicitação/resposta, o método dá suporte ao tratamento automático de padrões de sondagem HTTP 202 assíncronos comuns e à autenticação com serviços externos usando [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md).
+
 Para obter mais informações e exemplos detalhados, confira o artigo [Recursos HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
@@ -251,9 +263,11 @@ Para obter mais informações e exemplos detalhados, confira o artigo [Recursos 
 
 ### <a name="passing-multiple-parameters"></a>Passando vários parâmetros
 
-Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação é passar uma matriz de objetos ou usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) no .NET.
+Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação é transmitir uma matriz de objetos ou objetos de composição.
 
-O exemplo a seguir usa os novos recursos de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionados com [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+No .NET, use também objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). O exemplo a seguir usa os novos recursos de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionados com [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>Atividade
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

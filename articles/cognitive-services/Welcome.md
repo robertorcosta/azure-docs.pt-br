@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 544ca198b846ca5032bdf400b300ac076d729d88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834140"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169105"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos do Azure?
 
@@ -27,7 +27,7 @@ Os Serviços Cognitivos do Azure são APIs, SDKs e serviços disponíveis para a
 |:-----------|:------------------|
 |[Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visual Computacional")|O serviço de Pesquisa Visual Computacional fornece a você acesso a algoritmos avançados para processar imagens e retornar informações.|
 |[Serviço de Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Serviço de Visão Personalizada")|O Serviço de Visão Personalizada permite criar classificadores de imagem personalizada.|
-|[API de Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/ "API de Detecção Facial")|A API de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando o atributo de detecção e reconhecimento facial.|
+|[Detecção Facial](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| O serviço de Detecção Facial fornece acesso a algoritmos avançados de detecção facial, habilitando a detecção e o reconhecimento de atributos faciais.|
 |[Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Reconhecimento de Formulários") (versão prévia)|O Reconhecimento de Formulários identifica e extrai pares chave-valor e dados de tabela de documentos de formulário e, em seguida, gera dados estruturados, incluindo as relações no arquivo original.|
 |[Reconhecimento de Tinta Digital](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Reconhecimento de Tinta Digital") (versão prévia)|O Reconhecimento de Tinta Digital permite que você reconheça e analise dados de traço de tinta digital, formas e conteúdo manuscrito e gere uma estrutura de documento com todas as entidades reconhecidas.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|O Video Indexer permite extrair insights de seus vídeos.|

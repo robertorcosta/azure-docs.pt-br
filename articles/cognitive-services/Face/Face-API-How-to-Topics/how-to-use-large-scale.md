@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: usar o recurso em grande escala – API de Detecção Facial'
+title: 'Exemplo: Usar o recurso em grande escala – Detecção Facial'
 titleSuffix: Azure Cognitive Services
 description: Este guia é um artigo sobre como aumentar objetos PersonGroup e FaceList existentes para objetos LargePersonGroup e LargeFaceList.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743734"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169775"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemplo: Use o recurso de larga escala
 
@@ -23,14 +23,14 @@ Este guia é um artigo avançado sobre como ampliar objetos PersonGroup e FaceLi
 
 LargePersonGroup e LargeFaceList são denominados coletivamente como operações em grande escala. Um LargePersonGroup pode conter até um milhão de pessoas, cada um com no máximo 248 faces. Um LargeFaceList pode conter até um milhão de faces. As operações em grande escala são semelhantes aos convencionais PersonGroup e FaceList, mas têm algumas diferenças devido à nova arquitetura. 
 
-Os exemplos são gravados em C#, usando a biblioteca de clientes da API de Detecção Facial dos Serviços Cognitivos do Azure.
+As amostras foram escritas em C# com a biblioteca de clientes da Detecção Facial dos Serviços Cognitivos do Azure.
 
 > [!NOTE]
 > Para habilitar o desempenho da pesquisa de faces para operações Identificação e FindSimilar em grande escala, adicione uma operação Treinar para pré-processar o LargeFaceList e o LargePersonGroup. O tempo de treinamento varia de segundos a cerca de meia hora, dependendo da capacidade real. Durante o período de treinamento, é possível executar identificação e FindSimilar, se for feita uma operação de treinamento bem-sucedida com antecedência. A desvantagem é que as novas pessoas e faces adicionadas serão exibidas no resultado apenas quando for realizada uma nova migração de publicação para treinamento em grande escala.
 
 ## <a name="step-1-initialize-the-client-object"></a>Etapa 1: Inicializar o objeto de cliente
 
-Quando você usa uma biblioteca de clientes da API de Detecção Facial, a chave de assinatura e o ponto de extremidade de assinatura são passados para o construtor da classe FaceClient. Por exemplo:
+Quando você usa a biblioteca de clientes da Detecção Facial, a chave de assinatura e o ponto de extremidade de assinatura são transmitidos para o construtor da classe FaceClient. Por exemplo:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -66,7 +66,7 @@ Adicione todas as faces e pessoas do PersonGroup ao novo LargePersonGroup. Para 
 | Criar | Criar |
 | Excluir | Excluir |
 | Obter | Obter |
-| Listar | Listar |
+| Lista | Lista |
 | Atualizar | Atualizar |
 | - | Treinar |
 | - | Obter Status de Treinamento |
@@ -199,7 +199,7 @@ Embora a operação Treinar acelere as operações [FindSimilar](https://westus.
 
 | Escala de faces ou pessoas | Tempo de treinamento estimado |
 |:---:|:---:|
-| 1\.000 | 1 a 2 segundos |
+| 1,000 | 1 a 2 segundos |
 | 10.000 | 5 a 10 segundos |
 | 100.000 | 1 a 2 minutos |
 | 1\.000.000 | 10 a 30 minutos |

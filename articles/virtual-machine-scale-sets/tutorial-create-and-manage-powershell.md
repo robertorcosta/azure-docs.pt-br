@@ -1,27 +1,19 @@
 ---
-title: Tutorial – Criar um conjunto de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
+title: Tutorial – Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Saiba como usar o Azure PowerShell para criar um conjunto de dimensionamento de máquinas virtuais e algumas tarefas de gerenciamento comuns, por exemplo, como iniciar e parar uma instância ou alterar a capacidade do conjunto de dimensionamento.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728689"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271405"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Criar e gerenciar um conjunto de dimensionamento de máquinas virtuais usando o Azure PowerShell
 
@@ -156,7 +148,7 @@ O Azure Marketplace inclui muitas imagens que podem ser usadas para criar instâ
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Para exibir uma lista de imagens de determinado publicador, use [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). A lista de imagens também pode ser filtrada por `-PublisherName` ou `–Offer`. No exemplo a seguir, a lista é filtrada para todas as imagens com o nome do fornecedor *MicrosoftWindowsServer* e uma oferta que corresponde a *WindowsServer*:
+Para exibir uma lista de imagens de determinado publicador, use [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). A lista de imagens também pode ser filtrada por `-PublisherName` ou `-Offer`. No exemplo a seguir, a lista é filtrada para todas as imagens com o nome do fornecedor *MicrosoftWindowsServer* e uma oferta que corresponde a *WindowsServer*:
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -205,7 +197,7 @@ Um tamanho de instância de VM, ou *SKU*, determina a quantidade de recursos de 
 ### <a name="vm-instance-sizes"></a>Tamanhos de instância de VM
 A tabela a seguir categoriza tamanhos de VMs comuns para determinados casos de uso.
 
-| Type                     | Tamanhos comuns           |    DESCRIÇÃO       |
+| Type                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Propósito geral](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU/memória equilibrados. Ideal para desenvolvimento/teste e para aplicativos de pequeno a médio porte e soluções de dados.  |
 | [Computação otimizada](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Relação de CPU/memória alta. Boa para aplicativos de tráfego médio, dispositivos de rede e processos em lote.        |
@@ -313,7 +305,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você excluir um grupo de recursos, todos os recursos contidos, como as instâncias de VM, as rede virtuais e os discos, também serão excluídos. O parâmetro `-Force` confirma que você deseja excluir os recursos sem um prompt adicional para fazer isso. O parâmetro `-AsJob` retorna o controle ao prompt sem aguardar a conclusão da operação.
 
 ```azurepowershell-interactive

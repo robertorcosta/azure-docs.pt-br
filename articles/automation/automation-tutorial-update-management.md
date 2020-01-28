@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral de como usar o Gerenciamento d
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420652"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310128"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
@@ -90,7 +90,7 @@ Sua Conta de Automação já está selecionada como o recurso. Se quiser alterá
 
 Clique em **Adicionar condição** para selecionar o sinal adequado para sua implantação de atualização. A tabela a seguir mostra os detalhes dos dois sinais disponíveis para implantações de atualização:
 
-|Nome do sinal|Dimensões|DESCRIÇÃO|
+|Nome do sinal|Dimensões|Descrição|
 |---|---|---|
 |**Total de execuções da implantação de atualização**|– Nome da implantação de atualização</br>– Status|Esse sinal é usado para alertar quanto ao status geral de uma implantação de atualização.|
 |**Total de execuções de computador da implantação de atualização**|– Nome da implantação de atualização</br>– Status</br>– Computador de destino</br>– ID de execução da implantação de atualizações|Esse sinal é usado para alertar quanto ao status de uma implantação de atualização voltada para computadores específicos.|
@@ -141,7 +141,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, veja [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
-* **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluiu na implantação. Para este tutorial, deixe todos os tipos selecionados.
+* **Classificação de atualização**: selecione as classificações de atualização com suporte disponíveis para cada produto que pode ser incluído na implantação de atualização. Para este tutorial, deixe todos os tipos selecionados.
 
   Os tipos de classificação são:
 
@@ -156,6 +156,10 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 > [!NOTE]
 > É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhuma correção ou pacote será instalado, pois todos serão excluídos. Correções excluídas ainda são mostradas como ausentes do computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente excluído, o pacote não será instalado.
+
+> [!NOTE]
+> Você não pode especificar atualizações que foram substituídas para inclusão na implantação de atualização.
+>
 
 * **Configurações da agenda**: O painel **Configurações da agenda** é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 

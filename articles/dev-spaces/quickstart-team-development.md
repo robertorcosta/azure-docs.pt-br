@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como fazer o desenvolvimento do Kubernetes de equipe com contêineres e microsserviços com o Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 86d8d559a2d6408eb6846705887a82b440d50d7b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b84bb67556eda3a453ede5a6fb745d8ae472fb6c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770825"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290403"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolvimento em equipe no Kubernetes – Azure Dev Spaces
 
@@ -137,7 +137,7 @@ azds space select -n dev/azureuser1 -y
 azds space select -n dev/azureuser2 -y
 ```
 
-Os comandos acima criam dois espaços filhos sob *dev* denominados *azureuser1* e *azureuser2*. Esses dois espaços filhos representam espaços distintos de desenvolvimento para os desenvolvedores *azureuser1* e *azureuser2* usarem para fazer alterações no aplicativo de exemplo.
+Os comandos acima criam dois espaços filhos sob *dev* denominados *azureuser1* e *azureuser2*. Esses dois espaços filho representam espaços distintos de desenvolvimento para os desenvolvedores *azureuser1* e *azureuser2* usarem para fazer alterações no aplicativo de exemplo.
 
 Use o comando `azds space list` para listar todos os espaços de desenvolvimento e confirme se *dev/azureuser2* está selecionado.
 

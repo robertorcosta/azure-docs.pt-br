@@ -21,7 +21,7 @@
           href: 8x8virtualoffice-tutorial.md
     - name: Um
       items:
-        - name: abintegro
+        - name: Abintegro
           href: abintegro-tutorial.md
         - name: Absorb LMS
           href: absorblms-tutorial.md
@@ -47,7 +47,7 @@
           href: adobe-creative-cloud-tutorial.md
         - name: Adobe Experience Manager
           href: adobeexperiencemanager-tutorial.md
-        - name: Gerenciamento de identidade do Adobe
+        - name: Gerenciamento de identidades do Adobe
           href: adobe-identity-management-tutorial.md
         - name: Adobe Sign
           href: adobe-echosign-tutorial.md
@@ -309,6 +309,8 @@
           href: cloud-service-picco-tutorial.md
         - name: Cobalt
           href: cobalt-tutorial.md
+        - name: Coda
+          href: coda-tutorial.md
         - name: Cognidox
           href: cognidox-tutorial.md
         - name: Inovação Colaborativa
@@ -365,7 +367,7 @@
           href: cyberark-saml-authentication-tutorial.md
         - name: CylancePROTECT
           href: cylanceprotect-tutorial.md
-    - name: D - E
+    - name: D – E
       items:
         - name: DATABASICS
           href: databasics-tutorial.md
@@ -487,7 +489,7 @@
           href: exponenthr-tutorial.md
         - name: EZRentOut
           href: ezrentout-tutorial.md
-    - name: F - G
+    - name: F – G
       items:
         - name: F5
           href: headerf5-tutorial.md
@@ -505,6 +507,8 @@
           href: filecloud-tutorial.md
         - name: FilesAnywhere
           href: filesanywhere-tutorial.md
+        - name: Firmex VDR
+          href: firmex-vdr-tutorial.md
         - name: FirmPlay – Employee Advocacy for Recruiting
           href: firmplay-tutorial.md
         - name: Firstbird
@@ -583,7 +587,7 @@
           href: grovo-tutorial.md
         - name: GT Nexus Prod System
           href: gtnexus-sso-module-tutorial.md
-    - name: H - I
+    - name: H – I
       items:
         - name: Hackerone
           href: hackerone-tutorial.md
@@ -673,7 +677,7 @@
           href: infogix-tutorial.md
         - name: Infor CloudSuite
           href: infor-cloud-suite-tutorial.md
-        - name: Infor Retail - Information Management
+        - name: Infor Retail – Information Management
           href: inforretailinformationmanagement-tutorial.md
         - name: Inkling
           href: inkling-tutorial.md
@@ -721,7 +725,7 @@
           href: ivanti-service-manager-tutorial.md
         - name: iWellnessNow
           href: iwellnessnow-tutorial.md
-    - name: J - K
+    - name: J – K
       items:
         - name: Jamf Pro
           href: jamfprosamlconnector-tutorial.md
@@ -793,7 +797,7 @@
           href: kronos-tutorial.md
         - name: Kudos
           href: kudos-tutorial.md
-    - name: L - M
+    - name: L – M
       items:
         - name: Cliente Land Gorilla
           href: landgorilla-tutorial.md
@@ -921,7 +925,7 @@
           href: myvr-tutorial.md
         - name: MyWorkDrive
           href: myworkdrive-tutorial.md
-    - name: N - O
+    - name: N – O
       items:
         - name: N2F – relatórios de despesas
           href: n2f-expensereports-tutorial.md
@@ -957,7 +961,7 @@
           href: novatus-tutorial.md
         - name: Nuclino
           href: nuclino-tutorial.md
-        - name: Informações de logon único de Domínio e URLs do O.C. Tanner - AppreciateHub
+        - name: Informações de logon único de Domínio e URLs do O.C. Tanner – AppreciateHub
           href: oc-tanner-tutorial.md
         - name: OfficeSpace Software
           href: officespace-tutorial.md
@@ -1093,7 +1097,7 @@
           href: purecloud-by-genesys-tutorial.md
         - name: PurelyHR
           href: purelyhr-tutorial.md
-    - name: Q - R
+    - name: Q – R
       items:
         - name: Qlik Sense Enterprise
           href: qliksense-enterprise-tutorial.md
@@ -1129,6 +1133,8 @@
           href: renraku-tutorial.md
         - name: Replicon
           href: replicon-tutorial.md
+        - name: Reprints Desk – Article Galaxy
+          href: reprints-desk-article-galaxy-tutorial.md
         - name: Reviewsnap
           href: reviewsnap-tutorial.md
         - name: Reward Gateway
@@ -1345,7 +1351,7 @@
           href: syncplicity-tutorial.md
         - name: Synergi
           href: synergi-tutorial.md
-    - name: T - V
+    - name: T – V
       items:
         - name: T&E Express
           href: tyeexpress-tutorial.md
@@ -1405,9 +1411,9 @@
           href: tivitz-tutorial.md
         - name: TonicDM
           href: tonicdm-tutorial.md
-        - name: TOPdesk - Public
+        - name: TOPdesk – Public
           href: topdesk-public-tutorial.md
-        - name: TOPdesk - Secure
+        - name: TOPdesk – Secure
           href: topdesk-secure-tutorial.md
         - name: TrackVia
           href: trackvia-tutorial.md
@@ -1471,7 +1477,7 @@
           href: vtiger-crm-saml-tutorial.md
         - name: vxMaintain
           href: vxmaintain-tutorial.md
-    - name: W - Z
+    - name: W – Z
       items:
         - name: Watch by Colors
           href: watch-by-colors-tutorial.md

@@ -1,27 +1,19 @@
 ---
-title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com modelos do Azure | Microsoft Docs
+title: Tutorial – Dimensionar automaticamente um conjunto de dimensionamento com modelos do Azure
 description: Saiba como usar modelos do Azure Resource Manager para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais conforme aumentam e diminuem as demandas de CPU
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5e02c88d894c01752965af77861d3e11e1bb101d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9d7e0a99a7ba2c00b2ebe5ea8c77d527765ead67
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749182"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271423"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensione automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -81,7 +73,7 @@ Os seguintes parâmetros são usados para essa regra:
 | *threshold*       | O valor que faz com que a regra de autoescala dispare uma ação.                                                      | 70%             |
 | *direction*       | Define se o conjunto de dimensionamento deve ser reduzido ou escalado horizontalmente quando a regra se aplicar.                                              | Aumento        |
 | *tipo*            | Indica que a quantidade de instâncias de VM deve ser modificada por um valor específico.                                    | Alterar contagem    |
-| *valor*           | Quantas instâncias de VM devem ser reduzidas ou escaladas horizontalmente quando a regra se aplicar.                                             | 3               |
+| *value*           | Quantas instâncias de VM devem ser reduzidas ou escaladas horizontalmente quando a regra se aplicar.                                             | 3               |
 | *cooldown*        | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos       |
 
 A regra a seguir seria adicionada na seção de perfil do provedor de recursos *Microsoft.insights/autoscalesettings* na seção anterior:
@@ -187,7 +179,7 @@ SSH para a primeira instância de VM. Especifique seu próprio endereço IP púb
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de conectado, instale o utilitário **stress**. Inicie *10* trabalhos de **stress** que geram carga de CPU. Esses trabalhos são executados por *420* segundos, o que é suficiente para fazer com que as regras de dimensionamento automático implementem a ação desejada.
+Depois de conectado, instale o utilitário **stress**. Inicie *10* **trabalhos** de stress que geram carga de CPU. Esses trabalhos são executados por *420* segundos, o que é suficiente para fazer com que as regras de dimensionamento automático implementem a ação desejada.
 
 ```azurecli-interactive
 sudo apt-get -y install stress
@@ -263,7 +255,7 @@ Assim que o **stress** é interrompido nas instâncias de VM inicias, a carga m�
 Saia do *watch* usando `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e a remover uma instância de VM até que a contagem mínima de duas instâncias seja alcançada.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para remover o conjunto de dimensionamento e outros recursos, exclua o grupo de recursos e todos os seus recursos com [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
