@@ -95,28 +95,28 @@ Você pode adicionar/remover regiões do Azure em qualquer lugar do mundo para s
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemplo de cobrança: conta do Azure Cosmos multirregiões, com gravação em uma única região
 
-Vamos supor que você tenha um contêiner do Azure Cosmos no Oeste dos EUA. O contêiner é criado com uma taxa de transferência de 10K RU/s e você armazenou 1 TB de dados este mês. Vamos supor que você adicionou três regiões (Leste dos EUA, Europa Setentrional e Ásia Oriental) à conta do Azure Cosmos, cada uma com o mesmo armazenamento e a mesma taxa de transferência. O valor total da sua fatura mensal será (considerando 30 dias em um mês). Sua fatura ficaria da seguinte maneira: 
+Vamos supor que você tenha um contêiner do Azure Cosmos no Oeste dos EUA. O contêiner é criado com uma taxa de transferência de 10K RU/s e você armazenou 1 TB de dados este mês. Vamos supor que você adicionou três regiões (Leste dos EUA, Norte da Europa e Leste da Ásia) à conta do Azure Cosmos, cada uma com o mesmo armazenamento e a mesma taxa de transferência. O valor total da sua fatura mensal será (considerando 30 dias em um mês). Sua fatura ficaria da seguinte maneira: 
 
 |**Item** |**Uso (por mês)** |**Tarifa** |**Custo mensal** |
 |---------|---------|---------|-------|
 |Cobrança da taxa de transferência para o contêiner no Oeste dos EUA      | 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora   |US$ 576|
 |Cobrança da taxa de transferência para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental       | 3 * 10 mil RU/s * 24 * 30    |US$ 0,008 por 100 RU/s por hora  |US$ 1.728|
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA      | 250 GB    |US$ 0,25/GB  |US$ 62,50|
-|Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
+|Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Norte da Europa e Leste da Ásia      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
 |**Total**     |     |  |**US$ 2.554**|
 
 *Vamos supor também que você egresso 100 GB de dados todos os meses do contêiner no oeste dos EUA para replicar dados no leste dos EUA, Europa Setentrional e Ásia Oriental. Você será cobrado pela saída de acordo com as taxas de transferência de dados.*
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>Exemplo de cobrança: conta do Azure Cosmos multirregiões, com gravação em várias regiões
 
-Vamos supor que você criou um contêiner do Azure Cosmos no Oeste dos EUA. O contêiner é criado com uma taxa de transferência de 10K RU/s e você armazenou 1 TB de dados este mês. Vamos supor que você adicionou três regiões (Leste dos EUA, Europa Setentrional e Ásia Oriental), cada uma com o mesmo armazenamento e com a mesma taxa de transferência, e deseja ter capacidade de gravação para os contêineres em todas as regiões associadas à conta do Azure Cosmos. O valor total da sua fatura mensal será (considerando 30 dias em um mês) o seguinte:
+Vamos supor que você criou um contêiner do Azure Cosmos no Oeste dos EUA. O contêiner é criado com uma taxa de transferência de 10K RU/s e você armazenou 1 TB de dados este mês. Vamos supor que você adicionou três regiões (Leste dos EUA, Norte da Europa e Leste da Ásia), cada uma com o mesmo armazenamento e com a mesma taxa de transferência, e deseja ter capacidade de gravação para os contêineres em todas as regiões associadas à conta do Azure Cosmos. O valor total da sua fatura mensal será (considerando 30 dias em um mês) o seguinte:
 
 |**Item** |**Uso (por mês)**|**Tarifa** |**Custo mensal** |
 |---------|---------|---------|-------|
 |Cobrança de taxa de transferência para o contêiner no Oeste dos EUA (todas as regiões são graváveis)       | 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora    |US$ 1.152 |
-|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Europa Setentrional e Ásia Oriental (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora   |US$ 4.608 |
+|Cobrança da taxa de transferência para três regiões adicionais: Leste dos EUA, Norte da Europa e Leste da Ásia (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/s * 24 * 30    |US$ 0,016 por 100 RU/s por hora   |US$ 4.608 |
 |Cobrança de armazenamento para o contêiner no Oeste dos EUA      | 250 GB    |US$ 0,25/GB  |US$ 62,50|
-|Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Europa Setentrional e Ásia Oriental      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
+|Cobrança de armazenamento para três regiões adicionais – Leste dos EUA, Norte da Europa e Leste da Ásia      | 3 * 250 GB    |US$ 0,25/GB  |US$ 187,50|
 |**Total**     |     |  |**US$ 6.010**|
 
 *Vamos supor também que você egresso 100 GB de dados todos os meses do contêiner no oeste dos EUA para replicar dados no leste dos EUA, Europa Setentrional e Ásia Oriental. Você será cobrado pela saída de acordo com as taxas de transferência de dados.*
@@ -125,9 +125,9 @@ Vamos supor que você criou um contêiner do Azure Cosmos no Oeste dos EUA. O co
 
 Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multirregiões em que todas as regiões são graváveis (configuração de vários mestres). Vamos pressupor que o tamanho de armazenamento permanece constante e não é alterado, e vamos omiti-lo aqui para simplificar a explicação. A taxa de transferência durante o mês variou da seguinte maneira (supondo-se 30 dias ou 720 horas): 
 
-[0 a 100 horas]:  
+[0 a 100 horas]\:  
 
-* Criamos uma conta do Azure Cosmos com três regiões (Oeste dos EUA, Leste dos EUA, Europa Setentrional), em que todas as regiões são graváveis 
+* Criamos uma conta do Azure Cosmos com três regiões (Oeste dos EUA, Leste dos EUA, Norte da Europa), em que todas as regiões são graváveis 
 
 * Criamos um banco de dados (D1) com taxa de transferência compartilhada de 10 mil RU/s 
 
@@ -135,7 +135,7 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Criamos um contêiner (C1) com taxa de transferência dedicada de 20 mil RU/s 
 
-[101 a 200 horas]:  
+[101 a 200 horas]\:  
 
 * Expandimos o banco de dados (D1) para 50 mil RU/s 
 
@@ -143,11 +143,11 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Excluímos o contêiner (C1)  
 
-[201 a 300 horas]:  
+[201 a 300 horas]\:  
 
 * Criamos o contêiner (C1) novamente com taxa de transferência dedicada de 20 mil RU/s 
 
-[301 a 400 horas]:  
+[301 a 400 horas]\:  
 
 * Removemos uma das regiões da conta do Azure Cosmos (o número de regiões graváveis agora é 2) 
 
@@ -157,13 +157,13 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Excluímos o contêiner (C1) novamente 
 
-[401 a 500 horas]:  
+[401 a 500 horas]\:  
 
 * Reduzimos verticalmente o banco de dados (D2) para 10 mil RU/s  
 
 * Criamos o contêiner (C1) novamente com taxa de transferência dedicada de 20 mil RU/s 
 
-[501 a 700 horas]:  
+[501 a 700 horas]\:  
 
 * Expandimos o banco de dados (D1) para 20 mil RU/s  
 
@@ -171,7 +171,7 @@ Vamos considerar o exemplo a seguir, onde temos uma conta do Azure Cosmos multir
 
 * Excluímos o contêiner (C1) novamente  
 
-[701 a 720 horas]:  
+[701 a 720 horas]\:  
 
 * Reduzimos verticalmente o banco de dados (D2) para 50 mil RU/s  
 
