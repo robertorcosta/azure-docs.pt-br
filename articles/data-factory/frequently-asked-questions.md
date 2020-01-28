@@ -201,7 +201,7 @@ O IR auto-hospedado é uma construção de pipeline do ADF que você pode usar c
 
 Atualmente, há suporte para o fluxo de dados Wrangling em data factories criadas nas seguintes regiões:
 
-* Austrália Oriental
+* Leste da Austrália
 * Canadá Central
 * Índia Central
 * EUA Central

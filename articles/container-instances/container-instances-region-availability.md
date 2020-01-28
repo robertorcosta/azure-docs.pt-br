@@ -32,7 +32,7 @@ As regiões e os recursos a seguir estão disponíveis para grupos de contêiner
 | Leste da Austrália, Leste do Japão | Linux | 2 | 8 |
 | Centro-Norte dos EUA | Linux | 2 | 3,5 |
 | Sul do Brasil, leste do Japão, Europa Ocidental | Windows | 4 | 16 |
-| Leste dos Estados Unidos, Oeste dos Estados Unidos | Windows | 4 | 14 |
+| E.U.A. Leste, E.U.A. Oeste | Windows | 4 | 14 |
 | Leste da Austrália, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA 2, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, oeste dos EUA 2 | Windows | 2 | 3,5 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidade – Implantações do Windows Server 2019 LTSC, 1809 (versão prévia)

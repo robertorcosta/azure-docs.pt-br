@@ -207,7 +207,7 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |-------|---------|
 |Austrália Central    |LRS     |
 |Austrália Central 2    |LRS     |
-|Austrália Oriental |LRS     |
+|Leste da Austrália |LRS     |
 |Sudeste da Austrália|LRS |
 |Sul do Brasil    |LRS     |
 |Canadá Central  |LRS     |

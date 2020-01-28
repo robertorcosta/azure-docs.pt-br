@@ -95,7 +95,7 @@ As regiões de origem são listadas na tabela a seguir. Todas as regiões públi
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Austrália Central     | Leste da China        | Sul da Índia        | Oeste da Europa        |
 | Austrália Central 2   | Leste da China 2      | Sudeste Asiático     | Sul do Reino Unido           |
-| Austrália Oriental        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
+| Leste da Austrália        | Norte da China       | Leste do Japão         | Oeste do Reino Unido            |
 | Sudeste da Austrália   | Norte da China 2     | Oeste do Japão         | US DoD Central     |
 | Sul do Brasil          | Leste da Ásia         | Coreia Central      | US DoD Leste        |
 | Canadá Central        | Leste dos EUA           | Sul da Coreia        | US Gov - Arizona     |

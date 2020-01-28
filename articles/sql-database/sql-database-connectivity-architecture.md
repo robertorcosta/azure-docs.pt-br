@@ -76,7 +76,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | --- | --- |
 | Austrália Central    | 20.36.105.0 |
 | Central2 da Austrália   | 20.36.113.0 |
-| Austrália Oriental       | 13.75.149.87, 40.79.161.1 |
+| Leste da Austrália       | 13.75.149.87, 40.79.161.1 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249      |

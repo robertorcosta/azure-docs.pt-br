@@ -50,7 +50,7 @@ O desconto de reserva é aplicado aos custos de taxa de transferência do Azure 
 |Norte do Reino Unido 100 RU/s/hora - do BD Cosmos do Azure |   Norte do Reino Unido    |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - UK Sul 2|   Sul do Reino Unido 2      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora – Leste dos EUA 2|  Leste dos EUA 2     |     1    |
-|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA|   Centro-Norte dos Estados Unidos      |     1    |
+|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA|   E.U.A. Centro-Norte      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA|   Oeste dos EUA      |     1    |
 |Azure Cosmos DB – 100 RU/s/hora – EUA Central| EUA Central        |     1    |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA 2|   Oeste dos EUA 2      |      1   |
@@ -89,7 +89,7 @@ O desconto coberto por uma reserva é calculado como: consumo de taxa de transfe
 
 |Descrição de medidor | Região |Consumo de taxa de transferência (RU/s) |Desconto de reserva aplicado a RU/s |
 |---------|---------|---------|---------|
-|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA  |   Centro-Norte dos Estados Unidos  | 50.000  | 50.000  |
+|Azure Cosmos DB – 100 RU/s/hora – Centro-Norte dos EUA  |   E.U.A. Centro-Norte  | 50.000  | 50.000  |
 |Azure Cosmos DB – 100 RU/s/hora - Oeste dos EUA  |  Oeste dos EUA   |  50.000  |  50.000 |
 
 **Cenário 2**
