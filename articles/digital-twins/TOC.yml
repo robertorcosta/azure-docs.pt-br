@@ -4,7 +4,7 @@
   items:
     - name: Sobre os Gêmeos Digitais do Azure
       href: about-digital-twins.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Encontrar salas disponíveis
@@ -35,7 +35,7 @@
       href: concepts-service-limits.md
     - name: Segurança
       items:
-        - name: Práticas recomendadas de segurança
+        - name: Melhores práticas de segurança
           href: security-best-practices.md
         - name: Controle de acesso baseado em função
           href: security-role-based-access-control.md
@@ -73,6 +73,8 @@
       href: reference-user-defined-functions-client-library.md
 - name: Recursos
   items:
+    - name: Opções de Ajuda e suporte
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Exemplos de Gêmeos Digitais do Azure para C# (.NET)'
       href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
     - name: API REST dos Gêmeos Digitais do Azure
@@ -93,3 +95,31 @@
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: vídeos
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'
+- name: Relacionados
+  items:
+    - name: Soluções
+      items:
+        - name: Aceleradores de solução do IoT
+          href: /azure/iot-suite
+        - name: Central da IoT
+          href: /azure/iot-central/iot-support-help
+    - name: Serviços de plataforma
+      items:
+        - name: Hub IoT
+          href: /azure/iot-hub
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Provisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Mapas
+          href: /azure/azure-maps
+        - name: SDKs do Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Soluções do Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

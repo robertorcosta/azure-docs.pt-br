@@ -2,10 +2,14 @@
   items:
     - name: Sobre VMs do SQL Server do Linux
       href: sql-server-linux-virtual-machines-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: Criar VM do SQL – Portal
       href: provision-sql-server-linux-virtual-machine.md
+- name: Tutoriais
+  items:
+    - name: Configurando o grupo de disponibilidade de VM RHEL do Azure com STONITH
+      href: sql-server-linux-rhel-ha-stonith-tutorial.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -28,7 +32,7 @@
       href: ../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json
     - name: PaaS ou IaaS?
       href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
-    - name: SSDT (Ferramentas de Dados do SQL Server)
+    - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: Ferramentas do SQL Server
       href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'

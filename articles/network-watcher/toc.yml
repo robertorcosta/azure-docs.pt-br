@@ -4,7 +4,7 @@
   items:
     - name: Sobre o Observador de Rede
       href: network-watcher-monitoring-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Diagnosticar o problema de filtro de tráfego da VM - Portal
@@ -101,6 +101,8 @@
               href: network-watcher-nsg-flow-logging-cli.md
             - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
+            - name: Azure Resource Manager
+              href: network-watcher-nsg-flow-logging-azure-resource-manager.md
         - name: Excluir blobs de armazenamento de log de fluxo do NSG
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analisar logs de fluxo NSG
