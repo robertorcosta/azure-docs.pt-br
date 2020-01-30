@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Este artigo descreve como usar o Observador de Rede do Azure e ferramentas de software livre para executar a detecção de invasão de rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275930"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845016"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a detecção de invasão de rede com o Observador de Rede e ferramentas de software livre
 
@@ -217,7 +215,7 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
     sudo /etc/init.d/logstash start
     ```
 
-Para saber mais sobre como instalar o Logstash, veja a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
+Para obter mais informações sobre como instalar o Logstash, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
 ### <a name="install-kibana"></a>Instalar Kibana
 
@@ -238,17 +236,17 @@ Para saber mais sobre como instalar o Logstash, veja a [documentação oficial](
 1. Para exibir a interface da Web do Kibana, navegue até `http://localhost:5601`
 1. Para este cenário, é o padrão de índice usado para os logs de Suricata "logstash-*"
 
-1. Se você quiser exibir o painel de Kibana remotamente, criar uma regra NSG entrada permitindo o acesso ao **porta 5601**.
+1. Se você quiser exibir o painel Kibana remotamente, crie uma regra NSG de entrada permitindo o acesso à **porta 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Criar um painel Kibana
 
-Neste artigo, nós fornecemos um painel de exemplo para exibir detalhes e tendências em seus alertas.
+Nesse artigo, fornecemos um painel de exemplo para exibir detalhes e tendências em seus alertas.
 
-1. Baixe o arquivo do painel [aqui](https://aka.ms/networkwatchersuricatadashboard), o arquivo de visualização [aqui](https://aka.ms/networkwatchersuricatavisualization)e o arquivo de pesquisa salva [aqui](https://aka.ms/networkwatchersuricatasavedsearch).
+1. Baixe o arquivo do painel [aqui](https://aka.ms/networkwatchersuricatadashboard), o arquivo de visualização [aqui](https://aka.ms/networkwatchersuricatavisualization) e o arquivo de pesquisa salva [aqui](https://aka.ms/networkwatchersuricatasavedsearch).
 
 1. Na guia **Management** (Gerenciamento) do Kibana, navegue até **Saved Objects** (Objetos Salvos) e importe todos os três arquivos. Em seguida, na guia **Painel**, você pode abrir e carregar o painel de exemplo.
 
-Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana na [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
+Você também pode criar suas próprias visualizações e painéis personalizados para métricas de seu próprio interesse. Leia mais sobre como criar visualizações do Kibana a partir da [documentação oficial](https://www.elastic.co/guide/en/kibana/current/visualize.html) do Kibana.
 
 ![painel kibana][2]
 
@@ -282,11 +280,11 @@ Para obter mais documentação sobre a criação de painéis e visualizações p
 
 Combinando pacote captura fornecida pelo Observador de Rede e ferramentas de IDS de código-fonte aberto como Suricata, você pode executar detecção de invasão de rede para uma ampla variedade de ameaças. Esses painéis permitem identificar rapidamente as tendências e anomalias em sua rede, como dig bem nos dados para descobrir a causa raiz de alertas como agentes de usuário mal-intencionado ou portas vulneráveis. Com esses dados extraídos, você pode tomar decisões informadas sobre como reagir a proteger sua rede contra todas as tentativas de intrusão prejudicial e criar regras para evitar futuras invasões à sua rede.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a acionar capturas de pacote com base em alertas visitando [usar a captura de pacote para fazer o monitoramento de rede proativo com Azure Functions](network-watcher-alert-triggered-packet-capture.md)
 
-Saiba como visualizar os logs de fluxo NSG com o Power BI visitando [fluxos de NSG visualizar logs com o Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visualizar logs de fluxos NSG com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 
 

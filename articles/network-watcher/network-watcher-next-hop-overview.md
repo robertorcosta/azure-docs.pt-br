@@ -3,9 +3,7 @@ title: Introdução ao próximo salto no Observador de Rede do Azure | Microsoft
 description: Este artigo fornece uma visão geral da capacidade do próximo salto do Observador de Rede.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: eb613455ccd6b6630d0d75b5a8458f812bb36846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 33c22b5b68b6677e8cf271dc185007316ec44500
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730213"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844051"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Use o próximo salto para diagnosticar problemas de roteamento da máquina virtual
 
@@ -40,6 +38,6 @@ Os próximos saltos que podem ser retornados pelo próximo recurso de salto são
 
 Para saber mais sobre cada tipo de próximo salto, consulte [Visão geral do roteamento](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como usar o próximo salto para diagnosticar problemas de roteamento de rede de VMs, consulte Diagnosticar problemas de roteamento de rede de VMs, usando o [portal do Azure](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md) ou a [CLI do Azure](diagnose-vm-network-routing-problem-cli.md).

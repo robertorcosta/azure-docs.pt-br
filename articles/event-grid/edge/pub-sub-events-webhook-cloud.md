@@ -9,16 +9,16 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100317"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844575"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem
 
-Este artigo percorre todas as etapas necessárias para publicar e assinar eventos usando a grade de eventos no IoT Edge.
+Este artigo percorre todas as etapas necessárias para publicar e assinar eventos usando a grade de eventos no IoT Edge. Este tutorial usa o e o Azure function como o manipulador de eventos. Para obter tipos de destino adicionais, consulte [manipuladores de eventos](event-handlers.md).
 
 Consulte [conceitos da grade de eventos](concepts.md) para entender o que é um tópico e uma assinatura da grade de eventos antes de continuar.
 
@@ -88,7 +88,7 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-   Exemplo de saída:
+   Saída de exemplo:
 
    ```json
         [
@@ -107,6 +107,8 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
 ## <a name="create-an-event-subscription"></a>Criar uma assinatura de evento
 
 Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, os assinantes precisarão criar uma assinatura de grade de eventos em um tópico de interesse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Crie subscription2. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
@@ -136,7 +138,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
 
-    Exemplo de saída:
+    Saída de exemplo:
 
    ```json
         {
@@ -203,3 +205,4 @@ Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eve
 * Configurar a persistência do módulo de grade de eventos no [Linux](persist-state-linux.md) ou no [Windows](persist-state-windows.md)
 * Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente
 * Encaminhar eventos para a grade de eventos do Azure na nuvem seguindo este [tutorial](forward-events-event-grid-cloud.md)
+* [Monitorar tópicos e assinaturas na borda](monitor-topics-subscriptions.md)

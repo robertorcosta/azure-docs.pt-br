@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: 1c5b2879659305e55bb01e4cfab27c7a1b343155
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894862"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845731"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning de monitoramento
 
@@ -32,7 +32,7 @@ Este artigo descreve os dados de monitoramento gerados pelo Azure Machine Learni
 
 Azure Machine Learning registra dados de monitoramento usando Azure Monitor, que é um serviço de monitoramento de pilha completo no Azure. Azure Monitor fornece um conjunto completo de recursos para monitorar os recursos do Azure. Ele também pode monitorar recursos em outras nuvens e locais.
 
-Comece com o artigo [Azure monitor visão geral](/azure/azure-monitor/overview), que fornece uma visão geral dos recursos de monitoramento. As seções a seguir se baseiam nessas informações, fornecendo especificações OO usando Azure Monitor com Azure Machine Learning.
+Comece com o artigo [Azure monitor visão geral](/azure/azure-monitor/overview), que fornece uma visão geral dos recursos de monitoramento. As seções a seguir se baseiam nessas informações, fornecendo especificações de como usar Azure Monitor com Azure Machine Learning.
 
 Para entender os custos associados a Azure Monitor, confira [uso e custos estimados](/azure/azure-monitor/platform/usage-estimated-costs). Para entender o tempo que leva para que seus dados apareçam em Azure Monitor, consulte [tempo de ingestão de dados de log](/azure/azure-monitor/platform/data-ingestion-time).
 

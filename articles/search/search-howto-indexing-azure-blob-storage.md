@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 793258b572fdcf2487d4b20fa07fb4ef5524b149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113014"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846260"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
 
@@ -30,7 +30,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 ## <a name="setting-up-blob-indexing"></a>Configuração da indexação de blob
 Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 
-* [Portal do Azure](https://ms.portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
 * SDK do [.net](https://aka.ms/search-sdk) pesquisa cognitiva do Azure
 
@@ -134,7 +134,7 @@ Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de
 * O conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
 
 > [!NOTE]
-> O Azure Pesquisa Cognitiva limita a quantidade de texto que ele extrai, dependendo do tipo de preço: 32.000 caracteres para a camada gratuita, 64.000 para Basic e 4 milhões para as camadas Standard, Standard S2 e Standard S3. Um aviso é incluído na resposta de status do indexador para documentos truncados.  
+> O Azure Pesquisa Cognitiva limita a quantidade de texto que ele extrai, dependendo do tipo de preço: 32.000 caracteres para a camada gratuita, 64.000 para Basic, 4 milhões para Standard, 8 milhões para Standard S2 e 16 milhões para o Standard S3. Um aviso é incluído na resposta de status do indexador para documentos truncados.  
 
 * As propriedades de metadados especificadas pelo usuário e presentes no blob, se houver alguma, são extraídas literalmente.
 * As propriedades de metadados de blob padrão são extraídas para os seguintes campos:
@@ -163,7 +163,7 @@ No Azure Pesquisa Cognitiva, a chave do documento identifica exclusivamente um d
 Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
 
 * **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas à API, como Pesquisa. (Por exemplo, em .NET você pode usar o método [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
-* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a `base64Encode`função[ ](search-indexer-field-mappings.md#base64EncodeFunction).
+* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a [função](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
 * Se nenhuma das opções acima funcionar para você, adicione uma propriedade de metadados personalizada aos blobs. No entanto, essa opção exige que seu processo de carregamento de blob adicione essa propriedade de metadados a todos os blobs. Como a chave é uma propriedade obrigatória, todos os blobs que não tiverem essa propriedade apresentarão falha na indexação.
 
 > [!IMPORTANT]

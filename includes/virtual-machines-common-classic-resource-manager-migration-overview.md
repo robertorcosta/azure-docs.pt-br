@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c550174bff0529e0fc619f1de79c41ab7cf62a36
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0ffbbe5505c9316f362ebbc41d311f97408f1b17
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020839"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887729"
 ---
 Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
 
@@ -124,6 +124,7 @@ Atualmente, não há suporte para as seguintes configurações.
 | Computação | Serviços de nuvem que contêm mais de um conjunto de disponibilidade ou vários conjuntos de disponibilidade. |Não há suporte para esse recurso no momento. Mova as Máquinas Virtuais para a mesmo conjunto de disponibilidade antes de fazer a migração. |
 | Computação | VM com a extensão de Central de Segurança do Azure | A Central de Segurança do Azure instala automaticamente extensões em suas Máquinas Virtuais a fim de monitorar a segurança e emitir alertas. Essas extensões normalmente são instaladas automaticamente se a política da Central de Segurança do Azure for habilitada na assinatura. Para migrar as máquinas virtuais, desabilite a política da central de segurança na assinatura que removerá a extensão de monitoramento da Central de Segurança das máquinas virtuais. |
 | Computação | VM com extensão de backup ou instantâneo | Essas extensões são instaladas em uma máquina Virtual configurada com o serviço de Backup do Azure. Enquanto não houver suporte para a migração dessas VMs, siga as diretrizes descritas [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) para manter os backups feitos antes da migração.  |
+| Computação | VM com extensão Azure Site Recovery | Essas extensões são instaladas em uma máquina virtual configurada com o serviço de Azure Site Recovery. Enquanto a migração de armazenamento usada com Site Recovery funcionará, a replicação atual será afetada. Você precisa desabilitar e habilitar a replicação de VM após a migração de armazenamento. |
 | Rede |Redes virtuais que contêm máquinas virtuais e funções de trabalho/web |Não há suporte para esse recurso no momento. Mova as funções Web/Trabalho para as suas próprias redes virtuais antes de fazer a migração. Depois que a rede virtual clássica for migrada, a rede virtual do Azure Resource Manager pode ser emparelhada com a rede virtual clássica para obter uma configuração semelhante como antes.|
 | Rede | Circuitos do ExpressRoute clássico |Não há suporte para esse recurso no momento. Esses circuitos precisam ser migrados para o Azure Resource Manager antes da migração do IaaS ser iniciada. Para saber mais, consulte [Movimentação dos circuitos do ExpressRoute do modelo de implantação clássico para o Resource Manager](../articles/expressroute/expressroute-move.md).|
 | Serviço de Aplicativos do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |

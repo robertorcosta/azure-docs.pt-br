@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760616"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845322"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Suporte a idiomas e regiões para o serviço de fala
 
@@ -72,7 +72,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ta-IN` | Tâmil (Índia) | Sim | Modelo de linguagem
 `te-IN` | Télugo (Índia) | Sim | Não
 `th-TH` | Tailandês (Tailândia) | Sim | Não
-`tr-TR` | Turquia | Sim | Não
+`tr-TR` | Turco (Turquia) | Sim | Não
 `zh-CN` | Chinês (mandarim, simplificado) | Sim | Modelo acústico<br>Modelo de linguagem
 `zh-HK` | Chinês (Cantonês, tradicional) | Sim | Modelo de linguagem
 `zh-TW` | Chinês (Mandarim Taiwanês) | Sim | Modelo de linguagem
@@ -111,7 +111,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 
 Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curto
 -------|----------|---------|----------|----------
-<sup>**1**</sup>`ar-EG` | Árabe (Egito) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-EG, Hoda)” | "ar-ex-Hoda"
+<sup>1</sup>`ar-EG` | Árabe (Egito) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-EG, Hoda)” | "ar-ex-Hoda"
 `ar-SA` | Árabe (Arábia Saudita) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ar-SA, Naayf)” | "ar-SA-Naayf"
 `bg-BG` | Búlgaro | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (bg-BG, Ivan)” | "bg-BG-Ivan"
 `ca-ES` | Catalão (Espanha) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ca-ES, HerenaRUS)” | "ca-ES-HerenaRUS"
@@ -181,7 +181,7 @@ Localidade | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome curt
 `ta-IN` | Tâmil (Índia) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ta-IN, Valluvar)” | "ta-IN-Valluvar"
 `te-IN` | Télugo (Índia) | Feminino | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (te-IN, Chitra)" | "Chitra"
 `th-TH` | Tailandês | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (th-TH, Pattara)” | "th-TH-Pattara"
-`tr-TR` | Turco | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
+`tr-TR` | Turco (Turquia) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
 `vi-VN` | Vietnamita | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (vi-VN, An)” | "vi-VN-um"
 `zh-CN` | Chinês (continente) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (zh-CN, HuihuiRUS)” | "zh-CN-HuihuiRUS"
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (zh-CN, Yaoyao, Apollo)” | "zh-CN-Yaoyao-Apollo"

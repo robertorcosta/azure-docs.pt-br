@@ -1,31 +1,19 @@
 ---
 title: Matriz de suporte para migrações para Azure
 description: Fornece um resumo das configurações de suporte e limitações para o serviço migrações para Azure.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669147"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846555"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte para migrações para Azure
 
 Você pode usar o [serviço migrações para Azure](migrate-overview.md) para avaliar e migrar computadores para a nuvem Microsoft Azure. Este artigo resume as configurações de suporte geral e as limitações para cenários e implantações de migração do Azure.
-
-
-## <a name="azure-migrate-versions"></a>Versões das Migrações para Azure
-
-Há duas versões do serviço de Migrações para Azure:
-
-- **Versão atual**: usando esta versão, você pode criar novos projetos de migrações para Azure, descobrir avaliações locais e orquestrações e migrações. [Saiba mais](whats-new.md#release-version-july-2019).
-- **Versão anterior**: para o cliente que usa a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Na versão anterior, você não pode criar novos projetos de migrações para Azure ou executar novas descobertas.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Cenários de avaliação/migração com suporte
 
@@ -71,6 +59,16 @@ VMs Hyper-V | Avalie até 35.000 VMs do Hyper-V em um único projeto.
 
 Um projeto pode incluir VMs do VMware e VMs do Hyper-V, até os limites de avaliação.
 
+## <a name="azure-permissions"></a>Permissões do Azure
+
+Para que as migrações para Azure funcionem com o Azure, você precisa dessas permissões antes de começar a avaliar e migrar computadores.
+
+**Tarefa** | **Permissões** | **Detalhes**
+--- | --- | ---
+Criar um projeto das Migrações para Azure | Sua conta do Azure precisa de permissões para criar um projeto. | Configurar para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Registrar o dispositivo de migrações para Azure | As migrações para Azure usam um dispositivo leve de [migrações para Azure](migrate-appliance.md) para avaliar VMs VMware com a avaliação de servidor de migrações para Azure e para executar a [migração sem agente](server-migrate-overview.md) de VMs VMware com migração de servidor de migrações para Azure. Esse dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure.<br/><br/> Durante o registro, as Migrações para Azure criam dois aplicativos Azure AD (Azure Active Directory) que identificam o dispositivo de forma exclusiva e precisa de permissões para criar esses aplicativos.<br/><br/> - O primeiro aplicativo comunica-se com os pontos de extremidade de serviço das Migrações para Azure.<br/><br/> - O segundo aplicativo acessa um Azure Key Vault criado durante o registro para armazenar informações de aplicativo do Azure AD e definições de configuração do dispositivo. | Configurar para [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Criar um cofre de chaves para migração sem agente do VMware | Para migrar VMs VMware com migração de servidor do Azure Migrations sem agente, as migrações para Azure criam um Key Vault para gerenciar chaves de acesso para a conta de armazenamento de replicação em sua assinatura. Para criar o cofre, você deve definir permissões (proprietário ou colaborador e administrador de acesso do usuário) no grupo de recursos no qual o projeto de migração do Azure reside. | [Configurar](tutorial-prepare-vmware.md#assign-role-assignment-permissions) permissões.
+
 ## <a name="supported-geographies"></a>Geografia com suporte
 
 Você pode criar um projeto de migrações para Azure em uma série de geografias. Embora você só possa criar projetos nessas regiões, você pode avaliar ou migrar computadores para outros locais de destino. A região geográfica do projeto é usada apenas para armazenar os metadados descobertos.
@@ -82,7 +80,7 @@ Pacífico Asiático | Ásia Oriental ou sudeste asiático
 Austrália | Leste da Austrália ou sudeste da Austrália
 Brasil | Sul do Brasil
 Canadá | Canadá central ou leste do Canadá
-Europa | Norte da Europa ou Europa Ocidental
+Europa | Europa Setentrional ou Europa Ocidental
 França | França Central
 Índia | Índia central ou sul da Índia
 Japão |  Leste do Japão ou oeste do Japão
@@ -104,6 +102,14 @@ Estados Unidos | EUA Central ou oeste dos EUA 2
 
 [Revise](migrate-support-matrix-hyper-v.md) a matriz de suporte de migração de servidor e avaliação do Azure migrações para VMs do Hyper-V.
 
+
+
+## <a name="azure-migrate-versions"></a>Versões das Migrações para Azure
+
+Há duas versões do serviço de Migrações para Azure:
+
+- **Versão atual**: usando esta versão, você pode criar novos projetos de migrações para Azure, descobrir avaliações locais e orquestrações e migrações. [Saiba mais](whats-new.md#release-version-july-2019).
+- **Versão anterior**: para o cliente que usa a versão anterior da migração do Azure (somente a avaliação de VMs do VMware local foi suportada), agora você deve usar a versão atual. Na versão anterior, você não pode criar novos projetos de migrações para Azure ou executar novas descobertas.
 
 ## <a name="next-steps"></a>Próximos passos
 

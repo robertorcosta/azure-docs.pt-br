@@ -3,9 +3,7 @@ title: Inspeção de pacotes com o Observador de Rede do Azure | Microsoft Docs
 description: Este artigo descreve como usar o Observador de Rede para realizar inspeções de pacotes detalhadas coletadas em uma VM
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716905"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845072"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
 
@@ -41,7 +39,7 @@ Nesse cenário, você irá:
 
 Nesse cenário, mostramos como exibir o Tempo Resposta inicial (RTT) de uma conversa TCP (Protocolo de Controle de Transmissão) que ocorre entre dois pontos de extremidade.
 
-Quando uma conexão TCP é estabelecida, os três primeiros pacotes enviados na conexão seguem um padrão conhecido como handshake de três vias. Examinando os dois primeiros pacotes enviados nesse handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando a conexão foi estabelecida. Essa latência é conhecida como Tempo Resposta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o recursos a seguir. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
+Quando uma conexão TCP é estabelecida, os três primeiros pacotes enviados na conexão seguem um padrão conhecido como handshake de três vias. Examinando os dois primeiros pacotes enviados nesse handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando a conexão foi estabelecida. Essa latência é conhecida como Tempo Resposta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o recursos a seguir. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -53,7 +51,7 @@ Carregue o arquivo **.cap** da captura de pacotes. Esse arquivo pode ser encontr
 
 ### <a name="step-3"></a>Etapa 3
 
-Para exibir o Tempo Resposta inicial (RTT) nas conversas TCP, veremos apenas os dois primeiros pacotes envolvidos no handshake TCP. Usaremos os dois primeiros pacotes no handshake de três vias, que são os pacotes [SYN], [SYN, ACK]. Eles são chamados de sinalizadores definidos no cabeçalho TCP. O último pacote no handshake, o pacote [ACK], não será usado neste cenário. O pacote [SYN] é enviado pelo cliente. Após ser recebido, o servidor envia o pacote [ACK] como uma confirmação de recebimento do SYN a partir do cliente. Aproveitando o fato de que a resposta do servidor exige muito pouca sobrecarga, calculamos o RTT subtraindo a hora em que o pacote [SYN, ACK] foi recebido pelo cliente da hora em que o pacote [SYN] foi enviado pelo cliente.
+Para exibir o Tempo Resposta inicial (RTT) nas conversas TCP, veremos apenas os dois primeiros pacotes envolvidos no handshake TCP. Usaremos os dois primeiros pacotes no handshake de três vias, que são os pacotes [SYN], [SYN, ACK]. Eles são chamados de sinalizadores definidos no cabeçalho TCP. O último pacote no handshake, o pacote [ACK], não será usado neste cenário. O pacote [SYN] é enviado pelo cliente. Depois de receber, o servidor envia o pacote [ACK] como uma confirmação de recebimento do SYN do cliente. Aproveitando o fato de que a resposta do servidor exige muito pouca sobrecarga, calculamos o RTT subtraindo a hora em que o pacote [SYN, ACK] foi recebido pelo cliente da hora em que o pacote [SYN] foi enviado pelo cliente.
 
 Usando o WireShark, esse valor é calculado.
 
@@ -123,7 +121,7 @@ Inserimos o texto do filtro acima na caixa de texto do filtro e pressionamos Ent
 
 Nos resultados, podemos ver que todo o tráfego está vindo de uma máquina virtual local na mesma sub-rede. Se ainda não entendemos por que esse tráfego está ocorrendo, podemos examinar ainda mais os pacotes para determinar por que ele está fazendo essas chamadas na porta 111. Com essas informações, podemos tomar a devida ação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os outros recursos de diagnóstico do Observador de Rede visitando [Visão geral do monitoramento de rede do Azure](network-watcher-monitoring-overview.md)
 

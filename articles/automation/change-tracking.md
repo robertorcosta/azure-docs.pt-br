@@ -3,19 +3,29 @@ title: Controlar alterações com a Automação do Azure
 description: A solução Controle de Alterações ajuda a identificar alterações no software e Serviço Windows que ocorrem no ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418742"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844795"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
-Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução controla as alterações no software Windows e Linux, nos arquivos Windows e chaves do Registro, nos serviços Windows e daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
+Este artigo ajuda você a usar a solução de Controle de Alterações para identificar facilmente as alterações em seu ambiente. A solução acompanha as seguintes alterações de configuração para ajudá-lo a identificar problemas operacionais:
+
+- Software do Windows
+- Software Linux (pacotes)
+
+    >[!NOTE]
+    >Controle de Alterações controla apenas o software gerenciado com o Gerenciador de pacotes da distribuição.
+
+- Arquivos do Windows e Linux
+- Chaves do registro do Windows
+- Serviços do Windows
+- Daemons Linux
 
 As alterações no software instalado, nos serviços do Windows, no registro e nos arquivos do Windows e nos daemons do Linux nos servidores monitorados são enviadas para o serviço de Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
@@ -159,6 +169,8 @@ A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
 
 * Recursão para o rastreamento de registro do Windows
 * Sistemas de arquivos de rede
+* Diferentes métodos de instalação não são acompanhados
+* arquivos *. exe não são rastreados para Windows
 
 Outras limitações:
 

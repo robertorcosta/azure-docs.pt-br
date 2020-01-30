@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0a800a95d00e482b2342911111f43cfadb5a9c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406545"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845630"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -38,9 +38,9 @@ Há duas abordagens para resolver isso: uso de monitoramento padrão e amostrage
 
 ### <a name="data-collection-when-using-sampling"></a>Coleta de dados ao usar amostragem
 
-Com a [amostragem adaptável](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)do SDK do ASP.net, o volume de dados é ajustado automaticamente para manter-se dentro de uma taxa máxima de tráfego especificada para o monitoramento de Application insights padrão. Se o aplicativo produzir uma quantidade menor de telemetria, como durante a depuração ou devido ao baixo uso, os itens não serão descartados pelo processador de amostragem, desde que o volume esteja abaixo do nível de eventos configurados por segundo. Para um aplicativo de alto volume, com o limite padrão de cinco eventos por segundo, a amostragem adaptável limitará o número de eventos diários a 432.000. Usando um tamanho de evento médio típico de 1 KB, isso corresponde a 13,4 GB de telemetria por mês de 31 dias por nó que hospeda seu aplicativo (já que a amostragem é feita de local para cada nó). 
+Com a [amostragem adaptável](sampling.md#adaptive-sampling)do SDK do ASP.net, o volume de dados é ajustado automaticamente para manter-se dentro de uma taxa máxima de tráfego especificada para o monitoramento de Application insights padrão. Se o aplicativo produzir uma quantidade menor de telemetria, como durante a depuração ou devido ao baixo uso, os itens não serão descartados pelo processador de amostragem, desde que o volume esteja abaixo do nível de eventos configurados por segundo. Para um aplicativo de alto volume, com o limite padrão de cinco eventos por segundo, a amostragem adaptável limitará o número de eventos diários a 432.000. Usando um tamanho de evento médio típico de 1 KB, isso corresponde a 13,4 GB de telemetria por mês de 31 dias por nó que hospeda seu aplicativo (já que a amostragem é feita de local para cada nó). 
 
-Para SDKs que não dão suporte à amostragem adaptável, você pode empregar a [amostragem de ingestão](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), que obtém exemplos de quando os dados são recebidos por Application insights com base em uma porcentagem de dados a serem retidos, ou [amostragem de taxa fixa para sites de ASP.net, ASP.NET Core e Java](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) para reduzir o tráfego enviado do seu servidor Web e navegadores da Web
+Para SDKs que não dão suporte à amostragem adaptável, você pode empregar a [amostragem de ingestão](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), que obtém exemplos de quando os dados são recebidos por Application insights com base em uma porcentagem de dados a serem retidos, ou [amostragem de taxa fixa para sites de ASP.net, ASP.NET Core e Java](sampling.md#fixed-rate-sampling) para reduzir o tráfego enviado do seu servidor Web e navegadores da Web
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Aprenda com o que os clientes semelhantes coletam
 

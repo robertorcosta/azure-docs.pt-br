@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561925"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846459"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
@@ -31,10 +31,10 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 |                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicativo](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrições de IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅Sim|✅Sim|✅Sim|✅Sim|
-|[Integração de rede virtual](#virtual-network-integration)|❌Não|✅Sim (regional)|✅Sim (regional e gateway)|✅Sim|
-|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌Não| ✅Sim |✅Sim|✅Sim|
-|[Conexões híbridas](#hybrid-connections) (somente Windows)|❌Não|✅Sim|✅Sim|✅Sim|
-|[Restrições de IP de saída](#outbound-ip-restrictions)|❌Não| ❌Não|❌Não|✅Sim|
+|[Integração de rede virtual](#virtual-network-integration)|❌não|✅Sim (regional)|✅Sim (regional e gateway)|✅Sim|
+|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌não| ✅Sim |✅Sim|✅Sim|
+|[Conexões híbridas](#hybrid-connections) (somente Windows)|❌não|✅Sim|✅Sim|✅Sim|
+|[Restrições de IP de saída](#outbound-ip-restrictions)|❌não| ❌não|❌não|✅Sim|
 
 ## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
 
@@ -91,7 +91,7 @@ Há algumas coisas para as quais a integração de rede virtual não dá suporte
 
 * A montagem de uma unidade
 * Integração do Active Directory
-* NetBIOS
+* Output
 
 A integração de rede virtual no Azure Functions usa a infraestrutura compartilhada com aplicativos Web do serviço de aplicativo. Para saber mais sobre os dois tipos de integração de rede virtual, consulte:
 
@@ -136,7 +136,7 @@ Ao executar em um plano Premium, você pode conectar funções de gatilho não H
 Você também pode habilitar gatilhos de rede virtual usando o seguinte comando de CLI do Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
 Os gatilhos de rede virtual têm suporte na versão 2. x e superior do tempo de execução do functions. Há suporte para os seguintes tipos de gatilho não HTTP.

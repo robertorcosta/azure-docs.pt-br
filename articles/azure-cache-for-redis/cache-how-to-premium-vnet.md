@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433481"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846397"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de Rede Virtual para um Cache do Azure Premium para Redis
 O Cache do Azure para Redis apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos da camada Premium como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na nuvem. Quando uma instância do Cache do Azure para Redis é configurada com uma rede virtual, ela não é endereçável publicamente e somente pode ser acessada de máquinas virtuais e aplicativos dentro da rede virtual. Este artigo descreve como configurar suporte de rede virtual para uma instância do Cache do Azure Premium para Redis.
@@ -37,7 +37,7 @@ Para configurar a VNet para o novo cache, clique em **Rede Virtual** na folha **
 
 ![Rede virtual][redis-cache-vnet]
 
-Selecione a sub-rede desejada da lista suspensa **Sub-rede** e especifique o **Endereço IP estático** desejado. Se você estiver usando uma VNet clássica, o campo **Endereço IP estático** será opcional e, se não for especificado nenhum, será escolhido um da sub-rede selecionada.
+Selecione a sub-rede desejada na lista suspensa **sub-rede** .  Se desejar, especifique um **endereço IP estático**. O campo **endereço IP estático** é opcional e, se nenhum for especificado, um será escolhido na sub-rede selecionada.
 
 > [!IMPORTANT]
 > Ao implantar um Cache do Azure para Redis em uma VNet do Resource Manager, o cache deve estar em uma sub-rede dedicada que não contém nenhum outro recurso, exceto o Cache do Azure para Redis. Se uma tentativa de implantar um Cache do Azure para Redis for realizada em uma VNet do Resource Manager para uma sub-rede contendo outros recursos, a implantação falhará.

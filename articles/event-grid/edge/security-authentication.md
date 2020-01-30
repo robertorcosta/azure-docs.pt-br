@@ -9,18 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 77b4b265b2e993ccdbc9e07fd2dab5a37ed22a6b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992152"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844506"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
 
 Segurança e autenticação é um conceito avançado e requer familiaridade com noções básicas da grade de eventos primeiro. Comece [aqui](concepts.md) se você for novo na grade de eventos em IOT Edge. O módulo de grade de eventos baseia-se na infraestrutura de segurança existente no IoT Edge. Consulte [esta documentação](../../iot-edge/security.md) para obter detalhes e configuração.
 
-As seções a seguir descrevem detalhadamente como essas configurações são protegidas e autenticadas:-
+As seções a seguir descrevem detalhadamente como essas configurações são protegidas e autenticadas:
 
 * Configuração de TLS
 * Autenticação de cliente de entrada
@@ -37,9 +37,9 @@ As seções a seguir descrevem detalhadamente como essas configurações são pr
 
 O módulo de grade de eventos hospeda pontos de extremidade HTTP e HTTPS. Cada módulo de IoT Edge recebe um certificado de servidor pelo daemon de segurança do IoT Edge. Usamos o certificado do servidor para proteger o ponto de extremidade. Na expiração, o módulo é atualizado automaticamente com um novo certificado do daemon de segurança IoT Edge.
 
-Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir esse comportamento por meio de **entrada: serverAuth:** configuração de tlsPolicy. A tabela a seguir captura os possíveis valores dessa propriedade.
+Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir esse comportamento por meio da configuração do **inbound__serverAuth__tlsPolicy** . A tabela a seguir captura os possíveis valores dessa propriedade.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ---------------- | ------------ |
 | Estrito | Padrão. Habilita somente HTTPS
 | habilitado | Habilita HTTP e HTTPS
@@ -49,7 +49,7 @@ Por padrão, somente a comunicação HTTPS é permitida. Você pode substituir e
 
 Os clientes são entidades que fazem operações de gerenciamento e/ou tempo de execução. Os clientes podem ser outros módulos IoT Edge, aplicativos não IoT.
 
-O módulo de grade de eventos dá suporte a dois tipos de autenticação de cliente:-
+O módulo de grade de eventos dá suporte a dois tipos de autenticação de cliente:
 
 * Baseada em chave de SAS (assinatura de acesso compartilhado)
 * com base em certificado
@@ -58,41 +58,41 @@ Por padrão, o módulo de grade de eventos é configurado para aceitar somente a
 
 ### <a name="certificate-based-client-authentication"></a>Autenticação de cliente baseada em certificado
 
-A autenticação baseada em certificado está ativada por padrão. Você pode optar por desabilitar a autenticação baseada em certificado por meio da propriedade de **entrada: clientAuth: clientCert: Enabled**. A tabela a seguir captura possíveis valores.
+A autenticação baseada em certificado está ativada por padrão. Você pode optar por desabilitar a autenticação baseada em certificado por meio da propriedade **inbound__clientAuth__clientCert__enabled**. A tabela a seguir captura possíveis valores.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ----------------  | ------------ |
-| true | Padrão. Exige que todas as solicitações no módulo da grade de eventos apresentem um certificado de cliente. Além disso, será necessário configurar a **entrada: clientAuth: clientCert: Source**.
-| falso | Não force um cliente a apresentar o certificado.
+| true | Padrão. Exige que todas as solicitações no módulo da grade de eventos apresentem um certificado de cliente. Além disso, será necessário configurar **inbound__clientAuth__clientCert__source**.
+| false | Não force um cliente a apresentar o certificado.
 
-A tabela a seguir captura possíveis valores para **entrada: clientAuth: clientCert: Source**
+A tabela a seguir captura possíveis valores para **inbound__clientAuth__clientCert__source**
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ---------------- | ------------ |
 | IoT Edge | Padrão. Usa o Trustbundle da IoT Edge para validar todos os certificados de cliente.
 
-Se um cliente apresentar uma assinatura automática, por padrão, o módulo de grade de eventos rejeitará essas solicitações. Você pode optar por permitir certificados de cliente autoassinados por meio da propriedade de **entrada: clientAuth: clientCert: allowUnknownCA** . A tabela a seguir captura possíveis valores.
+Se um cliente apresentar uma assinatura automática, por padrão, o módulo de grade de eventos rejeitará essas solicitações. Você pode optar por permitir certificados de cliente autoassinados por meio da propriedade **inbound__clientAuth__clientCert__allowUnknownCA** . A tabela a seguir captura possíveis valores.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ----------------  | ------------|
 | true | Padrão. Permite que certificados autoassinados sejam apresentados com êxito.
-| falso | Falhará nas solicitações se os certificados autoassinados forem apresentados.
+| false | Falhará nas solicitações se os certificados autoassinados forem apresentados.
 
 >[!IMPORTANT]
->Em cenários de produção, talvez você queira definir a **entrada: clientAuth: clientCert: allowUnknownCA** como **false**.
+>Em cenários de produção, talvez você queira definir **inbound__clientAuth__clientCert__allowUnknownCA** como **false**.
 
 ### <a name="sas-key-based-client-authentication"></a>Autenticação de cliente baseada em chave SAS
 
 Além da autenticação baseada em certificado, o módulo de grade de eventos também pode fazer a autenticação baseada em chave SAS. A chave SAS é como um segredo configurado no módulo de grade de eventos que ele deve usar para validar todas as chamadas de entrada. Os clientes precisam especificar o segredo no cabeçalho HTTP ' AEG-SAS-Key '. A solicitação será rejeitada com `UnAuthorized` se não corresponder.
 
-A configuração para controlar a autenticação baseada em chave SAS é de **entrada: clientAuth: sasKeys: Enabled**.
+A configuração para controlar a autenticação baseada em chave SAS é **inbound__clientAuth__sasKeys__enabled**.
 
-| Valor (es) possível (is) | Descrição  |
+| Valor (es) possível (is) | Description  |
 | ----------------  | ------------ |
-| true | Permite a autenticação baseada em chave SAS. Requer **entrada: clientAuth: sasKeys: key1** ou de **entrada: clientAuth: sasKeys: Key2**
-| falso | Padrão. A autenticação baseada em chave SAS está desabilitada.
+| true | Permite a autenticação baseada em chave SAS. Requer **inbound__clientAuth__sasKeys__key1** ou **inbound__clientAuth__sasKeys__key2**
+| false | Padrão. A autenticação baseada em chave SAS está desabilitada.
 
- **entrada: clientAuth: sasKeys: key1** e **entrada: clientAuth: sasKeys: Key2** são chaves que você configura o módulo de grade de eventos para verificar as solicitações de entrada. Pelo menos uma das chaves precisa ser configurada. O cliente que estiver fazendo a solicitação precisará apresentar a chave como parte do cabeçalho de solicitação '**AEG-SAS-Key**'. Se ambas as chaves estiverem configuradas, o cliente poderá apresentar qualquer uma das chaves.
+ **inbound__clientAuth__sasKeys__key1** e **inbound__clientAuth__sasKeys__key2** são chaves que você configura o módulo de grade de eventos para verificar as solicitações de entrada. Pelo menos uma das chaves precisa ser configurada. O cliente que estiver fazendo a solicitação precisará apresentar a chave como parte do cabeçalho de solicitação '**AEG-SAS-Key**'. Se ambas as chaves estiverem configuradas, o cliente poderá apresentar qualquer uma das chaves.
 
 > [!NOTE]
 >Você pode configurar os dois métodos de autenticação. Nesse caso, a chave SAS é verificada primeiro e somente se isso falhar, a autenticação baseada em certificado será executada. Para que uma solicitação seja realizada com sucesso, apenas um dos métodos de autenticação precisa ter sucesso.
@@ -103,16 +103,16 @@ O cliente no contexto de saída refere-se ao módulo de grade de eventos. A oper
 
 Cada módulo de IoT Edge recebe um certificado de identidade pelo daemon de segurança do IoT Edge. Usamos o certificado de identidade para chamadas de saída. Na expiração, o módulo é atualizado automaticamente com um novo certificado do daemon de segurança IoT Edge.
 
-A configuração para controlar a autenticação de cliente de saída é de **saída: clientAuth: clientCert: Enabled**.
+A configuração para controlar a autenticação de cliente de saída é **outbound__clientAuth__clientCert__enabled**.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ----------------  | ------------ |
-| true | Padrão. Requer que todas as solicitações de saída do módulo de grade de eventos apresentem um certificado. Precisa configurar a **saída: clientAuth: clientCert: Source**.
-| falso | Não exija que o módulo de grade de eventos apresente seu certificado.
+| true | Padrão. Requer que todas as solicitações de saída do módulo de grade de eventos apresentem um certificado. Precisa configurar **outbound__clientAuth__clientCert__source**.
+| false | Não exija que o módulo de grade de eventos apresente seu certificado.
 
-A configuração que controla a origem do certificado é de **saída: clientAuth: clientCert: Source**.
+A configuração que controla a origem do certificado é **outbound__clientAuth__clientCert__source**.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ---------------- | ------------ |
 | IoT Edge | Padrão. Usa o certificado de identidade do módulo configurado pelo daemon de segurança do IoT Edge.
 
@@ -120,29 +120,29 @@ A configuração que controla a origem do certificado é de **saída: clientAuth
 
 Um dos tipos de destino para um assinante de grade de eventos é "webhook". Por padrão, somente pontos de extremidade HTTPS são aceitos para tais assinantes.
 
-A configuração para controlar a política de destino do webhook de **saída: webhook: httpsOnly**.
+A configuração para controlar a política de destino do webhook **outbound__webhook__httpsOnly**.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ----------------  | ------------ |
 | true | Padrão. Permite somente assinantes com ponto de extremidade HTTPS.
-| falso | Permite assinantes com o ponto de extremidade HTTP ou HTTPS.
+| false | Permite assinantes com o ponto de extremidade HTTP ou HTTPS.
 
-Por padrão, o módulo de grade de eventos validará o certificado do servidor do Assinante. Você pode ignorar a validação substituindo **saída: webhook: skipServerCertValidation**. Os valores possíveis são:-
+Por padrão, o módulo de grade de eventos validará o certificado do servidor do Assinante. Você pode ignorar a validação substituindo **outbound__webhook__skipServerCertValidation**. Os valores possíveis são:
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ----------------  | ------------ |
 | true | Não valide o certificado do servidor do Assinante.
-| falso | Padrão. Validar o certificado do servidor do Assinante.
+| false | Padrão. Validar o certificado do servidor do Assinante.
 
-Se o certificado do assinante for autoassinado, por padrão, o módulo de grade de eventos rejeitará esses assinantes. Para permitir o certificado autoassinado, você pode substituir **saída: webhook: allowUnknownCA**. A tabela a seguir captura os possíveis valores.
+Se o certificado do assinante for autoassinado, por padrão, o módulo de grade de eventos rejeitará esses assinantes. Para permitir o certificado autoassinado, você pode substituir **outbound__webhook__allowUnknownCA**. A tabela a seguir captura os possíveis valores.
 
-| Valor (es) possível (is) | Descrição |
+| Valor (es) possível (is) | Description |
 | ----------------  | ------------ |
 | true | Padrão. Permite que certificados autoassinados sejam apresentados com êxito.
-| falso | Falhará nas solicitações se os certificados autoassinados forem apresentados.
+| false | Falhará nas solicitações se os certificados autoassinados forem apresentados.
 
 >[!IMPORTANT]
->Em cenários de produção, você desejará definir a **saída: webhook: allowUnknownCA** como **false**.
+>Em cenários de produção, você desejará definir **outbound__webhook__allowUnknownCA** como **false**.
 
 > [!NOTE]
 >IoT Edge ambiente gera certificados autoassinados. A recomendação é gerar certificados emitidos por CAs autorizadas para cargas de trabalho de produção e definir a propriedade **allowUnknownCA** na entrada e saída para **false**.
@@ -151,7 +151,7 @@ Se o certificado do assinante for autoassinado, por padrão, o módulo de grade 
 
 Um módulo de grade de eventos é **seguro por padrão**. Recomendamos manter esses padrões para suas implantações de produção.
 
-A seguir estão os princípios de orientação a serem usados durante a configuração:-
+A seguir estão os princípios de orientação a serem usados durante a configuração do:
 
 * Permitir somente solicitações HTTPS no módulo.
 * Permitir somente autenticação de cliente baseada em certificado. Permitir somente os certificados emitidos por CAs conhecidas. Não permitir certificados autoassinados.
@@ -160,22 +160,22 @@ A seguir estão os princípios de orientação a serem usados durante a configur
 * Permitir somente assinantes HTTPS para tipos de destino do webhook.
 * Sempre validar o certificado do servidor do assinante para tipos de destino do webhook. Permitir somente certificados emitidos por CAs conhecidas. Não permitir certificados autoassinados.
 
-Por padrão, o módulo de grade de eventos é implantado com a seguinte configuração:-
+Por padrão, o módulo de grade de eventos é implantado com a seguinte configuração:
 
  ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "PortBindings": {

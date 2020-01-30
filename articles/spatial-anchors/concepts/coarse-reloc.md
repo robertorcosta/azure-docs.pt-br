@@ -1,6 +1,6 @@
 ---
 title: Relocalidade grosseira
-description: Guia de início rápido de relocalização de alta.
+description: Saiba mais sobre como usar a relocalização grosseira para encontrar âncoras perto de você.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356345"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844387"
 ---
 # <a name="coarse-relocalization"></a>Relocalização grosseira
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169570"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846298"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -85,17 +85,17 @@ Para provar a propriedade do pronto de extremidade, retorne o código de valida�
 }
 ```
 
-Você deve retornar um código de status de resposta HTTP 200 Okey. O HTTP 202 aceito não é reconhecido como uma resposta de validação de assinatura de grade de eventos válida. A solicitação HTTP deve ser concluída dentro de 30 segundos. Se a operação não for concluída dentro de 30 segundos, a operação será cancelada e poderá ser tentada novamente após 5 segundos. Se todas as tentativas falharem, elas serão tratadas como um erro de handshake de validação.
+Você deve retornar um código de status de resposta HTTP 200 Okey. HTTP 202 aceito não é reconhecido como uma resposta de validação de assinatura de Grade de Eventos válida. A solicitação HTTP deve ser concluída dentro de 30 segundos. Se a operação não for concluída dentro de 30 segundos, a operação será cancelada e poderá ser tentada novamente após 5 segundos. Se todas as tentativas falharem, elas serão tratadas como um erro de handshake de validação.
 
-Ou então, você pode validar a assinatura manualmente, enviando uma solicitação GET para a URL de validação. A assinatura de evento permanece em um estado pendente até ser validada. A URL de validação usa a porta 553. Se suas regras de firewall bloquearem a porta 553, talvez seja necessário atualizar as regras para um handshake manual bem-sucedido.
+Ou então, você pode validar a assinatura manualmente, enviando uma solicitação GET para a URL de validação. A inscrição do evento permanece em um estado pendente até que validada. A URL de validação usa a porta 553. Se suas regras de firewall bloquearem a porta 553, talvez seja necessário atualizar as regras para um handshake manual bem-sucedido.
 
 Para obter um exemplo de lidar com o handshake de validação de assinatura, consulte uma [ amostra C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
-### <a name="checklist"></a>Lista de Verificação
+### <a name="checklist"></a>Lista de verificação
 
 Durante a criação da assinatura do evento, se você estiver vendo uma mensagem de erro como "a tentativa de validar o ponto de extremidade fornecido https:\//Your-Endpoint-Here falhou. Para obter mais detalhes, visite https:\//aka.ms/esvalidation ", isso indica que há uma falha no handshake de validação. Para resolver esse erro, verifique os seguintes aspectos:
 
-* Você tem o controle do código do aplicativo no ponto de extremidade de destino? Por exemplo, se você está escrevendo um Azure Function com base em gatilho HTTP, você tem acesso ao código do aplicativo para fazer alterações nele?
+* Você controla o código do aplicativo em execução no ponto de extremidade de destino? Por exemplo, se você está escrevendo um Azure Function com base em gatilho HTTP, você tem acesso ao código do aplicativo para fazer alterações nele?
 * Se você tiver acesso ao código do aplicativo, implemente o mecanismo de handshake com base em ValidationCode como mostrado no exemplo acima.
 
 * Se você não tiver acesso ao código do aplicativo (por exemplo, se você estiver usando um serviço de terceiros compatível com webhooks), poderá usar o mecanismo de handshake manual. Certifique-se de usar a versão de API 2018-05-01-preview ou posterior (instale a extensão da CLI do Azure da Grade de Eventos) para receber o validationUrl no evento de validação. Para concluir o handshake de validação manual, obtenha o valor da propriedade `validationUrl` e visite a URL no navegador da Web. Se a validação for bem-sucedida, você verá uma mensagem em seu navegador da Web indicando que a validação foi bem-sucedida. Você verá que o provisioningState da assinatura do evento mostrará "Êxito". 
@@ -349,6 +349,10 @@ A seguir estão definições de função da Grade de Eventos de exemplo que perm
 
 Você pode criar funções personalizadas com [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md) e [REST](../role-based-access-control/custom-roles-rest.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="encryption-at-rest"></a>Criptografia em repouso
+
+Todos os eventos ou dados gravados no disco pelo serviço de grade de eventos são criptografados por uma chave gerenciada pela Microsoft, garantindo que ele seja criptografado em repouso. Além disso, o período máximo de tempo em que os eventos ou os dados são retidos é de 24 horas em conformidade com a [política de repetição de grade de eventos](delivery-and-retry.md). A grade de eventos excluirá automaticamente todos os eventos ou dados após 24 horas ou a vida útil do evento, o que for menor.
+
+## <a name="next-steps"></a>Próximos passos
 
 * Para ver uma introdução à Grade de Eventos, confira [Sobre a Grade de Eventos](overview.md)

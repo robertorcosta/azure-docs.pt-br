@@ -4,22 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Este artigo descreve como diagnosticar a conectividade local com a Automação e o Observador de Rede do Azure
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 07847289c156aaa48b9d15c40d4135ce2cf39c10
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275901"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845044"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar os gateways de VPN com a solução de problemas do Observador de Rede
 
@@ -185,7 +183,7 @@ Clique em Salvar para salvar a agenda para o runbook.
 
 ![Etapa 10][10]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você tem uma compreensão de como integrar a solução de problemas do Observador de Rede na Automação do Azure, saiba como a disparar capturas de pacotes nos alertas da VM visitando [Criar uma captura de pacotes disparada por alertas com o Observador de Rede do Azure](network-watcher-alert-triggered-packet-capture.md).
 

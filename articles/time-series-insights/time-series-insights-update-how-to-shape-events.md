@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861652"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846147"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formatar eventos com Versão Prévia do Azure Time Series Insights
 
@@ -156,5 +156,4 @@ No exemplo acima, a propriedade de `data_flow` achatada apresentaria uma colisã
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Para colocar essas diretrizes em prática, leia [Azure Time Series insights sintaxe de consulta de visualização](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para o Time Series Insights API REST de visualização para acesso a dados.
-- Para saber mais sobre as formas JSON com suporte, leia [formas de JSON com suporte](./time-series-insights-send-events.md#supported-json-shapes).
+Para colocar essas diretrizes em prática, leia [Azure Time Series insights sintaxe de consulta de visualização](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para o Time Series Insights API REST de visualização para acesso a dados.

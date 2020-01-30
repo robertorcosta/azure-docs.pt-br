@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 43ea197c4dc774a4e011cd9fb2b3adcf94866d90
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 423f0866494054702330c8e51fb1ef45e74a0650
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926076"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845710"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar os nós virtuais com a CLI do Azure
 
@@ -75,11 +75,11 @@ A funcionalidade de nós virtuais é altamente dependente do conjunto de recurso
 
 O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
 
-Para abrir o Cloud Shell, escolha **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
+Para abrir o Cloud Shell, selecione **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
-Se preferir instalar e usar a CLI localmente, este artigo requer a CLI do Azure versão 2.0.49 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se preferir instalar e usar a CLI localmente, este artigo requer a CLI do Azure versão 2.0.49 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Criar um grupos de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos com o comando [az group create][az-group-create]. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *westus*.
 
@@ -196,7 +196,7 @@ Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o com
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para verificar a conexão ao seu cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista de nós do cluster.
+Para verificar a conexão com o cluster, use o comando [kubectl get][kubectl-get] para retornar uma lista dos nós de cluster.
 
 ```console
 kubectl get nodes
@@ -319,6 +319,10 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 
 Agora, remova os recursos de rede virtual e o grupo de recursos:
 
+
+> [!NOTE]
+> Se você receber um erro ao tentar remover o perfil de rede, aguarde 3-4 dias para a plataforma mitigar automaticamente o problema e tentar a exclusão novamente. Se você precisar excluir um perfil de rede imediatamente, [abra uma solicitação de suporte](https://azure.microsoft.com/support/create-ticket/) referenciando o serviço de instâncias de contêiner do Azure.
+
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
@@ -334,12 +338,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0

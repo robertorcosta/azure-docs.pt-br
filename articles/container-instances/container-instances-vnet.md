@@ -4,12 +4,12 @@ description: Saiba como implantar grupos de contêiner em uma rede virtual do Az
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887949"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845179"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -32,7 +32,8 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 Algumas limitações se aplicam ao implantar grupos de contêineres em uma rede virtual.
 
 * Para implantar grupos de contêineres em uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remova todos os recursos existentes de uma sub-rede existente antes de implantar grupos de contêineres nela ou crie uma nova sub-rede.
-* Não é possível usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantados em uma rede virtual.
+* Você não pode usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantado em uma rede virtual.
+* Você não pode habilitar uma investigação de [vida](container-instances-liveness-probe.md) ou [investigação de preparação](container-instances-readiness-probe.md) em um grupo de contêineres implantado em uma rede virtual.
 * Devido aos recursos de rede adicionais envolvidos, a implantação de um grupo de contêineres em uma rede virtual normalmente é mais lenta do que a implantação de uma instância de contêiner padrão.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -261,7 +262,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Se você receber um erro ao tentar remover o perfil de rede, aguarde 2-3 dias para a plataforma mitigar automaticamente o problema e tentar a exclusão novamente. Se você ainda tiver problemas ao remover o perfil de rede, [abra uma solicitação de suporte](https://azure.microsoft.com/support/create-ticket/).
+> Se você receber um erro ao tentar remover o perfil de rede, aguarde 3-4 dias para a plataforma mitigar automaticamente o problema e tentar a exclusão novamente. Se você precisar excluir um perfil de rede imediatamente, [abra uma solicitação de suporte](https://azure.microsoft.com/support/create-ticket/) referenciando o serviço de instâncias de contêiner do Azure.
 
 Esse recurso atualmente requer vários comandos adicionais para excluir os recursos de rede que você criou anteriormente. Se você usou os comandos de exemplo nas seções anteriores deste artigo para criar sua rede virtual e sub-rede, pode usar o script a seguir para excluir esses recursos de rede.
 

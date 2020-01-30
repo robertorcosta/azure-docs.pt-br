@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100646"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844710"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutorial: encaminhar eventos para a nuvem da grade de eventos
 
@@ -23,7 +23,7 @@ Este artigo percorre todas as etapas necessárias para encaminhar eventos de bor
 * Reagir a eventos de borda na nuvem.
 * Encaminhar eventos para a grade de eventos na nuvem e use os hubs de eventos do Azure ou filas de armazenamento do Azure para eventos de buffer antes de processá-los na nuvem.
 
-Para concluir este tutorial, você precisa compreender os conceitos da grade de eventos no [Edge](concepts.md) e no [Azure](../concepts.md).
+ Para concluir este tutorial, você precisa compreender os conceitos da grade de eventos no [Edge](concepts.md) e no [Azure](../concepts.md). Para obter tipos de destino adicionais, consulte [manipuladores de eventos](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Para concluir este tutorial, você precisará de:
@@ -65,7 +65,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
 
-   Exemplo de saída:
+   Saída de exemplo:
 
    ```json
         [
@@ -83,6 +83,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>Criar assinatura de grade de eventos na borda
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Crie subscription3. JSON com o conteúdo a seguir. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
@@ -133,7 +134,7 @@ Por exemplo, se você criou um tópico chamado `testegcloudtopic` no oeste dos E
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
     ```
 
-    Exemplo de saída:
+    Saída de exemplo:
 
     ```json
          {
@@ -201,3 +202,4 @@ Neste tutorial, você publicou um evento na borda e encaminhado para a grade de 
 * Para solucionar problemas com o uso da grade de eventos do Azure no IoT Edge, consulte [Guia de solução de problemas](troubleshoot.md).
 * Encaminhar eventos para IoTHub seguindo este [tutorial](forward-events-iothub.md)
 * Encaminhar eventos para webhook na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)
+* [Monitorar tópicos e assinaturas na borda](monitor-topics-subscriptions.md)

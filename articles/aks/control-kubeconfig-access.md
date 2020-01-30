@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/28/2020
 ms.author: mlearned
-ms.openlocfilehash: cbc653b86ed83f9d6a7348d39f51dc7cd49c6892
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d1fdd17b0f6b8ed91d4496f7e9e5a578e53556fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615667"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845232"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usar os controles de acesso baseado em função do Azure para definir o acesso ao arquivo de configuração do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -28,28 +28,32 @@ Este artigo também requer que você esteja executando o CLI do Azure versão 2.
 
 ## <a name="available-cluster-roles-permissions"></a>Permissões de funções de cluster disponíveis
 
-Quando você interage com um cluster do AKS usando a ferramenta `kubectl`, é usado um arquivo de configuração que define as informações de conexão do cluster. Esse arquivo de configuração normalmente é armazenado em *~/.kube/config*. Vários clusters podem ser definidos nesse arquivo *kubeconfig*. Você alterna entre clusters usando o comando [kubectl config use-Context][kubectl-config-use-context] .
+Quando você interage com um cluster do AKS usando a ferramenta `kubectl`, é usado um arquivo de configuração que define as informações de conexão do cluster. Esse arquivo de configuração normalmente é armazenado em *~/.Kube/config*. Vários clusters podem ser definidos neste arquivo *kubeconfig* . Você alterna entre clusters usando o comando [kubectl config use-Context][kubectl-config-use-context] .
 
 O comando [AZ AKs Get-Credentials][az-aks-get-credentials] permite obter as credenciais de acesso de um cluster AKs e os mescla no arquivo *kubeconfig* . Você pode usar RBACs (controles de acesso baseado em função) do Azure para controlar o acesso a essas credenciais. Essas funções de RBAC do Azure permitem que você defina quem pode recuperar o arquivo *kubeconfig* e, se alguém o fizer, quais permissões esse alguém terá dentro do cluster.
 
 As duas funções internas são:
 
 * **Função de Administrador do Cluster do Serviço de Kubernetes do Azure**  
-    * Permite acesso à chamada à API *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action*. Essa chamada [à API lista as credenciais de administrador do cluster][api-cluster-admin].
-    * Baixa o *kubeconfig* para a função *clusterAdmin*.
+  * Permite acesso à chamada à API *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action*. Essa chamada [à API lista as credenciais de administrador do cluster][api-cluster-admin].
+  * Baixa o *kubeconfig* para a função *clusterAdmin*.
 * **Função de Usuário do Cluster do Serviço de Kubernetes do Azure**
-    * Permite acesso à chamada à API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Essa chamada [à API lista as credenciais de usuário do cluster][api-cluster-user].
-    * Baixa *kubeconfig* para a função *clusterUser*.
+  * Permite acesso à chamada à API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Essa chamada [à API lista as credenciais de usuário do cluster][api-cluster-user].
+  * Baixa *kubeconfig* para a função *clusterUser*.
 
 Essas funções RBAC podem ser aplicadas a um usuário ou grupo Azure Active Directory (AD).
+
+> ! ANOTAÇÕES Em clusters que usam o Azure AD, os usuários com a função *clusterUser* têm um arquivo *kubeconfig* vazio que solicita um logon. Depois de conectado, os usuários têm acesso com base em suas configurações de usuário ou grupo do Azure AD. Os usuários com a função *clusterAdmin* têm acesso de administrador.
+>
+> Os clusters que não usam o Azure AD usam apenas a função *clusterAdmin* .
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Atribuir permissões de função a um usuário ou grupo
 
 Para atribuir uma das funções disponíveis, você precisa obter a ID de recurso do cluster AKS e a ID da conta de usuário ou grupo do Azure AD. Os seguintes comandos de exemplo:
 
-* Obtenha a ID de recurso de cluster usando o comando [AZ AKs show][az-aks-show] para o cluster chamado *myAKSCluster* no grupo de recursos MyResource Group. Fornecem seu próprio cluster e nome de grupo de recursos, conforme necessário.
-* Usa os comandos [AZ Account show][az-account-show] e [AZ ad User show][az-ad-user-show] para obter sua ID de usuário.
-* Por fim, o atribui uma função usando o comando [AZ role Assignment Create][az-role-assignment-create] .
+* Obtenha a ID de recurso de cluster usando o comando [AZ AKs show][az-aks-show] para o cluster chamado *myAKSCluster* no grupo de recursos *MyResource* Group. Fornecem seu próprio cluster e nome de grupo de recursos, conforme necessário.
+* Use os comandos [AZ Account show][az-account-show] e [AZ ad User show][az-ad-user-show] para obter sua ID de usuário.
+* Por fim, atribua uma função usando o comando [AZ role Assignment Create][az-role-assignment-create] .
 
 O exemplo a seguir atribui a *função de administrador de cluster do serviço kubernetes do Azure* a uma conta de usuário individual:
 
@@ -69,7 +73,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Se você quiser atribuir permissões a um grupo do Azure AD, atualize o `--assignee` parâmetro mostrado no exemplo anterior com a ID de objeto para o *grupo* , em vez de um *usuário*. Para obter a ID de objeto para um grupo, use o comando [AZ ad Group show][az-ad-group-show] . O exemplo a seguir obtém a ID de objeto para o grupo do Azure AD chamado *AppDev*:`az ad group show --group appdev --query objectId -o tsv`
+> Se você quiser atribuir permissões a um grupo do Azure AD, atualize o parâmetro `--assignee` mostrado no exemplo anterior com a ID de objeto para o *grupo* , em vez de um *usuário*. Para obter a ID de objeto para um grupo, use o comando [AZ ad Group show][az-ad-group-show] . O exemplo a seguir obtém a ID de objeto para o grupo do Azure AD chamado *AppDev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Você pode alterar a atribuição anterior para a *função de usuário de cluster* conforme necessário.
 
@@ -125,13 +129,13 @@ users:
 
 ## <a name="remove-role-permissions"></a>Remover permissões de função
 
-Para remover atribuições de função, use o comando [AZ role Assignment Delete][az-role-assignment-delete] . Especifique a ID da conta e a ID de recurso do cluster, conforme obtido nos comandos anteriores. Se você atribuiu a função a um grupo em vez de a um usuário, especifique a ID de objeto de grupo apropriada em vez `--assignee` da ID de objeto de conta para o parâmetro:
+Para remover atribuições de função, use o comando [AZ role Assignment Delete][az-role-assignment-delete] . Especifique a ID da conta e a ID de recurso do cluster, conforme obtido nos comandos anteriores. Se você atribuiu a função a um grupo em vez de a um usuário, especifique a ID de objeto de grupo apropriada em vez da ID de objeto de conta para o parâmetro de `--assignee`:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter segurança aprimorada sobre o acesso a clusters do AKS, [integre a autenticação Azure Active Directory][aad-integration].
 

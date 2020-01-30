@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098631"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844523"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutorial: publicar, assinar eventos localmente
 
@@ -59,11 +59,13 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
    * **URI da imagem**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opções de Criação de Contêiner**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -159,7 +161,7 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-   Exemplo de saída:
+   Saída de exemplo:
 
    ```json
         [
@@ -178,6 +180,8 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
 ## <a name="create-an-event-subscription"></a>Criar uma assinatura de evento
 
 Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, você precisará criar uma assinatura de grade de eventos para um tópico de interesse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Crie Subscription. JSON com o conteúdo a seguir. Para obter detalhes sobre a carga, consulte nossa [documentação de API](api.md)
 
@@ -207,7 +211,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
-    Exemplo de saída:
+    Saída de exemplo:
 
    ```json
         {
@@ -268,7 +272,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     sudo docker logs subscriber
     ```
 
-    Exemplo de saída:
+    Saída de exemplo:
 
     ```sh
         Received event data [
@@ -307,4 +311,5 @@ Neste tutorial, você criou um tópico de grade de eventos, uma assinatura e eve
 - Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente
 - Encaminhar eventos para Azure Functions na nuvem seguindo este [tutorial](pub-sub-events-webhook-cloud.md)
 - [Reagir a eventos de armazenamento de BLOBs em IoT Edge](react-blob-storage-events-locally.md)
+- [Monitorar tópicos e assinaturas na borda](monitor-topics-subscriptions.md)
 

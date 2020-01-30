@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8e1f144fdf94df445fb64b9b489cba1e9998f381
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546054"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845627"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: arquitetura e conceitos
 
@@ -58,7 +58,7 @@ Use estas ferramentas para Azure Machine Learning:
 + <a href="#compute-targets">Destinos de computação</a>
 + <a href="#datasets-and-datastores">Repositórios de & de conjunto de armazenamento</a>
 + <a href="#endpoints">Pontos de extremidade</a>
-+ <a href="#environments">Ambientes</a>
++ <a href="#environments">Sistemas</a>
 + [Estimativas](#estimators)
 + <a href="#experiments">Testes</a>
 + <a href="#github-tracking-and-integration">Rastreamento de git</a>
@@ -85,7 +85,7 @@ As atividades podem fornecer notificações por meio do SDK ou da IU da Web, por
 ### <a name="compute-instance"></a>Instância de computação (visualização)
 
 > [!NOTE]
-> As instâncias de computação estão disponíveis somente para espaços de trabalho com uma região de **centro-Norte dos EUA** ou **Sul do Reino Unido**.
+> As instâncias de computação estão disponíveis somente para espaços de trabalho com **EUA Central norte**, * * leste dos EUA 2 * *, **Europa setentrional** ou **sul do Reino Unido**.
 >Se o seu espaço de trabalho estiver em qualquer outra região, você poderá continuar a criar e usar uma [VM do Notebook](concept-compute-instance.md#notebookvm) em vez disso. 
 
 Uma **instância de computação de Azure Machine Learning** (antiga VM de notebook) é uma estação de trabalho totalmente gerenciada baseada em nuvem que inclui várias ferramentas e ambientes instalados para aprendizado de máquina. As instâncias de computação podem ser usadas como um destino de computação para trabalhos de treinamento e inferência. Para tarefas grandes, [Azure Machine Learning clusters de computação](how-to-set-up-training-targets.md#amlcompute) com recursos de dimensionamento de vários nós é uma opção de destino de computação melhor.

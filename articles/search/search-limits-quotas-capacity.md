@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462502"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846274"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Pesquisa Cognitiva
 
@@ -77,7 +77,7 @@ Para determinar se o serviço tem limites de documento, use a [API REST obter es
 Se o portal indicar um limite de documento, o serviço foi criado antes de 2017 ou foi criado em um data center usando clusters de menor capacidade para hospedar os serviços de Pesquisa Cognitiva do Azure:
 
 + Leste da Austrália
-+ Leste da Ásia
++ Ásia Oriental
 + Índia Central
 + Oeste do Japão
 + Centro-Oeste dos EUA
@@ -117,7 +117,7 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 | Tempo de execução máximo <sup>5</sup> | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
 | Tempo de execução máximo de conjuntos de habilidades da pesquisa cognitiva ou de indexação de blobs com análise de imagens <sup>5</sup> | 3 a 10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4&nbsp;milhão |4&nbsp;milhão |4&nbsp;milhão |N/D |4&nbsp;milhão |4&nbsp;milhão |
+| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4&nbsp;milhão |8&nbsp;milhão |16&nbsp;milhão |N/D |4&nbsp;milhão |4&nbsp;milhão |
 
 <sup>1</sup> Os serviços gratuitos têm um tempo máximo de execução do indexador de 3 minutos para fontes do blob e 1 minuto para todas as outras fontes de dados. Para a indexação de ia que chama serviços cognitivas, os serviços gratuitos são limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito pelo pipeline de enriquecimento.
 
@@ -151,7 +151,7 @@ Para as camadas de armazenamento otimizado, você deve esperar uma taxa de trans
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de ia)
 
-Um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+Um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md), [detecção de idioma](cognitive-search-skill-language-detection.md)e detecção de [PII](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de limitação
 

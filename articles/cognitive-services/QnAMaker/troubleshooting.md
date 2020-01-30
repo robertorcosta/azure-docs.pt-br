@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e56722831ef05364b8ee4d342553158fba19ffaa
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 159b00f9417f4a572655f1f93208dbc755012922
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760718"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844846"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para QnA Maker
 
@@ -95,7 +95,7 @@ A mensagem padrão faz parte das configurações em seu serviço de Aplicativo.
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Por que meu link do SharePoint não está sendo extraído?
 
-Confira [Locais da fonte de dados](./Concepts/data-sources-supported.md#data-source-locations) para obter mais informações.
+Confira [Locais da fonte de dados](./Concepts/knowledge-base.md#data-source-locations) para obter mais informações.
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>As atualizações que eu fiz em minha base de dados de conhecimento não são refletidas na publicação. Por que não?
 

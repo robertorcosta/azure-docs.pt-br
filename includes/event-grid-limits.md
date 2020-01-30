@@ -1,6 +1,6 @@
 ---
-title: Arquivo de inclusão
-description: Arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: event-grid
 author: tfitzmac
 ms.service: event-grid
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887726"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845988"
 ---
 Os limites a seguir se aplicam aos tópicos do sistema de grade de eventos do Azure e aos tópicos personalizados, *não* aos domínios de evento.
 
@@ -23,7 +23,7 @@ Os limites a seguir se aplicam aos tópicos do sistema de grade de eventos do Az
 | Assinaturas de Evento por tópico | 500 |
 | Publicar a taxa de um tópico personalizado (entrada) | 5\.000 eventos por segundo, por tópico |
 | Solicitações de publicação | 250 por segundo |
-| Tamanho do evento | Suporte para 64 KB em disponibilidade geral (GA). O suporte para 1 MB está atualmente em versão prévia. |
+| Tamanho do evento | 1 MB (cobrado como vários eventos de 64 KB) |
 
 Os limites a seguir se aplicam somente a domínios de evento.
 

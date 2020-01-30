@@ -4,18 +4,23 @@ description: Gerenciar uma máquina virtual com a coleta de inventário
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventário, automação, alteração, acompanhamento
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419820"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844812"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
-Você pode habilitar o acompanhamento de inventário para uma máquina virtual do Azure na página de recursos da máquina virtual. É possível coletar e exibir inventário para software, arquivos, daemons do Linux, serviços do Windows e chaves de Registro do Windows em seus computadores. Esse método fornece uma interface do usuário baseada em navegador para definir e configurar a coleta de inventário.
+Você pode habilitar o acompanhamento de inventário para uma máquina virtual do Azure na página de recursos da máquina virtual. Você pode coletar e exibir as seguintes informações de inventário em seus computadores:
+
+- Software do Windows (aplicativos do Windows e atualizações do Windows), serviços, arquivos e chaves do registro
+- Daemons de software (pacotes) do Linux e arquivos
+
+Esse método fornece uma interface do usuário baseada em navegador para definir e configurar a coleta de inventário.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

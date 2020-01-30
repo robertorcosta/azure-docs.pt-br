@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d8461cb2d98ec8fe914c2cc878e9002d132c9995
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980478"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845826"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -75,7 +75,8 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 |Gerenciamento de API do Azure|[Implantar certificados para o domínio personalizado de Key Vault usando o MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 |Azure Data Factory|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-
+|Hubs de Eventos do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
+|Service Bus do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 
 
 > [!NOTE]

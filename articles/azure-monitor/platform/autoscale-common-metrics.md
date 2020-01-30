@@ -4,12 +4,12 @@ description: Saiba quais métricas são usadas comumente para fazer o dimensiona
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364570"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845567"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns de dimensionamento automático do Azure Monitor
 
@@ -36,7 +36,7 @@ As seguintes métricas de nível de host são emitidas por padrão para a VM do 
 - [Métricas de host para VMs Windows e Linux baseadas no Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Métricas de host para Conjuntos de Dimensionamento de VMs Windows e Linux baseadas no Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas de SO convidado de VMs Windows baseadas no Resource Manager
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas do SO convidado para VMs do Windows baseadas no Gerenciador de recursos
 Quando você cria uma VM no Azure, o diagnóstico é habilitado usando a extensão de Diagnóstico. A extensão de diagnóstico emite um conjunto de métricas extraído de dentro da VM. Isso significa que você pode desativar o dimensionamento automático de métricas que não são emitidas por padrão.
 
 Você pode gerar uma lista das métricas usando o seguinte comando do PowerShell.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Contagem |
 | \NetworkInterface\TotalCollisions |Contagem |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Métricas da Web (Farm de servidores) usadas normalmente
-Você também pode realizar a autoescala com base em métricas comuns do servidor Web, como o comprimento da fila Http. O nome da métrica é **HttpQueueLength**.  A seção a seguir lista as métricas de farm de servidores (aplicativos Web) disponíveis.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Métricas do serviço de aplicativo comumente usadas (farm de servidores)
+Você também pode realizar a autoescala com base em métricas comuns do servidor Web, como o comprimento da fila Http. Seu nome de métrica é **HttpQueueLength**.  A seção a seguir lista as métricas disponíveis do farm de servidores (serviço de aplicativo).
 
 ### <a name="web-apps-metrics"></a>Métricas de aplicativos Web
 Você pode gerar uma lista das métricas de aplicativos Web usando o seguinte comando do PowerShell.
@@ -159,8 +159,8 @@ Por exemplo, com uma Conta de Armazenamento Clássico, a configuração de dimen
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 Para uma conta de armazenamento (não clássica), o metricTrigger incluiria:
@@ -177,7 +177,7 @@ Você pode dimensionar segundo o comprimento da fila do Barramento de Serviço, 
 Para Conjuntos de Dimensionamento de VMs, você pode atualizar a configuração de Dimensionamento Automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e passar a ID da fila de armazenamento como *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

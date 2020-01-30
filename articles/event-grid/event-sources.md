@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512939"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846390"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes de eventos na Grade de Eventos do Azure
 
@@ -132,6 +132,9 @@ Assine eventos de Barramento de Serviço para responder às mensagens sem um ouv
 ## <a name="storage"></a>Armazenamento
 
 Assine os eventos de Armazenamento de Blobs para responder aos eventos criados e excluídos de blob.
+
+>[!NOTE]
+> Somente as contas de armazenamento do tipo **StorageV2 (uso geral v2)** e a integração de eventos de suporte do **BlobStorage** . O **armazenamento (genral purpose v1)** *não oferece* suporte à integração com a grade de eventos.
 
 |Title  |Description  |
 |---------|---------|

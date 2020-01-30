@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098665"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844693"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: encaminhar eventos para IoTHub
 
@@ -62,7 +62,7 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
-   Exemplo de saída:
+   Saída de exemplo:
 
    ```json
         [
@@ -81,6 +81,8 @@ Como um editor de um evento, você precisa criar um tópico de grade de eventos.
 ## <a name="create-event-subscription"></a>Criar assinatura de evento
 
 Os assinantes podem se registrar para eventos publicados em um tópico. Para receber qualquer evento, eles precisarão criar uma assinatura de grade de eventos em um tópico de interesse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Crie subscription4. JSON com o conteúdo abaixo. Consulte nossa [documentação de API](api.md) para obter detalhes sobre a carga.
 
@@ -110,7 +112,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
 
-    Exemplo de saída:
+    Saída de exemplo:
 
    ```json
         {
@@ -212,3 +214,4 @@ Neste tutorial, você criou um tópico de grade de eventos, assinatura de Hub de
 * Configurar a persistência do módulo de grade de eventos no [Linux](persist-state-linux.md) ou no [Windows](persist-state-windows.md)
 * Siga a [documentação](configure-client-auth.md) para configurar a autenticação do cliente
 * Encaminhar eventos para a grade de eventos do Azure na nuvem seguindo este [tutorial](forward-events-event-grid-cloud.md)
+* [Monitorar tópicos e assinaturas na borda](monitor-topics-subscriptions.md)

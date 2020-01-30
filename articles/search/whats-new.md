@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719816"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844965"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>O que há de novo no Azure Pesquisa Cognitiva
 
@@ -26,6 +26,10 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 Azure Search agora é renomeado para o **Azure pesquisa cognitiva** para refletir o uso expandido (ainda opcional) de habilidades cognitivas e processamento de ia em operações principais. As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são alterados. As soluções de pesquisa novas e existentes não são afetadas pela alteração do nome do serviço.
 
 ## <a name="feature-announcements"></a>Anúncios de recursos
+
+### <a name="february-2020"></a>Fevereiro de 2020
+
++ A [detecção de PII](cognitive-search-skill-pii-detection.md) é uma habilidade cognitiva usada durante a indexação que extrai informações de identificação pessoal de um texto de entrada e oferece a opção de mascarar o texto de várias maneiras.
 
 ### <a name="january-2020"></a>Janeiro de 2020
 
@@ -52,7 +56,7 @@ Azure Search agora é renomeado para o **Azure pesquisa cognitiva** para refleti
 
 + A [extração de documentos (visualização)](cognitive-search-skill-document-extraction.md) é uma habilidade cognitiva usada durante a indexação que permite extrair o conteúdo de um arquivo de dentro de um conferente. Anteriormente, a quebra de documento ocorreu apenas antes da execução do concodificador. Com a adição dessa habilidade, você também pode executar essa operação dentro da execução do conconjunto de habilidades.
 
-+ A [conversão de texto (visualização)](cognitive-search-skill-text-translation.md) é uma habilidade cognitiva usada durante a indexação que avalia o texto e, para cada registro, retorna o texto traduzido para o idioma de destino especificado.
++ A [tradução de texto](cognitive-search-skill-text-translation.md) é uma habilidade cognitiva usada durante a indexação que avalia o texto e, para cada registro, retorna o texto traduzido para o idioma de destino especificado.
 
 + Os [modelos de Power bi](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) podem iniciar suas visualizações e a análise de conteúdo aprimorado em uma loja de conhecimento em Power bi área de trabalho. Este modelo foi projetado para projeções de tabela do Azure criadas por meio do [Assistente de importação de dados](knowledge-store-create-portal.md).
 

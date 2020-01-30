@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a4a2eccc3c46b7f982836c73d3144f1793e5034b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903081"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846191"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Usando transações no SQL Data Warehouse
 Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolvimento de soluções.
@@ -25,7 +25,7 @@ Dicas para implementar transações no Azure SQL Data Warehouse para o desenvolv
 Como era esperado, o SQL Data Warehouse oferece suporte a transações como parte da carga de trabalho do data warehouse. No entanto, para garantir que o desempenho do SQL Data Warehouse seja mantido em grande escala, alguns recursos serão limitados em comparação com o SQL Server. Este artigo realça as diferenças e lista as outras. 
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento da transação
-O SQL Data Warehouse implementa transações ACID. No entanto, o nível de isolamento do suporte transacional é limitado a READ UNCOMMITTED; esse nível não pode ser alterado. Se READ UNCOMMITTED for uma preocupação, será possível implementar inúmeros métodos de codificação para impedir leituras sujas de dados. Os métodos mais populares usam CTAS e a comutação de partição de tabela (normalmente conhecida como padrão de janela deslizante) para impedir que os usuários consultem dados que ainda estejam sendo preparados. Os modos de exibição que filtram previamente os dados também são uma abordagem popular.  
+O SQL Data Warehouse implementa transações ACID. O nível de isolamento do suporte transacional é padrão para leitura não confirmada.  Você pode alterá-lo para ler o isolamento de instantâneo confirmado ativando a opção de banco de dados READ_COMMITTED_SNAPSHOT para um banco de dados de usuário quando conectado ao banco de dados mestre.  Uma vez habilitada, todas as transações neste banco de dados são executadas em isolamento de instantâneo de leitura confirmada e a configuração leitura não confirmada no nível da sessão não será respeitada. Verifique [as opções ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obter detalhes.
 
 ## <a name="transaction-size"></a>Tamanho da transação
 Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Portanto, a alocação total pode ser calculada multiplicando o limite pela contagem de distribuição. Para chegar a uma aproximação do número máximo de linhas na transação, divida o limite de distribuição pelo tamanho total de cada linha. Para colunas de tamanho variável, considere o uso de um tamanho médio de coluna em vez do tamanho máximo.
@@ -198,6 +198,6 @@ Elas são as seguintes:
 * Nenhuma transação marcada
 * Não há suporte para DDL, como CREATE TABLE em uma transação definida pelo usuário
 
-## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a otimização das transações, confira [Práticas recomendadas das transações](sql-data-warehouse-develop-best-practices-transactions.md). Para saber mais sobre outras práticas recomendadas do SQL Data Warehouse, confira [Práticas recomendadas do SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+## <a name="next-steps"></a>Próximos passos
+Para saber mais sobre a otimização das transações, consulte [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md) (Melhores práticas de transações). Para saber mais sobre outras melhores práticas do SQL Data Warehouse, consulte [SQL Data Warehouse best practices](sql-data-warehouse-best-practices.md) (Melhores práticas do SQL Data Warehouse).
 

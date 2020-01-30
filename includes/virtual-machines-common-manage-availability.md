@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268205"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887869"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Entender as reinicializações de VM - manutenção vs. tempo de inatividade
 Há três cenários que podem afetar a máquina virtual no Azure: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -79,12 +79,13 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> Observação: em determinadas circunstâncias, pode acontecer que 2 VMs que fazem parte do mesmo Availabilityset compartilhem o mesmo FaultDomain. Isso pode ser confirmado entrando em seu Availabilityset e marcando a coluna "domínio de falha".
-> Esse comportamento pode ser observado quando a seguinte sequência ocorreu durante a implantação das VMs:
+> [!NOTE]
+> Em determinadas circunstâncias, 2 VMs no mesmo Availabilityset poderiam compartilhar o mesmo FaultDomain. Isso pode ser confirmado entrando em seu conjunto de disponibilidade e verificando a coluna **domínio de falha** .
+> Isso pode ser causado pela seguinte sequência durante a implantação das VMs:
 > - Implantar a 1ª VM
 > - Parar/desalocar a 1ª VM
 > - Implantar a 2ª VM nessas circunstâncias, o disco do sistema operacional da 2ª VM pode ser criado no mesmo domínio de falha que a primeira VM e, portanto, a 2ª VM também irá para o mesmo FaultDomain. 
-> Para evitar esse problema, é recomendável não parar/desalocar a VM entre suas implantações.
+> Para evitar esse problema, é recomendável não parar/desalocar as VMs entre as implantações.
 
 Se você planeja usar VMs com discos não gerenciados, siga abaixo as práticas recomendadas para as contas de Armazenamento nas quais os discos rígidos virtuais (VHDs) das VMs são armazenados como [blobs de página](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

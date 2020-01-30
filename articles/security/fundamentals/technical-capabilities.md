@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: a8dd859b05c3e95a1c584a7947334dad25813122
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970662"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845353"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -119,7 +119,7 @@ No Portal do Azure ou através do [Portal do Azure Active Directory](https://aad
 
 O [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) é um serviço de gerenciamento de identidade global e altamente disponível para aplicativos voltados para o consumidor que pode ser dimensionado para centenas de milhões de identidades. Ele pode ser integrado a plataformas móveis e da Web. Seus clientes podem fazer logon em todos os seus aplicativos por meio de experiências personalizáveis usando suas contas sociais existentes ou criando novas credenciais.
 
-No passado, desenvolvedores de aplicativos que desejavam [inscrever e conectar consumidores](../../active-directory-b2c/active-directory-b2c-overview.md) a seus aplicativos teriam escrito seu próprio código. E eles teriam usado sistemas ou bancos de dados locais para armazenar nomes de usuário e senhas. O Azure Active Directory B2C oferece à sua organização uma maneira melhor de integrar o gerenciamento de identidade do consumidor a aplicativos com a ajuda de uma plataforma segura baseada em padrões e um grande conjunto de políticas extensíveis.
+No passado, desenvolvedores de aplicativos que desejavam [inscrever e conectar consumidores](../../active-directory-b2c/overview.md) a seus aplicativos teriam escrito seu próprio código. E eles teriam usado sistemas ou bancos de dados locais para armazenar nomes de usuário e senhas. O Azure Active Directory B2C oferece à sua organização uma maneira melhor de integrar o gerenciamento de identidade do consumidor a aplicativos com a ajuda de uma plataforma segura baseada em padrões e um grande conjunto de políticas extensíveis.
 
 Quando você usa o Azure Active Directory B2C, os consumidores poderão se inscrever nos seus aplicativos usando suas contas sociais existentes (Facebook, Google, Amazon, LinkedIn) ou criando novas credenciais (endereço de email e senha ou o nome de usuário e a senha).
 

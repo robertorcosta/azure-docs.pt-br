@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 485c6d4a92539a2ba67aece319c68d31649e8045
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992256"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844608"
 ---
 # <a name="persist-state-in-windows"></a>Persistir estado no Windows
 
-Os tópicos e as assinaturas criados no módulo grade de eventos são armazenados por padrão no sistema de arquivos do contêiner. Sem persistência, se o módulo for reimplantado, todos os metadados criados serão perdidos. Para preservar os dados entre as implantações, você precisará manter os dados fora do sistema de arquivos do contêiner. Atualmente, somente os metadados são persistidos. Os eventos são armazenados na memória. Se o módulo de grade de eventos for reimplantado ou reiniciado, todos os eventos não entregues serão perdidos.
+Os tópicos e as assinaturas criados no módulo grade de eventos são armazenados no sistema de arquivos de contêiner por padrão. Sem persistência, se o módulo for reimplantado, todos os metadados criados serão perdidos. Para preservar os dados entre implantações e reinicializações, você precisa manter os dados fora do sistema de arquivos do contêiner. 
+
+Por padrão, somente os metadados são persistidos e os eventos ainda são armazenados na memória para melhorar o desempenho. Siga a seção persistir eventos para habilitar a persistência de eventos também.
 
 Este artigo fornece as etapas necessárias para implantar o módulo de grade de eventos com persistência em implantações do Windows.
 
@@ -27,7 +29,7 @@ Este artigo fornece as etapas necessárias para implantar o módulo de grade de 
 
 ## <a name="persistence-via-volume-mount"></a>Persistência por meio de montagem de volume
 
-Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados para preservar dados entre implantações. Para montar um volume, você precisa criá-lo usando comandos do Docker, conceder permissões para que o contêiner possa ler, gravar nele e, em seguida, implantar o módulo. Não há nenhuma provisão para criar automaticamente um volume com as permissões necessárias no Windows. Ele precisa ser criado antes da implantação.
+Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados para preservar dados entre implantações. Para montar um volume, você precisa criá-lo usando comandos do Docker, conceder permissões para que o contêiner possa ler, gravar nele e, em seguida, implantar o módulo.
 
 1. Crie um volume executando o seguinte comando:
 
@@ -82,17 +84,17 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     ```json
         {
               "Env": [
-                "inbound:serverAuth:tlsPolicy=strict",
-                "inbound:serverAuth:serverCert:source=IoTEdge",
-                "inbound:clientAuth:sasKeys:enabled=false",
-                "inbound:clientAuth:clientCert:enabled=true",
-                "inbound:clientAuth:clientCert:source=IoTEdge",
-                "inbound:clientAuth:clientCert:allowUnknownCA=true",
-                "outbound:clientAuth:clientCert:enabled=true",
-                "outbound:clientAuth:clientCert:source=IoTEdge",
-                "outbound:webhook:httpsOnly=true",
-                "outbound:webhook:skipServerCertValidation=false",
-                "outbound:webhook:allowUnknownCA=true"
+                "inbound__serverAuth__tlsPolicy=strict",
+                "inbound__serverAuth__serverCert__source=IoTEdge",
+                "inbound__clientAuth__sasKeys__enabled=false",
+                "inbound__clientAuth__clientCert__enabled=true",
+                "inbound__clientAuth__clientCert__source=IoTEdge",
+                "inbound__clientAuth__clientCert__allowUnknownCA=true",
+                "outbound__clientAuth__clientCert__enabled=true",
+                "outbound__clientAuth__clientCert__source=IoTEdge",
+                "outbound__webhook__httpsOnly=true",
+                "outbound__webhook__skipServerCertValidation=false",
+                "outbound__webhook__allowUnknownCA=true"
               ],
               "HostConfig": {
                 "Binds": [
@@ -118,21 +120,22 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -147,7 +150,7 @@ Os [volumes do Docker](https://docs.docker.com/storage/volumes/) são usados par
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistência via montagem de diretório de host
 
-Como alternativa, você pode optar por criar um diretório no sistema host e montar esse diretório.
+Em vez de montar um volume, você pode criar um diretório no sistema host e montar esse diretório.
 
 1. Crie um diretório no sistema de arquivos de host executando o comando a seguir.
 
@@ -180,21 +183,22 @@ Como alternativa, você pode optar por criar um diretório no sistema host e mon
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "C:\\myhostdir:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -206,3 +210,30 @@ Como alternativa, você pode optar por criar um diretório no sistema host e mon
          }
     }
     ```
+## <a name="persist-events"></a>Persistir eventos
+
+Para habilitar a persistência de evento, primeiro você deve habilitar a persistência de metadados por meio da montagem de volume ou da montagem de diretório de host usando as seções acima.
+
+Coisas importantes a serem observadas sobre eventos persistentes:
+
+* A persistência de eventos é habilitada por assinatura de evento e é opcional quando um volume ou diretório é montado.
+* A persistência de evento é configurada em uma assinatura de evento no momento da criação e não pode ser modificada depois que a assinatura do evento é criada. Para alternar a persistência de evento, você deve excluir e recriar a assinatura de evento.
+* A persistência de eventos é quase sempre mais lenta do que nas operações de memória, no entanto, a diferença de velocidade depende muito das características da unidade. A compensação entre velocidade e confiabilidade é inerente a todos os sistemas de mensagens, mas só se torna um noticible em grande escala.
+
+Para habilitar a persistência de evento em uma assinatura de evento, defina `persistencePolicy` como `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```
