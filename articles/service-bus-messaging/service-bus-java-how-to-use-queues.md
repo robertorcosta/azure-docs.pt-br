@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Usar filas do Barramento de Serviço do Azure com Java'
-description: 'Início Rápido: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java.'
+title: Usar filas do Barramento de Serviço do Azure com Java
+description: Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens para uma fila do Barramento de Serviço do Azure e receber mensagens dela.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5a32d92dd8a44602034d84262f2e502a60ac23a9
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721693"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760633"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Java para enviar e receber mensagens
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a criar aplicativos Java para enviar mensagens 
 > [!NOTE]
 > Você pode encontrar amostras Java no GitHub no repositório [azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Caso você não tenha uma fila para trabalhar, siga as etapas do artigo [Usar o portal do Azure para criar uma fila do Barramento de Serviço](service-bus-quickstart-portal.md) para criar uma fila.
     1. Leia a **visão geral** rápida das **filas** do Barramento de Serviço. 

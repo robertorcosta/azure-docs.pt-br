@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a09ccdc867cb6d0e84a6e0f85e532839604f5e
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 078379c52c7e7fe5072ecc19c95d6b7e40b5f876
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619937"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705251"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Configurar um aplicativo autenticador como seu método de verificação de dois fatores
 
@@ -59,7 +58,7 @@ Você pode configurar um aplicativo autenticador para enviar uma notificação a
 
     É recomendável adicionar o número de telefone do seu dispositivo móvel para atuar como um backup se você não conseguir acessar ou usar o aplicativo móvel por algum motivo.
 
-8. Na área **Etapa 4: continuar usando os aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
+8. Na área **Etapa 4: Continue usando seus aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página Verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -101,7 +100,7 @@ Você pode configurar um aplicativo autenticador para enviar uma notificação a
 
     É recomendável adicionar o número de telefone do seu dispositivo móvel para atuar como um backup se você não conseguir acessar ou usar o aplicativo móvel por algum motivo.
 
-8. Na área **Etapa 4: continuar usando os aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
+8. Na área **Etapa 4: Continue usando seus aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página Verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

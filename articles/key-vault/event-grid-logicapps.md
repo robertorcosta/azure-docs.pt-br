@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ccc4aaed8e5827fbc06b252c8c88b814d9a31fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133993"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845833"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 
@@ -22,7 +22,7 @@ Neste guia, você aprenderá a responder a eventos do Azure Key Vault que são r
 
 Para obter uma visão geral da integração do Azure Key Vault/Grade de Eventos do Azure, confira [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps (como Office 365 Outlook). Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](/connectors)
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -34,7 +34,6 @@ Primeiro, crie um aplicativo lógico com o manipulador de grade de eventos e ass
 
 Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
 
-1. Abra o portal do Azure usando o seguinte link: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true 
 1. Na portal do Azure, vá para o cofre de chaves, selecione **Eventos > Introdução** e clique em **Aplicativos Lógicos**
 
     
@@ -87,7 +86,7 @@ Quando o segredo for criado, um email será recebido nos endereços configurados
 ## <a name="next-steps"></a>Próximas etapas
 
 - Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](event-grid-overview.md)
-- Como: [Rotear notificações de Key Vault para Automação do Azure](event-grid-tutorial.md).
+- Como fazer: [Rotear notificações de Key Vault para Automação do Azure](event-grid-tutorial.md).
 - [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../event-grid/event-schema-key-vault.md)
 - Saiba mais sobre a [Grade de Eventos do Azure](../event-grid/index.yml).
 - Saiba mais sobre o [recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](../logic-apps/index.yml).

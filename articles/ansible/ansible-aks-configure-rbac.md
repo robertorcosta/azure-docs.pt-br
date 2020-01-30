@@ -4,12 +4,12 @@ description: Saiba como usar o Ansible para configurar o RBAC no cluster do Serv
 keywords: ansible, azure, devops, bash, cloudshell, guia estratégico, aks, contêiner, aks, kubernetes, azure active directory, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156861"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836959"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configurar funções de controle de acesso baseado em função (RBAC) no Serviço de Kubernetes do Azure (AKS) usando o Ansible
 
@@ -26,7 +26,7 @@ O AKS pode ser configurado para usar o [Azure AD (Active Directory)](/azure/acti
 > * Criar um cluster AKS habilitado para Azure AD
 > * Configurar uma função RBAC no cluster
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -119,7 +119,7 @@ Salve o guia estratégico a seguir como `aks-create.yml`:
 
 Para criar uma associação de RBAC, primeiro você precisa obter a ID de Objeto do Azure AD. 
 
-1. Entre no [Portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. No campo de pesquisa, na parte superior da página, insira `Azure Active Directory`. 
 
@@ -156,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Substitua o espaço reservado `&lt;your-aad-account>` por sua [ID de Objeto](#get-the-azure-ad-object-id) de locatário do Azure AD.
+Substitua o espaço reservado `<your-aad-account>` por sua [ID de Objeto](#get-the-azure-ad-object-id) de locatário do Azure AD.
 
 Salve o guia estratégico a seguir, que implanta sua nova função no AKS, como `aks-kube-deploy.yml`:
 
@@ -233,7 +233,7 @@ aks-nodepool1-33413200-1   Ready    agent   49m   v1.12.6
 aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua os recursos criados neste artigo. 
 

@@ -12,13 +12,12 @@ ms.date: 05/09/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58a68b89ce38664c0d0ec87b509fe5f872cfd78c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bb741fe36e00c3d528470866669e64e9b0b221ae
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921408"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704129"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -30,13 +29,13 @@ Este Início Rápido mostra como adicionar e registrar um aplicativo usando a ex
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-1. Procurar pelo **Azure Active Directory** e selecioná-lo. Na página **Active Directory**, selecione **Registros de aplicativo** e depois **Novo registro**.
+1. Pesquise **Azure Active Directory** e selecione-o. Na página **Active Directory**, selecione **Registros de aplicativo** e depois **Novo registro**.
 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
 
    - **Nome**: insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo.
    - **Tipos de conta com suporte**: selecione as contas às quais você gostaria que seu aplicativo desse suporte.
 
-       | Tipos de conta com suporte | DESCRIÇÃO |
+       | Tipos de conta com suporte | Descrição |
        |-------------------------|-------------|
        | **Contas somente neste diretório organizacional** | Selecione esta opção se você está criando um aplicativo de linha de negócios (LOB). Essa opção não estará disponível se você não estiver registrando o aplicativo em um diretório.<br><br>Essa opção mapeia para o único locatário somente do Azure AD.<br><br>Essa é a opção padrão, a menos que você esteja registrando o aplicativo fora de um diretório. Quando o aplicativo é registrado fora de um diretório, o padrão é contas da Microsoft pessoais e de vários locatários do Azure AD. |
        | **Contas em qualquer diretório organizacional** | Selecione essa opção se você deseja direcionar para todos os clientes comerciais e educacionais.<br><br>Essa opção mapeia para vários locatários somente do Azure AD.<br><br>Se você registrou o aplicativo como único locatário somente do Azure AD, pode atualizá-lo para ser multilocatário e voltar a ser locatário único na folha**Autenticação**. |

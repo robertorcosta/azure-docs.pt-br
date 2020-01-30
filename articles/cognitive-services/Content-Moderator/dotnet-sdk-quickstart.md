@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382048"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774297"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Início Rápido: Biblioteca de clientes do Content Moderator para .NET
 
@@ -96,7 +96,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de clientes estará
 
 As seguintes classes tratam de alguns dos principais recursos do SDK do .NET do Content Moderator.
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Essa classe é necessária para toda a funcionalidade do Content Moderator. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Essa classe fornece a funcionalidade para analisar imagens de conteúdo para adulto, informações pessoais ou rostos humanos.|
@@ -274,7 +274,6 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 * [CLI do Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Próximas etapas
-
 
 Neste início rápido, você aprendeu a usar a biblioteca .NET do Content Moderator para realizar tarefas de moderação. Em seguida, saiba mais sobre a moderação de imagens ou outra mídia lendo um guia conceitual.
 

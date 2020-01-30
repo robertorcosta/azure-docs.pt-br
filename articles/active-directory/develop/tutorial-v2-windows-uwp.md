@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a62026ecec2317173361f166adcc3a7981f6d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423346"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701171"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
 
@@ -44,7 +43,7 @@ Este guia cria um aplicativo da UWP de exemplo que consulta a API do Microsoft G
 
 Este guia usa o seguinte pacote NuGet:
 
-|Biblioteca|DESCRIÇÃO|
+|Biblioteca|Descrição|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft|
 
@@ -400,7 +399,7 @@ São exibidas as informações de perfil do usuário retornadas pela chamada à 
 
 Também serão exibidas informações básicas sobre o token adquirido por meio de `AcquireTokenInteractive` ou `AcquireTokenSilent` na caixa **Informações de Token**:
 
-|Propriedade  |Formatar  |DESCRIÇÃO |
+|Propriedade  |Formatar  |Descrição |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |É o nome de usuário que identifica o usuário.|
 |`Token Expires` |`DateTime` |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|

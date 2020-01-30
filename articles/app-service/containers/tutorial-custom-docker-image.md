@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d960af01eed9fae0fec2566772799e4972053d7b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687490"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767095"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Criar uma imagem personalizada e executá-la no Serviço de Aplicativo por meio de um registro particular
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará:
 
@@ -40,7 +40,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
-Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local e, em seguida, alterar para o diretório que contém o código de exemplo.
+Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativo de exemplo no computador local e, em seguida, mudar para o diretório que contém o código de exemplo.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
@@ -122,7 +122,7 @@ az acr credential show --name <azure-container-registry-name>
 O resultado revela duas senhas, juntamente com o nome de usuário.
 
 ```json
-<
+{
   "passwords": [
     {
       "name": "password",

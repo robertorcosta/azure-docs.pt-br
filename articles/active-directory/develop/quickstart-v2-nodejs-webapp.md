@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0d69f762cea53f2a4c022ad6dddb52faeced1adf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968010"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703330"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Início Rápido: Adicionar entrada usando OpenID Connect a um aplicativo Web do Node.js
 
@@ -25,7 +24,7 @@ ms.locfileid: "74968010"
 
 Neste início rápido, você aprenderá a configurar a autenticação do OpenID Connect em um aplicativo Web criado usando o Node.js com o Express. O exemplo foi projetado para ser executado em qualquer plataforma.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar esta amostra, você precisará do seguinte:
 
@@ -75,7 +74,7 @@ No shell ou na linha de comando:
 
 `$ git clone git@github.com:AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
 
-ou o
+ou
 
 `$ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
 

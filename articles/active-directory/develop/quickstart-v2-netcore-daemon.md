@@ -13,13 +13,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: edcfe4d7dff5d84ceaf07a8aafd5f9b485308bd5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f7e2380bff7d6d3e6fafd1b3d44b65de972e57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920660"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703380"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph usando a identidade de aplicativo do console
 
@@ -27,7 +26,7 @@ Neste início rápido, você aprenderá a escrever um aplicativo .NET Core que p
 
 ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
@@ -93,7 +92,7 @@ Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/down
     
     > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
-    > > Este guia de início rápido oferece suporte a Enter_the_Supported_Account_Info_Here.
+    > > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
     
     > [!div renderon="docs"]
     >> Em que:

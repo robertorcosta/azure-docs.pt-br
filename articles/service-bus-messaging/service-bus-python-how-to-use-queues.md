@@ -1,10 +1,9 @@
 ---
 title: 'Início Rápido: Usar filas do Barramento de Serviço do Azure com Python'
-description: Saiba como usar as filas do Barramento de Serviço do Azure com Python.
+description: Este artigo mostra como usar o Python para criar, enviar e receber mensagens das filas do Barramento de Serviço do Azure.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus-messaging
@@ -12,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: d0f579fcd82860380f1aaa651a61c0259d075a0d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748534"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773486"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Início Rápido: Usar filas do Barramento de Serviço do Azure com Python
 
@@ -30,8 +29,8 @@ Este artigo mostra como usar o Python para criar, enviar e receber mensagens das
 
 Para obter mais informações sobre as bibliotecas do Barramento de Serviço do Azure do Python, confira [Bibliotecas do Barramento de Serviço para Python](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="prerequisites"></a>Pré-requisitos
-- Uma assinatura do Azure. É possível ativar os [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Prerequisites
+- Uma assinatura do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Um namespace do Barramento de Serviço, criado seguindo as etapas em [Início Rápido: Usar o portal do Azure para criar assinaturas e um tópico do Barramento de Serviço](service-bus-quickstart-topics-subscriptions-portal.md). Copie a cadeia de conexão primária da tela **Políticas de acesso compartilhado** para usar posteriormente neste artigo. 
 - Python 3.4x ou superior, com o pacote do [Barramento de Serviço do Azure do Python][Python Azure Service Bus package] instalado. Para obter mais informações, consulte o [Guia de instalação do Python](/azure/python/python-sdk-azure-install). 
 

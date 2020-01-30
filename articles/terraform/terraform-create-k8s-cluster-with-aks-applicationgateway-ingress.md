@@ -3,12 +3,12 @@ title: Tutorial – Criar um controlador de entrada do Gateway de Aplicativo no 
 description: Tutorial que ilustra como criar um cluster Kubernetes com o Serviço de Kubernetes do Azure usando o Gateway de Aplicativo como controlador de entrada
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867393"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772867"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutorial: Criar um controlador de entrada do Gateway de Aplicativo no Serviço de Kubernetes do Azure
 
@@ -51,7 +51,7 @@ O primeiro passo é criar o diretório que contém os arquivos de configuração
     cd clouddrive
     ```
 
-1. Crie um diretório com o nome `terraform-aks-k8s`.
+1. Crie um diretório com o nome `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -731,8 +731,8 @@ O código nesta seção usa o [Helm](/azure/aks/kubernetes-helm), o gerenciador 
     - `armAuth.secretJSON`: necessário somente quando o tipo de Segredo da Entidade de Serviço é escolhido (quando `armAuth.type` foi definido como `servicePrincipal`).
 
     Observações importantes:
-    - O valor de `identityResourceID` é criado no script do Terraform e pode ser encontrado executando: `echo "$(terraform output identity_client_id)"`.
-    - O valor de `identityClientID` é criado no script do Terraform e pode ser encontrado executando: `echo "$(terraform output identity_resource_id)"`.
+    - O valor de `identityResourceID` é criado no script do Terraform e pode ser encontrado executando: `echo "$(terraform output identity_resource_id)"`.
+    - O valor de `identityClientID` é criado no script do Terraform e pode ser encontrado executando: `echo "$(terraform output identity_client_id)"`.
     - O valor de `<resource-group>` é o grupo de recursos de seu Gateway de Aplicativo.
     - O valor de `<identity-name>` é o nome da identidade criada.
     - Todas as identidades de uma determinada assinatura podem ser listadas usando: `az identity list`.

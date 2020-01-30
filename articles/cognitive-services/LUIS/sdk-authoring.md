@@ -3,13 +3,13 @@ title: 'Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecim
 description: Introdução à biblioteca de clientes do LUIS com este início rápido. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 ms.topic: quickstart
 ms.date: 01/14/2020
-zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 2e01e07a5d6d706ae184a44ad840829df6f33ee7
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+zone_pivot_groups: programming-languages-set-diberry-3core
+ms.openlocfilehash: 16aa45ab0f0860b93815601a2f82eff34dbd1f6f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170407"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774226"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>Início Rápido: Biblioteca de clientes de criação do LUIS (Reconhecimento vocal)
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 1f9272ed498401b2f9fa9f559d77d4922f89ac84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6b6fa03337e857c6dda43f8c6ae41713d8c3dbe0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446448"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774187"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Início Rápido: extrair dados de recibos usando a API REST do Reconhecimento de Formulários com o Python
 
@@ -23,7 +23,7 @@ Neste início rápido, você usará a API REST de Reconhecimento de Formulários
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!IMPORTANT]
-> Este guia de início rápido usa a API do Reconhecimento de Formulários v2.0. Se a assinatura não estiver na região `West US 2` ou `West Europe`, você precisará usar a API v1.0. Siga o [guia de início rápido v1.0](./curl-train-extract-v1.md) em vez disso.
+> Este guia de início rápido usa a API do Reconhecimento de Formulários v2.0. Se sua assinatura não estiver na região `West US 2` ou `West Europe`, você precisará usar a API v1.0. Em vez disso, siga o [início rápido v1.0](./curl-train-extract-v1.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 

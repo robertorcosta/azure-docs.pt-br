@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: cc8f01d5608b36521185695cd5f7be531ba7aeaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505856"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748773"
 ---
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Chave inicial.
 * Importe o aplicativo [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) do repositório GitHub cognitive-services-language-understanding.
 * A ID do aplicativo LUIS para o aplicativo TravelAgent importado. A ID do aplicativo é mostrada no painel do aplicativo.
-* O ID da versão no aplicativo que recebe os enunciados. A ID padrão é “0.1”.
+* A ID da versão no aplicativo que recebe os enunciados. A ID padrão é “0.1”.
 * Linguagem de programação [Node.js](https://nodejs.org/) 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -89,8 +89,8 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
             body: utterances
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     const train = async (verb) => {
     
@@ -104,18 +104,18 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
             body: null // The body can be empty for a training request
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     
     // MAIN
     main().then(() => console.log("done")).catch((err)=> console.log(err returned));
     ```
-1. Substitua os valores a seguir:
+1. Substitua os seguintes valores:
 
-    * `YOUR-KEY` com a chave inicial
-    * `YOUR-ENDPOINT` com o ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` com o ID do aplicativo
+    * `YOUR-KEY` com sua chave inicial
+    * `YOUR-ENDPOINT` com seu ponto de extremidade, por exemplo, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-APP-ID` com a ID do seu aplicativo
 
 1. Com um prompt de comando no mesmo diretório em que você criou o arquivo, insira o seguinte comando para executar o arquivo:
 
@@ -127,7 +127,7 @@ Use Go para adicionar uma [API](https://aka.ms/luis-apim-v3-authoring) de entida
 
 [!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Ao concluir este guia de início rápido, exclua o arquivo do sistema de arquivos. 
 

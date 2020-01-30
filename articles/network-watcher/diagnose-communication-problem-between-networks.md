@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Neste tutorial, saiba como diagnosticar um problema de comunicação entre uma rede virtual do Azure conectada a um local ou a outra rede virtual, por meio de um gateway de rede virtual do Azure, usando a funcionalidade de diagnóstico de VPN do Observador de Rede.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
@@ -14,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419724"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834670"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes usando o portal do Azure
 
@@ -37,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar o diagnóstico de VPN, é necessário ter um gateway de VPN existente e em execução. Se você não tiver um gateway de VPN existente para diagnosticar, implante um usando um [script do PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Execute o script do PowerShell por meio de:
 - **Uma instalação local do PowerShell**: Este script exige o módulo `Az` do Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Caso precise atualizar, consulte [Instalar o Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
@@ -47,7 +45,7 @@ O script leva aproximadamente uma hora para criar um gateway de VPN. As etapas r
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Habilitar o Observador de Rede
 
@@ -103,7 +101,7 @@ Um gateway está conectado a outras redes por meio de uma conexão de gateway. O
 
     Para resolver o problema, você precisa garantir que o gateway de VPN local está [configurado corretamente](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e alterar o endereço IP configurado pelo script para o gateway de rede local, para o endereço público real do gateway de VPN local.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um gateway de VPN usando o script nos [pré-requisitos](#prerequisites) exclusivamente para concluir este tutorial e não precisar mais dele, exclua o grupo de recursos e todos os recursos que ele contém:
 

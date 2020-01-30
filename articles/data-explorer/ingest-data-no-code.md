@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 11/17/2019
-ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 01/29/2020
+ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995925"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836551"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingerir e consultar dados de monitoramento no Azure Data Explorer 
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > [!NOTE]
 > Crie todos os recursos na mesma localização ou região do Azure. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster e um banco de dados do Azure Data Explorer](create-cluster-database-portal.md). Neste tutorial, o nome do banco de dados é *TestDatabase*.
@@ -330,7 +330,7 @@ Para mapear os dados do log de atividades para a tabela, use a seguinte consulta
 2. Adicione a [política de atualização](/azure/kusto/concepts/updatepolicy) à tabela de destino. Essa política executará a consulta automaticamente nos dados recém-ingeridos na tabela de dados intermediária *DiagnosticRawRecords* e ingerirá os resultados na tabela *DiagnosticMetrics*:
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[Logs de diagnóstico](#tab/diagnostic-logs)
@@ -344,7 +344,7 @@ Para mapear os dados do log de atividades para a tabela, use a seguinte consulta
         | mv-expand events = Records
         | where isnotempty(events.operationName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Result = tostring(events.resultType),
@@ -363,7 +363,7 @@ Para mapear os dados do log de atividades para a tabela, use a seguinte consulta
 2. Adicione a [política de atualização](/azure/kusto/concepts/updatepolicy) à tabela de destino. Essa política executará a consulta automaticamente nos dados recém-ingeridos na tabela de dados intermediária *DiagnosticRawRecords* e ingerirá os resultados na tabela *DiagnosticLogs*:
 
     ```kusto
-    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="activity-logstabactivity-logs"></a>[Logs de atividade](#tab/activity-logs)
@@ -376,7 +376,7 @@ Para mapear os dados do log de atividades para a tabela, use a seguinte consulta
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Category = tostring(events.category),
@@ -393,7 +393,7 @@ Para mapear os dados do log de atividades para a tabela, use a seguinte consulta
 2. Adicione a [política de atualização](/azure/kusto/concepts/updatepolicy) à tabela de destino. Essa política executará a consulta automaticamente nos dados recém-ingeridos na tabela de dados intermediária *ActivityLogsRawRecords* e ingerirá os resultados na tabela *ActivityLogs*:
 
     ```kusto
-    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 ---
 
@@ -521,7 +521,7 @@ Agora, você precisa criar as conexões de dados para as métricas e os logs de 
 
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | **Tabela** | *DiagnosticRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
+    | **Table** | *DiagnosticRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
     | **Formato dos dados** | *JSON* | O formato usado na tabela. |
     | **Mapeamento de coluna** | *DiagnosticRawRecordsMapping* | O mapeamento criado no banco de dados *TestDatabase*, que mapeia os dados JSON de entrada para os nomes de coluna e os tipos de dados da tabela *DiagnosticRawRecords*.|
     | | |
@@ -548,7 +548,7 @@ Agora, você precisa criar as conexões de dados para as métricas e os logs de 
 
      **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | **Tabela** | *ActivityLogsRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
+    | **Table** | *ActivityLogsRawRecords* | A tabela criada no banco de dados *TestDatabase*. |
     | **Formato dos dados** | *JSON* | O formato usado na tabela. |
     | **Mapeamento de coluna** | *ActivityLogsRawRecordsMapping* | O mapeamento criado no banco de dados *TestDatabase*, que mapeia os dados JSON de entrada para os nomes de coluna e os tipos de dados da tabela *ActivityLogsRawRecords*.|
     | | |

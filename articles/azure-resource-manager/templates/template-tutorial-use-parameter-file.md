@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: abafa00febe0431acf5c678cc179c6c114fa9179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470831"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773157"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Use arquivos de parâmetro para implantar seu modelo do Resource Manager
 
@@ -26,7 +26,7 @@ Recomendamos que você conclua o [tutorial sobre marcas](template-tutorial-add-t
 
 Seu modelo tem muitos parâmetros que você pode fornecer durante a implantação. No final do tutorial anterior, seu modelo tinha a seguinte aparência:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
 
 Esse modelo funciona bem, mas agora convém gerenciar facilmente os parâmetros que você passa para o modelo.
 
@@ -36,13 +36,13 @@ Os arquivos de parâmetro são arquivos JSON com uma estrutura semelhante ao seu
 
 No VS Code, crie um arquivo com o seguinte conteúdo. Salve o arquivo com o nome **azuredeploy.parameters.dev.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Esse arquivo é seu arquivo de parâmetro para o ambiente de desenvolvimento. Observe que ele usa Standard_LRS para a conta de armazenamento, nomeia recursos com um prefixo **dev** e define a tag **Ambiente** como **Dev**.
 
 Novamente, crie um arquivo com o conteúdo a seguir. Salve o arquivo com o nome **azuredeploy.parameters.prod.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
 Esse arquivo é seu arquivo de parâmetro para o ambiente de produção. Observe que ele usa Standard_GRS para a conta de armazenamento, nomeia recursos com um prefixo **contoso** e define uma tag **Ambiente** como **Produção**. Em um ambiente de produção real, também seria conveniente usar um serviço de aplicativo com um SKU que não seja gratuito, mas continuaremos usando esse SKU para este tutorial.
 

@@ -7,25 +7,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 ms.author: pafarley
-ms.openlocfilehash: 95b15924db7e5b1b788656d7592bb4ad87e07ce2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 530665168cc1ed21f1664e3012bbf37e52d96fbf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166756"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716174"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Node.js
 
-Introdução à biblioteca de clientes da Pesquisa Visual Computacional para Node.js. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. 
+Introdução à biblioteca de clientes da Pesquisa Visual Computacional para Node.js. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 
 Use a biblioteca de clientes da Pesquisa Visual Computacional para Node.js para:
 
 * [Analisar uma imagem](#analyze-an-image)
 * [Ler texto impresso e manuscrito](#read-printed-and-handwritten-text)
 
-[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Pacote (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Pacote (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -38,20 +38,20 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para Node.js para:
 
 Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso da Pesquisa Visual Computacional usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou a [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) em seu computador local. Também é possível:
 
-* Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Obter uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ela estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Exibir esse recurso no [portal do Azure](https://portal.azure.com/).
 
 Depois de obter uma chave da assinatura ou do recurso de avaliação, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a URL de ponto de extremidade, chamadas `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
- 
+
 ### <a name="create-a-new-nodejs-application"></a>Criar um novo aplicativo do Node.js
 
-Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório para seu aplicativo e navegue até ele. 
+Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório para seu aplicativo e navegue até ele.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `npm init` para criar um aplicativo do Node com um arquivo `package.json`. 
+Execute o comando `npm init` para criar um aplicativo do Node com um arquivo `package.json`.
 
 ```console
 npm init
@@ -59,7 +59,7 @@ npm init
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
-Instale os pacotes NPM `ms-rest-azure` e `azure-cognitiveservices-computervision`:
+Instale os pacotes NPM `ms-rest-azure` e `@azure/cognitiveservices-computervision`:
 
 ```console
 npm install @azure/cognitiveservices-computervision
@@ -177,11 +177,11 @@ O código a seguir imprime a presença detectada de conteúdo para adulto na ima
 
 Defina a URL da imagem que será usada:
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)]
 
 Depois, adicione o código a seguir para detectar conteúdo para adulto e imprimir os resultados no console.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)]
 
 ### <a name="get-image-color-scheme"></a>Obter esquema de cores da imagem
 
@@ -195,7 +195,7 @@ Defina a função auxiliar `printColorScheme` para imprimir os detalhes do esque
 
 ### <a name="get-domain-specific-content"></a>Obter conteúdo específico do domínio
 
-A Pesquisa Visual Computacional pode usar o modelo especializado para realizar análise adicional em imagens. Confira [Conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes. 
+A Pesquisa Visual Computacional pode usar o modelo especializado para realizar análise adicional em imagens. Confira [Conteúdo específico do domínio](../concept-detecting-domain-content.md) para obter mais detalhes.
 
 Primeiro, defina a URL de uma imagem a ser analisada:
 

@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço do Azure com Java'
-description: 'Início Rápido: Use tópicos e assinaturas do Barramento de Serviço no Azure.'
+title: Usar tópicos e assinaturas do Barramento de Serviço do Azure com Java
+description: Neste guia de início rápido, você escreve o código Java para enviar mensagens para um tópico do Barramento de Serviço do Azure e, em seguida, recebe mensagens de assinaturas para esse tópico.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b75b5cd5e674020f41897309a3c69b9371cc768
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720009"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759288"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço com Java
 
@@ -28,7 +28,7 @@ ms.locfileid: "73720009"
 
 Neste guia de início rápido, você escreve o código Java para enviar mensagens para um tópico do Barramento de Serviço do Azure e, em seguida, recebe mensagens de assinaturas para esse tópico. 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Uma assinatura do Azure. Para concluir este tutorial, você precisa de uma conta do Azure. Ative seus [benefícios de assinante do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscreva-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico do Barramento de Serviço e assinaturas para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para executar as seguintes tarefas:

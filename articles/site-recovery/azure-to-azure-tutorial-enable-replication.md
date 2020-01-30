@@ -2,14 +2,15 @@
 title: Configurar a recuperação de desastre da VM do Azure com o Azure Site Recovery
 description: Saiba como configurar a recuperação de desastre para VMs do Azure em uma região do Azure diferente usando o serviço Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 1/24/2020
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7d78064285057f6abd91c3ca95e01ec86f1a1a39
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169330"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759782"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação de desastre para VMs do Azure
 
@@ -75,17 +76,6 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
 Se você estiver usando um NSG (grupo de segurança de rede), crie regras NSG baseadas em marca de serviço para acesso ao Armazenamento do Azure, ao Azure Active Directory, ao serviço Site Recovery e ao monitoramento do Site Recovery. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
-
-> [!NOTE]
-> É recomendável sempre configurar regras NSG com marcas de serviço para o acesso de saída.
-
-Para controlar a conectividade de saída usando endereços IP, permita estes endereços para regras NSG, proxy e firewalls baseados em IP:
-
-- [Intervalos de IP do datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
-- [Intervalos de IP do datacenter do Microsoft Azure na Alemanha](https://www.microsoft.com/download/details.aspx?id=54770)
-- [Intervalos de IP do datacenter do Microsoft Azure na China](https://www.microsoft.com/download/details.aspx?id=42064)
-- [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-- [Endereços IP de ponto de extremidade de serviço do Site Recovery](https://aka.ms/site-recovery-public-ips)
 
 ## <a name="verify-azure-vm-certificates"></a>Verifique os certificados de VM do Azure
 

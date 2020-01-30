@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f005266b6e2e12a13f79b3f2007b1bbbafb4acef
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1b5ebbcd3a891149a72b3dbe8cb19b3c8de528a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311568"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773760"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure
 
@@ -73,7 +73,7 @@ Digite os comandos abaixo para criar um segredo no Key Vault chamado **ExamplePa
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-Agora, você pode fazer referência a essa senha que foi adicionada ao Azure Key Vault usando seu URI. Use **https://ContosoVault.vault.azure.net/secrets/ExamplePassword**  para obter a versão atual. 
+Agora, você pode fazer referência a essa senha que foi adicionada ao Azure Key Vault usando seu URI. Use **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** para obter a versão atual. 
 
 Para exibir o valor contido no segredo como texto sem formatação:
 
@@ -83,7 +83,7 @@ az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 
 Agora, você criou um Key Vault, armazenou um segredo e o recuperou.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
 Quando não forem mais necessários, você poderá usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados. Você pode excluir os recursos da seguinte maneira:

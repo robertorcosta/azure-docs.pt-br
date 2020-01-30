@@ -3,8 +3,7 @@ title: Tutorial – monitorar a comunicação de rede usando o portal do Azure
 description: Neste tutorial, saiba como monitorar a comunicação de rede entre duas máquinas virtuais com a funcionalidade de monitor de conexão do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419701"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834647"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre duas máquinas virtuais usando o portal do Azure
 
@@ -37,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [Portal do Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-vms"></a>Criar VMs
 
@@ -51,11 +50,11 @@ Criar duas VMs.
 
     |Configuração|Valor|
     |---|---|
-    |NOME|myVm1|
+    |Nome|myVm1|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selecione sua assinatura.|
-    |Grupo de recursos| Selecione **Criar novo** e insira **myResourceGroup**.|
+    |Resource group| Selecione **Criar novo** e insira **myResourceGroup**.|
     |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
@@ -74,7 +73,7 @@ Conclua as etapas em [Criar a primeira VM](#create-the-first-vm) novamente, com 
 |Etapa|Configuração|Valor|
 |---|---|---|
 | 1 | Selecionar uma versão do **Ubuntu Server** |                                                                         |
-| 3 | NOME                                  | myVm2                                                                   |
+| 3 | Nome                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole sua chave pública SSH ou selecione **Senha**e digite uma senha. |
 | 3 | Resource group                        | Selecione **Usar existente** e, em seguida, **myResourceGroup**.                 |
 | 6 | Extensões                            | **Agente do Observador de Rede para Linux**                                             |
@@ -93,7 +92,7 @@ Criar uma comunicação de monitor para monitor de conexão usando a porta TCP 2
 
     | Configuração                  | Valor               |
     | ---------                | ---------           |
-    | NOME                     | myVm1-myVm2(22)     |
+    | Nome                     | myVm1-myVm2(22)     |
     | Fonte                   |                     |
     | Máquina virtual          | myVm1               |
     | Destino              |                     |
@@ -115,7 +114,7 @@ Criar uma comunicação de monitor para monitor de conexão usando a porta TCP 2
 
     Observe as seguintes informações:
 
-    | item                     | Valor                      | Detalhes                                                     |
+    | Item                     | Valor                      | Detalhes                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Status                   | Acessível                  | Permite que você saiba se o ponto de extremidade é acessível ou não.|
     | MÉDIA. VIAGEM          | Permite que você saiba que o tempo de ida e volta para fazer a conexão, em milissegundos. Monitor de Conexão testa a conexão a cada 60 segundos, para que você possa monitorar a latência ao longo do tempo.                                         |
@@ -152,7 +151,7 @@ Por padrão, o Azure permite comunicação por todas as portas entre VMs na mesm
     | Intervalos de portas de destino | 22             |
     | Ação                  | Negar           |
     | Prioridade                | 100            |
-    | NOME                    | DenySshInbound |
+    | Nome                    | DenySshInbound |
 
 5. Desde que o monitor de conexão testes em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, em seguida, **monitor de Conexão**e, em seguida, selecione o  **myVm1-myVm2(22)** monitorar novamente. Os resultados são diferentes agora, conforme mostrado na figura a seguir:
 
@@ -164,7 +163,7 @@ Por padrão, o Azure permite comunicação por todas as portas entre VMs na mesm
 
     Se você não souber que alguém tinha implementado a regra de segurança que você criou na etapa 4, você deve saber de monitor de conexão que a regra está causando o problema de comunicação. Você pode alterar, substituir ou remover a regra, para restaurar a comunicação entre as máquinas virtuais.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos e todos os recursos que ele contém:
 

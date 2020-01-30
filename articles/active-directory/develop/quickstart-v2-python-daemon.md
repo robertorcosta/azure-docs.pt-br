@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 400dfb1ad8b0682194974e6d829cc42bad37bf75
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a45f516f751609b413948278e2f2cfca47c9da2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920609"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703296"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console Python usando a identidade do aplicativo
 
@@ -26,7 +25,7 @@ Neste início rápido, escreva um aplicativo Python que obtém um token de acess
 > [!div renderon="docs"]
 > ![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar este exemplo, você precisa de:
 
@@ -95,7 +94,7 @@ Para executar este exemplo, você precisa de:
     
     > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
-    > > Este guia de início rápido oferece suporte a Enter_the_Supported_Account_Info_Here.
+    > > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
     
     > [!div renderon="docs"]
     >> Em que:

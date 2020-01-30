@@ -12,13 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fff6d07bd0e353541dec23fd8c3edf7407ef6d68
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963283"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704078"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Início Rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft
 
@@ -29,7 +28,7 @@ Neste início rápido, você aprenderá a:
 * Remover um aplicativo criado por você ou por sua organização
 * Remover um aplicativo criado por outra organização
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 É necessário ter um locatário com aplicativos registrados. Para aprender a adicionar aplicativos registrados, confira [Registrar um aplicativo na Microsoft Identity Platform](quickstart-register-app.md).
 

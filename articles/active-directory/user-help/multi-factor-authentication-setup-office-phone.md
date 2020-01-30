@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbb913fc8ec6376f1c5f47708da4fd7df740ff
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 32d58a5536cda5a5a446eee15401dabc0c936304
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619847"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705217"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurar um telefone do escritório como o método de verificação de dois fatores
 
@@ -35,7 +34,7 @@ Configure seu telefone do escritório para funcionar como o método de verifica�
 
     ![Como testar o número de telefone especificado](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone-test.png)
 
-3. Na área **Etapa 3: Continuar usando os aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
+3. Na área **Etapa 3: Continue usando seus aplicativos existentes**, copie a senha do aplicativo fornecida e cole-a em um local seguro.
 
     ![Área de senhas de aplicativo da página Verificação de segurança adicional](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Neste início rápido, você aprende a diagnosticar um problema no filtro de tráfego de rede da máquina virtual usando a funcionalidade de verificação de fluxo de IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 756c8d4d7e227d477c3031aab0d0a478454c35bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5438cc07670393cab69344544ea1b68c46c42bd6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276068"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844017"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Início Rápido: diagnosticar um problema de filtro de tráfego de rede de máquina virtual – Azure PowerShell
 
@@ -206,7 +205,7 @@ Quando você executou o comando `Test-AzNetworkWatcherIPFlow` para testar a comu
 }
 ```
 
-A regra lista **0.0.0.0/0** como o **DestinationAddressPrefix**. A regra nega a comunicação de saída para 172.131.0.100, porque o endereço não está dentro do **DestinationAddressPrefix** de uma das outras regras de saída na saída do comando `Get-AzEffectiveNetworkSecurityGroup`. Para permitir a comunicação de saída, adicione uma regra de segurança de entrada com uma prioridade mais alta que permite o tráfego de entrada para a porta 80 em de 172.131.0.100.
+A regra lista **0.0.0.0/0** como o **DestinationAddressPrefix**. A regra nega a comunicação de saída para 172.131.0.100, porque o endereço não está dentro do **DestinationAddressPrefix** de uma das outras regras de saída na saída do comando `Get-AzEffectiveNetworkSecurityGroup`. Para permitir a comunicação de saída, você pode adicionar uma regra de segurança de entrada com uma prioridade mais alta que permite o tráfego de entrada para a porta 80 em de 172.131.0.100.
 
 Quando você executou o comando `Test-AzNetworkWatcherIPFlow` para testar a comunicação de entrada de 172.131.0.100 em [Usar verificação de fluxo de IP](#use-ip-flow-verify), a saída informou que a regra **DefaultInboundDenyAll** negou a comunicação. A regra **DefaultInboundDenyAll** é equivalente à regra **DenyAllInBound** listada na seguinte saída do comando `Get-AzEffectiveNetworkSecurityGroup`:
 
@@ -238,7 +237,7 @@ A regra **DenyAllInBound** é aplicada, porque, conforme mostrado na saída, nã
 
 As verificações deste início rápido testaram a configuração do Azure. Se as verificações retornarem resultados esperados e você ainda tiver problemas de rede, verifique se você não tem um firewall entre a VM e o ponto de extremidade com o qual está se comunicando e se o sistema operacional na VM não tem um firewall que permite ou nega a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele contém:
 

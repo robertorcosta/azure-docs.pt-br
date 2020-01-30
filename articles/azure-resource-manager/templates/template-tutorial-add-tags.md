@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689680"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773190"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adicionar marcas em seu modelo do Resource Manager
 
@@ -26,7 +26,7 @@ Recomendamos que você conclua o [tutorial sobre Modelos de início rápido](tem
 
 O modelo anterior implantou uma conta de armazenamento, um plano do Serviço de Aplicativo e um aplicativo Web.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 Após implantar esses recursos, você pode precisar controlar custos e localizar recursos que pertencem a uma categoria. Você pode adicionar marcas para ajudar a resolver esses problemas.
 
@@ -36,7 +36,7 @@ Marque recursos para adicionar valores que ajudam você a identificar seu uso. P
 
 O exemplo a seguir realça as alterações no modelo. Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>Implantar modelo
 

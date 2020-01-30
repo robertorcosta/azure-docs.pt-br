@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471681"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773201"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adicionar parâmetros ao modelo do Resource Manager
 
@@ -26,7 +26,7 @@ Recomendamos que você conclua o [tutorial sobre recursos](template-tutorial-add
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 Talvez você tenha notado que há um problema com este modelo. O nome da conta de armazenamento está embutido em código. Você só pode usar esse modelo para implantar a mesma conta de armazenamento a cada vez. Para implantar uma conta de armazenamento com um nome diferente, você precisaria criar um novo modelo, o que obviamente não é uma maneira prática de automatizar suas implantações.
 
@@ -36,7 +36,7 @@ Para tornar seu modelo reutilizável, adicionaremos um parâmetro que você pode
 
 Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Implantar modelo
 
@@ -80,7 +80,7 @@ Os parâmetros permitem que você personalize a implantação fornecendo valores
 
 O modelo anterior sempre implantava uma conta de armazenamento Standard_LRS. Talvez você queira a flexibilidade de implantar SKUs diferentes dependendo do ambiente. O exemplo a seguir realça as alterações para adicionar um parâmetro para o SKU. Copie todo o arquivo e cole-o em seu modelo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
 

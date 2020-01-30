@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implantar um modelo de machine learning com o designer'
 titleSuffix: Azure Machine Learning
-description: Este tutorial mostra como criar uma solução de análise preditiva no designer do Azure Machine Learning. Treine, pontue e implante um modelo de machine learning usando módulos do tipo "arrastar e soltar".
+description: Este tutorial mostra como criar uma solução de análise preditiva no designer do Azure Machine Learning (versão prévia). Treine, pontue e implante um modelo de machine learning usando módulos do tipo "arrastar e soltar".
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 89fdac5e59b59c60d7e20b94799d78b029d236d6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314990"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719782"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implantar um modelo de machine learning com o designer
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implantar um modelo de machine learning com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Você poderá implantar o modelo preditivo desenvolvido na [parte um do tutorial](tutorial-designer-automobile-price-train-score.md) para dar aos outros uma chance de usá-lo. Na primeira parte, você treinou seu modelo. Agora é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você:
@@ -55,10 +55,6 @@ Para implantar o pipeline, primeiro, converta o pipeline de treinamento em um pi
     >
 
 1. Selecione **Executar** e use o mesmo destino de computação e experimento usados na primeira parte.
-
-1. Saída do módulo **Modelo de Pontuação**.
-
-1. No painel de propriedades, selecione **Saídas** > **Visualizar** para verificar se o modelo ainda está funcionando. Você pode ver que os dados originais são exibidos, juntamente com o preço previsto ("Rótulos Pontuados").
 
 1. Selecione **Implantar**.
 

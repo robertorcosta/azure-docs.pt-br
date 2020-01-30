@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514286"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846219"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -99,6 +99,6 @@ Como o Personalizador usa informações coletivas quase em tempo real para retor
 * [O que é o Aprendizado de Reforço?](concepts-reinforcement-learning.md)
 * [Saiba mais sobre os recursos e as ações para a solicitação de Classificação](concepts-features.md)
 * [Saiba como determinar a pontuação da solicitação de Premiação](concept-rewards.md)
-* [Inícios Rápidos]()
-* [Tutorial]()
+* [Inícios Rápidos](sdk-learning-loop.md)
+* [Tutorial](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Usar a demonstração interativa](https://personalizationdemo.azurewebsites.net/)

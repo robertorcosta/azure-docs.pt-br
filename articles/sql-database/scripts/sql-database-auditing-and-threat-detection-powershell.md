@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
-author: ronitr
-ms.author: ronitr
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 1dee8031b00e7d291844790fb86efd4d00075d87
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f5e107058f983df98f7d14dbe1b41ce5a66f2535
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691733"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719969"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Usar o PowerShell para configurar a auditoria e a Proteção Avançada contra Ameaças do Banco de Dados SQL
 
@@ -28,7 +28,7 @@ Este script de exemplo do PowerShell configura a auditoria e a Proteção Avanç
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o AZ PowerShell 1.4.0 ou posterior. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="sample-script"></a>Script de exemplo
+## <a name="sample-script"></a>Exemplo de script
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=15-16 "Configure auditing and threat detection")]
 
@@ -42,7 +42,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando da tabela é vinculado à documentação específica do comando.
+Este script usa os comandos a seguir. Cada comando da tabela é vinculado à documentação específica do comando.
 
 | Comando | Observações |
 |---|---|
@@ -57,6 +57,6 @@ Este script usa os seguintes comandos. Cada comando da tabela é vinculado à do
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Outros exemplos de script do PowerShell para Banco de Dados SQL podem ser encontrados nos [scripts do PowerShell para Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).

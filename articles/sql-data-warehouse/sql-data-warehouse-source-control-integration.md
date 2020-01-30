@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 82d366b3f807e21e3531da00da78520fed90bc66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645252"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720020"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração do controle do código-fonte para SQL Data Warehouse do Azure
 
@@ -37,7 +37,7 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
    ![Gerenciar Conexões](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerenciar conexões")
 
-   ![Conectar](media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
+   ![Connect](media/sql-data-warehouse-source-control-integration/3-connect.png "Conectar")
 
 3. Clone seu repositório Azure Repo de seu projeto para o computador local
 
@@ -55,7 +55,7 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 3. No Team Explorer no Visual Studio, confirme suas alterações no repositório Git local 
 
-   ![Confirmar](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Confirmar")  
+   ![Confirmar](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
 4. Agora que você tem as alterações confirmadas localmente no repositório clonado, sincronize e envie por push suas alterações para o repositório Azure Repo em seu projeto do Azure DevOps.
 
@@ -82,13 +82,3 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Desenvolvendo para o SQL Data Warehouse do Azure](sql-data-warehouse-overview-develop.md)
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a27022f8c06449d8b05f90f78055b983bc88c01c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471521"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765500"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adicionar variável ao modelo do Azure Resource Manager
 
@@ -26,7 +26,7 @@ Recomendamos que você conclua o [tutorial sobre as funções](template-tutorial
 
 No final do tutorial anterior, o modelo tinha o seguinte JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 O parâmetro para o nome da conta de armazenamento é difícil de usar porque você precisa fornecer um nome exclusivo. Se você concluiu os tutoriais anteriores nesta série, provavelmente você está cansado de adivinhar um nome exclusivo. Você resolve esse problema adicionando uma variável que constrói um nome exclusivo para a conta de armazenamento.
 
@@ -34,7 +34,7 @@ O parâmetro para o nome da conta de armazenamento é difícil de usar porque vo
 
 O exemplo a seguir realça as alterações para adicionar uma variável ao modelo que cria um nome exclusivo de conta de armazenamento. Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 Observe que ele inclui uma variável chamada **uniqueStorageName**. Essa variável usa quatro funções para construir um valor de cadeia de caracteres.
 

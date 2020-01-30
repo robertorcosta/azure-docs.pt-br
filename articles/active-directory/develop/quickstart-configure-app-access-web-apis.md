@@ -12,13 +12,12 @@ ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963326"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704282"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início Rápido: Configure um aplicativo cliente para acessar APIs Web
 
@@ -40,7 +39,7 @@ Neste início rápido, mostraremos como configurar seu aplicativo para:
 * [Adicionar credenciais ao aplicativo Web](#add-credentials-to-your-web-application)
 * [Adicionar permissões para acessar APIs Web](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, atenda aos seguintes pré-requisitos:
 
@@ -54,7 +53,7 @@ Antes de configurar o aplicativo, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-1. Procurar pelo **Azure Active Directory** e selecioná-lo. 
+1. Pesquise **Azure Active Directory** e selecione-o. 
 1. No painel esquerdo, selecione **Registros de aplicativo**.
 1. Encontre e selecione o aplicativo que você deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** ou a página de registro principal.
 1. Siga as etapas para configurar seu aplicativo e acessar APIs Web:

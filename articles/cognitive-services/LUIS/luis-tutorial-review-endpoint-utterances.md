@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447811"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843966"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Você deve examinar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
@@ -46,7 +46,7 @@ Use as etapas a seguir para importar um aplicativo.
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. No [portal LUIS em versão prévia](https://preview.luis-ai), importe o arquivo .json para um novo aplicativo.
+1. No [portal LUIS em versão prévia](https://preview.luis.ai), importe o arquivo .json para um novo aplicativo.
 
 1. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `review`.
 

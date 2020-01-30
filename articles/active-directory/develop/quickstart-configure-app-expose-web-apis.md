@@ -12,13 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966105"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704214"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início Rápido: Configurar um aplicativo para expor APIs Web
 
@@ -26,7 +25,7 @@ Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente e
 
 Neste início rápido, você aprenderá a configurar um aplicativo para expor um novo escopo e disponibilizá-lo para aplicativos cliente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para começar, atenda aos seguintes pré-requisitos:
 
@@ -60,7 +59,7 @@ Para expor um novo escopo pela interface do usuário:
 
 1. Quando a página **Adicionar um escopo** for exibida, insira as informações do seu escopo:
 
-    | Campo | DESCRIÇÃO |
+    | Campo | Descrição |
     |-------|-------------|
     | **Nome do Escopo** | Insira um nome relevante para seu escopo.<br><br>Por exemplo, `Employees.Read.All`. |
     | **Quem pode consentir** | Selecione se esse escopo pode ser consentido por usuários, ou se é necessário ter o consentimento do administrador. Selecione **Somente administradores** para permissões com privilégios mais elevados. |
@@ -69,7 +68,7 @@ Para expor um novo escopo pela interface do usuário:
 
     Se os usuários podem consentir com seu escopo, adicione também valores para os seguintes campos:
 
-    | Campo | DESCRIÇÃO |
+    | Campo | Descrição |
     |-------|-------------|
     | **Nome para exibição do consentimento do usuário** | Insira um nome significativo para seu escopo, que os usuários verão.<br><br>Por exemplo, `Read-only access to your Employee records` |
     | **Descrição de consentimento do usuário** | Insira uma descrição significativa para o escopo, que os usuários verão.<br><br>Por exemplo, `Allow the application to have read-only access to your Employee data.` |

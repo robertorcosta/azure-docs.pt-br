@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Neste tutorial, você aprenderá a diagnosticar um problema de roteamento da rede de máquina virtual com a funcionalidade de próximo salto do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276038"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845213"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de roteamento de rede de máquina virtual usando o portal do Azure
 
@@ -51,11 +50,11 @@ Faça logon no Portal do Azure em https://portal.azure.com.
 
     |Configuração|Valor|
     |---|---|
-    |NOME|myVm|
+    |Nome|myVm|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Selecione sua assinatura.|
-    |Grupo de recursos| Selecione **Criar novo** e insira **myResourceGroup**.|
+    |Resource group| Selecione **Criar novo** e insira **myResourceGroup**.|
     |Location| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
@@ -109,7 +108,7 @@ O Azure cria automaticamente as rotas para destinos padrão. Você pode criar ro
 
     No entanto, quando você executou o teste usando 172.31.0.100, o resultado informou que não houve nenhum tipo de próximo salto. Como você pode ver na imagem anterior, que embora haja uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **TIPO DE PRÓXIMO SALTO** é **Nenhum**. O Azure cria uma rota padrão para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo. Se, por exemplo, você adicionou o intervalo de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure alterará o **TIPO DE PRÓXIMO SALTO** para **Rede virtual** da rota. Em seguida, uma verificação mostra a **Rede virtual** como o **TIPO DE PRÓXIMO SALTO**.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, exclua o grupo de recursos e todos os recursos que ele contém:
 

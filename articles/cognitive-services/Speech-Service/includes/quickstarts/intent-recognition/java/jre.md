@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7654d952469e35c3b45af252e910cb0e36693029
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772981"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761431"
 ---
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -37,7 +37,7 @@ Antes de começar:
 
 Vamos adicionar um código que funciona como um esqueleto para o projeto.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,69-76)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,68-75)]
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
@@ -45,8 +45,8 @@ Antes de inicializar um objeto `IntentRecognizer`, é preciso criar uma configur
 
 Inserir este código no bloco try/catch no `main()`. Atualize estes valores:
 
-* Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS. 
-* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS. 
+* Substitua `"YourLanguageUnderstandingSubscriptionKey"` pela sua chave de previsão do LUIS.
+* Substitua `"YourLanguageUnderstandingServiceRegion"` pelo seu local do LUIS.
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esses valores, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
@@ -65,14 +65,14 @@ Agora, vamos criar um `IntentRecognizer`. Insira esse código logo abaixo da con
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Adicione um LanguageUnderstandingModel e as Intenções
 
-Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as intenções que deseja reconhecer. Vamos usar as intenções do domínio predefinido para a automação doméstica. 
+Você precisa associar um `LanguageUnderstandingModel` ao reconhecedor de intenção e adicionar as intenções que deseja reconhecer. Vamos usar as intenções do domínio predefinido para a automação doméstica.
 
-Insira este código abaixo de seu `IntentRecognizer`. Substitua `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS. 
+Insira este código abaixo de seu `IntentRecognizer`. Substitua `"YourLanguageUnderstandingAppId"` pela ID do aplicativo LUIS.
 
 >[!TIP]
 > Se precisar de ajuda para encontrar esse valor, confira [Criar um aplicativo LUIS para reconhecimento de intenção](#create-a-luis-app-for-intent-recognition).
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-36)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
 
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
@@ -80,19 +80,19 @@ No objeto `IntentRecognizer`, chame o método `recognizeOnceAsync()`. Esse méto
 
 Insira este código abaixo de seu modelo:
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=40)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Exibir os resultados do reconhecimento (ou os erros)
 
 Quando o Serviço de Fala retornar o resultado do reconhecimento, você poderá utilizá-lo. Para manter a simplicidade, vamos imprimir o resultado no console.
 
-Insira este código abaixo de sua chamada para `recognizeOnceAsync()`: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=44-65)]
+Insira este código abaixo de sua chamada para `recognizeOnceAsync()`: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
 ## <a name="release-resources"></a>Liberar recursos
 
 É importante liberar os recursos de fala quando terminar de usá-los. Insira este código no final do bloco try/catch:
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=67-68)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=66-67)]
 
 ## <a name="check-your-code"></a>Verificar o código
 
@@ -101,7 +101,7 @@ Neste momento, seu código deverá ter a seguinte aparência:
 > [!NOTE]
 > Adicionamos alguns comentários a esta versão.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-75)]
 
 ## <a name="build-and-run-your-app"></a>Compilar e executar o aplicativo
 

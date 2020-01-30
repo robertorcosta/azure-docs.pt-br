@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/22/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e4ac76f83ad4bedb420c52606598095c66747f2d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382302"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765308"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Início Rápido: Biblioteca de clientes da Pesquisa Visual Computacional para Go
 
@@ -99,7 +99,7 @@ Em seguida, você começará a adicionar o código para realizar diferentes oper
 
 As classes e as interfaces a seguir lidam com alguns dos principais recursos do SDK do Go da Pesquisa Visual Computacional.
 
-|Nome|DESCRIÇÃO|
+|Nome|Descrição|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Essa classe é necessária para todas as funcionalidades de Pesquisa Visual Computacional, como análise de imagem e leitura de texto. Você cria uma instância delas com suas informações de assinatura e usa-a para fazer a maioria das operações de imagem.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Esse tipo contém os resultados de uma chamada de função **AnalyzeImage**. Há tipos semelhantes para cada uma das funções específicas da categoria.|
@@ -263,5 +263,5 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 > [!div class="nextstepaction"]
 > [Referência da API da Pesquisa Visual Computacional (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [O que é a API da Pesquisa Visual Computacional?](../Home.md)
+* [O que é a Pesquisa Visual Computacional?](../Home.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

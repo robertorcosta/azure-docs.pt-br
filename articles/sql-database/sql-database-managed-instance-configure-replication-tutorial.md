@@ -9,12 +9,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: e1ee616adadcabb2deb3fa08a5f3d4f768fddfd5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045652"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719884"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre duas instâncias gerenciadas e o SQL Server
 
@@ -385,7 +385,7 @@ Soluções possíveis:
 
 Ao adicionar uma nova assinatura usando o assistente de **Nova Assinatura**, na página **Publicação**, você poderá achar que não há publicações e bancos de dados listados como opções disponíveis e ver a seguinte mensagem de erro:
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 Embora seja possível que essa mensagem de erro seja precisa e realmente não haja publicações disponíveis no publicador ao qual você se conectou ou você não tenha permissões suficientes, esse erro também pode ser causado por uma versão mais antiga do SQL Server Management Studio. Tente fazer a atualização para o SQL Server Management Studio 18.0 ou posterior para excluir isso como uma causa raiz. 
 

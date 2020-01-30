@@ -159,8 +159,6 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
-    - name: 'Como reiniciar, desligar ou parar serviços'
-      href: boot-error-troubleshoot-windows.md
 - name: Nomes de dispositivo são alterados
   href: troubleshoot-device-names-problems.md
 - name: Acesso de recuperação da VM
@@ -199,6 +197,8 @@
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Reinicializar loop
       href: troubleshoot-reboot-loop.md
+    - name: 'Como reiniciar, desligar ou parar serviços'
+      href: boot-error-troubleshoot-windows.md
     - name: Preso na atualização do Windows
       href: troubleshoot-stuck-updating-boot-error.md
 - name: Erros de limitação
