@@ -3,17 +3,15 @@ title: Rastrear mensagens B2B com os logs do Azure Monitor
 description: Rastrear comunicação B2B para sua conta de integração e os Aplicativos Lógicos do Azure com o Azure Log Analytics
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6e66bdfcfe9e84c1095f03a41439b904c7cb96df
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792922"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773706"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Rastrear mensagens B2B com os logs do Azure Monitor
 
@@ -50,7 +48,7 @@ Antes que você possa fazer com que os logs de Azure Monitor acompanhem mensagen
 
 1. Em **Log Analytics**, localize e selecione o espaço de trabalho do Log Analytics. 
 
-   ![Selecione o espaço de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
+   ![Selecione o Espaço de Trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
 1. Em **Introdução ao Log Analytics** > **Configurar soluções de monitoramento**, escolha **Exibir soluções**.
 
@@ -66,7 +64,7 @@ Antes que você possa fazer com que os logs de Azure Monitor acompanhem mensagen
 
    ![Escolha "Criar" para B2B de aplicativos lógicos](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
-   Se não quiser usar um workspace existente, você poderá criar um novo workspace neste momento.
+   Se você não quiser usar um workspace existente, também poderá criar um novo workspace neste momento.
 
 1. Quando terminar, volte para a página **Visão geral** do seu workspace. 
 
@@ -106,7 +104,7 @@ Depois que as mensagens B2B são processadas, você pode visualizar o status e o
 3. Para exibir ou exportar as entradas e saídas de mensagens específicas, selecione as mensagens e escolha **Baixar**. Quando solicitado, salve o arquivo .zip no computador local e, em seguida, extraia o arquivo. 
 
    A pasta extraída inclui uma pasta para cada mensagem selecionada. 
-   Se você configurar confirmações, a pasta de mensagens também incluirá arquivos com detalhes de confirmação. 
+   Se você configurar as confirmações, a pasta de mensagens também incluirá arquivos com detalhes de confirmação. 
    Cada pasta de mensagens tem, pelo menos, estes arquivos: 
    
    * Arquivos legíveis por humanos com os detalhes de conteúdo de entrada e de saída
@@ -145,7 +143,7 @@ Para cada tipo de mensagem, estas são as descrições de propriedade e os forma
 
 Estas são as descrições das propriedades de cada mensagem AS2.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
 | Remetente | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do AS2 |
 | Receptor | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado em **Configurações de Envio** de um contrato do AS2 |
@@ -154,7 +152,7 @@ Estas são as descrições das propriedades de cada mensagem AS2.
 | Ack | O status da mensagem MDN <br>Aceito = recebimento ou envio de um MDN positivo. <br>Pendente = aguardando recebimento ou envio de um MDN. <br>Rejeitado = recebimento ou envio de um MDN negativo. <br>Não Obrigatório = o MDN não está configurado no contrato. |
 | Direção | A direção da mensagem AS2 |
 | ID de Correlação | A ID que correlaciona todos os gatilhos e todas as ações em um aplicativo lógico |
-| ID da Mensagem | ID da mensagem AS2 dos cabeçalhos da mensagem AS2 |
+| ID da mensagem | ID da mensagem AS2 dos cabeçalhos da mensagem AS2 |
 | Timestamp | A hora em que a ação do AS2 processou a mensagem |
 |          |             |
 
@@ -167,7 +165,7 @@ Estes são os formatos de nome de cada pasta de mensagens e arquivos AS2 baixado
 | Pasta ou arquivo | Formato de nome |
 | :------------- | :---------- |
 | Pasta de mensagens | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
-| Entrada, saída e, se configurado, os arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
+| Entrada, saída e, se configurado, arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_AS2\_[correlation-ID]\_outputs.txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -176,7 +174,7 @@ Estes são os formatos de nome de cada pasta de mensagens e arquivos AS2 baixado
 
 Estas são as descrições das propriedades de cada mensagem X12.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
 | Remetente | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do X12 |
 | Receptor | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do X12 |
@@ -200,7 +198,7 @@ Estes são os formatos de nome de cada pasta de mensagens e arquivos X12 baixado
 | Pasta ou arquivo | Formato de nome |
 | :------------- | :---------- |
 | Pasta de mensagens | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Entrada, saída e, se configurado, os arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
+| Entrada, saída e, se configurado, arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_X12\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -209,7 +207,7 @@ Estes são os formatos de nome de cada pasta de mensagens e arquivos X12 baixado
 
 Estas são as descrições das propriedades de cada mensagem EDIFACT.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
 | Remetente | O parceiro convidado especificado em **Configurações de Recebimento** ou o parceiro host especificado em **Configurações de Envio** de um contrato do EDIFACT |
 | Receptor | O parceiro host especificado em **Configurações de Recebimento** ou o parceiro convidado especificado em **Configurações de Envio** de um contrato do EDIFACT |
@@ -233,7 +231,7 @@ Estes são os formatos de nome de cada pasta de mensagens e arquivos EDIFACT bai
 | Pasta ou arquivo | Formato de nome |
 | :------------- | :---------- |
 | Pasta de mensagens | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
-| Entrada, saída e, se configurado, os arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
+| Entrada, saída e, se configurado, arquivos de confirmação | **Conteúdo de entrada**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_input_payload.txt </p>**Conteúdo de saída**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_output\_payload.txt </p></p>**Entradas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_inputs.txt </p></p>**Saídas**: [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_outputs.txt |
 |          |             |
 
 ## <a name="next-steps"></a>Próximos passos

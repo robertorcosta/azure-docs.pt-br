@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949399"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841226"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -28,15 +28,15 @@ Há várias maneiras de personalizar a interface do usuário de seu aplicativo, 
 
 ### <a name="user-flows"></a>Fluxos de usuário
 
-Se você usar [fluxos de usuário](active-directory-b2c-reference-policies.md), poderá alterar a aparência de suas páginas de fluxo de usuário usando modelos de *layout de página*internos ou usando seu próprio HTML e CSS. Os dois métodos são discutidos posteriormente neste artigo.
+Se você usar [fluxos de usuário](user-flow-overview.md), poderá alterar a aparência de suas páginas de fluxo de usuário usando modelos de *layout de página*internos ou usando seu próprio HTML e CSS. Os dois métodos são discutidos posteriormente neste artigo.
 
 Você usa o [portal do Azure](tutorial-customize-ui.md) para configurar a personalização da interface do usuário para fluxos de usuários.
 
 ### <a name="custom-policies"></a>Políticas personalizadas
 
-Se você estiver usando [políticas personalizadas](active-directory-b2c-overview-custom.md) para fornecer inscrição ou entrada, redefinição de senha ou edição de perfil em seu aplicativo, use [arquivos de política para personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md).
+Se você estiver usando [políticas personalizadas](custom-policy-overview.md) para fornecer inscrição ou entrada, redefinição de senha ou edição de perfil em seu aplicativo, use [arquivos de política para personalizar a interface do usuário](custom-policy-ui-customization.md).
 
-Se você precisar fornecer conteúdo dinâmico com base na decisão de um cliente, use políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](active-directory-b2c-ui-customization-custom-dynamic.md) , dependendo de um parâmetro enviado em uma cadeia de caracteres de consulta. Por exemplo, você pode alterar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro que você passa de seu aplicativo Web ou móvel.
+Se você precisar fornecer conteúdo dinâmico com base na decisão de um cliente, use políticas personalizadas que possam [alterar o conteúdo da página dinamicamente](custom-policy-ui-customization-dynamic.md) , dependendo de um parâmetro enviado em uma cadeia de caracteres de consulta. Por exemplo, você pode alterar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro que você passa de seu aplicativo Web ou móvel.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -65,6 +65,8 @@ Em seguida, selecione um modelo na lista. Aqui estão exemplos das páginas de e
 Quando você escolhe um modelo, o layout selecionado é aplicado a todas as páginas em seu fluxo de usuário e o URI de cada página é visível no campo **URI da página personalizada**.
 
 ## <a name="custom-html-and-css"></a>HTML e CSS personalizados
+
+Se você quiser projetar seu próprio layout de política com o HTML e o CSS personalizados, poderá fazer isso alternando a opção "usar conteúdo de página personalizado" para cada um dos nomes de layout presentes em sua política. Siga as instruções abaixo sobre as configurações de layout personalizado:
 
 Azure AD B2C executa o código no navegador do cliente usando uma abordagem chamada [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/).
 
@@ -150,7 +152,7 @@ A tabela abaixo lista os fragmentos de HTML que o Azure AD B2C mescla ao element
 
 ## <a name="localize-content"></a>Conteúdo de localização
 
-Você localiza seu conteúdo HTML habilitando a [personalização de idioma](active-directory-b2c-reference-language-customization.md) em seu locatário do Azure AD B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect `ui-locales` para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
+Você localiza seu conteúdo HTML habilitando a [personalização de idioma](user-flow-language-customization.md) em seu locatário do Azure AD B2C. Habilitar esse recurso permite que Azure AD B2C encaminhe o parâmetro OpenID Connect `ui-locales` para seu ponto de extremidade. O servidor de conteúdo pode usar esse parâmetro para fornecer páginas HTML específicas a um idioma.
 
 O conteúdo pode ser extraído de diferentes locais com base na localidade usada. No ponto de extremidade habilitado para CORS, você configura uma estrutura de pastas para hospedar conteúdo para idiomas específicos. Você chamará adequadamente se usar o valor curinga `{Culture:RFC5646}`.
 
@@ -179,4 +181,4 @@ Os arquivos HTML e CSS de exemplo nos modelos estão localizados no diretório [
     [Personalizar a interface do usuário dos aplicativos no Azure Active Directory B2C](tutorial-customize-ui.md).
 - Se você estiver usando **políticas personalizadas**, poderá começar a personalizar a interface do usuário com o artigo:
 
-    [Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+    [Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C](custom-policy-ui-customization.md).

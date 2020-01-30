@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 01/27/2020
+ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546479"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841260"
 ---
 # <a name="summarize-data"></a>Resumir dados
 
@@ -22,7 +22,7 @@ Este artigo descreve um módulo do designer de Azure Machine Learning (versão p
 
 Use o módulo resumir dados para criar um conjunto de medidas estatísticas padrão que descrevem cada coluna na tabela de entrada.
 
-As estatísticas de resumo são úteis quando você deseja entender as características do conjunto de todos. Por exemplo, talvez seja necessário saber:
+As estatísticas de resumo são úteis quando você deseja entender as características do conjunto de todos. Por exemplo, talvez você precise saber:
 
 - Quantos valores ausentes existem em cada coluna?
 - Quantos valores exclusivos existem em uma coluna de recurso?
@@ -65,11 +65,25 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 |**Desvio padrão de exemplo**|Desvio padrão para a coluna; consulte a observação|
 |**Distorção de exemplo**|Distorção para a coluna; consulte a observação|
 |**Curtose de amostra**|Curtose da coluna; consulte a observação|
-|**P 0,5**|Percentual de 0,5%|
+|**P 0,5**|0,5% percentil|
 |**P1**|1% percentil|
 |**P5**|5% percentil|
 |**P95**|95% percentil|
 |**P 99,5**|99,5% percentil |
+
+## <a name="technical-notes"></a>Observações técnicas
+
+- Para colunas não numéricas, somente os valores para contagem, contagem de valor exclusivo e contagem de valor ausente são computados. Para outras estatísticas, um valor nulo é retornado.
+
+- As colunas que contêm valores Boolianos são processadas usando estas regras:
+
+    - Ao calcular min, um AND lógico é aplicado.
+    
+    - Ao calcular Max, um OR lógico é aplicado
+    
+    - Ao calcular o intervalo, o módulo verifica primeiro se o número de valores exclusivos na coluna é igual a 2.
+    
+    - Ao computar qualquer estatística que exija cálculos de ponto flutuante, os valores de true são tratados como 1,0 e os valores de false são tratados como 0,0.
 
 ## <a name="next-steps"></a>Próximos passos
 

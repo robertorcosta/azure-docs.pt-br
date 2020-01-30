@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5673465c9ff1afe83c5d9d549a78e1547a59b72f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 229f49255fbc72f74f07b1e7098417d136f35c27
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701953"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775168"
 ---
 # <a name="protected-web-api---move-to-production"></a>API Web protegida-mover para produção
 
@@ -30,17 +30,15 @@ Agora que você sabe como proteger sua API Web, veja como você pode movê-la pa
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba como chamar APIs downstream:
+Saiba como chamar uma API downstream.
 
 > [!div class="nextstepaction"]
-> [Cenário-API da Web chama APIS downstream](scenario-web-api-call-api-overview.md)
+> [Cenário-API da Web chama APIs downstream](scenario-web-api-call-api-overview.md)
 
-
-Saiba mais com tutoriais e exemplos:
-
+Saiba mais com tutoriais e exemplos.
 
 > [!div class="nextstepaction"]
-> [Chamando uma API protegida usando o daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+> [Chamando uma API protegida usando um daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
 > [Tutorial da API Web do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)

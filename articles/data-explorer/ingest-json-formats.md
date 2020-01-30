@@ -6,17 +6,17 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: ef5c7de782d833aad96516d3e5357a0ed575a781
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/27/2020
+ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722870"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772341"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Ingerir dados de exemplo formatados em JSON no Azure Data Explorer
 
-Este artigo mostra como ingerir dados formatados em JSON em um Azure Data Explorer Database. Você começará com exemplos simples de JSON bruto e mapeado, continuará com o JSON de várias linhas e, em seguida, resolverá esquemas JSON mais complexos contendo matrizes e dicionários. 
+Este artigo mostra como ingerir dados formatados em JSON em um Azure Data Explorer Database. Você começará com exemplos simples de JSON bruto e mapeado, continuará com o JSON de várias linhas e, em seguida, resolverá esquemas JSON mais complexos contendo matrizes e dicionários.  Os exemplos detalham o processo de ingerir dados formatados em JSON usando a linguagem de consulta C#KUSTO (KQL), ou Python. Os comandos de controle da linguagem de consulta Kusto `ingest` são executados diretamente no ponto de extremidade do mecanismo. Em cenários de produção, a ingestão é executada no serviço de Gerenciamento de Dados usando bibliotecas de cliente ou conexões de dados. Leia [dados de ingestão usando a biblioteca do azure data Explorer Python](/azure/data-explorer/python-ingest-data) e [ingerir dados usando o SDK do .NET Standard do Azure data Explorer](/azure/data-explorer/net-standard-ingest-data) para obter uma orientação sobre como ingerir dados com essas bibliotecas de cliente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,9 +81,6 @@ Use a linguagem de consulta Kusto para ingerir dados em um formato JSON bruto.
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
-
-    > [!NOTE]
-    > Isso mostra os comandos de controle de `ingest` executados diretamente para o ponto de extremidade do mecanismo. Em cenários de produção, a ingestão é executada no serviço de Gerenciamento de Dados usando bibliotecas de cliente ou conexões de dados. Leia [dados de ingestão usando a biblioteca do azure data Explorer Python](/azure/data-explorer/python-ingest-data) e [ingerir dados usando o SDK do .NET Standard do Azure data Explorer](/azure/data-explorer/net-standard-ingest-data) para obter uma orientação sobre como ingerir dados com essas bibliotecas de cliente.
 
 # <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
 

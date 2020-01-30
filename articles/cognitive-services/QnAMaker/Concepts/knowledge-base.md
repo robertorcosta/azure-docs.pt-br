@@ -1,144 +1,78 @@
 ---
-title: Base de dados de conhecimento – QnA Maker
-titleSuffix: Azure Cognitive Services
-description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto de pares de QnA (pergunta e resposta) e metadados opcionais associados a cada par de QnA.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+title: Importando de fontes de dados-QnA Maker
+description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto de conjuntos de QnA (perguntas e respostas) e metadados opcionais associados a cada par de QnA.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 355556e98300ecad6aa3141f0f4ab14b834cd91e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/27/2020
+ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794890"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843334"
 ---
-# <a name="what-is-a-qna-maker-knowledge-base"></a>O que é uma base de dados de conhecimento QnA Maker?
+# <a name="importing-from-data-sources"></a>Importando de fontes de dados
 
-Uma base de dados de conhecimento QnA Maker consiste em um conjunto de pares de QnA (pergunta e resposta) e metadados opcionais associados a cada par de QnA.
+Uma base de dados de conhecimento consiste em conjuntos de perguntas e respostas trazidos por arquivos e URLs públicos.
 
-## <a name="key-knowledge-base-concepts"></a>Conceitos principais da base de dados de conhecimento
+## <a name="data-source-locations"></a>Locais de origem de dados
 
-* **Perguntas**: uma pergunta contém texto que melhor representa uma consulta de usuário. 
-* **Respostas**: uma resposta é a resposta retornada quando uma consulta de usuário é correspondida com a pergunta associada.  
-* **Metadados**: os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
+O conteúdo é trazido para uma base de conhecimento de uma fonte de dados. Os locais de fonte de dados são **URLs ou arquivos públicos**, que não exigem autenticação.
 
-Um único QnA, representado por uma ID numérica do QnA, tem diversas variantes de uma pergunta (perguntas alternativas) que são mapeadas para uma única resposta. Além disso, cada par pode ter vários campos de metadados associados a ele: uma chave e um valor.
+Os [arquivos do SharePoint](../how-to/add-sharepoint-datasources.md), protegidos com autenticação, são a exceção. Os recursos do SharePoint devem ser arquivos, não páginas da Web. Se a URL terminar com uma extensão da Web, como. ASPX, ele não será importado para o QnA Maker do SharePoint.
 
-![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
+## <a name="chit-chat-content"></a>Conteúdo do chat Chit
 
-## <a name="knowledge-base-content-format"></a>Formato do conteúdo da base de dados de conhecimento
+O conjunto de conteúdo do Chit Chat QnA é oferecido como uma fonte de dados de conteúdo completa em vários idiomas e estilos de conversação. Esse pode ser um ponto de partida para a personalidade do seu bot, o que economizará o tempo e o custo de escrevê-la do zero. Saiba [como adicionar](../how-to/chit-chat-knowledge-base.md) esse conjunto de conteúdo à sua base de dados de conhecimento.
 
-Ao receber o conteúdo avançado em uma base de dados de conhecimento, o QnA Maker tenta converter o conteúdo em markdown. Leia [este blog](https://aka.ms/qnamaker-docs-markdown-support) para saber mais sobre os formatos de redução que são compreensíveis pela maioria dos clientes de bate-papo.
+## <a name="structured-data-format-through-import"></a>Formato de dados estruturados por meio de importação
 
-Os campos de metadados consistem em pares chave-valor separados por dois-pontos, como produto: Shredder. A chave e o valor devem ser somente texto. A chave de metadados não deve conter espaços. Os metadados dão suporte a apenas um valor por chave.
+Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um arquivo de `.tsv` estruturado que contenha perguntas e respostas. Essas informações ajudam a QnA Maker agrupar os conjuntos de respostas de perguntas e os atributos para uma determinada fonte de dados.
 
-## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Como QnA Maker processa uma consulta de usuário para selecionar a melhor resposta
+| Pergunta  | Resposta  | Origem| Metadados (1 chave: 1 valor) |
+|-----------|---------|----|---------------------|
+| Pergunta1 | Resposta1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
+| Pergunta2 | Resposta2 | Editorial|    `Key:Value`       |
 
-A base de dados de conhecimento treinada e [publicada](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker recebe uma consulta de usuário, de um bot ou outro aplicativo cliente, na [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). O diagrama a seguir ilustra o processo quando a consulta do usuário é recebida.
+## <a name="structured-multi-turn-format-through-import"></a>Formato de várias transformações estruturado por meio de importação
 
-![O processo de classificação para uma consulta de usuário](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+Você pode criar conversas com vários folheios em um formato de arquivo `.tsv`. O formato fornece a capacidade de criar as conversas de passagem múltipla analisando os logs de chat anteriores (com outros processos, não usando QnA Maker) e, em seguida, criar o arquivo de `.tsv` por meio da automação. Importe o arquivo para substituir a base de dados de conhecimento existente.
 
-### <a name="ranker-process"></a>Processo do classificador
+> [!div class="mx-imgBorder"]
+> ![modelo conceitual de três níveis de pergunta de vários desligamentos](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-O processo é explicado na tabela a seguir.
+A coluna para uma `.tsv`de vários desligamentos, específica a várias transformações, é **solicitada**. Um exemplo `.tsv`, mostrado no Excel, mostra as informações a serem incluídas para definir os filhos de vários desligamentos:
 
-|Etapa|Finalidade|
-|--|--|
-|1|O aplicativo cliente envia a consulta do usuário para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
-|2|QnA Maker pré-processa a consulta do usuário com detecção de idioma, grafias e separadores de palavras.|
-|3|Esse pré-processamento é usado para alterar a consulta do usuário para obter os melhores resultados da pesquisa.|
-|4|Essa consulta alterada é enviada para um índice de Pesquisa Cognitiva do Azure, que recebe o número `top` de resultados. Se a resposta correta não estiver nesses resultados, aumente o valor de `top` ligeiramente. Em geral, um valor de 10 para `top` funciona em 90% das consultas.|
-|5|QnA Maker aplica o personalização Avançado para determinar a exatidão dos resultados da pesquisa buscada para a consulta do usuário. |
-|6|O modelo de classificação treinado usa a Pontuação do recurso, da etapa 5, para classificar os resultados de Pesquisa Cognitiva do Azure.|
-|7|Os novos resultados são retornados ao aplicativo cliente em ordem classificada.|
-|||
-
-Os recursos usados incluem, mas não são limitados a semântica de nível de palavra, importância de nível de termo em um corpus e modelos semânticos aprendidos profundos para determinar a similaridade e a relevância entre duas cadeias de caracteres de texto.
-
-## <a name="http-request-and-response-with-endpoint"></a>Solicitação e resposta HTTP com o ponto de extremidade
-Quando você publica sua base de dados de conhecimento, o serviço cria um ponto de extremidade HTTP baseado em REST que pode ser integrado ao seu aplicativo, normalmente um bot de bate-papo. 
-
-### <a name="the-user-query-request-to-generate-an-answer"></a>A solicitação de consulta do usuário para gerar uma resposta
-
-Uma consulta de usuário é a questão que o usuário final solicita na base de dados de conhecimento, como `How do I add a collaborator to my app?`. A consulta geralmente está em um formato de linguagem natural ou algumas palavras-chave que representam a pergunta, como `help with collaborators`. A consulta é enviada para sua base de dados de conhecimento de uma solicitação HTTP em seu aplicativo cliente.
-
-```json
-{
-    "question": "qna maker and luis",
-    "top": 6,
-    "isTest": true,
-    "scoreThreshold": 20,
-    "strictFilters": [
-    {
-        "name": "category",
-        "value": "api"
-    }],
-    "userId": "sd53lsY="
-}
+```JSON
+[
+    {"displayOrder":0,"qnaId":2,"displayText":"Level 2 Question A"},
+    {"displayOrder":0,"qnaId":3,"displayText":"Level 2 - Question B"}
+]
 ```
 
-Você controla a resposta definindo propriedades como [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)e [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+O **displayOrder** é numérico e o **exibirtexto** é texto que não deve incluir redução.
 
-Use o [contexto de conversa](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) com a funcionalidade de [várias](../how-to/multiturn-conversation.md) instruções para manter a conversa a fim de refinar as perguntas e respostas, para encontrar a resposta correta e final.
+> [!div class="mx-imgBorder"]
+> ![exemplo de pergunta de várias pontas, conforme mostrado no Excel](../media/qnamaker-concepts-knowledgebase/multi-turn-tsv-columns-excel-example.png)
 
-### <a name="the-response-from-a-call-to-generate-an-answer"></a>A resposta de uma chamada para gerar uma resposta
+## <a name="export-as-example"></a>Exportar como exemplo
 
-A resposta HTTP é a resposta recuperada da base de dados de conhecimento, com base na melhor correspondência para uma determinada consulta de usuário. A resposta inclui a resposta e a pontuação de previsão. Se você solicitou mais de uma resposta principal com a propriedade `top`, obterá mais de uma resposta principal, cada uma com uma pontuação. 
+Se você não tiver certeza de como representar o conjunto de QnA no arquivo de `.tsv`, crie o conjunto no portal de QnA Maker, salve e, em seguida, exporte a base de dados de conhecimento para obter um exemplo de como representar o conjunto.
 
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-### <a name="test-and-production-knowledge-base"></a>Base de dados de conhecimento de teste e produção
-Uma base de dados de conhecimento é o repositório de perguntas e respostas criadas, mantidas e usadas por meio de QnA Maker. Cada camada de QnA Maker pode ser usada para várias bases de dados de conhecimento.
-
-Uma base de dados de conhecimento tem dois Estados: *teste* e *publicado*.
-
-A *base de dados de conhecimento de teste* é a versão que está sendo editada, salva e testada quanto à exatidão e à integridade das respostas. As alterações feitas na base de dados de conhecimento de teste não afetam o usuário final do seu aplicativo ou bot de bate-papo. A base de dados de conhecimento de teste é conhecida como `test` na solicitação HTTP. 
-
-A *base de dados de conhecimento publicada* é a versão que é usada no seu aplicativo ou bot de chat. A ação de publicar uma base de dados de conhecimento coloca o conteúdo da base de dados de conhecimento de teste na versão publicada da base de dados de conhecimento. Como a base de dados de conhecimento publicada é a versão que o aplicativo usa por meio do ponto de extremidade, verifique se o conteúdo está correto e bem testado. A base de dados de conhecimento publicada é conhecida como `prod` na solicitação HTTP.
-
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Ciclo de vida de desenvolvimento de uma base de dados de conhecimento](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
+
+Use a [referência de redução](../reference-markdown-format.md) QnA Maker para ajudá-lo a Formatar suas respostas.
 
 [Visão geral do QnA Maker](../Overview/overview.md)
 
-Criar e editar uma base de dados de conhecimento com: 
-* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+Criar e editar uma base de dados de conhecimento com:
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
 * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
-Gerar uma resposta com: 
-* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+Gerar uma resposta com:
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
 * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

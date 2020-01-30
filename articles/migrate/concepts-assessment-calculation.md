@@ -3,19 +3,19 @@ title: Avaliações em migrações para Azure
 description: Saiba mais sobre as avaliações nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029108"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833321"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Sobre avaliações em migrações para Azure
 
 Este artigo descreve como as avaliações são calculadas nas [migrações para Azure: avaliação do servidor](migrate-services-overview.md#azure-migrate-server-assessment-tool). Você executa avaliações em grupos de computadores locais, para descobrir se eles estão prontos para migração para migrações para Azure.
 
 ## <a name="how-do-i-run-an-assessment"></a>Como fazer executar uma avaliação?
-Você pode executar uma avaliação usando as migrações para Azure: avaliação do servidor ou outra ferramenta do Azure ou de terceiros. Depois de criar um projeto de migrações para Azure, você adiciona a ferramenta necessária. [Saiba mais] (how-to-add-tool-first-time.md
+Você pode executar uma avaliação usando as migrações para Azure: avaliação do servidor ou outra ferramenta do Azure ou de terceiros. Depois de criar um projeto de migrações para Azure, você adiciona a ferramenta necessária. [Saiba mais](how-to-add-tool-first-time.md)
 
 ### <a name="collect-compute-data"></a>Coletar dados de computação
 

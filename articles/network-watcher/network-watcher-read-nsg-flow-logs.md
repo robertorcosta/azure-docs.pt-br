@@ -3,22 +3,20 @@ title: Ler logs de fluxo NSG | Microsoft Docs
 description: Este artigo mostra como analisar logs do fluxo NSG
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: kumud
-ms.openlocfilehash: cdfcf6b379feb5cc71c173275601ce9c55d57d12
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.author: damendo
+ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539256"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840818"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -33,7 +31,7 @@ Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de bl
 
 No cenário a seguir, você tem um exemplo de log de fluxo que é armazenado em uma conta de armazenamento. Vamos ver como ler os eventos mais recentes seletivamente nos logs de fluxo NSG. Neste artigo, você usa o PowerShell, no entanto, os conceitos abordados no artigo não estão limitados à linguagem de programação e são aplicáveis a todas as linguagens com suporte na APIs de Armazenamento do Microsoft Azure.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Instalação
 
 Antes de começar, você deve habilitar o registro em log de fluxo do grupo de segurança de rede em um ou mais grupos de segurança de rede em sua conta. Confira o artigo: [Introdução ao registro em log de fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md) para obter instruções sobre como habilitar os logs de fluxo da segurança de rede.
 

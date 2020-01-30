@@ -3,22 +3,20 @@ title: Introdução à Solução de Problemas de Conexão do Observador de Rede 
 description: Essa página fornece uma visão geral da capacidade de solução de problemas de conexão do Observador de Rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705806"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842862"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à solução de problemas de conexão no Observador de Rede do Azure
 
@@ -27,11 +25,11 @@ O recurso de solução de problemas de conexão do Observador de Rede fornece a 
 > [!IMPORTANT]
 > A solução de problemas de conexão exige que a VM para solução de problemas tenha a extensão da VM `AzureNetworkWatcherExtension` instalada. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). A extensão não é necessária no ponto de extremidade de destino.
 
-## <a name="response"></a>Response
+## <a name="response"></a>Resposta
 
 A tabela a seguir mostra as propriedades retornadas quando a solução de problemas de conexão conclui a execução.
 
-|Propriedade  |DESCRIÇÃO  |
+|Propriedade  |Description  |
 |---------|---------|
 |ConnectionStatus     | O status da verificação de conectividade. Os resultados possíveis são **Acessível** e **Inacessível**.        |
 |AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
@@ -74,7 +72,7 @@ O seguinte é um exemplo de um problema encontrado em um salto.
 
 A solução de problemas de conexão retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
 
-|Type  |DESCRIÇÃO  |
+|Tipo  |Description  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Alta utilização de memória.       |
@@ -83,6 +81,6 @@ A solução de problemas de conexão retorna tipos de falha sobre a conexão. A 
 |NetworkSecurityRule    | O tráfego é bloqueado por uma Regra NSG (a Regra é retornada)        |
 |UserDefinedRoute|O tráfego é descartado devido a uma rota do sistema ou definida pelo usuário. |
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Saiba como solucionar problemas de conexão usando o [portal do Azure](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), o [CLI do Azure](network-watcher-connectivity-cli.md), ou [API REST](network-watcher-connectivity-rest.md).

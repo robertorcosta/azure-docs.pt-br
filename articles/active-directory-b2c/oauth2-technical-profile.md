@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33bad4982d54eb18e91be28511fb9137223f4a91
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 53190eda66347c23b981c5d6e0631630e9989deb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950962"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840359"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth2 em uma política personalizada Azure Active Directory B2C
 
@@ -77,13 +77,13 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | obrigatórios | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
-| client_id | SIM | O identificador do aplicativo do provedor de identidade. |
+| client_id | Sim | O identificador do aplicativo do provedor de identidade. |
 | IdTokenAudience | Não | O público-alvo do id_token. Se for especificado, o Azure AD B2C verificará se o token está em uma declaração retornada pelo provedor de identidade e é igual ao especificado. |
-| authorization_endpoint | SIM | A URL do ponto de extremidade da autorização, de acordo com RFC 6749. |
-| AccessTokenEndpoint | SIM | A URL do ponto de extremidade do token, de acordo com RFC 6749. |
-| ClaimsEndpoint | SIM | A URL do ponto de extremidade de informações do usuário, de acordo com RFC 6749. |
+| authorization_endpoint | Sim | A URL do ponto de extremidade da autorização, de acordo com RFC 6749. |
+| AccessTokenEndpoint | Sim | A URL do ponto de extremidade do token, de acordo com RFC 6749. |
+| ClaimsEndpoint | Sim | A URL do ponto de extremidade de informações do usuário, de acordo com RFC 6749. |
 | AccessTokenResponseFormat | Não | O formato da chamada de ponto de extremidade do token de acesso. Por exemplo, o Facebook requer um método HTTP GET, mas a resposta do token de acesso está no formato JSON. |
 | AdditionalRequestQueryParameters | Não | Parâmetros de consulta de solicitação adicionais. Por exemplo, talvez você queira enviar parâmetros adicionais para seu provedor de identidade. Você pode incluir vários parâmetros usando o delimitador de vírgula. |
 | ClaimsEndpointAccessTokenName | Não | O nome do que o parâmetro de cadeia de caracteres de consulta do token de acesso. Os pontos de extremidade de declaração de alguns provedores de identidade dão suporte a solicitação HTTP GET. Nesse caso, o token de portador é enviado usando um parâmetro de cadeia de caracteres de consulta em vez do cabeçalho de autorização. |
@@ -92,7 +92,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | ProviderName | Não | O nome do provedor de identidade. |
 | response_mode | Não | O método que o provedor de identidade usa para enviar o resultado de volta ao Azure AD B2C. Valores possíveis: `query`, `form_post` (padrão) ou `fragment`. |
 | scope | Não | O escopo da solicitação que é definido de acordo com a especificação do provedor de identidade OAuth2. Como `openid`, `profile` e `email`. |
-| HttpBinding | Não | A associação HTTP esperada para o token de acesso e pontos de extremidade do token de declarações. Os valores possíveis são `GET` ou `POST`.  |
+| HttpBinding | Não | A associação HTTP esperada para o token de acesso e pontos de extremidade do token de declarações. Valores possíveis: `GET` ou `POST`.  |
 | ResponseErrorCodeParamName | Não | O nome do parâmetro que contém a mensagem de erro retornada por HTTP 200 (OK). |
 | ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser retornados na resposta de **AccessTokenEndpoint** por alguns provedores de identidade. Por exemplo, a resposta de **AccessTokenEndpoint** contém um parâmetro extra, como `openid`, que é um parâmetro obrigatório, além de access_token em uma cadeia de caracteres de consulta de solicitação **ClaimsEndpoint**. Vários nomes de parâmetro devem ter um escape e ser separados pelo delimitador de vírgula ','. |
 | ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros extra que podem ser retornados na solicitação **ClaimsEndpoint** por alguns provedores de identidade. Vários nomes de parâmetro devem ter um escape e ser separados pelo delimitador de vírgula ','. |
@@ -101,9 +101,9 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | obrigatórios | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
-| client_secret | SIM | O segredo do cliente do aplicativo do provedor de identidade. A chave de criptografia será necessária apenas se os metadados **response_types** estiverem definidos como `code`. Nesse caso, o Azure AD B2C faz outra chamada para trocar o código de autorização para um token de acesso. Se os metadados estiverem definidos como `id_token`, você poderá omitir a chave criptográfica. |
+| client_secret | Sim | O segredo do cliente do aplicativo do provedor de identidade. A chave de criptografia será necessária apenas se os metadados **response_types** estiverem definidos como `code`. Nesse caso, o Azure AD B2C faz outra chamada para trocar o código de autorização para um token de acesso. Se os metadados estiverem definidos como `id_token`, você poderá omitir a chave criptográfica. |
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
 
@@ -113,7 +113,7 @@ Se você estiver usando o domínio **b2clogin.com** em vez de **login.microsofto
 
 Exemplos:
 
-- [Adicionar Google+ como um provedor de identidade OAuth2 usando políticas personalizadas](active-directory-b2c-custom-setup-goog-idp.md)
+- [Adicionar Google+ como um provedor de identidade OAuth2 usando políticas personalizadas](identity-provider-google-custom.md)
 
 
 

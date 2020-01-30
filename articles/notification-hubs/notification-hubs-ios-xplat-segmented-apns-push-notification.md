@@ -16,18 +16,18 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228162"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774882"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações por push para dispositivos iOS específicos usando Hubs de Notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Este tutorial mostra como usar os Hubs de Notificação do Azure para difundir notificações de últimas notícias a um aplicativo iOS. Ao concluir, você poderá se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. Esse cenário é um padrão comum para muitos aplicativos nos quais as notificações precisam ser enviadas para grupos de usuários que tenham anteriormente expressado seu interesse por elas, por exemplo, leitor de RSS, aplicativos para fãs de música, etc.
 
@@ -41,7 +41,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Enviar notificações do dispositivo
 > * Executar o aplicativo e gerar notificações
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tópico se baseia no aplicativo criado no [tutorial: notificações por push para aplicativos Ios usando os hubs de notificação do Azure][get-started]. Antes de iniciar este tutorial, você já deve ter concluído o [tutorial: notificações por push para aplicativos Ios usando os hubs de notificação do Azure][get-started].
 
@@ -154,12 +154,12 @@ A primeira etapa é adicionar os elementos da interface do usuário a seu storyb
     ```
 
     > [!NOTE]
-    > Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completa é usada em um serviço de back-end seguro para enviar notificações e alterar os registros existentes.
+    > Como as credenciais que são distribuídas com um aplicativo cliente não são geralmente seguras, você só deve distribuir a chave para acesso de escuta com o aplicativo cliente. O acesso de escuta permite que seu aplicativo se registre para receber notificações, mas os registros existentes não podem ser modificados e as notificações não podem ser enviadas. A chave de acesso completo é usada em um serviço back-end protegido para enviar notificações e alterar os registros existentes.
 
 9. No método `didRegisterForRemoteNotificationsWithDeviceToken` em `AppDelegate.m`, substitua o código no método pelo seguinte código ao passar o token do dispositivo para a classe `notifications`. A classe `notifications` executa o registro para notificações nas categorias. Se o usuário altera as seleções de categoria, chame o método `subscribeWithCategories` em resposta ao botão **assinar** para atualizá-los.
 
     > [!NOTE]
-    > Como o token do dispositivo atribuído pelo APNS (Serviço de Notificação por Push da Apple) pode ser escolhido a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
+    > Como o token de dispositivo atribuído pelo Apple Push Notification Service (APNS) pode ser alterado a qualquer momento, você deve se registrar para receber notificações com frequência para evitar falhas de notificação. Este exemplo registra a notificação a cada vez que o aplicativo é iniciado. Para os aplicativos que são executados com frequência, mais de uma vez por dia, é possível ignorar o registro para preservar a largura de banda se tiver passado menos de um dia desde o registro anterior.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -247,7 +247,7 @@ Agora, o aplicativo pode armazenar um conjunto de categorias no armazenamento lo
 
 ## <a name="optional-send-tagged-notifications"></a>(opcional) Enviar notificações marcadas
 
-Se você não tiver acesso ao Visual Studio, você pode pular para a próxima seção e enviar notificações do próprio aplicativo. Você também pode enviar a notificação de modelo apropriada do [Portal do Azure] usando a guia depurar hub de notificação.
+Se você não tiver acesso ao Visual Studio, você pode pular para a próxima seção e enviar notificações do próprio aplicativo. Você também pode enviar a notificação de modelo apropriada do [Azure portal] usando a guia depurar hub de notificação.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -351,7 +351,7 @@ Normalmente, as notificações podem ser enviadas por um serviço de back-end, m
 
 3. Cada dispositivo que assinou as últimas notícias recebe as notificações de últimas notícias que você acabou de enviar.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você enviou notificações de notícias a dispositivos iOS específicos que foram registrados para as categorias. Para saber como enviar notificações localizadas por push, avance para o seguinte tutorial:
 
@@ -371,4 +371,4 @@ Neste tutorial, você enviou notificações de notícias a dispositivos iOS espe
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

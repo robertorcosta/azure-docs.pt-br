@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c75eae72b94c807897d74e365ec9f4ef74c83dd9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063662"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840223"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
-Esse recurso oferece um controle refinado, [com base em cada fluxo de usuário](active-directory-b2c-reference-policies.md), de:
+Esse recurso oferece um controle refinado, [com base em cada fluxo de usuário](user-flow-overview.md), de:
 
 - Vida útil de sessões dos aplicativos Web gerenciados pelo Azure AD B2C.
 - Comportamento de logon único (SSO) em vários aplicativos e políticas no locatário do Azure AD B2C.
 
 Essas configurações não estão disponíveis para os fluxos de usuário de redefinição de senha.
 
-O Azure AD B2C dá suporte ao [protocolo de autenticação do OpenID Connect](active-directory-b2c-reference-oidc.md) para habilitar o logon seguro em aplicativos Web. Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos da Web:
+O Azure AD B2C dá suporte ao [protocolo de autenticação do OpenID Connect](openid-connect.md) para habilitar o logon seguro em aplicativos Web. Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos da Web:
 
 ## <a name="session-behavior-properties"></a>Propriedades de comportamento da sessão
 
@@ -48,7 +48,7 @@ Os casos de uso a seguir são ativados usando estas propriedades:
 
 ## <a name="configure-the-properties"></a>Configurar as propriedades
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C selecionando o **diretório +** filtro de assinatura no menu superior e escolhendo o diretório que contém o locatário Azure ad B2C.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Selecione **fluxos de usuário (políticas)** .
@@ -58,4 +58,4 @@ Os casos de uso a seguir são ativados usando estas propriedades:
 
     ![Configurações de propriedade de comportamento de sessão no portal do Azure](./media/session-behavior/session-behavior.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).

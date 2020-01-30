@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981825"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768385"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos para o armazenamento de BLOBs com capacidade reservada
 
@@ -54,7 +54,7 @@ Para comprar a capacidade reservada:
 
 - Você deve estar na função de **proprietário** de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 - Para assinaturas empresariais, **adicionar instâncias reservadas** deve estar habilitada no portal de ea. Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
-- Para o programa CSP (Provedor de Solução de Nuvem), apenas os agentes admin ou agentes de vendas podem comprar a capacidade reservada do Azure Cosmos DB.
+- Para o programa CSP (provedor de soluções na nuvem), somente agentes de administração ou agentes de vendas podem comprar a capacidade reservada do armazenamento de BLOBs do Azure.
 
 ## <a name="determine-required-capacity-before-purchase"></a>Determinar a capacidade necessária antes da compra
 

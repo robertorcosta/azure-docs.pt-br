@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732579"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771565"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula de limite de deslocamento no Azure Cosmos DB
 
@@ -37,7 +37,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Comentários
   
-  A contagem de deslocamento e a contagem de limites são necessárias na cláusula de limite de deslocamento. Se uma cláusula opcional `ORDER BY` for usada, o conjunto de resultados será produzido fazendo o ignorar os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores. Essa cláusula agora tem suporte para consultas em uma única partição, bem como consultas entre partições.
+  A contagem de `OFFSET` e a contagem de `LIMIT` são necessárias na cláusula `OFFSET LIMIT`. Se uma cláusula opcional `ORDER BY` for usada, o conjunto de resultados será produzido fazendo o ignorar os valores ordenados. Caso contrário, a consulta retornará uma ordem fixa de valores.
+
+  A cobrança de RU de uma consulta com `OFFSET LIMIT` aumentará conforme o número de termos que estão sendo deslocados aumentar. Para consultas que têm várias páginas de resultados, geralmente recomendamos o uso de tokens de continuação. Os tokens de continuação são um "indicador" para o local onde a consulta pode ser retomada posteriormente. Se você usar `OFFSET LIMIT`, não haverá "indicador". Se você quisesse retornar a próxima página da consulta, precisaria começar desde o início.
+  
+  Você deve usar `OFFSET LIMIT` para casos em que deseja ignorar completamente os documentos e salvar os recursos do cliente. Por exemplo, você deve usar `OFFSET LIMIT` se quiser pular para o resultado da consulta 1000th e não precisar exibir os resultados de 1 a 999. No back-end, `OFFSET LIMIT` ainda carrega cada documento, incluindo os que são ignorados. A vantagem de desempenho é uma economia nos recursos do cliente ao evitar o processamento de documentos que não são necessários.
 
 ## <a name="examples"></a>Exemplos
 

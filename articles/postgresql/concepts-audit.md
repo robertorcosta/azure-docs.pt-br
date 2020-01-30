@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747348"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842462"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -23,7 +23,7 @@ Log de auditoria de atividades de banco de dados no banco de dados do Azure para
 
 Se você quiser logs no nível de recursos do Azure para operações como o dimensionamento de computação e armazenamento, consulte o [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-## <a name="usage-considerations"></a>Considerações sobre o uso
+## <a name="usage-considerations"></a>Considerações de uso
 Por padrão, as instruções de log pgAudit são emitidas junto com suas instruções de log regulares usando o recurso de log padrão do Postgres. No banco de dados do Azure para PostgreSQL, esses arquivos. log podem ser baixados por meio do portal do Azure ou da CLI. O armazenamento máximo para a coleção de arquivos é de 1 GB e cada arquivo está disponível por um máximo de sete dias (o padrão é três dias). Esse serviço é uma opção de armazenamento de curto prazo.
 
 Como alternativa, você pode configurar todos os logs a serem emitidos para o serviço log de diagnóstico do Azure Monitor. Se você habilitar Azure Monitor log de diagnóstico, os logs serão enviados automaticamente (no formato JSON) para o armazenamento do Azure, os hubs de eventos e/ou os logs de Azure Monitor, dependendo de sua escolha.
@@ -65,10 +65,8 @@ o pgAudit permite que você configure o log de auditoria de sessão ou objeto. O
 Depois de [instalar o pgAudit](#installing-pgaudit), você pode configurar seus parâmetros para iniciar o registro em log. A [documentação do pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) fornece a definição de cada parâmetro. Teste os parâmetros primeiro e confirme que você está obtendo o comportamento esperado.
 
 > [!NOTE]
-> Definir `pgaudit.log_client` como ON redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Essa configuração deve ser deixada desabilitada.
-
-> [!NOTE]
-> `pgaudit.log_level` só é habilitado quando `pgaudit.log_client` está ativado. Além disso, no portal do Azure, atualmente há um bug com `pgaudit.log_level`: uma caixa de combinação é mostrada, indicando que vários níveis podem ser selecionados. No entanto, apenas um nível deve ser selecionado. 
+> Definir `pgaudit.log_client` como ON redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Essa configuração deve ser deixada desabilitada. <br> <br>
+> `pgaudit.log_level` só é habilitado quando `pgaudit.log_client` está ativado.
 
 > [!NOTE]
 > No banco de dados do Azure para PostgreSQL, `pgaudit.log` não pode ser definida usando um atalho de sinal de `-` (menos), conforme descrito na documentação do pgAudit. Todas as classes de instrução necessárias (LEITURA, GRAVAÇÃO etc.) devem ser especificadas individualmente.
@@ -87,6 +85,22 @@ Para saber mais sobre `log_line_prefix`, visite a [documentação do PostgreSQL]
 ### <a name="getting-started"></a>Introdução
 Para começar rapidamente, defina `pgaudit.log` para `WRITE`e abra os logs para examinar a saída. 
 
+## <a name="viewing-audit-logs"></a>Exibindo logs de auditoria
+Se você estiver usando arquivos. log, os logs de auditoria serão incluídos no mesmo arquivo que os logs de erros do PostgreSQL. Você pode baixar arquivos de log do [portal](howto-configure-server-logs-in-portal.md) do Azure ou da [CLI](howto-configure-server-logs-using-cli.md). 
+
+Se você estiver usando o log de diagnóstico do Azure, a maneira como você acessa os logs depende do ponto de extremidade escolhido. Para o armazenamento do Azure, consulte o artigo [conta de armazenamento de logs](../azure-monitor/platform/resource-logs-collect-storage.md) . Para os hubs de eventos, consulte o artigo [fluxos de logs do Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+
+Para logs de Azure Monitor, os logs são enviados para o espaço de trabalho selecionado. Os logs do postgres usam o modo de coleta **AzureDiagnostics** , para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre como consultar e alertar na visão geral de [consulta de logs de Azure monitor](../azure-monitor/log-query/log-query-overview.md) .
+
+Você pode usar essa consulta para começar. Você pode configurar alertas com base em consultas.
+
+Pesquisar todos os logs do postgres para um servidor específico no último dia
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>Próximos passos
 - [Saiba mais sobre o log no banco de dados do Azure para PostgreSQL](concepts-server-logs.md)

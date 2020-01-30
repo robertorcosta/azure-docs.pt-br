@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511543"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836687"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsTransformations** contém uma lista de funções de transformação de declarações que podem ser usadas nos percursos do usuário como parte de uma [política personalizada](active-directory-b2c-overview-custom.md). Uma transformação de declarações converte uma determinada declaração em outra. Na transformação de declarações, especifique o método de transformação, por exemplo, adicionando um item a uma coleção de cadeia de caracteres ou alterando o uso de maiúsculas e minúsculas em uma cadeia de caracteres.
+O elemento **ClaimsTransformations** contém uma lista de funções de transformação de declarações que podem ser usadas nos percursos do usuário como parte de uma [política personalizada](custom-policy-overview.md). Uma transformação de declarações converte uma determinada declaração em outra. Na transformação de declarações, especifique o método de transformação, por exemplo, adicionando um item a uma coleção de cadeia de caracteres ou alterando o uso de maiúsculas e minúsculas em uma cadeia de caracteres.
 
 Para incluir a lista de funções de transformação de declarações que podem ser usadas nos percursos do usuário, um elemento XML ClaimsTransformations precisa ser declarado na seção BuildingBlocks da política.
 
@@ -33,9 +33,9 @@ Para incluir a lista de funções de transformação de declarações que podem 
 </ClaimsTransformations>
 ```
 
-O **ClaimsTransformation** elemento contém os seguintes atributos:
+O elemento **ClaimsTransformation** contém os seguintes atributos:
 
-| Atributo |Obrigatório | DESCRIÇÃO |
+| Atributo |Obrigatório | Description |
 | --------- |-------- | ----------- |
 | ID |Sim | Um identificador que é usado para identificar exclusivamente a transformação de declaração. O identificador é referenciado de outros elementos XML na política. |
 | TransformationMethod | Sim | O método de transformação a ser usado na transformação de declarações. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
@@ -59,7 +59,7 @@ O elemento **ClaimsTransformation** contém os seguintes elementos:
 ```
 
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Description |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Uma lista dos elementos **InputClaim** que especificam os tipos de declaração que são usados como entrada para as transformação de declarações. Cada um desses elementos contém uma referência a um ClaimType já definido na seção ClaimsSchema na política. |
 | InputParameters | 0:1 | Uma lista dos elementos **InputParameter** que são fornecidos como entrada para a transformação de declarações.  
@@ -69,7 +69,7 @@ O elemento **ClaimsTransformation** contém os seguintes elementos:
 
 O elemento **InputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Um tipo de declaração de entrada esperado. |
 
@@ -77,7 +77,7 @@ O elemento **InputClaims** contém o seguinte elemento:
 
 O elemento **InputClaim** contém os seguintes atributos:
 
-| Atributo |Obrigatório | DESCRIÇÃO |
+| Atributo |Obrigatório | Description |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Sim | Uma referência a um ClaimType já definido na seção ClaimsSchema na política. |
 | TransformationClaimType |Sim | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
@@ -86,23 +86,23 @@ O elemento **InputClaim** contém os seguintes atributos:
 
 O elemento **InputParameters** contém o seguinte elemento:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | Um parâmetro de entrada esperado. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Atributo | Obrigatório |DESCRIÇÃO |
+| Atributo | Obrigatório |Description |
 | --------- | ----------- |----------- |
 | ID | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de declarações. Cada método de transformação de declarações tem seus próprios valores. Confira a tabela de transformação de declarações para obter uma lista completa dos valores disponíveis. |
 | Tipo de dados | Sim | O tipo de dados do parâmetro, como String, Boolean, Int ou DateTime, de acordo com a enumeração DataType no esquema XML da política personalizada. Esse tipo é usado para executar operações aritméticas corretamente. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
-| Value | Sim | Um valor que é passado de forma textual para a transformação. Alguns dos valores são arbitrários e alguns deles você seleciona no método de transformação de declarações. |
+| Valor | Sim | Um valor que é passado de forma textual para a transformação. Alguns dos valores são arbitrários e alguns deles você seleciona no método de transformação de declarações. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
 O elemento **OutputClaims** contém o seguinte elemento:
 
-| Elemento | Ocorrências | DESCRIÇÃO |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Um tipo de declaração de saída esperado. |
 
@@ -110,7 +110,7 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo |Obrigatório | DESCRIÇÃO |
+| Atributo |Obrigatório | Description |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Sim | Uma referência a um ClaimType já definido na seção ClaimsSchema na política.
 | TransformationClaimType | Sim | Um identificador para fazer referência a um tipo de declaração de transformação. Cada transformação de declaração tem seus próprios valores. Confira a [Referência de transformação de declarações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |

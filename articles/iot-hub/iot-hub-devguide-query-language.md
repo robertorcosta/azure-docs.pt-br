@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450072"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767732"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
-O IoT Hub fornece uma linguagem semelhante à SQL poderosa para recuperar informações sobre [gêmeos](iot-hub-devguide-device-twins.md), [módulos gêmeos](iot-hub-devguide-module-twins.md), [trabalhos](iot-hub-devguide-jobs.md), e [deroteamentodemensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
+O Hub IoT fornece uma linguagem semelhante à SQL poderosa para recuperar informações sobre [dispositivos gêmeos](iot-hub-devguide-device-twins.md), [módulo gêmeos](iot-hub-devguide-module-twins.md), [trabalhos](iot-hub-devguide-jobs.md)e [Roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta do roteamento de mensagens, confira [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ O IoT Hub fornece uma linguagem semelhante à SQL poderosa para recuperar inform
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos e módulos gêmeos
 
-[Dispositivos gêmeos](iot-hub-devguide-device-twins.md) e [módulos gêmeos](iot-hub-devguide-module-twins.md) pode conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+O [dispositivo gêmeos](iot-hub-devguide-device-twins.md) e o [módulo gêmeos](iot-hub-devguide-module-twins.md) podem conter objetos JSON arbitrários como marcas e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
 
 Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a seguinte estrutura (o módulo gêmeo seria semelhante, somente com um moduleId adicional):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gêmeo
 
-Consultando em módulos gêmeos é semelhante ao consultar em dispositivos gêmeos, mas usando um coleção/namespace diferente; em vez de partir **dispositivos**, você consulta do **devices.modules**:
+A consulta no módulo gêmeos é semelhante à consulta no dispositivo gêmeos, mas usando uma coleção/namespace diferente; em vez de **dispositivos**, você consulta em **Devices. modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -233,7 +233,7 @@ O objeto de consulta expõe vários valores de **Next** dependendo da opção de
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se estiver consultando dispositivos gêmeos individuais por ID, utilize a API do dispositivo gêmeo de recuperação. Essa API sempre contém os valores mais recentes e possui limites de aceleração mais elevados.
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](https://docs.microsoft.com/rest/api/iothub/service/gettwin)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
@@ -315,7 +315,7 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
 
-Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**dispositivos**, **devices.modules**, ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
+Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada (**dispositivos**, **dispositivos. modules**ou **Devices.Jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,9 +326,9 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-O **FROM < from_specification >** cláusula pode assumir somente três valores: **DE dispositivos** para consultar dispositivos gêmeos **de devices.modules** consultar Gêmeos de módulo, ou **FROM devices.jobs** para detalhes da consulta trabalho por dispositivo.
+A cláusula **from < from_specification >** pode assumir apenas três valores: **de dispositivos** para consultar dispositivos gêmeos, **de Devices. modules** para consultar o módulo gêmeos ou **de Devices.Jobs** para consultar os detalhes do trabalho por dispositivo.
 
-## <a name="where-clause"></a>Cláusula WHERE
+## <a name="where-clause"></a>cláusula WHERE
 
 A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
 
@@ -457,13 +457,13 @@ Há suporte para os seguintes operadores:
 
 Ao consultar gêmeos e trabalhos, a única função com suporte é:
 
-| Função | DESCRIÇÃO |
+| Função | Description |
 | -------- | ----------- |
 | IS_DEFINED(propriedade) | Retorna um valor booliano que indica se um valor foi atribuído à propriedade (incluindo `null`). |
 
 Em condições de rotas, há suporte para as seguintes funções matemáticas:
 
-| Função | DESCRIÇÃO |
+| Função | Description |
 | -------- | ----------- |
 | ABS(x) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
 | EXP(x) | Retorna o valor exponencial da expressão numérica especificada (e^x). |
@@ -476,7 +476,7 @@ Em condições de rotas, há suporte para as seguintes funções matemáticas:
 
 Em condições de rotas, há suporte para as seguintes funções de verificação de tipo e conversão de tipo:
 
-| Função | DESCRIÇÃO |
+| Função | Description |
 | -------- | ----------- |
 | AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
 | IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
@@ -490,7 +490,7 @@ Em condições de rotas, há suporte para as seguintes funções de verificaçã
 
 Em condições de rotas, há suporte para as seguintes funções de cadeias de caracteres:
 
-| Função | DESCRIÇÃO |
+| Função | Description |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
 | LENGTH(x) | Retorna o número de caracteres da expressão de cadeia de caracteres especificada.|
@@ -502,6 +502,6 @@ Em condições de rotas, há suporte para as seguintes funções de cadeias de c
 | ENDS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
 | CONTAINS(x,y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda. |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure](iot-hub-devguide-sdks.md).

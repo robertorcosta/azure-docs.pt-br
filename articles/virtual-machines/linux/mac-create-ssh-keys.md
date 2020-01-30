@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2da8264b7a1d0ad2ec485f106457cef18f233261
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930002"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843898"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 
@@ -70,13 +70,16 @@ Um valor de chave pública típico se parece com este exemplo:
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
 ```
 
-Se você copiar e colar o conteúdo do arquivo de chave pública a ser usado no portal do Azure ou em um modelo do Resource Manager, não copie nenhum espaço em branco à direita. Para copiar uma chave pública no macOS, é possível redirecionar o arquivo de chave pública para **pbcopy**. Como no Linux, é possível redirecionar o arquivo de chave pública para programas como o **xclip**.
+Se você copiar e colar o conteúdo do arquivo de chave pública a ser usado no portal do Azure ou em um modelo do Resource Manager, não copie nenhum espaço em branco à direita. Para copiar uma chave pública no macOS, você pode canalizar o arquivo de chave pública para `pbcopy`. Da mesma forma, no Linux, você pode canalizar o arquivo de chave pública para programas como `xclip`.
 
 A chave pública colocada em sua VM do Linux no Azure é armazenada, por padrão, em ~/.ssh/id_rsa.pub, a menos que tenha especificado um local diferente ao criar o par de chaves. Para usar a [CLI do Azure 2.0](/cli/azure) para criar sua VM com uma chave pública existente, especifique o valor e, opcionalmente, o local dessa chave pública usando o comando [az vm create](/cli/azure/vm#az-vm-create) a opção `--ssh-key-value`. No comando a seguir, substitua *VMname*, *RGname* e *keyFile* pelos seus próprios valores:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --ssh-key-value @keyFile
+az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub
 ```
+
+Se você quiser usar várias chaves SSH com sua VM, poderá inseri-las em uma lista separada por espaços, como esta `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`.
+
 
 ## <a name="ssh-into-your-vm"></a>SSH em sua VM
 

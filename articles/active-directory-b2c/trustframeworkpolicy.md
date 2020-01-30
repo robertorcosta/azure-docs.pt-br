@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063367"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840172"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,15 +38,15 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Necessário | Descrição |
+| Atributo | Obrigatório | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sim | A versão do esquema a ser usado para executar a política. O valor deve ser `0.3.0.0` |
 | TenantObjectId | Não | O identificador de objeto exclusivo do locatário Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
-| `PolicyId` | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
+| PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
 | PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
-| DeploymentMode | Não | Valores possíveis: `Production`, `Debugging` ou `Development`. O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | Não | Valores possíveis: `Production`, `Debugging` ou `Development`. O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 
 
 O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy**:
@@ -80,7 +80,7 @@ O modelo de herança é assim:
 - A política filho em qualquer nível pode herdar de política pai e estendê-la adicionando novos elementos.
 - Não há nenhum limite ao número de níveis.
 
-Para obter mais informações, consulte [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
+Para obter mais informações, consulte [Introdução às políticas personalizadas](custom-policy-get-started.md).
 
 ## <a name="base-policy"></a>Política de base
 
@@ -88,10 +88,10 @@ Para herdar de uma política de outra política, um elemento **BasePolicy** deve
 
 O elemento **BasePolicy** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do locatário do Azure AD B2C. |
-| `PolicyId` | 1:1 | O identificador da política pai. |
+| PolicyId | 1:1 | O identificador da política pai. |
 
 
 O exemplo a seguir mostra como especificar uma política de base. Essa política **B2C_1A_TrustFrameworkExtensions** é derivada da política **B2C_1A_TrustFrameworkBase**.
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy:
 
 Um percurso do usuário define a lógica de negócios pela qual um usuário passa. Cada percurso do usuário é um conjunto de etapas de orquestração que executa uma série de ações em sequência em termos de coleta de informações e autenticação.
 
-O arquivo de política **SocialAndLocalAccounts** no [starter pack](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contém os percursos do usuário SignUpOrSignIn, ProfileEdit, PasswordReset. Você pode adicionar mais viagens de usuário para outros cenários, como alterar um endereço de email ou vincular e desvincular uma conta social.
+O arquivo de política **SocialAndLocalAccounts** no [starter pack](custom-policy-get-started.md#custom-policy-starter-pack) contém os percursos do usuário SignUpOrSignIn, ProfileEdit, PasswordReset. Você pode adicionar mais viagens de usuário para outros cenários, como alterar um endereço de email ou vincular e desvincular uma conta social.
 
 As etapas de orquestração podem chamar um [Perfil Técnico](technicalprofiles.md). Um perfil técnico fornece uma estrutura com um mecanismo interno para se comunicar com diferentes tipos de partes. Por exemplo, um perfil técnico pode executar estas ações, entre outras:
 

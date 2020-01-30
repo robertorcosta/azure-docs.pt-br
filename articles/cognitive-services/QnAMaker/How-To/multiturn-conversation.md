@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872291"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843253"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usar avisos de acompanhamento para criar várias rodadas de uma conversa
 
@@ -65,7 +65,7 @@ Se você estiver criando um documento com vários folheios, tenha em mente as se
 
 * Use títulos e subtítulos para denotar hierarquia. Por exemplo, você pode indicar que o pai QnA e H2 denotam o QnA que deve ser levado como prompt. Use pequeno tamanho de título para denotar a hierarquia subsequente. Não use estilo, cor ou algum outro mecanismo para implicar a estrutura em seu documento, QnA Maker não extrairá as solicitações de múltipla ativação.
 
-* O primeiro caractere de título deve estar em letras maiúsculas. 
+* O primeiro caractere de título deve estar em letras maiúsculas.
 
 * Não termine um título com um ponto de interrogação, `?`.
 
@@ -113,7 +113,7 @@ Adicione um aviso de acompanhamento a um par de perguntas e respostas existentes
 1. Na linha de **saída**, na coluna **resposta** , selecione **Adicionar aviso de acompanhamento**.
 1. Nos campos na janela pop-up de **aviso de acompanhamento** , insira os seguintes valores:
 
-    |Campo|Value|
+    |Campo|Valor|
     |--|--|
     |Exibir texto|Digite desligar **o dispositivo**. Esse é o texto personalizado a ser exibido no prompt de acompanhamento.|
     |Somente contexto| Marque essa caixa de seleção. Uma resposta será retornada somente se a pergunta especificar o contexto.|
@@ -150,7 +150,7 @@ Quando você adiciona um novo par de perguntas e respostas à base de dados de c
 1. Na coluna **resposta** dessa pergunta, selecione **Adicionar aviso de acompanhamento**.
 1. Em **aviso de acompanhamento (versão prévia)** , crie um novo prompt de acompanhamento inserindo os seguintes valores:
 
-    |Campo|Value|
+    |Campo|Valor|
     |--|--|
     |Exibir texto|*Crie uma conta do Windows*. O texto personalizado a ser exibido no aviso de acompanhamento.|
     |Somente contexto|Marque essa caixa de seleção. Essa resposta será retornada somente se a pergunta especificar o contexto.|
@@ -368,7 +368,7 @@ Você pode adicionar ou excluir prompts de várias ativações usando a [API de 
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportar base de dados de conhecimento para controle de versão
 
-O QnA Maker [dá suporte ao controle de versão](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) no portal de QnA Maker, incluindo as etapas de conversa de passagem múltipla no arquivo exportado.
+O QnA Maker dá suporte ao controle de versão, incluindo etapas de conversa de passagem múltipla no arquivo exportado.
 
 ## <a name="next-steps"></a>Próximos passos
 

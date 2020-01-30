@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 88ad32a289d499cd385f8f3095113a4b329b80f4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701528"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768099"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicativo Web que conecta usuários: mover para produção
 
@@ -29,6 +29,13 @@ Agora que você sabe como obter um token para chamar APIs da Web, saiba como mov
 
 ## <a name="next-steps"></a>Próximos passos
 
+### <a name="same-site"></a>Mesmo site
+
+Verifique se você entendeu possíveis problemas com as novas versões do navegador Chrome
+
+> [!div class="nextstepaction"]
+> [Como lidar com alterações de cookie SameSite no navegador Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>Cenário para chamar APIs Web
 
 Depois que seu aplicativo Web entra em usuários, ele pode chamar APIs da Web em nome dos usuários conectados. Chamar APIs da Web do aplicativo Web é o objeto do seguinte cenário:
@@ -36,7 +43,7 @@ Depois que seu aplicativo Web entra em usuários, ele pode chamar APIs da Web em
 > [!div class="nextstepaction"]
 > [Aplicativo Web que chama as APIs Web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Aprofunde-se: tutorial do aplicativo Web ASP.NET Core
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Aprofunde-se: tutorial do aplicativo Web ASP.NET Core
 
 Saiba mais sobre outras maneiras de conectar usuários com este ASP.NET Core tutorial: 
 
@@ -51,7 +58,7 @@ Este tutorial progressivo tem código pronto para produção para um aplicativo 
 - [B2C do AD do Azure](https://aka.ms/aadb2c)
 - Nuvens nacionais
 
-### <a name="sample-code-java-web-app"></a>Código de exemplo: aplicativo Web Java
+## <a name="sample-code-java-web-app"></a>Código de exemplo: aplicativo Web Java
 
 Saiba mais sobre o aplicativo Web Java deste exemplo no GitHub: 
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bc00f348e9443384c7799bf227efd7309d6aeac2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50ac62ded92b69f44324f4f9c5eacee939159449
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702191"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834120"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo de área de trabalho que chama APIs da Web: adquirir um token
 
@@ -413,7 +413,7 @@ Para conectar um usuário de domínio em um domínio ou computador ingressado no
 
 - A autoridade passada `PublicClientApplicationBuilder` precisa ser:
   - O locatário do formulário `https://login.microsoftonline.com/{tenant}/`, em que `tenant` é o GUID que representa a ID do locatário ou um domínio associado ao locatário.
-  - Para qualquer [conta corporativa e de estudante](`https://login.microsoftonline.com/organizations/`).
+  - Para qualquer conta corporativa e de estudante: `https://login.microsoftonline.com/organizations/`.
   - Não há suporte para contas pessoais da Microsoft. Você não pode usar locatários/Common ou/consumers.
 
 - Como a autenticação integrada do Windows é um fluxo silencioso:
@@ -581,7 +581,7 @@ As seguintes restrições também se aplicam:
 
 Para obter mais informações, consulte [credenciais de senha do proprietário do recurso (ROPC) com B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c).
 
-### <a name="use-it"></a>use
+### <a name="use-it"></a>Usá-lo
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -887,7 +887,7 @@ A autenticação interativa com o Azure AD requer um navegador da Web. Para obte
 
 2. Após a autenticação bem-sucedida, o aplicativo de linha de comando recebe os tokens necessários por meio de um canal de fundo e os usa para executar as chamadas de API Web necessárias.
 
-### <a name="use-it"></a>use
+### <a name="use-it"></a>Usá-lo
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

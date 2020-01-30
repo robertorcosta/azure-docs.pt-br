@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950979"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840393"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrar uma API Web baseada em OWIN para b2clogin.com
 
@@ -33,7 +33,7 @@ As seções a seguir apresentam um exemplo de como habilitar vários emissores e
 
 Você precisa dos seguintes recursos de Azure AD B2C em vigor antes de continuar com as etapas neste artigo:
 
-* [Fluxos de usuário](tutorial-create-user-flows.md) ou [políticas personalizadas](active-directory-b2c-get-started-custom.md) criadas em seu locatário
+* [Fluxos de usuário](tutorial-create-user-flows.md) ou [políticas personalizadas](custom-policy-get-started.md) criadas em seu locatário
 
 ## <a name="get-token-issuer-endpoints"></a>Obter pontos de extremidade do emissor do token
 
@@ -147,7 +147,7 @@ Quando as cadeias de caracteres de ponto de extremidade são construídas durant
 
 Este artigo apresentou um método de configuração de uma API Web que implementa o Katana (Microsoft OWIN middleware) para aceitar tokens de vários pontos de extremidade do emissor. Como você pode observar, há várias outras cadeias de caracteres nos arquivos *Web. config* dos projetos TaskService e TaskWebApp que precisariam ser alterados se você quiser compilar e executar esses projetos em seu próprio locatário. Você é bem-vindo a modificar os projetos adequadamente se quiser vê-los em ação. no entanto, um passo a passo completo de fazer isso está fora do escopo deste artigo.
 
-Para obter mais informações sobre os diferentes tipos de tokens de segurança emitidos por Azure AD B2C, consulte [visão geral de tokens no Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Para obter mais informações sobre os diferentes tipos de tokens de segurança emitidos por Azure AD B2C, consulte [visão geral de tokens no Azure Active Directory B2C](tokens-overview.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip

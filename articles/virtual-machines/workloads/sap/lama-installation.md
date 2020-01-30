@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978068"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842428"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector SAP LaMa para o Azure
 
@@ -87,7 +87,7 @@ O conector do Azure pode usar uma entidade de serviço para autorizar contra Mic
 1. Clique em novo registro
 1. Insira um nome e clique em registrar
 1. Selecione o novo aplicativo e clique em certificados & segredos na guia Configurações
-1. Crie um novo segredo do cliente, insira uma descrição para uma nova chave, selecione quando o segredo deve exire e clique em salvar
+1. Crie um novo segredo do cliente, insira uma descrição para uma nova chave, selecione quando o segredo deve expirar e clique em salvar
 1. Anote o Valor. Ele é usado como senha da Entidade de Serviço
 1. Anote a ID do Aplicativo. Ele é usado como nome de usuário da Entidade de Serviço
 

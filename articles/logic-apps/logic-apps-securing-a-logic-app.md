@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981168"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843541"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -620,9 +620,9 @@ Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autentica�
 
 ### <a name="basic-authentication"></a>Autenticação Básica
 
-Se a opção [básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) estiver disponível, especifique esses valores de propriedade:
+Se a opção [básica](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) estiver disponível, especifique esses valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Description |
+| Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Básico | O tipo de autenticação a ser usado |
 | **Nome de usuário** | `username` | Sim | <> *de nome de usuário*| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
@@ -653,7 +653,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 Se a opção de [certificado de cliente](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) estiver disponível, especifique esses valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Description |
+| Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Certificado do cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados do cliente do protocolo SSL. Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
 | **Pfx** | `pfx` | Sim | <*Encoded-pfx-File-content*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. converta o conteúdo do certificado usando a função `ToBase64String()` e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
@@ -682,7 +682,7 @@ Para obter mais informações sobre como proteger serviços usando a autenticaç
 
 * [Proteger APIs usando a autenticação de certificado do cliente no gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Serviços de back-end seguros usando a autenticação de certificado do cliente no gerenciamento de API do Azure](../api-management/api-management-howto-mutual-certificates.md)
-* [Proteger seu serviço RESTfuL usando certificados de cliente](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Proteger seu serviço RESTfuL usando certificados de cliente](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Credenciais de certificado para autenticação de aplicativo](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Usar um certificado SSL no código de aplicativo no Serviço de Aplicativo do Azure](../app-service/configure-ssl-certificate-in-code.md)
 
@@ -692,10 +692,10 @@ Para obter mais informações sobre como proteger serviços usando a autenticaç
 
 Se a opção [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) estiver disponível, especifique esses valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Description |
+| Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Os aplicativos lógicos atualmente seguem o [protocolo OAuth 2,0](../active-directory/develop/v2-overview.md). |
-| **Locatário** | `tenant` | Sim | <*tenant-ID*> | A ID do locatário para o locatário do Azure AD |
+| **Vários** | `tenant` | Sim | <*tenant-ID*> | A ID do locatário para o locatário do Azure AD |
 | **Público-alvo** | `audience` | Sim | <*resource-to-authorize*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **ID do Cliente** | `clientId` | Sim | <*client-ID*> | A ID do cliente para o aplicativo solicitando a autorização |
 | **Tipo de credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e o valor não aparecem na definição subjacente do aplicativo lógico, mas determina as propriedades que aparecem para o tipo de credencial selecionado. |
@@ -746,7 +746,7 @@ Authorization: OAuth realm="Photos",
 
 No gatilho ou ação que dá suporte à autenticação bruta, especifique estes valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Description |
+| Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Raw | O tipo de autenticação a ser usado |
 | **Valor** | `value` | Sim | *autorização de <-* > de valor de cabeçalho | O valor do cabeçalho de autorização a ser usado para autenticação |
@@ -781,7 +781,7 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
 
 3. No gatilho ou na ação em que você deseja usar a identidade gerenciada, especifique estes valores de propriedade:
 
-   | Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Description |
+   | Propriedade (Designer) | Propriedade (JSON) | Obrigatório | Valor | Description |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticação** | `type` | Sim | **Identidade gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
    | **Público-alvo** | `audience` | Sim | <*target-Resource-ID*> | A ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` torna os tokens de acesso para autenticação válidos para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Observação**: essa propriedade pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino corresponde exatamente ao valor esperado pelo Azure AD, incluindo as barras à direita necessárias. Portanto, a ID de recurso `https://storage.azure.com/` para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer uma barra à direita. Para encontrar essas IDs de recurso, consulte [Serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |

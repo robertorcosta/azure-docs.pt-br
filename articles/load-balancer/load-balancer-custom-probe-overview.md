@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690400"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769183"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -200,7 +200,7 @@ O Load Balancer é um serviço de passagem (não encerra conexões TCP) e o flux
 
 Os datagramas UDP serão entregues aos pontos de extremidade de back-end íntegros.
 
-UDP é sem conexão e não há estado de fluxo controlado para UDP. Se qualquer investigação de integridade do ponto de extremidade de back-end falhar, os fluxos UDP existentes poderão ser movidos para outra instância íntegra no pool de back-end.
+UDP é sem conexão e não há estado de fluxo controlado para UDP. Se qualquer investigação de integridade do ponto de extremidade de back-end falhar, os fluxos UDP existentes serão movidos para outra instância íntegra no pool de back-end.
 
 Se todas as investigações para todas as instâncias em um pool de back-end falharem, os fluxos UDP existentes serão encerrados para os Basic e Standard Load Balancers.
 

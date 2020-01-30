@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 322b7656a5e8cb5d0fd0274cc9f09adec2c2c5e1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3b4b9f782d3306777e853a22ed24fac803da4fb9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514758"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835249"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança-um guia de referência
 
@@ -234,7 +234,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 ||||
 
 
-## <a name="alerts-akscluster"></a>Alertas para o nível de cluster AKS
+## <a name="alerts-akscluster"></a>Alertas para contêineres-clusters do serviço kubernetes do Azure
 
 [Mais detalhes e observações](security-center-alerts-compute.md#azure-containers-)
 
@@ -249,7 +249,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 |**VISUALIZAÇÃO-contêiner com uma montagem de volume confidencial detectada**|A análise do log de auditoria do kubernetes detectou um novo contêiner com uma montagem de volume confidencial. O volume detectado é um tipo hostPath que monta um arquivo ou pasta confidencial do nó para o contêiner. Se o contêiner ficar comprometido, o invasor poderá usar essa montagem para obter acesso ao nó.|PrivilegeEscalation|
 ||||
 
-## <a name="alerts-containerhost"></a>Alertas para o nível de host de contêineres
+## <a name="alerts-containerhost"></a>Alertas para contêineres-nível de host
 
 [Mais detalhes e observações](security-center-alerts-compute.md#azure-containers-)
 
@@ -304,7 +304,7 @@ Abaixo das tabelas de alertas há uma tabela que descreve a cadeia de eliminaç�
 ||||
 
 
-## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+## <a name="alerts-azurecosmos"></a>Alertas para Azure Cosmos DB (versão prévia)
 
 [Mais detalhes e observações](security-center-alerts-data-services.md#azure-cosmos-db)
 
@@ -406,7 +406,7 @@ As tentativas de cadeia de Kill chain com suporte da central de segurança são 
 |**LateralMovement**|A movimentação lateral consiste em técnicas que permitem que um adversário acesse e controle sistemas remotos em uma rede e pode, mas não necessariamente, inclui a execução de ferramentas em sistemas remotos. As técnicas de movimento lateral podem permitir que um adversário colete informações de um sistema sem precisar de ferramentas adicionais, como uma ferramenta de acesso remoto. Um adversário pode usar a movimentação lateral para muitas finalidades, incluindo a execução remota de ferramentas, dinamização para sistemas adicionais, acesso a informações ou arquivos específicos, acesso a credenciais adicionais ou causar um efeito.|
 |**Execução**|A tática de execução representa técnicas que resultam na execução de código controlado por adversário em um sistema local ou remoto. Essa tática geralmente é usada em conjunto com a movimentação lateral para expandir o acesso a sistemas remotos em uma rede.|
 |**Coleção**|A coleção consiste em técnicas usadas para identificar e coletar informações, como arquivos confidenciais, de uma rede de destino antes do vazamento. Essa categoria também aborda locais em um sistema ou rede em que o adversário pode procurar informações para exfiltrar.|
-|**Exportação**|Vazamento refere-se às técnicas e aos atributos que resultam ou ajudam no adversário a remover arquivos e informações de uma rede de destino. Essa categoria também aborda locais em um sistema ou rede em que o adversário pode procurar informações para exfiltrar.|
+|**Vazamento**|Vazamento refere-se às técnicas e aos atributos que resultam ou ajudam no adversário a remover arquivos e informações de uma rede de destino. Essa categoria também aborda locais em um sistema ou rede em que o adversário pode procurar informações para exfiltrar.|
 |**CommandAndControl**|A tática de controle e comando representa como os adversários se comunicam com os sistemas sob seu controle dentro de uma rede de destino.|
 |**Impacto**|Os eventos de impacto tentam principalmente reduzir diretamente a disponibilidade ou a integridade de um sistema, serviço ou rede; incluindo a manipulação de dados para afetar um processo comercial ou operacional. Isso geralmente se refere a técnicas como ransomware, desfiguração, manipulação de dados e outros.|
 ||||

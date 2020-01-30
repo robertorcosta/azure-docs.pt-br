@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c99c38c9a1972bc434c7fa61d6745dac0d79d7b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711954"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841958"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurar o logon único baseado em SAML para aplicativos que não são da Galeria
 
@@ -26,7 +26,7 @@ Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um [apli
 > [!NOTE]
 > Adicionando um aplicativo da galeria? Encontre instruções de instalação passo a passo na [lista de tutoriais de aplicativo SaaS](../saas-apps/tutorial-list.md)
 
-Para configurar o logon único do SAML para um aplicativo que não seja da Galeria sem escrever código, você precisa ter uma assinatura ou Azure AD Premium e o aplicativo deve dar suporte a SAML 2,0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Para configurar o logon único do SAML para um aplicativo que não seja da Galeria sem escrever código, você precisa ter uma assinatura junto com uma licença de Azure AD Premium e o aplicativo deve dar suporte a SAML 2,0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

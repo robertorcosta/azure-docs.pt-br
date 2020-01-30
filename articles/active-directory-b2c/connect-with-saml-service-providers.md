@@ -12,12 +12,12 @@ ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043518"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836646"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar um aplicativo SAML no Azure AD B2C
 
@@ -41,11 +41,11 @@ Resumindo os dois cenários de núcleo não exclusivos com SAML:
 | Cenário | Azure AD B2C função | Como |
 | -------- | ----------------- | ------- |
 | Meu aplicativo espera que uma Asserção SAML conclua uma autenticação. | **Azure AD B2C atua como o IdP (provedor de identidade)**<br />Azure AD B2C atua como um IdP do SAML para os aplicativos. | Este artigo. |
-| Meus usuários precisam de logon único com um provedor de identidade compatível com SAML, como ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C atua como o provedor de serviços (SP)**<br />Azure AD B2C atua como um provedor de serviços ao se conectar ao provedor de identidade SAML. É um proxy de federação entre seu aplicativo e o provedor de identidade SAML.  | <ul><li>[Configurar a entrada com o ADFS como um IdP do SAML usando políticas personalizadas](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[Configurar a entrada com um provedor SAML do Salesforce usando políticas personalizadas](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
+| Meus usuários precisam de logon único com um provedor de identidade compatível com SAML, como ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C atua como o provedor de serviços (SP)**<br />Azure AD B2C atua como um provedor de serviços ao se conectar ao provedor de identidade SAML. É um proxy de federação entre seu aplicativo e o provedor de identidade SAML.  | <ul><li>[Configurar a entrada com o ADFS como um IdP do SAML usando políticas personalizadas](identity-provider-adfs2016-custom.md)</li><li>[Configurar a entrada com um provedor SAML do Salesforce usando políticas personalizadas](identity-provider-salesforce-custom.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua as etapas em introdução [às políticas personalizadas no Azure ad B2C](active-directory-b2c-get-started-custom.md). Você precisa da política personalizada *SocialAndLocalAccounts* do pacote de início de política personalizada abordado no artigo.
+* Conclua as etapas em introdução [às políticas personalizadas no Azure ad B2C](custom-policy-get-started.md). Você precisa da política personalizada *SocialAndLocalAccounts* do pacote de início de política personalizada abordado no artigo.
 * Noções básicas sobre o protocolo SAML (Security Assertion Markup Language).
 * Um aplicativo Web configurado como um provedor de serviços SAML (SP). Para este tutorial, você pode usar um [aplicativo de teste do SAML][samltest] que fornecemos.
 

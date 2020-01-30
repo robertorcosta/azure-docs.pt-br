@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954643"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767959"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensor em tempo real do Hub IoT do Azure em um aplicativo Web
 
@@ -55,7 +55,7 @@ Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT par
 az extension add --name azure-cli-iot-ext
 ```
 
-## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao Hub IoT
+## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao hub IoT
 
 Os [grupos de consumidores](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) fornecem exibições independentes no fluxo de eventos que permitem que aplicativos e serviços do Azure consumam dados de forma independente do mesmo ponto de extremidade do hub de eventos. Nesta seção, você adiciona um grupo de consumidores ao ponto de extremidade interno do Hub IoT que o aplicativo Web usará para ler dados.
 
@@ -165,10 +165,10 @@ Nesta seção, você provisiona um aplicativo Web no serviço de aplicativo e im
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Agora, provisione um aplicativo Web em seu plano do serviço de aplicativo. O parâmetro `--deployment-local-git` permite que o código do aplicativo Web seja carregado e implantado de um repositório git em seu computador local. O nome do aplicativo Web deve ser globalmente exclusivo e pode conter letras maiúsculas e minúsculas, números e hifens.
+2. Agora, provisione um aplicativo Web em seu plano do serviço de aplicativo. O parâmetro `--deployment-local-git` permite que o código do aplicativo Web seja carregado e implantado de um repositório git em seu computador local. O nome do aplicativo Web deve ser globalmente exclusivo e pode conter letras maiúsculas e minúsculas, números e hifens. Certifique-se de especificar o nó versão 10,6 ou posterior para o parâmetro `--runtime`, dependendo da versão do tempo de execução do node. js que você está usando. Você pode usar o comando `az webapp list-runtimes` para obter uma lista de tempos de execução com suporte.
 
    ```azurecli-interactive
-   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
 3. Agora, adicione configurações de aplicativo para as variáveis de ambiente que especificam a cadeia de conexão do Hub IoT e o grupo de consumidores do hub de eventos. As configurações individuais são delimitadas por espaço no parâmetro `-settings`. Use a cadeia de conexão de serviço para o Hub IoT e o grupo de consumidores que você criou anteriormente neste tutorial. Não citar os valores.
@@ -229,7 +229,7 @@ Nesta seção, você provisiona um aplicativo Web no serviço de aplicativo e im
 
 11. Navegue até `https://<your web app name>.azurewebsites.net` em um navegador. Uma página da Web semelhante à que você viu quando executou o aplicativo Web é exibida localmente. Supondo que o dispositivo esteja executando e enviando dados, você deverá ver um gráfico em execução das leituras mais recentes de temperatura e umidade do 50 enviadas pelo dispositivo.
 
-## <a name="troubleshooting"></a>Solucionando problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você tiver problemas com este exemplo, tente as etapas nas seções a seguir. Se você ainda tiver problemas, envie-nos comentários na parte inferior deste tópico.
 
@@ -255,7 +255,7 @@ Se você tiver problemas com este exemplo, tente as etapas nas seções a seguir
 
 * Se você vir um erro sobre a não localização de um pacote, você pode ter executado as etapas fora de ordem. Quando o site é implantado (com `git push`), o serviço de aplicativo é executado `npm install`, que é executado com base na versão atual do nó que ele configurou. Se isso for alterado na configuração mais tarde, você precisará fazer uma alteração sem sentido no código e enviá-lo novamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você usou com êxito seu aplicativo Web para visualizar dados do sensor em tempo real do seu Hub IoT.
 

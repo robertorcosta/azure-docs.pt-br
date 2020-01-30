@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113844"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838251"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informações de imagens em cenários de enriquecimento de ia
 
@@ -29,7 +29,7 @@ Como parte da quebra do documento, há um novo conjunto de parâmetros de config
 
 Você não pode desativar a normalização de imagem. Habilidades que iteram sobre imagens esperam imagens normalizadas. Habilitar a normalização de imagem em um indexador requer que um conconhecimento seja anexado a esse indexador.
 
-| Parâmetro de configuração | DESCRIÇÃO |
+| Parâmetro de configuração | Description |
 |--------------------|-------------|
 | imageAction   | Definido como "none" se nenhuma ação puder ser tomada quando os arquivos de imagem ou imagens incorporadas forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde, para PDFs na fonte de dados, cada página é renderizada para uma imagem de saída.  A funcionalidade é a mesmo que "generateNormalizedImages" para tipos de arquivos que não são PDF.<br/>Para qualquer opção que não seja "none", essas imagens serão expostas no campo *normalized_images*. <br/>O padrão é "none". Essa configuração só é pertinente a fontes de dados de blob, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens em um documento, o primeiro 1000 será extraído e um aviso será gerado. |
 |  normalizedImageMaxWidth | A largura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é 10000. | 
@@ -38,7 +38,7 @@ Você não pode desativar a normalização de imagem. Habilidades que iteram sob
 > [!NOTE]
 > Se você definir a propriedade *imageaction* como algo diferente de "None", não será possível definir a propriedade *parsingMode* como algo diferente de "default".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
 
-Defina o parâmetro **parsingMode** `json`(para indexar cada blob como um único documento) ou `jsonArray` (se seus blobs contêm matrizes JSON e você precisa que cada elemento da matriz seja tratado como um documento separado).
+Defina o parâmetro **parsingMode**`json`(para indexar cada blob como um único documento) ou `jsonArray` (se seus blobs contêm matrizes JSON e você precisa que cada elemento da matriz seja tratado como um documento separado).
 
 O padrão de 2000 pixels para a largura e altura máximas das imagens normalizadas se baseia nos tamanhos máximos compatíveis com a [habilidade de OCR](cognitive-search-skill-ocr.md) e a [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md). A [habilidade de OCR](cognitive-search-skill-ocr.md) dá suporte a uma largura e altura máxima de 4200 para idiomas que não estão em inglês e 10000 para inglês.  Se você aumentar os limites máximos, o processamento poderá falhar em imagens maiores, dependendo da sua definição de Skills e do idioma dos documentos. 
 
@@ -60,7 +60,7 @@ Especifique o imageAction na [definição do indexador](https://docs.microsoft.c
 
 Quando o campo *imageAction* for definido para qualquer valor diferente de "none", o novo campo *normalized_images* conterá uma matriz de imagens. Cada imagem é um tipo complexo que tem os seguintes membros:
 
-| Membro de imagem       | DESCRIÇÃO                             |
+| Membro de imagem       | Description                             |
 |--------------------|-----------------------------------------|
 | data               | Cadeia codificada em Base64 da imagem normalizada no formato JPEG.   |
 | width              | Largura da imagem normalizada em pixels. |
@@ -111,7 +111,7 @@ Um cenário comum envolve a criação de uma única cadeia de caracteres que con
 
 O conjunto de habilidades de exemplo a seguir cria um campo *merged_text* que contém o conteúdo textual do documento. Também inclui o texto processado em OCR de cada uma das imagens incorporadas. 
 
-#### <a name="request-body-syntax"></a>Sintaxe do corpo da solicitação
+#### <a name="request-body-syntax"></a>Sintaxe de corpo da solicitação
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -215,7 +215,7 @@ Como um auxiliar, se você precisar transformar coordenadas normalizadas no espa
 
 ## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Habilidade Analisar Imagem](cognitive-search-skill-image-analysis.md)
++ [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md)
 + [Habilidade OCR](cognitive-search-skill-ocr.md)
 + [Habilidade Mesclar Texto](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)

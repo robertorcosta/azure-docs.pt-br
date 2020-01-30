@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685393"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768840"
 ---
 # <a name="azure-sql-data-warehouse-workload-classification"></a>Classificação de carga de trabalho do Azure SQL Data Warehouse
 
 Este artigo explica o SQL Data Warehouse processo de classificação de carga de trabalho de atribuição de uma classe de recurso e a importância para solicitações de entrada.
 
-## <a name="classification"></a>Classificação
+## <a name="classification"></a>classificação
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
@@ -36,16 +36,26 @@ Nem todas as instruções são classificadas, pois não exigem recursos ou preci
 
 ## <a name="classification-process"></a>Processo de classificação
 
-A classificação no SQL Data Warehouse é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Com essa sintaxe, SQL Data Warehouse usuários podem atribuir importância e uma classe de recurso a solicitações.  
+A classificação no SQL Data Warehouse é obtida hoje atribuindo usuários a uma função que tenha uma classe de recurso correspondente atribuída a ele usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). A capacidade de caracterizar solicitações além de um logon para uma classe de recurso é limitada a esse recurso. Um método mais rico para classificação agora está disponível com a sintaxe de [criar classificação de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Com essa sintaxe, SQL Data Warehouse usuários podem atribuir importância e quantos recursos do sistema são atribuídos a uma solicitação por meio do parâmetro `workload_group`. 
 
 > [!NOTE]
 > A classificação é avaliada em uma base por solicitação. Várias solicitações em uma única sessão podem ser classificadas de forma diferente.
 
-## <a name="classification-precedence"></a>Precedência de classificação
+## <a name="classification-weighting"></a>Peso da classificação
 
-Como parte do processo de classificação, a precedência está em vigor para determinar qual classe de recurso é atribuída. A classificação baseada em um usuário de banco de dados tem precedência sobre a associação de função. Se você criar um classificador que mapeie o usuário do banco de dados UserA para a classe de recurso mediumrc. Em seguida, mapeie a função de banco de dados rolea (da qual UserA é um membro) para a classe de recurso largerc. O classificador que mapeia o usuário de banco de dados para a classe de recurso mediumrc terá precedência sobre o classificador que mapeia a função de banco de dados rolea para a classe de recurso largerc.
+Como parte do processo de classificação, o peso está em vigor para determinar qual grupo de carga de trabalho é atribuído.  O peso é o seguinte:
 
-Se um usuário for membro de várias funções com diferentes classes de recursos atribuídas ou correspondidas em vários classificadores, o usuário receberá a atribuição de classe de recurso mais alta.  Esse comportamento é consistente com o comportamento de atribuição de classe de recurso existente.
+|Parâmetro de classificador |Peso   |
+|---------------------|---------|
+|MEMBERNAME: USUÁRIO      |64       |
+|MEMBERNAME: FUNÇÃO      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+O parâmetro `membername` é obrigatório.  No entanto, se o MemberName especificado for um usuário de banco de dados em vez de uma função de banco de dados, o peso do usuário será maior e, portanto, esse classificador será escolhido.
+
+Se um usuário for um membro de várias funções com classes de recursos diferentes atribuídos ou correspondentes em vários classificadores, o usuário receberá a atribuição de classe de recurso mais alta.  Esse comportamento é consistente com o comportamento de atribuição de classe de recurso existente.
 
 ## <a name="system-classifiers"></a>Classificadores do sistema
 
@@ -59,7 +69,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 Classificadores de sistema criados em seu nome fornecem um caminho fácil para migrar para a classificação de carga de trabalho. O uso de mapeamentos de função de classe de recurso com precedência de classificação pode levar a uma classificação incorreta conforme você começa a criar novos classificadores com importância.
 
-Considere este cenário:
+Considere o cenário a seguir.
 
 - Um data warehouse existente tem um usuário de banco de dados DBAUser atribuído à função de classe de recurso largerc. A atribuição de classe de recurso foi feita com sp_addrolemember.
 - O data warehouse agora é atualizado com o gerenciamento de carga de trabalho.
@@ -80,7 +90,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','st
 sp_droprolemember ‘[Resource Class]’, membername
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
 - Consulte o início rápido sobre como criar um classificador de carga de trabalho [criar um classificador de carga de trabalho](quickstart-create-a-workload-classifier-tsql.md).

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
-ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/24/2020
+ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450698"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765758"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
 
@@ -20,19 +20,28 @@ Estas perguntas frequentes sobre disponibilidade geral abordam as alterações q
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>Atualizações para Azure Monitor para VMs
 
-Estamos planejando lançar uma nova versão do Azure Monitor para VMs em janeiro de 2020. Os clientes que habilitam os monitores do Azure para VMs após essa versão recebem automaticamente a nova versão, mas os clientes existentes que já estão usando Azure Monitor para VMs serão solicitados a fazer a atualização. Estas perguntas frequentes e nossa documentação oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
+Lançamos uma nova versão do Azure Monitor para VMs. Os clientes que habilitam os monitores do Azure para VMs receberão agora a nova versão, mas os clientes existentes que já estiverem usando Azure Monitor para VMs serão solicitados a fazer a atualização. Estas perguntas frequentes e nossa documentação oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
 
-Com essa atualização, Azure Monitor para VMs dados de desempenho são armazenados na mesma tabela `InsightsMetrics` que [Azure monitor para contêineres](container-insights-overview.md)e torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. Nossas exibições de desempenho também serão atualizadas para usar essa nova tabela.
+Com essa atualização, Azure Monitor para VMs dados de desempenho são armazenados na mesma tabela *InsightsMetrics* que [Azure monitor para contêineres](container-insights-overview.md), o que torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. 
 
-Estamos migrando para novos tipos de dados para nossos conjuntos de dados de conexão. Essa alteração ocorrerá em dezembro de 2019 e será anunciada em um blog de atualização do Azure. Os dados armazenados em `ServiceMapComputer_CL` e `ServiceMapProcess_CL`, que são tabelas de log personalizadas, serão movidos para os tipos de dados dedicados chamados `VMComputer` e `VMProcess`. Ao migrar para tipos de dados dedicados, eles recebem prioridade para a ingestão de dados e o esquema de tabela será padronizado entre todos os clientes.
+Na próxima semana ou duas, nossas exibições de desempenho também serão atualizadas para usar essa nova tabela.
 
 Percebemos que fazer com que os clientes existentes atualizem as causas de interrupção para o fluxo de trabalho, e é por isso que optamos por fazê-lo agora em visualização pública, em vez de depois depois do GA.
 
+
 ## <a name="what-is-changing"></a>O que está mudando?
 
-Atualmente, quando você conclui o processo de integração para Azure Monitor para VMs, você habilita a solução de Mapa do Serviço no espaço de trabalho selecionado para armazenar os dados de monitoramento e, em seguida, configura os contadores de desempenho para os dados que coletamos de suas VMs. Lançaremos uma nova solução, chamada **VMInsights**, que inclui recursos adicionais para coleta de dados junto com um novo local para armazenar esses dados em seu espaço de trabalho de log Analytics.
+Lançamos uma nova solução, chamada VMInsights, que inclui recursos adicionais para a coleta de dados, juntamente com um novo local para armazenar esses dados em seu espaço de trabalho de Log Analytics. 
 
-Nosso processo atual de usar contadores de desempenho em seu espaço de trabalho Log Analytics envia os dados para a tabela `Perf`. Essa nova solução envia os dados para uma tabela chamada `InsightsMetrics` que também é usada pelo Azure Monitor para contêineres. Esse esquema de tabela nos permite armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela perf.
+No passado, habilitamos a solução ServiceMap em seu espaço de trabalho e configuramos contadores de desempenho em seu espaço de trabalho Log Analytics para enviar os dados para a tabela *perf* . Essa nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é usada pelo Azure monitor para contêineres. Esse esquema de tabela nos permite armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela *perf* .
+
+
+## <a name="how-do-i-upgrade"></a>Como fazer atualizar?
+Cada VM que requer atualização será identificada na guia **introdução** em Azure Monitor para VMs no portal do Azure. Você pode atualizar uma única VM ou selecionar várias para atualizar juntas. Use o seguinte comando para atualizar usando o PowerShell:
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>O que devo fazer sobre os contadores de desempenho em meu espaço de trabalho se eu instalar a solução VMInsights?
 

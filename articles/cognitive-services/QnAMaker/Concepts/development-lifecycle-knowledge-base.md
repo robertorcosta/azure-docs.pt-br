@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1cb5af13bdd309c762337e64ecde8538afc756b0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: b1978e45a7554358ddd948879143411f89e4c1b2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794851"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843398"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida da base de dados de conhecimento no QnA Maker
-O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade. 
+O QnA Maker aprende melhor em um ciclo iterativo de alterações de modelo, exemplos de expressão, publicação e coleta de dados de consultas de ponto de extremidade.
 
 ![Ciclo de criação](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
@@ -28,14 +28,14 @@ O ponto de extremidade de KB (base de dados de conhecimento) do QnA Maker fornec
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Testar e atualizar a base de dados de conhecimento
 
-A base de dados de conhecimento está pronta para testes, uma vez que é preenchida com conteúdo, seja editorialmente ou através de extração automática. O teste interativo pode ser feito no portal de QnA Maker por meio do painel de **teste** , inserindo consultas de usuário comuns e verificando se as respostas retornadas com a resposta correta e a pontuação de confiança suficiente. 
+A base de dados de conhecimento está pronta para testes, uma vez que é preenchida com conteúdo, seja editorialmente ou através de extração automática. O teste interativo pode ser feito no portal de QnA Maker por meio do painel de **teste** , inserindo consultas de usuário comuns e verificando se as respostas retornadas com a resposta correta e a pontuação de confiança suficiente.
 
-* **Para corrigir pontuações de baixa confiança**: Adicione perguntas alternativas. 
-* **Quando uma consulta retorna incorretamente a [resposta padrão](confidence-score.md#change-default-answer)** : adicione novas respostas à pergunta correta. 
+* **Para corrigir pontuações de baixa confiança**: Adicione perguntas alternativas.
+* **Quando uma consulta retorna incorretamente a [resposta padrão](../How-to/change-default-answer.md)** : adicione novas respostas à pergunta correta.
 
 Este loop estreito de atualização de teste continuará até que você esteja satisfeito com os resultados. Saiba como [testar a base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para grandes KBs, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a propriedade de corpo `isTest`, que consulta a base de dados de conhecimento do `test` em vez da base de dados de conhecimento publicada. 
+Para grandes KBs, use o teste automatizado com a [API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e a propriedade de corpo `isTest`, que consulta a base de dados de conhecimento do `test` em vez da base de dados de conhecimento publicada.
 
 ```json
 {
@@ -62,15 +62,29 @@ Para registrar os logs de chat do seu serviço, é necessário habilitar o Appli
 
 De acordo com o que aprende-se com as análises, faça as [atualizações da base de dados de conhecimento](../How-To/edit-knowledge-base.md) apropriadas.
 
-## <a name="version-control-of-a-knowledge-base"></a>Controle de versão de uma base de dados de conhecimento
+## <a name="version-control-for-data-in-your-knowledge-base"></a>Controle de versão para dados em sua base de conhecimento
 
-O controle de versão não é fornecido pelo QnA Maker. Você precisa exportar sua base de dados de conhecimento na página **configurações** e usar sua própria metodologia e ferramentas.
+O controle de versão para dados é fornecido por meio dos recursos de importação/exportação na página **configurações** no portal de QnA Maker.
 
-A exportação da base de dados de conhecimento para o formato TSV ou XLS é concluída na página **configurações** . 
+Você pode fazer backup de uma base de dados de conhecimento exportando a base de dados de conhecimento, no formato `.tsv` ou `.xls`. Depois de exportado, inclua esse arquivo como parte da verificação de controle do código-fonte regular.
 
-Quando precisar voltar para uma versão específica, você precisará importar esse arquivo do seu sistema local. Na página **configurações** , importe o arquivo TSV ou xls. Isso substituirá as perguntas e respostas atualmente na base de dados de conhecimento pelo conteúdo do arquivo importado.   
+Quando precisar voltar para uma versão específica, você precisará importar esse arquivo do seu sistema local. Uma base de dados de conhecimento exportada **deve** ser usada apenas por meio de importação na página **configurações** . Ele não pode ser usado como uma fonte de dados de documento ou arquivo de URL. Isso substituirá as perguntas e respostas atualmente na base de dados de conhecimento pelo conteúdo do arquivo importado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="test-and-production-knowledge-base"></a>Base de dados de conhecimento de teste e produção
+Uma base de dados de conhecimento é o repositório de perguntas e conjuntos de respostas criados, mantidos e usados por meio de QnA Maker. Cada recurso de QnA Maker pode conter várias bases de dados de conhecimento.
+
+Uma base de dados de conhecimento tem dois Estados: *teste* e *publicado*.
+
+### <a name="test-knowledge-base"></a>Testar base de dados de conhecimento
+
+A *base de dados de conhecimento de teste* é a versão atualmente editada, salva e testada quanto à exatidão e à integridade das respostas. As alterações feitas na base de dados de conhecimento de teste não afetam o usuário final do seu aplicativo ou bot de bate-papo. A base de dados de conhecimento de teste é conhecida como `test` na solicitação HTTP. O conhecimento de `test` está disponível no painel de **teste** interativo do portal do QnA Maker.
+
+### <a name="production-knowledge-base"></a>Base de dados de conhecimento de produção
+
+A *base de dados de conhecimento publicada* é a versão que é usada no seu aplicativo ou bot de chat. A ação de publicar uma base de dados de conhecimento coloca o conteúdo da base de dados de conhecimento de teste na versão publicada da base de dados de conhecimento. Como a base de dados de conhecimento publicada é a versão que o aplicativo usa por meio do ponto de extremidade, verifique se o conteúdo está correto e bem testado. A base de dados de conhecimento publicada é conhecida como `prod` na solicitação HTTP.
+
+
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Pontuação de confiança](./confidence-score.md)

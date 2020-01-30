@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7eb4d8e784acc659f6661ef6efbdb06816b142c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064448"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836229"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar a restrição etária no Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "71064448"
 
 A retenção de idade no Azure Active Directory B2C (Azure AD B2C) permite que você identifique os pequenos que desejam usar seu aplicativo. Você pode optar por bloquear o menor da conexão ao aplicativo. Os usuários também podem voltar para o aplicativo e identificar seus grupos de idade e seu status de consentimento dos pais. O Active Directory B2C pode bloquear os menores sem o consentimento dos pais. O Azure AD B2C também pode configurar para permitir que o aplicativo decida o que fazer com os menores.
 
-Depois de habilitar a retenção de idade em seu [fluxo de usuário](active-directory-b2c-reference-policies.md), os usuários são solicitados quando eles foram gerados e em qual país/região eles residem. Se um usuário que não inseriu as informações anterior entrar, será necessário inserir a próxima vez que entrar. As regras são aplicadas sempre que um usuário entrar.
+Depois de habilitar a retenção de idade em seu [fluxo de usuário](user-flow-overview.md), os usuários são solicitados quando eles foram gerados e em qual país/região eles residem. Se um usuário que não inseriu as informações anterior entrar, será necessário inserir a próxima vez que entrar. As regras são aplicadas sempre que um usuário entrar.
 
 O Azure AD B2C usa as informações que o usuário insere para identificar se são um menor. O campo **Grupoetário**, em seguida, é atualizado na sua conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult` ou `NotAdult`.  Os campos **Grupoetário** e **consentProvidedForMinor**, em seguida, são usados para calcular o valor de **legalAgeGroupClassification**.
 
@@ -39,10 +39,10 @@ A restrição etária envolve dois valores de idade: a idade que alguém não é
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgária | 16 | 18 |
 | BH | Bahrein | Nenhum | 21 |
-| CM | Camarões | Nenhum | 21 |
+| CM | República dos Camarões | Nenhum | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Tcheca | 16 | 18 |
-| DE | Alemanha | 16 | 18 |
+| Alemanha | Alemanha | 16 | 18 |
 | DK | Dinamarca | 16 | 18 |
 | EE | Estônia | 16 | 18 |
 | EG | Egito | Nenhum | 21 |
@@ -50,17 +50,17 @@ A restrição etária envolve dois valores de idade: a idade que alguém não é
 | FR | França | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
 | GR | Grécia | 16 | 18 |
-| HR | Croácia | 16 | 18 |
+| RH | Croácia | 16 | 18 |
 | HU | Hungria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
-| IT | Itália | 16 | 18 |
+| TI | Itália | 16 | 18 |
 | KR | Coreia, República da | 14 | 18 |
 | LT | Lituânia | 16 | 18 |
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letônia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| N/A | Namíbia | Nenhum | 21 |
-| NL | Países Baixos | 16 | 18 |
+| ND | Namíbia | Nenhum | 21 |
+| NL | Holanda | 16 | 18 |
 | PL | Polônia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Romênia | 16 | 18 |
@@ -68,7 +68,7 @@ A restrição etária envolve dois valores de idade: a idade que alguém não é
 | SG | Cingapura | Nenhum | 21 |
 | SI | Eslovênia | 16 | 18 |
 | SK | Eslováquia | 16 | 18 |
-| TD | Chade | Nenhum | 21 |
+| TD | Chad | Nenhum | 21 |
 | TH | Tailândia | Nenhum | 20 |
 | TW | Taiwan | Nenhum | 20 |
 | EUA | Estados Unidos | 13 | 18 |

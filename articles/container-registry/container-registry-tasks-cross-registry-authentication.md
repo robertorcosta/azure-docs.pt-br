@@ -2,21 +2,21 @@
 title: Autenticação entre registros da tarefa ACR
 description: Configurar uma tarefa de registro de contêiner do Azure (tarefa ACR) para acessar outro registro de contêiner do Azure privado usando uma identidade gerenciada para recursos do Azure
 ms.topic: article
-ms.date: 07/12/2019
-ms.openlocfilehash: 3dc4792f196ab7553f3167983ce34850669fa5bc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/14/2020
+ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456187"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842479"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticação entre registros em uma tarefa ACR usando uma identidade gerenciada pelo Azure 
 
 Em uma [tarefa ACR](container-registry-tasks-overview.md), você pode [habilitar uma identidade gerenciada para recursos do Azure](container-registry-tasks-authentication-managed-identity.md). A tarefa pode usar a identidade para acessar outros recursos do Azure, sem a necessidade de fornecer ou gerenciar credenciais. 
 
-Neste artigo, você aprenderá a habilitar uma identidade gerenciada em uma tarefa que extrai uma imagem de um registro diferente daquele usado para executar a tarefa.
+Neste artigo, você aprenderá a habilitar uma identidade gerenciada em uma tarefa para efetuar pull de uma imagem de um registro diferente daquele usado para executar a tarefa.
 
-Para criar os recursos do Azure, este artigo requer que você execute o CLI do Azure versão 2.0.68 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure][azure-cli].
+Para criar os recursos do Azure, este artigo requer que você execute o CLI do Azure versão 2.0.68 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
@@ -26,7 +26,7 @@ Este exemplo mostra etapas usando uma identidade gerenciada atribuída pelo usu�
 
 Em um cenário do mundo real, uma organização pode manter um conjunto de imagens base usadas por todas as equipes de desenvolvimento para criar seus aplicativos. Essas imagens base são armazenadas em um registro corporativo, com cada equipe de desenvolvimento que tem apenas direitos de pull. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para este artigo, você precisa de dois registros de contêiner do Azure:
 
@@ -55,11 +55,11 @@ az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file D
 As etapas para este exemplo de [tarefa de várias etapas](container-registry-tasks-multi-step.md) são definidas em um [arquivo YAML](container-registry-tasks-reference-yaml.md). Crie um arquivo chamado `helloworldtask.yaml` em seu diretório de trabalho local e cole o conteúdo a seguir. Atualize o valor de `REGISTRY_NAME` na etapa de compilação com o nome do servidor do registro base.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Replace mybaseregistry with the name of your registry containing the base image
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}}  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 A etapa de compilação usa o arquivo `Dockerfile-app` no repositório [Azure-Samples/ACR-Build-HelloWorld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) para criar uma imagem. O `--build-arg` faz referência ao registro base para efetuar pull da imagem base. Quando compilada com êxito, a imagem é enviada por push para o registro usado para executar a tarefa.
@@ -116,12 +116,15 @@ baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 Use o comando [AZ role Assignment Create][az-role-assignment-create] para atribuir a identidade a função de `acrpull` ao registro base. Essa função tem permissões apenas para efetuar pull de imagens do registro.
 
 ```azurecli
-az role assignment create --assignee $principalID --scope $baseregID --role acrpull
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
 ```
 
 ## <a name="add-target-registry-credentials-to-task"></a>Adicionar credenciais do registro de destino à tarefa
 
-Agora, use o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para adicionar as credenciais da identidade à tarefa para que ela possa ser autenticada com o registro base. Execute o comando correspondente ao tipo de identidade gerenciada que você habilitou na tarefa. Se você habilitou uma identidade atribuída pelo usuário, passe `--use-identity` com a ID do cliente da identidade. Se você tiver habilitado uma identidade atribuída pelo sistema, passe `--use-identity [system]`.
+Agora, use o comando [AZ ACR Task Credential Add][az-acr-task-credential-add] para habilitar a tarefa para autenticar com o registro base usando as credenciais da identidade. Execute o comando correspondente ao tipo de identidade gerenciada que você habilitou na tarefa. Se você habilitou uma identidade atribuída pelo usuário, passe `--use-identity` com a ID do cliente da identidade. Se você tiver habilitado uma identidade atribuída pelo sistema, passe `--use-identity [system]`.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task
@@ -210,7 +213,7 @@ Saída de exemplo:
 cf10
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre como [habilitar uma identidade gerenciada em uma tarefa ACR](container-registry-tasks-authentication-managed-identity.md).
 * Consulte a [referência de YAML de tarefas do ACR](container-registry-tasks-reference-yaml.md)

@@ -9,18 +9,20 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771505"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767621"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Roteiro de Machine Learning de algoritmo para Azure Machine Learning designer
 
 A **Folha de Referências de Algoritmo do Azure Machine Learning** ajuda a escolher o algoritmo certo para o modelo de análise preditiva.
 
-Azure Machine Learning tem uma grande biblioteca de algoritmos das famílias ***classificação***, ***sistemas recomendados***, ***clustering***, ***detecção de anomalias***, ***regressão*** e ***análise de texto*** . Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
+Azure Machine Learning tem uma grande biblioteca de algoritmos das famílias ***classificação***, ***sistemas recomendados***, ***clustering***, ***detecção de anomalias***, ***regressão***e ***análise de texto*** . Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
+
+Para obter diretrizes adicionais, consulte [como selecionar algoritmos](how-to-select-algorithms.md)
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Download: roteiro de Machine Learning de algoritmos
 
@@ -32,7 +34,7 @@ Baixar e imprimir a folha de consulta do algoritmo do Machine Learning em tamanh
 
 ## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Como usar a folha de consulta do algoritmo de Machine Learning
 
-As sugestões oferecidas nessa página de dicas úteis de algoritmo são aproximadas às regras de bolso. Algumas podem ser ajustadas e algumas podem ser flagrantemente violadas. Isso serve para sugerir um ponto de partida. Não tenha medo de comparar vários algoritmos em seus dados. Simplesmente não há nenhum substituto para entender os princípios de cada algoritmo e o sistema que gerou os dados.
+As sugestões oferecidas nessa página de dicas úteis de algoritmo são aproximadas às regras de bolso. Algumas podem ser ajustadas e algumas podem ser flagrantemente violadas. Esta folha de consulta deve sugerir um ponto de partida. Não tenha medo de comparar vários algoritmos em seus dados. Simplesmente não há nenhum substituto para entender os princípios de cada algoritmo e o sistema que gerou os dados.
 
 Cada algoritmo de aprendizado de máquina tem seu próprio estilo ou tendência indutivo. Para um problema específico, vários algoritmos podem ser apropriados e um algoritmo pode ser um melhor ajuste do que outros. Mas nem sempre é possível saber com antecedência qual é a melhor opção. Em casos como esse, vários algoritmos estão listados juntos na folha de consulta. Uma estratégia apropriada seria um algoritmo e se os resultados ainda não estiverem satisfatórios, tentar os outros. 
 
@@ -48,17 +50,17 @@ No aprendizado supervisionado, cada ponto de dados é rotulado ou associado a um
 
 ### <a name="unsupervised-learning"></a>Aprendizado não supervisionado
 
-No aprendizado não supervisionado, os pontos de dados não têm rótulos associados a eles. Em vez disso, a meta de um algoritmo de aprendizado sem supervisão é organizar os dados de alguma forma ou descrever sua estrutura. Isso pode significar agrupá-los em clusters, como faz o K-means, ou encontrar diferentes maneiras de consultar dados complexos para que eles pareçam mais simples.
+No aprendizado não supervisionado, os pontos de dados não têm rótulos associados a eles. Em vez disso, a meta de um algoritmo de aprendizado sem supervisão é organizar os dados de alguma forma ou descrever sua estrutura. O aprendizado não supervisionado agrupa dados em clusters, uma vez que o K-means faz ou localiza diferentes maneiras de examinar dados complexos para que pareça mais simples.
 
 ### <a name="reinforcement-learning"></a>Aprendizado de reforço
 
-No aprendizado de reforço, o algoritmo escolhe uma ação em resposta a cada ponto de dados. É uma abordagem comum em robótica, em que o conjunto de leituras do sensor, em um ponto no tempo, é um ponto de dados e o algoritmo deve escolher a próxima ação do robô. Também é um ajuste natural para aplicativos da Internet das Coisas. O algoritmo de aprendizado também recebe um sinal de recompensa pouco tempo depois, indicando se a decisão foi boa. Com base nisso, o algoritmo modifica sua estratégia para alcançar a recompensa mais alta. 
+No aprendizado de reforço, o algoritmo escolhe uma ação em resposta a cada ponto de dados. É uma abordagem comum em robótica, em que o conjunto de leituras do sensor, em um ponto no tempo, é um ponto de dados e o algoritmo deve escolher a próxima ação do robô. Também é um ajuste natural para aplicativos da Internet das Coisas. O algoritmo de aprendizado também recebe um sinal de recompensa pouco tempo depois, indicando se a decisão foi boa. Com base nesse sinal, o algoritmo modifica sua estratégia para alcançar o prêmio mais alto. 
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Saiba mais sobre o estúdio em Azure Machine Learning e o portal do Azure](overview-what-is-azure-ml.md).
+* Consulte diretrizes adicionais sobre [como selecionar algoritmos](how-to-select-algorithms.md)
 
-* Consulte uma lista de algoritmos e módulos no [algoritmo e referência de módulo](algorithm-module-reference/module-reference.md).
+* [Saiba mais sobre o estúdio em Azure Machine Learning e o portal do Azure](overview-what-is-azure-ml.md).
 
 * [Tutorial: criar um modelo de previsão no designer de Azure Machine Learning](tutorial-designer-automobile-price-train-score.md).
 

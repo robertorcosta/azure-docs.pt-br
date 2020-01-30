@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444517"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773858"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -129,6 +129,12 @@ Definir as propriedades de taxa de transferência e de lote em coletores CosmosD
 * Tamanho do lote: Calcule o tamanho da linha aproximada dos dados e verifique se o tamanho do lote de rowgroup * é menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
 * Taxa de transferência: defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
 *   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
+
+## <a name="join-performance"></a>Desempenho de junção
+
+O gerenciamento do desempenho de junções em seu fluxo de dados é uma operação muito comum que você executará durante todo o ciclo de vida de suas transformações de dados. No ADF, os fluxos de dados não exigem que os dados sejam classificados antes de junções, pois essas operações são executadas como junções de hash no Spark. No entanto, você pode se beneficiar do desempenho aprimorado com a otimização de junção de "difusão". Isso evitará a ordem aleatória, empurrando o conteúdo de cada lado da relação de junção para o nó do Spark. Isso funciona bem para tabelas menores que são usadas para pesquisas de referência. Tabelas maiores que podem não se ajustar à memória do nó não são boas candidatas para a otimização da difusão.
+
+Outra otimização de junção é criar suas junções de forma que evite a tendência do Spark de implementar Junções cruzadas. Por exemplo, quando você inclui valores literais em suas condições de junção, o Spark pode ver que, como um requisito para executar um produto cartesiano completo primeiro, filtre os valores associados. Mas se você tiver certeza de que tem valores de coluna em ambos os lados da sua condição de junção, poderá evitar esse produto cartesiano induzido ao Spark e melhorar o desempenho de suas junções e fluxos de dados.
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 74bd22de81e385a4fbd9129a70616e24b594b0b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441314"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771527"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design da tabela de armazenamento de tabelas do Azure: tabelas escalonáveis e de alto desempenho
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Para criar tabelas escalonáveis e de alto desempenho, você deve considerar uma variedade de fatores, incluindo custo. Se você tiver criado anteriormente esquemas para bancos de dados relacionais, essas considerações serão familiares para você. Mas embora haja algumas semelhanças entre o armazenamento de tabelas do Azure e os modelos relacionais, também há muitas diferenças importantes. Essas diferenças normalmente levam a diferentes designs que podem parecer um contador intuitivo ou errado para alguém familiarizado com bancos de dados relacionais, mas isso faz sentido se você estiver criando um repositório de chave/valor NoSQL, como o armazenamento de tabelas.
+Para projetar tabelas escalonáveis e de alto desempenho, é necessário considerar uma variedade de fatores, inclusive os custos. Se já projetou esquemas para bancos de dados relacionais, você já estará familiarizado com essas considerações. Porém, embora haja algumas semelhanças entre o armazenamento de Tabelas do Azure e os modelos relacionais, existem muitas diferenças importantes. Normalmente, essas diferenças resultam em designs diferentes que possam parecer contraintuitivos ou errados para alguém que esteja familiarizado com bancos de dados relacionais, mas que fazem sentido se você estiver criando para um armazenamento de chave/valor de NoSQL, como armazenamento de Tabelas.
 
 O armazenamento de tabela foi projetado para dar suporte a aplicativos em escala de nuvem que podem conter bilhões de entidades ("linhas" na terminologia do banco de dados relacional) ou para conjuntos de dados que devem dar suporte a grandes volumes de transações. Portanto, você precisa pensar de maneira diferente sobre como armazenar seus dados e entender como funciona o armazenamento de tabelas. Um armazenamento de dados NoSQL bem projetado pode permitir que sua solução seja dimensionada muito além (e com um custo menor) do que uma solução que usa um banco de dados relacional. Este guia ajuda você com esses tópicos.  
 

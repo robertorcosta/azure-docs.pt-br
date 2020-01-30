@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/15/2020
+ms.date: 1/24/2020
 ms.author: raiye
-ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122238"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765323"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -41,6 +41,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Você não tem certeza de como atualizar o SO convidado? Verifique [isso][cloud updates] .
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="january-24-2020"></a>**24 de janeiro de 2020**
+O SO convidado de janeiro foi lançado. 
 
 ###### <a name="january-8-2020"></a>**8 de janeiro de 2020**
 O sistema operacional convidado de dezembro foi lançado.
@@ -115,11 +118,12 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.15 _202001-01  |  24 de janeiro de 2020  |  Post 6,17  |  
 | WA-GUEST-OS-6.14 _201912-01 | 8 de janeiro de 2020 | Post 6,16 |  
-| WA-GUEST-OS-6.13 _201911-01 | 5 de dezembro de 2019 | Post 6,15 |  
-|~~WA-GUEST-OS-6.12 _201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-6.13 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-6.12 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-6.11 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-6.10 _201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019  |  
+|~~WA-GUEST-OS-6.10 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019  |  
 |~~WA-GUEST-OS-6,9 _201907-0~~|26 de julho de 2019 | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-6.8 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-6.7 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
@@ -142,11 +146,12 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.39 _202001-01  |  24 de janeiro de 2020  |  Post 5,41  |  
 | WA-GUEST-OS-5.38 _201912-01 | 8 de janeiro de 2020 | Post 5,40 |  
-| WA-GUEST-OS-5.37 _201911-01 | 5 de dezembro de 2019 | Post 5,39 |  
-|~~WA-GUEST-OS-5.36 _201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-5.37 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-5.36 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-5.35 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-5.34 _201908-01~~|  4 de agosto de 2019  | 01 de novembro de 2019 |  
+|~~WA-GUEST-OS-5.34 _201908-01~~|  4 de agosto de 2019  | 1º de novembro de 2019 |  
 |~~WA-GUEST-OS-5.33 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |  
 |~~WA-GUEST-OS-5.32 _201906-01~~|8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-5.31 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
@@ -166,11 +171,12 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.74 _202001-01  |  24 de janeiro de 2020  |  Post 4,76  |  
 | WA-GUEST-OS-4.73 _201912-01 | 8 de janeiro de 2020 | Post 4,75 |  
-| WA-GUEST-OS-4.72 _201911-01 | 5 de dezembro de 2019 | Post 4,74 |  
-|~~WA-GUEST-OS-4.71 _201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-4.72 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-4.71 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-4.70 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-4.69 _201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019 |  
+|~~WA-GUEST-OS-4.69 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019 |  
 |~~WA-GUEST-OS-4.68 _201907-01~~| 26 de julho de 2019  | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-4.67 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-4.66 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
@@ -190,11 +196,12 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.81 _202001-01  |  24 de janeiro de 2020  |  Post 3,83  |  
 | WA-GUEST-OS-3,80 _201912-01 | 8 de janeiro de 2020 | Post 3,82 |  
-| WA-GUEST-OS-3.79 _201911-01 | 5 de dezembro de 2019 | Post 3,81 |  
-|~~WA-GUEST-OS-3.78 _201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-3.79 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-3.78 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-3.77 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-3.76 _201908-01~~|  4 de agosto de 2019  |  01 de novembro de 2019  |  
+|~~WA-GUEST-OS-3.76 _201908-01~~|  4 de agosto de 2019  |  1º de novembro de 2019  |  
 |~~WA-GUEST-OS-3,75 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-3.74 _201906-01~~| 8 de julho de 2019 |4 de agosto de 2019 |
 |~~WA-GUEST-OS-3.73 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |
@@ -214,11 +221,12 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.94 _202001-01  |  24 de janeiro de 2020  |  Post 2,96  |  
 | WA-GUEST-OS-2,93 _201912-01 | 8 de janeiro de 2020 | Post 2,95 |  
-| WA-GUEST-OS-2.92 _201911-01 | 5 de dezembro de 2019 | Post 2,94 |  
-|~~WA-GUEST-OS-2.91 _201910-01~~| 01 de novembro de 2019 | 8 de janeiro de 2020 |  
+|~~WA-GUEST-OS-2.92 _201911-01~~| 5 de dezembro de 2019 | 24 de janeiro de 2020 |  
+|~~WA-GUEST-OS-2.91 _201910-01~~| 1º de novembro de 2019 | 8 de janeiro de 2020 |  
 |~~WA-GUEST-OS-2.90 _201909-01~~| 7 de outubro de 2019 | 5 de dezembro de 2019 |  
-|~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 01 de novembro de 2019 |  
+|~~WA-GUEST-OS-2.89 _201908-01~~| 4 de agosto de 2019 | 1º de novembro de 2019 |  
 |~~WA-GUEST-OS-2,88 _201907-01~~| 26 de julho de 2019 | 7 de outubro de 2019 |
 |~~WA-GUEST-OS-2.87 _201906-01~~|8 de julho de 2019 | 4 de agosto de 2019 |
 |~~WA-GUEST-OS-2.86 _201905-01~~ |6 de junho de 2019 |26 de julho de 2019 |

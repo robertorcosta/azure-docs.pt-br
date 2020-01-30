@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: aaf3111270687e3921d542d87981a25868842f93
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ac0152d0164c3577ade3d862e9512b920c451518
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554918"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766501"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Central de segurança do Azure para alertas de segurança de IoT
 
@@ -30,11 +30,11 @@ Um alerta atua como um indicador de possível comprometimento e deve ser investi
 
 Neste artigo, você encontrará uma lista de alertas internos que podem ser disparados em seus dispositivos de Hub IoT e/ou IoT.
 Além dos alertas internos, a central de segurança do Azure para IoT permite que você defina alertas personalizados com base no comportamento esperado do Hub IoT e/ou do dispositivo.
-Para obter mais detalhes, consulte [criar alertas personalizados](quickstart-create-custom-alerts.md).
+Para obter mais detalhes, consulte [alertas personalizáveis](concept-customizable-security-alerts.md).
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas internos para dispositivos IoT
 
-| NaME | Gravidade | Fonte de dados | Descrição | Etapas de correção sugeridas|                  
+| Nome | Gravidade | fonte de dados | Description | Etapas de correção sugeridas|                  
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |Severidade **alta**|  |  |  |
 |   Linha de comando binária   | Alto | Agente | O binário de LA do Linux sendo chamado/executado na linha de comando foi detectado. Esse processo pode ser uma atividade legítima ou uma indicação de que seu dispositivo está comprometido.|   Examine o comando com o usuário que o executou e verifique se é algo que se espera que seja executado no dispositivo de forma legítima. Caso contrário, encaminhe o alerta para sua equipe de segurança de informações. |
@@ -85,16 +85,16 @@ Para obter mais detalhes, consulte [criar alertas personalizados](quickstart-cre
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Alertas internos para o Hub IoT
 
-| Gravidade | NaME                                                                         | Descrição | Correção sugerida|
+| Gravidade | Nome                                                                         | Description | Correção sugerida|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |Severidade **média**|  |  |  |
-|  Novo certificado adicionado a um hub IoT  | Média                                     |Um certificado denominado \'% {DescCertificateName} \' foi adicionado ao Hub IoT \'% {DescIoTHubName} \'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.| 1. Verifique se o certificado foi adicionado por uma parte autorizada. <br> 2. se não tiver sido adicionado por uma parte autorizada, remova o certificado e encaminhe o alerta para a equipe de segurança organizacional.  |
-|  Certificado excluído de um hub IoT  | Média                             | Um certificado denominado \'% {DescCertificateName} \' foi excluído do Hub IoT \'% {DescIoTHubName} \'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar uma atividade mal-intencionada.| 1. Verifique se o certificado foi removido por uma parte autorizada. <br> 2. se o certificado não tiver sido removido por uma parte autorizada, adicione o certificado de volta e escale o alerta para a equipe de segurança organizacional. |
-| Tentativa malsucedida de adicionar um certificado a um hub IoT   | Média    | Houve uma tentativa malsucedida de adicionar o certificado \'% {DescCertificateName} \' ao Hub IoT \'% {DescIoTHubName} \'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.|   Certifique-se de que as permissões para alterar certificados sejam concedidas somente a partes autorizadas.  |
-|  Tentativa malsucedida de excluir um certificado de um hub IoT | Média  | Houve uma tentativa malsucedida de excluir o certificado \'% {DescCertificateName} \' do Hub IoT \'% {DescIoTHubName} \'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada. |Certifique-se de que as permissões para alterar certificados sejam concedidas somente a uma parte autorizada.
+|  Novo certificado adicionado a um hub IoT  | Média                                     |Um certificado denominado \'% {DescCertificateName}\' foi adicionado ao Hub IoT \'% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.| 1. Verifique se o certificado foi adicionado por uma parte autorizada. <br> 2. se não tiver sido adicionado por uma parte autorizada, remova o certificado e encaminhe o alerta para a equipe de segurança organizacional.  |
+|  Certificado excluído de um hub IoT  | Média                             | Um certificado denominado \'% {DescCertificateName}\' foi excluído do Hub IoT \'% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar uma atividade mal-intencionada.| 1. Verifique se o certificado foi removido por uma parte autorizada. <br> 2. se o certificado não tiver sido removido por uma parte autorizada, adicione o certificado de volta e escale o alerta para a equipe de segurança organizacional. |
+| Tentativa malsucedida de adicionar um certificado a um hub IoT   | Média    | Houve uma tentativa malsucedida de adicionar o certificado \'% {DescCertificateName}\' ao Hub IoT \'% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada.|   Certifique-se de que as permissões para alterar certificados sejam concedidas somente a partes autorizadas.  |
+|  Tentativa malsucedida de excluir um certificado de um hub IoT | Média  | Houve uma tentativa malsucedida de excluir o certificado \'% {DescCertificateName}\' do Hub IoT \'% {DescIoTHubName}\'. Se essa ação foi feita por uma parte não autorizada, ela pode indicar atividade mal-intencionada. |Certifique-se de que as permissões para alterar certificados sejam concedidas somente a uma parte autorizada.
 |Severidade **baixa**|  |  |  |
 |   Tentativa de adicionar ou editar uma configuração de diagnóstico de um hub IoT detectada   | Baixo     | Foi detectada uma tentativa de adicionar ou editar as configurações de diagnóstico de um hub IoT. As configurações de diagnóstico permitem recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela pode indicar atividade mal-intencionada.  |1. Verifique se o certificado foi removido por uma parte autorizada.<br> 2. se o certificado não tiver sido removido por uma parte autorizada, adicione o certificado de volta e escale o alerta para sua equipe de segurança de informações.
-|   Tentativa de excluir uma configuração de diagnóstico de um hub IoT detectada        | Baixo      | % {DescAttemptStatusMessage} \' tentativa de adicionar ou editar a configuração de diagnóstico \'% {DescDiagnosticSettingName} \' do Hub IoT \'% {DescIoTHubName} \'. A configuração de diagnóstico permite recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela poderá indicar uma atividade mal-intencionada. |Verifique se as permissões para alterar as configurações de diagnóstico são concedidas somente a uma parte autorizada.
+|   Tentativa de excluir uma configuração de diagnóstico de um hub IoT detectada        | Baixo      | % {DescAttemptStatusMessage}\' tentativa de adicionar ou editar a configuração de diagnóstico \'% {DescDiagnosticSettingName}\' do Hub IoT \'% {DescIoTHubName}\'. A configuração de diagnóstico permite recriar trilhas de atividade para fins de investigação quando ocorre um incidente de segurança ou sua rede é comprometida. Se essa ação não foi feita por uma parte autorizada, ela poderá indicar uma atividade mal-intencionada. |Verifique se as permissões para alterar as configurações de diagnóstico são concedidas somente a uma parte autorizada.
 |
 
 ## <a name="next-steps"></a>Próximos passos

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974100"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769108"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação Azure Machine Learning?
 
@@ -32,7 +32,7 @@ As instâncias de computação normalmente são usadas como ambientes de desenvo
 
 ## <a name="why-use-a-compute-instance"></a>Por que usar uma instância de computação?
 
-Uma instância de computação é uma estação de trabalho totalmente gerenciada baseada em nuvem otimizada para seu ambiente de desenvolvimento do Machine Learning. Ele fornece os seguintes benefícios:
+Uma instância de computação é uma estação de trabalho totalmente gerenciada baseada em nuvem otimizada para seu ambiente de desenvolvimento do Machine Learning. Ele oferece os seguintes benefícios:
 
 |Principais benefícios||
 |----|----|
@@ -117,7 +117,7 @@ Em seu espaço de trabalho no Azure Machine Learning Studio, selecione **computa
 
 Você pode executar as seguintes ações:
 
-* Crie uma instância de computação. Especifique o nome, o tipo de VM do Azure, incluindo GPUs, habilite/desabilite o acesso SSH e defina as configurações de rede virtual opcionalmente. Você também pode criar uma instância diretamente de blocos de anotações integrados, portal do Azure, modelo do Resource Manager ou SDK do Azure Machine Learning. A cota de núcleos dedicados por região que se aplica à criação da instância de computação é unificada e compartilhada com Azure Machine Learning cota de cluster de computação.
+* Crie uma instância de computação. Especifique o nome, o tipo de VM do Azure, incluindo GPUs (o tipo de VM não pode ser alterado após a criação), habilite/desabilite o acesso SSH e defina as configurações de rede virtual opcionalmente. Você também pode criar uma instância diretamente de blocos de anotações integrados, portal do Azure, modelo do Resource Manager ou SDK do Azure Machine Learning. A cota de núcleos dedicados por região que se aplica à criação da instância de computação é unificada e compartilhada com Azure Machine Learning cota de cluster de computação.
 * Atualizar a guia instâncias de computação
 * Iniciar, parar e reiniciar uma instância de computação
 * Excluir uma instância de computação

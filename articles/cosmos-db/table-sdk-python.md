@@ -6,16 +6,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: a26e69d756c0f5b8bb26d85d2901e686aba50771
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480160"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771282"
 ---
-# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK da API de Tabela do Azure Cosmos DB para Python: Notas sobre a versão e recursos
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK do API de Tabela do Azure Cosmos DB para Python: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -51,13 +51,13 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 
 <br/>
 
-| Version | Data do lançamento | Data de desativação |
+| Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de novembro de 2017 |--- |
 | [0.37.1](#0.37.1) |5 de outubro de 2017 |--- |
 
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também

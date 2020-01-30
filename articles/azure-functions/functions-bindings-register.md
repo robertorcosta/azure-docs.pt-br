@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231103"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766239"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar Azure Functions extensões de associação
 
@@ -24,7 +24,7 @@ Considere os seguintes itens relacionados a extensões de associação:
 
 A tabela a seguir indica quando e como você registra as associações.
 
-| Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> em funções 2. x  |
+| Ambiente de desenvolvimento |Inscrição<br/> em funções de 1. x  |Inscrição<br/> em funções 2. x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Portal do Azure|Automático|Automático|
 |Idiomas Non-.NET ou desenvolvimento de ferramentas principais do Azure local|Automático|[Usar Azure Functions Core Tools e pacotes de extensão](#extension-bundles)|
@@ -63,9 +63,6 @@ Se você usar `Install-Package` para fazer referência a uma associação, não 
 
 ## <a name="vs-code"></a>C# biblioteca de classes com Visual Studio Code
 
-> [!NOTE]
-> É recomendável usar [pacotes de extensão](#extension-bundles) para que o Functions instale automaticamente um conjunto compatível de pacotes de extensão de associação. 
-
 No **Visual Studio Code**, instale pacotes para um C# projeto de biblioteca de classes do prompt de comando usando o comando [dotnet adicionar pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) na CLI do .NET Core. O exemplo a seguir demonstra como você adiciona uma associação:
 
 ```terminal
@@ -78,6 +75,6 @@ Substitua `<BINDING_TYPE_NAME>` pelo nome do pacote que contém a associação d
 
 Substituir `<TARGET_VERSION>` no exemplo com uma versão específica do pacote, como `3.0.0-beta5`. As versões válidas são listadas nas páginas de pacote individuais em [NuGet.org](https://nuget.org). As versões principais que correspondem ao Functions Runtime 1. x ou 2. x são especificadas no artigo de referência para a associação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 > [!div class="nextstepaction"]
 > [Exemplo de gatilho e associação do Azure function](./functions-bindings-example.md)

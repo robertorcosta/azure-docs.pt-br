@@ -3,28 +3,25 @@ title: Gerenciar capturas de pacotes com o Observador de Rede do Azure - API RES
 description: Esta página explica como gerenciar o recurso de captura de pacotes do Observador de Rede usando a API REST do Azure
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 896c681cd7337faba7add214e186e18ec87b529d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.author: damendo
+ms.openlocfilehash: 5199cf95452f93db2c2dd747fcabc67a6722d31e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676345"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840886"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando a API REST do Azure
 
 > [!div class="op_single_selector"]
-> - [Portal do Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
@@ -36,9 +33,9 @@ Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão 
 - [**Obter uma captura de pacotes**](#get-a-packet-capture)
 - [**Listar todas as capturas de pacotes**](#list-all-packet-captures)
 - [**Consultar o status de uma captura de pacotes**](#query-packet-capture-status)
-- [**Iniciar uma captura de pacotes**](#start-packet-capture)
+- [**Iniciar uma captura de pacote**](#start-packet-capture)
 - [**Parar uma captura de pacote**](#stop-packet-capture)
-- [**Excluir uma captura de pacotes**](#delete-packet-capture)
+- [**Excluir uma captura de pacote**](#delete-packet-capture)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -47,7 +44,7 @@ Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão 
 
 Nesse cenário, você chama a API Rest do Observador de Rede para executar a Verificação de Fluxo de IP. O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que você já tenha seguido as etapas em [Criar um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
 
 > A captura de pacotes exige uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
@@ -89,7 +86,7 @@ Na saída a seguir, a id da máquina virtual é usada no exemplo a seguir.
 ```
 
 
-## <a name="get-a-packet-capture"></a>Obter uma captura de pacotes
+## <a name="get-a-packet-capture"></a>Obter uma captura de pacote
 
 O exemplo a seguir obtém o status de uma captura de pacotes
 
@@ -302,9 +299,9 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 > [!NOTE]
 > Excluir uma captura de pacotes não exclui o arquivo na conta de armazenamento
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
-Para obter instruções sobre como baixar os arquivos das contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para saber mais sobre o Gerenciador de Armazenamento, acesse o link: [Gerenciador de Armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 

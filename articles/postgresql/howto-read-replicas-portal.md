@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/24/2020
+ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770213"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768957"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
 
@@ -27,6 +27,9 @@ Essas etapas devem ser usadas para preparar um servidor mestre nas camadas de us
 1. No portal do Azure, selecione o servidor existente do Banco de Dados do Azure para PostgreSQL a ser usado como mestre.
 
 2. Na barra lateral do servidor, em **configurações**, selecione **replicação**.
+
+> [!NOTE] 
+> Se você vir **desabilitar suporte de replicação** esmaecido, as configurações de replicação já estão definidas no servidor por padrão. Você pode ignorar as etapas a seguir e ir para criar uma réplica de leitura. 
 
 3. Selecione **habilitar suporte à replicação**. 
 

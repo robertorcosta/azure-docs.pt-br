@@ -5,14 +5,14 @@ services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707214"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767375"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o serviço kubernetes do Azure
 
@@ -42,6 +42,8 @@ Os serviços são *gerenciados* no sentido de que a Microsoft e a equipe AKs imp
 
 > [!NOTE]
 > Os nós de trabalho do AKS aparecem no portal do Azure como recursos comuns de IaaS do Azure. Mas essas máquinas virtuais são implantadas em um grupo de recursos do Azure personalizado (prefixado com o MC\\*). É possível alterar os nós de trabalho do AKS. Por exemplo, você pode usar Secure Shell (SSH) para alterar nós de trabalho do AKS da maneira como altera as máquinas virtuais normais (não é possível, no entanto, alterar a imagem do sistema operacional base, e as alterações podem não persistir por uma atualização ou reinicialização) e você pode anexar outros recursos do Azure ao AKS nós de trabalho. Mas quando você faz alterações *fora do gerenciamento de banda e da personalização,* o cluster AKs pode se tornar incompatível. Evite alterar os nós de trabalho, a menos que Suporte da Microsoft o Direcione para fazer alterações.
+
+A emissão de operações sem suporte, conforme definido acima, como desalocação fora da banda de todos os nós do agente, renderiza o cluster sem suporte. AKS reserva-se o direito de arquivar planos de controle que foram configurados fora das diretrizes de suporte por longos períodos iguais e superiores a 30 dias. O AKS mantém backups dos metadados do cluster etcd e pode realocar o cluster prontamente. Essa realocação pode ser iniciada por qualquer operação PUT que retorne o cluster para suporte, como uma atualização ou escala para nós de agente ativo.
 
 ## <a name="shared-responsibility"></a>Responsabilidade compartilhada
 

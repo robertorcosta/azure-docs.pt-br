@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704537"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842709"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -1084,7 +1084,35 @@ Se os arquivos não camada para arquivos do Azure:
        - Em um prompt de comandos com privilégios elevados, digite `fltmc`. Verifique se os drivers de filtro de sistema de arquivos StorageSync.sys e StorageSyncGuard.sys estão listados.
 
 > [!NOTE]
-> Um ID de Evento 9003 é registrada uma vez por hora no log de eventos da Telemetria se um arquivo falhar na camada (um evento é registrado por código de erro). Os logs de eventos operacionais e de diagnóstico devem ser usados se informações adicionais forem necessárias para diagnosticar um problema.
+> Um ID de Evento 9003 é registrada uma vez por hora no log de eventos da Telemetria se um arquivo falhar na camada (um evento é registrado por código de erro). Verifique a seção [erros de camadas e correção](#tiering-errors-and-remediation) para ver se as etapas de correção estão listadas para o código de erro.
+
+### <a name="tiering-errors-and-remediation"></a>Erros de camadas e correção
+
+| HRESULT | HRESULT (decimal) | Cadeia de caracteres de erro | Problema | Correção |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Falha na camada do arquivo porque ele está em uso. | Nenhuma ação é necessária. O arquivo será colocado em camadas quando não estiver mais em uso. |
+| 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Falha na camada do arquivo porque ele foi excluído pela sincronização. | Nenhuma ação é necessária. Os arquivos na lista de exclusão de sincronização não podem ser em camadas. |
+| 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Falha na camada do arquivo porque ele não foi encontrado no servidor. | Nenhuma ação é necessária. Se o erro persistir, verifique se o arquivo existe no servidor. |
+| 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | Falha na camada do arquivo porque ele foi excluído no compartilhamento de arquivos do Azure. | Nenhuma ação é necessária. O arquivo deve ser excluído no servidor quando a próxima sessão de sincronização de download for executada. |
+| 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | Falha na camada do arquivo devido a um problema de rede. | Nenhuma ação é necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | Falha na camada do arquivo devido a um problema de rede. | Nenhuma ação é necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Falha na camada do arquivo devido ao erro de acesso negado. Esse erro pode ocorrer se o arquivo estiver localizado em uma pasta de replicação somente leitura do DFS-R. | A Sincronização de Arquivos do Azure não oferece suporte a pontos de extremidade de servidor em pastas de replicação somente leitura do DFS-R. Consulte o [Guia de planejamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para obter mais informações. |
+| 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | Falha na camada do arquivo devido a um problema de rede. | Nenhuma ação é necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | Falha na camada do arquivo porque o tamanho do arquivo é menor que o tamanho com suporte. | Se a versão do agente for menor que 9,0, o tamanho mínimo de arquivo com suporte é 64 KB. Se a versão do agente for 9,0 e mais recente, o tamanho mínimo de arquivo com suporte é baseado no tamanho do cluster do sistema de arquivos (tamanho de cluster de sistema de arquivos duplo). Por exemplo, se o tamanho do cluster do sistema de arquivos for 4 KB, o tamanho mínimo do arquivo será 8 KB. |
+| 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Falha na camada do arquivo devido a um problema de armazenamento do Azure. | Se o erro persistir, abra uma solicitação de suporte. |
+| 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | O arquivo falhou ao ser nivelado porque foi rechamado ao mesmo tempo. | Nenhuma ação é necessária. O arquivo será colocado em camadas quando a recuperação for concluída e o arquivo não estiver mais em uso. |
+| 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Falha na camada do arquivo porque ele não foi sincronizado com o compartilhamento de arquivos do Azure. | Nenhuma ação é necessária. O arquivo será nivelado depois de ser sincronizado com o compartilhamento de arquivos do Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Falha na camada do arquivo porque o driver de filtro de camadas de nuvem (storagesync. sys) não está em execução. | Para resolver esse problema, abra um prompt de comando com privilégios elevados e execute o seguinte comando: Fltmc Load storagesync <br>Se o driver de filtro storagesync não for carregado ao executar o comando Fltmc, desinstale o agente de Sincronização de Arquivos do Azure, reinicie o servidor e reinstale o agente de Sincronização de Arquivos do Azure. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Falha na camada do arquivo devido a espaço em disco insuficiente no volume em que o ponto de extremidade do servidor está localizado. | Para resolver esse problema, libere pelo menos 100 MB de espaço em disco no volume em que o ponto de extremidade do servidor está localizado. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Falha na camada do arquivo porque ele não foi sincronizado com o compartilhamento de arquivos do Azure. | Nenhuma ação é necessária. O arquivo será nivelado depois de ser sincronizado com o compartilhamento de arquivos do Azure. |
+| 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Falha na camada do arquivo porque ele é um ponto de nova análise sem suporte. | Se o arquivo for um ponto de nova análise de eliminação de duplicação de dados, siga as etapas no [Guia de planejamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) para habilitar o suporte à eliminação de duplicação de dados. Arquivos com pontos de nova análise que não sejam a eliminação de duplicação de dados não têm suporte e não serão em camadas.  |
+| 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | Falha na camada do arquivo porque ele foi modificado. | Nenhuma ação é necessária. O arquivo será nivelado depois que o arquivo modificado tiver sido sincronizado com o compartilhamento de arquivos do Azure. |
+| 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | Falha na camada do arquivo porque ele não foi sincronizado com o compartilhamento de arquivos do Azure. | Nenhuma ação é necessária. O arquivo será nivelado depois de ser sincronizado com o compartilhamento de arquivos do Azure. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | Falha na camada do arquivo devido a um problema de rede. | Nenhuma ação é necessária. Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Falha na camada do arquivo porque ele foi modificado. | Nenhuma ação é necessária. O arquivo será nivelado depois que o arquivo modificado tiver sido sincronizado com o compartilhamento de arquivos do Azure. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Falha na camada do arquivo devido a recursos insuficientes do sistema. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Como solucionar problemas de arquivos que falham quando seu recall é realizado  
 Se os arquivos não ser recuperados:
@@ -1109,7 +1137,7 @@ Se os arquivos não ser recuperados:
 | 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Falha ao recuperar o arquivo porque ele não está acessível no compartilhamento de arquivos do Azure. | Para resolver esse problema, verifique se o arquivo existe no compartilhamento de arquivos do Azure. Se o arquivo existir no compartilhamento de arquivos do Azure, atualize para a versão mais recente do [agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)de sincronização de arquivos do Azure. |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Falha ao recuperar o arquivo devido a uma falha de autorização na conta de armazenamento. | Para resolver esse problema, verifique se [sincronização de arquivos do Azure tem acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Falha ao recuperar o arquivo porque o compartilhamento de arquivos do Azure não está acessível. | Verifique se o compartilhamento de arquivos existe e está acessível. Se o compartilhamento de arquivos foi excluído e recriado, execute as etapas documentadas na [sincronização, pois a seção compartilhamento de arquivos do Azure foi excluída e recriada](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) para excluir e recriar o grupo de sincronização. |
-| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Falha ao recuperar o arquivo devido a recursos do sistema insuffcient. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Falha ao recuperar o arquivo devido a recursos insuficientes do sistema. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Falha ao recuperar o arquivo devido à memória insuffcient. | Se o erro persistir, investigue qual driver do modo kernel ou aplicativo está causando a condição de memória insuficiente. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Falha ao recuperar o arquivo devido a espaço em disco insuficiente. | Para resolver esse problema, libere espaço no volume movendo arquivos para um volume diferente, aumente o tamanho do volume ou Force os arquivos a serem nivelados usando o cmdlet Invoke-StorageSyncCloudTiering. |
 

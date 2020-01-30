@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942232"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833287"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerenciar o dimensionamento horizontal do cluster (scale out) no Azure Data Explorer para acomodar a demanda em alteração
 
@@ -58,9 +58,10 @@ O dimensionamento automático otimizado começa a funcionar. Suas ações agora 
 Quando o cluster se aproxima de um estado de utilização excessiva, escale horizontalmente para manter o desempenho ideal. A expansão ocorrerá quando:
 * O número de instâncias de cluster está abaixo do número máximo de instâncias definidas pelo usuário.
 * A utilização do cache é alta por mais de uma hora.
+* A CPU é alta por mais de uma hora.
 
 > [!NOTE]
-> A lógica de expansão não considera atualmente a utilização de ingestão e as métricas de CPU. Se essas métricas forem importantes para seu caso de uso, use o [dimensionamento automático personalizado](#custom-autoscale).
+> A lógica de expansão não considera a métrica de utilização de ingestão. Se essa métrica for importante para seu caso de uso, use o [dimensionamento automático personalizado](#custom-autoscale).
 
 **Reduzir horizontalmente**
 
@@ -121,7 +122,7 @@ Usando o dimensionamento automático personalizado, você pode dimensionar seu c
     | --- | --- |
     | **Mínimo** | É o número de instâncias para baixo do qual o cluster não será reduzido, independentemente da utilização. |
     | **Máximo** | É o número de instâncias para acima do qual o cluster não será aumentado, independentemente da utilização. |
-    | **Padrão** | O número padrão de instâncias. Essa configuração será usada se houver problemas na leitura das métricas de recurso. |
+    | **Default** | O número padrão de instâncias. Essa configuração será usada se houver problemas na leitura das métricas de recurso. |
     |  |  |
 
 7. Clique em **Salvar**.

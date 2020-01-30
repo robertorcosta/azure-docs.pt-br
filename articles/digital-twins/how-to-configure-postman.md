@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933451"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765408"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o Postman para os Gêmeos Digitais do Azure
 
@@ -79,7 +79,6 @@ Configurar seu aplicativo Azure Active Directory para usar o fluxo de concessão
 
 Configure e configure o postmaster para obter um token de Azure Active Directory. Em seguida, faça uma solicitação HTTP autenticada para os Gêmeos Digitais do Azure usando o token adquirido:
 
-1. Vá para [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
 1. Verifique se sua **URL de Autorização** está correta. Deve pegar o formato:
 
     ```plaintext
@@ -88,9 +87,13 @@ Configure e configure o postmaster para obter um token de Azure Active Directory
 
     | Nome  | Substitua por | Exemplo |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | O nome do seu locatário ou organização | `microsoft` |
+    | YOUR_AZURE_TENANT | O nome do seu locatário ou organização. Use o nome amigável para o humano em vez da **ID de locatário** alfanumérico de seu Azure Active Directory registro de aplicativo. | `microsoft` |
 
-1. Selecione a guia **Autorização**, selecione **OAuth 2.0** e, em seguida, selecione **Obter novo token de acesso**.
+1. Vá para [www.getpostman.com](https://www.getpostman.com/) para baixar o aplicativo.
+
+1. Abra o aplicativo Postman e clique em novo | Criar novo e selecione Solicitar. Insira um nome de solicitação. Selecione uma coleção ou pasta para salvar e clique em salvar. 
+
+1. Queremos fazer uma solicitação GET. Selecione a guia **autorização** , selecione OAuth 2,0 e, em seguida, selecione **obter novo token de acesso**.
 
     | Campo  | Valor |
     |---------|---------|

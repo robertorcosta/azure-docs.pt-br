@@ -12,14 +12,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/15/2019
+ms.date: 01/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56fcd5a8a02e292fdf43f9d22f3987813bce0743
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ce3582539d6130e13ef205806d780164ba70c4fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029816"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842530"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -143,6 +143,67 @@ Para autenticar com uma entidade de serviço, você precisa atribuir o RBAC ao s
 O aplicativo agora deverá ser exibido nas configurações de controle de acesso com uma função RBAC atribuída.
 
 ![Atribuir uma função RBAC ao aplicativo](./media/batch-aad-auth/app-rbac-role.png)
+
+### <a name="assign-a-custom-role"></a>Atribuir uma função personalizada
+
+Uma função personalizada concede permissão granular a um usuário para enviar trabalhos, tarefas e muito mais. Isso fornece a capacidade de impedir que os usuários executem operações que afetam o custo, como a criação de pools ou a modificação de nós.
+
+Você pode usar uma função personalizada para conceder permissões a um usuário, grupo ou entidade de serviço do Azure AD para as seguintes operações de RBAC:
+
+- Microsoft.Batch/batchAccounts/pools/write
+- Microsoft.Batch/batchAccounts/pools/delete
+- Microsoft.Batch/batchAccounts/pools/read
+- Microsoft. batch/batchAccounts/jobSchedules/Write
+- Microsoft. batch/batchAccounts/jobSchedules/Delete
+- Microsoft. batch/batchAccounts/jobSchedules/Read
+- Microsoft. batch/batchAccounts/Jobs/Write
+- Microsoft. batch/batchAccounts/trabalhos/excluir
+- Microsoft. batch/batchAccounts/trabalhos/ler
+- Microsoft.Batch/batchAccounts/certificates/write
+- Microsoft.Batch/batchAccounts/certificates/delete
+- Microsoft.Batch/batchAccounts/certificates/read
+- Microsoft. batch/batchAccounts/Read (para qualquer operação de leitura)
+- Microsoft. batch/batchAccounts/listKeys/Action (para qualquer operação)
+
+As funções personalizadas são para usuários autenticados pelo Azure AD, não as credenciais de conta do lote (chave compartilhada). Observe que as credenciais da conta do lote dão permissão total para a conta do lote. Observe também que os trabalhos que usam o autopool exigem permissões em nível de pool.
+
+Aqui está um exemplo de uma definição de função personalizada:
+
+```json
+{
+ "properties":{
+    "roleName":"Azure Batch Custom Job Submitter",
+    "type":"CustomRole",
+    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
+    "assignableScopes":[
+      "/subscriptions/88888888-8888-8888-8888-888888888888"
+    ],
+    "permissions":[
+      {
+        "actions":[
+          "Microsoft.Batch/*/read",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/alertRules/*"
+        ],
+        "notActions":[
+
+        ],
+        "dataActions":[
+          "Microsoft.Batch/batchAccounts/jobs/*",
+          "Microsoft.Batch/batchAccounts/jobSchedules/*"
+        ],
+        "notDataActions":[
+
+        ]
+      }
+    ]
+  }
+}
+```
+
+Para obter mais informações gerais sobre como criar uma função personalizada, consulte [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Obter a ID do locatário para o Azure Active Directory
 

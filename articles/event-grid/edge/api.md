@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ee2b3a35b6f1817b89541a31d0bde4adf00ade2a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992529"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841822"
 ---
 # <a name="rest-api"></a>API REST
 Este artigo descreve as APIs REST da grade de eventos do Azure no IoT Edge
@@ -183,6 +183,7 @@ Os exemplos nesta seção usam `EndpointType=Webhook;`. Os exemplos de JSON para
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -620,7 +621,7 @@ Restrições no atributo `endpointUrl`:
 - Ele deve ser não nulo.
 - Ele deve ser uma URL absoluta.
 - Se outbound__webhook__httpsOnly for definido como true nas configurações de EventGridModule, ele deverá ser somente HTTPS.
-- Se outbound__webhook__httpsOnly for definido como false, ele poderá ser HTTP ou HTTPS.
+- Se outbound__webhook__httpsOnly definido como false, ele poderá ser HTTP ou HTTPS.
 
 Restrições na propriedade `eventDeliverySchema`:
 - Ele deve corresponder ao esquema de entrada do tópico de assinatura.
@@ -686,3 +687,93 @@ SasKey:
 Topicname:
 - Se a assinatura. EventDeliverySchema for definida como EventGridSchema, o valor desse campo será colocado no campo de tópico de cada evento antes de ser encaminhado para a grade de eventos na nuvem.
 - Se a assinatura. EventDeliverySchema for definida como CustomEventSchema, essa propriedade será ignorada e a carga do evento personalizado será encaminhada exatamente como foi recebida.
+
+## <a name="set-up-event-hubs-as-a-destination"></a>Configurar os hubs de eventos como um destino
+
+Para publicar em um hub de eventos, defina o `endpointType` como `eventHub` e forneça:
+
+* connectionString: cadeia de conexão para o Hub de eventos específico que você pretende gerar por meio de uma política de acesso compartilhado.
+
+    >[!NOTE]
+    > A cadeia de conexão deve ser específica à entidade. Usar uma cadeia de conexão de namespace não funcionará. Você pode gerar uma cadeia de conexão específica da entidade navegando até o Hub de eventos específico no qual deseja publicar no portal do Azure e clicando em **políticas de acesso compartilhado** para gerar uma nova cadeia de caracteres connecection específica da entidade.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Configurar filas do barramento de serviço como um destino
+
+Para publicar em uma fila do barramento de serviço, defina o `endpointType` como `serviceBusQueue` e forneça:
+
+* connectionString: cadeia de conexão para a fila específica do barramento de serviço que você está direcionando gerada por meio de uma política de acesso compartilhado.
+
+    >[!NOTE]
+    > A cadeia de conexão deve ser específica à entidade. Usar uma cadeia de conexão de namespace não funcionará. Gere uma cadeia de conexão específica da entidade navegando até a fila específica do barramento de serviço na qual você gostaria de publicar no portal do Azure e clicando em **políticas de acesso compartilhado** para gerar uma nova cadeia de caracteres connecection específica da entidade.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-topics-as-a-destination"></a>Configurar tópicos do barramento de serviço como um destino
+
+Para publicar em um tópico do barramento de serviço, defina o `endpointType` como `serviceBusTopic` e forneça:
+
+* connectionString: cadeia de conexão para o tópico específico do barramento de serviço que você está direcionando gerado por uma política de acesso compartilhado.
+
+    >[!NOTE]
+    > A cadeia de conexão deve ser específica à entidade. Usar uma cadeia de conexão de namespace não funcionará. Gere uma cadeia de conexão específica da entidade navegando até o tópico específico do barramento de serviço que você deseja publicar no portal do Azure e clicando em **políticas de acesso compartilhado** para gerar uma nova cadeia de caracteres connecection específica da entidade.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-storage-queues-as-a-destination"></a>Configurar filas de armazenamento como um destino
+
+Para publicar em uma fila de armazenamento, defina o `endpointType` como `storageQueue` e forneça:
+
+* QueueName: o nome da fila de armazenamento na qual você está publicando.
+* connectionString: cadeia de conexão para a conta de armazenamento na qual a fila de armazenamento está.
+
+    >[!NOTE]
+    > Hubs de eventos unline, filas do barramento de serviço e tópicos do barramento de serviço, a cadeia de conexão usada para filas de armazenamento não é específica à entidade. Em vez disso, ele deve, mas a cadeia de conexão para a conta de armazenamento.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

@@ -1,10 +1,9 @@
 ---
 title: Barramento de Serviço do Azure para a visão geral da integração da Grade de Eventos | Microsoft Docs
-description: Descrição do sistema de mensagens do Barramento de Serviço e integração da Grade de Eventos
+description: Este artigo fornece uma descrição de como o sistema de mensagens do barramento de serviço do Azure se integra à grade de eventos do Azure.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072129"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773471"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -39,7 +38,7 @@ Para habilitar o recurso, você precisa dos itens a seguir:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se você tem acesso de colaborador
-Navegue até seu namespace do Barramento de Serviço, selecione **Controle de acesso (IAM)** e selecione a aba **Atribuição de função**. Verifique se você tem o acesso de Colaborador ao namespace. 
+Vá para o namespace do barramento de serviço e selecione **controle de acesso (iam)** e selecione a guia **atribuições de função** . Verifique se você tem o acesso de colaborador ao namespace. 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de evento
 
@@ -175,7 +174,7 @@ New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTIO
 
 Daqui em diante, você poderá explorar as outras opções de instalação ou testar os eventos que estão fluindo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
 * Saiba mais sobre a [Grade de Eventos](https://docs.microsoft.com/azure/event-grid/).

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263363"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840274"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -260,7 +260,7 @@ public class ResponseContent
 
 Consulte os seguintes artigos para obter exemplos de como usar um perfil técnico RESTful:
 
-- [Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário](active-directory-b2c-custom-rest-api-netfw.md)
-- [Proteja seus serviços RESTful usando a autenticação Básica HTTP](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Proteger seu serviço RESTful usando certificados do cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário](active-directory-b2c-rest-api-validation-custom.md)
+- [Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário](rest-api-claims-exchange-dotnet.md)
+- [Proteja seus serviços RESTful usando a autenticação Básica HTTP](secure-rest-api-dotnet-basic-auth.md)
+- [Proteger seu serviço RESTful usando certificados do cliente](secure-rest-api-dotnet-certificate-auth.md)
+- [Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário](custom-policy-rest-api-claims-validation.md)

@@ -3,24 +3,24 @@ title: Níveis de zoom e grade de bloco | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre níveis de zoom e grade de blocos em mapas de Microsoft Azure.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910768"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765849"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
 
-Os Mapas do Azure usam o sistema de coordenadas de projeção do Spherical Mercator (EPSG: 3857). Uma projeção é o modelo matemático usado para transformar o globo esférico em um mapa simples. A projeção esférica Mercator estende o mapa no polos para criar um mapa quadrado. Isso distorce significativamente a escala e a área do mapa, mas tem duas propriedades importantes que superam essa distorção:
+Os Mapas do Azure usam o sistema de coordenadas de projeção do Spherical Mercator (EPSG: 3857). Uma projeção é o modelo matemático usado para transformar o globo esférico em um mapa simples. A projeção esférica Mercator amplia o mapa no polos para criar um mapa quadrado. Essa projeção distorce significativamente a escala e a área do mapa, mas tem duas propriedades importantes que superam essa distorção:
 
-- É uma projeção em conformidade, o que significa que preserva a forma de objetos relativamente pequenos. Isso é especialmente importante ao mostrar imagens aéreas, pois queremos evitar distorcer a forma de edifícios. Os edifícios quadrados devem aparecer quadrados, não retangulares.
-- É uma projeção cilíndrica, o que significa que o norte e o sul são sempre retos e inferiores, e o oeste e o leste são sempre retos e à direita. 
+- É uma projeção em conformidade, o que significa que preserva a forma de objetos relativamente pequenos. Preservar a forma de objetos pequenos é especialmente importante ao mostrar imagens aéreas. Por exemplo, queremos evitar distorcer a forma de edifícios. Os edifícios quadrados devem aparecer quadrados, não retangulares.
+- É uma projeção cilíndrica. O norte e o Sul estão sempre ativos e abaixo, e o oeste e o leste são sempre à esquerda e à direita. 
 
 Para otimizar o desempenho da recuperação e exibição do mapa, o mapa é dividido em blocos quadrados. O SDK do mapas do Azure usa blocos que têm um tamanho de 512 x 512 pixels para mapas de estrada e 256 x 256 pixels menores para imagens de satélite. O Azure Maps fornece blocos de rasterização e de vetor para 23 níveis de zoom, numerados de 0 a 22. No nível de zoom 0, o mundo inteiro se ajusta em um único bloco:
 
@@ -36,7 +36,7 @@ Nível de zoom 1 usa quatro blocos para renderizar o mundo: um quadrado de 2 x 2
 
 Cada nível de zoom adicional cria quatro vezes os blocos do anterior, criando uma grade de 2<sup>zoom</sup> x 2<sup>zoom.</sup> Nível de zoom 22 é uma grade 2<sup>22</sup> x 2<sup>22</sup>, ou peças 4,194,304 x 4,194,304 (17,592,186,044,416 peças no total).
 
-Os controles de mapa interativos do Azure Maps para Web e Android dão suporte a níveis de zoom 25 níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estejam disponíveis nos níveis de zoom, quando os blocos estão disponíveis.
+Os controles de mapa interativos do Azure Maps para Web e Android dão suporte a 25 níveis de zoom, numerados de 0 a 24. Embora os dados de estrada só estejam disponíveis nos níveis de zoom, quando os blocos estão disponíveis.
 
 A tabela a seguir fornece a lista completa de valores para níveis de zoom em que o tamanho do bloco é de 512 pixels quadrado:
 
@@ -70,7 +70,7 @@ A tabela a seguir fornece a lista completa de valores para níveis de zoom em qu
 
 ## <a name="pixel-coordinates"></a>Coordenadas de pixel
 
-Depois de escolher a projeção e a escala para usar em cada nível de zoom, podemos converter coordenadas geográficas em coordenadas de pixel. A largura e a altura totais de pixels de uma imagem de mapa do mundo para um nível de zoom específico podem ser calculadas como:
+Depois de escolher a projeção e a escala para usar em cada nível de zoom, podemos converter coordenadas geográficas em coordenadas de pixel. A largura e a altura totais de pixels de uma imagem de mapa do mundo para um nível de zoom específico são calculadas como:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -82,9 +82,11 @@ Como a largura e a altura do mapa são diferentes em cada nível de zoom, são a
 
 <center>
 
-Mapa de ![mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Mapa mostrando dimensões de pixel](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Considerando a latitude e a longitude em graus e o nível de detalhes, as coordenadas XY do pixel podem ser calculadas da seguinte maneira:
+</center>
+
+Considerando a latitude e a longitude em graus e o nível de detalhes, as coordenadas XY do pixel são calculadas da seguinte maneira:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -94,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Presume-se que os valores de latitude e longitude estejam na Datum do WGS 84. Embora o mapas do Azure use uma projeção esférica, é importante converter todas as coordenadas geográficas em uma referência comum, e WGS 84 foi escolhido como a referência. O valor de longitude é considerado para variar de-180 a + 180 graus e o valor de latitude deve ser recortado para variar de-85, 5112878 a 85, 5112878. Isso evita uma singularidade no polos e faz com que o mapa projetado seja quadrado.
+Presume-se que os valores de latitude e longitude estejam na Datum do WGS 84. Embora o mapas do Azure use uma projeção esférica, é importante converter todas as coordenadas geográficas em uma Datum comum. WGS 84 é a Datum selecionada. O valor de longitude é considerado para variar de-180 graus a + 180 graus, e o valor de latitude deve ser recortado para variar de-85, 5112878 a 85, 5112878. Aderir a esses valores evita uma singularidade no polos e garante que o mapa projetado seja uma forma quadrada.
 
 ## <a name="tile-coordinates"></a>Coordenadas do bloco
 
-Para otimizar o desempenho da recuperação e exibição do mapa, o mapa renderizado é cortado em blocos. Como o número de pixels difere em cada nível de zoom, então o número de blocos:
+Para otimizar o desempenho da recuperação e exibição do mapa, o mapa renderizado é cortado em blocos. O número de pixels e o número de blocos diferem em cada nível de zoom:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -120,9 +122,9 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Blocos são chamados por nível de zoom e as coordenadas x e y correspondentes à posição do bloco da grade para esse nível de zoom.
+Os blocos são chamados pelo nível de zoom. As coordenadas x e y correspondem à posição do bloco na grade para esse nível de zoom.
 
-Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma posição fixa em seu bloco. Isso significa que o número de blocos necessário para exibir uma determinada extensão de território depende do posicionamento específico da grade de zoom no mundo. Por exemplo, se houver dois pontos de 900 metros de distância, ele *pode* levar apenas três blocos para exibir uma rota entre elas no nível de zoom 17. No entanto, se o ponto ocidental está à direita do seu bloco e o ponto oriental à esquerda do bloco, pode ter quatro blocos:
+Ao determinar qual nível de zoom usar, lembre-se de que cada local está em uma posição fixa em seu bloco. Como resultado, o número de blocos necessários para exibir um determinado extensão de território depende do posicionamento específico da grade de zoom no mapa mundial. Por exemplo, se houver dois pontos de 900 metros de distância, ele *pode* levar apenas três blocos para exibir uma rota entre elas no nível de zoom 17. No entanto, se o ponto ocidental está à direita do seu bloco e o ponto oriental à esquerda do bloco, pode ter quatro blocos:
 
 <center>
 

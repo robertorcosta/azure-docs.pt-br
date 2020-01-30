@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901492"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773606"
 ---
 # <a name="how-to-check-job-progress"></a>Como verificar o andamento do trabalho
 
@@ -42,7 +42,7 @@ Solicitação:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Resposta:
@@ -68,6 +68,6 @@ Resposta:
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 [Visão geral da API REST das Operações dos Serviços de Mídia](media-services-rest-how-to-use.md)

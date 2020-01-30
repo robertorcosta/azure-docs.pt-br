@@ -3,23 +3,20 @@ title: Introdução à captura de pacote no Observador de Rede do Azure | Micros
 description: Esta página fornece uma visão geral do recurso de captura de pacote do Observador de Rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: damendo
+ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061582"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840801"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacote de varáveis no Observador de Rede do Azure
 
@@ -34,7 +31,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 
 **Configuração da captura**
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Description|
 |---|---|
 |**Máximo de bytes por pacote (bytes)** | O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. Se você precisar apenas do cabeçalho IPv4 – indique 34 aqui |
 |**Máximo de bytes por sessão (bytes)** | Número total de bytes capturados, quando o valor for atingido, a sessão terminará.|
@@ -42,7 +39,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 
 **Filtragem (opcional)**
 
-|Propriedade|DESCRIÇÃO|
+|Propriedade|Description|
 |---|---|
 |**Protocolo** | O protocolo de filtragem da captura de pacote. Os valores disponíveis são TCP, UDP e Todos.|
 |**Endereço IP local** | Esse valor filtra a captura de pacotes para os pacotes cujo endereço IP local corresponde ao valor do filtro.|
@@ -50,7 +47,7 @@ Para reduzir as informações capturadas apenas às informações desejadas, as 
 |**Endereço IP remoto** | Esse valor filtra a captura de pacotes para os pacotes cujo IP remoto corresponde ao valor do filtro.|
 |**Porta remota** | Esse valor filtra a captura de pacotes para os pacotes cuja porta remota corresponde ao valor do filtro.|
 
-### <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximos passos
 
 Saiba como você pode gerenciar as capturas de pacote no portal visitando [Gerenciar captura de pacote no Portal do Azure](network-watcher-packet-capture-manage-portal.md) ou com o PowerShell visitando [Gerenciar captura de pacote com o PowerShell](network-watcher-packet-capture-manage-powershell.md).
 

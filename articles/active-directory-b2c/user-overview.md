@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620464"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840053"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
@@ -49,21 +49,21 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 É possível usar as seguintes informações para criar uma nova conta corporativa:
 
-- [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil do usuário
 
 É possível usar as seguintes informações para atualizar o perfil de um usuário:
 
-- [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma senha para um usuário
 
 É possível usar as seguintes informações para redefinir a senha de um usuário:
 
-- [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Usuário Convidado
@@ -76,12 +76,12 @@ Também é possível usar a [API do Microsoft Graph](https://docs.microsoft.com/
 
 ## <a name="consumer-user"></a>Usuário Consumidor
 
-O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure. O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta de consumidor é criada usando um [fluxo de usuário de inscrição ou de entrada](../active-directory-b2c/active-directory-b2c-reference-policies.md), usando o API do Graph do Azure ad ou usando o portal do Azure.
+O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure. O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta de consumidor é criada usando um [fluxo de usuário de inscrição ou de entrada](user-flow-overview.md), usando o API do Graph do Azure ad ou usando o portal do Azure.
 
-É possível especificar os dados que são coletados quando uma conta de usuário Consumidor é criada, usando atributos de usuário personalizados. Para obter mais informações, consulte [Definir atributos personalizados no Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
+É possível especificar os dados que são coletados quando uma conta de usuário Consumidor é criada, usando atributos de usuário personalizados. Para obter mais informações, consulte [Definir atributos personalizados no Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-Você pode usar as informações da seção **Criar contas de usuários do consumidor** de [Usar a API do Graph do Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) para criar uma conta Consumidor do Azure AD B2C. Também é possível usar as informações na seção **Atualizar contas de usuários Consumidor** no mesmo artigo para gerenciar as propriedades da conta.
+Você pode usar as informações da seção **Criar contas de usuários do consumidor** de [Usar a API do Graph do Azure AD](manage-user-accounts-graph-api.md) para criar uma conta Consumidor do Azure AD B2C. Também é possível usar as informações na seção **Atualizar contas de usuários Consumidor** no mesmo artigo para gerenciar as propriedades da conta.
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrar contas de usuários Consumidor
 
-Talvez seja necessário migrar as contas de usuários Consumidor existentes de qualquer provedor de identidade para o Azure AD B2C. Para obter mais informações, consulte [Migração de usuário](active-directory-b2c-user-migration.md) ou [Migrar usuários com identidades sociais](active-directory-b2c-social-migration.md).
+Talvez seja necessário migrar as contas de usuários Consumidor existentes de qualquer provedor de identidade para o Azure AD B2C. Para obter mais informações, consulte [Migração de usuário](user-migration.md) ou [Migrar usuários com identidades sociais](migrate-social-identities.md).

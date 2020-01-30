@@ -9,20 +9,20 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: f39968476f2fecf655e6c69bea2ff19304d2b465
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992516"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841803"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Configurar protocolos de API da grade de eventos
 
 Este guia fornece exemplos das possíveis configurações de protocolo de um módulo de grade de eventos. O módulo de grade de eventos expõe a API para suas operações de gerenciamento e tempo de execução. A tabela a seguir captura os protocolos e as portas.
 
-| Protocolo | Porta | Descrição |
+| Protocolo | Port | Description |
 | ---------------- | ------------ | ------------ |
-| http | 5888 | Desativado por padrão. Útil somente durante o teste. Não é adequado para cargas de trabalho de produção.
+| HTTP | 5888 | Desativado por padrão. Útil somente durante o teste. Não é adequado para cargas de trabalho de produção.
 | HTTPS | 4438 | Padrão
 
 Consulte o guia de [segurança e autenticação](security-authentication.md) para todas as configurações possíveis.
@@ -32,8 +32,8 @@ Consulte o guia de [segurança e autenticação](security-authentication.md) par
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ]
 }
  ```
@@ -43,8 +43,8 @@ Consulte o guia de [segurança e autenticação](security-authentication.md) par
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ],
   "HostConfig": {
     "PortBindings": {
@@ -66,8 +66,8 @@ Consulte o guia de [segurança e autenticação](security-authentication.md) par
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=enabled",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=enabled",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ]
 }
  ```
@@ -77,8 +77,8 @@ Consulte o guia de [segurança e autenticação](security-authentication.md) par
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=enabled",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=enabled",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ],
   "HostConfig": {
     "PortBindings": {

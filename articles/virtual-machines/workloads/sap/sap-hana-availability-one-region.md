@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c5b4904419af1fe86e43dc2f781ef43ce8dd762
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078782"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842675"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidade do SAP HANA em uma região do Azure
 Este artigo descreve vários cenários de disponibilidade em uma região do Azure. O Azure tem várias regiões, distribuídas em todo o mundo. Para obter a lista de regiões do Azure, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). Para implantar SAP HANA em VMs em uma região do Azure, a Microsoft oferece a implantação de uma única VM com uma instância do HANA. Para maior disponibilidade, você pode implantar duas VMs com duas instâncias do HANA dentro de um [Conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) use replicação de sistema do HANA para disponibilidade. 
@@ -108,7 +108,7 @@ Nesse cenário, os dados replicados para a instância do HANA na segunda VM são
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replicação de sistema do SAP HANA com failover automático
 
-Na configuração de disponibilidade padrão e mais comum dentro de uma região do Azure, duas VMs do Azure executando o Linux SLES tem um cluster de failover definido. O cluster do Linux SLES é baseado na estrutura [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) em conjunto com um dispositivo [STONITH](http://linux-ha.org/wiki/STONITH). 
+Na configuração de disponibilidade padrão e mais comum dentro de uma região do Azure, duas VMs do Azure executando o Linux SLES tem um cluster de failover definido. O cluster do Linux SLES é baseado na estrutura [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) em conjunto com um dispositivo [STONITH](http://www.linux-ha.org/wiki/STONITH). 
 
 Do ponto de vista do SAP HANA, o modo de replicação usado é sincronizado e um failover automático é configurado. A segunda VM, a instância do SAP HANA age como nó em espera ativa. O nó em espera recebe um fluxo síncrono de registros de alteração da instância primária do SAP HANA. Como as transações são confirmadas pelo aplicativo no nó primário do HANA, o nó primário do HANA espera para confirmar para o aplicativo até a confirmação de que o nó secundário do SAP HANA recebeu o registro de confirmação. O SAP HANA oferece dois diferentes modos de replicação síncrona. Para obter detalhes e para uma descrição das diferenças entre esses dois modos de replicação síncrona, consulte o artigo do SAP [Modos de replicação para a replicação do sistema do SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 
@@ -118,7 +118,7 @@ A configuração geral se parece com:
 
 Você pode escolher essa solução porque ela permite que você obtenha um RPO = 0 e um RTO baixo. Configure a conectividade de cliente do SAP HANA de modo que os clientes do SAP HANA usem o endereço IP virtual para conectar-se à configuração de replicação de sistema do HANA. Essa configuração elimina a necessidade de reconfigurar o aplicativo se ocorrer um failover no nó secundário. Nesse cenário, os SKUs de VM do Azure para as VMs primária e secundária devem ser o mesmo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter orientação passo a passo sobre como definir essas configurações no Azure, consulte:
 

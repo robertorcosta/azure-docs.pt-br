@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9b9e39776e519a91a4464532e11e85da711087b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769516"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766247"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
@@ -131,7 +131,19 @@ public static void Run(
 
 ```
 
-Você também pode criar expressões para partes do nome do arquivo, como a extensão. Para obter mais informações sobre como usar padrões e expressões na cadeia de caracteres de caminho de Blob, consulte a [referência de associação de blob de Armazenamento](functions-bindings-storage-blob.md).
+Você também pode criar expressões para partes do nome do arquivo. No exemplo a seguir, a função é disparada somente em nomes de arquivo que correspondem a um padrão: `anyname-anyfile.csv`
+
+```json
+{
+    "name": "myBlob",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "testContainerName/{date}-{filetype}.csv",
+    "connection": "OrderStorageConnection"
+}
+```
+
+Para obter mais informações sobre como usar padrões e expressões na cadeia de caracteres de caminho de Blob, consulte a [referência de associação de blob de Armazenamento](functions-bindings-storage-blob.md).
 
 ## <a name="trigger-metadata"></a>Metadados de gatilho
 
@@ -169,7 +181,7 @@ Esses valores de metadados estão acessíveis nas propriedades do arquivo *funct
 
 Detalhes de propriedades de metadados para cada gatilho são descritos no artigo de referência correspondente. Para obter um exemplo, consulte [metadados de gatilho de fila](functions-bindings-storage-queue.md#trigger---message-metadata). A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
 
-## <a name="json-payloads"></a>Conteúdos JSON
+## <a name="json-payloads"></a>Cargas JSON
 
 Quando uma carga de gatilho for JSON, você pode consultar as propriedades na configuração de outras associações na mesma função e no código de função.
 

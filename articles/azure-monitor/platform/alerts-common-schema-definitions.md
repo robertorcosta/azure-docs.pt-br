@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d1d822a5e7dadffd6be841e51ac407995adba2ea
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552561"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765669"
 ---
-# <a name="common-alert-schema-definitions"></a>Definições comuns de esquema de alerta
+# <a name="common-alert-schema-definitions"></a>Definições comuns do esquema de alertas
 
 Este artigo descreve as [definições comuns de esquema de alerta](https://aka.ms/commonAlertSchemaDocs) para Azure monitor, incluindo aquelas para WebHooks, aplicativos lógicos do azure, Azure Functions e Runbooks de automação do Azure. 
 
@@ -73,7 +73,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 
 ## <a name="essentials"></a>Essentials
 
-| campo | Descrição|
+| Campo | Description|
 |:---|:---|
 | alertId | O GUID que identifica exclusivamente a instância de alerta. |
 | alertRule | O nome da regra de alerta que gerou a instância de alerta. |
@@ -85,7 +85,7 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 | originAlertId | A ID da instância de alerta, conforme gerado pelo serviço de monitoramento que a gera. |
 | firedDateTime | A data e a hora em que a instância de alerta foi acionada no UTC (tempo Universal Coordenado). |
 | resolvedDateTime | A data e a hora em que a condição do monitor para a instância de alerta está definida como **resolvida** em UTC. Atualmente aplicável somente a alertas de métricas.|
-| Description | A descrição, conforme definido na regra de alerta. |
+| descrição | A descrição, conforme definido na regra de alerta. |
 |essentialsVersion| O número de versão da seção Essentials.|
 |alertContextVersion | O número de versão para a seção `alertContext`. |
 
@@ -148,10 +148,10 @@ Qualquer instância de alerta descreve o recurso que foi afetado e a causa do al
 }
 ```
 
-### <a name="log-alerts"></a>Alertas de log
+### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> Para alertas de log que têm uma carga JSON personalizada definida, habilitar o esquema comum reverte o esquema de carga para o descrito da seguinte maneira. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos na carga de alertas de log se fizerem com que o tamanho do alerta cruze esse limite. Você pode determinar isso verificando o sinalizador `IncludedSearchResults`. Quando os resultados da pesquisa não são incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Para alertas de log que têm um assunto de email personalizado e/ou conteúdo JSON definido, habilitar o esquema comum reverte o assunto do email e/ou esquema de carga para o descrito a seguir. Os alertas com o esquema comum habilitado têm um limite de tamanho superior de 256 KB por alerta. Os resultados da pesquisa não serão inseridos na carga de alertas de log se fizerem com que o tamanho do alerta cruze esse limite. Você pode determinar isso verificando o sinalizador `IncludedSearchResults`. Quando os resultados da pesquisa não são incluídos, você deve usar a consulta de pesquisa em conjunto com a [API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

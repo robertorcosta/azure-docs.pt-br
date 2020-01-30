@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949867"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836041"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
-Os resolvedores de declaração em [políticas personalizadas](active-directory-b2c-overview-custom.md) de Azure Active Directory B2C (Azure ad B2C) fornecem informações de contexto sobre uma solicitação de autorização, como o nome da política, ID de correlação de solicitação, idioma da interface do usuário e muito mais.
+Os resolvedores de declaração em [políticas personalizadas](custom-policy-overview.md) de Azure Active Directory B2C (Azure ad B2C) fornecem informações de contexto sobre uma solicitação de autorização, como o nome da política, ID de correlação de solicitação, idioma da interface do usuário e muito mais.
 
 Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma cadeia de caracteres **ClaimType**, no elemento [ClaimsSchema](claimsschema.md) e, em seguida, define **DefaultValue** como o resolvedor de declaração no elemento de declaração de entrada ou saída. O Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
 
@@ -46,16 +46,16 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="culture"></a>Cultura
 
-| Declaração | Descrição | Exemplo |
+| Declaração | Description | Exemplo |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1033 |
 | {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
-| {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
+| {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
 
 ### <a name="policy"></a>Política
 
-| Declaração | Descrição | Exemplo |
+| Declaração | Description | Exemplo |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | O nome da política de terceira parte confiável. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | A ID do locatário da política de terceira parte confiável. | your-tenant.onmicrosoft.com |
@@ -64,7 +64,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| Declaração | Descrição | Exemplo |
+| Declaração | Description | Exemplo |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |O parâmetro de cadeia de caracteres da consulta `acr_values`. | N/D |
 | {OIDC:ClientId} |O parâmetro de cadeia de caracteres da consulta `client_id`. | 00000000-0000-0000-0000-000000000000 |
@@ -72,13 +72,13 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres da consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | O `max_age`. | N/D |
 | {OIDC:Nonce} |O parâmetro de cadeia de caracteres da consulta `Nonce`. | defaultNonce |
-| {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | logon |
+| {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | login |
 | {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
 | {OIDC:scope} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
 
 ### <a name="context"></a>Contexto
 
-| Declaração | Descrição | Exemplo |
+| Declaração | Description | Exemplo |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | A versão do Identity Experience Framework (número de build).  | 1.0.507.0 |
 | {Context:CorrelationId} | ID de correlação.  | 00000000-0000-0000-0000-000000000000 |
@@ -91,7 +91,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 
 Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro da cadeia de consulta com um nome de `app_session`, `loyalty_number` ou qualquer cadeia de consulta personalizada.
 
-| Declaração | Descrição | Exemplo |
+| Declaração | Description | Exemplo |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | Um parâmetro de cadeia de consulta. | havaí |
 | {OAUTH-KV:app_session} | Um parâmetro de cadeia de consulta. | A3C5R |
@@ -100,7 +100,7 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 
 ### <a name="oauth2"></a>OAuth2
 
-| Declaração | Descrição | Exemplo |
+| Declaração | Description | Exemplo |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | O token de acesso. | N/D |
 
@@ -137,7 +137,7 @@ Usando resolvedores de declaração, você pode preencher previamente o nome de 
 
 ### <a name="dynamic-ui-customization"></a>Personalização de interface do usuário dinâmica
 
-O Azure AD B2C permite que você passe parâmetros de cadeia de consulta para seus pontos de extremidade de definição de conteúdo HTML para que possa renderizar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro personalizado passado do seu aplicativo Web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
+O Azure AD B2C permite que você passe parâmetros de cadeia de consulta para seus pontos de extremidade de definição de conteúdo HTML para que possa renderizar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro personalizado passado do seu aplicativo Web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
 
 O exemplo a seguir passa na cadeia de consulta um parâmetro denominado **campaignId** com um valor de `hawaii`, um código de **idioma** de `en-US` e **aplicativo** que representa a ID do cliente:
 
@@ -159,7 +159,7 @@ Como resultado, o Azure AD B2C envia os parâmetros acima para a página de cont
 
 ### <a name="application-insights-technical-profile"></a>Perfil técnico do Application Insights
 
-Com o Azure Application Insights e resolvedores de declaração, você pode obter insights sobre o comportamento do usuário. No perfil técnico do Application Insights, você envia declarações de entrada que persistem no Azure Application Insights. Para obter mais informações, confira [Acompanhar o comportamento do usuário em jornadas do Azure AD B2C usando o Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md). O exemplo a seguir envia a ID de política, a ID de correlação, o idioma e a ID do cliente para o Azure Application Insights.
+Com o Azure Application Insights e resolvedores de declaração, você pode obter insights sobre o comportamento do usuário. No perfil técnico do Application Insights, você envia declarações de entrada que persistem no Azure Application Insights. Para obter mais informações, confira [Acompanhar o comportamento do usuário em jornadas do Azure AD B2C usando o Application Insights](analytics-with-application-insights.md). O exemplo a seguir envia a ID de política, a ID de correlação, o idioma e a ID do cliente para o Azure Application Insights.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

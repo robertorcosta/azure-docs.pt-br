@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863886"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774435"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -33,7 +33,7 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (incluindo a instalação do Server Core), Windows Server 2012 R2 com as atualizações mais recentes | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md). 
-Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/> Observação: não há suporte para failback em local alternativo para hosts do Windows Server 2019.
 
 
 ## <a name="replicated-vms"></a>VMs replicadas
@@ -51,8 +51,8 @@ Sistema operacional convidado | Qualquer SO convidado [com suporte para Azure](h
 
 **Ação** | **Detalhes**
 --- | ---
-Redimensionar o disco na VM replicada do Hyper-V | Sem suporte. Desative a replicação, faça a alteração e ative novamente a replicação para a VM.
-Adicionar disco na VM replicada do Hyper-V | Sem suporte. Desative a replicação, faça a alteração e ative novamente a replicação para a VM.
+Redimensionar o disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
+Adicionar disco na VM replicada do Hyper-V | Sem suporte. Desabilite a replicação, faça a alteração e reabilite a replicação para a VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede Hyper-V
 
@@ -111,7 +111,7 @@ SMB 3.0 | Não | Não
 RDM | ND | ND
 Disco >1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: setor de lógica e física de 4K | Não compatível: Gen 1/Gen 2 | Não compatível: Gen 1/Gen 2
-Disco: setor de lógica e física de 4K e 512 bytes | Sim |  Sim
+Disco: 4K lógico e 512-bytes de setor físico | Sim |  Sim
 Gerenciamento de volumes lógicos (LVM). Há suporte para o LVM para discos de dados somente. As VMs do Azure tem apenas um único disco de sistema operacional. | Sim | Sim
 Volume com discos distribuídos >1 TB | Sim | Sim
 Espaços de Armazenamento | Não | Não
@@ -134,7 +134,7 @@ Criptografia em repouso (CMK) <br></br> (Somente para failover em discos gerenci
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Contas de armazenamento do Azure com firewall habilitado | Sim. Para armazenamento e cache de destino. | Sim. Para armazenamento e cache de destino.
-Modificar a conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e reabilitar a recuperação de desastres. | Não
+Modificar conta de armazenamento | Não. A conta de armazenamento do Azure de destino não pode ser modificada depois de habilitar a replicação. Para modificar, desabilitar e habilitar novamente a recuperação de desastres. | Não
 
 
 ## <a name="azure-compute-features"></a>Recursos de computação do Azure

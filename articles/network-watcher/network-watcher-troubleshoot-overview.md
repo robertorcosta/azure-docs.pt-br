@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Essa página fornece uma visão geral das capacidades de solução de problemas do recurso do Observador de Rede
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277786"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840682"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
@@ -50,9 +47,9 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 
 ### <a name="gateway"></a>Gateway
 
-| Tipo de Falha | Motivo | Registro|
+| Tipo de Falha | Motivo | Log|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |sim|
+| NoFault | Quando nenhum erro é detectado |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
@@ -60,26 +57,26 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlatformInActive | Há um problema com a plataforma. | Não|
 | ServiceNotRunning | O serviço subjacente não está em execução. | Não|
 | NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| sim|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | sim |
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão
 
-| Tipo de Falha | Motivo | Registro|
+| Tipo de Falha | Motivo | Log|
 |---|---|---|
-| NoFault | Quando nenhum erro é detectado |sim|
+| NoFault | Quando nenhum erro é detectado |Sim|
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
 | ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
 | ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada | sim|
-| PeerReachability | O gateway correspondente não está acessível. | sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | sim|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |sim|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
+| PeerReachability | O gateway correspondente não está acessível. | Sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
@@ -88,14 +85,14 @@ A tabela a seguir lista quais gateways e conexões têm suporte com a solução 
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
-|VPN      | Suportado        |
+|VPN      | Com suporte        |
 |ExpressRoute | Sem suporte |
 |**Tipos de VPN** | |
-|Baseada em Rota | Suportado|
+|Baseada em Rota | Com suporte|
 |Baseada em Políticas | Sem suporte|
 |**Tipos de conexão**||
-|IPsec| Suportado|
-|VNet2Vnet| Suportado|
+|IPsec| Com suporte|
+|VNet2Vnet| Com suporte|
 |ExpressRoute| Sem suporte|
 |VPNClient| Sem suporte|
 
@@ -108,7 +105,7 @@ Os arquivos de log para solução de problemas de recursos são armazenados em u
 > [!NOTE]
 > Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento, acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento acesse o link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -211,7 +208,7 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber como diagnosticar um problema com um gateway ou conexão de gateway, consulte [Diagnosticar problemas de comunicação entre redes](diagnose-communication-problem-between-networks.md).
 <!--Image references-->

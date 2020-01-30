@@ -1,6 +1,6 @@
 ---
 title: O que é a central de segurança do Azure para IoT | Microsoft Docs
-description: Saiba mais sobre a central de segurança do Azure para recursos e serviços de IoT e entenda como a central de segurança do Azure para IoT fornece segurança de IoT abrangente em todos os seus ativos de IoT.
+description: Saiba mais sobre a central de segurança do Azure para recursos e serviços de IoT e entenda como a central de segurança do Azure para IoT fornece segurança de IoT abrangente.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1b428af1f1c01a3b1b1429f51d76ebfdeb4c1cc6
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664957"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766516"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Apresentação da Central de Segurança do Azure para IoT
 
@@ -54,7 +54,7 @@ Nesta visão geral, você aprendeu sobre os recursos e serviços da central de s
 
 - [Arquitetura](architecture.md)
 - [Pré-requisitos de serviço](service-prerequisites.md)
-- [Introdução](getting-started.md)
+- [Guia de Introdução](getting-started.md)
 - [Definir sua solução](quickstart-configure-your-solution.md)
 - [FAQ da central de segurança do Azure para IoT](resources-frequently-asked-questions.md)
 - [Central de segurança do Azure para alertas de IoT](concept-security-alerts.md)

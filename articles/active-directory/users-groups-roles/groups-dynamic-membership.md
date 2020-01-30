@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940987"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841022"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -370,7 +370,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 > [!NOTE]
 > systemlabels é um atributo somente leitura que não pode ser definido com o Intune.
 >
-> Para o Windows 10, o formato correto do atributo deviceOSVersion é o seguinte: (Device. deviceOSVersion-EQ "10,0 (17763)"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
+> Para o Windows 10, o formato correto do atributo deviceOSVersion é o seguinte: (Device. deviceOSVersion-EQ "10.0.17763"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
 
 Os seguintes atributos de dispositivo podem ser usados.
 

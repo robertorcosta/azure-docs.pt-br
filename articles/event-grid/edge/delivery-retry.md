@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100704"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841705"
 ---
 # <a name="delivery-and-retry"></a>Entregar e tentar novamente
 
@@ -27,9 +27,9 @@ A entrega proporcionada pela Grade de Eventos tem um tempo de duração. Ele ten
 
 A grade de eventos aguarda até 60 segundos por uma resposta depois de entregar uma mensagem. Se o ponto de extremidade do assinante não ACK da resposta, a mensagem será enfileirada em uma de nossas filas de retirada para novas tentativas.
 
-Há duas filas de back-configure pré-configuradas que determinam o agendamento no qual uma nova tentativa será tentada. Eles são:-
+Há duas filas de back-configure pré-configuradas que determinam o agendamento no qual uma nova tentativa será tentada. Eles são:
 
-| Agenda | Descrição |
+| Agenda | Description |
 | ---------| ------------ |
 | 1 minuto | As mensagens que acabam aqui são tentadas a cada minuto.
 | 10 minutos | As mensagens que terminam aqui são tentadas a cada 10 minutos.
@@ -43,7 +43,7 @@ Há duas filas de back-configure pré-configuradas que determinam o agendamento 
 
 ## <a name="retry-policy-limits"></a>Limites de política de repetição
 
-Há duas configurações que determinam a política de repetição. Eles são:-
+Há duas configurações que determinam a política de repetição. Eles são:
 
 * Número máximo de tentativas
 * Tempo de vida (TTL) do evento
@@ -52,12 +52,12 @@ Um evento será Descartado se qualquer um dos limites da política de repetiçã
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Configurando padrões para todos os assinantes
 
-Há duas propriedades: `brokers:defaultMaxDeliveryAttempts` e `broker:defaultEventTimeToLiveInSeconds` que podem ser configuradas como parte da implantação da grade de eventos, que controla os padrões de política de repetição para todos os assinantes.
+Há duas propriedades: `brokers__defaultMaxDeliveryAttempts` e `broker__defaultEventTimeToLiveInSeconds` que podem ser configuradas como parte da implantação da grade de eventos, que controla os padrões de política de repetição para todos os assinantes.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. Valor padrão: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | TTL do evento em segundos após o qual um evento será Descartado se não for entregue. Valor padrão: **7200** segundos
+| `broker__defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. Valor padrão: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | TTL do evento em segundos após o qual um evento será Descartado se não for entregue. Valor padrão: **7200** segundos
 
 ## <a name="configuring-defaults-per-subscriber"></a>Configurando padrões por assinante
 
@@ -71,8 +71,8 @@ O exemplo a seguir configura a política de repetição no módulo de grade de e
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {

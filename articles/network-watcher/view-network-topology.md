@@ -3,23 +3,20 @@ title: Exibir a topologia de Rede Virtual do Azure | Microsoft Docs
 description: Saiba como exibir os recursos em uma rede virtual e conheça as relações entre os recursos.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
-ms.author: kumud
-ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682046"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840563"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Exibir a topologia de uma Rede Virtual do Azure
 
@@ -48,7 +45,7 @@ Neste artigo, você aprenderá a exibir recursos em uma Rede Virtual do Microsof
 
 6. Selecione **Baixar topologia** para baixar a imagem como um arquivo editável, no formato svg.
 
-Os recursos mostrados no diagrama são um subconjunto dos componentes na rede virtual. Por exemplo, enquanto um Grupo de Segurança de Rede é exibido, as regras de segurança nele não são mostradas no diagrama. Embora não sejam diferenciadas no diagrama, as linhas representam uma das duas relações: *Independência* ou *associação*. Para ver a lista completa de recursos da rede virtual e o tipo de relação entre os recursos, gere a topologia com o [PowerShell](#powershell) ou a [CLI do Azure](#azure-cli).
+Os recursos mostrados no diagrama são um subconjunto dos componentes na rede virtual. Por exemplo, enquanto um Grupo de Segurança de Rede é exibido, as regras de segurança nele não são mostradas no diagrama. Embora não sejam diferenciadas no diagrama, as linhas representam uma das duas relações: *contenção* ou *associação*. Para ver a lista completa de recursos da rede virtual e o tipo de relação entre os recursos, gere a topologia com o [PowerShell](#powershell) ou a [CLI do Azure](#azure-cli).
 
 ## <a name = "azure-cli"></a>Exibir topologia – CLI do Azure
 
@@ -87,17 +84,17 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
 
 É possível executar os comandos nestas etapas:
 - No Azure Cloud Shell, selecione **Experimente** na parte superior direita de qualquer comando. O Azure Cloud Shell é um shell de interativo gratuito com ferramentas comuns do Azure pré-instaladas e configuradas para usar com sua conta.
-- Executar o PowerShell do seu computador. Se você executar o PowerShell no seu computador, este artigo requer o Azure PowerShell `Az` módulo. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+- Executar o PowerShell do seu computador. Se você executar o PowerShell do seu computador, este artigo exigirá o módulo Azure PowerShell `Az`. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 A conta que você usa deve ter as [permissões](required-rbac-permissions.md) necessárias.
 
-1. Se você já tiver um observador de rede na mesma região da rede virtual para a qual você deseja criar uma topologia, pule para a etapa 3. Criar um grupo de recursos para conter um observador de rede com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria o grupo de recursos na região *eastus*:
+1. Se você já tiver um observador de rede na mesma região da rede virtual para a qual você deseja criar uma topologia, pule para a etapa 3. Crie um grupo de recursos para conter um observador de rede com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria o grupo de recursos na região *eastus*:
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Criar um observador de rede com [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). O exemplo a seguir cria um observador de rede na região eastus:
+2. Crie um observador de rede com [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). O exemplo a seguir cria um observador de rede na região eastus:
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -105,7 +102,7 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Recuperar uma instância do observador de rede com [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). O exemplo a seguir recupera um observador de rede na região Leste dos EUA:
+3. Recupere uma instância do observador de rede com [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). O exemplo a seguir recupera um observador de rede na região Leste dos EUA:
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `
@@ -115,7 +112,7 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Recuperar uma topologia com [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). O exemplo a seguir recupera uma topologia de rede virtual no grupo de recursos *MyResourceGroup*:
+4. Recupere uma topologia com [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). O exemplo a seguir recupera uma topologia de rede virtual no grupo de recursos *MyResourceGroup*:
 
     ```azurepowershell-interactive
     Get-AzNetworkWatcherTopology `
@@ -136,19 +133,19 @@ Todos os recursos retornados em uma topologia têm um dos seguintes tipos de rel
 | Contenção       | Uma rede virtual contém uma sub-rede. Uma sub-rede contém um adaptador de rede.                            |
 | Associação        | Um adaptador de rede está associado com uma VM. Um endereço IP público está associado com um adaptador de rede. |
 
-## <a name="properties"></a>propriedades
+## <a name="properties"></a>Propriedades
 
 Todos os recursos retornados em uma topologia têm as seguintes propriedades:
 
-- **Nome**: O nome do recurso
-- **Id**: O URI do recurso.
-- **Localização**: A região do Azure em que o recurso existe.
-- **Associações**: Uma lista de associações ao objeto referenciado. Cada associação tem as seguintes propriedades:
-    - **AssociationType**: Referencia a relação entre o objeto filho e o pai. Os valores válidos são *Contém* ou *Associado*.
-    - **Nome**: O nome do recurso referenciado.
+- **Nome**: o nome do recurso.
+- **ID**: o URI do recurso.
+- **Local**: a região do Azure em que o recurso existe.
+- **Associações**: uma lista de associações com o objeto referenciado. Cada associação tem as seguintes propriedades:
+    - **AssociationType**: faz referência à relação entre o objeto filho e o pai. Os valores válidos são *Contém* ou *Associado*.
+    - **Nome**: o nome do recurso referenciado.
     - **ResourceId**: o URI do recurso referenciado na associação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como [diagnosticar um problema de filtro de tráfego de rede de ou para uma VM](diagnose-vm-network-traffic-filtering-problem.md) usando a funcionalidade de verificação de fluxo de IP do Observador de Rede
 - Saiba como [diagnosticar um problema de roteamento em uma VM](diagnose-vm-network-routing-problem.md) usando a funcionalidade de próximo salto do Observador de Rede

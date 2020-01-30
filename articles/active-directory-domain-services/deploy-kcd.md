@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705273"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772549"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configurar a KCD (delegação restrita de Kerberos) no Azure Active Directory Domain Services
 
-À medida que você executa aplicativos, pode haver a necessidade desses aplicativos acessarem recursos no contexto de um usuário diferente. Active Directory Domain Services (AD DS) dá suporte a um mecanismo chamado *delegação de Kerberos* que habilita esse caso de uso. A delegação *restrita* de Kerberos (KCD) é criada nesse mecanismo para definir recursos específicos que podem ser acessados no contexto do usuário. Os domínios gerenciados do Azure Active Directory Domain Services (AD DS do Azure) são bloqueados com mais segurança em ambientes de AD DS locais tradicionais, portanto, use um KCD *baseado em recursos* mais seguro.
+À medida que você executa aplicativos, pode haver a necessidade desses aplicativos acessarem recursos no contexto de um usuário diferente. Active Directory Domain Services (AD DS) dá suporte a um mecanismo chamado *delegação de Kerberos* que habilita esse caso de uso. A delegação *restrita* de Kerberos (KCD) é criada nesse mecanismo para definir recursos específicos que podem ser acessados no contexto do usuário. Os domínios gerenciados do Azure Active Directory Domain Services (AD DS do Azure) são bloqueados com mais segurança do que os ambientes de AD DS locais tradicionais, portanto, use um KCD *baseado em recursos* mais seguro.
 
 Este artigo mostra como configurar a delegação restrita de Kerberos baseada em recursos em um domínio gerenciado AD DS do Azure.
 

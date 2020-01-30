@@ -3,23 +3,21 @@ title: Análise de Tráfego do Azure | Microsoft Docs
 description: Saiba como analisar logs de fluxo de grupo de segurança de rede do Azure com a Análise de Tráfego.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907146"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840580"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -66,26 +64,26 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
 * Leste dos EUA
 * Leste dos EUA 2
 * Centro-Norte dos EUA
-* Centro-Sul dos Estados Unidos
-* Centro dos EUA
+* Centro-Sul dos EUA
+* EUA Central
 * Oeste dos EUA
 * Oeste dos EUA 2
 * França Central
-* Europa Ocidental
-* Europa do Norte
+* Oeste da Europa
+* Europa Setentrional
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
-* Leste da Ásia
+* Ásia Oriental
 * Sudeste Asiático
 * Coreia Central
 * Índia Central
 * Sul da Índia
 * Leste do Japão 
 * Oeste do Japão
-* US Gov Virginia
+* US Gov - Virgínia
 * Leste da China 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões com suporte: espaços de trabalho do Log Analytics
@@ -96,28 +94,28 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
 * Leste dos EUA
 * Leste dos EUA 2
 * Centro-Norte dos EUA
-* Centro-Sul dos Estados Unidos
-* Centro dos EUA
+* Centro-Sul dos EUA
+* EUA Central
 * Oeste dos EUA
 * Oeste dos EUA 2
-* Centro dos EUA
+* EUA Central
 * França Central
-* Europa Ocidental
-* Europa do Norte
+* Oeste da Europa
+* Europa Setentrional
 * Sul do Brasil
 * Oeste do Reino Unido
 * Sul do Reino Unido
 * Leste da Austrália
 * Sudeste da Austrália
-* Leste da Ásia
+* Ásia Oriental
 * Sudeste Asiático
 * Coreia Central
 * Índia Central
 * Leste do Japão
-* US Gov Virginia
+* US Gov - Virgínia
 * Leste da China 2
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="user-access-requirements"></a>Requisitos de acesso do usuário
 
@@ -125,9 +123,9 @@ A conta deve ser um membro de uma das [funções internas](../role-based-access-
 
 |Modelo de implantação   | Função                   |
 |---------          |---------               |
-|Gerenciador de Recursos   | Proprietário                  |
+|Resource Manager   | Proprietário                  |
 |                   | Colaborador            |
-|                   | leitor                 |
+|                   | Leitor                 |
 |                   | Colaborador de rede    |
 
 Se a conta não estiver atribuída a uma das funções internas, ela deverá ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) à qual são atribuídas as ações a seguir, no nível da assinatura:
@@ -196,7 +194,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 > [!NOTE]
 >O espaço de trabalho do Log Analytics que hospeda a solução de Análise de Tráfego e os NSGs não precisa estar na mesma região. Por exemplo, você pode ter Análise de Tráfego em um workspace na região Europa Ocidental e ter os NSGs no Leste dos EUA e Oeste dos EUA. Podem ser configurados vários NSGs no mesmo workspace.
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
     ![Seleção de conta de armazenamento, espaço de trabalho do Log Analytics e habilitação da Análise de Tráfego](./media/traffic-analytics/ta-customprocessinginterval.png)
 
@@ -294,7 +292,7 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
 
     ![Painel apresentando distribuição de tráfego](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- O mapa geográfico mostra a faixa de opção superior para seleção de parâmetros, como data centers (implantado/não-implantação/ativo/inativo/Análise de Tráfego habilitado/Análise de Tráfego não habilitado) e países/regiões que contribuem com tráfego benigno/mal-intencionado para o ativo planta
+- O mapa geográfico mostra a faixa de opção superior para seleção de parâmetros, como data centers (implantado/não-implantação/ativo/inativo/Análise de Tráfego habilitado/Análise de Tráfego não habilitado) e países/regiões que contribuem com tráfego benigno/mal-intencionado para a implantação ativa:
 
     ![Exibição de mapa de área de geográfica mostrando implantação ativa](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
@@ -386,7 +384,7 @@ Você tem o tráfego mal-intencionado no seu ambiente? Onde ele é originado? Pa
 
 Para obter respostas para perguntas frequentes, confira [Perguntas Frequentes sobre Análise de Tráfego](traffic-analytics-faq.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para entender o esquema e os detalhes de processamento de Análise de Tráfego, consulte [esquema de análise de tráfego](traffic-analytics-schema.md).

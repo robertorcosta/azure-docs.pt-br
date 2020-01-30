@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: ed0b9450217b06ff145641d9e268ccee28ee49b2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710590"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775110"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar o aplicativo LUIS examinando o ponto de extremidade declarações
 
@@ -27,6 +27,22 @@ O processo de revisão do ponto de extremidade declarações para previsões cor
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
 Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e valor `log=true` QueryString.
+
+Use o portal do LUIS para construir a consulta de ponto de extremidade correta.
+
+1. No [portal do Luis de visualização](https://preview.luis.ai/), selecione seu aplicativo na lista de aplicativos.
+1. Vá para a seção **gerenciar** e, em seguida, selecione **recursos do Azure**.
+1. Para o recurso de previsão atribuído, selecione **alterar parâmetros de consulta**.
+
+    > [!div class="mx-imgBorder"]
+    > ![usar o portal do LUIS para salvar logs, o que é necessário para o aprendizado ativo.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Alterne **salvar logs** e salve selecionando **concluído**.
+
+    > [!div class="mx-imgBorder"]
+    > ![usar o portal do LUIS para salvar logs, o que é necessário para o aprendizado ativo.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     Essa ação altera a URL de exemplo adicionando o parâmetro `log=true` QueryString. Copie e use a URL de consulta de exemplo alterado ao fazer consultas de previsão para o ponto de extremidade de tempo de execução.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Corrigir previsões de intenção para alinhar declarações
 

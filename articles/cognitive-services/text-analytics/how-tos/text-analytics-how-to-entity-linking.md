@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/06/2019
+ms.date: 01/27/2019
 ms.author: aahi
-ms.openlocfilehash: a9bfa2a51341bf60f92378f5d96a390bd1d92db1
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732771"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774131"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -23,7 +23,7 @@ O API de Análise de Texto permite que você assuma o texto não estruturado e r
 
 ### <a name="entity-linking"></a>Vinculação de Entidade
 
-A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. 
+A vinculação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada em texto (por exemplo, determinar se uma ocorrência da palavra `Mars` refere-se ao planeta ou ao Deus romano de guerra). Esse processo requer a presença de uma base de dados de conhecimento em um idioma apropriado para vincular entidades reconhecidas em texto. A vinculação de entidades usa a [Wikipédia](https://www.wikipedia.org/) como esta base de dados de conhecimento.
 
 
 ### <a name="named-entity-recognition-ner"></a>NER (Reconhecimento de Entidade Nomeada)
@@ -83,14 +83,14 @@ O reconhecimento de entidade nomeada v2 usa um único ponto de extremidade para 
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (visualização pública)](#tab/version-3)
+#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
 
 ### <a name="entity-types"></a>Tipos de entidade
 
 O reconhecimento de entidade nomeada v3 fornece detecção expandida entre vários tipos. Atualmente, o NER v3 pode reconhecer as seguintes categorias de entidades:
 
 * Geral
-* Informações Pessoais 
+* Informações pessoais 
 
 Para obter uma lista detalhada de entidades e linguagens com suporte, consulte o artigo [tipos de entidade com suporte do Ner v3](../named-entity-types.md) .
 
@@ -112,7 +112,7 @@ Vinculação de entidade
 
 ---
 
-## <a name="sending-a-rest-api-request"></a>Enviando uma solicitação da API REST
+## <a name="sending-a-rest-api-request"></a>Como enviar uma solicitação da API REST
 
 ### <a name="preparation"></a>Preparação
 
@@ -172,7 +172,7 @@ Veja a seguir um exemplo de conteúdo que você pode enviar para a API. O format
 
 A análise é executada após o recebimento da solicitação. Consulte a seção [limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto e segundo.
 
-O API de Análise de Texto é sem monitoração de estado. Nenhum dado é armazenado em sua conta e os resultados são retornados imediatamente na resposta.
+A API de Análise de Texto é sem estado. Nenhum dado é armazenado em sua conta e os resultados são retornados imediatamente na resposta.
 
 ## <a name="view-results"></a>Exibir os resultados
 
@@ -217,7 +217,7 @@ A saída é retornada imediatamente. Você pode transmitir os resultados para um
 }
 ```
 
-#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (visualização pública)](#tab/version-3)
+#### <a name="version-3-public-previewtabversion-3"></a>[Versão 3 (versão prévia pública)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exemplo de respostas v3
 
@@ -288,5 +288,5 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 ## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral da Análise de Texto](../overview.md)
-* [Usando a biblioteca de cliente Análise de Texto](../quickstarts/text-analytics-sdk.md)
+* [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/text-analytics-sdk.md)
 * [Novidades](../whats-new.md)

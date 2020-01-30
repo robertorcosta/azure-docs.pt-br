@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951098"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840376"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth1 em uma política personalizada Azure Active Directory B2C
 
@@ -68,13 +68,13 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | obrigatórios | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
-| client_id | SIM | O identificador do aplicativo do provedor de identidade. |
+| client_id | Sim | O identificador do aplicativo do provedor de identidade. |
 | ProviderName | Não | O nome do provedor de identidade. |
-| request_token_endpoint | SIM | A URL do ponto de extremidade do token de solicitação, de acordo com RFC 5849. |
-| authorization_endpoint | SIM | A URL do ponto de extremidade da autorização, de acordo com RFC 5849. |
-| access_token_endpoint | SIM | A URL do ponto de extremidade do token, de acordo com RFC 5849. |
+| request_token_endpoint | Sim | A URL do ponto de extremidade do token de solicitação, de acordo com RFC 5849. |
+| authorization_endpoint | Sim | A URL do ponto de extremidade da autorização, de acordo com RFC 5849. |
+| access_token_endpoint | Sim | A URL do ponto de extremidade do token, de acordo com RFC 5849. |
 | ClaimsEndpoint | Não | A URL do ponto de extremidade de informações do usuário. |
 | ClaimsResponseFormat | Não | O formato de resposta de declarações.|
 
@@ -82,9 +82,9 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | obrigatórios | Descrição |
+| Atributo | Obrigatório | Description |
 | --------- | -------- | ----------- |
-| client_secret | SIM | O segredo do cliente do aplicativo do provedor de identidade.   |
+| client_secret | Sim | O segredo do cliente do aplicativo do provedor de identidade.   |
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
 
@@ -94,7 +94,7 @@ Se você estiver usando o domínio **b2clogin.com** em vez de **login.microsofto
 
 Exemplos:
 
-- [Adicionar o Twitter como um provedor de identidade OAuth1 usando políticas personalizadas](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Adicionar o Twitter como um provedor de identidade OAuth1 usando políticas personalizadas](identity-provider-twitter-custom.md)
 
 
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eba9919b7a1d89e6aea8fb93ef8c4b3e92960368
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950860"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840121"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: personalizar a interface de experiências do usuário no Azure Active Directory B2C
 
-Para experiências de usuário mais comuns, como inscrição, entrada e edição de perfil, você pode usar [fluxos de usuário](active-directory-b2c-reference-policies.md) no Azure Active Directory B2C (Azure ad B2C). As informações neste tutorial ajudam você a aprender a [personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
+Para experiências de usuário mais comuns, como inscrição, entrada e edição de perfil, você pode usar [fluxos de usuário](user-flow-overview.md) no Azure Active Directory B2C (Azure ad B2C). As informações neste tutorial ajudam você a aprender a [personalizar a interface do usuário](customize-ui-overview.md) dessas experiências usando seus próprios arquivos HTML e CSS.
 
-Neste artigo, você aprenderá a:
+Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar arquivos de personalização da interface do usuário
@@ -166,4 +166,4 @@ Neste artigo, você aprendeu a:
 > * Testar a interface do usuário personalizada
 
 > [!div class="nextstepaction"]
-> [Personalização de idioma no Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md)
+> [Personalização de idioma no Azure Active Directory B2C](user-flow-language-customization.md)

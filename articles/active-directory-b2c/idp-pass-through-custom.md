@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f7122035f8d70cb91f4ec4f64e1dd4f7b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949833"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76839084"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de uma politica personalizada para seu aplicativo no Azure Active Directory B2C
 
-Uma [política personalizada](active-directory-b2c-get-started-custom.md) no Azure Active Directory B2C (Azure ad B2C) fornece aos usuários de seu aplicativo uma oportunidade de se inscrever ou entrar com um provedor de identidade. Quando isso acontece, o Azure AD B2C recebe um [token de acesso](active-directory-b2c-reference-tokens.md) do provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. Adicione um tipo de declaração e declaração de saída para a sua política personalizada para passar o token para os aplicativos que você registra no ?Azure Active Directory B2C.
+Uma [política personalizada](custom-policy-get-started.md) no Azure Active Directory B2C (Azure ad B2C) fornece aos usuários de seu aplicativo uma oportunidade de se inscrever ou entrar com um provedor de identidade. Quando isso acontece, o Azure AD B2C recebe um [token de acesso](tokens-overview.md) do provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. Adicione um tipo de declaração e declaração de saída para a sua política personalizada para passar o token para os aplicativos que você registra no ?Azure Active Directory B2C.
 
-O Azure AD B2C é compatível com passagem do token de acesso dos provedores de identidade [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) e [OpenID Connect](active-directory-b2c-reference-oidc.md). Para todos os outros provedores de identidade, a declaração é retornada em branco.
+O Azure AD B2C é compatível com passagem do token de acesso dos provedores de identidade [OAuth 2.0](authorization-code-flow.md) e [OpenID Connect](openid-connect.md). Para todos os outros provedores de identidade, a declaração é retornada em branco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +96,7 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 ### <a name="run-the-policy"></a>Executar a política
 
 1. Abra a política que você alterou. Por exemplo, *B2C_1A_signup_signin*.
-2. Para **Aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token no exemplo a seguir, o **URL de resposta** deve mostrar `https://jwt.ms`.
+2. Para **Aplicativo**, selecione seu aplicativo que você registrou anteriormente. Para ver o token no exemplo a seguir, a **URL de resposta** deve mostrar `https://jwt.ms`.
 3. Selecione **Executar Agora**.
 
     Você deverá ver algo semelhante ao texto a seguir:
@@ -105,4 +105,4 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre tokens na [referência de token de Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Saiba mais sobre tokens na [referência de token de Azure Active Directory B2C](tokens-overview.md).

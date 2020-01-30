@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 974f0af461ecdc7de820191950b010035d02a601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e3c2b7f4087f0f47466eff47b22c59dad19892e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598297"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774933"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST 
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são 
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+## <a name="connect-to-media-services"></a>Conectar aos Serviços de Mídia
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -73,7 +73,7 @@ Solicitação:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -111,7 +111,7 @@ Solicitação:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181
@@ -140,20 +140,20 @@ Resposta:
 ### <a name="build-streaming-urls"></a>Criar URLs de streaming
 Use o valor **Caminho** retornado após a criação do localizador para criar as URLs MPEG DASH, Smooth e HLS. 
 
-Smooth Streaming: **Caminho** + nome de arquivo do manifesto + "/manifest"
+Smooth Streaming: **Caminho** + nome de arquivo de manifesto + "/manifest"
 
 exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS: **Caminho** + nome de arquivo do manifesto + "/manifest(format=m3u8-aapl)"
+HLS: **Caminho** + nome de arquivo de manifesto + "/manifest(format=m3u8-aapl)"
 
 exemplo:
 
     https://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-DASH: **Caminho** + nome de arquivo do manifesto + "/manifest(format=mpd-time-csf)"
+DASH: **Caminho** + nome de arquivo de manifesto + "/manifest(format=mpd-time-csf)"
 
 exemplo:
 
@@ -163,7 +163,7 @@ exemplo:
 ### <a name="build-progressive-download-urls"></a>Crie URLs de download progressivo
 Use o valor **Caminho** retornado após a criação do localizador para criar a URL de download progressivo.   
 
-URL: **Caminho** + nome mp4 do arquivo do ativo
+URL: **Caminho** + nome do arquivo MP4 do ativo
 
 exemplo:
 

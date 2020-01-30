@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eceb4b312476d701ec8ce4eb0ce4886621824b3a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706032"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841584"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do hive do Azure HDInsight 3,6 para o HDInsight 4,0
 
@@ -73,13 +73,13 @@ Depois que a **cópia** do metastore for concluída, execute um script de atuali
 
 Use os valores na tabela abaixo. Substitua `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` pelos valores apropriados para os metastore do Hive **copiados** , separados por espaços. Não inclua ". database.windows.net" ao especificar o nome do SQL Server.
 
-|Propriedade | Value |
+|Propriedade | Valor |
 |---|---|
 |Tipo de script|- Personalizado|
-|name|Atualização do hive|
+|Nome|Atualização do hive|
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |Tipo(s) de nó|de Cabeçalho|
-|parâmetros|SENHA DE NOME DE USUÁRIO DATABASENAME SQLSERVERNAME|
+|Parâmetros|SENHA DE NOME DE USUÁRIO DATABASENAME SQLSERVERNAME|
 
 > [!Warning]  
 > A atualização que converte o esquema de metadados do HDInsight 3,6 para o esquema do HDInsight 4,0 não pode ser revertida.
@@ -176,14 +176,16 @@ No HDInsight 4,0, o HiveCLI foi substituído por Beeline. HiveCLI é um cliente 
 
 No HDInsight 3,6, o cliente de GUI para interagir com o servidor do hive é a exibição do hive do Ambari. O HDInsight 4,0 não é fornecido com a exibição Ambari. Fornecemos uma maneira para que nossos clientes usem o DAS (data Analytics Studio), que não é um serviço principal do HDInsight. O DAS não é fornecido com clusters HDInsight prontos para uso e não é um pacote oficialmente suportado. No entanto, o DAS pode ser instalado no cluster usando uma [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) da seguinte maneira:
 
-|Propriedade | Value |
+|Propriedade | Valor |
 |---|---|
 |Tipo de script|- Personalizado|
-|name|Attached|
+|Nome|Attached|
 |URI do script Bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Tipo(s) de nó|de Cabeçalho|
 
-Aguarde de 5 a 10 minutos e, em seguida, inicie o data Analytics Studio usando esta URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+Aguarde de 10 a 15 minutos e, em seguida, inicie o data Analytics Studio usando esta URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+Uma atualização da interface do usuário do Ambari e/ou uma reinicialização de todos os componentes do Ambari pode ser necessária antes de acessar o DAS.
 
 Quando o DAS estiver instalado, se você não vir as consultas que você executou no Visualizador de consultas, execute as seguintes etapas:
 

@@ -3,9 +3,7 @@ title: Gerenciar capturas de pacote com o Observador de Rede do Azure - CLI do A
 description: Esta página explica como gerenciar o recurso de captura de pacote do Observador de Rede usando a CLI do Azure
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -13,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7e6b1d77d002b8c1ed32a4e7adbdd1a46cf65668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 7eea4c05a48c5e055766f942cc44ee4cf189de5d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687098"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840854"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gerenciar as capturas de pacote com o Observador de Rede do Azure usando a CLI do Azure
 
 > [!div class="op_single_selector"]
-> - [Portal do Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
@@ -44,8 +42,8 @@ Este artigo o guiará durante as tarefas de gerenciamento diferentes que estão 
 
 Este artigo pressupõe que você tenha os seguintes recursos:
 
-- Uma instância do Observador de Rede na região que você deseja criar uma captura de pacote
-- Uma máquina virtual com a extensão de captura de pacote habilitada.
+- Uma instância do Observador de Rede na região na qual você deseja criar uma captura de pacotes
+- Uma máquina virtual com a extensão da captura de pacotes habilitada.
 
 > [!IMPORTANT]
 > Captura de pacote requer um agente está em execução na máquina virtual. O agente é instalado como uma extensão. Para obter instruções sobre extensões de VM, visite [recursos e extensões de máquina Virtual](../virtual-machines/windows/extensions-features.md).
@@ -98,7 +96,7 @@ O exemplo a seguir é um exemplo de resposta de execução`az vm extension show`
 }
 ```
 
-## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacote
+## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacotes
 
 Depois que as etapas anteriores forem concluídas, o agente de captura de pacote está instalado na máquina virtual.
 
@@ -215,16 +213,16 @@ az network watcher packet-capture stop --name packetCaptureName --location westc
 > [!NOTE]
 > O cmdlet retorna sem resposta quando executado em uma sessão de captura atualmente em execução ou uma sessão existente que já foi interrompido.
 
-## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacote
+## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
 ```azurecli
 az network watcher packet-capture delete --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> Excluir uma captura de pacote não exclui o arquivo da conta de armazenamento.
+> Excluir uma captura de pacotes não exclui o arquivo na conta de armazenamento.
 
-## <a name="download-a-packet-capture"></a>Baixar uma captura de pacote
+## <a name="download-a-packet-capture"></a>Baixar um pacote de capturas
 
 Quando a sessão de captura de pacote for concluído, o arquivo de captura pode ser carregado no Armazenamento de Blobs ou em um arquivo local na VM. O local de armazenamento da captura de pacotes é definido na criação da sessão. Uma ferramenta conveniente para acessar esses arquivos de captura salvos em uma conta de armazenamento é o Gerenciador de Armazenamento do Microsoft Azure, que pode ser baixado aqui: https://storageexplorer.com/
 
@@ -234,7 +232,7 @@ Se uma conta de armazenamento for especificada, os arquivos de captura de pacote
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 
