@@ -6,7 +6,7 @@
       href: notification-hubs-push-notification-overview.md
     - name: Integração com Aplicativos Móveis do Serviço de Aplicativo
       href: notification-hubs-app-service.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar um hub de notificação – Portal do Azure
@@ -79,6 +79,8 @@
       href: samples-powershell.md
 - name: Conceitos
   items:
+    - name: Protocolo TLS
+      href: notification-hubs-tls12.md
     - name: Orientação arquitetural do push corporativo
       href: notification-hubs-enterprise-push-notification-architecture.md
     - name: Registros de dispositivo
