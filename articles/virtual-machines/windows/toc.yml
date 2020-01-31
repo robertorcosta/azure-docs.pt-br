@@ -232,6 +232,8 @@
           href: disks-types.md
         - name: Criptografia
           href: disk-encryption.md
+        - name: Reservas de Armazenamento em Disco
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Projetando para alto desempenho
           href: premium-storage-performance.md
         - name: Intermitência de disco
@@ -551,6 +553,8 @@
           href: disks-use-storage-explorer-managed-disks.md
         - name: Instantâneo de um disco
           href: snapshot-copy-managed-disk.md
+        - name: Reservar Armazenamento em Disco
+          href: disks-reserved-capacity.md
         - name: Criar um instantâneo incremental
           href: disks-incremental-snapshots.md
         - name: Backup de discos não gerenciados

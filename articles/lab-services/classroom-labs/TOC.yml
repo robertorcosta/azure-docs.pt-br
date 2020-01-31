@@ -44,6 +44,8 @@
           href: class-type-database-management.md
         - name: Python e Jupyter Notebooks
           href: class-type-jupyter-notebook.md
+        - name: Desenvolvimento de aplicativos móveis com o Android Studio
+          href: class-type-mobile-dev-android-studio.md
     - name: Criar e configurar contas de laboratório (proprietário da conta de laboratório)
       items:
         - name: Criar e gerenciar contas de laboratório

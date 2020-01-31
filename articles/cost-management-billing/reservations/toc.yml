@@ -12,6 +12,8 @@
           href: prepay-sql-data-warehouse-charges.md
         - name: Comprar uma reserva de máquina virtual
           href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Armazenamento em Disco do Azure
+          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Comprar uma reserva de armazenamento do Azure
           href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Comprar uma reserva do Cosmos DB
@@ -40,8 +42,12 @@
       items:
         - name: Descontos para a instância de VM Reservada
           href: ../manage/understand-vm-reservation-charges.md
+        - name: Como as recomendações de reserva são criadas
+          href: reserved-instance-purchase-recommendations.md
         - name: Descontos para a capacidade reservada do Armazenamento do Azure
           href: understand-storage-charges.md
+        - name: Descontos para reservas do Armazenamento em Disco do Azure
+          href: understand-disk-reservations.md
         - name: Descontos para a capacidade reservada do Cosmos DB
           href: understand-cosmosdb-reservation-charges.md
         - name: Descontos para a capacidade reservada do Banco de Dados SQL
