@@ -2,18 +2,18 @@
 title: Extrair, transformar e carregar (ETL) em escala - Azure HDInsight
 description: Saiba como extrair, transformar e carregar é usado no HDInsight com Apache Hadoop.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.author: ashishth
-ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: hdinsightactive
+ms.date: 01/27/2020
+ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435784"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846003"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -39,7 +39,7 @@ Para obter mais informações, confira [Usar o Apache Oozie com o Apache Hadoop 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-O Azure Data Factory fornece recursos de orquestração na forma de plataforma como serviço. É um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho orientados a dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados.
+O Azure Data Factory fornece recursos de orquestração na forma de plataforma como serviço. É um serviço de integração de dados baseado em nuvem que permite criar fluxos de trabalho controlados por dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados.
 
 Usando o Azure Data Factory, você pode:
 
@@ -51,11 +51,11 @@ Para obter mais informações sobre o Azure Data Factory, consulte a [documenta�
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Armazenamento de arquivo e armazenamento de resultados de ingestão
 
-Os arquivos de dados de origem geralmente são carregados em um local no Armazenamento do Azure ou no Azure Data Lake Storage. Os arquivos podem estar em qualquer formato, mas geralmente são arquivos simples como CSVs.
+Os arquivos de dados de origem geralmente são carregados em um local no Armazenamento do Azure ou no Azure Data Lake Storage. Os arquivos podem estar em qualquer formato, mas normalmente são arquivos simples, como CSVs.
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
-O [armazenamento do Azure](https://azure.microsoft.com/services/storage/blobs/) tem metas de escalabilidade específicas. Para obter mais informações, consulte [escalabilidade e metas de desempenho para o armazenamento de BLOBs](../../storage/blobs/scalability-targets.md). Para nós mais analíticos, o Armazenamento do Azure é dimensionado melhor ao lidar com vários arquivos menores.  O Armazenamento do Azure garante o mesmo desempenho, independentemente da quantidade ou tamanho dos arquivos (desde que estejam nos seus limites).  Isso significa que você pode armazenar terabytes de dados e ainda obter um desempenho consistente, se você estiver usando um subconjunto de dados ou todos os dados.
+O [armazenamento do Azure](https://azure.microsoft.com/services/storage/blobs/) tem metas de escalabilidade específicas. Para obter mais informações, confira [Escalabilidade e metas de desempenho do Armazenamento de Blobs](../../storage/blobs/scalability-targets.md). Para nós mais analíticos, o Armazenamento do Azure é dimensionado melhor ao lidar com vários arquivos menores.  O Armazenamento do Azure garante o mesmo desempenho, independentemente da quantidade ou tamanho dos arquivos (desde que estejam nos seus limites).  Isso significa que você pode armazenar terabytes de dados e ainda obter um desempenho consistente, quer você esteja usando um subconjunto dos dados ou todos os dados.
 
 O Armazenamento do Azure tem vários tipos diferentes de blobs.  Um *append blob* é uma ótima opção para armazenar logs da web ou dados do sensor.  
 
@@ -85,13 +85,13 @@ Para carregar conjuntos de dados no intervalo terabyte, a latência de rede pode
 
 O SQL DW do Azure é uma ótima opção para armazenar resultados limpos e preparados para análise futura.  O HDInsight do Azure pode ser usado para executar esses serviços para o SQL DW do Azure.
 
-O SQL Data Warehouse do Azure (SQL DW) é um repositório de banco de dados relacional otimizado para cargas de trabalho analíticas.  O SQL DW do Azure é dimensionado com base em tabelas particionadas.  Tabelas podem ser particionadas em vários nós.  Nós do SQL DW do Azure são selecionados no momento da criação.  Eles podem ser dimensionados após o fato, mas isso é um processo ativo que pode exigir a movimentação de dados. Consulte [SQL Data Warehouse - gerenciar computação](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) para obter mais informações.
+O SQL Data Warehouse do Azure (SQL DW) é um repositório de banco de dados relacional otimizado para cargas de trabalho analíticas.  O SQL DW do Azure é dimensionado com base em tabelas particionadas.  Tabelas podem ser particionadas em vários nós.  Nós do SQL DW do Azure são selecionados no momento da criação.  Eles podem ser dimensionados após o fato, mas isso é um processo ativo que pode exigir a movimentação de dados. Para obter mais informações, consulte [SQL data warehouse-gerenciar computação](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
 O Apache HBase é um repositório de chave-valor disponível no Azure HDInsight.  O Apache HBase é um banco de dados NoSQL de código-fonte aberto, que é compilado no Hadoop e modelado com base em Google BigTable. O HBase fornece acesso aleatório de desempenho e uma coerência forte para grandes quantidades de dados não estruturados e semiestruturados em um banco de dados sem esquema, organizado por famílias de colunas.
 
-Os dados são armazenados nas linhas de uma tabela e os dados contidos nas linhas são agrupados por famílias de colunas. O HBase é um banco de dados sem esquema, no aspecto de que nem as colunas nem os tipos de dados armazenados nelas precisam ser definidos antes de serem utilizados. O código-fonte aberto é dimensionado linearmente para lidar com petabytes de dados em milhares de nós. O HBase pode fazer uso da redundância de dados, do processamento em lote e de outros recursos que são fornecidos por aplicativos distribuídos no ecossistema do Hadoop.   
+Os dados são armazenados nas linhas de uma tabela e os dados contidos nas linhas são agrupados por famílias de colunas. O HBase é um banco de dados sem esquema, no aspecto de que nem as colunas nem os tipos de dados armazenados nelas precisam ser definidos antes de serem utilizados. O código-fonte aberto é dimensionado linearmente para lidar com petabytes de dados em milhares de nós. O HBase pode fazer uso da redundância de dados, do processamento em lote e de outros recursos que são fornecidos por aplicativos distribuídos no ecossistema do Hadoop.
 
 O HBase é um excelente destino para dados de sensor e de log para análise futura.
 
@@ -105,9 +105,9 @@ O Azure oferece três bancos de dados relacionais diferentes como plataforma-com
 * [Banco de Dados do Azure para MySQL](../../mysql/overview.md) é uma implementação do Oracle MySQL.
 * [Banco de Dados do Azure para PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) é uma implementação do Oracle PostgreSQL.
 
-Esses produtos escalam verticalmente, o que significa que eles são dimensionados com a adição de mais CPU e memória.  Você também pode optar por usar discos premium com os produtos para melhorar o desempenho de I/O.
+Esses produtos são escalados verticalmente, o que significa que eles são dimensionados adicionando mais CPU e memória.  Você também pode optar por usar discos premium com os produtos para melhorar o desempenho de I/O.
 
-## <a name="azure-analysis-services"></a>Analysis Services do Azure 
+## <a name="azure-analysis-services"></a>Analysis Services do Azure
 
 Azure Analysis Services (AAS) é um mecanismo de dados analíticos usado em suporte a decisões e análise de negócios, fornecendo os dados analíticos para relatórios de negócios e aplicativos cliente, como o Power BI, Excel, relatórios do Reporting Services e outras ferramentas de visualização de dados.
 
@@ -115,11 +115,11 @@ Cubos de análise podem ser dimensionados alterando camadas para cada cubo indiv
 
 ## <a name="extract-and-load"></a>Extrair e carregar
 
-Depois que os dados estiverem no Azure, você pode usar vários serviços para extraí-los e carregá-los em outros produtos.  O HDInsight oferece suporte a Sqoop e Flume. 
+Depois que os dados estiverem no Azure, você pode usar vários serviços para extraí-los e carregá-los em outros produtos.  O HDInsight oferece suporte a Sqoop e Flume.
 
 ### <a name="apache-sqoop"></a>Apache Sqoop
 
-O Apache Sqoop é uma ferramenta projetada para transferir com eficiência os dados entre fontes de dados estruturados, semi-estruturados e não estruturados. 
+O Apache Sqoop é uma ferramenta projetada para transferir com eficiência os dados entre fontes de dados estruturados, semi-estruturados e não estruturados.
 
 Sqoop usa MapReduce para importar e exportar os dados, para fornecer tolerância a falhas e a operação em paralelo.
 
@@ -131,10 +131,10 @@ O Apache Flume não pode ser usado com o Azure HDInsight.  Uma instalação loca
 
 ## <a name="transform"></a>Transformação
 
-Uma vez que dados estiverem no local escolhido, você precisa limpá-los, combiná-os ou prepará-los para um padrão de uso específico.  Hive, Pig e Spark SQL são boas opções para esse tipo de trabalho.  Todos eles são suportados no HDInsight. 
+Uma vez que dados estiverem no local escolhido, você precisa limpá-los, combiná-os ou prepará-los para um padrão de uso específico.  Hive, Pig e Spark SQL são boas opções para esse tipo de trabalho.  Todos eles têm suporte no HDInsight.
 
 ## <a name="next-steps"></a>Próximos passos
 
-* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Usando o Apache Hive como uma ferramenta de ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Usando o Apache Hive como uma ferramenta de ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 * [Usar Gen2 de armazenamento do Azure Data Lake com clusters de HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Mover dados do banco de dados SQL do Azure para Apache Hive tabela](./apache-hadoop-use-sqoop-mac-linux.md)

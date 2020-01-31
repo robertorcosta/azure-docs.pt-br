@@ -3,21 +3,21 @@ title: Configurar a replicação de sistema do SAP HANA em VMs (máquinas virtua
 description: Estabeleça alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
-ms.author: sedusch
-ms.openlocfilehash: 62bb00c05359682503d2e99ef282f2523871147d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/28/2020
+ms.author: radeltch
+ms.openlocfilehash: fe4c3d8ea7aee0922ca29b9c0f475bfd9fa3c67a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721531"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837027"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -58,7 +58,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * O software SAP e combinações de SO (sistema operacional) e banco de dados com suporte.
   * A versão do kernel do SAP necessária para Windows e Linux no Microsoft Azure.
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
-* Nota SAP [2002167] recomendou configurações do SO para o Red Hat Enterprise Linux
+* Nota SAP [2002167] recomendou configurações do sistema operacional Red Hat Enterprise Linux
 * Nota SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
 * A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
@@ -69,7 +69,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
 * [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
 * [Replicação do sistema SAP HANA no cluster de marca-passo](https://access.redhat.com/articles/3004101)
-* Documentação geral RHEL
+* Documentação geral do RHEL
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
@@ -78,7 +78,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
   * [Instalando e configurando um Cluster de alta disponibilidade do Red Hat Enterprise Linux 7.4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Instalar o SAP HANA no Red Hat Enterprise Linux para uso no Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Para obter a alta disponibilidade, o SAP HANA é instalada em duas máquinas virtuais. Os dados são replicados usando a Replicação de Sistema do HANA.
 
@@ -560,14 +560,21 @@ Em seguida, crie a topologia HANA. Execute os seguintes comandos em um dos nós 
 <pre><code>sudo pcs property set maintenance-mode=true
 
 # Replace the bold string with your instance number and HANA system ID
-sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> --clone clone-max=2 clone-node-max=1 interleave=true
+sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> \
+op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
+--clone clone-max=2 clone-node-max=1 interleave=true
 </code></pre>
 
 Em seguida, crie os recursos do HANA:
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
 
-sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false master notify=true clone-max=2 clone-node-max=1 interleave=true
+sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+op start timeout=3600 op stop timeout=3600 \
+op monitor interval=61 role="Slave" timeout=700 \
+op monitor interval=59 role="Master" timeout=700 \
+op promote timeout=3600 op demote timeout=3600 \
+master notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
 
@@ -583,6 +590,9 @@ sudo pcs property set maintenance-mode=false
 </code></pre>
 
 Certifique-se de que o status do cluster está correto e que todos os recursos foram iniciados. Não é importante saber em qual nó os recursos estão sendo executados.
+
+> [!NOTE]
+> Os tempos limite na configuração acima são apenas exemplos e talvez precisem ser adaptados para a instalação específica do HANA. Por exemplo, talvez seja necessário aumentar o tempo limite de início, se levar mais tempo para iniciar o banco de dados SAP HANA.  
 
 <pre><code>sudo pcs status
 
@@ -766,7 +776,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 </code></pre>
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
 * [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
