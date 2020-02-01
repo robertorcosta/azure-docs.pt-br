@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c2acd09df51b942a08a85d96d907e064367377a7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026152"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900287"
 ---
 # <a name="azure-batch-best-practices"></a>Práticas recomendadas do lote do Azure
 
@@ -109,7 +109,7 @@ As tarefas são unidades individuais de trabalho que compõem um trabalho. As ta
 - **Envie um grande número de tarefas em uma coleção.**  
     As tarefas podem ser enviadas em uma base individual ou em coleções. Envie tarefas em [coleções](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) de até 100 de uma vez ao realizar o envio em massa de tarefas para reduzir a sobrecarga e o tempo de envio.
 
-### <a name="task-execution"></a>Execução das tarefas
+### <a name="task-execution"></a>Execução da tarefa
 
 - **Escolhendo o máximo de tarefas por nó**  
     O lote dá suporte a tarefas de sobrecarregar em nós (executando mais tarefas do que um nó tem núcleos). Cabe a você garantir que suas tarefas se ajustem aos nós no pool. Por exemplo, você pode ter uma experiência degradada se tentar agendar oito tarefas, cada uma consumindo 25% de uso da CPU em um nó (em um pool com `maxTasksPerNode = 8`).
@@ -152,3 +152,15 @@ Embora seja raro, uma tarefa pode ser repetida internamente devido a falhas no n
 ### <a name="security-isolation"></a>Isolamento de segurança
 
 Para fins de isolamento, se o seu cenário exigir o isolamento de trabalhos uns dos outros, você deverá isolar esses trabalhos fazendo com que eles estejam em pools separados. Um pool é o limite de isolamento de segurança no lote e, por padrão, dois pools não são visíveis ou são capazes de se comunicar entre si. Evite usar contas do lote separadas como meio de isolamento.
+
+## <a name="moving"></a>Movimenta
+
+### <a name="move-batch-account-across-regions"></a>Mover conta do lote entre regiões 
+
+Há vários cenários em que você deseja mover sua conta do lote existente de uma região para outra. Por exemplo, talvez você queira mover para outra região como parte do planejamento de recuperação de desastre.
+
+As contas do lote do Azure não podem ser movidas de uma região para outra. No entanto, você pode usar um modelo de Azure Resource Manager para exportar a configuração existente da sua conta do lote.  Em seguida, você pode preparar o recurso em outra região exportando a conta do lote para um modelo, modificando os parâmetros para corresponder à região de destino e, em seguida, implantar o modelo na nova região. Depois de carregar o modelo para a nova região, você precisará recriar certificados, agendas de trabalho e pacotes de aplicativos. Para confirmar as alterações e concluir a movimentação da conta do lote, lembre-se de excluir a conta do lote original ou o grupo de recursos.  
+
+Para obter mais informações sobre o Gerenciador de recursos e modelos, consulte [início rápido: criar e implantar modelos de Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

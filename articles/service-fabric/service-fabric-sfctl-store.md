@@ -1,16 +1,16 @@
 ---
 title: CLI do Azure Service Fabric-sfctl Store
-description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para executar operações de nível de arquivo no repositório de imagens cluster.
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para executar operações de nível de arquivo no repositório de imagens de cluster.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 64a8ea963afa9e20dfafb71db69b2baf66959369
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 75c62b54ff3aa7f3af344aa3e1ca81d431ae0ab2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645252"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905615"
 ---
 # <a name="sfctl-store"></a>repositório sfctl
 Execute operações de arquivo de nível básico no repositório de imagens do cluster.

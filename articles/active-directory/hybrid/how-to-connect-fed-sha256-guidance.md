@@ -1,5 +1,5 @@
 ---
-title: Alterar o algoritmo de hash de assinatura para o objeto de confiança - Azure da terceira parte confiável do Office 365
+title: Alterar o algoritmo de hash de assinatura para a terceira parte confiável do Office 365-Azure
 description: Esta página fornece diretrizes para alterar o algoritmo SHA para confiança de federação com o Office 365
 keywords: SHA1, SHA256, O365, federação, aadconnect, adfs, ad fs, alterar o sha, confiança de federação, objeto de confiança de terceira parte confiável
 services: active-directory
@@ -9,6 +9,7 @@ manager: daveba
 editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,15 +17,15 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2233b434fda628dcf812a62f06541fc4b0296aba
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138633"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897342"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Alterar o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável Office 365
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 O AD FS (Serviços de Federação do Azure Active Directory) assina seus tokens para o Microsoft Azure Active Directory para garantir que eles não possam ser violados. Essa assinatura pode ser baseada em SHA1 ou em SHA256. O Azure Active Directory agora dá suporte para tokens assinados com um algoritmo SHA256, e recomendamos configurar o algoritmo de assinatura do token para SHA256 no nível mais alto de segurança. Este artigo descreve as etapas necessárias para definir o algoritmo de assinatura de token para o nível SHA256 mais seguro.
 
 >[!NOTE]

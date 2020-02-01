@@ -1,5 +1,5 @@
 ---
-title: Guia de programação .NET – hubs de eventos do Azure | Microsoft Docs
+title: Guia de programação do .NET – hubs de eventos do Azure (Herdado) | Microsoft Docs
 description: Este artigo fornece informações sobre como criar código para os Hubs de Eventos do Azure usando o SDK do .NET do Azure.
 services: event-hubs
 documentationcenter: na
@@ -7,17 +7,21 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: c2e23c38abbec5fd0e6010bdfc0feca882a6180d
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: afd466e0266cf2d95f95eb8536943f5856c26a58
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309824"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899911"
 ---
-# <a name="net-programming-guide-for-azure-event-hubs"></a>Guia de programação do .NET para hubs de eventos do Azure
+# <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guia de programação do .NET para hubs de eventos do Azure (pacote Microsoft. Azure. EventHubs herdado)
 Este artigo descreve alguns cenários comuns de produção de código usando os Hubs de Eventos do Azure. Ele supõe uma compreensão preliminar de Hubs de Eventos. Para obter uma visão geral conceitual dos Hubs de Eventos, confira [Visão geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md).
+
+> [!WARNING]
+> Este guia é para o antigo pacote **Microsoft. Azure. EventHubs** . Recomendamos que você [migre](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) seu código para usar o pacote [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) mais recente.  
+
 
 ## <a name="event-publishers"></a>Editores de eventos
 
@@ -25,7 +29,7 @@ Envie eventos para um Hub de Eventos usando HTTP POST ou via uma conexão AMQP 1
 
 Ao usar APIs gerenciadas pelo .NET, as principais construções para publicar os dados nos Hubs de Eventos são as classes [EventHubClient][] e [EventData][]. [EventHubClient][] fornece o canal de comunicação AMQP pelo qual os eventos são enviados ao Hub de Eventos. A classe [EventData][] representa um evento e é usada para publicar mensagens em um hub de eventos. Essa classe inclui o corpo, alguns metadados (Propriedades) e informações de cabeçalho (SystemProperties) sobre o evento. Outras propriedades são adicionadas ao objeto [EventData][] à medida que ele passa por um hub de eventos.
 
-## <a name="get-started"></a>Introdução
+## <a name="get-started"></a>Comece agora
 As classes do .NET que são compatíveis com os Hubs de Eventos são fornecidas no pacote do NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Você pode instalar usando o gerenciador de soluções do Visual Studio, ou o [Console do Gerenciador de pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) no Visual Studio. Digite o comando a seguir na janela [Console do Gerenciador de Pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```shell
@@ -101,7 +105,7 @@ Um único lote não deve exceder o limite de 1 MB de um evento. Além disso, cad
 Você envia eventos para um hub de eventos de forma assíncrona. O envio de forma assíncrona pode aumentar a taxa em que um cliente é capaz de enviar eventos. O [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) retorna um objeto da [Tarefa](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Você pode usar a classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) no cliente para controlar as opções de novas tentativas do cliente.
 
 ## <a name="event-consumers"></a>Consumidores de evento
-A classe [EventProcessorHost][] processa dados de Hubs de Eventos. Você deve usar essa implementação ao criar os leitores de evento na plataforma .NET. [EventProcessorHost][] fornece um ambiente de tempo de execução seguro, thread-safe, de vários processos, para implementações de processador de eventos, que também fornece gerenciamento de concessão de ponto de verificação e partição.
+A classe [EventProcessorHost][] processa dados de Hubs de Eventos. Você deve usar essa implementação ao criar os leitores de evento na plataforma .NET. [EventProcessorHost][] fornece um ambiente de runtime seguro, thread-safe, de vários processos, para implementações de processador de eventos, que também fornece gerenciamento de concessão de ponto de verificação e partição.
 
 Para usar a classe [EventProcessorHost][], você pode implementar o [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). Essa interface contém quatro métodos:
 
@@ -113,7 +117,7 @@ Para usar a classe [EventProcessorHost][], você pode implementar o [IEventProce
 Para iniciar o processamento de eventos, instancie o [EventProcessorHost][] fornecendo os parâmetros adequados para seu hub de eventos. Por exemplo:
 
 > [!NOTE]
-> EventProcessorHost e suas classes relacionadas são fornecidas no pacote **Microsoft. Azure. EventHubs. Processor** . Adicione o pacote ao seu projeto do Visual Studio seguindo as instruções neste [artigo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou emitindo o seguinte comando na janela do [console do Gerenciador](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) de pacotes`Install-Package Microsoft.Azure.EventHubs.Processor`:.
+> EventProcessorHost e suas classes relacionadas são fornecidas no pacote **Microsoft. Azure. EventHubs. Processor** . Adicione o pacote ao seu projeto do Visual Studio seguindo as instruções neste [artigo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou emitindo o seguinte comando na janela do [console do Gerenciador de pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
@@ -147,7 +151,7 @@ Além dos recursos avançados de tempo de execução do host do processador de e
 
 Para obter mais informações sobre a revogação do publicador e como enviar para os Hubs de Eventos como um publicador, consulte o exemplo [Publicação Segura em Larga Escala dos Hubs de Eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 

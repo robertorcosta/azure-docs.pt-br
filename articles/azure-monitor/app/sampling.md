@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281063"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899086"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -531,7 +531,7 @@ A precisão da aproximação depende principalmente do percentual de amostragem 
 
 *Há alguns eventos raros que sempre desejo ver. Como posso fazê-los passar pelo módulo de amostragem?*
 
-* A melhor maneira de conseguir isso é escrever um [personalizada telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizado, que define o `SamplingPercentage` como 100 no item de telemetria que você deseja reter, conforme mostrado abaixo. À medida que inicializadores são garantidos para serem executados antes dos processadores de telemetria (incluindo amostragem), isso garante que todas as técnicas de amostragem ignorem esse item de quaisquer considerações de amostragem.
+* A melhor maneira de conseguir isso é escrever um [personalizada telemetryinitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)personalizado, que define o `SamplingPercentage` como 100 no item de telemetria que você deseja reter, conforme mostrado abaixo. À medida que inicializadores são garantidos para serem executados antes dos processadores de telemetria (incluindo amostragem), isso garante que todas as técnicas de amostragem ignorem esse item de quaisquer considerações de amostragem. Inicializadores de telemetria personalizados estão disponíveis no SDK do ASP.NET, no SDK do ASP.NET Core, no SDK do JavaScript e no SDK do Java. Por exemplo, você pode configurar um inicializador de telemetria usando o SDK do ASP.NET:
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer

@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029993"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905510"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -147,25 +147,25 @@ Copie todos os contêineres de BLOB, diretórios e blobs da conta de armazenamen
 
 Copie um único objeto para o armazenamento de blobs de Amazon Web Services (AWS) S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
   
-- azcopy CP "https://s3.amazonaws.com/[Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
+- azcopy CP "https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
 
 Copie um diretório inteiro para o armazenamento de BLOBs do AWS S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/[Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/ [Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
 
 Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para entender melhor o espaço reservado [pasta].
 
 Copie todos os buckets para o armazenamento de blobs de Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 Copie todos os buckets para o armazenamento de blobs de uma região Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3-[Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3- [Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket. Como nos exemplos anteriores, você precisará de uma chave de acesso e um token SAS. Certifique-se de definir a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-- azcopy CP "https://s3.amazonaws.com/[Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
+- azcopy CP "https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 ## <a name="options"></a>Opções
 
@@ -217,7 +217,7 @@ Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket
 
 **--no-palpite-tipo MIME**                   Impede que o AzCopy detecte o tipo de conteúdo com base na extensão ou no conteúdo do arquivo.
 
-**--substituir** cadeia de caracteres substituirá os arquivos conflitantes e os BLOBs no destino se esse sinalizador for definido como true. Os valores possíveis incluem ' true ', ' false ' e ' prompt '. (padrão "true")
+**--substituir** cadeia de caracteres substituirá os arquivos conflitantes e os BLOBs no destino se esse sinalizador for definido como true. Os valores possíveis incluem ' true ', ' false ', ' ifSourceNewer ' e ' prompt '. (padrão "true")
 
 **--Page-blob-camada – blob de** página de carregamento de cadeia de caracteres para o armazenamento do Azure usando essa camada de BLOB. (padrão "None")
 

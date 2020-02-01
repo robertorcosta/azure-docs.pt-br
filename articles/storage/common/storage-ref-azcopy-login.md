@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034072"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905290"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -99,8 +99,10 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 
 ## <a name="options"></a>Opções
 
-|Opção|DESCRIÇÃO|
+|Opção|Description|
 |--|--|
+|--AAD-ponto de extremidade|O ponto de extremidade Azure Active Directory a ser usado. O padrão (https://login.microsoftonline.com) está correto para a nuvem pública do Azure. Defina esse parâmetro ao autenticar em uma nuvem nacional. Consulte [pontos de extremidade de autenticação do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+Esse sinalizador não é necessário para Identidade de Serviço Gerenciada.|
 |--ID do aplicativo-cadeia de caracteres|ID do aplicativo da identidade atribuída pelo usuário. Necessário para autenticação de entidade de serviço.|
 |--Cadeia de caracteres de caminho do certificado|Caminho para o certificado para autenticação SPN. Necessário para autenticação de entidade de serviço baseada em certificado.|
 |-h, --help|Mostra o conteúdo da ajuda para o comando de logon.|
@@ -113,7 +115,7 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 
-|Opção|DESCRIÇÃO|
+|Opção|Description|
 |---|---|
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841226"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908915"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Há várias maneiras de personalizar a interface do usuário de seu aplicativo, 
 Se você usar [fluxos de usuário](user-flow-overview.md), poderá alterar a aparência de suas páginas de fluxo de usuário usando modelos de *layout de página*internos ou usando seu próprio HTML e CSS. Os dois métodos são discutidos posteriormente neste artigo.
 
 Você usa o [portal do Azure](tutorial-customize-ui.md) para configurar a personalização da interface do usuário para fluxos de usuários.
+
+> [!TIP]
+> Se você quiser modificar apenas o logotipo de faixa, a imagem de tela de fundo e a cor da tela de fundo das suas páginas de fluxo de usuário, você poderá experimentar o recurso de [identidade visual da empresa (versão prévia)](#company-branding-preview) descrito posteriormente neste artigo.
 
 ### <a name="custom-policies"></a>Políticas personalizadas
 
@@ -149,6 +152,60 @@ A tabela abaixo lista os fragmentos de HTML que o Azure AD B2C mescla ao element
 | Inscrição ou entrada unificada | Controla tanto a inscrição quanto a entrada de clientes, que podem usar provedores de identidade social como Facebook, Google ou contas locais. |
 | Autenticação multifator | Os clientes podem verificar seus números de telefone (usando mensagem de texto ou de voz) durante a inscrição ou entrada. |
 | Erro | Fornece informações de erro para o cliente. |
+
+## <a name="company-branding-preview"></a>Identidade visual da empresa (versão prévia)
+
+Você pode personalizar suas páginas de fluxo de usuário com um logotipo de faixa, uma imagem de tela de fundo e uma cor de plano de fundo usando Azure Active Directory [identidade visual da empresa](../active-directory/fundamentals/customize-branding.md).
+
+Para personalizar suas páginas de fluxo de usuário, primeiro configure a identidade visual da empresa no Azure Active Directory, em seguida, habilite-a nos layouts de página de seus fluxos de usuário no Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### <a name="configure-company-branding"></a>Configurar identidade visual da empresa
+
+Comece definindo o logotipo de faixa, a imagem de tela de fundo e a cor da tela de fundo dentro **da identidade visual da empresa**.
+
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Selecione o filtro **Diretório + assinatura** no menu superior e, em seguida, selecione o diretório que contém o locatário do Azure AD B2C.
+1. Na portal do Azure, procure e selecione **Azure ad B2C**.
+1. Em **gerenciar**, selecione **identidade visual da empresa**.
+1. Siga as etapas em [Adicionar identidade visual à página de entrada Azure Active Directory de sua organização](../active-directory/fundamentals/customize-branding.md).
+
+Lembre-se destas coisas ao configurar a identidade visual da empresa no Azure AD B2C:
+
+* A identidade visual da empresa no Azure AD B2C está limitada atualmente à **imagem de plano de fundo**, ao logotipo da **faixa**e à personalização da cor da **tela de fundo** . As outras propriedades no painel de identidade visual da empresa, por exemplo, em **Configurações avançadas**, *não têm suporte*.
+* Nas páginas de fluxo do usuário, a cor do plano de fundo é mostrada antes da imagem de plano de fundo ser carregada. Recomendamos que você escolha uma cor de plano de fundo que corresponda melhor às cores na sua imagem de plano de fundo para uma experiência de carregamento mais suave.
+* O logotipo de faixa aparece nos emails de verificação enviados aos usuários quando eles iniciam um fluxo de usuário de inscrição.
+
+### <a name="enable-branding-in-user-flow-pages"></a>Habilitar identidade visual em páginas de fluxo do usuário
+
+Depois de configurar a identidade visual da empresa, habilite-a em seus fluxos de usuário.
+
+1. No menu à esquerda da portal do Azure, selecione **Azure ad B2C**.
+1. Em **políticas**, selecione **fluxos de usuário (políticas)** .
+1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para os tipos de fluxo de usuário *Sign in v1* e de *edição de perfil v1* .
+1. Em **Personalizar**, selecione **layouts de página**e, em seguida, selecione o layout que você deseja marcar. Por exemplo, selecione **página de inscrição ou inscrição unificada**.
+1. Para a **versão de layout de página (visualização)** , escolha a versão **1.2.0** ou superior.
+1. Clique em **Salvar**.
+
+Se você quiser marcar todas as páginas no fluxo do usuário, defina a versão de layout da página para cada layout de página no fluxo do usuário.
+
+![Seleção de layout de página em Azure AD B2C no portal do Azure](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+Este exemplo anotado mostra um logotipo de faixa personalizado e uma imagem de tela de fundo em uma página de *entrada e* entrada de fluxo de usuário que usa o modelo azul do oceano:
+
+![Página de inscrição/entrada com marca fornecida por Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### <a name="use-company-branding-assets-in-custom-html"></a>Usar ativos de identidade visual da empresa em HTML personalizado
+
+Para usar os ativos de identidade visual da empresa em HTML personalizado, adicione as seguintes marcas fora da marca de `<div id="api">`:
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+A origem da imagem é substituída pela imagem de plano de fundo e pelo logotipo de faixa. Conforme descrito na seção Introdução ao [HTML e CSS personalizados](#get-started-with-custom-html-and-css) , use classes CSS para estilizar e posicionar os ativos na página.
 
 ## <a name="localize-content"></a>Conteúdo de localização
 

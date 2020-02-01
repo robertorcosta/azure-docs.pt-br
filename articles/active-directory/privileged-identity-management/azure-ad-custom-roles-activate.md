@@ -7,6 +7,7 @@ author: curtand
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ea116414e12cb231fdbaa5ec9ad375d2c0eea9
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 06ceb2d2c98c3f9b6b184b98ddaadea610d525d2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145005"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896564"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Ativar uma função personalizada do Azure AD no PIM (Privileged Identity Management)
 
@@ -59,7 +60,7 @@ Se a função não exigir aprovação, ela já estará ativada de acordo com sua
 
 Se a função exigir aprovação para ser ativada, você receberá uma notificação do Azure informando-o de que a solicitação está com aprovação pendente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir uma função personalizada do Azure AD](azure-ad-custom-roles-assign.md)
 - [Remover ou atualizar uma atribuição de função personalizada do Azure AD](azure-ad-custom-roles-update-remove.md)

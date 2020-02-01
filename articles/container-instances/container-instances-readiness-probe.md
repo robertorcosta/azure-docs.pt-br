@@ -3,12 +3,12 @@ title: Configurar investigação de preparação na instância de contêiner
 description: Saiba como configurar uma investigação para garantir que os contêineres nas instâncias de contêiner do Azure recebam solicitações somente quando estiverem prontos
 ms.topic: article
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533556"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901842"
 ---
 # <a name="configure-readiness-probes"></a>Configurar investigações de preparação
 
@@ -17,6 +17,9 @@ Para aplicativos em contêineres que atendem ao tráfego, talvez você queira ve
 Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de prontidão, para que um contêiner só receba tráfego quando a investigação tiver sucesso.
 
 As instâncias de contêiner do Azure também dão suporte a [testes de vida](container-instances-liveness-probe.md), que podem ser configurados para fazer com que um contêiner não íntegro seja reiniciado automaticamente.
+
+> [!NOTE]
+> No momento, você não pode usar uma investigação de preparação em um grupo de contêineres implantado em uma rede virtual.
 
 ## <a name="yaml-configuration"></a>Configuração do YAML
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 630a018c25ac8663fd369c1256e376b8039182c9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b5875d0672fc187920883abe208ad30c4d2b1051
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910814"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898545"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura do clima do Azure Maps
 
@@ -86,8 +86,8 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Suriname                                 | ✓ |   |  ✓| 
 | Trinidad e Tobago                      | ✓ |   |  ✓| 
 | Ilhas Turcas e Caicos                 | ✓ |   |  ✓| 
-| Territórios Insulares dos EUA                    | ✓ |   |  ✓| 
-| Ilhas Virgens dos Estados Unidos                      | ✓ |   |  ✓| 
+| Territórios insulares dos EUA                    | ✓ |   |  ✓| 
+| Ilhas Virgens dos EUA                      | ✓ |   |  ✓| 
 | Estados Unidos                            | ✓ | ✓ |  ✓| 
 | Uruguai                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -110,8 +110,8 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | República Centro-Africana    | ✓               |                              |        ✓| 
 | Chad                        | ✓               |                              |        ✓| 
 | Ilhas Comores                     | ✓               |                              |        ✓| 
-| Congo (República Democrática)                 | ✓               |                              |        ✓|
-| Côte d’Ivoire               | ✓               |                              |        ✓| 
+| Congo (RDC)                 | ✓               |                              |        ✓|
+| Côte d' Ivoire               | ✓               |                              |        ✓| 
 | Djibuti                    | ✓               |                              |        ✓| 
 | Egito                       | ✓               |                              |        ✓| 
 | Guiné Equatorial           | ✓               |                              |        ✓| 
@@ -151,7 +151,7 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Reunião                     | ✓               |                              |        ✓| 
 | Ruanda                      | ✓               |                              |        ✓| 
 | Santa Helena, ascensão e Tristão da Cunha        | ✓               |                              |        ✓| 
-| São Tomé and Príncipe       | ✓               |                              |        ✓| 
+| São Tomé e Príncipe       | ✓               |                              |        ✓| 
 | Arábia Saudita                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
 | Seychelles                  | ✓               |                              |        ✓| 
@@ -179,7 +179,6 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Afeganistão                       | ✓ |   |  ✓| 
 | Samoa Americana                    | ✓ |   |  ✓| 
 | Austrália                         | ✓ | ✓ |  ✓| 
-| Azerbaijão                        | ✓ |   |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Butão                            | ✓ |   |  ✓| 
 | Território Britânico do Oceano Índico    | ✓ |   |  ✓| 
@@ -247,7 +246,8 @@ A tabela a seguir fornece informações sobre o tipo de informações de clima q
 | Albânia                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
 | Armênia                | ✓ |   |  ✓| 
-| Áustria                | ✓ | ✓ |  ✓| 
+| Áustria                | ✓ | ✓ |  ✓|
+| Azerbaijão             | ✓ |   |  ✓| 
 | Belarus                | ✓ |   |  ✓| 
 | Bélgica                | ✓ | ✓ |  ✓| 
 | Bósnia e Herzegovina | ✓ | ✓ |  ✓| 

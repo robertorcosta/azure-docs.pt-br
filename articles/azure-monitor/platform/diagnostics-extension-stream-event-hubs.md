@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 111fab880887b54b2415d433bda2368c951381bd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770162"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901224"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no afunilamento usando os Hubs de Eventos
 O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e os logs das VMs (máquinas virtuais) dos serviços de nuvem e para transferir os resultados para o armazenamento do Azure. A partir de março de 2016 (SDK 2.9), você poderá enviar o Diagnóstico para fontes de dados personalizadas e transferir dados do afunilamento em questão de segundos usando os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -201,7 +201,7 @@ Neste exemplo, o coletor é aplicado aos logs e é filtrado apenas para o rastre
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implantar e atualizar uma configuração de aplicativo e diagnóstico dos Serviços de Nuvem
 O Visual Studio fornece o caminho mais fácil para implantar o aplicativo e a configuração do coletor de Hubs de Eventos. Para exibir e editar o arquivo, abra o arquivo *.wadcfgx* no Visual Studio, edite e salve-o. O caminho é **Projeto do Serviço de Nuvem** > **Funções** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
 
-Neste ponto, todas as implantações e ações de atualização de implantações no Visual Studio, no Visual Studio Team System e em todos os comandos ou scripts que são baseados no MSBuild e usam o destino **/t:publish** incluem o *.wadcfgx* no processo de empacotamento. Além disso, as implantações e atualizações implantam o arquivo no Azure usando a extensão apropriada do agente de Diagnóstico do Azure em suas VMs.
+Neste ponto, todas as ações de implantação e atualização de implantação no Visual Studio, no Visual Studio Team System e em todos os comandos ou scripts baseados no MSBuild e usam o destino de `/t:publish` incluem o *. wadcfgx* no processo de empacotamento. Além disso, as implantações e atualizações implantam o arquivo no Azure usando a extensão apropriada do agente de Diagnóstico do Azure em suas VMs.
 
 Depois de implantar o aplicativo e a configuração do Diagnóstico do Azure, você imediatamente verá a atividade no painel do hub de eventos. Isso indica que você está pronto para começar a ver os dados do afunilamento no cliente ouvinte ou na ferramenta de análise de sua escolha.  
 
@@ -215,13 +215,72 @@ Na figura a seguir, o painel Hub de Eventos mostra os envios íntegros dos dados
 >
 
 ## <a name="view-hot-path-data"></a>Exibir dados de caminhos recorrentes
-Como discutido anteriormente, há muitos casos de uso sobre ouvir e processar os dados dos Hubs de Eventos.
+Como discutido anteriormente, há muitos casos de uso sobre ouvir e processar os dados dos Hubs de Eventos. Uma abordagem simples é criar um pequeno aplicativo de console de teste para escutar o hub de eventos e imprimir a transmissão de saída. 
 
-Uma abordagem simples é criar um pequeno aplicativo de console de teste para escutar o hub de eventos e imprimir a transmissão de saída. Você pode colocar o código a seguir, que é explicado em mais detalhes na [Introdução aos Hubs de Evento](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md), em um aplicativo de console.  
+#### <a name="net-sdk-latest-500-or-latertablatest"></a>[SDK do .NET mais recente (5.0.0 ou posterior)](#tab/latest)
+Você pode colocar o código a seguir, que é explicado em mais detalhes na [Introdução aos Hubs de Evento](../../event-hubs/get-started-dotnet-standard-send-v2.md), em um aplicativo de console.
 
-Observe que o aplicativo de console deve incluir o [pacote NuGet do Host do Processador de Eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
+```csharp
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
+namespace Receiver1204
+{
+    class Program
+    {
+        private static readonly string ehubNamespaceConnectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
+        private static readonly string eventHubName = "EVENT HUB NAME";
+        private static readonly string blobStorageConnectionString = "AZURE STORAGE CONNECTION STRING";
+        private static readonly string blobContainerName = "BLOB CONTAINER NAME";
 
-Lembre-se de substituir os valores entre colchetes angulares na função **Main** pelos valores de seus recursos.   
+        static async Task Main()
+        {
+            // Read from the default consumer group: $Default
+            string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
+
+            // Create a blob container client that the event processor will use 
+            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
+
+            // Create an event processor client to process events in the event hub
+            EventProcessorClientOptions options = new EventProcessorClientOptions { }
+            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
+
+            // Register handlers for processing events and handling errors
+            processor.ProcessEventAsync += ProcessEventHandler;
+            processor.ProcessErrorAsync += ProcessErrorHandler;
+
+            // Start the processing
+            await processor.StartProcessingAsync();
+
+            // Wait for 10 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            // Stop the processing
+            await processor.StopProcessingAsync();
+        }
+
+        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            return Task.CompletedTask;
+        }
+
+        static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+        {
+            Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+            Console.WriteLine(eventArgs.Exception.Message);
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+#### <a name="net-sdk-legacy-410-or-earliertablegacy"></a>[SDK do .NET herdado (4.1.0 ou anterior)](#tab/legacy)
+
+Você pode colocar o código a seguir, que é explicado em mais detalhes na [Introdução aos Hubs de Evento](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md), em um aplicativo de console. Observe que o aplicativo de console deve incluir o [pacote Nuget Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). Lembre-se de substituir os valores entre colchetes angulares na função **Main** pelos valores de seus recursos.   
 
 ```csharp
 //Console application code for EventHub test client
@@ -303,6 +362,7 @@ namespace EventHubListener
     }
 }
 ```
+---
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Solucionar problemas dos coletores dos Hubs de Eventos
 * O hub de eventos não mostra a atividade de entrada ou saída de eventos conforme o esperado.
@@ -386,7 +446,7 @@ O *ServiceConfiguration.Cloud.cscfg* complementar para este exemplo se parece co
 </ServiceConfiguration>
 ```
 
-Configurações equivalentes baseada em JSON para máquinas virtuais são as seguintes:
+As configurações de JSON equivalentes para máquinas virtuais são as seguintes:
 
 Configurações públicas:
 ```JSON

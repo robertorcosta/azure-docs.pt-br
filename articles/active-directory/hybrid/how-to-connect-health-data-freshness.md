@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: SamuelD
 editor: ''
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41c1c102e88e1712d561874aef87a6f22ed250a9
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430221"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897171"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Alerta "Os dados do serviço de integridade não estão atualizados"
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Os agentes nos computadores locais que Azure AD Connect Health monitora periodicamente carregam dados para o serviço de Azure AD Connect Health. Se o serviço não receber dados de um agente, as informações apresentadas pelo portal ficarão obsoletas. Para realçar o problema, o serviço irá gerar o alerta os **dados do serviço de integridade não está atualizado** . Esse alerta é gerado quando o serviço não recebe dados completos nas últimas duas horas.  
 
@@ -66,7 +67,7 @@ As etapas necessárias para diagnosticar o problema são fornecidas abaixo. A pr
 * Se você tiver um proxy HTTP, siga estas [etapas de configuração](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se qualquer uma das etapas acima identificou um problema, corrija-o e aguarde a resolução do alerta. O processo de segundo plano de alerta é executado a cada 2 horas, portanto, levará até 2 horas para resolver o alerta. 
 
 * [Azure AD Connect Health política de retenção de dados](reference-connect-health-user-privacy.md#data-retention-policy)

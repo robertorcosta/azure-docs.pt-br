@@ -1,19 +1,19 @@
 ---
 title: Criar um dicionário de erros de cluster
 description: Saiba como criar um dicionário de erros de cluster.
-ms.reviewer: hrasheed
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
-ms.openlocfilehash: ee9ed5374b12c3130d952770a4be6a759e37339a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156855"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905489"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: erros de criação de cluster
 
@@ -210,7 +210,7 @@ Normalmente, esse erro é gerado quando há um problema transitório ou uma inte
 
 ### <a name="resolution"></a>Resolução
 
-Verifique a página de [status do Azure](https://status.azure.com/status) para qualquer interrupção do Azure que possa afetar a implantação do cluster. Se não houver interrupções, repita a implantação do cluster.
+Verifique a página de [status do Azure](https://status.azure.com) para qualquer interrupção do Azure que possa afetar a implantação do cluster. Se não houver interrupções, repita a implantação do cluster.
 
 ## <a name="next-steps"></a>Próximos passos
 

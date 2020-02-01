@@ -3,12 +3,12 @@ title: Recursos do Azure-QnA Maker
 description: O QnA Maker usa várias fontes do Azure, cada uma com uma finalidade diferente. Entender como eles são usados individualmente permite que você planeje e selecione o tipo de preço correto ou saiba quando alterar o tipo de preço. Entender como eles são usados em combinação permite localizar e corrigir problemas quando eles ocorrem.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 2b3a06122ce6123cd8edcedf5dfbf38c3c12218a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77aced459c7731a2cac432538cfc66ed9ce83f9d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843480"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902070"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -111,6 +111,10 @@ A primeira base de dados de conhecimento criada no recurso QnA Maker é usada pa
 O recurso de QnA Maker fornece acesso às APIs de criação e publicação, bem como à segunda camada de classificação baseada em NLP (processamento de idioma natural) (Rank #2) dos conjuntos de QnA em tempo de execução.
 
 A segunda classificação aplica filtros inteligentes que podem incluir metadados e avisos de acompanhamento.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker definições de configuração de recurso
+
+Quando você cria uma nova base de dados de conhecimento no [portal de QnA Maker](https://qnamaker.ai), a configuração de **idioma** é a única que é aplicada no nível de recurso. Você seleciona o idioma ao criar a primeira base de dados de conhecimento para o recurso. 
 
 ### <a name="app-service-and-app-service-plan"></a>Serviço de aplicativo e plano do serviço de aplicativo
 

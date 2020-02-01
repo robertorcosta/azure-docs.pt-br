@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: ad3f9329ce79812e908fd15037e2054ca5a8906e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 5b3f3eea4d23d84d684648d19fb67258d1ea2050
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045163"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76907004"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -542,7 +542,7 @@ O blob de assinatura é uma versão assinada do [pkcs7](https://aka.ms/pkcs7) do
 
 Os metadados de instância podem ser recuperados no Windows por meio do utilitário do Powershell`curl`:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -922,7 +922,7 @@ O objeto de disco do sistema operacional contém as seguintes informações sobr
 
 Dados    | Description
 --------|-----------------
-caching | Requisitos de cache
+colocar | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações de disco efêmeras
 diskSizeGB | Tamanho do disco em GB
@@ -937,7 +937,7 @@ A matriz de discos de dados contém uma lista de discos de dados anexados à VM.
 
 Dados    | Description
 --------|-----------------
-caching | Requisitos de cache
+colocar | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações de disco efêmeras
 diskSizeGB | Tamanho do disco em GB

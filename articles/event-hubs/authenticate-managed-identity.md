@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: cbd7de7d526e1954aaad60f7d71e5cdf202f6a29
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0c5d3eca4a01488f521f9a85fa129eb0ac72c363
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992829"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904556"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
 Os hubs de eventos do Azure dão suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso a recursos de hubs de eventos usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -24,7 +24,7 @@ Este artigo mostra como autorizar o acesso a um hub de eventos usando uma identi
 ## <a name="enable-managed-identities-on-a-vm"></a>Habilitar identidades gerenciadas em uma VM
 Antes de poder usar identidades gerenciadas para recursos do Azure para autorizar recursos de hubs de eventos de sua VM, você deve primeiro habilitar identidades gerenciadas para recursos do Azure na VM. Para saber como habilitar identidades gerenciadas para Recursos do Azure, confira um dos seguintes artigos:
 
-- [Portal do Azure](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [PowerShell do Azure](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo do Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -72,6 +72,62 @@ Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse r
 Depois de atribuir a função, o aplicativo Web terá acesso aos recursos dos hubs de eventos no escopo definido. 
 
 ### <a name="test-the-web-application"></a>Testar o aplicativo Web
+1. Crie um namespace de hubs de eventos e um hub de eventos. 
+2. Implante o aplicativo Web no Azure. Consulte a seguinte seção com guias para obter links para o aplicativo Web no GitHub. 
+3. Verifique se o SendReceive. aspx está definido como o documento padrão para o aplicativo Web. 
+3. Habilite a **identidade** para o aplicativo Web. 
+4. Atribua essa identidade à função de **proprietário de dados dos hubs de eventos** no nível do namespace ou no nível do hub de eventos. 
+5. Execute o aplicativo Web, insira o nome do namespace e o nome do hub de eventos, uma mensagem e selecione **Enviar**. Para receber o evento, selecione **receber**. 
+
+#### <a name="azuremessagingeventhubs-latesttablatest"></a>[Azure. Messaging. EventHubs (mais recente)](#tab/latest)
+Agora você pode iniciar o aplicativo Web e apontar seu navegador para a página aspx de exemplo. Você pode encontrar o aplicativo Web de exemplo que envia e recebe dados de recursos de hubs de eventos no [repositório GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
+
+Instale o pacote mais recente do [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)e comece a enviar eventos para os hubs de eventos usando **EventHubProducerClient** e recebendo eventos usando o **EventHubConsumerClient**.  
+
+```csharp
+protected async void btnSend_Click(object sender, EventArgs e)
+{
+    await using (EventHubProducerClient producerClient = new EventHubProducerClient(txtNamespace.Text, txtEventHub.Text, new DefaultAzureCredential()))
+    {
+        // create a batch
+        using (EventDataBatch eventBatch = await producerClient.CreateBatchAsync())
+        {
+
+            // add events to the batch. only one in this case. 
+            eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(txtData.Text)));
+
+            // send the batch to the event hub
+            await producerClient.SendAsync(eventBatch);
+        }
+
+        txtOutput.Text = $"{DateTime.Now} - SENT{Environment.NewLine}{txtOutput.Text}";
+    }
+}
+protected async void btnReceive_Click(object sender, EventArgs e)
+{
+    await using (var consumerClient = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, $"{txtNamespace.Text}.servicebus.windows.net", txtEventHub.Text, new DefaultAzureCredential()))
+    {
+        int eventsRead = 0;
+        try
+        {
+            using CancellationTokenSource cancellationSource = new CancellationTokenSource();
+            cancellationSource.CancelAfter(TimeSpan.FromSeconds(5));
+
+            await foreach (PartitionEvent partitionEvent in consumerClient.ReadEventsAsync(cancellationSource.Token))
+            {
+                txtOutput.Text = $"Event Read: { Encoding.UTF8.GetString(partitionEvent.Data.Body.ToArray()) }{ Environment.NewLine}" + txtOutput.Text;
+                eventsRead++;
+            }
+        }
+        catch (TaskCanceledException ex)
+        {
+            txtOutput.Text = $"Number of events read: {eventsRead}{ Environment.NewLine}" + txtOutput.Text;
+        }
+    }
+}
+```
+
+#### <a name="microsoftazureeventhubs-legacytabold"></a>[Microsoft. Azure. EventHubs (Herdado)](#tab/old)
 Agora você pode iniciar o aplicativo Web e apontar seu navegador para a página aspx de exemplo. Você pode encontrar o aplicativo Web de exemplo que envia e recebe dados de recursos de hubs de eventos no [repositório GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
 Instale o pacote mais recente do [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)e comece a enviar e receber dados de hubs de eventos usando o EventHubClient, conforme mostrado no código a seguir: 
@@ -79,10 +135,10 @@ Instale o pacote mais recente do [NuGet](https://www.nuget.org/packages/Microsof
 ```csharp
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
+---
 
-## <a name="next-steps"></a>Próximas etapas
-- Baixe o [exemplo](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp) do github.
-- Consulte o artigo a seguir para saber mais sobre identidades gerenciadas para recursos do Azure: [O que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+## <a name="next-steps"></a>Próximos passos
+- Consulte o seguinte artigo para saber mais sobre identidades gerenciadas para recursos do Azure: [o que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 - Consulte os seguintes artigos relacionados:
     - [Autenticar solicitações para hubs de eventos do Azure por meio de um aplicativo usando Azure Active Directory](authenticate-application.md)
     - [Autenticar solicitações para hubs de eventos do Azure usando assinaturas de acesso compartilhado](authenticate-shared-access-signature.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842709"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906914"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -1102,7 +1102,7 @@ Se os arquivos não camada para arquivos do Azure:
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Falha na camada do arquivo devido a um problema de armazenamento do Azure. | Se o erro persistir, abra uma solicitação de suporte. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | O arquivo falhou ao ser nivelado porque foi rechamado ao mesmo tempo. | Nenhuma ação é necessária. O arquivo será colocado em camadas quando a recuperação for concluída e o arquivo não estiver mais em uso. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Falha na camada do arquivo porque ele não foi sincronizado com o compartilhamento de arquivos do Azure. | Nenhuma ação é necessária. O arquivo será nivelado depois de ser sincronizado com o compartilhamento de arquivos do Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Falha na camada do arquivo porque o driver de filtro de camadas de nuvem (storagesync. sys) não está em execução. | Para resolver esse problema, abra um prompt de comando com privilégios elevados e execute o seguinte comando: Fltmc Load storagesync <br>Se o driver de filtro storagesync não for carregado ao executar o comando Fltmc, desinstale o agente de Sincronização de Arquivos do Azure, reinicie o servidor e reinstale o agente de Sincronização de Arquivos do Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Falha na camada do arquivo porque o driver de filtro de camadas de nuvem (storagesync. sys) não está em execução. | Para resolver esse problema, abra um prompt de comando com privilégios elevados e execute o seguinte comando: `fltmc load storagesync`<br>Se o driver de filtro storagesync não for carregado ao executar o comando Fltmc, desinstale o agente de Sincronização de Arquivos do Azure, reinicie o servidor e reinstale o agente de Sincronização de Arquivos do Azure. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | Falha na camada do arquivo devido a espaço em disco insuficiente no volume em que o ponto de extremidade do servidor está localizado. | Para resolver esse problema, libere pelo menos 100 MB de espaço em disco no volume em que o ponto de extremidade do servidor está localizado. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Falha na camada do arquivo porque ele não foi sincronizado com o compartilhamento de arquivos do Azure. | Nenhuma ação é necessária. O arquivo será nivelado depois de ser sincronizado com o compartilhamento de arquivos do Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Falha na camada do arquivo porque ele é um ponto de nova análise sem suporte. | Se o arquivo for um ponto de nova análise de eliminação de duplicação de dados, siga as etapas no [Guia de planejamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) para habilitar o suporte à eliminação de duplicação de dados. Arquivos com pontos de nova análise que não sejam a eliminação de duplicação de dados não têm suporte e não serão em camadas.  |

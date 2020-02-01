@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 349587063c528fef1cbdb09d84e61e82443d45d1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112137"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906721"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Escalar verticalmente partições e réplicas para adicionar capacidade para cargas de trabalho de consulta e índice no Azure Pesquisa Cognitiva
 
@@ -24,12 +24,12 @@ A configuração de recursos está disponível quando você configura um serviç
 Usar menos SUs resulta em uma lista menor proporcionalmente. A cobrança fica em vigor durante o tempo de configuração do serviço. Se, no momento, você não estiver usando um serviço, a única maneira de evitar a cobrança será excluindo o serviço e o recriando quando precisar dele.
 
 > [!Note]
-> Excluir um serviço exclui tudo nele. Não há nenhum recurso no Azure Pesquisa Cognitiva para fazer backup e restaurar dados de pesquisa persistentes. Para reimplantar um índice existente em um novo serviço, você deverá executar o programa usado para criar e carregá-lo originalmente. 
+> Excluir um serviço exclui tudo nele. Há um recurso no Azure Cognitive Search para fazer backup e restaurar dados de pesquisa persistentes. Para reimplantar um índice existente em um novo serviço, você deverá executar o programa usado para criar e carregá-lo originalmente. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
 Réplicas e partições são os recursos principais que retornam um serviço de pesquisa.
 
-| Recurso | Definição |
+| Grupos | Definição |
 |----------|------------|
 |*Partições* | Fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).|
 |*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregadas no serviço.|
@@ -103,7 +103,7 @@ SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para o
 
 <a id="HA"></a>
 
-## <a name="high-availability"></a>alta disponibilidade
+## <a name="high-availability"></a>Alta disponibilidade
 Uma vez que é relativamente fácil e rápido escalar verticalmente, recomendamos começar com uma partição e uma ou duas réplicas e então escalar verticalmente conforme os volumes de consulta se acumulam. As cargas de trabalho de consulta são executadas principalmente em réplicas. Se precisar de mais taxa de transferência ou alta disponibilidade, provavelmente, você precisará de mais réplicas.
 
 Recomendações gerais para alta disponibilidade são:
@@ -123,7 +123,7 @@ A alta disponibilidade do Pesquisa Cognitiva do Azure pertence a consultas e atu
 > [!NOTE]
 > Você pode adicionar novos campos a um índice de Pesquisa Cognitiva do Azure sem recompilar o índice. O valor do novo campo será nulo para todos os documentos já existentes no índice.
 
-Para manter a disponibilidade do índice durante uma recompilação, é necessário ter uma cópia do índice com um nome diferente no mesmo serviço, ou uma cópia do índice com o mesmo nome em um serviço diferente e fornecer a lógica de redirecionamento ou de failover no código.
+Ao recompilar o índice, haverá um período de tempo em que os dados estão sendo adicionados ao novo índice. Se você quiser continuar a disponibilizar o índice antigo durante esse tempo, deverá ter uma cópia do índice antigo com um nome diferente no mesmo serviço ou uma cópia do índice com o mesmo nome em um serviço diferente e, em seguida, fornecer redirecionamento ou lógica de failover em seu código.
 
 ## <a name="disaster-recovery"></a>Recuperação de desastre
 Atualmente, não há mecanismo integrado para recuperação de desastres. Adicionar partições ou réplicas seria a estratégia incorreta para atingir os objetivos de recuperação de desastres. A abordagem mais comum é adicionar redundância no nível de serviço configurando um segundo serviço de pesquisa em outra região. Assim como acontece com a disponibilidade durante uma recompilação de índice, o redirecionamento ou a lógica de failover deve vir de seu código.
@@ -141,6 +141,6 @@ Aplicativos de pesquisa que exigem atualização de dados quase em tempo real pr
 Índices maiores levam mais tempo para consultar. Assim, você poderá perceber que cada aumento incremental em partições requer um aumento proporcional, mas menor, em réplicas. A complexidade de suas consultas e seu volume influenciarão a rapidez com que a execução da consulta é retornada.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Escolha um tipo de preço para o Azure Pesquisa Cognitiva](search-sku-tier.md)

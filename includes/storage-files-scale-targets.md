@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: d76338ccd4dcdf7a9a9a96baa1fb47ed5272d5ff
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821944"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901419"
 ---
 | Grupos | Compartilhamentos de arquivos padrão | Compartilhamentos de arquivos Premium |
 |----------|---------------|------------------------------------------|
@@ -27,4 +27,4 @@ ms.locfileid: "72821944"
 | Tamanho máximo do nome do objeto (diretórios e arquivos) | 2\.048 caracteres | 2\.048 caracteres |
 | Componente de nome de caminho máximo (no caminho \A\B\C\D, cada letra é um componente) | 255 caracteres | 255 caracteres |
 
-\* não disponível em todas as regiões, consulte [disponibilidade regional](../articles/storage/files/storage-files-planning.md#regional-availability) para obter uma lista de regiões disponíveis.
+\* disponíveis na maioria das regiões, consulte [disponibilidade regional](../articles/storage/files/storage-files-planning.md#regional-availability) para obter detalhes sobre as regiões disponíveis.

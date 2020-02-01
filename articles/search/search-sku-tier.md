@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427025"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899836"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -21,15 +21,20 @@ Quando você cria um serviço de Pesquisa Cognitiva do Azure, um [recurso é cri
 
 A maioria dos clientes começa com a camada gratuita para que eles possam avaliar o serviço. Após a avaliação, é comum criar um segundo serviço em uma das camadas mais altas para implantações de desenvolvimento e produção.
 
-Embora todas as camadas, incluindo a camada gratuita, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem determinar a necessidade de camadas mais altas. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
+## <a name="feature-availability-by-tier"></a>Disponibilidade de recursos por camada
 
-> [!NOTE] 
-> A exceção à paridade de recursos é [indexadores](search-indexer-overview.md), que não estão disponíveis em S3 HD.
->
+Quase todos os recursos estão disponíveis em todas as camadas, incluindo as gratuitas, mas um recurso ou fluxo de trabalho que consome muitos recursos pode não funcionar bem, a menos que você forneça capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 
-## <a name="available-tiers"></a>Camadas disponíveis
+A tabela a seguir descreve as restrições de recurso relacionadas à camada.
 
-As camadas refletem as características do hardware que hospeda o serviço (em vez dos recursos) e são diferenciadas pelo:
+| Recurso | Limitações |
+|---------|-------------|
+| [indexadores](search-indexer-overview.md) | Os indexadores não estão disponíveis no S3 HD. |
+| [Chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível na camada gratuita. |
+
+## <a name="tiers-skus"></a>Camadas (SKUs)
+
+As camadas são diferenciadas por:
 
 + Quantidade de índices e indexadores que você pode criar
 + Tamanho e velocidade de partições (armazenamento físico)
@@ -97,9 +102,9 @@ A taxa de cobrança é por hora por SU. Cada camada tem uma taxa progressivament
 
 A maioria dos clientes coloca apenas uma parte da capacidade total online, mantendo o restante em reserva. Para cobrança, o número de partições e réplicas que você coloca online, calculadas pela fórmula SU, determina o que você paga por hora.
 
-## <a name="how-to-manage-and-reduce-costs"></a>Como gerenciar e reduzir custos
+## <a name="how-to-manage-costs"></a>Como gerenciar custos
 
-Além das seguintes sugestões, visite [cobrança e gerenciamento de custos](https://docs.microsoft.com/azure/billing/billing-getting-started).
+As sugestões a seguir podem ajudá-lo a manter os custos no mínimo:
 
 - Crie todos os recursos na mesma região, ou no menor número de regiões possível, para minimizar ou eliminar encargos de largura de banda.
 
@@ -109,7 +114,11 @@ Além das seguintes sugestões, visite [cobrança e gerenciamento de custos](htt
 
 - Escalar verticalmente para operações com uso intensivo de recursos, como indexação, e reajustar verticalmente para cargas de trabalho de consulta regular. Comece com a configuração mínima do Azure Pesquisa Cognitiva (uma SU composta de uma partição e uma réplica) e, em seguida, monitore a atividade do usuário para identificar os padrões de uso que indicariam a necessidade de mais capacidade. Se houver um padrão previsível, você poderá sincronizar a escala com a atividade (você precisaria escrever código para automatizar isso).
 
-Não é possível desligar um serviço de pesquisa para reduzir sua fatura. Os recursos dedicados estão sempre operacionais, alocados para seu uso exclusivo durante o tempo de vida do seu serviço. Em termos do próprio serviço, a única maneira de reduzir sua conta é reduzir as réplicas e partições para um nível que ainda fornece desempenho aceitável e [conformidade de SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou criar um serviço em uma camada mais baixa (as tarifas de S1 por hora são menores do que as taxas S2 ou S3). Supondo que você provisione seu serviço na extremidade inferior de suas projeções de carga, se você ultrapassar o serviço, poderá criar um segundo serviço em camadas maior, recriar os índices no segundo serviço e, em seguida, excluir o primeiro.
+Além disso, visite [cobrança e gerenciamento de custos](https://docs.microsoft.com/azure/billing/billing-getting-started) para ferramentas e recursos internos relacionados a gastos.
+
+Não é possível desligar um serviço de pesquisa em uma base temporária. Os recursos dedicados estão sempre operacionais, alocados para seu uso exclusivo durante o tempo de vida do seu serviço. Excluir um serviço é permanente e também exclui seus dados associados.
+
+Em termos do próprio serviço, a única maneira de reduzir sua conta é reduzir as réplicas e partições para um nível que ainda fornece desempenho aceitável e [conformidade de SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou criar um serviço em uma camada mais baixa (as tarifas de S1 por hora são menores do que as taxas S2 ou S3). Supondo que você provisione seu serviço na extremidade inferior de suas projeções de carga, se você ultrapassar o serviço, poderá criar um segundo serviço em camadas maior, recriar os índices no segundo serviço e, em seguida, excluir o primeiro.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Como avaliar os requisitos de capacidade
 

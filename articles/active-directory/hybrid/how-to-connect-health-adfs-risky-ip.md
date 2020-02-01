@@ -1,12 +1,13 @@
 ---
-title: Azure AD Connect Health com o relatório de IP arriscado do AD FS | Microsoft Docs
-description: Descreve o relatório IP arriscado do Azure AD Connect Health para AD FS.
+title: Azure AD Connect Health com AD FS relatório de IP arriscado | Microsoft Docs
+description: Descreve o Azure AD Connect Health AD FS relatório de IP arriscado.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
 author: billmath
 manager: daveba
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350504"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897265"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
 Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
@@ -37,14 +38,14 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 > Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) é necessária.  
 > 
 
-## <a name="what-is-in-the-report"></a>O que é o relatório?
-A endereços IP do cliente de atividade de entrada com falha é agregadas por meio de servidores de Proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. O relatório fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+## <a name="what-is-in-the-report"></a>O que há no relatório?
+Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
-| Item do relatório | DESCRIÇÃO |
+| Item do relatório | Description |
 | ------- | ----------- |
 | Carimbo de Data/Hora | Mostra o carimbo de data/hora com base na hora local do portal do Azure quando a janela de tempo de detecção é iniciada.<br /> Todos os eventos diários são gerados à meia-noite, horário UTC. <br />Os eventos por hora têm o carimbo de data/hora arredondado para o início da hora. Você pode encontrar a hora de início da primeira atividade de "firstAuditTimestamp" no arquivo exportado. |
 | Tipo de gatilho | Mostra o tipo de janela de tempo de detecção. Os tipos de gatilho de agregação são por hora ou por dia. Isso é útil para detectar um ataque de força bruta de alta frequência versus um ataque lento, em que o número de tentativas é distribuído ao longo do dia. |
-| Endereço IP | O único endereço IP arriscado que tinha senha incorreta ou atividades de entrada do bloqueio de extranet. Isso pode ser IPv4 ou um endereço IPv6. |
+| Endereço IP | O único endereço IP arriscado que tinha senha incorreta ou atividades de entrada do bloqueio de extranet. Pode ser um endereço IPv4 ou IPv6. |
 | Contagem de erro de senha inválida | Ocorreu a contagem de erro de senha incorreta no endereço IP durante a janela de tempo de detecção. Os erros de senha incorreta podem ocorrer várias vezes para determinados usuários. Observe que isso não inclui tentativas com falha devido a senhas expiradas. |
 | Contagem de erro de bloqueio de extranet | Ocorreu a contagem de erro de bloqueio de extranet no endereço IP durante a janela de tempo de detecção. Os erros de bloqueio de Extranet podem ocorrer várias vezes para determinados usuários. Isso só será visto se o Bloqueio de Extranet for configurado no AD FS (versões 2012R2 ou superior). <b>Observação</b> Recomendamos ativar esse recurso se você permite logons extranet com senhas. |
 | Usuários exclusivos tentados | Contagem de tentativas de contas de usuário exclusivas no endereço IP durante a janela de tempo de detecção. Isso fornece um mecanismo para diferenciar um padrão de ataque de usuário único versus um padrão de ataque de multiusuário.  |
@@ -61,13 +62,13 @@ Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
 
-## <a name="load-balancer-ip-addresses-in-the-list"></a>Na lista de endereços IP do balanceador de carga
+## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do balanceador de carga na lista
 Atividades de entrada com falha agregadas ao balanceador de carga e limite de alerta atingido. Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
 
-## <a name="download-risky-ip-report"></a>Baixar relatório IP arriscado 
+## <a name="download-risky-ip-report"></a>Baixar relatório de IP arriscado 
 Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos últimos 30 dias pode ser exportada do Portal do Connect Health O resultado de exportação incluirá todas as atividades de entrada do AD FS com falha em cada janela de tempo de detecção, para que você possa personalizar a filtragem após a exportação. Além de agregações realçadas no portal, o resultado da exportação também mostra mais detalhes sobre as atividades de entrada com falha por endereço IP:
 
-|  Item do relatório  |  DESCRIÇÃO  | 
+|  Item do relatório  |  Description  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Mostra o primeiro carimbo de data/hora de quando as atividades com falha começaram durante a janela de tempo de detecção.  | 
 | lastAuditTimestamp | Mostra o último carimbo de data/hora de quando as atividades com falha terminaram durante a janela de tempo de detecção.  | 
@@ -82,7 +83,7 @@ O limite de alerta pode ser atualizado com as Configurações de Limite. Para co
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
-| Item de limite | DESCRIÇÃO |
+| Item de limite | Description |
 | --- | --- |
 | (U/P má + Bloqueio de Extranet) / Dia  | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **dia**. |
 | (U/P má + Bloqueio de Extranet) / Hora | Configuração de limite para relatar a atividade e disparar a notificação de alerta quando a contagem de senha incorreta mais a contagem de bloqueio de extranet o exceder, por **hora**. |
@@ -96,25 +97,25 @@ O limite de alerta pode ser atualizado com as Configurações de Limite. Para co
 >
 >
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>FAQ
 **Por que estou vendo intervalos de endereços IP privados no relatório?**  <br />
 Endereços IP privados (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) e endereços IP do Exchange são filtrados e marcados como Verdadeiros na lista de permissões IP. Se você está vendo intervalos de endereços IP privados, é muito provável que o balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web.
 
-**Por que vejo no relatório de endereços IP do balanceador de carga?**  <br />
+**Por que estou vendo endereços IP do balanceador de carga no relatório?**  <br />
 Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
 
-**O que devo fazer para bloquear o endereço IP?**  <br />
+**O que faço para bloquear o endereço IP?**  <br />
 Você deve adicionar o endereço IP mal-intencionado ao firewall ou bloqueá-lo no Exchange.   <br />
 
-**Por que eu não estou vendo todos os itens no relatório?** <br />
+**Por que não vejo nenhum item neste relatório?** <br />
 - Atividades de entrada com falha não excedem as configurações de limite.
 - Verifique se nenhum alerta “Serviço Health desatualizado” está ativo na sua lista de servidores AD FS.  Leia mais sobre [como solucionar esse alerta](how-to-connect-health-data-freshness.md).
 - As auditorias não estão habilitadas em farms de servidores do AD FS.
 
-**Por que não estou vendo nenhum acesso ao relatório?**  <br />
+**Por que não vejo nenhum acesso ao relatório?**  <br />
 É necessária a permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Entre em contato com o administrador global para obter acesso.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)

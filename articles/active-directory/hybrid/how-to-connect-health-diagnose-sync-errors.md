@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702547"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897184"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 Dando um passo adiante para destacar os erros de sincronização, o Azure Connect Health do Azure AD (Active Directory) apresenta a remediação de autoatendimento. Ele soluciona erros de sincronização de atributos duplicados e corrige objetos que são órfãos do AD do Azure.
 O recurso de diagnóstico tem esses benefícios:
 - Ele fornece um procedimento de diagnóstico que reduz os erros de sincronização de atributos duplicados. E isso dá correções específicas.
@@ -33,7 +34,7 @@ Para obter mais informações sobre o Azure AD, consulte [ Sincronização de id
 
 ## <a name="problems"></a>Problemas
 ### <a name="a-common-scenario"></a>Um cenário comum
-Quando ocorrem **erros de sincronização QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, é comum ver um conflito entre **UserPrincipalName**  ou **Proxy Addresses** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, esta imagem indica que dois usuários têm um conflito de **UserPrincipalName**. Ambos são **Joe.J\@contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
+Quando ocorrem **erros de sincronização QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, é comum ver um conflito entre **UserPrincipalName**  ou **Proxy Addresses** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, essa imagem indica que dois usuários têm um conflito de **userPrincipalName**. Ambos são **Joe. J\@contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
 
 ![Diagnosticar cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -128,16 +129,16 @@ Com base nas respostas às perguntas anteriores, você verá o botão **Aplicar 
 > A alteração **Aplicar correção** se aplica apenas a casos de objeto órfãos.
 >
 
-Após as etapas anteriores, o usuário pode acessar o recurso original, que é um link para um objeto existente. O valor de **Diagnosticar status** na exibição de lista é atualizado para **Pending Sync**. O erro de sincronização será resolvido após a próxima sincronização. O Connect Health não mostrará mais o erro de sincronização resolvido na exibição de lista.
+Após as etapas anteriores, o usuário pode acessar o recurso original, que é um link para um objeto existente. O valor do **status de diagnóstico** na exibição de lista é atualizado para **sincronização pendente**. O erro de sincronização será resolvido após a próxima sincronização. O Connect Health não mostrará mais o erro de sincronização resolvido na exibição de lista.
 
 ## <a name="failures-and-error-messages"></a>Mensagens de erro e falhas
-**O usuário com atributo conflitante é excluído do Microsoft Azure Active Directory. Certifique-se de que o usuário é excluído forçadamente antes de tentar novamente.**  
+**O usuário com atributo conflitante é excluído de maneira reversível no Azure Active Directory. Verifique se o usuário foi excluído de hardware antes de tentar novamente.**  
 O usuário com atributo conflitante no Azure AD deve ser excluído antes de aplicar a correção. Confira [como excluir o usuário permanentemente no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de tentar novamente a correção. O usuário também será automaticamente excluído permanentemente após 30 dias no estado excluído flexível. 
 
 **Não há suporte para atualizar âncora de origem para usuário baseado em nuvem no locatário.**  
 O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nesse caso, não há suporte para atualizar âncora de origem. É necessária a correção manual no local. 
 
-## <a name="faq"></a>Perguntas Frequentes
+## <a name="faq"></a>FAQ
 **P.** O que acontece se a execução do **Apply Fix** falhar?  
 **A.** Se a execução falhar, é possível que o Azure AD Connect esteja executando um erro de exportação. Atualize a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 

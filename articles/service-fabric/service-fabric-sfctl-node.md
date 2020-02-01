@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-nó sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar nós de cluster.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 43b242d6c7c41b6198b8f909ab5ae056f0982307
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645286"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905885"
 ---
 # <a name="sfctl-node"></a>Nó sfctl
 Gerenciar os nós que formam um cluster.
@@ -19,17 +19,44 @@ Gerenciar os nós que formam um cluster.
 
 |Comando|Description|
 | --- | --- |
+| Adicionar parâmetro-configuração-substituições | Adiciona a lista de substituições de configuração no nó especificado. |
 | disable | Desativa um nó de cluster do Service Fabric com a intenção de desativação especificada. |
 | enable | Ativar um nó de cluster do Service Fabric que está desativado no momento. |
+| obter substituições de configuração | Obtém a lista de substituições de configuração no nó especificado. |
 | saúde | Obtém a integridade de um nó do Service Fabric. |
 | informações | Obtém as informações sobre um nó específico no cluster do Service Fabric. |
 | list | Obtém a lista de nós no cluster do Service Fabric. |
 | load | Obtém as informações de carregamento de um nó do Service Fabric. |
+| Remove-Configuration-substituições | Remove as substituições de configuração no nó especificado. |
 | remove-state | Notifica o Service Fabric que o estado persistente em um nó foi permanentemente removido ou perdido. |
 | report-health | Envia um relatório de integridade sobre o nó do Service Fabric. |
 | restart | Reinicia um nó de cluster do Service Fabric. |
 | transition | Inicia ou interrompe um nó de cluster. |
 | transition-status | Obtém o progresso de uma operação iniciada usando StartNodeTransition. |
+
+## <a name="sfctl-node-add-configuration-parameter-overrides"></a>sfctl nó Add-Configuration-substituições de parâmetro
+Adiciona a lista de substituições de configuração no nó especificado.
+
+Essa API permite adicionar todas as substituições de configuração existentes no nó especificado.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Description|
+| --- | --- |
+| --config-parâmetro-override-list [obrigatório] | Descrição para adicionar a lista de substituições de configuração. |
+| --node-Name [obrigatório] | O nome do nó. |
+| -Force | Forçar adição de substituições de configuração em nós especificados. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|Description|
+| --- | --- |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-node-disable"></a>sfctl node disable
 Desativa um nó de cluster do Service Fabric com a intenção de desativação especificada.
@@ -58,6 +85,28 @@ Desativa um nó de cluster do Service Fabric com a intenção de desativação e
 Ativar um nó de cluster do Service Fabric que está desativado no momento.
 
 Ativa um nó de cluster do Service Fabric que está desativado no momento. Quando ativado, o nó se tornará novamente um destino viável para o posicionamento de novas réplicas e todas as réplicas desativadas restantes no nó serão reativadas.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Description|
+| --- | --- |
+| --node-name [Obrigatório] | O nome do nó. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|Description|
+| --- | --- |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
+
+## <a name="sfctl-node-get-configuration-overrides"></a>Get-Configuration do nó sfctl-substituições
+Obtém a lista de substituições de configuração no nó especificado.
+
+Essa API permite obter todas as substituições de configuração existentes no nó especificado.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -167,10 +216,32 @@ Recupera as informações de carga de um nó do Service Fabric para todas as mé
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
+## <a name="sfctl-node-remove-configuration-overrides"></a>sfctl nó remove-Configuration-substituições
+Remove as substituições de configuração no nó especificado.
+
+Essa API permite remover todas as substituições de configuração existentes no nó especificado.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|Description|
+| --- | --- |
+| --node-name [Obrigatório] | O nome do nó. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|Description|
+| --- | --- |
+| --debug | Aumente o detalhamento do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
+
 ## <a name="sfctl-node-remove-state"></a>remover nó sfctl - estado
 Notifica o Service Fabric que o estado persistente em um nó foi permanentemente removido ou perdido.
 
-Isso significa que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo ou se um disco rígido falhar. O nó deve ser para baixo para que essa operação seja bem-sucedida. Esta operação permite que o Service Fabric saiba que as réplicas no nó deixarão de existir e esse Service Fabric deve parar de esperar que essas réplicas retornem. Não execute esse cmdlet se o estado no nó foi removido e se o nó pode retornar com seu estado intacto. A partir do Service Fabric 6,5, para usar esta API para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque essa API para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
+Isso significa que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo ou se um disco rígido falhar. O nó deve ser para baixo para que essa operação seja bem-sucedida. Esta operação permite que o Service Fabric saiba que as réplicas no nó deixarão de existir e esse Service Fabric deve parar de esperar que essas réplicas retornem. Não execute esse cmdlet se o estado no nó foi removido e se o nó pode retornar com seu estado intacto. A partir do Service Fabric 6,5, para usar esta API para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque essa API para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte https\://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -207,7 +278,7 @@ Relata o estado de integridade do nó do Service Fabric especificado. O relatór
 | – Remover quando expirado | Valor que indica se o relatório é removido do repositório de integridade quando expirar. <br><br> Se definido como "true", o relatório é removido do repositório de integridade depois de expirar. Se definido como "false", o relatório é tratado como um erro quando expirado. O valor dessa propriedade é "false" por padrão. Quando os clientes enviam relatórios periodicamente, devem definir RemoveWhenExpired como "false" (padrão). Dessa forma, se o gerador de relatórios tiver problemas (por exemplo, um deadlock) e não puder fazer o relatório, a entidade será avaliada como erro quando o relatório de integridade expirar. Isso sinaliza a entidade como em um estado de integridade de Erro. |
 | --sequence-number | O número da sequência para este relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência de relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
 | --timeout -t | Padrão\: 60. |
-| --ttl | A duração da validade deste relatório de integridade. Este campo usa o formato ISO8601 para especificar a duração. <br><br> Quando clientes geram relatórios periodicamente, eles devem enviar relatórios com uma frequência maior do que o tempo de vida. Se os clientes reportarem a transição, eles poderão definir o tempo muito ao vivo para infinito. Quando o tempo de vida expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for true, ou recebe uma avaliação de erro, se RemoveWhenExpired for false. Se não for especificado, o tempo de vida terá como padrão o valor infinito. |
+| --ttl | A duração da validade deste relatório de integridade. Este campo usa o formato ISO8601 para especificar a duração. <br><br> Quando clientes geram relatórios periodicamente, eles devem enviar relatórios com uma frequência maior do que o tempo de vida. Se os clientes gerarem relatórios sobre a transição, poderão definir o tempo de vida como infinito. Quando o tempo de vida expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for true, ou recebe uma avaliação de erro, se RemoveWhenExpired for false. Se não for especificado, o tempo de vida terá como padrão o valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

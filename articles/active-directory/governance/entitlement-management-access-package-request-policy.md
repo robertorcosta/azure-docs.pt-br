@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174666"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897622"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as configurações de solicitação e aprovação para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -42,6 +42,9 @@ A maneira de especificar quem pode solicitar um pacote de acesso é com uma pol�
 | Quero permitir usuários em meu diretório e também usuários fora do meu diretório para solicitar um pacote de acesso | Vários |
 | Desejo especificar configurações de aprovação diferentes para alguns usuários | Vários |
 | Quero que alguns usuários acessem as atribuições de pacote para expirar enquanto outros usuários podem estender seu acesso | Vários |
+
+Para obter informações sobre a lógica de prioridade que é usada quando várias políticas se aplicam, consulte [várias políticas](entitlement-management-troubleshoot.md#multiple-policies
+).
 
 ### <a name="open-an-existing-policy-of-request-and-approval-settings"></a>Abrir uma política existente de configurações de solicitação e aprovação
 
@@ -83,7 +86,7 @@ Se você tiver um conjunto de usuários que deve ter diferentes configurações 
 
     ![Criar política com nome e descrição](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. Clique em **Avançar** para abrir a guia **solicitações** .
+1. Clique **Avançar** para abrir a guia **Solicitações**.
 
 1. Execute as etapas em uma das seções de solicitação a seguir.
 

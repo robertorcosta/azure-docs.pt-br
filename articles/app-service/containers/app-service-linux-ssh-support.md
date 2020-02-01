@@ -8,20 +8,18 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687573"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898757"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) normalmente é usado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O Serviço de Aplicativo no Linux fornece suporte de SSH no contêiner de aplicativo com cada uma das imagens internas do Docker usadas para a Pilha em Runtime de novos aplicativos Web. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) normalmente é usado para executar comandos administrativos remotamente a partir de um terminal de linha de comando. O serviço de aplicativo no Linux fornece suporte a SSH no contêiner do aplicativo. 
 
-![Pilhas de runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-Para imagens personalizadas de Docker, ao configurar o servidor SSH em sua imagem personalizada.
+![SSH do serviço de aplicativo do Linux](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 Você também pode se conectar ao contêiner diretamente do seu computador de desenvolvimento local usando o SSH e SFTP.
 

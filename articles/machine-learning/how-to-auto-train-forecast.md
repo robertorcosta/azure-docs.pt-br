@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 78654dfd5a11219d39d53b4042157333656f9aa3
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834763"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905708"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,7 +124,7 @@ O objeto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-au
 
 Consulte a [documentação de referência](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para obter mais informações.
 
-Crie as configurações de série temporal como um objeto Dictionary. Defina o `time_column_name` para o campo `day_datetime` no conjunto de dados. Defina o parâmetro `grain_column_names` para garantir que **dois grupos de série temporal separados** sejam criados para os dados; uma para a loja A e B. por fim, defina o `max_horizon` como 50 para prever o conjunto de teste inteiro. Defina uma janela de previsão como 10 períodos com `target_rolling_window_size`e especifique um único retardo nos valores de destino para dois períodos à frente com o parâmetro `target_lags`. É recomendável definir `max_horizon`, `target_rolling_window_size` e `target_lags` como "auto", que detectará automaticamente esses valores para você. No exemplo abaixo, as configurações "automáticas" foram usadas para esses parâmetros. 
+Crie as configurações de série temporal como um objeto Dictionary. Defina o `time_column_name` para o campo `day_datetime` no conjunto de dados. Defina o parâmetro `grain_column_names` para garantir que **dois grupos de série temporal separados** sejam criados para os dados; uma para a loja A e B. por fim, defina o `max_horizon` como 50 para prever o conjunto de teste inteiro. Defina uma janela de previsão como 10 períodos com `target_rolling_window_size`e especifique um único retardo nos valores de destino para dois períodos à frente com o parâmetro `target_lags`. É recomendável definir `max_horizon`, `target_rolling_window_size` e `target_lags` como "auto", que detectará automaticamente esses valores para você. No exemplo a seguir, as configurações "auto" foram usadas para esses parâmetros. 
 
 ```python
 time_series_settings = {
@@ -226,7 +226,7 @@ Calcule RMSE (erro ao quadrado da média raiz) entre o `actual_labels` valores r
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
+rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 

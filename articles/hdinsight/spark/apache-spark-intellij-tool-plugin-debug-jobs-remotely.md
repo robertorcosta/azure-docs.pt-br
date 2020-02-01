@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 76603642b90bd4d3926e10ce1c5a3c38391362cf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2624f9fafd82aad9613d6940eca69486d897aa08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749764"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905334"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente no HDInsight por meio de VPN
 
@@ -35,7 +35,7 @@ Este artigo oferece diretrizes passo a passo sobre como usar as Ferramentas do H
 * **IntelliJ IDEA**. Este artigo usa a versão 2017.1. É possível instalá-lo do [site da JetBrains](https://www.jetbrains.com/idea/download/).
 * **Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ**. As ferramentas do HDInsight para IntelliJ estão disponíveis como parte do Kit de Ferramentas do Azure para IntelliJ. Para obter instruções sobre como instalar o Kit de Ferramentas do Azure, consulte [Instalar o Kit de Ferramentas do Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Entre em sua assinatura do Azure no IntelliJ IDEA**. Siga as instruções em [Usar Azure Toolkit for IntelliJ para criar aplicativos Spark para um cluster HDInsight](apache-spark-intellij-tool-plugin.md).
-* **Solução alternativa de exceção**. Durante a execução do aplicativo Scala Spark para depuração remota em um computador Windows, você pode receber uma exceção. Essa exceção é explicada em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils.exe ausente no Windows. Para solucionar esse erro, você deve [baixar o arquivo executável](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\WinUtils\bin**. Adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável como **C\WinUtils**.
+* **Solução alternativa de exceção**. Durante a execução do aplicativo Scala Spark para depuração remota em um computador Windows, você pode receber uma exceção. Essa exceção é explicada em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) e ocorre devido a um arquivo WinUtils.exe ausente no Windows. Para contornar esse erro, você deve baixar `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` em um local como **C:\WinUtils\bin**. Adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável como **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Etapa 1: Criar uma rede virtual do Azure
 
@@ -149,7 +149,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
 1. Atualize o arquivo `core-site.xml` para fazer as alterações a seguir:
 
-   a. Substitua a chave criptografada. O arquivo `core-site.xml` inclui a chave criptografada para a conta de armazenamento associada ao cluster. No arquivo `core-site.xml` que você adicionou ao projeto, substitua a chave criptografada pela chave de armazenamento real associada à conta de armazenamento padrão. Para obter mais informações, consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
+   a. Substitua a chave criptografada. O arquivo `core-site.xml` inclui a chave criptografada para a conta de armazenamento associada ao cluster. No arquivo `core-site.xml` que você adicionou ao projeto, substitua a chave criptografada pela chave de armazenamento real associada à conta de armazenamento padrão. Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 
     ```xml
     <property>

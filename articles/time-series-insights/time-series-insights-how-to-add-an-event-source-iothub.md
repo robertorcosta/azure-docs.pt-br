@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aace01e2f3d514ee5f4b406f4067e104151e5d6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 3ea73e2ca20faea30294bc5d5e1788415095c39f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863318"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905375"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem do evento do hub IoT ao seu ambiente do Time Series Insights
 
@@ -54,7 +54,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
 1. No menu do lado esquerdo, selecione **Todos os recursos**. Selecione o seu ambiente de Análise de Séries Temporais.
 
-1. Em **Topologia do Ambiente**, selecione **Origens dos Eventos** e, em seguida, selecione **Adicionar**.
+1. Em **configurações**, selecione **origens do evento**e, em seguida, selecione **Adicionar**.
 
    [![selecionar origens do evento e, em seguida, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 

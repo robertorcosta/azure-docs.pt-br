@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d66b3e1b6ed2c8eef9f5cd21c0657648ad550ebe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 06ca26ee9a8af7f49aba6a48a1831d30d5886851
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896149"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896335"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acessar a API dos Serviços de Mídia do Azure com a CLI do Azure
  
@@ -28,7 +28,8 @@ Para usar a autenticação de entidade de serviço do Azure AD para se conectar 
 * URI de recurso dos Serviços de Mídia REST
 * Valores do aplicativo do Azure AD: a ID do cliente e o segredo do cliente
 
-Para obter uma explicação detalhada, consulte [acessando as APIs do Media Services V3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
+> [!IMPORTANT]
+> Para obter uma explicação detalhada, consulte [acessando as APIs do Media Services V3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Este artigo mostra como usar a CLI do Azure para criar um aplicativo e uma entidade de serviço do Azure AD e obter os valores necessários para acessar os recursos dos Serviços de Mídia do Azure.
 
@@ -42,7 +43,7 @@ Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome d
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="see-also"></a>Consulte
+## <a name="see-also"></a>Consulte também
 
 - [Dimensionar as unidades reservadas para mídia – CLI](media-reserved-units-cli-how-to.md)
 - [Criar uma conta dos Serviços de Mídia – CLI](create-account-cli-how-to.md) 

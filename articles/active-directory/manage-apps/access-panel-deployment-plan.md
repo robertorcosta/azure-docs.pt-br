@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512844"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897064"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planejar uma implantação do painel de acesso do Azure Active Directory
 
@@ -111,7 +111,7 @@ A funcionalidade do painel de acesso pode ser habilitada gradualmente. Recomenda
    * Termos de uso
    * Gerenciar organizações
 
-1. Meus Grupos
+1. Meus grupos
    * Gerenciamento de grupo de autoatendimento
 1. Análises de acesso
    * Gerenciamento de análise de acesso
@@ -227,9 +227,9 @@ Planeje a ordem na qual você adicionará aplicativos ao iniciador meus aplicati
 
 Qualquer aplicativo habilitado para SSO do Azure AD pode ser adicionado ao inicializador meus aplicativos. Outros aplicativos são adicionados usando a opção de SSO vinculado. Você pode configurar um bloco de aplicativo que se vincule à URL do seu aplicativo Web existente. O SSO vinculado permite que você comece a direcionar usuários para o portal meus aplicativos sem migrar todos os aplicativos para o SSO do Azure AD. Você pode migrar gradualmente para os aplicativos configurados pelo SSO do Azure AD sem interromper a experiência dos usuários.
 
-#### <a name="use-my-apps-workspaces-preview"></a>Usar espaços de trabalho de aplicativos (visualização)
+#### <a name="use-my-apps-collections"></a>Usar coleções de meus aplicativos
 
-Por padrão, todos os aplicativos são listados juntos em uma única página. Mas você pode usar espaços de trabalho para agrupar aplicativos relacionados e apresentá-los em uma guia separada, facilitando sua localização. Por exemplo, você pode usar espaços de trabalho para criar agrupamentos lógicos de aplicativos para funções de trabalho específicas, tarefas, projetos e assim por diante. Para obter informações, consulte [como usar os espaços de trabalho meus aplicativos para personalizar os painéis de acesso do usuário (versão prévia)](access-panel-workspaces.md). 
+Por padrão, todos os aplicativos são listados juntos em uma única página. Mas você pode usar coleções para agrupar aplicativos relacionados e apresentá-los em uma guia separada, facilitando sua localização. Por exemplo, você pode usar coleções para criar agrupamentos lógicos de aplicativos para funções de trabalho específicas, tarefas, projetos e assim por diante. Para obter informações, consulte [como usar coleções de meus aplicativos para personalizar os painéis de acesso do usuário](access-panel-collections.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planejar se deseja usar meus aplicativos ou um portal existente
 
@@ -261,10 +261,10 @@ Para planejar a associação de grupo de autoatendimento, determine se você per
 
 O Azure AD fornece [relatórios que oferecem informações técnicas e de negócios](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Trabalhe com seus proprietários de aplicativos técnicos e de negócios para assumir a propriedade desses relatórios e consumi-los regularmente. A tabela a seguir fornece alguns exemplos de cenários de relatório típicos.
 
-|   | gerenciar riscos| Aumente a produtividade| Governança e conformidade |
+|   | gerenciar riscos| Aumentar a produtividade| Governança e conformidade |
 |  - |- | - | - |
 | Tipos de relatório|  Permissões e uso do aplicativo| Atividade de provisionamento de conta| Revisar quem está acessando os aplicativos |
-| Ações potenciais| Acesso de auditoria; revogar permissões| Corrigir quaisquer erros de provisionamento| Revogar acesso |
+| Ações potenciais| Acesso de auditoria; revogar permissões| Corrigir quaisquer erros de provisionamento| Revogar o acesso |
 
 O Azure AD mantém a maioria dos dados de auditoria por 30 dias. Os dados estão disponíveis por meio do portal de administração do Azure ou da API para que você faça o download em seus sistemas de análise.
 
@@ -336,7 +336,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 Você deve usar a função menos privilegiada para realizar uma tarefa necessária dentro de Azure Active Directory. [Examine as diferentes funções que estão disponíveis](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
 
-| Personas| Funções| Função de AD do Azure  |
+| Personas| Funções| Função do Azure AD  |
 | - | -| -|
 | Administrador de assistência técnica| Suporte da camada 1| Nenhum |
 | Administrador de identidade| Configurar e depurar quando os problemas afetam o Azure AD| Administrador global |

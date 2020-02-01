@@ -3,12 +3,12 @@ title: Alterar as configurações de Cluster Service Fabric do Azure
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772118"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905191"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -89,6 +89,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |TargetReplicaSetSize |Int, o padrão é 7 |Não Permitido|O TargetReplicaSetSize para ClusterManager. |
 |UpgradeHealthCheckInterval |Tempo em segundos, o padrão é de 60 |Dinâmico|A frequência de verificação do status de integridade durante atualizações de um aplicativo monitorado |
 |UpgradeStatusPollInterval |Tempo em segundos, o padrão é de 60 |Dinâmico|A frequência de sondagem do status de atualização do aplicativo. Esse valor determina a taxa de atualização para qualquer chamada GetApplicationUpgradeProgress |
+|CompleteClientRequest | Bool, o padrão é false |Dinâmico| Solicitação completa do cliente quando aceita pelo CM. |
 
 ## <a name="common"></a>Comum
 
@@ -568,6 +569,8 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ValidatePlacementConstraint | Bool, o padrão é true |Dinâmico| Especifica se a expressão PlacementConstraint para um serviço é validada ou não quando um ServiceDescription do serviço é atualizado. |
 |ValidatePrimaryPlacementConstraintOnPromote| bool, o padrão é TRUE |Dinâmico|Especifica se a expressão PlacementConstraint para um serviço é avaliada para a preferência primária no failover. |
 |VerboseHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes que uma réplica precisa estar não alocada antes que um aviso de integridade seja comunicado para ela (caso o relatório de integridade detalhado esteja habilitado). |
+|NodeLoadsOperationalTracingEnabled | Bool, o padrão é true |Dinâmico|Configuração que habilita o rastreamento estrutural operacional de carregamento de nó no repositório de eventos. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (20) | Dinâmico|Especifique o intervalo de tempo em segundos. O intervalo com o qual rastrear cargas de nó para o repositório de eventos para cada domínio de serviço. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 

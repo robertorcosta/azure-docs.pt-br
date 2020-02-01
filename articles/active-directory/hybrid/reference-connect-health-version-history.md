@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c0d3055512145396f204fdb17e9375f65a0db3
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562324"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897043"
 ---
-# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico de Lançamento de Versão
+# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: histórico de lançamento de versão
 A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.  
 
 > [!NOTE]
-> Os agentes do Connect Health são atualizados automaticamente quando a nova versão é liberada. Verifique se as configurações de atualização automática estão habilitadas em portal do Azure. 
+> Os agentes do Connect Health são atualizados automaticamente quando a nova versão é liberada. Verifique se as configurações de atualização automática estão habilitadas em portal do Azure.
 >
 
 O Azure Active Directory Connect Health para sincronização é integrado com a instalação do Azure AD Connect. Leia mais sobre o [histórico de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) Para comentários sobre os recursos, vote em [canal Connnect Health User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
@@ -156,7 +157,7 @@ O Azure Active Directory Connect Health para sincronização é integrado com a 
 **Atualização do agente:**
 
  * O agente do Azure AD Connect Health for Sync (versão 3.0.129.0) lançado com a versão 1.1.649.0 do Azure AD Connect
-<br></br> Corrigido um problema de compatibilidade entre o Azure AD Connect e o agente do Azure AD Connect Health para Sincronização. Esse problema afeta os clientes que estão executando a atualização in-loco do Azure AD Connect para a versão 1.1.647.0, mas, atualmente, têm o Agente de Integridade versão 3.0.127.0. Após a atualização, o Agente de Integridade não poderá mais enviar dados de integridade do Azure AD Connect Synchronization Service ao Azure AD Health Service. Com essa correção, o Agente de Integridade versão 3.0.129.0 será instalado durante a atualização in-loco do Azure AD Connect. O Agente de Integridade versão 3.0.129.0 não tem problema de compatibilidade com o Azure AD Connect versão 1.1.649.0.
+<br></br> Correção de um problema de compatibilidade de versão entre Azure AD Connect e Azure AD Connect Health Agent para sincronização. Esse problema afeta os clientes que estão executando Azure AD Connect atualização in-loco para a versão 1.1.647.0, mas atualmente tem o agente de integridade versão 3.0.127.0. Após a atualização, o Agente de Integridade não poderá mais enviar dados de integridade do Azure AD Connect Synchronization Service ao Azure AD Health Service. Com essa correção, o Agente de Integridade versão 3.0.129.0 será instalado durante a atualização in-loco do Azure AD Connect. O Agente de Integridade versão 3.0.129.0 não tem problema de compatibilidade com o Azure AD Connect versão 1.1.649.0.
 
 ## <a name="july-2017"></a>Julho de 2017
 **Atualização do agente:**
@@ -250,6 +251,6 @@ O Azure Active Directory Connect Health para sincronização é integrado com a 
 * Tendências em solicitações com falha em servidores do AD FS agrupadas por Aplicativos, Tipos de Erro etc.
 * Implantação mais simples de agente usando credenciais de Administrador Global do AD do Azure.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](whatis-hybrid-identity-health.md).
 

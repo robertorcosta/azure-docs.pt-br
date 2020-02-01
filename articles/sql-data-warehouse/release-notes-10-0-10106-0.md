@@ -11,33 +11,34 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d51213402f852daee8fe4a6b5dbbd473afda659
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 917a698840850182d2d41ef780ba01d948e11c2f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122450"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896379"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas sobre a versão do SQL Data Warehouse do Azure
 
-Este artigo resume os novos recursos e melhorias nas versões recentes do [azure SQL data warehouse](sql-data-warehouse-overview-what-is.md) (Azure SQL DW). O artigo também lista as atualizações de conteúdo notáveis que não estão diretamente relacionadas à versão, mas publicadas no mesmo período de tempo. Para aprimoramentos em outros serviços do Azure, consulte [atualizações de serviço](https://azure.microsoft.com/updates).
+This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md) (Azure SQL DW). The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
-## <a name="check-your-azure-sql-data-warehouse-version"></a>Verifique sua versão de SQL Data Warehouse do Azure
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Check your Azure SQL Data Warehouse version
 
-À medida que novos recursos são distribuídos para todas as regiões, verifique a versão implantada em sua instância e as notas de versão mais recentes do Azure SQL DW para disponibilidade de recursos. Para verificar sua versão do SQL DW do Azure, conecte-se ao seu data warehouse via SQL Server Management Studio (SSMS) e execute `SELECT @@VERSION;` para retornar a versão atual do SQL DW do Azure.
+As new features are rolled out to all regions, check the version deployed to your instance and the latest Azure SQL DW release notes for feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version of Azure SQL DW.
 
 Saída de exemplo:
 
-![Versão do SQL Data Warehouse](./media/release-notes/t47-1-version.png)
+![SQL Data Warehouse version](./media/release-notes/t47-1-version.png)
 
-Use a versão identificada para confirmar qual versão foi aplicada ao Azure SQL DW.
+Use the version identified to confirm which release has been applied to your Azure SQL DW.
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
-|**Métricas de Portal de Gerenciamento de carga de trabalho (versão prévia)**|Com o lançamento do [isolamento da carga de trabalho](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) para visualização deste último outubro, os usuários podem criar seus próprios [grupos de cargas de trabalho](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) para gerenciar com eficiência os recursos do sistema e garantir que os SLAs comerciais sejam atendidos.  Como parte dos aprimoramentos gerais de [Gerenciamento de carga de trabalho](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) do Azure Synapse Analytics, novas [métricas de monitoramento de gerenciamento de carga de trabalho](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) agora estão disponíveis.</br> </br> Monitorar sua carga de trabalho agora tem mais informações com as seguintes métricas: </br> Porcentagem de recursos de limite efetivo  </br> Percentual de recurso mín. mínimo efetivo </br> -Consultas ativas do grupo de cargas de trabalho </br> -Alocação do grupo de cargas de trabalho por porcentagem máxima de recursos </br> -Alocação do grupo de cargas de trabalho por porcentagem do sistema </br> -Tempos limite de consulta do grupo de cargas de trabalho </br> -Grupo de cargas de trabalho consultas em fila </br></br> Use essas métricas para identificar [afunilamentos de grupo de carga](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) de trabalho ou grupos de carga de trabalho configurados com [isolamento de carga de trabalho subutilizado](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  Essas métricas podem ser usadas no portal do Azure que permite a divisão por grupo de carga de trabalho.  Filtre e fixe seus grafos favoritos em um painel para obter acesso rápido às informações.|
-|**Métricas de monitoramento do portal**| As seguintes métricas foram adicionadas ao portal para monitorar a atividade de consulta geral: </br> -Consultas ativas </br> -Consultas em fila </br> </br>Essas métricas são descritas junto com as métricas existentes na [documentação monitoramento de utilização de recursos e atividade de consulta](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Workload Management Portal Metrics (Preview)**|With the release of [Workload Isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) for preview this past October, users can create their own [workload groups](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) to efficiently manage system resources and ensure business SLAs are met.  As part of the overall [workload management](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) enhancements for Azure Synapse Analytics, new [workload management monitoring metrics](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) are now available.</br> </br> Monitoring your workload now has greater insights with the following metrics: </br> - Effective cap resource percent  </br> - Effective min resource percent </br> - Workload group active queries </br> - Workload group allocation by max resource percent </br> - Workload group allocation by system percent </br> - Workload group query timeouts </br> - Workload group queued queries </br></br> Use these metrics to identify [workload group bottlenecks](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) or workload groups that are configured with [underutilized workload isolation](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  These metrics can be used in the Azure Portal that allows splitting by workload group.  Filter and pin your favorite graphs to a dashboard for quick access to insights.|
+|**Portal Monitoring Metrics**| The following metrics were added to the portal for monitoring overall query activity: </br> - Active queries </br> - Queued queries </br> </br>These metrics are described along with the existing metrics in the [Monitoring resource utilization and query activity documentation](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Nome do produto**|By June 2020, the product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Azure Synapse Analytics. We will publish the schedule in our release notes. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. Para evitar alterações no código do aplicativo devido à Remarcação do produto, use estes comandos para consultar SERVERPROPERTY para o nome e a versão do produto de banco de dados. </br> Para retornar o número de versão do DW XX. X. XXXXX. X (sem o nome do produto) Use este comando: SELECT SERVERPROPERTY (' ProductVersion ') </br> Para retornar a edição do mecanismo, use este comando que retorna 6 para o Azure Synapse Analytics (anteriormente SQL Data Warehouse): selecione SERVERPROPERTY (' EngineEdition ')|
 
 ## <a name="october-2019"></a>Outubro de 2019
 

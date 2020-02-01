@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666645"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905441"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migre seus aplicativos e soluções dos serviços BizTalk para os aplicativos lógicos do Azure
 
@@ -125,7 +125,7 @@ Diferentemente dos Serviços BizTalk, essas ações são separadas dos protocolo
 
 ## <a name="manage-and-monitor"></a>Gerenciar e monitorar
 
-No Serviços Biztalk, um portal dedicado fornecia recursos de rastreamento para monitorar e solucionar problemas. Aplicativos Lógicos fornecem recursos de rastreamento e monitoramento avançados por meio do [Portal do Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) e inclui um aplicativo móvel para manter o controle de tudo que estiver em movimento.
+No Serviços Biztalk, um portal dedicado fornecia recursos de rastreamento para monitorar e solucionar problemas. Os aplicativos lógicos fornecem recursos mais avançados de rastreamento e monitoramento para [monitorar aplicativos lógicos no portal do Azure](../logic-apps/monitor-logic-apps.md)e inclui um aplicativo móvel para ficar atento às coisas quando você estiver em movimento.
 
 ## <a name="high-availability"></a>Alta disponibilidade
 

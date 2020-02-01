@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/30/2020
 ms.author: helohr
-ms.openlocfilehash: e525976edee08097d75605ea1921d0552ed02785
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841056"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906888"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -38,6 +38,14 @@ Como um provedor aprovado, os benefícios da área de trabalho virtual do Window
 
 - [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+## <a name="10zig"></a>10ZiG
+
+![logotipo do 10ZiG](./media/partners/10zig.png)
+
+a tecnologia 10ZiG, com hardware e software de cliente fino e zero de ponta, é um parceiro de longa atividade da Microsoft e de uma Microsoft Azure dedicada e de um parceiro de área de trabalho virtual do Windows. Os clientes finos baseados em IoT do Windows 10 10ZiG são pontos de extremidade poderosos, confiáveis e acessíveis para todos os vários usuários da área de trabalho virtual do Windows. o software do 10ZiG Manager fornece gerenciamento e implantação excepcionais sem limitações de licença e nenhum custo adicional. A equipe de tecnologia 10ZiG, o programa de garantia avançada e as demonstrações sem complicações são uma solução de suporte de várias sessões de área de trabalho virtual do Windows única na nuvem.
+
+a liderança do mercado mundial de 10ZiG's em dispositivos de ponto de extremidade de cliente fino e zero e software de gerenciamento para áreas de trabalho virtuais é exemplificado por meio de como eles funcionam para seus clientes. Seu hardware de cliente fino é fornecido com recursos e opções de benefício construídos de acordo com o objetivo de garantir que os clientes recebam os dispositivos de cliente corretos com base em suas necessidades. o 10ZiG personaliza seus dispositivos para caber em ambientes de clientes com clientes baseados em Windows e Linux que fornecem o melhor desempenho possível em áreas de trabalho virtuais, dentro e fora da nuvem.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -133,6 +141,14 @@ O liquide Essentials estende o valor da área de trabalho virtual do Windows com
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Acesse o site do parceiro](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="liquit"></a>Liquit
+
+![Logotipo do liquit](./media/partners/liquit.png)
+
+O software de agregação e entrega de aplicativos liquit permite que empresas e provedores de serviços se conectem e combinem com todos os back-ends do espaço de trabalho (Citrix, VMWare, área de trabalho virtual do Windows, RDP e herdado) e fornecem um cliente personalizado e consistente experiência, independentemente de onde residem os aplicativos do cliente. Quando um cliente publica o ícone inteligente, o liquit decide onde iniciar o aplicativo com base nos direitos de localização, dispositivo e perfil do cliente.
+
+Como um parceiro de integração certificado, o liquit ajuda a acelerar a transição para a nuvem sem um atraso de RIP e substituir. A área de trabalho virtual do Windows pode se conectar facilmente a um ambiente existente, criar um espaço de trabalho e entregar a área de trabalho. Você pode então levar seu tempo migrando de plataformas antigas e fazer alterações no back-end sem que os usuários percebam. Obter uma experiência consistente do usuário final, uma infraestrutura flexível e manter o controle de seus aplicativos, independentemente de onde estiverem.
+
 ## <a name="login-vsi"></a>VSI de logon
 
 ![Logotipo do VSI de logon](./media/partners/loginvsi.png)
@@ -202,6 +218,16 @@ O RDPSoft é um parceiro de área de trabalho virtual do Windows que fornece sol
 As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administração da área de trabalho virtual do Windows. Os recursos de gerenciamento Premium simplificam a delegação de tarefas de gerenciamento de área de trabalho virtual do Windows para suporte à equipe de desk fornecendo assistência remota, sessão de usuário e gerenciamento de processos. Ao mesmo tempo, o Área de Trabalho Remota Commander Suite coleta métricas avançadas sobre desempenho e carga por usuário, atividade e auditoria do usuário, qualidade de conexão da área de trabalho virtual do Windows (latência e largura de banda), licenciamento e segurança em um SQL do Azure central instância do banco de dados para revisão. Com o RDPSoft, os amplos relatórios históricos e os painéis abrangentes são apenas um clique.
 
 - [Vá para o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
+## <a name="sepago"></a>sepago
+
+![logotipo do sepago](./media/partners/sepago.png)
+
+sepago foi fundada em 2002 por quatro amigos no Cologne. Hoje, a sepago é uma consultoria de gerenciamento de ti com um número cada vez maior de sepagists, com locais em toda a Alemanha em Cologne, Munique e Hamburgo. sepago são especialistas em provisionamento automatizado de aplicativos, virtualização, soluções de nuvem e segurança de ti. o sepago dá suporte a empresas de médio e grande porte em sua forma de transformação digital e garante que os usuários possam trabalhar de forma segura e eficiente.
+
+o laboratório de inovação e desenvolvimento de sepago cria soluções inteligentes usando as tecnologias Big Data e ia. Essas soluções se concentram em melhorar o negócio, a experiência do usuário e as administrações de produtos de parceiros, como a área de trabalho virtual do Windows.
+
+- [Vá para o site do parceiro](https://www.sepago.de/wvd-value-add-tools/)
 
 ## <a name="thinprint"></a>ThinPrint
 

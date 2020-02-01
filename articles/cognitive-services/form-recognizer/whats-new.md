@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: pafarley
-ms.openlocfilehash: cb5639dcf0e13ea03d34604816b3939085674c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456361"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901890"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -24,9 +24,6 @@ Este artigo destaca as principais alterações que acompanham as novas versões 
 > O guia de início rápido e os guias neste documento definem sempre a versão mais recente da API, a menos que eles especifiquem o contrário.
 
 ## <a name="form-recognizer-20-preview"></a>Reconhecedor de formulário 2,0 (visualização)
-
-> [!IMPORTANT]
-> O reconhecedor de formulário 2,0 está disponível atualmente para assinaturas nas regiões `West US 2` e `West Europe`. Se sua assinatura não estiver nessa região, use a API 1,0. Os guias de início rápido para treinamento e uso de um modelo personalizado estão disponíveis para v 1.0 e v 2.0.
 
 ### <a name="new-features"></a>Novos recursos
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 628b8bb5c3cb83ae6038a7150420893d7abe61d5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112291"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905651"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexação de documentos no Azure Data Lake Storage Gen2
 
@@ -47,3 +47,10 @@ A indexação de conteúdo no Data Lake Storage Gen2 é idêntica à indexação
 Azure Data Lake Storage Gen2 implementa um [modelo de controle de acesso](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) que dá suporte ao RBAC (controle de acesso baseado em função) do Azure e às ACLs (listas de controle de acesso) semelhantes a POSIX. Ao indexar o conteúdo do Data Lake Storage Gen2, o Pesquisa Cognitiva do Azure não extrairá as informações de ACL e do RBAC do conteúdo. Como resultado, essas informações não serão incluídas no índice de Pesquisa Cognitiva do Azure.
 
 Se a manutenção do controle de acesso em cada documento no índice for importante, cabe ao desenvolvedor do aplicativo implementar a [remoção de segurança](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+
+## <a name="change-detection"></a>Detecção de alteração
+
+O indexador Data Lake Storage Gen2 dá suporte à detecção de alteração. Isso significa que quando o indexador é executado, ele apenas reindexa os BLOBs alterados conforme determinado pelo carimbo de data/hora do `LastModified` do blob.
+
+> [!NOTE] 
+> Data Lake Storage Gen2 permite que os diretórios sejam renomeados. Quando um diretório é renomeado, os carimbos de data/hora dos BLOBs nesse diretório não são atualizados. Como resultado, o indexador não reindexará esses BLOBs. Se você precisar que os BLOBs em um diretório sejam reindexados após uma renomeação de diretório porque agora têm novas URLs, você precisará atualizar o carimbo de data/hora de `LastModified` para todos os BLOBs no diretório para que o indexador saiba reindexá-los durante uma execução futura.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977805"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899131"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP usados pelo Application Insights e pelo Log Analytics
 O serviço [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
@@ -56,6 +56,14 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
 Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) são executados. Se você deseja executar testes da Web em seu aplicativo, mas o servidor Web está restrito a servir clientes específicos, você precisa permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
+
+Se você estiver usando grupos de segurança de rede do Azure, basta adicionar uma **regra de porta de entrada** para permitir o tráfego de Application insights testes de disponibilidade selecionando a marca de **serviço** como a **origem** e a **ApplicationInsightsAvailability** como a marca de **serviço de origem**.
+
+>[!div class="mx-imgBorder"]
+>![em configurações, selecione regras de segurança de entrada e, em seguida, selecione Adicionar na parte superior da guia ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![adicionar a guia regra de segurança de entrada](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Abra as portas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por local):
 

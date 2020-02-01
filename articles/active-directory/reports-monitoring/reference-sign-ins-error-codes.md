@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294092"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898896"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -143,6 +143,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |53002|O aplicativo usado não é um aplicativo aprovado para acesso condicional. O usuário precisa usar um dos aplicativos da lista de aplicativos aprovados para uso para obter acesso.|
 |53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O usuário precisa concluir o processo de registro de autenticação multifator antes de acessar este conteúdo. O usuário deve se registrar para a autenticação multifator.|
+|53032|A conta foi bloqueada devido a políticas de Azure AD Identity Protection.|
 |65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do aplicativo: Y para o recurso: Z.|
 |65004|O usuário se recusou a consentir para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|
 |65005|A lista de acesso a recursos exigida pelo aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso a recursos, os quais não foram especificados na lista de acesso a recursos exigida ou O serviço Graph retornou uma solicitação inválida ou o recurso não foi encontrado. Se o aplicativo tem suporte para SAML, pode ser que você o tenha configurado com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|

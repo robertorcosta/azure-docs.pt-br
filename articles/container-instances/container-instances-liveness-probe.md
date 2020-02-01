@@ -3,12 +3,12 @@ title: Configurar investigação de vida na instância de contêiner
 description: Saiba como configurar investigações de atividade para reiniciar contêineres não íntegros em Instâncias de Contêiner do Azure
 ms.topic: article
 ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481675"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901901"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
 
@@ -17,6 +17,9 @@ Os aplicativos em contêineres podem ser executados por longos períodos de temp
 Este artigo explica como implantar um grupo de contêineres que inclui uma investigação de atividade, demonstrando a reinicialização automática de um contêiner não íntegro simulado.
 
 As instâncias de contêiner do Azure também dão suporte a [investigações de preparação](container-instances-readiness-probe.md), que podem ser configuradas para garantir que o tráfego atinja um contêiner somente quando ele estiver pronto para ele.
+
+> [!NOTE]
+> No momento, você não pode usar uma investigação de vida em um grupo de contêineres implantado em uma rede virtual.
 
 ## <a name="yaml-deployment"></a>Implantação do YAML
 
@@ -96,7 +99,7 @@ Se investigação de atividade falhar continuamente e acionar muitas reinicializ
 
 As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. Em vez disso, o grupo de contêineres seguirá a política de reinicialização do grupo de contêineres de `Never`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Cenários com base em tarefas podem exigir que a investigação de atividade permita reinicializações automáticas se uma função pré-requisitada não estiver funcionando corretamente. Para obter mais informações sobre a execução de contêineres com base em tarefas, consulte [Executar tarefas em contêineres nas Instâncias de Contêiner do Azure](container-instances-restart-policy.md).
 

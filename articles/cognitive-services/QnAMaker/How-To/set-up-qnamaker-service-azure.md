@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dc3bb6882963205e17e37f52ec9dcdffecdf9e21
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 00b8e6d44ed8449aa4ddf8716039c8c85c558b8f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843069"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901723"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -97,7 +97,8 @@ As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do Q
 
 2. Exibir ou redefinir suas chaves:
 
-    ![Gerenciador de chaves de ponto de extremidade](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    > [!div class="mx-imgBorder"]
+    > [![mostrar, copiar ou definir a chave do ponto de extremidade nas configurações do serviço](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)](../media/qnamaker-how-to-key-management/Endpoint-keys1.png#lightbox)
 
     >[!NOTE]
     >Atualize suas chaves se você acreditar que elas foram comprometidas. Isso pode exigir que sejam feitas as alterações correspondentes no seu aplicativo cliente ou código bot.
@@ -136,7 +137,7 @@ O recurso de **serviço de aplicativo** do QnA Maker usa o recurso pesquisa cogn
 1. Selecione **configurações**e **configuração**. Isso exibirá todas as configurações existentes para o serviço de aplicativo do QnA Maker.
 
     > [!div class="mx-imgBorder"]
-    > ![captura de tela do portal do Azure mostrando as definições de configuração do serviço de aplicativo](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+    > [![captura de tela do portal do Azure mostrando as definições de configuração do serviço de aplicativo](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png#lightbox)
 
 1. Altere os valores para as seguintes chaves:
 
@@ -146,7 +147,7 @@ O recurso de **serviço de aplicativo** do QnA Maker usa o recurso pesquisa cogn
 1. Para usar as novas configurações, você precisa reiniciar o serviço de aplicativo. Selecione **visão geral**e, em seguida, selecione **reiniciar**.
 
     > [!div class="mx-imgBorder"]
-    > ![captura de tela de portal do Azure reiniciando o serviço de aplicativo após a alteração das definições de configuração](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+    > [![captura de tela de portal do Azure reiniciando o serviço de aplicativo após a alteração das definições de configuração](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Se você criar um serviço QnA por meio de modelos de Azure Resource Manager, poderá criar todos os recursos e controlar a criação do serviço de aplicativo para usar um serviço de pesquisa existente.
 

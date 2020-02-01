@@ -6,18 +6,19 @@ author: billmath
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295358"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897060"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores que influenciam o desempenho do Azure AD Connect
 
@@ -34,7 +35,7 @@ O Microsoft Azure Active Directory Connect sincroniza seu Active Directory para 
 A finalidade deste documento é descrever os fatores que influenciam o desempenho do mecanismo de provisionamento do Azure AD Connect. Organizações grandes ou complexas (organizações de provisionamento com mais de 100.000 objetos) podem usar as recomendações para otimizar sua implementação do Azure AD Connect, se enfrentarem problemas de desempenho descritos aqui. Os outros componentes do Azure AD Connect, tais como a integridade [do Azure AD Connect health](how-to-connect-health-agent-install.md) e os agentes não são abordados aqui.
 
 > [!IMPORTANT]
-> A Microsoft não oferece suporte à modificação ou à operação do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou sem suporte da sincronização do Azure AD Connect. Consequentemente, a Microsoft não pode fornecer suporte técnico para essas implantações.
+> A Microsoft não oferece suporte à modificação ou à operação do Azure AD Connect fora das ações formalmente documentadas. Qualquer uma dessas ações pode resultar em um estado inconsistente ou sem suporte de Azure AD Connect sincronização. Como resultado, a Microsoft não pode fornecer suporte técnico para essas implantações.
 
 ## <a name="azure-ad-connect-component-factors"></a>Fatores de componente do Azure AD Connect
 
@@ -42,7 +43,7 @@ O diagrama a seguir mostra uma arquitetura de alto nível de provisionamento de 
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-O mecanismo de provisionamento se conecta a cada floresta do Active Directory e ao Microsoft Azure Active Directory. O processo de ler informações de cada diretório é chamado de importação. Exportação se refere à atualização dos diretórios do mecanismo de provisionamento. A sincronização avalia as regras de como os objetos fluirão dentro do mecanismo de provisionamento. Para se aprofundar, você pode consultar [Sincronização do Azure AD Connect: noções básicas sobre a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+O mecanismo de provisionamento se conecta a cada floresta do Active Directory e ao Microsoft Azure Active Directory. O processo de ler informações de cada diretório é chamado de importação. Exportação se refere à atualização dos diretórios do mecanismo de provisionamento. A sincronização avalia as regras de como os objetos fluirão dentro do mecanismo de provisionamento. Para se aprofundar, você pode consultar [sincronização do Azure AD Connect: noções básicas sobre a arquitetura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 O Azure Active Directory usa as seguintes áreas de preparação, regras e processos para permitir a sincronização do Active Directory para o Azure AD:
 
@@ -95,9 +96,9 @@ As operações a seguir estão incluídas em um ciclo de sincronização complet
 > [!NOTE]
 > Planejamento cuidadoso é necessário ao fazer atualizações em massa para vários objetos no seu Active Directory ou Azure AD. Atualizações em massa farão com que o processo de sincronização delta levar mais tempo ao importar, já que muitos objetos foram alterados. Importações longas podem acontecer mesmo que a atualização em massa não influencie o processo de sincronização. Por exemplo, atribuir licenças a muitos usuários no Azure Active Directory causará um ciclo longe de importação do Azure Active Directory, mas não resultará em mudanças de atributo no Active Directory.
 
-### <a name="synchronization"></a>Sincronização
+### <a name="synchronization"></a>Synchronization
 
-O tempo de execução do processo de sincronização tem as seguintes características de desempenho:
+O runtime do processo de sincronização tem as seguintes características de desempenho:
 
 * A sincronização é de thread único, o que significa que o mecanismo de provisionamento não faz qualquer processamento paralelo dos perfis de execução de diretórios conectados, objetos ou atributos.
 * O tempo de importação aumenta linearmente com o número de objetos que estão sendo sincronizados. Por exemplo, se os 10.000 objetos levarem 10 minutos para importar, em seguida, 20.000 objetos levarão aproximadamente 20 minutos no mesmo servidor.
@@ -188,5 +189,5 @@ Para otimizar o desempenho da sua implementação do Azure AD Connect, considere
 - Se esforce para concluir o ciclo de sincronização delta em 30 minutos. Se o perfil de sincronização delta não for concluído em 30 minutos, modifique a frequência de sincronização padrão para incluir um ciclo de sincronização delta completa.
 - Monitor a integridade da [sincronização do Azure AD Connect](how-to-connect-health-agent-install.md) no Azure AD.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

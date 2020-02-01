@@ -6,17 +6,18 @@ author: martincoetzer
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/19/2018
+ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208564"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908727"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 

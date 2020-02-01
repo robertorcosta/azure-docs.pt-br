@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 0210317ef74433b740feb043a1cc4f1f9bc2ef57
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310774"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901158"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -472,7 +472,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |BlobCapacity|Capacidade do Blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType, camada|
 |BlobCount|Contagem de Blobs|Contagem|Média|O número de Blobs no serviço Blob da conta de armazenamento.|BlobType, camada|
 |ContainerCount|Contagem de Contêineres de Blobs|Contagem|Média|O número de contêineres no serviço Blob da conta de armazenamento.|Nenhum|
-|IndexCapacity|Capacidade de Índice|Bytes|Média|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhum|
+|IndexCapacity|Capacidade do índice|Bytes|Média|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhum|
 |Transações|Transações|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|
@@ -572,13 +572,13 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Bytes de gravação do disco de dados/s|Bytes de Gravação do Disco de Dados/s (Visualização)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento|LUN|
 |Operações de leitura de disco de dados/s|Operações de Leitura do Disco de Dados/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|LUN|
 |Operações de gravação do disco de dados/s|Operações de Gravação do Disco de Dados/s (Visualização)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento|LUN|
-|Profundidade da Fila de Disco de Dados|Profundidade da fila do disco de dados (visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN|
+|Profundidade da fila do disco de dados|Profundidade da fila do disco de dados (visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN|
 |Bytes de leitura do disco do so/s|Bytes de Leitura do Disco do SO/s (Visualização)|CountPerSecond|Média|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhum|
 |Bytes de gravação de disco do sistema operacional/s|Bytes de Gravação do Disco do SO/s (Visualização)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|Nenhum|
 |Operações de leitura de disco do so/s|Operações de Leitura do Disco do SO/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhum|
 |Operações de gravação de disco do so/s|Operações de Gravação do Disco do SO/s (Visualização)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhum|
-|Profundidade da Fila de Disco do SO|Profundidade da fila de disco do so (visualização)|Contagem|Média|Profundidade da Fila do Disco do SO (ou Tamanho da Fila)|Nenhum|
-|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|Nenhum|
+|Profundidade da fila de disco do so|Profundidade da fila de disco do so (visualização)|Contagem|Média|Profundidade da Fila do Disco do SO (ou Tamanho da Fila)|Nenhum|
+|Fluxos de entrada|Fluxos de entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|Nenhum|
 |Fluxos de saída|Fluxos de saída|Contagem|Média|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|Nenhum|
 |Taxa máxima de criação de fluxos de entrada|Taxa máxima de criação de fluxos de entrada (visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de entrada (tráfego entrando na VM)|Nenhum|
 |Taxa máxima de criação de fluxos de saída|Taxa máxima de criação de fluxos de saída (versão prévia)|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|Nenhum|
@@ -617,13 +617,13 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Bytes de gravação do disco de dados/s|Bytes de Gravação do Disco de Dados/s (Visualização)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento|LUN, VMName|
 |Operações de leitura de disco de dados/s|Operações de Leitura do Disco de Dados/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|LUN, VMName|
 |Operações de gravação do disco de dados/s|Operações de Gravação do Disco de Dados/s (Visualização)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento|LUN, VMName|
-|Profundidade da Fila de Disco de Dados|Profundidade da fila do disco de dados (visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN, VMName|
+|Profundidade da fila do disco de dados|Profundidade da fila do disco de dados (visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN, VMName|
 |Bytes de leitura do disco do so/s|Bytes de Leitura do Disco do SO/s (Visualização)|CountPerSecond|Média|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
 |Bytes de gravação de disco do sistema operacional/s|Bytes de Gravação do Disco do SO/s (Visualização)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|VMName|
 |Operações de leitura de disco do so/s|Operações de Leitura do Disco do SO/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
 |Operações de gravação de disco do so/s|Operações de Gravação do Disco do SO/s (Visualização)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
-|Profundidade da Fila de Disco do SO|Profundidade da fila de disco do so (visualização)|Contagem|Média|Profundidade da Fila do Disco do SO (ou Tamanho da Fila)|VMName|
-|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|VMName|
+|Profundidade da fila de disco do so|Profundidade da fila de disco do so (visualização)|Contagem|Média|Profundidade da Fila do Disco do SO (ou Tamanho da Fila)|VMName|
+|Fluxos de entrada|Fluxos de entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|VMName|
 |Fluxos de saída|Fluxos de saída|Contagem|Média|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|VMName|
 |Taxa máxima de criação de fluxos de entrada|Taxa máxima de criação de fluxos de entrada (visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de entrada (tráfego entrando na VM)|VMName|
 |Taxa máxima de criação de fluxos de saída|Taxa máxima de criação de fluxos de saída (versão prévia)|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|VMName|
@@ -662,13 +662,13 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Bytes de gravação do disco de dados/s|Bytes de Gravação do Disco de Dados/s (Visualização)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento|LUN|
 |Operações de leitura de disco de dados/s|Operações de Leitura do Disco de Dados/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|LUN|
 |Operações de gravação do disco de dados/s|Operações de Gravação do Disco de Dados/s (Visualização)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento|LUN|
-|Profundidade da Fila de Disco de Dados|Profundidade da fila do disco de dados (visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN|
+|Profundidade da fila do disco de dados|Profundidade da fila do disco de dados (visualização)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN|
 |Bytes de leitura do disco do so/s|Bytes de Leitura do Disco do SO/s (Visualização)|CountPerSecond|Média|Bytes/s lidos de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhum|
 |Bytes de gravação de disco do sistema operacional/s|Bytes de Gravação do Disco do SO/s (Visualização)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento do disco do sistema operacional|Nenhum|
 |Operações de leitura de disco do so/s|Operações de Leitura do Disco do SO/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhum|
 |Operações de gravação de disco do so/s|Operações de Gravação do Disco do SO/s (Visualização)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Nenhum|
-|Profundidade da Fila de Disco do SO|Profundidade da fila de disco do so (visualização)|Contagem|Média|Profundidade da Fila do Disco do SO (ou Tamanho da Fila)|Nenhum|
-|Fluxos de Entrada|Fluxos de Entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|Nenhum|
+|Profundidade da fila de disco do so|Profundidade da fila de disco do so (visualização)|Contagem|Média|Profundidade da Fila do Disco do SO (ou Tamanho da Fila)|Nenhum|
+|Fluxos de entrada|Fluxos de entrada|Contagem|Média|Os fluxos de entrada são o número de fluxos atuais na direção de entrada (tráfego entrando na VM)|Nenhum|
 |Fluxos de saída|Fluxos de saída|Contagem|Média|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|Nenhum|
 |Taxa máxima de criação de fluxos de entrada|Taxa máxima de criação de fluxos de entrada (visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de entrada (tráfego entrando na VM)|Nenhum|
 |Taxa máxima de criação de fluxos de saída|Taxa máxima de criação de fluxos de saída (versão prévia)|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|Nenhum|
@@ -728,7 +728,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |CloudUploadThroughputPerShare|Taxa de transferência de upload de nuvem (compartilhamento)|BytesPerSecond|Média|A taxa de transferência de upload para o Azure de um compartilhamento durante o período de relatório.|Compartilhe|
 |BytesUploadedToCloudPerShare|Bytes de nuvem carregados (compartilhamento)|Bytes|Média|O número total de bytes que são carregados no Azure de um compartilhamento durante o período de relatório.|Compartilhe|
 |TotalCapacity|Capacidade total|Bytes|Média|Capacidade total|Nenhum|
-|AvailableCapacity|Capacidade Disponível|Bytes|Média|A capacidade disponível em bytes durante o período de relatório.|Nenhum|
+|AvailableCapacity|Capacidade disponível|Bytes|Média|A capacidade disponível em bytes durante o período de relatório.|Nenhum|
 |CloudUploadThroughput|Taxa de transferência de upload de nuvem|BytesPerSecond|Média|A taxa de transferência de upload de nuvem para o Azure durante o período de relatório.|Nenhum|
 |CloudReadThroughput|Taxa de transferência de download da nuvem|BytesPerSecond|Média|A taxa de transferência de download de nuvem para o Azure durante o período de relatório.|Nenhum|
 |BytesUploadedToCloud|Bytes de nuvem carregados (dispositivo)|Bytes|Média|O número total de bytes que são carregados no Azure de um dispositivo durante o período de relatório.|Nenhum|
@@ -992,8 +992,8 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Description|Dimensões|
 |---|---|---|---|---|---|
 |TransactionCount|Contagem de transações|Contagem|Contagem|Contagem total de transações|TransactionCount|
-|SuccessCount|Contagem Bem-sucedida|Contagem|Contagem|Contagem de transações com êxito|SuccessCount|
-|FailureCount|Contagem de Falha|Contagem|Contagem|Contagem de transações com falha|FailureCount|
+|SuccessCount|Contagem de êxitos|Contagem|Contagem|Contagem de transações com êxito|SuccessCount|
+|FailureCount|Contagem de falhas|Contagem|Contagem|Contagem de transações com falha|FailureCount|
 |SuccessLatency|Latência de êxito|MilliSeconds|Média|Latência de transações bem-sucedidas|SuccessCount|
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
@@ -1851,8 +1851,8 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |dwu_used|DWU usado|Contagem|Máximo|DWU usado. Aplica-se somente a data warehouses.|Nenhum|
 |cache_hit_percent|Percentual de ocorrência no cache|Porcentagem|Máximo|Porcentagem de acesso ao cache. Aplica-se somente a data warehouses.|Nenhum|
 |cache_used_percent|Percentual de cache usado|Porcentagem|Máximo|Percentual de cache usado. Aplica-se somente a data warehouses.|Nenhum|
-|sqlserver_process_core_percent|Porcentagem de núcleo do processo de SQL Server|Porcentagem|Máximo|Uso da CPU como uma porcentagem do processo do BD SQL. Não aplicável a data warehouses.|Nenhum|
-|sqlserver_process_memory_percent|Porcentagem de memória de processo SQL Server|Porcentagem|Máximo|Uso de memória como uma porcentagem do processo do BD SQL. Não aplicável a data warehouses.|Nenhum|
+|sqlserver_process_core_percent|Porcentagem de núcleo do processo de SQL Server|Porcentagem|Máximo|Percentual de uso da CPU para o processo de SQL Server, conforme medido pelo sistema operacional. Atualmente disponível somente para bancos de dados sem servidor.|Nenhum|
+|sqlserver_process_memory_percent|Porcentagem de memória de processo SQL Server|Porcentagem|Máximo|Porcentagem de uso de memória para o processo de SQL Server, conforme medido pelo sistema operacional. Atualmente disponível somente para bancos de dados sem servidor.|Nenhum|
 |tempdb_data_size|Tamanho do arquivo de dados tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de dados tempdb em kilobytes. Não aplicável a data warehouses.|Nenhum|
 |tempdb_log_size|Tamanho do arquivo de log de tempdb em kilobytes|Contagem|Máximo|Tamanho do arquivo de log de tempdb em kilobytes. Não aplicável a data warehouses.|Nenhum|
 |tempdb_log_used_percent|Log de porcentagem de tempdb usado|Porcentagem|Máximo|Log de porcentagem de tempdb usado. Não aplicável a data warehouses.|Nenhum|
@@ -1947,7 +1947,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |BlobCapacity|Capacidade do Blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType, camada|
 |BlobCount|Contagem de Blobs|Contagem|Média|O número de Blobs no serviço Blob da conta de armazenamento.|BlobType, camada|
 |ContainerCount|Contagem de Contêineres de Blobs|Contagem|Média|O número de contêineres no serviço Blob da conta de armazenamento.|Nenhum|
-|IndexCapacity|Capacidade de Índice|Bytes|Média|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhum|
+|IndexCapacity|Capacidade do índice|Bytes|Média|A quantidade de armazenamento usada pelo índice ADLS Gen2 (hierárquico) em bytes.|Nenhum|
 |Transações|Transações|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, autenticação|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure.|Geotipo, ApiName, autenticação|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação|

@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666815"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905119"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos
 
@@ -50,7 +50,7 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    | **Assinatura** | *seu-nome-da-assinatura-do-Azure* | Selecione a assinatura do Azure que você deseja usar. | 
    | **Grupo de recursos** | *seu-nome-do-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) para este aplicativo lógico e organize todos os recursos associados ao aplicativo. | 
    | **Localidade** | *sua-região-do-datacenter-do-Azure* | Selecione a região do datacenter para implantar seu aplicativo lógico, por exemplo, Oeste dos EUA. | 
-   | **Log Analytics** | **Off** (padrão) ou **On** | Ative o [log de diagnóstico](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) para seu aplicativo lógico por meio de [logs de Azure monitor](../log-analytics/log-analytics-overview.md). É necessário que você já tenha um espaço de trabalho do Log Analytics. | 
+   | **Log Analytics** | **Off** (padrão) ou **On** | Configure o [log de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para seu aplicativo lógico usando [logs de Azure monitor](../log-analytics/log-analytics-overview.md). É necessário que você já tenha um espaço de trabalho do Log Analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Fixar no painel**. Dessa forma, seu aplicativo lógico aparece automaticamente no painel do Azure e é aberto após a implantação. Escolha **Criar**.

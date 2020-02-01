@@ -1,6 +1,6 @@
 ---
-title: Criar de maneira programática Painéis do Azure | Microsoft Docs
-description: Você pode usar um painel no portal do Azure como um modelo para criar programaticamente painéis do Azure. Inclui referência JSON.
+title: Criar de maneira programática Painéis do Azure
+description: Use um Dashboard no portal do Azure como um modelo para criar programaticamente painéis do Azure. Inclui referência JSON.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
+ms.date: 01/29/2020
 ms.author: mblythe
-ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 414427c722b3531c994bb99dbd5d1332c5253dfd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640339"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900977"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -28,74 +28,84 @@ Este documento explica o processo de criação e publicação de forma programá
 
 ## <a name="overview"></a>Visão Geral
 
-Os painéis compartilhados no Azure são [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) assim como máquinas virtuais e contas de armazenamento.  Portanto, eles podem ser gerenciados programaticamente por meio de [APIs REST do Azure Resource Manager](/rest/api/), [CLI do Azure](https://docs.microsoft.com/cli/azure), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) e muitos recursos do [Portal do Azure](https://portal.azure.com) compilados no topo dessas APIs para facilitar o gerenciamento de recursos.  
+Os painéis compartilhados no [portal do Azure](https://portal.azure.com) são [recursos](../azure-resource-manager/management/overview.md) assim como as máquinas virtuais e as contas de armazenamento. Você pode gerenciar recursos programaticamente usando as [APIs REST do Azure Resource Manager](/rest/api/), os comandos [CLI do Azure](/cli/azure)e [Azure PowerShell](/powershell/azure/get-started-azureps).  
 
-Cada uma dessas APIs e ferramentas oferece maneiras de criar, listar, recuperar, modificar e excluir recursos.  Como painéis são recursos, você pode escolher sua API/ferramenta favorita para usar.
+Muitos recursos se baseiam nessas APIs para facilitar o gerenciamento de recursos. Cada uma dessas APIs e ferramentas oferece maneiras de criar, listar, recuperar, modificar e excluir recursos. Como os painéis são recursos, você pode escolher sua API ou ferramenta favorita a ser usada.
 
-Independentemente de qual ferramenta usar, você precisa construir uma representação JSON do seu objeto de painel antes de chamar qualquer API de criação de recursos. Este objeto contém informações sobre as partes (também conhecidas como blocos) no painel. Inclui tamanhos, posições, recursos aos quais estão associados e todas as personalizações de usuário.
+Independentemente das ferramentas usadas, você precisa construir uma representação JSON do seu objeto Dashboard. Este objeto contém informações sobre os blocos no painel. Ele inclui tamanhos, posições, recursos aos quais eles estão vinculados e personalizações de usuário.
 
-A maneira mais prática para criar este documento JSON é usar [o portal](https://portal.azure.com/) para adicionar e posicionar seus blocos de forma interativa. Então, exporte o JSON. Por fim, você deve criar um modelo do resultado para uso posterior em scripts, programas e ferramentas de implantação.
+A maneira mais prática de criar esse documento JSON é usar o portal do Azure. Você pode adicionar e posicionar seus blocos interativamente. Em seguida, exporte o JSON e crie um modelo do resultado para uso posterior em scripts, programas e ferramentas de implantação.
 
 ## <a name="create-a-dashboard"></a>Criar um painel
 
-Para criar um novo painel, use o comando Novo painel na tela principal do portal.
+Para criar um painel, selecione **painel** no menu [portal do Azure](https://portal.azure.com) e, em seguida, selecione **novo painel**.
 
 ![Comando Novo painel](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
-Você pode usar a galeria de blocos para localizar e adicionar blocos. Os blocos são adicionados ao serem arrastados e soltados. Alguns blocos dão suporte ao redimensionamento por meio de um identificador de arrastar, enquanto outros dão suporte a tamanhos de correções podem ser vistos no seu menu de contexto.
+Use a Galeria de blocos para localizar e adicionar blocos. Os blocos são adicionados ao serem arrastados e soltados. Alguns blocos dão suporte ao redimensionamento usando uma alça de arrastar.
 
-### <a name="drag-handle"></a>Identificador de arrastar
-![identificador de arrastar](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+![Arraste a alça para alterar o tamanho](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
-### <a name="fixed-sizes-via-context-menu"></a>Tamanhos fixos por meio do menu de contexto
-![Menu de contexto de tamanhos](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
+Outros têm tamanhos fixos para escolher em seu menu de contexto.
+
+![menu de contexto de tamanhos para alterar o tamanho](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
 
 ## <a name="share-the-dashboard"></a>Compartilhar o painel
 
-Depois de configurar o painel de sua preferência, as próximas etapas são publicar o painel (usando o comando Compartilhamento) e, em seguida, usar o gerenciador de recursos para buscar o JSON.
+Depois de configurar o painel, as próximas etapas são publicar o Dashboard usando o comando de **compartilhamento** e, em seguida, usar o Gerenciador de recursos para buscar o JSON.
 
-![Comando de compartilhamento](./media/azure-portal-dashboards-create-programmatically/share-command.png)
+![compartilhando um painel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicar no comando Compartilhamento mostra uma caixa de diálogo que solicita a escolha de a qual grupo de recursos e assinatura publicar. Tenha em mente que você [deve ter acesso de gravação](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) à assinatura e ao grupo de recursos que escolher.
+Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, consulte [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
-![compartilhamento e acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
+![fazer alterações no compartilhamento e no acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
 ## <a name="fetch-the-json-representation-of-the-dashboard"></a>Buscar a representação JSON do painel
 
-A publicação leva apenas alguns segundos.  Quando tiver terminado, a próxima etapa será ir para o [Gerenciador de Recursos](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) para buscar o JSON.
+A publicação leva apenas alguns segundos.  Quando terminar, a próxima etapa será ir para o [Gerenciador de recursos](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) para buscar o JSON.
 
-![Procurar Gerenciador de Recursos](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
+![procurar Gerenciador de recursos](./media/azure-portal-dashboards-create-programmatically/search-resource-explorer.png)
 
-No Gerenciador de Recursos, navegue até a assinatura e o grupo de recursos que você escolheu. Em seguida, clique no recurso do painel publicado recentemente para revelar o JSON.
+No Gerenciador de recursos, navegue até a assinatura e o grupo de recursos que você escolheu. Em seguida, selecione o recurso de painel publicado recentemente para revelar o JSON.
 
-![Gerenciador de Recursos json](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
+![Exibir JSON no Gerenciador de recursos](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json-detail.png)
 
 ## <a name="create-a-template-from-the-json"></a>Criar um modelo do JSON
 
-A próxima etapa é criar um modelo deste JSON para que ele possa ser reutilizado por meio de programação com as APIs de gerenciamento de recursos apropriadas, bem como com ferramentas de linha de comando ou no portal.
+A próxima etapa é criar um modelo a partir desse JSON. Use esse modelo programaticamente com as APIs de gerenciamento de recursos apropriadas, ferramentas de linha de comando ou dentro do Portal.
 
-Não é necessário entender completamente a estrutura JSON do painel para criar um modelo. Na maioria dos casos, você deseja preservar a estrutura e a configuração de cada bloco e parametrizar o conjunto de recursos do Azure está para o qual estão apontando. Examine seu painel JSON exportado e localize todas as ocorrências de IDs de recurso do Azure. Nosso painel de exemplo tem vários blocos que apontam em uma única máquina virtual do Azure. Isso ocorre porque o nosso painel olha apenas esse recurso único. Se pesquisar o json de exemplo (incluído no final do documento) para “/subscriptions”, você encontrará várias ocorrências dessa ID.
+Você não precisa entender totalmente a estrutura JSON do Dashboard para criar um modelo. Na maioria dos casos, você deseja preservar a estrutura e a configuração de cada bloco. Em seguida, parametriza o conjunto de recursos do Azure ao qual os blocos apontam. Examine seu painel JSON exportado e localize todas as ocorrências de IDs de recursos do Azure. Nosso painel de exemplo tem vários blocos que apontam em uma única máquina virtual do Azure. Isso porque nosso painel só examina esse único recurso. Se você pesquisar o JSON de exemplo, incluído no final do documento, para "/subscriptions", encontrará várias ocorrências dessa ID.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-No futuro, para publicar esse painel para qualquer máquina virtual, você precisará parametrizar cada ocorrência dessa cadeia de caracteres no JSON. 
+Para publicar esse painel para qualquer máquina virtual no futuro, parametrizar todas as ocorrências dessa cadeia de caracteres dentro do JSON.
 
-Há dois tipos de APIs que criam recursos no Azure. [APIs fundamentais](https://docs.microsoft.com/rest/api/resources/resources) que criam um recurso de cada vez e um sistema de [implantação baseada em modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) que pode coordenar a criação de vários recursos dependentes com uma única chamada à API. O último, dá suporte de modo nativo à parametrização e modelagem para que possamos usar em nosso exemplo.
+Há duas abordagens para APIs que criam recursos no Azure:
+
+* APIs imperativas criam um recurso por vez. Para saber mais, confira [Recursos](/rest/api/resources/resources).
+* Um sistema de implantação baseado em modelo que cria vários recursos dependentes com uma única chamada à API. Para obter mais informações, consulte [implantar recursos com modelos e Azure PowerShell do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+
+A implantação baseada em modelo dá suporte à parametrização e modelagem. Usamos essa abordagem neste artigo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Criar programaticamente um painel de seu modelo usando uma implantação de modelo
 
-O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos para implantar, bem como as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a [linguagem do modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo e não funciona se usada com as APIs fundamentais discutidas anteriormente.
+O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos a serem implantados e as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a linguagem do modelo adiciona alguns conceitos, como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo. Ele não funcionará se for usado com as APIs imperativas discutidas anteriormente. Para obter mais informações, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Se estiver indo por essa rota, a parametrização deverá ser feita usando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias da ID de recurso que encontramos anteriormente, conforme mostrado aqui.
+A parametrização deve ser feita usando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias da ID de recurso que encontramos anteriormente, conforme mostrado aqui.
 
-### <a name="example-json-property-with-hard-coded-resource-id"></a>Exemplo de propriedade JSON com a ID de recurso embutida em código
-`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
+Exemplo de propriedade JSON com ID de recurso embutido em código:
 
-### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Exemplo de propriedade JSON convertida para uma versão com parâmetros com base nos parâmetros de modelo
+```json
+id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
+```
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
+Exemplo de propriedade JSON convertida para uma versão com parâmetros com base nos parâmetros de modelo
 
-Você também precisa declarar alguns metadados de modelo necessários e os parâmetros na parte superior do modelo json, como segue:
+```json
+id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+```
+
+Declare os metadados de modelo necessários e os parâmetros na parte superior do modelo JSON como este:
 
 ```json
 
@@ -118,15 +128,20 @@ Você também precisa declarar alguns metadados de modelo necessários e os par�
     ... rest of template omitted ...
 ```
 
-__Você pode ver o modelo de trabalho completo no final deste documento.__
+Você pode ver o modelo completo e funcional no final deste documento.
 
-Depois de ter criado seu modelo, é possível implantá-lo usando as [APIs REST](https://docs.microsoft.com/rest/api/resources/deployments), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create) ou a [página de implantação de modelo do portal](https://portal.azure.com/#create/Microsoft.Template).
+Depois de configurar o modelo, implante-o usando qualquer um dos seguintes métodos:
 
-Aqui estão duas versões do nosso painel JSON de exemplo. O primeiro é a versão que exportamos do portal que já estava associada a um recurso. O segundo é a versão do modelo que pode ser vinculada por meio de programação para qualquer VM e implantada usando o Azure Resource Manager.
+* [APIs REST](/rest/api/resources/deployments)
+* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [CLI do Azure](/cli/azure/group/deployment#az-group-deployment-create)
+* [A página de implantação do modelo de portal do Azure](https://portal.azure.com/#create/Microsoft.Template)
 
-## <a name="json-representation-of-our-example-dashboard-before-templating"></a>A representação JSON do nosso painel de exemplo (antes da aplicação de modelos)
+Aqui estão duas versões do nosso painel JSON de exemplo. O primeiro é a versão que exportamos do portal que já estava associada a um recurso. A segunda é a versão de modelo que pode ser vinculada de forma programática a qualquer máquina virtual e implantada usando Azure Resource Manager.
 
-Isso é o que você pode esperar ver se seguir as instruções anteriores para buscar a representação JSON de um painel que já esteja implantado. Observe os identificadores de recurso embutido em código que mostram que este painel está apontando para uma máquina virtual específica do Azure.
+## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Representação JSON do nosso painel de exemplo antes do Templating
+
+Este exemplo mostra o que você pode esperar para ver se você seguiu este artigo. As instruções exportaram a representação JSON de um dashboard que já está implantado. Os identificadores de recursos embutidos em código que mostram que esse painel está apontando para uma máquina virtual específica do Azure.
 
 ```json
 
@@ -380,9 +395,9 @@ Isso é o que você pode esperar ver se seguir as instruções anteriores para b
 
 ### <a name="template-representation-of-our-example-dashboard"></a>A representação de modelo do nosso painel de exemplo
 
-A versão do modelo do painel tem três parâmetros definidos chamados __virtualMachineName__, __virtualMachineResourceGroup__ e __dashboardName__.  Os parâmetros permitem que você aponte este painel em uma máquina virtual do Azure diferente toda vez que implantar. As IDs com parâmetros são realçadas para mostrar que esse painel pode ser programaticamente configurado e implantado para apontar para qualquer máquina virtual do Azure. A maneira mais fácil de testar esse recurso é copiar o modelo a seguir e colar na [página de implantação de modelo do Portal do Azure](https://portal.azure.com/#create/Microsoft.Template). 
+A versão de modelo do painel definiu três parâmetros chamados `virtualMachineName`, `virtualMachineResourceGroup`e `dashboardName`.  Os parâmetros permitem que você aponte este painel em uma máquina virtual do Azure diferente toda vez que implantar. Esse painel pode ser configurado e implantado programaticamente para apontar para qualquer máquina virtual do Azure. Para testar esse recurso, copie o modelo a seguir e cole-o na [página de implantação do modelo de portal do Azure](https://portal.azure.com/#create/Microsoft.Template).
 
-Este exemplo implanta um painel por si só, mas a linguagem do modelo permite que você implante vários recursos e agrupe um ou mais painéis ao lado deles. 
+Este exemplo implanta um painel por si só, mas a linguagem do modelo permite que você implante vários recursos e agrupe um ou mais painéis ao lado deles.
 
 ```json
 {

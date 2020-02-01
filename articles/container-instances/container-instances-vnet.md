@@ -4,12 +4,12 @@ description: Saiba como implantar grupos de contêiner em uma rede virtual do Az
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845179"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901873"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -259,10 +259,6 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Excluir recursos de rede
-
-
-> [!NOTE]
-> Se você receber um erro ao tentar remover o perfil de rede, aguarde 3-4 dias para a plataforma mitigar automaticamente o problema e tentar a exclusão novamente. Se você precisar excluir um perfil de rede imediatamente, [abra uma solicitação de suporte](https://azure.microsoft.com/support/create-ticket/) referenciando o serviço de instâncias de contêiner do Azure.
 
 Esse recurso atualmente requer vários comandos adicionais para excluir os recursos de rede que você criou anteriormente. Se você usou os comandos de exemplo nas seções anteriores deste artigo para criar sua rede virtual e sub-rede, pode usar o script a seguir para excluir esses recursos de rede.
 

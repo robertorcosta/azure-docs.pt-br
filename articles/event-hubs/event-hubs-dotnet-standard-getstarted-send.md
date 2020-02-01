@@ -1,10 +1,9 @@
 ---
-title: Enviar e receber eventos usando o .NET Core – hubs de eventos do Azure | Microsoft Docs
-description: Este artigo apresenta instruções passo a passo para a criação de um aplicativo .NET Core que envia eventos para Hubs de Eventos do Azure.
+title: Enviar e receber eventos dos hubs de eventos do Azure usando o .NET (antigo)
+description: Este artigo fornece instruções para a criação de um aplicativo .NET Core que envia/recebe eventos de/para os hubs de eventos do Azure usando o pacote Microsoft. Azure. EventHubs antigo.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
@@ -12,32 +11,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.custom: seodec18
-ms.date: 04/15/2019
-ms.author: shvija
-ms.openlocfilehash: 1d3f6357faa8626d48e2aac0efe86e22222c9ba6
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.date: 01/15/2020
+ms.author: spelluru
+ms.openlocfilehash: a58c344f644f91634fba267ff157bd56a18f40d3
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846663"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900119"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Enviar eventos para ou receber eventos de hubs de eventos do Azure usando o .NET Core
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Enviar eventos para ou receber eventos de hubs de eventos do Azure usando o .NET Core (Microsoft. Azure. EventHubs)
 Os Hubs de Eventos são um serviço que processa grandes quantidades de dados de eventos (telemetria) a partir de aplicativos e dispositivos conectados. Depois de coletar dados para Hubs de Eventos, você pode armazenar os dados usando um cluster de armazenamento ou transformá-los usando um provedor de análise em tempo real. Essa funcionalidade de coleta e processamento de eventos em grande escala é um componente fundamental de arquiteturas de aplicativos modernas, incluindo a IoT (Internet das Coisas). Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
 Este tutorial mostra como criar aplicativos .NET Core no C# para enviar eventos ou receber eventos de um hub de eventos. 
 
-> [!NOTE]
-> Você pode baixar este início rápido como uma amostra do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName` pelos valores de hub de eventos e executá-los. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
+> [!WARNING]
+> Este guia de início rápido usa o pacote antigo **Microsoft. Azure. EventHubs** . Recomendamos que você [migre](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) seu código para usar o pacote [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) mais recente.  
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
 - [Ferramentas do .NET Core do Visual Studio 2015 ou 2017](https://www.microsoft.com/net/core). 
-- **Crie um namespace de hubs de eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [neste artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de conexão para o namespace do hub de eventos** seguindo as instruções do artigo: obter a cadeia de [conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Você usa a cadeia de conexão posteriormente no tutorial.
+- **Criar um namespace de Hubs de Eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de conexão para o namespace do hub de eventos** seguindo as instruções do artigo: obter a cadeia de [conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Você usa a cadeia de conexão posteriormente no tutorial.
 
 ## <a name="send-events"></a>Enviar eventos 
 Esta seção mostra como criar um aplicativo de console do .NET Core para enviar eventos para um hub de eventos. 
+
+> [!NOTE]
+> Você pode baixar do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) este início rápido como um exemplo, substituir as cadeias de caracteres `EventHubConnectionString` e `EventHubName` pelos valores do hub de eventos e executá-lo. Como alternativa, é possível seguir as etapas deste tutorial para criar sua própria solução.
+
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
@@ -45,7 +48,7 @@ Inicie o Visual Studio. No menu **Arquivo**, clique em **Novo** e em **Projeto**
 
 ![Novo Projeto](./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png)
 
-### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Evento
+### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Eventos
 
 Adicione o pacote NuGet [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) de biblioteca do .NET Core ao projeto seguindo estas etapas: 
 
@@ -207,7 +210,7 @@ Inicie o Visual Studio. No menu **Arquivo**, clique em **Novo** e em **Projeto**
 
 ![Novo Projeto](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
 
-### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Evento
+### <a name="add-the-event-hubs-nuget-package"></a>Adicione o pacote NuGet de Hubs de Eventos
 
 Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) e [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) a seu projeto seguindo estas etapas: 
 
@@ -227,7 +230,7 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
     using System.Threading.Tasks;
     ```
 
-3. Implementar o `IEventProcessor` interface. Substitua todo o conteúdo da classe `SimpleEventProcessor` pelo código a seguir:
+3. Implemente a interface `IEventProcessor`. Substitua todo o conteúdo da classe `SimpleEventProcessor` pelo código a seguir:
 
     ```csharp
     public class SimpleEventProcessor : IEventProcessor
@@ -364,7 +367,7 @@ Adicione os pacotes NuGet da biblioteca .NET Standard [**Microsoft.Azure.EventHu
 4. Execute o programa e certifique-se de que não existem erros.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)

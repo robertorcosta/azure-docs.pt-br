@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-implantação de malha sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para criar Service Fabric recursos de malha.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6512cce075906fc8708a39fa0747ec27be33e961
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645354"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906030"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Criar recursos da Malha do Service Fabric.
@@ -28,8 +28,8 @@ Cria uma implantação de Recursos da Malha do Service Fabric.
 
 |Argumento|Description|
 | --- | --- |
-| --input-yaml-files [Obrigatório] | Caminhos de arquivo relativos/absolutos separados por vírgula de todos os arquivos YAML ou caminho relativo/absoluto do diretório (recursivo) que contêm arquivos YAML. |
-| --parameters | Um caminho relativo/absoluto para o arquivo YAML ou um objeto JSON que contém os parâmetros que precisam ser substituídos. |
+| --input-yaml-files [Obrigatório] | Caminhos de arquivo relativos ou absolutos separados por vírgula de todos os arquivos YAML ou caminho relativo ou absoluto do diretório (recursivo) que contêm arquivos YAML. |
+| --parameters | Um caminho relativo ou absoluto para um arquivo YAML ou um objeto JSON que contém os parâmetros que precisam ser substituídos. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -55,7 +55,7 @@ Consolida e implanta todos os recursos em um diretório no cluster substituindo 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Consolida e implanta todos os recursos em um diretório no cluster substituindo os parâmetros que são passados diretamente como objeto JSON
+Consolida e implanta todos os recursos em um diretório para cluster substituindo os parâmetros que são passados diretamente como objeto JSON
 ``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
 {'value' : 'my_value'} }"   

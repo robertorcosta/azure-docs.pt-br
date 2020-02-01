@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: 44ce62f957dbdd71a41962ae7257cbc6e048e03c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e52296f459c68fab2816faa2606674ddc1b370ee
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953317"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896364"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros WAN Virtual e localizações de hub virtual
 
@@ -40,13 +40,13 @@ Alguns parceiros de conectividade podem estender a automação para incluir a cr
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems e VMWare Velocloud.
+Os parceiros a seguir são candidatos a nosso roteiro para o futuro próximo: Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, SharpLink e VMWare Velocloud.
 
 ## <a name="locations"></a>Localizações
 
 [!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter mais informações sobre a WAN Virtual, consulte as [Perguntas frequentes sobre a WAN Virtual](virtual-wan-faq.md).
 

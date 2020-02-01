@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68249fc9a599ab49e8d5fd231fa63e91a6e3a21f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4e9468c0a0f6844c7522ff43761cf58f4beea27e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330104"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897363"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -30,7 +31,7 @@ Este documento explica como instalar e configurar os Agentes do Azure AD Connect
 
 A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Health.
 
-| Requisito | Descrição |
+| Requisito | Description |
 | --- | --- |
 | AD Premium do Azure |O Azure AD Connect Health é um recurso do Azure AD Premium e requer o Azure AD Premium. <br /><br />Para saber mais, consulte [Introdução ao AD Premium do Azure](../fundamentals/active-directory-get-started-premium.md) <br />Para iniciar uma avaliação gratuita de 30 dias, confira [Iniciar uma avaliação.](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Você deve ser um administrador global do Azure AD para começar a usar o Azure AD Connect Health |Por padrão, somente os administradores globais podem instalar e configurar os agentes de integridade para começar, acessar o portal e realizar operações no Azure AD Connect Health. Para saber mais, consulte [Administrar seu diretório do Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Usando o Controle de Acesso com Base em Funções, você pode permitir acesso ao Azure AD Connect Health para outros usuários em sua organização. Para saber mais, confira [Controle de Acesso com Base em Função para o Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Importante:** a conta usada ao instalar os agentes deve ser uma conta corporativa ou de estudante. Não pode ser uma conta da Microsoft. Para saber mais, confira [Inscrever-se no Azure como uma organização](../fundamentals/sign-up-organization.md) |
@@ -39,7 +40,7 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 |Conectividade de saída com base em endereços IP | Para a filtragem baseada em endereço IP em firewalls, veja [Intervalos IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
 | A inspeção de SSL para tráfego de saída está filtrada ou desabilitada | A etapa de registro do agente ou as operações de carregamento de dados podem falhar se houver inspeção de SSL o terminação para tráfego de saída na camada de rede. Leia mais sobre [como configurar a inspeção SSL](https://technet.microsoft.com/library/ee796230.aspx) |
 | Portas de firewall no servidor que executa o agente |O agente requer que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Observe que a porta 5671 não é mais necessária para a versão mais recente do agente. Atualize para a versão mais recente para que somente a porta 443 seja exigida. Leia mais sobre [habilitar portas do firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
-| Permita os sites a seguir se a segurança reforçada do IE estiver habilitada |Se a Segurança Aprimorada do IE estiver habilitada, os sites a seguir precisarão receber permissão no servidor no qual o agente será instalado.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \//aadcdn. msftauth. net</li><li>O servidor de federação da sua organização confiável pelo Azure Active Directory. Por exemplo: https:\//sts.contoso.com</li> Leia mais sobre [como configurar o IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Caso você tenha um proxy em sua rede, consulte a observação abaixo.|
+| Permita os sites a seguir se a segurança reforçada do IE estiver habilitada |Se a Segurança Aprimorada do IE estiver habilitada, os sites a seguir precisarão receber permissão no servidor no qual o agente será instalado.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>O servidor de federação da sua organização confiável pelo Azure Active Directory. Por exemplo: https:\//sts.contoso.com</li> Leia mais sobre [como configurar o IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Caso você tenha um proxy em sua rede, consulte a observação abaixo.|
 | Certifique-se de que o PowerShell v4.0 ou mais recente esteja instalado | <li>O Windows Server 2008 R2 é fornecido com o PowerShell v 2.0, que não é suficiente para o agente. Atualize o PowerShell como explicado abaixo em [Instalação do agente em servidores do Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 é fornecido com o PowerShell v 3.0, que não é suficiente para o agente.  [Atualize](https://www.microsoft.com/download/details.aspx?id=40855) o Windows Management Framework.</li><li>O Windows Server 2012 R2 e posterior é fornecido com uma versão suficientemente recente do PowerShell.</li>|
 |Desabilitar FIPS|Não há suporte para FIPS nos agentes do Azure AD Connect Health.|
 
@@ -56,7 +57,7 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 | --- | --- |
 | Público geral | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
 | Azure Alemanha | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
-| Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
+| Azure Governamental | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *esse ponto de extremidade é usado somente para fins de descoberta durante o registro.</li> |
 
 
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Baixar e instalar o Agente do Azure AD Connect Health
