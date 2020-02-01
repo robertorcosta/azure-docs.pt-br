@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772594"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905723"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -203,6 +203,20 @@ As principais vantagens de usar pipelines para seus fluxos de trabalho de aprend
 |**Acompanhamento e controle de versão**|Em vez de acompanhar manualmente os caminhos de dados e resultados durante a iteração, use o SDK de pipelines para fornecer explicitamente o nome e a versão de fontes de dados, entradas e saídas. Você também pode gerenciar os scripts e os dados separadamente para aumentar a produtividade.|
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a uma taxa mais rápida com maior qualidade. | 
 |**Colaboração**|Os pipelines permitem que os cientistas de dados colaborem em todas as áreas do processo de design do Machine Learning, ao mesmo tempo em que podem trabalhar simultaneamente em etapas de pipeline.|
+
+## <a name="modules"></a>Módulos
+
+Embora as etapas de pipeline permitam a reutilização dos resultados de uma execução anterior, em muitos casos a construção da etapa supõe que os scripts e os arquivos dependentes necessários devem estar disponíveis localmente. Se um cientista de dados quiser se basear no código existente, os scripts e as dependências geralmente devem ser clonados de um repositório separado.
+
+Os módulos são semelhantes ao uso de etapas de pipeline, mas fornecem controle de versão facilitado por meio do espaço de trabalho, o que permite a colaboração e reutilização em escala. Os módulos são projetados para serem reutilizados em vários pipelines e podem evoluir para adaptar uma computação específica a diferentes casos de uso. Os usuários podem executar as seguintes tarefas por meio do espaço de trabalho, sem usar repositórios externos:
+
+* Criar novos módulos e publicar novas versões de módulos existentes
+* Preterir versões existentes
+* Marcar versões desabilitadas para impedir que os consumidores usem essa versão
+* Designar versões padrão
+* Recuperar módulos por versão do espaço de trabalho para garantir que as equipes estejam usando o mesmo código
+
+Consulte o [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) para obter exemplos de código sobre como criar, conectar e usar módulos em pipelines de Azure Machine Learning.
 
 ## <a name="next-steps"></a>Próximos passos
 

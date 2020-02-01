@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-partição sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para o gerenciamento de partições para um serviço.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c50fcb348dad7960be81f80ecb7c455dbffaadb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c038ef3266a727bf6984a5bd88ca540a589380db
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646051"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905845"
 ---
 # <a name="sfctl-partition"></a>partição sfctl
 Consultar e gerenciar partições para qualquer serviço.
@@ -38,10 +38,13 @@ Consultar e gerenciar partições para qualquer serviço.
 ## <a name="sfctl-partition-data-loss"></a>sfctl partition data-loss
 Essa API induzirá a perda de dados para a partição especificada.
 
-Ele acionará uma chamada à API OnDataLossAsync da partição.  Essa API induzirá a perda de dados para a partição especificada. Ele acionará uma chamada à API OnDataLoss da partição. A perda de dados real dependerá do DataLossMode especificado.  <br> - PartialDataLoss: somente um quorum de réplicas é removido e OnDataLoss é acionado para a partição, mas a perda de dados real depende da presença da replicação em andamento.  <br> - FullDataLoss: todas as réplicas são removidas, portanto, todos os dados são perdidos e OnDataLoss é acionado. Essa API só deve ser chamada com um serviço com estado como o destino. Não aconselhamos chamar uma API com um serviço de sistema como destino.
+Ele acionará uma chamada à API OnDataLossAsync da partição.  Essa API induzirá a perda de dados para a partição especificada. Ele acionará uma chamada à API OnDataLoss da partição. A perda de dados real dependerá do DataLossMode especificado.
+- PartialDataLoss: somente um quorum de réplicas é removido e OnDataLoss é disparado para a partição, mas a perda de dados real depende da presença de replicação em andamento.  
+- FullDataLoss: todas as réplicas são removidas, portanto, todos os dados são perdidos e o OnDataLoss é disparado. Essa API só deve ser chamada com um serviço com estado como o destino. Não aconselhamos chamar uma API com um serviço de sistema como destino.
 
 > [!NOTE]   
 > Após chamar essa API, ela não poderá ser revertida. Chamar CancelOperation apenas interromperá a execução e limpará o estado do sistema interno. Não restaurará os dados se o comando tiver avançado o suficiente para causar perda de dados. Chame a API de GetDataLossProgress com a mesma OperationId para retornar informações sobre a operação iniciada com essa API.
+
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Description|

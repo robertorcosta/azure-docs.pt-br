@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: 686b8bedfeb4ae5e1b2b7bf3b750b51074677990
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3c0fb29c5a4dd73135aa8352c97df29474c36caf
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288975"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904120"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -32,9 +32,10 @@ Sua pontuação segura é baseada em quantas recomendações da central de segur
 |Recomendação|Descrição & política relacionada|Gravidade|Correção rápida habilitada? ([Saiba mais](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Tipo de recurso|
 |----|----|----|----|----|
 |**O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais**|Aplique o controle de acesso de máquina virtual (JIT) just-in-time para bloquear permanentemente o acesso às portas selecionadas e habilite os usuários autorizados a abri-los, por meio do JIT, apenas por uma quantidade limitada de tempo.<br>(Política relacionada: o controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais)|Alto|N|Máquina virtual|
-|**Os grupos de segurança de rede no nível de sub-rede devem ser habilitados**|Habilite grupos de segurança de rede para controlar o acesso à rede de recursos implantados em suas sub-redes.<br>(Política relacionada: as sub-redes devem ser associadas a um grupo de segurança de rede)|Alta/média|N|Sub-rede|
-|**As máquinas virtuais devem ser associadas a um grupo de segurança de rede**|Habilite os grupos de segurança de rede para controlar o acesso à rede de suas máquinas virtuais.<br>(Política relacionada: as máquinas virtuais devem ser associadas a um grupo de segurança de rede)|Alta/média|N|Máquina virtual|
-|**O acesso deve ser restrito para grupos de segurança de rede permissivos com VMs voltadas para a Internet**|Proteja os grupos de segurança de rede de suas VMs voltadas para a Internet restringindo o acesso de suas regras de permissão existentes.<br>(Política relacionada: regras de grupo de segurança de rede para máquinas virtuais voltadas para a Internet devem ser protegidas)|Alto|N|Máquina virtual|
+|**Os grupos de segurança de rede no nível de sub-rede devem ser habilitados**|Habilite grupos de segurança de rede para controlar o acesso à rede de recursos implantados em suas sub-redes.<br>(Política relacionada: as sub-redes devem ser associadas a um grupo de segurança de rede.<br>Essa política está desabilitada por padrão)|Alta/média|N|Sub-rede|
+|**As máquinas virtuais voltadas para a Internet devem ser protegidas com grupos de segurança de rede**|Habilite os grupos de segurança de rede para controlar o acesso à rede de suas máquinas virtuais.<br>(Política relacionada: máquinas virtuais voltadas para a Internet devem ser protegidas com grupos de segurança de rede)|Alta/média|N|Máquina virtual|
+|**Todas as portas de rede devem ser restritas no NSG associado à sua VM**|Proteja os grupos de segurança de rede de suas VMs voltadas para a Internet restringindo o acesso de suas regras de permissão existentes.<br>Essa recomendação é disparada quando qualquer porta é aberta para *todas as* fontes (exceto para as portas 22, 3389, 5985, 5986, 80 e 1443).<br>(Política relacionada: acesso por meio do ponto de extremidade voltado para a Internet deve ser restrito)|Alto|N|Máquina virtual|
+|**Recomendações de proteção de rede adaptável devem ser aplicadas em máquinas virtuais voltadas para a Internet**|Os clientes no tipo de preço Standard verão essa recomendação quando o recurso de proteção de rede adaptável encontrar uma regra de NSG excessivamente permissiva.<br>(Política relacionada: recomendações de proteção de rede adaptável devem ser aplicadas em máquinas virtuais voltadas para a Internet)|Alto|N|Máquina virtual|
 |**As regras para aplicativos Web em IaaS NSGs devem ser protegidas**|Proteger o NSG (grupo de segurança de rede) de suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.<br>(Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser protegidas)|Alto|N|Máquina virtual|
 |**O acesso aos serviços de aplicativos deve ser restrito**|Restrinja o acesso aos serviços de aplicativos alterando a configuração de rede, para negar o tráfego de entrada de intervalos muito amplos.<br>(Política relacionada: [Preview]: o acesso aos serviços de aplicativos deve ser restrito)|Alto|N|serviço de aplicativo|
 |**As portas de gerenciamento devem ser fechadas em suas máquinas virtuais**|Proteger o grupo de segurança de rede de suas máquinas virtuais para restringir o acesso às portas de gerenciamento.<br>(Política relacionada: as portas de gerenciamento devem ser fechadas em suas máquinas virtuais)|Alto|N|Máquina virtual|

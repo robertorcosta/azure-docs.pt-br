@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-serviço sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar serviços, tipos de serviço e pacotes de serviço.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 24ba7fea2ed51ea57c0a44e3c1f26b5df6043e1e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639064"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906230"
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
 Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço.
@@ -110,7 +110,7 @@ Cria o serviço de malha do serviço especificado.
 | --int-scheme-low | O final do intervalo de chaves de inteiros, se estiver usando um esquema de partição de inteiros uniforme. |
 | --load-metrics | Lista de métricas codificada em JSON, usada ao balancear as cargas de serviços entre nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
-| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\:: "Zero", "Low", "Medium", "High". |
+| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\: ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
 | --named-scheme | Indica que o serviço deve ter várias partições nomeadas. |
 | --named-scheme-list | Lista de nomes codificada em JSON para particionar o serviço, se estiver usando o esquema de partição nomeada. |
 | --no-persisted-state | Se verdadeiro, indica que o serviço não tem um estado persistente armazenado no disco local, ou só armazena o estado na memória. |
@@ -118,6 +118,7 @@ Cria o serviço de malha do serviço especificado.
 | --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
 | --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |
+| --Service-Placement-time | A duração pela qual as réplicas podem permanecer incompiladas antes de relatar que a compilação está paralisada. Aplica-se apenas a serviços com estado. |
 | --singleton-scheme | Indica que o serviço deve ter uma única partição ou ser um serviço não particionado. |
 | --stand-by-replica-keep | A duração máxima, em segundos, para qual espera réplicas serão mantidas antes de serem removidos. Aplica-se apenas a serviços com estado. |
 | --stateful | Indica que o serviço tem estado. |
@@ -562,11 +563,12 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 | --instance-count | A contagem de instâncias. Aplica-se apenas a serviços sem estado. |
 | --load-metrics | Lista de métricas codificadas em JSON usadas ao balancear as cargas entre os nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
-| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\:: "Zero", "Low", "Medium", "High". |
+| --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\: ' zero ', ' low ', ' Medium ', ' High ', ' VeryHigh '. |
 | --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser um ou mais dos\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain``RequireDomainDistribution`. |
 | --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
 | --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |
+| --Service-Placement-time | A duração pela qual as réplicas podem permanecer incompiladas antes de relatar que a compilação está paralisada. Aplica-se apenas a serviços com estado. |
 | --stand-by-replica-keep | A duração máxima, em segundos, para qual espera réplicas serão mantidas antes de serem removidos. Aplica-se apenas a serviços com estado. |
 | --stateful | Indica que o serviço de destino tem estado. |
 | --stateless | Indica que o serviço de destino não tem estado. |

@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e37ff6e1bde594014510880492c2572ad1634400
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972843"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904421"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -175,6 +175,9 @@ Se o local da definição for:
 ## <a name="display-name-and-description"></a>Nome de exibição e descrição
 
 Use **displayName** e **description** para identificar a definição de política e fornecer contexto de quando ela é usada. **displayName** tem um comprimento máximo de _128_ caracteres e **description** tem um comprimento máximo de _512_ caracteres.
+
+> [!NOTE]
+> Durante a criação ou atualização de uma definição de política, **ID**, **tipo**e **nome** são definidos por Propriedades externas ao JSON e não são necessários no arquivo JSON. Buscar a definição de política via SDK retorna as propriedades **ID**, **Type**e **Name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
 ## <a name="policy-rule"></a>Regra de política
 

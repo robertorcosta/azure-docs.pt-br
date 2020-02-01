@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: requisitos de roteamento'
-description: Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos da Rota Expressa.
+description: Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos do ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083305"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901570"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de roteamento da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir:
@@ -143,13 +143,13 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 > 
 
 ## <a name="bgp"></a>Suporte a comunidades BGP
-Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
+Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com o ExpressRoute. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
 
 Se estiver se conectando à Microsoft por meio da Rota Expressa em qualquer local de emparelhamento dentro de uma região geopolítica, você terá acesso a todos os serviços de nuvem da Microsoft em todas as regiões dentro dos limites geopolíticos. 
 
 Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Rota Expressa, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. 
 
-Consulte a página [Locais de emparelhamento e parceiros da Rota Expressa](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, regiões associadas do Azure e locais de emparelhamento correspondentes da Rota Expressa.
+Consulte a página [Locais de emparelhamento e parceiros do ExpressRoute](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, regiões associadas do Azure e locais de emparelhamento correspondentes do ExpressRoute.
 
 Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Nos casos em que há vários circuitos do ExpressRoute, você receberá o mesmo conjunto de prefixos divulgados pela Microsoft nos caminhos de emparelhamento público e emparelhamento da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
 
@@ -162,21 +162,27 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 | Oeste dos EUA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
 | Centro-Oeste dos EUA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
 | Centro-Norte dos EUA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Centro-Sul dos Estados Unidos | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| Centro dos EUA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| Centro-Sul dos EUA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| EUA Central | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
 | Canadá Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
 | Leste do Canadá | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **América do Sul** | |
 | Sul do Brasil | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Europa do Norte | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Europa Ocidental | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Europa Setentrional | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Oeste da Europa | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Sul do Reino Unido | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Oeste do Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | França Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Sul da França | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
+| Norte da Suíça | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Oeste da Suíça | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Norte da Alemanha | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Centro-oeste da Alemanha | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Leste da Noruega | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Oeste da Noruega | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Pacífico Asiático** | |
-| Leste da Ásia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Ásia Oriental | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sudeste Asiático | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japão** | |
 | Leste do Japão | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
@@ -219,7 +225,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Skype for Business Online * * | 12076:5030 |
 | CRM Online |12076:5040 |
 | Serviços Globais do Azure* | 12076:5050 |
-| Active Directory do Azure |12076:5060 |
+| Azure Active Directory |12076:5060 |
 | Outros serviços online do Office 365 * * | 12076:5100 |
 
 *Os Serviços Globais do Azure incluem apenas o Azure DevOps neste momento.
@@ -235,12 +241,12 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
 | --- | --- |
 | **Governo dos EUA** |  |
-| Governo dos EUA do Arizona | 12076:51106 |
-| US Gov Iowa | 12076:51109 |
-| US Gov Virginia | 12076:51105 |
-| Governo dos EUA do Texas | 12076:51108 |
-| DoD Central dos EUA | 12076:51209 |
-| DoD do Leste dos EUA | 12076:51205 |
+| US Gov - Arizona | 12076:51106 |
+| US Gov - Iowa | 12076:51109 |
+| US Gov - Virgínia | 12076:51105 |
+| US Gov - Texas | 12076:51108 |
+| US DoD Central | 12076:51209 |
+| US DoD Leste | 12076:51205 |
 
 
 | **Serviço nas Nuvens Nacionais** | **Valor de comunidade BGP** |
@@ -251,9 +257,9 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | Skype for Business Online |12076:5130 |
 | Outros serviços Online do Office 365 |12076:5200 |
 
-## <a name="next-steps"></a>Próximas etapas
-* Configurar sua conexão da Rota Expressa.
+## <a name="next-steps"></a>Próximos passos
+* Configurar sua conexão do ExpressRoute.
   
   * [Criar e modificar um circuito](expressroute-howto-circuit-arm.md)
   * [Criar e modificar a configuração de emparelhamento](expressroute-howto-routing-arm.md)
-  * [Vincular uma Rede Virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
+  * [Vincular uma rede virtual a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)

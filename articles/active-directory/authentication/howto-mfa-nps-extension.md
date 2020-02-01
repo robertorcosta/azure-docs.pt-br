@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712530"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908846"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -192,6 +192,23 @@ Se o certificado do computador anterior tiver expirado e um novo certificado tiv
 
 > [!NOTE]
 > Se você usar seus próprios certificados em vez de gerar certificados com o script do PowerShell, certifique-se de que eles estejam alinhados com a convenção de nomenclatura do NPS. O nome da entidade deve ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Governamental etapas adicionais
+
+Para clientes que usam a nuvem do Azure governamental, as etapas de configuração adicionais a seguir são necessárias em cada servidor NPS:
+
+1. Abra o **Editor do registro** no servidor NPS.
+1. Navegue até `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Defina os seguintes valores de chave:
+
+    | Chave do Registro       | Valor |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Repita as duas etapas anteriores para definir os valores de chave do registro para cada servidor NPS.
+1. Reinicie o serviço NPS para cada servidor NPS.
+
+    Para um impacto mínimo, coloque cada servidor NPS fora da rotação NLB, uma de cada vez, e aguarde a descarga de todas as conexões.
 
 ### <a name="certificate-rollover"></a>Sobreposição de certificado
 

@@ -3,14 +3,14 @@ title: CLI do Azure Service Fabric-aplicativo sfctl
 description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar aplicativos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645405"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906201"
 ---
 # <a name="sfctl-application"></a>aplicativo sfctl
 Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
@@ -529,10 +529,13 @@ Opcionalmente, exiba o progresso do carregamento para cada arquivo no pacote. O 
 
 |Argumento|Description|
 | --- | --- |
-| --path   [Obrigatório] | Caminho até o pacote de aplicativo local. |
+| --caminho [obrigatório] | Caminho até o pacote de aplicativo local. |
+| --compactar | Aplicável somente a Service Fabric pacotes de aplicativos. Crie uma nova pasta contendo o pacote de aplicativo compactado para o local padrão ou para o local especificado pelo parâmetro de local compactado e, em seguida, carregue a pasta recém-criada. <br><br> Se já houver um arquivo compactado gerado pelo sfctl, ele será substituído se esse sinalizador for definido. Um erro será retornado se o diretório não for um pacote de aplicativos. Se já for um pacote de aplicativo compactado, a pasta será copiada no estado em que se encontra. Por padrão, o pacote de aplicativos compactados recentemente criado será excluído após um upload bem-sucedido. Se o carregamento não for bem-sucedido, limpe manualmente o pacote compactado, conforme necessário. A exclusão não remove nenhum dirs vazio que possa ter sido criado se o parâmetro de local compactado referenciar diretórios não existentes. |
+| --local compactado | O local para colocar o pacote de aplicativo compactado. <br><br> Se nenhum local for fornecido, o pacote compactado será colocado em uma pasta recém-criada chamada sfctl_compressed_temp sob o diretório pai especificado no argumento Path. Por exemplo, se o argumento de caminho tiver o valor C\:/FolderA/AppPkg, o pacote compactado será adicionado a C\:/FolderA/sfctl_compressed_temp/AppPkg. |
 | --imagestore-string | Repositório de imagens de destino no qual carregar o pacote de aplicativos.  Padrão\: fabric\:ImageStore. <br><br> Para carregar em um local de arquivo, inicie esse parâmetro com ' file\:'. Caso contrário, o valor deverá ser a cadeia de conexão do repositório de imagens, como o valor padrão. |
+| --manter compactado | Se deseja ou não manter o pacote compactado gerado na conclusão bem-sucedida do upload. <br><br> Se não estiver definido, após a conclusão bem-sucedida, os pacotes de aplicativos compactados serão excluídos. Se o carregamento não for bem-sucedido, o pacote de aplicativos sempre será mantido no diretório de saída para upload novamente. |
 | --show-progress | Mostra progresso do carregamento de arquivo para pacotes grandes. |
-| --timeout -t | O tempo limite total em segundos. O upload falhará e retornará um erro depois que a duração do tempo limite de carregamento for aprovada. Esse tempo limite se aplica a todo o pacote de aplicativo, e os tempos limite de arquivo individual serão iguais à duração do tempo limite restante.  Padrão\: 300. |
+| --timeout -t | O tempo limite total em segundos. O upload falhará e retornará um erro depois que a duração do tempo limite de carregamento for aprovada. Esse tempo limite se aplica a todo o pacote de aplicativo, e os tempos limite de arquivo individual serão iguais à duração do tempo limite restante. O tempo limite não inclui o tempo necessário para compactar o pacote de aplicativos.  Padrão\: 300. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

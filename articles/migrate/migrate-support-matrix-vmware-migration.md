@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e33811563063c0f8eb94b9927d07596d51cd45e4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030218"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901549"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -24,7 +24,7 @@ Você pode migrar VMs VMware de duas maneiras:
 
 Examine [Este artigo](server-migrate-overview.md) para descobrir qual método você deseja usar.
 
-## <a name="migration-limitations"></a>Limitações da migração
+## <a name="migration-limitations"></a>Limitações de migração
 
 - Você pode selecionar até 10 VMs de uma só vez para replicação. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10.
 - Para migração sem agente de VMware, você pode executar até 100 replicações simultaneamente.
@@ -73,7 +73,7 @@ A migração sem agente usa o dispositivo de migrações para Azure, implantado 
 
 **Dispositivo** | **Conexão**
 --- | ---
-Dispositivos | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
+Baseado | Conexões de saída na porta 443 para carregar dados replicados no Azure e para se comunicar com os serviços de migração do Azure orquestrando a replicação e a migração.
 Servidor vCenter | Conexões de entrada na porta 443 para permitir que o dispositivo coordene a replicação-criar instantâneos, copiar dados, liberar instantâneos
 host vSphere/ESXI | Entrada na porta TCP 902 para o dispositivo replicar dados de instantâneos.
 
@@ -123,7 +123,15 @@ Quando você configura o dispositivo de replicação usando o modelo OVA forneci
 
 - Saiba mais sobre [os requisitos do dispositivo de replicação](migrate-replication-appliance.md#appliance-requirements) para VMware.
 - O MySQL deve estar instalado no dispositivo. Saiba mais sobre [as opções de instalação](migrate-replication-appliance.md#mysql-installation).
-- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) que o dispositivo de replicação precisa acessar.
+- Saiba mais sobre [URLs](migrate-replication-appliance.md#url-access) e [portas]() que o dispositivo de replicação precisa acessar.
+
+## <a name="agent-based-ports"></a>Portas baseadas em agente
+
+**Dispositivo** | **Conexão**
+--- | ---
+VMs | O serviço de mobilidade em execução nas VMs se comunica com o dispositivo de replicação local (servidor de configuração) na porta HTTPS 443 de entrada, para o gerenciamento de replicação.<br/><br/> As VMs que estão sendo replicadas enviam dados de replicação para o servidor de processo (em execução no computador do servidor de configuração) na porta 9443 HTTPS de entrada. Essa porta pode ser modificada.
+Dispositivo de replicação | O dispositivo de replicação orquestra a replicação com o Azure sobre a porta HTTPS 443 de saída.
+Servidor de processo | O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.<br/> Por padrão, o servidor de processo é executado no dispositivo de replicação.
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 

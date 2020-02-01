@@ -4,15 +4,15 @@ description: Saiba como gerenciar usuários e funções de banco de dados em um 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146999"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901500"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerenciar usuários e funções de banco de dados
 
@@ -42,12 +42,12 @@ Os**grupos de segurança** devem ser [habilitados para email](https://docs.micro
   
 4.  Selecione uma das seguintes permissões:  
   
-    |Permissão|DESCRIÇÃO|  
+    |Permissão|Description|  
     |----------------|-----------------|  
-    |**Nenhum**|Os membros não podem modificar o esquema do modelo e não podem consultar dados.|  
-    |**Ler**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
-    |**Ler e Processar**|Os membros podem consultar dados (com base em filtros de nível de linha) e executar as operações Processar e Processar Tudo, mas não podem modificar o esquema de modelo.|  
-    |**Processo**|Os membros podem executar as operações Processar e Processar Tudo. Não podem modificar o esquema do modelo e não podem consultar dados.|  
+    |**Nenhuma**|Os membros não podem ler ou modificar o esquema de modelo e não podem consultar dados.|  
+    |**Leitura**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
+    |**Leitura e processo**|Os membros podem consultar dados (com base em filtros de nível de linha) e executar as operações Processar e Processar Tudo, mas não podem modificar o esquema de modelo.|  
+    |**Processo**|Membros podem executar operações de Processar e Processar Tudo. Não é possível ler ou modificar o esquema de modelo e não é possível consultar dados.|  
     |**Administrador**|Os membros podem modificar o esquema de modelo e consultar todos os dados.|   
   
 5.  Se a função que você está criando tem a permissão Ler ou Ler e Processar, é possível adicionar filtros de linha usando uma fórmula DAX. Clique na guia **Filtros de Linha**, selecione uma tabela, clique no campo **Filtro DAX** e digite uma fórmula DAX.
@@ -71,11 +71,11 @@ Para adicionar funções e usuários a um modelo de banco de dados implantado, v
 
 3. Selecione uma permissão.
 
-   |Permissão|DESCRIÇÃO|  
+   |Permissão|Description|  
    |----------------|-----------------|  
    |**Controle total (Administrador)**|Os membros podem modificar o esquema de modelo, processar e consultar todos os dados.| 
-   |**Processar banco de dados**|Os membros podem executar as operações Processar e Processar Tudo. Não podem modificar o esquema do modelo e não podem consultar dados.|  
-   |**Ler**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
+   |**Processar banco de dados**|Membros podem executar operações de Processar e Processar Tudo. Não é possível modificar o esquema modelo e não é possível consultar dados.|  
+   |**Leitura**|Os membros podem consultar dados (com base em filtros de linha), mas não podem modificar o esquema de modelo.|  
   
 4. Clique em **Associação**, em seguida, insira um usuário ou grupo no seu locatário do Azure AD pelo endereço de email.
 
@@ -121,7 +121,7 @@ Neste exemplo, um usuário externo B2B e um grupo são adicionados à função A
 
 O módulo [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral, que aceita um script ou consulta de TMSL (Linguagem de Script de Modelo Tabular). Os cmdlets a seguir são usados para gerenciar usuários e funções de banco de dados.
   
-|Cmdlet|DESCRIÇÃO|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Adicionar um membro a uma função de banco de dados.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Remover um membro de uma função de banco de dados.|   
@@ -135,7 +135,7 @@ Os filtros de linha podem ser definidos somente para funções com as permissõe
   
  Os filtros de linha exigem uma fórmula DAX, que deve ser avaliada como um valor TRUE/FALSE, para definir as linhas que podem ser consultadas por membros daquela função específica. Não é possível consultar linhas não incluídas na fórmula DAX. Por exemplo, a tabela Customers com a seguinte expressão de filtros de linha, *=Customers [Country] = “USA”* , os membros da função Sales podem ver apenas os clientes nos EUA.  
   
-Os filtros de linha são aplicados às linhas especificadas e às linhas relacionadas. Quando uma tabela tem várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filtros de linha definidos para tabelas relacionadas, por exemplo:  
+Os filtros de linha são aplicados às linhas especificadas e às linhas relacionadas. Quando uma tabela tiver várias relações, os filtros aplicam segurança para a relação que está ativa. Os filtros de linha são interseccionados com outros filtros de linha definidos para tabelas relacionadas, por exemplo:  
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
@@ -147,7 +147,7 @@ Os filtros de linha são aplicados às linhas especificadas e às linhas relacio
   
  Você pode usar o filtro, *=FALSE()* , para negar o acesso a todas as linhas de uma tabela inteira.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
   [Gerenciar administradores de servidor](analysis-services-server-admins.md)   
   [Gerenciar o Azure Analysis Services com PowerShell](analysis-services-powershell.md)  
