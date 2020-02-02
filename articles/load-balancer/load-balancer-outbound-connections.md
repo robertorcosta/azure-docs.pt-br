@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225293"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934565"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -40,7 +40,7 @@ Há vários [cenários de saída](#scenarios). É possível combinar esses cená
 
 O Azure Load Balancer e os recursos relacionados são explicitamente definidos ao utilizar o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Atualmente, o Azure fornece três métodos diferentes para alcançar a conectividade de saída para recursos do Azure Resource Manager. 
 
-| SKUs | Cenário | Método | Protocolos IP | DESCRIÇÃO |
+| SKUs | Cenário | Método | Protocolos IP | Description |
 | --- | --- | --- | --- | --- |
 | Standard, Básico | [1. VM com endereço IP público (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. Ao usar o Standard Load Balancer, você precisa usar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída |
 | Standard, Básico | [2. Load Balancer público associado a uma VM (nenhum endereço IP público na instância)](#lb) | SNAT com PAT (disfarce de porta) usando front-ends do Load Balancer | TCP, UDP |O Azure compartilha o endereço IP público dos front-ends do Load Balancer público com vários endereços IP privados. O Azure usa os portas efêmeras dos front-ends para PAT. |
@@ -91,7 +91,7 @@ Um exemplo é uma implantação do Azure Resource Manager onde o aplicativo depe
 
 ### <a name="multife"></a> Vários front-ends para fluxos de saída
 
-#### <a name="standard-load-balancer"></a>Standard Load Balancer
+#### <a name="standard-load-balancer"></a>Load Balancer Standard
 
 O Standard Load Balancer usa todos os candidatos para fluxos de saída ao mesmo tempo em que [vários IP (públicos) de front-ends](load-balancer-multivip-overview.md) estão presentes. Cada interface multiplicará o número de portas de SNAT pré-alocadas disponíveis, se uma regra de balanceamento de carga estiver habilitada para conexões de saída.
 
@@ -161,9 +161,9 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 | Tamanho do pool (instâncias VM) | Portas SNAT pré-alocadas por configuração de IP|
 | --- | --- |
 | 1-50 | 1\.024 |
-| 51-100 | 512 |
-| 101-200 | 256 |
-| 201-400 | 128 |
+| 51 a 100 | 512 |
+| 101 a 200 | 256 |
+| 201 a 400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 |
 
@@ -192,7 +192,7 @@ As alocações de portas SNAT são o protocolo de transporte IP específico (TCP
 
 Esta seção destina-se a ajudar a mitigar o esgotamento de SNAT e que pode ocorrer com conexões de saída no Azure.
 
-### <a name="snatexhaust"></a>Gerenciar esgotamento da porta de SNAT (PAT)
+### <a name="snatexhaust"></a> Gerenciar esgotamento da porta SNAT (PAT)
 [As portas efêmeras](#preallocatedports) usadas [para Pat](#pat) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](#defaultsnat) e [VM com balanceamento de carga sem um endereço IP público](#lb).
 
 Se você sabe que está iniciando muitas conexões TCP ou UDP de saída para o mesmo endereço e porta IP de destino, se você observa as conexões de saída com falha ou é avisado pelo suporte que as portas SNAT ([portas efêmeras](#preallocatedports) pré-alocadas usadas pela [PAT](#pat)) estão se esgotando, você terá várias opções gerais de mitigação. Avalie essas opções e decida o que está disponível e melhor para o seu cenário. É possível que uma ou mais possam ajudar a gerenciar esse cenário.
@@ -237,7 +237,7 @@ Se você escalar horizontalmente para a próxima camada de tamanho maior de pool
 
 ### <a name="idletimeout"></a>Usar keepalives para redefinir o tempo limite ocioso de saída
 
-Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite não é ajustado. No entanto, você pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicação para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
+Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicativo para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
 
 Ao usar TCP keepalives, é suficiente habilitá-los em um lado da conexão. Por exemplo, é suficiente habilitá-las no lado do servidor apenas para redefinir o timer de ociosidade do fluxo e não é necessário para os dois lados iniciados do TCP keepalives.  Conceitos semelhantes existem para a camada de aplicativo, incluindo as configurações de cliente-servidor de banco de dados.  Verifique o lado do servidor para as opções existentes para o aplicativo keepalives específico.
 
@@ -259,7 +259,7 @@ Se um NSG bloquear solicitações de investigação de integridade da marcação
 - DisableOutboundSnat não está disponível como uma opção ao configurar uma regra de balanceamento de carga no portal.  Ao invés disso, utilize ferramentas de cliente, modelo ou REST.
 - Funções de trabalho sem uma rede virtual e outros serviços da plataforma Microsoft podem ser acessados quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral como o próprio serviço em si ou a plataforma subjacente pode mudar sem aviso prévio. Você sempre deve supor que precisa criar conectividade de saída explicitamente se desejado ao usar apenas um Standard Load Balancer interno. O cenário [SNAT padrão](#defaultsnat) 3 descrito neste artigo não está disponível.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md).
 - Saiba mais sobre as [regras de saída](load-balancer-outbound-rules-overview.md) para o Load Balancer Standard público.

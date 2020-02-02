@@ -3,18 +3,18 @@ title: Substituição de sub-rede do Gerenciador de tráfego do Azure usando Azu
 description: Este artigo o ajudará a entender como a substituição de sub-rede do Gerenciador de tráfego é usada para substituir o método de roteamento de um perfil do Gerenciador de tráfego para direcionar o tráfego para um ponto de extremidade baseado no endereço IP do usuário final por meio do intervalo de IP predefinido para mapeamentos de ponto de extremidade usando o Azure PowerShell.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.topic: article
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: allensu
-ms.openlocfilehash: 93362c0e1b359583e30886172f8ccb155c5ffaf4
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.author: rohink
+ms.openlocfilehash: 323093ec78a9486d19496b0ee90e37cb42eea341
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348881"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938413"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Substituição de sub-rede do Gerenciador de tráfego usando o Azure PowerShell
 
@@ -111,7 +111,7 @@ A remoção do intervalo de endereços IP pode ser concluída usando [Remove-AzT
 
     ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Gerenciador de Tráfego.
 
 Saiba mais sobre o [método de roteamento de tráfego de sub-rede](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

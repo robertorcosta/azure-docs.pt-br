@@ -2,13 +2,13 @@
 title: Configurar investigação de preparação na instância de contêiner
 description: Saiba como configurar uma investigação para garantir que os contêineres nas instâncias de contêiner do Azure recebam solicitações somente quando estiverem prontos
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901842"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935691"
 ---
 # <a name="configure-readiness-probes"></a>Configurar investigações de preparação
 
@@ -23,7 +23,7 @@ As instâncias de contêiner do Azure também dão suporte a [testes de vida](co
 
 ## <a name="yaml-configuration"></a>Configuração do YAML
 
-Por exemplo, crie um arquivo de `readiness-probe.yaml` com o trecho a seguir que inclui uma investigação de prontidão. Esse arquivo define um grupo de contêineres que consiste em um contêiner que executa um pequeno aplicativo Web. O aplicativo é implantado a partir da imagem de `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esse aplicativo de contêiner também é demonstrado em guias de início rápido, como [implantar uma instância de contêiner no Azure usando o CLI do Azure](container-instances-quickstart.md).
+Por exemplo, crie um arquivo de `readiness-probe.yaml` com o trecho a seguir que inclui uma investigação de prontidão. Esse arquivo define um grupo de contêineres que consiste em um contêiner que executa um pequeno aplicativo Web. O aplicativo é implantado a partir da imagem de `mcr.microsoft.com/azuredocs/aci-helloworld` pública. Esse aplicativo em contêiner também é demonstrado em [implantar uma instância de contêiner no Azure usando o CLI do Azure](container-instances-quickstart.md) e outros guias de início rápido.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Comando inicial
 
-O arquivo YAML inclui um comando inicial a ser executado quando o contêiner é iniciado, definido pela propriedade `command` que aceita uma matriz de cadeias de caracteres. Este comando simula uma hora em que o aplicativo Web é executado, mas o contêiner não está pronto. Primeiro, ele inicia uma sessão do Shell e executa um comando `node` para iniciar o aplicativo Web. Ele também inicia um comando para dormir por 240 segundos, após o qual ele cria um arquivo chamado `ready` dentro do diretório `/tmp`:
+A implantação inclui uma propriedade `command` que define um comando inicial que é executado quando o contêiner começa a ser executado pela primeira vez. Essa propriedade aceita uma matriz de cadeias de caracteres. Este comando simula uma hora em que o aplicativo Web é executado, mas o contêiner não está pronto. 
+
+Primeiro, ele inicia uma sessão do Shell e executa um comando `node` para iniciar o aplicativo Web. Ele também inicia um comando para dormir por 240 segundos, após o qual ele cria um arquivo chamado `ready` dentro do diretório `/tmp`:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

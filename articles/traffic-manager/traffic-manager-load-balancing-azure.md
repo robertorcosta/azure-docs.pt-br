@@ -3,7 +3,7 @@ title: Usando os serviços de balanceamento de carga no Azure | Microsoft Docs
 description: 'Este tutorial mostra como criar um cenário usando o portfólio de balanceamento de carga do Azure: Gerenciador de Tráfego, Gateway de Aplicativo e Balanceador de Carga.'
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
-ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227784"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939219"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Usando os serviços de balanceamento de carga no Azure
 
@@ -127,7 +127,7 @@ Quando você escolhe um pool de back-end, um Gateway de Aplicativo configurado c
    + **Configuração HTTP**: as configurações HTTP a serem usadas com esta regra.
 
    > [!IMPORTANT]
-   > Caminhos: caminhos válidos devem começar com "/". O caractere curinga "\*" só é permitido no final. Exemplos válidos são /xyz, /xyz\* ou /xyz/\*.
+   > Caminhos: caminhos válidos devem começar com "/". O caractere curinga "\*" só é permitido no final. Exemplos válidos são /xyz, /xyz \*, ou /xyz/\*.
 
    ![Folha "Adicionar regra com base no caminho" do Gateway de Aplicativo](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -207,7 +207,7 @@ Agora podemos configurar o endereço IP e a porta de front-end do balanceador de
 
 ![Painel de navegação de "Pool Frontend IP" do balanceador de carga](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral do Gerenciador de Tráfego](traffic-manager-overview.md)
 * [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)

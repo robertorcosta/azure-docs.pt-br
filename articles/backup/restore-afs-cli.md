@@ -1,39 +1,39 @@
 ---
-title: Restaurar compartilhamentos de arquivos do Azure com CLI do Azure
-description: Saiba como usar CLI do Azure para restaurar compartilhamentos de arquivos do Azure com backup no cofre dos serviços de recuperação
+title: Restaurar compartilhamentos de arquivos do Azure com o CLI do Azure
+description: Saiba como usar o CLI do Azure para restaurar compartilhamentos de arquivos do Azure com backup no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 8d91031ff9ee0d4f32cc74ff7031d39ddab3e2b4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 63b2be2fe24c1274ed1581b7b849de578c978842
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294403"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931043"
 ---
-# <a name="restore-azure-file-shares-with-cli"></a>Restaurar compartilhamentos de arquivos do Azure com a CLI
+# <a name="restore-azure-file-shares-with-the-azure-cli"></a>Restaurar compartilhamentos de arquivos do Azure com o CLI do Azure
 
-A CLI (interface de linha de comando) do Azure fornece uma experiência de linha de comando para gerenciar recursos do Azure. É uma excelente ferramenta para a criação de automação personalizada para usar os recursos do Azure. Este artigo explica como restaurar um compartilhamento de arquivos inteiro ou arquivos específicos de um ponto de restauração criado pelo serviço de [backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview) usando CLI do Azure. Você também pode executar essas etapas usando o [Azure PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-afs-automation) ou o [portal do Azure](backup-afs.md).
+O CLI do Azure fornece uma experiência de linha de comando para gerenciar recursos do Azure. É uma excelente ferramenta para a criação de automação personalizada para usar os recursos do Azure. Este artigo explica como restaurar um compartilhamento de arquivos inteiro ou arquivos específicos de um ponto de restauração criado pelo [backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview) usando o CLI do Azure. Você também pode executar essas etapas usando o [Azure PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-afs-automation) ou o [portal do Azure](backup-afs.md).
 
-Ao final deste tutorial, você aprenderá a executar operações abaixo com CLI do Azure:
+Ao final deste artigo, você aprenderá a executar as seguintes operações com o CLI do Azure:
 
-* Exibir pontos de restauração para um compartilhamento de arquivos do Azure com backup
-* Restaurar um compartilhamento de arquivos completo do Azure
-* Restaurar arquivos ou pastas individuais
+* Exibir pontos de restauração para um compartilhamento de arquivos do Azure de backup.
+* Restaure um compartilhamento de arquivos completo do Azure.
+* Restaurar arquivos ou pastas individuais.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para localizar a versão da CLI, `run az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já tenha um compartilhamento de arquivos do Azure cujo backup é feito pelo serviço de backup do Azure. Se você não tiver um, consulte [fazer backup de compartilhamentos de arquivos do Azure com a CLI](backup-afs-cli.md) para configurar o backup de seu compartilhamento de arquivos. Neste artigo, usaremos os seguintes recursos:
+Este artigo pressupõe que você já tenha um compartilhamento de arquivos do Azure cujo backup é feito pelo backup do Azure. Se você não tiver um, consulte [fazer backup de compartilhamentos de arquivos do Azure com a CLI](backup-afs-cli.md) para configurar o backup para o compartilhamento de arquivos. Para este artigo, você usa os seguintes recursos:
 
-| Comp. de Arquivos  | Conta de Armazenamento | Região | Detalhes                                                      |
+| Compartilhamento de arquivos  | Conta de armazenamento | Região | Detalhes                                                      |
 | ----------- | --------------- | ------ | ------------------------------------------------------------ |
-| *azurefiles*  | *afsaccount*      | EastUS | Backup original de origem usando o backup do Azure                 |
+| *azurefiles*  | *afsaccount*      | EastUS | Backup de origem original usando o backup do Azure                 |
 | *azurefiles1* | *afaccount1*      | EastUS | Origem de destino usada para recuperação de local alternativo |
 
-Você pode usar uma estrutura semelhante para seus compartilhamentos de arquivos para experimentar os diferentes tipos de restaurações explicados neste documento.
+Você pode usar uma estrutura semelhante para seus compartilhamentos de arquivos para experimentar os diferentes tipos de restaurações explicados neste artigo.
 
 ## <a name="fetch-recovery-points-for-the-azure-file-share"></a>Buscar pontos de recuperação para o compartilhamento de arquivos do Azure
 
@@ -45,7 +45,7 @@ O exemplo a seguir busca a lista de pontos de recuperação para o compartilhame
 az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --backup-management-type azurestorage --item-name “AzureFileShare;azurefiles” --workload-type azurefileshare --out table
 ```
 
-Você também pode executar o cmdlet acima usando o "nome amigável" para o contêiner e o item fornecendo os dois parâmetros adicionais a seguir:
+Você também pode executar o cmdlet anterior usando o nome amigável para o contêiner e o item fornecendo os dois parâmetros adicionais a seguir:
 
 * **--Gerenciamento de backup-tipo**: *AzureStorage*
 * **--tipo de carga de trabalho**: *azurefileshare*
@@ -54,7 +54,7 @@ Você também pode executar o cmdlet acima usando o "nome amigável" para o cont
 az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --item-name azurefiles --workload-type azurefileshare --out table
 ```
 
-O conjunto de resultados será uma lista de pontos de recuperação com detalhes de tempo e consistência para cada ponto de restauração.
+O conjunto de resultados é uma lista de pontos de recuperação com detalhes de tempo e consistência para cada ponto de restauração.
 
 ```output
 Name                Time                        Consistency
@@ -66,20 +66,20 @@ Name                Time                        Consistency
 
 O atributo **Name** na saída corresponde ao nome do ponto de recuperação que pode ser usado como um valor para o parâmetro **--RP-Name** em operações de recuperação.
 
-## <a name="full-share-recovery-using-azure-cli"></a>Recuperação de compartilhamento completo usando o CLI do Azure
+## <a name="full-share-recovery-by-using-the-azure-cli"></a>Recuperação de compartilhamento completa usando o CLI do Azure
 
 Você pode usar essa opção de restauração para restaurar o compartilhamento de arquivos completo no local original ou alternativo.
 
 Defina os seguintes parâmetros para executar operações de restauração:
 
-* **--container-Name** é o nome da conta de armazenamento que hospeda o compartilhamento de arquivos original de backup. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name** é o nome do compartilhamento de arquivos original de backup que você deseja usar para a operação de restauração. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos original de backup. Para recuperar o nome ou nome amigável do seu contêiner, use o comando [AZ backup container List](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Item-Name**: o nome do compartilhamento de arquivos original de backup que você deseja usar para a operação de restauração. Para recuperar o nome ou nome amigável de seu item de backup, use o comando [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 
-### <a name="restore-full-share-to-the-original-location"></a>Restaurar compartilhamento completo para o local original
+### <a name="restore-a-full-share-to-the-original-location"></a>Restaurar um compartilhamento completo para o local original
 
 Ao restaurar para um local original, você não precisa especificar parâmetros relacionados ao destino. Apenas o **conflito de resolução** deve ser fornecido.
 
-O exemplo a seguir usa o cmdlet [AZ backup restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) com o modo de restauração definido como *originallocation* para restaurar o compartilhamento de arquivos *azurefiles* no local original, usando o ponto de recuperação 932883129628959823, que obtivemos com [buscar pontos de recuperação para o compartilhamento de arquivos do Azure](#fetch-recovery-points-for-the-azure-file-share):
+O exemplo a seguir usa o cmdlet [AZ backup restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) com o modo de restauração definido como *originallocation* para restaurar o compartilhamento de arquivos *azurefiles* no local original. Você usa o ponto de recuperação 932883129628959823, que foi obtido em [buscar pontos de recuperação para o compartilhamento de arquivos do Azure](#fetch-recovery-points-for-the-azure-file-share):
 
 ```azurecli-interactive
 az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation --resolve-conflict overwrite --out table
@@ -91,9 +91,9 @@ Name                                  ResourceGroup
 6a27cc23-9283-4310-9c27-dcfb81b7b4bb  azurefiles
 ```
 
-O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de "restauração". Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de restauração. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
-### <a name="restore-full-share-to-an-alternate-location"></a>Restaurar compartilhamento completo para um local alternativo
+### <a name="restore-a-full-share-to-an-alternate-location"></a>Restaurar um compartilhamento completo para um local alternativo
 
 Você pode usar essa opção para restaurar um compartilhamento de arquivos para um local alternativo e manter o compartilhamento de arquivos original como está. Especifique os seguintes parâmetros para recuperação de local alternativo:
 
@@ -102,7 +102,7 @@ Você pode usar essa opção para restaurar um compartilhamento de arquivos para
 * **--pasta-de-destino**: a pasta sob o compartilhamento de arquivos para o qual os dados são restaurados. Se for para restaurar o conteúdo do backup em uma pasta raiz, forneça os valores da pasta de destino como uma cadeia de caracteres vazia.
 * **--resolve-Conflict**: instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
 
-O exemplo a seguir usa [AZ Backup Restore Restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) com o modo de restauração como *alternatelocation* para restaurar o compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* para *azurefiles1 "* compartilhamento de arquivos na conta de armazenamento *afaccount1* .
+O exemplo a seguir usa [AZ Backup Restore Restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) com o modo de restauração como *alternatelocation* para restaurar o compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* para o *azurefiles1 "* compartilhamento de arquivos na conta de armazenamento *afaccount1* .
 
 ```azurecli-interactive
 az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
@@ -114,7 +114,7 @@ Name                                  ResourceGroup
 babeb61c-d73d-4b91-9830-b8bfa83c349a  azurefiles
 ```
 
-O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de "restauração". Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de restauração. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 ## <a name="item-level-recovery"></a>Recuperação em nível de item
 
@@ -122,8 +122,8 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
 
 Defina os seguintes parâmetros para executar operações de restauração:
 
-* **--container-Name** é o nome da conta de armazenamento que hospeda o compartilhamento de arquivos original de backup. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name** é o nome do compartilhamento de arquivos original de backup que você deseja usar para a operação de restauração. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos original de backup. Para recuperar o nome ou nome amigável do seu contêiner, use o comando [AZ backup container List](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--Item-Name**: o nome do compartilhamento de arquivos original de backup que você deseja usar para a operação de restauração. Para recuperar o nome ou nome amigável de seu item de backup, use o comando [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 
 Especifique os seguintes parâmetros para os itens que você deseja recuperar:
 
@@ -131,11 +131,11 @@ Especifique os seguintes parâmetros para os itens que você deseja recuperar:
 * **SourceFileType**: escolha se um diretório ou um arquivo está selecionado. Aceita **Directory** ou **File**.
 * **ResolveConflict**: instrução se houver um conflito com os dados restaurados. Aceita **Overwrite** ou **Skip**.
 
-### <a name="restore-individual-filesfolders-to-the-original-location"></a>Restaurar arquivos/pastas individuais para o local original
+### <a name="restore-individual-files-or-folders-to-the-original-location"></a>Restaurar arquivos ou pastas individuais para o local original
 
-Use o cmdlet [AZ backup restore-azurefiles](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) com o modo de restauração definido como *originallocation* para restaurar arquivos/pastas específicos para seu local original.
+Use o cmdlet [AZ backup restore-azurefiles](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) com o modo de restauração definido como *originallocation* para restaurar arquivos ou pastas específicos para o local original.
 
-O exemplo a seguir restaura o arquivo *"RestoreTest. txt"* no local original: o FileShare *azurefiles* .
+O exemplo a seguir restaura o arquivo *RestoreTest. txt* em seu local original: o compartilhamento de arquivos *azurefiles* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
@@ -147,17 +147,17 @@ Name                                  ResourceGroup
 df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
-O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de "restauração". Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de restauração. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
-### <a name="restore-individual-filesfolders-to-an-alternate-location"></a>Restaurar arquivos/pastas individuais para um local alternativo
+### <a name="restore-individual-files-or-folders-to-an-alternate-location"></a>Restaurar arquivos ou pastas individuais para um local alternativo
 
-Para restaurar arquivos/pastas específicos para um local alternativo, use o cmdlet [AZ backup restore-azurefiles](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) com o modo de restauração definido como *alternatelocation* e especifique os seguintes parâmetros relacionados ao destino:
+Para restaurar arquivos ou pastas específicas para um local alternativo, use o cmdlet [AZ backup restore-azurefiles](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefiles) com o modo de restauração definido como *alternatelocation* e especifique os seguintes parâmetros relacionados ao destino:
 
 * **--target-Storage-Account**: a conta de armazenamento para a qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 * **--target-File-Share**: o compartilhamento de arquivos na conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
 * **--pasta-de-destino**: a pasta sob o compartilhamento de arquivos para o qual os dados são restaurados. Se o conteúdo de backup for restaurado para uma pasta raiz, forneça o valor da pasta de destino como uma cadeia de caracteres vazia.
 
-O exemplo a seguir restaura o arquivo *RestoreTest. txt* originalmente presente no FileShare *azurefiles* para um local alternativo: a pasta *restoredata* no compartilhamento de *azurefiles1* hospedado na conta de armazenamento *afaccount1* .
+O exemplo a seguir restaura o arquivo *RestoreTest. txt* originalmente presente no compartilhamento de arquivos *azurefiles* para um local alternativo: a pasta *restoredata* no compartilhamento de arquivos *azurefiles1* hospedado na conta de armazenamento *afaccount1* .
 
 ```azurecli-interactive
 az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
@@ -169,8 +169,8 @@ Name                                  ResourceGroup
 df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
-O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de "restauração". Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de restauração. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
 
 ## <a name="next-steps"></a>Próximos passos
 
-Saiba como [gerenciar backups de compartilhamento de arquivos do Azure com o CLI do Azure](manage-afs-backup-cli.md)
+Saiba como [gerenciar backups de compartilhamento de arquivos do Azure com o CLI do Azure](manage-afs-backup-cli.md).

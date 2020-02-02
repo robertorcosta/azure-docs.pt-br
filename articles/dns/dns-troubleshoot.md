@@ -2,17 +2,17 @@
 title: Guia de solução de problemas-DNS do Azure
 description: Neste roteiro de aprendizagem, comece a solucionar problemas comuns com o DNS do Azure
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: allensu
-ms.openlocfilehash: b5fedba7b739c07a37f3aabf75ddd8ca465ba73b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210933"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939040"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de solução de problemas do DNS do Azure
 
@@ -85,11 +85,11 @@ Exemplo de nomes de registro SRV (nome de serviço 'sip', protocolo 'tcp'):
 ### <a name="recommended-articles"></a>Artigos recomendados
 
 * [Registros e zonas DNS](dns-zones-records.md)
-* Criar registros e conjuntos de registros DNS usando o portal do Azure[
+* [Criar registros e conjuntos de registros DNS usando o portal do Azure](dns-getstarted-create-recordset-portal.md)
 * [Tipo de registro SRV (Wikipédia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [registros e zonas DNS do Azure](dns-zones-records.md)
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).

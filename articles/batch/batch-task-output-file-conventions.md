@@ -1,6 +1,6 @@
 ---
-title: Manter saída de trabalhos e tarefas no armazenamento do Azure com a biblioteca de Convenções de Arquivo para .NET – Lote do Azure | Microsoft Docs
-description: Saiba como usar a biblioteca de Convenções de Arquivo em Lote do Azure para .NET para manter a saída de tarefa e trabalho em Lote no Armazenamento do Azure e exibir a saída mantida no portal do Azure.
+title: Manter dados de saída no armazenamento do Azure com a biblioteca de convenções de arquivo .NET-lote do Azure
+description: Saiba como usar a biblioteca de convenções de arquivo do lote do Azure para .NET para manter a tarefa em lotes & saída de trabalho para o armazenamento do Azure e exibir essa saída no portal do Azure.
 services: batch
 documentationcenter: .net
 author: ju-shim
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 306407252a6f5bc4071947b6aafa2d50bccc97a8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8b57ab7168b331734d7811e04284db56bc782f3f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842726"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935275"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET
 

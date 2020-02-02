@@ -1,6 +1,6 @@
 ---
-title: Executar tarefas em contas de usuário - Lote do Azure | Microsoft Docs
-description: Configurar contas de usuário para executar tarefas no Lote do Azure
+title: Executar tarefas em contas de usuário – lote do Azure
+description: É útil ser capaz de configurar a conta de usuário sob a qual você deseja que uma tarefa seja executada. Aprenda os tipos de contas de usuário e como configurá-las.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/18/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: d4975935c872f059dde6b08bcd7a4f06540c2dfd
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 01342c8fcd0d2d3c603762b06350a9fcf7c12d03
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029608"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937954"
 ---
 > [!NOTE] 
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 

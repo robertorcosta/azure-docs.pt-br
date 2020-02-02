@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147846"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939319"
 ---
 # <a name="get-started-with-device-management-net"></a>Introdução ao gerenciamento de dispositivos (.NET)
 
@@ -40,7 +40,7 @@ No fim deste tutorial, você terá dois aplicativos de console .NET:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-## <a name="create-an-iot-hub"></a>Crie um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um Hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -58,7 +58,7 @@ No fim deste tutorial, você terá dois aplicativos de console .NET:
 
 Nesta seção, você cria um aplicativo de console do .NET, C#usando o, que inicia uma reinicialização remota em um dispositivo usando um método direto. O aplicativo usa consultas de dispositivo gêmeo para descobrir o último horário de reinicialização para esse dispositivo.
 
-1. No Visual Studio, selecione **criar um novo projeto**.
+1. No Visual Studio, selecione **Criar um projeto**.
 
 1. Em **criar um novo projeto**, localize e selecione o modelo de projeto **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 
@@ -68,7 +68,7 @@ Nesta seção, você cria um aplicativo de console do .NET, C#usando o, que inic
 
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **TriggerReboot** e selecione **gerenciar pacotes NuGet**.
 
-1. Selecione **procurar**e, em seguida, pesquise e selecione **Microsoft. Azure.** Devices. Selecione **instalar** para instalar o pacote **Microsoft. Azure.** Devices.
+1. Selecione **procurar**e, em seguida, pesquise e selecione **Microsoft. Azure. Devices**. Selecione **instalar** para instalar o pacote **Microsoft. Azure. Devices** .
 
     ![Janela do Gerenciador de Pacotes NuGet](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png)
 
@@ -81,7 +81,7 @@ Nesta seção, você cria um aplicativo de console do .NET, C#usando o, que inic
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua o `{iot hub connection string}` valor do espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
+1. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado `{iot hub connection string}` pela cadeia de conexão do Hub IoT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -126,7 +126,7 @@ Nesta seção, você cria um aplicativo de console do .NET, C#usando o, que inic
    Console.ReadLine();
    ```
 
-1. Selecione **criar** > **solução de compilação**.
+1. Selecione **Compilar** > **Compilar Solução**.
 
 > [!NOTE]
 > Este tutorial executa somente uma única consulta para propriedades relatadas do dispositivo. No código de produção, recomendamos a sondagem para detectar alterações nas propriedades relatadas.
@@ -143,7 +143,7 @@ Nesta seção, você:
 
 Para criar o aplicativo de dispositivo simulado, siga estas etapas:
 
-1. No Visual Studio, na solução TriggerReboot que você já criou, selecione **arquivo** > **novo** > **projeto**. Em **criar um novo projeto**, localize e selecione o modelo de projeto **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
+1. No Visual Studio, na solução TriggerReboot que você já criou, selecione **arquivo** > **novo** **projeto**de > . Em **criar um novo projeto**, localize e selecione o modelo de projeto **aplicativo de console (.NET Framework)** e, em seguida, selecione **Avançar**.
 
 1. Em **configurar seu novo projeto**, nomeie o projeto *SimulateManagedDevice*e, para **solução**, selecione **Adicionar à solução**. Selecione **Criar**.
 
@@ -164,7 +164,7 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua o `{device connection string}` valor do espaço reservado pela cadeia de conexão do dispositivo que você anotou anteriormente em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
+1. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado `{device connection string}` pela cadeia de conexão do dispositivo que você anotou anteriormente em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
     static string DeviceConnectionString = "{device connection string}";
@@ -200,7 +200,7 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
            Console.WriteLine("Error in sample: {0}", ex.Message);
        }
 
-       string result = "'Reboot started.'";
+       string result = @"{""result"":""Reboot started.""}";
        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
    }
    ```
@@ -234,9 +234,9 @@ Para criar o aplicativo de dispositivo simulado, siga estas etapas:
 
 1. Em Gerenciador de Soluções, clique com o botão direito do mouse em sua solução e selecione **definir projetos de inicialização**.
 
-1. Para o**projeto de inicialização**de **Propriedades** > comuns, selecione **projeto de inicialização única**e, em seguida, selecione o projeto **SimulateManagedDevice** . Selecione **OK** para salvar suas alterações.
+1. Para **Propriedades comuns** > **projeto de inicialização**, selecione **projeto de inicialização única**e, em seguida, selecione o projeto **SimulateManagedDevice** . Selecione **OK** para salvar suas alterações.
 
-1. Selecione **criar** > **solução de compilação**.
+1. Selecione **Compilar** > **Compilar Solução**.
 
 > [!NOTE]
 > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (como uma retirada exponencial), conforme sugerido em [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).

@@ -1,6 +1,6 @@
 ---
-title: Evento de exclusão de pool – Azure | Microsoft Docs
-description: Referência de exclusão do pool de lote evento inicial.
+title: Evento de exclusão do pool do lote do Azure concluído
+description: Referência de exclusão do pool de lote evento inicial. Esse evento é emitido quando uma operação de exclusão de pool é concluída.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: bcbfe009e2880c0155a067305cc28317678cbfa6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 56dc4c91566cc5c41de6c91618d09e7a0ebb7172
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026702"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929855"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de exclusão de pool
 

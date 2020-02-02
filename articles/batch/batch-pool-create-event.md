@@ -1,6 +1,6 @@
 ---
-title: Pool de criação de evento Azure Batch | Microsoft Docs
-description: Referência para o pool do lote criar um evento.
+title: Evento de criação do pool do lote do Azure
+description: Referência para o evento de criação do pool do lote, que é emitido após a criação de um pool. O conteúdo do log expõe as informações gerais do pool.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: b804d828d276c39febf7fdd9347bce04a062676a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: cb109daee20300d4564ecd40c0a3c14de0f3de1c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026739"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929852"
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 

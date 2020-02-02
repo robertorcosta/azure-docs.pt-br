@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435476"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929877"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
 > [!Important]
-> Use o recurso de [marca de serviço](hdinsight-service-tags.md) para grupos de segurança de rede. Novas regiões serão adicionadas somente para marcas de serviço e os endereços IP estáticos eventualmente serão preteridos.
+> Na maioria dos casos, agora você pode usar o recurso de [marca de serviço](hdinsight-service-tags.md) para grupos de segurança de rede, em vez de adicionar manualmente os endereços IP. Novas regiões serão adicionadas somente para marcas de serviço e os endereços IP estáticos eventualmente serão preteridos.
 
 Se você usar NSGs (grupos de segurança de rede) ou UDRs (rotas definidas pelo usuário) para controlar o tráfego de entrada para o cluster HDInsight, deverá garantir que o cluster possa se comunicar com os serviços críticos de integridade e gerenciamento do Azure.  Alguns dos endereços IP para esses serviços são específicos da região e alguns deles se aplicam a todas as regiões do Azure. Talvez você também precise permitir o tráfego do serviço DNS do Azure se não estiver usando um DNS personalizado.
 
@@ -48,7 +48,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 
 | País | Região | Endereços IP de origem permitidos | Destino permitido | Direção |
 | ---- | ---- | ---- | ---- | ----- |
-| Ásia | Leste da Ásia | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
+| Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
 | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
 | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
 | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |

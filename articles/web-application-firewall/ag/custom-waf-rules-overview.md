@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9d9deca0365e13a0a8ad7404a476b05d0afef077
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645082"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935010"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regras personalizadas para o Firewall do aplicativo Web V2 no Aplicativo Azure gateway
 
@@ -22,7 +22,7 @@ As regras personalizadas permitem que você crie suas próprias regras que são 
 
 Por exemplo, você pode bloquear todas as solicitações de um endereço IP no intervalo 192.168.5.4/24. Nessa regra, o operador é *IPMatch*, o matchValues é o intervalo de endereços IP (192.168.5.4/24) e a ação é bloquear o tráfego. Você também define o nome e a prioridade da regra.
 
-As regras personalizadas dão suporte ao uso da lógica de composição para fazer regras mais avançadas que atendam às suas necessidades de segurança. Por exemplo, (condição 1 **e** condição 2) **ou** condição 3).  Este exemplo significa que, se a condição 1 **e** a condição 2 forem atendidas **ou** se a condição 3 for atendida, o WAF deverá executar a ação especificada na regra personalizada.
+As regras personalizadas dão suporte ao uso da lógica de composição para fazer regras mais avançadas que atendam às suas necessidades de segurança. Por exemplo, (condição 1 **e** condição 2) **ou** condição 3). Isso significa que, se a condição 1 **e** a condição 2 forem atendidas **ou** se a condição 3 for atendida, o WAF deverá executar a ação especificada na regra personalizada.
 
 Diferentes condições de correspondência dentro da mesma regra sempre são compostas usando **e**. Por exemplo, bloqueie o tráfego de um endereço IP específico e somente se eles estiverem usando um determinado navegador.
 
@@ -31,7 +31,7 @@ Se você quiser **ou** duas condições diferentes, as duas condições deverão
 > [!NOTE]
 > O número máximo de regras personalizadas de WAF é 100. Para obter mais informações sobre os limites do gateway de aplicativo, consulte [assinatura e limites de serviço, cotas e restrições do Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-Também há suporte para expressões regulares em regras personalizadas, assim como nos conjuntos de regras do CRS. Para obter exemplos desses, consulte os exemplos 3 e 5 em [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
+Também há suporte para expressões regulares em regras personalizadas, assim como nos conjuntos de regras do CRS. Para obter exemplos, consulte os exemplos 3 e 5 em [criar e usar regras personalizadas de firewall do aplicativo Web](create-custom-waf-rules.md).
 
 ## <a name="allowing-vs-blocking"></a>Permitindo vs. bloqueio
 
@@ -92,7 +92,7 @@ Essa regra personalizada contém um nome, uma prioridade, uma ação e a matriz 
 
 ### <a name="name-optional"></a>Nome [opcional]
 
-Este é o nome da regra. Esse nome aparece nos logs.
+O nome da regra.  Ele aparece nos logs.
 
 ### <a name="priority-required"></a>Prioridade [obrigatório]
 
@@ -157,198 +157,13 @@ Lista de valores a serem correspondidos, que pode ser considerada como sendo *ou
 
 ### <a name="action-required"></a>Ação [obrigatório]
 
-- Permitir – autoriza a transação, ignorando todas as regras subsequentes. Isso significa que a solicitação especificada é adicionada à lista de permissões e, uma vez correspondente, a solicitação para uma avaliação adicional e é enviada para o pool de back-end. As regras que estão na lista de permissões não são avaliadas para outras regras personalizadas ou regras gerenciadas.
-- Block – bloqueia a transação com base em *SecDefaultAction* (modo de detecção/prevenção). Assim como a ação permitir, depois que a solicitação é avaliada e adicionada à lista de bloqueios, a avaliação é interrompida e a solicitação é bloqueada. Qualquer solicitação após isso atenderá às mesmas condições não será avaliada e será bloqueada apenas. 
-- Log – permite que a regra grave no log, mas permite que o restante das regras seja executado para avaliação. As regras personalizadas subsequentes são avaliadas em ordem de prioridade, seguidas pelas regras gerenciadas.
+- Permitir – autoriza a transação, ignorando todas as outras regras. A solicitação especificada é adicionada à lista de permissões e, uma vez correspondente, a solicitação para uma avaliação adicional e é enviada para o pool de back-end. As regras que estão na lista de permissões não são avaliadas para outras regras personalizadas ou regras gerenciadas.
+- Block – bloqueia a transação com base em *SecDefaultAction* (modo de detecção/prevenção). Assim como a ação permitir, depois que a solicitação é avaliada e adicionada à lista de bloqueios, a avaliação é interrompida e a solicitação é bloqueada. Qualquer solicitação após isso atende às mesmas condições não será avaliada e será bloqueada. 
+- Log – permite que a regra grave no log, mas permite que o restante das regras seja executado para avaliação. As outras regras personalizadas são avaliadas em ordem de prioridade, seguidas pelas regras gerenciadas.
 
 ## <a name="geomatch-custom-rules-preview"></a>Regras personalizadas de correspondência geocombinadas (versão prévia)
 
-As regras personalizadas permitem a criação de regras adaptadas para atender às necessidades exatas de seus aplicativos e suas políticas de segurança. Agora, você pode restringir o acesso a seus aplicativos Web por país/região, que está disponível na visualização pública. Assim como acontece com todas as regras personalizadas, essa lógica pode ser composta por outras regras para atender às necessidades do seu aplicativo. 
-
-   > [!NOTE]
-   > As regras personalizadas de correspondência geocombinadas estão disponíveis no EUA Central do Sul e Europa Setentrional. Para acessá-los no portal, use [este link](https://aka.ms/AppGWWAFGeoMatch) até que ele fique ativo para todos. 
-
-Se você estiver usando o operador geomatch, os seletores podem ser qualquer um dos seguintes códigos de país de dois dígitos. 
-
-|Código do país | Nome do país |
-| ----- | ----- |
-| AD | Andorra |
-| AE | Emirados Árabes Unidos|
-| AF | Afeganistão|
-| AG | Antígua e Barbuda|
-| AL | Albânia|
-| AM | Armênia|
-| AO | Angola|
-| AR | Argentina|
-| AS | Samoa Americana|
-| AT | Áustria|
-| AU | Austrália|
-| AZ | Azerbaijão|
-| BA | Bósnia e Herzegovina|
-| BB | Barbados|
-| BD | Bangladesh|
-| BE | Bélgica|
-| BF | Burquina Faso|
-| BG | Bulgária|
-| BH | Bahrein|
-| BI | Burundi|
-| BJ | Benin|
-| BL | São Bartolomeu|
-| BN | Brunei|
-| BO | Bolívia|
-| BR | Brasil|
-| BS | Bahamas|
-| BT | Butão|
-| BW | Botsuana|
-| BY | Belarus|
-| BZ | Belize|
-| CA | Canadá|
-| CD | República Democrática do Congo|
-| CF | República Centro-Africana|
-| CH | Suíça|
-| CI | Costa do Marfim|
-| CL | Chile|
-| CM | República dos Camarões|
-| CN | China|
-| CO | Colômbia|
-| CR | Costa Rica|
-| CU | Cuba|
-| CV | Cabo Verde|
-| CY | Chipre|
-| CZ | República Tcheca|
-| Alemanha | Alemanha|
-| DK | Dinamarca|
-| DO | República Dominicana|
-| DZ | Argélia|
-| EC | Equador|
-| EE | Estônia|
-| EG | Egito|
-| ES | Espanha|
-| ET | Etiópia|
-| FI | Finlândia|
-| FJ | Fiji|
-| FM | Micronésia, Estados Federados da|
-| FR | França|
-| GB | Reino Unido|
-| GE | Geórgia|
-| GF | Guiana Francesa|
-| GH | Gana|
-| GN | Guiné|
-| GP | Guadalupe|
-| GR | Grécia|
-| GT | Guatemala|
-| GY | Guiana|
-| HK | RAE de Hong Kong|
-| HN | Honduras|
-| RH | Croácia|
-| HT | Haiti|
-| HU | Hungria|
-| ID | Indonésia|
-| IE | Irlanda|
-| IL | Israel|
-| IN | Índia|
-| IQ | Iraque|
-| IR | Irã, República Islâmica do|
-| IS | Islândia|
-| TI | Itália|
-| JM | Jamaica|
-| JO | Jordânia|
-| JP | Japão|
-| KE | Quênia|
-| KG | Quirguistão|
-| KH | Camboja|
-| KI | Kiribati|
-| KN | São Cristóvão e Nevis|
-| KP | Coreia, República Democrática Popular da|
-| KR | Coreia, República da|
-| KW | Kuwait|
-| KY | Ilhas Cayman|
-| KZ | Cazaquistão|
-| América Latina | República Democrática Popular do Laos|
-| LB | Líbano|
-| LI | Liechtenstein|
-| LK | Sri Lanka|
-| LR | Libéria|
-| LS | Lesoto|
-| LT | Lituânia|
-| LU | Luxemburgo|
-| LV | Letônia|
-| LY | Líbia |
-| MA | Marrocos|
-| MD | Moldávia, República da|
-| MG | Madagascar|
-| MK | Macedônia do Norte|
-| ML | Mali|
-| MM | Myanmar|
-| MN | Mongólia|
-| MO | RAE de Macau|
-| MQ | Martinica|
-| MR | Mauritânia|
-| MT | Malta|
-| MV | Maldivas|
-| MW | Malaui|
-| MX | México|
-| MY | Malásia|
-| MZ | Moçambique|
-| ND | Namíbia|
-| NE | Níger|
-| NG | Nigéria|
-| NI | Nicarágua|
-| NL | Holanda|
-| Não | Noruega|
-| NP | Nepal|
-| NR | Nauru|
-| NZ | Nova Zelândia|
-| OM | Omã|
-| PA | Panamá|
-| PE | Peru|
-| PH | Filipinas|
-| PK | Paquistão|
-| PL | Polônia|
-| PR | Porto Rico|
-| PT | Portugal|
-| PW | Palau|
-| PY | Paraguai|
-| Garantia de qualidade | Catar|
-| RE | Reunião|
-| RO | Romênia|
-| RS | Sérvia|
-| RU | Federação Russa|
-| RW | Ruanda|
-| SA | Arábia Saudita|
-| SD | Sudão|
-| SE | Suécia|
-| SG | Cingapura|
-| SI | Eslovênia|
-| SK | Eslováquia|
-| SN | Senegal|
-| SO | Somália|
-| SR | Suriname|
-| SS | Sudão do Sul|
-| SV | El Salvador|
-| SY | República Árabe da Síria|
-| SZ | Suazilândia|
-| TC | Ilhas Turcas e Caicos|
-| TG | Togo|
-| TH | Tailândia|
-| TN | Tunísia|
-| TR | Turquia|
-| TT | Trinidad e Tobago|
-| TW | Taiwan|
-| TZ | Tanzânia, República Unida da|
-| UA | Ucrânia|
-| UG | Uganda|
-| EUA | Estados Unidos|
-| UY | Uruguai|
-| UZ | Uzbequistão|
-| VC | São Vicente e Granadinas|
-| VE | Venezuela|
-| VG | Ilhas Virgens Britânicas|
-| VI | Ilhas Virgens Americanas|
-| VN | Vietnã|
-| ZA | África do Sul|
-| ZM | Zâmbia|
-| ZW | Zimbábue|
+As regras personalizadas permitem que você crie regras adaptadas para atender às necessidades exatas de seus aplicativos e políticas de segurança. Você pode restringir o acesso a seus aplicativos Web por país/região. Para obter mais informações, consulte [regras personalizadas geocombinadoras (versão prévia)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Próximos passos
 

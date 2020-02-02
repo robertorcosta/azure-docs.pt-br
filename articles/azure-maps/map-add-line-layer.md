@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911180"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933476"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicionar uma camada de linha ao mapa
 
@@ -23,7 +23,7 @@ Uma camada de linha pode ser usada para renderizar `LineString` e `MultiLineStri
 > [!TIP]
 > As camadas de linha por padrão renderizarão as coordenadas de polígonos, bem como as linhas de uma fonte de dados. Para limitar a camada de modo que ela só processe os recursos de LineString, defina a propriedade `filter` da camada como `['==', ['geometry-type'], 'LineString']` ou `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` se desejar incluir recursos MultiLineString também.
 
-O código a seguir mostra como criar uma linha, adicioná-la a uma fonte de dados e renderizá-la com uma camada de linha usando a classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
+O código a seguir mostra como criar uma linha. Adicione a linha a uma fonte de dados e, em seguida, processe-a com uma camada de linha usando a classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ Camadas de linha podem ser estilizadas usando [LineLayerOptions](/javascript/api
 
 ## <a name="add-symbols-along-a-line"></a>Adicionar símbolos ao longo de uma linha
 
-Este exemplo mostra como adicionar ícones de seta ao longo de uma linha no mapa. Ao usar uma camada de símbolo, defina a opção "posicionamento" como "linha", isso irá renderizar os símbolos ao longo da linha e girar os ícones (0 graus = direita).
+Este exemplo mostra como adicionar ícones de seta ao longo de uma linha no mapa. Ao usar uma camada de símbolo, defina a opção "posicionamento" como "linha". Esta opção renderizará os símbolos ao longo da linha e girará os ícones (0 graus = direita).
 
 <br/>
 
@@ -66,7 +66,7 @@ Consulte a <a href='https://codepen.io/azuremaps/pen/drBJwX/'>seta de mostrar ca
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Adicionar um gradiente de traço a uma linha
 
-Além de ser capaz de aplicar uma única cor de traço a uma linha, você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o próximo. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e distância, ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados deve ter a opção `lineMetrics` definida como true e, em seguida, uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão de gradiente de traço precisa fazer referência à expressão de dados de `['line-progress']` que expõe as métricas de linha calculada para a expressão.
+Você pode aplicar uma única cor de traço a uma linha. Você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o próximo segmento de linha. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e distância, ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados deve ter a opção `lineMetrics` definida como true e, em seguida, uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão de gradiente de traço precisa fazer referência à expressão de dados de `['line-progress']` que expõe as métricas de linha calculada para a expressão.
 
 <br/>
 
@@ -76,7 +76,7 @@ Veja a linha de caneta <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>com gr
 
 ## <a name="customize-a-line-layer"></a>Personalizar uma camada de linha
 
-Várias opções de estilo de camada de linha. Aqui está uma ferramenta para experimentá-las.
+A camada de linha tem várias opções de estilo. Aqui está uma ferramenta para experimentá-las.
 
 <br/>
 

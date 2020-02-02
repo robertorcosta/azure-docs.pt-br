@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911264"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933291"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controles a um mapa
 
-Este artigo mostra como adicionar controles a um mapa. Você também aprenderá a criar um mapa com todos os controles e um [selecionador de estilos](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+Este artigo mostra como adicionar controles a um mapa. Você também aprenderá a criar um mapa com todos os controles e um [seletor de estilo](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Adicionar o controle de zoom
 
@@ -39,7 +39,7 @@ Abaixo está o exemplo de código completo em execução da funcionalidade acima
 
 ## <a name="add-pitch-control"></a>Adicionar controle de densidade
 
-Um controle de densidade Adiciona botões para inclinar a inclinação para mapear em relação ao horizonte. O exemplo de código a seguir cria uma instância da classe [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) e a adiciona ao canto superior direito do mapa.
+Um controle de densidade Adiciona botões para inclinar a inclinação para mapear em relação ao horizonte. O exemplo de código a seguir cria uma instância da classe [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) . Ele adiciona o PitchControl ao canto superior direito do mapa.
 
 ```javascript
 //Construct a pitch control and add it to the map.

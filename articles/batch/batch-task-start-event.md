@@ -1,6 +1,6 @@
 ---
-title: Eventos de início de tarefa em lote do Azure | Microsoft Docs
-description: Referência de evento de início de tarefa de lote.
+title: Evento de início de tarefa do lote do Azure
+description: Informações de referência para evento de início de tarefa de lote. Esse evento é emitido quando uma tarefa é agendada para iniciar em um nó de computação pelo agendador.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: e8265286a5d33c9a8a118dafa66a83b5ed36f8a6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 517a5c58bc1de7dd6ffa4dfd39d09f4b6b4fac1a
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029611"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939060"
 ---
 # <a name="task-start-event"></a>Evento de início da tarefa
 

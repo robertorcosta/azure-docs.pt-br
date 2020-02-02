@@ -1,16 +1,16 @@
 ---
 title: Perguntas frequentes sobre Azure Dev Spaces
 services: azure-dev-spaces
-ms.date: 09/25/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
 description: Encontre respostas para algumas das perguntas mais comuns sobre Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: d5ab56edfe4799d51fb7f08642aad9e2ee01db05
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 964fa9ec4948bf178c310af8e35913fda5f70c0f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044976"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934176"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Perguntas frequentes sobre Azure Dev Spaces
 
@@ -20,17 +20,34 @@ Isso aborda as perguntas frequentes sobre Azure Dev Spaces.
 
 Consulte [regiões com suporte][supported-regions] para obter uma lista completa de regiões disponíveis.
 
+## <a name="can-i-use-azure-dev-spaces-with-existing-dockerfiles-or-helm-charts"></a>Posso usar Azure Dev Spaces com gráficos Dockerfiles ou Helm existentes?
+
+Sim, se o seu projeto já tiver um gráfico Dockerfile ou Helm, você poderá usar esses arquivos com Azure Dev Spaces. Ao executar `azds prep`, use o parâmetro `--chart` e especifique o local do gráfico. Azure Dev Spaces ainda irá gerar um arquivo *azds. YAML* e *Dockerfile. develop* , mas ele não substituirá ou modificará um gráfico Dockerfile ou Helm existente. Talvez seja necessário modificar os arquivos *azds. YAML* e *Dockerfile. develop* para que tudo funcione corretamente com o aplicativo existente durante a execução de `azds up`.
+
+Ao usar seu próprio gráfico Dockerfile ou Helm, há as seguintes limitações:
+* Se estiver usando apenas um Dockerfile, ele deverá incluir tudo o que você precisa para habilitar cenários de desenvolvimento, como o SDK do idioma, não apenas o tempo de execução. Se estiver usando um Dockerfile separado para Azure Dev Spaces, como um Dockerfile. desenvolver, tudo o que você precisa para habilitar cenários de desenvolvimento deve ser incluído nesse Dockerfile.
+* Seu gráfico de Helm deve dar suporte à passagem de parte da marca de imagem inteira como um valor de *Values. YAML*.
+* Se você estiver modificando algo com entrada, também poderá atualizar seu gráfico do Helm para usar a solução de entrada fornecida pelo Azure Dev Spaces.
+* Se você quiser usar os [recursos de roteamento fornecidos pelo Azure dev Spaces][dev-spaces-routing], todos os serviços para um projeto individual devem se ajustar em um único namespace kubernetes e devem ser implantados com nome simples, por exemplo, *serviço-a*. Em gráficos Helm padrão, essa atualização de nomenclatura pode ser feita especificando um valor para a propriedade *fullnameOverride* .
+
+Para comparar seu próprio gráfico Dockerfile ou Helm com uma versão existente que funciona com Azure Dev Spaces, examine os arquivos gerados no guia de [início rápido][quickstart-cli].
+
+
+## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Posso modificar os arquivos gerados pelo Azure Dev Spaces?
+
+Sim, você pode modificar o arquivo *azds. YAML* , o Dockerfile e o gráfico Helm [gerados pelo Azure dev Spaces ao preparar seu projeto][dev-spaces-prep]. Modificar esses arquivos altera o modo como o projeto é compilado e executado.
+
 ## <a name="can-i-use-azure-dev-spaces-without-a-public-ip-address"></a>Posso usar Azure Dev Spaces sem um endereço IP público?
 
 Não, você não pode provisionar Azure Dev Spaces em um cluster AKS sem um IP público. Um IP público é [necessário pelo Azure dev Spaces para roteamento][dev-spaces-routing].
 
 ## <a name="can-i-use-my-own-ingress-with-azure-dev-spaces"></a>Posso usar minha própria entrada com Azure Dev Spaces?
 
-Sim, você pode configurar sua própria entrada ao longo do lado que um Azure Dev Spaces cria. Por exemplo, você pode usar [traefik][ingress-traefik].
+Sim, você pode configurar sua própria entrada ao longo do Azure Dev Spaces de entrada criado. Por exemplo, você pode usar [traefik][ingress-traefik] ou [Nginx][ingress-nginx].
 
 ## <a name="can-i-use-https-with-azure-dev-spaces"></a>Posso usar HTTPS com Azure Dev Spaces?
 
-Sim, você pode configurar sua própria entrada com HTTPS usando [traefik][ingress-https-traefik].
+Sim, você pode configurar sua própria entrada com HTTPS usando [traefik][ingress-https-traefik] ou [Nginx][ingress-https-nginx].
 
 ## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Posso usar Azure Dev Spaces em um cluster que usa CNI em vez de kubenet? 
 
@@ -44,7 +61,7 @@ Atualmente, o Azure Dev Spaces destina-se a ser executado somente em pods e nós
 
 Sim, você pode usar Azure Dev Spaces em clusters AKS com [intervalos de endereços IP autorizados do servidor de API][aks-auth-range] habilitados. Mais informações sobre como usar clusters AKS com intervalos de endereços IP autorizados do servidor de API habilitados com o Azure Dev Spaces estão disponíveis [aqui](configure-networking.md#using-api-server-authorized-ip-ranges).
 
-### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Posso usar Azure Dev Spaces em clusters AKS com tráfego de saída restrito para nós de cluster?
+## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Posso usar Azure Dev Spaces em clusters AKS com tráfego de saída restrito para nós de cluster?
 
 Sim, você pode usar Azure Dev Spaces em clusters AKS com [tráfego de saída restrito para nós de cluster][aks-restrict-egress-traffic] habilitados assim que os FQDNs corretos tiverem sido permitidos. Mais informações sobre como usar clusters AKS com tráfego de saída restrito para nós de cluster habilitados com o Azure Dev Spaces estão disponíveis [aqui](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
@@ -53,8 +70,12 @@ Sim, você pode usar Azure Dev Spaces em clusters AKS com [tráfego de saída re
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
+[ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
+[ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

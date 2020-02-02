@@ -2,7 +2,7 @@
 title: Habilitar o log de diagnósticos no Gerenciador de Tráfego do Microsoft Azure
 description: Saiba como habilitar o log de diagnósticos para o perfil do Gerenciador de Tráfego e acessar os arquivos de log que são criados como resultado.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: allensu
-ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071239"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938668"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Habilitar o log de diagnósticos no Gerenciador de Tráfego do Microsoft Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como habilitar o log de diagnósticos e os dados do log de 
 
 Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gerenciador de Tráfego. Por exemplo, é possível usar os dados do log do perfil para determinar por que as investigações individuais atingiram o tempo limite em um ponto de extremidade.
 
-## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
+## <a name="enable-diagnostic-logging"></a>Habilitar o registro em log de diagnósticos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -55,7 +55,7 @@ Os logs de diagnósticos do Gerenciador de Tráfego do Azure podem fornecer info
       Assegure-se de que todas as categorias de log associadas ao recurso de perfil do Gerenciador de Tráfego sejam exibidas como habilitadas. Além disso, verifique se a conta de armazenamento está configurada corretamente.
 
 ## <a name="access-log-files"></a>Acessar arquivos de log
-1. Entre no [Portal do Azure](https://portal.azure.com). 
+1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Navegue até a conta de Armazenamento do Azure no portal.
 2. Na página de **Visão Geral** da conta de armazenamento do Azure, em **Serviços**, selecione **Blobs**.
 3. Para **Contêineres**, selecione **insights-logs-probehealthstatusevents**, navegue até o arquivo PT1H.json e clique em **Baixar** para baixar e salvar uma cópia desse arquivo de log.
@@ -72,11 +72,11 @@ A tabela a seguir inclui o esquema de logs específico para o recurso de perfil 
 |||||
 |----|----|---|---|
 |**Nome do Campo**|**Tipo de campo**|**Definição**|**Exemplo**|
-|EndpointName|Cadeia de caracteres|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|Cadeia de caracteres|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
+|EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
+|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
 |||||
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [Monitoramento do Gerenciador de Tráfego](traffic-manager-monitoring.md)
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543555"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932388"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Saiba como implantar o modelo de aprendizado de máquina como um serviço Web na
 O fluxo de trabalho é semelhante [, independentemente de onde você implanta](#target) seu modelo:
 
 1. Registre o modelo.
-1. Prepare-se para implantar. (Especifique os ativos, o uso e o destino de computação.)
+1. Prepare-se para implantar. (Especifique ativos, uso e destino de computação.)
 1. Implante o modelo no destino de computação.
 1. Teste o modelo implantado, também chamado de serviço Web.
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 - A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
-## <a name="connect-to-your-workspace"></a>Conectar-se ao workspace
+## <a name="connect-to-your-workspace"></a>Conectar-se ao seu espaço de trabalho
 
 O código a seguir mostra como se conectar a um espaço de trabalho Azure Machine Learning usando informações armazenadas em cache para o ambiente de desenvolvimento local:
 
@@ -174,12 +174,12 @@ Para obter um exemplo de E2E que mostra como usar vários modelos atrás de um �
 
 ## <a name="prepare-to-deploy"></a>Preparar-se para implantar
 
-Para implantar o modelo, você precisará dos seguintes itens:
+Para implantar o modelo, você precisa dos seguintes itens:
 
 * **Um script de entrada**. Esse script aceita solicitações, pontua as solicitações usando o modelo e retorna os resultados.
 
     > [!IMPORTANT]
-    > * O script de entrada é específico para cada modelo. Ele deve entender o formato dos dados de solicitação de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados retornados aos clientes.
+    > * O script de entrada é específico para seu modelo. Ele deve entender o formato dos dados de solicitação de entrada, o formato dos dados esperados pelo seu modelo e o formato dos dados retornados aos clientes.
     >
     >   Se os dados da solicitação estiverem em um formato que não pode ser usado pelo seu modelo, o script poderá transformá-lo em um formato aceitável. Ele também pode transformar a resposta antes de retorná-la ao cliente.
     >
@@ -187,21 +187,21 @@ Para implantar o modelo, você precisará dos seguintes itens:
     >
     >   Uma alternativa que pode funcionar para seu cenário é a [previsão de lote](how-to-use-parallel-run-step.md), que fornece acesso a armazenamentos de dados durante a pontuação.
 
-* **As dependências**, como scripts auxiliares ou pacotes Python/Conda, necessários para executar o modelo ou o script de entrada.
+* **Dependências**, como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada.
 
-* **A configuração da implantação** para o destino de computação que hospeda o modelo implantado. Essa configuração descreve coisas como os requisitos de memória e CPU necessários para executar o modelo.
+* **A configuração de implantação** para o destino de computação que hospeda o modelo implantado. Essa configuração descreve coisas como requisitos de memória e CPU necessários para executar o modelo.
 
-Esses itens são encapsulados em uma *configuração de inferência* e uma *configuração de implantação*. A configuração de inferência faz referência ao script de entrada e a outras dependências. Você define essas configurações programaticamente ao usar o SDK para executar a implantação. Você as define em arquivos JSON ao usar a CLI.
+Esses itens são encapsulados em uma *configuração de inferência* e uma *configuração de implantação*. A configuração de inferência referencia o script de entrada e outras dependências. Você define essas configurações programaticamente ao usar o SDK para executar a implantação. Você os define em arquivos JSON ao usar a CLI.
 
 ### <a id="script"></a>1. definir seu script de entrada e dependências
 
-O script de entrada recebe os dados enviados para um serviço Web implantado e os transmite ao modelo. Ele então envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.
+O script de entrada recebe dados enviados para um serviço Web implantado e os transmite para o modelo. Ele então envia de volta ao cliente a resposta retornada pelo modelo. *O script é específico para seu modelo*. Ele deve entender os dados esperados e retornados pelo modelo.
 
 O script contém duas funções que carregam e executam o modelo:
 
 * `init()`: normalmente, essa função carrega o modelo em um objeto global. Essa função é executada apenas uma vez, quando o contêiner do Docker para o serviço Web é iniciado.
 
-* `run(input_data)`: essa função usa o modelo para prever um valor com base nos dados de entrada. As entradas e saídas da execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com os dados binários brutos. Você pode transformar os dados antes de enviá-los ao modelo ou antes de retorná-los ao cliente.
+* `run(input_data)`: essa função usa o modelo para prever um valor com base nos dados de entrada. As entradas e saídas da execução normalmente usam JSON para serialização e desserialização. Você também pode trabalhar com os dados binários brutos. Você pode transformar os dados antes de enviá-los para o modelo ou antes de retorná-los para o cliente.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Localizar arquivos de modelo em seu script de entrada
 
@@ -220,17 +220,23 @@ A tabela a seguir descreve o valor de AZUREML_MODEL_DIR dependendo do número de
 | Modelo único | O caminho para a pasta que contém o modelo. |
 | Vários modelos | O caminho para a pasta que contém todos os modelos. Os modelos estão localizados por nome e versão nesta pasta (`$MODEL_NAME/$VERSION`) |
 
-Para obter o caminho para um arquivo em um modelo, combine a variável de ambiente com o nome de o arquivo que você está procurando.
-Os nomes de arquivo dos arquivos de modelo são preservados durante o registro e a implantação. 
+Durante o registro e a implantação do modelo, os modelos são colocados no caminho de AZUREML_MODEL_DIR e seus nomes de filehorários originais são preservados.
+
+Para obter o caminho para um arquivo de modelo em seu script de entrada, combine a variável de ambiente com o caminho de arquivo que você está procurando.
 
 **Exemplo de modelo único**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Exemplo de vários modelos**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -859,7 +865,7 @@ Para obter mais exemplos e projetos de exemplo, consulte estes repositórios de 
 ## <a name="download-a-model"></a>Baixar um modelo
 Se você quiser baixar seu modelo para usá-lo em seu próprio ambiente de execução, poderá fazer isso com os seguintes comandos SDK/CLI:
 
-SDK:
+SDK
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -912,7 +918,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Modelos do Scikit-learn
+### <a name="scikit-learn-models"></a>Scikit-modelos de aprendizado
 
 Não há suporte para implantação de modelo de código para todos os tipos de modelo scikit-Learn internos.
 

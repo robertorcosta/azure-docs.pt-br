@@ -1,28 +1,29 @@
 ---
-title: Atualizar o cluster HDInsight para uma versão mais recente - Azure
-description: Aprenda as diretrizes para atualizar seu cluster do Azure HDInsight para uma versão mais recente.
-author: omidm1
-ms.author: omidm
+title: Migrar cluster para uma versão mais recente
+titleSuffix: Azure HDInsight
+description: Aprenda as diretrizes para migrar seu cluster do Azure HDInsight para uma versão mais recente.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
-ms.openlocfilehash: 1a1d4a71786ebb1e68f59084086b3256a1c1ea40
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.date: 01/31/2020
+ms.openlocfilehash: 95892bba1b3152dda718a4af3c5f45072054fdae
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951149"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935497"
 ---
-# <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualizar o cluster HDInsight para uma versão mais recente
+# <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrar o cluster HDInsight para uma versão mais recente
 
-Para aproveitar os novos recursos do HDInsight, é recomendável que os clusters HDInsight sejam atualizados para a versão mais recente. Siga as diretrizes apresentadas abaixo para atualizar as versões do cluster HDInsight.
+Para aproveitar os recursos mais recentes do HDInsight, recomendamos que os clusters HDInsight sejam migrados regularmente para a versão mais recente. O HDInsight não oferece suporte a atualizações in-loco em que um cluster existente é atualizado para uma versão de componente mais recente. Você deve criar um novo cluster com o componente e a versão de plataforma desejados e, em seguida, migrar seus aplicativos para usar o novo cluster. Siga as diretrizes abaixo para migrar as versões do cluster HDInsight.
 
 > [!NOTE]  
 > Para obter mais informações sobre versões com suporte do HDInsight, consulte [Versões de componente do HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-## <a name="upgrade-tasks"></a>Tarefas de atualização
+## <a name="migration-tasks"></a>Tarefas de migração
 
 O fluxo de trabalho para atualizar o cluster HDInsight serão apresentadas a seguir.
 ![diagrama de fluxo de trabalho de atualização do HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
@@ -40,7 +41,19 @@ Depois de verificar se tudo está funcionando conforme o esperado, agende o temp
 1. Importe o backup de todos os dados transitórios.
 1. Inicie os trabalhos/continue processando usando o novo cluster.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="workload-specific-guidance"></a>Diretrizes específicas da carga de trabalho
+
+Os documentos a seguir fornecem orientação sobre como migrar cargas de trabalho específicas:
+
+* [Migrar HBase](/hbase/apache-hbase-migrate-new-version.md)
+* [Migrar Kafka](/kafka/migrate-versions.md)
+* [Migrar Hive/consulta interativa](/interactive-query/apache-hive-migrate-workloads.md)
+
+## <a name="backup-and-restore"></a>Backup e restauração
+
+Para obter mais informações sobre backup e restauração de banco de dados, consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados](../sql-database/sql-database-recovery-using-backups.md).
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Conectar-se ao HDInsight usando o SSH](hdinsight-hadoop-linux-use-ssh-unix.md)

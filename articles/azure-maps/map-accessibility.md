@@ -8,16 +8,16 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 739322feb8e844a197f2943f4ff050cacc0f2274
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911306"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933311"
 ---
 # <a name="building-an-accessible-application"></a>Criando um aplicativo acessível
 
-Versões anteriores de 20% dos usuários da Internet têm a necessidade de aplicativos Web acessíveis. Assim, é importante verificar se o aplicativo foi projetado de forma que qualquer usuário possa usá-lo facilmente. Em vez de pensar na acessibilidade como um conjunto de tarefas a serem concluídas, pense nisso como parte da experiência geral do usuário. Quanto mais acessível for seu aplicativo, mais pessoas poderão usá-lo. 
+Versões anteriores de 20% dos usuários da Internet têm a necessidade de aplicativos Web acessíveis. Assim, é importante ter certeza de que seu aplicativo foi projetado de forma que qualquer usuário possa usá-lo facilmente. Em vez de pensar na acessibilidade como um conjunto de tarefas a serem concluídas, pense nisso como parte da experiência geral do usuário. Quanto mais acessível for seu aplicativo, mais pessoas poderão usá-lo. 
 
 Quando se trata de conteúdo interativo avançado como um mapa, algumas considerações de acessibilidade comuns são:
 - Dê suporte ao leitor de tela para usuários que têm dificuldade em ver o aplicativo Web.
@@ -84,7 +84,7 @@ O mapa tem vários atalhos de teclado internos que facilitam o uso do mapa. Esse
 | Sinal de subtração, hífen (`-`) ou sublinhado de <sup>*</sup>(`_`) | Reduzir | 
 | arrastar `Shift` + mouse sobre o mapa para a área de desenho | Ampliar área |
 
-<sup>*</sup> Esses atalhos-chave geralmente compartilham a mesma chave em um teclado. Elas foram adicionadas para melhorar a experiência do usuário, de modo que não importa se o usuário usa a tecla Shift ou não para esses atalhos.
+<sup>*</sup> Esses atalhos-chave geralmente compartilham a mesma chave em um teclado. Esses atalhos foram adicionados para melhorar a experiência do usuário. Também não importa se o usuário usa a tecla Shift ou não para esses atalhos.
 
 ## <a name="screen-reader-support"></a>Suporte ao leitor de tela
 
@@ -94,9 +94,9 @@ Qualquer informação adicional é colocada no mapa de base deve ter informaçõ
 
 ## <a name="make-popups-keyboard-accessible"></a>Tornar o teclado de pop-ups acessível
 
-Um marcador ou símbolo geralmente é usado para representar um local no mapa. Informações adicionais sobre o local normalmente são exibidas em um pop-up quando o usuário interage com o marcador. Na maioria dos pop-ups de aplicativos são exibidos quando um usuário clica ou toca em um marcador, no entanto, isso requer que o usuário use um mouse ou uma tela sensível ao toque. Uma boa prática é tornar os pop-ups acessíveis ao usar um teclado. Isso pode ser feito criando um pop-up para cada ponto de dados e adicionando-o ao mapa. 
+Um marcador ou símbolo geralmente é usado para representar um local no mapa. Informações adicionais sobre o local normalmente são exibidas em um pop-up quando o usuário interage com o marcador. Na maioria dos pop-ups de aplicativos aparecem quando um usuário clica ou toca em um marcador, no entanto, esse evento requer que o usuário use um mouse ou uma tela sensível ao toque. Uma boa prática é tornar os pop-ups acessíveis ao usar um teclado. Essa funcionalidade pode ser obtida criando-se um pop-up para cada ponto de dados e adicionando-o ao mapa. 
 
-O exemplo a seguir carrega pontos de interesse no mapa usando uma camada de símbolo e adiciona um pop-up ao mapa para cada ponto de interesse. Uma referência a cada popup é armazenada nas propriedades de cada ponto de dados para que ele também possa ser recuperado para um marcador, como quando um marcador é clicado. Quando focalizado no mapa, pressionar a tecla Tab permitirá que o usuário percorra cada pop-up no mapa.
+O exemplo a seguir carrega pontos de interesse no mapa usando uma camada de símbolo e adiciona um pop-up ao mapa para cada ponto de interesse. Uma referência a cada popup é armazenada nas propriedades de cada ponto de dados. Ele também pode ser recuperado para um marcador, como quando um marcador é clicado. Quando focalizado no mapa, pressionar a tecla Tab permitirá que o usuário percorra cada pop-up no mapa.
 
 <br/>
 
@@ -106,12 +106,12 @@ O exemplo a seguir carrega pontos de interesse no mapa usando uma camada de sím
 
 ## <a name="additional-accessibility-tips"></a>Dicas adicionais de acessibilidade
 
-Aqui estão algumas dicas adicionais para tornar seu aplicativo de mapeamento na Web mais acessível.
+Aqui estão algumas dicas adicionais para tornar o aplicativo de mapeamento da Web mais acessível.
 
-- Se exibir muitos dados de ponto interativo no mapa, considere a possibilidade de reduzir a desordem e usar o clustering. 
+- Ao exibir muitos dados de ponto interativo no mapa, considere a possibilidade de reduzir a desordem e usar o clustering. 
 - Verifique se a taxa de contraste de cores entre texto/símbolos e cores de plano de fundo é 4.5:1 ou mais.
 - Mantenha suas mensagens de leitor de tela (atributos do ARIA, ALT e title) curtas, descritivas e significativas. Evite um jargão e acrônimos desnecessários.
-- Tente otimizar as mensagens enviadas para o leitor de tela para fornecer informações significativas que sejam fáceis para o usuário resumir. Por exemplo, se você quiser atualizar o leitor de tela em uma alta frequência, como quando o mapa está sendo movido, considere fazer o seguinte:
+- Tente otimizar as mensagens enviadas para o leitor de tela para fornecer informações significativas que sejam fáceis para o usuário resumir. Por exemplo, se você quiser atualizar o leitor de tela em uma alta frequência, como quando o mapa está sendo movido, considere fazer os seguintes pontos:
     - Aguarde até que o mapa termine de migrar para atualizar o leitor de tela.
     - Limite as atualizações para uma vez a cada segundos. 
     - Combine mensagens de maneira lógica. 
@@ -122,7 +122,7 @@ Aqui estão algumas dicas adicionais para tornar seu aplicativo de mapeamento na
     - Se exibir dados de polígono, um padrão, como faixas, pode ser usado como uma alternativa à cor. 
 - Algumas visualizações, como calor, camadas de bloco e camadas de imagem, não são acessíveis para usuários com deficiências visuais. Algumas considerações:
     - Faça com que o leitor de tela Descreva o que a camada está exibindo quando adicionada ao mapa. Por exemplo, se uma camada de bloco de radar de clima for exibida, faça com que o leitor de tela diga algo como "dados de radar de clima sobrepostos no mapa".
-- Limite a quantidade de funcionalidade que exige um foco do mouse. Eles ficarão inacessíveis aos usuários que estão usando um teclado ou dispositivo de toque para interagir com seu aplicativo. Observe que ainda é uma boa prática ter um estilo de foco para conteúdo interativo, como ícones clicáveis, links e botões.
+- Limite a quantidade de funcionalidade que exige um foco do mouse. Essas funcionalidades ficarão inacessíveis aos usuários que estão usando um teclado ou dispositivo de toque para interagir com o aplicativo. Observe que ainda é uma boa prática ter um estilo de foco para conteúdo interativo, como ícones clicáveis, links e botões.
 - Tente navegar pelo seu aplicativo usando o teclado. Verifique se a ordem de tabulação é lógica.
 - Se estiver criando atalhos de teclado, Tente limitá-lo para duas chaves ou menos. 
 

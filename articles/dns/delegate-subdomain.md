@@ -2,17 +2,17 @@
 title: Delegar um subdomínio-DNS do Azure
 description: Com este roteiro de aprendizagem, comece a delegar um subdomínio de DNS do Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: allensu
-ms.openlocfilehash: 462282e9674e7a253f61c96338b54174c80fb03f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: cd1443a9ca8ccf7172072078734f21d789d36194
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212383"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937427"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegar um subdomínio DNS do Azure
 
@@ -20,7 +20,7 @@ Você pode usar o portal do Azure para delegar um subdomínio de DNS. Por exempl
 
 Se você preferir, você pode delegar um subdomínio usando o [Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para delegar um subdomínio de DNS do Azure, primeiro você deve delegar seu domínio público ao DNS do Azure. Veja [Delegar um domínio ao DNS do Azure](./dns-delegate-domain-azure-dns.md) para obter instruções sobre como configurar os servidores de nome para delegação. Depois que seu domínio tiver sido delegado para a zona DNS do Azure, você poderá delegar um subdomínio.
 
@@ -68,6 +68,6 @@ Use nslookup para testar a delegação.
 2. No prompt de comando, digite `nslookup www.engineering.contoso.com.`
 3. Você deve receber uma resposta não autoritativa mostrando o endereço **10.10.10.10**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [Configurar DNS reverso para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

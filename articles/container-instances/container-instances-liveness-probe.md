@@ -2,13 +2,13 @@
 title: Configurar investigação de vida na instância de contêiner
 description: Saiba como configurar investigações de atividade para reiniciar contêineres não íntegros em Instâncias de Contêiner do Azure
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901901"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934159"
 ---
 # <a name="configure-liveness-probes"></a>Configurar investigações de atividade
 
@@ -63,41 +63,41 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Comando inicial
 
-A implantação define um comando inicial a ser executado quando o contêiner começa a ser executado pela primeira vez, definido pela propriedade `command`, que aceita uma matriz de cadeias de caracteres. Neste exemplo, ela inicia uma sessão de bash e crie um arquivo chamado `healthy` dentro do diretório `/tmp` por meio deste comando:
+A implantação inclui uma propriedade `command` que define um comando inicial que é executado quando o contêiner começa a ser executado pela primeira vez. Essa propriedade aceita uma matriz de cadeias de caracteres. Esse comando simula o contêiner entrando em um estado não íntegro.
+
+Primeiro, ele inicia uma sessão bash e cria um arquivo chamado `healthy` dentro do diretório `/tmp`. Em seguida, ele é suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entra em uma suspensão de 10 minutos:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Em seguida, ele será suspenso por 30 segundos antes de excluir o arquivo e, em seguida, entrará em uma suspensão de 10 minutos.
-
 ### <a name="liveness-command"></a>Comando de atividade
 
-Essa implantação define um `livenessProbe` que dá suporte a um comando de `exec` de tempo de vida que atua como a verificação de tempo de vida. Se a saída desse comando for um valor diferente de zero, o contêiner será interrompido e reiniciado, sinalizando que não foi possível encontrar o arquivo `healthy`. Se a o comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
+Essa implantação define um `livenessProbe` que dá suporte a um comando de `exec` de tempo de vida que atua como a verificação de tempo de vida. Se esse comando for encerrado com um valor diferente de zero, o contêiner será eliminado e reiniciado, sinalizando o arquivo de `healthy` não pôde ser encontrado. Se esse comando for encerrado com êxito com o código de saída 0, nenhuma ação será executada.
 
 A propriedade `periodSeconds` indica que o comando deve ser executado a cada cinco segundos.
 
 ## <a name="verify-liveness-output"></a>Verificar a saída da atividade
 
-Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando de atividade verificar a existência do arquivo `healthy`, o código de status retornará um zero, indicando sucesso, portanto nenhuma reinicialização será executada.
+Nos 30 primeiros segundos, o arquivo `healthy` criado pelo comando inicial existe. Quando o comando de tempo de vida verifica a existência do `healthy` arquivo, o código de status retorna 0, sinalizando com êxito, portanto, não ocorrerá nenhuma reinicialização.
 
-Depois de 30 segundos, o `cat /tmp/healthy` começará a falhar, provocando a falta de integridade e eventos de eliminação.
+Após 30 segundos, o comando `cat /tmp/healthy` começa a falhar, causando a ocorrência de eventos não íntegros e de eliminação de integridade.
 
 Esses eventos podem ser exibidos do Portal do Azure ou na CLI do Azure.
 
 ![Evento não íntegro no portal][portal-unhealthy]
 
-Ao exibir os eventos no Portal do Azure, os eventos do tipo `Unhealthy` serão acionados após a falha do comando de atividade. O evento subsequente será do tipo `Killing`, indicando a exclusão do contêiner para que a reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
+Exibindo os eventos no portal do Azure, os eventos do tipo `Unhealthy` são disparados após a falha do comando de vida. O evento subsequente é do tipo `Killing`, significando uma exclusão de contêiner para que uma reinicialização possa começar. A contagem de reinicialização para o contêiner é incrementada toda vez que esse evento ocorre.
 
-As reinicializações ocorrem in-loco, portanto, recursos como endereços IP públicos e conteúdo específico ao nó serão preservados.
+As reinicializações são concluídas no local para que os recursos como endereços IP públicos e conteúdos específicos do nó sejam preservados.
 
 ![Reinicialização de contador do portal][portal-restart]
 
-Se investigação de atividade falhar continuamente e acionar muitas reinicializações, seu contêiner inserirá uma atraso de retirada exponencial.
+Se a investigação de tempo de vida falhar continuamente e disparar muitas reinicializações, o contêiner entrará em um atraso de retirada exponencial.
 
 ## <a name="liveness-probes-and-restart-policies"></a>Políticas de investigação de atividade e reinicialização
 
-As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. Em vez disso, o grupo de contêineres seguirá a política de reinicialização do grupo de contêineres de `Never`.
+As políticas de reinicialização substituem o comportamento de reinicialização acionado pelas investigações de atividade. Por exemplo, se você definir um `restartPolicy = Never` *e* uma investigação de tempo de vida, o grupo de contêineres não será reiniciado devido a uma verificação de falha de vida. O grupo de contêineres está em conformidade com a política de reinicialização do grupo de contêineres de `Never`.
 
 ## <a name="next-steps"></a>Próximos passos
 

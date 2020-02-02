@@ -3,21 +3,21 @@ title: Medidas de Usuário Reais do Gerenciador de Tráfego do Azure
 description: Nesta introdução, saiba como o Gerenciador de tráfego do Azure Medidas de Usuário Reais funcionar.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
+ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 1cb3bd1f4a665da4422d296641b193b1e45e45a2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037945"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938444"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Visão geral das Medidas Reais de Usuário do Gerenciador de Tráfego
 
@@ -75,7 +75,7 @@ Ao usar as Medidas Reais de Usuário, você é cobrado com base no número de me
 
 * [O uso da largura de banda do Azure será aumentado quando eu usar Medidas de Usuário Reais?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como usar as [Medidas Reais de Usuário com páginas da Web](traffic-manager-create-rum-web-pages.md)
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre o [Mobile Center](https://docs.microsoft.com/mobile-center/)

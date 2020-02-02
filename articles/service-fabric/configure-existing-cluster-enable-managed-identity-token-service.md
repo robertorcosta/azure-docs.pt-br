@@ -1,28 +1,30 @@
 ---
-title: Service Fabric do Azure – configurar um cluster existente do Service Fabric do Azure para habilitar o suporte de identidade gerenciada
-description: Este artigo mostra como configurar um cluster existente do Service Fabric do Azure para habilitar o suporte para identidades gerenciadas
+title: Configurar o suporte de identidade gerenciada em um cluster existente do Service Fabric
+description: Veja como habilitar o suporte a identidades gerenciadas em um cluster existente do Azure Service Fabric
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351600"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934957"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurar um cluster existente do Service Fabric do Azure para habilitar o suporte de identidade gerenciada (versão prévia)
-Para acessar o recurso de identidade gerenciada para aplicativos Service Fabric do Azure, primeiro você deve habilitar o **serviço de token de identidade gerenciado** no cluster. Esse serviço é responsável pela autenticação de Service Fabric aplicativos usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Quando o serviço estiver habilitado, você poderá vê-lo em Service Fabric Explorer na seção **sistema** no painel esquerdo, executando sob o nome **Fabric:/System/ManagedIdentityTokenService**.
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configurar o suporte de identidade gerenciada em um cluster existente do Service Fabric (versão prévia)
+
+Para usar [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em seus aplicativos Service Fabric, primeiro habilite o *serviço de token de identidade gerenciado* no cluster. Esse serviço é responsável pela autenticação de Service Fabric aplicativos usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Quando o serviço estiver habilitado, você poderá vê-lo em Service Fabric Explorer na seção **sistema** no painel esquerdo, executando sob o nome **Fabric:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
 > O Service Fabric Runtime versão 6.5.658.9590 ou superior é necessário para habilitar o **serviço de token de identidade gerenciado**.  
-> 
+>
 > Você pode encontrar a versão Service Fabric de um cluster do portal do Azure abrindo o recurso de cluster e verificando a propriedade **versão do Service Fabric** na seção **Essentials** .
-> 
+>
 > Se o cluster estiver no modo de atualização **manual** , será necessário primeiro atualizá-lo para 6.5.658.9590 ou posterior.
 
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Habilitar o *serviço de token de identidade gerenciado* em um cluster existente
 
-## <a name="enable-the-managed-identity-token-service-in-an-existing-cluster"></a>Habilitar o serviço de token de identidade gerenciado em um cluster existente
-Para habilitar o serviço de token de identidade gerenciado em um cluster existente, você precisará iniciar uma atualização de cluster especificando duas alterações: Habilitando o serviço de token de identidade gerenciado e solicitando uma reinicialização de cada nó. Para fazer isso, adicione os dois trechos de código a seguir no modelo de Azure Resource Manager:
+Para habilitar o serviço de token de identidade gerenciado em um cluster existente, você precisará iniciar uma atualização de cluster especificando duas alterações: (1) habilitando o serviço de token de identidade gerenciada e (2) solicitando uma reinicialização de cada nó. Primeiro, adicione o seguinte trecho ao seu modelo de Azure Resource Manager de cluster:
 
 ```json
 "fabricSettings": [
