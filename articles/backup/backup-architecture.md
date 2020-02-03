@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450193"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963930"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -101,6 +101,23 @@ Executa o backup incremental |![Sim][green] |![Sim][green] |![Sim][green]
 Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][yellow]<br/><br/> Para servidores do MABS/DPM implantados apenas localmente.
 
 ![Chave de tabela](./media/backup-architecture/table-key.png)
+
+## <a name="backup-policy-essentials"></a>Conceitos básicos de política de backup do Microsoft Azure
+
+- Uma política de backup é criada por cofre.
+- Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho
+  - VM do Azure
+  - SQL na VM do Azure
+  - Compartilhamento de arquivos do Azure
+- Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
+- Uma política consiste em dois componentes
+  - Agenda: Ao fazer o backup
+  - Retenção: Por quanto tempo cada backup deverá ser mantido.
+- A programação pode ser definida como "diária" ou "semanal" com um ponto específico do tempo.
+- A retenção pode ser definida para pontos de backup "diários", "semanais", "mensais", "anuais".
+- "semanal" refere-se a um backup em um determinado dia da semana, "mensalmente" significa um backup em um determinado dia do mês e "anual" refere-se a um backup em um determinado dia do ano.
+- A retenção para pontos de backup "mensais" e "anuais" é chamada de "LongTermRetention".
+- Quando um cofre é criado, uma política para backups de VM do Azure chamada "DefaultPolicy" também é criada e pode ser usada para fazer backup de VMs do Azure.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: backup de VM do Azure interno
 

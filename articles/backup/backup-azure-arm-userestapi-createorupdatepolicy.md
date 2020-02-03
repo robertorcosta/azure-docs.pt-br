@@ -4,33 +4,18 @@ description: Neste artigo, você aprenderá a criar e gerenciar políticas de ba
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554900"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963845"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup de serviços de recuperação do Azure usando a API REST
 
 As etapas para criar uma política de backup para uma área segura do Azure Recovery Services são descritas no [documento da API REST da política](/rest/api/backup/protectionpolicies/createorupdate). Vamos usar este documento como referência para criar uma política para o backup de VM do Azure.
 
-## <a name="backup-policy-essentials"></a>Conceitos básicos de política de backup do Microsoft Azure
-
-- Uma política de backup é criada por cofre.
-- Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho
-  - VM do Azure
-  - SQL na VM do Azure
-  - Compartilhamento de arquivos do Azure
-- Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
-- Uma política consiste em dois componentes
-  - Agenda: Ao fazer o backup
-  - Retenção: Por quanto tempo cada backup deverá ser mantido.
-- A programação pode ser definida como "diária" ou "semanal" com um ponto específico do tempo.
-- A retenção pode ser definida para pontos de backup "diários", "semanais", "mensais", "anuais".
-- "semanal" refere-se a um backup em um determinado dia da semana, "mensalmente" significa um backup em um determinado dia do mês e "anual" refere-se a um backup em um determinado dia do ano.
-- A retenção para pontos de backup "mensais" e "anuais" é chamada de "LongTermRetention".
-- Quando um cofre é criado, uma política para backups de VM do Azure chamada "DefaultPolicy" também é criada e pode ser usada para fazer backup de VMs do Azure.
+## <a name="create-or-update-a-policy"></a>Criar ou atualizar uma política
 
 Para criar ou atualizar uma política do Backup do Azure, use a seguinte operação *PUT*
 
@@ -44,9 +29,9 @@ O `{policyName}` e `{vaultName}` são fornecidas no URI. Informações adicionai
 
 Por exemplo, para criar uma política para o backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|name  |obrigatórios  |Type  |Descrição  |
+|Nome  |Obrigatório  |Tipo  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
 |marcas     |         | Objeto        |  Marcações de recursos       |
 
 Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).
@@ -152,7 +137,7 @@ A criação/atualização de política de backup é um [operação assíncrona](
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|name  |Type  |Descrição  |
+|Nome  |Tipo  |Description  |
 |---------|---------|---------|
 |200 OK     |    [Proteção PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Aceito     |         |     Aceita    |

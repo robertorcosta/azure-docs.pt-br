@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152945"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963471"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métricas de plataforma Azure Monitor exportáveis por meio de configurações de diagnóstico
 
@@ -24,6 +24,19 @@ Você pode exportar as métricas de plataforma do pipeline do Azure monitor para
 2. Usar a [API REST de métricas](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
 Devido a complexidades no back-end de Azure Monitor, nem todas as métricas são exportáveis usando configurações de diagnóstico. A tabela a seguir lista os que podem e não podem ser exportados usando as configurações de diagnóstico.
+
+A tabela contém as colunas a seguir. 
+- Exportável por meio de configurações de diagnóstico? 
+- ResourceType 
+- Métrica 
+- MetricDisplayName
+- Unidade 
+- AggregationType
+
+
+> [!NOTE]
+> A tabela a seguir pode ter uma barra de rolagem horizontal na parte inferior. Se você acreditar que está sem informações, verifique se a barra de rolagem está até a esquerda.  
+
 
 Exportável por meio de configurações de diagnóstico? | ResourceType | Métrica | MetricDisplayName | Unidade | AggregationType
 |----|-----|------|----|----|-----|
@@ -384,7 +397,7 @@ Não | Microsoft. ClassicStorage/storageAccounts/blobservices | BlobCapacity | C
 Não | Microsoft. ClassicStorage/storageAccounts/blobservices | BlobCount | Contagem de Blobs | Contagem | Média
 Sim | Microsoft. ClassicStorage/storageAccounts/blobservices | ContainerCount | Contagem de Contêineres de Blobs | Contagem | Média
 Sim | Microsoft. ClassicStorage/storageAccounts/blobservices | Saída | Saída | Bytes | Total
-Não | Microsoft. ClassicStorage/storageAccounts/blobservices | IndexCapacity | Capacidade de Índice | Bytes | Média
+Não | Microsoft. ClassicStorage/storageAccounts/blobservices | IndexCapacity | Capacidade do índice | Bytes | Média
 Sim | Microsoft. ClassicStorage/storageAccounts/blobservices | Entrada | Entrada | Bytes | Total
 Sim | Microsoft. ClassicStorage/storageAccounts/blobservices | SuccessE2ELatency | Latência de E2E com Sucesso | Milissegundos | Média
 Sim | Microsoft. ClassicStorage/storageAccounts/blobservices | SuccessServerLatency | Latência de Servidor Com Sucesso | Milissegundos | Média
@@ -435,7 +448,7 @@ Sim | Microsoft.CognitiveServices/accounts | TotalTokenCalls | Total de chamadas
 Sim | Microsoft.CognitiveServices/accounts | TotalTransactions | Total de Transações | Contagem | Total
 Sim | Microsoft.Compute/virtualMachines | Créditos de CPU Consumidos | Créditos de CPU Consumidos | Contagem | Média
 Sim | Microsoft.Compute/virtualMachines | Créditos de CPU Restantes | Créditos de CPU Restantes | Contagem | Média
-Sim | Microsoft.Compute/virtualMachines | Profundidade da Fila de Disco de Dados | Profundidade da fila do disco de dados (visualização) | Contagem | Média
+Sim | Microsoft.Compute/virtualMachines | Profundidade da fila do disco de dados | Profundidade da fila do disco de dados (visualização) | Contagem | Média
 Sim | Microsoft.Compute/virtualMachines | Bytes de leitura do disco de dados/s | Bytes de Leitura do Disco de Dados/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachines | Operações de leitura de disco de dados/s | Operações de Leitura do Disco de Dados/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachines | Bytes de gravação do disco de dados/s | Bytes de Gravação do Disco de Dados/s (Visualização) | CountPerSecond | Média
@@ -444,13 +457,13 @@ Sim | Microsoft.Compute/virtualMachines | Bytes de leitura de disco | Bytes de l
 Sim | Microsoft.Compute/virtualMachines | Operações de leitura de disco/Seg | Operações de leitura de disco/Seg | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachines | Bytes de gravação de disco | Bytes de gravação de disco | Bytes | Total
 Sim | Microsoft.Compute/virtualMachines | Operações de gravação de disco/Seg | Operações de gravação de disco/Seg | CountPerSecond | Média
-Sim | Microsoft.Compute/virtualMachines | Fluxos de Entrada | Fluxos de Entrada | Contagem | Média
+Sim | Microsoft.Compute/virtualMachines | Fluxos de entrada | Fluxos de entrada | Contagem | Média
 Sim | Microsoft.Compute/virtualMachines | Taxa máxima de criação de fluxos de entrada | Taxa máxima de criação de fluxos de entrada (visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachines | Entrada na rede | Rede em faturável (preterida) | Bytes | Total
 Sim | Microsoft.Compute/virtualMachines | Total de rede | Total de rede | Bytes | Total
 Sim | Microsoft.Compute/virtualMachines | Saída da rede | Saída de rede faturável (preterida) | Bytes | Total
 Sim | Microsoft.Compute/virtualMachines | Total de saída de rede | Total de saída de rede | Bytes | Total
-Sim | Microsoft.Compute/virtualMachines | Profundidade da Fila de Disco do SO | Profundidade da fila de disco do so (visualização) | Contagem | Média
+Sim | Microsoft.Compute/virtualMachines | Profundidade da fila de disco do so | Profundidade da fila de disco do so (visualização) | Contagem | Média
 Sim | Microsoft.Compute/virtualMachines | Bytes de leitura do disco do so/s | Bytes de Leitura do Disco do SO/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachines | Operações de leitura de disco do so/s | Operações de Leitura do Disco do SO/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachines | Bytes de gravação de disco do sistema operacional/s | Bytes de Gravação do Disco do SO/s (Visualização) | CountPerSecond | Média
@@ -474,7 +487,7 @@ Sim | Microsoft.Compute/virtualMachines | Cache de disco do sistema operacional 
 Sim | Microsoft.Compute/virtualMachines | Erro de leitura do cache de disco do so premium | Erro de leitura do cache de disco do so premium (visualização) | Porcentagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Créditos de CPU Consumidos | Créditos de CPU Consumidos | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Créditos de CPU Restantes | Créditos de CPU Restantes | Contagem | Média
-Sim | Microsoft.Compute/virtualMachineScaleSets | Profundidade da Fila de Disco de Dados | Profundidade da fila do disco de dados (visualização) | Contagem | Média
+Sim | Microsoft.Compute/virtualMachineScaleSets | Profundidade da fila do disco de dados | Profundidade da fila do disco de dados (visualização) | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Bytes de leitura do disco de dados/s | Bytes de Leitura do Disco de Dados/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Operações de leitura de disco de dados/s | Operações de Leitura do Disco de Dados/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Bytes de gravação do disco de dados/s | Bytes de Gravação do Disco de Dados/s (Visualização) | CountPerSecond | Média
@@ -483,13 +496,13 @@ Sim | Microsoft.Compute/virtualMachineScaleSets | Bytes de leitura de disco | By
 Sim | Microsoft.Compute/virtualMachineScaleSets | Operações de leitura de disco/Seg | Operações de leitura de disco/Seg | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Bytes de gravação de disco | Bytes de gravação de disco | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets | Operações de gravação de disco/Seg | Operações de gravação de disco/Seg | CountPerSecond | Média
-Sim | Microsoft.Compute/virtualMachineScaleSets | Fluxos de Entrada | Fluxos de Entrada | Contagem | Média
+Sim | Microsoft.Compute/virtualMachineScaleSets | Fluxos de entrada | Fluxos de entrada | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Taxa máxima de criação de fluxos de entrada | Taxa máxima de criação de fluxos de entrada (visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Entrada na rede | Rede em faturável (preterida) | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets | Total de rede | Total de rede | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets | Saída da rede | Saída de rede faturável (preterida) | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets | Total de saída de rede | Total de saída de rede | Bytes | Total
-Sim | Microsoft.Compute/virtualMachineScaleSets | Profundidade da Fila de Disco do SO | Profundidade da fila de disco do so (visualização) | Contagem | Média
+Sim | Microsoft.Compute/virtualMachineScaleSets | Profundidade da fila de disco do so | Profundidade da fila de disco do so (visualização) | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Bytes de leitura do disco do so/s | Bytes de Leitura do Disco do SO/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Operações de leitura de disco do so/s | Operações de Leitura do Disco do SO/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets | Bytes de gravação de disco do sistema operacional/s | Bytes de Gravação do Disco do SO/s (Visualização) | CountPerSecond | Média
@@ -513,7 +526,7 @@ Sim | Microsoft.Compute/virtualMachineScaleSets | Cache de disco do sistema oper
 Sim | Microsoft.Compute/virtualMachineScaleSets | Erro de leitura do cache de disco do so premium | Erro de leitura do cache de disco do so premium (visualização) | Porcentagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Créditos de CPU Consumidos | Créditos de CPU Consumidos | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Créditos de CPU Restantes | Créditos de CPU Restantes | Contagem | Média
-Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profundidade da Fila de Disco de Dados | Profundidade da fila do disco de dados (visualização) | Contagem | Média
+Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profundidade da fila do disco de dados | Profundidade da fila do disco de dados (visualização) | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Bytes de leitura do disco de dados/s | Bytes de Leitura do Disco de Dados/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Operações de leitura de disco de dados/s | Operações de Leitura do Disco de Dados/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Bytes de gravação do disco de dados/s | Bytes de Gravação do Disco de Dados/s (Visualização) | CountPerSecond | Média
@@ -522,13 +535,13 @@ Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Bytes de leitu
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Operações de leitura de disco/Seg | Operações de leitura de disco/Seg | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Bytes de gravação de disco | Bytes de gravação de disco | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Operações de gravação de disco/Seg | Operações de gravação de disco/Seg | CountPerSecond | Média
-Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Fluxos de Entrada | Fluxos de Entrada | Contagem | Média
+Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Fluxos de entrada | Fluxos de entrada | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Taxa máxima de criação de fluxos de entrada | Taxa máxima de criação de fluxos de entrada (visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Entrada na rede | Rede em faturável (preterida) | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Total de rede | Total de rede | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Saída da rede | Saída de rede faturável (preterida) | Bytes | Total
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Total de saída de rede | Total de saída de rede | Bytes | Total
-Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profundidade da Fila de Disco do SO | Profundidade da fila de disco do so (visualização) | Contagem | Média
+Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Profundidade da fila de disco do so | Profundidade da fila de disco do so (visualização) | Contagem | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Bytes de leitura do disco do so/s | Bytes de Leitura do Disco do SO/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Operações de leitura de disco do so/s | Operações de Leitura do Disco do SO/s (Visualização) | CountPerSecond | Média
 Sim | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | Bytes de gravação de disco do sistema operacional/s | Bytes de Gravação do Disco do SO/s (Visualização) | CountPerSecond | Média
@@ -564,7 +577,7 @@ Não | Microsoft.ContainerService/managedClusters | kube_node_status_allocatable
 Não | Microsoft.ContainerService/managedClusters | kube_node_status_condition | Status para as várias condições de nó | Contagem | Média
 Não | Microsoft.ContainerService/managedClusters | kube_pod_status_phase | Número de pods por fase | Contagem | Média
 Não | Microsoft.ContainerService/managedClusters | kube_pod_status_ready | Número de compartimentos no estado Pronto | Contagem | Média
-Sim | Microsoft.DataBoxEdge/dataBoxEdgeDevices | AvailableCapacity | Capacidade Disponível | Bytes | Média
+Sim | Microsoft.DataBoxEdge/dataBoxEdgeDevices | AvailableCapacity | Capacidade disponível | Bytes | Média
 Sim | Microsoft.DataBoxEdge/dataBoxEdgeDevices | BytesUploadedToCloud | Bytes de nuvem carregados (dispositivo) | Bytes | Média
 Sim | Microsoft.DataBoxEdge/dataBoxEdgeDevices | BytesUploadedToCloudPerShare | Bytes de nuvem carregados (compartilhamento) | Bytes | Média
 Sim | Microsoft.DataBoxEdge/dataBoxEdgeDevices | CloudReadThroughput | Taxa de transferência de download da nuvem | BytesPerSecond | Média
@@ -751,8 +764,8 @@ Sim | Microsoft.DocumentDB/databaseAccounts | ReplicationLatency | Latência de 
 Não | Microsoft.DocumentDB/databaseAccounts | ServiceAvailability | Disponibilidade do serviço | Porcentagem | Média
 Sim | Microsoft.DocumentDB/databaseAccounts | TotalRequests | Total de Solicitações | Contagem | Contagem
 Sim | Microsoft.DocumentDB/databaseAccounts | TotalRequestUnits | Total de Unidades Solicitadas | Contagem | Total
-Não | Microsoft. EnterpriseKnowledgeGraph/serviços | FailureCount | Contagem de Falha | Contagem | Contagem
-Não | Microsoft. EnterpriseKnowledgeGraph/serviços | SuccessCount | Contagem Bem-sucedida | Contagem | Contagem
+Não | Microsoft. EnterpriseKnowledgeGraph/serviços | FailureCount | Contagem de falhas | Contagem | Contagem
+Não | Microsoft. EnterpriseKnowledgeGraph/serviços | SuccessCount | Contagem de êxitos | Contagem | Contagem
 Não | Microsoft. EnterpriseKnowledgeGraph/serviços | SuccessLatency | Latência de êxito | MilliSeconds | Média
 Não | Microsoft. EnterpriseKnowledgeGraph/serviços | TransactionCount | Contagem de transações | Contagem | Contagem
 Sim | Microsoft.EventGrid/domains | DeadLetteredCount | Eventos de mensagens mortas | Contagem | Total
@@ -1415,7 +1428,7 @@ Não | Microsoft.Storage/storageAccounts/blobServices | BlobCapacity | Capacidad
 Não | Microsoft.Storage/storageAccounts/blobServices | BlobCount | Contagem de Blobs | Contagem | Média
 Sim | Microsoft.Storage/storageAccounts/blobServices | ContainerCount | Contagem de Contêineres de Blobs | Contagem | Média
 Sim | Microsoft.Storage/storageAccounts/blobServices | Saída | Saída | Bytes | Total
-Não | Microsoft.Storage/storageAccounts/blobServices | IndexCapacity | Capacidade de Índice | Bytes | Média
+Não | Microsoft.Storage/storageAccounts/blobServices | IndexCapacity | Capacidade do índice | Bytes | Média
 Sim | Microsoft.Storage/storageAccounts/blobServices | Entrada | Entrada | Bytes | Total
 Sim | Microsoft.Storage/storageAccounts/blobServices | SuccessE2ELatency | Latência de E2E com Sucesso | Milissegundos | Média
 Sim | Microsoft.Storage/storageAccounts/blobServices | SuccessServerLatency | Latência de Servidor Com Sucesso | Milissegundos | Média

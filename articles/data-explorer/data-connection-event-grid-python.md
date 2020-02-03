@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 16f944146cf97666fd9866607ff436a49d5fb031
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9cf65edc3bdd5f675ba1972501139b9ecebcfafd
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667731"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964389"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Criar uma conexão de dados de grade de eventos para o Azure Data Explorer usando o Python
 
@@ -27,9 +27,9 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
-* Criar [um cluster e um banco de dados](create-cluster-database-csharp.md)
-* Criar [mapeamento de tabela e coluna](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-* Definir [políticas de banco de dados e tabela](database-table-policies-csharp.md) (opcional)
+* Criar [um cluster e um banco de dados](create-cluster-database-python.md)
+* Criar [mapeamento de tabela e coluna](python-ingest-data.md#create-a-table-on-your-cluster)
+* Definir [políticas de banco de dados e tabela](database-table-policies-python.md) (opcional)
 * Crie uma [conta de armazenamento com uma assinatura de grade de eventos](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
@@ -60,20 +60,20 @@ credentials = ServicePrincipalCredentials(
     )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
-resource_group_name = "testrg";
+resource_group_name = "testrg"
 #The cluster and database that are created as part of the Prerequisites
-cluster_name = "mykustocluster";
-database_name = "mykustodatabase";
-data_connection_name = "myeventhubconnect";
+cluster_name = "mykustocluster"
+database_name = "mykustodatabase"
+data_connection_name = "myeventhubconnect"
 #The event hub and storage account that are created as part of the Prerequisites
 event_hub_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx"
 storage_account_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Storage/storageAccounts/xxxxxx"
-consumer_group = "$Default";
-location = "Central US";
+consumer_group = "$Default"
+location = "Central US"
 #The table and column mapping that are created as part of the Prerequisites
-table_name = "StormEvents";
-mapping_rule_name = "StormEvents_CSV_Mapping";
-data_format = "csv";
+table_name = "StormEvents"
+mapping_rule_name = "StormEvents_CSV_Mapping"
+data_format = "csv"
 
 #Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
@@ -96,6 +96,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | event_hub_resource_id | *ID do recurso* | A ID de recurso do hub de eventos em que a grade de eventos está configurada para enviar eventos. |
 | storage_account_resource_id | *ID do recurso* | A ID de recurso da sua conta de armazenamento que contém os dados para ingestão. |
 | consumer_group | *$Default* | O grupo de consumidores do hub de eventos.|
-| location | *Centro dos EUA* | O local do recurso de conexão de dados.|
+| local | *Centro dos EUA* | O local do recurso de conexão de dados.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

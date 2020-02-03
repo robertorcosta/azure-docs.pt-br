@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490556"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964219"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solucionar problemas comuns no compartilhamento de dados do Azure 
 
@@ -24,53 +24,72 @@ Em alguns casos, quando um novo usuário clica em **Aceitar Convite** no convite
 
 ![Nenhum convite](media/no-invites.png)
 
-O erro acima é um problema conhecido com o serviço e está sendo tratado. Como solução alternativa, siga as etapas abaixo. 
+Isso pode ser devido aos seguintes motivos:
 
-1. No portal do Azure, navegue até **Assinaturas**
-1. Selecione a assinatura que você está usando para o Azure Data Share
-1. Clique em **Provedores de Recursos**
-1. Pesquise Microsoft.DataShare
-1. Clique em **Registrar**
+* **O serviço de compartilhamento de dados do Azure não está registrado como um provedor de recursos de nenhuma assinatura do Azure no locatário do Azure.** Você passará por esse problema se não houver nenhum recurso de compartilhamento de dados em seu locatário do Azure. Quando você cria um recurso de compartilhamento de dados do Azure, ele registra automaticamente o provedor de recursos em sua assinatura do Azure. Você também pode registrar manualmente o serviço de compartilhamento de dados seguindo estas etapas. Você precisará ter a função de colaborador do Azure para concluir essas etapas.
 
-Você precisará ter a [função de RBAC do Colaborador do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para concluir estas etapas. 
+    1. No portal do Azure, navegue até **Assinaturas**
+    1. Selecione a assinatura que você deseja usar para criar o recurso de compartilhamento de dados do Azure
+    1. Clique em **Provedores de Recursos**
+    1. Procurar **Microsoft. DataShare**
+    1. Clique em **Registrar** 
 
-Se ainda não vir um convite para compartilhamento de dados, entre em contato com seu provedor de dados e verifique se ele enviou o convite para seu endereço de email de logon do Azure, e *não* para seu alias de email. 
+    Você precisará ter a [função de RBAC do Colaborador do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) para concluir estas etapas. 
 
-> [!IMPORTANT]
-> Se você já tiver aceitado um convite do Azure Data Share e saído do serviço antes de configurar o armazenamento, siga as instruções detalhadas no guia de instruções [Configurar um mapeamento de conjunto de dados](how-to-configure-mapping.md) para saber como concluir a configuração de seu compartilhamento de dados recebido e começar a receber dados. 
+* **O convite é enviado para seu alias de email em vez de seu email de logon do Azure.** Se você registrou o serviço de compartilhamento de dados do Azure ou já criou um recurso de compartilhamento de dados no locatário do Azure, mas ainda não consegue ver o convite, talvez porque o provedor tenha inserido seu alias de email como destinatário, em vez de seu endereço de email de logon do Azure. Entre em contato com seu provedor de dados e verifique se eles enviaram o convite para seu endereço de email de logon do Azure e não seu alias de email.
 
-## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Erro ao criar ou receber um novo Data Share
+* **O convite já foi aceito.** O link no email leva você para a página de convite de compartilhamento de dados no portal do Azure, que lista apenas os convites pendentes. Se você já tiver aceitado o convite, ele não aparecerá mais na página de convite de compartilhamento de dados. Prossiga para o recurso de compartilhamento de dados que você usou para aceitar o convite no para exibir os compartilhamentos recebidos e configurar sua configuração de cluster de Data Explorer do Azure de destino.
 
-"Erro: a operação retornou um código de status inválido ' BadRequest '"
+## <a name="error-when-creating-or-receiving-a-new-share"></a>Erro ao criar ou receber um novo compartilhamento
 
-"Erro: AuthorizationFailed"
+"Falha ao adicionar conjuntos de itens"
 
-"Erro: atribuição de função à conta de armazenamento"
+"Falha ao mapear conjuntos de itens"
 
-![Erro de privilégio](media/error-write-privilege.png)
+"Não é possível conceder ao recurso de compartilhamento de dados o acesso x para y"
 
-Se você receber qualquer um dos erros acima ao criar um novo compartilhamento de dados ou receber um novo compartilhamento de dados, haverá permissões insuficientes para a conta de armazenamento. A permissão necessária é *Microsoft.Authorization/atribuições de função/gravação*, que existe na função de proprietário de armazenamento ou pode ser atribuída a uma função personalizada. Mesmo que você tenha criou a conta de armazenamento, isso NÃO o torna automaticamente o proprietário dessa conta. Siga estas etapas para permitir a si mesmo a função de proprietário da conta de armazenamento. Como alternativa, uma função personalizada pode ser criada com essa permissão à qual você pode adicionar a si próprio.  
+"Você não tem as permissões adequadas para x"
 
-1. Vá até a conta de Armazenamento no portal do Azure
-1. Selecione **Controle de Acesso (IAM)**
-1. Clique em **Adicionar**
-1. Adicione a si mesmo como proprietário.
+"Não foi possível adicionar permissões de gravação para a conta do compartilhamento de dados do Azure a um ou mais dos seus recursos selecionados"
+
+Se você receber qualquer um dos erros acima ao criar um novo compartilhamento ou mapear conjuntos de dados, isso pode ser devido a permissões insuficientes para o armazenamento do Azure Data. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter as permissões necessárias. 
+
+Você precisa de permissão de gravação para compartilhar ou receber dados de um armazenamento de dados do Azure, que normalmente existe na função colaborador. 
+
+Se esta for a primeira vez que você está compartilhando ou recebendo dados do armazenamento de dados do Azure, você também precisa da permissão *Microsoft. Authorization/role/Write* , que normalmente existe na função Owner. Mesmo que você tenha criado o recurso de armazenamento de dados do Azure, ele não o torna automaticamente o proprietário do recurso. Com a permissão adequada, o serviço de compartilhamento de dados do Azure concede automaticamente ao armazenamento de dados acesso de identidade gerenciada do recurso de compartilhamento de dados. Esse processo pode levar alguns minutos para entrar em vigor. Se você tiver uma falha devido a esse atraso, tente novamente em alguns minutos.
+
+O compartilhamento baseado em SQL requer permissões adicionais. Consulte Solucionando problemas de compartilhamento baseado em SQL para obter detalhes.
 
 ## <a name="troubleshooting-sql-based-sharing"></a>Solucionando problemas de compartilhamento baseado em SQL
 
-"Erro: os conjuntos de valores x não foram adicionados porque você não tem as permissões necessárias para compartilhar".
+"O usuário x não existe no banco de dados SQL"
 
-Se você receber esse erro ao adicionar um conjunto de dados de uma fonte baseada em SQL, talvez seja porque você não criou um usuário para o Azure data share MSI no seu SQL Server.  Para resolver esse problema, execute o seguinte script:
+Se você receber esse erro ao adicionar um conjunto de dados a partir de uma fonte baseada em SQL, talvez seja porque você não criou um usuário para a identidade gerenciada do Azure data share em seu SQL Server.  Para resolver esse problema, execute o seguinte script:
 
 ```sql
-    create user <share_acct_name> from external provider;     
-    exec sp_addrolemember db_owner, <share_acct_name>; 
+    create user "<share_acct_name>" from external provider; 
+    exec sp_addrolemember db_datareader, "<share_acct_name>";
 ```      
-Observe que o *< share_acc_name >* é o nome da sua conta de compartilhamento de dados. Se você ainda não criou uma conta de compartilhamento de dados, poderá voltar para esse pré-requisito posteriormente.         
+Se você receber esse erro ao mapear o conjunto de dados para um destino baseado em SQL, talvez seja porque você não criou um usuário para a identidade gerenciada do compartilhamento de data do Azure em seu SQL Server.  Para resolver esse problema, execute o seguinte script:
 
-Verifique se você seguiu todos os pré-requisitos listados no tutorial [compartilhar seus dados](share-your-data.md) .
+```sql
+    create user "<share_acc_name>" from external provider; 
+    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+```
+Observe que o *< share_acc_name >* é o nome do recurso de compartilhamento de dados.      
 
-## <a name="next-steps"></a>Próximas etapas
+Verifique se você seguiu todos os pré-requisitos listados no tutorial [compartilhar seus dados](share-your-data.md) e [aceitar e receber dados](subscribe-to-data-share.md) .
 
-Para saber como iniciar o compartilhamento de dados, continue com o tutorial sobre como [compartilhar seus dados](share-your-data.md).
+## <a name="snapshot-failed"></a>Falha no instantâneo
+O instantâneo pode falhar por vários motivos. Você pode encontrar uma mensagem de erro detalhada clicando na hora de início do instantâneo e no status de cada conjunto de informações. 
+
+Se a mensagem de erro estiver relacionada à permissão, verifique se o serviço de compartilhamento de dados tem a permissão necessária. Consulte [funções e requisitos](concepts-roles-permissions.md) para obter detalhes. Se esta for a primeira vez que você está fazendo um instantâneo, pode levar alguns minutos para que o recurso de compartilhamento de dados receba acesso ao armazenamento de dados do Azure. Aguarde alguns minutos e tente novamente.
+
+## <a name="next-steps"></a>Próximos passos
+
+Para saber como iniciar o compartilhamento de dados, continue com o tutorial sobre como [compartilhar seus dados](share-your-data.md). 
+
+Para saber como receber dados, continue no tutorial [aceitar e receber dados](subscribe-to-data-share.md) .
 

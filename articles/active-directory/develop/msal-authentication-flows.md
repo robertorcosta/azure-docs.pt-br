@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/30/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bf241bc15ccdcf9e7d65f277c235f1aa668fcbe0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696633"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962077"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -39,7 +39,7 @@ Este artigo descreve os diferentes fluxos de autenticação fornecidos pela MSAL
  
 Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos de autenticação com suporte na plataforma de identidade da Microsoft.  Esses fluxos podem produzir uma variedade de tokens (id_tokens, tokens de atualização, tokens de acesso), bem como códigos de autorização, e exigem tokens diferentes para fazê-los funcionar. Este gráfico fornece uma visão geral:
  
-|Fluxo | Requer | id_token | o token de acesso | token de atualização | código de autorização | 
+|Fluxo | Requisitos | id_token | o token de acesso | token de atualização | código de autorização | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Fluxo de código de autorização](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Fluxo implícito](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |

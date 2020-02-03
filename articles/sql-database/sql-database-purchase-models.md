@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/01/2020
+ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973519"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964763"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolha entre os modelos vCore e compra de DTU
 
@@ -47,9 +47,9 @@ A tabela e o gráfico a seguir comparam e contrastam os modelos de compra basead
 
 Na camada de computação provisionada, o custo de computação reflete a capacidade total de computação que é provisionada para o aplicativo.
 
-Na camada de serviço comercialmente crítico, alocamos automaticamente pelo menos três réplicas. Para refletir essa alocação adicional dos recursos de computação, o preço no modelo de compra baseado em vCore é de aproximadamente 2.7 x superior na camada de serviço comercialmente crítica do que está na camada de serviço de uso geral. Da mesma forma, o preço de armazenamento mais alto por GB na camada de serviço comercialmente crítico reflete a alta e/s e baixa latência do armazenamento SSD.
+Na camada de serviço Business Critical, alocamos automaticamente pelo menos três réplicas. Para refletir essa alocação adicional dos recursos de computação, o preço no modelo de compra baseado em vCore é de aproximadamente 2.7 x superior na camada de serviço de Comercialmente Crítico do que está na camada de serviço Uso Geral. Da mesma forma, o preço de armazenamento mais alto por GB na camada de serviço Comercialmente Crítico reflete os limites de e/s mais altos e a latência mais baixa do armazenamento SSD.
 
-O custo do armazenamento de backup é o mesmo para a camada de serviço comercialmente crítica e para a camada de serviço de uso geral, pois as duas camadas usam o armazenamento padrão.
+O custo do armazenamento de backup é o mesmo para a camada de serviço Comercialmente Crítico e a camada de serviço Uso Geral porque as duas camadas usam o armazenamento padrão para backups.
 
 ### <a name="serverless-compute-costs"></a>Custos de computação sem servidor
 
@@ -61,13 +61,13 @@ Diferentes tipos de armazenamento são cobrados de formas diferentes. Para armaz
 
 Por padrão, 7 dias de backups automatizados de seus bancos de dados são copiados para uma conta de armazenamento de BLOBs padrão do armazenamento com redundância geográfica de acesso de leitura (RA-GRS). Esse armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações, que são copiados a cada 5 minutos. O tamanho dos logs de transação depende da taxa de alteração do banco de dados. Um valor mínimo de armazenamento igual a 100 por cento do tamanho do banco de dados é fornecido sem custo adicional. O consumo adicional de armazenamento de backup é cobrado em GB por mês.
 
-Para saber mais sobre preços de armazenamento, confira a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/).
+Para obter mais informações sobre preços de armazenamento, confira a página de [preços](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 Um vCore (núcleo virtual) representa uma CPU lógica e oferece a opção de escolher entre gerações de hardware e as características físicas do hardware (por exemplo, o número de núcleos, a memória e o tamanho do armazenamento). O modelo de compra baseado em vCore oferece flexibilidade, controle, transparência de consumo de recursos individuais e uma maneira simples de traduzir os requisitos de carga de trabalho local para a nuvem. Esse modelo permite que você escolha recursos de computação, memória e armazenamento com base nas suas necessidades de carga de trabalho.
 
-No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço de [finalidade geral](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e de [negócio crítico](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bancos de dados individuais](sql-database-single-database-scale.md), [pools elásticos](sql-database-elastic-pool.md)e [instâncias gerenciadas](sql-database-managed-instance.md). Para bancos de dados individuais, você também pode escolher a [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md).
+No modelo de compra baseado em vCore, você pode escolher entre as camadas de serviço [uso geral](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [comercialmente crítico](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bancos de dados individuais](sql-database-single-database-scale.md), [pools elásticos](sql-database-elastic-pool.md)e [instâncias gerenciadas](sql-database-managed-instance.md). Para bancos de dados individuais, você também pode escolher a [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md).
 
 O modelo de compra baseado em vCore permite que você escolha independentemente os recursos de computação e armazenamento, correspondam ao desempenho local e otimize o preço. No modelo de compra baseado em vCore, você paga por:
 
@@ -83,8 +83,8 @@ Se seu banco de dados individual ou pool elástico consumir mais de 300 DTUs, a 
 
 Para converter do modelo de compra baseado em DTU para o modelo de compra baseado em vCore, selecione o tamanho da computação usando as seguintes regras de Thumb:
 
-- Cada DTUs de 100 na camada Standard exige pelo menos 1 vCore na camada de serviço de uso geral.
-- Cada DTUs de 125 na camada Premium exige pelo menos 1 vCore na camada de serviço comercialmente crítica.
+- Cada DTUs de 100 na camada Standard requer pelo menos 1 vCore na camada de serviço Uso Geral.
+- Cada DTUs de 125 na camada Premium requer pelo menos 1 vCore na camada de serviço Comercialmente Crítico.
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -125,7 +125,19 @@ Você pode adicionar eDTUs adicionais a um pool existente sem tempo de inativida
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar o número de DTUs necessárias para uma carga de trabalho
 
-Se você quiser migrar uma carga de trabalho de máquina virtual local ou SQL Server existente para o banco de dados SQL do Azure, use a [calculadora de DTU](https://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessárias. Para uma carga de trabalho existente do banco de dados SQL do Azure, use [informações de desempenho de consulta](sql-database-query-performance.md) para entender o consumo de recursos de banco de dados (DTUs) e obter informações mais aprofundadas para otimizar sua carga de trabalho. A DMV (exibição de gerenciamento dinâmico) de [resource_stats sys. dm_db_](https://msdn.microsoft.com/library/dn800981.aspx) permite que você exiba o consumo de recursos na última hora. A exibição de catálogo [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) exibe o consumo de recursos nos últimos 14 dias, mas com uma fidelidade menor de médias de cinco minutos.
+Se você quiser migrar uma carga de trabalho de máquina virtual local ou SQL Server existente para o banco de dados SQL do Azure, use a [calculadora de DTU](https://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessárias. Para uma carga de trabalho existente do banco de dados SQL do Azure, use [informações de desempenho de consulta](sql-database-query-performance.md) para entender o consumo de recursos de banco de dados (DTUs) e obter informações mais aprofundadas para otimizar sua carga de trabalho. A DMV (exibição de gerenciamento dinâmico) [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) permite que você exiba o consumo de recursos na última hora. A exibição de catálogo [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) exibe o consumo de recursos nos últimos 14 dias, mas com uma fidelidade menor de médias de cinco minutos.
+
+### <a name="determine-dtu-utilization"></a>Determinar a utilização de DTU
+
+Para determinar a porcentagem média de utilização de DTU/eDTU em relação ao limite de DTU/eDTU de um banco de dados ou de um pool elástico, use a seguinte fórmula:
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+Os valores de entrada para essa fórmula podem ser obtidos de DMVs [Sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [Sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . Em outras palavras, para determinar a porcentagem de utilização de DTU/eDTU em direção ao limite de DTU/eDTU de um banco de dados ou de um pool elástico, escolha o maior valor percentual do seguinte: `avg_cpu_percent`, `avg_data_io_percent`e `avg_log_write_percent` em um determinado momento.
+
+> [!NOTE]
+> O limite de DTU de um banco de dados é determinado pela CPU, leituras, gravações e memória disponível para o banco de dados. No entanto, como o mecanismo de banco de dados do SQL Server normalmente usa toda a memória disponível para o cache de seus armazenamentos para melhorar o desempenho, o valor de `avg_memory_usage_percent` geralmente estará próximo a 100%, independentemente da carga atual do banco de dados. Portanto, embora a memória influencie indiretamente o limite de DTU, ela não é usada na fórmula de utilização de DTU.
+>
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que se beneficiam de um pool elástico de recursos
 

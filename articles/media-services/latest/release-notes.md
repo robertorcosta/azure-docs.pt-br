@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719833"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962936"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -36,6 +36,13 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2020"></a>Janeiro de 2020
+
+### <a name="improvements-in-media-processors"></a>Melhorias nos processadores de mídia
+
+- Suporte aprimorado para fontes entrelaçadas na análise de vídeo – esse conteúdo agora é desentrelaçado corretamente antes de ser enviado aos mecanismos de inferência.
+- Ao gerar miniaturas com o modo "melhor", o codificador agora pesquisa além de 30 segundos para selecionar um quadro que não seja monodesvio.
+ 
 ## <a name="november-2019"></a>Novembro de 2019
 
 ### <a name="live-transcription-preview"></a>Visualização de transcrição ao vivo

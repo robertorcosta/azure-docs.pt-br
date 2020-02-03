@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921105"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963692"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -32,14 +32,14 @@ Na versão 2. x e versões posteriores do tempo de execução do functions, o co
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Cadeia de conexão da conta de armazenamento opcional para armazenar logs e exibi-los na guia **Monitor** do portal. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
+Cadeia de conexão da conta de armazenamento opcional para armazenar logs e exibi-los na guia **Monitor** do portal. Essa configuração só é válida para aplicativos que têm como destino a versão 1. x do tempo de execução de Azure Functions. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Para saber mais, consulte [requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
 |Chave|Valor de exemplo|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
 
-> [!TIP]
-> Para desempenho e experiência, é recomendável usar APPINSIGHTS_INSTRUMENTATIONKEY e App Insights para monitoramento, em vez de AzureWebJobsDashboard
+> [!NOTE]
+> Para obter melhor desempenho e experiência, o tempo de execução versão 2. x e versões posteriores usam APPINSIGHTS_INSTRUMENTATIONKEY e o app insights para monitoramento em vez de `AzureWebJobsDashboard`.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -79,7 +79,7 @@ Especifica o repositório ou o provedor a ser usado para armazenar chaves. Atual
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-O Azure Functions runtime usa essa cadeia de conexão da conta armazenamento para todas as funções, exceto para as funções disparadas por HTTP. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](functions-create-function-app-portal.md#storage-account-requirements).
+O Azure Functions runtime usa essa cadeia de conexão da conta armazenamento para todas as funções, exceto para as funções disparadas por HTTP. A conta de armazenamento deve ser de uso geral, com suporte para blobs, filas e tabelas. Consulte [Conta de armazenamento](functions-infrastructure-as-code.md#storage-account) e [Requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements).
 
 |Chave|Valor de exemplo|
 |---|------------|

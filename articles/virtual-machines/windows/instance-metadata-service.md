@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045895"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964644"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -542,7 +542,7 @@ O blob de assinatura é uma versão assinada do [pkcs7](https://aka.ms/pkcs7) do
 
 Os metadados de instância podem ser recuperados no Windows por meio do utilitário do Powershell`curl`:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -923,7 +923,7 @@ O objeto de disco do sistema operacional contém as seguintes informações sobr
 
 Dados    | Description
 --------|-----------------
-caching | Requisitos de cache
+colocar | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações de disco efêmeras
 diskSizeGB | Tamanho do disco em GB
@@ -938,7 +938,7 @@ A matriz de discos de dados contém uma lista de discos de dados anexados à VM.
 
 Dados    | Description
 --------|-----------------
-caching | Requisitos de cache
+colocar | Requisitos de cache
 createOption | Informações sobre como a VM foi criada
 diffDiskSettings | Configurações de disco efêmeras
 diskSizeGB | Tamanho do disco em GB
@@ -1055,7 +1055,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. Como posso obter suporte para o serviço?
    * Para obter suporte para o serviço, crie um problema de suporte no portal do Azure para a VM na qual você não consegue obter resposta de metadados após várias tentativas.
 9. Eu recebo uma solicitação com tempo limite para minha chamada ao serviço?
-   * Chamadas de metadados devem ser feitas do endereço IP principal atribuído à placa de rede da VM, além disso, caso você tenha alterado lá suas rotas devem ser uma rota para o endereço de 169.254.0.0/16 fora de sua placa de rede.
+   * As chamadas de metadados devem ser feitas a partir do endereço IP primário atribuído à placa de rede primária da VM, além do caso em que você alterou suas rotas, deve haver uma rota para o endereço 169.254.0.0/16 da placa de rede.
 10. Atualizei minhas marcas no conjunto de dimensionamento de máquinas virtuais, mas, ao contrário das VMs, elas não são exibidas nas instâncias?
     * Atualmente, para marcas de ScaleSets são exibidas apenas na VM em um reiníco/ao refazer imagem/ou uma alteração de disco na instância.
 

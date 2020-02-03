@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 15fa6b9c7b9c84cd17b67c53dd65acd54ea63910
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699216"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962111"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais do certificado de autenticação de aplicativo da plataforma de identidade da Microsoft
 
@@ -130,6 +130,6 @@ No registro do aplicativo do Azure para o aplicativo cliente:
 ## <a name="code-sample"></a>Exemplo de código
 
 > [!NOTE]
-> Você deve calcular o cabeçalho X5T usando o hash do certificado e convertê-lo em uma cadeia de caracteres base64. C# Ele seria algo semelhante ao de: `System.Convert.ToBase64String(cert.GetCertHash());`
+> Você deve calcular o cabeçalho X5T convertendo-o em uma cadeia de caracteres base 64 usando o hash do certificado. O código para executar isso no C# é: `System.Convert.ToBase64String(cert.GetCertHash());`
 
 O exemplo de código sobre [autenticação na plataforma Microsoft Identity em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) mostra como um aplicativo usa suas próprias credenciais para autenticação. Também mostra como você pode [criar um certificado autoassinado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando o comando `New-SelfSignedCertificate` Powershell. Você também pode aproveitar e usar o [scripts de criação do aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para criar os certificados, a impressão digital de computação e assim por diante.

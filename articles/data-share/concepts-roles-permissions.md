@@ -1,86 +1,97 @@
 ---
-title: Funções e requisitos para o compartilhamento de dados do Azure
-description: Saiba mais sobre as funções de controle de acesso e os requisitos para provedores de dados e consumidores de dados para compartilhar dados no compartilhamento de dados do Azure.
+title: Funções e requisitos do Azure Data Share
+description: Saiba mais sobre as permissões necessárias para compartilhar e receber dados usando o compartilhamento de dados do Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 34c73a6bd400da076c68f308a2100a0f4569bd04
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490572"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964457"
 ---
-# <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos para o compartilhamento de dados do Azure 
+# <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
 
-Este artigo descreve as funções necessárias para compartilhar dados usando o compartilhamento de dados do Azure, bem como para aceitar e receber dados usando o compartilhamento de dados do Azure. 
+Este artigo descreve as funções e as permissões necessárias para compartilhar e receber dados usando o serviço de compartilhamento de dados do Azure. 
 
 ## <a name="roles-and-requirements"></a>Requisitos e funções
 
-O compartilhamento de dados do Azure usa identidades gerenciadas para serviços do Azure (anteriormente conhecidos como MSIs) para autenticar em contas de armazenamento subjacentes para poder ler os dados a serem compartilhados por um provedor de dados, bem como receber dados compartilhados como um consumidor de dados. Como resultado, não há nenhuma troca de credenciais entre o provedor de dados e o consumidor de dados. 
+Com o serviço de compartilhamento de dados do Azure, você pode compartilhar dados sem trocar credenciais entre o provedor de dados e o consumidor. O serviço de compartilhamento de dados do Azure usa identidades gerenciadas (anteriormente conhecidas como MSIs) para autenticar no repositório de dados do Azure. 
 
-O Identidade de Serviço Gerenciada precisa receber acesso à conta de armazenamento subjacente ou ao banco de dados SQL. O serviço de compartilhamento de dados do Azure usa o Identidade de Serviço Gerenciada do recurso de compartilhamento de dados do Azure para ler e gravar dados. O usuário do compartilhamento de dados do Azure precisa da capacidade de criar uma atribuição de função para o Identidade de Serviço Gerenciada à conta de armazenamento ou ao banco de dados SQL para o qual eles estão compartilhando o e o. 
+A identidade gerenciada do recurso de compartilhamento de dados do Azure precisa receber acesso ao armazenamento de dados do Azure. O serviço de compartilhamento de dados do Azure usa essa identidade gerenciada para ler e gravar dados para compartilhamento baseado em instantâneo e para estabelecer um link simbólico para o compartilhamento in-loco. 
 
-No caso do armazenamento, a permissão para criar atribuições de função existe na função **proprietário** , na função Administrador de acesso do usuário ou em uma função personalizada com a permissão Microsoft. Authorization/Roles/Write atribuída. 
+Para compartilhar ou receber dados de um armazenamento de dados do Azure, o usuário precisa de pelo menos as permissões a seguir. Permissões adicionais são necessárias para o compartilhamento baseado em SQL.
+* Permissão para gravar no armazenamento de dados do Azure. Normalmente, essa permissão existe na função **colaborador** .
+* Permissão para criar a atribuição de função no armazenamento de dados do Azure. Normalmente, a permissão para criar atribuições de função existe na função **proprietário** , na função Administrador de acesso do usuário ou em uma função personalizada com a permissão Microsoft. Authorization/role assignments/Write atribuída. Essa permissão não será necessária se a identidade gerenciada do recurso de compartilhamento de dados já tiver acesso concedido ao armazenamento de dados do Azure. Consulte a tabela abaixo para obter a função necessária.
 
-Se você não for um proprietário da conta de armazenamento em questão e não for possível criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados do Azure por conta própria, poderá solicitar que um administrador do Azure crie uma atribuição de função em seu nome. 
-
-Veja abaixo um resumo das funções atribuídas à identidade gerenciada por recursos de compartilhamento de dados:
+Veja abaixo um resumo das funções atribuídas à identidade gerenciada do recurso de compartilhamento de dados:
 
 | |  |  |
 |---|---|---|
-|**Tipo de armazenamento**|**Provedor de Dados Store**|**Armazenamento de destino de consumidor de dados**|
-|Armazenamento do Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
+|**Tipo de repositório de dados**|**Armazenamento de dados de origem Provedor de Dados**|**Armazenamento de dados de destino de consumidor de dados**|
+|Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
 |Azure Data Lake Gen1 | Proprietário | Sem suporte
 |Azure Data Lake Gen2 | Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
-|SQL do Azure | dbo | dbo 
+|Azure SQL Server | Colaborador do banco de dados SQL | Colaborador do banco de dados SQL
+|Cluster de Data Explorer do Azure | Colaborador | Colaborador
 |
 
-### <a name="data-providers"></a>Provedores de dados 
-Para adicionar um DataSet a um compartilhamento de dados do Azure, a identidade gerenciada por recurso de compartilhamento de dados de provedores precisa ser adicionada à função de leitor de dados de blob de armazenamento. Isso é feito automaticamente pelo serviço de compartilhamento de dados do Azure, se o usuário estiver adicionando DataSets via Azure e for um proprietário da conta de armazenamento, ou for membro de uma função personalizada que tenha a permissão Microsoft. Authorization/role/Write atribuída. 
+Para o compartilhamento baseado em SQL, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Veja abaixo um resumo da permissão exigida pelo usuário do SQL.
 
-Como alternativa, o usuário pode ter um administrador do Azure para adicionar a identidade gerenciada por recurso de compartilhamento de dados à função de leitor de dados de blob de armazenamento manualmente. Criar essa atribuição de função manualmente pelo administrador deixará de ser um proprietário da conta de armazenamento ou ter uma atribuição de função personalizada. Isso se aplica aos dados que estão sendo compartilhados do armazenamento do Azure ou Azure Data Lake Gen2. 
+| |  |  |
+|---|---|---|
+|**Tipo de banco de dados SQL**|**Permissão de usuário do Provedor de Dados SQL**|**Permissão de usuário SQL de consumidor de dados**|
+|Banco de dados SQL do Azure | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|Azure Synapse Analytics (antigo SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
+|
 
-Se estiver compartilhando dados de Azure Data Lake Gen1, a atribuição de função deverá ser feita à função de proprietário. 
+
+### <a name="data-provider"></a>Provedor de dados 
+Para adicionar um conjunto de dados no Azure data share, a identidade gerenciada do recurso de compartilhamento de dados do provedor precisa receber acesso ao armazenamento de dados de origem do Azure. Por exemplo, no caso da conta de armazenamento, a identidade gerenciada do recurso de compartilhamento de dados recebe a função de leitor de dados de blob de armazenamento. 
+
+Isso é feito automaticamente pelo serviço de compartilhamento de dados do Azure quando o usuário está adicionando um conjunto por portal do Azure e o usuário tem a permissão apropriada. Por exemplo, o usuário é um proprietário do armazenamento de dados do Azure ou é um membro de uma função personalizada que tem a permissão Microsoft. Authorization/role/Write atribuída. 
+
+Como alternativa, o usuário pode ter o proprietário do armazenamento de dados do Azure adicionar a identidade gerenciada do recurso de compartilhamento de dados ao armazenamento de dados do Azure manualmente. Essa ação só precisa ser executada uma vez por recurso de compartilhamento de dados.
 
 Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados, siga as etapas abaixo:
 
-1. Navegue até a conta de armazenamento.
+1. Navegue até o armazenamento de dados do Azure.
 1. Selecione **Controle de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de função**.
-1. Em *função*, selecione *leitor de dados de blob de armazenamento*.
-1. Em *selecionar*, digite o nome da sua conta de compartilhamento de dados do Azure.
-1. Clique em *Salvar*.
+1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
+1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
+1. Clique em *Save* (Salvar).
 
-Para fontes baseadas em SQL, um usuário precisa ser criado a partir de um provedor externo no banco de dados SQL no qual os dados estão sendo compartilhados com o mesmo nome que a conta do Azure data share. Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhar seus dados](share-your-data.md) . 
+Para fontes baseadas em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhar seus dados](share-your-data.md) . 
 
-### <a name="data-consumers"></a>Consumidores de dados
-Para receber dados, a identidade gerenciada por recursos de compartilhamento de dados de consumidores de dados precisa ser adicionada à função de colaborador de dados de armazenamento de BLOB e/ou à função dbo de um banco de dados SQL, se estiver recebendo um dado em um banco de dados SQL. 
+### <a name="data-consumer"></a>Consumidor de dados
+Para receber dados, a identidade gerenciada do recurso de compartilhamento de dados do consumidor precisa receber acesso ao armazenamento de dados do Azure de destino. Por exemplo, no caso da conta de armazenamento, a identidade gerenciada do recurso de compartilhamento de dados recebe a função de colaborador de dados de blob de armazenamento. 
 
-No caso do armazenamento, isso é feito automaticamente pelo serviço de compartilhamento de dados do Azure se o usuário estiver adicionando conjuntos de dados por meio do Azure e for um proprietário da conta de armazenamento, ou for um membro de uma função personalizada que tenha a permissão Microsoft. Authorization/role/Write associada. 
+Isso é feito automaticamente pelo serviço de compartilhamento de dados do Azure se o usuário especificar um armazenamento de dados de destino via portal do Azure e o usuário tiver a permissão adequada. Por exemplo, o usuário é um proprietário do armazenamento de dados do Azure ou é um membro de uma função personalizada que tem a permissão Microsoft. Authorization/role/Write atribuída. 
 
-Como alternativa, o usuário pode ter um administrador do Azure para adicionar a identidade gerenciada por recurso de compartilhamento de dados à função de colaborador de dados de blob de armazenamento manualmente. Criar essa atribuição de função manualmente pelo administrador deixará de ser um proprietário da conta de armazenamento ou ter uma atribuição de função personalizada. Observe que isso se aplica aos dados que estão sendo compartilhados para o armazenamento do Azure ou Azure Data Lake Gen2. Não há suporte para o recebimento de dados para Azure Data Lake Gen1. 
+Como alternativa, o usuário pode ter o proprietário do armazenamento de dados do Azure adicionar a identidade gerenciada do recurso de compartilhamento de dados ao armazenamento de dados do Azure manualmente. Essa ação só precisa ser executada uma vez por recurso de compartilhamento de dados.
 
 Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados manualmente, siga as etapas abaixo:
 
-1. Navegue até a conta de armazenamento.
+1. Navegue até o armazenamento de dados do Azure.
 1. Selecione **Controle de Acesso (IAM)** .
 1. Selecione **Adicionar uma atribuição de função**.
-1. Em *função*, selecione *colaborador de dados de blob de armazenamento*. 
-1. Em *selecionar*, digite o nome da sua conta de compartilhamento de dados do Azure.
-1. Clique em *Salvar*.
+1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
+1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
+1. Clique em *Save* (Salvar).
 
-Se você estiver compartilhando dados usando nossas APIs REST, será necessário criar essas atribuições de função manualmente Adicionando a conta de compartilhamento de dados às funções apropriadas. 
+Para destino baseado em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso do Azure data share. Esse usuário precisa receber a permissão *db_datareader, db_datawriter db_ddladmin* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [aceitar e receber dados](subscribe-to-data-share.md) . 
 
-Se você estiver recebendo dados em uma fonte baseada em SQL, certifique-se de que um novo usuário seja criado a partir de um provedor externo com o mesmo nome da sua conta de compartilhamento de dados do Azure. Consulte os pré-requisitos no tutorial [aceitar e receber dados](subscribe-to-data-share.md) . 
+Se você estiver compartilhando dados usando APIs REST, precisará criar essas atribuições de função manualmente. 
 
-Para saber mais sobre como adicionar uma atribuição de função, consulte [esta documentação,](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) que descreve como adicionar uma atribuição de função a um recurso do Azure. 
+Para saber mais sobre como adicionar uma atribuição de função, consulte [esta documentação,](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). 
 
 ## <a name="resource-provider-registration"></a>Registro do provedor de recursos 
 
-Ao aceitar um convite de compartilhamento de dados do Azure, você precisará registrar manualmente o provedor de recursos Microsoft. DataShare em sua assinatura. Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. 
+Para exibir o convite de compartilhamento de dados do Azure pela primeira vez em seu locatário do Azure, talvez seja necessário registrar manualmente o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. 
 
 1. No portal do Azure, navegue até **assinaturas**.
 1. Selecione a assinatura que você está usando para o compartilhamento de dados do Azure.
@@ -88,7 +99,7 @@ Ao aceitar um convite de compartilhamento de dados do Azure, você precisará re
 1. Procure Microsoft. DataShare.
 1. Clique em **Registrar**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre as funções no Azure – [Entender as definições de função](../role-based-access-control/role-definitions.md)
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 8bbbd8248c7418b667e34389cb47bd3f6b4f06ab
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937126"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963811"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensagens de segurança do SDK
 
@@ -46,7 +46,7 @@ A central de segurança do Azure para IoT define uma mensagem de segurança usan
 - Se a mensagem estiver em conformidade com o [esquema de mensagem de segurança](https://aka.ms/iot-security-schemas)
 - Se a mensagem foi definida como uma mensagem de segurança antes de enviar
 
-Cada mensagem de segurança inclui os metadados do remetente `AgentId`, como `MessageSchemaVersion` , `AgentVersion`e uma lista de eventos de segurança.
+Cada mensagem de segurança inclui os metadados do remetente, como `AgentId`, `AgentVersion`, `MessageSchemaVersion` e uma lista de eventos de segurança.
 O esquema define as propriedades válidas e obrigatórias da mensagem de segurança, incluindo os tipos de eventos.
 
 >[!Note]
@@ -57,7 +57,7 @@ O esquema define as propriedades válidas e obrigatórias da mensagem de seguran
 
 ## <a name="valid-message-example"></a>Exemplo de mensagem válida
 
-O exemplo a seguir mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e `ProcessCreate` um evento de segurança.
+O exemplo a seguir mostra um objeto de mensagem de segurança válido. O exemplo contém os metadados da mensagem e um `ProcessCreate` evento de segurança.
 
 Uma vez definido como uma mensagem de segurança e enviado, essa mensagem será processada pela central de segurança do Azure para IoT.
 
@@ -91,7 +91,7 @@ Uma vez definido como uma mensagem de segurança e enviado, essa mensagem será 
 
 ## <a name="send-security-messages"></a>Enviar mensagens de segurança 
 
-Enviar mensagens de segurança *sem* usar a central de segurança do Azure para agente de IOT, usando o SDK do dispositivo do Azure [IOT C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), o [SDK do dispositivo IOT C# do](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)Azure, o [SDK do node. js do Azure IOT](https://github.com/Azure/azure-iot-sdk-node), o SDK [do Python do Azure IOT](https://github.com/Azure/azure-iot-sdk-python)ou o [SDK do Java do Azure IOT ](https://github.com/Azure/azure-iot-sdk-java).
+Enviar mensagens de segurança *sem* usar a central de segurança do Azure para agente de IOT usando o [SDK do dispositivo C](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)do Azure IOT, o [SDK do dispositivo IOT C# do](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)Azure, o [SDK do node. js do Azure IOT](https://github.com/Azure/azure-iot-sdk-node), o SDK [do Python do Azure IOT](https://github.com/Azure/azure-iot-sdk-python)ou o [SDK do Java do Azure IOT](https://github.com/Azure/azure-iot-sdk-java).
 
 Para enviar os dados do dispositivo de seus dispositivos para processamento pela central de segurança do Azure para IoT, use uma das APIs a seguir para marcar as mensagens para o roteamento correto para a central de segurança do Azure para o pipeline de processamento de IoT. 
 
@@ -192,14 +192,21 @@ function SendSecurityMessage(messageContent)
 
 #### <a name="python-api"></a>API de Python
 
+Para usar a API do Python, você precisa instalar o pacote [Azure-IOT-Device](https://pypi.org/project/azure-iot-device/).
+
+Ao usar a API do Python, você pode enviar a mensagem de segurança por meio do módulo ou por meio do dispositivo usando a cadeia de conexão de módulo ou dispositivo exclusivo. Ao usar o exemplo de script Python a seguir, com um dispositivo, use **IoTHubDeviceClient**e com um módulo, use **IoTHubModuleClient**. 
+
 ```python
+from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient
+from azure.iot.device import Message
+
 async def send_security_message_async(message_content):
     conn_str = os.getenv("<connection_string>")
     device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
     await device_client.connect()
     security_message = Message(message_content)
     security_message.set_as_security_message()
-    await device_client.send_d2c_message(security_message)
+    await device_client.send_message(security_message)
     await device_client.disconnect()
 ```
 
@@ -218,7 +225,7 @@ public void SendSecurityMessage(string message)
 ```
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Leia a [visão geral](overview.md) da central de segurança do Azure para serviços de IOT
 - Saiba mais sobre a [arquitetura](architecture.md) da central de segurança do Azure para IOT
 - Habilite o [serviço](quickstart-onboard-iot-hub.md)
