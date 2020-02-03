@@ -34,6 +34,8 @@
           href: how-to-install.md
         - name: Configuração do provisionamento em nuvem
           href: how-to-configure.md
+        - name: Usar logon único
+          href: how-to-sso.md
     - name: Planejar e projetar
       items:
         - name: Topologias e cenários para o provisionamento em nuvem do Azure AD Connect

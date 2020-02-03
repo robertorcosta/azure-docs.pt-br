@@ -5,7 +5,7 @@
   items:
     - name: Saiba a Malha do Service Fabric
       href: service-fabric-mesh-overview.md
-- name: Guia de início rápido
+- name: Inícios rápidos
   items:
     - name: 'Implantar Olá, Mundo'
       href: service-fabric-mesh-quickstart-deploy-container.md
@@ -71,6 +71,8 @@
       href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
     - name: Gerenciar segredos
       href: service-fabric-mesh-howto-manage-secrets.md
+    - name: Mover um aplicativo para outra região do Azure
+      href: move-across-regions.md
     - name: Localizar exemplos
       href: service-fabric-mesh-howto-find-samples.md
 - name: Referência

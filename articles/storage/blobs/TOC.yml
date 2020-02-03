@@ -73,23 +73,19 @@
           href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Otimizar escalabilidade e desempenho de aplicativo de armazenamento
           items:
-            - name: 1 – Criar uma VM e uma conta de armazenamento
+            - name: 1 - Criar uma VM e uma conta de armazenamento
               href: storage-blob-scalable-app-create-vm.md
-            - name: 2 – Carregar dados grandes em uma conta de armazenamento do Azure
+            - name: 2 - Carregar dados grandes em uma conta de armazenamento do Azure
               href: storage-blob-scalable-app-upload-files.md
             - name: 3 – Baixar dados grandes de uma conta de armazenamento do Azure
               href: storage-blob-scalable-app-download-files.md
-            - name: 4 – Verificar taxa de transferência e métricas da latência
+            - name: 4 - Verificar taxa de transferência e métricas da latência
               href: storage-blob-scalable-app-verify-metrics.md
-        - name: Hospedar um site estático
-          items:
-            - name: 1 – Criar um site estático
-              href: storage-blob-static-website-host.md
-            - name: 2 – Habilitar um domínio personalizado com SSL
-              href: storage-blob-static-website-custom-domain.md
+        - name: Alojar um site estático
+          href: storage-blob-static-website-host.md
         - name: Projetar aplicativos para alta disponibilidade
           items:
-            - name: 1 – Tornar seu aplicativo altamente disponível
+            - name: 1 - Tornar seu aplicativo altamente disponível
               href: storage-create-geo-redundant-storage.md
             - name: 2 – Simular uma falha na leitura de dados da região primária
               href: storage-simulate-failure-ragrs-account-app.md
@@ -205,7 +201,7 @@
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Exportar dados dos blobs
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Instruções
+                - name: Como fazer
                   items:
                     - name: Exibir status da unidade
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -247,17 +243,17 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Manipulação de eventos
           href: storage-blob-event-overview.md
-        - name: Feed de alterações
+        - name: Feed de alteração
           href: storage-blob-change-feed.md
         - name: Recursos do blob de páginas
           href: storage-blob-pageblob-overview.md
         - name: Sites estáticos
           href: storage-blob-static-website.md
-    - name: Instruções
+    - name: Como
       items:
         - name: Criar e gerenciar contas de armazenamento
           items:
-            - name: Criar uma conta de armazenamento para uso geral
+            - name: Criar uma conta de armazenamento de uso geral
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
               href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Criar uma conta de armazenamento de blobs de blocos
@@ -378,15 +374,17 @@
               href: storage-blob-soft-delete.md
         - name: Usar um emulador de armazenamento
           items:
-            - name: Usar o emulador de software livre do Azurite
+            - name: Usar o emulador open-source do Azurite
               href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Usar o emulador de Armazenamento do Azure
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Hospedar um site estático
-          href: storage-blob-static-website-how-to.md
-        - name: Mapear a CDN do Azure para um domínio personalizado para acesso por meio de HTTPS
-          href: storage-https-custom-domain-cdn.md
-        - name: Configurar um domínio personalizado
+        - name: Alojar um site estático
+          items:
+            - name: Alojar um site estático
+              href: storage-blob-static-website-how-to.md
+            - name: Integrar ao CDN do Azure
+              href: static-website-content-delivery-network.md
+        - name: Usar um domínio personalizado
           href: storage-custom-domain-name.md
         - name: Rotear eventos para um ponto de extremidade personalizado
           href: storage-blob-event-quickstart.md
@@ -442,7 +440,7 @@
           items:
             - name: Armazenamento de blob
               href: scalability-targets.md
-            - name: Contas de Armazenamento Standard
+            - name: Contas de armazenamento padrão
               href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Contas de armazenamento de blobs de blocos Premium
               href: scalability-targets-premium-block-blobs.md
@@ -480,7 +478,7 @@
               href: /rest/api/storageservices
             - name: Provedor de recursos de armazenamento
               href: /rest/api/storagerp
-            - name: Importação/Exportação
+            - name: Importar/Exportar
               href: /rest/api/storageimportexport
         - name: C++
           href: 'https://azure.github.io/azure-storage-cpp'
@@ -541,7 +539,7 @@
               href: 'https://azure.microsoft.com/features/storage-explorer/'
             - name: Introdução ao Gerenciador de Armazenamento
               href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Notas sobre a versão do Gerenciador de Armazenamento
+            - name: Notas de versão do Gerenciador de Armazenamento
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solucionar problemas do Gerenciador de Armazenamento
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -609,7 +607,7 @@
           href: ../common/storage-compliance-offerings.md
 - name: Armazenamento do Data Lake Gen2
   items:
-    - name: Mudar para documentação do Armazenamento do Data Lake Gen1
+    - name: Trocar para documentação do Armazenamento do Data Lake Gen1
       href: /azure/data-lake-store/
     - name: Visão geral
       items:
@@ -647,7 +645,7 @@
           href: data-lake-storage-best-practices.md
         - name: Controle de acesso (diretórios e arquivos)
           href: data-lake-storage-access-control.md
-    - name: Instruções
+    - name: Como
       items:
         - name: Criar uma conta de armazenamento para o seu Data Lake
           href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

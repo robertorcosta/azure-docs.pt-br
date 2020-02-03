@@ -888,13 +888,19 @@
             - name: Acessar o acompanhamento externamente
               href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
+        - name: Criar painéis com a API de pesquisa do MLflow
+          href: /azure/databricks/applications/mlflow/build-dashboards
+          maintainContext: true
         - name: 'Salvar, carregar e implantar modelos'
           items:
             - name: 'Visão geral de salvamento, carregamento e implantação'
               href: /azure/databricks/applications/mlflow/models
               maintainContext: true
-            - name: Exemplos de modelo do MLflow
-              href: /azure/databricks/applications/mlflow/  model-examples
+            - name: Exemplo de modelo do MLflow
+              href: /azure/databricks/applications/mlflow/model-example
+              maintainContext: true
+            - name: implantação de modelo scikit-learn no Azure
+              href: /azure/databricks/applications/mlflow/scikit-learn-model-deployment-on-azure-ml
               maintainContext: true
         - name: Reproduzir execuções com projetos do MLflow
           href: /azure/databricks/applications/mlflow/projects
@@ -1411,7 +1417,7 @@
               maintainContext: true
         - name: Python
           items:
-            - name: Criar um cluster com o Anaconda
+            - name: Criar um cluster com o Conda
               href: /azure/databricks/kb/python/anaconda-environment
               maintainContext: true
             - name: Instalar e compilar o Cython
@@ -1465,6 +1471,9 @@
           items:
             - name: Executar código C++ no Scala
               href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
+              maintainContext: true
+            - name: Falha em trabalhos JAR simultâneos do Spark
+              href: /azure/databricks/kb/scala/spark-jar-job-error
               maintainContext: true
         - name: SQL
           items:
