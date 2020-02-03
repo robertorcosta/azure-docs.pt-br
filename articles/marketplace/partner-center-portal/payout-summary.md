@@ -32,7 +32,7 @@ Se você vender ofertas no Azure Marketplace, também verá informações sobre 
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Funções e permissão para acessar o relatório de pagamento
 
-| Relatórios/páginas    | Proprietário da conta    | Gerente  | Developer | Colaborador de negócios |  Colaborador financeiro | Comerciante |
+| Relatórios/páginas    | Proprietário da conta    | Gerente  | Desenvolvedor | Colaborador de negócios |  Colaborador financeiro | Comerciante |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Relatório de aquisição (incluindo dados quase em tempo real) | Pode exibir | Pode exibir | Sem acesso | Sem acesso | Pode exibir | Sem acesso |
 | Relatório de comentários/respostas | Pode exibir e enviar comentários | Pode exibir e enviar comentários | Pode exibir e enviar comentários | Sem acesso | Sem acesso | Pode exibir e enviar comentários |
@@ -44,13 +44,13 @@ Se você vender ofertas no Azure Marketplace, também verá informações sobre 
 
 ## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>Relatório de pagamento: diferença entre Portal do Cloud Partner e o Partner Center
 
-| | Portal de Parceiros de Nuvem | Partner Center |
+| | Portal de Parceiros de Nuvem | Centro de Parceiros |
 |---------|---------|---------|
 | Links | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) e [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navegação | Relatório de pagamento fornecido no pagamento de informações | Relatório de pagamento fornecido no Partner Center – ícone de pagamento |
-| Escopo | <ul> <li>A transação por item de linha está visível para coleta em andamento, coletada e paga </li> <li>Relatório – mostra todos os itens de linha após a criação da ordem de compra, incluindo a coleta em andamento e a cobrança em andamento, bem como o status da coleta e os itens de linha que ainda não estão qualificados para serem pagos. </li> </ul> | <ul> <li>Mostra os itens de linha depois que eles são considerados ganhos qualificados.</li> <li>Os clientes pagam para a Microsoft primeiro e, em seguida, os ISVs podem ver o relatório de pagamento iniciando.</li> <li>O relatório de pagamento não mostrará a coleção em andamento e a cobrança em andamento.  </li> </ul>  |
+| Scope | <ul> <li>A transação por item de linha está visível para coleta em andamento, coletada e paga </li> <li>Relatório – mostra todos os itens de linha após a criação da ordem de compra, incluindo a coleta em andamento e a cobrança em andamento, bem como o status da coleta e os itens de linha que ainda não estão qualificados para serem pagos. </li> </ul> | <ul> <li>Mostra os itens de linha depois que eles são considerados ganhos qualificados.</li> <li>Os clientes pagam para a Microsoft primeiro e, em seguida, os ISVs podem ver o relatório de pagamento iniciando.</li> <li>O relatório de pagamento não mostrará a coleção em andamento e a cobrança em andamento.  </li> </ul>  |
 | A transação não está pronta para pagamento | Cobrança em andamento | Próximo pagamento estimado: o status do pagamento está no estado não processado.  |
-| Status do pagamento |  | Não processados <br> A conquista está qualificada para pagamento. Ele permanece nesse estado por um período de resfriamento, conforme definido no guia do programa do programa de incentivo. <br> <br> Cerimônia <br> Ordem de pagamento-revisões internas pendentes geradas antes de o pagamento ser processado. <br> <br> Enviados <br> O pagamento foi enviado ao seu banco. |
+| Status do pagamento |  | Não processados <br> A conquista está qualificada para pagamento. Ele permanece nesse estado por um período de resfriamento, conforme definido no guia do programa do programa de incentivo. <br> <br> Cerimônia <br> Ordem de pagamento-revisões internas pendentes geradas antes de o pagamento ser processado. <br> <br> Enviado: <br> O pagamento foi enviado ao seu banco. |
 
 ## <a name="customer-types"></a>Tipos de clientes
 
@@ -68,7 +68,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ## <a name="corelation-between-payout-and-usage"></a>Corelação entre pagamento e uso
 
-|Description    |    Data  | Pedidos/uso  | Máximo |
+|Descrição    |    Date  | Pedidos/uso  | Pagamento |
 |----------|----------|-----------|-------------|
 |Período de ordem   | 15 de agosto de 2019-30 de agosto de 2019 | **Pedidos de atributos de correlação** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Usage** <br> <ul> <li>CustomerId </li> <li>Nome do Cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Custo estendido estimado <br> Pagamento estimado (PC) </li> </ul> |  |
 |Prazo final (mês)   | 30 de agosto de 2019 | | |
@@ -82,12 +82,12 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Contrato Enterprise (clientes trimestrais/mensais)
 
-| Description |    Data  | Uso | Máximo |
+| Descrição |    Date  | Uso | Pagamento |
 |----------|----------|---------|-----------|
 |Período de ordem | 15 de agosto de 2019-30 de agosto de 2019 | **Pedidos de atributos de correlação** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Relatório de uso** <br> <ul> <li>CustomerId </li> <li>Nome do Cliente</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Custo estendido estimado <br> Pagamento estimado (PC) </li> </ul> | |
 |Prazo final (trimestre) | 30 de setembro de 2019 | | |
 |Data de cobrança | 15 de outubro de 2019 | | |
-|Efetue a caução de período (cartões de crédito, 30 dias) | N/D | | |
+|Efetue a caução de período (cartões de crédito, 30 dias) | n/d | | |
 |Início do período de coleta | 15 de outubro de 2019 | | |
 |Somente cartões de crédito, 30 dias | 1º de novembro de 2019 – 30 de novembro de 2019 | | |
 |Término do período de coleta (máximo, 90 dias) | 15 de janeiro de 2020 | | |
@@ -99,7 +99,7 @@ Por exemplo, se o cliente comprar usando um cartão de crédito.
 
 Essa opção fornece um download de cada item de linha de produção que você vê na página Histórico de transações, tipo de conquista, data, valor da transação associada, cliente, produto e outros detalhes transacionais aplicáveis ao programa incentivos.
 
-| Nome da coluna     | Description    |
+| Nome da coluna     | Descrição    |
 |-------------|-------------------------------|
 | ganhandoid                      | Identificador exclusivo para cada conquista                                                                                                       |
 | participante da                  | A principal identidade do parceiro ganhando sob o programa                                                                            |
@@ -131,7 +131,7 @@ Essa opção fornece um download de cada item de linha de produção que você v
 | paymentStatus            | Status do pagamento                                            |
 | paymentStatusDescription            | Descrição amigável do status de pagamento                                            |
 | customerId                     | Estará sempre em branco                                                                                                                     |
-| Customer                   | Estará sempre em branco                                                                                                                     |
+| customerName                   | Estará sempre em branco                                                                                                                     |
 | partNumber                     | Estará sempre em branco                                                                                                                     |
 | NomeDoProduto                    | Nome do produto vinculado à transação                                                                                                       |
 | productId                      | Identificador de produto exclusivo                                                                                                                |

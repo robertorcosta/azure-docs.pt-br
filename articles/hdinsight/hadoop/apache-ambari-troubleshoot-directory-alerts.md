@@ -52,7 +52,7 @@ Crie manualmente os diretórios ausentes nos nós de trabalho afetados.
 
 1. Na interface do usuário do Apache Ambari, desabilite e, em seguida, habilite o alerta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

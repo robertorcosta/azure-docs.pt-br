@@ -69,7 +69,7 @@ O processo de treinamento do modelo inclui as seguintes etapas:
 
 Fornecemos uma [ferramenta automatizada de modelagem e relatório](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling) com o TDSP que pode ser executada por meio de vários algoritmos e limpezas de parâmetros para produzir um modelo de linha de base. Ela também produz um relatório de modelagem de linha de base que fornece um resumo do desempenho de cada combinação de modelo e de parâmetro, incluindo a importância da variável. Esse processo também é iterativo, pois pode gerar mais engenharia de recursos. 
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>Artefatos
 Os artefatos produzidos neste estágio incluem:
 
    * [Conjuntos de recursos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): os recursos desenvolvidos para a modelagem estão descritos na seção **Conjuntos de recursos** do relatório **Definição de dados**. Ele contém ponteiros para o código para gerar os recursos e uma descrição de como o recurso foi gerado.
@@ -78,7 +78,7 @@ Os artefatos produzidos neste estágio incluem:
      * O modelo responde à pergunta com confiança suficiente, considerando os dados de teste? 
      * Você deve experimentar abordagens alternativas? Você deve coletar dados adicionais, realizar mais engenharia de recursos ou fazer experimentos com outros algoritmos?
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 

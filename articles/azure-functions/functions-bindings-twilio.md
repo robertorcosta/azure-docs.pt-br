@@ -327,7 +327,7 @@ Coloque a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.m
 
 A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `TwilioSms`.
 
-| propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Description|
+| propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Descrição|
 |---------|---------|---------|----------------------|
 |**tipo**|**tipo**| deve ser definido como `twilioSms`.|
 |**direction**|**direction**| deve ser definido como `out`.|
@@ -340,7 +340,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

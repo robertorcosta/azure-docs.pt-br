@@ -289,5 +289,5 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais informações sobre DMVs, consulte [exibições do sistema](./sql-data-warehouse-reference-tsql-system-views.md).

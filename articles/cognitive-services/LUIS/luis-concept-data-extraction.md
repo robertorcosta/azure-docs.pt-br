@@ -75,7 +75,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 |Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|
-|Intencional|String|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se seu aplicativo de chamada de chatbot ou LUIS tomar uma decisão com base em mais de uma pontuação de intenção, retornará todas as pontuações de intenções.
 
@@ -137,8 +137,8 @@ As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
 |Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
 |--|--|--|--|:--|
-|Intencional|String|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Intencional|String|intents[1].intent|"None"|0,0168218873|
+|Intenção|String|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Intenção|String|intents[1].intent|"None"|0,0168218873|
 
 Se você adicionar domínios predefinidos, o nome da intenção indicará o domínio, como `Utilties` ou `Communication`, assim como a intenção:
 
@@ -198,9 +198,9 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 |Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|--|
-|Serviços públicos|Intencional|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicação|Intencional|String|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intencional|String|intents[2].intent|"None"|
+|Utilidades|Intenção|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicação|Intenção|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intenção|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
@@ -540,7 +540,7 @@ As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](lui
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade **[PersonName](luis-reference-prebuilt-person.md)** predefinida ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [ funções ](luis-concept-roles.md) de First e Last Name.
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade **[PersonName](luis-reference-prebuilt-person.md)** predefinida ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) de First e Last Name.
 
 Se você usar a entidade simples, certifique-se de fornecer exemplos que usam o nome e o sobrenome em diferentes partes do expressão, em declarações de comprimentos diferentes e declarações em todas as intenções, incluindo a intenção de nenhum. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente.
 
@@ -1266,6 +1266,6 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.

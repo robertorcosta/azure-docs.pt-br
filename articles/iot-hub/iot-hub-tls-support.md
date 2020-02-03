@@ -59,7 +59,7 @@ O recurso do Hub IoT criado usando essa configuração recusará clientes de dis
 Os hubs IoT que exigem o uso de TLS 1,2 podem ser criados nas seguintes regiões:
 
 * Leste dos EUA
-* Centro-Sul dos EUA
+* Centro-Sul dos Estados Unidos
 * Oeste dos EUA 2
 
 > [!NOTE]
@@ -78,7 +78,7 @@ Os hubs IoT configurados para aceitar somente o TLS 1,2 também impedirão o uso
 
 Use os links abaixo para configurar o TLS 1,2 e as codificações permitidas nos SDKs do cliente do Hub IoT.
 
-| Idioma | Compatível com TLS 1,2 | Documentação |
+| Linguagem | Compatível com TLS 1,2 | Documentação |
 |----------|-------------------|---------------|
 | C        | Sim               | [Link](https://aka.ms/Tls_C_SDK_IoT) |
 | Python   | Sim               | [Link](https://aka.ms/Tls_Python_SDK_IoT) |

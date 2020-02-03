@@ -24,7 +24,7 @@ Este artigos aborda como explorar dados armazenados no contêiner de blob do Azu
 
 Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md)

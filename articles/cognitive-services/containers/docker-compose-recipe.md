@@ -25,7 +25,7 @@ Este artigo mostra como implantar vários contêineres de serviços cognitivas d
 
 Pode ser útil orquestrar várias imagens de contêiner em um único computador host. Neste artigo, vamos reunir os contêineres Reconhecimento de Texto e reconhecedor de formulário.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente:
 
@@ -182,7 +182,7 @@ Abra um navegador no computador host e vá para **localhost** usando a porta esp
 
 ![Contêiner do reconhecedor de formulário](media/form-recognizer-swagger-page.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Contêineres de serviços cognitivas](../cognitive-services-container-support.md)

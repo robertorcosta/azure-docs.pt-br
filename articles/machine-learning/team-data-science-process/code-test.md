@@ -54,7 +54,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
     
     ![Etapas para a criação de um projeto](./media/code-test/create_python_project_in_vs.PNG)
 
-    ![Gerenciador de Soluções](./media/code-test/solution_explorer_in_vs.PNG)
+    ![Gerenciador de soluções](./media/code-test/solution_explorer_in_vs.PNG)
 
 1. Insira o código do seu projeto no repositório de códigos do projeto do Azure DevOps: 
 
@@ -150,7 +150,7 @@ Se os alertas estiverem configurados corretamente, você receberá uma notifica�
 
 ![Notificação do Azure DevOps sobre o êxito do build](./media/code-test/vs_online_build_succeed.PNG)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Veja o [repositório de previsão de receita UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) para ver exemplos concretos de testes de unidade em cenários de ciência de dados.
 * Siga a estrutura e os exemplos anteriores do cenário de previsão de receita UCI em seus próprios projetos de ciência de dados.
 

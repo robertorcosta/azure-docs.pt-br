@@ -53,7 +53,7 @@ Todos os cabeçalhos enviados para a porta de front-end também são passados pa
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Esse é uma cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pelo Front Door. Isso é essencial para a solução de problemas, pois é usado para pesquisar logs de acesso.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Criar uma porta frontal](quickstart-create-front-door.md)
 - [Como funciona a porta frontal](front-door-routing-architecture.md)

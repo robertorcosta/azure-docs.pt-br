@@ -50,5 +50,5 @@ A matriz a seguir descreve cenários baseados nos valores das métricas de cache
 > [!IMPORTANT]
 > Se a porcentagem de acesso ao cache ou o percentual de cache usado não estiver atualizando após a reexecução da carga de trabalho, seu conjunto funcional já poderá estar residindo na memória. Somente as tabelas columnstore clusterizadas são armazenadas em cache.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais informações sobre o ajuste de desempenho de consultas geral, confira [Monitorar a execução de consulta](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution).

@@ -36,7 +36,7 @@ Para contas v2 de uso geral, o ZRS está geralmente disponível nas seguintes re
 - Leste do Japão
 - Norte da África do Sul
 - Sul do Reino Unido
-- Centro dos EUA
+- EUA Central
 - Leste dos EUA
 - Leste dos EUA 2
 - Oeste dos EUA 2

@@ -33,7 +33,7 @@ Os problemas comuns que você pode encontrar incluem:
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
@@ -171,7 +171,7 @@ Nos bastidores, a coluna de três valores é convertida em uma matriz de coluna 
 |---|---|---|---|
 |12|13|14|15|
 |120|130|140|150|
-|1200|1300|1\.400|1500|
+|1200|1300|1400|1500|
 
 No entanto, observe o que acontece quando você altera o tamanho da matriz `y`.
 

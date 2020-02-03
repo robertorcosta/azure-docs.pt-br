@@ -80,7 +80,7 @@ Esses cmdlets do PowerShell têm suporte com o SQL Data Warehouse do Azure.
 * [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 * [Suspender-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais exemplos do PowerShell, consulte:
 
 * [Criar um SQL Data Warehouse usando o PowerShell](create-data-warehouse-powershell.md)

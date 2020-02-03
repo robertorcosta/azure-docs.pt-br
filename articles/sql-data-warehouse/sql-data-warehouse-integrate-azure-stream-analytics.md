@@ -23,7 +23,7 @@ A Stream Analytics do Azure é um serviço completamente gerenciado que oferece 
 
 Neste artigo, você aprenderá a usar seu banco de dados de data warehouse como um coletor de saída para seus trabalhos de Stream Analytics.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Primeiro, realize as etapas a seguir no tutorial [Introdução ao uso do Stream Analytics do Azure](../stream-analytics/stream-analytics-real-time-fraud-detection.md) .  
 
 1. Criar uma entrada de Hub de eventos
@@ -63,7 +63,7 @@ Clique no botão de verificação para adicionar essa saída e para verificar se
 
 Quando a conexão com o banco de dados for realizada com sucesso, você verá uma notificação no Portal. Você pode clicar em testar para testar a conexão com o banco de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter uma visão geral da integração, consulte [integrar outros serviços](sql-data-warehouse-overview-integrate.md).
 Para obter mais dicas de desenvolvimento, consulte [decisões de design e técnicas de codificação para data warehouses](sql-data-warehouse-overview-develop.md).
 

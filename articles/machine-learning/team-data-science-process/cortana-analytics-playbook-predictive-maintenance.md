@@ -41,10 +41,10 @@ O conteúdo BDM não espera que o leitor tenha qualquer conhecimento de ciência
 
 ## <a name="business-case-for-predictive-maintenance"></a>Caso de negócios para manutenção preventiva
 
-As empresas exigem que os equipamentos críticos estejam operando com eficiência e utilização máximas para realizar seu retorno sobre os investimentos de capital. Esses ativos podem variar de mecanismos de aeronave, turbinas, elevadores ou resfriadores industriais, que custam milhões, até dispositivos diários como fotocopiadoras, máquinas de café ou coolers de água.
-- Por padrão, a maioria das empresas dependem da _manutenção corretiva_, onde as partes são substituídas como e quando falharem. A manutenção corretiva garante que as peças sejam usadas integralmente (portanto, sem desperdiçar a vida útil do componente), mas gera custos por tempo de inatividade, mão de obra e requisitos de manutenção não programada (fora do horário comercial ou em locais inconvenientes).
+As empresas exigem que os equipamentos críticos estejam executando com eficiência e utilização máximas para realizar seu retorno sobre os investimentos de capital. Esses ativos podem variar de mecanismos de aeronave, turbinas, elevadores ou resfriadores industriais - que custam milhões - até dispositivos diários como fotocopiadoras, máquinas de café ou coolers de água.
+- Por padrão, a maioria das empresas dependem da _manutenção corretiva_, onde as partes são substituídas como e quando falharem. A manutenção corretiva garante os usos das partes completamente (portanto, sem desperdiçar a vida útil do componente), mas custos de negócios em tempo de inatividade, serviços e requisitos de manutenção agendada (horas desativado ou locais inconvenientes).
 - No próximo nível, manutenção preventiva _prática de negócios_, onde determinam o tempo de vida útil de uma peça e realizam a manutenção ou substituem antes da falha. A manutenção preventiva evita falhas catastróficas e não programadas. Mas os altos custos do tempo de inatividade agendado, a subutilização do componente durante seu tempo de vida útil e o trabalho ainda permanecem.
-- O objetivo da _manutenção preditiva_ é otimizar o equilíbrio entre a manutenção corretiva e preventiva, habilitando a substituição de componentes _no momento_ certo. Esta abordagem substitui os componentes apenas quando estiverem perto de uma falha. Ao aumentar a vida útil do componente (comparado à manutenção preventiva) e reduzir os custos de mão de obra e manutenção não programada (pela manutenção corretiva), as empresas podem obter economias de custo e vantagens competitivas.
+- O objetivo da _manutenção preditiva_ é otimizar o equilíbrio entre a manutenção corretiva e preventiva, habilitando a substituição de componentes _no momento_ certo. Esta abordagem substitui apenas os componentes quando estiverem perto de uma falha. Ao aumentar a vida útil do componente (comparado à manutenção preventiva) e reduzindo os custos de mão de obra e manutenção agendada (pela manutenção corretiva), as empresas podem obter economias de custo e vantagens competitivas.
 
 ## <a name="business-problems-in-pdm"></a>Problemas de negócios em PdM
 As empresas enfrentam alto risco operacional devido a falhas inesperadas e têm insight limitado na causa raiz dos problemas em sistemas complexos. Algumas das perguntas importantes das empresas são:
@@ -423,7 +423,7 @@ Em contraparte, a PdM envolve _a pontuação em lote_. Para estar de acordo com 
 
 A seção final deste guia fornece uma lista de modelos de solução PdM, tutoriais e experiências implementadas no Azure. Esses aplicativos PdM podem ser implantados em uma assinatura do Azure em minutos em alguns casos. Eles podem ser usados como prova de conceito demonstrações, as áreas restritas para fazer experiências com alternativas ou aceleradores para implementações de produção real. Esses modelos estão localizados na [Galeria dde IA do Azure](https://gallery.azure.ai) ou [Azure GitHub](https://github.com/Azure). Esses exemplos diferentes serão transferidos para esse modelo de solução ao longo do tempo.
 
-| # | Title | Description |
+| # | {1&gt;Título&lt;1} | Descrição |
 |--:|:------|-------------|
 | 2 | [Modelo da Solução de Manutenção Preditiva do Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Um modelo de solução de software livre que demonstra a modelagem do Azure ML e uma infraestrutura do Azure completa capaz de dar suporte a cenários de manutenção preditiva no contexto do monitoramento remoto de IoT. |
 | 3 | [Aprendizado profundo para manutenção preditiva](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook com solução de demonstração do uso de redes LSTM (memória de prazo curto-longo) (uma classe de redes neurais recorrente) para manutenção preditiva, com um [postagem de blog sobre esse exemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
@@ -438,7 +438,7 @@ A seção final deste guia fornece uma lista de modelos de solução PdM, tutori
 
 O Microsoft Azure oferece roteiros de aprendizagem para os conceitos fundamentais por trás das técnicas de PdM, além de conteúdo e dá treinamento sobre conceitos e práticas gerais de inteligência artificial.
 
-| Recursos de treinamento  | Disponibilidade |
+| Recursos de treinamento  | Availability |
 |:-------------------|--------------|
 | [Roteiro de aprendizagem do PdM usando árvores e florestas aleatórias](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Público | 
 | [Roteiro de aprendizagem do PdM usando Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Público |

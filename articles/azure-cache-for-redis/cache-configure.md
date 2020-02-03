@@ -49,7 +49,7 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Propriedades](#properties)
     * [Bloqueios](#locks)
     * [Script de automação](#automation-script)
-* Administração
+* {1&gt;Administração&lt;1}
     * [Importar dados](#importexport)
     * [Exportar Dados](#importexport)
     * [Reboot](#reboot)
@@ -62,11 +62,11 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Nova solicitação de suporte](#new-support-request)
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 **A visão geral** fornece informações básicas sobre o cache como: nome, portas, tipo de preço e métricas de cache selecionadas.
 
-### <a name="activity-log"></a>Logs de atividades
+### <a name="activity-log"></a>Log de atividades
 
 Clique em **Log de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para obter mais informações sobre como trabalhar com logs de auditoria, confira [Operações de auditoria com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md). Para saber mais sobre como monitorar eventos do Cache do Azure para Redis, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
 
@@ -213,7 +213,7 @@ Para alterar o tamanho do cluster, use o controle deslizante ou digite um númer
 >
 
 
-### <a name="redis-data-persistence"></a>Persistência de dados Redis
+### <a name="redis-data-persistence"></a>Persistência de dados do Redis
 Clique em **persistência de dados** para habilitar, desabilitar ou configurar a persistência de dados para seu cache Premium. O Cache do Azure para Redis oferece persistência Redis usando [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Para saber mais, confira [Como configurar a persistência para um Cache do Azure para Redis Premium](cache-how-to-premium-persistence.md).
@@ -224,7 +224,7 @@ Para saber mais, confira [Como configurar a persistência para um Cache do Azure
 >
 >
 
-### <a name="schedule-updates"></a>Agendar atualizações
+### <a name="schedule-updates"></a>Agende atualizações
 A folha **Agendar atualizações** permite designar uma janela de manutenção para atualizações do servidor Redis do seu cache.
 
 > [!IMPORTANT]
@@ -232,7 +232,7 @@ A folha **Agendar atualizações** permite designar uma janela de manutenção p
 >
 >
 
-![Agendar atualizações](./media/cache-configure/redis-schedule-updates.png)
+![Agende atualizações](./media/cache-configure/redis-schedule-updates.png)
 
 Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. O horário da janela de manutenção é em UTC.
 
@@ -250,7 +250,7 @@ A folha **Replicação geográfica** fornece um mecanismo para vincular duas ins
 >
 >
 
-### <a name="virtual-network"></a>Rede virtual
+### <a name="virtual-network"></a>Rede Virtual
 A seção **Rede Virtual** permite que você defina as configurações de rede virtual para o cache. Para saber mais sobre como criar um cache premium com suporte de rede virtual e atualizar suas configurações, confira [Como configurar o suporte de Rede Virtual para um Cache do Azure para Redis Premium](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -288,7 +288,7 @@ Clique em **Script de automação** para compilar e exportar um modelo de seus r
 ## <a name="administration-settings"></a>Configurações de administração
 As configurações na seção **Administração** permitem que você execute as tarefas administrativas a seguir para seu cache.
 
-![Administração](./media/cache-configure/redis-cache-administration.png)
+![{1&gt;Administração&lt;1}](./media/cache-configure/redis-cache-administration.png)
 
 * [Importar dados](#importexport)
 * [Exportar Dados](#importexport)
@@ -307,14 +307,14 @@ A exportação permite exportar os dados armazenados no Cache do Azure para Redi
 >
 >
 
-### <a name="reboot"></a>Reinicializar
+### <a name="reboot"></a>Reboot
 A folha **Reinicializar** permite a reinicialização dos nós do cache. Essa funcionalidade de reinicialização permite que você teste seu aplicativo para garantir a resiliência caso ocorra uma falha de um nó de cache.
 
-![Reinicializar](./media/cache-configure/redis-cache-reboot.png)
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
 Se tiver um cache premium com clustering habilitado, você poderá selecionar quais fragmentos do cache serão reinicializados.
 
-![Reinicializar](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Para reinicializar um ou mais nós do cache, selecione os nós desejados e clique em **Reinicializar**. Se tiver um cache premium com clustering habilitado, selecione os fragmentos a serem reinicializados e clique em **Reinicializar**. Depois de alguns minutos, os nós selecionados são reinicializados e voltam a ficar online alguns minutos mais tarde.
 
@@ -329,7 +329,7 @@ Para reinicializar um ou mais nós do cache, selecione os nós desejados e cliqu
 A seção **Monitoramento** permite que você configure o diagnóstico e o monitoramento do Cache do Azure para Redis.
 Para saber mais sobre diagnóstico e monitoramento do Cache do Azure para Redis, confira [Como monitorar o Cache do Azure para Redis](cache-how-to-monitor.md).
 
-![Diagnóstico](./media/cache-configure/redis-cache-diagnostics.png)
+![Diagnósticos](./media/cache-configure/redis-cache-diagnostics.png)
 
 * [Métricas do Redis](#redis-metrics)
 * [Regras de alerta](#alert-rules)
@@ -342,7 +342,7 @@ Clique em **Métricas do Redis** para [exibir métricas](cache-how-to-monitor.md
 
 Clique em **Regras de alerta** para configurar alertas com base na métrica do Cache do Azure para Redis. Para obter mais informações, consulte [Alertas](cache-how-to-monitor.md#alerts).
 
-### <a name="diagnostics"></a>Diagnóstico
+### <a name="diagnostics"></a>Diagnósticos
 
 Por padrão, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e, em seguida, excluídas. Para manter suas métricas de cache por mais de 30 dias, clique em **Diagnóstico** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) usada para armazenar o diagnóstico de cache.
 
@@ -359,7 +359,7 @@ As configurações na seção **Suporte + solução de problemas** fornecem opç
 * [Integridade de recursos](#resource-health)
 * [Nova solicitação de suporte](#new-support-request)
 
-### <a name="resource-health"></a>Resource Health
+### <a name="resource-health"></a>Integridade de recursos
 **Resource Health** observa seu recurso e informa se ele está sendo executado conforme o esperado. Para saber mais sobre o serviço Azure Resource Health, confira [Visão geral do Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
@@ -386,7 +386,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 >
 >
 
-| Configuração | Valor padrão | Description |
+| Configuração | Valor padrão | Descrição |
 | --- | --- | --- |
 | `databases` |16 |O número de bancos de dados padrão é 16, mas você pode configurar um número diferente com base no tipo de preço.<sup>1</sup> O banco de dados padrão é o DB 0; você poderá selecionar um diferente por conexão usando `connection.GetDatabase(dbid)`, em que `dbid` é um número entre `0` e `databases - 1`. |
 | `maxclients` |Depende do tipo de preço<sup>2</sup> |Esse valor é o número máximo de clientes conectados permitidos ao mesmo tempo. Quando o limite é atingido o Redis fecha todas as novas conexões, retornando um erro de 'número máximo de clientes atingido'. |
@@ -394,7 +394,7 @@ Novas instâncias de Cache do Azure para Redis são configuradas com os seguinte
 | `maxmemory-samples` |3 |Para economizar memória, LRU e algoritmos TTL mínimos são algoritmos aproximados, em vez de algoritmos precisos. Por padrão, o Redis verificará três chaves e escolherá aquela que foi usada há mais tempo. |
 | `lua-time-limit` |5\.000 |Tempo máximo de execução de um script Lua em milissegundos. Se o tempo de execução máximo for atingido, o Redis registrará em log que um script ainda está em execução depois do tempo máximo permitido e começará a responder a consultas com um erro. |
 | `lua-event-limit` |500 |O tamanho máximo da fila de eventos de script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de buffer de saída do cliente podem ser usados para impor a desconexão de clientes que não estão lendo dados do servidor de forma rápida o suficiente, por algum motivo (uma razão comum é que um cliente Pub/Sub não consegue consumir mensagens de forma tão rápida quanto o editor consegue produzi-las). Para obter mais informações, confira [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>O limite para `databases` é diferente para cada tipo de preço do Cache do Azure para Redis e pode ser definido na criação do cache. Se nenhuma configuração `databases` for especificada durante a criação do cache, o padrão será 16.
@@ -504,5 +504,5 @@ Você pode mover o cache para uma nova assinatura clicando em **Mover**.
 
 Para saber mais sobre como mover os recursos de um grupo de recursos para outro, e de uma assinatura para outra, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 * Para obter mais informações sobre como trabalhar com os comandos do Redis, consulte [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)

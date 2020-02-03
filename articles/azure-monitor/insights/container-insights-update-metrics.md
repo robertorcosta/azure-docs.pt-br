@@ -20,7 +20,7 @@ Azure Monitor para contêineres está introduzindo o suporte para coletar métri
 
 As seguintes métricas são habilitadas como parte desse recurso:
 
-| Namespace da métrica | Métrica | Description |
+| Namespace da métrica | Métrica | Descrição |
 |------------------|--------|-------------|
 | insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Essas são as métricas de *nó* e incluem *host* como uma dimensão e também incluem o<br> nome do nó como valor para a dimensão do *host* . |
 | percepções. Container/pods | podCount | Essas são métricas de *Pod* e incluem as seguintes como dimensões-ControllerName, namespace kubernetes, nome, fase. |
@@ -29,7 +29,7 @@ A atualização do cluster para dar suporte a esses novos recursos pode ser exec
 
 Qualquer processo atribui a função de **Editor de métricas de monitoramento** à entidade de serviço do cluster para que os dados coletados pelo agente possam ser publicados no recurso de clusters. O monitoramento de métricas Publisher tem permissão apenas para enviar métricas por push para o recurso, ele não pode alterar nenhum estado, atualizar o recurso ou ler dados. Para obter mais informações sobre a função, consulte [monitorando métricas de função de editor](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de começar, confirme o seguinte:
 

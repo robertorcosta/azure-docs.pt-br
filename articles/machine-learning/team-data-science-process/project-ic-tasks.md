@@ -32,7 +32,7 @@ O diagrama a seguir mostra as tarefas que o projeto colaboradores individuais (c
 > [!NOTE] 
 > Este artigo usa Azure Repos e um Máquina Virtual de Ciência de Dados (DSVM) para configurar um ambiente TDSP, pois é como implementar TDSP na Microsoft. Se sua equipe usa outras plataformas de Hospedagem de código ou de desenvolvimento, as tarefas de colaborador individuais são as mesmas, mas a maneira de concluí-las pode ser diferente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial pressupõe que os seguintes recursos e permissões foram configurados por seu [gerente de grupo](group-manager-tasks.md), [líder de equipe](team-lead-tasks.md)e [líder de projeto](project-lead-tasks.md):
 
@@ -96,7 +96,7 @@ Para trabalhar com repositórios localmente e enviar por push suas alterações 
 
 Se sua equipe ou projeto tiver ativos compartilhados no armazenamento de arquivos do Azure, monte o armazenamento de arquivos em seu computador local ou DSVM. Siga as instruções em [montar o armazenamento de arquivos do Azure no computador local ou DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

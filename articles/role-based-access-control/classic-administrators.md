@@ -148,7 +148,7 @@ Siga estas etapas para exibir o Administrador da Conta.
 
     ![Captura de tela mostrando o Administrador da Conta](./media/classic-administrators/account-admin.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)

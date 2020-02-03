@@ -209,7 +209,7 @@ Abaixo está uma captura de tela das opções de backup/restauração de banco d
 
 ![Ferramenta de Importação do SQL Server][1]
 
-## <a name="resources"></a>Implante
+## <a name="resources"></a>Recursos
 [Migrar um banco de dados para o SQL Server em uma VM do Azure](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
 
 [Visão geral do SQL Server nas Máquinas Virtuais do Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)

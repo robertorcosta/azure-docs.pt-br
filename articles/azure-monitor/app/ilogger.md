@@ -500,7 +500,7 @@ Esse código é necessário apenas quando você usa um provedor de log autônomo
    }
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre:
 

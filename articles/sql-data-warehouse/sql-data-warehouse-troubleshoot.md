@@ -21,7 +21,7 @@ ms.locfileid: "76721040"
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este artigo lista perguntas de solução de problemas comuns.
 
-## <a name="connecting"></a>Connecting
+## <a name="connecting"></a>Conectando
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Falha de logon do usuário 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, erro: 18456) | Esse erro ocorre quando um usuário do AAD tenta se conectar no banco de dados mestre, mas não tem um usuário no mestre.  Para corrigir esse problema, especifique o SQL Data Warehouse que deseja conectar no momento da conexão ou adicione o usuário ao banco de dados mestre.  Confira o artigo [Visão geral de segurança](sql-data-warehouse-overview-manage-security.md) para obter mais detalhes. |
@@ -37,7 +37,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | O script manual, o uso do assistente para criação de scripts ou a conexão via SSMS são lentos, não respondem ou produzem erros | Certifique-se de que os usuários foram criados no banco de dados mestre. Nas opções de script, certifique-se também de que a edição do mecanismo está definida como "Edição do SQL Data Warehouse do Microsoft Azure" e o tipo de mecanismo é "Banco de Dados SQL do Microsoft Azure". |
 | Gerar falhas de script no SSMS                               | A geração de um script para SQL Data Warehouse falhará se a opção "gerar script para objetos dependentes" estiver definida como "true". Como alternativa, os usuários devem ir manualmente para **ferramentas-> opções-> pesquisador de objetos do SQL Server-> gerar script para opções dependentes e definir como false** |
 
-## <a name="performance"></a>Performance
+## <a name="performance"></a>Desempenho
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Solucionar problemas de desempenho da consulta                            | Caso você esteja tentando solucionar problemas de uma determinada consulta, comece com [Aprendendo a monitorar suas consultas](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
@@ -67,7 +67,7 @@ Este artigo lista perguntas de solução de problemas comuns.
 | Limitações de procedimento armazenado          | Confira [Limitações de procedimentos armazenados](../sql-data-warehouse/sql-data-warehouse-develop-stored-procedures.md#limitations) para entender algumas dessas limitações. |
 | UDFs não oferecem suporte a instruções SELECT | Esta é uma limitação atual de nossos UDFs.  Confira [CREATE FUNCTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) para ver a sintaxe para a qual damos suporte. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Para obter mais ajuda na busca de soluções para o problema, a seguir são apresentados alguns outros recursos que você pode experimentar.
 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

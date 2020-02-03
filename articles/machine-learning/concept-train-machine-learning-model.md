@@ -22,7 +22,7 @@ O Azure Machine Learning fornece várias maneiras de treinar seus modelos, desde
 
 + [SDK do Azure Machine Learning para Python](#python-sdk): o SDK do Python fornece várias maneiras de treinar modelos, cada um com recursos diferentes.
 
-    | Método de treinamento | Description |
+    | Método de treinamento | Descrição |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **maneira genérica de treinar modelos** é usar um script de treinamento e executar a configuração. A configuração de execução fornece as informações necessárias para configurar o ambiente de treinamento usado para treinar seu modelo. Você pode executar uma configuração de execução, seu script de treinamento e um destino de computação (o ambiente de treinamento) e executar um trabalho de treinamento. |
     | [Machine Learning automatizado](#automated-machine-learning) | O aprendizado de máquina automatizado permite **treinar modelos sem amplo conhecimento de programação ou ciência de dados**. Para pessoas com um plano de fundo de ciência de dados e programação, ele fornece uma maneira de economizar tempo e recursos ao automatizar a seleção de algoritmos e o ajuste de hiperparâmetro. Você não precisa se preocupar em definir uma configuração de execução ao usar o Machine Learning automatizado. |
@@ -108,6 +108,6 @@ A CLI do Machine Learning é uma extensão para o CLI do Azure. Ele fornece coma
 * [Usar a extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps no Azure](https://github.com/microsoft/MLOps)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba como [configurar ambientes de treinamento](how-to-set-up-training-targets.md).

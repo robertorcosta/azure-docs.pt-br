@@ -20,7 +20,7 @@ ms.locfileid: "76721618"
 A guia **Marketplace** da página **New Offer** permite que você forneça aos clientes em potencial informações e contratos de marketing, vendas e legais e gerencie leads gerados no mercado. Essa forma longa é dividida em quatro seções: **visão geral**, **artefatos de Marketing**, **gerenciamento de leads**, e **Legal**.
 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Nesta seção, você insere as informações gerais sobre sua oferta do Azure Marketplace.  Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
 
@@ -136,7 +136,7 @@ As an example, the following hero icon is for the Azure Container Service.
 -->
 
 
-## <a name="lead-management"></a>Gerenciamento de leads
+## <a name="lead-management"></a>Gerenciamento de clientes potenciais
 
 Esta seção permite que você configure as opções para coletar leads de clientes gerados a partir de suas ofertas do Azure Marketplace. Você pode selecionar as seguintes opções de armazenamento em uma lista suspensa.
 
@@ -159,7 +159,7 @@ Depois de publicar sua oferta, a conexão do lead é verificada e um lead de tes
 4. amp.com the tile -->
 
 
-## <a name="legal"></a>Informações Legais
+## <a name="legal"></a>Legal
 
 Esta seção permite fornecer os dois documentos legais necessários para cada oferta: Política de Privacidade e Termos de Uso.
 
@@ -171,6 +171,6 @@ Esta seção permite fornecer os dois documentos legais necessários para cada o
 |  |  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Use o [suporte](./cpp-support-tab.md) guia para fornecer suportam técnico e usuário de recursos para sua oferta.

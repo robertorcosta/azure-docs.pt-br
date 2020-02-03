@@ -111,7 +111,7 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 
 - Salesforce
 - ServiceNow
-- Workday
+- Jornada de trabalho
 - Active Directory do Azure ([atributos do Azure AD Graph API padrão](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
 - Aplicativos que dão suporte ao [SCIM 2.0](https://tools.ietf.org/html/rfc7643), onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam ser adicionados
 
@@ -316,7 +316,7 @@ A seleção dessa opção forçará efetivamente uma ressincronização de todos
 - O atributo IsSoftDeleted geralmente faz parte dos mapeamentos padrão para um aplicativo. IsSoftdeleted pode ser verdadeiro em um dos quatro cenários (o usuário está fora do escopo devido à falta de atribuição do aplicativo, o usuário está fora do escopo devido à não reunião de um filtro de escopo, o usuário foi excluído de maneira reversível no Azure AD ou a propriedade AccountEnabled está definida como false  no usuário). 
 - O serviço de provisionamento do Azure AD não dá suporte ao provisionamento de valores nulos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)
 - [Escrevendo expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)

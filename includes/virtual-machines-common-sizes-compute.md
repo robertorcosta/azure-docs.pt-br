@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines

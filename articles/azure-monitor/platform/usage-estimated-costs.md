@@ -41,7 +41,7 @@ Se você ainda não estiver usando logs de Azure Monitor, poderá usar a [calcul
 
 - Consultas e alertas de métricas  
 - Log Analytics
-- Percepções sobre o Aplicativo
+- Application Insights
 
 Em cada um deles, a calculadora de preços o ajudará a estimar os custos prováveis com base na utilização esperada.
 
@@ -58,7 +58,7 @@ O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do A
 Em seguida, para ver os custos de Azure Monitor dos últimos 30 dias, clique no bloco **custos diários** , escolha "últimos 30 dias" em datas relativas e adicione um filtro que selecione os nomes de serviço:
 
 1. Azure Monitor
-2. Percepções sobre o Aplicativo
+2. Application Insights
 3. Log Analytics
 4. Insight e Análise
 

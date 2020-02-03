@@ -711,7 +711,7 @@ Podemos plotar a distribuição de compartimentos acima em um gráfico de barras
 
 ![Saída de plotagem de gráfico de barra][3]
 
-e a
+e
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 

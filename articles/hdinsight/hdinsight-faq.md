@@ -249,7 +249,7 @@ Você pode encontrar suas configurações em **Data Lake Storage Gen1 acesso** e
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>Como calcular o uso de contas de armazenamento e contêineres de BLOB para meus clusters HDInsight?
 
-Realize um dos seguintes procedimentos:
+Siga um destes procedimentos:
 
 - [Usar o PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 

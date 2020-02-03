@@ -39,7 +39,7 @@ As etapas de configuração e o código neste artigo são para o Azure HDInsight
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 * Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
 
@@ -249,9 +249,9 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
-|        13,5 |1.0 |2,9 |1.0 |
-|        16,0 |2.0 |3.4 |1.0 |
-|        10.5 |2.0 |1.0 |1.0 |
+|        13,5 |1.0 |2.9 |1.0 |
+|        16,0 |2,0 |3.4 |1.0 |
+|        10.5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
 Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de Jupyter de visualização automática.
@@ -289,7 +289,7 @@ Você poderá criar gráficos usando o código Python quando o quadro de dados e
 
  O kernel do Spark visualiza automaticamente a saída das consultas SQL (HiveQL) depois que você executa o código. Você pode escolher entre vários tipos de visualizações:
 
-* Tabela
+* Table
 * Pizza
 * Linha
 * Área
@@ -535,7 +535,7 @@ Este é o código para essas duas tarefas.
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
 Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
 
-* Um **modelo de regressão logística`LogisticRegression()` usando a função**  do ML do Spark
+* Um **modelo de regressão logística** usando a função `LogisticRegression()` do ML do Spark
 * Um **modelo de classificação de floresta aleatória** usando a função `RandomForestClassifier()` da AM do Spark
 * Um **modelo de classificação de árvore de aumento gradiente** usando a função `GradientBoostedTrees()` da MLlib
 

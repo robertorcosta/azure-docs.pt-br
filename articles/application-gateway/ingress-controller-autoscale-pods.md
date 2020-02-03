@@ -121,5 +121,5 @@ Teste sua configuração usando uma ferramenta de teste de carga como o Apache b
 ab -n10000 http://<applicaiton-gateway-ip-address>/
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - [**Solucionar**](ingress-controller-troubleshoot.md)problemas do controlador de entrada: solucionar problemas com o controlador de entrada.

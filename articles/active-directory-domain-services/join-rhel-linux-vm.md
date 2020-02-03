@@ -24,7 +24,7 @@ Para permitir que os usuários entrem em máquinas virtuais (VMs) no Azure usand
 
 Este artigo mostra como unir uma VM Red Hat Enterprise Linux (RHEL) a um domínio gerenciado do Azure AD DS.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
@@ -314,7 +314,7 @@ Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azur
     sudo yum update
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você tiver problemas para conectar a VM ao domínio gerenciado AD DS do Azure ou entrar com uma conta de domínio, consulte [Solucionando problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-domain-join-issues).
 

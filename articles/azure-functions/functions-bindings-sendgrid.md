@@ -36,7 +36,7 @@ As associações SendGrid são fornecidas no Pacote NuGet [Microsoft.Azure.WebJo
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de fila do Barramento de Serviço e uma associação de saída de SendGrid.
 
-### <a name="synchronous"></a>Síncrona
+### <a name="synchronous"></a>Synchronous
 
 ```cs
 [FunctionName("SendEmail")]
@@ -346,11 +346,11 @@ A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-libr
 
 A tabela a seguir lista as propriedades de configuração de associação disponíveis no arquivo *Function. JSON* e o atributo/anotação `SendGrid`.
 
-| Propriedade *Function. JSON* | Propriedade de atributo/anotação | Description | Opcional |
+| Propriedade *Function. JSON* | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| type |N/D| Deve ser definido como `sendGrid`.| Não |
-| direction |N/D| Deve ser definido como `out`.| Não |
-| name |N/D| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | Não |
+| type |n/d| Deve ser definido como `sendGrid`.| Não |
+| direction |n/d| Deve ser definido como `out`.| Não |
+| {1&gt;name&lt;1} |n/d| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | Não |
 | apiKey | ApiKey | O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será *AzureWebJobsSendGridApiKey*.| Não |
 | para| Para | O endereço de email do destinatário. | Sim |
 | de| De | O endereço de email do remetente. |  Sim |
@@ -381,12 +381,12 @@ Esta seção descreve as definições de configuração global disponíveis para
 }
 ```  
 
-|Propriedade  |Padrão | Description |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|de|N/D|Endereço de email do remetente em todas as funções.| 
+|de|n/d|Endereço de email do remetente em todas as funções.| 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

@@ -302,7 +302,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 | 0.9.1-prelease |19 de dezembro de 2014 |29 de fevereiro de 2016 |
 | 0.9.0-prelease |10 de dezembro de 2014 |29 de fevereiro de 2016 |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Perguntas frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também

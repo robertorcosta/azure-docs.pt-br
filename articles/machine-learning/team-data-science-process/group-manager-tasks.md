@@ -254,7 +254,7 @@ Para configurar permissões para membros:
    
    ![Conceder permissões a membros](./media/group-manager-tasks/grant-permissions.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas no processo de ciência de dados de equipe:
 

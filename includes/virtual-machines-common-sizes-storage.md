@@ -1,6 +1,6 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
+title: Arquivo de inclusão
+description: Arquivo de inclusão
 services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
@@ -17,7 +17,7 @@ ms.locfileid: "76748799"
 ---
 Os tamanhos de VM otimizados para armazenamento oferecem taxa de transferência de disco alta e de E/S e são ideais para bancos de dados Big Data, SQL, NoSQL, armazenamento de dados e grandes dados transacionais.  Exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento local e largura de banda de rede para cada tamanho otimizado.
 
-A série Lsv2 apresenta alta taxa de transferência, baixa latência, armazenamento NVMe no processador [AMD EPYC &trade; 7551](https://www.amd.com/en/products/epyc-7000-series) com um aumento core de 2,55 GHz e aumento máximo de 3,0 GHz. As VMs da série Lsv2 têm tamanhos de 8 a 80 vCPUs em uma configuração simultânea de vários threads.  Há 8 GiB de memória por vCPU e um dispositivo NVMe SSD M.2 de 1,92 TB por 8 vCPUs, com até 19,2 TB (10x1,92TB) disponíveis no L80s v2.
+A série Lsv2 apresenta alta taxa de transferência, baixa latência, armazenamento NVMe no processador [AMD EPYC &trade; 7551](https://www.amd.com/en/products/epyc-7000-series) com um aumento core de 2,55 GHz e aumento máximo de 3,0 GHz. As VMs da série Lsv2 vêm em tamanhos de 8 para vCPU 80 em uma configuração de vários thread simultânea.  Há 8 GiB de memória por vCPU e um dispositivo de NVMe SSD M.2 de 1,92 TB por 8 vCPUs, com até 19,2 TB (10x1.92TB) disponível no L80s v2.
 
 > [!NOTE]
 > As VMs da série Lsv2 são otimizadas para usar o disco local no nó anexado diretamente à VM em vez de usar discos de dados duráveis. Isso permite maior IOPs / taxa de transferência para suas cargas de trabalho. A Lsv2 e a série ls não dão suporte à criação de um cache local para aumentar o IOPs atingível por discos de dados duráveis.

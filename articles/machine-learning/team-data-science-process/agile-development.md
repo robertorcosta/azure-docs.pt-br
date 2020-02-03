@@ -152,7 +152,7 @@ Os cientistas de dados podem se sentir mais confortáveis usando um modelo ágil
    1. Em **nome**, substitua **Epic** por *projetos TDSP*. 
    1. Em **tipos de item de trabalho neste nível de registro posterior**, selecione **novo tipo de item de trabalho**, insira *projeto TDSP*e selecione **Adicionar**. 
    1. Em **tipo de item de trabalho padrão**, menu suspenso e selecione **projeto TDSP**. 
-   1. Clique em **Salvar**.
+   1. Selecione **Salvar**.
    
    ![Definir nível de pendência de portfólio](./media/agile-development/13-rename.png)  
    
@@ -208,7 +208,7 @@ Aqui está um exemplo de como os itens de trabalho do projeto de ciência de dad
 ![18](./media/agile-development/18-workitems1.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 A [codificação colaborativa com o Git](collaborative-coding-with-git.md) descreve como fazer o desenvolvimento de código colaborativo para projetos de ciência de dados usando o Git como a estrutura de desenvolvimento de código compartilhado e como vincular essas atividades de codificação ao trabalho planejado com o processo ágil.
 

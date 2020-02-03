@@ -54,8 +54,8 @@ Seus dados são locais ou ficam na nuvem? Os possíveis locais incluem:
 
 Onde seus dados precisam estar para processamento ou modelagem? 
 
-* Armazenamento de Blobs do Azure
-* Bancos de dados do SQL Azure
+* Armazenamento do Blobs do Azure
+* Bancos de dados SQL Azure
 * SQL Server na VM do Azure
 * Tabelas do HDInsight (Hadoop no Azure) ou do Hive
 * Azure Machine Learning
@@ -158,7 +158,7 @@ Há muitas opções para ferramentas, ambientes de desenvolvimento e linguagens.
 
 Depois de responder às perguntas na seção anterior, você está pronto para determinar qual cenário melhor se adapta a seu caso. Os cenários de exemplo são descritos em [Cenários para análise avançada no Azure Machine Learning](plan-sample-scenarios.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [O que é o TDSP (Processo de Ciência de Dados de Equipe)?](overview.md)

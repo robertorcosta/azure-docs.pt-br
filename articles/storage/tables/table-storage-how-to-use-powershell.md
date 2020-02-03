@@ -146,7 +146,7 @@ Se você criou um novo grupo de recursos e uma conta de armazenamento no início
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Neste artigo de instruções, você aprendeu sobre operações comuns do armazenamento de Tabelas do Azure com o PowerShell, incluindo como: 
 

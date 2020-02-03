@@ -28,7 +28,7 @@ Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do 
 
 1. Pesquise **Assinaturas da Grade de Eventos** e selecione-as nas opções disponíveis.
 
-   ![Pesquisa](./media/subscribe-through-portal/search.png)
+   ![Search](./media/subscribe-through-portal/search.png)
 
 1. Selecione **+ Assinatura de Evento**.
 
@@ -64,7 +64,7 @@ Algumas origens de eventos dão suporte para criação de uma assinatura de even
 
 O portal apresenta opções para criar uma assinatura de evento relevante para essa origem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter informações sobre a entrega de eventos e repetições, [Entrega e repetição de mensagens da Grade de Eventos](delivery-and-retry.md).
 * Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).

@@ -19,7 +19,7 @@ ms.locfileid: "76720309"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Arquitetura do Azure Synapse Analytics (anteriormente conhecido como SQL DW) 
 
-O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse empresarial e análise de Big Data. Ele oferece a liberdade de consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados, em escala. O Azure Synapse conecta esses dois mundos com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e machine learning.
+O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse empresarial e análise de Big Data. Ele oferece a liberdade para consultar dados da forma que você quiser, usando recursos sob demanda sem servidor ou provisionados em escala. O Azure Synapse traz esses dois mundos junto com uma experiência unificada para ingerir, preparar, gerenciar e fornecer dados para necessidades imediatas de BI e aprendizado de máquina.
 
  O Azure Synapse tem quatro componentes:
 - Análise de SQL: concluir análise baseada em T-SQL 
@@ -27,7 +27,7 @@ O Azure Synapse é um serviço de análise ilimitado que reúne data warehouse e
     - SQL sob demanda (pagamento por TB processado, versão prévia)
 - Spark: Apache Spark profundamente integrados (versão prévia) 
 - Integração de dados: integração de dados híbridas (versão prévia)
-- Studio: experiência do usuário unificada.  Visualização
+- Studio: experiência do usuário unificada.  (Visualização)
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
@@ -105,7 +105,7 @@ O diagrama a seguir mostra uma tabela replicada que é armazenada em cache na pr
 
 ![Tabela replicada](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabela replicada") 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Agora que você já sabe um pouco sobre o Azure Synapse, saiba como [criar rapidamente um pool do SQL](./sql-data-warehouse-get-started-provision.md) e [carregar dados de exemplo](./sql-data-warehouse-load-sample-databases.md). Se você for novo no Azure, você pode encontrar o [Glossário do Azure](../azure-glossary-cloud-terminology.md) úteis à medida que encontrar nova terminologia. Ou então, veja alguns desses outros recursos do Azure Synapse.  
 
 * [Histórias de sucesso de clientes](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)

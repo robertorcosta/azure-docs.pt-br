@@ -70,12 +70,12 @@ A tabela a seguir descreve todas as combinações possíveis de EventType e Prov
 EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
 PUT | Aceita | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
-PUT | Teve êxito | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
-PUT | Com falha | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
-PATCH | Teve êxito | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
+PUT | Bem-sucedida | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
+PUT | Falha | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
+PATCH | Bem-sucedida | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
 Delete (excluir) | Excluindo | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
-Delete (excluir) | Excluída | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
-Delete (excluir) | Com falha | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
+Delete (excluir) | Deleted | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
+Delete (excluir) | Falha | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças são descritas na tabela que segue os exemplos.
 
@@ -176,7 +176,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-Parâmetro | Description
+Parâmetro | Descrição
 ---|---
 eventType | O tipo de evento que disparou a notificação. (Por exemplo, PUT, PATCH, DELETE.)
 applicationId | O identificador de recurso totalmente qualificado do aplicativo gerenciado para o qual a notificação foi disparada.

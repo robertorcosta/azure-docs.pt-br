@@ -63,14 +63,14 @@ Neste estágio, você desenvolverá uma arquitetura da solução do pipeline de 
    * Streaming ou tempo real 
    * Um híbrido 
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>Artefatos
 Veja a seguir os resultados deste estágio:
 
    * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): este relatório inclui resumos de dados, as relações entre cada atributo e o destino, classificação de variável e mais. A ferramenta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fornecida como parte do TDSP pode gerar rapidamente este relatório em qualquer conjunto de dados de tabela, como um arquivo CSV ou uma tabela relacional. 
    * **Arquitetura da solução**: a arquitetura da solução pode ser um diagrama ou uma descrição do pipeline de dados usado para executar a pontuação ou previsões sobre novos dados após a criação de um modelo. Também contém o pipeline para treinar novamente seu modelo com base nos novos dados. Armazene o documento no diretório [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando você usar o modelo de estrutura de diretório do TDSP.
    * **Decisão do ponto de verificação**: antes de começar a engenharia de recursos completos e a criação de modelos, você pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a sua busca. Por exemplo, talvez você esteja pronto para continuar, precise coletar mais dados ou abandone o projeto, pois não existem dados para responder à pergunta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 

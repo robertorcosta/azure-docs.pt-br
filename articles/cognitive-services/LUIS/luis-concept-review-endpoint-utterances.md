@@ -43,6 +43,6 @@ Use a API **[Excluir não rotulada do declarações](https://westus.dev.cognitiv
 
 Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e valor `log=true` QueryString.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Saiba como [revisar](luis-how-to-review-endpoint-utterances.md) declarações do ponto de extremidade

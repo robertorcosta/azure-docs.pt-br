@@ -33,7 +33,7 @@ Os exemplos neste artigo mostram como:
 
 Para obter uma visão geral de alto nível de como os ambientes funcionam no Azure Machine Learning, consulte [o que são ambientes de ml?](concept-environments.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md)
@@ -379,7 +379,7 @@ Baixe um ambiente registrado usando o comando a seguir.
 az ml environment download -n myenv -d downloaddir
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para usar um destino de computação gerenciado para treinar um modelo, consulte [tutorial: treinar um modelo](tutorial-train-models-with-aml.md).
 * Depois de ter um modelo treinado, saiba [como e onde implantar modelos](how-to-deploy-and-where.md).

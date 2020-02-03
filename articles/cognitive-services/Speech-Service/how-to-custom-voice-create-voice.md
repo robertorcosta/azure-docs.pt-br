@@ -46,9 +46,9 @@ A tabela a seguir mostra os estados de processamento dos conjuntos de dados impo
 
 | Estado | Significado |
 | ----- | ------- |
-| Processando | Seu conjunto de seus foi recebido e está sendo processado. |
-| Teve êxito | Seu conjunto de um foi validado e agora pode ser usado para criar um modelo de voz. |
-| Com falha | O conjunto de dados falhou durante o processamento devido a vários motivos, por exemplo, erros de arquivo, problemas de dados ou problemas de rede. |
+| Processamento | Seu conjunto de seus foi recebido e está sendo processado. |
+| Bem-sucedida | Seu conjunto de um foi validado e agora pode ser usado para criar um modelo de voz. |
+| Falha | O conjunto de dados falhou durante o processamento devido a vários motivos, por exemplo, erros de arquivo, problemas de dados ou problemas de rede. |
 
 Após a conclusão da validação, você poderá ver o número total de declarações correspondentes para cada um de seus conjuntos de os na coluna **declarações** . Se o tipo de dados selecionado exigir segmentação de áudio de longo prazo, essa coluna refletirá apenas o declarações que segmentamos para você com base em suas transcrições ou por meio do serviço de transcrição de fala. Você pode baixar ainda mais o conjunto de informações validado para exibir os resultados detalhados do declarações importado com êxito e suas transcrições de mapeamento. Dica: a segmentação de áudio longo pode levar mais de uma hora para concluir o processamento de dados.
 
@@ -88,9 +88,9 @@ O status mostrado reflete o processo de conversão do conjunto de seus conjuntos
 
 | Estado | Significado |
 | ----- | ------- |
-| Processando | Seu modelo de voz está sendo criado. |
-| Teve êxito | Seu modelo de voz foi criado e pode ser implantado. |
-| Com falha | O seu modelo de voz falhou no treinamento devido a vários motivos, por exemplo, problemas de dados ou problemas de rede não vistos. |
+| Processamento | Seu modelo de voz está sendo criado. |
+| Bem-sucedida | Seu modelo de voz foi criado e pode ser implantado. |
+| Falha | O seu modelo de voz falhou no treinamento devido a vários motivos, por exemplo, problemas de dados ou problemas de rede não vistos. |
 
 O tempo de treinamento varia dependendo do volume de dados de áudio processados. Intervalos de tempo típicos variam de aproximadamente 30 minutos para centenas de enunciados a 40 horas para 20.000 enunciados. Quando o treinamento do modelo for bem-sucedido, você poderá começar a testá-lo.
 
@@ -143,7 +143,7 @@ O teste online do ponto de extremidade também está disponível no portal de vo
 
 O ponto de extremidade personalizado é funcionalmente idêntico ao ponto de extremidade padrão utilizado para solicitações de Conversão de Texto em Fala. Consulte [API REST](rest-text-to-speech.md) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Guia: Registre suas amostras de voz](record-custom-voice-samples.md)
 * [Referência de texto para Speech API](rest-text-to-speech.md)

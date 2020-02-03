@@ -20,7 +20,7 @@ O construtor de imagem de VM do Azure (Construtor de imagens do Azure) permite q
 > O construtor de imagem do Azure está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Recursos de visualização
+## <a name="preview-features"></a>Versão prévia dos recursos
 
 Para a versão prévia, há suporte para esses recursos:
 
@@ -60,7 +60,7 @@ O AIB dará suporte a ISO do RHEL, como uma fonte para:
 
 RHEL 7,6 ISOs não têm suporte, mas estão sendo testados.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 
 ![Desenho conceitual do construtor de imagens do Azure](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -113,7 +113,7 @@ O Image Builder cria uma VM usando um tamanho de VM D1v2 e o armazenamento e a r
  
 O construtor de imagens do Azure distribuirá a imagem para as regiões escolhidas, o que pode incorrer em encargos de saída de rede.
  
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1} 
  
 Para experimentar o construtor de imagens do Azure, consulte os artigos para criar imagens do [Linux](../articles/virtual-machines/linux/image-builder.md) ou do [Windows](../articles/virtual-machines/windows/image-builder.md) .
  

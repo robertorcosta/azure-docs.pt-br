@@ -60,7 +60,7 @@ Você pode gerar as informações acima seguindo estas etapas: (Observe que essa
 
 8. Vá para o diretório onde o arquivo foi carregado. Por padrão, os arquivos são carregados para o diretório base sob o nome de usuário.
 
-9. Execute o seguinte script. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
+9. Execute o script a seguir. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
 
     ```azurepowershell-interactive 
 
@@ -162,6 +162,6 @@ Siga estas etapas.
 
     ![Botão Excluir](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora você tem dados de sensor fluindo para sua instância de FarmBeats do Azure. Agora, saiba como [gerar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para seus farms.

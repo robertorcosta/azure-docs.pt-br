@@ -32,26 +32,26 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
  
 ## <a name="event-subscription-properties"></a>Propriedades da assinatura do evento
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| destino | objeto | O objeto que define o ponto de extremidade. |
-| filtro | objeto | Um campo opcional para filtrar os tipos de eventos. |
+| destino | object | O objeto que define o ponto de extremidade. |
+| filtro | object | Um campo opcional para filtrar os tipos de eventos. |
 
-### <a name="destination-object"></a>objeto de destino
+### <a name="destination-object"></a>destination object
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| endpointType | cadeia de caracteres | O tipo de ponto de extremidade para a assinatura (webhook/HTTP, o Hub de evento ou fila). | 
-| endpointUrl | cadeia de caracteres | A URL de destino para eventos nesta assinatura de evento. | 
+| endpointType | string | O tipo de ponto de extremidade para a assinatura (webhook/HTTP, o Hub de evento ou fila). | 
+| endpointUrl | string | A URL de destino para eventos nesta assinatura de evento. | 
 
 ### <a name="filter-object"></a>objeto filter
 
-| Propriedade | Tipo | Description |
+| Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
 | includedEventTypes | matriz | Correspondência quando o tipo de evento na mensagem de evento é uma correspondência exata para esses nomes de tipo de evento. Gera um erro quando o nome do evento não coincide com os nomes de tipo de evento registrados para a origem do evento. O padrão corresponde a todos os tipos de evento. |
-| subjectBeginsWith | cadeia de caracteres | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
-| subjectEndsWith | cadeia de caracteres | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
-| isSubjectCaseSensitive | cadeia de caracteres | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
+| subjectBeginsWith | string | Uma correspondência de prefixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. | 
+| subjectEndsWith | string | Uma correspondência de sufixo de filtro para o campo de assunto no evento mensagem. A cadeia de caracteres padrão ou vazia corresponde a tudo. |
+| isSubjectCaseSensitive | string | Controla a correspondência que diferencia maiúsculas e minúsculas para filtros. |
 
 
 ## <a name="example-subscription-schema"></a>Esquema de assinatura de exemplo
@@ -75,6 +75,6 @@ O nome da assinatura de evento deve ter 3 a 64 caracteres de comprimento e só p
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para ver uma introdução à Grade de Eventos, confira [O que é uma Grade de eventos?](overview.md)

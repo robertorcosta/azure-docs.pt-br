@@ -1,5 +1,5 @@
 ---
-title: Máscara de dados dinâmicos
+title: Mascaramento de dados dinâmicos
 description: A máscara de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios para o banco de dados SQL e data warehouse
 services: sql-database
 ms.service: sql-database

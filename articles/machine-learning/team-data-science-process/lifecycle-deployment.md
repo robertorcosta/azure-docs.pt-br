@@ -33,7 +33,7 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 ![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Goal
+## <a name="goal"></a>Meta
 Implante modelos com um pipeline de dados em um ambiente de produção ou semelhante à produção para aceitação do usuário final. 
 
 ## <a name="how-to-do-it"></a>Como fazer isso
@@ -52,14 +52,14 @@ Depois que você tiver um conjunto de modelos com um bom desempenho, eles poder�
 
 Para obter exemplos de operacionalização de modelos com um serviço Web do Azure Machine Learning, consulte [Implantar um serviço Web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É uma prática recomendada integrar a telemetria e o monitoramento no modelo de produção e no pipeline de dados implantados. Essa prática ajuda com o relatório de status do sistema e a solução de problemas subsequentes.  
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>Artefatos
 
 * Um painel de status que exibe informações sobre a integridade do sistema e as principais métricas
 * Um relatório de modelagem final com detalhes da implantação
 * Um documento de arquitetura da solução final
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 

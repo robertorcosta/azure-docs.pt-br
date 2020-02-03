@@ -122,7 +122,7 @@ As opções disponíveis incluem:
 | /ph |Endereço do host do proxy |- |
 | /po |Número da porta do host do proxy |- |
 | /pu |UserName do host do proxy |- |
-| /pw |Senha do proxy |- |
+| /pw |Senha do Proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registro do Windows Server ou do computador cliente do Windows em um Cofre dos Serviços de Recuperação
 
@@ -733,7 +733,7 @@ $Session = New-PSSession -ComputerName REMOTESERVER01
 Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath $D $A -Wait } -ArgumentList $Agent, $Args
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre o backup do Azure para Windows Server/cliente:
 

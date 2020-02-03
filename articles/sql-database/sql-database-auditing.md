@@ -101,7 +101,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
    > - O valor padrão do período de retenção é 0 (retenção ilimitada). Você pode alterar esse valor movendo o controle deslizante de **retenção (dias)** em **configurações de armazenamento** ao configurar a conta de armazenamento para auditoria.
    > - Se você alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, observe que a retenção será aplicada somente aos logs gravados após a alteração do valor de retenção (logs gravados durante o período em que a retenção foi definida como ilimitada são preservados, mesmo após a retenção está habilitada)
 
-    ![do Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![conta de armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Para configurar a gravação de logs de auditoria em um espaço de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
 
@@ -252,7 +252,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
     > [!IMPORTANT]
     > A configuração permitir gravações de blobs de acréscimo protegidos na retenção baseada em tempo está disponível no momento e visível somente nas seguintes regiões:
     > - Leste dos EUA
-    > - Centro-Sul dos EUA
+    > - Centro-Sul dos Estados Unidos
     > - Oeste dos EUA 2
 
 

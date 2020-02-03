@@ -27,7 +27,7 @@ Este artigo descreve como usar o recurso de exportação de dados contínuos no 
 > Ao ativar a exportação contínua de dados, você obtém apenas os dados desse momento em diante. Atualmente, não é possível recuperar dados por um tempo quando a exportação contínua de dados for desativada. Para reter dados mais históricos, ative a exportação contínua de dados no início.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Você precisa ser um administrador do aplicativo IoT Central
 
@@ -83,7 +83,7 @@ Agora que você tem um destino de armazenamento para o qual exportar dados, siga
 
 8. Em **Dados a serem exportados**, especifique cada tipo de dados a serem exportados, definindo o tipo para **Ativar**.
 
-9. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Clique em **Salvar**.
+9. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Selecione **Salvar**.
 
    ![Configure a exportação contínua de dados](media/howto-export-data/export-list-blob2.png)
 
@@ -645,7 +645,7 @@ function load(filePath) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Agora que você sabe como exportar seus dados, continue para a próxima etapa:
 

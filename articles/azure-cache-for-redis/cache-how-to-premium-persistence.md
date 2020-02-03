@@ -166,7 +166,7 @@ Para saber mais sobre dimensionamento, confira [O que acontecerá se eu tiver di
 
 Os dados armazenados em arquivos AOF são divididos em vários blobs de página por nó a fim de aumentar o desempenho de gravação dos dados no armazenamento. A tabela a seguir exibe quantos blobs de página são usados para cada tipo de preço:
 
-| Camada Premium | Blobs |
+| Camada premium | Blobs |
 |--------------|-------|
 | P1           | 4 por fragmento    |
 | P2           | 8 por fragmento    |
@@ -178,7 +178,7 @@ Quando o clustering estiver habilitado, cada fragmento no cache terá seu própr
 Após uma regeneração, dois conjuntos de arquivos AOF existirão no armazenamento. As regenerações ocorrem em segundo plano e acrescentam ao primeiro conjunto de arquivos, enquanto as operações de conjunto que são enviadas ao cache durante a regeneração acrescentam ao segundo conjunto. Um backup é armazenado temporariamente durante regenerações no caso de falha, mas é excluída imediatamente após a conclusão de uma regeneração.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Aprenda a usar mais recursos de cache premium.
 
 * [Introdução à camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md)

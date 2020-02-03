@@ -125,7 +125,7 @@ Para obter instruções detalhadas sobre o fluxo de trabalho de execução do pr
 
 Use o repositório de modelos de [projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) da equipe do Microsoft TDSP para dar suporte à colaboração e à execução eficiente do projeto. O repositório fornece uma estrutura de diretórios padronizada e modelos de documentos que você pode usar para seus próprios projetos TDSP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Explore as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

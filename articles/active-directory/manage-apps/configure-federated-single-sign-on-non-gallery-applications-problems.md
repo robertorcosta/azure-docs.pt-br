@@ -70,5 +70,5 @@ O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas pod
 
 Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Gerenciando aplicativos com o Azure Active Directory](what-is-application-management.md)

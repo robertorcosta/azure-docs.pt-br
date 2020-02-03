@@ -22,7 +22,7 @@ ms.locfileid: "76717783"
 
 Este artigo lista as perguntas frequentes sobre como usar o serviço de migração de banco de dados do Azure junto com respostas relacionadas.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 **P. o que é o serviço de migração de banco de dados do Azure?**
 O serviço de migração de banco de dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade No momento, o serviço está em disponibilidade geral, com esforços de desenvolvimento em andamento com foco em:
@@ -117,6 +117,6 @@ Você pode fazer algumas coisas para acelerar a sua migração de banco de dados
 * Use os vários tipos de preços de uso geral da CPU ao criar sua instância de serviço para permitir que o serviço aproveite as várias vCPUs para paralelização e transferência de dados mais rápida.
 * Temporariamente, escale verticalmente a sua instância de destino de banco de dados SQL do Azure para o SKU da camada Premium durante a operação de migração de dados para minimizar a limitação do banco de dados SQL do Azure que pode afetar as atividades de transferência de dados ao usar SKUs de nível inferior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter uma visão geral do Serviço de Migração de Banco de Dados do Azure e da disponibilidade regional, consulte o artigo [ O que é o Serviço de Migração de Banco de Dados do Azure ](dms-overview.md).

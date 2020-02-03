@@ -30,7 +30,7 @@ A extensão de VM Key Vault dá suporte a essas distribuições do Linux:
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensão não requer configurações protegidas - todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista dos segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Mais especificamente:  
+O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensão não requer configurações protegidas - todas as suas configurações são consideradas informações sem impacto de segurança. A extensão requer uma lista dos segredos monitorados, a frequência de sondagem e o repositório de certificados de destino. Especificamente:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -67,17 +67,17 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| {1&gt;Nome&lt;1} | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | cadeia de caracteres |
-| type | KeyVaultForLinux | cadeia de caracteres |
+| publisher | Microsoft.Azure.KeyVault | string |
+| type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | cadeia de caracteres |
-| certificateStoreName | MY | cadeia de caracteres |
-| linkOnRenewal | false | booleano |
-| certificateStoreLocation  | LocalMachine | cadeia de caracteres |
-| requiredInitialSync | true | booleano |
+| pollingIntervalInS | 3600 | string |
+| certificateStoreName | MY | string |
+| linkOnRenewal | false | boolean |
+| certificateStoreLocation  | LocalMachine | string |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres
 
 
@@ -202,7 +202,7 @@ Os dados sobre o estado das implantações de extensão podem ser recuperados no
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI do Azure
 ```azurecli
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```

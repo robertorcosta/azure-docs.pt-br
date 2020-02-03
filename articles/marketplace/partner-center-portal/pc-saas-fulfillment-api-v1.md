@@ -26,7 +26,7 @@ Este artigo explica como criar uma oferta de SaaS com APIs. As APIs, compostas d
 As APIs a seguir são fornecidas para ajudá-lo a integrar o seu serviço SaaS ao Azure:
 
 -   Resolver
--   Assinar
+-   Subscribe
 -   Converter
 -   Cancelar assinatura
 
@@ -86,7 +86,7 @@ Quando um usuário é redirecionado para o site de um ISV, a URL contém um toke
 
 | **Nome do parâmetro** | **Data type** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | String        | A ID da assinatura de SaaS.          |
+| {1&gt;id&lt;1}                 | String        | A ID da assinatura de SaaS.          |
 | subscriptionName| String| Nome da assinatura de SaaS definida pelo usuário no Azure ao assinar o serviço SaaS.|
 | OfferId            | String        | ID da oferta que o usuário assinou. |
 | planId             | String        | ID do plano que o usuário assinou.  |
@@ -116,7 +116,7 @@ Quando um usuário é redirecionado para o site de um ISV, a URL contém um toke
 |  |  |  |
 
 
-### <a name="subscribe"></a>Assinar
+### <a name="subscribe"></a>Subscribe
 
 O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura de um serviço SaaS para um plano específico e habilitar a cobrança no sistema de comércio.
 
@@ -332,7 +332,7 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 | **Nome do parâmetro** | **Data type** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | Identificador da operação.                                                                      |
+| {1&gt;id&lt;1}                 | String        | Identificador da operação.                                                                      |
 | status             | Enum          | Status da operação, um dos seguintes: `In Progress`, `Succeeded` ou `Failed`.          |
 | resourceLocation   | String        | Link para a assinatura que foi criada ou modificada. Isso ajuda o cliente a obter o estado atualizado após a operação. Esse valor não é definido para operações `Unsubscribe`. |
 | criado            | DateTime      | Hora de criação de operação em UTC.                                                           |
@@ -402,11 +402,11 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 | **Nome do parâmetro**     | **Data type** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID do recurso de assinatura de SaaS no Azure.    |
+| {1&gt;id&lt;1}                     | String        | ID do recurso de assinatura de SaaS no Azure.    |
 | offerId                | String        | ID da oferta que o usuário assinou.         |
 | planId                 | String        | ID do plano que o usuário assinou.          |
 | saasSubscriptionName   | String        | O nome da assinatura de SaaS.                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Status da operação.  Um das seguintes condições:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
 | criado                | DateTime      | Valor do carimbo de data/hora de criação da assinatura em UTC. |
 | lastModified           | DateTime      | Valor do carimbo de data/hora de modificação da assinatura em UTC. |
 |  |  |  |
@@ -474,11 +474,11 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 | **Nome do parâmetro**     | **Data type** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID do recurso de assinatura SaaS no Azure    |
+| {1&gt;id&lt;1}                     | String        | ID do recurso de assinatura SaaS no Azure    |
 | offerId                | String        | ID da oferta à qual o usuário se inscreveu         |
 | planId                 | String        | ID do plano para o qual o usuário se inscreveu          |
 | saasSubscriptionName   | String        | Nome da assinatura de SaaS                |
-| saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
+| saasSubscriptionStatus | Enum          | Status da operação.  Um das seguintes condições:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`: a assinatura do Azure está suspensa.  |
 | criado                | DateTime      | Valor timestamp de criação da assinatura em UTC |
 | lastModified           | DateTime      | Valor de carimbo de data/hora modificado pela assinatura em UTC |
 |  |  |  |
@@ -524,7 +524,7 @@ Um webhook de SaaS é usado para notificar sobre alterações de forma proativa 
 
 | **Nome do parâmetro**     | **Data type** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | String       | ID exclusiva para a operação disparada.                |
+| {1&gt;id&lt;1}  | String       | ID exclusiva para a operação disparada.                |
 | activityId   | String        | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações.               |
 | subscriptionId                     | String        | ID do recurso de assinatura de SaaS no Azure.    |
 | offerId                | String        | ID da oferta que o usuário assinou. Fornecido somente com a ação "Atualizar".        |
@@ -535,6 +535,6 @@ Um webhook de SaaS é usado para notificar sobre alterações de forma proativa 
 |  |  |  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Os desenvolvedores também podem recuperar e manipular programaticamente cargas de trabalho, ofertas e perfis de Publicador usando as [APIs REST do portal do Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

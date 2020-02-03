@@ -32,7 +32,7 @@ O notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumptio
 Para modificar o notebook Jupyter para o Spark 1.6 para usar com um cluster do HDInsight Spark 2.0, substitua o arquivo de código Python por [este arquivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Este código mostra como utilizar os modelos criados no Spark 2.0.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 (ou Spark 2.0) para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. 
 2. Crie os modelos de aprendizado de máquina a serem pontuados aqui trabalhando no tópico [exploração de dados e modelagem com Spark](spark-data-exploration-modeling.md) para o cluster Spark 1,6 ou nos notebooks Spark 2,0. 

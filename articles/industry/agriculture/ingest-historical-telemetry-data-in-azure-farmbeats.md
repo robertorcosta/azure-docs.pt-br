@@ -59,7 +59,7 @@ Siga estas etapas.
 
 8. Vá para o diretório onde o arquivo foi carregado. Por padrão, os arquivos são carregados para o diretório base sob o nome de usuário.
 
-9. Execute o seguinte script. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
+9. Execute o script a seguir. O script solicita a ID do locatário que pode ser obtida na página de visão geral de Azure Active Directory >.
 
     ```azurepowershell-interactive 
 
@@ -86,17 +86,17 @@ Siga estas etapas.
 |          Fabricante            |         Nome do fabricante    |
 |  ProductCode                    |  Código do produto do dispositivo ou nome ou número do modelo. Por exemplo, EnviroMonitor # 6800.  |
 |            Portas          |     Nome da porta e tipo, que é digital ou analógica.
-|     Nome                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
-      Description     | Forneça uma descrição significativa do modelo.
+|     {1&gt;Nome&lt;1}                 |  Nome para identificar o recurso. Por exemplo, o nome do modelo ou o nome do produto.
+      Descrição     | Forneça uma descrição significativa do modelo.
 |    Propriedades          |    Propriedades adicionais do fabricante.   |
 |    **Dispositivo**             |                      |
 |   DeviceModelId     |     ID do modelo de dispositivo associado.  |
 |  HardwareID          | ID exclusiva para o dispositivo, como o endereço MAC.
 |  ReportingInterval        |   Intervalo de relatórios em segundos.
-|  Local            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
+|  Location            |  Dispositivo latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).   
 |ParentDeviceId       |    ID do dispositivo pai ao qual este dispositivo está conectado. Por exemplo, um nó que está conectado a um gateway. Um nó tem parentDeviceId como o gateway.  |
-|    Nome            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
-|     Description       |      Forneça uma descrição significativa. |
+|    {1&gt;Nome&lt;1}            | Um nome para identificar o recurso. Os parceiros de dispositivo devem enviar um nome consistente com o nome do dispositivo no lado do parceiro. Se o nome do dispositivo do parceiro for definido pelo usuário, o mesmo nome definido pelo usuário deverá ser propagado para FarmBeats.|
+|     Descrição       |      Forneça uma descrição significativa. |
 |     Propriedades    |  Propriedades adicionais do fabricante.
 |     **SensorModel**        |          |
 |       Tipo (analógico, digital)          |      O tipo de sensor, se ele é analógico ou digital.       |
@@ -107,17 +107,17 @@ Siga estas etapas.
 |    Tipo de > SensorMeasures    |Tipo de medição dos dados de telemetria do sensor. Os tipos definidos pelo sistema são AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, comprimento, LiquidLevel, nitrate, O2, PH, phosphate, PointInTime, Potassium, pressão, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, estado, tempo de duração, UVRadiation, UVIndex, volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Para adicionar mais, consulte a API do/ExtendedType.|
 |        Unidade de > SensorMeasures              | Unidade de dados de telemetria do sensor. As unidades definidas pelo sistema são nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, mercúrio, PSI, milímetro, centímetro, medidor, polegada, pés, milhar, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, grau, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, porcentagem, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, litro, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour para adicionar mais, consulte a API/ExtendedType.|
 |    Agregatype de > SensorMeasures    |  Os valores podem ser nenhum, média, máximo, mínimo ou i.  |
-|          Nome            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
-|    Description        | Forneça uma descrição significativa do modelo.  |
+|          {1&gt;Nome&lt;1}            | Nome para identificar um recurso. Por exemplo, o nome do modelo ou o nome do produto.  |
+|    Descrição        | Forneça uma descrição significativa do modelo.  |
 |   Propriedades       |  Propriedades adicionais do fabricante.  |
 |    **Sensores**      |          |
 | HardwareID          |   ID exclusiva do sensor definido pelo fabricante. |
 |  SensorModelId     |    ID do modelo de sensor associado.   |
-| Local          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
+| Location          |  Sensor latitude (-90 a + 90), longitude (-180 a 180) e elevação (em metros).|
 |   Nome da > de porta        |  Nome e tipo da porta à qual o sensor está conectado no dispositivo. Isso precisa ter o mesmo nome definido no modelo do dispositivo. |
 |    DeviceID  |    ID do dispositivo ao qual o sensor está conectado.     |
-| Nome            |   Nome para identificar o recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
-|    Description      | Forneça uma descrição significativa. |
+| {1&gt;Nome&lt;1}            |   Nome para identificar o recurso. Por exemplo, nome do sensor ou nome do produto e número do modelo ou código do produto.|
+|    Descrição      | Forneça uma descrição significativa. |
 |    Propriedades        |Propriedades adicionais do fabricante. |
 
 Para obter mais informações sobre objetos, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -420,6 +420,6 @@ Aqui está um exemplo de uma mensagem de telemetria:
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para obter mais informações sobre detalhes de integração baseados na API REST, consulte [REST API](references-for-azure-farmbeats.md#rest-api).

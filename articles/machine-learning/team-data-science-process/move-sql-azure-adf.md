@@ -77,8 +77,8 @@ Para configurar, [siga as instruções para criar um pipeline](https://docs.micr
 Um serviço vinculado define as informações necessárias para o Azure Data Factory conectar-se a um recurso de dados. Temos três recursos neste cenário para os quais os serviços vinculados são necessários:
 
 1. SQL Server local
-2. Armazenamento de Blobs do Azure
-3. Banco de dados SQL do Azure
+2. Armazenamento do Blobs do Azure
+3. Banco de Dados SQL do Azure
 
 O procedimento passo a passo para criar serviços vinculados é fornecido em [Create linked services (Criar serviços vinculados)](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 

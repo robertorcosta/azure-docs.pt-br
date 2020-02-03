@@ -53,7 +53,7 @@ A integração do aplicativo de RH de nuvem com o provisionamento de usuário do
 - Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
 - Use o Office 365 para email.
 
-## <a name="learn"></a>Aprenda
+## <a name="learn"></a>Saiba mais
 
 O provisionamento de usuário cria uma base para a governança de identidade contínua. Ele aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -80,7 +80,7 @@ Para configurar o aplicativo de RH na nuvem para a integração de provisionamen
 
 Você também precisa de uma licença de assinatura Azure AD Premium P1 ou superior válida para cada usuário que será originado do aplicativo de RH na nuvem e provisionado para o Active Directory ou o Azure AD. Qualquer número inadequado de licenças pertencentes ao aplicativo de RH na nuvem pode levar a erros durante o provisionamento do usuário.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 - Acesso de administrador global do Azure AD para configurar o agente de provisionamento do Azure AD Connect.
 - Uma instância de teste e produção do aplicativo de RH de nuvem.
@@ -92,11 +92,11 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 | **Recursos** | **Link e descrição** |
 |:-|:-|
-| Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
+| vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
 | Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: configurar o WORKDAY para provisionamento automático de usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| FAQ | [Provisionamento automatizado de usuários](user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| Perguntas frequentes | [Provisionamento automatizado de usuários](user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisionamento do WORKDAY para o Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Arquitetura da solução
@@ -165,7 +165,7 @@ A integração de provisionamento entre o aplicativo de RH na nuvem e o Active D
 - Locatário do aplicativo de RH na nuvem
 - Aplicativo do conector de provisionamento
 - Agente de provisionamento do Azure AD Connect
-- Active Directory domínio
+- Domínio do Active Directory
 
 A topologia de implantação do agente de provisionamento do Azure AD Connect depende do número de locatários do aplicativo de RH de nuvem e Active Directory domínios filho que você planeja integrar. Se você tiver vários domínios de Active Directory, dependerá se os domínios de Active Directory são contíguos [ou separados](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
@@ -412,7 +412,7 @@ Para solucionar quaisquer problemas que possam ser reativados durante o provisio
 - [Entender logs para operações de atualização do gerente](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolver erros comumente encontrados](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Gravando expressões para mapeamentos de atributo](functions-for-customizing-application-data.md)
 - [Visão geral da API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

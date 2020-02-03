@@ -35,4 +35,4 @@ Somente as seguintes codificações são permitidas durante o handshake de TLS:
 
 ## <a name="customer-feedback"></a>Comentários do cliente
 
-Embora a imposição do TLS 1.2 seja uma opção de criptografia melhor da categoria e abrangente do setor e seja habilitada conforme planejado, ainda gostaríamos de ouvir os clientes com relação a suas implantações e dificuldades específicas na adoção do TLS 1.2. Para essa finalidade, você pode enviar seus comentários para [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
+Embora a imposição de TLS 1,2 seja uma opção de criptografia de nível mais abrangente do setor e seja habilitada como planejada, ainda gostaríamos de ouvir os clientes em relação a suas implantações específicas e dificuldades ao adotar o TLS 1,2. Para essa finalidade, você pode enviar seus comentários para [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

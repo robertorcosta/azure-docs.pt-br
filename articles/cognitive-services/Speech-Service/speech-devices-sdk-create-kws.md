@@ -55,6 +55,6 @@ Para poder usar uma palavra-chave personalizada, você precisará criar uma pala
 
 1. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar sua palavra-chave personalizada em seu dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Teste sua palavra-chave personalizada com o guia de [início rápido SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart).

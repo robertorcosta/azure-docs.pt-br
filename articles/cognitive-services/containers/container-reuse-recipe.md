@@ -148,7 +148,7 @@ Siga estas etapas para usar o Dockerfile e colocar a nova imagem em seu registro
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 > [!div class="nextstepaction"]
 > [Criar e usar a instância de contêiner do Azure](azure-container-instance-recipe.md)

@@ -93,7 +93,7 @@ Você deve desabilitar a coleta existente da atividade antes de habilitá-la usa
 ## <a name="activity-log-monitoring-solution"></a>Solução de monitoramento do log de atividades
 A solução de monitoramento de Log Analytics do Azure inclui várias consultas de log e exibições para analisar os registros de log de atividades em seu espaço de trabalho do Log Analytics. Essa solução usa os dados de log coletados em um espaço de trabalho Log Analytics e continuará a funcionar sem nenhuma alteração se você coletar o log de atividades usando as configurações de diagnóstico. Consulte [solução de monitoramento de análise de logs de atividade](activity-log-collect.md#activity-logs-analytics-monitoring-solution) para obter detalhes sobre esta solução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * [Leia mais sobre o Log de Atividades](../../azure-resource-manager/management/view-activity-logs.md)
 * [Saiba mais sobre as configurações de diagnóstico](diagnostic-settings.md)

@@ -35,7 +35,7 @@ Você deve primeiro concluir e enviar o [formulário de solicitação de contêi
 
 [!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Examine [instalar e executar contêineres](../anomaly-detector-container-configuration.md) para extrair a imagem de contêiner e executar o contêiner
 * Revise [Configurar contêineres](../anomaly-detector-container-configuration.md) para configurações

@@ -36,7 +36,7 @@ Este artigo guia você por:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-up-key-vault"></a>Instalar Key Vault
+## <a name="set-up-key-vault"></a>Configurar o Cofre de Chaves
 
 Para permitir que um aplicativo recupere um segredo do Cofre de Chaves, primeiro crie o segredo e carregue-o no cofre.
 

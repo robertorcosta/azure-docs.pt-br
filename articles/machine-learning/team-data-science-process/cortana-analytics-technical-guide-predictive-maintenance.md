@@ -39,7 +39,7 @@ Os objetivos deste artigo são:
 > 
 > 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 ![Arquitetura de manutenção preditiva](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 Quando você implanta a solução, ela ativa serviços do Azure no Cortana Analytics Suite (Hub de Eventos, Stream Analytics, HDInsight, Data Factory, Machine Learning, etc.). O diagrama da arquitetura acima mostra como a Manutenção Preventiva do Modelo de Solução Aeroespacial é criada. Você pode investigar esses serviços no portal do Azure clicando neles no diagrama do modelo de solução criado com a implantação da solução (isso não se aplica ao HDInsight, pois ele é provisionado sob demanda quando as atividades do pipeline relacionado são obrigatoriamente executadas e mais tarde excluídas).
@@ -59,7 +59,7 @@ O aplicativo de geração de eventos preenche o Hub de Eventos do Azure somente 
 O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é o destinatário da entrada fornecida pela Fonte de dados sintética.
 
 ## <a name="data-preparation-and-analysis"></a>Preparação e análise de dados  
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics"></a>Stream Analytics do Azure
 Use o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análises praticamente em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub). Em seguida, publique os resultados em um painel do [Power BI](https://powerbi.microsoft.com) e arquive todos os eventos de entrada não processados no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para processamento posterior no serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada do HDInsight
@@ -69,7 +69,7 @@ Execute scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/1
 Faça previsões sobre a RUL (vida útil restante) de um motor de aeronave específico usando as entradas recebidas com o [serviço Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publicação de dados
-### <a name="azure-sql-database"></a>Banco de dados SQL do Azure
+### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 Use o [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar as previsões recebidas pelo Azure Machine Learning, que são consumidas no painel [Power bi](https://powerbi.microsoft.com) .
 
 ## <a name="data-consumption"></a>Consumo de dados
@@ -109,14 +109,14 @@ Nesta solução, as consultas produzem como saída três conjuntos de dados com 
 
 A consulta do segundo trabalho do Stream Analytics, **maintenancesa02asablob**, simplesmente produz como saída todos os eventos do [Hub de Eventos](https://azure.microsoft.com/services/event-hubs/) para o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e, portanto, não requer alteração, independentemente do formato dos dados, já que as informações completas do evento são transmitidas para o armazenamento.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 O serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) orquestra a movimentação e o processamento de dados. Na Manutenção Preditiva para o Modelo de Solução Aeroespacial, o data factory é composto por três [pipelines](../../data-factory/concepts-pipelines-activities.md) que movem e processam os dados usando diversas tecnologias.  Acesse o data factory abrindo o nó Data Factory na parte inferior do diagrama do modelo de solução criado com a implantação da solução. Erros em seus conjuntos de dados ocorrem devido ao data factory ter sido implantado antes que o gerador de dados fosse iniciado. Esses erros podem ser ignorados e não impedem o funcionamento do seu data factory.
 
 ![Erros do conjunto de dados do Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
 Esta seção analisa os [pipelines e as atividades](../../data-factory/concepts-pipelines-activities.md) necessárias contidas no [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Veja um modo de exibição de diagrama da solução.
 
-![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
+![Fábrica de dados do Azure](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
 Dois dos pipelines desse data factory contêm scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) usados para particionar e agregar os dados. Quando observados, os scripts estão localizados na conta do [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) criada durante a instalação. A localização deles é: maintenancesascript\\\\script\\\\hive\\\\ (ou https://[nome da solução].blob.core.windows.net/maintenancesascript).
 

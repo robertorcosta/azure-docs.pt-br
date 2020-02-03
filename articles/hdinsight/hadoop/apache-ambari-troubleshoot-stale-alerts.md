@@ -72,7 +72,7 @@ Antes que o agente Ambari relate que um alerta configurado perdeu sua agenda, h�
 
 O valor padrão de `alert_grace_period` é 5 segundos. Essa configuração de `alert_grace_period` é configurável no `/etc/ambari-agent/conf/ambari-agent.ini`. Para os hosts dos quais os alertas obsoletos são acionados em intervalos regulares, tente aumentar para um valor de 10. Em seguida, reinicie o agente Ambari
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 

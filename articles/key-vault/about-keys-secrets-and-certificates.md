@@ -69,7 +69,7 @@ Um identificador de objeto tem o seguinte formato geral:
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-Onde:  
+Em que:  
 
 |||  
 |-|-|  
@@ -363,14 +363,14 @@ A tabela a seguir representa o mapeamento de política de uso de chave x509 para
 
 |**Sinalizadores de Utilização de Chave x509**|**Operações de chave do Cofre de Chaves**|**Comportamento padrão**|
 |----------|--------|--------|
-|DataEncipherment|criptografar, descriptografar| N/D |
-|DecipherOnly|descriptografar| N/D  |
+|DataEncipherment|criptografar, descriptografar| {1&gt;N/A&lt;1} |
+|DecipherOnly|descriptografar| {1&gt;N/A&lt;1}  |
 |DigitalSignature|fazer logon, verificar| Padrão de Cofre de Chaves sem uma especificação de uso no momento da criação de certificado | 
-|EncipherOnly|encrypt| N/D |
-|KeyCertSign|fazer logon, verificar|N/D|
+|EncipherOnly|encrypt| {1&gt;N/A&lt;1} |
+|KeyCertSign|fazer logon, verificar|{1&gt;N/A&lt;1}|
 |KeyEncipherment|wrapKey, unwrapKey| Padrão de Cofre de Chaves sem uma especificação de uso no momento da criação de certificado | 
-|Não repúdio|fazer logon, verificar| N/D |
-|crlsign|fazer logon, verificar| N/D |
+|Não repúdio|fazer logon, verificar| {1&gt;N/A&lt;1} |
+|crlsign|fazer logon, verificar| {1&gt;N/A&lt;1} |
 
 ### <a name="certificate-issuer"></a>Emissor do certificado
 

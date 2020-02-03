@@ -87,7 +87,7 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
 2. Selecione o conjunto de dados que você deseja acessar. Você pode selecionar qualquer um dos conjuntos de dados da lista **MEUS CONJUNTOS DE DADOS** ou da lista **EXEMPLOS**.
 3. Na barra de ferramentas inferior, clique em **Gerar código de acesso a dados**. Esse botão será desabilitado se os dados estiverem em um formato incompatível com a biblioteca de cliente do Python.
    
-    ![Conjuntos de dados][datasets]
+    ![Conjunto de dados][datasets]
 4. Selecione o snippet de código na janela que aparece e copie-o para a área de transferência.
    
     ![Botão Gerar código de acesso a dados][dataset-access-code]

@@ -22,7 +22,7 @@ ms.locfileid: "76722519"
 
 Neste artigo, são apresentadas consultas genéricas do Hive que criam tabelas do Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Este artigo supõe que você:
 
 * Uma conta de armazenamento do Azure foi criada. Se você precisar de instruções, consulte [sobre contas de armazenamento do Azure](../../storage/common/storage-introduction.md).
@@ -82,7 +82,7 @@ Por padrão, após a consulta Hive ser enviada na Linha de Comando do Hadoop, o 
     hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Enviar consultas de Hive no console de comando de Hive.
-Você também pode entrar primeiro no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando de Hive. Veja um exemplo. Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.
+Você também pode entrar primeiro no console de comando de Hive executando o comando `hive` na Linha de Comando do Hadoop e enviar consultas de Hive no console de comando de Hive. Segue um exemplo. Neste exemplo, as duas caixas vermelhas realçam os comandos usados para inserir o console de comando de Hive e a consulta de Hive enviada no console de comando de Hive, respectivamente. A caixa verde realça a saída da consulta de Hive.
 
 ![Abra o console de comando do Hive, insira o comando e exiba a saída da consulta do Hive](./media/move-hive-tables/run-hive-queries-2.png)
 

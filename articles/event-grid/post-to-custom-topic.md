@@ -101,7 +101,7 @@ Por exemplo, um esquema de dados de evento válido é:
 
 Após a postagem para o ponto de extremidade do tópico, você receberá uma resposta. A resposta é um código de resposta HTTP padrão. Algumas respostas comuns são:
 
-|Result  |Resposta  |
+|Resultado  |Resposta  |
 |---------|---------|
 |Sucesso  | 200 OK  |
 |Os dados de evento têm formato incorreto | 400 Solicitação Inválida |
@@ -124,7 +124,7 @@ Para erros, o corpo da mensagem tem o seguinte formato:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Para obter informações sobre o monitoramento de entregas de evento, consulte [Entrega de mensagens da Grade de Eventos do Monitor](monitor-event-delivery.md).
 * Para saber mais sobre a chave de autenticação, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).

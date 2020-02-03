@@ -16,7 +16,7 @@ ms.locfileid: "76713187"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
-## <a name="overview"></a>Visão Geral ##
+## <a name="overview"></a>Visão geral ##
 
  O Azure [ambiente do serviço de aplicativo][Intro] é uma implantação do serviço de Azure app em uma sub-rede em sua VNet (rede virtual) do Azure. Há dois tipos de implantação para um ASE (ambiente de Serviço de Aplicativo):
 
@@ -113,7 +113,7 @@ Além das dependências funcionais do ASE, há alguns itens adicionais relaciona
 -   Streaming de log
 -   Kudu
 -   Extensões
--   Explorador de Processos
+-   Gerenciador de Processos
 -   Console
 
 Quando você usa um ASE ILB, o site do SCM não é acessível de fora da VNet. Alguns recursos não funcionarão no portal do aplicativo, pois eles exigem acesso ao site do SCM de um aplicativo. Você pode se conectar ao site do SCM diretamente em vez de usar o Portal. 
@@ -122,7 +122,7 @@ Se o ASE ILB for o nome de domínio *contoso.appserviceenvironment.net* e o nome
 
 ## <a name="ase-ip-addresses"></a>Endereços IP do ASE ##
 
-Um ASE tem alguns endereços IP para reconhecer. Eles são:
+Um ASE tem alguns endereços IP para reconhecer. São eles:
 
 - **Endereço IP público de entrada**: usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e em um ASE ILB.
 - **IP público de saída**: usado como o IP “de” das conexões de saída do ASE que saem da VNet, que não são roteadas por uma VPN.
@@ -142,7 +142,7 @@ Com um ASE externo, você pode atribuir endereços IP a aplicativos individuais.
 
 Quando um aplicativo tem seu próprio endereço SSL com base em IP, o ASE reserva duas portas para mapear para esse endereço IP. Uma porta é para o tráfego HTTP e a outra porta é para HTTPS. Essas portas estão listadas na interface de usuário do ASE na seção de endereços IP. O tráfego deverá ser capaz de alcançar essas portas do VIP ou os aplicativos ficarão inacessíveis. É importante lembrar-se desse requisito ao configurar NSGs (grupos de segurança de rede).
 
-## <a name="network-security-groups"></a>Grupos de Segurança de Rede ##
+## <a name="network-security-groups"></a>Grupos de segurança de rede ##
 
 Os [grupos de segurança de rede][NSGs] fornecem a capacidade de controlar o acesso à rede em uma VNet. Quando você usa o portal, há uma regra de negação implícita a prioridade mais baixa para negar tudo. O que você cria são suas regras de permissão.
 
@@ -200,7 +200,7 @@ Para criar as mesmas rotas manualmente, siga estas etapas:
 
 3. Dentro da interface do usuário da tabela de rota, selecione **Rotas** > **Adicionar**.
 
-4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Clique em **Salvar**.
+4. Defina o **Tipo do próximo salto** como **Internet** e o **Prefixo de endereço** como **0.0.0.0/0**. Selecione **Salvar**.
 
     Então você verá algo semelhante ao que se segue:
 

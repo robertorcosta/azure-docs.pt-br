@@ -74,13 +74,13 @@ A tabela a seguir resume os tempos de sincronização para cenários comuns de p
 | Configuração de escopo | Usuários, grupos e membros no escopo | Tempo de ciclo inicial | Tempo de ciclo incremental |
 | -------- | -------- | -------- | -------- |
 | Sincronizar somente usuários e grupos atribuídos |  Menos de 1.000 |  Menos de 30 minutos | Menos de 30 minutos |
-| Sincronizar somente usuários e grupos atribuídos |  1\.000 - 10.000 | 142 a 708 minutos | Menos de 30 minutos |
+| Sincronizar somente usuários e grupos atribuídos |  1\.000 a 10.000 | 142 a 708 minutos | Menos de 30 minutos |
 | Sincronizar somente usuários e grupos atribuídos |   10.000 a 100.000 | 1\.170 a 2.340 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários e grupos no Azure AD |  Menos de 1.000 | Menos de 30 minutos  | Menos de 30 minutos |
-| Sincronizar todos os usuários e grupos no Azure AD |  1\.000 - 10.000 | Menos de 30 minutos a 120 minutos | Menos de 30 minutos |
+| Sincronizar todos os usuários e grupos no Azure AD |  1\.000 a 10.000 | Menos de 30 minutos a 120 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários e grupos no Azure AD |  10.000 a 100.000  | 713 minutos a 1.425 minutos | Menos de 30 minutos |
 | Sincronizar todos os usuários no Azure AD|  Menos de 1.000  | Menos de 30 minutos | Menos de 30 minutos |
-| Sincronizar todos os usuários no Azure AD | 1\.000 - 10.000  | 43 a 86 minutos | Menos de 30 minutos |
+| Sincronizar todos os usuários no Azure AD | 1\.000 a 10.000  | 43 a 86 minutos | Menos de 30 minutos |
 
 
 Para a sincronização de configuração, **somente usuários e grupos atribuídos**, você pode usar as fórmulas a seguir para determinar os tempos de **ciclo inicial** mínimo e máximo aproximado:
@@ -104,5 +104,5 @@ Resumo dos fatores que influenciam o tempo necessário para concluir um **ciclo 
 
 - Se o desempenho se tornar um problema e você estiver tentando provisionar a maioria dos usuários e grupos em seu locatário, use filtros de escopo. Filtros de escopo permitem ajustar os dados que o serviço de provisionamento extrai do Azure AD filtrando usuários com base em valores de atributo específicos. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativos com base em atributo com filtros de escopo](define-conditional-rules-for-provisioning-user-accounts.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Active Directory do Azure](user-provisioning.md)

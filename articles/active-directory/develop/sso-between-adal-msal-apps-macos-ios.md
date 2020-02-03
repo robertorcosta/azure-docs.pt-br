@@ -52,8 +52,8 @@ A tabela a seguir resume as diferenças de identificador de conta entre ADAL e M
 | Identificador de conta                | MSAL                                                         | ADAL 2.7. x      | ADAL mais antiga (antes da ADAL 2.7. x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | identificador de exibição            | `username`                                                   | `userId`        | `userId`                       |
-| identificador exclusivo não-reproduzido | `identifier`                                                 | `homeAccountId` | N/D                            |
-| Nenhuma ID de conta conhecida               | Consultar todas as contas por meio da API `allAccounts:` no `MSALPublicClientApplication` | N/D             | N/D                            |
+| identificador exclusivo não-reproduzido | `identifier`                                                 | `homeAccountId` | {1&gt;N/A&lt;1}                            |
+| Nenhuma ID de conta conhecida               | Consultar todas as contas por meio da API `allAccounts:` no `MSALPublicClientApplication` | {1&gt;N/A&lt;1}             | {1&gt;N/A&lt;1}                            |
 
 Esta é a interface `MSALAccount` que fornece esses identificadores:
 
@@ -286,6 +286,6 @@ do {
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Saiba mais sobre os [Fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md)

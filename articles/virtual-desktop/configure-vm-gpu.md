@@ -86,7 +86,7 @@ Para verificar se Área de Trabalho Remota está usando a codificação acelerad
 3. Para determinar se a codificação acelerada por GPU é usada, procure a ID de evento 170. Se você vir "codificador de hardware AVC habilitado: 1", a codificação de GPU será usada.
 4. Para determinar se o modo AVC 444 é usado, procure a ID do evento 162. Se você vir "AVC disponível: 1 perfil inicial: 2048", será usado o AVC 444.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Essas instruções devem estar em funcionamento com a aceleração de GPU em uma única VM host de sessão. Algumas considerações adicionais para habilitar a aceleração de GPU em um pool de hosts maior:
 

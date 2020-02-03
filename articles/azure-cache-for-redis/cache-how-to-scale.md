@@ -35,7 +35,7 @@ Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-azure-
 
 Selecione o tipo de preço desejado na folha **Selecionar tipo de preço** e clique em **Selecionar**.
 
-![tipo de preço][redis-cache-pricing-tier-blade]
+![Tipo de preço][redis-cache-pricing-tier-blade]
 
 
 Você pode dimensionar para um tipo de preço diferente com as restrições a seguir:
@@ -49,7 +49,7 @@ Você pode dimensionar para um tipo de preço diferente com as restrições a se
  
 Enquanto o cache é dimensionado para a nova camada de preços, é exibido um status **Dimensionando** na folha do **Cache Redis do Azure**.
 
-![Dimensionamento][redis-cache-scaling]
+![Scaling][redis-cache-scaling]
 
 Quando o dimensionamento for concluído, o status será alterado de **Dimensionando** para **Executando**.
 

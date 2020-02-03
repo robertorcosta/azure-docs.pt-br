@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76719357"
 ---
-# <a name="train-clustering-model"></a>Treinar Modelo de Clustering
+# <a name="train-clustering-model"></a>Treinar modelo de clustering
 
 Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
@@ -53,6 +53,6 @@ Após a conclusão do treinamento:
 
 + Para gerar pontuações do modelo, use [atribuir dados a clusters](assign-data-to-clusters.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

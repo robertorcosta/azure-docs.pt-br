@@ -51,7 +51,7 @@ Você pode especificar o nome do segredo em um modelo do Azure Resource Manager 
 
 ![Usar o segredo no ambiente ou em fórmula](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Criar uma VM usando o segredo](devtest-lab-add-vm.md) 
 - [Criar uma fórmula usando o segredo](devtest-lab-manage-formulas.md)

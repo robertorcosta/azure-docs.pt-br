@@ -136,7 +136,7 @@ Se estiver ficando próximo do número máximo e tentar adicionar mais atribuiç
 
 ![Controle de acesso-Adicionar aviso de atribuição de função](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-portal.md)
 - [Solução de problemas com o RBAC para recursos do Azure](troubleshooting.md)

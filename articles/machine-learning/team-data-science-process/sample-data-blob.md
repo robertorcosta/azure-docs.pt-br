@@ -53,7 +53,7 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Reduza os dados usando o `random.choice` da `numpy`, da seguinte maneira:
+3. Reduza os dados usando o `numpy` da `random.choice`, da seguinte maneira:
    
         # A 1 percent sample
         sample_ratio = 0.01 

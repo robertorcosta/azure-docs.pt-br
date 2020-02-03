@@ -34,7 +34,7 @@ Para conferir uma discussão de cenários canônicos que usam o SSIS para atende
 > 
 > 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 Para executar as tarefas descritas neste artigo, você deve ter uma assinatura do Azure e uma conta de armazenamento do Azure configurada. Você precisa do nome da conta de armazenamento do Azure e da chave de conta para carregar ou baixar dados.
 
 * Para configurar uma **assinatura do Azure**, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
@@ -64,7 +64,7 @@ Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote
 
 Os parâmetros usados pela tarefa são descritos aqui:
 
-| Campo | Description |
+| Campo | Descrição |
 | --- | --- |
 | **AzureStorageConnection** |Especifica um Gerenciador de conexões de armazenamento do Azure existente ou cria um novo que se refere a uma conta de armazenamento do Azure que aponta para onde os arquivos de blob estão hospedados. |
 | **BlobContainer** |Especifica o nome do contêiner de BLOB que contém os arquivos carregados como BLOBs. |

@@ -210,7 +210,7 @@ As zonas podem fornecer uma garantia explícita para uma zona, compartilhando ex
 
 Não há nenhuma diretriz geral informando que uma escolha é melhor do que a outra, sem conhecer a arquitetura do serviço.  Examine os [padrões de design de nuvem do Azure](https://docs.microsoft.com/azure/architecture/patterns/) para melhorar a resiliência do seu aplicativo para cenários de falha.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 - Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md)
 - Saiba mais sobre o [Load Balancer Standard](load-balancer-standard-overview.md)
 - Saiba como [balancear carga de VMs em uma zona usando um Load Balancer Standard com um front-end zonal](load-balancer-standard-public-zonal-cli.md)

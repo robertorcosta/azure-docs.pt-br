@@ -53,7 +53,7 @@ A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica 
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>Layout
+## <a name="layout"></a>{1&gt;Layout&lt;1}
 
 Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem em miniatura, um subconjunto dos campos e um link para uma página completa sobre um produto.
 

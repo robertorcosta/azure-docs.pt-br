@@ -25,13 +25,13 @@ ms.locfileid: "76720394"
 
  Se você preferir uma experiência mais baseada em código, também poderá [configurar seus experimentos de aprendizado de máquina automatizados no Python](how-to-configure-auto-train.md) com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Um espaço de trabalho Azure Machine Learning com um tipo de **edição Enterprise**. Confira [Criar um Workspace do Azure Machine Learning](how-to-manage-workspace.md).  Para atualizar um espaço de trabalho existente para o Enterprise Edition, consulte [atualizar para o Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Comece agora
+## <a name="get-started"></a>Introdução
 
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com). 
 
@@ -64,7 +64,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
     1. Examine as **configurações e** o formulário de visualização para obter precisão. O formulário é populado de forma inteligente com base no tipo de arquivo. 
 
-        Campo| Description
+        Campo| Descrição
         ----|----
         Formato de arquivo| Define o layout e o tipo de dados armazenados em um arquivo.
         Delimitador| Um ou mais caracteres para especificar o limite entre regiões separadas e independentes em texto sem formatação ou outros fluxos de dados.
@@ -91,7 +91,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
 1. Selecione **criar uma nova computação** para configurar o contexto de computação para este experimento.
 
-    Campo|Description
+    Campo|Descrição
     ---|---
     Nome da computação| Insira um nome exclusivo que identifique o contexto da computação.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual da computação.
@@ -115,7 +115,7 @@ Caso contrário, você verá uma lista de experiências de aprendizado de máqui
 
 1. Adicional Configurações de adição: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento. 
 
-    Configurações adicionais|Description
+    Configurações adicionais|Descrição
     ------|------
     Métrica principal| Métrica principal usada para pontuar seu modelo. [Saiba mais sobre métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
     Personalização automática| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. [Saiba mais sobre o pré-processamento](#preprocess).
@@ -133,14 +133,14 @@ Você pode obter uma grande variedade de estatísticas de resumo em seu conjunto
 >[!NOTE]
 > Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-Estatística|Description
+Estatística|Descrição
 ------|------
 Recurso| Nome da coluna que está sendo resumida.
 Perfil| Visualização embutida com base no tipo inferido. Por exemplo, cadeias de caracteres, Boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você tenha uma compreensão rápida da distribuição dos dados.
 Distribuição de tipo| Valor na linha contagem de tipos dentro de uma coluna. Os nulos são de seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
-Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
+Type|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
 Mín| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
-Máx.| Valor máximo da coluna. 
+Max| Valor máximo da coluna. 
 Contagem| Número total de entradas ausentes e não ausentes na coluna.
 Sem contagem faltando| Número de entradas na coluna que não estão ausentes. Cadeias de caracteres e erros vazios são tratados como valores, portanto, eles não contribuirão para a "contagem não encontrada".
 Quantis| Valores aproximados em cada Quantil para fornecer uma noção da distribuição dos dados.
@@ -157,13 +157,13 @@ Curtose| A medida de quão cauda os dados desta coluna é comparada a uma distri
 
 Ao configurar seus experimentos, você pode habilitar a configuração avançada `feauturization`. 
 
-|Configuração do personalização | Description |
+|Configuração do personalização | Descrição |
 | ------------- | ------------- |
 |"feauturization" = ' FeaturizationConfig '| Indica que a etapa personalização personalizada deve ser usada. [Saiba como personalizar o personalização](how-to-configure-auto-train.md#customize-feature-engineering).|
 |"feauturization" = ' off '| Indica que a etapa personalização não deve ser feita automaticamente.|
 |"feauturization" = ' auto '| Indica que, como parte do pré-processamento, as etapas de guardrails e personalização de dados a seguir são executadas automaticamente.|
 
-|Pré-processando&nbsp;etapas| Description |
+|Pré-processando&nbsp;etapas| Descrição |
 | ------------- | ------------- |
 |Remover alta cardinalidade ou nenhum recurso de variação|Descarte-os dos conjuntos de treinamento e validação, incluindo recursos com todos os valores ausentes, o mesmo valor em todas as linhas ou com cardinalidade extremamente alta (por exemplo, hashes, IDs ou GUIDs).|
 |Acrescentar valores ausentes|Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
@@ -226,15 +226,15 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
     Campo| Valor
     ----|----
-    Nome| Insira um nome exclusivo para sua implantação.
-    Description| Insira uma descrição para identificar melhor a finalidade dessa implantação.
+    {1&gt;Nome&lt;1}| Insira um nome exclusivo para sua implantação.
+    Descrição| Insira uma descrição para identificar melhor a finalidade dessa implantação.
     Tipo de computação| Selecione o tipo de ponto de extremidade que você deseja implantar: *AKs (serviço kubernetes do Azure)* ou *instância de contêiner do Azure (ACI)* .
-    Nome| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
+    {1&gt;Nome&lt;1}| *Aplica-se somente a AKs:* Selecione o nome do cluster AKS no qual você deseja implantar.
     Habilitar autenticação | Selecione para permitir a autenticação baseada em token ou baseada em chave.
     Usar ativos de implantação personalizados| Habilite esse recurso se você quiser carregar seu próprio script de Pontuação e arquivo de ambiente. [Saiba mais sobre scripts de Pontuação](how-to-deploy-and-where.md#script).
 
     >[!Important]
-    > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Não são permitidos espaços.
+    > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Espaços não são permitidos.
 
     O menu *avançado* oferece recursos de implantação padrão, como a [coleta de dados](how-to-enable-app-insights.md) e as configurações de utilização de recursos. Se você quiser substituir esses padrões, faça isso neste menu.
 
@@ -242,7 +242,7 @@ O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
 Agora você tem um serviço Web operacional para gerar previsões! Você pode testar as previsões consultando o serviço do [suporte Azure Machine Learning interno Power bi](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 * Experimente o tutorial de ponta a ponta [para criar seu primeiro experimento de ml automatizado com o Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.

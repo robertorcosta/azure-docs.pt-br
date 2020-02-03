@@ -97,7 +97,7 @@ Esse recurso ajuda a identificar facilmente os recursos que custam mais para que
 
 A [política de desligamento automático](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) ajuda a reduzir o custo desligando VMs de laboratório em um determinado momento do dia. No entanto, um usuário de laboratório pode recusar a política de desligamento, o que aumenta o custo da execução da VM. Você pode selecionar uma VM na tabela para ver se ela foi recusada da política de desligamento automático. Se esse for o caso, você poderá se comunicar com o proprietário da VM para descobrir por que a VM foi recusada da política.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Eis aqui algumas coisas para experimentar a seguir:
 
 * [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) - saiba como definir as várias políticas usadas para controlar como seu laboratório e suas VMs são usados. 

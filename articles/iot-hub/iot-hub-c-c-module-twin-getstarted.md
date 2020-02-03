@@ -31,13 +31,13 @@ No fim deste tutorial, você tem dois aplicativos de C:
 > [!NOTE]
 > Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução, consulte [SDKs de IoT do Azure](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, você poderá criar uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 * O [SDK C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) mais recente.
 
-## <a name="create-an-iot-hub"></a>Criar um Hub IoT
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -383,7 +383,7 @@ int main(void)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 

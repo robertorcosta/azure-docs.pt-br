@@ -81,7 +81,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 - Categoria
 - Atividade
 - Status
-- Escolha o destino
+- Destino
 - Iniciado por (ator)
 - Intervalo de datas
 
@@ -89,25 +89,25 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Tudo
-- Revisões de Acesso
+- Todos
+- Revisões de acesso
 - Provisionamento de conta de usuário 
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
-- Proteção de identidade
+- Identity Protection
 - Usuários Convidados
 - PIM
 - Gerenciamento de grupos de autoatendimento
 - Gerenciamento de senhas de auto-atendimento
-- Termos de Uso
+- Termos de uso
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -130,7 +130,7 @@ Você pode obter a lista de todas as atividades de auditoria usando o API do Gra
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Tudo
+- Todos
 - Sucesso
 - Falha
 
@@ -207,7 +207,7 @@ Você pode exibir os logs de atividade do Office 365 no [centro de administraç�
 
 Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Referência das atividades de auditoria do Azure AD](reference-audit-activities.md)
 - [Referência de retenção de relatórios do Azure AD](reference-reports-data-retention.md)

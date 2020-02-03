@@ -25,7 +25,7 @@ Azure DevTest Labs permite criar rapidamente ambientes de desenvolvimento e test
 Para adicionar um usuário a um laboratório, você adiciona o usuário à função de **usuário do DevTest Labs** para o laboratório. Este artigo mostra como automatizar a adição de um usuário a um laboratório usando uma das seguintes maneiras:
 
 - Modelos do Azure Resource Manager
-- Cmdlets do PowerShell do Azure 
+- Cmdlets do Azure PowerShell 
 - CLI do Azure.
 
 ## <a name="use-azure-resource-manager-templates"></a>Usar modelos do Gerenciador de Recursos do Azure
@@ -132,7 +132,7 @@ $userObjectId = (Get-AzureRmADUser -UserPrincipalName ‘email@company.com').Id
 
 Você também pode usar os cmdlets do Azure Active Directory PowerShell que incluem [Get-MsolUser](/powershell/module/msonline/get-msoluser?view=azureadps-1.0), [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0)e [Get-MsolServicePrincipal](/powershell/module/msonline/get-msolserviceprincipal?view=azureadps-1.0).
 
-### <a name="scope"></a>Escopo
+### <a name="scope"></a>Scope
 Escopo Especifica o recurso ou grupo de recursos para o qual a atribuição de função deve ser aplicada. Para recursos, o escopo está no formato: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}`. O modelo usa a função `subscription().subscriptionId` para preencher a `subscription-id` parte e a função de modelo de `resourceGroup().name` para preencher a parte `resource-group-name`. O uso dessas funções significa que o laboratório ao qual você está atribuindo uma função deve existir na assinatura atual e no mesmo grupo de recursos no qual a implantação do modelo é feita. A última parte, `resource-name`, é o nome do laboratório. Esse valor é recebido por meio do parâmetro de modelo neste exemplo. 
 
 O escopo da função no modelo: 
@@ -176,7 +176,7 @@ Se você planeja usar o modelo várias vezes para adicionar vários objetos Acti
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"
 ```
 
-## <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 Conforme discutido na introdução, você cria uma nova atribuição de função do Azure para adicionar um usuário à função de **usuário do DevTest Labs** para o laboratório. No PowerShell, você faz isso usando o cmdlet [New-AzureRMRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-6.13.0) . Esse cmdlet tem muitos parâmetros opcionais para permitir a flexibilidade. O `ObjectId`, `SigninName`ou `ServicePrincipalName` pode ser especificado como o objeto que recebe permissões.  
 
 Aqui está um exemplo Azure PowerShell comando que adiciona um usuário à função de usuário do DevTest Labs no laboratório especificado.
@@ -198,7 +198,7 @@ O exemplo a seguir CLI do Azure mostra como adicionar uma pessoa à função de 
 az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type “Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 Veja os artigos a seguir:
 
 - [Criar e gerenciar máquinas virtuais com o DevTest Labs usando o CLI do Azure](devtest-lab-vmcli.md)

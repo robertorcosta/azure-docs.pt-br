@@ -49,12 +49,12 @@ O Azure Time Series Insights dá suporte a JSON codificado por UTF8 enviado por 
 
 Abaixo está a lista de tipos de dados com suporte.
 
-| Tipo de dados | Description |
+| Tipo de dados | Descrição |
 |-----------|------------------|-------------|
-| bool      |   Um tipo de dados com um dos dois Estados: verdadeiro ou falso.       |
+| {1&gt;bool&lt;1}      |   Um tipo de dados com um dos dois Estados: verdadeiro ou falso.       |
 | dateTime    |   Representa um instante no tempo, normalmente expresso como uma data e hora do dia. DateTimes devem estar no formato ISO 8601.      |
 | double    |   Um ponto flutuante de IEEE 754 de precisão dupla de 64 bits
-| cadeia de caracteres    |   Valores de texto, compostos de caracteres Unicode.          |
+| string    |   Valores de texto, compostos de caracteres Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Objetos e matrizes
 
@@ -201,7 +201,7 @@ Time Series Insights eventos de visualização são mapeados para o conteúdo do
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de coluna que terminam com `_string` (cadeia de caracteres), `_bool` (booliano), `_datetime` (DateTime) ou `_double` (duplo), dependendo do tipo de propriedade.
 * Este esquema de mapeamento se aplica à primeira versão do formato de arquivo, referenciado como **V = 1**. Conforme esse recurso evolui, o nome pode ser incrementado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - Leia [como formatar JSON para entrada e consulta](./time-series-insights-update-how-to-shape-events.md).
 

@@ -63,7 +63,7 @@ Quando você cria um cluster do Spark no HDInsight, cria recursos de computaçã
 A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para obter informações sobre os clusters do Azure HDInsight **Spark**, consulte [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
 
 O SQL Data Warehouse do Azure permite que você dimensione recursos de computação facilmente e em segundos sem excesso de provisionamento ou excesso de pagamento. Ele também oferece a opção exclusiva de fazer uma pausa nos recursos de computação, dando mais liberdade para você gerenciar melhor seus custos de nuvem. A capacidade de implantar recursos de computação escalonáveis torna possível colocar todos os seus dados no SQL Data Warehouse do Azure. Os custos de armazenamento são mínimos e você pode executar a computação somente nas partes dos conjuntos de dados que você deseja analisar. 
 
@@ -147,7 +147,7 @@ Se estiver usando computadores Linux (CentOS) para executar os comandos git, voc
 1. Cole a chave SSH copiada na caixa de texto e salve.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Também serão fornecidos passo a passos completos que demonstram todas as etapas do processo para **cenários específicos** . Eles serão listados e vinculados a descrições em miniatura no tópico [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 

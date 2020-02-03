@@ -36,7 +36,7 @@ Para a etapa 6: configurar o controle de segurança do repositório do projeto, 
 > [!NOTE] 
 > Este artigo usa Azure Repos para configurar um projeto TDSP, porque é como implementar o TDSP na Microsoft. Se sua equipe usa outra plataforma de Hospedagem de código, as tarefas do líder do projeto são as mesmas, mas a maneira de concluí-las pode ser diferente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial pressupõe que o [gerente do grupo](group-manager-tasks.md) e o [líder da equipe](team-lead-tasks.md) tenham configurado os seguintes recursos e permissões:
 
@@ -91,7 +91,7 @@ Para popular o repositório do seu projeto com o conteúdo do seu repositório d
 
 Se você precisar personalizar o conteúdo do repositório do seu projeto para atender às necessidades específicas do seu projeto, poderá adicionar, excluir ou modificar arquivos e pastas do repositório. Você pode trabalhar diretamente no Azure Repos ou clonar o repositório para seu computador local ou DSVM, fazer alterações, confirmar e enviar por push suas atualizações para o repositório do projeto compartilhado. Siga as instruções em [Personalizar o conteúdo dos repositórios de equipe](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 Aqui estão os links para descrições detalhadas das outras funções e tarefas definidas pelo processo de ciência de dados de equipe:
 

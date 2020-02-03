@@ -14,7 +14,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76719544"
 ---
-# <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para Azure
+# <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns - sobre a replicação do VMware para Azure
 
 Este artigo responde a perguntas comuns que podem surgir ao implantar a recuperação de desastre de VMs (máquinas virtuais) VMware locais no Azure.
 
@@ -103,7 +103,7 @@ Em cada VM que você deseja replicar, instale o serviço por um dos vários mét
 - [Instalação manual](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) da interface do usuário ou do PowerShell
 - Implantação usando uma ferramenta de implantação como o [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Discos gerenciados
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Para onde Site Recovery replicar dados?
 
@@ -169,7 +169,7 @@ Discos dinâmicos podem ser replicados. O disco do sistema operacional deve ser 
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Se eu usar grupos de replicação para consistência de várias VMs, posso adicionar uma nova VM a um grupo de replicação existente?
 
-Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Porém
+Sim, você pode adicionar novas VMs a um grupo de replicação existente quando ativar a replicação para elas. Porém:
 
 - Você não pode adicionar uma VM a um grupo de replicação existente após o início da replicação.
 - Você não pode criar um grupo de replicação para VMs existentes.
@@ -357,7 +357,7 @@ Sim. Você pode automatizar fluxos de trabalho de Site Recovery usando a API RES
 
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>{1&gt;{2&gt;Próximas etapas&lt;2}&lt;1}
 
 - [Analisar](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 - [Configurar](vmware-azure-tutorial.md) replicação de VMware para o Azure.
