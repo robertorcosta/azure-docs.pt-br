@@ -48,6 +48,8 @@
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Configurar a automação (parceiros da WAN Virtual)
       href: virtual-wan-configure-automation-providers.md
+    - name: Baixar perfis de VPN globais e baseados em hub
+      href: global-hub-profile.md
     - name: Configurar o roteamento
       items:
         - name: Encaminhar o tráfego de um hub virtual para uma NVA

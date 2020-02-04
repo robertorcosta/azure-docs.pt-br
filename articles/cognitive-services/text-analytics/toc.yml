@@ -14,10 +14,8 @@
   items:
     - name: Biblioteca do cliente
       items:
-        - name: Analisar texto usando a versão prévia v3.0
+        - name: Analisar texto usando a biblioteca de clientes
           href: quickstarts/text-analytics-sdk.md
-        - name: Analisar texto usando a v2
-          href: quickstarts/text-analytics-sdk-v2.md
     - name: API REST
       items:
         - name: Usando Java

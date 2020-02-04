@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Gerenciador de dados do Azure?
+    - name: O que é o Azure Data Explorer?
       href: data-explorer-overview.md
 - name: Inícios rápidos
   expanded: true
@@ -34,7 +34,7 @@
           href: ingest-data-overview.md
     - name: Visão geral da visualização de dados
       href: viz-overview.md
-    - name: Visão geral da segurança
+    - name: Visão Geral de Segurança
       href: security.md
 - name: Guias de instruções
   items:
@@ -110,7 +110,7 @@
           href: query-monitor-data.md
         - name: Depurar Python embutido em KQL
           href: debug-inline-python.md
-        - name: usando SDKs
+        - name: Uso de SDKs
           items:
             - name: Python
               href: python-query-data.md
@@ -120,7 +120,7 @@
               href: time-series-analysis.md
             - name: Detecção de anomalias e previsão
               href: anomaly-detection.md
-            - name: Aprendizado de máquina
+            - name: Machine Learning
               href: machine-learning-clustering.md
     - name: Visualizar dados
       items:
@@ -174,12 +174,28 @@
               href: manage-cluster-vertical-scaling.md
             - name: Verificar integridade do cluster
               href: check-cluster-health.md
+            - name: Adicionar entidade de segurança do cluster
+              items:
+                - name: 'C#'
+                  href: cluster-principal-csharp.md
+                - name: Python
+                  href: cluster-principal-python.md
+                - name: Modelo do Azure Resource Manager
+                  href: cluster-principal-resource-manager.md
         - name: Banco de dados
           items:
             - name: Bancos de dados de seguidores
               href: follower.md
             - name: Gerenciar permissões de banco de dados
               href: manage-database-permissions.md
+            - name: Adicionar entidade de segurança do banco de dados
+              items:
+                - name: 'C#'
+                  href: database-principal-csharp.md
+                - name: Python
+                  href: database-principal-python.md
+                - name: Modelo do Azure Resource Manager
+                  href: database-principal-resource-manager.md
             - name: Políticas
               items:
                 - name: 'C#'
@@ -190,7 +206,7 @@
           items:
             - name: Excluir dados
               href: delete-data.md
-            - name: Lidar com dados duplicados
+            - name: Lidar com os dados duplicados
               href: dealing-with-duplicates.md
     - name: Implantar
       items:
@@ -204,7 +220,7 @@
           href: using-metrics.md
     - name: Integrar com outras ferramentas
       items:
-        - name: Fábrica de dados do Azure
+        - name: Azure Data Factory
           items:
             - name: Integração com o Data Factory
               href: data-factory-integration.md

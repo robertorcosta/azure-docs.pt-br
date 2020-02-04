@@ -6,9 +6,9 @@
       href: overview.md
 - name: Inícios rápidos
   items:
-    - name: Criar modelos - portal
+    - name: Criar modelos – Portal
       href: quickstart-create-templates-use-the-portal.md
-    - name: Criar modelos - Visual Studio Code
+    - name: Criar modelos – Visual Studio Code
       href: quickstart-create-templates-use-visual-studio-code.md
 - name: Tutoriais
   items:
@@ -64,15 +64,13 @@
         - name: Integração contínua com o Azure Pipelines
           displayName: DevOps
           href: template-tutorial-use-azure-pipelines.md
-        - name: Atualizar o script de implantação do VS para o Az do PowerShell
-          href: update-visual-studio-deployment-script.md
         - name: Usar práticas de implantação segura
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: Usar a verificação de integridade no Gerenciador de Implantação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Solucionar problemas de implantação de modelos
+        - name: Solucionar problemas de implantação de modelo
           href: template-tutorial-troubleshoot.md
 - name: Exemplos
   items:
@@ -145,6 +143,8 @@
           href: use-vs-code-to-create-template.md
         - name: Visual Studio
           href: create-visual-studio-deployment-project.md
+        - name: Atualizar o script de implantação do VS para o módulo do Az
+          href: update-visual-studio-deployment-script.md
         - name: IntelliJ IDEA
           href: create-templates-use-intellij.md
     - name: Implantar modelos

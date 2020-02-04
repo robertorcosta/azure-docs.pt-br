@@ -120,7 +120,7 @@
             - name: Usar redes virtuais
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
-            - name: Proteger o servidor Web com SSL
+            - name: Proteger o serviços Web com SSL
               href: how-to-secure-web-service.md
             - name: Regenerar chaves de acesso de armazenamento
               href: how-to-change-storage-access-key.md
@@ -131,7 +131,7 @@
           href: monitor-azure-machine-learning.md
     - name: Integração da Grade de Eventos
       href: concept-event-grid-integration.md
-    - name: Aprendizado
+    - name: Aprendizado profundo
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
 - name: Guias de instruções
@@ -142,6 +142,8 @@
           href: how-to-manage-workspace.md
         - name: Usar a CLI do Azure
           href: how-to-manage-workspace-cli.md
+        - name: Usar o REST
+          href: how-to-manage-rest.md
         - name: Usar modelo do Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
@@ -165,7 +167,7 @@
         - name: Integração do Git
           displayName: github gitlab
           href: concept-train-model-git-integration.md
-    - name: Trabalhar com dados
+    - name: Trabalhar com os dados
       items:
         - name: Conectar-se aos dados no Armazenamento do Azure
           displayName: 'blob, get, fileshare, access storage, mount, download'
@@ -194,6 +196,9 @@
         - name: Criar conjuntos de dados com rótulos
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: DevOps para ingestão de dados
+          displayName: 'data, ingestion, devops'
+          href: how-to-cicd-data-ingestion.md
     - name: Treinar modelos
       items:
         - name: Usar o designer
@@ -217,7 +222,7 @@
             - name: Prever atrasos nos voos
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: Classificação de texto
+            - name: Classificação de textos
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: Estimadores de uso para o ML
@@ -241,7 +246,7 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-        - name: Encadeador
+        - name: Chainer
           href: how-to-train-chainer.md
     - name: Interpretar modelos
       displayName: interpretability
@@ -390,7 +395,7 @@
       href: reference-pipeline-yaml.md
 - name: Recursos
   items:
-    - name: Notas de versão
+    - name: Notas sobre a versão
       displayName: 'what''s, new, issues, bugs'
       href: azure-machine-learning-release-notes.md
     - name: Roteiro do Azure

@@ -7,7 +7,7 @@
           href: cloudsimple-vmware-solutions-overview.md
         - name: Principais conceitos de administração
           href: key-concepts.md
-    - name: Início rápido
+    - name: Guia de Início Rápido
       expanded: true
       items:
         - name: Planejamento da rede
@@ -46,7 +46,7 @@
           href: cloudsimple-activity.md
         - name: VMware em nuvem privada
           href: vmware-components.md
-        - name: Visão geral da segurança
+        - name: Visão Geral de Segurança
           href: cloudsimple-security.md
         - name: Cota de nós
           href: node-quota.md
@@ -136,6 +136,8 @@
               href: on-premises-dns-setup.md
             - name: Configurar conexões VPN site a site altamente disponíveis
               href: high-availability-vpn-connection.md
+            - name: Configuração de DNS da nuvem privada para local
+              href: private-cloud-dns-forwarding.md
         - name: Plataforma do VMware
           items:
             - name: Conhecer o modelo de permissão de nuvem privada

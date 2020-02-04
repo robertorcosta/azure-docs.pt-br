@@ -1150,6 +1150,9 @@
             - name: Analisar problemas de desempenho da interface do usuário
               href: /azure/databricks/kb/cloud/har-log-analysis
               maintainContext: true
+            - name: Os trabalhos não estão progredindo no workspace
+              href: /azure/databricks/kb/cloud/azure-vnet-jobs-not-progressing
+              maintainContext: true
         - name: Clusters
           items:
             - name: Calcular o número de núcleos em um cluster
@@ -1248,6 +1251,9 @@
               maintainContext: true
             - name: Não é possível ler arquivos em WASB
               href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
+            - name: Otimizar o desempenho de leitura de fontes de dados JDBC
+              href: /azure/databricks/kb/data-sources/jdbc-optimize-read
               maintainContext: true
         - name: DBFS
           items:

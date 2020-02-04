@@ -28,7 +28,7 @@
   items:
     - name: Azure PowerShell
       href: ./ag/powershell-samples.md
-    - name: Modelos do Gerenciador de Recursos
+    - name: Modelos do Resource Manager
       href: ./ag/resource-manager-template-samples.md
 - name: Conceitos
   items:
@@ -38,8 +38,12 @@
           href: ./ag/application-gateway-crs-rulegroups-rules.md
         - name: Visão geral de regras personalizadas
           href: ./ag/custom-waf-rules-overview.md
+        - name: Regras personalizadas do Geomatch
+          href: ./ag/geomatch-custom-rules.md
         - name: Solicitar limites de tamanho e listas de exclusões
           href: ./ag/application-gateway-waf-configuration.md
+        - name: Visão geral da política do WAF
+          href: ./ag/policy-overview.md
     - name: Front Door
       items:
         - name: Regras personalizadas
@@ -106,7 +110,7 @@
       items:
         - name: Solucionar problemas do WAF
           href: ./ag/web-application-firewall-troubleshoot.md
-        - name: Log Analytics
+        - name: Análise de logs
           href: ./ag/log-analytics.md
 - name: Referência
   items:

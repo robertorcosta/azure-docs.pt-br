@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de blueprint
 description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
-ms.date: 12/05/2019
+ms.date: 01/10/2020
 ms.topic: sample
-ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa5f02af6a0e59359d6bc3c2d24515fea535a0fa
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436572"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938302"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -21,6 +21,7 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 | [PBMM Federal do Canadá](./canada-federal-pbmm/index.md) | Fornece proteções para conformidade com o PBMM (B Protegido, Integridade Média, Disponibilidade Média) Federal do Canadá. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
 | [FedRAMP Moderado](./fedramp-m/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o FedRAMP moderado. |
+| [FedRAMP High](./fedramp-h/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o FedRAMP High. |
 | [HIPAA/HITRUST](./HIPAA-HITRUST/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com HIPAA/HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Fornece as proteções para a conformidade com o IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Fornece as diretrizes para a conformidade com a ISO 27001. |
@@ -31,18 +32,18 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Auxilia na conformidade com o SWIFT CSP-CSCF v2020. |
 | [Governança de NHS do Reino Unido e OFICIAL do Reino Unido](./ukofficial/index.md) | Oferece um conjunto de padrões de infraestrutura e proteções de política em conformidade que ajudam na certificação OFICIAL do Reuno Unido e da NHS do Reino Unido. |
 | [Base do CAF](./caf-foundation/index.md) | Fornece um conjunto de controles para ajudá-lo a gerenciar seu estado de nuvem em alinhamento com o [CAF (Cloud Adoption Framework da Microsoft para o Azure)](/azure/architecture/cloud-adoption/governance/journeys/index). |
-| [Zona de aterrissagem da Migração do CAF](./caf-migrate-landing-zone/index.md) | Fornece um conjunto de controles para ajudá-lo na configuração para migrar sua primeira carga de trabalho e gerenciar o estado de nuvem em alinhamento com o [CAF (Cloud Adoption Framework da Microsoft para o Azure)](/azure/architecture/cloud-adoption/migrate/index). |
+| [zona de destino da Migração do CAF](./caf-migrate-landing-zone/index.md) | Fornece um conjunto de controles para ajudá-lo na configuração para migrar sua primeira carga de trabalho e gerenciar o estado de nuvem em alinhamento com o [CAF (Cloud Adoption Framework da Microsoft para o Azure)](/azure/architecture/cloud-adoption/migrate/index). |
 
 ## <a name="samples-strategy"></a>Estratégia de exemplos
 
 ![Estratégia de exemplos de blueprint](../media/blueprint-samples-strategy.png)
 
-Os blueprints da Base do CAF e da zona de aterrissagem da Migração do CAF pressupõem que o cliente está preparando uma assinatura única limpa existente para migrar ativos/cargas de trabalho locais para o Azure.
-(Regiões A e B da figura acima).  
+Os blueprints da Base do CAF e da zona de destino da Migração do CAF pressupõem que o cliente está preparando uma assinatura única limpa existente para migrar ativos e cargas de trabalho locais para o Azure.
+(Regiões A e B da figura).  
 
 Há a oportunidade de iterar nos exemplos de blueprints e procurar padrões de personalização que um cliente esteja aplicando. Também há a oportunidade de abordar proativamente os blueprints que são específicos do setor, como serviços financeiros e comércio eletrônico (extremidade superior da região B). Da mesma forma, prevemos a criação de blueprints para considerações complexas de arquitetura, como várias assinaturas, alta disponibilidade, recursos entre regiões e clientes que estão implementando controles sobre assinaturas e recursos existentes (regiões C e D).
 
-Há exemplos de blueprints que abordam cenários de cliente em que os requisitos de conformidade são altos e as complexidades arquitetônicas são altas (região E da figura acima). A região F, acima, é uma que será abordada por clientes e parceiros, aproveitando os exemplos de blueprints e personalizando-os para suas necessidades exclusivas.
+Há exemplos de blueprints que abordam cenários de cliente em que os requisitos de conformidade são altos e as complexidades arquitetônicas são altas (região E da figura). A região F na figura será abordada por clientes e parceiros, aproveitando os exemplos de blueprints e personalizando-os para as suas necessidades exclusivas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
